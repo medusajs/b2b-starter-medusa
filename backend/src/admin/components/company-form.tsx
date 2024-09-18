@@ -1,10 +1,6 @@
-import { CompanyDTO } from "src/modules/company/types/common";
-import { Input, Label, Drawer, Button, Text } from "@medusajs/ui";
+import { Button, Drawer, Input, Label, Text } from "@medusajs/ui";
 import { useState } from "react";
-import {
-  CreateCompanyDTO,
-  UpdateCompanyDTO,
-} from "src/modules/company/types/mutations";
+import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
 
 export function CompanyForm({
   company,
@@ -29,7 +25,7 @@ export function CompanyForm({
     <form>
       <Drawer.Body className="p-4">
         <div className="flex flex-col gap-2">
-          <Label>Company Name</Label>
+          <Label size="xsmall">Company Name</Label>
           <Input
             type="text"
             name="name"
@@ -37,7 +33,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="Medusa"
           />
-          <Label>Company Phone</Label>
+          <Label size="xsmall">Company Phone</Label>
           <Input
             type="text"
             name="phone"
@@ -45,7 +41,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="1234567890"
           />
-          <Label>Company Email</Label>
+          <Label size="xsmall">Company Email</Label>
           <Input
             type="email"
             name="email"
@@ -53,7 +49,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="medusa@medusa.com"
           />
-          <Label>Company Address</Label>
+          <Label size="xsmall">Company Address</Label>
           <Input
             type="text"
             name="address"
@@ -61,7 +57,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="1234 Main St"
           />
-          <Label>Company City</Label>
+          <Label size="xsmall">Company City</Label>
           <Input
             type="text"
             name="city"
@@ -69,7 +65,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="New York"
           />
-          <Label>Company State</Label>
+          <Label size="xsmall">Company State</Label>
           <Input
             type="text"
             name="state"
@@ -77,7 +73,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="NY"
           />
-          <Label>Company Zip</Label>
+          <Label size="xsmall">Company Zip</Label>
           <Input
             type="text"
             name="zip"
@@ -85,7 +81,7 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="10001"
           />
-          <Label>Company Country</Label>
+          <Label size="xsmall">Company Country</Label>
           <Input
             type="text"
             name="country"
@@ -94,7 +90,7 @@ export function CompanyForm({
             placeholder="USA"
           />
           {/* TODO: Add logo upload */}
-          <Label>Company Logo URL</Label>
+          <Label size="xsmall">Company Logo URL</Label>
           <Input
             type="text"
             name="logo_url"
