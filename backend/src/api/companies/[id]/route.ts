@@ -7,7 +7,7 @@ import {
 
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id } = req.params;
-  const data = (await req.body) as UpdateCompanyDTO;
+  const data = JSON.parse((await req.body) as string) as UpdateCompanyDTO;
 
   const { result } = await updateCompaniesWorkflow.run({
     input: {

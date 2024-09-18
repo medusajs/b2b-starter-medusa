@@ -34,24 +34,11 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 };
 
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
-  const { name, phone, email, address, city, state, zip, country, logo_url } =
-    (await req.body) as CreateCompanyDTO;
+  const data: CreateCompanyDTO = JSON.parse((await req.body) as string);
 
   const { result } = await createCompaniesWorkflow.run({
-    input: {
-      name,
-      phone,
-      email,
-      address,
-      city,
-      state,
-      zip,
-      country,
-      logo_url,
-    },
+    input: data,
   });
 
-  console.log({ result });
-
-  return { companies: result };
+  return res.json({ companies: result });
 };
