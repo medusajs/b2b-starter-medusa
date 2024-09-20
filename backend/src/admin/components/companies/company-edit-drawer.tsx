@@ -1,7 +1,7 @@
 import { Drawer } from "@medusajs/ui";
-import { CompanyDTO } from "../../modules/company/types/common";
-import { UpdateCompanyDTO } from "../../modules/company/types/mutations";
-import { useUpdateCompany } from "../hooks";
+import { CompanyDTO } from "src/modules/company/types/common";
+import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
+import { useUpdateCompany } from "../../hooks";
 import { CompanyForm } from "./company-form";
 
 export function CompanyEditDrawer({

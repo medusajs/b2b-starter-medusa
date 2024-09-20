@@ -20,7 +20,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
   const companiesQuery = remoteQueryObjectFromString({
     entryPoint: "companies",
-    fields: ["*"],
+    fields: ["*", "customers.*"],
+    relations: ["customers"],
     variables: {
       filters,
       skip,

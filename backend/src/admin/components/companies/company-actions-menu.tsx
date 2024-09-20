@@ -6,7 +6,7 @@ import {
 } from "@medusajs/icons";
 import { DropdownMenu, IconButton, useToggleState } from "@medusajs/ui";
 import { CompanyDTO } from "src/modules/company/types/common";
-import { useDeleteCompany } from "../hooks/companies";
+import { useDeleteCompany } from "../../hooks/companies";
 import { CompanyEditDrawer } from "./";
 import { useState } from "react";
 

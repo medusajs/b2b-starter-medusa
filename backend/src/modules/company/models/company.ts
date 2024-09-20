@@ -16,5 +16,6 @@ export const Company = model.define("company", {
   zip: model.text().nullable(),
   country: model.text().nullable(),
   logo_url: model.text().nullable(),
+  currency_code: model.text().nullable(),
   customers: model.hasMany(() => CompanyCustomer),
 });
