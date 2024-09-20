@@ -1,10 +1,13 @@
+import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
+import {
+  ContainerRegistrationKeys,
+  remoteQueryObjectFromString,
+} from "@medusajs/utils";
 import { CreateCompanyDTO } from "../../modules/company/types/mutations";
 import { createCompaniesWorkflow } from "../../workflows/company/workflows/create-companies";
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { remoteQueryObjectFromString } from "@medusajs/utils";
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
-  const remoteQuery = req.scope.resolve("remoteQuery");
+  const remoteQuery = req.scope.resolve(ContainerRegistrationKeys.REMOTE_QUERY);
   const filters = {} as Record<string, any>;
   let take = parseInt(req.query.take as string) || null;
   let skip = parseInt(req.query.skip as string) || 0;
@@ -38,6 +41,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 
   const { result } = await createCompaniesWorkflow.run({
     input: data,
+    container: req.scope,
   });
 
   return res.json({ companies: result });
