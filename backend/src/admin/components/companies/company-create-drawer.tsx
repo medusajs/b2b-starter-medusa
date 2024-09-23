@@ -18,9 +18,8 @@ export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <Drawer.Trigger asChild>
-        <Button>
-          <PlusMini />
-          Create Company
+        <Button variant="secondary" size="small">
+          Create
         </Button>
       </Drawer.Trigger>
       <Drawer.Content>

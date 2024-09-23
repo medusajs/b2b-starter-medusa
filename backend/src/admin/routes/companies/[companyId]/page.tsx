@@ -1,7 +1,17 @@
-import { Avatar, Container, Heading, Table } from "@medusajs/ui";
+import {
+  Avatar,
+  Container,
+  Heading,
+  Table,
+  Toaster,
+  Badge,
+} from "@medusajs/ui";
 import { useParams } from "react-router-dom";
 import { CompanyCustomerDTO } from "../../../../modules/company/types/common";
-import { CompanyActionsMenu } from "../../../components";
+import {
+  CompanyActionsMenu,
+  CompanyCustomersActionsMenu,
+} from "../../../components";
 import { CompanyCustomerCreateDrawer } from "../../../components/company-customers/company-customers-create-drawer";
 import { useCompanies, useCompanyCustomers } from "../../../hooks";
 import { formatAmount } from "../../../utils";
@@ -33,10 +43,7 @@ const CompanyDetails = () => {
                   {company?.name}
                 </Heading>
               </div>
-              <CompanyActionsMenu
-                company={company}
-                refetch={companyCustomersRefetch}
-              />
+              <CompanyActionsMenu company={company} refetch={refetch} />
             </div>
             <Table>
               <Table.Row>
@@ -84,7 +91,7 @@ const CompanyDetails = () => {
               </div>
               <CompanyCustomerCreateDrawer
                 companyId={companyId}
-                refetch={refetch}
+                refetch={companyCustomersRefetch}
               />
             </div>
             <Table>
@@ -94,29 +101,50 @@ const CompanyDetails = () => {
                   <Table.HeaderCell>Name</Table.HeaderCell>
                   <Table.HeaderCell>Email</Table.HeaderCell>
                   <Table.HeaderCell>Spending Limit</Table.HeaderCell>
-                  <Table.HeaderCell>Is Admin</Table.HeaderCell>
+                  <Table.HeaderCell>Actions</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               {companyCustomers && (
                 <Table.Body>
                   {companyCustomers.map(
-                    ({
-                      spending_limit,
-                      is_admin,
-                      customer,
-                    }: CompanyCustomerDTO) => (
-                      <Table.Row key={customer.id}>
+                    (companyCustomer: CompanyCustomerDTO) => (
+                      <Table.Row key={companyCustomer.id}>
                         <Table.Cell className="w-6 h-6 items-center justify-center">
-                          <Avatar fallback={customer.first_name?.charAt(0)} />
+                          <Avatar
+                            fallback={companyCustomer.customer.first_name?.charAt(
+                              0
+                            )}
+                          />
+                        </Table.Cell>
+                        <Table.Cell className="flex w-fit gap-2 items-center">
+                          {companyCustomer.customer.first_name}{" "}
+                          {companyCustomer.customer.last_name}
+                          {companyCustomer.is_admin && (
+                            <Badge
+                              size="2xsmall"
+                              color={
+                                companyCustomer.is_admin ? "green" : "grey"
+                              }
+                            >
+                              Admin
+                            </Badge>
+                          )}
                         </Table.Cell>
                         <Table.Cell>
-                          {customer.first_name} {customer.last_name}
+                          {companyCustomer.customer.email}
                         </Table.Cell>
-                        <Table.Cell>{customer.email}</Table.Cell>
                         <Table.Cell>
-                          {formatAmount(spending_limit / 100, "USD")}
+                          {formatAmount(
+                            companyCustomer.spending_limit / 100,
+                            "USD"
+                          )}
                         </Table.Cell>
-                        <Table.Cell>{is_admin ? "Yes" : "No"}</Table.Cell>
+                        <Table.Cell>
+                          <CompanyCustomersActionsMenu
+                            companyCustomer={companyCustomer}
+                            refetch={companyCustomersRefetch}
+                          />
+                        </Table.Cell>
                       </Table.Row>
                     )
                   )}
@@ -126,6 +154,7 @@ const CompanyDetails = () => {
           </>
         )}
       </Container>
+      <Toaster />
     </div>
   );
 };

@@ -1,7 +1,10 @@
 import { Button, Drawer, Input, Label, Text, Switch } from "@medusajs/ui";
 import { useState } from "react";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
-import { CreateCompanyCustomerDTO } from "src/modules/company/types/mutations";
+import {
+  CreateCompanyCustomerDTO,
+  UpdateCompanyCustomerDTO,
+} from "src/modules/company/types/mutations";
 
 export function CompanyCustomersForm({
   companyCustomer,
@@ -11,7 +14,9 @@ export function CompanyCustomersForm({
   companyId,
 }: {
   companyCustomer?: Partial<CompanyCustomerDTO>;
-  handleSubmit: (data: CreateCompanyCustomerDTO) => Promise<void>;
+  handleSubmit: (
+    data: CreateCompanyCustomerDTO | UpdateCompanyCustomerDTO
+  ) => Promise<void>;
   loading: boolean;
   error: Error | null;
   companyId: string;
@@ -37,6 +42,18 @@ export function CompanyCustomersForm({
     setFormData({ ...formData, [e.target.name]: value });
   };
 
+  const handleCustomerChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      customer: {
+        ...formData.customer,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -56,24 +73,23 @@ export function CompanyCustomersForm({
           <Input
             type="text"
             name="first_name"
-            value={formData.first_name}
-            onChange={handleChange}
-            placeholder="John"
+            value={formData.customer?.first_name || ""}
+            onChange={handleCustomerChange}
           />
           <Label size="xsmall">Last Name</Label>
           <Input
             type="text"
             name="last_name"
-            value={formData.last_name}
-            onChange={handleChange}
+            value={formData.customer.last_name}
+            onChange={handleCustomerChange}
             placeholder="Doe"
           />
           <Label size="xsmall">Email</Label>
           <Input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={formData.customer.email}
+            onChange={handleCustomerChange}
             placeholder="john.doe@example.com"
           />
           <Label size="xsmall">Spending Limit</Label>
@@ -84,6 +100,7 @@ export function CompanyCustomersForm({
             onChange={handleChange}
             placeholder="1000"
           />
+          <Label size="xsmall">Enable to grant admin access</Label>
           <div className="flex items-center gap-2">
             <Switch
               name="is_admin"
@@ -97,8 +114,11 @@ export function CompanyCustomersForm({
         </div>
       </Drawer.Body>
       <Drawer.Footer>
+        <Drawer.Close asChild>
+          <Button variant="secondary">Cancel</Button>
+        </Drawer.Close>
         <Button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Company Customer"}
+          {loading ? "Creating..." : "Create"}
         </Button>
         {error && <Text className="text-red-500">{error.message}</Text>}
       </Drawer.Footer>

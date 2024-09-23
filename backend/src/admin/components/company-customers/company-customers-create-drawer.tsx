@@ -1,5 +1,4 @@
-import { PlusMini } from "@medusajs/icons";
-import { Button, Drawer } from "@medusajs/ui";
+import { Button, Drawer, toast } from "@medusajs/ui";
 import { useState } from "react";
 import { CreateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useCreateCompanyCustomer } from "../../hooks";
@@ -17,16 +16,19 @@ export function CompanyCustomerCreateDrawer({
   const { mutate, loading, error } = useCreateCompanyCustomer(companyId);
 
   const handleSubmit = async (formData: CreateCompanyCustomerDTO) => {
-    await mutate({ ...formData, company_id: companyId }).then(() =>
-      setOpen(false)
-    );
-    refetch();
+    await mutate({ ...formData, company_id: companyId }).then(() => {
+      setOpen(false);
+      refetch();
+      toast.success("Company customer created successfully");
+    });
   };
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <Drawer.Trigger asChild>
-        <Button variant="secondary">Add</Button>
+        <Button variant="secondary" size="small">
+          Add
+        </Button>
       </Drawer.Trigger>
       <Drawer.Content>
         <Drawer.Header>

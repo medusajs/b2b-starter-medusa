@@ -1,30 +1,26 @@
 import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CompanyDTO } from "src/modules/company/types/common";
-import { useDeleteCompany } from "../../hooks/companies";
-import { DeletePrompt } from "../common/delete-prompt";
-import { CompanyEditDrawer } from "./";
+import { CompanyCustomerDTO } from "src/modules/company/types/common";
+import { CompanyCustomerEditDrawer } from ".";
+import { DeletePrompt } from "../";
+import { useDeleteCompanyCustomer } from "../../hooks";
 
-export const CompanyActionsMenu = ({
-  company,
+export const CompanyCustomersActionsMenu = ({
+  companyCustomer,
   refetch,
 }: {
-  company: CompanyDTO;
+  companyCustomer: CompanyCustomerDTO;
   refetch: () => void;
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const { mutate: mutateDelete, loading: loadingDelete } = useDeleteCompany(
-    company.id
-  );
+  const { mutate: mutateDelete, loading: loadingDelete } =
+    useDeleteCompanyCustomer(companyCustomer.company_id, companyCustomer.id);
 
-  const navigate = useNavigate();
   const handleDelete = async () => {
     await mutateDelete();
-    navigate("/companies");
-    toast.success("Company deleted successfully");
+    toast.success("Company customer deleted successfully");
   };
 
   return (
@@ -53,11 +49,12 @@ export const CompanyActionsMenu = ({
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu>
-      <CompanyEditDrawer
-        company={company}
+      <CompanyCustomerEditDrawer
+        companyCustomer={companyCustomer}
         refetch={refetch}
         open={editOpen}
         setOpen={setEditOpen}
+        toast={toast}
       />
       <DeletePrompt
         handleDelete={handleDelete}
