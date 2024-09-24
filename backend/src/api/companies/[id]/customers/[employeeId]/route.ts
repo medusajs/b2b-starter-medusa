@@ -1,19 +1,16 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import {
-  deleteCompanyCustomersWorkflow,
-  updateCompanyCustomersWorkflow,
-} from "../../../../../workflows/company-customer/workflows";
-import {
-  GetCompanyCustomerParamsType,
-  UpdateCompanyCustomerType,
-} from "../validators";
+  deleteEmployeesWorkflow,
+  updateEmployeesWorkflow,
+} from "../../../../../workflows/employee/workflows";
+import { GetEmployeeParamsType, UpdateEmployeeType } from "../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetCompanyCustomerParamsType>,
+  req: MedusaRequest<GetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
-  const { id, companyCustomerId } = req.params;
+  const { id, employeeId } = req.params;
 
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
@@ -23,7 +20,7 @@ export const GET = async (
       fields: req.remoteQueryConfig.fields,
       filters: {
         ...req.filterableFields,
-        id: companyCustomerId,
+        id: employeeId,
         company_id: id,
       },
     },
@@ -36,15 +33,15 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: MedusaRequest<UpdateCompanyCustomerType>,
+  req: MedusaRequest<UpdateEmployeeType>,
   res: MedusaResponse
 ) => {
-  const { id, companyCustomerId } = req.params;
+  const { id, employeeId } = req.params;
   const { spending_limit, is_admin } = req.body;
 
-  const { result } = await updateCompanyCustomersWorkflow.run({
+  const { result } = await updateEmployeesWorkflow.run({
     input: {
-      id: companyCustomerId,
+      id: employeeId,
       company_id: id,
       spending_limit,
       is_admin,
@@ -56,11 +53,11 @@ export const POST = async (
 };
 
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
-  const { id, companyCustomerId } = req.params;
+  const { id, employeeId } = req.params;
 
-  await deleteCompanyCustomersWorkflow.run({
+  await deleteEmployeesWorkflow.run({
     input: {
-      id: companyCustomerId,
+      id: employeeId,
       company_id: id,
     },
     container: req.scope,

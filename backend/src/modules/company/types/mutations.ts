@@ -1,5 +1,5 @@
 import { CompanyDTO } from "./common";
-import { CompanyCustomerDTO } from "./common";
+import { EmployeeDTO } from "./common";
 
 export interface CreateCompanyDTO
   extends Omit<Partial<CompanyDTO>, "id" | "createdAt" | "updatedAt"> {}
@@ -12,15 +12,15 @@ export interface DeleteCompanyDTO {
   id: string;
 }
 
-export interface CreateCompanyCustomerDTO
-  extends Omit<Partial<CompanyCustomerDTO>, "id" | "createdAt" | "updatedAt"> {
+export interface CreateEmployeeDTO
+  extends Omit<Partial<EmployeeDTO>, "id" | "createdAt" | "updatedAt"> {
   company_id: string;
 }
 
-export interface UpdateCompanyCustomerDTO extends Partial<CompanyCustomerDTO> {
+export interface UpdateEmployeeDTO extends Partial<EmployeeDTO> {
   id: string;
 }
 
-export interface DeleteCompanyCustomerDTO {
+export interface DeleteEmployeeDTO {
   id: string;
 }

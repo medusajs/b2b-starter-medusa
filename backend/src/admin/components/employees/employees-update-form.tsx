@@ -8,24 +8,21 @@ import {
   Text,
 } from "@medusajs/ui";
 import { useState } from "react";
-import {
-  CompanyCustomerDTO,
-  CompanyDTO,
-} from "src/modules/company/types/common";
-import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
+import { EmployeeDTO, CompanyDTO } from "src/modules/company/types/common";
+import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
 import { currencySymbolMap } from "../../utils";
 import { CoolSwitch } from "../common";
 
-export function CompanyCustomerUpdateForm({
+export function EmployeesUpdateForm({
   company,
-  companyCustomer,
+  employee,
   handleSubmit,
   loading,
   error,
 }: {
-  companyCustomer?: CompanyCustomerDTO;
+  employee?: EmployeeDTO;
   company: CompanyDTO;
-  handleSubmit: (data: UpdateCompanyCustomerDTO) => Promise<void>;
+  handleSubmit: (data: UpdateEmployeeDTO) => Promise<void>;
   loading: boolean;
   error: Error | null;
 }) {
@@ -33,8 +30,8 @@ export function CompanyCustomerUpdateForm({
     spending_limit: number;
     is_admin: boolean;
   }>({
-    spending_limit: companyCustomer?.spending_limit / 100 || 0,
-    is_admin: companyCustomer?.is_admin || false,
+    spending_limit: employee?.spending_limit / 100 || 0,
+    is_admin: employee?.is_admin || false,
   });
 
   const onSubmit = (e: React.FormEvent) => {
@@ -46,7 +43,7 @@ export function CompanyCustomerUpdateForm({
 
     const data = {
       ...formData,
-      id: companyCustomer?.id,
+      id: employee?.id,
       spending_limit: spendingLimit,
       raw_spending_limit: {
         value: spendingLimit,
@@ -64,7 +61,7 @@ export function CompanyCustomerUpdateForm({
             <div className="flex items-center justify-between">
               <h2 className="h2-core">Details</h2>
               <a
-                href={`/app/customers/${companyCustomer?.customer.id}/edit`}
+                href={`/app/customers/${employee?.customer.id}/edit`}
                 className="txt-compact-small text-ui-fg-interactive hover:text-ui-fg-interactive-hover self-end"
               >
                 Edit Customer Details
@@ -77,21 +74,21 @@ export function CompanyCustomerUpdateForm({
                     Name
                   </Table.Cell>
                   <Table.Cell>
-                    {companyCustomer?.customer.first_name}{" "}
-                    {companyCustomer?.customer.last_name}
+                    {employee?.customer.first_name}{" "}
+                    {employee?.customer.last_name}
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">
                     Email
                   </Table.Cell>
-                  <Table.Cell>{companyCustomer?.customer.email}</Table.Cell>
+                  <Table.Cell>{employee?.customer.email}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">
                     Phone
                   </Table.Cell>
-                  <Table.Cell>{companyCustomer?.customer.phone}</Table.Cell>
+                  <Table.Cell>{employee?.customer.phone}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">

@@ -1,4 +1,4 @@
-export const companyCustomerFields = [
+export const employeeFields = [
   "id",
   "spending_limit",
   "is_admin",
@@ -8,7 +8,7 @@ export const companyCustomerFields = [
   "company.*",
 ];
 
-export const retrieveCompanyCustomerTransformQueryConfig = {
-  defaults: companyCustomerFields,
+export const retrieveEmployeeTransformQueryConfig = {
+  defaults: employeeFields,
   isList: false,
 };

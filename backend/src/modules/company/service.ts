@@ -1,9 +1,9 @@
 import { MedusaService } from "@medusajs/utils";
-import { Company, CompanyCustomer } from "./models";
+import { Company, Employee } from "./models";
 
 class CompanyModuleService extends MedusaService({
   Company,
-  CompanyCustomer,
+  Employee,
 }) {}
 
 export default CompanyModuleService;

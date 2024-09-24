@@ -11,13 +11,13 @@ export interface CompanyDTO {
   zip: string | null;
   country: string | null;
   logo_url: string | null;
-  customers?: CompanyCustomerDTO[];
+  customers?: EmployeeDTO[];
   currency_code: string | null;
   created_at: Date;
   updated_at: Date;
 }
 
-export interface CompanyCustomerDTO extends CustomerDTO {
+export interface EmployeeDTO extends CustomerDTO {
   id: string;
   spending_limit: number;
   is_admin: boolean;

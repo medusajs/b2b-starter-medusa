@@ -7,12 +7,9 @@ import {
   Toaster,
 } from "@medusajs/ui";
 import { useParams } from "react-router-dom";
-import { CompanyCustomerDTO } from "../../../../modules/company/types/common";
-import {
-  CompanyActionsMenu,
-  CompanyCustomersActionsMenu,
-} from "../../../components";
-import { CompanyCustomerCreateDrawer } from "../../../components/company-customers/company-customers-create-drawer";
+import { EmployeeDTO } from "../../../../modules/company/types/common";
+import { CompanyActionsMenu, EmployeesActionsMenu } from "../../../components";
+import { EmployeeCreateDrawer } from "../../../components/employees/employees-create-drawer";
 import { useCompany } from "../../../hooks";
 import { formatAmount } from "../../../utils";
 
@@ -92,10 +89,7 @@ const CompanyDetails = () => {
                   Company Employees
                 </Heading>
               </div>
-              <CompanyCustomerCreateDrawer
-                company={company}
-                refetch={refetch}
-              />
+              <EmployeeCreateDrawer company={company} refetch={refetch} />
             </div>
             <Table>
               <Table.Header>
@@ -109,55 +103,47 @@ const CompanyDetails = () => {
               </Table.Header>
               {company?.customers && (
                 <Table.Body>
-                  {company?.customers.map(
-                    (companyCustomer: CompanyCustomerDTO) => (
-                      <Table.Row
-                        key={companyCustomer.id}
-                        onClick={() => {
-                          window.location.href = `/app/customers/${companyCustomer.customer.id}`;
-                        }}
-                        className="cursor-pointer"
-                      >
-                        <Table.Cell className="w-6 h-6 items-center justify-center">
-                          <Avatar
-                            fallback={companyCustomer.customer.first_name?.charAt(
-                              0
-                            )}
-                          />
-                        </Table.Cell>
-                        <Table.Cell className="flex w-fit gap-2 items-center">
-                          {companyCustomer.customer.first_name}{" "}
-                          {companyCustomer.customer.last_name}
-                          {companyCustomer.is_admin && (
-                            <Badge
-                              size="2xsmall"
-                              color={
-                                companyCustomer.is_admin ? "green" : "grey"
-                              }
-                            >
-                              Admin
-                            </Badge>
-                          )}
-                        </Table.Cell>
-                        <Table.Cell>
-                          {companyCustomer.customer.email}
-                        </Table.Cell>
-                        <Table.Cell>
-                          {formatAmount(
-                            companyCustomer.spending_limit / 100,
-                            company?.currency_code || "USD"
-                          )}
-                        </Table.Cell>
-                        <Table.Cell onClick={(e) => e.stopPropagation()}>
-                          <CompanyCustomersActionsMenu
-                            company={company}
-                            companyCustomer={companyCustomer}
-                            refetch={refetch}
-                          />
-                        </Table.Cell>
-                      </Table.Row>
-                    )
-                  )}
+                  {company?.customers.map((employee: EmployeeDTO) => (
+                    <Table.Row
+                      key={employee.id}
+                      onClick={() => {
+                        window.location.href = `/app/customers/${employee.customer.id}`;
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <Table.Cell className="w-6 h-6 items-center justify-center">
+                        <Avatar
+                          fallback={employee.customer.first_name?.charAt(0)}
+                        />
+                      </Table.Cell>
+                      <Table.Cell className="flex w-fit gap-2 items-center">
+                        {employee.customer.first_name}{" "}
+                        {employee.customer.last_name}
+                        {employee.is_admin && (
+                          <Badge
+                            size="2xsmall"
+                            color={employee.is_admin ? "green" : "grey"}
+                          >
+                            Admin
+                          </Badge>
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>{employee.customer.email}</Table.Cell>
+                      <Table.Cell>
+                        {formatAmount(
+                          employee.spending_limit / 100,
+                          company?.currency_code || "USD"
+                        )}
+                      </Table.Cell>
+                      <Table.Cell onClick={(e) => e.stopPropagation()}>
+                        <EmployeesActionsMenu
+                          company={company}
+                          employee={employee}
+                          refetch={refetch}
+                        />
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
                 </Table.Body>
               )}
             </Table>

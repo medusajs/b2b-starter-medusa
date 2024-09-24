@@ -1,21 +1,21 @@
 import { MiddlewareRoute } from "@medusajs/medusa";
 import { validateAndTransformBody } from "@medusajs/medusa/dist/api/utils/validate-body";
 import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
-import { retrieveCompanyCustomerTransformQueryConfig } from "./query-config";
+import { retrieveEmployeeTransformQueryConfig } from "./query-config";
 import {
-  GetCompanyCustomerParams,
-  CreateCompanyCustomer,
-  UpdateCompanyCustomer,
+  GetEmployeeParams,
+  CreateEmployee,
+  UpdateEmployee,
 } from "./validators";
 
-export const companyCustomersMiddlewares: MiddlewareRoute[] = [
+export const employeesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
     matcher: "/companies/:id/customers",
     middlewares: [
       validateAndTransformQuery(
-        GetCompanyCustomerParams,
-        retrieveCompanyCustomerTransformQueryConfig
+        GetEmployeeParams,
+        retrieveEmployeeTransformQueryConfig
       ),
     ],
   },
@@ -23,10 +23,10 @@ export const companyCustomersMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/companies/:id/customers",
     middlewares: [
-      validateAndTransformBody(CreateCompanyCustomer),
+      validateAndTransformBody(CreateEmployee),
       validateAndTransformQuery(
-        GetCompanyCustomerParams,
-        retrieveCompanyCustomerTransformQueryConfig
+        GetEmployeeParams,
+        retrieveEmployeeTransformQueryConfig
       ),
     ],
   },
@@ -35,8 +35,8 @@ export const companyCustomersMiddlewares: MiddlewareRoute[] = [
     matcher: "/companies/:id/customers/:customer_id",
     middlewares: [
       validateAndTransformQuery(
-        GetCompanyCustomerParams,
-        retrieveCompanyCustomerTransformQueryConfig
+        GetEmployeeParams,
+        retrieveEmployeeTransformQueryConfig
       ),
     ],
   },
@@ -44,10 +44,10 @@ export const companyCustomersMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/companies/:id/customers/:customer_id",
     middlewares: [
-      validateAndTransformBody(UpdateCompanyCustomer),
+      validateAndTransformBody(UpdateEmployee),
       validateAndTransformQuery(
-        GetCompanyCustomerParams,
-        retrieveCompanyCustomerTransformQueryConfig
+        GetEmployeeParams,
+        retrieveEmployeeTransformQueryConfig
       ),
     ],
   },

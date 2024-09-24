@@ -3,12 +3,12 @@ import {
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/workflows-sdk";
-import { deleteCompanyCustomersStep } from "../steps";
+import { deleteEmployeesStep } from "../steps";
 
-export const deleteCompanyCustomersWorkflow = createWorkflow(
-  "delete-company-customers",
+export const deleteEmployeesWorkflow = createWorkflow(
+  "delete-employees",
   (input: WorkflowData<string | string[]>): WorkflowResponse<string> => {
-    deleteCompanyCustomersStep(input);
+    deleteEmployeesStep(input);
 
     return new WorkflowResponse("Company customers deleted");
   }

@@ -1,22 +1,20 @@
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
 import { COMPANY_MODULE } from "../../../modules/company";
 
-export const deleteCompanyCustomersStep = createStep(
-  "delete-company-customers",
+export const deleteEmployeesStep = createStep(
+  "delete-employees",
   async (
     id: string | string[],
     { container }
   ): Promise<StepResponse<string | string[], string | string[]>> => {
     const companyModuleService = container.resolve(COMPANY_MODULE);
-    await companyModuleService.softDeleteCompanyCustomers(id);
+    await companyModuleService.softDeleteEmployees(id);
 
     return new StepResponse(id, id);
   },
-  async (companyCustomerId: string | string[], { container }) => {
+  async (employeeId: string | string[], { container }) => {
     const companyModuleService = container.resolve(COMPANY_MODULE);
-    const company = await companyModuleService.restoreCompanyCustomers(
-      companyCustomerId
-    );
+    const company = await companyModuleService.restoreEmployees(employeeId);
     return new StepResponse("Company restored", company);
   }
 );
