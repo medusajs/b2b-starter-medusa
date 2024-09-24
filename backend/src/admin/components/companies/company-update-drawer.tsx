@@ -4,7 +4,7 @@ import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
 import { useUpdateCompany } from "../../hooks";
 import { CompanyForm } from "./company-form";
 
-export function CompanyEditDrawer({
+export function CompanyUpdateDrawer({
   company,
   refetch,
   open,

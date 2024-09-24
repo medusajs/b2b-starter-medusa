@@ -92,7 +92,7 @@ const CompanyDetails = () => {
             <div className="flex items-center gap-2 px-6 py-4 justify-between">
               <div className="flex items-center gap-2">
                 <Heading className="font-sans font-medium h1-core">
-                  Company Customers
+                  Company Employees
                 </Heading>
               </div>
               <CompanyCustomerCreateDrawer

@@ -24,7 +24,7 @@ const Companies = () => {
               <Table.HeaderCell>Phone</Table.HeaderCell>
               <Table.HeaderCell>Email</Table.HeaderCell>
               <Table.HeaderCell>Address</Table.HeaderCell>
-              <Table.HeaderCell>Customers</Table.HeaderCell>
+              <Table.HeaderCell>Employees</Table.HeaderCell>
               <Table.HeaderCell>Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>

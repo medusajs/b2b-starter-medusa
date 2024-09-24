@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { CompanyDTO } from "src/modules/company/types/common";
 import { useDeleteCompany } from "../../hooks/companies";
 import { DeletePrompt } from "../common/delete-prompt";
-import { CompanyEditDrawer } from "./";
+import { CompanyUpdateDrawer } from "./";
 
 export const CompanyActionsMenu = ({
   company,
@@ -53,7 +53,7 @@ export const CompanyActionsMenu = ({
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu>
-      <CompanyEditDrawer
+      <CompanyUpdateDrawer
         company={company}
         refetch={refetch}
         open={editOpen}

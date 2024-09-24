@@ -4,7 +4,7 @@ import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useUpdateCompanyCustomer } from "../../hooks";
 import { CompanyCustomerUpdateForm } from "./company-customers-update-form";
 
-export function CompanyCustomerEditDrawer({
+export function CompanyCustomerUpdateDrawer({
   companyCustomer,
   refetch,
   open,
@@ -34,7 +34,7 @@ export function CompanyCustomerEditDrawer({
     <Drawer open={open} onOpenChange={setOpen}>
       <Drawer.Content className="z-50">
         <Drawer.Header>
-          <Drawer.Title>Edit Company Customer</Drawer.Title>
+          <Drawer.Title>Edit Employee</Drawer.Title>
         </Drawer.Header>
 
         <CompanyCustomerUpdateForm

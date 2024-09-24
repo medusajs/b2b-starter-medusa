@@ -1,4 +1,3 @@
-import { PlusMini } from "@medusajs/icons";
 import { Button, Drawer } from "@medusajs/ui";
 import { useState } from "react";
 import { CreateCompanyDTO } from "src/modules/company/types/mutations";

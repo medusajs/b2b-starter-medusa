@@ -1,13 +1,19 @@
-import { Button, Drawer, Input, Label, Text, Switch } from "@medusajs/ui";
-import { useState } from "react";
 import {
-  CompanyCustomerDTO,
-  CompanyDTO,
-} from "src/modules/company/types/common";
+  Button,
+  CurrencyInput,
+  Drawer,
+  Input,
+  Label,
+  Text,
+} from "@medusajs/ui";
+import { useState } from "react";
+import { currencySymbolMap } from "../../utils";
+import { CompanyDTO } from "src/modules/company/types/common";
 import {
   CreateCompanyCustomerDTO,
   UpdateCompanyCustomerDTO,
 } from "src/modules/company/types/mutations";
+import { CoolSwitch } from "../common";
 
 export function CompanyCustomersCreateForm({
   handleSubmit,
@@ -15,7 +21,6 @@ export function CompanyCustomersCreateForm({
   error,
   company,
 }: {
-  companyCustomer?: Partial<CompanyCustomerDTO>;
   handleSubmit: (
     data: CreateCompanyCustomerDTO | UpdateCompanyCustomerDTO
   ) => Promise<void>;
@@ -64,76 +69,93 @@ export function CompanyCustomersCreateForm({
 
   return (
     <form onSubmit={onSubmit}>
-      <Drawer.Body className="p-4">
+      <Drawer.Body className="flex flex-col p-4 gap-6">
         <div className="flex flex-col gap-3">
-          <Label size="xsmall" className="txt-compact-small font-medium">
-            First Name
-          </Label>
-          <Input
-            type="text"
-            name="first_name"
-            value={formData.customer?.first_name}
-            onChange={handleChange}
-            placeholder="John"
-          />
-          <Label size="xsmall" className="txt-compact-small font-medium">
-            Last Name
-          </Label>
-          <Input
-            type="text"
-            name="last_name"
-            value={formData.customer?.last_name}
-            onChange={handleChange}
-            placeholder="Doe"
-          />
-          <Label size="xsmall" className="txt-compact-small font-medium">
-            Email
-          </Label>
-          <Input
-            type="email"
-            name="email"
-            value={formData.customer?.email}
-            onChange={handleChange}
-            placeholder="john.doe@example.com"
-          />
-          <Label size="xsmall" className="txt-compact-small font-medium">
-            Phone
-          </Label>
-          <Input
-            type="text"
-            name="phone"
-            value={formData.customer?.phone}
-            onChange={handleChange}
-            placeholder="0612345678"
-          />
-          <div className="flex gap-8 w-full justify-between">
-            <div className="flex flex-col gap-2 w-1/2 justify-center">
-              <Label size="xsmall" className="txt-compact-small font-medium">
-                Spending Limit ({company?.currency_code.toUpperCase()})
-              </Label>
-              <Input
-                type="number"
-                name="spending_limit"
-                value={formData.spending_limit ? formData.spending_limit : ""}
-                onChange={handleChange}
-                placeholder="1000"
-              />
-            </div>
-            <div className="flex flex-col gap-2 w-1/2">
-              <Label size="xsmall" className="txt-compact-small font-medium">
-                Enable to grant admin access
-              </Label>
-              <div className="flex items-center gap-2">
-                <Switch
-                  name="is_admin"
-                  checked={formData.is_admin}
-                  onCheckedChange={(checked) =>
-                    setFormData({ ...formData, is_admin: checked })
-                  }
-                />
-                <Label size="xsmall">Is Admin</Label>
-              </div>
-            </div>
+          <h2 className="h2-core">Details</h2>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              First Name
+            </Label>
+            <Input
+              type="text"
+              name="first_name"
+              value={formData.customer?.first_name}
+              onChange={handleChange}
+              placeholder="John"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              Last Name
+            </Label>
+            <Input
+              type="text"
+              name="last_name"
+              value={formData.customer?.last_name}
+              onChange={handleChange}
+              placeholder="Doe"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              Email
+            </Label>
+            <Input
+              type="email"
+              name="email"
+              value={formData.customer?.email}
+              onChange={handleChange}
+              placeholder="john.doe@example.com"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              Phone
+            </Label>
+            <Input
+              type="text"
+              name="phone"
+              value={formData.customer?.phone}
+              onChange={handleChange}
+              placeholder="0612345678"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <h2 className="h2-core">Permissions</h2>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              Spending Limit ({company.currency_code.toUpperCase()})
+            </Label>
+            <CurrencyInput
+              symbol={currencySymbolMap[company.currency_code]}
+              code={company.currency_code}
+              type="number"
+              name="spending_limit"
+              value={formData.spending_limit ? formData.spending_limit : ""}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  spending_limit: parseInt(e.target.value),
+                })
+              }
+              placeholder="1000"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Label size="xsmall" className="txt-compact-small font-medium">
+              Admin Access
+            </Label>
+            <CoolSwitch
+              fieldName="is_admin"
+              label="Is Admin"
+              description="Enable to grant admin access"
+              checked={formData.is_admin}
+              onChange={(checked) =>
+                setFormData({ ...formData, is_admin: checked })
+              }
+              tooltip="Admins can manage the company's details and employee permissions."
+            />
           </div>
         </div>
       </Drawer.Body>

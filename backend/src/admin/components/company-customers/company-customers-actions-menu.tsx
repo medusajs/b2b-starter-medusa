@@ -2,7 +2,7 @@ import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { useState } from "react";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
-import { CompanyCustomerEditDrawer } from ".";
+import { CompanyCustomerUpdateDrawer } from ".";
 import { DeletePrompt } from "../";
 import { useDeleteCompanyCustomer } from "../../hooks";
 
@@ -20,7 +20,9 @@ export const CompanyCustomersActionsMenu = ({
 
   const handleDelete = async () => {
     await mutateDelete();
-    toast.success("Company customer deleted successfully");
+    toast.success(
+      `Employee ${companyCustomer.customer.email} deleted successfully`
+    );
     refetch();
   };
 
@@ -50,7 +52,7 @@ export const CompanyCustomersActionsMenu = ({
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu>
-      <CompanyCustomerEditDrawer
+      <CompanyCustomerUpdateDrawer
         companyCustomer={companyCustomer}
         refetch={refetch}
         open={editOpen}

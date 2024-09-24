@@ -1,16 +1,17 @@
 import {
   Button,
   Container,
+  CurrencyInput,
   Drawer,
-  Input,
   Label,
-  Switch,
   Table,
   Text,
 } from "@medusajs/ui";
 import { useState } from "react";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
 import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
+import { currencySymbolMap } from "../../utils";
+import { CoolSwitch } from "../common";
 
 export function CompanyCustomerUpdateForm({
   companyCustomer,
@@ -55,6 +56,15 @@ export function CompanyCustomerUpdateForm({
       <Drawer.Body className="p-4">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-2 mb-4">
+            <div className="flex items-center justify-between">
+              <h2 className="h2-core">Details</h2>
+              <a
+                href={`/app/customers/${companyCustomer?.customer.id}/edit`}
+                className="txt-compact-small text-ui-fg-interactive hover:text-ui-fg-interactive-hover self-end"
+              >
+                Edit Customer Details
+              </a>
+            </div>
             <Container className="p-0 overflow-hidden">
               <Table>
                 <Table.Row>
@@ -86,20 +96,19 @@ export function CompanyCustomerUpdateForm({
                 </Table.Row>
               </Table>
             </Container>
-            <a
-              href={`/app/customers/${companyCustomer?.customer.id}/edit`}
-              className="txt-compact-small text-ui-fg-interactive hover:text-ui-fg-interactive-hover self-end"
-            >
-              Edit customer details
-            </a>
           </div>
-          <div className="flex gap-8 w-full justify-between">
-            <div className="flex flex-col gap-3 w-1/2 justify-center">
+          <div className="flex flex-col gap-4">
+            <h2 className="h2-core">Permissions</h2>
+            <div className="flex flex-col gap-2">
               <Label size="xsmall" className="txt-compact-small font-medium">
                 Spending Limit (
                 {companyCustomer?.company.currency_code.toUpperCase()})
               </Label>
-              <Input
+              <CurrencyInput
+                symbol={
+                  currencySymbolMap[companyCustomer?.company.currency_code]
+                }
+                code={companyCustomer?.company.currency_code}
                 type="number"
                 name="spending_limit"
                 value={formData.spending_limit ? formData.spending_limit : ""}
@@ -112,20 +121,20 @@ export function CompanyCustomerUpdateForm({
                 placeholder="1000"
               />
             </div>
-            <div className="flex flex-col gap-3 w-1/2">
+            <div className="flex flex-col gap-2">
               <Label size="xsmall" className="txt-compact-small font-medium">
-                Enable to grant admin access
+                Admin Access
               </Label>
-              <div className="flex items-center gap-2">
-                <Switch
-                  name="is_admin"
-                  checked={formData.is_admin}
-                  onCheckedChange={(checked) =>
-                    setFormData({ ...formData, is_admin: checked })
-                  }
-                />
-                <Label size="xsmall">Is Admin</Label>
-              </div>
+              <CoolSwitch
+                fieldName="is_admin"
+                label="Is Admin"
+                description="Enable to grant admin access"
+                checked={formData.is_admin}
+                onChange={(checked) =>
+                  setFormData({ ...formData, is_admin: checked })
+                }
+                tooltip="Admins can manage the company's details and employee permissions."
+              />
             </div>
           </div>
         </div>
