@@ -101,21 +101,19 @@ export function CompanyCustomerUpdateForm({
             <h2 className="h2-core">Permissions</h2>
             <div className="flex flex-col gap-2">
               <Label size="xsmall" className="txt-compact-small font-medium">
-                Spending Limit (
-                {companyCustomer?.company.currency_code.toUpperCase()})
+                Spending Limit
               </Label>
               <CurrencyInput
                 symbol={
                   currencySymbolMap[companyCustomer?.company.currency_code]
                 }
                 code={companyCustomer?.company.currency_code}
-                type="number"
                 name="spending_limit"
                 value={formData.spending_limit ? formData.spending_limit : ""}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    spending_limit: parseInt(e.target.value),
+                    spending_limit: parseInt(e.target.value) || 0,
                   })
                 }
                 placeholder="1000"

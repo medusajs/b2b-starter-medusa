@@ -2,7 +2,7 @@ import { Drawer, toast as toastType } from "@medusajs/ui";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
 import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useUpdateCompanyCustomer } from "../../hooks";
-import { CompanyCustomerUpdateForm } from "./company-customers-update-form";
+import { CompanyCustomerUpdateForm } from "./";
 
 export function CompanyCustomerUpdateDrawer({
   companyCustomer,
