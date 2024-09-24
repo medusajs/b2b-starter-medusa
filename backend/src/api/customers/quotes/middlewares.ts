@@ -6,6 +6,8 @@ import { retrieveQuoteTransformQueryConfig } from "./query-config";
 import { CreateQuote, GetQuoteParams } from "./validators";
 
 export const quotesMiddlewares: MiddlewareRoute[] = [
+  // TODO: Authenticate customer
+  // TODO: Ensure quotes are scoped to customers
   {
     method: ["GET"],
     matcher: "/customers/quotes",

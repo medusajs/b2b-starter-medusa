@@ -58,7 +58,7 @@ medusaIntegrationTestRunner({
     });
 
     describe("POST /customers/quotes", () => {
-      it.only("successfully initiates a quote with a draft order", async () => {
+      it("successfully initiates a quote with a draft order", async () => {
         const response = await api.post("/customers/quotes", {
           cart_id: cart.id,
         });
