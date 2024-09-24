@@ -2,21 +2,22 @@ import { Button, Drawer, toast } from "@medusajs/ui";
 import { useState } from "react";
 import { CreateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useCreateCompanyCustomer } from "../../hooks";
-import { CompanyCustomersForm } from "./company-customers-form";
+import { CompanyCustomersCreateForm } from "./company-customers-create-form";
+import { CompanyDTO } from "src/modules/company/types/common";
 
 export function CompanyCustomerCreateDrawer({
-  companyId,
+  company,
   refetch,
 }: {
-  companyId: string;
+  company: CompanyDTO;
   refetch: () => void;
 }) {
   const [open, setOpen] = useState(false);
 
-  const { mutate, loading, error } = useCreateCompanyCustomer(companyId);
+  const { mutate, loading, error } = useCreateCompanyCustomer(company.id);
 
   const handleSubmit = async (formData: CreateCompanyCustomerDTO) => {
-    await mutate({ ...formData, company_id: companyId }).then(() => {
+    await mutate({ ...formData, company_id: company.id }).then(() => {
       setOpen(false);
       refetch();
       toast.success("Company customer created successfully");
@@ -34,11 +35,11 @@ export function CompanyCustomerCreateDrawer({
         <Drawer.Header>
           <Drawer.Title>Add Company Customer</Drawer.Title>
         </Drawer.Header>
-        <CompanyCustomersForm
+        <CompanyCustomersCreateForm
           handleSubmit={handleSubmit}
           loading={loading}
           error={error}
-          companyId={companyId}
+          company={company}
         />
       </Drawer.Content>
     </Drawer>

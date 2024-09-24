@@ -7,6 +7,7 @@ import {
   deleteCompanyCustomersWorkflow,
   updateCompanyCustomersWorkflow,
 } from "../../../../../workflows/company-customer/workflows";
+import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id, companyCustomerId } = req.params;
@@ -31,11 +32,14 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id, companyCustomerId } = req.params;
+  const { spending_limit, is_admin } = req.body as UpdateCompanyCustomerDTO;
 
   const { result } = await updateCompanyCustomersWorkflow.run({
     input: {
       id: companyCustomerId,
       company_id: id,
+      spending_limit,
+      is_admin,
     },
     container: req.scope,
   });

@@ -76,6 +76,12 @@ const CompanyDetails = () => {
                 </Table.Cell>
                 <Table.Cell>{company?.state}</Table.Cell>
               </Table.Row>
+              <Table.Row>
+                <Table.Cell className="font-medium font-sans txt-compact-small">
+                  Currency
+                </Table.Cell>
+                <Table.Cell>{company?.currency_code.toUpperCase()}</Table.Cell>
+              </Table.Row>
             </Table>
           </>
         )}
@@ -90,7 +96,7 @@ const CompanyDetails = () => {
                 </Heading>
               </div>
               <CompanyCustomerCreateDrawer
-                companyId={companyId}
+                company={company}
                 refetch={companyCustomersRefetch}
               />
             </div>
@@ -108,7 +114,13 @@ const CompanyDetails = () => {
                 <Table.Body>
                   {companyCustomers.map(
                     (companyCustomer: CompanyCustomerDTO) => (
-                      <Table.Row key={companyCustomer.id}>
+                      <Table.Row
+                        key={companyCustomer.id}
+                        onClick={() => {
+                          window.location.href = `/app/customers/${companyCustomer.customer.id}`;
+                        }}
+                        className="cursor-pointer"
+                      >
                         <Table.Cell className="w-6 h-6 items-center justify-center">
                           <Avatar
                             fallback={companyCustomer.customer.first_name?.charAt(
@@ -136,10 +148,10 @@ const CompanyDetails = () => {
                         <Table.Cell>
                           {formatAmount(
                             companyCustomer.spending_limit / 100,
-                            "USD"
+                            company?.currency_code || "USD"
                           )}
                         </Table.Cell>
-                        <Table.Cell>
+                        <Table.Cell onClick={(e) => e.stopPropagation()}>
                           <CompanyCustomersActionsMenu
                             companyCustomer={companyCustomer}
                             refetch={companyCustomersRefetch}

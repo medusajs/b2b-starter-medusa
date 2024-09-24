@@ -1,7 +1,7 @@
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { UpdateCompanyCustomerDTO } from "../../../modules/company/types/mutations";
-import { COMPANY_MODULE } from "../../../modules/company";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { UpdateCompanyCustomerDTO } from "../../../modules/company/types/mutations";
 
 export const updateCompanyCustomersStep = createStep(
   "update-company-customers",
@@ -31,6 +31,7 @@ export const updateCompanyCustomersStep = createStep(
   },
   async (currentData: UpdateCompanyCustomerDTO[], { container }) => {
     const companyModuleService = container.resolve(COMPANY_MODULE);
+
     await companyModuleService.updateCompanyCustomers(currentData);
     return new StepResponse("Company customer data restored", currentData);
   }

@@ -2,7 +2,7 @@ import { Drawer, toast as toastType } from "@medusajs/ui";
 import { CompanyCustomerDTO } from "src/modules/company/types/common";
 import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useUpdateCompanyCustomer } from "../../hooks";
-import { CompanyCustomersForm } from "./company-customers-form";
+import { CompanyCustomerUpdateForm } from "./company-customers-update-form";
 
 export function CompanyCustomerEditDrawer({
   companyCustomer,
@@ -22,9 +22,6 @@ export function CompanyCustomerEditDrawer({
     companyCustomer.id
   );
 
-  const { created_at, updated_at, id, company, ...currentData } =
-    companyCustomer;
-
   const handleSubmit = async (formData: UpdateCompanyCustomerDTO) => {
     await mutate(formData).then(() => {
       setOpen(false);
@@ -37,15 +34,14 @@ export function CompanyCustomerEditDrawer({
     <Drawer open={open} onOpenChange={setOpen}>
       <Drawer.Content className="z-50">
         <Drawer.Header>
-          <Drawer.Title>Edit Company</Drawer.Title>
+          <Drawer.Title>Edit Company Customer</Drawer.Title>
         </Drawer.Header>
 
-        <CompanyCustomersForm
+        <CompanyCustomerUpdateForm
           handleSubmit={handleSubmit}
           loading={loading}
           error={error}
-          companyCustomer={currentData}
-          companyId={companyCustomer.company_id}
+          companyCustomer={companyCustomer}
         />
       </Drawer.Content>
     </Drawer>

@@ -21,6 +21,7 @@ export const CompanyCustomersActionsMenu = ({
   const handleDelete = async () => {
     await mutateDelete();
     toast.success("Company customer deleted successfully");
+    refetch();
   };
 
   return (
