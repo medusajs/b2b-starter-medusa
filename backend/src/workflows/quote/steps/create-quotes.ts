@@ -9,7 +9,8 @@ export const createQuotesStep = createStep(
     input: CreateQuoteDTO[],
     { container }
   ): Promise<StepResponse<QuoteDTO[], string[]>> => {
-    const quoteModuleService = container.resolve(QUOTE_MODULE);
+    // TODO: type this service
+    const quoteModuleService: any = container.resolve(QUOTE_MODULE);
 
     const quotes = await quoteModuleService.createQuotes(input);
 
@@ -19,7 +20,8 @@ export const createQuotesStep = createStep(
     );
   },
   async (quoteIds: string[], { container }) => {
-    const quoteModuleService = container.resolve(QUOTE_MODULE);
+    // TODO: type this service
+    const quoteModuleService: any = container.resolve(QUOTE_MODULE);
 
     await quoteModuleService.deleteQuotes(quoteIds);
   }

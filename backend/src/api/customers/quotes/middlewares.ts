@@ -3,7 +3,12 @@ import { validateAndTransformBody } from "@medusajs/medusa/dist/api/utils/valida
 import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
 
 import { retrieveQuoteTransformQueryConfig } from "./query-config";
-import { CreateQuote, GetQuoteParams } from "./validators";
+import {
+  AcceptQuote,
+  CreateQuote,
+  GetQuoteParams,
+  RejectQuote,
+} from "./validators";
 
 export const quotesMiddlewares: MiddlewareRoute[] = [
   // TODO: Authenticate customer
@@ -33,6 +38,28 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/customers/quotes/:id",
     middlewares: [
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/customers/quotes/:id/accept",
+    middlewares: [
+      validateAndTransformBody(AcceptQuote),
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/customers/quotes/:id/reject",
+    middlewares: [
+      validateAndTransformBody(RejectQuote),
       validateAndTransformQuery(
         GetQuoteParams,
         retrieveQuoteTransformQueryConfig

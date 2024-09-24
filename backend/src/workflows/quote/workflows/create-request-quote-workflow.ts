@@ -75,9 +75,9 @@ export const createRequestQuoteWorkflow = createWorkflow(
       ({ draftOrder }) => {
         return {
           order_id: draftOrder.id,
-          items: draftOrder.items.map((item) => {
+          items: (draftOrder.items || []).map((item) => {
             return {
-              variant_id: item.variant_id,
+              variant_id: item.variant_id!,
               quantity: item.quantity,
               unit_price: item.unit_price,
               internal_note: "",

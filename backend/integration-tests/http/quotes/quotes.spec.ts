@@ -200,5 +200,71 @@ medusaIntegrationTestRunner({
         );
       });
     });
+
+    describe("POST /customers/quotes/:id/accept", () => {
+      let quote1;
+
+      beforeEach(async () => {
+        const {
+          data: { quote: newQuote },
+        } = await api.post("/customers/quotes", { cart_id: cart.id });
+
+        quote1 = newQuote;
+      });
+
+      it("successfully accepts a quote", async () => {
+        const {
+          data: { quote },
+        } = await api.post(`/customers/quotes/${quote1.id}/accept`, {});
+
+        expect(quote).toEqual(
+          expect.objectContaining({
+            id: quote1.id,
+            draft_order: expect.objectContaining({
+              id: quote1.draft_order_id,
+              version: 2,
+              status: "completed",
+              summary: expect.objectContaining({
+                pending_difference: 200,
+              }),
+              payment_collections: [
+                expect.objectContaining({
+                  amount: 200,
+                }),
+              ],
+            }),
+          })
+        );
+      });
+    });
+
+    describe("POST /customers/quotes/:id/reject", () => {
+      let quote1;
+
+      beforeEach(async () => {
+        const {
+          data: { quote: newQuote },
+        } = await api.post("/customers/quotes", { cart_id: cart.id });
+
+        quote1 = newQuote;
+      });
+
+      it("successfully rejects a quote", async () => {
+        const {
+          data: { quote },
+        } = await api.post(`/customers/quotes/${quote1.id}/reject`, {});
+
+        expect(quote).toEqual(
+          expect.objectContaining({
+            id: quote1.id,
+            draft_order: expect.objectContaining({
+              id: quote1.draft_order_id,
+              version: 1,
+              status: "canceled",
+            }),
+          })
+        );
+      });
+    });
   },
 });
