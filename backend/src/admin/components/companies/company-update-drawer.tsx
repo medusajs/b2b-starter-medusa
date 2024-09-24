@@ -22,8 +22,8 @@ export function CompanyUpdateDrawer({
   const handleSubmit = async (formData: UpdateCompanyDTO) => {
     await mutate(formData).then(() => {
       setOpen(false);
-      toast.success("Company updated successfully");
       refetch();
+      toast.success(`Company ${formData.name} updated successfully`);
     });
   };
 

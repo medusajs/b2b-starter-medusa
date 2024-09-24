@@ -20,7 +20,7 @@ export function CompanyCustomerCreateDrawer({
     await mutate({ ...formData, company_id: company.id }).then(() => {
       setOpen(false);
       refetch();
-      toast.success("Company customer created successfully");
+      toast.success(`Employee ${formData.customer.email} created successfully`);
     });
   };
 

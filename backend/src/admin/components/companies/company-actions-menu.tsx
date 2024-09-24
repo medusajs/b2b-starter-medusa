@@ -24,7 +24,7 @@ export const CompanyActionsMenu = ({
   const handleDelete = async () => {
     await mutateDelete();
     navigate("/companies");
-    toast.success("Company deleted successfully");
+    toast.success(`Company ${company.name} deleted successfully`);
   };
 
   return (

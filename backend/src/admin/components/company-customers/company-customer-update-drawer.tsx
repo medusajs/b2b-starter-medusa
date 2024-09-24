@@ -25,8 +25,8 @@ export function CompanyCustomerUpdateDrawer({
   const handleSubmit = async (formData: UpdateCompanyCustomerDTO) => {
     await mutate(formData).then(() => {
       setOpen(false);
-      toast.success("Company customer updated successfully");
       refetch();
+      toast.success(`Employee ${formData.customer.email} updated successfully`);
     });
   };
 

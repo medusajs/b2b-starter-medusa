@@ -130,13 +130,13 @@ export function CompanyCustomersCreateForm({
             <CurrencyInput
               symbol={currencySymbolMap[company.currency_code]}
               code={company.currency_code}
-              type="number"
+              type="text"
               name="spending_limit"
               value={formData.spending_limit ? formData.spending_limit : ""}
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  spending_limit: parseInt(e.target.value),
+                  spending_limit: parseInt(e.target.value) || 0,
                 })
               }
               placeholder="1000"
