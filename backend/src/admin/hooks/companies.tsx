@@ -27,7 +27,51 @@ export const useCompanies = (
     const fetchCompanies = async () => {
       try {
         const response = await fetch(
-          "/companies" + (query ? `?${filterQuery}` : "")
+          "/companies" + (filterQuery ? `?${filterQuery}` : "")
+        );
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(
+          err instanceof Error ? err : new Error("An unknown error occurred")
+        );
+        throw err;
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCompanies();
+  }, [refetchTrigger]);
+
+  return { data, refetch, loading, error };
+};
+
+export const useCompany = (
+  companyId: string,
+  query?: Record<string, any>
+): {
+  data: { company: CompanyDTO } | null;
+  refetch: () => void;
+  loading: boolean;
+  error: Error | null;
+} => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+  const [refetchTrigger, setRefetchTrigger] = useState(0);
+  const filterQuery = new URLSearchParams(query).toString();
+  const refetch = () => {
+    setRefetchTrigger((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    console.log("useCompany", companyId);
+    console.log("filterQuery", filterQuery);
+    const fetchCompanies = async () => {
+      try {
+        const response = await fetch(
+          `/companies/${companyId}` + (filterQuery ? `?${filterQuery}` : "")
         );
         const result = await response.json();
         setData(result);

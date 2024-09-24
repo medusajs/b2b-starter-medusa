@@ -1,10 +1,10 @@
 import {
   Avatar,
+  Badge,
   Container,
   Heading,
   Table,
   Toaster,
-  Badge,
 } from "@medusajs/ui";
 import { useParams } from "react-router-dom";
 import { CompanyCustomerDTO } from "../../../../modules/company/types/common";
@@ -13,20 +13,17 @@ import {
   CompanyCustomersActionsMenu,
 } from "../../../components";
 import { CompanyCustomerCreateDrawer } from "../../../components/company-customers/company-customers-create-drawer";
-import { useCompanies, useCompanyCustomers } from "../../../hooks";
+import { useCompany } from "../../../hooks";
 import { formatAmount } from "../../../utils";
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
-  const { data, loading, refetch } = useCompanies({ id: companyId });
-  const {
-    data: companyCustomersData,
-    loading: companyCustomersLoading,
-    refetch: companyCustomersRefetch,
-  } = useCompanyCustomers(companyId);
+  const { data, loading, refetch } = useCompany(companyId, {
+    fields:
+      "id, name, phone, email, address, city, state, zip, country, currency_code, logo_url, customers.*, customers.customer.*, customers.company.*",
+  });
 
-  const company = data?.companies[0];
-  const companyCustomers = companyCustomersData?.companyCustomers;
+  const company = data?.company;
 
   return (
     <div className="flex flex-col gap-4">
@@ -80,14 +77,14 @@ const CompanyDetails = () => {
                 <Table.Cell className="font-medium font-sans txt-compact-small">
                   Currency
                 </Table.Cell>
-                <Table.Cell>{company?.currency_code.toUpperCase()}</Table.Cell>
+                <Table.Cell>{company?.currency_code?.toUpperCase()}</Table.Cell>
               </Table.Row>
             </Table>
           </>
         )}
       </Container>
       <Container className="flex flex-col p-0 overflow-hidden">
-        {!companyCustomersLoading && (
+        {!loading && (
           <>
             <div className="flex items-center gap-2 px-6 py-4 justify-between">
               <div className="flex items-center gap-2">
@@ -97,7 +94,7 @@ const CompanyDetails = () => {
               </div>
               <CompanyCustomerCreateDrawer
                 company={company}
-                refetch={companyCustomersRefetch}
+                refetch={refetch}
               />
             </div>
             <Table>
@@ -110,9 +107,9 @@ const CompanyDetails = () => {
                   <Table.HeaderCell>Actions</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
-              {companyCustomers && (
+              {company?.customers && (
                 <Table.Body>
-                  {companyCustomers.map(
+                  {company?.customers.map(
                     (companyCustomer: CompanyCustomerDTO) => (
                       <Table.Row
                         key={companyCustomer.id}
@@ -153,8 +150,9 @@ const CompanyDetails = () => {
                         </Table.Cell>
                         <Table.Cell onClick={(e) => e.stopPropagation()}>
                           <CompanyCustomersActionsMenu
+                            company={company}
                             companyCustomer={companyCustomer}
-                            refetch={companyCustomersRefetch}
+                            refetch={refetch}
                           />
                         </Table.Cell>
                       </Table.Row>

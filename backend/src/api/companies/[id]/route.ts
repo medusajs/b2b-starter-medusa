@@ -1,43 +1,45 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { UpdateCompanyDTO } from "../../../modules/company/types/mutations";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
 import {
   deleteCompaniesWorkflow,
   updateCompaniesWorkflow,
 } from "../../../workflows/company/workflows/";
-import {
-  ContainerRegistrationKeys,
-  remoteQueryObjectFromString,
-} from "@medusajs/utils";
+import { GetCompanyParamsType, UpdateCompanyType } from "../validators";
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: MedusaRequest<GetCompanyParamsType>,
+  res: MedusaResponse
+) => {
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+
   const { id } = req.params;
 
-  const remoteQuery = req.scope.resolve(ContainerRegistrationKeys.REMOTE_QUERY);
-
-  const query = remoteQueryObjectFromString({
-    entryPoint: "companies",
-    fields: ["*", "customers.*"],
-    relations: ["customers"],
-    filters: {
-      id,
+  const { data } = await query.graph(
+    {
+      entity: "companies",
+      fields: req.remoteQueryConfig.fields,
+      filters: {
+        id,
+      },
     },
-  });
-
-  const results = await remoteQuery(query);
+    { throwIfKeyNotFound: true }
+  );
 
   return res.status(200).json({
-    company: results[0],
+    company: data[0],
   });
 };
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+export const POST = async (
+  req: MedusaRequest<UpdateCompanyType>,
+  res: MedusaResponse
+) => {
   const { id } = req.params;
-  const data = JSON.parse((await req.body) as string) as UpdateCompanyDTO;
 
   const { result } = await updateCompaniesWorkflow.run({
     input: {
       id,
-      ...data,
+      ...req.body,
     },
   });
 

@@ -1,16 +1,21 @@
 import { Drawer, toast as toastType } from "@medusajs/ui";
-import { CompanyCustomerDTO } from "src/modules/company/types/common";
+import {
+  CompanyCustomerDTO,
+  CompanyDTO,
+} from "src/modules/company/types/common";
 import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { useUpdateCompanyCustomer } from "../../hooks";
 import { CompanyCustomerUpdateForm } from "./";
 
 export function CompanyCustomerUpdateDrawer({
+  company,
   companyCustomer,
   refetch,
   open,
   setOpen,
   toast,
 }: {
+  company: CompanyDTO;
   companyCustomer: CompanyCustomerDTO;
   refetch: () => void;
   open: boolean;
@@ -26,7 +31,9 @@ export function CompanyCustomerUpdateDrawer({
     await mutate(formData).then(() => {
       setOpen(false);
       refetch();
-      toast.success(`Employee ${formData.customer.email} updated successfully`);
+      toast.success(
+        `Employee ${companyCustomer.customer.email} updated successfully`
+      );
     });
   };
 
@@ -42,6 +49,7 @@ export function CompanyCustomerUpdateDrawer({
           loading={loading}
           error={error}
           companyCustomer={companyCustomer}
+          company={company}
         />
       </Drawer.Content>
     </Drawer>

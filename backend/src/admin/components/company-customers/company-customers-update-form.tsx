@@ -8,18 +8,23 @@ import {
   Text,
 } from "@medusajs/ui";
 import { useState } from "react";
-import { CompanyCustomerDTO } from "src/modules/company/types/common";
+import {
+  CompanyCustomerDTO,
+  CompanyDTO,
+} from "src/modules/company/types/common";
 import { UpdateCompanyCustomerDTO } from "src/modules/company/types/mutations";
 import { currencySymbolMap } from "../../utils";
 import { CoolSwitch } from "../common";
 
 export function CompanyCustomerUpdateForm({
+  company,
   companyCustomer,
   handleSubmit,
   loading,
   error,
 }: {
   companyCustomer?: CompanyCustomerDTO;
+  company: CompanyDTO;
   handleSubmit: (data: UpdateCompanyCustomerDTO) => Promise<void>;
   loading: boolean;
   error: Error | null;
@@ -92,7 +97,7 @@ export function CompanyCustomerUpdateForm({
                   <Table.Cell className="font-medium font-sans txt-compact-small">
                     Company
                   </Table.Cell>
-                  <Table.Cell>{companyCustomer?.company.name}</Table.Cell>
+                  <Table.Cell>{company.name}</Table.Cell>
                 </Table.Row>
               </Table>
             </Container>
@@ -104,10 +109,8 @@ export function CompanyCustomerUpdateForm({
                 Spending Limit
               </Label>
               <CurrencyInput
-                symbol={
-                  currencySymbolMap[companyCustomer?.company.currency_code]
-                }
-                code={companyCustomer?.company.currency_code}
+                symbol={currencySymbolMap[company.currency_code]}
+                code={company.currency_code}
                 name="spending_limit"
                 value={formData.spending_limit ? formData.spending_limit : ""}
                 onChange={(e) =>

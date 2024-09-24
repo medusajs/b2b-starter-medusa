@@ -1,15 +1,20 @@
 import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { useState } from "react";
-import { CompanyCustomerDTO } from "src/modules/company/types/common";
+import {
+  CompanyCustomerDTO,
+  CompanyDTO,
+} from "src/modules/company/types/common";
 import { CompanyCustomerUpdateDrawer } from ".";
 import { DeletePrompt } from "../";
 import { useDeleteCompanyCustomer } from "../../hooks";
 
 export const CompanyCustomersActionsMenu = ({
+  company,
   companyCustomer,
   refetch,
 }: {
+  company: CompanyDTO;
   companyCustomer: CompanyCustomerDTO;
   refetch: () => void;
 }) => {
@@ -53,6 +58,7 @@ export const CompanyCustomersActionsMenu = ({
         </DropdownMenu.Content>
       </DropdownMenu>
       <CompanyCustomerUpdateDrawer
+        company={company}
         companyCustomer={companyCustomer}
         refetch={refetch}
         open={editOpen}
