@@ -1,4 +1,4 @@
-const { loadEnv, defineConfig } = require("@medusajs/utils");
+const { loadEnv, defineConfig, Modules } = require("@medusajs/utils");
 
 loadEnv(process.env.NODE_ENV, process.cwd());
 
@@ -16,6 +16,15 @@ module.exports = defineConfig({
   modules: {
     companyModuleService: {
       resolve: "./modules/company",
+    },
+    quote: {
+      resolve: "./modules/quote",
+    },
+    [Modules.CACHE]: {
+      resolve: "@medusajs/cache-inmemory",
+    },
+    [Modules.WORKFLOW_ENGINE]: {
+      resolve: "@medusajs/workflow-engine-inmemory",
     },
   },
 });
