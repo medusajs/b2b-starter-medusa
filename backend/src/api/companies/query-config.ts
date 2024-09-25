@@ -10,7 +10,7 @@ export const companyFields = [
   "zip",
   "country",
   "currency_code",
-  "customers.*",
+  "employees.*",
 ];
 
 export const retrieveCompanyTransformQueryConfig = {

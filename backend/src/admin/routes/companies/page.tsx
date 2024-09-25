@@ -48,7 +48,7 @@ const Companies = () => {
                   <Table.Cell>{company.phone}</Table.Cell>
                   <Table.Cell>{company.email}</Table.Cell>
                   <Table.Cell>{`${company.address}, ${company.city}, ${company.state} ${company.zip}`}</Table.Cell>
-                  <Table.Cell>{company.customers?.length || 0}</Table.Cell>
+                  <Table.Cell>{company.employees?.length || 0}</Table.Cell>
                   <Table.Cell onClick={(e) => e.stopPropagation()}>
                     <CompanyActionsMenu company={company} refetch={refetch} />
                   </Table.Cell>

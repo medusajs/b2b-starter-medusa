@@ -30,7 +30,9 @@ export const POST = async (
   res: MedusaResponse
 ) => {
   const { result } = await createCompaniesWorkflow.run({
-    input: req.body,
+    input: {
+      ...req.validatedBody,
+    },
     container: req.scope,
   });
 

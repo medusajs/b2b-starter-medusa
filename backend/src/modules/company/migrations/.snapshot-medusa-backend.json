@@ -96,6 +96,15 @@
           "nullable": true,
           "mappedType": "text"
         },
+        "currency_code": {
+          "name": "currency_code",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "text"
+        },
         "created_at": {
           "name": "created_at",
           "type": "timestamptz",
@@ -227,19 +236,19 @@
           "mappedType": "datetime"
         }
       },
-      "name": "company_customer",
+      "name": "employee",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "IDX_company_customer_company_id",
+          "keyName": "IDX_employee_company_id",
           "columnNames": [],
           "composite": false,
           "primary": false,
           "unique": false,
-          "expression": "CREATE INDEX IF NOT EXISTS \"IDX_company_customer_company_id\" ON \"company_customer\" (company_id) WHERE deleted_at IS NULL"
+          "expression": "CREATE INDEX IF NOT EXISTS \"IDX_employee_company_id\" ON \"employee\" (company_id) WHERE deleted_at IS NULL"
         },
         {
-          "keyName": "company_customer_pkey",
+          "keyName": "employee_pkey",
           "columnNames": [
             "id"
           ],
@@ -250,12 +259,12 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "company_customer_company_id_foreign": {
-          "constraintName": "company_customer_company_id_foreign",
+        "employee_company_id_foreign": {
+          "constraintName": "employee_company_id_foreign",
           "columnNames": [
             "company_id"
           ],
-          "localTableName": "public.company_customer",
+          "localTableName": "public.employee",
           "referencedColumnNames": [
             "id"
           ],

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import {
-  CreateCompanyCustomerDTO,
-  UpdateCompanyCustomerDTO,
+  CreateEmployeeDTO,
+  UpdateEmployeeDTO,
 } from "../../modules/company/types/mutations";
-import { CompanyCustomerDTO } from "../../modules/company/types/common";
+import { EmployeeDTO } from "../../modules/company/types/common";
 
-export const useCompanyCustomers = (
+export const useEmployees = (
   companyId: string,
   query?: Record<string, any>
 ): {
-  data: { companyCustomers: CompanyCustomerDTO[] } | null;
+  data: { employees: EmployeeDTO[] } | null;
   refetch: () => void;
   loading: boolean;
   error: Error | null;
@@ -25,10 +25,10 @@ export const useCompanyCustomers = (
   };
 
   useEffect(() => {
-    const fetchCompanyCustomers = async () => {
+    const fetchEmployees = async () => {
       try {
         const response = await fetch(
-          `/companies/${companyId}/customers` + (query ? `?${filterQuery}` : "")
+          `/companies/${companyId}/employees` + (query ? `?${filterQuery}` : "")
         );
         const result = await response.json();
         setData(result);
@@ -42,27 +42,27 @@ export const useCompanyCustomers = (
       }
     };
 
-    fetchCompanyCustomers();
+    fetchEmployees();
   }, [refetchTrigger]);
   return { data, refetch, loading, error };
 };
 
-export const useCreateCompanyCustomer = (
+export const useCreateEmployee = (
   companyId: string
 ): {
-  mutate: (customer: CreateCompanyCustomerDTO) => Promise<CompanyCustomerDTO>;
+  mutate: (customer: CreateEmployeeDTO) => Promise<EmployeeDTO>;
   loading: boolean;
   error: Error | null;
 } => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const mutate = async (customer: CreateCompanyCustomerDTO) => {
+  const mutate = async (customer: CreateEmployeeDTO) => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(`/companies/${companyId}/customers`, {
+      const response = await fetch(`/companies/${companyId}/employees`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,24 +89,24 @@ export const useCreateCompanyCustomer = (
   return { mutate, loading, error };
 };
 
-export const useUpdateCompanyCustomer = (
+export const useUpdateEmployee = (
   companyId: string,
-  companyCustomerId: string
+  employeeId: string
 ): {
-  mutate: (customer: UpdateCompanyCustomerDTO) => Promise<CompanyCustomerDTO>;
+  mutate: (customer: UpdateEmployeeDTO) => Promise<EmployeeDTO>;
   loading: boolean;
   error: Error | null;
 } => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const mutate = async (customer: UpdateCompanyCustomerDTO) => {
+  const mutate = async (customer: UpdateEmployeeDTO) => {
     setLoading(true);
     setError(null);
 
     try {
       const response = await fetch(
-        `/companies/${companyId}/customers/${companyCustomerId}`,
+        `/companies/${companyId}/employees/${employeeId}`,
         {
           method: "POST",
           headers: {
@@ -135,9 +135,9 @@ export const useUpdateCompanyCustomer = (
   return { mutate, loading, error };
 };
 
-export const useDeleteCompanyCustomer = (
+export const useDeleteEmployee = (
   companyId: string,
-  companyCustomerId: string
+  employeeId: string
 ): {
   mutate: () => Promise<void>;
   loading: boolean;
@@ -152,7 +152,7 @@ export const useDeleteCompanyCustomer = (
 
     try {
       const response = await fetch(
-        `/companies/${companyId}/customers/${companyCustomerId}`,
+        `/companies/${companyId}/employees/${employeeId}`,
         {
           method: "DELETE",
         }

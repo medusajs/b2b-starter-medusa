@@ -1,5 +1,5 @@
 import { model } from "@medusajs/utils";
-import { CompanyCustomer } from "./company-customer";
+import { Employee } from "./employee";
 
 export const Company = model.define("company", {
   id: model
@@ -17,5 +17,5 @@ export const Company = model.define("company", {
   country: model.text().nullable(),
   logo_url: model.text().nullable(),
   currency_code: model.text().nullable(),
-  customers: model.hasMany(() => CompanyCustomer),
+  employees: model.hasMany(() => Employee),
 });

@@ -10,26 +10,24 @@ import { useState } from "react";
 import { currencySymbolMap } from "../../utils";
 import { CompanyDTO } from "src/modules/company/types/common";
 import {
-  CreateCompanyCustomerDTO,
-  UpdateCompanyCustomerDTO,
+  CreateEmployeeDTO,
+  UpdateEmployeeDTO,
 } from "src/modules/company/types/mutations";
 import { CoolSwitch } from "../common";
 
-export function CompanyCustomersCreateForm({
+export function EmployeesCreateForm({
   handleSubmit,
   loading,
   error,
   company,
 }: {
-  handleSubmit: (
-    data: CreateCompanyCustomerDTO | UpdateCompanyCustomerDTO
-  ) => Promise<void>;
+  handleSubmit: (data: CreateEmployeeDTO | UpdateEmployeeDTO) => Promise<void>;
   loading: boolean;
   error: Error | null;
   company: CompanyDTO;
 }) {
   const [formData, setFormData] = useState<
-    Partial<CreateCompanyCustomerDTO> & { company_id: string }
+    Partial<CreateEmployeeDTO> & { company_id: string }
   >({
     company_id: company.id,
     company_name: company.name,
@@ -61,8 +59,6 @@ export function CompanyCustomersCreateForm({
         precision: 20,
       },
     };
-
-    console.log({ data });
 
     handleSubmit(data);
   };

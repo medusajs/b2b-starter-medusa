@@ -1,16 +1,11 @@
 import { createCustomersWorkflow } from "@medusajs/core-flows";
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { CreateCustomerDTO } from "@medusajs/types";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
-import { CreateCompanyCustomerDTO } from "../../../../modules/company/types/mutations";
-import { createCompanyCustomersWorkflow } from "../../../../workflows/company-customer/workflows";
-import {
-  CreateCompanyCustomerType,
-  GetCompanyCustomerParamsType,
-} from "./validators";
+import { createEmployeesWorkflow } from "../../../../workflows/employee/workflows";
+import { CreateEmployeeType, GetEmployeeParamsType } from "./validators";
 
 export const GET = async (
-  req: MedusaRequest<GetCompanyCustomerParamsType>,
+  req: MedusaRequest<GetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
   const { id } = req.params;
@@ -36,7 +31,7 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: MedusaRequest<CreateCompanyCustomerType>,
+  req: MedusaRequest<CreateEmployeeType>,
   res: MedusaResponse
 ) => {
   const { id } = req.params;
@@ -52,10 +47,10 @@ export const POST = async (
 
   const customer_id = customers[0].id;
 
-  const { result } = await createCompanyCustomersWorkflow.run({
+  const { result } = await createEmployeesWorkflow.run({
     input: [
       {
-        companyCustomerData: {
+        employeeData: {
           company_id: id,
           customer_id,
           is_admin,

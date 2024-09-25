@@ -1,13 +1,11 @@
 import { createSelectParams } from "@medusajs/medusa/dist/api/utils/validators";
 import { z } from "zod";
 
-export type GetCompanyCustomerParamsType = z.infer<
-  typeof GetCompanyCustomerParams
->;
-export const GetCompanyCustomerParams = createSelectParams();
+export type GetEmployeeParamsType = z.infer<typeof GetEmployeeParams>;
+export const GetEmployeeParams = createSelectParams();
 
-export type CreateCompanyCustomerType = z.infer<typeof CreateCompanyCustomer>;
-export const CreateCompanyCustomer = z
+export type CreateEmployeeType = z.infer<typeof CreateEmployee>;
+export const CreateEmployee = z
   .object({
     spending_limit: z.number().optional(),
     raw_spending_limit: z
@@ -26,8 +24,8 @@ export const CreateCompanyCustomer = z
   })
   .strict();
 
-export type UpdateCompanyCustomerType = z.infer<typeof UpdateCompanyCustomer>;
-export const UpdateCompanyCustomer = z
+export type UpdateEmployeeType = z.infer<typeof UpdateEmployee>;
+export const UpdateEmployee = z
   .object({
     id: z.string(),
     spending_limit: z.number().optional(),
