@@ -28,7 +28,7 @@ export const useEmployees = (
     const fetchEmployees = async () => {
       try {
         const response = await fetch(
-          `/companies/${companyId}/customers` + (query ? `?${filterQuery}` : "")
+          `/companies/${companyId}/employees` + (query ? `?${filterQuery}` : "")
         );
         const result = await response.json();
         setData(result);
@@ -62,7 +62,7 @@ export const useCreateEmployee = (
     setError(null);
 
     try {
-      const response = await fetch(`/companies/${companyId}/customers`, {
+      const response = await fetch(`/companies/${companyId}/employees`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const useUpdateEmployee = (
 
     try {
       const response = await fetch(
-        `/companies/${companyId}/customers/${employeeId}`,
+        `/companies/${companyId}/employees/${employeeId}`,
         {
           method: "POST",
           headers: {
@@ -152,7 +152,7 @@ export const useDeleteEmployee = (
 
     try {
       const response = await fetch(
-        `/companies/${companyId}/customers/${employeeId}`,
+        `/companies/${companyId}/employees/${employeeId}`,
         {
           method: "DELETE",
         }

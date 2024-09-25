@@ -11,7 +11,7 @@ import {
 export const employeesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
-    matcher: "/companies/:id/customers",
+    matcher: "/companies/:id/employees",
     middlewares: [
       validateAndTransformQuery(
         GetEmployeeParams,
@@ -21,7 +21,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/customers",
+    matcher: "/companies/:id/employees",
     middlewares: [
       validateAndTransformBody(CreateEmployee),
       validateAndTransformQuery(
@@ -32,7 +32,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/companies/:id/customers/:customer_id",
+    matcher: "/companies/:id/employees/:employee_id",
     middlewares: [
       validateAndTransformQuery(
         GetEmployeeParams,
@@ -42,7 +42,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/customers/:customer_id",
+    matcher: "/companies/:id/employees/:employee_id",
     middlewares: [
       validateAndTransformBody(UpdateEmployee),
       validateAndTransformQuery(

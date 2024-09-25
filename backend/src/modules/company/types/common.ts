@@ -11,7 +11,7 @@ export interface CompanyDTO {
   zip: string | null;
   country: string | null;
   logo_url: string | null;
-  customers?: EmployeeDTO[];
+  employees?: EmployeeDTO[];
   currency_code: string | null;
   created_at: Date;
   updated_at: Date;

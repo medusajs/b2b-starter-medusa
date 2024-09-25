@@ -66,8 +66,6 @@ export const useCompany = (
   };
 
   useEffect(() => {
-    console.log("useCompany", companyId);
-    console.log("filterQuery", filterQuery);
     const fetchCompanies = async () => {
       try {
         const response = await fetch(
@@ -106,6 +104,9 @@ export const useCreateCompany = (): {
     try {
       const response = await fetch("/companies", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(company),
       });
 
@@ -145,7 +146,10 @@ export const useUpdateCompany = (
     try {
       const response = await fetch(`/companies/${companyId}`, {
         method: "POST",
-        body: JSON.stringify(company),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ company }),
       });
 
       if (!response.ok) {

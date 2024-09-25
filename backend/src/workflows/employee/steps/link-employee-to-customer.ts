@@ -12,7 +12,7 @@ export const linkEmployeeToCustomerStep = createStep(
 
     const links = input.map(({ employeeId, customerId }) => ({
       [COMPANY_MODULE]: {
-        company_customer_id: employeeId,
+        employee_id: employeeId,
       },
       [Modules.CUSTOMER]: {
         customer_id: customerId,
@@ -31,7 +31,7 @@ export const linkEmployeeToCustomerStep = createStep(
 
     const links = input.map(({ employeeId, customerId }) => ({
       [COMPANY_MODULE]: {
-        company_customer_id: employeeId,
+        employee_id: employeeId,
       },
       [Modules.CUSTOMER]: {
         customer_id: customerId,

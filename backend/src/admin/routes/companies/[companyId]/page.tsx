@@ -5,7 +5,9 @@ import {
   Heading,
   Table,
   Toaster,
+  Text,
 } from "@medusajs/ui";
+import { ExclamationCircle } from "@medusajs/icons";
 import { useParams } from "react-router-dom";
 import { EmployeeDTO } from "../../../../modules/company/types/common";
 import { CompanyActionsMenu, EmployeesActionsMenu } from "../../../components";
@@ -17,7 +19,7 @@ const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, loading, refetch } = useCompany(companyId, {
     fields:
-      "id, name, phone, email, address, city, state, zip, country, currency_code, logo_url, customers.*, customers.customer.*, customers.company.*",
+      "id, name, phone, email, address, city, state, zip, country, currency_code, logo_url, employees.*, employees.customer.*, employees.company.*",
   });
 
   const company = data?.company;
@@ -83,7 +85,7 @@ const CompanyDetails = () => {
       <Container className="flex flex-col p-0 overflow-hidden">
         {!loading && (
           <>
-            <div className="flex items-center gap-2 px-6 py-4 justify-between">
+            <div className="flex items-center gap-2 px-6 py-4 justify-between border-b border-gray-200">
               <div className="flex items-center gap-2">
                 <Heading className="font-sans font-medium h1-core">
                   Company Employees
@@ -91,19 +93,19 @@ const CompanyDetails = () => {
               </div>
               <EmployeeCreateDrawer company={company} refetch={refetch} />
             </div>
-            <Table>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell></Table.HeaderCell>
-                  <Table.HeaderCell>Name</Table.HeaderCell>
-                  <Table.HeaderCell>Email</Table.HeaderCell>
-                  <Table.HeaderCell>Spending Limit</Table.HeaderCell>
-                  <Table.HeaderCell>Actions</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-              {company?.customers && (
+            {company?.employees && company?.employees.length > 0 ? (
+              <Table>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell></Table.HeaderCell>
+                    <Table.HeaderCell>Name</Table.HeaderCell>
+                    <Table.HeaderCell>Email</Table.HeaderCell>
+                    <Table.HeaderCell>Spending Limit</Table.HeaderCell>
+                    <Table.HeaderCell>Actions</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
                 <Table.Body>
-                  {company?.customers.map((employee: EmployeeDTO) => (
+                  {company?.employees.map((employee: EmployeeDTO) => (
                     <Table.Row
                       key={employee.id}
                       onClick={() => {
@@ -113,12 +115,12 @@ const CompanyDetails = () => {
                     >
                       <Table.Cell className="w-6 h-6 items-center justify-center">
                         <Avatar
-                          fallback={employee.customer.first_name?.charAt(0)}
+                          fallback={employee.customer?.first_name?.charAt(0)}
                         />
                       </Table.Cell>
                       <Table.Cell className="flex w-fit gap-2 items-center">
-                        {employee.customer.first_name}{" "}
-                        {employee.customer.last_name}
+                        {employee.customer?.first_name}{" "}
+                        {employee.customer?.last_name}
                         {employee.is_admin && (
                           <Badge
                             size="2xsmall"
@@ -128,7 +130,7 @@ const CompanyDetails = () => {
                           </Badge>
                         )}
                       </Table.Cell>
-                      <Table.Cell>{employee.customer.email}</Table.Cell>
+                      <Table.Cell>{employee.customer?.email}</Table.Cell>
                       <Table.Cell>
                         {formatAmount(
                           employee.spending_limit / 100,
@@ -145,8 +147,22 @@ const CompanyDetails = () => {
                     </Table.Row>
                   ))}
                 </Table.Body>
-              )}
-            </Table>
+              </Table>
+            ) : (
+              <div className="flex h-[400px] w-full flex-col items-center justify-center gap-y-4">
+                <div className="flex flex-col items-center gap-y-3">
+                  <ExclamationCircle />
+                  <div className="flex flex-col items-center gap-y-1">
+                    <Text className="font-medium font-sans txt-compact-small">
+                      No records
+                    </Text>
+                    <Text className="txt-small text-ui-fg-muted">
+                      This company doesn't have any employees.
+                    </Text>
+                  </div>
+                </div>
+              </div>
+            )}
           </>
         )}
       </Container>
