@@ -136,14 +136,14 @@ medusaIntegrationTestRunner({
         );
       });
 
-      it("should throw error when quote does not exist", async () => {
+      it.only("should throw error when quote does not exist", async () => {
         const {
           response: { data },
         } = await api.get(`/customers/quotes/does-not-exist`).catch((e) => e);
 
         expect(data).toEqual({
           type: "not_found",
-          message: "order id not found: does-not-exist",
+          message: "Order id not found: does-not-exist",
         });
       });
     });

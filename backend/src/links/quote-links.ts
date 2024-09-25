@@ -1,7 +1,7 @@
 import { MedusaModule } from "@medusajs/modules-sdk";
 import { Modules } from "@medusajs/utils";
-
-MedusaModule.setCustomLink(() => {
+console.log("applying link");
+MedusaModule.setCustomLink((...args) => {
   return {
     isLink: true,
     isReadOnlyLink: true,
@@ -10,39 +10,30 @@ MedusaModule.setCustomLink(() => {
         serviceName: "quote",
         relationship: {
           serviceName: Modules.ORDER,
-          entity: "Order",
+          // entity: "Order",
           primaryKey: "id",
           foreignKey: "draft_order_id",
           alias: "draft_order",
-          args: {
-            methodSuffix: "Orders",
-          },
         },
       },
       {
         serviceName: "quote",
         relationship: {
           serviceName: Modules.CART,
-          entity: "Cart",
+          // entity: "Cart",
           primaryKey: "id",
           foreignKey: "cart_id",
           alias: "cart",
-          args: {
-            methodSuffix: "Carts",
-          },
         },
       },
       {
         serviceName: "quote",
         relationship: {
           serviceName: Modules.ORDER,
-          entity: "OrderChange",
+          // entity: "OrderChange",
           primaryKey: "id",
           foreignKey: "order_change_id",
           alias: "order_change",
-          args: {
-            methodSuffix: "OrderChanges",
-          },
         },
       },
     ],

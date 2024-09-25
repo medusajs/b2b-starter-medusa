@@ -1,5 +1,5 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { ContainerRegistrationKeys, MedusaError } from "@medusajs/utils";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { GetQuoteParamsType } from "../validators";
 
 export const GET = async (
@@ -19,13 +19,6 @@ export const GET = async (
     },
     { throwIfKeyNotFound: true }
   );
-
-  if (!quote) {
-    throw new MedusaError(
-      MedusaError.Types.NOT_FOUND,
-      `order id not found: ${id}`
-    );
-  }
 
   res.json({ quote });
 };
