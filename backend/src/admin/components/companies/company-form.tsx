@@ -1,6 +1,7 @@
-import { Button, Drawer, Input, Label, Text } from "@medusajs/ui";
+import { Button, Drawer, Input, Label, Select, Text } from "@medusajs/ui";
 import { useState } from "react";
 import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
+import { useRegions } from "../../hooks";
 
 export function CompanyForm({
   company,
@@ -17,8 +18,24 @@ export function CompanyForm({
     company || {}
   );
 
+  const {
+    data: { regions },
+    loading: regionsLoading,
+  } = useRegions();
+
+  const currencyCodes = regions?.map((region) => region.currency_code);
+  const countries = regions?.flatMap((region) => region.countries);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleCurrencyChange = (value: string) => {
+    setFormData({ ...formData, currency_code: value });
+  };
+
+  const handleCountryChange = (value: string) => {
+    setFormData({ ...formData, country: value });
   };
 
   return (
@@ -81,14 +98,51 @@ export function CompanyForm({
             onChange={handleChange}
             placeholder="10001"
           />
-          <Label size="xsmall">Company Country</Label>
-          <Input
-            type="text"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            placeholder="USA"
-          />
+          <div className="flex gap-4 w-full">
+            <div className="flex flex-col gap-2 w-1/2">
+              <Label size="xsmall">Company Country</Label>
+              <Select
+                name="country"
+                value={formData.country}
+                onValueChange={handleCountryChange}
+                disabled={regionsLoading}
+              >
+                <Select.Trigger disabled={regionsLoading}>
+                  <Select.Value placeholder="Select a country" />
+                </Select.Trigger>
+                <Select.Content className="z-50">
+                  {countries?.map((country) => (
+                    <Select.Item key={country.iso_2} value={country.iso_2}>
+                      {country.name}
+                    </Select.Item>
+                  ))}
+                </Select.Content>
+              </Select>
+            </div>
+            <div className="flex flex-col gap-2 w-1/2">
+              <Label size="xsmall">Currency</Label>
+
+              <Select
+                name="currency_code"
+                value={formData.currency_code}
+                onValueChange={handleCurrencyChange}
+                defaultValue={currencyCodes?.[0]}
+                disabled={regionsLoading}
+              >
+                <Select.Trigger disabled={regionsLoading}>
+                  <Select.Value placeholder="Select a currency" />
+                </Select.Trigger>
+
+                <Select.Content className="z-50">
+                  {currencyCodes?.map((currencyCode) => (
+                    <Select.Item key={currencyCode} value={currencyCode}>
+                      {currencyCode.toUpperCase()}
+                    </Select.Item>
+                  ))}
+                </Select.Content>
+              </Select>
+            </div>
+          </div>
           {/* TODO: Add logo upload */}
           <Label size="xsmall">Company Logo URL</Label>
           <Input

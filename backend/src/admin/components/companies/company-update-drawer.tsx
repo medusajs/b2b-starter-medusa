@@ -1,10 +1,10 @@
-import { Drawer } from "@medusajs/ui";
-import { CompanyDTO } from "../../modules/company/types/common";
-import { UpdateCompanyDTO } from "../../modules/company/types/mutations";
-import { useUpdateCompany } from "../hooks";
+import { Drawer, toast } from "@medusajs/ui";
+import { CompanyDTO } from "src/modules/company/types/common";
+import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
+import { useUpdateCompany } from "../../hooks";
 import { CompanyForm } from "./company-form";
 
-export function CompanyEditDrawer({
+export function CompanyUpdateDrawer({
   company,
   refetch,
   open,
@@ -17,11 +17,14 @@ export function CompanyEditDrawer({
 }) {
   const { mutate, loading, error } = useUpdateCompany(company.id);
 
-  const { created_at, updated_at, id, ...currentData } = company;
+  const { created_at, updated_at, id, customers, ...currentData } = company;
 
   const handleSubmit = async (formData: UpdateCompanyDTO) => {
-    await mutate(formData).then(() => setOpen(false));
-    refetch();
+    await mutate(formData).then(() => {
+      setOpen(false);
+      refetch();
+      toast.success(`Company ${formData.name} updated successfully`);
+    });
   };
 
   return (

@@ -1,31 +1,23 @@
-import { CreateCompanyDTO } from "../../modules/company/types/mutations";
-import { createCompaniesWorkflow } from "../../workflows/company/workflows/create-companies";
 import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { remoteQueryObjectFromString } from "@medusajs/utils";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
+import { createCompaniesWorkflow } from "../../workflows/company/workflows/create-companies";
+import { CreateCompanyType, GetCompanyParamsType } from "./validators";
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
-  const remoteQuery = req.scope.resolve("remoteQuery");
-  const filters = {} as Record<string, any>;
-  let take = parseInt(req.query.take as string) || null;
-  let skip = parseInt(req.query.skip as string) || 0;
+export const GET = async (
+  req: MedusaRequest<GetCompanyParamsType>,
+  res: MedusaResponse
+) => {
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  for (const key in req.query) {
-    if (["take", "skip"].includes(key)) continue;
-
-    filters[key] = req.query[key];
-  }
-
-  const companiesQuery = remoteQueryObjectFromString({
-    entryPoint: "companies",
-    fields: ["*"],
-    variables: {
-      filters,
-      skip,
-      take,
+  const { data: companies, metadata } = await query.graph({
+    entity: "companies",
+    fields: req.remoteQueryConfig.fields,
+    filters: req.filterableFields,
+    pagination: {
+      ...req.remoteQueryConfig.pagination,
+      skip: req.remoteQueryConfig.pagination.skip ?? 0,
     },
   });
-
-  const { rows: companies, metadata } = await remoteQuery(companiesQuery);
 
   return res.json({
     companies,
@@ -33,11 +25,15 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   });
 };
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
-  const data: CreateCompanyDTO = JSON.parse((await req.body) as string);
-
+export const POST = async (
+  req: MedusaRequest<CreateCompanyType>,
+  res: MedusaResponse
+) => {
   const { result } = await createCompaniesWorkflow.run({
-    input: data,
+    input: {
+      ...req.validatedBody,
+    },
+    container: req.scope,
   });
 
   return res.json({ companies: result });
