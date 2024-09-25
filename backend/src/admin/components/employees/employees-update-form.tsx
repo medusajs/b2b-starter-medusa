@@ -20,7 +20,7 @@ export function EmployeesUpdateForm({
   loading,
   error,
 }: {
-  employee?: EmployeeDTO;
+  employee: EmployeeDTO;
   company: CompanyDTO;
   handleSubmit: (data: UpdateEmployeeDTO) => Promise<void>;
   loading: boolean;
@@ -61,7 +61,7 @@ export function EmployeesUpdateForm({
             <div className="flex items-center justify-between">
               <h2 className="h2-core">Details</h2>
               <a
-                href={`/app/customers/${employee?.customer.id}/edit`}
+                href={`/app/customers/${employee?.customer!.id}/edit`}
                 className="txt-compact-small text-ui-fg-interactive hover:text-ui-fg-interactive-hover self-end"
               >
                 Edit Customer Details
@@ -74,21 +74,21 @@ export function EmployeesUpdateForm({
                     Name
                   </Table.Cell>
                   <Table.Cell>
-                    {employee?.customer.first_name}{" "}
-                    {employee?.customer.last_name}
+                    {employee?.customer!.first_name}{" "}
+                    {employee?.customer!.last_name}
                   </Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">
                     Email
                   </Table.Cell>
-                  <Table.Cell>{employee?.customer.email}</Table.Cell>
+                  <Table.Cell>{employee?.customer!.email}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">
                     Phone
                   </Table.Cell>
-                  <Table.Cell>{employee?.customer.phone}</Table.Cell>
+                  <Table.Cell>{employee?.customer!.phone}</Table.Cell>
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell className="font-medium font-sans txt-compact-small">
@@ -106,8 +106,8 @@ export function EmployeesUpdateForm({
                 Spending Limit
               </Label>
               <CurrencyInput
-                symbol={currencySymbolMap[company.currency_code]}
-                code={company.currency_code}
+                symbol={currencySymbolMap[company.currency_code || "USD"]}
+                code={company.currency_code || "USD"}
                 name="spending_limit"
                 value={formData.spending_limit ? formData.spending_limit : ""}
                 onChange={(e) =>

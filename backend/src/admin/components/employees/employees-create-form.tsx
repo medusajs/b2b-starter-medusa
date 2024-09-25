@@ -75,7 +75,7 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="first_name"
-              value={formData.customer?.first_name}
+              value={formData.customer?.first_name || undefined}
               onChange={handleChange}
               placeholder="John"
             />
@@ -87,7 +87,7 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="last_name"
-              value={formData.customer?.last_name}
+              value={formData.customer?.last_name || undefined}
               onChange={handleChange}
               placeholder="Doe"
             />
@@ -99,7 +99,7 @@ export function EmployeesCreateForm({
             <Input
               type="email"
               name="email"
-              value={formData.customer?.email}
+              value={formData.customer?.email || undefined}
               onChange={handleChange}
               placeholder="john.doe@example.com"
             />
@@ -111,7 +111,7 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="phone"
-              value={formData.customer?.phone}
+              value={formData.customer?.phone || undefined}
               onChange={handleChange}
               placeholder="0612345678"
             />
@@ -121,11 +121,11 @@ export function EmployeesCreateForm({
           <h2 className="h2-core">Permissions</h2>
           <div className="flex flex-col gap-2">
             <Label size="xsmall" className="txt-compact-small font-medium">
-              Spending Limit ({company.currency_code.toUpperCase()})
+              Spending Limit ({company.currency_code?.toUpperCase() || "USD"})
             </Label>
             <CurrencyInput
-              symbol={currencySymbolMap[company.currency_code]}
-              code={company.currency_code}
+              symbol={currencySymbolMap[company.currency_code || "USD"]}
+              code={company.currency_code || "USD"}
               type="text"
               name="spending_limit"
               value={formData.spending_limit ? formData.spending_limit : ""}
@@ -146,7 +146,7 @@ export function EmployeesCreateForm({
               fieldName="is_admin"
               label="Is Admin"
               description="Enable to grant admin access"
-              checked={formData.is_admin}
+              checked={formData.is_admin || false}
               onChange={(checked) =>
                 setFormData({ ...formData, is_admin: checked })
               }
