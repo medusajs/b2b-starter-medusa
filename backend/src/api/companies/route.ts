@@ -36,7 +36,5 @@ export const POST = async (
     container: req.scope,
   });
 
-  console.log("result", result);
-
   return res.json({ companies: result });
 };

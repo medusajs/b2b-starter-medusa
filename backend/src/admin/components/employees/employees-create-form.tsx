@@ -60,8 +60,6 @@ export function EmployeesCreateForm({
       },
     };
 
-    console.log({ data });
-
     handleSubmit(data);
   };
 
