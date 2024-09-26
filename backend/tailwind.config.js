@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [],
-  theme: {
-    extend: {},
-  },
+  theme: {},
   plugins: [require("@medusajs/ui-preset")],
 };

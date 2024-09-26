@@ -27,10 +27,10 @@ export default async function Home({
 
   return (
     <>
-      <div className="p-4 text-center bg-zinc-900">
+      <div className="flex items-center justify-center p-4 text-center bg-zinc-900 font-[--font-geist-sans] gap-2">
         <InformationCircle className="inline" color="white" />
         <span className="text-white mr-2">
-          Favorites at a great sranice! For a limited time only .
+          Favorites at a great price! For a limited time only.
         </span>
 
         <LocalizedClientLink
