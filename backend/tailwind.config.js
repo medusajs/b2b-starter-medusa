@@ -1,12 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-geist-sans)"],
-      },
-    },
-  },
+  theme: {},
   plugins: [require("@medusajs/ui-preset")],
 };

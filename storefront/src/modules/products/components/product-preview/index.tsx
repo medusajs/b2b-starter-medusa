@@ -1,11 +1,11 @@
-import { Button, Text, clx } from "@medusajs/ui"
-import ShoppingBag from "@modules/common/icons/shopping-bag"
+import { getProductsById } from "@lib/data/products"
 import { getProductPrice } from "@lib/util/get-product-price"
+import { HttpTypes } from "@medusajs/types"
+import { Text, clx } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
-import { getProductsById } from "@lib/data/products"
-import { HttpTypes } from "@medusajs/types"
+import PreviewAddToCart from "./preview-add-to-cart"
 
 export default async function ProductPreview({
   product,
@@ -21,6 +21,8 @@ export default async function ProductPreview({
     regionId: region.id,
   })
 
+  console.log({ variants: pricedProduct?.variants })
+
   if (!pricedProduct) {
     return null
   }
@@ -29,9 +31,15 @@ export default async function ProductPreview({
     product: pricedProduct,
   })
 
-  const inventoryQuantity = product.variants?.reduce((acc, variant) => {
+  const inventoryQuantity = pricedProduct.variants?.reduce((acc, variant) => {
+    console.log({ inventory_quantity: variant?.inventory_quantity })
     return acc + (variant?.inventory_quantity || 0)
   }, 0)
+
+  const listInventoryQuantity = pricedProduct.variants?.map((variant) => {
+    return variant?.inventory_quantity
+  })
+  console.log({ listInventoryQuantity })
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
@@ -71,9 +79,7 @@ export default async function ProductPreview({
               {inventoryQuantity} left
             </Text>
           </div>
-          <Button className="rounded-full p-3 border-none shadow-none">
-            <ShoppingBag />
-          </Button>
+          <PreviewAddToCart product={product} region={region} />
         </div>
       </div>
     </LocalizedClientLink>
