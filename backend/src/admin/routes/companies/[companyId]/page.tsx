@@ -17,12 +17,15 @@ import { formatAmount } from "../../../utils";
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
-  const { data, loading, refetch } = useCompany(companyId, {
-    fields:
-      "id, name, phone, email, address, city, state, zip, country, currency_code, logo_url, employees.*, employees.customer.*, employees.company.*",
+  const { data, loading, refetch } = useCompany(companyId!, {
+    fields: "+employees, +employees.customer.*, +employees.company.*",
   });
 
   const company = data?.company;
+
+  if (!company) {
+    return <div>Company not found</div>;
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -32,7 +35,7 @@ const CompanyDetails = () => {
             <div className="flex items-center gap-2 px-6 py-4 border-b border-gray-200 justify-between">
               <div className="flex items-center gap-2">
                 <Avatar
-                  src={company?.logo_url}
+                  src={company?.logo_url || undefined}
                   fallback={company?.name?.charAt(0)}
                 />
                 <Heading className="font-sans font-medium h1-core">
@@ -109,13 +112,17 @@ const CompanyDetails = () => {
                     <Table.Row
                       key={employee.id}
                       onClick={() => {
-                        window.location.href = `/app/customers/${employee.customer.id}`;
+                        window.location.href = `/app/customers/${
+                          employee!.customer!.id
+                        }`;
                       }}
                       className="cursor-pointer"
                     >
                       <Table.Cell className="w-6 h-6 items-center justify-center">
                         <Avatar
-                          fallback={employee.customer?.first_name?.charAt(0)}
+                          fallback={
+                            employee.customer?.first_name?.charAt(0) || ""
+                          }
                         />
                       </Table.Cell>
                       <Table.Cell className="flex w-fit gap-2 items-center">
