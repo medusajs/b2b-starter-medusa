@@ -111,6 +111,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // check if the url is a static asset
+  if (request.nextUrl.pathname.includes(".")) {
+    return NextResponse.next()
+  }
+
   const redirectPath =
     request.nextUrl.pathname === "/" ? "" : request.nextUrl.pathname
 

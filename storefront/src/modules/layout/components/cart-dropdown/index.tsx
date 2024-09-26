@@ -83,7 +83,7 @@ const CartDropdown = ({
             href="/cart"
             data-testid="nav-cart-link"
           >
-            <Button variant="secondary" className="rounded-2xl bg-ui-bg-subtle">
+            <div className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none disabled:bg-ui-bg-disabled disabled:border-ui-border-base disabled:text-ui-fg-disabled disabled:shadow-buttons-neutral disabled:after:hidden after:transition-fg after:absolute after:inset-0 after:content-[''] shadow-buttons-neutral text-ui-fg-base after:button-neutral-gradient hover:bg-ui-button-neutral-hover hover:after:button-neutral-hover-gradient active:bg-ui-button-neutral-pressed active:after:button-neutral-pressed-gradient focus-visible:shadow-buttons-neutral-focus txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-2xl bg-ui-bg-subtle">
               <ShoppingBag />
 
               {cartState
@@ -92,7 +92,7 @@ const CartDropdown = ({
                     currency_code: cartState.currency_code,
                   })
                 : `Cart (${totalItems})`}
-            </Button>
+            </div>
           </LocalizedClientLink>
         </Popover.Button>
 
