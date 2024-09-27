@@ -20,7 +20,10 @@ export async function retrieveCart() {
   return await sdk.store.cart
     .retrieve(
       cartId,
-      {},
+      {
+        fields:
+          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail",
+      },
       { next: { tags: [`cart-${cartId}`] }, ...getAuthHeaders() }
     )
     .then(({ cart }) => cart)
