@@ -12,10 +12,10 @@ export function CompanyForm({
   company?: Partial<UpdateCompanyDTO>;
   handleSubmit: (data: Partial<UpdateCompanyDTO>) => Promise<void>;
   loading: boolean;
-  error: Error;
+  error: Error | null;
 }) {
   const [formData, setFormData] = useState<Partial<UpdateCompanyDTO>>(
-    company || {}
+    company || ({} as Partial<UpdateCompanyDTO>)
   );
 
   const {
@@ -70,7 +70,7 @@ export function CompanyForm({
           <Input
             type="text"
             name="address"
-            value={formData.address}
+            value={formData.address || ""}
             onChange={handleChange}
             placeholder="1234 Main St"
           />
@@ -78,7 +78,7 @@ export function CompanyForm({
           <Input
             type="text"
             name="city"
-            value={formData.city}
+            value={formData.city || ""}
             onChange={handleChange}
             placeholder="New York"
           />
@@ -86,7 +86,7 @@ export function CompanyForm({
           <Input
             type="text"
             name="state"
-            value={formData.state}
+            value={formData.state || ""}
             onChange={handleChange}
             placeholder="NY"
           />
@@ -94,7 +94,7 @@ export function CompanyForm({
           <Input
             type="text"
             name="zip"
-            value={formData.zip}
+            value={formData.zip || ""}
             onChange={handleChange}
             placeholder="10001"
           />
@@ -103,7 +103,7 @@ export function CompanyForm({
               <Label size="xsmall">Company Country</Label>
               <Select
                 name="country"
-                value={formData.country}
+                value={formData.country || ""}
                 onValueChange={handleCountryChange}
                 disabled={regionsLoading}
               >
@@ -124,7 +124,7 @@ export function CompanyForm({
 
               <Select
                 name="currency_code"
-                value={formData.currency_code}
+                value={formData.currency_code || ""}
                 onValueChange={handleCurrencyChange}
                 defaultValue={currencyCodes?.[0]}
                 disabled={regionsLoading}
@@ -148,7 +148,7 @@ export function CompanyForm({
           <Input
             type="text"
             name="logo_url"
-            value={formData.logo_url}
+            value={formData.logo_url || ""}
             onChange={handleChange}
             placeholder="https://example.com/logo.png"
           />
