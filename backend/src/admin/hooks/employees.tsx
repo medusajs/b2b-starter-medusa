@@ -51,14 +51,14 @@ export const useEmployees = (
 export const useCreateEmployee = (
   companyId: string
 ): {
-  mutate: (customer: CreateEmployeeDTO) => Promise<EmployeeDTO>;
+  mutate: (employee: CreateEmployeeDTO) => Promise<EmployeeDTO>;
   loading: boolean;
   error: Error | null;
 } => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const mutate = async (customer: CreateEmployeeDTO) => {
+  const mutate = async (employee: CreateEmployeeDTO) => {
     setLoading(true);
     setError(null);
 
@@ -68,15 +68,15 @@ export const useCreateEmployee = (
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(customer),
+        body: JSON.stringify(employee),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create company customer");
+        throw new Error("Failed to create employee");
       }
 
       const result = await response.json();
-      return result.company_customer;
+      return result.employee;
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")
@@ -94,14 +94,16 @@ export const useUpdateEmployee = (
   companyId: string,
   employeeId: string
 ): {
-  mutate: (customer: UpdateEmployeeDTO) => Promise<EmployeeDTO>;
+  data: EmployeeDTO | null;
+  mutate: (employee: UpdateEmployeeDTO) => Promise<void>;
   loading: boolean;
   error: Error | null;
 } => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [data, setData] = useState<EmployeeDTO | null>(null);
 
-  const mutate = async (customer: UpdateEmployeeDTO) => {
+  const mutate = async (employee: UpdateEmployeeDTO) => {
     setLoading(true);
     setError(null);
 
@@ -113,7 +115,7 @@ export const useUpdateEmployee = (
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(customer),
+          body: JSON.stringify(employee),
         }
       );
 
@@ -122,7 +124,7 @@ export const useUpdateEmployee = (
       }
 
       const result = await response.json();
-      return result.company_customer;
+      setData(result.employee);
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")
@@ -133,7 +135,7 @@ export const useUpdateEmployee = (
     }
   };
 
-  return { mutate, loading, error };
+  return { data, mutate, loading, error };
 };
 
 export const useDeleteEmployee = (

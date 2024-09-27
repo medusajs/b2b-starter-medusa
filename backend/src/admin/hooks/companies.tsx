@@ -150,7 +150,7 @@ export const useUpdateCompany = (
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ company }),
+        body: JSON.stringify(company),
       });
 
       if (!response.ok) {

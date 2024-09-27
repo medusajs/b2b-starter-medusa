@@ -20,12 +20,14 @@ import {
 type EditAddressProps = {
   region: HttpTypes.StoreRegion
   address: HttpTypes.StoreCustomerAddress
+  customer: HttpTypes.StoreCustomer
   isActive?: boolean
 }
 
 const EditAddress: React.FC<EditAddressProps> = ({
   region,
   address,
+  customer,
   isActive = false,
 }) => {
   const [removing, setRemoving] = useState(false)
@@ -58,7 +60,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
 
   const removeAddress = async () => {
     setRemoving(true)
-    await deleteCustomerAddress(address.id)
+    await deleteCustomerAddress(address.id, customer.id)
     setRemoving(false)
   }
 

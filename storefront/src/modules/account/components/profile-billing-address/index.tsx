@@ -35,6 +35,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   const [successState, setSuccessState] = React.useState(false)
 
   const [state, formAction] = useFormState(updateCustomerAddress, {
+    customerId: customer.id,
     error: false,
     success: false,
   })

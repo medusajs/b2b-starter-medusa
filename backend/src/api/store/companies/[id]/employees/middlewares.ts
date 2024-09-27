@@ -1,19 +1,19 @@
 import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
-import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
-import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
+import { validateAndTransformBody } from "@medusajs/medusa/dist/api/utils/validate-body";
+import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
 import { retrieveEmployeeTransformQueryConfig } from "./query-config";
 import {
-  CreateEmployee,
   GetEmployeeParams,
+  CreateEmployee,
   UpdateEmployee,
 } from "./validators";
 
-export const adminEmployeesMiddlewares: MiddlewareRoute[] = [
+export const storeEmployeesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
-    matcher: "/companies/:id/employees",
+    matcher: "/store/companies/:id/employees",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
+      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetEmployeeParams,
         retrieveEmployeeTransformQueryConfig
@@ -22,9 +22,8 @@ export const adminEmployeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/employees",
+    matcher: "/store/companies/:id/employees",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformBody(CreateEmployee),
       validateAndTransformQuery(
         GetEmployeeParams,
@@ -34,9 +33,9 @@ export const adminEmployeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/companies/:id/employees/:employee_id",
+    matcher: "/store/companies/:id/employees/:employee_id",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
+      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetEmployeeParams,
         retrieveEmployeeTransformQueryConfig
@@ -45,9 +44,9 @@ export const adminEmployeesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/employees/:employee_id",
+    matcher: "/store/companies/:id/employees/:employee_id",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
+      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformBody(UpdateEmployee),
       validateAndTransformQuery(
         GetEmployeeParams,

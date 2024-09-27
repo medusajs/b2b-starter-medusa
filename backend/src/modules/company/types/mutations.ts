@@ -14,7 +14,7 @@ export interface DeleteCompanyDTO {
 
 export interface CreateEmployeeDTO
   extends Omit<Partial<EmployeeDTO>, "id" | "createdAt" | "updatedAt"> {
-  company_id: string;
+  customer_id: string;
 }
 
 export interface UpdateEmployeeDTO extends Partial<EmployeeDTO> {

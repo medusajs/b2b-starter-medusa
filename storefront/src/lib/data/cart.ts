@@ -16,6 +16,7 @@ import {
 } from "./cookies"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
+import { getCustomer } from "./customer"
 
 export async function retrieveCart() {
   const cartId = getCartId()
@@ -42,16 +43,25 @@ export async function retrieveCart() {
 export async function getOrSetCart(countryCode: string) {
   let cart = await retrieveCart()
   const region = await getRegion(countryCode)
+  const customer = await getCustomer()
 
   if (!region) {
     throw new Error(`Region not found for country code: ${countryCode}`)
   }
 
   if (!cart) {
-    const cartResp = await sdk.store.cart.create({ region_id: region.id })
-    cart = cartResp.cart
-    setCartId(cart.id)
+    const body = {
+      region_id: region.id,
+      metadata: {
+        company_id: customer?.employee?.company_id,
+      },
+    }
+
+    const cartResp = await sdk.store.cart.create(body)
+    setCartId(cartResp.cart.id)
     revalidateTag(getCacheTag("carts"))
+
+    cart = await retrieveCart()
   }
 
   if (cart && cart?.region_id !== region.id) {

@@ -1,5 +1,5 @@
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
 import {
   deleteEmployeesWorkflow,
   updateEmployeesWorkflow,

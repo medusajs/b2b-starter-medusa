@@ -26,7 +26,7 @@ export default async function Home({
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-y-2">
       <div className="flex items-center justify-center p-4 text-center bg-zinc-900 font-[--font-geist-sans] gap-2">
         <InformationCircle className="inline" color="white" />
         <span className="text-white mr-2">
@@ -40,14 +40,9 @@ export default async function Home({
           Go to Products <ArrowUpRightMini className="inline text-blue-400" />
         </LocalizedClientLink>
       </div>
-
       <Hero />
 
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-    </>
+      <FeaturedProducts collections={collections} region={region} />
+    </div>
   )
 }
