@@ -3,7 +3,7 @@ import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import {
   deleteCompaniesWorkflow,
   updateCompaniesWorkflow,
-} from "../../../workflows/company/workflows/";
+} from "../../../../workflows/company/workflows/";
 import { GetCompanyParamsType, UpdateCompanyType } from "../validators";
 
 export const GET = async (

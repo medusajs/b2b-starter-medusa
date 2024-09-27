@@ -1,4 +1,4 @@
-import { MiddlewareRoute } from "@medusajs/medusa";
+import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
 import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
 import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 import { retrieveEmployeeTransformQueryConfig } from "./query-config";
@@ -13,6 +13,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/companies/:id/employees",
     middlewares: [
+      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetEmployeeParams,
         retrieveEmployeeTransformQueryConfig
@@ -23,6 +24,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/companies/:id/employees",
     middlewares: [
+      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformBody(CreateEmployee),
       validateAndTransformQuery(
         GetEmployeeParams,
@@ -34,6 +36,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/companies/:id/employees/:employee_id",
     middlewares: [
+      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetEmployeeParams,
         retrieveEmployeeTransformQueryConfig
@@ -44,6 +47,7 @@ export const employeesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/companies/:id/employees/:employee_id",
     middlewares: [
+      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformBody(UpdateEmployee),
       validateAndTransformQuery(
         GetEmployeeParams,

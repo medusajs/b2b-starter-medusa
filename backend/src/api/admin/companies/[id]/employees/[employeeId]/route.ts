@@ -3,7 +3,7 @@ import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import {
   deleteEmployeesWorkflow,
   updateEmployeesWorkflow,
-} from "../../../../../workflows/employee/workflows";
+} from "../../../../../../workflows/employee/workflows";
 import { GetEmployeeParamsType, UpdateEmployeeType } from "../validators";
 
 export const GET = async (

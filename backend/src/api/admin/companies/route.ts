@@ -1,10 +1,13 @@
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { createCompaniesWorkflow } from "../../workflows/company/workflows/create-companies";
+import type {
+  AuthenticatedMedusaRequest,
+  MedusaResponse,
+} from "@medusajs/medusa";
+import { createCompaniesWorkflow } from "../../../workflows/company/workflows/create-companies";
 import { CreateCompanyType, GetCompanyParamsType } from "./validators";
 
 export const GET = async (
-  req: MedusaRequest<GetCompanyParamsType>,
+  req: AuthenticatedMedusaRequest<GetCompanyParamsType>,
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
@@ -26,7 +29,7 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: MedusaRequest<CreateCompanyType>,
+  req: AuthenticatedMedusaRequest<CreateCompanyType>,
   res: MedusaResponse
 ) => {
   const { result } = await createCompaniesWorkflow.run({

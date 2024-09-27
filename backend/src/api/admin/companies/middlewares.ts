@@ -8,8 +8,9 @@ import { CreateCompany, GetCompanyParams } from "./validators";
 export const companiesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
-    matcher: "/companies",
+    matcher: "/admin/companies",
     middlewares: [
+      // authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetCompanyParams,
         retrieveCompanyTransformQueryConfig
@@ -18,8 +19,9 @@ export const companiesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies",
+    matcher: "/admin/companies",
     middlewares: [
+      // authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformBody(CreateCompany),
       validateAndTransformQuery(
         GetCompanyParams,
@@ -29,12 +31,13 @@ export const companiesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/companies/:id",
+    matcher: "/admin/companies/:id",
     middlewares: [
       validateAndTransformQuery(
         GetCompanyParams,
         retrieveCompanyTransformQueryConfig
       ),
+      // authenticate("user", ["session", "bearer", "api-key"]),
     ],
   },
 ];
