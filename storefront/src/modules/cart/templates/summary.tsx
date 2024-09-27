@@ -2,11 +2,12 @@
 
 import { Button, Heading } from "@medusajs/ui"
 
+import { HttpTypes } from "@medusajs/types"
+import DiscountCode from "@modules/checkout/components/discount-code"
 import CartTotals from "@modules/common/components/cart-totals"
 import Divider from "@modules/common/components/divider"
-import DiscountCode from "@modules/checkout/components/discount-code"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { HttpTypes } from "@medusajs/types"
+import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -41,6 +42,12 @@ const Summary = ({ cart }: SummaryProps) => {
       >
         <Button className="w-full h-10">Go to checkout</Button>
       </LocalizedClientLink>
+
+      <RequestQuoteConfirmation>
+        <Button className="w-full h-10" variant="secondary">
+          Request Quote
+        </Button>
+      </RequestQuoteConfirmation>
     </div>
   )
 }

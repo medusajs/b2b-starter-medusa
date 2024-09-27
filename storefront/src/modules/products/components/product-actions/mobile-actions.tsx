@@ -7,8 +7,8 @@ import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
 
 import { getProductPrice } from "@lib/util/get-product-price"
-import OptionSelect from "./option-select"
 import { HttpTypes } from "@medusajs/types"
+import OptionSelect from "./option-select"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -129,7 +129,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
         </Transition>
       </div>
       <Transition appear show={state} as={Fragment}>
-        <Dialog as="div" className="relative z-[75]" onClose={close}>
+        <Dialog as="div" className="relative z-[1]" onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

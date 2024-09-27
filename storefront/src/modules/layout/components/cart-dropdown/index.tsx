@@ -72,7 +72,7 @@ const CartDropdown = ({
 
   return (
     <div
-      className="h-full z-50"
+      className="h-full z-[55]"
       onMouseEnter={openAndCancel}
       onMouseLeave={close}
     >
@@ -108,7 +108,7 @@ const CartDropdown = ({
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border border-gray-200 w-[420px] text-ui-fg-base mt-1"
+            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border border-gray-200 w-[420px] text-ui-fg-base mt-1 z-[100]"
             data-testid="nav-cart-dropdown"
           >
             <div className="p-4 flex items-center justify-center">

@@ -143,7 +143,7 @@ medusaIntegrationTestRunner({
 
         expect(data).toEqual({
           type: "not_found",
-          message: "order id not found: does-not-exist",
+          message: "Quote id not found: does-not-exist",
         });
       });
     });

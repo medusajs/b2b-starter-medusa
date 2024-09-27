@@ -2,7 +2,6 @@ import {
   beginOrderEditOrderWorkflow,
   createOrdersWorkflow,
   orderEditAddNewItemWorkflow,
-  requestOrderEditRequestWorkflow,
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
 import { OrderStatus } from "@medusajs/utils";
@@ -90,13 +89,6 @@ export const createRequestQuoteWorkflow = createWorkflow(
 
     orderEditAddNewItemWorkflow.runAsStep({
       input: orderEditAddItemsInput,
-    });
-
-    requestOrderEditRequestWorkflow.runAsStep({
-      input: {
-        order_id: draftOrder.id,
-        requested_by: "user_id",
-      },
     });
 
     const quotes = createQuotesWorkflow.runAsStep({
