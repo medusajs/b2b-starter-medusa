@@ -4,6 +4,7 @@ import { cache } from "react"
 import { getRegion } from "./regions"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { sortProducts } from "@lib/util/sort-products"
+import { getCacheHeaders } from "./cookies"
 
 export const getProductsById = cache(async function ({
   ids,
@@ -20,7 +21,7 @@ export const getProductsById = cache(async function ({
         fields:
           "*variants.calculated_price,+variants.inventory_quantity,+inventory_quantity",
       },
-      { next: { tags: ["products"] } }
+      { ...getCacheHeaders("products") }
     )
     .then(({ products }) => products)
 })
@@ -36,7 +37,7 @@ export const getProductByHandle = cache(async function (
         region_id: regionId,
         fields: "*variants.calculated_price,+variants.inventory_quantity",
       },
-      { next: { tags: ["products"] } }
+      { ...getCacheHeaders("products") }
     )
     .then(({ products }) => products[0])
 })
@@ -73,7 +74,7 @@ export const getProductsList = cache(async function ({
         fields: "*variants.calculated_price",
         ...queryParams,
       },
-      { next: { tags: ["products"] } }
+      { ...getCacheHeaders("products") }
     )
     .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null

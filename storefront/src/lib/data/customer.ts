@@ -6,11 +6,17 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
-import { getAuthHeaders, removeAuthToken, setAuthToken } from "./cookies"
+import {
+  getAuthHeaders,
+  removeAuthToken,
+  setAuthToken,
+  getCacheTag,
+  getCacheHeaders,
+} from "./cookies"
 
 export const getCustomer = cache(async function () {
   return await sdk.store.customer
-    .retrieve({}, { next: { tags: ["customer"] }, ...getAuthHeaders() })
+    .retrieve({}, { ...getCacheHeaders("customers"), ...getAuthHeaders() })
     .then(({ customer }) => customer)
     .catch(() => null)
 })
@@ -23,7 +29,7 @@ export const updateCustomer = cache(async function (
     .then(({ customer }) => customer)
     .catch(medusaError)
 
-  revalidateTag("customer")
+  revalidateTag(getCacheTag("customers"))
   return updateRes
 })
 
@@ -43,7 +49,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
     })
 
     const customHeaders = { authorization: `Bearer ${token}` }
-    
+
     const { customer: createdCustomer } = await sdk.store.customer.create(
       customerForm,
       {},
@@ -55,9 +61,9 @@ export async function signup(_currentState: unknown, formData: FormData) {
       password,
     })
 
-    setAuthToken(loginToken)
+    setAuthToken(loginToken as string)
 
-    revalidateTag("customer")
+    revalidateTag(getCacheTag("customers"))
     return createdCustomer
   } catch (error: any) {
     return error.toString()
@@ -72,8 +78,8 @@ export async function login(_currentState: unknown, formData: FormData) {
     await sdk.auth
       .login("customer", "emailpass", { email, password })
       .then((token) => {
-        setAuthToken(token)
-        revalidateTag("customer")
+        setAuthToken(token as string)
+        revalidateTag(getCacheTag("customers"))
       })
   } catch (error: any) {
     return error.toString()
@@ -83,8 +89,8 @@ export async function login(_currentState: unknown, formData: FormData) {
 export async function signout(countryCode: string) {
   await sdk.auth.logout()
   removeAuthToken()
-  revalidateTag("auth")
-  revalidateTag("customer")
+  revalidateTag(getCacheTag("auth"))
+  revalidateTag(getCacheTag("customers"))
   redirect(`/${countryCode}/account`)
 }
 
@@ -108,7 +114,7 @@ export const addCustomerAddress = async (
   return sdk.store.customer
     .createAddress(address, {}, getAuthHeaders())
     .then(({ customer }) => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -122,7 +128,7 @@ export const deleteCustomerAddress = async (
   await sdk.store.customer
     .deleteAddress(addressId, getAuthHeaders())
     .then(() => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -152,7 +158,7 @@ export const updateCustomerAddress = async (
   return sdk.store.customer
     .updateAddress(addressId, address, {}, getAuthHeaders())
     .then(() => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {

@@ -11,9 +11,26 @@ export const getAuthHeaders = (): { authorization: string } | {} => {
   return {}
 }
 
-export const getCacheTag = (tag: string) => {
+export const getCacheTag = (tag: string): string => {
   const cacheId = cookies().get("_medusa_cache_id")?.value
-  return { tags: [`${tag}-${cacheId}`] }
+
+  if (cacheId) {
+    return `${tag}-${cacheId}`
+  }
+
+  return ""
+}
+
+export const getCacheHeaders = (
+  tag: string
+): { next: { tags: string[] } } | {} => {
+  const cacheTag = getCacheTag(tag)
+
+  if (cacheTag) {
+    return { next: { tags: [`${cacheTag}`] } }
+  }
+
+  return {}
 }
 
 export const setAuthToken = (token: string) => {
