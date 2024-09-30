@@ -1,5 +1,5 @@
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
+import { Container, Text } from "@medusajs/ui"
 import Checkbox from "@modules/common/components/checkbox"
 import Input from "@modules/common/components/input"
 import { mapKeys } from "lodash"
@@ -62,11 +62,7 @@ const ShippingAddress = ({
   useEffect(() => {
     // Ensure cart is not null and has a shipping_address before setting form data
     if (cart && cart.shipping_address) {
-      setFormAddress(cart?.shipping_address, cart?.email)
-    }
-
-    if (cart && !cart.email && customer?.email) {
-      setFormAddress(undefined, customer.email)
+      setFormAddress(cart?.shipping_address)
     }
   }, [cart]) // Add cart as a dependency
 
@@ -181,27 +177,40 @@ const ShippingAddress = ({
           data-testid="billing-address-checkbox"
         />
       </div>
-      <div className="grid grid-cols-2 gap-4 mb-4">
-        <Input
-          label="Email"
-          name="email"
-          type="email"
-          title="Enter a valid email address."
-          autoComplete="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          data-testid="shipping-email-input"
-        />
-        <Input
-          label="Phone"
-          name="shipping_address.phone"
-          autoComplete="tel"
-          value={formData["shipping_address.phone"]}
-          onChange={handleChange}
-          data-testid="shipping-phone-input"
-        />
-      </div>
+      {!customer ? (
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <Input
+            label="Email"
+            name="email"
+            type="email"
+            title="Enter a valid email address."
+            autoComplete="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            data-testid="shipping-email-input"
+          />
+          <Input
+            label="Phone"
+            name="shipping_address.phone"
+            autoComplete="tel"
+            value={formData["shipping_address.phone"]}
+            onChange={handleChange}
+            data-testid="shipping-phone-input"
+          />
+        </div>
+      ) : (
+        <div
+          className="flex flex-col w-1/3 "
+          data-testid="shipping-contact-summary"
+        >
+          <Text className="txt-medium-plus text-ui-fg-base mb-1">Contact</Text>
+          <Text className="txt-medium text-ui-fg-subtle">{customer.phone}</Text>
+          <Text className="txt-medium text-ui-fg-subtle">
+            {customer?.email}
+          </Text>
+        </div>
+      )}
     </>
   )
 }

@@ -51,13 +51,14 @@ export async function getOrSetCart(countryCode: string) {
 
   if (!cart) {
     const body = {
+      email: customer?.email,
       region_id: region.id,
       metadata: {
         company_id: customer?.employee?.company_id,
       },
     }
 
-    const cartResp = await sdk.store.cart.create(body)
+    const cartResp = await sdk.store.cart.create(body, {}, getAuthHeaders())
     setCartId(cartResp.cart.id)
     revalidateTag(getCacheTag("carts"))
 
@@ -325,7 +326,10 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
     }
+
     const cartId = getCartId()
+    const customer = await getCustomer()
+
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses")
     }
@@ -343,7 +347,8 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
-      email: formData.get("email"),
+      customer_id: customer?.id,
+      email: customer?.email || formData.get("email"),
     } as any
 
     const sameAsBilling = formData.get("same_as_billing")

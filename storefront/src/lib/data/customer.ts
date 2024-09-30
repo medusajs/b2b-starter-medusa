@@ -20,7 +20,7 @@ export const getCustomer = cache(async function () {
   return await sdk.store.customer
     .retrieve(
       {
-        fields: "+employee.*,+employee.company.*",
+        fields: "+employee.*,+employee.company.*,+orders.*",
       },
       { ...getCacheHeaders("customers"), ...getAuthHeaders() }
     )
@@ -89,7 +89,6 @@ export async function signup(_currentState: unknown, formData: FormData) {
       createdCompany = await createCompany(companyForm).then(
         ({ companies }) => companies[0]
       )
-      console.log(createdCompany)
 
       if (createdCompany) {
         createdEmployee = await createEmployee(createdCompany.id as string, {
