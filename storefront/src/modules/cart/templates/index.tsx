@@ -36,7 +36,9 @@ const CartTemplate = ({
                 </div>
                 <div className="relative">
                   <div className="flex flex-col gap-y-8 sticky top-20">
-                    {cart && cart.region && <Summary cart={cart as any} />}
+                    {cart && cart.region && (
+                      <Summary cart={cart as any} customer={customer} />
+                    )}
                   </div>
                 </div>
               </div>

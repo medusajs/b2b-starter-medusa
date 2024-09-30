@@ -11,6 +11,7 @@ type SummaryProps = {
   cart: HttpTypes.StoreCart & {
     promotions: HttpTypes.StorePromotion[]
   }
+  customer: HttpTypes.StoreCustomer | null
 }
 
 function getCheckoutStep(cart: HttpTypes.StoreCart) {
@@ -23,8 +24,12 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
   }
 }
 
-const Summary = ({ cart }: SummaryProps) => {
+const Summary = ({ cart, customer }: SummaryProps) => {
   const step = getCheckoutStep(cart)
+
+  const checkoutButtonLink = customer ? "/checkout?step=" + step : "/login"
+
+  // console.log({ customer })
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -32,11 +37,11 @@ const Summary = ({ cart }: SummaryProps) => {
       {/* <Divider /> */}
       <CartTotals totals={cart} />
       <LocalizedClientLink
-        href={"/checkout?step=" + step}
+        href={checkoutButtonLink}
         data-testid="checkout-button"
       >
         <Button className="w-full h-10 rounded-full shadow-none">
-          Secure Checkout
+          {customer ? "Checkout" : "Login to Checkout"}
         </Button>
       </LocalizedClientLink>
       <Button

@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 
 import { listRegions } from "@lib/data/regions"
-import { DocumentText, UserCircleMini } from "@medusajs/icons"
+import { DocumentText, User } from "@medusajs/icons"
 import { StoreRegion } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -9,9 +9,11 @@ import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import LogoIcon from "icons/logo"
+import { getCustomer } from "@lib/data/customer"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
+  const customer = await getCustomer().catch(() => null)
 
   return (
     <div className="sticky top-0 inset-x-0 z-1 group">
@@ -50,7 +52,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                {customer ? customer.first_name : "Login"}
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -74,6 +76,8 @@ export default async function Nav() {
 }
 
 export async function NavigationHeader() {
+  const customer = await getCustomer().catch(() => null)
+
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       <header className="relative bg-white text-zinc-900 p-4 text-sm border-b duration-200 border-ui-border-base">
@@ -126,8 +130,8 @@ export async function NavigationHeader() {
                 variant="secondary"
                 className="rounded-2xl bg-ui-bg-subtle"
               >
-                <UserCircleMini />
-                Account
+                <User />
+                {customer ? customer.first_name : "Login"}
               </Button>
             </LocalizedClientLink>
 
