@@ -1,13 +1,15 @@
 "use client"
 
-import { updateLineItem, deleteLineItem } from "@lib/data/cart"
+import { deleteLineItem, updateLineItem } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Input } from "@medusajs/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemPrice from "@modules/common/components/line-item-price"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Spinner from "@modules/common/icons/spinner"
 import Thumbnail from "@modules/products/components/thumbnail"
-import { startTransition, useState } from "react"
+import { useState } from "react"
+import AddNoteButton from "../add-note-button"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem
@@ -26,21 +28,16 @@ const Item = ({ item, type = "full" }: ItemProps) => {
     setError(null)
     setUpdating(true)
 
-    startTransition(() => {
-      setQuantity(newQuantity.toString())
-    })
+    setQuantity(newQuantity.toString())
 
     try {
       await updateLineItem({
         lineId: item.id,
-        quantity: Number(newQuantity),
+        data: { quantity: Number(newQuantity) },
       })
     } catch (err) {
       setError(err as string)
-      // Revert the optimistic update if there's an error
-      startTransition(() => {
-        setQuantity(item.quantity.toString())
-      })
+      setQuantity(item.quantity.toString())
     } finally {
       setQuantity(newQuantity.toString())
       setUpdating(false)
@@ -54,12 +51,15 @@ const Item = ({ item, type = "full" }: ItemProps) => {
 
     if (value > maxQuantity) {
       setQuantity(maxQuantity.toString())
+      changeQuantity(maxQuantity)
+      return
     }
 
     if (value < 1) {
       setUpdating(true)
       deleteLineItem(item.id)
       setUpdating(false)
+      return
     }
 
     changeQuantity(value)
@@ -67,32 +67,32 @@ const Item = ({ item, type = "full" }: ItemProps) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      changeQuantity(Number(quantity))
+      handleBlur(Number(quantity))
     }
 
     if (e.key === "ArrowUp" && e.shiftKey) {
       e.preventDefault()
-      setQuantity((Number(quantity) + 10).toString())
+      setQuantity(String(Number(quantity) + 10))
     }
 
     if (e.key === "ArrowDown" && e.shiftKey) {
       e.preventDefault()
-      setQuantity((Number(quantity) - 10).toString())
+      setQuantity(String(Number(quantity) - 10))
     }
   }
 
-  // TODO: Update this to grab the actual max inventory
-  const maxQtyFromInventory = 10
-  const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
+  const maxQuantity = item.variant?.inventory_quantity ?? 10
 
   return (
     <Container className="flex gap-4 w-full h-full items-center justify-between">
       <div className="flex gap-x-2 items-start">
-        <Thumbnail
-          thumbnail={item.thumbnail}
-          size="square"
-          className="bg-neutral-100 rounded-lg w-20 h-20"
-        />
+        <LocalizedClientLink href={`/products/${item.product?.handle}`}>
+          <Thumbnail
+            thumbnail={item.thumbnail}
+            size="square"
+            className="bg-neutral-100 rounded-lg w-20 h-20"
+          />
+        </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between">
           <div className="flex flex-col">
             <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
@@ -103,8 +103,8 @@ const Item = ({ item, type = "full" }: ItemProps) => {
               {item.variant?.title}
             </span>
           </div>
-          <div className="flex gap-x-2">
-            <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
+          <div className="flex gap-x-2 items-center">
+            <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit h-6 p-px items-center">
               <button
                 className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
                 onClick={() => changeQuantity(item.quantity - 1)}
@@ -117,7 +117,7 @@ const Item = ({ item, type = "full" }: ItemProps) => {
                   <Spinner size="12" />
                 ) : (
                   <Input
-                    className="w-8 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
+                    className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
                     type="number"
                     value={quantity}
                     onChange={(e) => {
@@ -138,10 +138,8 @@ const Item = ({ item, type = "full" }: ItemProps) => {
                 +
               </button>
             </div>
-            <button className="text-neutral-950 text-xs shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full px-2 py-1 min-w-20 h-6 flex items-center justify-center hover:bg-neutral-100">
-              Add note
-            </button>
             <DeleteButton id={item.id} />
+            <AddNoteButton item={item} />
           </div>
         </div>
       </div>
