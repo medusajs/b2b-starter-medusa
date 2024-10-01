@@ -54,7 +54,7 @@ export async function getOrSetCart(countryCode: string) {
       email: customer?.email,
       region_id: region.id,
       metadata: {
-        company_id: customer?.employee?.company_id,
+        company_id: customer?.employee?.company?.id,
       },
     }
 
@@ -129,10 +129,10 @@ export async function addToCart({
 
 export async function updateLineItem({
   lineId,
-  quantity,
+  data,
 }: {
   lineId: string
-  quantity: number
+  data: HttpTypes.StoreUpdateCartLineItem
 }) {
   if (!lineId) {
     throw new Error("Missing lineItem ID when updating line item")
@@ -144,7 +144,7 @@ export async function updateLineItem({
   }
 
   await sdk.store.cart
-    .updateLineItem(cartId, lineId, { quantity }, {}, getAuthHeaders())
+    .updateLineItem(cartId, lineId, data, {}, getAuthHeaders())
     .then(() => {
       revalidateTag(getCacheTag("carts"))
     })

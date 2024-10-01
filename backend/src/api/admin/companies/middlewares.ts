@@ -1,4 +1,4 @@
-import { MiddlewareRoute } from "@medusajs/medusa";
+import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
 import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
 import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 
