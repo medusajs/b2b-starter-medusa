@@ -1,5 +1,5 @@
-import CompanyModuleService from "./service";
 import { Module } from "@medusajs/utils";
+import CompanyModuleService from "./service";
 
 export const COMPANY_MODULE = "companyModuleService";
 

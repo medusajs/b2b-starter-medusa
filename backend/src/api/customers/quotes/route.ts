@@ -1,3 +1,4 @@
+import { AuthenticatedMedusaRequest, Query } from "@medusajs/framework";
 import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createRequestQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-quote-workflow";
@@ -18,16 +19,17 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: MedusaRequest<CreateQuoteType>,
+  req: AuthenticatedMedusaRequest<CreateQuoteType>,
   res: MedusaResponse
 ) => {
-  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const query: Query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
   const {
     result: { quote: createdQuote },
   } = await createRequestQuoteWorkflow(req.scope).run({
     input: {
       ...req.validatedBody,
+      customer_id: req.auth_context.actor_id,
     },
   });
 

@@ -1,8 +1,6 @@
 import {
   beginOrderEditOrderWorkflow,
   createOrdersWorkflow,
-  orderEditAddNewItemWorkflow,
-  requestOrderEditRequestWorkflow,
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
 import { OrderStatus } from "@medusajs/utils";
@@ -15,7 +13,14 @@ import { createQuotesWorkflow } from "./create-quote-workflow";
 
 export const createRequestQuoteWorkflow = createWorkflow(
   "create-request-quote",
-  function (input: { cart_id: string }): WorkflowResponse<any> {
+  function (input: {
+    cart_id: string;
+    customer_id: string;
+  }): WorkflowResponse<any> {
+    transform({ input }, ({ input }) => {
+      console.log("input - ", input);
+    });
+
     const cart = useRemoteQueryStep({
       entry_point: "cart",
       fields: [
@@ -36,13 +41,25 @@ export const createRequestQuoteWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     });
 
-    const orderInput = transform({ cart }, ({ cart }) => {
+    const customer = useRemoteQueryStep({
+      entry_point: "customer",
+      fields: ["id", "customer"],
+      variables: { id: input.customer_id },
+      list: false,
+      throw_if_key_not_found: true,
+    }).config({ name: "customer-query" });
+
+    transform({ customer }, ({ customer }) => {
+      console.log("customer - ", customer);
+    });
+
+    const orderInput = transform({ cart, customer }, ({ cart, customer }) => {
       return {
         is_draft_order: true,
         status: OrderStatus.DRAFT,
         sales_channel_id: cart.sales_channel_id,
-        email: cart.customer?.email,
-        customer_id: cart.customer?.id,
+        email: customer.email,
+        customer_id: customer.id,
         billing_address: cart.billing_address,
         shipping_address: cart.shipping_address,
         items: cart.items,
@@ -53,8 +70,16 @@ export const createRequestQuoteWorkflow = createWorkflow(
       };
     });
 
+    transform({ orderInput }, ({ orderInput }) => {
+      console.log("orderInput - ", orderInput);
+    });
+
     const draftOrder = createOrdersWorkflow.runAsStep({
       input: orderInput,
+    });
+
+    transform({ draftOrder }, ({ draftOrder }) => {
+      console.log("draftOrder - ", draftOrder);
     });
 
     const orderEditInput = transform({ draftOrder }, ({ draftOrder }) => {
@@ -66,37 +91,16 @@ export const createRequestQuoteWorkflow = createWorkflow(
       };
     });
 
+    transform({ orderEditInput }, ({ orderEditInput }) => {
+      console.log("orderEditInput - ", orderEditInput);
+    });
+
     const changeOrder = beginOrderEditOrderWorkflow.runAsStep({
       input: orderEditInput,
     });
 
-    const orderEditAddItemsInput = transform(
-      { draftOrder },
-      ({ draftOrder }) => {
-        return {
-          order_id: draftOrder.id,
-          items: (draftOrder.items || []).map((item) => {
-            return {
-              variant_id: item.variant_id!,
-              quantity: item.quantity,
-              unit_price: item.unit_price,
-              internal_note: "",
-              metadata: {},
-            };
-          }),
-        };
-      }
-    );
-
-    orderEditAddNewItemWorkflow.runAsStep({
-      input: orderEditAddItemsInput,
-    });
-
-    requestOrderEditRequestWorkflow.runAsStep({
-      input: {
-        order_id: draftOrder.id,
-        requested_by: "user_id",
-      },
+    transform({ changeOrder }, ({ changeOrder }) => {
+      console.log("changeOrder - ", changeOrder);
     });
 
     const quotes = createQuotesWorkflow.runAsStep({
@@ -104,13 +108,17 @@ export const createRequestQuoteWorkflow = createWorkflow(
         {
           draft_order_id: draftOrder.id,
           cart_id: cart.id,
+          customer_id: customer.id,
           order_change_id: changeOrder.id,
         },
       ],
     });
 
+    transform({ quotes }, ({ quotes }) => {
+      console.log("quotes - ", quotes);
+    });
+
     return new WorkflowResponse({
-      draftOrder,
       quote: quotes[0],
     });
   }

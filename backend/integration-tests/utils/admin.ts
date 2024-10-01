@@ -50,3 +50,36 @@ export const createAdminUser = async (adminHeaders, appContainer) => {
 
   return { user, authIdentity };
 };
+
+export const createStoreUser = async ({ api, storeHeaders }) => {
+  const registerToken = (
+    await api.post("/auth/customer/emailpass/register", {
+      email: "test@email.com",
+      password: "password",
+    })
+  ).data.token;
+
+  const customer = (
+    await api.post(
+      "/store/customers",
+      {
+        email: "test@email.com",
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${registerToken}`,
+          ...storeHeaders.headers,
+        },
+      }
+    )
+  ).data.customer;
+
+  const token = (
+    await api.post("/auth/customer/emailpass", {
+      email: "test@email.com",
+      password: "password",
+    })
+  ).data.token;
+
+  return { customer, token };
+};

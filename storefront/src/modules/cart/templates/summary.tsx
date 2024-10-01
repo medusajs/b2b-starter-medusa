@@ -1,13 +1,11 @@
 "use client"
 
-import { Button, Container, Heading, Text } from "@medusajs/ui"
+import { Button, Container } from "@medusajs/ui"
 
-import CartTotals from "@modules/common/components/cart-totals"
-import Divider from "@modules/common/components/divider"
-import DiscountCode from "@modules/checkout/components/discount-code"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
-import { convertToLocale } from "@lib/util/money"
+import CartTotals from "@modules/common/components/cart-totals"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -53,6 +51,12 @@ const Summary = ({ cart }: SummaryProps) => {
       >
         Empty Cart
       </Button>
+
+      <RequestQuoteConfirmation>
+        <Button className="w-full h-10" variant="secondary">
+          Request Quote
+        </Button>
+      </RequestQuoteConfirmation>
     </Container>
   )
 }

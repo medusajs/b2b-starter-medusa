@@ -7,13 +7,14 @@ import { Button } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import LogoIcon from "icons/logo"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
+    <div className="sticky top-0 inset-x-0 z-1 group">
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
@@ -106,10 +107,16 @@ export async function NavigationHeader() {
                 className="bg-gray-100 text-white px-4 py-2 rounded-full pr-10"
               />
             </div>
-            <Button variant="secondary" className="rounded-2xl bg-ui-bg-subtle">
-              <DocumentText />
-              Quote
-            </Button>
+
+            <RequestQuotePrompt>
+              <Button
+                variant="secondary"
+                className="rounded-2xl bg-ui-bg-subtle"
+              >
+                <DocumentText />
+                Quote
+              </Button>
+            </RequestQuotePrompt>
 
             <LocalizedClientLink
               className="hover:text-ui-fg-base"

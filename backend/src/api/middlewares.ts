@@ -1,6 +1,7 @@
 import { defineMiddlewares } from "@medusajs/medusa";
-import { companiesMiddlewares } from "./companies/middlewares";
+import { adminQuotesMiddlewares } from "./admin/quotes/middlewares";
 import { employeesMiddlewares } from "./companies/[id]/employees/middlewares";
+import { companiesMiddlewares } from "./companies/middlewares";
 import { quotesMiddlewares } from "./customers/quotes/middlewares";
 
 export default defineMiddlewares({
@@ -8,5 +9,6 @@ export default defineMiddlewares({
     ...companiesMiddlewares,
     ...employeesMiddlewares,
     ...quotesMiddlewares,
+    ...adminQuotesMiddlewares,
   ],
 });
