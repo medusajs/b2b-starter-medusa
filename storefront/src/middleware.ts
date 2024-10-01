@@ -27,10 +27,17 @@ async function getRegionMap(cacheId: string) {
         revalidate: 3600,
         tags: [`regions-${cacheId}`],
       },
-    }).then((res) => res.json())
+    })
+      .then((res) => res.json())
+      .catch((err) => {
+        console.log("error", err)
+        return []
+      })
 
     if (!regions?.length) {
-      notFound()
+      throw new Error(
+        "No regions found. Please set up regions in your Medusa Admin."
+      )
     }
 
     // Create a map of country codes to regions.
