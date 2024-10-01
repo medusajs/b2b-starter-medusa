@@ -1,11 +1,15 @@
 import { createCartWorkflow } from "@medusajs/core-flows";
-import { Modules, ContainerRegistrationKeys } from "@medusajs/utils";
+import { ContainerRegistrationKeys, Modules } from "@medusajs/utils";
 import { StepResponse } from "@medusajs/workflows-sdk";
 import { COMPANY_MODULE } from "../../modules/company";
 
 createCartWorkflow.hooks.cartCreated(
   async ({ cart }, { container }) => {
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
+
+    if (!cart.metadata?.company_id) {
+      return new StepResponse(undefined, undefined);
+    }
 
     remoteLink.create({
       [Modules.CART]: {
@@ -19,6 +23,10 @@ createCartWorkflow.hooks.cartCreated(
     return new StepResponse(undefined, cart.id);
   },
   async (cartId: string, { container }) => {
+    if (!cartId) {
+      return;
+    }
+
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
     remoteLink.dismiss({

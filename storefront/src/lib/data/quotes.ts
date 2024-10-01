@@ -2,7 +2,7 @@
 
 import { sdk } from "@lib/config"
 import { QuoteDTO } from "../../../../backend/src/modules/quote/types/common"
-import { getCartId } from "./cookies"
+import { getAuthHeaders, getCartId } from "./cookies"
 
 export async function createQuote() {
   const quoteResponse = await sdk.client.fetch<{ quote: QuoteDTO }>(
@@ -11,6 +11,9 @@ export async function createQuote() {
       method: "POST",
       body: {
         cart_id: getCartId(),
+      },
+      headers: {
+        ...getAuthHeaders(),
       },
     }
   )
