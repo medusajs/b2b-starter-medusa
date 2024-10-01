@@ -7,20 +7,20 @@ function getSpendWindow(company: Company): { start: Date; end: Date } {
 
   switch (resetFrequency) {
     case SpendingLimitResetFrequency.never:
-      return { start: new Date(0), end: now }
+      return { start: new Date(0), end: now } // Never resets
     case SpendingLimitResetFrequency.daily:
-      return { start: new Date(now.setHours(0, 0, 0, 0)), end: now }
+      return { start: new Date(now.setHours(0, 0, 0, 0)), end: now } // Window is the current day up to now
     case SpendingLimitResetFrequency.weekly:
       const startOfWeek = new Date(now)
-      startOfWeek.setDate(now.getDate() - now.getDay()) // Set to Sunday
-      startOfWeek.setHours(0, 0, 0, 0) // Set to beginning of the day
-      return { start: startOfWeek, end: now }
+      startOfWeek.setDate(now.getDate() - now.getDay())
+      startOfWeek.setHours(0, 0, 0, 0)
+      return { start: startOfWeek, end: now } // Window is the current week up to now, starting on Sunday
     case SpendingLimitResetFrequency.monthly:
-      return { start: new Date(now.getFullYear(), now.getMonth(), 1), end: now }
+      return { start: new Date(now.getFullYear(), now.getMonth(), 1), end: now } // Window is the current month up to now
     case SpendingLimitResetFrequency.yearly:
-      return { start: new Date(now.getFullYear(), 0, 1), end: now }
+      return { start: new Date(now.getFullYear(), 0, 1), end: now } // Window is the current year up to now
     default:
-      return { start: new Date(0), end: now }
+      return { start: new Date(0), end: now } // Default to never resetting
   }
 }
 
@@ -41,17 +41,12 @@ export function checkSpendingLimit(
   cart: HttpTypes.StoreCart | null,
   customer: Customer | null
 ) {
-  if (
-    !cart ||
-    !customer ||
-    !customer.employee?.spending_limit ||
-    !customer.employee?.company
-  ) {
+  if (!cart || !customer || !customer.employee) {
     return false
   }
-  const spendingLimit = customer?.employee?.spending_limit / 100
-  const spendWindow = getSpendWindow(customer.employee?.company)
+  const spendingLimit = customer.employee.spending_limit / 100
+  const spendWindow = getSpendWindow(customer.employee.company)
   const spent = getOrderTotalInSpendWindow(customer, spendWindow)
 
-  return spent > spendingLimit
+  return spent + cart.total > spendingLimit
 }
