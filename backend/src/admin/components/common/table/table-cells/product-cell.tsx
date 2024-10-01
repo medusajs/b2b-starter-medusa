@@ -1,4 +1,4 @@
-import { HttpTypes } from "@medusajs/types";
+import { HttpTypes } from "@medusajs/framework/types";
 import { useTranslation } from "react-i18next";
 import { Thumbnail } from "../../thumbnail";
 

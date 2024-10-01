@@ -1,4 +1,4 @@
-import { createSelectParams } from "@medusajs/medusa/dist/api/utils/validators";
+import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
 
 export type GetQuoteParamsType = z.infer<typeof GetQuoteParams>;

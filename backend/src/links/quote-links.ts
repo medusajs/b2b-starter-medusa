@@ -1,5 +1,5 @@
+import { Modules } from "@medusajs/framework/utils";
 import { MedusaModule } from "@medusajs/modules-sdk";
-import { Modules } from "@medusajs/utils";
 
 MedusaModule.setCustomLink(() => {
   return {

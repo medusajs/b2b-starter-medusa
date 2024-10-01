@@ -5,7 +5,7 @@ import {
   XCircle,
   XMark,
 } from "@medusajs/icons";
-import { AdminOrder, AdminOrderPreview } from "@medusajs/types";
+import { AdminOrder, AdminOrderPreview } from "@medusajs/framework/types";
 import {
   Badge,
   CurrencyInput,

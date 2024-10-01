@@ -1,5 +1,5 @@
 import { createCartWorkflow } from "@medusajs/core-flows";
-import { ContainerRegistrationKeys, Modules } from "@medusajs/utils";
+import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
 import { StepResponse } from "@medusajs/workflows-sdk";
 import { COMPANY_MODULE } from "../../modules/company";
 

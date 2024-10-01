@@ -1,4 +1,4 @@
-import { model } from "@medusajs/utils";
+import { model } from "@medusajs/framework/utils";
 import { Company } from "./company";
 
 export const Employee = model.define("employee", {

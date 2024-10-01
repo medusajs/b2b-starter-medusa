@@ -1,5 +1,5 @@
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { acceptQuoteWorkflow } from "../../../../../workflows/quote/workflows/accept-quote-workflow";
 import { AcceptQuoteType } from "../../validators";
 

@@ -1,4 +1,4 @@
-import { Module } from "@medusajs/utils";
+import { Module } from "@medusajs/framework/utils";
 import QuoteModuleService from "./service";
 
 export const QUOTE_MODULE = "quote";

@@ -1,5 +1,5 @@
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { AdminGetQuoteParamsType } from "../validators";
 
 export const GET = async (

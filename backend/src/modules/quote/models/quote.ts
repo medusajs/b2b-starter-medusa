@@ -1,4 +1,4 @@
-import { model } from "@medusajs/utils";
+import { model } from "@medusajs/framework/utils";
 
 export const Quote = model.define("quote", {
   id: model.id({ prefix: "quo" }).primaryKey(),
