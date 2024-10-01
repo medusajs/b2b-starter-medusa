@@ -28,7 +28,7 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
   const step = getCheckoutStep(cart)
 
-  const checkoutButtonLink = customer ? "/checkout?step=" + step : "/login"
+  const checkoutButtonLink = customer ? "/checkout?step=" + step : "/account"
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -53,13 +53,21 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
           className="w-full h-10 rounded-full shadow-none"
           disabled={spendLimitExceeded}
         >
-          {spendLimitExceeded
-            ? "Spending Limit Exceeded"
-            : customer
-            ? "Checkout"
-            : "Login to Checkout"}
+          {customer
+            ? spendLimitExceeded
+              ? "Spending Limit Exceeded"
+              : "Checkout"
+            : "Sign in to Checkout"}
         </Button>
       </LocalizedClientLink>
+      <RequestQuoteConfirmation>
+        <Button
+          className="w-full h-10 rounded-full shadow-borders-base"
+          variant="secondary"
+        >
+          Request Quote
+        </Button>
+      </RequestQuoteConfirmation>
       <Button
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
@@ -72,12 +80,6 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
       >
         Empty Cart
       </Button>
-
-      <RequestQuoteConfirmation>
-        <Button className="w-full h-10" variant="secondary">
-          Request Quote
-        </Button>
-      </RequestQuoteConfirmation>
     </Container>
   )
 }

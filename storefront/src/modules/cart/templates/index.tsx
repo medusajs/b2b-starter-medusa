@@ -11,7 +11,9 @@ const CartTemplate = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
+  cart:
+    | (HttpTypes.StoreCart & { promotions: HttpTypes.StorePromotion[] })
+    | null
   customer: Customer | null
 }) => {
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
@@ -40,7 +42,8 @@ const CartTemplate = ({
                   <div className="flex flex-col gap-y-8 sticky top-20">
                     {cart && cart.region && (
                       <Summary
-                        cart={cart as any}
+                        cart={cart}
+                        customer={customer}
                         spendLimitExceeded={spendLimitExceeded}
                       />
                     )}
