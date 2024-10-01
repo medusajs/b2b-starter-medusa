@@ -3,7 +3,7 @@ import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import {
   deleteEmployeesWorkflow,
   updateEmployeesWorkflow,
-} from "../../../../../workflows/employee/workflows";
+} from "../../../../../../workflows/employee/workflows";
 import { GetEmployeeParamsType, UpdateEmployeeType } from "../validators";
 
 export const GET = async (
@@ -14,9 +14,9 @@ export const GET = async (
 
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { data: company_customers } = await query.graph(
+  const { data: employees } = await query.graph(
     {
-      entity: "company_customers",
+      entity: "employee",
       fields: req.remoteQueryConfig.fields,
       filters: {
         ...req.filterableFields,
@@ -28,7 +28,7 @@ export const GET = async (
   );
 
   return res.status(200).json({
-    company_customer: company_customers[0],
+    employee: employees[0],
   });
 };
 

@@ -14,13 +14,8 @@ export const CreateEmployee = z
         precision: z.number().optional(),
       })
       .optional(),
-    company_name: z.string().optional(),
     is_admin: z.boolean().optional(),
-    first_name: z.string(),
-    last_name: z.string(),
-    email: z.string(),
-    phone: z.string().optional(),
-    company_id: z.string(),
+    customer_id: z.string(),
   })
   .strict();
 
@@ -36,9 +31,5 @@ export const UpdateEmployee = z
       })
       .optional(),
     is_admin: z.boolean().optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email: z.string().optional(),
-    phone: z.string().optional(),
   })
   .strict();

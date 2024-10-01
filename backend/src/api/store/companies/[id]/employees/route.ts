@@ -1,7 +1,6 @@
-import { createCustomersWorkflow } from "@medusajs/core-flows";
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { createEmployeesWorkflow } from "../../../../workflows/employee/workflows";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
+import { createEmployeesWorkflow } from "../../../../../workflows/employee/workflows";
 import { CreateEmployeeType, GetEmployeeParamsType } from "./validators";
 
 export const GET = async (
@@ -14,7 +13,7 @@ export const GET = async (
 
   const { data, metadata } = await query.graph(
     {
-      entity: "company_customers",
+      entity: "employee",
       fields: req.remoteQueryConfig.fields,
       filters: {
         company_id: id,
@@ -25,7 +24,7 @@ export const GET = async (
   );
 
   return res.json({
-    company_customers: data,
+    employees: data,
     metadata,
   });
 };
@@ -36,16 +35,7 @@ export const POST = async (
 ) => {
   const { id } = req.params;
 
-  let { is_admin, spending_limit, ...customerData } = req.body;
-
-  const { result: customers } = await createCustomersWorkflow.run({
-    input: {
-      customersData: [customerData],
-    },
-    container: req.scope,
-  });
-
-  const customer_id = customers[0].id;
+  let { is_admin, spending_limit, customer_id } = req.body;
 
   const { result } = await createEmployeesWorkflow.run({
     input: [
@@ -62,5 +52,5 @@ export const POST = async (
     container: req.scope,
   });
 
-  return res.json({ company_customers: result });
+  return res.json({ employee: result });
 };

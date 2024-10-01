@@ -1,15 +1,16 @@
-import { MiddlewareRoute } from "@medusajs/medusa";
-import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
-import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
+import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
+import { validateAndTransformBody } from "@medusajs/medusa/dist/api/utils/validate-body";
+import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
 
 import { retrieveCompanyTransformQueryConfig } from "./query-config";
 import { CreateCompany, GetCompanyParams } from "./validators";
 
-export const companiesMiddlewares: MiddlewareRoute[] = [
+export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
-    matcher: "/companies",
+    matcher: "/store/companies",
     middlewares: [
+      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetCompanyParams,
         retrieveCompanyTransformQueryConfig
@@ -18,7 +19,7 @@ export const companiesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies",
+    matcher: "/store/companies",
     middlewares: [
       validateAndTransformBody(CreateCompany),
       validateAndTransformQuery(
@@ -29,8 +30,9 @@ export const companiesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/companies/:id",
+    matcher: "/store/companies/:id",
     middlewares: [
+      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
         GetCompanyParams,
         retrieveCompanyTransformQueryConfig

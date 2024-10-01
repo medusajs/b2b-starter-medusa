@@ -1,9 +1,9 @@
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
 import {
   deleteCompaniesWorkflow,
   updateCompaniesWorkflow,
-} from "../../../workflows/company/workflows/";
+} from "../../../../workflows/company/workflows/";
 import { GetCompanyParamsType, UpdateCompanyType } from "../validators";
 
 export const GET = async (

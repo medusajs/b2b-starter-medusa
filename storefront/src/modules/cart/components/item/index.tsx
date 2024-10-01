@@ -55,52 +55,56 @@ const Item = ({ item, type = "full" }: ItemProps) => {
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
 
   return (
-    <Container className="flex gap-4 w-full h-full items-center justify-between">
-      <div className="flex gap-x-2 items-start">
-        <Thumbnail
-          thumbnail={item.thumbnail}
-          size="square"
-          className="bg-neutral-100 rounded-lg w-20 h-20"
-        />
-        <div className="flex flex-col gap-y-2 justify-between">
-          <div className="flex flex-col">
-            <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
-            <span className="txt-medium-plus text-neutral-950">
-              {item.product?.title}
-            </span>
-            <span className="text-neutral-600 text-xs">
-              {item.variant?.title}
-            </span>
-          </div>
-          <div className="flex gap-x-2">
-            <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
-              <button
-                className="w-4 h-4 flex items-center justify-center text-neutral-600 text-base hover:bg-neutral-100 rounded-full"
-                onClick={() => changeQuantity(item.quantity - 1)}
-                disabled={item.quantity <= 1}
-              >
-                -
-              </button>
-              <span className="w-4 h-4 flex items-center justify-center text-neutral-950 text-xs">
-                {updating ? <Spinner size="12" /> : optimisticQuantity}
-              </span>
-              <button
-                className="w-4 h-4 flex items-center justify-center text-neutral-600 text-base hover:bg-neutral-100 rounded-full"
-                onClick={() => changeQuantity(item.quantity + 1)}
-                disabled={item.quantity >= maxQuantity}
-              >
-                +
-              </button>
+    <Container className="flex gap-4 w-full h-full items-center">
+      <Thumbnail
+        thumbnail={item.thumbnail}
+        size="square"
+        className="bg-neutral-100 rounded-lg w-20 h-20"
+      />
+      <div className="flex flex-col gap-2 h-full w-full">
+        <div className="flex gap-4 w-full h-full items-center justify-between self-stretch">
+          <div className="flex gap-x-2 items-start">
+            <div className="flex flex-col gap-y-2 justify-between">
+              <div className="flex flex-col">
+                <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
+                <span className="txt-medium-plus text-neutral-950">
+                  {item.product?.title}
+                </span>
+                <span className="text-neutral-600 text-xs">
+                  {item.variant?.title}
+                </span>
+              </div>
             </div>
-            <button className="text-neutral-950 text-xs shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full px-2 py-1 min-w-20 flex items-center justify-center hover:bg-neutral-100">
-              Add note
-            </button>
-            <DeleteButton id={item.id} />
+          </div>
+          <div className="flex flex-col items-start justify-start h-full self-stretch">
+            <LineItemPrice item={item} />
           </div>
         </div>
-      </div>
-      <div className="flex flex-col items-start justify-start h-full self-stretch">
-        <LineItemPrice item={item} />
+        <div className="flex gap-x-2">
+          <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
+            <button
+              className="w-4 h-4 flex items-center justify-center text-neutral-600 text-base hover:bg-neutral-100 rounded-full"
+              onClick={() => changeQuantity(item.quantity - 1)}
+              disabled={item.quantity <= 1}
+            >
+              -
+            </button>
+            <span className="w-4 h-4 flex items-center justify-center text-neutral-950 text-xs">
+              {updating ? <Spinner size="12" /> : optimisticQuantity}
+            </span>
+            <button
+              className="w-4 h-4 flex items-center justify-center text-neutral-600 text-base hover:bg-neutral-100 rounded-full"
+              onClick={() => changeQuantity(item.quantity + 1)}
+              disabled={item.quantity >= maxQuantity}
+            >
+              +
+            </button>
+          </div>
+          <button className="text-neutral-950 text-xs shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full px-2 py-1 min-w-20 flex items-center justify-center hover:bg-neutral-100">
+            Add note
+          </button>
+          <DeleteButton id={item.id} />
+        </div>
       </div>
     </Container>
   )

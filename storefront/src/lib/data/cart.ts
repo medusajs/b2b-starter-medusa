@@ -16,6 +16,7 @@ import {
 } from "./cookies"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
+import { getCustomer } from "./customer"
 
 export async function retrieveCart() {
   const cartId = getCartId()
@@ -42,16 +43,26 @@ export async function retrieveCart() {
 export async function getOrSetCart(countryCode: string) {
   let cart = await retrieveCart()
   const region = await getRegion(countryCode)
+  const customer = await getCustomer()
 
   if (!region) {
     throw new Error(`Region not found for country code: ${countryCode}`)
   }
 
   if (!cart) {
-    const cartResp = await sdk.store.cart.create({ region_id: region.id })
-    cart = cartResp.cart
-    setCartId(cart.id)
+    const body = {
+      email: customer?.email,
+      region_id: region.id,
+      metadata: {
+        company_id: customer?.employee?.company_id,
+      },
+    }
+
+    const cartResp = await sdk.store.cart.create(body, {}, getAuthHeaders())
+    setCartId(cartResp.cart.id)
     revalidateTag(getCacheTag("carts"))
+
+    cart = await retrieveCart()
   }
 
   if (cart && cart?.region_id !== region.id) {
@@ -315,7 +326,10 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
     }
+
     const cartId = getCartId()
+    const customer = await getCustomer()
+
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses")
     }
@@ -333,7 +347,8 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
-      email: formData.get("email"),
+      customer_id: customer?.id,
+      email: customer?.email || formData.get("email"),
     } as any
 
     const sameAsBilling = formData.get("same_as_billing")

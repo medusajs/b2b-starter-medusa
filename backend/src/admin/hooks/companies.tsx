@@ -27,7 +27,7 @@ export const useCompanies = (
     const fetchCompanies = async () => {
       try {
         const response = await fetch(
-          "/companies" + (filterQuery ? `?${filterQuery}` : "")
+          "/admin/companies" + (filterQuery ? `?${filterQuery}` : "")
         );
         const result = await response.json();
         setData(result);
@@ -69,7 +69,8 @@ export const useCompany = (
     const fetchCompanies = async () => {
       try {
         const response = await fetch(
-          `/companies/${companyId}` + (filterQuery ? `?${filterQuery}` : "")
+          `/admin/companies/${companyId}` +
+            (filterQuery ? `?${filterQuery}` : "")
         );
         const result = await response.json();
         setData(result);
@@ -102,7 +103,7 @@ export const useCreateCompany = (): {
     setError(null);
 
     try {
-      const response = await fetch("/companies", {
+      const response = await fetch("/admin/companies", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -144,12 +145,12 @@ export const useUpdateCompany = (
     setError(null);
 
     try {
-      const response = await fetch(`/companies/${companyId}`, {
+      const response = await fetch(`/admin/companies/${companyId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ company }),
+        body: JSON.stringify(company),
       });
 
       if (!response.ok) {
@@ -186,7 +187,7 @@ export const useDeleteCompany = (
     setError(null);
 
     try {
-      const response = await fetch(`/companies/${companyId}`, {
+      const response = await fetch(`/admin/companies/${companyId}`, {
         method: "DELETE",
       });
 
