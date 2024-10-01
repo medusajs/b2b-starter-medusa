@@ -6,18 +6,24 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
+import { Customer } from "types/global"
 import {
   getAuthHeaders,
+  getCacheHeaders,
+  getCacheTag,
   removeAuthToken,
   setAuthToken,
-  getCacheTag,
-  getCacheHeaders,
 } from "./cookies"
 
 export const getCustomer = cache(async function () {
   return await sdk.store.customer
-    .retrieve({}, { ...getCacheHeaders("customers"), ...getAuthHeaders() })
-    .then(({ customer }) => customer)
+    .retrieve(
+      {
+        fields: "+employee.*, +orders.*",
+      },
+      { ...getCacheHeaders("customers"), ...getAuthHeaders() }
+    )
+    .then(({ customer }) => customer as Customer)
     .catch(() => null)
 })
 

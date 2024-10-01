@@ -1,18 +1,16 @@
 "use client"
 
-import { Button, Container, Heading, Text } from "@medusajs/ui"
-
-import CartTotals from "@modules/common/components/cart-totals"
-import Divider from "@modules/common/components/divider"
-import DiscountCode from "@modules/checkout/components/discount-code"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { Button, Container } from "@medusajs/ui"
+import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { convertToLocale } from "@lib/util/money"
+import CartTotals from "@modules/common/components/cart-totals"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
     promotions: HttpTypes.StorePromotion[]
   }
+  spendLimitExceeded: boolean
 }
 
 function getCheckoutStep(cart: HttpTypes.StoreCart) {
@@ -25,7 +23,7 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
   }
 }
 
-const Summary = ({ cart }: SummaryProps) => {
+const Summary = ({ cart, spendLimitExceeded }: SummaryProps) => {
   const step = getCheckoutStep(cart)
 
   return (
@@ -33,12 +31,25 @@ const Summary = ({ cart }: SummaryProps) => {
       {/* <DiscountCode cart={cart} /> */}
       {/* <Divider /> */}
       <CartTotals totals={cart} />
+      {spendLimitExceeded && (
+        <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+          <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+          <p className="text-neutral-950 text-xs">
+            This order exceeds your spending limit.
+            <br />
+            Please contact your manager for approval.
+          </p>
+        </div>
+      )}
       <LocalizedClientLink
         href={"/checkout?step=" + step}
         data-testid="checkout-button"
       >
-        <Button className="w-full h-10 rounded-full shadow-none">
-          Secure Checkout
+        <Button
+          className="w-full h-10 rounded-full shadow-none"
+          disabled={spendLimitExceeded}
+        >
+          {spendLimitExceeded ? "Spending Limit Exceeded" : "Secure Checkout"}
         </Button>
       </LocalizedClientLink>
       <Button
