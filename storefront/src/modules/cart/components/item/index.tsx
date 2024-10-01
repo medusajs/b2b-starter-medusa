@@ -9,6 +9,7 @@ import Spinner from "@modules/common/icons/spinner"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { startTransition, useState } from "react"
 import AddNoteButton from "../add-note-button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem & {
@@ -95,11 +96,13 @@ const Item = ({ item, type = "full" }: ItemProps) => {
   return (
     <Container className="flex gap-4 w-full h-full items-center justify-between">
       <div className="flex gap-x-2 items-start">
-        <Thumbnail
-          thumbnail={item.thumbnail}
-          size="square"
-          className="bg-neutral-100 rounded-lg w-20 h-20"
-        />
+        <LocalizedClientLink href={`/products/${handle}`}>
+          <Thumbnail
+            thumbnail={item.thumbnail}
+            size="square"
+            className="bg-neutral-100 rounded-lg w-20 h-20"
+          />
+        </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
