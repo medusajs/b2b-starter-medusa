@@ -6,7 +6,14 @@ import { HttpTypes } from "@medusajs/types"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
-import { getAuthHeaders, getCartId, removeCartId, setCartId } from "./cookies"
+import {
+  getAuthHeaders,
+  getCacheHeaders,
+  getCacheTag,
+  getCartId,
+  removeCartId,
+  setCartId,
+} from "./cookies"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
 
@@ -20,8 +27,11 @@ export async function retrieveCart() {
   return await sdk.store.cart
     .retrieve(
       cartId,
-      {},
-      { next: { tags: [`cart-${cartId}`] }, ...getAuthHeaders() }
+      {
+        fields:
+          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail",
+      },
+      { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
     .then(({ cart }) => cart)
     .catch(() => {
@@ -41,7 +51,7 @@ export async function getOrSetCart(countryCode: string) {
     const cartResp = await sdk.store.cart.create({ region_id: region.id })
     cart = cartResp.cart
     setCartId(cart.id)
-    revalidateTag(`cart-${cart.id}`)
+    revalidateTag(getCacheTag("carts"))
   }
 
   if (cart && cart?.region_id !== region.id) {
@@ -51,7 +61,7 @@ export async function getOrSetCart(countryCode: string) {
       {},
       getAuthHeaders()
     )
-    revalidateTag(`cart-${cart.id}`)
+    revalidateTag(getCacheTag("carts"))
   }
 
   return cart
@@ -66,7 +76,7 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   return sdk.store.cart
     .update(cartId, data, {}, getAuthHeaders())
     .then(({ cart }) => {
-      revalidateTag(`cart-${cart.id}`)
+      revalidateTag(getCacheTag("carts"))
       return cart
     })
     .catch(medusaError)
@@ -101,7 +111,7 @@ export async function addToCart({
       getAuthHeaders()
     )
     .then(() => {
-      revalidateTag(`cart-${cart.id}`)
+      revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
 }
@@ -125,7 +135,7 @@ export async function updateLineItem({
   await sdk.store.cart
     .updateLineItem(cartId, lineId, { quantity }, {}, getAuthHeaders())
     .then(() => {
-      revalidateTag(`cart-${cartId}`)
+      revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
 }
@@ -143,7 +153,7 @@ export async function deleteLineItem(lineId: string) {
   await sdk.store.cart
     .deleteLineItem(cartId, lineId, getAuthHeaders())
     .then(() => {
-      revalidateTag(`cart-${cartId}`)
+      revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
 }
@@ -210,7 +220,7 @@ export async function setShippingMethod({
       getAuthHeaders()
     )
     .then(() => {
-      revalidateTag(`cart-${cartId}`)
+      revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
 }
@@ -225,7 +235,7 @@ export async function initiatePaymentSession(
   return sdk.store.payment
     .initiatePaymentSession(cart, data, {}, getAuthHeaders())
     .then((resp) => {
-      revalidateTag(`cart-${cart.id}`)
+      revalidateTag(getCacheTag("carts"))
       return resp
     })
     .catch(medusaError)
@@ -239,7 +249,7 @@ export async function applyPromotions(codes: string[]) {
 
   await updateCart({ promo_codes: codes })
     .then(() => {
-      revalidateTag(`cart-${cartId}`)
+      revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
 }
@@ -249,7 +259,7 @@ export async function applyGiftCard(code: string) {
   //   if (!cartId) return "No cartId cookie found"
   //   try {
   //     await updateCart(cartId, { gift_cards: [{ code }] }).then(() => {
-  //       revalidateTag("cart")
+  //       revalidateTag(getCacheTag("carts"))
   //     })
   //   } catch (error: any) {
   //     throw error
@@ -261,7 +271,7 @@ export async function removeDiscount(code: string) {
   // if (!cartId) return "No cartId cookie found"
   // try {
   //   await deleteDiscount(cartId, code)
-  //   revalidateTag("cart")
+  //   revalidateTag(getCacheTag("carts"))
   // } catch (error: any) {
   //   throw error
   // }
@@ -280,7 +290,7 @@ export async function removeGiftCard(
   //         .filter((gc) => gc.code !== codeToRemove)
   //         .map((gc) => ({ code: gc.code })),
   //     }).then(() => {
-  //       revalidateTag("cart")
+  //       revalidateTag(getCacheTag("carts"))
   //     })
   //   } catch (error: any) {
   //     throw error
@@ -361,7 +371,7 @@ export async function placeOrder() {
   const cartRes = await sdk.store.cart
     .complete(cartId, {}, getAuthHeaders())
     .then((cartRes) => {
-      revalidateTag(`cart-${cartId}`)
+      revalidateTag(getCacheTag("carts"))
       return cartRes
     })
     .catch(medusaError)
@@ -391,11 +401,11 @@ export async function updateRegion(countryCode: string, currentPath: string) {
 
   if (cartId) {
     await updateCart({ region_id: region.id })
-    revalidateTag(`cart-${cartId}`)
+    revalidateTag(getCacheTag("carts"))
   }
 
-  revalidateTag("regions")
-  revalidateTag("products")
+  revalidateTag(getCacheTag("regions"))
+  revalidateTag(getCacheTag("products"))
 
   redirect(`/${countryCode}${currentPath}`)
 }

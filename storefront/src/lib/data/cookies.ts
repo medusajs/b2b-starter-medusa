@@ -11,6 +11,28 @@ export const getAuthHeaders = (): { authorization: string } | {} => {
   return {}
 }
 
+export const getCacheTag = (tag: string): string => {
+  const cacheId = cookies().get("_medusa_cache_id")?.value
+
+  if (cacheId) {
+    return `${tag}-${cacheId}`
+  }
+
+  return ""
+}
+
+export const getCacheHeaders = (
+  tag: string
+): { next: { tags: string[] } } | {} => {
+  const cacheTag = getCacheTag(tag)
+
+  if (cacheTag) {
+    return { next: { tags: [`${cacheTag}`] } }
+  }
+
+  return {}
+}
+
 export const setAuthToken = (token: string) => {
   cookies().set("_medusa_jwt", token, {
     maxAge: 60 * 60 * 24 * 7,
