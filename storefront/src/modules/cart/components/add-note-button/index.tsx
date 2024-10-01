@@ -45,7 +45,7 @@ const AddNoteButton = ({ item }: { item: HttpTypes.StoreCartLineItem }) => {
           Add note
         </button>
       )}
-      {note.length > 0 && (
+      {note?.length > 0 && (
         <span
           className={clx(
             "flex transition-opacity duration-150 items-center justify-center gap-x-1 text-neutral-600 text-xs",
