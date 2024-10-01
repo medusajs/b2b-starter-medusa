@@ -12,7 +12,7 @@ import AddNoteButton from "../add-note-button"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem & {
-    metadata: {
+    metadata?: {
       note?: string
     }
   }
