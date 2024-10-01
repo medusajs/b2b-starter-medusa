@@ -2,7 +2,7 @@ import {
   AdminOrder,
   AdminOrderLineItem,
   AdminOrderPreview,
-} from "@medusajs/types";
+} from "@medusajs/framework/types";
 import { Button, Heading, Input, toast } from "@medusajs/ui";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";

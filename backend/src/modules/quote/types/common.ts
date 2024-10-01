@@ -1,4 +1,8 @@
-import { AdminOrder, AdminOrderChange, CartDTO } from "@medusajs/types";
+import {
+  AdminOrder,
+  AdminOrderChange,
+  CartDTO,
+} from "@medusajs/framework/types";
 
 export interface QuoteDTO {
   id: string;

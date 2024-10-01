@@ -1,5 +1,5 @@
+import { defineLink } from "@medusajs/framework/utils";
 import OrderModule from "@medusajs/order";
-import { defineLink } from "@medusajs/utils";
 import CompanyModule from "../modules/company";
 
 export default defineLink(

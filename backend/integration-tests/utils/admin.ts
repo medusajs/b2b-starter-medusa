@@ -1,5 +1,8 @@
-import { IAuthModuleService, IUserModuleService } from "@medusajs/types";
-import { Modules } from "@medusajs/utils";
+import {
+  IAuthModuleService,
+  IUserModuleService,
+} from "@medusajs/framework/types";
+import { Modules } from "@medusajs/framework/utils";
 import jwt from "jsonwebtoken";
 import Scrypt from "scrypt-kdf";
 
