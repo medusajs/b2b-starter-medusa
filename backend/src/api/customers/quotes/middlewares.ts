@@ -71,4 +71,9 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
       ),
     ],
   },
+  {
+    method: ["GET"],
+    matcher: "/customers/quotes/:id/preview",
+    middlewares: [],
+  },
 ];
