@@ -1,4 +1,4 @@
-import { AdminOrder } from "@medusajs/types";
+import { AdminOrder } from "@medusajs/framework/types";
 import { Heading } from "@medusajs/ui";
 import { QuoteDTO } from "../../../modules/quote/types/common";
 import { QuoteDetailsActionsMenu } from "./quote-details-actions-menu";

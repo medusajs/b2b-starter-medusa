@@ -3,7 +3,7 @@ import {
   createOrdersWorkflow,
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
-import { OrderStatus } from "@medusajs/utils";
+import { OrderStatus } from "@medusajs/framework/utils";
 import {
   createWorkflow,
   transform,

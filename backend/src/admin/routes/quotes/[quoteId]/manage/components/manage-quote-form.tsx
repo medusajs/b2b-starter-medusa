@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AdminOrder } from "@medusajs/types";
+import { AdminOrder } from "@medusajs/framework/types";
 import { Button, Heading, toast } from "@medusajs/ui";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";

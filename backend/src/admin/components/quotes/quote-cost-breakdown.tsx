@@ -1,4 +1,4 @@
-import { AdminOrder } from "@medusajs/types";
+import { AdminOrder } from "@medusajs/framework/types";
 import { Text } from "@medusajs/ui";
 import { ReactNode } from "react";
 import { formatAmount } from "../../utils";

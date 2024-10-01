@@ -1,5 +1,5 @@
+import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { Modules, ContainerRegistrationKeys } from "@medusajs/utils";
 import { COMPANY_MODULE } from "../../../modules/company";
 
 export const linkEmployeeToCustomerStep = createStep(

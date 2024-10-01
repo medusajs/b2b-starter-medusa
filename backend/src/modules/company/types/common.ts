@@ -1,4 +1,4 @@
-import { CustomerDTO } from "@medusajs/types";
+import { CustomerDTO } from "@medusajs/framework/types";
 
 export interface CompanyDTO {
   id: string;

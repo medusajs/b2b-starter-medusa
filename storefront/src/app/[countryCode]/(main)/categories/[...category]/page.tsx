@@ -44,9 +44,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
-    const { product_categories } = await getCategoryByHandle(
-      params.category
-    )
+    const { product_categories } = await getCategoryByHandle(params.category)
 
     const title = product_categories
       .map((category: StoreProductCategory) => category.name)
@@ -71,9 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { sortBy, page } = searchParams
 
-  const { product_categories } = await getCategoryByHandle(
-    params.category
-  )
+  const { product_categories } = await getCategoryByHandle(params.category)
 
   if (!product_categories) {
     notFound()

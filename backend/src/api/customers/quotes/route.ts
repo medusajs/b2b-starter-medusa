@@ -1,6 +1,6 @@
 import { AuthenticatedMedusaRequest, Query } from "@medusajs/framework";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createRequestQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-quote-workflow";
 import { CreateQuoteType, GetQuoteParamsType } from "./validators";
 
