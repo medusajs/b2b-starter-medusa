@@ -53,7 +53,10 @@ const Summary = ({ cart }: SummaryProps) => {
       </Button>
 
       <RequestQuoteConfirmation>
-        <Button className="w-full h-10" variant="secondary">
+        <Button
+          className="w-full h-10 rounded-full shadow-borders-base"
+          variant="secondary"
+        >
           Request Quote
         </Button>
       </RequestQuoteConfirmation>

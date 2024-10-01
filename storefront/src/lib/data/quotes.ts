@@ -20,3 +20,12 @@ export async function createQuote() {
 
   return quoteResponse.quote
 }
+
+export async function listQuotes() {
+  return await sdk.client.fetch<{ quotes: QuoteDTO[] }>(`/customers/quotes`, {
+    method: "GET",
+    headers: {
+      ...getAuthHeaders(),
+    },
+  })
+}

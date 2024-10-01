@@ -1,5 +1,5 @@
 import { MiddlewareRoute } from "@medusajs/medusa";
-import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
+import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 
 import { retrieveQuoteTransformQueryConfig } from "./query-config";
 
