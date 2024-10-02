@@ -26,8 +26,12 @@ const ProductFacts = ({ product }: { product: HttpTypes.StoreProduct }) => {
         </span>
       )}
       <span className="flex items-center gap-x-2 text-neutral-600 text-sm">
-        <InformationCircleSolid />
-        MID: {product.mid_code}
+        {product.mid_code && (
+          <>
+            <InformationCircleSolid />
+            MID: {product.mid_code}
+          </>
+        )}
       </span>
     </div>
   )

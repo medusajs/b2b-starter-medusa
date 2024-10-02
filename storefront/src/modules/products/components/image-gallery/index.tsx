@@ -7,15 +7,24 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 type ImageGalleryProps = {
-  images: HttpTypes.StoreProductImage[]
+  product: HttpTypes.StoreProduct
 }
 
-const ImageGallery = ({ images }: ImageGalleryProps) => {
-  const [selectedImage, setSelectedImage] = useState(images[0])
+const ImageGallery = ({ product }: ImageGalleryProps) => {
+  const images = product?.images || []
+  const thumbnail = product?.thumbnail
+
+  const [selectedImage, setSelectedImage] = useState(
+    images[0] || {
+      url: thumbnail,
+      id: "thumbnail",
+    }
+  )
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
   const handleArrowClick = (direction: "left" | "right") => {
     if (
+      images.length === 0 ||
       (selectedImageIndex === 0 && direction === "left") ||
       (selectedImageIndex === images.length - 1 && direction === "right")
     ) {
@@ -53,7 +62,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   }, [handleArrowClick])
 
   return (
-    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 pt-0 gap-6 w-full h-[calc(100vh-6rem)] 2xl:h-full">
+    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 pt-0 gap-6 w-full h-full">
       <div
         className="relative aspect-[29/34] w-full overflow-hidden"
         id={selectedImage.id}
@@ -75,22 +84,24 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         </div>
       </div>
       <div className="flex flex-row justify-between w-full">
-        <div className="flex flex-row gap-x-2">
-          <IconButton
-            disabled={selectedImageIndex === 0}
-            className="rounded-full items-center justify-center"
-            onClick={() => handleArrowClick("left")}
-          >
-            <ArrowLeftMini />
-          </IconButton>
-          <IconButton
-            disabled={selectedImageIndex === images.length - 1}
-            className="rounded-full items-center justify-center"
-            onClick={() => handleArrowClick("right")}
-          >
-            <ArrowRightMini />
-          </IconButton>
-        </div>
+        {images.length > 1 && (
+          <div className="flex flex-row gap-x-2">
+            <IconButton
+              disabled={selectedImageIndex === 0}
+              className="rounded-full items-center justify-center"
+              onClick={() => handleArrowClick("left")}
+            >
+              <ArrowLeftMini />
+            </IconButton>
+            <IconButton
+              disabled={selectedImageIndex === images.length - 1}
+              className="rounded-full items-center justify-center"
+              onClick={() => handleArrowClick("right")}
+            >
+              <ArrowRightMini />
+            </IconButton>
+          </div>
+        )}
         <ul className="flex flex-row gap-x-4">
           {images.map((image, index) => (
             <li
