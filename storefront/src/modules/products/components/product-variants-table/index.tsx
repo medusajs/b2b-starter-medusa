@@ -1,8 +1,9 @@
 import { addToCartBulk } from "@lib/data/cart"
 import { getProductPrice } from "@lib/util/get-product-price"
-import { ShoppingCartSolid } from "@medusajs/icons"
+import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { HttpTypes } from "@medusajs/types"
-import { Button, clx, Table } from "@medusajs/ui"
+import { clx, Table } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
 
@@ -16,6 +17,11 @@ const ProductVariantsTable = ({
   const [isAdding, setIsAdding] = useState(false)
   const [lineItemsMap, setLineItemsMap] = useState<Map<string, number>>(
     new Map()
+  )
+
+  const totalQuantity = Array.from(lineItemsMap.values()).reduce(
+    (acc, curr) => acc + curr,
+    0
   )
 
   const handleQuantityChange = (variantId: string, quantity: number) => {
@@ -106,12 +112,18 @@ const ProductVariantsTable = ({
       <Button
         onClick={handleAddToCart}
         variant="primary"
-        className="w-full h-10 rounded-full shadow-none"
+        className="w-full h-10"
         isLoading={isAdding}
+        disabled={totalQuantity === 0}
         data-testid="add-product-button"
       >
-        <ShoppingCartSolid />
-        Add to cart
+        <ShoppingBag
+          className="text-white"
+          fill={totalQuantity === 0 ? "none" : "#fff"}
+        />
+        {totalQuantity === 0
+          ? "Choose product variant(s) above"
+          : "Add to cart"}
       </Button>
     </div>
   )

@@ -1,21 +1,21 @@
-import { Disclosure } from "@headlessui/react"
-import { Badge, clx } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import { useEffect } from "react"
+import { Disclosure } from "@headlessui/react";
+import { Badge, clx } from "@medusajs/ui";
+import Button from "@modules/common/components/button";
+import { useEffect } from "react";
 
-import useToggleState from "@lib/hooks/use-toggle-state"
-import { useFormStatus } from "react-dom"
+import useToggleState from "@lib/hooks/use-toggle-state";
+import { useFormStatus } from "react-dom";
 
 type AccountInfoProps = {
-  label: string
-  currentInfo: string | React.ReactNode
-  isSuccess?: boolean
-  isError?: boolean
-  errorMessage?: string
-  clearState: () => void
-  children?: React.ReactNode
-  "data-testid"?: string
-}
+  label: string;
+  currentInfo: string | React.ReactNode;
+  isSuccess?: boolean;
+  isError?: boolean;
+  errorMessage?: string;
+  clearState: () => void;
+  children?: React.ReactNode;
+  "data-testid"?: string;
+};
 
 const AccountInfo = ({
   label,
@@ -27,20 +27,20 @@ const AccountInfo = ({
   children,
   "data-testid": dataTestid,
 }: AccountInfoProps) => {
-  const { state, close, toggle } = useToggleState()
+  const { state, close, toggle } = useToggleState();
 
-  const { pending } = useFormStatus()
+  const { pending } = useFormStatus();
 
   const handleToggle = () => {
-    clearState()
-    setTimeout(() => toggle(), 100)
-  }
+    clearState();
+    setTimeout(() => toggle(), 100);
+  };
 
   useEffect(() => {
     if (isSuccess) {
-      close()
+      close();
     }
-  }, [isSuccess, close])
+  }, [isSuccess, close]);
 
   return (
     <div className="text-small-regular" data-testid={dataTestid}>
@@ -136,7 +136,7 @@ const AccountInfo = ({
         </Disclosure.Panel>
       </Disclosure>
     </div>
-  )
-}
+  );
+};
 
-export default AccountInfo
+export default AccountInfo;

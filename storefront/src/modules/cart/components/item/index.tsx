@@ -2,7 +2,7 @@
 
 import { updateLineItem, deleteLineItem } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Input } from "@medusajs/ui"
+import { clx, Container, Input } from "@medusajs/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import Spinner from "@modules/common/icons/spinner"
@@ -18,9 +18,10 @@ type ItemProps = {
     }
   }
   type?: "full" | "preview"
+  showBorders?: boolean
 }
 
-const Item = ({ item, type = "full" }: ItemProps) => {
+const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -92,8 +93,12 @@ const Item = ({ item, type = "full" }: ItemProps) => {
   const maxQuantity = item.variant?.inventory_quantity ?? 100
 
   return (
-    <Container className="flex gap-4 w-full h-full items-center justify-between">
-      <div className="flex gap-x-2 items-start">
+    <Container
+      className={clx("flex gap-4 w-full h-full items-center justify-between", {
+        "shadow-none": !showBorders,
+      })}
+    >
+      <div className="flex gap-x-4 items-start">
         <LocalizedClientLink href={`/products/${handle}`}>
           <Thumbnail
             thumbnail={item.thumbnail}

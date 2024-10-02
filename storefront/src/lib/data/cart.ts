@@ -30,11 +30,16 @@ export async function retrieveCart() {
       cartId,
       {
         fields:
-          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail",
+          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail, +items.metadata, +promotions.*, +company.*,",
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
-    .then(({ cart }) => cart)
+    .then(
+      ({ cart }) =>
+        cart as HttpTypes.StoreCart & {
+          promotions?: HttpTypes.StorePromotion[]
+        }
+    )
     .catch(() => {
       return null
     })

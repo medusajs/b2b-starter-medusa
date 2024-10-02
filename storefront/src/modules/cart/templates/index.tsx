@@ -12,7 +12,9 @@ const CartTemplate = ({
   customer,
 }: {
   cart:
-    | (HttpTypes.StoreCart & { promotions: HttpTypes.StorePromotion[] })
+    | (HttpTypes.StoreCart & {
+        promotions?: HttpTypes.StorePromotion[]
+      })
     | null
   customer: Customer | null
 }) => {

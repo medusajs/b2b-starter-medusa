@@ -1,6 +1,6 @@
 import { convertToLocale } from "@lib/util/money"
 import repeat from "@lib/util/repeat"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes, StoreCartLineItem } from "@medusajs/types"
 import { BaseCartLineItem } from "@medusajs/types/dist/http/cart/common"
 import { Container, Text } from "@medusajs/ui"
 
@@ -9,9 +9,15 @@ import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
 type ItemsTemplateProps = {
   cart: HttpTypes.StoreCart
+  showBorders?: boolean
+  showTotal?: boolean
 }
 
-const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
+const ItemsTemplate = ({
+  cart,
+  showBorders = true,
+  showTotal = true,
+}: ItemsTemplateProps) => {
   const { items } = cart
 
   return (
@@ -26,12 +32,13 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
 
                 return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
               })
-              .map((item: BaseCartLineItem) => {
+              .map((item: StoreCartLineItem) => {
                 return (
                   <Item
+                    showBorders={showBorders}
                     key={item.id}
                     item={
-                      item as BaseCartLineItem & {
+                      item as StoreCartLineItem & {
                         metadata?: { note?: string }
                       }
                     }
@@ -42,17 +49,19 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
               return <SkeletonLineItem key={i} />
             })}
       </div>
-      <Container>
-        <div className="flex items-start justify-between h-full self-stretch">
-          <Text>Total: {items?.length} items</Text>
-          <Text>
-            {convertToLocale({
-              amount: cart.total,
-              currency_code: cart.currency_code,
-            })}
-          </Text>
-        </div>
-      </Container>
+      {showTotal && (
+        <Container>
+          <div className="flex items-start justify-between h-full self-stretch">
+            <Text>Total: {items?.length} items</Text>
+            <Text>
+              {convertToLocale({
+                amount: cart.total,
+                currency_code: cart.currency_code,
+              })}
+            </Text>
+          </div>
+        </Container>
+      )}
     </div>
   )
 }

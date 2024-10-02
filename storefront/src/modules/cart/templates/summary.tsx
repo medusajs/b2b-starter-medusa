@@ -1,15 +1,16 @@
 "use client"
 
-import { Button, Container } from "@medusajs/ui"
+import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { Container } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
-import { ExclamationCircle } from "@medusajs/icons"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
-    promotions: HttpTypes.StorePromotion[]
+    promotions?: HttpTypes.StorePromotion[]
   }
   customer: HttpTypes.StoreCustomer | null
   spendLimitExceeded: boolean
