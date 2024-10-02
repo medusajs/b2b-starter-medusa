@@ -11,10 +11,6 @@ export async function POST(
 ) {
   const { id } = req.params;
 
-  console.log("req.params", req.params);
-  console.log("req.validatedBody", req.validatedBody);
-  console.log("req.remoteQueryConfig", req.remoteQueryConfig);
-
   const { line_items } = req.validatedBody;
 
   const remoteQuery = req.scope.resolve(ContainerRegistrationKeys.REMOTE_QUERY);

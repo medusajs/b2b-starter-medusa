@@ -5,6 +5,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Button, clx, Table } from "@medusajs/ui"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
+import { convertToLocale } from "@lib/util/money"
 
 const ProductVariantsTable = ({
   product,
@@ -17,11 +18,6 @@ const ProductVariantsTable = ({
   const [lineItemsMap, setLineItemsMap] = useState<Map<string, number>>(
     new Map()
   )
-
-  const { cheapestPrice, variantPrice } = getProductPrice({
-    product,
-    variantId: product.variants?.[0]?.id,
-  })
 
   const handleQuantityChange = (variantId: string, quantity: number) => {
     setLineItemsMap((prev) => {
@@ -50,12 +46,17 @@ const ProductVariantsTable = ({
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-6">
       <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none">
         <Table.Header className="border-t-0">
           <Table.Row className="bg-neutral-100 border-none">
             {product.options?.map((option) => (
-              <Table.HeaderCell key={option.id} className="px-4 border-x">
+              <Table.HeaderCell
+                key={option.id}
+                className={clx("px-4", {
+                  "border-x": option.id !== product.options?.[0]?.id,
+                })}
+              >
                 {option.title}
               </Table.HeaderCell>
             ))}
@@ -66,29 +67,41 @@ const ProductVariantsTable = ({
           </Table.Row>
         </Table.Header>
         <Table.Body className="border-none">
-          {product.variants?.map((variant, index) => (
-            <Table.Row
-              key={variant.id}
-              className={clx({
-                "border-b-0": index === product.variants?.length! - 1,
-              })}
-            >
-              {variant.options?.map((option) => (
-                <Table.Cell key={option.id} className="px-4 border-x">
-                  {option.value}
+          {product.variants?.map((variant, index) => {
+            const { variantPrice } = getProductPrice({
+              product,
+              variantId: variant.id,
+            })
+
+            return (
+              <Table.Row
+                key={variant.id}
+                className={clx({
+                  "border-b-0": index === product.variants?.length! - 1,
+                })}
+              >
+                {variant.options?.map((option, index) => (
+                  <Table.Cell
+                    key={option.id}
+                    className={clx("px-4", {
+                      "border-x": index !== 0,
+                    })}
+                  >
+                    {option.value}
+                  </Table.Cell>
+                ))}
+                <Table.Cell className="px-4 border-x">
+                  {variantPrice?.calculated_price}
                 </Table.Cell>
-              ))}
-              <Table.Cell className="px-4 border-x">
-                {variantPrice?.calculated_price}
-              </Table.Cell>
-              <Table.Cell className="px-4 border-x">
-                <BulkTableQuantity
-                  variantId={variant.id}
-                  onChange={handleQuantityChange}
-                />
-              </Table.Cell>
-            </Table.Row>
-          ))}
+                <Table.Cell className="pl-1 !pr-1">
+                  <BulkTableQuantity
+                    variantId={variant.id}
+                    onChange={handleQuantityChange}
+                  />
+                </Table.Cell>
+              </Table.Row>
+            )
+          })}
         </Table.Body>
       </Table>
       <Button
@@ -101,7 +114,7 @@ const ProductVariantsTable = ({
         <ShoppingCartSolid />
         Add to cart
       </Button>
-    </>
+    </div>
   )
 }
 
