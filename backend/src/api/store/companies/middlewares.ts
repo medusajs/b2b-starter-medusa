@@ -1,6 +1,6 @@
 import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
-import { validateAndTransformBody } from "@medusajs/medusa/dist/api/utils/validate-body";
-import { validateAndTransformQuery } from "@medusajs/medusa/dist/api/utils/validate-query";
+import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
+import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 
 import { retrieveCompanyTransformQueryConfig } from "./query-config";
 import { CreateCompany, GetCompanyParams } from "./validators";

@@ -1,7 +1,7 @@
 "use client"
 
-import { Button, Heading } from "@medusajs/ui"
-
+import { Heading } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import Image from "next/image"
 
 import { useEffect, useState } from "react"

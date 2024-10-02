@@ -1,38 +1,131 @@
+"use client"
+
+import { ArrowLeftMini, ArrowRightMini } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
+import { clx, IconButton } from "@medusajs/ui"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 type ImageGalleryProps = {
-  images: HttpTypes.StoreProductImage[]
+  product: HttpTypes.StoreProduct
 }
 
-const ImageGallery = ({ images }: ImageGalleryProps) => {
+const ImageGallery = ({ product }: ImageGalleryProps) => {
+  const images = product?.images || []
+  const thumbnail = product?.thumbnail
+
+  const [selectedImage, setSelectedImage] = useState(
+    images[0] || {
+      url: thumbnail,
+      id: "thumbnail",
+    }
+  )
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+
+  const handleArrowClick = (direction: "left" | "right") => {
+    if (
+      images.length === 0 ||
+      (selectedImageIndex === 0 && direction === "left") ||
+      (selectedImageIndex === images.length - 1 && direction === "right")
+    ) {
+      return
+    }
+
+    if (direction === "left") {
+      setSelectedImageIndex((prev) => prev - 1)
+      setSelectedImage(images[selectedImageIndex - 1])
+    } else {
+      setSelectedImageIndex((prev) => prev + 1)
+      setSelectedImage(images[selectedImageIndex + 1])
+    }
+  }
+
+  const handleImageClick = (image: HttpTypes.StoreProductImage) => {
+    setSelectedImage(image)
+    setSelectedImageIndex(images.findIndex((img) => img.id === image.id))
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        handleArrowClick("left")
+      } else if (e.key === "ArrowRight") {
+        handleArrowClick("right")
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [handleArrowClick])
+
   return (
-    <div className="flex items-start relative">
-      <div className="flex flex-col flex-1 small:mx-16 gap-y-4">
-        {images.map((image, index) => {
-          return (
-            <Container
-              key={image.id}
-              className="relative aspect-[29/34] w-full overflow-hidden bg-ui-bg-subtle"
-              id={image.id}
+    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 pt-0 gap-6 w-full h-full">
+      <div
+        className="relative aspect-[29/34] w-full overflow-hidden"
+        id={selectedImage.id}
+      >
+        <div className="flex p-48">
+          {!!selectedImage.url && (
+            <Image
+              src={selectedImage.url}
+              priority
+              className="absolute inset-0 rounded-rounded p-20 overflow-visible"
+              alt={(selectedImage.metadata?.alt as string) || ""}
+              fill
+              sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </div>
+      </div>
+      <div className="flex flex-row justify-between w-full">
+        {images.length > 1 && (
+          <div className="flex flex-row gap-x-2">
+            <IconButton
+              disabled={selectedImageIndex === 0}
+              className="rounded-full items-center justify-center"
+              onClick={() => handleArrowClick("left")}
             >
-              {!!image.url && (
-                <Image
-                  src={image.url}
-                  priority={index <= 2 ? true : false}
-                  className="absolute inset-0 rounded-rounded"
-                  alt={`Product image ${index + 1}`}
-                  fill
-                  sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              )}
-            </Container>
-          )
-        })}
+              <ArrowLeftMini />
+            </IconButton>
+            <IconButton
+              disabled={selectedImageIndex === images.length - 1}
+              className="rounded-full items-center justify-center"
+              onClick={() => handleArrowClick("right")}
+            >
+              <ArrowRightMini />
+            </IconButton>
+          </div>
+        )}
+        <ul className="flex flex-row gap-x-4">
+          {images.map((image, index) => (
+            <li
+              key={image.id}
+              className="flex aspect-[1/1] w-8 h-8 rounded-rounded"
+              onClick={() => handleImageClick(image)}
+              role="button"
+            >
+              <Image
+                src={image.url}
+                alt={image.metadata?.alt as string}
+                height={32}
+                width={32}
+                className={clx(
+                  index === selectedImageIndex ? "opacity-100" : "opacity-40",
+                  "hover:opacity-100"
+                )}
+                style={{
+                  objectFit: "cover",
+                }}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )

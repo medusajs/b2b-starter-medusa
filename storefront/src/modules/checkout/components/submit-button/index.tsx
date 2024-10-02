@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import React from "react"
 import { useFormStatus } from "react-dom"
 

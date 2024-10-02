@@ -11,7 +11,7 @@ const AddNoteButton = ({ item }: { item: HttpTypes.StoreCartLineItem }) => {
     setIsOpen(false)
     await updateLineItem({
       lineId: item.id,
-      data: { quantity: item.quantity, metadata: { note: newNote.trim() } },
+      data: { quantity: item.quantity, metadata: { note: newNote?.trim() } },
     })
   }
 
@@ -48,7 +48,7 @@ const AddNoteButton = ({ item }: { item: HttpTypes.StoreCartLineItem }) => {
       {note?.length > 0 && (
         <span
           className={clx(
-            "flex transition-opacity duration-150 items-center justify-center gap-x-1 text-neutral-600 text-xs",
+            "flex transition-opacity duration-150 items-center justify-center gap-x-1 text-neutral-600 text-xs line-clamp-none",
             isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
           )}
         >

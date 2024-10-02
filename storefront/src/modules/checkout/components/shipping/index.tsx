@@ -1,17 +1,17 @@
 "use client"
 
 import { RadioGroup } from "@headlessui/react"
-import { CheckCircleSolid } from "@medusajs/icons"
-import { Button, Heading, Text, clx } from "@medusajs/ui"
-
-import Divider from "@modules/common/components/divider"
-import Radio from "@modules/common/components/radio"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { useRouter, useSearchParams, usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
 import { setShippingMethod } from "@lib/data/cart"
 import { convertToLocale } from "@lib/util/money"
+import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { Heading, Text, clx } from "@medusajs/ui"
+import ErrorMessage from "@modules/checkout/components/error-message"
+import Button from "@modules/common/components/button"
+import Divider from "@modules/common/components/divider"
+import Radio from "@modules/common/components/radio"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
 type ShippingProps = {
   cart: HttpTypes.StoreCart

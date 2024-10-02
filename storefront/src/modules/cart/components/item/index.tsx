@@ -2,13 +2,14 @@
 
 import { updateLineItem, deleteLineItem } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Input } from "@medusajs/ui"
+import { clx, Container, Input } from "@medusajs/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import Spinner from "@modules/common/icons/spinner"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { startTransition, useState } from "react"
 import AddNoteButton from "../add-note-button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem & {
@@ -17,9 +18,10 @@ type ItemProps = {
     }
   }
   type?: "full" | "preview"
+  showBorders?: boolean
 }
 
-const Item = ({ item, type = "full" }: ItemProps) => {
+const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -88,18 +90,22 @@ const Item = ({ item, type = "full" }: ItemProps) => {
     }
   }
 
-  // TODO: Update this to grab the actual max inventory
-  const maxQtyFromInventory = 10
-  const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
+  const maxQuantity = item.variant?.inventory_quantity ?? 100
 
   return (
-    <Container className="flex gap-4 w-full h-full items-center justify-between">
-      <div className="flex gap-x-2 items-start">
-        <Thumbnail
-          thumbnail={item.thumbnail}
-          size="square"
-          className="bg-neutral-100 rounded-lg w-20 h-20"
-        />
+    <Container
+      className={clx("flex gap-4 w-full h-full items-center justify-between", {
+        "shadow-none": !showBorders,
+      })}
+    >
+      <div className="flex gap-x-4 items-start">
+        <LocalizedClientLink href={`/products/${handle}`}>
+          <Thumbnail
+            thumbnail={item.thumbnail}
+            size="square"
+            className="bg-neutral-100 rounded-lg w-20 h-20"
+          />
+        </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
             <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
@@ -126,7 +132,7 @@ const Item = ({ item, type = "full" }: ItemProps) => {
                       <Spinner size="12" />
                     ) : (
                       <Input
-                        className="w-8 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
+                        className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
                         type="number"
                         value={quantity}
                         onChange={(e) => {

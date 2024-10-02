@@ -30,11 +30,16 @@ export async function retrieveCart() {
       cartId,
       {
         fields:
-          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail",
+          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail, +items.metadata, +promotions.*, +company.*,",
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
-    .then(({ cart }) => cart)
+    .then(
+      ({ cart }) =>
+        cart as HttpTypes.StoreCart & {
+          promotions?: HttpTypes.StorePromotion[]
+        }
+    )
     .catch(() => {
       return null
     })
@@ -125,6 +130,45 @@ export async function addToCart({
       revalidateTag(getCacheTag("carts"))
     })
     .catch(medusaError)
+}
+
+export async function addToCartBulk({
+  lineItems,
+  countryCode,
+}: {
+  lineItems: HttpTypes.StoreAddCartLineItem[]
+  countryCode: string
+}) {
+  const cart = await getOrSetCart(countryCode)
+  if (!cart) {
+    throw new Error("Error retrieving or creating cart")
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...getAuthHeaders(),
+  } as Record<string, any>
+
+  if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+    headers["x-publishable-api-key"] =
+      process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+  }
+
+  await fetch(
+    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ line_items: lineItems }),
+    }
+  )
+    .then(() => {
+      revalidateTag(getCacheTag("carts"))
+    })
+    .catch(medusaError)
+
+  revalidateTag(getCacheTag("carts"))
+  console.log("revalidated carts")
 }
 
 export async function updateLineItem({

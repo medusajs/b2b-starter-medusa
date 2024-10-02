@@ -1,57 +1,44 @@
-import { clx } from "@medusajs/ui"
-
+import { clx, Text } from "@medusajs/ui"
 import { getProductPrice } from "@lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
 
 export default function ProductPrice({
   product,
-  variant,
 }: {
   product: HttpTypes.StoreProduct
-  variant?: HttpTypes.StoreProductVariant
 }) {
-  const { cheapestPrice, variantPrice } = getProductPrice({
+  const { cheapestPrice } = getProductPrice({
     product,
-    variantId: variant?.id,
   })
 
-  const selectedPrice = variant ? variantPrice : cheapestPrice
-
-  if (!selectedPrice) {
+  if (!cheapestPrice) {
     return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />
   }
 
   return (
-    <div className="flex flex-col text-ui-fg-base">
+    <div className="flex flex-col text-neutral-950">
       <span
-        className={clx("text-xl-semi", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
+        className={clx({
+          "text-ui-fg-interactive": cheapestPrice.price_type === "sale",
         })}
       >
-        {!variant && "From "}
-        <span
+        <Text
+          className="font-medium text-xl"
           data-testid="product-price"
-          data-value={selectedPrice.calculated_price_number}
+          data-value={cheapestPrice.calculated_price_number}
         >
-          {selectedPrice.calculated_price}
-        </span>
+          From {cheapestPrice.calculated_price}
+        </Text>
+        <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
       </span>
-      {selectedPrice.price_type === "sale" && (
-        <>
-          <p>
-            <span className="text-ui-fg-subtle">Original: </span>
-            <span
-              className="line-through"
-              data-testid="original-product-price"
-              data-value={selectedPrice.original_price_number}
-            >
-              {selectedPrice.original_price}
-            </span>
-          </p>
-          <span className="text-ui-fg-interactive">
-            -{selectedPrice.percentage_diff}%
-          </span>
-        </>
+      {cheapestPrice.price_type === "sale" && (
+        <p
+          className="line-through text-neutral-500"
+          data-testid="original-product-price"
+          data-value={cheapestPrice.original_price_number}
+        >
+          {cheapestPrice.original_price}
+        </p>
       )}
     </div>
   )

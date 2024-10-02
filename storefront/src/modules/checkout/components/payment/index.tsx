@@ -1,19 +1,20 @@
 "use client"
 
-import { useCallback, useContext, useEffect, useMemo, useState } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { RadioGroup } from "@headlessui/react"
-import ErrorMessage from "@modules/checkout/components/error-message"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
-import { Button, Container, Heading, Text, Tooltip, clx } from "@medusajs/ui"
+import { Container, Heading, Text, clx } from "@medusajs/ui"
+import ErrorMessage from "@modules/checkout/components/error-message"
+import Button from "@modules/common/components/button"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useCallback, useContext, useEffect, useMemo, useState } from "react"
 
-import Divider from "@modules/common/components/divider"
-import PaymentContainer from "@modules/checkout/components/payment-container"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
-import { StripeContext } from "@modules/checkout/components/payment-wrapper"
 import { initiatePaymentSession } from "@lib/data/cart"
+import PaymentContainer from "@modules/checkout/components/payment-container"
+import { StripeContext } from "@modules/checkout/components/payment-wrapper"
+import Divider from "@modules/common/components/divider"
 
 const Payment = ({
   cart,
