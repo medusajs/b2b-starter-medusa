@@ -27,9 +27,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-y-2 my-2">
       <div
-        className="content-container grid grid-cols-1 md:grid-cols-2 gap-2 py-2 w-full h-fit"
+        className="content-container grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-fit"
         data-testid="product-container"
       >
         <ImageGallery product={product} />
@@ -42,10 +42,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
       </div>
       <div className="content-container">
-        <div className="bg-neutral-100">
-          <ProductTabs product={product} />
-          <ProductOnboardingCta />
-        </div>
+        <ProductTabs product={product} />
+        <ProductOnboardingCta />
       </div>
       <div
         className="content-container"
@@ -55,7 +53,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <RelatedProducts product={product} countryCode={countryCode} />
         </Suspense>
       </div>
-    </>
+    </div>
   )
 }
 

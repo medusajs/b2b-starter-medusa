@@ -8,7 +8,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
-import LogoIcon from "icons/logo"
+import LogoIcon from "@modules/common/icons/logo"
 import { getCustomer } from "@lib/data/customer"
 
 export default async function Nav() {
