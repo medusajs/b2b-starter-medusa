@@ -9,6 +9,7 @@ import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-relat
 import { notFound } from "next/navigation"
 import React, { Suspense } from "react"
 import ProductActionsWrapper from "./product-actions-wrapper"
+import ProductFacts from "../components/product-facts"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -34,18 +35,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <ImageGallery images={product?.images || []} />
         <div className="flex flex-col bg-neutral-100 w-full gap-6 items-start justify-center p-20 h-[calc(100vh-6rem)] md:h-full">
           <ProductInfo product={product} />
-
-          <Suspense
-            fallback={
-              <ProductActions
-                disabled={true}
-                product={product}
-                region={region}
-              />
-            }
-          >
+          <Suspense fallback={<ProductActions product={product} />}>
             <ProductActionsWrapper id={product.id} region={region} />
           </Suspense>
+          <ProductFacts product={product} />
         </div>
       </div>
 

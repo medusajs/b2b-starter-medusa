@@ -89,9 +89,7 @@ const Item = ({ item, type = "full" }: ItemProps) => {
     }
   }
 
-  // TODO: Update this to grab the actual max inventory
-  const maxQtyFromInventory = 10
-  const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
+  const maxQuantity = item.variant?.inventory_quantity ?? 100
 
   return (
     <Container className="flex gap-4 w-full h-full items-center justify-between">
@@ -129,7 +127,7 @@ const Item = ({ item, type = "full" }: ItemProps) => {
                       <Spinner size="12" />
                     ) : (
                       <Input
-                        className="w-8 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
+                        className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
                         type="number"
                         value={quantity}
                         onChange={(e) => {

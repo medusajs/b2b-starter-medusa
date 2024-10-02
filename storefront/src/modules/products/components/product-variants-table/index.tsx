@@ -5,7 +5,6 @@ import { HttpTypes } from "@medusajs/types"
 import { Button, clx, Table } from "@medusajs/ui"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
-import { convertToLocale } from "@lib/util/money"
 
 const ProductVariantsTable = ({
   product,
@@ -49,7 +48,8 @@ const ProductVariantsTable = ({
     <div className="flex flex-col gap-6">
       <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none">
         <Table.Header className="border-t-0">
-          <Table.Row className="bg-neutral-100 border-none">
+          <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">
+            <Table.HeaderCell className="px-4 border-x">SKU</Table.HeaderCell>
             {product.options?.map((option) => (
               <Table.HeaderCell
                 key={option.id}
@@ -80,6 +80,7 @@ const ProductVariantsTable = ({
                   "border-b-0": index === product.variants?.length! - 1,
                 })}
               >
+                <Table.Cell className="px-4 border-x">{variant.sku}</Table.Cell>
                 {variant.options?.map((option, index) => (
                   <Table.Cell
                     key={option.id}

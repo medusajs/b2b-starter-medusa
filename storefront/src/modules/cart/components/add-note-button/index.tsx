@@ -11,7 +11,7 @@ const AddNoteButton = ({ item }: { item: HttpTypes.StoreCartLineItem }) => {
     setIsOpen(false)
     await updateLineItem({
       lineId: item.id,
-      data: { quantity: item.quantity, metadata: { note: newNote.trim() } },
+      data: { quantity: item.quantity, metadata: { note: newNote?.trim() } },
     })
   }
 
