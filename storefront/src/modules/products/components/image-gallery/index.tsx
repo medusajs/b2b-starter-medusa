@@ -53,24 +53,26 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   }, [handleArrowClick])
 
   return (
-    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 gap-6 w-full">
+    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 pt-0 gap-6 w-full h-[calc(100vh-6rem)] 2xl:h-full">
       <div
         className="relative aspect-[29/34] w-full overflow-hidden"
         id={selectedImage.id}
       >
-        {!!selectedImage.url && (
-          <Image
-            src={selectedImage.url}
-            priority
-            className="absolute inset-0 rounded-rounded"
-            alt={(selectedImage.metadata?.alt as string) || ""}
-            fill
-            sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-            style={{
-              objectFit: "cover",
-            }}
-          />
-        )}
+        <div className="flex p-48">
+          {!!selectedImage.url && (
+            <Image
+              src={selectedImage.url}
+              priority
+              className="absolute inset-0 rounded-rounded p-20 overflow-visible"
+              alt={(selectedImage.metadata?.alt as string) || ""}
+              fill
+              sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </div>
       </div>
       <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row gap-x-2">

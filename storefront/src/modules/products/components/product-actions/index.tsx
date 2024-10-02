@@ -13,6 +13,8 @@ import MobileActions from "./mobile-actions"
 import ProductPrice from "../product-price"
 import { addToCart } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
+import { ShoppingCart, ShoppingCartSolid } from "@medusajs/icons"
+import ProductVariantsTable from "../product-variants-table"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -92,24 +94,24 @@ export default function ProductActions({
   const inView = useIntersection(actionsRef, "0px")
 
   // add the selected variant to the cart
-  const handleAddToCart = async () => {
-    if (!selectedVariant?.id) return null
+  // const handleAddToCart = async () => {
+  //   if (!selectedVariant?.id) return null
 
-    setIsAdding(true)
+  //   setIsAdding(true)
 
-    await addToCart({
-      variantId: selectedVariant.id,
-      quantity: 1,
-      countryCode,
-    })
+  //   await addToCart({
+  //     variantId: selectedVariant.id,
+  //     quantity: 1,
+  //     countryCode,
+  //   })
 
-    setIsAdding(false)
-  }
+  //   setIsAdding(false)
+  // }
 
   return (
     <>
-      <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <div>
+      <div className="flex flex-col gap-y-2 w-full" ref={actionsRef}>
+        {/* <div>
           {(product.variants?.length ?? 0) > 1 && (
             <div className="flex flex-col gap-y-4">
               {(product.options || []).map((option) => {
@@ -129,25 +131,27 @@ export default function ProductActions({
               <Divider />
             </div>
           )}
-        </div>
+        </div> */}
 
         <ProductPrice product={product} variant={selectedVariant} />
+        <ProductVariantsTable product={product} countryCode={countryCode} />
 
-        <Button
+        {/* <Button
           onClick={handleAddToCart}
           disabled={!inStock || !selectedVariant || !!disabled || isAdding}
           variant="primary"
-          className="w-full h-10"
+          className="w-full h-10 rounded-full shadow-none"
           isLoading={isAdding}
           data-testid="add-product-button"
         >
+          <ShoppingCartSolid />
           {!selectedVariant
             ? "Select variant"
             : !inStock
             ? "Out of stock"
             : "Add to cart"}
-        </Button>
-        <MobileActions
+        </Button> */}
+        {/* <MobileActions
           product={product}
           variant={selectedVariant}
           options={options}
@@ -157,7 +161,7 @@ export default function ProductActions({
           isAdding={isAdding}
           show={!inView}
           optionsDisabled={!!disabled || isAdding}
-        />
+        /> */}
       </div>
     </>
   )
