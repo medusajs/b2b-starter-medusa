@@ -1,4 +1,5 @@
 import "server-only"
+
 import { cookies } from "next/headers"
 
 export const getAuthHeaders = (): { authorization: string } | {} => {

@@ -17,10 +17,6 @@ export const createRequestQuoteWorkflow = createWorkflow(
     cart_id: string;
     customer_id: string;
   }): WorkflowResponse<any> {
-    transform({ input }, ({ input }) => {
-      console.log("input - ", input);
-    });
-
     const cart = useRemoteQueryStep({
       entry_point: "cart",
       fields: [
@@ -49,10 +45,6 @@ export const createRequestQuoteWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     }).config({ name: "customer-query" });
 
-    transform({ customer }, ({ customer }) => {
-      console.log("customer - ", customer);
-    });
-
     const orderInput = transform({ cart, customer }, ({ cart, customer }) => {
       return {
         is_draft_order: true,
@@ -70,16 +62,8 @@ export const createRequestQuoteWorkflow = createWorkflow(
       };
     });
 
-    transform({ orderInput }, ({ orderInput }) => {
-      console.log("orderInput - ", orderInput);
-    });
-
     const draftOrder = createOrdersWorkflow.runAsStep({
       input: orderInput,
-    });
-
-    transform({ draftOrder }, ({ draftOrder }) => {
-      console.log("draftOrder - ", draftOrder);
     });
 
     const orderEditInput = transform({ draftOrder }, ({ draftOrder }) => {
@@ -91,16 +75,8 @@ export const createRequestQuoteWorkflow = createWorkflow(
       };
     });
 
-    transform({ orderEditInput }, ({ orderEditInput }) => {
-      console.log("orderEditInput - ", orderEditInput);
-    });
-
     const changeOrder = beginOrderEditOrderWorkflow.runAsStep({
       input: orderEditInput,
-    });
-
-    transform({ changeOrder }, ({ changeOrder }) => {
-      console.log("changeOrder - ", changeOrder);
     });
 
     const quotes = createQuotesWorkflow.runAsStep({
@@ -112,10 +88,6 @@ export const createRequestQuoteWorkflow = createWorkflow(
           order_change_id: changeOrder.id,
         },
       ],
-    });
-
-    transform({ quotes }, ({ quotes }) => {
-      console.log("quotes - ", quotes);
     });
 
     return new WorkflowResponse({

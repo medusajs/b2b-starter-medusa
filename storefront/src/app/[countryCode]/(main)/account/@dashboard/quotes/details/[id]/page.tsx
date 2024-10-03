@@ -1,32 +1,27 @@
-import { retrieveQuote, retrieveQuotePreview } from "@lib/data/quotes"
-import QuoteDetails from "@modules/quotes/components/quote-details"
-import { Metadata } from "next"
+"use client"
+
+import { useQuote, useQuotePreview } from "@lib/hooks/api/quotes"
 import { notFound } from "next/navigation"
+import { GeneralQuoteType } from "types/global"
+import QuoteDetails from "../../components/quote-details"
 
 type Props = {
   params: { id: string }
+  quote: GeneralQuoteType
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { quote } = await retrieveQuote(params.id)
+export default function QuoteDetailsPage({ params }: Props) {
+  const { quote, isLoading } = useQuote(params.id)
+  const { preview: quotePreview, isLoading: isPreviewLoading } =
+    useQuotePreview(params.id)
 
-  if (!quote) {
+  if (isLoading || isPreviewLoading) {
+    return <></>
+  }
+
+  if (!quote || !quotePreview) {
     notFound()
   }
 
-  return {
-    title: `Order #${quote.draft_order?.display_id}`,
-    description: `View your quote`,
-  }
-}
-
-export default async function QuoteDetailsPage({ params }: Props) {
-  const { quote } = await retrieveQuote(params.id)
-  const { preview } = await retrieveQuotePreview(params.id)
-
-  if (!quote || !preview) {
-    notFound()
-  }
-
-  return <QuoteDetails quote={quote} preview={preview} />
+  return <QuoteDetails quote={quote} preview={quotePreview} />
 }

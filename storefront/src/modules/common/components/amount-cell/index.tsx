@@ -1,5 +1,12 @@
 import { clx } from "@medusajs/ui"
 
+export const formatAmount = (amount: number, currency_code: string) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency_code,
+  }).format(amount)
+}
+
 type AmountCellProps = {
   currencyCode: string
   amount?: number | null
@@ -15,6 +22,7 @@ export const AmountCell = ({
   align = "left",
   className,
 }: AmountCellProps) => {
+  const formatted = formatAmount(amount!, currencyCode)
   const originalAmountPresent = typeof originalAmount === "number"
   const originalAmountDiffers = originalAmount !== amount
   const shouldShowAmountDiff = originalAmountPresent && originalAmountDiffers
@@ -34,13 +42,13 @@ export const AmountCell = ({
       {shouldShowAmountDiff ? (
         <>
           <span className="truncate line-through text-xs">
-            {originalAmount}
+            {formatAmount(originalAmount!, currencyCode)}
           </span>
-          <span className="truncate text-blue-400 txt-small">{amount}</span>
+          <span className="truncate text-blue-400 txt-small">{formatted}</span>
         </>
       ) : (
         <>
-          <span className="truncate">{amount}</span>
+          <span className="truncate">{formatted}</span>
         </>
       )}
     </div>

@@ -9,8 +9,7 @@ const QuoteManage = () => {
     fields:
       "+draft_order.customer.*, +draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
   });
-  console.log("quoteId - ", quoteId);
-  console.log("quote - ", quote);
+
   if (isLoading) {
     return <></>;
   }

@@ -24,6 +24,7 @@
   "dependencies": {
     "@medusajs/admin-sdk": "preview",
     "@medusajs/framework": "preview",
+    "@medusajs/js-sdk": "preview",
     "@medusajs/medusa": "preview",
     "@medusajs/medusa-cli": "preview",
     "@mikro-orm/core": "5.9.7",

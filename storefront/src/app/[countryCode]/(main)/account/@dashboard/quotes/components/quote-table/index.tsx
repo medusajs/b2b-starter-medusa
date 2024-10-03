@@ -69,7 +69,7 @@ export const QuoteTableItem = ({
             />
           </div>
 
-          <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-4">
             <div className="w-fit min-w-[27px]">
               <Badge size="xsmall" color="grey">
                 <span className="tabular-nums">{item.quantity}</span>x

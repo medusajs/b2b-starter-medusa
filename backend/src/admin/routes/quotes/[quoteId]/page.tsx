@@ -3,10 +3,11 @@ import {
   Container,
   Heading,
   Text,
+  toast,
   Toaster,
   usePrompt,
 } from "@medusajs/ui";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { JsonViewSection } from "../../../components/common/json-view-section";
@@ -17,12 +18,12 @@ import {
   QuoteTotal,
 } from "../../../components/quotes";
 import { useOrderPreview } from "../../../hooks";
-import { useQuote } from "../../../hooks/api/quotes";
+import { useQuote, useSendQuote } from "../../../hooks/api/quotes";
 import { formatAmount } from "../../../utils";
 
 const QuoteDetails = () => {
   const { quoteId } = useParams();
-  const [showSendQuote, setShowSendQuote] = useState(true);
+  const [showSendQuote, setShowSendQuote] = useState(false);
   const prompt = usePrompt();
   const { t } = useTranslation();
   const { quote, isLoading } = useQuote(quoteId!, {
@@ -36,17 +37,17 @@ const QuoteDetails = () => {
     { enabled: !!quote?.draft_order_id }
   );
 
-  if (isLoading || !quote) {
-    return <></>;
-  }
+  const { mutateAsync: sendQuote, isPending: isSendingQuote } = useSendQuote(
+    quoteId!
+  );
 
-  if (isPreviewLoading) {
-    return <></>;
-  }
-
-  if (!isPreviewLoading && !preview) {
-    throw "preview not found";
-  }
+  useEffect(() => {
+    if (quote?.status === "pending_merchant") {
+      setShowSendQuote(true);
+    } else {
+      setShowSendQuote(false);
+    }
+  }, [quote]);
 
   const handleSendQuote = async () => {
     const res = await prompt({
@@ -58,12 +59,28 @@ const QuoteDetails = () => {
       variant: "confirmation",
     });
 
-    if (!res) {
-      return;
+    if (res) {
+      await sendQuote(
+        {},
+        {
+          onSuccess: () => toast.success("Successfully sent quote to customer"),
+          onError: (e) => toast.error(e.message),
+        }
+      );
     }
-
-    // await cancelOrder(order.id);
   };
+
+  if (isLoading || !quote) {
+    return <></>;
+  }
+
+  if (isPreviewLoading) {
+    return <></>;
+  }
+
+  if (!isPreviewLoading && !preview) {
+    throw "preview not found";
+  }
 
   return (
     <div className="flex flex-col gap-y-3">
@@ -81,6 +98,7 @@ const QuoteDetails = () => {
                   size="small"
                   variant="secondary"
                   onClick={() => handleSendQuote()}
+                  disabled={isSendingQuote}
                 >
                   Send Quote
                 </Button>

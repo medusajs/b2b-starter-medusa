@@ -1,18 +1,9 @@
 import { EllipsisHorizontal, PencilSquare } from "@medusajs/icons";
 import { DropdownMenu, IconButton } from "@medusajs/ui";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuoteDTO } from "src/modules/quote/types/common";
 
-export const QuoteDetailsActionsMenu = ({
-  quote,
-  refetch,
-}: {
-  quote: QuoteDTO;
-  refetch: () => void;
-}) => {
-  const [editOpen, setEditOpen] = useState(false);
-
+export const QuoteDetailsActionsMenu = ({ quote }: { quote: QuoteDTO }) => {
   const navigate = useNavigate();
 
   return (
@@ -27,6 +18,7 @@ export const QuoteDetailsActionsMenu = ({
           <DropdownMenu.Item
             className="gap-x-2"
             onClick={() => navigate(`manage`)}
+            disabled={quote.status !== "pending_merchant"}
           >
             <PencilSquare />
             Manage

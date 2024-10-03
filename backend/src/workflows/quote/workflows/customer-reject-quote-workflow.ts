@@ -1,17 +1,14 @@
-import {
-  cancelBeginOrderEditWorkflow,
-  cancelOrderWorkflow,
-  useRemoteQueryStep,
-} from "@medusajs/core-flows";
+import { useRemoteQueryStep } from "@medusajs/core-flows";
 import { createWorkflow } from "@medusajs/workflows-sdk";
+import { rejectQuoteWorkflow } from "./reject-quote-workflow";
 import { updateQuotesWorkflow } from "./update-quote-workflow";
 
-export const rejectQuoteWorkflow = createWorkflow(
-  "reject-quote-workflow",
+export const customerRejectQuoteWorkflow = createWorkflow(
+  "customer-reject-quote-workflow",
   function (input: { quote_id: string }) {
     const quote = useRemoteQueryStep({
       entry_point: "quote",
-      fields: ["id", "draft_order_id"],
+      fields: ["id"],
       variables: { id: input.quote_id },
       list: false,
       throw_if_key_not_found: true,
@@ -26,14 +23,10 @@ export const rejectQuoteWorkflow = createWorkflow(
       ],
     });
 
-    cancelBeginOrderEditWorkflow.runAsStep({
+    rejectQuoteWorkflow.runAsStep({
       input: {
-        order_id: quote.draft_order_id,
+        quote_id: input.quote_id,
       },
-    });
-
-    cancelOrderWorkflow.runAsStep({
-      input: { order_id: quote.draft_order_id },
     });
   }
 );

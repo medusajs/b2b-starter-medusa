@@ -10,6 +10,7 @@ export interface CreateQuoteDTO
 
 export interface UpdateQuoteDTO extends Partial<QuoteDTO> {
   id: string;
+  status: string;
 }
 
 export interface DeleteQuoteDTO {

@@ -1,5 +1,6 @@
 export const quoteFields = [
   "id",
+  "status",
   "cart.id",
   "draft_order.id",
   "draft_order.currency_code",

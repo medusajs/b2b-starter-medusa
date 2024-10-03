@@ -1,11 +1,13 @@
 "use client"
 
-import { Button, Container } from "@medusajs/ui"
+import { Button, Container, toast } from "@medusajs/ui"
 
+import { useCreateQuote } from "@lib/hooks/api/quotes"
 import { HttpTypes } from "@medusajs/types"
 import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
+import { PromptModal } from "@modules/common/components/prompt-modal"
+import { useParams, useRouter } from "next/navigation"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -25,6 +27,11 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
 
 const Summary = ({ cart }: SummaryProps) => {
   const step = getCheckoutStep(cart)
+  const router = useRouter()
+  const { countryCode } = useParams()
+
+  const { mutateAsync: createQuote, isPending: isCreatingQuote } =
+    useCreateQuote()
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -52,14 +59,30 @@ const Summary = ({ cart }: SummaryProps) => {
         Empty Cart
       </Button>
 
-      <RequestQuoteConfirmation>
+      <PromptModal
+        title="Request Quote?"
+        description="You are about to request a quote for the cart. If you confirm, the cart will be converted to a quote."
+        handleAction={() =>
+          createQuote(
+            {},
+            {
+              onSuccess: (data) =>
+                router.push(
+                  `/${countryCode}/account/quotes/details/${data.quote.id}`
+                ),
+              onError: (error) => toast.error(error.message),
+            }
+          )
+        }
+        isLoading={isCreatingQuote}
+      >
         <Button
           className="w-full h-10 rounded-full shadow-borders-base"
           variant="secondary"
         >
           Request Quote
         </Button>
-      </RequestQuoteConfirmation>
+      </PromptModal>
     </Container>
   )
 }

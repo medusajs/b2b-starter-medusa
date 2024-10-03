@@ -4,10 +4,11 @@ import { useMemo } from "react"
 import { convertToLocale } from "@lib/util/money"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "@modules/products/components/thumbnail"
-import { QuoteDTO } from "../../../../../../backend/src/modules/quote/types/common"
+import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
+import { GeneralQuoteType } from "types/global"
 
 type QuoteCardProps = {
-  quote: QuoteDTO
+  quote: GeneralQuoteType
 }
 
 const QuoteCard = ({ quote }: QuoteCardProps) => {
@@ -30,6 +31,11 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
       <div className="uppercase text-large-semi mb-1">
         #<span data-testid="order-display-id">{order.display_id}</span>
       </div>
+
+      <div>
+        <QuoteStatusBadge status={quote.status} />
+      </div>
+
       <div className="flex items-center divide-x divide-gray-200 text-small-regular text-ui-fg-base">
         <span className="pr-2" data-testid="order-created-at">
           {new Date(order.created_at).toDateString()}

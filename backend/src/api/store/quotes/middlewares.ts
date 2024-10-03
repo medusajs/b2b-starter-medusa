@@ -15,15 +15,15 @@ import {
   RejectQuote,
 } from "./validators";
 
-export const quotesMiddlewares: MiddlewareRoute[] = [
+export const storeQuotesMiddlewares: MiddlewareRoute[] = [
   {
     method: "ALL",
-    matcher: "/customers/quotes*",
+    matcher: "/store/quotes*",
     middlewares: [authenticate("customer", ["session", "bearer"])],
   },
   {
     method: ["GET"],
-    matcher: "/customers/quotes",
+    matcher: "/store/quotes",
     middlewares: [
       validateAndTransformQuery(
         GetQuoteParams,
@@ -33,7 +33,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes",
+    matcher: "/store/quotes",
     middlewares: [
       validateAndTransformBody(CreateQuote),
       validateAndTransformQuery(GetQuoteParams, listQuotesTransformQueryConfig),
@@ -41,7 +41,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/customers/quotes/:id",
+    matcher: "/store/quotes/:id",
     middlewares: [
       validateAndTransformQuery(
         GetQuoteParams,
@@ -51,7 +51,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes/:id/accept",
+    matcher: "/store/quotes/:id/accept",
     middlewares: [
       validateAndTransformBody(AcceptQuote),
       validateAndTransformQuery(
@@ -62,7 +62,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes/:id/reject",
+    matcher: "/store/quotes/:id/reject",
     middlewares: [
       validateAndTransformBody(RejectQuote),
       validateAndTransformQuery(
@@ -73,7 +73,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/customers/quotes/:id/preview",
+    matcher: "/store/quotes/:id/preview",
     middlewares: [],
   },
 ];

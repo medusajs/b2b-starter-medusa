@@ -6,6 +6,7 @@ import {
 
 export interface QuoteDTO {
   id: string;
+  status: string;
   draft_order_id: string;
   draft_order: AdminOrder;
   cart_id: string;
