@@ -22,7 +22,7 @@ const CartDrawer = (props: any) => {
 
   const cart = props.cart as HttpTypes.StoreCart
 
-  const { items } = cart
+  const items = cart?.items
 
   const totalItems =
     items?.reduce((acc, item) => {
@@ -111,33 +111,45 @@ const CartDrawer = (props: any) => {
             </Drawer.Title>
           </Drawer.Header>
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
-            <ItemsTemplate cart={cart} showBorders={false} showTotal={false} />
-            <div className="flex flex-col gap-y-3 w-full p-4">
-              <div className="flex justify-between">
-                <Text>Subtotal</Text>
-                <Text>
-                  {convertToLocale({
-                    amount: subtotal,
-                    currency_code: cart.currency_code,
-                  })}
-                </Text>
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <LocalizedClientLink href="/cart">
-                  <Button variant="secondary" className="w-full" size="large">
-                    View Cart
-                  </Button>
-                </LocalizedClientLink>
-                <Button
-                  className="w-full"
-                  size="large"
-                  disabled={totalItems === 0}
-                >
-                  <LockClosedSolidMini />
-                  Secure Checkout
-                </Button>
-              </div>
-            </div>
+            {cart && (
+              <>
+                <ItemsTemplate
+                  cart={cart}
+                  showBorders={false}
+                  showTotal={false}
+                />
+                <div className="flex flex-col gap-y-3 w-full p-4">
+                  <div className="flex justify-between">
+                    <Text>Subtotal</Text>
+                    <Text>
+                      {convertToLocale({
+                        amount: subtotal,
+                        currency_code: cart?.currency_code,
+                      })}
+                    </Text>
+                  </div>
+                  <div className="flex flex-col gap-y-2">
+                    <LocalizedClientLink href="/cart">
+                      <Button
+                        variant="secondary"
+                        className="w-full"
+                        size="large"
+                      >
+                        View Cart
+                      </Button>
+                    </LocalizedClientLink>
+                    <Button
+                      className="w-full"
+                      size="large"
+                      disabled={totalItems === 0}
+                    >
+                      <LockClosedSolidMini />
+                      Secure Checkout
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </Drawer.Content>
       </Drawer>

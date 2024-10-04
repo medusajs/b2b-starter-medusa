@@ -5,7 +5,7 @@ import { setShippingMethod } from "@lib/data/cart"
 import { convertToLocale } from "@lib/util/money"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Heading, Text, clx } from "@medusajs/ui"
+import { Container, Heading, Text, clx } from "@medusajs/ui"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
@@ -60,37 +60,37 @@ const Shipping: React.FC<ShippingProps> = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
-        <Heading
-          level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
+    <Container>
+      <div className="flex flex-col gap-y-2">
+        <div className="flex flex-row items-center justify-between w-full">
+          <Heading
+            level="h2"
+            className={clx("flex flex-row text-xl gap-x-2 items-baseline", {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && cart.shipping_methods?.length === 0,
-            }
-          )}
-        >
-          Delivery
-          {!isOpen && (cart.shipping_methods?.length ?? 0) > 0 && (
-            <CheckCircleSolid />
-          )}
-        </Heading>
-        {!isOpen &&
-          cart?.shipping_address &&
-          cart?.billing_address &&
-          cart?.email && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-delivery-button"
-              >
-                Edit
-              </button>
-            </Text>
-          )}
+            })}
+          >
+            Delivery Method
+            {!isOpen && (cart.shipping_methods?.length ?? 0) > 0 && (
+              <CheckCircleSolid />
+            )}
+          </Heading>
+          {!isOpen &&
+            cart?.shipping_address &&
+            cart?.billing_address &&
+            cart?.email && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-delivery-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
+        </div>
+        {isOpen && <Divider />}
       </div>
       {isOpen ? (
         <div data-testid="delivery-options-container">
@@ -164,8 +164,7 @@ const Shipping: React.FC<ShippingProps> = ({
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
-    </div>
+    </Container>
   )
 }
 

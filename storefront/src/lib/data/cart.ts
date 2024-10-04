@@ -34,12 +34,12 @@ export async function retrieveCart() {
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
-    .then(
-      ({ cart }) =>
-        cart as HttpTypes.StoreCart & {
-          promotions?: HttpTypes.StorePromotion[]
-        }
-    )
+    .then(({ cart }) => {
+      console.log("cart", cart)
+      return cart as HttpTypes.StoreCart & {
+        promotions?: HttpTypes.StorePromotion[]
+      }
+    })
     .catch(() => {
       return null
     })
@@ -391,7 +391,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
-      customer_id: customer?.id,
+      // customer_id: customer?.id,
       email: customer?.email || formData.get("email"),
     } as any
 

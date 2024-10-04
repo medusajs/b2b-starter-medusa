@@ -115,32 +115,32 @@ const Payment = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
-        <Heading
-          level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
+    <Container>
+      <div className="flex flex-col gap-y-2">
+        <div className="flex flex-row items-center justify-between w-full">
+          <Heading
+            level="h2"
+            className={clx("flex flex-row text-xl gap-x-2 items-baseline", {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && !paymentReady,
-            }
+            })}
+          >
+            Payment Method
+            {!isOpen && paymentReady && <CheckCircleSolid />}
+          </Heading>
+          {!isOpen && paymentReady && (
+            <Text>
+              <button
+                onClick={handleEdit}
+                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                data-testid="edit-payment-button"
+              >
+                Edit
+              </button>
+            </Text>
           )}
-        >
-          Payment
-          {!isOpen && paymentReady && <CheckCircleSolid />}
-        </Heading>
-        {!isOpen && paymentReady && (
-          <Text>
-            <button
-              onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-              data-testid="edit-payment-button"
-            >
-              Edit
-            </button>
-          </Text>
-        )}
+        </div>
+        {isOpen && <Divider />}
       </div>
       <div>
         <div className={isOpen ? "block" : "hidden"}>
@@ -274,8 +274,7 @@ const Payment = ({
           ) : null}
         </div>
       </div>
-      <Divider className="mt-8" />
-    </div>
+    </Container>
   )
 }
 
