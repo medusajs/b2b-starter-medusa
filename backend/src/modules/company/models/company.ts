@@ -17,5 +17,8 @@ export const Company = model.define("company", {
   country: model.text().nullable(),
   logo_url: model.text().nullable(),
   currency_code: model.text().nullable(),
+  spending_limit_reset_frequency: model
+    .enum(["never", "daily", "weekly", "monthly", "yearly"])
+    .default("monthly"),
   employees: model.hasMany(() => Employee),
 });

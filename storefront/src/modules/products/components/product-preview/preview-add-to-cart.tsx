@@ -38,7 +38,7 @@ const PreviewAddToCart = ({
       }}
       isLoading={isAdding}
     >
-      <ShoppingBag />
+      <ShoppingBag fill="#fff" />
     </Button>
   )
 }

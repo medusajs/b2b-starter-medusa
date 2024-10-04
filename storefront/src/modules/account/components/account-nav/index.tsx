@@ -21,7 +21,7 @@ const AccountNav = ({
   const { countryCode } = useParams() as { countryCode: string }
 
   const handleLogout = async () => {
-    await signout(countryCode)
+    await signout(countryCode, customer?.id as string)
   }
 
   return (

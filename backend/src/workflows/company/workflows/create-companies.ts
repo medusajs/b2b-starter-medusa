@@ -7,9 +7,9 @@ export const createCompaniesWorkflow = createWorkflow(
   "create-company",
   function (
     input: CreateCompanyDTO | CreateCompanyDTO[]
-  ): WorkflowResponse<{ company: CompanyDTO | CompanyDTO[] }> {
-    const company = createCompaniesStep(input);
+  ): WorkflowResponse<{ companies: CompanyDTO | CompanyDTO[] }> {
+    const companies = createCompaniesStep(input);
 
-    return new WorkflowResponse({ company });
+    return new WorkflowResponse({ companies });
   }
 );

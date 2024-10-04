@@ -16,6 +16,7 @@ import {
 } from "./cookies"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
+import { getCustomer } from "./customer"
 
 export async function retrieveCart() {
   const cartId = getCartId()
@@ -29,11 +30,16 @@ export async function retrieveCart() {
       cartId,
       {
         fields:
-          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail",
+          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail, +items.metadata, +promotions.*, +company.*,",
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
-    .then(({ cart }) => cart)
+    .then(
+      ({ cart }) =>
+        cart as HttpTypes.StoreCart & {
+          promotions?: HttpTypes.StorePromotion[]
+        }
+    )
     .catch(() => {
       return null
     })
@@ -42,16 +48,26 @@ export async function retrieveCart() {
 export async function getOrSetCart(countryCode: string) {
   let cart = await retrieveCart()
   const region = await getRegion(countryCode)
+  const customer = await getCustomer()
 
   if (!region) {
     throw new Error(`Region not found for country code: ${countryCode}`)
   }
 
   if (!cart) {
-    const cartResp = await sdk.store.cart.create({ region_id: region.id })
-    cart = cartResp.cart
-    setCartId(cart.id)
+    const body = {
+      email: customer?.email,
+      region_id: region.id,
+      metadata: {
+        company_id: customer?.employee?.company?.id,
+      },
+    }
+
+    const cartResp = await sdk.store.cart.create(body, {}, getAuthHeaders())
+    setCartId(cartResp.cart.id)
     revalidateTag(getCacheTag("carts"))
+
+    cart = await retrieveCart()
   }
 
   if (cart && cart?.region_id !== region.id) {
@@ -116,12 +132,51 @@ export async function addToCart({
     .catch(medusaError)
 }
 
+export async function addToCartBulk({
+  lineItems,
+  countryCode,
+}: {
+  lineItems: HttpTypes.StoreAddCartLineItem[]
+  countryCode: string
+}) {
+  const cart = await getOrSetCart(countryCode)
+  if (!cart) {
+    throw new Error("Error retrieving or creating cart")
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...getAuthHeaders(),
+  } as Record<string, any>
+
+  if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+    headers["x-publishable-api-key"] =
+      process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+  }
+
+  await fetch(
+    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ line_items: lineItems }),
+    }
+  )
+    .then(() => {
+      revalidateTag(getCacheTag("carts"))
+    })
+    .catch(medusaError)
+
+  revalidateTag(getCacheTag("carts"))
+  console.log("revalidated carts")
+}
+
 export async function updateLineItem({
   lineId,
-  quantity,
+  data,
 }: {
   lineId: string
-  quantity: number
+  data: HttpTypes.StoreUpdateCartLineItem
 }) {
   if (!lineId) {
     throw new Error("Missing lineItem ID when updating line item")
@@ -133,7 +188,7 @@ export async function updateLineItem({
   }
 
   await sdk.store.cart
-    .updateLineItem(cartId, lineId, { quantity }, {}, getAuthHeaders())
+    .updateLineItem(cartId, lineId, data, {}, getAuthHeaders())
     .then(() => {
       revalidateTag(getCacheTag("carts"))
     })
@@ -315,7 +370,10 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
     }
+
     const cartId = getCartId()
+    const customer = await getCustomer()
+
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses")
     }
@@ -333,7 +391,8 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
-      email: formData.get("email"),
+      customer_id: customer?.id,
+      email: customer?.email || formData.get("email"),
     } as any
 
     const sameAsBilling = formData.get("same_as_billing")

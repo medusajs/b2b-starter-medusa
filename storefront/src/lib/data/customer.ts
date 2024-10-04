@@ -6,18 +6,26 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
+import { Customer } from "types/global"
 import {
   getAuthHeaders,
+  getCacheHeaders,
+  getCacheTag,
   removeAuthToken,
   setAuthToken,
-  getCacheTag,
-  getCacheHeaders,
 } from "./cookies"
+import { createCompany, createEmployee } from "./companies"
 
 export const getCustomer = cache(async function () {
+  // TODO: update type to include employee and company
   return await sdk.store.customer
-    .retrieve({}, { ...getCacheHeaders("customers"), ...getAuthHeaders() })
-    .then(({ customer }) => customer)
+    .retrieve(
+      {
+        fields: "+employee.*, +orders.*",
+      },
+      { ...getCacheHeaders("customers"), ...getAuthHeaders() }
+    )
+    .then(({ customer }) => customer as Customer)
     .catch(() => null)
 })
 
@@ -63,8 +71,41 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
     setAuthToken(loginToken as string)
 
+    let createdCompany: Record<string, unknown> | null = null
+    let createdEmployee: Record<string, unknown> | null = null
+
+    if (formData.get("is_business") === "true") {
+      const companyForm = {
+        name: formData.get("company_name") as string,
+        email: formData.get("company_email") as string,
+        phone: formData.get("company_phone") as string,
+        address: formData.get("company_address") as string,
+        city: formData.get("company_city") as string,
+        state: formData.get("company_state") as string,
+        zip: formData.get("company_zip") as string,
+        country: formData.get("company_country") as string,
+        currency_code: formData.get("currency_code") as string,
+      }
+
+      createdCompany = await createCompany(companyForm).then(
+        ({ companies }) => companies[0]
+      )
+
+      if (createdCompany) {
+        createdEmployee = await createEmployee(createdCompany.id as string, {
+          customer_id: createdCustomer.id,
+          is_admin: true,
+        })
+      }
+    }
+
     revalidateTag(getCacheTag("customers"))
-    return createdCustomer
+
+    return {
+      customer: createdCustomer,
+      company: createdCompany,
+      employee: createdEmployee,
+    }
   } catch (error: any) {
     return error.toString()
   }
@@ -86,7 +127,7 @@ export async function login(_currentState: unknown, formData: FormData) {
   }
 }
 
-export async function signout(countryCode: string) {
+export async function signout(countryCode: string, customerId: string) {
   await sdk.auth.logout()
   removeAuthToken()
   revalidateTag(getCacheTag("auth"))
@@ -123,7 +164,8 @@ export const addCustomerAddress = async (
 }
 
 export const deleteCustomerAddress = async (
-  addressId: string
+  addressId: string,
+  customerId: string
 ): Promise<void> => {
   await sdk.store.customer
     .deleteAddress(addressId, getAuthHeaders())
@@ -141,6 +183,7 @@ export const updateCustomerAddress = async (
   formData: FormData
 ): Promise<any> => {
   const addressId = currentState.addressId as string
+  const customerId = currentState.customerId as string
 
   const address = {
     first_name: formData.get("first_name") as string,

@@ -1,8 +1,8 @@
 "use client"
 
 import { resetOnboardingState } from "@lib/data/onboarding"
-import { Button, Container, Text } from "@medusajs/ui"
-
+import { Container, Text } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 const OnboardingCta = ({ orderId }: { orderId: string }) => {
   return (
     <Container className="max-w-4xl h-full bg-ui-bg-subtle w-full">

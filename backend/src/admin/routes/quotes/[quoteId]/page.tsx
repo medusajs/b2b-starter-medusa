@@ -165,24 +165,6 @@ const QuoteDetails = () => {
         <div className="mt-2 flex w-full max-w-[100%] flex-col gap-y-3 xl:mt-0 xl:max-w-[400px]">
           <Container className="divide-y p-0">
             <div className="flex items-center justify-between px-6 py-4">
-              <Heading level="h2">Description</Heading>
-            </div>
-
-            <div className="text-ui-fg-subtle px-6 py-4 text-sm flex flex-col gap-y-3">
-              <p>Hey team,</p>
-              <p>
-                We are requesting a custom quote for a bulk order of the
-                specified products with our company logo printed on each item.
-              </p>
-              <p>
-                While we are flexible on the delivery date, we would prefer to
-                receive the order within the next four months if possible.
-              </p>
-            </div>
-          </Container>
-
-          <Container className="divide-y p-0">
-            <div className="flex items-center justify-between px-6 py-4">
               <Heading level="h2">Customer</Heading>
             </div>
 
