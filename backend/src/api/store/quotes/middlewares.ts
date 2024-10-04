@@ -13,17 +13,18 @@ import {
   CreateQuote,
   GetQuoteParams,
   RejectQuote,
+  StoreCreateQuoteComment,
 } from "./validators";
 
-export const quotesMiddlewares: MiddlewareRoute[] = [
+export const storeQuotesMiddlewares: MiddlewareRoute[] = [
   {
     method: "ALL",
-    matcher: "/customers/quotes*",
+    matcher: "/store/quotes*",
     middlewares: [authenticate("customer", ["session", "bearer"])],
   },
   {
     method: ["GET"],
-    matcher: "/customers/quotes",
+    matcher: "/store/quotes",
     middlewares: [
       validateAndTransformQuery(
         GetQuoteParams,
@@ -33,7 +34,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes",
+    matcher: "/store/quotes",
     middlewares: [
       validateAndTransformBody(CreateQuote),
       validateAndTransformQuery(GetQuoteParams, listQuotesTransformQueryConfig),
@@ -41,7 +42,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/customers/quotes/:id",
+    matcher: "/store/quotes/:id",
     middlewares: [
       validateAndTransformQuery(
         GetQuoteParams,
@@ -51,7 +52,7 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes/:id/accept",
+    matcher: "/store/quotes/:id/accept",
     middlewares: [
       validateAndTransformBody(AcceptQuote),
       validateAndTransformQuery(
@@ -62,9 +63,25 @@ export const quotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/customers/quotes/:id/reject",
+    matcher: "/store/quotes/:id/reject",
     middlewares: [
       validateAndTransformBody(RejectQuote),
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/quotes/:id/preview",
+    middlewares: [],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/quotes/:id/comments",
+    middlewares: [
+      validateAndTransformBody(StoreCreateQuoteComment),
       validateAndTransformQuery(
         GetQuoteParams,
         retrieveQuoteTransformQueryConfig

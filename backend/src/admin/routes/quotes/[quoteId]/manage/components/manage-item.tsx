@@ -1,3 +1,4 @@
+import { AdminOrder, AdminOrderPreview } from "@medusajs/framework/types";
 import {
   ArrowUturnLeft,
   DocumentSeries,
@@ -5,7 +6,6 @@ import {
   XCircle,
   XMark,
 } from "@medusajs/icons";
-import { AdminOrder, AdminOrderPreview } from "@medusajs/framework/types";
 import {
   Badge,
   CurrencyInput,

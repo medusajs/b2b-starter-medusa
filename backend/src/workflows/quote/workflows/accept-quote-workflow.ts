@@ -1,9 +1,12 @@
 import {
-  completeOrderWorkflow,
   confirmOrderEditRequestWorkflow,
+  requestOrderEditRequestWorkflow,
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
+import { OrderStatus } from "@medusajs/framework/utils";
 import { createWorkflow } from "@medusajs/workflows-sdk";
+import { updateOrderWorkflow } from "./update-order";
+import { updateQuotesWorkflow } from "./update-quote-workflow";
 
 export const acceptQuoteWorkflow = createWorkflow(
   "accept-quote-workflow",
@@ -16,6 +19,21 @@ export const acceptQuoteWorkflow = createWorkflow(
       throw_if_key_not_found: true,
     });
 
+    updateQuotesWorkflow.runAsStep({
+      input: [
+        {
+          id: input.quote_id,
+          status: "accepted",
+        },
+      ],
+    });
+
+    requestOrderEditRequestWorkflow.runAsStep({
+      input: {
+        order_id: quote.draft_order_id,
+      },
+    });
+
     confirmOrderEditRequestWorkflow.runAsStep({
       input: {
         order_id: quote.draft_order_id,
@@ -24,9 +42,11 @@ export const acceptQuoteWorkflow = createWorkflow(
       },
     });
 
-    completeOrderWorkflow.runAsStep({
+    updateOrderWorkflow.runAsStep({
       input: {
-        orderIds: [quote.draft_order_id],
+        id: quote.draft_order_id,
+        is_draft_order: false,
+        status: OrderStatus.COMPLETED,
       },
     });
   }

@@ -1,5 +1,4 @@
 import {
-  AdminOrder,
   AdminOrderLineItem,
   AdminOrderPreview,
 } from "@medusajs/framework/types";
@@ -8,34 +7,7 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { AmountCell, Thumbnail } from "../common";
 
-export const ItemBreakdown = ({
-  order,
-  preview,
-}: {
-  order: AdminOrder;
-  preview: AdminOrderPreview;
-}) => {
-  const originalItemsMap = useMemo(() => {
-    return new Map(order.items.map((item) => [item.id, item]));
-  }, [order]);
-
-  return (
-    <div>
-      {preview.items?.map((item) => {
-        return (
-          <Item
-            key={item.id}
-            item={item}
-            originalItem={originalItemsMap.get(item.id)}
-            currencyCode={order.currency_code}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-const Item = ({
+export const QuoteItem = ({
   item,
   originalItem,
   currencyCode,
@@ -66,7 +38,7 @@ const Item = ({
     <>
       <div
         key={item.id}
-        className="text-ui-fg-subtle grid grid-cols-2 items-center gap-x-4 px-6 py-4"
+        className="text-ui-fg-subtle grid grid-cols-2 items-center gap-x-4 px-6 py-4 text-left"
       >
         <div className="flex items-start gap-x-4">
           <Thumbnail src={item.thumbnail} />

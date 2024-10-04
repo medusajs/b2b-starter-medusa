@@ -1,12 +1,16 @@
+import {
+  AuthenticatedMedusaRequest,
+  MedusaResponse,
+  Query,
+} from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import { GetQuoteParamsType } from "../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetQuoteParamsType>,
+  req: AuthenticatedMedusaRequest<GetQuoteParamsType>,
   res: MedusaResponse
 ) => {
-  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const query: Query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
   const { id } = req.params;
 
   const {
@@ -15,7 +19,10 @@ export const GET = async (
     {
       entity: "quote",
       fields: req.remoteQueryConfig.fields,
-      filters: { id },
+      filters: {
+        id,
+        customer_id: req.auth_context.actor_id,
+      },
     },
     { throwIfKeyNotFound: true }
   );

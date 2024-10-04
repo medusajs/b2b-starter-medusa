@@ -5,19 +5,14 @@ import { ManageQuoteForm } from "./components/manage-quote-form";
 
 const QuoteManage = () => {
   const { quoteId } = useParams();
-  const { data, loading } = useQuote(quoteId!, {
-    fields: [
-      "+draft_order.customer.*",
-      "+draft_order.customer.employee.*",
-      "+draft_order.customer.employee.company.*",
-    ],
+  const { quote, isLoading } = useQuote(quoteId!, {
+    fields:
+      "+draft_order.customer.*, +draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
   });
 
-  if (loading) {
+  if (isLoading) {
     return <></>;
   }
-
-  const quote = data?.quote;
 
   if (!quote) {
     throw "quote not found";

@@ -4,6 +4,7 @@ import {
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
 import { createWorkflow } from "@medusajs/workflows-sdk";
+import { updateQuotesWorkflow } from "./update-quote-workflow";
 
 export const rejectQuoteWorkflow = createWorkflow(
   "reject-quote-workflow",
@@ -14,6 +15,15 @@ export const rejectQuoteWorkflow = createWorkflow(
       variables: { id: input.quote_id },
       list: false,
       throw_if_key_not_found: true,
+    });
+
+    updateQuotesWorkflow.runAsStep({
+      input: [
+        {
+          id: input.quote_id,
+          status: "customer_rejected",
+        },
+      ],
     });
 
     cancelBeginOrderEditWorkflow.runAsStep({

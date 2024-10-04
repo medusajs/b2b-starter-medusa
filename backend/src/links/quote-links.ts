@@ -45,6 +45,32 @@ MedusaModule.setCustomLink(() => {
           },
         },
       },
+      {
+        serviceName: "quote",
+        relationship: {
+          serviceName: Modules.USER,
+          entity: "User",
+          primaryKey: "id",
+          foreignKey: "admin_id",
+          alias: "admin",
+          args: {
+            methodSuffix: "Users",
+          },
+        },
+      },
+      {
+        serviceName: "quote",
+        relationship: {
+          serviceName: Modules.CUSTOMER,
+          entity: "Customer",
+          primaryKey: "id",
+          foreignKey: "customer_id",
+          alias: "customer",
+          args: {
+            methodSuffix: "Customers",
+          },
+        },
+      },
     ],
   };
 });

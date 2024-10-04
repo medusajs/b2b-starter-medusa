@@ -1,5 +1,5 @@
-import { FetchError } from "@medusajs/js-sdk";
 import { HttpTypes } from "@medusajs/framework/types";
+import { FetchError } from "@medusajs/js-sdk";
 import {
   QueryKey,
   useMutation,
@@ -10,8 +10,11 @@ import {
 } from "@tanstack/react-query";
 
 import { ClientHeaders } from "@medusajs/js-sdk/dist/types";
+import { queryKeysFactory } from "../../lib/query-key-factory";
 import { sdk } from "../../lib/sdk";
 import { orderPreviewQueryKey } from "./order-preview";
+
+export const quoteQueryKey = queryKeysFactory("quote");
 
 export const useQuotes = (
   query?: Record<any, any>,
@@ -39,7 +42,7 @@ export const useQuotes = (
 
   const { data, ...rest } = useQuery({
     queryFn: async () => fetchQuotes(query),
-    queryKey: [],
+    queryKey: quoteQueryKey.list(),
     ...options,
   });
 
@@ -74,7 +77,7 @@ export const useQuote = (
 
   const { data, ...rest } = useQuery({
     queryFn: async () => fetchQuote(id, query),
-    queryKey: [],
+    queryKey: quoteQueryKey.detail(id),
     ...options,
   });
 
@@ -199,6 +202,102 @@ export const useConfirmQuote = (
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({
         queryKey: orderPreviewQueryKey.details(),
+      });
+
+      options?.onSuccess?.(data, variables, context);
+    },
+    ...options,
+  });
+};
+
+export const useSendQuote = (
+  id: string,
+  options?: UseMutationOptions<Record<any, any>, FetchError, void>
+) => {
+  const queryClient = useQueryClient();
+
+  const sendQuote = async (id: string) =>
+    sdk.client.fetch<{ quote: Record<any, any> }>(`/admin/quotes/${id}/send`, {
+      method: "POST",
+    });
+
+  return useMutation({
+    mutationFn: () => sendQuote(id),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: orderPreviewQueryKey.details(),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.detail(id),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.lists(),
+      });
+
+      options?.onSuccess?.(data, variables, context);
+    },
+    ...options,
+  });
+};
+
+export const useRejectQuote = (
+  id: string,
+  options?: UseMutationOptions<Record<any, any>, FetchError, void>
+) => {
+  const queryClient = useQueryClient();
+
+  const rejectQuote = async (id: string) =>
+    sdk.client.fetch<{ quote: Record<any, any> }>(
+      `/admin/quotes/${id}/reject`,
+      { method: "POST" }
+    );
+
+  return useMutation({
+    mutationFn: () => rejectQuote(id),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: orderPreviewQueryKey.details(),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.detail(id),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.lists(),
+      });
+
+      options?.onSuccess?.(data, variables, context);
+    },
+    ...options,
+  });
+};
+
+export const useCreateQuoteComment = (
+  id: string,
+  options?: UseMutationOptions<Record<any, any>, FetchError, Record<any, any>>
+) => {
+  const queryClient = useQueryClient();
+
+  const sendQuote = async (
+    id: string,
+    body: { item_id: string; text: string }
+  ) =>
+    sdk.client.fetch<{ quote: Record<any, any> }>(
+      `/admin/quotes/${id}/comments`,
+      {
+        body,
+        method: "POST",
+      }
+    );
+
+  return useMutation({
+    mutationFn: (body) => sendQuote(id, body),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.details(),
       });
 
       options?.onSuccess?.(data, variables, context);
