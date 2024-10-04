@@ -1,9 +1,10 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk";
 import { DocumentText } from "@medusajs/icons";
-import { Badge, Container, Heading, Table, Toaster } from "@medusajs/ui";
+import { Container, Heading, Table, Toaster } from "@medusajs/ui";
 import { QuoteDTO } from "../../../modules/quote/types/common";
 import { QuoteActionsMenu } from "../../components";
 import { useQuotes } from "../../hooks/api/quotes";
+import QuoteStatusBadge from "./components/quote-status-badge";
 
 const Quotes = () => {
   const { quotes = [] } = useQuotes({
@@ -51,9 +52,7 @@ const Quotes = () => {
                   {quote.draft_order?.customer?.employee?.company?.name || "-"}
                 </Table.Cell>
                 <Table.Cell>
-                  <Badge color="green">
-                    {quote.draft_order?.status || "-"}
-                  </Badge>
+                  <QuoteStatusBadge status={quote.status} />
                 </Table.Cell>
                 <Table.Cell>
                   {quote.draft_order?.summary.pending_difference || 0}{" "}

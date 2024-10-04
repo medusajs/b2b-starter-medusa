@@ -146,13 +146,22 @@
           "nullable": true,
           "mappedType": "text"
         },
-        "user_id": {
-          "name": "user_id",
+        "admin_id": {
+          "name": "admin_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
+          "mappedType": "text"
+        },
+        "customer_id": {
+          "name": "customer_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
           "mappedType": "text"
         },
         "quote_id": {

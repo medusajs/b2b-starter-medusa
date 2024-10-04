@@ -13,17 +13,23 @@ import { Link, useParams } from "react-router-dom";
 import { JsonViewSection } from "../../../components/common/json-view-section";
 import {
   CostBreakdown,
-  ItemBreakdown,
   QuoteDetailsHeader,
+  QuoteItems,
   QuoteTotal,
 } from "../../../components/quotes";
 import { useOrderPreview } from "../../../hooks";
-import { useQuote, useSendQuote } from "../../../hooks/api/quotes";
+import {
+  useQuote,
+  useRejectQuote,
+  useSendQuote,
+} from "../../../hooks/api/quotes";
 import { formatAmount } from "../../../utils";
+import { QuoteMessages } from "../components/quote-messages";
 
 const QuoteDetails = () => {
   const { quoteId } = useParams();
   const [showSendQuote, setShowSendQuote] = useState(false);
+  const [showRejectQuote, setShowRejectQuote] = useState(false);
   const prompt = usePrompt();
   const { t } = useTranslation();
   const { quote, isLoading } = useQuote(quoteId!, {
@@ -41,11 +47,24 @@ const QuoteDetails = () => {
     quoteId!
   );
 
+  const { mutateAsync: rejectQuote, isPending: isRejectingQuote } =
+    useRejectQuote(quoteId!);
+
   useEffect(() => {
-    if (quote?.status === "pending_merchant") {
+    if (["pending_merchant", "customer_rejected"].includes(quote?.status)) {
       setShowSendQuote(true);
     } else {
       setShowSendQuote(false);
+    }
+
+    if (
+      ["customer_rejected", "merchant_rejected", "accepted"].includes(
+        quote?.status
+      )
+    ) {
+      setShowRejectQuote(false);
+    } else {
+      setShowRejectQuote(true);
     }
   }, [quote]);
 
@@ -70,6 +89,25 @@ const QuoteDetails = () => {
     }
   };
 
+  const handleRejectQuote = async () => {
+    const res = await prompt({
+      title: "Reject quote?",
+      description:
+        "You are about to reject this customer's quote. Do you want to continue?",
+      confirmText: t("actions.continue"),
+      cancelText: t("actions.cancel"),
+      variant: "confirmation",
+    });
+
+    if (res) {
+      await rejectQuote(void 0, {
+        onSuccess: () =>
+          toast.success("Successfully rejected customer's quote"),
+        onError: (e) => toast.error(e.message),
+      });
+    }
+  };
+
   if (isLoading || !quote) {
     return <></>;
   }
@@ -88,23 +126,38 @@ const QuoteDetails = () => {
         <div className="flex w-full flex-col gap-y-3">
           <Container className="divide-y divide-dashed p-0">
             <QuoteDetailsHeader quote={quote} order={quote.draft_order} />
-            <ItemBreakdown order={quote.draft_order} preview={preview!} />
+            <QuoteItems order={quote.draft_order} preview={preview!} />
             <CostBreakdown order={quote.draft_order} />
             <QuoteTotal order={quote.draft_order} preview={preview!} />
 
-            {showSendQuote && (
+            {(showRejectQuote || showSendQuote) && (
               <div className="bg-ui-bg-subtle flex items-center justify-end gap-x-2 rounded-b-xl px-4 py-4">
-                <Button
-                  size="small"
-                  variant="secondary"
-                  onClick={() => handleSendQuote()}
-                  disabled={isSendingQuote}
-                >
-                  Send Quote
-                </Button>
+                {showRejectQuote && (
+                  <Button
+                    size="small"
+                    variant="secondary"
+                    onClick={() => handleRejectQuote()}
+                    disabled={isSendingQuote}
+                  >
+                    Reject Quote
+                  </Button>
+                )}
+
+                {showSendQuote && (
+                  <Button
+                    size="small"
+                    variant="secondary"
+                    onClick={() => handleSendQuote()}
+                    disabled={isSendingQuote}
+                  >
+                    Send Quote
+                  </Button>
+                )}
               </div>
             )}
           </Container>
+
+          <QuoteMessages quote={quote} preview={preview!} />
 
           <JsonViewSection data={quote} />
         </div>

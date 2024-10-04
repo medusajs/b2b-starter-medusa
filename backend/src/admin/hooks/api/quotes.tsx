@@ -241,3 +241,67 @@ export const useSendQuote = (
     ...options,
   });
 };
+
+export const useRejectQuote = (
+  id: string,
+  options?: UseMutationOptions<Record<any, any>, FetchError, void>
+) => {
+  const queryClient = useQueryClient();
+
+  const rejectQuote = async (id: string) =>
+    sdk.client.fetch<{ quote: Record<any, any> }>(
+      `/admin/quotes/${id}/reject`,
+      { method: "POST" }
+    );
+
+  return useMutation({
+    mutationFn: () => rejectQuote(id),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: orderPreviewQueryKey.details(),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.detail(id),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.lists(),
+      });
+
+      options?.onSuccess?.(data, variables, context);
+    },
+    ...options,
+  });
+};
+
+export const useCreateQuoteComment = (
+  id: string,
+  options?: UseMutationOptions<Record<any, any>, FetchError, Record<any, any>>
+) => {
+  const queryClient = useQueryClient();
+
+  const sendQuote = async (
+    id: string,
+    body: { item_id: string; text: string }
+  ) =>
+    sdk.client.fetch<{ quote: Record<any, any> }>(
+      `/admin/quotes/${id}/comments`,
+      {
+        body,
+        method: "POST",
+      }
+    );
+
+  return useMutation({
+    mutationFn: (body) => sendQuote(id, body),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: quoteQueryKey.details(),
+      });
+
+      options?.onSuccess?.(data, variables, context);
+    },
+    ...options,
+  });
+};

@@ -14,3 +14,12 @@ export interface QuoteDTO {
   order_change_id: string;
   order_change: AdminOrderChange;
 }
+
+export interface QuoteCommentDTO {
+  id: string;
+  text: string;
+  quote_id: string;
+  admin_id: string;
+  customer_id: string;
+  item_id: string;
+}

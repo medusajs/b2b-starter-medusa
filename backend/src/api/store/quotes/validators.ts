@@ -16,3 +16,13 @@ export const AcceptQuote = z.object({}).strict();
 
 export type RejectQuoteType = z.infer<typeof RejectQuote>;
 export const RejectQuote = z.object({}).strict();
+
+export type StoreCreateQuoteCommentType = z.infer<
+  typeof StoreCreateQuoteComment
+>;
+export const StoreCreateQuoteComment = z
+  .object({
+    text: z.string(),
+    item_id: z.string().nullish(),
+  })
+  .strict();

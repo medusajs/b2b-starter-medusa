@@ -13,6 +13,7 @@ import {
   CreateQuote,
   GetQuoteParams,
   RejectQuote,
+  StoreCreateQuoteComment,
 } from "./validators";
 
 export const storeQuotesMiddlewares: MiddlewareRoute[] = [
@@ -75,5 +76,16 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/store/quotes/:id/preview",
     middlewares: [],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/quotes/:id/comments",
+    middlewares: [
+      validateAndTransformBody(StoreCreateQuoteComment),
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
+    ],
   },
 ];

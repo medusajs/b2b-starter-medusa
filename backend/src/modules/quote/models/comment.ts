@@ -5,6 +5,7 @@ export const Comment = model.define("comment", {
   id: model.id({ prefix: "quo" }).primaryKey(),
   text: model.text(),
   item_id: model.text().nullable(),
-  user_id: model.text(),
+  admin_id: model.text().nullable(),
+  customer_id: model.text().nullable(),
   quote: model.belongsTo(() => Quote, { mappedBy: "comments" }),
 });
