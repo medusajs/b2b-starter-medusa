@@ -45,42 +45,46 @@ const CompanyDetails = () => {
               <CompanyActionsMenu company={company} refetch={refetch} />
             </div>
             <Table>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  Phone
-                </Table.Cell>
-                <Table.Cell>{company?.phone}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  Email
-                </Table.Cell>
-                <Table.Cell>{company?.email}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  Address
-                </Table.Cell>
-                <Table.Cell>{company?.address}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  City
-                </Table.Cell>
-                <Table.Cell>{company?.city}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  State
-                </Table.Cell>
-                <Table.Cell>{company?.state}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell className="font-medium font-sans txt-compact-small">
-                  Currency
-                </Table.Cell>
-                <Table.Cell>{company?.currency_code?.toUpperCase()}</Table.Cell>
-              </Table.Row>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Phone
+                  </Table.Cell>
+                  <Table.Cell>{company?.phone}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Email
+                  </Table.Cell>
+                  <Table.Cell>{company?.email}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Address
+                  </Table.Cell>
+                  <Table.Cell>{company?.address}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    City
+                  </Table.Cell>
+                  <Table.Cell>{company?.city}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    State
+                  </Table.Cell>
+                  <Table.Cell>{company?.state}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Currency
+                  </Table.Cell>
+                  <Table.Cell>
+                    {company?.currency_code?.toUpperCase()}
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
             </Table>
           </>
         )}

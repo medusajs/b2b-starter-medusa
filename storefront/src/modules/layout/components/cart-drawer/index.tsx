@@ -163,15 +163,6 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
                         View Cart
                       </Button>
                     </LocalizedClientLink>
-                    {spendLimitExceeded && (
-                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
-                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
-                        <p className="text-neutral-950 text-xs">
-                          This order exceeds your spending limit. Please contact
-                          your manager for approval.
-                        </p>
-                      </div>
-                    )}
                     <LocalizedClientLink href={checkoutPath}>
                       <Button
                         className="w-full"
@@ -184,6 +175,15 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
                           : "Secure Checkout"}
                       </Button>
                     </LocalizedClientLink>
+                    {spendLimitExceeded && (
+                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+                        <p className="text-neutral-950 text-xs">
+                          This order exceeds your spending limit. Please contact
+                          your manager for approval.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </>
