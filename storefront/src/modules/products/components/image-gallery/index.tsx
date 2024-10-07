@@ -47,6 +47,10 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (document.activeElement instanceof HTMLInputElement) {
+        return
+      }
+
       if (e.key === "ArrowLeft") {
         handleArrowClick("left")
       } else if (e.key === "ArrowRight") {

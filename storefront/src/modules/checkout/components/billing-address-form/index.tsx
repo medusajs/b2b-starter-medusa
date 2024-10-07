@@ -55,6 +55,7 @@ const BillingAddressForm = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
         <Input
           label="Company name"
           name="billing_address.company"
+          defaultValue={cart?.company?.name}
           value={formData["billing_address.company"]}
           onChange={handleChange}
           autoComplete="organization"

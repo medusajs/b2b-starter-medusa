@@ -38,6 +38,7 @@ const ItemsPreviewTemplate = ({ items }: ItemsTemplateProps) => {
                       }
                     }
                     type="preview"
+                    showBorders={false}
                   />
                 )
               })

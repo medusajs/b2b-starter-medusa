@@ -6,11 +6,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import Divider from "@modules/common/components/divider"
 import Spinner from "@modules/common/icons/spinner"
-import CheckboxWithLabel from "@modules/common/components/checkbox"
 
 import { setAddresses } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { HttpTypes } from "@medusajs/types"
+import { useCallback } from "react"
 import { useFormState } from "react-dom"
 import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
@@ -27,7 +27,7 @@ const ShippingAddress = ({
   const router = useRouter()
   const pathname = usePathname()
 
-  const isOpen = searchParams.get("step") === "shippingaddress"
+  const isOpen = searchParams.get("step") === "shipping-address"
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
@@ -35,8 +35,17 @@ const ShippingAddress = ({
       : true
   )
 
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams)
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams]
+  )
   const handleEdit = () => {
-    router.push(pathname + "?step=shippingaddress")
+    router.push(pathname + "?" + createQueryString("step", "shipping-address"))
   }
 
   const [message, formAction] = useFormState(setAddresses, null)
@@ -47,7 +56,7 @@ const ShippingAddress = ({
         <div className="flex flex-row items-center justify-between w-full">
           <Heading
             level="h2"
-            className="flex flex-row text-xl gap-x-2 items-baseline"
+            className="flex flex-row text-xl gap-x-2 items-center"
           >
             Shipping Address
             {!isOpen && <CheckCircleSolid />}
@@ -75,7 +84,7 @@ const ShippingAddress = ({
                 onChange={toggleSameAsBilling}
                 cart={cart}
               />
-              <div className="flex flex-row justify-end">
+              <div className="flex flex-col gap-y-2 items-end">
                 <SubmitButton
                   className="mt-6"
                   data-testid="submit-address-button"

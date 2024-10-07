@@ -1,6 +1,5 @@
 import { HttpTypes } from "@medusajs/types"
-import { Container, Text } from "@medusajs/ui"
-import Checkbox from "@modules/common/components/checkbox"
+import { Container } from "@medusajs/ui"
 import Input from "@modules/common/components/input"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
@@ -118,6 +117,7 @@ const ShippingAddressForm = ({
           label="Company name"
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
+          defaultValue={cart?.company?.name}
           onChange={handleChange}
           autoComplete="organization"
           data-testid="shipping-company-input"
@@ -163,15 +163,6 @@ const ShippingAddressForm = ({
           />
         </div>
       </div>
-      {/* <div className="my-8">
-        <Checkbox
-          label="Billing address same as shipping address"
-          name="same_as_billing"
-          checked={checked}
-          onChange={onChange}
-          data-testid="billing-address-checkbox"
-        />
-      </div> */}
     </>
   )
 }

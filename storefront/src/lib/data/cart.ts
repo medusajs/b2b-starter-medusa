@@ -421,6 +421,33 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
   )
 }
 
+export async function setContactDetails(
+  currentState: unknown,
+  formData: FormData
+) {
+  try {
+    const cartId = getCartId()
+    if (!cartId) {
+      throw new Error("No existing cart found when setting contact details")
+    }
+    const data = {
+      email: formData.get("email") as string,
+      metadata: {
+        invoice_recipient: formData.get("invoice_recipient"),
+        cost_center: formData.get("cost_center"),
+        requisition_number: formData.get("requisition_number"),
+        door_code: formData.get("door_code"),
+        notes: formData.get("notes"),
+      },
+    }
+    await updateCart(data)
+  } catch (e: any) {
+    return e.message
+  }
+
+  redirect(`/checkout`)
+}
+
 export async function placeOrder() {
   const cartId = getCartId()
   if (!cartId) {

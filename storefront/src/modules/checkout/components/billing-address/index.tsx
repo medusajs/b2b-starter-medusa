@@ -1,20 +1,19 @@
 "use client"
 
-import { CheckCircleSolid } from "@medusajs/icons"
-import { clx, Container, Heading, Text, useToggleState } from "@medusajs/ui"
+import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
 import CheckboxWithLabel from "@modules/common/components/checkbox"
+import Divider from "@modules/common/components/divider"
 
-import { setAddresses } from "@lib/data/cart"
+import { setAddresses, updateCart } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
+import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { useCallback } from "react"
 import { useFormState } from "react-dom"
 import BillingAddressForm from "../billing-address-form"
 import ErrorMessage from "../error-message"
-import ShippingAddressForm from "../shipping-address-form"
 import { SubmitButton } from "../submit-button"
 
 const BillingAddress = ({
@@ -28,7 +27,7 @@ const BillingAddress = ({
   const router = useRouter()
   const pathname = usePathname()
 
-  const isOpen = searchParams.get("step") === "billingaddress"
+  const isOpen = searchParams.get("step") === "billing-address"
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
@@ -36,14 +35,28 @@ const BillingAddress = ({
       : true
   )
 
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams)
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams]
+  )
   const handleEdit = () => {
-    router.push(pathname + "?step=billingaddress")
+    router.push(pathname + "?" + createQueryString("step", "billing-address"))
   }
 
-  const handleToggleSameAsBilling = () => {
+  const handleToggleSameAsBilling = async () => {
     toggleSameAsBilling()
     sameAsBilling && handleEdit()
-    !sameAsBilling && router.push(pathname + "?step=delivery")
+
+    if (!sameAsBilling && cart?.shipping_address) {
+      const { id, ...billing_address } = cart.shipping_address
+      await updateCart({ billing_address })
+      router.push(pathname + "?step=delivery")
+    }
   }
 
   const [message, formAction] = useFormState(setAddresses, null)
@@ -52,12 +65,15 @@ const BillingAddress = ({
     <Container>
       <div className="flex flex-col gap-y-2">
         <div className="flex flex-row items-center justify-between w-full">
-          <Heading
-            level="h2"
-            className="flex flex-row text-xl gap-x-2 items-baseline"
-          >
-            Billing Address
-          </Heading>
+          <div className="flex gap-x-2 items-center">
+            <Heading
+              level="h2"
+              className="flex flex-row text-xl gap-x-2 items-center"
+            >
+              Billing Address
+            </Heading>
+            {!isOpen && cart?.billing_address && <CheckCircleSolid />}
+          </div>
           <CheckboxWithLabel
             label="Same as shipping address"
             name="same_as_billing"
@@ -66,7 +82,7 @@ const BillingAddress = ({
             data-testid="billing-address-checkbox"
           />
         </div>
-        {isOpen && <Divider />}
+        {!sameAsBilling && <Divider />}
         {!sameAsBilling && (
           <div className="flex flex-col gap-y-2">
             {isOpen ? (
@@ -74,7 +90,7 @@ const BillingAddress = ({
                 <div className="pb-8">
                   <BillingAddressForm cart={cart} />
                 </div>
-                <div className="flex flex-row justify-end">
+                <div className="flex flex-col gap-y-2 items-end">
                   <SubmitButton
                     className="mt-6"
                     data-testid="submit-address-button"

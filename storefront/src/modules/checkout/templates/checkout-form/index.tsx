@@ -11,6 +11,7 @@ import UTurnArrowRight from "@modules/common/icons/u-turn-arrow-right"
 import Button from "@modules/common/components/button"
 import Company from "@modules/checkout/components/company"
 import { Company as CompanyType } from "types/global"
+import ContactDetails from "@modules/checkout/components/contact-details"
 
 export default async function CheckoutForm({
   cart,
@@ -53,7 +54,7 @@ export default async function CheckoutForm({
 
         <Payment cart={cart} availablePaymentMethods={paymentMethods} />
 
-        <Review cart={cart} />
+        <ContactDetails cart={cart} />
       </div>
     </div>
   )
