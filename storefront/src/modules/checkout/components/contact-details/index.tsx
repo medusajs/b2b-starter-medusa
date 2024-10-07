@@ -46,7 +46,9 @@ const ContactDetails = ({
     [searchParams]
   )
   const handleEdit = () => {
-    router.push(pathname + "?" + createQueryString("step", "contact-details"))
+    router.push(pathname + "?" + createQueryString("step", "contact-details"), {
+      scroll: false,
+    })
   }
 
   const [message, formAction] = useFormState(setContactDetails, null)

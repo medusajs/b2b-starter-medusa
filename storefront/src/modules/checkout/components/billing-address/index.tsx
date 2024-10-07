@@ -45,7 +45,9 @@ const BillingAddress = ({
     [searchParams]
   )
   const handleEdit = () => {
-    router.push(pathname + "?" + createQueryString("step", "billing-address"))
+    router.push(pathname + "?" + createQueryString("step", "billing-address"), {
+      scroll: false,
+    })
   }
 
   const handleToggleSameAsBilling = async () => {
@@ -55,7 +57,7 @@ const BillingAddress = ({
     if (!sameAsBilling && cart?.shipping_address) {
       const { id, ...billing_address } = cart.shipping_address
       await updateCart({ billing_address })
-      router.push(pathname + "?step=delivery")
+      router.push(pathname + "?step=delivery", { scroll: false })
     }
   }
 

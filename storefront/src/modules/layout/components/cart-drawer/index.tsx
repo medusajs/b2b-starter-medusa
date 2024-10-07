@@ -1,7 +1,7 @@
 "use client"
 
 import { convertToLocale } from "@lib/util/money"
-import { LockClosedSolidMini } from "@medusajs/icons"
+import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { HttpTypes } from "@medusajs/types"
 import { Drawer, Text } from "@medusajs/ui"
@@ -9,10 +9,26 @@ import ItemsTemplate from "@modules/cart/templates/items"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
+import {
+  ComponentPropsWithoutRef,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
+import { DialogProps } from "@headlessui/react"
+import { checkSpendingLimit } from "@lib/util/check-spending-limit"
+import { Customer } from "types/global"
 
-const CartDrawer = (props: any) => {
+type CartDrawerProps = {
+  cart: HttpTypes.StoreCart & {
+    promotions?: HttpTypes.StorePromotion[]
+  }
+  customer: Customer | null
+} & ComponentPropsWithoutRef<React.FC<DialogProps<"div">>>
+
+const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -20,8 +36,6 @@ const CartDrawer = (props: any) => {
 
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
-
-  const cart = props.cart as HttpTypes.StoreCart
 
   const items = cart?.items
 
@@ -31,6 +45,11 @@ const CartDrawer = (props: any) => {
     }, 0) || 0
 
   const subtotal = cart?.subtotal ?? 0
+
+  const spendLimitExceeded = useMemo(
+    () => checkSpendingLimit(cart, customer),
+    [cart, customer]
+  )
 
   const itemRef = useRef<number>(totalItems || 0)
 
@@ -87,7 +106,7 @@ const CartDrawer = (props: any) => {
         className="rounded-none m-0 p-0 bg-none z-50"
         open={isOpen}
         onOpenChange={setIsOpen}
-        {...props}
+        {...(props as any)}
       >
         <Drawer.Trigger asChild>
           <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
@@ -144,14 +163,25 @@ const CartDrawer = (props: any) => {
                         View Cart
                       </Button>
                     </LocalizedClientLink>
+                    {spendLimitExceeded && (
+                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+                        <p className="text-neutral-950 text-xs">
+                          This order exceeds your spending limit. Please contact
+                          your manager for approval.
+                        </p>
+                      </div>
+                    )}
                     <LocalizedClientLink href={checkoutPath}>
                       <Button
                         className="w-full"
                         size="large"
-                        disabled={totalItems === 0}
+                        disabled={totalItems === 0 || spendLimitExceeded}
                       >
                         <LockClosedSolidMini />
-                        Secure Checkout
+                        {spendLimitExceeded
+                          ? "Spending Limit Exceeded"
+                          : "Secure Checkout"}
                       </Button>
                     </LocalizedClientLink>
                   </div>

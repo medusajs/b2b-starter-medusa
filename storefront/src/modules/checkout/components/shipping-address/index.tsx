@@ -45,7 +45,10 @@ const ShippingAddress = ({
     [searchParams]
   )
   const handleEdit = () => {
-    router.push(pathname + "?" + createQueryString("step", "shipping-address"))
+    router.push(
+      pathname + "?" + createQueryString("step", "shipping-address"),
+      { scroll: false }
+    )
   }
 
   const [message, formAction] = useFormState(setShippingAddress, null)

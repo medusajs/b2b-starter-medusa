@@ -5,7 +5,7 @@ import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
-import { redirect } from "next/navigation"
+import { redirect, RedirectType } from "next/navigation"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -439,7 +439,7 @@ export async function setBillingAddress(
     return e.message
   }
 
-  redirect(`/checkout?step=payment`)
+  redirect(`/checkout?step=delivery`)
 }
 
 export async function setContactDetails(

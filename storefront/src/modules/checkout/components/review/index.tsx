@@ -4,8 +4,16 @@ import { Text } from "@medusajs/ui"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import PaymentButton from "../payment-button"
+import { ExclamationCircle } from "@medusajs/icons"
+import Button from "@modules/common/components/button"
 
-const Review = ({ cart }: { cart: any }) => {
+const Review = ({
+  cart,
+  spendLimitExceeded,
+}: {
+  cart: any
+  spendLimitExceeded: boolean
+}) => {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex items-start gap-x-1 w-full mb-6">
@@ -28,7 +36,23 @@ const Review = ({ cart }: { cart: any }) => {
           </LocalizedClientLink>
         </Text>
       </div>
-      <PaymentButton cart={cart} data-testid="submit-order-button" />
+      {spendLimitExceeded ? (
+        <>
+          <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+            <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+            <p className="text-neutral-950 text-xs">
+              This order exceeds your spending limit.
+              <br />
+              Please contact your manager for approval.
+            </p>
+          </div>
+          <Button className="w-full h-10 rounded-full shadow-none" disabled>
+            Place Order
+          </Button>
+        </>
+      ) : (
+        <PaymentButton cart={cart} data-testid="submit-order-button" />
+      )}
     </div>
   )
 }
