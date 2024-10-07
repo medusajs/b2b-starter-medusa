@@ -1,5 +1,6 @@
 "use client"
 
+import { emptyCart } from "@lib/data/cart"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
@@ -8,6 +9,7 @@ import Button from "@modules/common/components/button"
 import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
+import { useState } from "react"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -18,12 +20,22 @@ type SummaryProps = {
 }
 
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
+  const [isEmptyingCart, setIsEmptyingCart] = useState(false)
   const checkoutStep = getCheckoutStep(cart)
   const checkoutPath = checkoutStep
     ? `/checkout?step=${checkoutStep}`
     : "/checkout"
 
   const checkoutButtonLink = customer ? checkoutPath : "/account"
+
+  const handleEmptyCart = async () => {
+    setIsEmptyingCart(true)
+    try {
+      await emptyCart()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -70,6 +82,8 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
         Export Cart (.csv)
       </Button>
       <Button
+        onClick={handleEmptyCart}
+        isLoading={isEmptyingCart}
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
       >

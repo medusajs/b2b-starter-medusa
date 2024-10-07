@@ -213,6 +213,19 @@ export async function deleteLineItem(lineId: string) {
     .catch(medusaError)
 }
 
+export async function emptyCart() {
+  const cart = await retrieveCart()
+  if (!cart) {
+    throw new Error("No existing cart found when emptying cart")
+  }
+
+  for (const item of cart.items || []) {
+    await deleteLineItem(item.id)
+  }
+
+  revalidateTag(getCacheTag("carts"))
+}
+
 export async function enrichLineItems(
   lineItems:
     | HttpTypes.StoreCartLineItem[]
