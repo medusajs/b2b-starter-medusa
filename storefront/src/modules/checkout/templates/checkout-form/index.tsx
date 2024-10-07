@@ -2,16 +2,15 @@ import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
 import { HttpTypes } from "@medusajs/types"
 import BillingAddress from "@modules/checkout/components/billing-address"
-import ShippingAddress from "@modules/checkout/components/shipping-address"
+import Company from "@modules/checkout/components/company"
+import ContactDetails from "@modules/checkout/components/contact-details"
 import Payment from "@modules/checkout/components/payment"
-import Review from "@modules/checkout/components/review"
 import Shipping from "@modules/checkout/components/shipping"
+import ShippingAddress from "@modules/checkout/components/shipping-address"
+import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import UTurnArrowRight from "@modules/common/icons/u-turn-arrow-right"
-import Button from "@modules/common/components/button"
-import Company from "@modules/checkout/components/company"
 import { Company as CompanyType } from "types/global"
-import ContactDetails from "@modules/checkout/components/contact-details"
 
 export default async function CheckoutForm({
   cart,
@@ -54,7 +53,7 @@ export default async function CheckoutForm({
 
         <Payment cart={cart} availablePaymentMethods={paymentMethods} />
 
-        <ContactDetails cart={cart} />
+        <ContactDetails cart={cart} customer={customer} />
       </div>
     </div>
   )

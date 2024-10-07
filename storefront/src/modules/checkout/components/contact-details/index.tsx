@@ -1,14 +1,11 @@
 "use client"
 
-import { CheckCircleSolid } from "@medusajs/icons"
-import { clx, Container, Heading, Text } from "@medusajs/ui"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
-
 import { setContactDetails } from "@lib/data/cart"
+import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { clx, Container, Heading, Text } from "@medusajs/ui"
+import Divider from "@modules/common/components/divider"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 import { useFormState } from "react-dom"
 import ContactDetailsForm from "../contact-details-form"

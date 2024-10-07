@@ -24,7 +24,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "types": ["node", "@types/wicg-file-system-access"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": [
