@@ -1,10 +1,10 @@
 import { sdk } from "@lib/config"
-import { HttpTypes } from "@medusajs/types"
-import { cache } from "react"
-import { getRegion } from "./regions"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { sortProducts } from "@lib/util/sort-products"
+import { HttpTypes } from "@medusajs/types"
+import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { cache } from "react"
 import { getCacheHeaders } from "./cookies"
+import { getRegion } from "./regions"
 
 export const getProductsById = cache(async function ({
   ids,
@@ -58,6 +58,8 @@ export const getProductsList = cache(async function ({
 }> {
   const limit = queryParams?.limit || 12
   const offset = (pageParam - 1) * limit
+  console.log("offset - ", offset)
+  console.log("limit - ", limit)
   const region = await getRegion(countryCode)
 
   if (!region) {

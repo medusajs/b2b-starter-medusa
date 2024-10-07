@@ -1,10 +1,12 @@
+import {
+  validateAndTransformBody,
+  validateAndTransformQuery,
+} from "@medusajs/framework";
 import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
-import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
-import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 import { retrieveEmployeeTransformQueryConfig } from "./query-config";
 import {
-  GetEmployeeParams,
   CreateEmployee,
+  GetEmployeeParams,
   UpdateEmployee,
 } from "./validators";
 

@@ -618,6 +618,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hookform/resolvers@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "@hookform/resolvers@npm:3.9.0"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 64a1e77ea2eeeba521ec624f2cea33ec2d20c60de12847b59520393780a9c8b92b3d76b7b3eeabadef85e8c776826f7bc9016fa90a890580c4ed75503c060dd1
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.5
   resolution: "@humanwhocodes/config-array@npm:0.9.5"
@@ -6892,6 +6901,7 @@ __metadata:
     "@babel/core": ^7.17.5
     "@headlessui/react": ^1.6.1
     "@hookform/error-message": ^2.0.0
+    "@hookform/resolvers": ^3.9.0
     "@medusajs/client-types": preview
     "@medusajs/icons": ^1.2.2
     "@medusajs/js-sdk": preview
@@ -6927,6 +6937,7 @@ __metadata:
     react: ^18.2.0
     react-country-flag: ^3.0.2
     react-dom: ^18.2.0
+    react-hook-form: ^7.53.0
     react-instantsearch-hooks-web: ^6.29.0
     react-intersection-observer: ^9.3.4
     react-markdown: ^9.0.1
@@ -6935,6 +6946,7 @@ __metadata:
     tailwindcss-radix: ^2.8.0
     typescript: ^5.3.2
     webpack: ^5
+    zod: ^3.23.8
   languageName: unknown
   linkType: soft
 
@@ -8297,6 +8309,15 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 298954ecd8f78288dcaece05e88b570014d8f6dce5db6f66e6ee91448debeb59dcd31561dddb354eee47e6c1bb234669459060deb238ed0213497146e555a0b9
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.53.0":
+  version: 7.53.0
+  resolution: "react-hook-form@npm:7.53.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 84d67fb79bad03d0aa809b5e411d97fb081fc13cd2b6d063a988f81f6fbef8545463e05360afa9d8d58fff19f08fa919930dcdc98a9e68bf74048c9f63e10ad5
   languageName: node
   linkType: hard
 
@@ -9872,6 +9893,13 @@ __metadata:
   bin:
     yaml: bin.mjs
   checksum: 31275223863fbd0b47ba9d2b248fbdf085db8d899e4ca43fff8a3a009497c5741084da6871d11f40e555d61360951c4c910b98216c1325d2c94753c0036d8172
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.23.8":
+  version: 3.23.8
+  resolution: "zod@npm:3.23.8"
+  checksum: 15949ff82118f59c893dacd9d3c766d02b6fa2e71cf474d5aa888570c469dbf5446ac5ad562bb035bf7ac9650da94f290655c194f4a6de3e766f43febd432c5c
   languageName: node
   linkType: hard
 

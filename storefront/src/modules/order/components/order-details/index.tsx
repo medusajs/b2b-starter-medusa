@@ -35,7 +35,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         Order number: <span data-testid="order-id">{order.display_id}</span>
       </Text>
 
-      <div className="flex items-center text-compact-small gap-x-4 mt-4">
+      <div className="flex flex-col text-compact-small gap-x-4 mt-4">
         {showStatus && (
           <>
             <Text>
@@ -48,7 +48,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
             <Text>
               Payment status:{" "}
               <span
-                className="text-ui-fg-subtle "
+                className="text-ui-fg-subtle inline"
                 sata-testid="order-payment-status"
               >
                 {/* {formatStatus(order.payment_status)} */}
