@@ -2,15 +2,16 @@ import { HttpTypes } from "@medusajs/types"
 import { Table, Text } from "@medusajs/ui"
 
 import LineItemOptions from "@modules/common/components/line-item-options"
-import LineItemPrice from "@modules/common/components/line-item-price"
-import LineItemUnitPrice from "@modules/common/components/line-item-unit-price"
 import Thumbnail from "@modules/products/components/thumbnail"
+import ItemTotalPrice from "./item-total-price"
+import ItemUnitPrice from "./item-unit-price"
 
 type ItemProps = {
-  item: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
+  item: HttpTypes.StoreOrderLineItem
+  order: HttpTypes.StoreOrder
 }
 
-const Item = ({ item }: ItemProps) => {
+const Item = ({ item, order }: ItemProps) => {
   return (
     <Table.Row
       className="border-none justify-between"
@@ -38,10 +39,10 @@ const Item = ({ item }: ItemProps) => {
             <Text className="text-ui-fg-muted">
               <span data-testid="product-quantity">{item.quantity}</span>x{" "}
             </Text>
-            <LineItemUnitPrice item={item} style="tight" />
+            <ItemUnitPrice item={item} style="tight" />
           </span>
 
-          <LineItemPrice item={item} style="tight" />
+          <ItemTotalPrice item={item} currencyCode={order.currency_code} />
         </span>
       </Table.Cell>
     </Table.Row>

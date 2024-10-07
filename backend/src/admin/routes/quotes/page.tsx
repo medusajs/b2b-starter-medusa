@@ -2,7 +2,7 @@ import { defineRouteConfig } from "@medusajs/admin-sdk";
 import { DocumentText } from "@medusajs/icons";
 import { Container, Heading, Table, Toaster } from "@medusajs/ui";
 import { QuoteDTO } from "../../../modules/quote/types/common";
-import { QuoteActionsMenu } from "../../components";
+import { NoRecords, QuoteActionsMenu } from "../../components";
 import { useQuotes } from "../../hooks/api/quotes";
 import QuoteStatusBadge from "./components/quote-status-badge";
 
@@ -69,6 +69,12 @@ const Quotes = () => {
             ))}
           </Table.Body>
         </Table>
+
+        {quotes?.length === 0 && (
+          <div className="flex items-center justify-center self-center">
+            <NoRecords />
+          </div>
+        )}
       </Container>
       <Toaster />
     </>

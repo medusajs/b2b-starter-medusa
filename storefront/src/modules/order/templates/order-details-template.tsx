@@ -30,19 +30,17 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
           <XMark /> Back to overview
         </LocalizedClientLink>
       </div>
-
       <Container>
         <OrderDetails order={order} showStatus />
       </Container>
-
       <Container>
-        <Items items={order.items} />
+        <Items items={order.items} order={order} />
       </Container>
-
-      <Container>
-        <ShippingDetails order={order} />
-      </Container>
-
+      {(!!order.shipping_address || !!order.shipping_methods?.length) && (
+        <Container>
+          <ShippingDetails order={order} />
+        </Container>
+      )}
       <Container>
         <OrderSummary order={order} />
       </Container>
