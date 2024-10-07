@@ -1,6 +1,7 @@
 import {
   acceptQuote,
   createQuote,
+  createQuoteMessage,
   fetchQuote,
   fetchQuotePreview,
   fetchQuotes,
@@ -126,6 +127,23 @@ export const useRejectQuote = (
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({ queryKey: [QuoteQueryKeys.fetchQuote] })
       queryClient.invalidateQueries({ queryKey: [QuoteQueryKeys.fetchQuotes] })
+
+      options?.onSuccess?.(data, variables, context)
+    },
+    ...options,
+  })
+}
+
+export const useCreateQuoteMessage = (
+  id: string,
+  options?: UseMutationOptions<GeneralQuoteType, FetchError, GeneralQuoteType>
+) => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (body: GeneralQuoteType) => createQuoteMessage(id, body),
+    onSuccess: (data: any, variables: any, context: any) => {
+      queryClient.invalidateQueries({ queryKey: [QuoteQueryKeys.fetchQuote] })
 
       options?.onSuccess?.(data, variables, context)
     },

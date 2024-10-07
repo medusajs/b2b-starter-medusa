@@ -1,6 +1,5 @@
 import {
   confirmOrderEditRequestWorkflow,
-  requestOrderEditRequestWorkflow,
   useRemoteQueryStep,
 } from "@medusajs/core-flows";
 import { OrderStatus } from "@medusajs/framework/utils";
@@ -28,11 +27,11 @@ export const acceptQuoteWorkflow = createWorkflow(
       ],
     });
 
-    requestOrderEditRequestWorkflow.runAsStep({
-      input: {
-        order_id: quote.draft_order_id,
-      },
-    });
+    // requestOrderEditRequestWorkflow.runAsStep({
+    //   input: {
+    //     order_id: quote.draft_order_id,
+    //   },
+    // });
 
     confirmOrderEditRequestWorkflow.runAsStep({
       input: {
@@ -46,7 +45,7 @@ export const acceptQuoteWorkflow = createWorkflow(
       input: {
         id: quote.draft_order_id,
         is_draft_order: false,
-        status: OrderStatus.COMPLETED,
+        status: OrderStatus.PENDING,
       },
     });
   }

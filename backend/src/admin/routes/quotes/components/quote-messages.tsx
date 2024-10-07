@@ -97,10 +97,13 @@ export function QuoteMessages({
             <div className="font-medium font-sans txt-compact-small text-ui-fg-subtle ">
               {!!comment.admin &&
                 `${comment.admin.first_name} ${comment.admin.last_name}`}
+
+              {!!comment.customer &&
+                `${comment.customer.first_name} ${comment.customer.last_name}`}
             </div>
 
             {!!comment.item_id && (
-              <div className="border border-dashed border-spacing-x-5 border-green-300 my-2">
+              <div className="border border-dashed border-neutral-400 my-2">
                 <QuoteItem
                   item={previewItemsMap.get(comment.item_id)!}
                   originalItem={originalItemsMap.get(comment.item_id)!}
@@ -134,12 +137,12 @@ export function QuoteMessages({
                         <Form.Control>
                           <Select onValueChange={onChange} {...field}>
                             <Select.Trigger className="bg-ui-bg-base" ref={ref}>
-                              <Select.Value />
+                              <Select.Value placeholder="Select Item" />
                             </Select.Trigger>
                             <Select.Content>
                               {preview.items.map((l) => (
                                 <Select.Item key={l.id} value={l.id}>
-                                  {l.id}
+                                  {l.variant_sku}
                                 </Select.Item>
                               ))}
                             </Select.Content>

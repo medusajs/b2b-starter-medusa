@@ -3,6 +3,7 @@ export const quoteFields = [
   "status",
   "comments.*",
   "comments.admin.*",
+  "comments.customer.*",
   "cart.id",
   "draft_order.id",
   "draft_order.currency_code",

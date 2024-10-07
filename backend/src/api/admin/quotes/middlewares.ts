@@ -1,6 +1,8 @@
+import {
+  validateAndTransformBody,
+  validateAndTransformQuery,
+} from "@medusajs/framework";
 import { MiddlewareRoute } from "@medusajs/medusa";
-import { validateAndTransformBody } from "@medusajs/medusa/api/utils/validate-body";
-import { validateAndTransformQuery } from "@medusajs/medusa/api/utils/validate-query";
 import { retrieveQuoteTransformQueryConfig } from "./query-config";
 import {
   AdminCreateQuoteComment,

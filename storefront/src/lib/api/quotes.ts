@@ -42,3 +42,13 @@ export const rejectQuote = async (id: string) =>
     body: {},
     headers: getAuthHeaders(),
   })
+
+export const createQuoteMessage = async (id: string, body: GeneralQuoteType) =>
+  sdk.client.fetch<{ quote: GeneralQuoteType }>(
+    `/store/quotes/${id}/comments`,
+    {
+      method: "POST",
+      body,
+      headers: getAuthHeaders(),
+    }
+  )

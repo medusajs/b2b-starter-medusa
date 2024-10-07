@@ -22,6 +22,7 @@
   "dependencies": {
     "@headlessui/react": "^1.6.1",
     "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^3.9.0",
     "@medusajs/icons": "^1.2.2",
     "@medusajs/js-sdk": "preview",
     "@medusajs/types": "preview",
@@ -42,12 +43,14 @@
     "react": "^18.2.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.53.0",
     "react-instantsearch-hooks-web": "^6.29.0",
     "react-intersection-observer": "^9.3.4",
     "react-markdown": "^9.0.1",
     "server-only": "^0.0.1",
     "tailwindcss-radix": "^2.8.0",
-    "webpack": "^5"
+    "webpack": "^5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

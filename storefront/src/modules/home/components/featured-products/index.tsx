@@ -9,7 +9,7 @@ export default async function FeaturedProducts({
   region: HttpTypes.StoreRegion
 }) {
   return (
-    <ul className="flex flex-col gap-x-6">
+    <ul className="flex flex-col gap-x-6 bg-neutral-100">
       {collections.map((collection) => (
         <li key={collection.id}>
           <ProductRail collection={collection} region={region} />

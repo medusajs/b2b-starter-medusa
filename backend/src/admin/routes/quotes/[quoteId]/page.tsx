@@ -1,3 +1,4 @@
+import { CheckCircleSolid } from "@medusajs/icons";
 import {
   Button,
   Container,
@@ -9,7 +10,7 @@ import {
 } from "@medusajs/ui";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { JsonViewSection } from "../../../components/common/json-view-section";
 import {
   CostBreakdown,
@@ -32,6 +33,7 @@ const QuoteDetails = () => {
   const [showRejectQuote, setShowRejectQuote] = useState(false);
   const prompt = usePrompt();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { quote, isLoading } = useQuote(quoteId!, {
     fields:
       "+draft_order.customer.*,+draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
@@ -124,6 +126,24 @@ const QuoteDetails = () => {
     <div className="flex flex-col gap-y-3">
       <div className="flex flex-col gap-x-4 lg:flex-row xl:items-start">
         <div className="flex w-full flex-col gap-y-3">
+          {quote.status === "accepted" && (
+            <Container className="divide-y divide-dashed p-0">
+              <div className="flex items-center justify-between px-6 py-4">
+                <Text className="txt-compact-small">
+                  <CheckCircleSolid className="inline-block mr-2 text-green-500 text-lg" />
+                  Quote accepted by customer. Order is ready for processing.
+                </Text>
+
+                <Button
+                  size="small"
+                  onClick={() => navigate(`/orders/${quote.draft_order_id}`)}
+                >
+                  View Order
+                </Button>
+              </div>
+            </Container>
+          )}
+
           <Container className="divide-y divide-dashed p-0">
             <QuoteDetailsHeader quote={quote} order={quote.draft_order} />
             <QuoteItems order={quote.draft_order} preview={preview!} />

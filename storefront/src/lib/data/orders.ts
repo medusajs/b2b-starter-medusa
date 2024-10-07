@@ -22,7 +22,12 @@ export const listOrders = cache(async function (
 ) {
   return sdk.store.order
     .list(
-      { limit, offset },
+      {
+        limit,
+        offset,
+        order: "-created_at",
+        fields: "*items",
+      },
       { ...getCacheHeaders("orders"), ...getAuthHeaders() }
     )
     .then(({ orders }) => orders)
