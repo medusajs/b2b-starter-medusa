@@ -65,7 +65,7 @@ const ContactDetails = ({
             )}
           >
             Contact Details
-            {!isOpen && cart?.email && <CheckCircleSolid />}
+            {!isOpen && isCompleted && <CheckCircleSolid />}
           </Heading>
 
           {!isOpen && isCompleted && (
@@ -100,28 +100,27 @@ const ContactDetails = ({
             </div>
           </form>
         ) : (
-          <div>
+          cart &&
+          isCompleted && (
             <div className="text-small-regular">
-              {cart && cart.email && (
-                <div
-                  className="flex flex-col w-full gap-y-2"
-                  data-testid="contact-details-summary"
-                >
-                  <Text className="txt-medium text-ui-fg-subtle">
-                    {cart.email}
-                  </Text>
-                  {cart.metadata?.notes ? (
-                    <div>
-                      <Divider />
-                      <Text className="txt-medium text-ui-fg-subtle pt-2">
-                        Note: {cart.metadata?.notes as string}
-                      </Text>
-                    </div>
-                  ) : null}
-                </div>
-              )}
+              <div
+                className="flex flex-col w-full gap-y-2"
+                data-testid="contact-details-summary"
+              >
+                <Text className="txt-medium text-ui-fg-subtle">
+                  {cart.email}
+                </Text>
+                {cart.metadata?.notes ? (
+                  <div>
+                    <Divider />
+                    <Text className="txt-medium text-ui-fg-subtle pt-2">
+                      Note: {cart.metadata?.notes as string}
+                    </Text>
+                  </div>
+                ) : null}
+              </div>
             </div>
-          </div>
+          )
         )}
       </div>
     </Container>

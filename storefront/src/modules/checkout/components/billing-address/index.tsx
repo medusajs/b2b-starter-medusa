@@ -94,51 +94,47 @@ const BillingAddress = ({
             />
           )}
         </div>
-        {!sameAsBilling && <Divider />}
-        {!sameAsBilling && (
-          <div className="flex flex-col gap-y-2">
-            {isOpen ? (
-              <form action={formAction}>
-                <div className="pb-8">
-                  <BillingAddressForm cart={cart} />
-                </div>
-                <div className="flex flex-col gap-y-2 items-end">
-                  <SubmitButton
-                    className="mt-6"
-                    data-testid="submit-address-button"
-                  >
-                    Next step
-                  </SubmitButton>
-                  <ErrorMessage
-                    error={message}
-                    data-testid="address-error-message"
-                  />
-                </div>
-              </form>
-            ) : (
-              <div>
-                <div className="text-small-regular">
-                  {cart && cart.billing_address?.first_name && (
-                    <div className="flex items-start gap-x-8">
-                      <div
-                        className="flex"
-                        data-testid="billing-address-summary"
-                      >
-                        <Text className="txt-medium text-ui-fg-subtle">
-                          {cart.billing_address.first_name}{" "}
-                          {cart.billing_address.last_name},{" "}
-                          {cart.billing_address.address_1},{" "}
-                          {cart.billing_address.postal_code},{" "}
-                          {cart.billing_address.city},{" "}
-                          {cart.billing_address.country_code?.toUpperCase()}
-                        </Text>
-                      </div>
-                    </div>
-                  )}
+        {!isOpen && cart?.billing_address?.address_1 && <Divider />}
+        {isOpen ? (
+          <div>
+            <Divider />
+            <form action={formAction}>
+              <div className="py-2">
+                <BillingAddressForm cart={cart} />
+              </div>
+              <div className="flex flex-col gap-y-2 items-end">
+                <SubmitButton
+                  className="mt-6"
+                  data-testid="submit-address-button"
+                >
+                  Next step
+                </SubmitButton>
+                <ErrorMessage
+                  error={message}
+                  data-testid="address-error-message"
+                />
+              </div>
+            </form>
+          </div>
+        ) : (
+          cart &&
+          cart.shipping_address?.address_1 &&
+          cart.billing_address?.first_name && (
+            <div className="text-small-regular">
+              <div className="flex items-start gap-x-8">
+                <div className="flex" data-testid="billing-address-summary">
+                  <Text className="txt-medium text-ui-fg-subtle">
+                    {cart.billing_address.first_name}{" "}
+                    {cart.billing_address.last_name},{" "}
+                    {cart.billing_address.address_1},{" "}
+                    {cart.billing_address.postal_code},{" "}
+                    {cart.billing_address.city},{" "}
+                    {cart.billing_address.country_code?.toUpperCase()}
+                  </Text>
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )
         )}
       </div>
     </Container>

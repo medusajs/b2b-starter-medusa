@@ -151,21 +151,20 @@ const Shipping: React.FC<ShippingProps> = ({
           </div>
         </div>
       ) : (
-        <div>
+        cart.shipping_methods &&
+        cart.shipping_methods?.length > 0 && (
           <div className="text-small-regular pt-2">
-            {cart && (cart.shipping_methods?.length ?? 0) > 0 && (
-              <div className="flex flex-col w-full">
-                <Text className="txt-medium text-ui-fg-subtle">
-                  {selectedShippingMethod?.name}{" "}
-                  {convertToLocale({
-                    amount: selectedShippingMethod?.amount!,
-                    currency_code: cart?.currency_code,
-                  })}
-                </Text>
-              </div>
-            )}
+            <div className="flex flex-col w-full">
+              <Text className="txt-medium text-ui-fg-subtle">
+                {selectedShippingMethod?.name}{" "}
+                {convertToLocale({
+                  amount: selectedShippingMethod?.amount!,
+                  currency_code: cart?.currency_code,
+                })}
+              </Text>
+            </div>
           </div>
-        </div>
+        )
       )}
     </Container>
   )
