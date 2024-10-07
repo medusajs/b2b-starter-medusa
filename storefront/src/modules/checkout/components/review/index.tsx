@@ -1,22 +1,11 @@
 "use client"
 
-import { Container, Heading, Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 
-import PaymentButton from "../payment-button"
-import { useSearchParams } from "next/navigation"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import PaymentButton from "../payment-button"
 
 const Review = ({ cart }: { cart: any }) => {
-  const searchParams = useSearchParams()
-
-  const paidByGiftcard =
-    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
-
-  const previousStepsCompleted =
-    cart.shipping_address &&
-    cart.shipping_methods.length > 0 &&
-    (cart.payment_collection || paidByGiftcard)
-
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex items-start gap-x-1 w-full mb-6">

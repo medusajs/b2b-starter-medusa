@@ -7,7 +7,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import Divider from "@modules/common/components/divider"
 import Spinner from "@modules/common/icons/spinner"
 
-import { setAddresses } from "@lib/data/cart"
+import { setShippingAddress } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { HttpTypes } from "@medusajs/types"
 import { useCallback } from "react"
@@ -48,7 +48,7 @@ const ShippingAddress = ({
     router.push(pathname + "?" + createQueryString("step", "shipping-address"))
   }
 
-  const [message, formAction] = useFormState(setAddresses, null)
+  const [message, formAction] = useFormState(setShippingAddress, null)
 
   return (
     <Container>
@@ -103,30 +103,15 @@ const ShippingAddress = ({
             <div className="text-small-regular">
               {cart && cart.shipping_address ? (
                 <div className="flex items-start gap-x-8">
-                  <div className="flex items-start gap-x-1 w-full">
-                    <div
-                      className="flex flex-col w-1/3"
-                      data-testid="shipping-address-summary"
-                    >
-                      <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                        Shipping Address
-                      </Text>
-                      <Text className="txt-medium text-ui-fg-subtle">
-                        {cart.shipping_address.first_name}{" "}
-                        {cart.shipping_address.last_name}
-                      </Text>
-                      <Text className="txt-medium text-ui-fg-subtle">
-                        {cart.shipping_address.address_1}{" "}
-                        {cart.shipping_address.address_2}
-                      </Text>
-                      <Text className="txt-medium text-ui-fg-subtle">
-                        {cart.shipping_address.postal_code},{" "}
-                        {cart.shipping_address.city}
-                      </Text>
-                      <Text className="txt-medium text-ui-fg-subtle">
-                        {cart.shipping_address.country_code?.toUpperCase()}
-                      </Text>
-                    </div>
+                  <div className="flex" data-testid="shipping-address-summary">
+                    <Text className="txt-medium text-ui-fg-subtle">
+                      {cart.shipping_address.first_name}{" "}
+                      {cart.shipping_address.last_name},{" "}
+                      {cart.shipping_address.address_1},{" "}
+                      {cart.shipping_address.postal_code},{" "}
+                      {cart.shipping_address.city},{" "}
+                      {cart.shipping_address.country_code?.toUpperCase()}
+                    </Text>
                   </div>
                 </div>
               ) : (

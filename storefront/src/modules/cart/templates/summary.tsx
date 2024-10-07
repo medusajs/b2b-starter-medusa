@@ -1,5 +1,6 @@
 "use client"
 
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Container } from "@medusajs/ui"
@@ -16,30 +17,13 @@ type SummaryProps = {
   spendLimitExceeded: boolean
 }
 
-function getCheckoutStep(cart: HttpTypes.StoreCart) {
-  if (!cart?.shipping_address?.address_1) {
-    return "shipping-address"
-  } else if (!cart.billing_address?.address_1) {
-    return "billing-address"
-  } else if (cart?.shipping_methods?.length === 0) {
-    return "delivery"
-  } else if (
-    !cart.payment_collection?.payment_sessions?.find(
-      (paymentSession: any) => paymentSession.status === "pending"
-    )
-  ) {
-    return "payment"
-  } else if (!cart.email) {
-    return "contact-information"
-  } else {
-    return null
-  }
-}
-
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
-  const step = getCheckoutStep(cart)
+  const checkoutStep = getCheckoutStep(cart)
+  const checkoutPath = checkoutStep
+    ? `/checkout?step=${checkoutStep}`
+    : "/checkout"
 
-  const checkoutButtonLink = customer ? "/checkout?step=" + step : "/account"
+  const checkoutButtonLink = customer ? checkoutPath : "/account"
 
   return (
     <Container className="flex flex-col gap-y-3">

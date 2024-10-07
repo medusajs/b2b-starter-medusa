@@ -1,7 +1,7 @@
 "use client"
 
 import { CheckCircleSolid } from "@medusajs/icons"
-import { Container, Heading, Text } from "@medusajs/ui"
+import { clx, Container, Heading, Text } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import Divider from "@modules/common/components/divider"
@@ -27,6 +27,14 @@ const ContactDetails = ({
   const pathname = usePathname()
 
   const isOpen = searchParams.get("step") === "contact-details"
+  const isCompleted =
+    cart?.shipping_address?.address_1 &&
+    cart.shipping_methods &&
+    cart.shipping_methods?.length > 0 &&
+    cart.billing_address?.address_1 &&
+    cart.payment_collection?.payment_sessions &&
+    cart.payment_collection?.payment_sessions?.length > 0 &&
+    cart?.email
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -49,32 +57,31 @@ const ContactDetails = ({
         <div className="flex flex-row items-center justify-between w-full">
           <Heading
             level="h2"
-            className="flex flex-row text-xl gap-x-2 items-center"
+            className={clx(
+              "flex flex-row text-xl gap-x-2 items-center font-medium",
+              {
+                "opacity-50 pointer-events-none select-none":
+                  !isOpen && !isCompleted,
+              }
+            )}
           >
             Contact Details
             {!isOpen && cart?.email && <CheckCircleSolid />}
           </Heading>
 
-          {!isOpen &&
-            cart?.shipping_address?.address_1 &&
-            cart.shipping_methods &&
-            cart.shipping_methods?.length > 0 &&
-            cart.billing_address?.address_1 &&
-            cart.payment_collection?.payment_sessions &&
-            cart.payment_collection?.payment_sessions?.length > 0 &&
-            cart?.email && (
-              <Text>
-                <button
-                  onClick={handleEdit}
-                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                  data-testid="edit-contact-details-button"
-                >
-                  Edit
-                </button>
-              </Text>
-            )}
+          {!isOpen && isCompleted && (
+            <Text>
+              <button
+                onClick={handleEdit}
+                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                data-testid="edit-contact-details-button"
+              >
+                Edit
+              </button>
+            </Text>
+          )}
         </div>
-        <Divider />
+        {(isOpen || isCompleted) && <Divider />}
         {isOpen ? (
           <form action={formAction}>
             <div className="pb-8">

@@ -96,6 +96,7 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
     <Container
       className={clx("flex gap-4 w-full h-full items-center justify-between", {
         "shadow-none": !showBorders,
+        "p-0": type === "preview",
       })}
     >
       <div className="flex gap-x-4 items-start">
@@ -103,12 +104,17 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
           <Thumbnail
             thumbnail={item.thumbnail}
             size="square"
-            className="bg-neutral-100 rounded-lg w-20 h-20"
+            type={type}
+            className={clx("bg-neutral-100 rounded-lg w-20 h-20", {
+              "w-10 h-10": type === "preview",
+            })}
           />
         </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
-            <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
+            {type === "full" && (
+              <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
+            )}
             <span className="txt-medium-plus text-neutral-950">
               {item.product?.title}
             </span>
@@ -169,8 +175,16 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-between min-h-full self-stretch">
-        <LineItemPrice item={item} />
+      <div
+        className={clx("flex flex-col items-start justify-between ", {
+          "min-h-full self-stretch": type === "full",
+          "flex-col-reverse items-end": type === "preview",
+        })}
+      >
+        <LineItemPrice
+          item={item}
+          style={type === "preview" ? "tight" : "default"}
+        />
         {type === "preview" && (
           <span className="self-end text-xs text-neutral-600 italic">
             {item.quantity}x

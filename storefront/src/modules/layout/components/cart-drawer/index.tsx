@@ -10,6 +10,7 @@ import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
 
 const CartDrawer = (props: any) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
@@ -70,6 +71,11 @@ const CartDrawer = (props: any) => {
   useEffect(() => {
     close()
   }, [pathname])
+
+  const checkoutStep = getCheckoutStep(cart)
+  const checkoutPath = checkoutStep
+    ? `/checkout?step=${checkoutStep}`
+    : "/checkout"
 
   return (
     <>
@@ -138,14 +144,16 @@ const CartDrawer = (props: any) => {
                         View Cart
                       </Button>
                     </LocalizedClientLink>
-                    <Button
-                      className="w-full"
-                      size="large"
-                      disabled={totalItems === 0}
-                    >
-                      <LockClosedSolidMini />
-                      Secure Checkout
-                    </Button>
+                    <LocalizedClientLink href={checkoutPath}>
+                      <Button
+                        className="w-full"
+                        size="large"
+                        disabled={totalItems === 0}
+                      >
+                        <LockClosedSolidMini />
+                        Secure Checkout
+                      </Button>
+                    </LocalizedClientLink>
                   </div>
                 </div>
               </>

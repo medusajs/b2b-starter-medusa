@@ -1,9 +1,9 @@
 "use client"
 
 import { convertToLocale } from "@lib/util/money"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Text, Tooltip } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 import React from "react"
+import Divider from "../divider"
 
 type CartTotalsProps = {
   totals: {
@@ -78,9 +78,9 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           </div>
         )}
       </div>
-      <div className="h-px w-full border-b border-gray-200 my-4" />
+      <Divider className="my-2" />
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
-        <Text>Total</Text>
+        <Text className="font-medium">Total</Text>
         <Text
           className="txt-xlarge-plus"
           data-testid="cart-total"
@@ -89,7 +89,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           {convertToLocale({ amount: total ?? 0, currency_code })}
         </Text>
       </div>
-      <div className="h-px w-full border-b border-gray-200 mt-4" />
+      <Divider className="my-6" />
     </div>
   )
 }

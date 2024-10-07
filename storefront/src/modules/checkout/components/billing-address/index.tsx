@@ -1,12 +1,12 @@
 "use client"
 
-import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
+import { clx, Container, Heading, Text, useToggleState } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import CheckboxWithLabel from "@modules/common/components/checkbox"
 import Divider from "@modules/common/components/divider"
 
-import { setAddresses, updateCart } from "@lib/data/cart"
+import { setBillingAddress, updateCart } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
@@ -32,7 +32,7 @@ const BillingAddress = ({
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
       ? compareAddresses(cart?.shipping_address, cart?.billing_address)
-      : true
+      : false
   )
 
   const createQueryString = useCallback(
@@ -59,7 +59,7 @@ const BillingAddress = ({
     }
   }
 
-  const [message, formAction] = useFormState(setAddresses, null)
+  const [message, formAction] = useFormState(setBillingAddress, null)
 
   return (
     <Container>
@@ -68,19 +68,29 @@ const BillingAddress = ({
           <div className="flex gap-x-2 items-center">
             <Heading
               level="h2"
-              className="flex flex-row text-xl gap-x-2 items-center"
+              className={clx(
+                "flex flex-row text-xl gap-x-2 items-center font-medium",
+                {
+                  "opacity-50 pointer-events-none select-none":
+                    !isOpen && !cart?.billing_address?.address_1,
+                }
+              )}
             >
               Billing Address
             </Heading>
-            {!isOpen && cart?.billing_address && <CheckCircleSolid />}
+            {!isOpen && cart?.billing_address?.address_1 && (
+              <CheckCircleSolid />
+            )}
           </div>
-          <CheckboxWithLabel
-            label="Same as shipping address"
-            name="same_as_billing"
-            checked={sameAsBilling}
-            onChange={handleToggleSameAsBilling}
-            data-testid="billing-address-checkbox"
-          />
+          {cart?.shipping_address?.address_1 && (
+            <CheckboxWithLabel
+              label="Same as shipping address"
+              name="same_as_billing"
+              checked={sameAsBilling}
+              onChange={handleToggleSameAsBilling}
+              data-testid="billing-address-checkbox"
+            />
+          )}
         </div>
         {!sameAsBilling && <Divider />}
         {!sameAsBilling && (
@@ -108,27 +118,18 @@ const BillingAddress = ({
                 <div className="text-small-regular">
                   {cart && cart.billing_address?.first_name && (
                     <div className="flex items-start gap-x-8">
-                      <div className="flex items-start gap-x-1 w-1/3">
-                        <div className="flex flex-col">
-                          <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                            Billing Address
-                          </Text>
-                          <Text className="txt-medium text-ui-fg-subtle">
-                            {cart.billing_address.first_name}{" "}
-                            {cart.billing_address.last_name}
-                          </Text>
-                          <Text className="txt-medium text-ui-fg-subtle">
-                            {cart.billing_address.address_1}{" "}
-                            {cart.billing_address.address_2}
-                          </Text>
-                          <Text className="txt-medium text-ui-fg-subtle">
-                            {cart.billing_address.postal_code}{" "}
-                            {cart.billing_address.city}
-                          </Text>
-                          <Text className="txt-medium text-ui-fg-subtle">
-                            {cart.billing_address.country_code?.toUpperCase()}
-                          </Text>
-                        </div>
+                      <div
+                        className="flex"
+                        data-testid="billing-address-summary"
+                      >
+                        <Text className="txt-medium text-ui-fg-subtle">
+                          {cart.billing_address.first_name}{" "}
+                          {cart.billing_address.last_name},{" "}
+                          {cart.billing_address.address_1},{" "}
+                          {cart.billing_address.postal_code},{" "}
+                          {cart.billing_address.city},{" "}
+                          {cart.billing_address.country_code?.toUpperCase()}
+                        </Text>
                       </div>
                     </div>
                   )}

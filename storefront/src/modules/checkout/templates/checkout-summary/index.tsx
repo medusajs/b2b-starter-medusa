@@ -8,15 +8,10 @@ import Divider from "@modules/common/components/divider"
 const CheckoutSummary = ({ cart }: { cart: any }) => {
   return (
     <Container className="sticky top-2 h-fit w-full flex flex-col small:mt-10">
-      <Heading level="h2" className="flex flex-row text-xl items-baseline">
-        In your Cart
-      </Heading>
       <ItemsPreviewTemplate items={cart?.items} />
-      <Divider className="my-6" />
+      <Divider className="my-2" />
       <CartTotals totals={cart} />
-      <div className="my-6">
-        <DiscountCode cart={cart} />
-      </div>
+      {/* <DiscountCode cart={cart} /> */}
       <Review cart={cart} />
     </Container>
   )

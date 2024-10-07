@@ -365,7 +365,10 @@ export async function submitPromotionForm(
 }
 
 // TODO: Pass a POJO instead of a form entity here
-export async function setAddresses(currentState: unknown, formData: FormData) {
+export async function setShippingAddress(
+  currentState: unknown,
+  formData: FormData
+) {
   try {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
@@ -394,12 +397,30 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
       // customer_id: customer?.id,
       email: customer?.email || formData.get("email"),
     } as any
+    await updateCart(data)
+  } catch (e: any) {
+    return e.message
+  }
 
-    const sameAsBilling = formData.get("same_as_billing")
-    if (sameAsBilling === "on") data.billing_address = data.shipping_address
+  redirect(
+    `/${formData.get(
+      "shipping_address.country_code"
+    )}/checkout?step=billing-address`
+  )
+}
 
-    if (sameAsBilling !== "on")
-      data.billing_address = {
+export async function setBillingAddress(
+  currentState: unknown,
+  formData: FormData
+) {
+  try {
+    const cartId = getCartId()
+    if (!cartId) {
+      throw new Error("No existing cart found when setting billing address")
+    }
+
+    const data = {
+      billing_address: {
         first_name: formData.get("billing_address.first_name"),
         last_name: formData.get("billing_address.last_name"),
         address_1: formData.get("billing_address.address_1"),
@@ -410,15 +431,15 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         country_code: formData.get("billing_address.country_code"),
         province: formData.get("billing_address.province"),
         phone: formData.get("billing_address.phone"),
-      }
+      },
+    } as any
+
     await updateCart(data)
   } catch (e: any) {
     return e.message
   }
 
-  redirect(
-    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
-  )
+  redirect(`/checkout?step=payment`)
 }
 
 export async function setContactDetails(
