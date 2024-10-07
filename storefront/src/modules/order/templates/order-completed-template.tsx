@@ -1,14 +1,14 @@
 import { Heading } from "@medusajs/ui"
 import { cookies } from "next/headers"
 
+import { HttpTypes } from "@medusajs/types"
 import CartTotals from "@modules/common/components/cart-totals"
 import Help from "@modules/order/components/help"
 import Items from "@modules/order/components/items"
 import OnboardingCta from "@modules/order/components/onboarding-cta"
 import OrderDetails from "@modules/order/components/order-details"
-import ShippingDetails from "@modules/order/components/shipping-details"
 import PaymentDetails from "@modules/order/components/payment-details"
-import { HttpTypes } from "@medusajs/types"
+import ShippingDetails from "@modules/order/components/shipping-details"
 
 type OrderCompletedTemplateProps = {
   order: HttpTypes.StoreOrder
@@ -38,7 +38,7 @@ export default function OrderCompletedTemplate({
           <Heading level="h2" className="flex flex-row text-3xl-regular">
             Summary
           </Heading>
-          <Items items={order.items} />
+          <Items items={order.items} order={order} />
           <CartTotals totals={order} />
           <ShippingDetails order={order} />
           <PaymentDetails order={order} />

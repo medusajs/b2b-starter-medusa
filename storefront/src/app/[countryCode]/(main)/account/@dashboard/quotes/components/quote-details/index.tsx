@@ -1,11 +1,13 @@
 "use client"
 
 import { useAcceptQuote, useRejectQuote } from "@lib/hooks/api/quotes"
+import { CheckCircleSolid } from "@medusajs/icons"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
-import { Button, Container, Heading, toast } from "@medusajs/ui"
+import { Button, Container, Heading, Text, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
 import { PromptModal } from "@modules/common/components/prompt-modal"
 import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
+import { useParams, useRouter } from "next/navigation"
 import React, { useMemo } from "react"
 import { GeneralQuoteType } from "types/global"
 import QuoteMessages from "../quote-messages"
@@ -24,6 +26,8 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
     )
   }, [order])
 
+  const { countryCode } = useParams()
+  const router = useRouter()
   const { mutateAsync: acceptQuote, isPending: isAcceptingQuote } =
     useAcceptQuote(quote.id)
   const { mutateAsync: rejectQuote, isPending: isRejectingQuote } =
@@ -38,6 +42,28 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
           <QuoteStatusBadge status={quote.status} />
         </div>
       </div>
+
+      {quote.status === "accepted" && (
+        <Container className="p-0">
+          <div className="flex items-center justify-between px-6 py-4">
+            <Text className="txt-compact-small">
+              <CheckCircleSolid className="inline-block mr-2 text-green-500 text-lg" />
+              Quote accepted by customer. Order is ready for processing.
+            </Text>
+
+            <Button
+              size="small"
+              onClick={() =>
+                router.push(
+                  `/${countryCode}/account/orders/details/${quote.draft_order_id}`
+                )
+              }
+            >
+              View Order
+            </Button>
+          </div>
+        </Container>
+      )}
 
       <Container className="divide-y divide-dashed p-0">
         {preview.items?.map((item) => (
@@ -97,7 +123,9 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
             handleAction={() =>
               acceptQuote(
                 {},
-                { onError: (error) => toast.error(error.message) }
+                {
+                  onError: (error) => toast.error(error.message),
+                }
               )
             }
             isLoading={isAcceptingQuote}
