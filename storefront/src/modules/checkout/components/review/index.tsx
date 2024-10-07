@@ -16,7 +16,7 @@ const Review = ({
 }) => {
   return (
     <div className="flex flex-col gap-y-2">
-      <div className="flex items-start gap-x-1 w-full mb-6">
+      <div className="flex items-start gap-x-1 w-full">
         <Text className="txt-xsmall text-neutral-500 mb-1">
           By Completing this order, I agree to Medusa&apos;s{" "}
           <LocalizedClientLink
