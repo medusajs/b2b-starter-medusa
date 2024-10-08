@@ -17,10 +17,10 @@ export interface DeleteQuoteDTO {
   id: string;
 }
 
-export interface CreateQuoteCommentDTO {
+export interface CreateQuoteMessageDTO {
   text: string;
   quote_id: string;
   admin_id?: string;
   customer_id?: string;
-  item_id?: string;
+  item_id?: string | null;
 }

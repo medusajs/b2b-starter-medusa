@@ -14,10 +14,10 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { z } from "zod";
 import { Form } from "../../../components/common/form";
-import { QuoteItem } from "../../../components/quotes";
-import { useCreateQuoteComment } from "../../../hooks/api/quotes";
+import { useCreateQuoteMessage } from "../../../hooks/api/quotes";
+import { QuoteItem } from "./quote-details";
 
-export const CreateQuoteCommentForm = z.object({
+export const CreateQuoteMessageForm = z.object({
   text: z.string().min(1),
   item_id: z.string().nullish(),
 });
@@ -34,17 +34,17 @@ export function QuoteMessages({
   /**
    * FORM
    */
-  const form = useForm<z.infer<typeof CreateQuoteCommentForm>>({
+  const form = useForm<z.infer<typeof CreateQuoteMessageForm>>({
     defaultValues: () =>
       Promise.resolve({
         text: "",
         item_id: null,
       }),
-    resolver: zodResolver(CreateQuoteCommentForm),
+    resolver: zodResolver(CreateQuoteMessageForm),
   });
 
   const { mutateAsync: createMessage, isPending: isCreatingMessage } =
-    useCreateQuoteComment(quoteId!);
+    useCreateQuoteMessage(quoteId!);
 
   const originalItemsMap = useMemo(() => {
     return new Map(quote?.draft_order?.items?.map((item) => [item.id, item]));
@@ -87,32 +87,32 @@ export function QuoteMessages({
       </div>
 
       <div>
-        {quote.comments?.map((comment) => (
+        {quote.messages?.map((message) => (
           <div
-            key={comment.id}
+            key={message.id}
             className={clx("px-6 py-4 text-sm flex flex-col gap-y-2", {
-              "!bg-ui-bg-subtle !inset-x-5 !inset-y-3": !!comment.admin_id,
+              "!bg-ui-bg-subtle !inset-x-5 !inset-y-3": !!message.admin_id,
             })}
           >
             <div className="font-medium font-sans txt-compact-small text-ui-fg-subtle ">
-              {!!comment.admin &&
-                `${comment.admin.first_name} ${comment.admin.last_name}`}
+              {!!message.admin &&
+                `${message.admin.first_name} ${message.admin.last_name}`}
 
-              {!!comment.customer &&
-                `${comment.customer.first_name} ${comment.customer.last_name}`}
+              {!!message.customer &&
+                `${message.customer.first_name} ${message.customer.last_name}`}
             </div>
 
-            {!!comment.item_id && (
+            {!!message.item_id && (
               <div className="border border-dashed border-neutral-400 my-2">
                 <QuoteItem
-                  item={previewItemsMap.get(comment.item_id)!}
-                  originalItem={originalItemsMap.get(comment.item_id)!}
+                  item={previewItemsMap.get(message.item_id)!}
+                  originalItem={originalItemsMap.get(message.item_id)!}
                   currencyCode={quote.draft_order.currency_code}
                 />
               </div>
             )}
 
-            <div>{comment.text}</div>
+            <div>{message.text}</div>
           </div>
         ))}
       </div>

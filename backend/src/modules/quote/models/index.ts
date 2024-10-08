@@ -1,2 +1,2 @@
-export { Comment } from "./comment";
+export { Message } from "./message";
 export { Quote } from "./quote";

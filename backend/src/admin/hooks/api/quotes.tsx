@@ -275,7 +275,7 @@ export const useRejectQuote = (
   });
 };
 
-export const useCreateQuoteComment = (
+export const useCreateQuoteMessage = (
   id: string,
   options?: UseMutationOptions<Record<any, any>, FetchError, Record<any, any>>
 ) => {
@@ -286,7 +286,7 @@ export const useCreateQuoteComment = (
     body: { item_id: string; text: string }
   ) =>
     sdk.client.fetch<{ quote: Record<any, any> }>(
-      `/admin/quotes/${id}/comments`,
+      `/admin/quotes/${id}/messages`,
       {
         body,
         method: "POST",

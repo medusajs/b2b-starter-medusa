@@ -15,7 +15,7 @@ export interface QuoteDTO {
   order_change: AdminOrderChange;
 }
 
-export interface QuoteCommentDTO {
+export interface QuoteMessageDTO {
   id: string;
   text: string;
   quote_id: string;

@@ -1,9 +1,12 @@
 import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
-  Query,
 } from "@medusajs/framework";
-import { HttpTypes, IOrderModuleService } from "@medusajs/framework/types";
+import {
+  HttpTypes,
+  IOrderModuleService,
+  RemoteQueryFunction,
+} from "@medusajs/framework/types";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
 
 export const GET = async (
@@ -11,7 +14,9 @@ export const GET = async (
   res: MedusaResponse<HttpTypes.AdminOrderPreviewResponse>
 ) => {
   const { id } = req.params;
-  const query: Query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const query = req.scope.resolve<RemoteQueryFunction>(
+    ContainerRegistrationKeys.QUERY
+  );
 
   const {
     data: [quote],

@@ -8,7 +8,7 @@ createCartWorkflow.hooks.cartCreated(
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
     if (!cart.metadata?.company_id) {
-      return new StepResponse(undefined, undefined);
+      return new StepResponse(undefined, null);
     }
 
     remoteLink.create({
@@ -22,7 +22,7 @@ createCartWorkflow.hooks.cartCreated(
 
     return new StepResponse(undefined, cart.id);
   },
-  async (cartId: string, { container }) => {
+  async (cartId: string | null, { container }) => {
     if (!cartId) {
       return;
     }
