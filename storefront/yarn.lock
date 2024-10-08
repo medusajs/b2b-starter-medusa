@@ -3372,24 +3372,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.59.0":
-  version: 5.59.0
-  resolution: "@tanstack/query-core@npm:5.59.0"
-  checksum: 2f7620b63170236755ff9d87cd4a94011a98697c92c090ebdb214274964e8545ae9962cfe38675ed1f49a0abad34bc2f59f8c78180913c3a55d8bf0a30c422ea
-  languageName: node
-  linkType: hard
-
-"@tanstack/react-query@npm:^5.59.0":
-  version: 5.59.0
-  resolution: "@tanstack/react-query@npm:5.59.0"
-  dependencies:
-    "@tanstack/query-core": 5.59.0
-  peerDependencies:
-    react: ^18 || ^19
-  checksum: e2df523f7b40b949c23ad43e5c1d7a6d87902f114e086c6a65a60126f8d721a965b24146170c56334699b5ee96c36bf6a3c40b48d9a85bba6b944f397ffe744d
-  languageName: node
-  linkType: hard
-
 "@tanstack/react-virtual@npm:^3.0.0-beta.60":
   version: 3.10.8
   resolution: "@tanstack/react-virtual@npm:3.10.8"
@@ -6919,7 +6901,6 @@ __metadata:
     "@paypal/react-paypal-js": ^7.8.1
     "@stripe/react-stripe-js": ^1.7.2
     "@stripe/stripe-js": ^1.29.0
-    "@tanstack/react-query": ^5.59.0
     "@types/lodash": ^4.14.195
     "@types/node": 17.0.21
     "@types/pg": ^8.11.0
