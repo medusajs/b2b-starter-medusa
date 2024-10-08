@@ -1,27 +1,24 @@
-"use client"
-
-import { useQuote, useQuotePreview } from "@lib/hooks/api/quotes"
+import { fetchQuote, fetchQuotePreview } from "@lib/data/quotes"
 import { notFound } from "next/navigation"
-import { GeneralQuoteType } from "types/global"
 import QuoteDetails from "../../components/quote-details"
 
 type Props = {
-  params: { id: string }
-  quote: GeneralQuoteType
+  params: { id: string; countryCode: string }
 }
 
-export default function QuoteDetailsPage({ params }: Props) {
-  const { quote, isLoading } = useQuote(params.id)
-  const { preview: quotePreview, isLoading: isPreviewLoading } =
-    useQuotePreview(params.id)
-
-  if (isLoading || isPreviewLoading) {
-    return <></>
-  }
+export default async function QuoteDetailsPage({ params }: Props) {
+  const { quote } = await fetchQuote(params.id)
+  const { preview: quotePreview } = await fetchQuotePreview(params.id)
 
   if (!quote || !quotePreview) {
     notFound()
   }
 
-  return <QuoteDetails quote={quote} preview={quotePreview} />
+  return (
+    <QuoteDetails
+      quote={quote}
+      preview={quotePreview}
+      countryCode={params.countryCode}
+    />
+  )
 }

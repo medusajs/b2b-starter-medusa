@@ -1,8 +1,6 @@
-"use client"
-
-import { createQuote } from "@lib/api/quotes"
+import { createQuote } from "@lib/data/quotes"
 import { XCircle } from "@medusajs/icons"
-import Button from "@modules/common/components/button"
+import { Button } from "@medusajs/ui"
 import * as Dialog from "@radix-ui/react-dialog"
 import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
@@ -26,12 +24,12 @@ export const RequestQuoteConfirmation = ({
     }
 
     try {
-      await createQuote()
+      const { quote } = await createQuote()
+
+      router.push(`/${countryCode}/account/quotes/details/${quote.id}`)
     } catch (error) {
       setRequesting(false)
     } finally {
-      router.push(`/${countryCode}/account`)
-
       setRequesting(false)
     }
   }
