@@ -26,10 +26,7 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/store/quotes",
     middlewares: [
-      validateAndTransformQuery(
-        GetQuoteParams,
-        retrieveQuoteTransformQueryConfig
-      ),
+      validateAndTransformQuery(GetQuoteParams, listQuotesTransformQueryConfig),
     ],
   },
   {
@@ -37,7 +34,10 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     matcher: "/store/quotes",
     middlewares: [
       validateAndTransformBody(CreateQuote),
-      validateAndTransformQuery(GetQuoteParams, listQuotesTransformQueryConfig),
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
     ],
   },
   {

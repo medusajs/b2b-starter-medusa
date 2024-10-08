@@ -12,7 +12,7 @@ export const PromptModal = ({
 }: {
   title: string
   description: string
-  handleAction: () => {}
+  handleAction: () => void
   children: React.ReactNode
   isLoading: boolean
 }) => {

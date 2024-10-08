@@ -1,10 +1,10 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useCreateQuoteMessage } from "@lib/hooks/api/quotes"
+import { createQuoteMessage } from "@lib/data/quotes"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, clx, Container, Heading, Select, Textarea } from "@medusajs/ui"
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { GeneralQuoteType } from "types/global"
 import { z } from "zod"
@@ -38,11 +38,13 @@ const QuoteMessages = ({
     resolver: zodResolver(CreateQuoteMessageForm),
   })
 
-  const { mutateAsync: createMessage, isPending: isCreatingMessage } =
-    useCreateQuoteMessage(quote.id)
-
+  const [isCreatingMessage, setIsCreatingMessage] = useState(false)
   const handleCreateMessage = (data: GeneralQuoteType) => {
-    createMessage(data, { onSettled: () => reset(defaultValues) })
+    setIsCreatingMessage(true)
+    createQuoteMessage(quote.id, data).finally(() => {
+      reset(defaultValues)
+      setIsCreatingMessage(false)
+    })
   }
 
   const originalItemsMap = useMemo(() => {

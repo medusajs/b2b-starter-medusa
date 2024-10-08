@@ -1,14 +1,8 @@
-"use client"
-
-import { useQuotes } from "@lib/hooks/api/quotes"
+import { fetchQuotes } from "@lib/data/quotes"
 import QuotesOverview from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quotes-overview"
 
-export default function Quotes() {
-  const { quotes, isLoading } = useQuotes()
-
-  if (isLoading) {
-    return <></>
-  }
+export default async function Quotes() {
+  const { quotes } = await fetchQuotes()
 
   return (
     <div className="w-full" data-testid="quotes-page-wrapper">

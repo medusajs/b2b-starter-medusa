@@ -1,14 +1,14 @@
 "use client"
 
-import { useAcceptQuote, useRejectQuote } from "@lib/hooks/api/quotes"
+import { acceptQuote, rejectQuote } from "@lib/data/quotes"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, Container, Heading, Text, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
 import { PromptModal } from "@modules/common/components/prompt-modal"
 import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
-import { useParams, useRouter } from "next/navigation"
-import React, { useMemo } from "react"
+import { useRouter } from "next/navigation"
+import React, { useMemo, useState } from "react"
 import { GeneralQuoteType } from "types/global"
 import QuoteMessages from "../quote-messages"
 import { QuoteTableItem } from "../quote-table"
@@ -16,9 +16,14 @@ import { QuoteTableItem } from "../quote-table"
 type QuoteDetailsProps = {
   quote: GeneralQuoteType
   preview: AdminOrderPreview
+  countryCode: string
 }
 
-const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
+const QuoteDetails: React.FC<QuoteDetailsProps> = ({
+  quote,
+  preview,
+  countryCode,
+}) => {
   const order = quote.draft_order
   const originalItemsMap = useMemo(() => {
     return new Map<string, AdminOrderLineItem>(
@@ -26,12 +31,9 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
     )
   }, [order])
 
-  const { countryCode } = useParams()
   const router = useRouter()
-  const { mutateAsync: acceptQuote, isPending: isAcceptingQuote } =
-    useAcceptQuote(quote.id)
-  const { mutateAsync: rejectQuote, isPending: isRejectingQuote } =
-    useRejectQuote(quote.id)
+  const [isAccepting, setIsAccepting] = useState(false)
+  const [isRejecting, setIsRejecting] = useState(false)
 
   return (
     <div className="flex flex-col gap-y-8 p-0">
@@ -104,13 +106,14 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
           <PromptModal
             title="Reject Quote?"
             description="Are you sure you want to reject quote? This action is irreversible."
-            handleAction={() =>
-              rejectQuote(
-                {},
-                { onError: (error) => toast.error(error.message) }
-              )
-            }
-            isLoading={isRejectingQuote}
+            handleAction={() => {
+              setIsRejecting(true)
+
+              rejectQuote(quote.id)
+                .catch((e) => toast.error(e.message))
+                .finally(() => setIsRejecting(false))
+            }}
+            isLoading={isRejecting}
           >
             <Button size="small" variant="secondary">
               Reject Quote
@@ -120,15 +123,14 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({ quote, preview }) => {
           <PromptModal
             title="Accept Quote?"
             description="Are you sure you want to accept quote? This action is irreversible."
-            handleAction={() =>
-              acceptQuote(
-                {},
-                {
-                  onError: (error) => toast.error(error.message),
-                }
-              )
-            }
-            isLoading={isAcceptingQuote}
+            handleAction={() => {
+              setIsAccepting(true)
+
+              acceptQuote(quote.id)
+                .catch((e) => toast.error(e.message))
+                .finally(() => setIsAccepting(false))
+            }}
+            isLoading={isAccepting}
           >
             <Button size="small" variant="primary">
               Accept Quote

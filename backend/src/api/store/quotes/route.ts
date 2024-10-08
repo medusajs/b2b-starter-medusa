@@ -15,15 +15,25 @@ export const GET = async (
     ContainerRegistrationKeys.QUERY
   );
 
-  const { data: quotes } = await query.graph({
+  const { fields, pagination } = req.remoteQueryConfig;
+  const { data: quotes, metadata } = await query.graph({
     entity: "quote",
-    fields: req.remoteQueryConfig.fields,
+    fields,
     filters: {
       customer_id: req.auth_context.actor_id,
     },
+    pagination: {
+      ...pagination,
+      skip: pagination.skip!,
+    },
   });
 
-  res.json({ quotes });
+  res.json({
+    quotes,
+    count: metadata!.count,
+    offset: metadata!.skip,
+    limit: metadata!.take,
+  });
 };
 
 export const POST = async (
