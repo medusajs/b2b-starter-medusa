@@ -1,52 +1,57 @@
 "use client"
 
-import { Heading, Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import PaymentButton from "../payment-button"
-import { useSearchParams } from "next/navigation"
+import { ExclamationCircle } from "@medusajs/icons"
+import Button from "@modules/common/components/button"
 
-const Review = ({ cart }: { cart: any }) => {
-  const searchParams = useSearchParams()
-
-  const isOpen = searchParams.get("step") === "review"
-
-  const paidByGiftcard =
-    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
-
-  const previousStepsCompleted =
-    cart.shipping_address &&
-    cart.shipping_methods.length > 0 &&
-    (cart.payment_collection || paidByGiftcard)
-
+const Review = ({
+  cart,
+  spendLimitExceeded,
+}: {
+  cart: any
+  spendLimitExceeded: boolean
+}) => {
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
-        <Heading
-          level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
-              "opacity-50 pointer-events-none select-none": !isOpen,
-            }
-          )}
-        >
-          Review
-        </Heading>
+    <div className="flex flex-col gap-y-2">
+      <div className="flex items-start gap-x-1 w-full">
+        <Text className="txt-xsmall text-neutral-500 mb-1">
+          By Completing this order, I agree to Medusa&apos;s{" "}
+          <LocalizedClientLink
+            href="/terms-of-sale"
+            className="hover:text-neutral-800"
+            target="_blank"
+          >
+            Terms of Sale ↗
+          </LocalizedClientLink>{" "}
+          and{" "}
+          <LocalizedClientLink
+            href="/privacy-policy"
+            className="hover:text-neutral-800"
+            target="_blank"
+          >
+            Privacy Policy ↗
+          </LocalizedClientLink>
+        </Text>
       </div>
-      {isOpen && previousStepsCompleted && (
+      {spendLimitExceeded ? (
         <>
-          <div className="flex items-start gap-x-1 w-full mb-6">
-            <div className="w-full">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
-              </Text>
-            </div>
+          <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+            <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+            <p className="text-neutral-950 text-xs">
+              This order exceeds your spending limit.
+              <br />
+              Please contact your manager for approval.
+            </p>
           </div>
-          <PaymentButton cart={cart} data-testid="submit-order-button" />
+          <Button className="w-full h-10 rounded-full shadow-none" disabled>
+            Place Order
+          </Button>
         </>
+      ) : (
+        <PaymentButton cart={cart} data-testid="submit-order-button" />
       )}
     </div>
   )

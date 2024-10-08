@@ -1,14 +1,13 @@
 import { Dialog, Transition } from "@headlessui/react"
-import { Button, clx } from "@medusajs/ui"
-import React, { Fragment, useMemo } from "react"
-
 import useToggleState from "@lib/hooks/use-toggle-state"
+import { getProductPrice } from "@lib/util/get-product-price"
+import { HttpTypes } from "@medusajs/types"
+import { clx } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
-
-import { getProductPrice } from "@lib/util/get-product-price"
+import React, { Fragment, useMemo } from "react"
 import OptionSelect from "./option-select"
-import { HttpTypes } from "@medusajs/types"
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
@@ -129,7 +128,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
         </Transition>
       </div>
       <Transition appear show={state} as={Fragment}>
-        <Dialog as="div" className="relative z-[75]" onClose={close}>
+        <Dialog as="div" className="relative z-[1]" onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

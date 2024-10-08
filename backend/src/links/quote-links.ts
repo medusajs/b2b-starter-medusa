@@ -1,5 +1,5 @@
+import { Modules } from "@medusajs/framework/utils";
 import { MedusaModule } from "@medusajs/modules-sdk";
-import { Modules } from "@medusajs/utils";
 
 MedusaModule.setCustomLink(() => {
   return {
@@ -42,6 +42,32 @@ MedusaModule.setCustomLink(() => {
           alias: "order_change",
           args: {
             methodSuffix: "OrderChanges",
+          },
+        },
+      },
+      {
+        serviceName: "quote",
+        relationship: {
+          serviceName: Modules.USER,
+          entity: "User",
+          primaryKey: "id",
+          foreignKey: "admin_id",
+          alias: "admin",
+          args: {
+            methodSuffix: "Users",
+          },
+        },
+      },
+      {
+        serviceName: "quote",
+        relationship: {
+          serviceName: Modules.CUSTOMER,
+          entity: "Customer",
+          primaryKey: "id",
+          foreignKey: "customer_id",
+          alias: "customer",
+          args: {
+            methodSuffix: "Customers",
           },
         },
       },

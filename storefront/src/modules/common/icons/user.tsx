@@ -3,33 +3,34 @@ import React from "react"
 import { IconProps } from "types/icon"
 
 const User: React.FC<IconProps> = ({
-  size = "16",
+  size = "12",
   color = "currentColor",
   ...attributes
 }) => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      viewBox="0 0 20 20"
+      viewBox="0 0 12 12"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       {...attributes}
     >
-      <path
-        d="M16.6663 18V16.3333C16.6663 15.4493 16.3152 14.6014 15.69 13.9763C15.0649 13.3512 14.2171 13 13.333 13H6.66634C5.78229 13 4.93444 13.3512 4.30932 13.9763C3.6842 14.6014 3.33301 15.4493 3.33301 16.3333V18"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10.0003 9.66667C11.8413 9.66667 13.3337 8.17428 13.3337 6.33333C13.3337 4.49238 11.8413 3 10.0003 3C8.15938 3 6.66699 4.49238 6.66699 6.33333C6.66699 8.17428 8.15938 9.66667 10.0003 9.66667Z"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <g clipPath="url(#clip0_21037_2692)">
+        <path
+          d="M6 4.991C7.38071 4.991 8.5 3.87171 8.5 2.491C8.5 1.11029 7.38071 -0.00900078 6 -0.00900078C4.61929 -0.00900078 3.5 1.11029 3.5 2.491C3.5 3.87171 4.61929 4.991 6 4.991Z"
+          fill="#52525B"
+        />
+        <path
+          d="M10.5328 8.639C9.6008 7.011 7.8638 6 5.9998 6C4.1358 6 2.3978 7.011 1.4668 8.639C1.2178 9.073 1.1618 9.593 1.3128 10.067C1.4628 10.539 1.8088 10.93 2.2598 11.139C3.5008 11.713 4.7498 12 5.9998 12C7.2498 12 8.4988 11.713 9.7398 11.139C10.1908 10.93 10.5358 10.539 10.6868 10.067C10.8378 9.593 10.7818 9.073 10.5328 8.64V8.639Z"
+          fill="#52525B"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_21037_2692">
+          <rect width="12" height="12" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   )
 }

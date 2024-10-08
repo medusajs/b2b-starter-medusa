@@ -1,4 +1,5 @@
-import { Button, Container, Text } from "@medusajs/ui"
+import { Container, Text } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import { cookies } from "next/headers"
 
 const ProductOnboardingCta = () => {

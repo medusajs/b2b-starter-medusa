@@ -11,6 +11,7 @@ type ThumbnailProps = {
   size?: "small" | "medium" | "large" | "full" | "square"
   isFeatured?: boolean
   className?: string
+  type?: "preview" | "full"
   "data-testid"?: string
 }
 
@@ -21,12 +22,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   isFeatured,
   className,
   "data-testid": dataTestid,
+  type,
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
 
   return (
     <div
-      className={clx("relative w-full overflow-hidden p-4", className, {
+      className={clx("relative w-full overflow-hidden", className, {
         "aspect-[11/14]": isFeatured,
         "aspect-[9/16]": !isFeatured && size !== "square",
         "aspect-[1/1]": size === "square",
@@ -37,7 +39,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
       })}
       data-testid={dataTestid}
     >
-      <ImageOrPlaceholder image={initialImage} size={size} />
+      <ImageOrPlaceholder image={initialImage} size={size} type={type} />
     </div>
   )
 }
@@ -45,12 +47,16 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 const ImageOrPlaceholder = ({
   image,
   size,
-}: Pick<ThumbnailProps, "size"> & { image?: string }) => {
+  type,
+}: Pick<ThumbnailProps, "size" | "type"> & { image?: string }) => {
   return image ? (
     <Image
       src={image}
       alt="Thumbnail"
-      className="absolute inset-0 object-contain object-center p-4"
+      className={clx("absolute inset-0 object-contain object-center", {
+        "p-4": type === "full",
+        "p-2": type === "preview",
+      })}
       draggable={false}
       quality={50}
       sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"

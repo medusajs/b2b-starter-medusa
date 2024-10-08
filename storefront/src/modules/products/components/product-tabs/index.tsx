@@ -1,11 +1,9 @@
 "use client"
 
-import Back from "@modules/common/icons/back"
-import FastDelivery from "@modules/common/icons/fast-delivery"
-import Refresh from "@modules/common/icons/refresh"
-
-import Accordion from "./accordion"
 import { HttpTypes } from "@medusajs/types"
+import { Table, Text } from "@medusajs/ui"
+import Markdown from "react-markdown"
+import Accordion from "./accordion"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
@@ -14,20 +12,21 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Product Information",
-      component: <ProductInfoTab product={product} />,
+      label: "Description",
+      component: <ProductSpecsTab product={product} />,
     },
     {
-      label: "Shipping & Returns",
-      component: <ShippingInfoTab />,
+      label: "Specifications",
+      component: <ProductSpecificationsTab product={product} />,
     },
   ]
 
   return (
     <div className="w-full">
-      <Accordion type="multiple">
+      <Accordion type="multiple" className="flex flex-col gap-y-2">
         {tabs.map((tab, i) => (
           <Accordion.Item
+            className="bg-neutral-100 px-24"
             key={i}
             title={tab.label}
             headingSize="medium"
@@ -41,79 +40,67 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
   )
 }
 
-const ProductInfoTab = ({ product }: ProductTabsProps) => {
+const ProductSpecsTab = ({ product }: ProductTabsProps) => {
   return (
-    <div className="text-small-regular py-8">
-      <div className="grid grid-cols-2 gap-x-8">
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Material</span>
-            <p>{product.material ? product.material : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Country of origin</span>
-            <p>{product.origin_country ? product.origin_country : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Type</span>
-            <p>{product.type ? product.type.value : "-"}</p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Weight</span>
-            <p>{product.weight ? `${product.weight} g` : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Dimensions</span>
-            <p>
-              {product.length && product.width && product.height
-                ? `${product.length}L x ${product.width}W x ${product.height}H`
-                : "-"}
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="text-small-regular py-8 xl:w-2/3">
+      <Markdown
+        components={{
+          p: ({ children }) => (
+            <Text className="text-neutral-950 mb-2">{children}</Text>
+          ),
+          h2: ({ children }) => (
+            <Text className="text-xl text-neutral-950 my-4 font-semibold">
+              {children}
+            </Text>
+          ),
+          h3: ({ children }) => (
+            <Text className="text-lg text-neutral-950 mb-2">{children}</Text>
+          ),
+        }}
+      >
+        {product.description ? product.description : "-"}
+      </Markdown>
     </div>
   )
 }
 
-const ShippingInfoTab = () => {
+const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
   return (
     <div className="text-small-regular py-8">
-      <div className="grid grid-cols-1 gap-y-8">
-        <div className="flex items-start gap-x-2">
-          <FastDelivery />
-          <div>
-            <span className="font-semibold">Fast delivery</span>
-            <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-x-2">
-          <Refresh />
-          <div>
-            <span className="font-semibold">Simple exchanges</span>
-            <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-x-2">
-          <Back />
-          <div>
-            <span className="font-semibold">Easy returns</span>
-            <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Table className="rounded-lg shadow-borders-base overflow-hidden border-none">
+        <Table.Body>
+          {product.weight && (
+            <Table.Row>
+              <Table.Cell className="border-r">
+                <span className="font-semibold">Weight</span>
+              </Table.Cell>
+              <Table.Cell className="px-4">{product.weight} grams</Table.Cell>
+            </Table.Row>
+          )}
+          {(product.height || product.width || product.length) && (
+            <Table.Row>
+              <Table.Cell className="border-r">
+                <span className="font-semibold">Dimensions (HxWxL)</span>
+              </Table.Cell>
+              <Table.Cell className="px-4">
+                {product.height}mm x {product.width}mm x {product.length}mm
+              </Table.Cell>
+            </Table.Row>
+          )}
+
+          {product.metadata &&
+            Object.entries(product.metadata).map(([key, value]) => (
+              <Table.Row key={key}>
+                <Table.Cell className="border-r">
+                  <span className="font-semibold">{key}</span>
+                </Table.Cell>
+                <Table.Cell className="px-4">
+                  <p>{value as string}</p>
+                </Table.Cell>
+              </Table.Row>
+            ))}
+        </Table.Body>
+      </Table>
     </div>
   )
 }

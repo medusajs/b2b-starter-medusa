@@ -1,7 +1,7 @@
 "use client"
 
-import { Button, Heading } from "@medusajs/ui"
-
+import { Heading } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import Image from "next/image"
 
 import { useEffect, useState } from "react"
@@ -35,7 +35,7 @@ const Hero = () => {
           priority
         />
       )}
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
+      <div className="absolute inset-0 z-1 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         <span>
           <p className="text-neutral-600 text-xs uppercase">
             Be light on your feet

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RegionDTO } from "@medusajs/types";
+import { RegionDTO } from "@medusajs/framework/types";
 
 export function useRegions() {
   const [data, setData] = useState({ regions: [] as RegionDTO[] });

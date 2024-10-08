@@ -6,12 +6,26 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
-import { getAuthHeaders, removeAuthToken, setAuthToken } from "./cookies"
+import { Customer } from "types/global"
+import {
+  getAuthHeaders,
+  getCacheHeaders,
+  getCacheTag,
+  removeAuthToken,
+  setAuthToken,
+} from "./cookies"
+import { createCompany, createEmployee } from "./companies"
 
 export const getCustomer = cache(async function () {
+  // TODO: update type to include employee and company
   return await sdk.store.customer
-    .retrieve({}, { next: { tags: ["customer"] }, ...getAuthHeaders() })
-    .then(({ customer }) => customer)
+    .retrieve(
+      {
+        fields: "+employee.*, +orders.*",
+      },
+      { ...getCacheHeaders("customers"), ...getAuthHeaders() }
+    )
+    .then(({ customer }) => customer as Customer)
     .catch(() => null)
 })
 
@@ -23,7 +37,7 @@ export const updateCustomer = cache(async function (
     .then(({ customer }) => customer)
     .catch(medusaError)
 
-  revalidateTag("customer")
+  revalidateTag(getCacheTag("customers"))
   return updateRes
 })
 
@@ -43,7 +57,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
     })
 
     const customHeaders = { authorization: `Bearer ${token}` }
-    
+
     const { customer: createdCustomer } = await sdk.store.customer.create(
       customerForm,
       {},
@@ -55,10 +69,43 @@ export async function signup(_currentState: unknown, formData: FormData) {
       password,
     })
 
-    setAuthToken(loginToken)
+    setAuthToken(loginToken as string)
 
-    revalidateTag("customer")
-    return createdCustomer
+    let createdCompany: Record<string, unknown> | null = null
+    let createdEmployee: Record<string, unknown> | null = null
+
+    if (formData.get("is_business") === "true") {
+      const companyForm = {
+        name: formData.get("company_name") as string,
+        email: formData.get("company_email") as string,
+        phone: formData.get("company_phone") as string,
+        address: formData.get("company_address") as string,
+        city: formData.get("company_city") as string,
+        state: formData.get("company_state") as string,
+        zip: formData.get("company_zip") as string,
+        country: formData.get("company_country") as string,
+        currency_code: formData.get("currency_code") as string,
+      }
+
+      createdCompany = await createCompany(companyForm).then(
+        ({ companies }) => companies[0]
+      )
+
+      if (createdCompany) {
+        createdEmployee = await createEmployee(createdCompany.id as string, {
+          customer_id: createdCustomer.id,
+          is_admin: true,
+        })
+      }
+    }
+
+    revalidateTag(getCacheTag("customers"))
+
+    return {
+      customer: createdCustomer,
+      company: createdCompany,
+      employee: createdEmployee,
+    }
   } catch (error: any) {
     return error.toString()
   }
@@ -72,19 +119,19 @@ export async function login(_currentState: unknown, formData: FormData) {
     await sdk.auth
       .login("customer", "emailpass", { email, password })
       .then((token) => {
-        setAuthToken(token)
-        revalidateTag("customer")
+        setAuthToken(token as string)
+        revalidateTag(getCacheTag("customers"))
       })
   } catch (error: any) {
     return error.toString()
   }
 }
 
-export async function signout(countryCode: string) {
+export async function signout(countryCode: string, customerId: string) {
   await sdk.auth.logout()
   removeAuthToken()
-  revalidateTag("auth")
-  revalidateTag("customer")
+  revalidateTag(getCacheTag("auth"))
+  revalidateTag(getCacheTag("customers"))
   redirect(`/${countryCode}/account`)
 }
 
@@ -108,7 +155,7 @@ export const addCustomerAddress = async (
   return sdk.store.customer
     .createAddress(address, {}, getAuthHeaders())
     .then(({ customer }) => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -117,12 +164,13 @@ export const addCustomerAddress = async (
 }
 
 export const deleteCustomerAddress = async (
-  addressId: string
+  addressId: string,
+  customerId: string
 ): Promise<void> => {
   await sdk.store.customer
     .deleteAddress(addressId, getAuthHeaders())
     .then(() => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -135,6 +183,7 @@ export const updateCustomerAddress = async (
   formData: FormData
 ): Promise<any> => {
   const addressId = currentState.addressId as string
+  const customerId = currentState.customerId as string
 
   const address = {
     first_name: formData.get("first_name") as string,
@@ -152,7 +201,7 @@ export const updateCustomerAddress = async (
   return sdk.store.customer
     .updateAddress(addressId, address, {}, getAuthHeaders())
     .then(() => {
-      revalidateTag("customer")
+      revalidateTag(getCacheTag("customers"))
       return { success: true, error: null }
     })
     .catch((err) => {

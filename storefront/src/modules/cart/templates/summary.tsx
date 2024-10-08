@@ -1,53 +1,88 @@
 "use client"
 
-import { Button, Container, Heading, Text } from "@medusajs/ui"
-
-import CartTotals from "@modules/common/components/cart-totals"
-import Divider from "@modules/common/components/divider"
-import DiscountCode from "@modules/checkout/components/discount-code"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { emptyCart } from "@lib/data/cart"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
+import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { convertToLocale } from "@lib/util/money"
+import { Container } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
+import CartTotals from "@modules/common/components/cart-totals"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
+import { useState } from "react"
+import CartToCsvButton from "../components/cart-to-csv-button"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
-    promotions: HttpTypes.StorePromotion[]
+    promotions?: HttpTypes.StorePromotion[]
   }
+  customer: HttpTypes.StoreCustomer | null
+  spendLimitExceeded: boolean
 }
 
-function getCheckoutStep(cart: HttpTypes.StoreCart) {
-  if (!cart?.shipping_address?.address_1 || !cart.email) {
-    return "address"
-  } else if (cart?.shipping_methods?.length === 0) {
-    return "delivery"
-  } else {
-    return "payment"
-  }
-}
+const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
+  const [isEmptyingCart, setIsEmptyingCart] = useState(false)
+  const [isExportingCart, setIsExportingCart] = useState(false)
+  const [csvError, setCsvError] = useState(false)
 
-const Summary = ({ cart }: SummaryProps) => {
-  const step = getCheckoutStep(cart)
+  const checkoutStep = getCheckoutStep(cart)
+  const checkoutPath = checkoutStep
+    ? `/checkout?step=${checkoutStep}`
+    : "/checkout"
+
+  const checkoutButtonLink = customer ? checkoutPath : "/account"
+
+  const handleEmptyCart = async () => {
+    setIsEmptyingCart(true)
+    try {
+      await emptyCart()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Container className="flex flex-col gap-y-3">
       {/* <DiscountCode cart={cart} /> */}
       {/* <Divider /> */}
       <CartTotals totals={cart} />
+      {spendLimitExceeded && (
+        <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+          <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+          <p className="text-neutral-950 text-xs">
+            This order exceeds your spending limit.
+            <br />
+            Please contact your manager for approval.
+          </p>
+        </div>
+      )}
       <LocalizedClientLink
-        href={"/checkout?step=" + step}
+        href={checkoutButtonLink}
         data-testid="checkout-button"
       >
-        <Button className="w-full h-10 rounded-full shadow-none">
-          Secure Checkout
+        <Button
+          className="w-full h-10 rounded-full shadow-none"
+          disabled={spendLimitExceeded}
+        >
+          {customer
+            ? spendLimitExceeded
+              ? "Spending Limit Exceeded"
+              : "Checkout"
+            : "Sign in to Checkout"}
         </Button>
       </LocalizedClientLink>
+      <RequestQuoteConfirmation>
+        <Button
+          className="w-full h-10 rounded-full shadow-borders-base"
+          variant="secondary"
+        >
+          Request Quote
+        </Button>
+      </RequestQuoteConfirmation>
+      <CartToCsvButton cart={cart} />
       <Button
-        className="w-full h-10 rounded-full shadow-borders-base"
-        variant="secondary"
-      >
-        Export Cart (.csv)
-      </Button>
-      <Button
+        onClick={handleEmptyCart}
+        isLoading={isEmptyingCart}
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
       >

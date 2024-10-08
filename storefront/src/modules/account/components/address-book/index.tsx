@@ -16,7 +16,12 @@ const AddressBook: React.FC<AddressBookProps> = ({ customer, region }) => {
         <AddAddress region={region} />
         {customer.addresses.map((address) => {
           return (
-            <EditAddress region={region} address={address} key={address.id} />
+            <EditAddress
+              region={region}
+              address={address}
+              key={address.id}
+              customer={customer}
+            />
           )
         })}
       </div>

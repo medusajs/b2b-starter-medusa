@@ -1,13 +1,15 @@
 import {
+  ApiKeyType,
+  Modules,
+  PUBLISHABLE_KEY_HEADER,
+} from "@medusajs/framework/utils";
+import {
   ApiKeyDTO,
   IApiKeyModuleService,
   MedusaContainer,
-} from "@medusajs/types";
-import { ApiKeyType, Modules, PUBLISHABLE_KEY_HEADER } from "@medusajs/utils";
+} from "@medusajs/framework/types";
 
-export const generatePublishableKey = async (
-  appContainer?: MedusaContainer
-) => {
+export const generatePublishableKey = async (appContainer: MedusaContainer) => {
   const apiKeyModule = appContainer.resolve<IApiKeyModuleService>(
     Modules.API_KEY
   );
