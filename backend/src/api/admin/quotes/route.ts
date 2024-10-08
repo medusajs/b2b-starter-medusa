@@ -1,5 +1,5 @@
+import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import { AdminGetQuoteParamsType } from "./validators";
 
 export const GET = async (
@@ -8,10 +8,20 @@ export const GET = async (
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { data: quotes } = await query.graph({
+  const { fields, pagination } = req.remoteQueryConfig;
+  const { data: quotes, metadata } = await query.graph({
     entity: "quote",
-    fields: req.remoteQueryConfig.fields,
+    fields,
+    pagination: {
+      ...pagination,
+      skip: pagination.skip!,
+    },
   });
 
-  res.json({ quotes });
+  res.json({
+    quotes,
+    count: metadata!.count,
+    offset: metadata!.skip,
+    limit: metadata!.take,
+  });
 };

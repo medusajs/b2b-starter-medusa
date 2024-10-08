@@ -1,6 +1,6 @@
 "use client"
 
-import { createQuote } from "@lib/data/quotes"
+import { createQuote } from "@lib/api/quotes"
 import { XCircle } from "@medusajs/icons"
 import Button from "@modules/common/components/button"
 import * as Dialog from "@radix-ui/react-dialog"

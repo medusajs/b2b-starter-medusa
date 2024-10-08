@@ -1,23 +1,18 @@
 import { useParams } from "react-router-dom";
 import { RouteFocusModal } from "../../../../components/common/modals/route-focus-modal/route-focus-modal";
 import { useQuote } from "../../../../hooks/api/quotes";
-import { ManageQuoteForm } from "./components/manage-quote-form";
+import { ManageQuoteForm } from "../../components";
 
 const QuoteManage = () => {
   const { quoteId } = useParams();
-  const { data, loading } = useQuote(quoteId!, {
-    fields: [
-      "+draft_order.customer.*",
-      "+draft_order.customer.employee.*",
-      "+draft_order.customer.employee.company.*",
-    ],
+  const { quote, isLoading } = useQuote(quoteId!, {
+    fields:
+      "+draft_order.customer.*, +draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
   });
 
-  if (loading) {
+  if (isLoading) {
     return <></>;
   }
-
-  const quote = data?.quote;
 
   if (!quote) {
     throw "quote not found";

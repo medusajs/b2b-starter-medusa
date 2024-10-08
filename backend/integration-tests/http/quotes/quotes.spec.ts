@@ -64,10 +64,10 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe("POST /customers/quotes", () => {
+    describe("POST /store/quotes", () => {
       it("successfully initiates a quote with a draft order", async () => {
         const response = await api.post(
-          "/customers/quotes",
+          "/store/quotes",
           { cart_id: cart.id },
           storeHeaders
         );
@@ -107,19 +107,15 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe("GET /customers/quotes/:id", () => {
+    describe("GET /store/quotes/:id", () => {
       it("successfully retrieves a quote", async () => {
         const {
           data: { quote: newQuote },
-        } = await api.post(
-          "/customers/quotes",
-          { cart_id: cart.id },
-          storeHeaders
-        );
+        } = await api.post("/store/quotes", { cart_id: cart.id }, storeHeaders);
 
         const {
           data: { quote },
-        } = await api.get(`/customers/quotes/${newQuote.id}`, storeHeaders);
+        } = await api.get(`/store/quotes/${newQuote.id}`, storeHeaders);
 
         expect(quote).toEqual(
           expect.objectContaining({
@@ -138,7 +134,7 @@ medusaIntegrationTestRunner({
         const {
           response: { data },
         } = await api
-          .get(`/customers/quotes/does-not-exist`, storeHeaders)
+          .get(`/store/quotes/does-not-exist`, storeHeaders)
           .catch((e) => e);
 
         expect(data).toEqual({
@@ -148,7 +144,7 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe("GET /customers/quotes", () => {
+    describe("GET /store/quotes", () => {
       let cart2;
 
       beforeEach(async () => {
@@ -166,23 +162,19 @@ medusaIntegrationTestRunner({
       it("successfully retrieves all quote for a customer", async () => {
         const {
           data: { quote: quote1 },
-        } = await api.post(
-          "/customers/quotes",
-          { cart_id: cart.id },
-          storeHeaders
-        );
+        } = await api.post("/store/quotes", { cart_id: cart.id }, storeHeaders);
 
         const {
           data: { quote: quote2 },
         } = await api.post(
-          "/customers/quotes",
+          "/store/quotes",
           { cart_id: cart2.id },
           storeHeaders
         );
 
         const {
           data: { quotes },
-        } = await api.get(`/customers/quotes`, storeHeaders);
+        } = await api.get(`/store/quotes`, storeHeaders);
 
         expect(quotes).toEqual(
           expect.arrayContaining([
@@ -209,17 +201,13 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe("POST /customers/quotes/:id/accept", () => {
+    describe("POST /store/quotes/:id/accept", () => {
       let quote1;
 
       beforeEach(async () => {
         const {
           data: { quote: newQuote },
-        } = await api.post(
-          "/customers/quotes",
-          { cart_id: cart.id },
-          storeHeaders
-        );
+        } = await api.post("/store/quotes", { cart_id: cart.id }, storeHeaders);
 
         quote1 = newQuote;
       });
@@ -228,7 +216,7 @@ medusaIntegrationTestRunner({
         const {
           data: { quote },
         } = await api.post(
-          `/customers/quotes/${quote1.id}/accept`,
+          `/store/quotes/${quote1.id}/accept`,
           {},
           storeHeaders
         );
@@ -254,17 +242,13 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe("POST /customers/quotes/:id/reject", () => {
+    describe("POST /store/quotes/:id/reject", () => {
       let quote1;
 
       beforeEach(async () => {
         const {
           data: { quote: newQuote },
-        } = await api.post(
-          "/customers/quotes",
-          { cart_id: cart.id },
-          storeHeaders
-        );
+        } = await api.post("/store/quotes", { cart_id: cart.id }, storeHeaders);
 
         quote1 = newQuote;
       });
@@ -273,7 +257,7 @@ medusaIntegrationTestRunner({
         const {
           data: { quote },
         } = await api.post(
-          `/customers/quotes/${quote1.id}/reject`,
+          `/store/quotes/${quote1.id}/reject`,
           {},
           storeHeaders
         );
