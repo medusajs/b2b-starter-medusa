@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { RouteFocusModal } from "../../../../components/common/modals/route-focus-modal/route-focus-modal";
 import { useQuote } from "../../../../hooks/api/quotes";
-import { ManageQuoteForm } from "./components/manage-quote-form";
+import { ManageQuoteForm } from "../../components";
 
 const QuoteManage = () => {
   const { quoteId } = useParams();

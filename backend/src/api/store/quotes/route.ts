@@ -1,17 +1,19 @@
 import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
-  Query,
 } from "@medusajs/framework";
+import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { createRequestQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-quote-workflow";
+import { createRequestForQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-for-quote";
 import { CreateQuoteType, GetQuoteParamsType } from "./validators";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<GetQuoteParamsType>,
   res: MedusaResponse
 ) => {
-  const query: Query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const query = req.scope.resolve<RemoteQueryFunction>(
+    ContainerRegistrationKeys.QUERY
+  );
 
   const { data: quotes } = await query.graph({
     entity: "quote",
@@ -28,11 +30,13 @@ export const POST = async (
   req: AuthenticatedMedusaRequest<CreateQuoteType>,
   res: MedusaResponse
 ) => {
-  const query: Query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const query = req.scope.resolve<RemoteQueryFunction>(
+    ContainerRegistrationKeys.QUERY
+  );
 
   const {
     result: { quote: createdQuote },
-  } = await createRequestQuoteWorkflow(req.scope).run({
+  } = await createRequestForQuoteWorkflow(req.scope).run({
     input: {
       ...req.validatedBody,
       customer_id: req.auth_context.actor_id,

@@ -8,7 +8,7 @@ createOrdersWorkflow.hooks.orderCreated(
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
     if (!order.metadata?.company_id) {
-      return new StepResponse(undefined, undefined);
+      return new StepResponse(undefined, null);
     }
 
     remoteLink.create({
@@ -22,7 +22,7 @@ createOrdersWorkflow.hooks.orderCreated(
 
     return new StepResponse(undefined, order.id);
   },
-  async (orderId: string, { container }) => {
+  async (orderId: string | null, { container }) => {
     if (!orderId) {
       return;
     }

@@ -206,19 +206,19 @@
           "mappedType": "datetime"
         }
       },
-      "name": "comment",
+      "name": "message",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "IDX_comment_quote_id",
+          "keyName": "IDX_message_quote_id",
           "columnNames": [],
           "composite": false,
           "primary": false,
           "unique": false,
-          "expression": "CREATE INDEX IF NOT EXISTS \"IDX_comment_quote_id\" ON \"comment\" (quote_id) WHERE deleted_at IS NULL"
+          "expression": "CREATE INDEX IF NOT EXISTS \"IDX_message_quote_id\" ON \"message\" (quote_id) WHERE deleted_at IS NULL"
         },
         {
-          "keyName": "comment_pkey",
+          "keyName": "message_pkey",
           "columnNames": [
             "id"
           ],
@@ -229,12 +229,12 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "comment_quote_id_foreign": {
-          "constraintName": "comment_quote_id_foreign",
+        "message_quote_id_foreign": {
+          "constraintName": "message_quote_id_foreign",
           "columnNames": [
             "quote_id"
           ],
-          "localTableName": "public.comment",
+          "localTableName": "public.message",
           "referencedColumnNames": [
             "id"
           ],

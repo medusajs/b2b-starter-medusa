@@ -12,12 +12,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { JsonViewSection } from "../../../components/common/json-view-section";
-import {
-  CostBreakdown,
-  QuoteDetailsHeader,
-  QuoteItems,
-  QuoteTotal,
-} from "../../../components/quotes";
 import { useOrderPreview } from "../../../hooks";
 import {
   useQuote,
@@ -25,6 +19,12 @@ import {
   useSendQuote,
 } from "../../../hooks/api/quotes";
 import { formatAmount } from "../../../utils";
+import {
+  CostBreakdown,
+  QuoteDetailsHeader,
+  QuoteItems,
+  QuoteTotal,
+} from "../components/quote-details";
 import { QuoteMessages } from "../components/quote-messages";
 
 const QuoteDetails = () => {
@@ -145,7 +145,7 @@ const QuoteDetails = () => {
           )}
 
           <Container className="divide-y divide-dashed p-0">
-            <QuoteDetailsHeader quote={quote} order={quote.draft_order} />
+            <QuoteDetailsHeader quote={quote} />
             <QuoteItems order={quote.draft_order} preview={preview!} />
             <CostBreakdown order={quote.draft_order} />
             <QuoteTotal order={quote.draft_order} preview={preview!} />

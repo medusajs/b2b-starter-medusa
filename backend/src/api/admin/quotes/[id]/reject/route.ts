@@ -1,6 +1,9 @@
+import type {
+  AuthenticatedMedusaRequest,
+  MedusaResponse,
+} from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/medusa";
-import { merchantRejectQuoteWorkflow } from "../../../../../workflows/quote/workflows/merchant-reject-quote-workflow";
+import { merchantRejectQuoteWorkflow } from "../../../../../workflows/quote/workflows";
 import { AdminRejectQuoteType } from "../../validators";
 
 export const POST = async (

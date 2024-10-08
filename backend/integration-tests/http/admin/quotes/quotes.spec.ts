@@ -64,7 +64,7 @@ medusaIntegrationTestRunner({
       });
     });
 
-    describe.only("POST /admin/quotes/:id/comments", () => {
+    describe("POST /admin/quotes/:id/messages", () => {
       let quote1;
 
       beforeEach(async () => {
@@ -75,13 +75,13 @@ medusaIntegrationTestRunner({
         quote1 = newQuote;
       });
 
-      it("successfully creates an admin quote comment", async () => {
+      it("successfully creates an admin quote message", async () => {
         const {
           data: { quote },
         } = await api.post(
-          `/admin/quotes/${quote1.id}/comments`,
+          `/admin/quotes/${quote1.id}/messages`,
           {
-            text: "test comment",
+            text: "test message",
             item_id: cart.items[0].id,
           },
           adminHeaders
@@ -90,9 +90,9 @@ medusaIntegrationTestRunner({
         expect(quote).toEqual(
           expect.objectContaining({
             id: quote1.id,
-            comments: [
+            messages: [
               expect.objectContaining({
-                text: "test comment",
+                text: "test message",
                 item_id: cart.items[0].id,
                 admin_id: expect.any(String),
                 customer_id: null,

@@ -1,21 +1,19 @@
 import {
+  authenticate,
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
 import { MiddlewareRoute } from "@medusajs/medusa";
-
 import {
   listQuotesTransformQueryConfig,
   retrieveQuoteTransformQueryConfig,
 } from "./query-config";
-
-import { authenticate } from "@medusajs/framework";
 import {
   AcceptQuote,
   CreateQuote,
   GetQuoteParams,
   RejectQuote,
-  StoreCreateQuoteComment,
+  StoreCreateQuoteMessage,
 } from "./validators";
 
 export const storeQuotesMiddlewares: MiddlewareRoute[] = [
@@ -81,9 +79,9 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/store/quotes/:id/comments",
+    matcher: "/store/quotes/:id/messages",
     middlewares: [
-      validateAndTransformBody(StoreCreateQuoteComment),
+      validateAndTransformBody(StoreCreateQuoteMessage),
       validateAndTransformQuery(
         GetQuoteParams,
         retrieveQuoteTransformQueryConfig

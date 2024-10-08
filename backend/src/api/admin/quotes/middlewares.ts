@@ -3,9 +3,12 @@ import {
   validateAndTransformQuery,
 } from "@medusajs/framework";
 import { MiddlewareRoute } from "@medusajs/medusa";
-import { retrieveQuoteTransformQueryConfig } from "./query-config";
 import {
-  AdminCreateQuoteComment,
+  listQuotesTransformQueryConfig,
+  retrieveQuoteTransformQueryConfig,
+} from "./query-config";
+import {
+  AdminCreateQuoteMessage,
   AdminGetQuoteParams,
   AdminRejectQuote,
   AdminSendQuote,
@@ -18,7 +21,7 @@ export const adminQuotesMiddlewares: MiddlewareRoute[] = [
     middlewares: [
       validateAndTransformQuery(
         AdminGetQuoteParams,
-        retrieveQuoteTransformQueryConfig
+        listQuotesTransformQueryConfig
       ),
     ],
   },
@@ -56,9 +59,9 @@ export const adminQuotesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/admin/quotes/:id/comments",
+    matcher: "/admin/quotes/:id/messages",
     middlewares: [
-      validateAndTransformBody(AdminCreateQuoteComment),
+      validateAndTransformBody(AdminCreateQuoteMessage),
       validateAndTransformQuery(
         AdminGetQuoteParams,
         retrieveQuoteTransformQueryConfig

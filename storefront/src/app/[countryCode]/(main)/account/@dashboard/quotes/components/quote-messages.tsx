@@ -10,7 +10,7 @@ import { GeneralQuoteType } from "types/global"
 import { z } from "zod"
 import { QuoteTableItem } from "./quote-table"
 
-export const CreateQuoteCommentForm = z.object({
+export const CreateQuoteMessageForm = z.object({
   text: z.string().min(1),
   item_id: z.string().nullish(),
 })
@@ -35,7 +35,7 @@ const QuoteMessages = ({
     reset,
   } = useForm({
     defaultValues,
-    resolver: zodResolver(CreateQuoteCommentForm),
+    resolver: zodResolver(CreateQuoteMessageForm),
   })
 
   const { mutateAsync: createMessage, isPending: isCreatingMessage } =
@@ -67,33 +67,33 @@ const QuoteMessages = ({
       </div>
 
       <div>
-        {quote.comments?.map((comment) => (
+        {quote.messages?.map((message) => (
           <div
-            key={comment.id}
+            key={message.id}
             className={clx("px-6 py-4 text-sm flex flex-col gap-y-2", {
-              "!bg-ui-bg-subtle !inset-x-5 !inset-y-3": !!comment.customer_id,
+              "!bg-ui-bg-subtle !inset-x-5 !inset-y-3": !!message.customer_id,
             })}
           >
             <div className="font-medium font-sans txt-compact-small text-ui-fg-subtle ">
-              {!!comment.admin &&
-                `${comment.admin.first_name} ${comment.admin.last_name}`}
+              {!!message.admin &&
+                `${message.admin.first_name} ${message.admin.last_name}`}
 
-              {!!comment.customer &&
-                `${comment.customer.first_name} ${comment.customer.last_name}`}
+              {!!message.customer &&
+                `${message.customer.first_name} ${message.customer.last_name}`}
             </div>
 
-            {!!comment.item_id && (
+            {!!message.item_id && (
               <div className="border border-dashed border-neutral-400 my-2">
                 <QuoteTableItem
-                  key={comment.item_id}
-                  item={previewItemsMap.get(comment.item_id)!}
-                  originalItem={originalItemsMap.get(comment.item_id)}
+                  key={message.item_id}
+                  item={previewItemsMap.get(message.item_id)!}
+                  originalItem={originalItemsMap.get(message.item_id)}
                   currencyCode={quote.draft_order.currency_code}
                 />
               </div>
             )}
 
-            <div>{comment.text}</div>
+            <div>{message.text}</div>
           </div>
         ))}
       </div>

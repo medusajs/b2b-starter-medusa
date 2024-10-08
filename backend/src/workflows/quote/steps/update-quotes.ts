@@ -6,6 +6,12 @@ import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk";
 import { QUOTE_MODULE } from "../../../modules/quote";
 import { UpdateQuoteDTO } from "../../../modules/quote/types/mutations";
 
+/*
+  A step to update a quote.
+  
+  The first function attempts to update the quote, while the second function attempts to revert the update.
+  The first function is also in charge of preparing the data to be reverted in the second function.
+*/
 export const updateQuotesStep = createStep(
   "update-quotes",
   async (data: UpdateQuoteDTO[], { container }) => {

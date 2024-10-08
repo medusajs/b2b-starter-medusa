@@ -1,5 +1,5 @@
 import { model } from "@medusajs/framework/utils";
-import { Comment } from "./comment";
+import { Message } from "./message";
 
 export const Quote = model.define("quote", {
   id: model.id({ prefix: "quo" }).primaryKey(),
@@ -16,5 +16,5 @@ export const Quote = model.define("quote", {
   draft_order_id: model.text(),
   order_change_id: model.text(),
   cart_id: model.text(),
-  comments: model.hasMany(() => Comment),
+  messages: model.hasMany(() => Message),
 });
