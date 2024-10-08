@@ -18,7 +18,7 @@ const ItemsTemplate = ({
   showBorders = true,
   showTotal = true,
 }: ItemsTemplateProps) => {
-  const { items } = cart
+  const items = cart?.items
 
   return (
     <div className="w-full flex flex-col gap-y-2">
@@ -55,8 +55,8 @@ const ItemsTemplate = ({
             <Text>Total: {items?.length} items</Text>
             <Text>
               {convertToLocale({
-                amount: cart.total,
-                currency_code: cart.currency_code,
+                amount: cart?.total,
+                currency_code: cart?.currency_code,
               })}
             </Text>
           </div>

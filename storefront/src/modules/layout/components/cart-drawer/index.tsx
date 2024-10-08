@@ -1,7 +1,7 @@
 "use client"
 
 import { convertToLocale } from "@lib/util/money"
-import { LockClosedSolidMini } from "@medusajs/icons"
+import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { HttpTypes } from "@medusajs/types"
 import { Drawer, Text } from "@medusajs/ui"
@@ -9,9 +9,26 @@ import ItemsTemplate from "@modules/cart/templates/items"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
+import {
+  ComponentPropsWithoutRef,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
+import { DialogProps } from "@headlessui/react"
+import { checkSpendingLimit } from "@lib/util/check-spending-limit"
+import { Customer } from "types/global"
 
-const CartDrawer = (props: any) => {
+type CartDrawerProps = {
+  cart: HttpTypes.StoreCart & {
+    promotions?: HttpTypes.StorePromotion[]
+  }
+  customer: Customer | null
+} & ComponentPropsWithoutRef<React.FC<DialogProps<"div">>>
+
+const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -20,9 +37,7 @@ const CartDrawer = (props: any) => {
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
 
-  const cart = props.cart as HttpTypes.StoreCart
-
-  const { items } = cart
+  const items = cart?.items
 
   const totalItems =
     items?.reduce((acc, item) => {
@@ -30,6 +45,11 @@ const CartDrawer = (props: any) => {
     }, 0) || 0
 
   const subtotal = cart?.subtotal ?? 0
+
+  const spendLimitExceeded = useMemo(
+    () => checkSpendingLimit(cart, customer),
+    [cart, customer]
+  )
 
   const itemRef = useRef<number>(totalItems || 0)
 
@@ -71,6 +91,11 @@ const CartDrawer = (props: any) => {
     close()
   }, [pathname])
 
+  const checkoutStep = getCheckoutStep(cart)
+  const checkoutPath = checkoutStep
+    ? `/checkout?step=${checkoutStep}`
+    : "/checkout"
+
   return (
     <>
       {isOpen && (
@@ -81,7 +106,7 @@ const CartDrawer = (props: any) => {
         className="rounded-none m-0 p-0 bg-none z-50"
         open={isOpen}
         onOpenChange={setIsOpen}
-        {...props}
+        {...(props as any)}
       >
         <Drawer.Trigger asChild>
           <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
@@ -111,33 +136,58 @@ const CartDrawer = (props: any) => {
             </Drawer.Title>
           </Drawer.Header>
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
-            <ItemsTemplate cart={cart} showBorders={false} showTotal={false} />
-            <div className="flex flex-col gap-y-3 w-full p-4">
-              <div className="flex justify-between">
-                <Text>Subtotal</Text>
-                <Text>
-                  {convertToLocale({
-                    amount: subtotal,
-                    currency_code: cart.currency_code,
-                  })}
-                </Text>
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <LocalizedClientLink href="/cart">
-                  <Button variant="secondary" className="w-full" size="large">
-                    View Cart
-                  </Button>
-                </LocalizedClientLink>
-                <Button
-                  className="w-full"
-                  size="large"
-                  disabled={totalItems === 0}
-                >
-                  <LockClosedSolidMini />
-                  Secure Checkout
-                </Button>
-              </div>
-            </div>
+            {cart && (
+              <>
+                <ItemsTemplate
+                  cart={cart}
+                  showBorders={false}
+                  showTotal={false}
+                />
+                <div className="flex flex-col gap-y-3 w-full p-4">
+                  <div className="flex justify-between">
+                    <Text>Subtotal</Text>
+                    <Text>
+                      {convertToLocale({
+                        amount: subtotal,
+                        currency_code: cart?.currency_code,
+                      })}
+                    </Text>
+                  </div>
+                  <div className="flex flex-col gap-y-2">
+                    <LocalizedClientLink href="/cart">
+                      <Button
+                        variant="secondary"
+                        className="w-full"
+                        size="large"
+                      >
+                        View Cart
+                      </Button>
+                    </LocalizedClientLink>
+                    <LocalizedClientLink href={checkoutPath}>
+                      <Button
+                        className="w-full"
+                        size="large"
+                        disabled={totalItems === 0 || spendLimitExceeded}
+                      >
+                        <LockClosedSolidMini />
+                        {spendLimitExceeded
+                          ? "Spending Limit Exceeded"
+                          : "Secure Checkout"}
+                      </Button>
+                    </LocalizedClientLink>
+                    {spendLimitExceeded && (
+                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
+                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
+                        <p className="text-neutral-950 text-xs">
+                          This order exceeds your spending limit. Please contact
+                          your manager for approval.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </Drawer.Content>
       </Drawer>

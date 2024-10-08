@@ -1,217 +1,132 @@
+"use client"
+
+import { CheckCircleSolid } from "@medusajs/icons"
+import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+
+import Divider from "@modules/common/components/divider"
+import Spinner from "@modules/common/icons/spinner"
+
+import { setShippingAddress } from "@lib/data/cart"
+import compareAddresses from "@lib/util/compare-addresses"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Text } from "@medusajs/ui"
-import Checkbox from "@modules/common/components/checkbox"
-import Input from "@modules/common/components/input"
-import { mapKeys } from "lodash"
-import React, { useEffect, useMemo, useState } from "react"
-import AddressSelect from "../address-select"
-import CountrySelect from "../country-select"
+import { useCallback } from "react"
+import { useFormState } from "react-dom"
+import ErrorMessage from "../error-message"
+import ShippingAddressForm from "../shipping-address-form"
+import { SubmitButton } from "../submit-button"
 
 const ShippingAddress = ({
-  customer,
   cart,
-  checked,
-  onChange,
+  customer,
 }: {
-  customer: HttpTypes.StoreCustomer | null
   cart: HttpTypes.StoreCart | null
-  checked: boolean
-  onChange: () => void
+  customer: HttpTypes.StoreCustomer | null
 }) => {
-  const [formData, setFormData] = useState<Record<string, any>>({})
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const countriesInRegion = useMemo(
-    () => cart?.region?.countries?.map((c) => c.iso_2),
-    [cart?.region]
+  const isOpen = searchParams.get("step") === "shipping-address"
+
+  const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
+    cart?.shipping_address && cart?.billing_address
+      ? compareAddresses(cart?.shipping_address, cart?.billing_address)
+      : true
   )
 
-  // check if customer has saved addresses that are in the current region
-  const addressesInRegion = useMemo(
-    () =>
-      customer?.addresses.filter(
-        (a) => a.country_code && countriesInRegion?.includes(a.country_code)
-      ),
-    [customer?.addresses, countriesInRegion]
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams)
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams]
   )
-
-  const setFormAddress = (
-    address?: HttpTypes.StoreCartAddress,
-    email?: string
-  ) => {
-    address &&
-      setFormData((prevState: Record<string, any>) => ({
-        ...prevState,
-        "shipping_address.first_name": address?.first_name || "",
-        "shipping_address.last_name": address?.last_name || "",
-        "shipping_address.address_1": address?.address_1 || "",
-        "shipping_address.company": address?.company || "",
-        "shipping_address.postal_code": address?.postal_code || "",
-        "shipping_address.city": address?.city || "",
-        "shipping_address.country_code": address?.country_code || "",
-        "shipping_address.province": address?.province || "",
-        "shipping_address.phone": address?.phone || "",
-      }))
-
-    email &&
-      setFormData((prevState: Record<string, any>) => ({
-        ...prevState,
-        email: email,
-      }))
+  const handleEdit = () => {
+    router.push(
+      pathname + "?" + createQueryString("step", "shipping-address"),
+      { scroll: false }
+    )
   }
 
-  useEffect(() => {
-    // Ensure cart is not null and has a shipping_address before setting form data
-    if (cart && cart.shipping_address) {
-      setFormAddress(cart?.shipping_address)
-    }
-  }, [cart]) // Add cart as a dependency
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLInputElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+  const [message, formAction] = useFormState(setShippingAddress, null)
 
   return (
-    <>
-      {customer && (addressesInRegion?.length || 0) > 0 && (
-        <Container className="mb-6 flex flex-col gap-y-4 p-5">
-          <p className="text-small-regular">
-            {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
-          </p>
-          <AddressSelect
-            addresses={customer.addresses}
-            addressInput={
-              mapKeys(formData, (_, key) =>
-                key.replace("shipping_address.", "")
-              ) as HttpTypes.StoreCartAddress
-            }
-            onSelect={setFormAddress}
-          />
-        </Container>
-      )}
-      <div className="grid grid-cols-2 gap-4">
-        <Input
-          label="First name"
-          name="shipping_address.first_name"
-          autoComplete="given-name"
-          value={formData["shipping_address.first_name"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-first-name-input"
-        />
-        <Input
-          label="Last name"
-          name="shipping_address.last_name"
-          autoComplete="family-name"
-          value={formData["shipping_address.last_name"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-last-name-input"
-        />
-        <Input
-          label="Address"
-          name="shipping_address.address_1"
-          autoComplete="address-line1"
-          value={formData["shipping_address.address_1"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-address-input"
-        />
-        <Input
-          label="Company"
-          name="shipping_address.company"
-          value={formData["shipping_address.company"]}
-          onChange={handleChange}
-          autoComplete="organization"
-          data-testid="shipping-company-input"
-        />
-        <Input
-          label="Postal code"
-          name="shipping_address.postal_code"
-          autoComplete="postal-code"
-          value={formData["shipping_address.postal_code"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-postal-code-input"
-        />
-        <Input
-          label="City"
-          name="shipping_address.city"
-          autoComplete="address-level2"
-          value={formData["shipping_address.city"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-city-input"
-        />
-        <CountrySelect
-          name="shipping_address.country_code"
-          autoComplete="country"
-          region={cart?.region}
-          value={formData["shipping_address.country_code"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-country-select"
-        />
-        <Input
-          label="State / Province"
-          name="shipping_address.province"
-          autoComplete="address-level1"
-          value={formData["shipping_address.province"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-province-input"
-        />
-      </div>
-      <div className="my-8">
-        <Checkbox
-          label="Billing address same as shipping address"
-          name="same_as_billing"
-          checked={checked}
-          onChange={onChange}
-          data-testid="billing-address-checkbox"
-        />
-      </div>
-      {!customer ? (
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <Input
-            label="Email"
-            name="email"
-            type="email"
-            title="Enter a valid email address."
-            autoComplete="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            data-testid="shipping-email-input"
-          />
-          <Input
-            label="Phone"
-            name="shipping_address.phone"
-            autoComplete="tel"
-            value={formData["shipping_address.phone"]}
-            onChange={handleChange}
-            data-testid="shipping-phone-input"
-          />
+    <Container>
+      <div className="flex flex-col gap-y-2">
+        <div className="flex flex-row items-center justify-between w-full">
+          <Heading
+            level="h2"
+            className="flex flex-row text-xl gap-x-2 items-center"
+          >
+            Shipping Address
+            {!isOpen && <CheckCircleSolid />}
+          </Heading>
+
+          {!isOpen && cart?.shipping_address && (
+            <Text>
+              <button
+                onClick={handleEdit}
+                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                data-testid="edit-address-button"
+              >
+                Edit
+              </button>
+            </Text>
+          )}
         </div>
-      ) : (
-        <div
-          className="flex flex-col w-1/3 "
-          data-testid="shipping-contact-summary"
-        >
-          <Text className="txt-medium-plus text-ui-fg-base mb-1">Contact</Text>
-          <Text className="txt-medium text-ui-fg-subtle">{customer.phone}</Text>
-          <Text className="txt-medium text-ui-fg-subtle">
-            {customer?.email}
-          </Text>
-        </div>
-      )}
-    </>
+        <Divider />
+        {isOpen ? (
+          <form action={formAction}>
+            <div className="pb-8">
+              <ShippingAddressForm
+                customer={customer}
+                checked={sameAsBilling}
+                onChange={toggleSameAsBilling}
+                cart={cart}
+              />
+              <div className="flex flex-col gap-y-2 items-end">
+                <SubmitButton
+                  className="mt-6"
+                  data-testid="submit-address-button"
+                >
+                  Next step
+                </SubmitButton>
+                <ErrorMessage
+                  error={message}
+                  data-testid="address-error-message"
+                />
+              </div>
+            </div>
+          </form>
+        ) : (
+          <div>
+            <div className="text-small-regular">
+              {cart && cart.shipping_address ? (
+                <div className="flex items-start gap-x-8">
+                  <div className="flex" data-testid="shipping-address-summary">
+                    <Text className="txt-medium text-ui-fg-subtle">
+                      {cart.shipping_address.first_name}{" "}
+                      {cart.shipping_address.last_name},{" "}
+                      {cart.shipping_address.address_1},{" "}
+                      {cart.shipping_address.postal_code},{" "}
+                      {cart.shipping_address.city},{" "}
+                      {cart.shipping_address.country_code?.toUpperCase()}
+                    </Text>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <Spinner />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </Container>
   )
 }
 

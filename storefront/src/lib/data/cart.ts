@@ -5,7 +5,7 @@ import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
-import { redirect } from "next/navigation"
+import { redirect, RedirectType } from "next/navigation"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -34,12 +34,12 @@ export async function retrieveCart() {
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
-    .then(
-      ({ cart }) =>
-        cart as HttpTypes.StoreCart & {
-          promotions?: HttpTypes.StorePromotion[]
-        }
-    )
+    .then(({ cart }) => {
+      console.log("cart", cart)
+      return cart as HttpTypes.StoreCart & {
+        promotions?: HttpTypes.StorePromotion[]
+      }
+    })
     .catch(() => {
       return null
     })
@@ -213,6 +213,19 @@ export async function deleteLineItem(lineId: string) {
     .catch(medusaError)
 }
 
+export async function emptyCart() {
+  const cart = await retrieveCart()
+  if (!cart) {
+    throw new Error("No existing cart found when emptying cart")
+  }
+
+  for (const item of cart.items || []) {
+    await deleteLineItem(item.id)
+  }
+
+  revalidateTag(getCacheTag("carts"))
+}
+
 export async function enrichLineItems(
   lineItems:
     | HttpTypes.StoreCartLineItem[]
@@ -365,7 +378,10 @@ export async function submitPromotionForm(
 }
 
 // TODO: Pass a POJO instead of a form entity here
-export async function setAddresses(currentState: unknown, formData: FormData) {
+export async function setShippingAddress(
+  currentState: unknown,
+  formData: FormData
+) {
   try {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
@@ -391,15 +407,33 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         province: formData.get("shipping_address.province"),
         phone: formData.get("shipping_address.phone"),
       },
-      customer_id: customer?.id,
+      // customer_id: customer?.id,
       email: customer?.email || formData.get("email"),
     } as any
+    await updateCart(data)
+  } catch (e: any) {
+    return e.message
+  }
 
-    const sameAsBilling = formData.get("same_as_billing")
-    if (sameAsBilling === "on") data.billing_address = data.shipping_address
+  redirect(
+    `/${formData.get(
+      "shipping_address.country_code"
+    )}/checkout?step=billing-address`
+  )
+}
 
-    if (sameAsBilling !== "on")
-      data.billing_address = {
+export async function setBillingAddress(
+  currentState: unknown,
+  formData: FormData
+) {
+  try {
+    const cartId = getCartId()
+    if (!cartId) {
+      throw new Error("No existing cart found when setting billing address")
+    }
+
+    const data = {
+      billing_address: {
         first_name: formData.get("billing_address.first_name"),
         last_name: formData.get("billing_address.last_name"),
         address_1: formData.get("billing_address.address_1"),
@@ -410,15 +444,42 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         country_code: formData.get("billing_address.country_code"),
         province: formData.get("billing_address.province"),
         phone: formData.get("billing_address.phone"),
-      }
+      },
+    } as any
+
     await updateCart(data)
   } catch (e: any) {
     return e.message
   }
 
-  redirect(
-    `/${formData.get("shipping_address.country_code")}/checkout?step=delivery`
-  )
+  redirect(`/checkout?step=delivery`)
+}
+
+export async function setContactDetails(
+  currentState: unknown,
+  formData: FormData
+) {
+  try {
+    const cartId = getCartId()
+    if (!cartId) {
+      throw new Error("No existing cart found when setting contact details")
+    }
+    const data = {
+      email: formData.get("email") as string,
+      metadata: {
+        invoice_recipient: formData.get("invoice_recipient"),
+        cost_center: formData.get("cost_center"),
+        requisition_number: formData.get("requisition_number"),
+        door_code: formData.get("door_code"),
+        notes: formData.get("notes"),
+      },
+    }
+    await updateCart(data)
+  } catch (e: any) {
+    return e.message
+  }
+
+  redirect(`/checkout`)
 }
 
 export async function placeOrder() {

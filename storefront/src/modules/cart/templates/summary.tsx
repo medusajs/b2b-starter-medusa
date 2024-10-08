@@ -1,14 +1,16 @@
 "use client"
 
-import { useCreateQuote } from "@lib/hooks/api/quotes"
+import { emptyCart } from "@lib/data/cart"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container, toast } from "@medusajs/ui"
+import { Container } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { PromptModal } from "@modules/common/components/prompt-modal"
-import { useParams, useRouter } from "next/navigation"
+import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
+import { useState } from "react"
+import CartToCsvButton from "../components/cart-to-csv-button"
 
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
@@ -18,25 +20,26 @@ type SummaryProps = {
   spendLimitExceeded: boolean
 }
 
-function getCheckoutStep(cart: HttpTypes.StoreCart) {
-  if (!cart?.shipping_address?.address_1 || !cart.email) {
-    return "address"
-  } else if (cart?.shipping_methods?.length === 0) {
-    return "delivery"
-  } else {
-    return "payment"
-  }
-}
-
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
-  const step = getCheckoutStep(cart)
-  const router = useRouter()
-  const { countryCode } = useParams()
+  const [isEmptyingCart, setIsEmptyingCart] = useState(false)
+  const [isExportingCart, setIsExportingCart] = useState(false)
+  const [csvError, setCsvError] = useState(false)
 
-  const { mutateAsync: createQuote, isPending: isCreatingQuote } =
-    useCreateQuote()
+  const checkoutStep = getCheckoutStep(cart)
+  const checkoutPath = checkoutStep
+    ? `/checkout?step=${checkoutStep}`
+    : "/checkout"
 
-  const checkoutButtonLink = customer ? "/checkout?step=" + step : "/account"
+  const checkoutButtonLink = customer ? checkoutPath : "/account"
+
+  const handleEmptyCart = async () => {
+    setIsEmptyingCart(true)
+    try {
+      await emptyCart()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -68,38 +71,18 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
             : "Sign in to Checkout"}
         </Button>
       </LocalizedClientLink>
-      <PromptModal
-        title="Request Quote?"
-        description="You are about to request a quote for the cart. If you confirm, the cart will be converted to a quote."
-        handleAction={() =>
-          createQuote(
-            {},
-            {
-              onSuccess: (data) =>
-                router.push(
-                  `/${countryCode}/account/quotes/details/${data.quote.id}`
-                ),
-              onError: (error) => toast.error(error.message),
-            }
-          )
-        }
-        isLoading={isCreatingQuote}
-      >
+      <RequestQuoteConfirmation>
         <Button
           className="w-full h-10 rounded-full shadow-borders-base"
           variant="secondary"
         >
           Request Quote
         </Button>
-      </PromptModal>
-
+      </RequestQuoteConfirmation>
+      <CartToCsvButton cart={cart} />
       <Button
-        className="w-full h-10 rounded-full shadow-borders-base"
-        variant="secondary"
-      >
-        Export Cart (.csv)
-      </Button>
-      <Button
+        onClick={handleEmptyCart}
+        isLoading={isEmptyingCart}
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
       >

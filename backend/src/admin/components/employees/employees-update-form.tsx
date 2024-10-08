@@ -7,7 +7,7 @@ import {
   Table,
   Text,
 } from "@medusajs/ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { EmployeeDTO, CompanyDTO } from "src/modules/company/types/common";
 import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
 import { currencySymbolMap } from "../../utils";
@@ -27,10 +27,10 @@ export function EmployeesUpdateForm({
   error: Error | null;
 }) {
   const [formData, setFormData] = useState<{
-    spending_limit: number;
+    spending_limit: string;
     is_admin: boolean;
   }>({
-    spending_limit: employee?.spending_limit / 100 || 0,
+    spending_limit: (employee?.spending_limit / 100).toString() || "0",
     is_admin: employee?.is_admin || false,
   });
 
@@ -38,7 +38,7 @@ export function EmployeesUpdateForm({
     e.preventDefault();
 
     const spendingLimit = formData.spending_limit
-      ? formData.spending_limit * 100
+      ? Number(formData.spending_limit) * 100
       : undefined;
 
     const data = {
@@ -69,33 +69,35 @@ export function EmployeesUpdateForm({
             </div>
             <Container className="p-0 overflow-hidden">
               <Table>
-                <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
-                    Name
-                  </Table.Cell>
-                  <Table.Cell>
-                    {employee?.customer!.first_name}{" "}
-                    {employee?.customer!.last_name}
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
-                    Email
-                  </Table.Cell>
-                  <Table.Cell>{employee?.customer!.email}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
-                    Phone
-                  </Table.Cell>
-                  <Table.Cell>{employee?.customer!.phone}</Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
-                    Company
-                  </Table.Cell>
-                  <Table.Cell>{company.name}</Table.Cell>
-                </Table.Row>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell className="font-medium font-sans txt-compact-small">
+                      Name
+                    </Table.Cell>
+                    <Table.Cell>
+                      {employee?.customer!.first_name}{" "}
+                      {employee?.customer!.last_name}
+                    </Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell className="font-medium font-sans txt-compact-small">
+                      Email
+                    </Table.Cell>
+                    <Table.Cell>{employee?.customer!.email}</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell className="font-medium font-sans txt-compact-small">
+                      Phone
+                    </Table.Cell>
+                    <Table.Cell>{employee?.customer!.phone}</Table.Cell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.Cell className="font-medium font-sans txt-compact-small">
+                      Company
+                    </Table.Cell>
+                    <Table.Cell>{company.name}</Table.Cell>
+                  </Table.Row>
+                </Table.Body>
               </Table>
             </Container>
           </div>
@@ -109,11 +111,11 @@ export function EmployeesUpdateForm({
                 symbol={currencySymbolMap[company.currency_code || "USD"]}
                 code={company.currency_code || "USD"}
                 name="spending_limit"
-                value={formData.spending_limit ? formData.spending_limit : ""}
+                value={formData.spending_limit}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    spending_limit: parseInt(e.target.value) || 0,
+                    spending_limit: e.target.value.replace(/[^0-9.]/g, ""),
                   })
                 }
                 placeholder="1000"

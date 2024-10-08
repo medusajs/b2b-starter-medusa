@@ -20,10 +20,6 @@ const CartTemplate = ({
 }) => {
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
 
-  console.log({
-    spendLimitExceeded,
-  })
-
   return (
     <div className="py-12 bg-neutral-100">
       <div className="content-container" data-testid="cart-container">

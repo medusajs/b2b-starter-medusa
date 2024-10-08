@@ -9,21 +9,58 @@ type BulkTableQuantityProps = {
 
 const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
   const [quantity, setQuantity] = useState("0")
+  const [shiftPressed, setShiftPressed] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuantity(e.target.value)
     onChange(variantId, Number(e.target.value))
   }
 
-  const handleAdd = (modifier = false) => {
-    setQuantity((Number(quantity) + (modifier ? 10 : 1)).toString())
-    onChange(variantId, Number(quantity) + (modifier ? 10 : 1))
+  const handleAdd = () => {
+    const q = Math.max(Number(quantity) + (shiftPressed ? 10 : 1), 0)
+    setQuantity(q.toString())
+    onChange(variantId, q)
   }
 
-  const handleSubtract = (modifier = false) => {
-    setQuantity((Number(quantity) - (modifier ? 10 : 1)).toString())
-    onChange(variantId, Number(quantity) - (modifier ? 10 : 1))
+  const handleSubtract = () => {
+    const q = Math.max(Number(quantity) - (shiftPressed ? 10 : 1), 0)
+    setQuantity(q.toString())
+    onChange(variantId, q)
   }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowUp") {
+      e.preventDefault()
+      handleAdd()
+    }
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      handleSubtract()
+    }
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Shift") {
+        setShiftPressed(true)
+      }
+    }
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === "Shift") {
+        setShiftPressed(false)
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    window.addEventListener("keyup", handleKeyUp)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("keyup", handleKeyUp)
+    }
+  }, [])
 
   return (
     <div className="flex flex-row justify-between gap-2 w-full">
@@ -36,7 +73,8 @@ const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
       </IconButton>
       <Input
         value={quantity}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e)}
+        onKeyDown={handleKeyDown}
         type="number"
         className="max-w-10 text-center items-center justify-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
       />

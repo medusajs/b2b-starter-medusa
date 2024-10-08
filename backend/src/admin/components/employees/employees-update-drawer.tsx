@@ -28,13 +28,15 @@ export function EmployeesUpdateDrawer({
     await mutate(formData).then(() => {
       setOpen(false);
       refetch();
-      toast.success(`Employee ${employee.customer.email} updated successfully`);
+      toast.success(
+        `Employee ${employee?.customer?.email} updated successfully`
+      );
     });
   };
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <Drawer.Content className="z-50">
+      <Drawer.Content className="z-50 overflow-auto">
         <Drawer.Header>
           <Drawer.Title>Edit Employee</Drawer.Title>
         </Drawer.Header>

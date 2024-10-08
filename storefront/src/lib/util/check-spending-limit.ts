@@ -28,13 +28,15 @@ function getOrderTotalInSpendWindow(
   customer: Customer,
   spendWindow: { start: Date; end: Date }
 ): number {
-  return customer.orders.reduce((acc, order) => {
-    const orderDate = new Date(order.created_at)
-    if (orderDate >= spendWindow.start && orderDate <= spendWindow.end) {
-      return acc + order.total
-    }
-    return acc
-  }, 0)
+  return (
+    customer.orders.reduce((acc, order) => {
+      const orderDate = new Date(order.created_at)
+      if (orderDate >= spendWindow.start && orderDate <= spendWindow.end) {
+        return acc + order.total
+      }
+      return acc
+    }, 0) || 0
+  )
 }
 
 export function checkSpendingLimit(
@@ -44,6 +46,7 @@ export function checkSpendingLimit(
   if (!cart || !customer || !customer.employee) {
     return false
   }
+
   const spendingLimit = customer.employee.spending_limit / 100
   const spendWindow = getSpendWindow(customer.employee.company)
   const spent = getOrderTotalInSpendWindow(customer, spendWindow)
