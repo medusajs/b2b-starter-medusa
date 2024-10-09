@@ -1,16 +1,16 @@
-import { Container } from "@medusajs/ui"
-
-import ChevronDown from "@modules/common/icons/chevron-down"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
+import OrderCard from "../order-card"
+import Item from "@modules/order/components/item"
+import { Table } from "@medusajs/ui"
+import PreviouslyPurchased from "../previously-purchased"
 
 type OverviewProps = {
   customer: HttpTypes.StoreCustomer | null
   orders: HttpTypes.StoreOrder[] | null
+  region?: HttpTypes.StoreRegion | null
 }
 
-const Overview = ({ customer, orders }: OverviewProps) => {
+const Overview = ({ customer, orders, region }: OverviewProps) => {
   return (
     <div data-testid="overview-page-wrapper">
       <div className="hidden small:block">
@@ -69,64 +69,36 @@ const Overview = ({ customer, orders }: OverviewProps) => {
               <div className="flex items-center gap-x-2">
                 <h3 className="text-large-semi">Recent orders</h3>
               </div>
-              <ul
-                className="flex flex-col gap-y-4"
+              <div
+                className="flex flex-col gap-y-2"
                 data-testid="orders-wrapper"
               >
                 {orders && orders.length > 0 ? (
-                  orders.slice(0, 5).map((order) => {
-                    return (
-                      <li
-                        key={order.id}
-                        data-testid="order-wrapper"
-                        data-value={order.id}
-                      >
-                        <LocalizedClientLink
-                          href={`/account/orders/details/${order.id}`}
-                        >
-                          <Container className="bg-gray-50 flex justify-between items-center p-4">
-                            <div className="grid grid-cols-3 grid-rows-2 text-small-regular gap-x-4 flex-1">
-                              <span className="font-semibold">Date placed</span>
-                              <span className="font-semibold">
-                                Order number
-                              </span>
-                              <span className="font-semibold">
-                                Total amount
-                              </span>
-                              <span data-testid="order-created-date">
-                                {new Date(order.created_at).toDateString()}
-                              </span>
-                              <span
-                                data-testid="order-id"
-                                data-value={order.display_id}
-                              >
-                                #{order.display_id}
-                              </span>
-                              <span data-testid="order-amount">
-                                {convertToLocale({
-                                  amount: order.total,
-                                  currency_code: order.currency_code,
-                                })}
-                              </span>
-                            </div>
-                            <button
-                              className="flex items-center justify-between"
-                              data-testid="open-order-button"
-                            >
-                              <span className="sr-only">
-                                Go to order #{order.display_id}
-                              </span>
-                              <ChevronDown className="-rotate-90" />
-                            </button>
-                          </Container>
-                        </LocalizedClientLink>
-                      </li>
-                    )
-                  })
+                  orders
+                    .slice(0, 5)
+                    .map((order) => <OrderCard order={order} key={order.id} />)
                 ) : (
                   <span data-testid="no-orders-message">No recent orders</span>
                 )}
-              </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-y-4">
+              <div className="flex items-center gap-x-2">
+                <h3 className="text-large-semi">Previously purchased items</h3>
+              </div>
+              <div
+                className="flex flex-col gap-y-2"
+                data-testid="previously-purchased-items-wrapper"
+              >
+                {orders && orders.length > 0 ? (
+                  <PreviouslyPurchased orders={orders} />
+                ) : (
+                  <span data-testid="no-previously-purchased-items-message">
+                    No previously purchased items
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
