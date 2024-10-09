@@ -1,0 +1,19 @@
+{
+  "name": "@starter/types",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@medusajs/types": "preview",
+    "typescript": "^5.5.3"
+  }
+}

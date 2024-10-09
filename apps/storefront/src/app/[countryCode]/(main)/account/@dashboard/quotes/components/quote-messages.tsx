@@ -4,9 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { createQuoteMessage } from "@lib/data/quotes"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, clx, Container, Heading, Select, Textarea } from "@medusajs/ui"
+import { AdminQuoteResponse } from "@starter/types"
 import { useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
-import { GeneralQuoteType } from "types/global"
 import { z } from "zod"
 import { QuoteTableItem } from "./quote-table"
 
@@ -24,7 +24,7 @@ const QuoteMessages = ({
   quote,
   preview,
 }: {
-  quote: GeneralQuoteType
+  quote: AdminQuoteResponse["quote"]
   preview: AdminOrderPreview
 }) => {
   const {
@@ -39,7 +39,7 @@ const QuoteMessages = ({
   })
 
   const [isCreatingMessage, setIsCreatingMessage] = useState(false)
-  const handleCreateMessage = (data: GeneralQuoteType) => {
+  const handleCreateMessage = (data: AdminQuoteResponse["quote"]) => {
     setIsCreatingMessage(true)
     createQuoteMessage(quote.id, data).finally(() => {
       reset(defaultValues)

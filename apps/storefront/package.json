@@ -31,6 +31,7 @@
     "@paypal/paypal-js": "^5.0.6",
     "@paypal/react-paypal-js": "^7.8.1",
     "@radix-ui/react-dialog": "^1.1.1",
+    "@starter/types": "workspace:^",
     "@stripe/react-stripe-js": "^1.7.2",
     "@stripe/stripe-js": "^1.29.0",
     "algoliasearch": "^4.20.0",

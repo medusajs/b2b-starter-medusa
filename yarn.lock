@@ -7789,6 +7789,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@starter/types@workspace:^, @starter/types@workspace:packages/types":
+  version: 0.0.0-use.local
+  resolution: "@starter/types@workspace:packages/types"
+  dependencies:
+    "@medusajs/types": preview
+    typescript: ^5.5.3
+  languageName: unknown
+  linkType: soft
+
 "@stripe/react-stripe-js@npm:^1.7.2":
   version: 1.16.5
   resolution: "@stripe/react-stripe-js@npm:1.16.5"
@@ -14818,6 +14827,7 @@ __metadata:
     "@paypal/paypal-js": ^5.0.6
     "@paypal/react-paypal-js": ^7.8.1
     "@radix-ui/react-dialog": ^1.1.1
+    "@starter/types": "workspace:^"
     "@stripe/react-stripe-js": ^1.7.2
     "@stripe/stripe-js": ^1.29.0
     "@types/lodash": ^4.14.195
@@ -14871,6 +14881,7 @@ __metadata:
     "@mikro-orm/knex": 5.9.7
     "@mikro-orm/migrations": 5.9.7
     "@mikro-orm/postgresql": 5.9.7
+    "@starter/types": "workspace:^"
     "@swc/core": 1.5.7
     "@swc/jest": ^0.2.36
     "@types/node": ^20.0.0
@@ -18984,6 +18995,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.5.3":
+  version: 5.6.3
+  resolution: "typescript@npm:5.6.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ba302f8822777ebefb28b554105f3e074466b671e7444ec6b75dadc008a62f46f373d9e57ceced1c433756d06c8b7dc569a7eefdf3a9573122a49205ff99021a
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^5.3.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.6.2#~builtin<compat/typescript>":
   version: 5.6.2
   resolution: "typescript@patch:typescript@npm%3A5.6.2#~builtin<compat/typescript>::version=5.6.2&hash=5da071"
@@ -18991,6 +19012,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: c084ee1ab865f108c787e6233a5f63c126c482c0c8e87ec998ac5288a2ad54b603e1ea8b8b272355823b833eb31b9fabb99e8c6152283e1cb47e3a76bd6faf6c
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^5.5.3#~builtin<compat/typescript>":
+  version: 5.6.3
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#~builtin<compat/typescript>::version=5.6.3&hash=5da071"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ade87bce2363ee963eed0e4ca8a312ea02c81873ebd53609bc3f6dc0a57f6e61ad7e3fb8cbb7f7ab8b5081cbee801b023f7c4823ee70b1c447eae050e6c7622b
   languageName: node
   linkType: hard
 
