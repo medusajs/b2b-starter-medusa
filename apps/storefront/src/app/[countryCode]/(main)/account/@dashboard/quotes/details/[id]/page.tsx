@@ -8,7 +8,9 @@ type Props = {
 
 export default async function QuoteDetailsPage({ params }: Props) {
   const { quote } = await fetchQuote(params.id)
-  const { preview: quotePreview } = await fetchQuotePreview(params.id)
+  const {
+    quote: { order_preview: quotePreview },
+  } = await fetchQuotePreview(params.id)
 
   if (!quote || !quotePreview) {
     notFound()

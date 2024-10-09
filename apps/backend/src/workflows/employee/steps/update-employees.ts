@@ -1,4 +1,4 @@
-import { createStep, StepResponse } from "@medusajs/workflows-sdk";
+import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { EmployeeDTO } from "src/modules/company/types/common";
 import { COMPANY_MODULE } from "../../../modules/company";
 import { UpdateEmployeeDTO } from "../../../modules/company/types/mutations";

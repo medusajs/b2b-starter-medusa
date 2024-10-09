@@ -1,17 +1,17 @@
-import {
+import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
 import {
-  HttpTypes,
   IOrderModuleService,
   RemoteQueryFunction,
 } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import { StoreQuotePreviewResponse } from "@starter/types";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest,
-  res: MedusaResponse<HttpTypes.AdminOrderPreviewResponse>
+  res: MedusaResponse<StoreQuotePreviewResponse>
 ) => {
   const { id } = req.params;
   const query = req.scope.resolve<RemoteQueryFunction>(
@@ -23,11 +23,8 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "quote",
-      fields: ["draft_order_id"],
-      filters: {
-        id,
-        customer_id: req.auth_context.actor_id,
-      },
+      fields: req.remoteQueryConfig.fields,
+      filters: { id },
     },
     { throwIfKeyNotFound: true }
   );
@@ -40,5 +37,10 @@ export const GET = async (
     quote.draft_order_id
   );
 
-  res.status(200).json({ preview });
+  res.status(200).json({
+    quote: {
+      ...quote,
+      order_preview: preview,
+    },
+  });
 };

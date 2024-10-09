@@ -3,10 +3,14 @@
 import { Button } from "@medusajs/ui"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { GeneralQuoteType } from "types/global"
+import { StoreQuoteResponse } from "@starter/types"
 import QuoteCard from "../../../../../../../../modules/account/components/quote-card"
 
-const QuotesOverview = ({ quotes }: { quotes: GeneralQuoteType[] }) => {
+const QuotesOverview = ({
+  quotes,
+}: {
+  quotes: StoreQuoteResponse["quote"][]
+}) => {
   if (quotes?.length) {
     return (
       <div className="flex flex-col gap-y-8 w-full">

@@ -35,5 +35,3 @@ export interface Customer extends HttpTypes.StoreCustomer {
   employee: Employee | null
   orders: HttpTypes.StoreOrder[] | []
 }
-
-export type GeneralQuoteType = Record<any, any>

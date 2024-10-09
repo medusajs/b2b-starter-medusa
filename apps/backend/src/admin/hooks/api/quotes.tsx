@@ -1,5 +1,12 @@
 import { HttpTypes } from "@medusajs/framework/types";
-import { FetchError } from "@medusajs/js-sdk";
+import { ClientHeaders, FetchError } from "@medusajs/js-sdk";
+import {
+  AdminCreateQuoteMessage,
+  AdminQuoteResponse,
+  QuoteFilterParams,
+  StoreQuoteResponse,
+  StoreQuotesResponse,
+} from "@starter/types";
 import {
   QueryKey,
   useMutation,
@@ -8,8 +15,6 @@ import {
   useQueryClient,
   UseQueryOptions,
 } from "@tanstack/react-query";
-
-import { ClientHeaders } from "@medusajs/js-sdk/dist/types";
 import { queryKeysFactory } from "../../lib/query-key-factory";
 import { sdk } from "../../lib/sdk";
 import { orderPreviewQueryKey } from "./order-preview";
@@ -17,33 +22,24 @@ import { orderPreviewQueryKey } from "./order-preview";
 export const quoteQueryKey = queryKeysFactory("quote");
 
 export const useQuotes = (
-  query?: Record<any, any>,
-  options?: Omit<
-    UseQueryOptions<
-      // TODO: Add params type
-      Record<any, any>,
-      FetchError,
-      // TODO: Add response type
-      { quotes: Record<any, any>[] },
-      QueryKey
-    >,
-    "queryKey" | "queryFn"
+  query: QuoteFilterParams,
+  options?: UseQueryOptions<
+    StoreQuotesResponse,
+    FetchError,
+    StoreQuotesResponse,
+    QueryKey
   >
 ) => {
-  const fetchQuotes = async (
-    query?: Record<any, any>,
-    headers?: ClientHeaders
-  ) => {
-    return await sdk.client.fetch<Record<any, any>>(`/admin/quotes`, {
+  const fetchQuotes = (query: QuoteFilterParams, headers?: ClientHeaders) =>
+    sdk.client.fetch<StoreQuotesResponse>(`/admin/quotes`, {
       query,
       headers,
     });
-  };
 
   const { data, ...rest } = useQuery({
-    queryFn: async () => fetchQuotes(query),
-    queryKey: quoteQueryKey.list(),
     ...options,
+    queryFn: () => fetchQuotes(query)!,
+    queryKey: quoteQueryKey.list(),
   });
 
   return { ...data, ...rest };
@@ -51,32 +47,26 @@ export const useQuotes = (
 
 export const useQuote = (
   id: string,
-  query?: Record<any, any>,
-  options?: Omit<
-    UseQueryOptions<
-      // TODO: Add params type
-      Record<any, any>,
-      FetchError,
-      // TODO: Add response type
-      { quote: Record<any, any> },
-      QueryKey
-    >,
-    "queryKey" | "queryFn"
+  query?: QuoteFilterParams,
+  options?: UseQueryOptions<
+    StoreQuoteResponse,
+    FetchError,
+    StoreQuoteResponse,
+    QueryKey
   >
 ) => {
-  const fetchQuote = async (
+  const fetchQuote = (
     id: string,
-    query?: Record<any, any>,
+    query?: QuoteFilterParams,
     headers?: ClientHeaders
-  ) => {
-    return await sdk.client.fetch<Record<any, any>>(`/admin/quotes/${id}`, {
+  ) =>
+    sdk.client.fetch<StoreQuoteResponse>(`/admin/quotes/${id}`, {
       query,
       headers,
     });
-  };
 
   const { data, ...rest } = useQuery({
-    queryFn: async () => fetchQuote(id, query),
+    queryFn: () => fetchQuote(id, query),
     queryKey: quoteQueryKey.detail(id),
     ...options,
   });
@@ -212,12 +202,12 @@ export const useConfirmQuote = (
 
 export const useSendQuote = (
   id: string,
-  options?: UseMutationOptions<Record<any, any>, FetchError, void>
+  options?: UseMutationOptions<AdminQuoteResponse, FetchError, void>
 ) => {
   const queryClient = useQueryClient();
 
   const sendQuote = async (id: string) =>
-    sdk.client.fetch<{ quote: Record<any, any> }>(`/admin/quotes/${id}/send`, {
+    sdk.client.fetch<AdminQuoteResponse>(`/admin/quotes/${id}/send`, {
       method: "POST",
     });
 
@@ -244,19 +234,18 @@ export const useSendQuote = (
 
 export const useRejectQuote = (
   id: string,
-  options?: UseMutationOptions<Record<any, any>, FetchError, void>
+  options?: UseMutationOptions<AdminQuoteResponse, FetchError, void>
 ) => {
   const queryClient = useQueryClient();
 
   const rejectQuote = async (id: string) =>
-    sdk.client.fetch<{ quote: Record<any, any> }>(
-      `/admin/quotes/${id}/reject`,
-      { method: "POST" }
-    );
+    sdk.client.fetch<AdminQuoteResponse>(`/admin/quotes/${id}/reject`, {
+      method: "POST",
+    });
 
   return useMutation({
     mutationFn: () => rejectQuote(id),
-    onSuccess: (data: any, variables: any, context: any) => {
+    onSuccess: (data: AdminQuoteResponse, variables: any, context: any) => {
       queryClient.invalidateQueries({
         queryKey: orderPreviewQueryKey.details(),
       });
@@ -277,25 +266,23 @@ export const useRejectQuote = (
 
 export const useCreateQuoteMessage = (
   id: string,
-  options?: UseMutationOptions<Record<any, any>, FetchError, Record<any, any>>
+  options?: UseMutationOptions<
+    AdminQuoteResponse,
+    FetchError,
+    AdminCreateQuoteMessage
+  >
 ) => {
   const queryClient = useQueryClient();
 
-  const sendQuote = async (
-    id: string,
-    body: { item_id: string; text: string }
-  ) =>
-    sdk.client.fetch<{ quote: Record<any, any> }>(
-      `/admin/quotes/${id}/messages`,
-      {
-        body,
-        method: "POST",
-      }
-    );
+  const sendQuote = async (id: string, body: AdminCreateQuoteMessage) =>
+    sdk.client.fetch<AdminQuoteResponse>(`/admin/quotes/${id}/messages`, {
+      body,
+      method: "POST",
+    });
 
   return useMutation({
     mutationFn: (body) => sendQuote(id, body),
-    onSuccess: (data: any, variables: any, context: any) => {
+    onSuccess: (data: AdminQuoteResponse, variables: any, context: any) => {
       queryClient.invalidateQueries({
         queryKey: quoteQueryKey.details(),
       });

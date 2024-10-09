@@ -22,11 +22,8 @@ import { createQuotesWorkflow } from "./create-quote";
   that is performed by independent workflows - accept / reject.
 */
 export const createRequestForQuoteWorkflow = createWorkflow(
-  "create-request-quote",
-  function (input: {
-    cart_id: string;
-    customer_id: string;
-  }): WorkflowResponse<any> {
+  "create-request-for-quote",
+  function (input: { cart_id: string; customer_id: string }) {
     const cart = useRemoteQueryStep({
       entry_point: "cart",
       fields: [

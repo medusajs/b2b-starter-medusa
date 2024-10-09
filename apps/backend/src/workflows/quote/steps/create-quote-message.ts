@@ -1,7 +1,10 @@
-import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { QuoteMessageDTO } from "src/modules/quote/types/common";
+import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import {
+  IQuoteModuleService,
+  ModuleCreateQuoteMessage,
+  ModuleQuoteMessage,
+} from "@starter/types";
 import { QUOTE_MODULE } from "../../../modules/quote";
-import { CreateQuoteMessageDTO } from "../../../modules/quote/types/mutations";
 
 /*
   A step to create a quote's message.
@@ -13,20 +16,18 @@ import { CreateQuoteMessageDTO } from "../../../modules/quote/types/mutations";
 export const createQuoteMessageStep = createStep(
   "create-quote-message",
   async (
-    input: CreateQuoteMessageDTO,
+    input: ModuleCreateQuoteMessage,
     { container }
-  ): Promise<StepResponse<QuoteMessageDTO, string>> => {
-    // TODO: type this service
-    const quoteModuleService: any = container.resolve(QUOTE_MODULE);
+  ): Promise<StepResponse<ModuleQuoteMessage, string>> => {
+    const quoteModule = container.resolve<IQuoteModuleService>(QUOTE_MODULE);
 
-    const quoteMessage = await quoteModuleService.createMessages(input);
+    const quoteMessage = await quoteModule.createMessages(input);
 
     return new StepResponse(quoteMessage, quoteMessage.id);
   },
   async (id: string, { container }) => {
-    // TODO: type this service
-    const quoteModuleService: any = container.resolve(QUOTE_MODULE);
+    const quoteModule = container.resolve<IQuoteModuleService>(QUOTE_MODULE);
 
-    await quoteModuleService.deleteMessages(id);
+    await quoteModule.deleteMessages([id]);
   }
 );

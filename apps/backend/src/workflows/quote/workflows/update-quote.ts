@@ -1,6 +1,5 @@
 import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
-import { QuoteDTO } from "../../../modules/quote/types/common";
-import { UpdateQuoteDTO } from "../../../modules/quote/types/mutations";
+import { ModuleQuote, ModuleUpdateQuote } from "@starter/types";
 import { updateQuotesStep } from "../steps/update-quotes";
 
 /*
@@ -8,7 +7,7 @@ import { updateQuotesStep } from "../steps/update-quotes";
 */
 export const updateQuotesWorkflow = createWorkflow(
   "update-quotes-workflow",
-  function (input: UpdateQuoteDTO[]): WorkflowResponse<QuoteDTO[]> {
+  function (input: ModuleUpdateQuote[]): WorkflowResponse<ModuleQuote[]> {
     return new WorkflowResponse(updateQuotesStep(input));
   }
 );

@@ -3,8 +3,8 @@ import {
   getSelectsAndRelationsFromObjectArray,
 } from "@medusajs/framework/utils";
 import { StepResponse, createStep } from "@medusajs/framework/workflows-sdk";
+import { IQuoteModuleService, ModuleUpdateQuote } from "@starter/types";
 import { QUOTE_MODULE } from "../../../modules/quote";
-import { UpdateQuoteDTO } from "../../../modules/quote/types/mutations";
 
 /*
   A step to update a quote.
@@ -14,10 +14,10 @@ import { UpdateQuoteDTO } from "../../../modules/quote/types/mutations";
 */
 export const updateQuotesStep = createStep(
   "update-quotes",
-  async (data: UpdateQuoteDTO[], { container }) => {
-    const quoteModule: any = container.resolve(QUOTE_MODULE);
-
+  async (data: ModuleUpdateQuote[], { container }) => {
+    const quoteModule = container.resolve<IQuoteModuleService>(QUOTE_MODULE);
     const { selects, relations } = getSelectsAndRelationsFromObjectArray(data);
+
     const dataBeforeUpdate = await quoteModule.listQuotes(
       { id: data.map((d) => d.id) },
       { relations, select: selects }
@@ -36,8 +36,8 @@ export const updateQuotesStep = createStep(
       return;
     }
 
+    const quoteModule = container.resolve<IQuoteModuleService>(QUOTE_MODULE);
     const { dataBeforeUpdate, selects, relations } = revertInput;
-    const quoteModule: any = container.resolve(QUOTE_MODULE);
 
     await quoteModule.updateQuotes(
       dataBeforeUpdate.map((data) =>

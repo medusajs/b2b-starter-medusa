@@ -75,7 +75,12 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
   {
     method: ["GET"],
     matcher: "/store/quotes/:id/preview",
-    middlewares: [],
+    middlewares: [
+      validateAndTransformQuery(
+        GetQuoteParams,
+        retrieveQuoteTransformQueryConfig
+      ),
+    ],
   },
   {
     method: ["POST"],
