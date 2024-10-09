@@ -53,7 +53,7 @@ const QuoteDetails = () => {
     useRejectQuote(quoteId!);
 
   useEffect(() => {
-    if (["pending_merchant", "customer_rejected"].includes(quote?.status)) {
+    if (["pending_merchant", "customer_rejected"].includes(quote?.status!)) {
       setShowSendQuote(true);
     } else {
       setShowSendQuote(false);
@@ -61,7 +61,7 @@ const QuoteDetails = () => {
 
     if (
       ["customer_rejected", "merchant_rejected", "accepted"].includes(
-        quote?.status
+        quote?.status!
       )
     ) {
       setShowRejectQuote(false);

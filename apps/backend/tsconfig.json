@@ -27,7 +27,10 @@
     "**/__tests__",
     "**/__fixtures__",
     "node_modules",
+    ".turbo",
+    ".medusa",
     "build",
+    "dist",
     ".cache"
   ]
 }

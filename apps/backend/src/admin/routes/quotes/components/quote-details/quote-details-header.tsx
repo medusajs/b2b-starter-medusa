@@ -1,10 +1,14 @@
 import { EllipsisHorizontal, PencilSquare } from "@medusajs/icons";
 import { DropdownMenu, Heading, IconButton } from "@medusajs/ui";
+import { AdminQuoteResponse } from "@starter/types";
 import { useNavigate } from "react-router-dom";
-import { QuoteDTO } from "../../../../../modules/quote/types/common";
 import QuoteStatusBadge from "../quote-status-badge";
 
-export const QuoteDetailsHeader = ({ quote }: { quote: QuoteDTO }) => {
+export const QuoteDetailsHeader = ({
+  quote,
+}: {
+  quote: AdminQuoteResponse["quote"];
+}) => {
   const navigate = useNavigate();
 
   return (

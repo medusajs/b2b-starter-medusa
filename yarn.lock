@@ -14860,9 +14860,9 @@ __metadata:
     react-markdown: ^9.0.1
     server-only: ^0.0.1
     tailwindcss: ^3.4.1
-    typescript: ^5.3.2
+    typescript: ^5.5.3
     webpack: ^5
-    zod: ^3.23.8
+    zod: 3.22.4
   languageName: unknown
   linkType: soft
 
@@ -14895,8 +14895,9 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     ts-node: ^10.9.2
-    typescript: ^5.6.2
+    typescript: ^5.5.3
     vite: ^5.2.11
+    zod: 3.22.4
   languageName: unknown
   linkType: soft
 
@@ -18985,16 +18986,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.2, typescript@npm:^5.6.2":
-  version: 5.6.2
-  resolution: "typescript@npm:5.6.2"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 48777e1dabd9044519f56cd012b0296e3b72bafe12b7e8e34222751d45c67e0eba5387ecdaa6c14a53871a29361127798df6dc8d1d35643a0a47cb0b1c65a33a
-  languageName: node
-  linkType: hard
-
 "typescript@npm:^5.5.3":
   version: 5.6.3
   resolution: "typescript@npm:5.6.3"
@@ -19002,16 +18993,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: ba302f8822777ebefb28b554105f3e074466b671e7444ec6b75dadc008a62f46f373d9e57ceced1c433756d06c8b7dc569a7eefdf3a9573122a49205ff99021a
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^5.3.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.6.2#~builtin<compat/typescript>":
-  version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#~builtin<compat/typescript>::version=5.6.2&hash=5da071"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: c084ee1ab865f108c787e6233a5f63c126c482c0c8e87ec998ac5288a2ad54b603e1ea8b8b272355823b833eb31b9fabb99e8c6152283e1cb47e3a76bd6faf6c
   languageName: node
   linkType: hard
 
@@ -19841,13 +19822,6 @@ __metadata:
   version: 3.22.4
   resolution: "zod@npm:3.22.4"
   checksum: 80bfd7f8039b24fddeb0718a2ec7c02aa9856e4838d6aa4864335a047b6b37a3273b191ef335bf0b2002e5c514ef261ffcda5a589fb084a48c336ffc4cdbab7f
-  languageName: node
-  linkType: hard
-
-"zod@npm:^3.23.8":
-  version: 3.23.8
-  resolution: "zod@npm:3.23.8"
-  checksum: 15949ff82118f59c893dacd9d3c766d02b6fa2e71cf474d5aa888570c469dbf5446ac5ad562bb035bf7ac9650da94f290655c194f4a6de3e766f43febd432c5c
   languageName: node
   linkType: hard
 

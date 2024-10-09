@@ -1,7 +1,7 @@
-import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { CreateEmployeeDTO } from "../../../modules/company/types/mutations";
+import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { COMPANY_MODULE } from "../../../modules/company";
 import { EmployeeDTO } from "../../../modules/company/types/common";
+import { CreateEmployeeDTO } from "../../../modules/company/types/mutations";
 
 export const createEmployeesStep = createStep(
   "create-employees",

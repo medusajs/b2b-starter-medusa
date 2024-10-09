@@ -4,11 +4,11 @@ import { useMemo } from "react"
 import { convertToLocale } from "@lib/util/money"
 import { CalendarMini, DocumentText } from "@medusajs/icons"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { StoreQuoteResponse } from "@starter/types"
 import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
-import { GeneralQuoteType } from "types/global"
 
 type QuoteCardProps = {
-  quote: GeneralQuoteType
+  quote: StoreQuoteResponse["quote"]
 }
 
 const QuoteCard = ({ quote }: QuoteCardProps) => {

@@ -6,15 +6,15 @@ import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, Container, Heading, Text, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
 import { PromptModal } from "@modules/common/components/prompt-modal"
+import { StoreQuoteResponse } from "@starter/types"
 import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
 import { useRouter } from "next/navigation"
 import React, { useMemo, useState } from "react"
-import { GeneralQuoteType } from "types/global"
 import QuoteMessages from "../quote-messages"
 import { QuoteTableItem } from "../quote-table"
 
 type QuoteDetailsProps = {
-  quote: GeneralQuoteType
+  quote: StoreQuoteResponse["quote"]
   preview: AdminOrderPreview
   countryCode: string
 }
