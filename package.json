@@ -12,6 +12,7 @@
     "turbo": "latest"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ]
 }

@@ -1,8 +1,6 @@
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { QuoteDTO } from "src/modules/quote/types/common";
+import { ModuleCreateQuote, ModuleQuote } from "@starter/types";
 import { QUOTE_MODULE } from "../../../modules/quote";
-import { CreateQuoteDTO } from "../../../modules/quote/types/mutations";
-
 /*
   A step to create a quote.
   
@@ -13,9 +11,9 @@ import { CreateQuoteDTO } from "../../../modules/quote/types/mutations";
 export const createQuotesStep = createStep(
   "create-quotes",
   async (
-    input: CreateQuoteDTO[],
+    input: ModuleCreateQuote[],
     { container }
-  ): Promise<StepResponse<QuoteDTO[], string[]>> => {
+  ): Promise<StepResponse<ModuleQuote[], string[]>> => {
     // TODO: type this service
     const quoteModuleService: any = container.resolve(QUOTE_MODULE);
 
