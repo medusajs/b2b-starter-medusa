@@ -11,6 +11,7 @@
     "skipDefaultLibCheck": true,
     "declaration": true,
     "sourceMap": false,
+    "outDir": "./dist",
     "rootDir": "./",
     "baseUrl": ".",
     "jsx": "react-jsx",
@@ -27,7 +28,6 @@
     "**/__fixtures__",
     "node_modules",
     "build",
-    ".cache",
-    "dist"
+    ".cache"
   ]
 }

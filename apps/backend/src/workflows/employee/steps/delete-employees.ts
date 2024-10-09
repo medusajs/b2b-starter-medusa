@@ -7,13 +7,15 @@ export const deleteEmployeesStep = createStep(
     id: string | string[],
     { container }
   ): Promise<StepResponse<string | string[], string | string[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: Add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
     await companyModuleService.softDeleteEmployees(id);
 
     return new StepResponse(id, id);
   },
   async (employeeId: string | string[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: Add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
     const company = await companyModuleService.restoreEmployees(employeeId);
     return new StepResponse("Company restored", company);
   }

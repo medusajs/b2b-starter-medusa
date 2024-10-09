@@ -1,7 +1,7 @@
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { UpdateCompanyDTO } from "../../../modules/company/types/mutations";
-import { COMPANY_MODULE } from "../../../modules/company";
 import { CompanyDTO } from "src/modules/company/types/common";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { UpdateCompanyDTO } from "../../../modules/company/types/mutations";
 
 export const updateCompaniesStep = createStep(
   "update-companies",
@@ -9,7 +9,8 @@ export const updateCompaniesStep = createStep(
     input: UpdateCompanyDTO | UpdateCompanyDTO[],
     { container }
   ): Promise<StepResponse<CompanyDTO | CompanyDTO[], CompanyDTO[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
 
     console.log("input", input);
 
@@ -26,7 +27,8 @@ export const updateCompaniesStep = createStep(
     return new StepResponse(updatedCompanies, currentData);
   },
   async (currentData: UpdateCompanyDTO[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
     await companyModuleService.updateCompanies(currentData);
     return new StepResponse("Company data restored", currentData);
   }
