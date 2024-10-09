@@ -106,7 +106,7 @@ export const QuoteItem = ({
           <div className="flex items-center gap-x-2">
             <div className="w-fit min-w-[27px]">
               <Badge size="xsmall" color="grey">
-                <span className="tabular-nums">{item.quantity}</span>x
+                <span className="tabular-nums text-xs">{item.quantity}</span>x
               </Badge>
             </div>
 
