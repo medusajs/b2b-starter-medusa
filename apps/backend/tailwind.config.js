@@ -2,5 +2,5 @@
 module.exports = {
   content: [],
   theme: {},
-  plugins: [require("@medusajs/ui-preset")],
+  presets: [require("@medusajs/ui-preset")],
 };
