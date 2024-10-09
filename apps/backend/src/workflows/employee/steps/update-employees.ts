@@ -9,7 +9,8 @@ export const updateEmployeesStep = createStep(
     input: UpdateEmployeeDTO | UpdateEmployeeDTO[],
     { container }
   ): Promise<StepResponse<EmployeeDTO | EmployeeDTO[], EmployeeDTO[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
 
     const ids = Array.isArray(input)
       ? input.map((company) => company.id)
@@ -24,7 +25,7 @@ export const updateEmployeesStep = createStep(
     return new StepResponse(updatedEmployees, currentData);
   },
   async (currentData: UpdateEmployeeDTO[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
 
     await companyModuleService.updateEmployees(currentData);
     return new StepResponse("Company customer data restored", currentData);

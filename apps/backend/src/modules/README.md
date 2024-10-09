@@ -61,7 +61,7 @@ Its key (`helloModuleService` or `HELLO_MODULE`) is the name of the module’s m
 You can resolve the main service of the module in other resources, such as an API route:
 
 ```ts
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
+import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import HelloModuleService from "../../../modules/hello/service";
 import { HELLO_MODULE } from "../../../modules/hello";
 

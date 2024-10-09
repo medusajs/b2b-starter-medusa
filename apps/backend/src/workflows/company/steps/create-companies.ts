@@ -1,7 +1,7 @@
 import { createStep, StepResponse } from "@medusajs/workflows-sdk";
-import { CreateCompanyDTO } from "../../../modules/company/types/mutations";
-import { COMPANY_MODULE } from "../../../modules/company";
 import { CompanyDTO } from "src/modules/company/types/common";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { CreateCompanyDTO } from "../../../modules/company/types/mutations";
 
 export const createCompaniesStep = createStep(
   "create-companies",
@@ -9,7 +9,8 @@ export const createCompaniesStep = createStep(
     input: CreateCompanyDTO | CreateCompanyDTO[],
     { container }
   ): Promise<StepResponse<CompanyDTO | CompanyDTO[], string[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
     const companies = await companyModuleService.createCompanies(
       Array.isArray(input) ? input : [input]
     );
@@ -20,7 +21,8 @@ export const createCompaniesStep = createStep(
     );
   },
   async (companyIds: string[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+    // TODO: add type here
+    const companyModuleService: any = container.resolve(COMPANY_MODULE);
     await companyModuleService.deleteCompanies(companyIds);
     return new StepResponse("Company deleted", companyIds);
   }

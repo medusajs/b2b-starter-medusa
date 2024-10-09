@@ -1,7 +1,7 @@
 import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
-} from "@medusajs/medusa";
+} from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createCompaniesWorkflow } from "../../../workflows/company/workflows/create-companies";
 import { CreateCompanyType, GetCompanyParamsType } from "./validators";
