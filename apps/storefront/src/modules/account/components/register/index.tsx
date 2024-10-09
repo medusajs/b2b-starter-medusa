@@ -177,7 +177,7 @@ const Register = ({ setCurrentView }: Props) => {
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          Log in
         </button>
         .
       </span>

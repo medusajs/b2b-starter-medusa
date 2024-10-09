@@ -1,6 +1,7 @@
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
 import { HttpTypes } from "@medusajs/types"
+import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
 import Company from "@modules/checkout/components/company"
 import ContactDetails from "@modules/checkout/components/contact-details"
@@ -42,6 +43,8 @@ export default async function CheckoutForm({
             Back to shopping cart
           </Button>
         </LocalizedClientLink>
+
+        {!customer ? <SignInPrompt /> : null}
 
         {cart?.company && <Company cart={cart} />}
 

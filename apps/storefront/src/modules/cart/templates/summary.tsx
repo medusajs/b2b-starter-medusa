@@ -68,7 +68,7 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
             ? spendLimitExceeded
               ? "Spending Limit Exceeded"
               : "Checkout"
-            : "Sign in to Checkout"}
+            : "Log in to Checkout"}
         </Button>
       </LocalizedClientLink>
       <RequestQuoteConfirmation>

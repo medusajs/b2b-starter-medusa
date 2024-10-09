@@ -53,7 +53,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                {customer ? customer.first_name : "Login"}
+                {customer ? customer.first_name : "Log in"}
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -128,7 +128,7 @@ export async function NavigationHeader() {
             >
               <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
                 <User />
-                {customer ? customer.first_name : "Login"}
+                {customer ? customer.first_name : "Log in"}
               </button>
             </LocalizedClientLink>
 
