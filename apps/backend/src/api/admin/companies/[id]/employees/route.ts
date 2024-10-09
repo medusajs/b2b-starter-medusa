@@ -1,5 +1,5 @@
+import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa";
 import { createEmployeesWorkflow } from "../../../../../workflows/employee/workflows";
 import { CreateEmployeeType, GetEmployeeParamsType } from "./validators";
 
