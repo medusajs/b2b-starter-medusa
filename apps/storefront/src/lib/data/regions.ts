@@ -1,3 +1,5 @@
+"use server"
+
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { cache } from "react"

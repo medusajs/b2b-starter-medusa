@@ -74,29 +74,27 @@ export async function signup(_currentState: unknown, formData: FormData) {
     let createdCompany: Record<string, unknown> | null = null
     let createdEmployee: Record<string, unknown> | null = null
 
-    if (formData.get("is_business") === "true") {
-      const companyForm = {
-        name: formData.get("company_name") as string,
-        email: formData.get("company_email") as string,
-        phone: formData.get("company_phone") as string,
-        address: formData.get("company_address") as string,
-        city: formData.get("company_city") as string,
-        state: formData.get("company_state") as string,
-        zip: formData.get("company_zip") as string,
-        country: formData.get("company_country") as string,
-        currency_code: formData.get("currency_code") as string,
-      }
+    const companyForm = {
+      name: formData.get("company_name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("company_phone") as string,
+      address: formData.get("company_address") as string,
+      city: formData.get("company_city") as string,
+      state: formData.get("company_state") as string,
+      zip: formData.get("company_zip") as string,
+      country: formData.get("company_country") as string,
+      currency_code: formData.get("currency_code") as string,
+    }
 
-      createdCompany = await createCompany(companyForm).then(
-        ({ companies }) => companies[0]
-      )
+    createdCompany = await createCompany(companyForm).then(
+      ({ companies }) => companies[0]
+    )
 
-      if (createdCompany) {
-        createdEmployee = await createEmployee(createdCompany.id as string, {
-          customer_id: createdCustomer.id,
-          is_admin: true,
-        })
-      }
+    if (createdCompany) {
+      createdEmployee = await createEmployee(createdCompany.id as string, {
+        customer_id: createdCustomer.id,
+        is_admin: true,
+      })
     }
 
     revalidateTag(getCacheTag("customers"))

@@ -43,8 +43,17 @@ const SignInPrompt = () => {
           <br />
           faster checkout.
         </Text>
-        <div>
-          <LocalizedClientLink href="/account">
+        <div className="flex gap-4">
+          <LocalizedClientLink href="/account?view=register">
+            <Button
+              variant="secondary"
+              className="h-10 min-w-36 rounded-full"
+              data-testid="sign-in-button"
+            >
+              Register
+            </Button>
+          </LocalizedClientLink>
+          <LocalizedClientLink href="/account?view=log-in">
             <Button
               variant="primary"
               className="h-10 min-w-36 rounded-full"
