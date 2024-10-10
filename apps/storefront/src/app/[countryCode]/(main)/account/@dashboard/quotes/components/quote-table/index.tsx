@@ -1,7 +1,7 @@
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Badge, Text } from "@medusajs/ui"
 import { AmountCell } from "@modules/common/components/amount-cell"
-import { Thumbnail } from "@modules/common/components/thumbnail"
+import Thumbnail from "@modules/products/components/thumbnail"
 import { useMemo } from "react"
 
 export const QuoteTableItem = ({
@@ -22,7 +22,7 @@ export const QuoteTableItem = ({
     () => !!item.actions?.find((a) => a.action === "ITEM_UPDATE"),
     [item]
   )
-
+  console.log("isItemUpdated -- ", isItemUpdated)
   const isItemRemoved = useMemo(() => {
     const updateAction = item.actions?.find((a) => a.action === "ITEM_UPDATE")
 
@@ -30,98 +30,86 @@ export const QuoteTableItem = ({
   }, [item])
 
   return (
-    <>
-      <div
-        key={item.id}
-        className="text-ui-fg-subtle grid grid-cols-2 items-center gap-x-4 px-6 py-4"
-      >
-        <div className="flex items-start gap-x-4">
-          <Thumbnail src={item.thumbnail} />
+    <div className="flex gap-x-4">
+      <div className="w-20">
+        <Thumbnail thumbnail={item.thumbnail} size="square" />
+      </div>
 
-          <div>
-            <Text
-              size="small"
-              leading="compact"
-              weight="plus"
-              className="text-ui-fg-base"
-            >
-              {item.title}
-            </Text>
+      <div className="flex flex-col w-full">
+        <div>
+          <Text
+            size="small"
+            leading="compact"
+            weight="plus"
+            className="text-ui-fg-base"
+          >
+            {item.product_title}
+          </Text>
 
-            {item.variant_sku && (
-              <div className="flex items-center gap-x-1">
-                <Text size="small">{item.variant_sku}</Text>
-              </div>
-            )}
-            <Text size="small">
-              {item.variant?.options?.map((o) => o.value).join(" · ")}
-            </Text>
-          </div>
+          {item.variant_sku && (
+            <div className="flex items-center gap-x-1">
+              <Text size="small">{item.variant_sku}</Text>
+            </div>
+          )}
+          <Text size="small">
+            {item.variant?.options?.map((o) => o.value).join(" · ")}
+          </Text>
         </div>
 
-        <div className="grid grid-cols-3 items-center gap-x-4">
-          <div className="flex items-center justify-end gap-x-4">
+        <div className="flex justify-between w-full items-center">
+          <div>
+            <Text className="text-">
+              <span>{item.quantity}</span>x{" "}
+            </Text>
+          </div>
+
+          <div className="flex gap-x-2">
             <AmountCell
               className="text-sm text-right justify-end items-end"
               currencyCode={currencyCode}
               amount={item.unit_price}
               originalAmount={originalItem?.unit_price}
             />
-          </div>
 
-          <div className="flex items-center gap-x-4">
-            <div className="w-fit min-w-[27px]">
-              <Badge size="xsmall" color="grey">
-                <span className="tabular-nums">{item.quantity}</span>x
+            {isAddedItem && (
+              <Badge
+                size="2xsmall"
+                rounded="full"
+                color="blue"
+                className="mr-1"
+              >
+                New
               </Badge>
-            </div>
+            )}
 
-            <div>
-              {isAddedItem && (
+            {isItemRemoved ? (
+              <Badge size="2xsmall" rounded="full" color="red" className="mr-1">
+                Removed
+              </Badge>
+            ) : (
+              isItemUpdated && (
                 <Badge
                   size="2xsmall"
                   rounded="full"
-                  color="blue"
+                  color="orange"
                   className="mr-1"
                 >
-                  New
+                  Modified
                 </Badge>
-              )}
-
-              {isItemRemoved ? (
-                <Badge
-                  size="2xsmall"
-                  rounded="full"
-                  color="red"
-                  className="mr-1"
-                >
-                  Removed
-                </Badge>
-              ) : (
-                isItemUpdated && (
-                  <Badge
-                    size="2xsmall"
-                    rounded="full"
-                    color="orange"
-                    className="mr-1"
-                  >
-                    Modified
-                  </Badge>
-                )
-              )}
-            </div>
-
-            <div className="overflow-visible"></div>
+              )
+            )}
           </div>
 
-          <AmountCell
-            className="text-sm text-right justify-end items-end"
-            currencyCode={currencyCode}
-            amount={item.total}
-            originalAmount={originalItem?.total}
-          />
+          <div>
+            <AmountCell
+              className="text-sm text-right justify-end items-end"
+              currencyCode={currencyCode}
+              amount={item.total}
+              originalAmount={originalItem?.total}
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -9,7 +9,7 @@ import {
 } from "@lib/data/cookies"
 import {
   QuoteFilterParams,
-  StoreCreateQuote,
+  StoreCreateQuoteMessage,
   StoreQuotePreviewResponse,
   StoreQuoteResponse,
   StoreQuotesResponse,
@@ -79,7 +79,10 @@ export const rejectQuote = async (id: string) =>
       revalidateTag(getCacheTag(["quotePreview", id].join("-")))
     })
 
-export const createQuoteMessage = async (id: string, body: StoreCreateQuote) =>
+export const createQuoteMessage = async (
+  id: string,
+  body: StoreCreateQuoteMessage
+) =>
   sdk.client
     .fetch<StoreQuoteResponse>(`/store/quotes/${id}/messages`, {
       method: "POST",

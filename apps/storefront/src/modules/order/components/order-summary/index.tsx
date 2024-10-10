@@ -21,21 +21,16 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
     <div>
       <h2 className="text-base-semi">Order Summary</h2>
       <div className="text-small-regular text-ui-fg-base my-2">
-        <div className="flex items-center justify-between text-base-regular text-ui-fg-base mb-2">
-          <span>Subtotal</span>
-          <span>{getAmount(order.subtotal)}</span>
-        </div>
         <div className="flex flex-col gap-y-1">
+          <div className="flex items-center justify-between">
+            <span>Subtotal</span>
+            <span>{getAmount(order.subtotal)}</span>
+          </div>
+
           {order.discount_total > 0 && (
             <div className="flex items-center justify-between">
               <span>Discount</span>
               <span>- {getAmount(order.discount_total)}</span>
-            </div>
-          )}
-          {order.gift_card_total > 0 && (
-            <div className="flex items-center justify-between">
-              <span>Discount</span>
-              <span>- {getAmount(order.gift_card_total)}</span>
             </div>
           )}
           <div className="flex items-center justify-between">

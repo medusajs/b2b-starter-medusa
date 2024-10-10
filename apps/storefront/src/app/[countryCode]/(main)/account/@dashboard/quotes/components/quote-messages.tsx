@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { createQuoteMessage } from "@lib/data/quotes"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, clx, Container, Heading, Select, Textarea } from "@medusajs/ui"
-import { StoreQuoteResponse } from "@starter/types"
+import { StoreCreateQuoteMessage, StoreQuoteResponse } from "@starter/types"
 import { useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
@@ -39,7 +39,7 @@ const QuoteMessages = ({
   })
 
   const [isCreatingMessage, setIsCreatingMessage] = useState(false)
-  const handleCreateMessage = (data: StoreQuoteResponse["quote"]) => {
+  const handleCreateMessage = (data: StoreCreateQuoteMessage) => {
     setIsCreatingMessage(true)
     createQuoteMessage(quote.id, data).finally(() => {
       reset(defaultValues)
@@ -85,7 +85,7 @@ const QuoteMessages = ({
             </div>
 
             {!!message.item_id && (
-              <div className="border border-dashed border-neutral-400 my-2">
+              <div className="border border-dashed border-neutral-400 rounded-md my-2 px-4 py-2">
                 <QuoteTableItem
                   key={message.item_id}
                   item={previewItemsMap.get(message.item_id)!}
