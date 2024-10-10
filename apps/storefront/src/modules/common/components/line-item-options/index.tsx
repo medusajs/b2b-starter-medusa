@@ -12,6 +12,7 @@ const LineItemOptions = ({
   "data-testid": dataTestid,
   "data-value": dataValue,
 }: LineItemOptionsProps) => {
+  console.log(variant)
   return (
     <Text
       data-testid={dataTestid}

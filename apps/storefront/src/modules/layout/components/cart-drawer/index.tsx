@@ -92,9 +92,11 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   }, [pathname])
 
   const checkoutStep = getCheckoutStep(cart)
-  const checkoutPath = checkoutStep
-    ? `/checkout?step=${checkoutStep}`
-    : "/checkout"
+  const checkoutPath = customer
+    ? checkoutStep
+      ? `/checkout?step=${checkoutStep}`
+      : "/checkout"
+    : "/account"
 
   return (
     <>
@@ -170,9 +172,11 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
                         disabled={totalItems === 0 || spendLimitExceeded}
                       >
                         <LockClosedSolidMini />
-                        {spendLimitExceeded
-                          ? "Spending Limit Exceeded"
-                          : "Secure Checkout"}
+                        {customer
+                          ? spendLimitExceeded
+                            ? "Spending Limit Exceeded"
+                            : "Secure Checkout"
+                          : "Log in to checkout"}
                       </Button>
                     </LocalizedClientLink>
                     {spendLimitExceeded && (

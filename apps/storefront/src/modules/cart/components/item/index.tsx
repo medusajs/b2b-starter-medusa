@@ -12,11 +12,7 @@ import AddNoteButton from "../add-note-button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type ItemProps = {
-  item: HttpTypes.StoreCartLineItem & {
-    metadata?: {
-      note?: string
-    }
-  }
+  item: HttpTypes.StoreCartLineItem
   type?: "full" | "preview"
   showBorders?: boolean
 }
@@ -161,14 +157,14 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
                 </div>
 
                 <DeleteButton id={item.id} />
-                <AddNoteButton item={item} />
+                <AddNoteButton item={item as HttpTypes.StoreCartLineItem} />
               </>
             )}
-            {type === "preview" && item.metadata?.note && (
+            {type === "preview" && (item.metadata?.note as string) && (
               <div className="flex gap-x-1">
                 <span className="text-neutral-950 text-xs">Note:</span>
                 <span className="text-xs text-neutral-600 italic truncate max-w-44 pr-px">
-                  {item.metadata.note}
+                  {item.metadata?.note as string}
                 </span>
               </div>
             )}
