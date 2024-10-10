@@ -13,12 +13,9 @@ const QuotesOverview = ({
 }) => {
   if (quotes?.length) {
     return (
-      <div className="flex flex-col gap-y-8 w-full">
+      <div className="flex flex-col gap-y-2 w-full">
         {quotes.map((quote) => (
-          <div
-            key={quote.id}
-            className="border-b border-gray-200 pb-6 last:pb-0 last:border-none"
-          >
+          <div key={quote.id}>
             <QuoteCard quote={quote} />
           </div>
         ))}
@@ -27,10 +24,7 @@ const QuotesOverview = ({
   }
 
   return (
-    <div
-      className="w-full flex flex-col items-center gap-y-4"
-      data-testid="no-quotes-container"
-    >
+    <div className="w-full flex flex-col items-center gap-y-4">
       <h2 className="text-large-semi">Nothing to see here</h2>
       <p className="text-base-regular">You don&apos;t have any quotes yet</p>
 
