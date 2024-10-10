@@ -4,9 +4,14 @@ import { ArrowUturnLeft } from "@medusajs/icons"
 import Button from "@modules/common/components/button"
 import Thumbnail from "@modules/products/components/thumbnail"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { HttpTypes } from "@medusajs/types"
 
-const Product = ({ variant }: { variant: Record<string, any> }) => {
-  const { thumbnail, product_title, product_handle, item_title } = variant
+const PreviouslyPurchasedProduct = ({
+  variant,
+}: {
+  variant: HttpTypes.StoreOrderLineItem
+}) => {
+  const { thumbnail, product_title, product_handle, title } = variant
 
   return (
     <Container className="flex justify-between items-center">
@@ -16,7 +21,7 @@ const Product = ({ variant }: { variant: Record<string, any> }) => {
         </div>
         <div className="flex flex-col justify-center">
           <Text className="text-lg text-neutral-950">{product_title}</Text>
-          <Text className="text-sm text-neutral-500">{item_title}</Text>
+          <Text className="text-sm text-neutral-500">{title}</Text>
         </div>
       </div>
       <LocalizedClientLink href={`/products/${product_handle}`}>
@@ -29,4 +34,4 @@ const Product = ({ variant }: { variant: Record<string, any> }) => {
   )
 }
 
-export default Product
+export default PreviouslyPurchasedProduct

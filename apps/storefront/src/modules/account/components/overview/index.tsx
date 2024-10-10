@@ -1,8 +1,7 @@
 import { HttpTypes } from "@medusajs/types"
+import { Heading } from "@medusajs/ui"
 import OrderCard from "../order-card"
-import Item from "@modules/order/components/item"
-import { Table } from "@medusajs/ui"
-import PreviouslyPurchased from "../previously-purchased"
+import PreviouslyPurchasedProducts from "../previously-purchased"
 
 type OverviewProps = {
   customer: HttpTypes.StoreCustomer | null
@@ -10,7 +9,7 @@ type OverviewProps = {
   region?: HttpTypes.StoreRegion | null
 }
 
-const Overview = ({ customer, orders, region }: OverviewProps) => {
+const Overview = ({ customer, orders }: OverviewProps) => {
   return (
     <div data-testid="overview-page-wrapper">
       <div className="hidden small:block">
@@ -29,8 +28,8 @@ const Overview = ({ customer, orders, region }: OverviewProps) => {
             </span>
           </span>
         </div>
-        <div className="flex flex-col py-8 border-t border-gray-200">
-          <div className="flex flex-col gap-y-4 h-full col-span-1 row-span-2 flex-1">
+        <div className="flex flex-col gap py-8 border-t border-gray-200">
+          <div className="flex flex-col gap-y-8 h-full col-span-1 row-span-2 flex-1">
             <div className="flex items-start gap-x-16 mb-6">
               <div className="flex flex-col gap-y-4">
                 <h3 className="text-large-semi">Profile</h3>
@@ -67,7 +66,9 @@ const Overview = ({ customer, orders, region }: OverviewProps) => {
 
             <div className="flex flex-col gap-y-4">
               <div className="flex items-center gap-x-2">
-                <h3 className="text-large-semi">Recent orders</h3>
+                <Heading level="h3" className="text-xl text-neutral-950">
+                  Recent orders
+                </Heading>
               </div>
               <div
                 className="flex flex-col gap-y-2"
@@ -85,14 +86,16 @@ const Overview = ({ customer, orders, region }: OverviewProps) => {
 
             <div className="flex flex-col gap-y-4">
               <div className="flex items-center gap-x-2">
-                <h3 className="text-large-semi">Previously purchased items</h3>
+                <Heading level="h3" className="text-xl text-neutral-950">
+                  Previously purchased items
+                </Heading>
               </div>
               <div
                 className="flex flex-col gap-y-2"
                 data-testid="previously-purchased-items-wrapper"
               >
                 {orders && orders.length > 0 ? (
-                  <PreviouslyPurchased orders={orders} />
+                  <PreviouslyPurchasedProducts orders={orders} />
                 ) : (
                   <span data-testid="no-previously-purchased-items-message">
                     No previously purchased items
