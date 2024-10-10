@@ -1,4 +1,5 @@
 import { HttpTypes } from "@medusajs/types"
+import { QueryEmployee } from "@starter/types"
 
 export enum SpendingLimitResetFrequency {
   never = "never",
@@ -21,7 +22,7 @@ export interface Company {
   logo_url: string | null
   currency_code: string | null
   spending_limit_reset_frequency: SpendingLimitResetFrequency
-  employees: Employee[] | []
+  employees: QueryEmployee[] | []
 }
 
 export interface Employee {
@@ -32,6 +33,6 @@ export interface Employee {
 }
 
 export interface Customer extends HttpTypes.StoreCustomer {
-  employee: Employee | null
+  employee: QueryEmployee | null
   orders: HttpTypes.StoreOrder[] | []
 }

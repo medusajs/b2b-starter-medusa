@@ -21,8 +21,6 @@ export default async function ProductPreview({
     regionId: region.id,
   })
 
-  console.log({ variants: pricedProduct?.variants })
-
   if (!pricedProduct) {
     return null
   }
@@ -32,14 +30,12 @@ export default async function ProductPreview({
   })
 
   const inventoryQuantity = pricedProduct.variants?.reduce((acc, variant) => {
-    console.log({ inventory_quantity: variant?.inventory_quantity })
     return acc + (variant?.inventory_quantity || 0)
   }, 0)
 
   const listInventoryQuantity = pricedProduct.variants?.map((variant) => {
     return variant?.inventory_quantity
   })
-  console.log({ listInventoryQuantity })
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">

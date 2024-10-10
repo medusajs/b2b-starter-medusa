@@ -35,7 +35,6 @@ export async function retrieveCart() {
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
     .then(({ cart }) => {
-      console.log("cart", cart)
       return cart as HttpTypes.StoreCart & {
         promotions?: HttpTypes.StorePromotion[]
       }
@@ -168,7 +167,6 @@ export async function addToCartBulk({
     .catch(medusaError)
 
   revalidateTag(getCacheTag("carts"))
-  console.log("revalidated carts")
 }
 
 export async function updateLineItem({
