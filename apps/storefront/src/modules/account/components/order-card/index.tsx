@@ -1,10 +1,10 @@
 import { convertToLocale } from "@lib/util/money"
-import CalendarIcon from "../../../common/icons/calendar"
-import DocumentIcon from "../../../common/icons/document"
 import { HttpTypes } from "@medusajs/types"
 import { Button, Container } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { useMemo } from "react"
+import CalendarIcon from "../../../common/icons/calendar"
+import DocumentIcon from "../../../common/icons/document"
 
 type OrderCardProps = {
   order: HttpTypes.StoreOrder
@@ -23,12 +23,12 @@ const OrderCard = ({ order }: OrderCardProps) => {
   return (
     <Container className="bg-white flex p-4 rounded-md justify-between align-center items-center">
       <div className="flex justify-between align-center items-center gap-4">
-        <div className="flex gap-2">
+        <div className="flex">
           {order.items?.slice(0, 3).map((i) => {
             return (
               <div
                 key={i.id}
-                className="w-5 h-5 bg-cover bg-center bg-neutral-100 rounded-sm"
+                className="w-7 h-7 border-2 border-neutral-200 bg-cover bg-center rounded-md ml-[-5px]"
                 style={{ backgroundImage: `url(${i.thumbnail})` }}
               />
             )
@@ -65,13 +65,13 @@ const OrderCard = ({ order }: OrderCardProps) => {
         </div>
 
         <div className="flex items-center gap-x-2">
-          <Button
+          {/* <Button
             data-testid="card-details-link"
             variant="secondary"
             className="rounded-full text-xs"
           >
             Export to PDF
-          </Button>
+          </Button> */}
           <LocalizedClientLink href={`/account/orders/details/${order.id}`}>
             <Button
               data-testid="card-details-link"

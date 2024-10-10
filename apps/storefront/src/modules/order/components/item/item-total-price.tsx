@@ -20,11 +20,7 @@ const ItemTotalPrice = ({ item, currencyCode }: ItemTotalPriceProps) => {
         {hasReducedPrice && (
           <div>
             <p>
-              <span className="text-ui-fg-subtle">Original: </span>
-              <span
-                className="line-through text-ui-fg-muted"
-                data-testid="product-original-price"
-              >
+              <span className="line-through">
                 {convertToLocale({
                   amount: originalPrice,
                   currency_code: currencyCode,
@@ -41,7 +37,6 @@ const ItemTotalPrice = ({ item, currencyCode }: ItemTotalPriceProps) => {
           className={clx("text-base-regular", {
             "text-ui-fg-interactive": hasReducedPrice,
           })}
-          data-testid="product-price"
         >
           {convertToLocale({
             amount: currentPrice,
