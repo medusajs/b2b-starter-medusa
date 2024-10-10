@@ -1,5 +1,6 @@
 import { Modules } from "@medusajs/framework/utils";
 import { MedusaModule } from "@medusajs/modules-sdk";
+import { QUOTE_MODULE } from "../modules/quote";
 
 MedusaModule.setCustomLink(() => {
   return {
@@ -7,7 +8,7 @@ MedusaModule.setCustomLink(() => {
     isReadOnlyLink: true,
     extends: [
       {
-        serviceName: "quote",
+        serviceName: QUOTE_MODULE,
         relationship: {
           serviceName: Modules.ORDER,
           entity: "Order",
@@ -20,7 +21,7 @@ MedusaModule.setCustomLink(() => {
         },
       },
       {
-        serviceName: "quote",
+        serviceName: QUOTE_MODULE,
         relationship: {
           serviceName: Modules.CART,
           entity: "Cart",
@@ -33,7 +34,7 @@ MedusaModule.setCustomLink(() => {
         },
       },
       {
-        serviceName: "quote",
+        serviceName: QUOTE_MODULE,
         relationship: {
           serviceName: Modules.ORDER,
           entity: "OrderChange",
@@ -46,7 +47,7 @@ MedusaModule.setCustomLink(() => {
         },
       },
       {
-        serviceName: "quote",
+        serviceName: QUOTE_MODULE,
         relationship: {
           serviceName: Modules.USER,
           entity: "User",
@@ -59,7 +60,7 @@ MedusaModule.setCustomLink(() => {
         },
       },
       {
-        serviceName: "quote",
+        serviceName: QUOTE_MODULE,
         relationship: {
           serviceName: Modules.CUSTOMER,
           entity: "Customer",

@@ -1,3 +1,4 @@
+const { QUOTE_MODULE } = require("./src/modules/quote");
 const { loadEnv, defineConfig, Modules } = require("@medusajs/framework/utils");
 
 loadEnv(process.env.NODE_ENV, process.cwd());
@@ -17,7 +18,7 @@ module.exports = defineConfig({
     companyModuleService: {
       resolve: "./modules/company",
     },
-    quote: {
+    [QUOTE_MODULE]: {
       resolve: "./modules/quote",
     },
     [Modules.CACHE]: {

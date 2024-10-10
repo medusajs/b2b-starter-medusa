@@ -1,16 +1,14 @@
 import { getCustomer } from "@lib/data/customer"
 import { listRegions } from "@lib/data/regions"
-import { DocumentText } from "@medusajs/icons"
-import User from "@modules/common/icons/user"
 import { StoreRegion } from "@medusajs/types"
-import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import FilePlus from "@modules/common/icons/file-plus"
 import LogoIcon from "@modules/common/icons/logo"
+import User from "@modules/common/icons/user"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { Suspense } from "react"
-import FilePlus from "@modules/common/icons/file-plus"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
@@ -80,8 +78,8 @@ export async function NavigationHeader() {
   const customer = await getCustomer().catch(() => null)
 
   return (
-    <div className="sticky top-0 inset-x-0 group z-[1]">
-      <header className="relative bg-white text-zinc-900 p-4 text-sm border-b duration-200 border-ui-border-base">
+    <div className="sticky top-0 inset-x-0 group z-[1] bg-white text-zinc-900 p-4 text-sm border-b duration-200 border-ui-border-base">
+      <header className="flex max-w-7xl relative mx-auto ">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
