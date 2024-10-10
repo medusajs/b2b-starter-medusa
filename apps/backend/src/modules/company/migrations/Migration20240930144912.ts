@@ -14,10 +14,6 @@ export class Migration20240930144912 extends Migration {
     );
 
     this.addSql(
-      'create table if not exists "quote" ("id" text not null, "draft_order_id" text not null, "cart_id" text not null, "created_at" timestamptz not null default now(), "updated_at" timestamptz not null default now(), "deleted_at" timestamptz null, "order_change_id" text not null, constraint "quote_pkey" primary key ("id"));'
-    );
-
-    this.addSql(
       'alter table if exists "employee" add constraint "employee_company_id_foreign" foreign key ("company_id") references "company" ("id") on update cascade;'
     );
   }
@@ -30,7 +26,5 @@ export class Migration20240930144912 extends Migration {
     this.addSql('drop table if exists "company" cascade;');
 
     this.addSql('drop table if exists "employee" cascade;');
-
-    this.addSql('drop table if exists "quote" cascade;');
   }
 }

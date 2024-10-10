@@ -15,8 +15,43 @@
           "nullable": false,
           "mappedType": "text"
         },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'pending_merchant'",
+          "enumItems": [
+            "pending_merchant",
+            "pending_customer",
+            "accepted",
+            "customer_rejected",
+            "merchant_rejected"
+          ],
+          "mappedType": "enum"
+        },
+        "customer_id": {
+          "name": "customer_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
         "draft_order_id": {
           "name": "draft_order_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "order_change_id": {
+          "name": "order_change_id",
           "type": "text",
           "unsigned": false,
           "autoincrement": false,
@@ -64,41 +99,6 @@
           "nullable": true,
           "length": 6,
           "mappedType": "datetime"
-        },
-        "status": {
-          "name": "status",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "default": "'pending_merchant'",
-          "enumItems": [
-            "pending_merchant",
-            "pending_customer",
-            "accepted",
-            "customer_rejected",
-            "merchant_rejected"
-          ],
-          "mappedType": "enum"
-        },
-        "customer_id": {
-          "name": "customer_id",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "text"
-        },
-        "order_change_id": {
-          "name": "order_change_id",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "mappedType": "text"
         }
       },
       "name": "quote",
