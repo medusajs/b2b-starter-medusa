@@ -37,7 +37,7 @@ export const POST = async (
   res: MedusaResponse
 ) => {
   const { id, employeeId } = req.params;
-  const { spending_limit, is_admin } = req.body;
+  const { spending_limit, is_admin } = req.validatedBody;
 
   const { result } = await updateEmployeesWorkflow.run({
     input: {

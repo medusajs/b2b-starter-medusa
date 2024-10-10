@@ -22,7 +22,6 @@ export const CreateEmployee = z
 export type UpdateEmployeeType = z.infer<typeof UpdateEmployee>;
 export const UpdateEmployee = z
   .object({
-    id: z.string(),
     spending_limit: z.number().optional(),
     raw_spending_limit: z
       .object({

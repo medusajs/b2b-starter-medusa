@@ -1,6 +1,7 @@
 import { FindParams, PaginatedResponse } from "@medusajs/types";
 import { QueryCompany, QueryEmployee } from "./query";
 import { ModuleCompanyFilters, ModuleEmployeeFilters } from "./service";
+import { ModuleCompanySpendingLimitResetFrequency } from "./module";
 
 /* Filters */
 
@@ -92,6 +93,7 @@ export type StoreUpdateCompany = {
   country: string | null;
   logo_url: string | null;
   currency_code: string;
+  spending_limit_reset_frequency?: ModuleCompanySpendingLimitResetFrequency;
 };
 
 /* Employee */

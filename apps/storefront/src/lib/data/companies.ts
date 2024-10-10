@@ -1,3 +1,5 @@
+"use server"
+
 import { sdk } from "@lib/config"
 import { getAuthHeaders, getCacheHeaders, getCacheTag } from "@lib/data/cookies"
 import {
@@ -32,7 +34,7 @@ export const createCompany = async (data: StoreCreateCompany) => {
     `/store/companies`,
     {
       method: "POST",
-      body: JSON.stringify(data),
+      body: data,
       headers: getAuthHeaders(),
     }
   )
@@ -43,11 +45,12 @@ export const createCompany = async (data: StoreCreateCompany) => {
 }
 
 export const updateCompany = async (data: StoreUpdateCompany) => {
+  const { id, ...companyData } = data
   const company = await sdk.client.fetch<StoreCompanyResponse>(
-    `/store/companies/${data.id}`,
+    `/store/companies/${id}`,
     {
-      method: "PUT",
-      body: JSON.stringify(data),
+      method: "POST",
+      body: companyData,
       headers: getAuthHeaders(),
     }
   )
@@ -62,7 +65,7 @@ export const createEmployee = async (data: StoreCreateEmployee) => {
     `/store/companies/${data.company_id}/employees`,
     {
       method: "POST",
-      body: JSON.stringify(data),
+      body: data,
       headers: getAuthHeaders(),
     }
   )
@@ -73,11 +76,12 @@ export const createEmployee = async (data: StoreCreateEmployee) => {
 }
 
 export const updateEmployee = async (data: StoreUpdateEmployee) => {
+  const { id, company_id, ...employeeData } = data
   const employee = await sdk.client.fetch<StoreEmployeeResponse>(
-    `/store/companies/${data.company_id}/employees/${data.id}`,
+    `/store/companies/${company_id}/employees/${id}`,
     {
-      method: "PUT",
-      body: JSON.stringify(data),
+      method: "POST",
+      body: employeeData,
       headers: getAuthHeaders(),
     }
   )
