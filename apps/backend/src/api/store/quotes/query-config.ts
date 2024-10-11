@@ -1,9 +1,12 @@
 export const quoteFields = [
   "id",
   "status",
-  "messages.*",
-  "messages.admin.*",
-  "messages.customer.*",
+  "*customer",
+  "*customer.employee",
+  "*customer.employee.company",
+  "*messages",
+  "*messages.admin",
+  "*messages.customer",
   "cart.id",
   "draft_order.id",
   "draft_order.currency_code",
@@ -41,7 +44,7 @@ export const quoteFields = [
   "*draft_order.items.variant.product",
   "*draft_order.items.detail",
   "*draft_order.payment_collections",
-  "order_change.actions.*",
+  "*order_change.actions",
 ];
 
 export const retrieveQuoteTransformQueryConfig = {

@@ -1,10 +1,12 @@
 "use client"
 
 import { acceptQuote, rejectQuote } from "@lib/data/quotes"
-import { CheckCircleSolid } from "@medusajs/icons"
+import { ArrowUturnLeft, CheckCircleSolid } from "@medusajs/icons"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
-import { Button, Container, Heading, Text, toast } from "@medusajs/ui"
+import { Container, Heading, Text, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
+import Button from "@modules/common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { PromptModal } from "@modules/common/components/prompt-modal"
 import { StoreQuoteResponse } from "@starter/types"
 import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
@@ -30,116 +32,175 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
       order.items?.map((item: AdminOrderLineItem) => [item.id, item])
     )
   }, [order])
-
+  console.log("quote - ", quote)
   const router = useRouter()
   const [isAccepting, setIsAccepting] = useState(false)
   const [isRejecting, setIsRejecting] = useState(false)
 
   return (
-    <div className="flex flex-col gap-y-8 p-0">
-      <div className="flex gap-3">
-        <Heading className="text-2xl inline">Quote</Heading>
-
-        <div className="inline self-center">
-          <QuoteStatusBadge status={quote.status} />
-        </div>
+    <div className="flex flex-col gap-y-2 p-0">
+      <div className="flex gap-2 justify-between items-center mb-2">
+        <LocalizedClientLink
+          href="/account/quotes"
+          className="flex gap-2 items-center text-ui-fg-subtle hover:text-ui-fg-base"
+          data-testid="back-to-overview-button"
+        >
+          <Button variant="secondary">
+            <ArrowUturnLeft /> Back
+          </Button>
+        </LocalizedClientLink>
       </div>
 
-      {quote.status === "accepted" && (
-        <Container className="p-0">
-          <div className="flex items-center justify-between px-6 py-4">
-            <Text className="txt-compact-small">
-              <CheckCircleSolid className="inline-block mr-2 text-green-500 text-lg" />
-              Quote accepted by customer. Order is ready for processing.
-            </Text>
+      <div className="grid grid-cols-6 gap-4">
+        <div className="col-span-4 flex flex-col gap-y-2">
+          {quote.status === "accepted" && (
+            <Container className="p-0">
+              <div className="flex items-center justify-between px-6 py-4">
+                <Text className="txt-compact-small">
+                  <CheckCircleSolid className="inline-block mr-2 text-green-500 text-lg" />
+                  Quote accepted by customer. Order is ready for processing.
+                </Text>
 
-            <Button
-              size="small"
-              onClick={() =>
-                router.push(
-                  `/${countryCode}/account/orders/details/${quote.draft_order_id}`
-                )
-              }
-            >
-              View Order
-            </Button>
-          </div>
-        </Container>
-      )}
+                <Button
+                  size="small"
+                  onClick={() =>
+                    router.push(
+                      `/${countryCode}/account/orders/details/${quote.draft_order_id}`
+                    )
+                  }
+                >
+                  View Order
+                </Button>
+              </div>
+            </Container>
+          )}
 
-      <Container className="divide-y divide-dashed p-0">
-        {preview.items?.map((item) => (
-          <QuoteTableItem
-            key={item.id}
-            item={item}
-            originalItem={originalItemsMap.get(item.id)}
-            currencyCode={order.currency_code}
-          />
-        ))}
+          {preview.items?.map((item) => (
+            <Container key={item.id}>
+              <QuoteTableItem
+                key={item.id}
+                item={item}
+                originalItem={originalItemsMap.get(item.id)}
+                currencyCode={order.currency_code}
+              />
+            </Container>
+          ))}
 
-        {/*TOTALS SECTION*/}
-        <div className="py-4">
-          <div className="flex items-center justify-between mb-2 px-6">
-            <span className="txt-small text-ui-fg-subtle font-semibold">
-              Current Total
-            </span>
+          <Container className="p-0">
+            <div className="py-4">
+              <div className="flex items-center justify-between mb-2 px-6">
+                <span className="txt-small text-ui-fg-subtle font-semibold">
+                  Current Total
+                </span>
 
-            <span className="txt-small text-ui-fg-subtle">
-              {formatAmount(order.total, order.currency_code)}
-            </span>
-          </div>
+                <span className="txt-small text-ui-fg-subtle">
+                  {formatAmount(order.total, order.currency_code)}
+                </span>
+              </div>
 
-          <div className="flex items-center justify-between px-6">
-            <span className="txt-small text-ui-fg-subtle font-semibold">
-              New Total
-            </span>
+              <div className="flex items-center justify-between px-6">
+                <span className="txt-small text-ui-fg-subtle font-semibold">
+                  New Total
+                </span>
 
-            <span className="txt-small text-ui-fg-subtle">
-              {formatAmount(preview.total, order.currency_code)}
-            </span>
-          </div>
+                <span className="txt-small text-ui-fg-subtle">
+                  {formatAmount(preview.total, order.currency_code)}
+                </span>
+              </div>
+            </div>
+          </Container>
+
+          {quote.status === "pending_customer" && (
+            <div className="flex gap-x-3 justify-end my-4">
+              <PromptModal
+                title="Reject Quote?"
+                description="Are you sure you want to reject quote? This action is irreversible."
+                handleAction={() => {
+                  setIsRejecting(true)
+
+                  rejectQuote(quote.id)
+                    .catch((e) => toast.error(e.message))
+                    .finally(() => setIsRejecting(false))
+                }}
+                isLoading={isRejecting}
+              >
+                <Button size="small" variant="secondary">
+                  Reject Quote
+                </Button>
+              </PromptModal>
+
+              <PromptModal
+                title="Accept Quote?"
+                description="Are you sure you want to accept quote? This action is irreversible."
+                handleAction={() => {
+                  setIsAccepting(true)
+
+                  acceptQuote(quote.id)
+                    .catch((e) => toast.error(e.message))
+                    .finally(() => setIsAccepting(false))
+                }}
+                isLoading={isAccepting}
+              >
+                <Button size="small" variant="primary">
+                  Accept Quote
+                </Button>
+              </PromptModal>
+            </div>
+          )}
+
+          <QuoteMessages quote={quote} preview={preview} />
         </div>
-      </Container>
 
-      {quote.status === "pending_customer" && (
-        <div className="flex gap-x-3 justify-end">
-          <PromptModal
-            title="Reject Quote?"
-            description="Are you sure you want to reject quote? This action is irreversible."
-            handleAction={() => {
-              setIsRejecting(true)
+        <div className="col-span-2 flex flex-col gap-y-2">
+          <Container className="flex gap-x-3 justify-between">
+            <div className="text-sm">
+              <span className="font-semibold text-ui-fg-subtle">Quote ID:</span>{" "}
+              #<span>{quote.draft_order.display_id}</span>
+            </div>
 
-              rejectQuote(quote.id)
-                .catch((e) => toast.error(e.message))
-                .finally(() => setIsRejecting(false))
-            }}
-            isLoading={isRejecting}
-          >
-            <Button size="small" variant="secondary">
-              Reject Quote
-            </Button>
-          </PromptModal>
+            <QuoteStatusBadge status={quote.status} />
+          </Container>
 
-          <PromptModal
-            title="Accept Quote?"
-            description="Are you sure you want to accept quote? This action is irreversible."
-            handleAction={() => {
-              setIsAccepting(true)
+          <Container>
+            <Heading level="h3" className="mb-2">
+              Customer
+            </Heading>
 
-              acceptQuote(quote.id)
-                .catch((e) => toast.error(e.message))
-                .finally(() => setIsAccepting(false))
-            }}
-            isLoading={isAccepting}
-          >
-            <Button size="small" variant="primary">
-              Accept Quote
-            </Button>
-          </PromptModal>
+            <div className="text-sm text-ui-fg-subtle">
+              <div className="flex justify-between">
+                <Text>Email</Text>
+                <Text>{quote.customer?.email || "-"}</Text>
+              </div>
+
+              <div className="flex justify-between">
+                <Text>Phone</Text>
+                <Text>{quote.customer?.phone || "-"}</Text>
+              </div>
+
+              <div className="flex justify-between">
+                <Text>Spend Limit</Text>
+                <Text>
+                  {order.currency_code.toUpperCase()}{" "}
+                  {quote.customer?.employee?.spending_limit || "-"}
+                </Text>
+              </div>
+            </div>
+          </Container>
+
+          <Container>
+            <Heading level="h3" className="mb-2">
+              Company
+            </Heading>
+
+            <div className="text-sm text-ui-fg-subtle">
+              <div className="flex justify-between">
+                <Text>Name</Text>
+                <Text>{quote.customer?.employee?.company?.name || "-"}</Text>
+              </div>
+            </div>
+          </Container>
         </div>
-      )}
-
-      <QuoteMessages quote={quote} preview={preview} />
+      </div>
     </div>
   )
 }
