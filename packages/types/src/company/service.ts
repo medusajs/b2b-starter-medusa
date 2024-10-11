@@ -50,6 +50,8 @@ export interface ICompanyModuleService extends IModuleService {
 
   deleteCompanies(ids: string[], sharedContext?: Context): Promise<void>;
 
+  softDeleteCompanies(ids: string[], sharedContext?: Context): Promise<void>;
+
   /* Entity: Employees */
 
   createEmployees(
@@ -63,4 +65,8 @@ export interface ICompanyModuleService extends IModuleService {
   ): Promise<ModuleEmployee>;
 
   deleteEmployees(ids: string[], sharedContext?: Context): Promise<void>;
+
+  softDeleteEmployees(ids: string[], sharedContext?: Context): Promise<void>;
+
+  restoreEmployees(ids: string[], sharedContext?: Context): Promise<void>;
 }

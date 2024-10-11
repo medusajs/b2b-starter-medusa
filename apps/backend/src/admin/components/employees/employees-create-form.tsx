@@ -14,6 +14,11 @@ import {
   UpdateEmployeeDTO,
 } from "src/modules/company/types/mutations";
 import { CoolSwitch } from "../common";
+import {
+  AdminCreateEmployee,
+  ModuleCreateEmployee,
+  StoreCreateEmployee,
+} from "@starter/types";
 
 export function EmployeesCreateForm({
   handleSubmit,
@@ -21,16 +26,19 @@ export function EmployeesCreateForm({
   error,
   company,
 }: {
-  handleSubmit: (data: CreateEmployeeDTO | UpdateEmployeeDTO) => Promise<void>;
+  handleSubmit: (data: AdminCreateEmployee) => Promise<void>;
   loading: boolean;
   error: Error | null;
   company: CompanyDTO;
 }) {
   const [formData, setFormData] = useState<
-    Partial<CreateEmployeeDTO> & { company_id: string }
+    Omit<AdminCreateEmployee, "spending_limit"> & {
+      spending_limit: string;
+    }
   >({
     company_id: company.id,
-    company_name: company.name,
+    is_admin: false,
+    spending_limit: "0",
   });
 
   const handleChange = (
@@ -48,16 +56,12 @@ export function EmployeesCreateForm({
     e.preventDefault();
 
     const spendingLimit = formData.spending_limit
-      ? formData.spending_limit * 100
-      : undefined;
+      ? parseInt(formData.spending_limit) * 100
+      : 0;
 
     const data = {
       ...formData,
       spending_limit: spendingLimit,
-      raw_spending_limit: {
-        value: spendingLimit,
-        precision: 20,
-      },
     };
 
     handleSubmit(data);
@@ -75,7 +79,6 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="first_name"
-              value={formData.customer?.first_name || undefined}
               onChange={handleChange}
               placeholder="John"
             />
@@ -87,7 +90,6 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="last_name"
-              value={formData.customer?.last_name || undefined}
               onChange={handleChange}
               placeholder="Doe"
             />
@@ -99,7 +101,6 @@ export function EmployeesCreateForm({
             <Input
               type="email"
               name="email"
-              value={formData.customer?.email || undefined}
               onChange={handleChange}
               placeholder="john.doe@example.com"
             />
@@ -111,7 +112,6 @@ export function EmployeesCreateForm({
             <Input
               type="text"
               name="phone"
-              value={formData.customer?.phone || undefined}
               onChange={handleChange}
               placeholder="0612345678"
             />
@@ -132,7 +132,7 @@ export function EmployeesCreateForm({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  spending_limit: parseInt(e.target.value) || 0,
+                  spending_limit: e.target.value.replace(/[^0-9]/g, ""),
                 })
               }
               placeholder="1000"

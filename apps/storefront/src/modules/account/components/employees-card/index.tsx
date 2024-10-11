@@ -1,21 +1,24 @@
 import { Container } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import { StoreCompanyResponse } from "@starter/types"
+import { QueryCompany } from "@starter/types"
 import EmployeeWrapper from "./employee-wrapper"
+import { getCustomer } from "@lib/data/customer"
 
-const EmployeesCard = ({ company }: StoreCompanyResponse) => {
+const EmployeesCard = async ({ company }: { company: QueryCompany }) => {
   const { employees } = company
+  const customer = await getCustomer()
 
   return (
     <Container className="p-0 overflow-hidden">
       <div className="flex flex-col">
-        {employees.map((employee) => (
-          <EmployeeWrapper
-            key={employee.id}
-            employee={employee}
-            company={company}
-          />
-        ))}
+        {employees
+          .sort((a) => (a.customer.email === customer?.email ? -1 : 1))
+          .map((employee) => (
+            <EmployeeWrapper
+              key={employee.id}
+              employee={employee}
+              company={company}
+            />
+          ))}
       </div>
     </Container>
   )

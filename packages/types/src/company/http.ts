@@ -46,7 +46,6 @@ export type AdminEmployeesResponse = PaginatedResponse<{
 }>;
 
 export type AdminCreateEmployee = {
-  customer_id: string;
   spending_limit: number;
   is_admin: boolean;
   company_id: string;
@@ -107,7 +106,6 @@ export type StoreEmployeesResponse = PaginatedResponse<{
 }>;
 
 export type StoreCreateEmployee = {
-  customer_id: string;
   spending_limit: number;
   is_admin: boolean;
   company_id: string;

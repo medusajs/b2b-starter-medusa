@@ -3,12 +3,12 @@
 import { sdk } from "@lib/config"
 import { getAuthHeaders, getCacheHeaders, getCacheTag } from "@lib/data/cookies"
 import {
-  StoreCreateEmployee,
   StoreCompanyResponse,
   StoreCreateCompany,
+  StoreCreateEmployee,
+  StoreEmployeeResponse,
   StoreUpdateCompany,
   StoreUpdateEmployee,
-  StoreEmployeeResponse,
 } from "@starter/types"
 import { revalidateTag } from "next/cache"
 
@@ -24,8 +24,6 @@ export const retrieveCompany = async (companyId: string) => {
     }
   )
 
-  console.log("company", company)
-
   return company
 }
 
@@ -35,7 +33,9 @@ export const createCompany = async (data: StoreCreateCompany) => {
     {
       method: "POST",
       body: data,
-      headers: getAuthHeaders(),
+      headers: {
+        ...getAuthHeaders(),
+      },
     }
   )
 
@@ -51,7 +51,9 @@ export const updateCompany = async (data: StoreUpdateCompany) => {
     {
       method: "POST",
       body: companyData,
-      headers: getAuthHeaders(),
+      headers: {
+        ...getAuthHeaders(),
+      },
     }
   )
 
@@ -66,7 +68,9 @@ export const createEmployee = async (data: StoreCreateEmployee) => {
     {
       method: "POST",
       body: data,
-      headers: getAuthHeaders(),
+      headers: {
+        ...getAuthHeaders(),
+      },
     }
   )
 
@@ -82,7 +86,9 @@ export const updateEmployee = async (data: StoreUpdateEmployee) => {
     {
       method: "POST",
       body: employeeData,
-      headers: getAuthHeaders(),
+      headers: {
+        ...getAuthHeaders(),
+      },
     }
   )
 
@@ -92,15 +98,15 @@ export const updateEmployee = async (data: StoreUpdateEmployee) => {
 }
 
 export const deleteEmployee = async (companyId: string, employeeId: string) => {
-  const response = await sdk.client.fetch<StoreEmployeeResponse>(
+  await sdk.client.fetch(
     `/store/companies/${companyId}/employees/${employeeId}`,
     {
       method: "DELETE",
-      headers: getAuthHeaders(),
+      headers: {
+        ...getAuthHeaders(),
+      },
     }
   )
 
   revalidateTag(getCacheTag("companies"))
-
-  return response
 }

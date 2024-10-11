@@ -24,7 +24,7 @@ export const EmployeesActionsMenu = ({
 
   const handleDelete = async () => {
     await mutateDelete();
-    toast.success(`Employee ${employee.customer.email} deleted successfully`);
+    toast.success(`Employee deleted successfully`);
     refetch();
   };
 

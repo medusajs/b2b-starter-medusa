@@ -2,7 +2,7 @@
 
 import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
-import { Container, Text } from "@medusajs/ui"
+import { Container, Text, Toaster, toast } from "@medusajs/ui"
 import { QueryCompany } from "@starter/types"
 
 const InviteEmployeeCard = ({ company }: { company: QueryCompany }) => {
@@ -22,8 +22,11 @@ const InviteEmployeeCard = ({ company }: { company: QueryCompany }) => {
         </div>
       </div>
       <div className="flex items-center justify-end gap-2 bg-neutral-50 p-4">
-        <Button variant="primary">Send Invite</Button>
+        <Button variant="primary" onClick={() => toast.info("Not implemented")}>
+          Send Invite
+        </Button>
       </div>
+      <Toaster />
     </Container>
   )
 }

@@ -1,13 +1,13 @@
 "use client"
 
 import { currencySymbolMap } from "@lib/constants"
-import { updateEmployee } from "@lib/data/companies"
+import { deleteEmployee, updateEmployee } from "@lib/data/companies"
 import {
   getOrderTotalInSpendWindow,
   getSpendWindow,
 } from "@lib/util/check-spending-limit"
 import { HttpTypes } from "@medusajs/types"
-import { CurrencyInput, Text, Toaster, toast } from "@medusajs/ui"
+import { CurrencyInput, Prompt, Text, Toaster, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
 import Button from "@modules/common/components/button"
 import NativeSelect from "@modules/common/components/native-select"
@@ -18,14 +18,59 @@ import {
 } from "@starter/types"
 import { useState } from "react"
 
+const RemoveEmployeePrompt = ({ employee }: { employee: QueryEmployee }) => {
+  const [isRemoving, setIsRemoving] = useState(false)
+
+  const handleRemove = async () => {
+    setIsRemoving(true)
+    await deleteEmployee(employee.company_id, employee.id).catch(() => {
+      toast.error("Error deleting employee")
+    })
+    setIsRemoving(false)
+
+    toast.success("Employee deleted")
+  }
+
+  return (
+    <Prompt variant="danger">
+      <Prompt.Trigger asChild>
+        <Button variant="transparent">Remove</Button>
+      </Prompt.Trigger>
+      <Prompt.Content>
+        <Prompt.Header>
+          <Prompt.Title>Remove Employee</Prompt.Title>
+          <Prompt.Description>
+            Are you sure you want to remove{" "}
+            <strong>{employee.customer.email}</strong> from your team? They will
+            no longer be able to purchase on behalf of your company.
+          </Prompt.Description>
+        </Prompt.Header>
+        <Prompt.Footer>
+          <Prompt.Cancel className="h-10 rounded-full shadow-borders-base">
+            Cancel
+          </Prompt.Cancel>
+          <Prompt.Action
+            className="h-10 px-4 rounded-full shadow-none"
+            onClick={handleRemove}
+          >
+            Remove
+          </Prompt.Action>
+        </Prompt.Footer>
+      </Prompt.Content>
+    </Prompt>
+  )
+}
+
 const Employee = ({
   employee,
   company,
   orders,
+  customer,
 }: {
   employee: QueryEmployee
   company: QueryCompany
   orders: HttpTypes.StoreOrder[]
+  customer: HttpTypes.StoreCustomer | null
 }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
@@ -35,6 +80,8 @@ const Employee = ({
     spending_limit: (employee.spending_limit / 100).toString(),
     is_admin: employee.is_admin,
   })
+
+  const isCurrentUser = employee.customer.id === customer?.id
 
   const handleSubmit = async () => {
     const updateData = {
@@ -62,8 +109,12 @@ const Employee = ({
         <div className="flex flex-col">
           <Text className=" text-neutral-950 font-medium">
             {employee.customer.first_name} {employee.customer.last_name}{" "}
+            {isCurrentUser && "(You)"}{" "}
             {employee.is_admin && (
-              <span className="text-blue-500">(Admin)</span>
+              <>
+                {" • "}
+                <span className="text-blue-500">Admin</span>
+              </>
             )}
           </Text>
           <div className="flex gap-x-2">
@@ -100,7 +151,7 @@ const Employee = ({
             </>
           ) : (
             <>
-              <Button variant="secondary">Remove</Button>
+              {!isCurrentUser && <RemoveEmployeePrompt employee={employee} />}
               <Button
                 variant="secondary"
                 onClick={() => setIsEditing((prev) => !prev)}
