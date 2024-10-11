@@ -1,9 +1,10 @@
+import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, toast } from "@medusajs/ui";
+import { AdminCreateEmployee } from "@starter/types";
 import { useState } from "react";
-import { CreateEmployeeDTO } from "src/modules/company/types/mutations";
-import { useCreateEmployee, useAdminCreateCustomer } from "../../hooks";
-import { EmployeesCreateForm } from "./employees-create-form";
 import { CompanyDTO } from "src/modules/company/types/common";
+import { useAdminCreateCustomer, useCreateEmployee } from "../../hooks";
+import { EmployeesCreateForm } from "./employees-create-form";
 
 export function EmployeeCreateDrawer({
   company,
@@ -26,7 +27,9 @@ export function EmployeeCreateDrawer({
     error: createCustomerError,
   } = useAdminCreateCustomer();
 
-  const handleSubmit = async (formData: CreateEmployeeDTO) => {
+  const handleSubmit = async (
+    formData: AdminCreateEmployee & HttpTypes.AdminCreateCustomer
+  ) => {
     const customer = await createCustomer({
       email: formData.email!,
       first_name: formData.first_name!,

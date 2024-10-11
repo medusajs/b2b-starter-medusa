@@ -1,10 +1,9 @@
-import { addToCart } from "@lib/data/cart"
-import { Container, Text } from "@medusajs/ui"
 import { ArrowUturnLeft } from "@medusajs/icons"
-import Button from "@modules/common/components/button"
-import Thumbnail from "@modules/products/components/thumbnail"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+import { Container, Text } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Thumbnail from "@modules/products/components/thumbnail"
 
 const PreviouslyPurchasedProduct = ({
   variant,

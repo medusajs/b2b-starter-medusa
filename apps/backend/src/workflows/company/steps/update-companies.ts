@@ -11,8 +11,6 @@ export const updateCompaniesStep = createStep(
   ): Promise<StepResponse<CompanyDTO | CompanyDTO[], CompanyDTO[]>> => {
     const companyModuleService = container.resolve(COMPANY_MODULE);
 
-    console.log("input", input);
-
     const ids = Array.isArray(input)
       ? input.map((company) => company.id)
       : [input.id];
