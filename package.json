@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "build-packages": "turbo run build --filter ./packages/*",
     "start": "turbo run start",
     "lint": "turbo run lint"
   },

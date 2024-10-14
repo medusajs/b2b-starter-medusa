@@ -4,8 +4,8 @@ import { HttpTypes } from "@medusajs/types"
 import { Text, clx } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
-import PreviewPrice from "./price"
 import PreviewAddToCart from "./preview-add-to-cart"
+import PreviewPrice from "./price"
 
 export default async function ProductPreview({
   product,
@@ -21,8 +21,6 @@ export default async function ProductPreview({
     regionId: region.id,
   })
 
-  console.log({ variants: pricedProduct?.variants })
-
   if (!pricedProduct) {
     return null
   }
@@ -32,14 +30,8 @@ export default async function ProductPreview({
   })
 
   const inventoryQuantity = pricedProduct.variants?.reduce((acc, variant) => {
-    console.log({ inventory_quantity: variant?.inventory_quantity })
     return acc + (variant?.inventory_quantity || 0)
   }, 0)
-
-  const listInventoryQuantity = pricedProduct.variants?.map((variant) => {
-    return variant?.inventory_quantity
-  })
-  console.log({ listInventoryQuantity })
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">

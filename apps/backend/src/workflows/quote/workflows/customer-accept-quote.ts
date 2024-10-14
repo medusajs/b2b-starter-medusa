@@ -5,6 +5,7 @@ import {
 import { OrderStatus } from "@medusajs/framework/utils";
 import { createWorkflow } from "@medusajs/workflows-sdk";
 import { updateOrderWorkflow } from "../../order/workflows/update-order";
+import { validateQuoteAcceptanceStep } from "../steps/validate-quote-acceptance";
 import { updateQuotesWorkflow } from "./update-quote";
 
 /*
@@ -18,11 +19,13 @@ export const customerAcceptQuoteWorkflow = createWorkflow(
   function (input: { quote_id: string; customer_id: string }) {
     const quote = useRemoteQueryStep({
       entry_point: "quote",
-      fields: ["id", "draft_order_id"],
+      fields: ["id", "draft_order_id", "status"],
       variables: { id: input.quote_id },
       list: false,
       throw_if_key_not_found: true,
     });
+
+    validateQuoteAcceptanceStep({ quote });
 
     updateQuotesWorkflow.runAsStep({
       input: [{ id: input.quote_id, status: "accepted" }],

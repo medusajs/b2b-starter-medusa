@@ -213,10 +213,12 @@ medusaIntegrationTestRunner({
       });
 
       it("successfully accepts a quote", async () => {
+        await api.post(`/admin/quotes/${quote1.id}/send`, {}, adminHeaders);
+
         const {
           data: { quote },
         } = await api.post(
-          `/store/quotes/${quote1.id}/accept`,
+          `/store/quotes/${quote1.id}/accept?fields=+draft_order.is_draft_order,+draft_order.status`,
           {},
           storeHeaders
         );
@@ -226,8 +228,8 @@ medusaIntegrationTestRunner({
             id: quote1.id,
             draft_order: expect.objectContaining({
               id: quote1.draft_order_id,
-              version: 1,
-              status: "completed",
+              status: "pending",
+              is_draft_order: false,
               summary: expect.objectContaining({
                 pending_difference: 100,
               }),
@@ -239,6 +241,21 @@ medusaIntegrationTestRunner({
             }),
           })
         );
+      });
+
+      it("should throw an error when quote is already accepted", async () => {
+        await api.post(`/admin/quotes/${quote1.id}/send`, {}, adminHeaders);
+
+        await api.post(`/store/quotes/${quote1.id}/accept`, {}, storeHeaders);
+
+        const { response } = await api
+          .post(`/store/quotes/${quote1.id}/accept`, {}, storeHeaders)
+          .catch((e) => e);
+
+        expect(response.data).toEqual({
+          type: "invalid_data",
+          message: "Cannot accept quote when quote status is accepted",
+        });
       });
     });
 
@@ -254,10 +271,12 @@ medusaIntegrationTestRunner({
       });
 
       it("successfully rejects a quote", async () => {
+        await api.post(`/admin/quotes/${quote1.id}/send`, {}, adminHeaders);
+
         const {
           data: { quote },
         } = await api.post(
-          `/store/quotes/${quote1.id}/reject`,
+          `/store/quotes/${quote1.id}/reject?fields=+draft_order.status`,
           {},
           storeHeaders
         );
@@ -265,11 +284,7 @@ medusaIntegrationTestRunner({
         expect(quote).toEqual(
           expect.objectContaining({
             id: quote1.id,
-            draft_order: expect.objectContaining({
-              id: quote1.draft_order_id,
-              version: 1,
-              status: "canceled",
-            }),
+            status: "customer_rejected",
           })
         );
       });
