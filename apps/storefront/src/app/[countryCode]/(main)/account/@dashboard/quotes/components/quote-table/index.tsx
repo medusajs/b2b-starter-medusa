@@ -22,7 +22,7 @@ export const QuoteTableItem = ({
     () => !!item.actions?.find((a) => a.action === "ITEM_UPDATE"),
     [item]
   )
-  console.log("isItemUpdated -- ", isItemUpdated)
+
   const isItemRemoved = useMemo(() => {
     const updateAction = item.actions?.find((a) => a.action === "ITEM_UPDATE")
 

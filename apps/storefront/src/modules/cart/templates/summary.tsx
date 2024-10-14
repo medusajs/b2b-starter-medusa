@@ -9,6 +9,7 @@ import Button from "@modules/common/components/button"
 import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
+import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { useState } from "react"
 import CartToCsvButton from "../components/cart-to-csv-button"
 
@@ -22,9 +23,6 @@ type SummaryProps = {
 
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
   const [isEmptyingCart, setIsEmptyingCart] = useState(false)
-  const [isExportingCart, setIsExportingCart] = useState(false)
-  const [csvError, setCsvError] = useState(false)
-
   const checkoutStep = getCheckoutStep(cart)
   const checkoutPath = checkoutStep
     ? `/checkout?step=${checkoutStep}`
@@ -71,14 +69,26 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
             : "Log in to Checkout"}
         </Button>
       </LocalizedClientLink>
-      <RequestQuoteConfirmation>
-        <Button
-          className="w-full h-10 rounded-full shadow-borders-base"
-          variant="secondary"
-        >
-          Request Quote
-        </Button>
-      </RequestQuoteConfirmation>
+      {!!customer && (
+        <RequestQuoteConfirmation>
+          <Button
+            className="w-full h-10 rounded-full shadow-borders-base"
+            variant="secondary"
+          >
+            Request Quote
+          </Button>
+        </RequestQuoteConfirmation>
+      )}
+      {!customer && (
+        <RequestQuotePrompt>
+          <Button
+            className="w-full h-10 rounded-full shadow-borders-base"
+            variant="secondary"
+          >
+            Request Quote
+          </Button>
+        </RequestQuotePrompt>
+      )}
       <CartToCsvButton cart={cart} />
       <Button
         onClick={handleEmptyCart}

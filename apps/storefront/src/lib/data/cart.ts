@@ -5,7 +5,7 @@ import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
-import { redirect, RedirectType } from "next/navigation"
+import { redirect } from "next/navigation"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -14,9 +14,9 @@ import {
   removeCartId,
   setCartId,
 } from "./cookies"
+import { getCustomer } from "./customer"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
-import { getCustomer } from "./customer"
 
 export async function retrieveCart() {
   const cartId = getCartId()

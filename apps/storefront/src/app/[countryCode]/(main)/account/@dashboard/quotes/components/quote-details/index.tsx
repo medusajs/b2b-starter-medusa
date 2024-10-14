@@ -32,7 +32,6 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
       order.items?.map((item: AdminOrderLineItem) => [item.id, item])
     )
   }, [order])
-  console.log("quote - ", quote)
   const router = useRouter()
   const [isAccepting, setIsAccepting] = useState(false)
   const [isRejecting, setIsRejecting] = useState(false)

@@ -8,7 +8,6 @@ type ItemUnitPriceProps = {
 
 const ItemUnitPrice = ({ item, style = "default" }: ItemUnitPriceProps) => {
   const hasReducedPrice = !!item.compare_at_unit_price
-  console.log("item -- ", item)
   return (
     <div className="flex flex-col text-ui-fg-muted justify-center h-full">
       {hasReducedPrice && (
