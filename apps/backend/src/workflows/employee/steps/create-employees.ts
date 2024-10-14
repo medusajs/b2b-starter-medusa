@@ -1,27 +1,28 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import {
+  ICompanyModuleService,
+  ModuleCreateEmployee,
+  ModuleEmployee,
+} from "@starter/types";
 import { COMPANY_MODULE } from "../../../modules/company";
-import { EmployeeDTO } from "../../../modules/company/types/common";
-import { CreateEmployeeDTO } from "../../../modules/company/types/mutations";
 
 export const createEmployeesStep = createStep(
   "create-employees",
   async (
-    input: CreateEmployeeDTO | CreateEmployeeDTO[],
+    input: ModuleCreateEmployee,
     { container }
-  ): Promise<StepResponse<EmployeeDTO[], string[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
-    const employees = await companyModuleService.createEmployees(
-      Array.isArray(input) ? input : [input]
-    );
+  ): Promise<StepResponse<ModuleEmployee, string>> => {
+    const companyModuleService =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
-    return new StepResponse(
-      employees,
-      employees.map((employee) => employee.id)
-    );
+    const employee = await companyModuleService.createEmployees(input);
+
+    return new StepResponse(employee, employee.id);
   },
-  async (companyIds: string[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
-    await companyModuleService.deleteEmployees(companyIds);
-    return new StepResponse("Company deleted", companyIds);
+  async (employeeId: string, { container }) => {
+    const companyModuleService =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+    await companyModuleService.deleteEmployees([employeeId]);
+    return new StepResponse("Employee deleted", employeeId);
   }
 );

@@ -10,12 +10,12 @@ export const CreateCompany = z
     name: z.string(),
     email: z.string(),
     currency_code: z.string(),
-    phone: z.string(),
-    address: z.string(),
-    city: z.string(),
+    phone: z.string().optional(),
+    address: z.string().optional(),
+    city: z.string().optional(),
     state: z.string().optional(),
-    zip: z.string(),
-    country: z.string(),
+    zip: z.string().optional(),
+    country: z.string().optional(),
     logo_url: z.string().optional(),
   })
   .strict();

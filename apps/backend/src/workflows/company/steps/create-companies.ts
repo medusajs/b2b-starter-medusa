@@ -1,27 +1,41 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { CreateCompanyDTO } from "../../../modules/company/types/mutations";
+import { ContainerRegistrationKeys } from "@medusajs/utils";
+import {
+  ICompanyModuleService,
+  ModuleCreateCompany,
+  QueryCompany,
+} from "@starter/types";
 import { COMPANY_MODULE } from "../../../modules/company";
-import { CompanyDTO } from "src/modules/company/types/common";
 
 export const createCompaniesStep = createStep(
   "create-companies",
   async (
-    input: CreateCompanyDTO | CreateCompanyDTO[],
+    input: ModuleCreateCompany,
     { container }
-  ): Promise<StepResponse<CompanyDTO | CompanyDTO[], string[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
-    const companies = await companyModuleService.createCompanies(
-      Array.isArray(input) ? input : [input]
-    );
+  ): Promise<StepResponse<QueryCompany, string>> => {
+    const companyModuleService =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+    const createdCompany = await companyModuleService.createCompanies(input);
 
-    return new StepResponse(
-      companies,
-      companies.map((company) => company.id)
-    );
+    const query = container.resolve(ContainerRegistrationKeys.QUERY);
+
+    const {
+      data: [company],
+    } = await query.graph({
+      entity: "companies",
+      filters: {
+        id: createdCompany.id,
+      },
+      fields: ["*", "+employees"],
+    });
+
+    return new StepResponse(company, company.id);
   },
-  async (companyIds: string[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
-    await companyModuleService.deleteCompanies(companyIds);
-    return new StepResponse("Company deleted", companyIds);
+  async (companyId: string, { container }) => {
+    const companyModuleService =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+    await companyModuleService.deleteCompanies([companyId]);
+
+    return new StepResponse("Company deleted", companyId);
   }
 );

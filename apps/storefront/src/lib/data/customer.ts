@@ -47,6 +47,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
     first_name: formData.get("first_name") as string,
     last_name: formData.get("last_name") as string,
     phone: formData.get("phone") as string,
+    company_name: formData.get("company_name") as string,
   }
 
   try {
@@ -70,9 +71,6 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
     setAuthToken(loginToken as string)
 
-    let createdCompany: Record<string, unknown> | null = null
-    let createdEmployee: Record<string, unknown> | null = null
-
     const companyForm = {
       name: formData.get("company_name") as string,
       email: formData.get("email") as string,
@@ -85,18 +83,16 @@ export async function signup(_currentState: unknown, formData: FormData) {
       currency_code: formData.get("currency_code") as string,
     }
 
-    createdCompany = await createCompany(companyForm).then(
-      ({ company }) => company
-    )
+    const createdCompany = await createCompany(companyForm)
 
-    if (createdCompany) {
-      createdEmployee = await createEmployee({
-        company_id: createdCompany.id as string,
-        customer_id: createdCustomer.id,
-        is_admin: true,
-        spending_limit: 0,
-      })
-    }
+    const createdEmployee = await createEmployee({
+      company_id: createdCompany?.id as string,
+      customer_id: createdCustomer.id,
+      is_admin: true,
+      spending_limit: 0,
+    }).catch((err) => {
+      console.log("error creating employee", err)
+    })
 
     revalidateTag(getCacheTag("customers"))
 

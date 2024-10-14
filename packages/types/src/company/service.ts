@@ -54,6 +54,18 @@ export interface ICompanyModuleService extends IModuleService {
 
   /* Entity: Employees */
 
+  listEmployees(
+    filters?: ModuleEmployeeFilters,
+    config?: FindConfig<ModuleEmployee>,
+    sharedContext?: Context
+  ): Promise<ModuleEmployee[]>;
+
+  retrieveEmployee(
+    id: string,
+    config?: FindConfig<ModuleEmployee>,
+    sharedContext?: Context
+  ): Promise<ModuleEmployee>;
+
   createEmployees(
     data: ModuleCreateEmployee,
     sharedContext?: Context

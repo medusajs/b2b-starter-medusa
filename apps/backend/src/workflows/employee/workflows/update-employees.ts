@@ -3,17 +3,25 @@ import {
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/workflows-sdk";
-import { EmployeeDTO } from "src/modules/company/types/common";
-import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
-import { updateEmployeesStep } from "../steps";
+import { ModuleUpdateEmployee, QueryEmployee } from "@starter/types";
+import { removeAdminRoleStep, updateEmployeesStep } from "../steps";
+import { when } from "@medusajs/framework/workflows-sdk";
 
 export const updateEmployeesWorkflow = createWorkflow(
   "update-employees",
   (
-    input: WorkflowData<UpdateEmployeeDTO | UpdateEmployeeDTO[]>
-  ): WorkflowResponse<EmployeeDTO | EmployeeDTO[]> => {
-    const updatedEmployees = updateEmployeesStep(input);
+    input: WorkflowData<ModuleUpdateEmployee>
+  ): WorkflowResponse<QueryEmployee> => {
+    const updatedEmployee = updateEmployeesStep(input);
 
-    return new WorkflowResponse(updatedEmployees);
+    when(updatedEmployee, ({ is_admin }) => {
+      return is_admin === false;
+    }).then(() => {
+      removeAdminRoleStep({
+        email: updatedEmployee.customer.email,
+      });
+    });
+
+    return new WorkflowResponse(updatedEmployee);
   }
 );

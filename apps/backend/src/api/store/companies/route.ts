@@ -1,7 +1,7 @@
 import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
-} from "@medusajs/medusa";
+} from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createCompaniesWorkflow } from "../../../workflows/company/workflows/create-companies";
 import { CreateCompanyType, GetCompanyParamsType } from "./validators";
@@ -32,12 +32,14 @@ export const POST = async (
   req: AuthenticatedMedusaRequest<CreateCompanyType>,
   res: MedusaResponse
 ) => {
-  const { result } = await createCompaniesWorkflow.run({
+  const {
+    result: { company },
+  } = await createCompaniesWorkflow.run({
     input: {
       ...req.validatedBody,
     },
     container: req.scope,
   });
 
-  return res.json({ companies: result.companies });
+  return res.json({ company });
 };
