@@ -9,6 +9,11 @@ import ProfilePassword from "@modules/account/components/profile-password"
 import { notFound } from "next/navigation"
 import { listRegions } from "@lib/data/regions"
 import { getCustomer } from "@lib/data/customer"
+import ProfileCard from "@modules/account/components/profile-card"
+import { QueryEmployee } from "@starter/types"
+import { HttpTypes } from "@medusajs/types"
+import { Heading } from "@medusajs/ui"
+import SecurityCard from "@modules/account/components/security-card"
 
 export const metadata: Metadata = {
   title: "Profile",
@@ -16,7 +21,9 @@ export const metadata: Metadata = {
 }
 
 export default async function Profile() {
-  const customer = await getCustomer()
+  const customer = (await getCustomer()) as HttpTypes.StoreCustomer & {
+    employee: QueryEmployee
+  }
   const regions = await listRegions()
 
   if (!customer || !regions) {
@@ -26,23 +33,16 @@ export default async function Profile() {
   return (
     <div className="w-full" data-testid="profile-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Profile</h1>
-        <p className="text-base-regular">
-          View and update your profile information, including your name, email,
-          and phone number. You can also update your billing address, or change
-          your password.
-        </p>
+        <Heading level="h2" className="text-lg text-neutral-950">
+          Details
+        </Heading>
+        <ProfileCard customer={customer} />
       </div>
-      <div className="flex flex-col gap-y-8 w-full">
-        <ProfileName customer={customer} />
-        <Divider />
-        <ProfileEmail customer={customer} />
-        <Divider />
-        <ProfilePhone customer={customer} />
-        <Divider />
-        <ProfilePassword customer={customer} />
-        <Divider />
-        <ProfileBillingAddress customer={customer} regions={regions} />
+      <div className="mb-8 flex flex-col gap-y-4">
+        <Heading level="h2" className="text-lg text-neutral-950">
+          Security
+        </Heading>
+        <SecurityCard customer={customer} />
       </div>
     </div>
   )
