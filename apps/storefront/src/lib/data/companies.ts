@@ -28,7 +28,7 @@ export const retrieveCompany = async (companyId: string) => {
 }
 
 export const createCompany = async (data: StoreCreateCompany) => {
-  const company = await sdk.client.fetch<StoreCompanyResponse>(
+  const { company } = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies`,
     {
       method: "POST",
@@ -63,11 +63,13 @@ export const updateCompany = async (data: StoreUpdateCompany) => {
 }
 
 export const createEmployee = async (data: StoreCreateEmployee) => {
+  const { company_id, ...employeeData } = data
+
   const employee = await sdk.client.fetch<StoreEmployeeResponse>(
-    `/store/companies/${data.company_id}/employees`,
+    `/store/companies/${company_id}/employees`,
     {
       method: "POST",
-      body: data,
+      body: employeeData,
       headers: {
         ...getAuthHeaders(),
       },

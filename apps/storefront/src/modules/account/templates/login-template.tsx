@@ -53,9 +53,9 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
       <Image
         src="/account-block.png"
         alt="Login banner background"
-        className="object-cover object-center w-auto h-fit transition-opacity duration-300"
+        className="object-cover transition-opacity duration-300 w-full h-full"
         width={500}
-        height={500}
+        height={1000}
         objectFit="cover"
         quality={100}
         priority

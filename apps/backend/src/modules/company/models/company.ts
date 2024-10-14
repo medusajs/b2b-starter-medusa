@@ -8,8 +8,8 @@ export const Company = model.define("company", {
     })
     .primaryKey(),
   name: model.text(),
-  phone: model.text(),
   email: model.text(),
+  phone: model.text().nullable(),
   address: model.text().nullable(),
   city: model.text().nullable(),
   state: model.text().nullable(),

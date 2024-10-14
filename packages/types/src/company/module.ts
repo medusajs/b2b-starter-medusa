@@ -1,5 +1,3 @@
-import { CustomerDTO } from "@medusajs/types";
-
 /* Entity: Company */
 
 export enum ModuleCompanySpendingLimitResetFrequency {
@@ -51,7 +49,7 @@ export type ModuleDeleteCompany = {
 
 /* Entity: Employee */
 
-export interface ModuleEmployee extends CustomerDTO {
+export interface ModuleEmployee {
   id: string;
   spending_limit: number;
   is_admin: boolean;

@@ -38,17 +38,15 @@ export const POST = async (
   let { is_admin, spending_limit, customer_id } = req.body;
 
   const { result } = await createEmployeesWorkflow.run({
-    input: [
-      {
-        employeeData: {
-          company_id: id,
-          customer_id,
-          is_admin,
-          spending_limit,
-        },
-        customerId: customer_id,
+    input: {
+      employeeData: {
+        company_id: id,
+        customer_id,
+        is_admin,
+        spending_limit,
       },
-    ],
+      customerId: customer_id,
+    },
     container: req.scope,
   });
 

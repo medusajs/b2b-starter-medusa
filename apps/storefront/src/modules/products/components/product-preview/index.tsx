@@ -37,7 +37,7 @@ export default async function ProductPreview({
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div
         data-testid="product-wrapper"
-        className="flex flex-col gap-4 relative w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-large group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
+        className="flex flex-col gap-4 relative w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
       >
         <Thumbnail
           thumbnail={product.thumbnail}
@@ -52,6 +52,7 @@ export default async function ProductPreview({
           </Text>
         </div>
         <div className="flex flex-col gap-0">
+          {/* @ts-expect-error (TODO: Fix this) */}
           {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
         </div>

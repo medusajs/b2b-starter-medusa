@@ -5,39 +5,45 @@ import { COMPANY_MODULE } from "../../../modules/company";
 export const linkEmployeeToCustomerStep = createStep(
   "link-employee-to-customer",
   async (
-    input: { employeeId: string; customerId: string }[],
+    input: { employeeId: string; customerId: string },
     { container }
-  ) => {
+  ): Promise<
+    StepResponse<undefined, { employeeId: string; customerId: string }>
+  > => {
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
-    const links = input.map(({ employeeId, customerId }) => ({
+    const link = {
       [COMPANY_MODULE]: {
-        employee_id: employeeId,
+        employee_id: input.employeeId,
       },
       [Modules.CUSTOMER]: {
-        customer_id: customerId,
+        customer_id: input.customerId,
       },
-    }));
+    };
 
-    remoteLink.create(links);
+    remoteLink.create(link);
 
     return new StepResponse(undefined, input);
   },
   async (
-    input: { employeeId: string; customerId: string }[],
+    input: { employeeId: string; customerId: string },
     { container }
-  ) => {
+  ): Promise<
+    StepResponse<undefined, { employeeId: string; customerId: string }>
+  > => {
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
-    const links = input.map(({ employeeId, customerId }) => ({
+    const link = {
       [COMPANY_MODULE]: {
-        employee_id: employeeId,
+        employee_id: input.employeeId,
       },
       [Modules.CUSTOMER]: {
-        customer_id: customerId,
+        customer_id: input.customerId,
       },
-    }));
+    };
 
-    remoteLink.dismiss(links);
+    remoteLink.dismiss(link);
+
+    return new StepResponse(undefined, input);
   }
 );

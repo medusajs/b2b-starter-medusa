@@ -7,14 +7,8 @@ export const GetEmployeeParams = createSelectParams();
 export type CreateEmployeeType = z.infer<typeof CreateEmployee>;
 export const CreateEmployee = z
   .object({
-    spending_limit: z.number().optional(),
-    raw_spending_limit: z
-      .object({
-        value: z.number().optional(),
-        precision: z.number().optional(),
-      })
-      .optional(),
-    is_admin: z.boolean().optional(),
+    spending_limit: z.number().optional().nullable(),
+    is_admin: z.boolean().optional().nullable().default(false),
     customer_id: z.string(),
   })
   .strict();

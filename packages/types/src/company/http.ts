@@ -69,14 +69,14 @@ export type StoreCompanyPreviewResponse = {
 
 export type StoreCreateCompany = {
   name: string;
-  phone: string;
+  phone?: string | null;
   email: string;
-  address: string | null;
-  city: string | null;
-  state: string | null;
-  zip: string | null;
-  country: string | null;
-  logo_url: string | null;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zip?: string | null;
+  country?: string | null;
+  logo_url?: string | null;
   currency_code: string;
 };
 
@@ -106,6 +106,7 @@ export type StoreEmployeesResponse = PaginatedResponse<{
 }>;
 
 export type StoreCreateEmployee = {
+  customer_id: string;
   spending_limit: number;
   is_admin: boolean;
   company_id: string;
