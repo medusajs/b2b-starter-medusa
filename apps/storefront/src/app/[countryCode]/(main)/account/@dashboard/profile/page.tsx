@@ -1,19 +1,13 @@
 import { Metadata } from "next"
 
-import ProfilePhone from "@modules/account//components/profile-phone"
-import ProfileBillingAddress from "@modules/account/components/profile-billing-address"
-import ProfileEmail from "@modules/account/components/profile-email"
-import ProfileName from "@modules/account/components/profile-name"
-import ProfilePassword from "@modules/account/components/profile-password"
-
-import { notFound } from "next/navigation"
-import { listRegions } from "@lib/data/regions"
 import { getCustomer } from "@lib/data/customer"
-import ProfileCard from "@modules/account/components/profile-card"
-import { QueryEmployee } from "@starter/types"
+import { listRegions } from "@lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
+import ProfileCard from "@modules/account/components/profile-card"
 import SecurityCard from "@modules/account/components/security-card"
+import { QueryEmployee } from "@starter/types"
+import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Profile",

@@ -1,4 +1,4 @@
-import { Container, clx } from "@medusajs/ui"
+import { clx } from "@medusajs/ui"
 import Image from "next/image"
 import React from "react"
 
@@ -48,12 +48,14 @@ const ImageOrPlaceholder = ({
   image,
   size,
   type,
-}: Pick<ThumbnailProps, "size" | "type"> & { image?: string }) => {
+}: Pick<ThumbnailProps, "size" | "type"> & {
+  image?: string
+}) => {
   return image ? (
     <Image
       src={image}
       alt="Thumbnail"
-      className={clx("absolute inset-0 object-contain object-center", {
+      className={clx("absolute inset-0 object-contain object-center p-10", {
         "p-4": type === "full",
         "p-2": type === "preview",
       })}
