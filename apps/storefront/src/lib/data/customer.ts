@@ -16,8 +16,7 @@ import {
 } from "./cookies"
 import { createCompany, createEmployee } from "./companies"
 
-export const getCustomer = cache(async function () {
-  // TODO: update type to include employee and company
+export const getCustomer = cache(async function (): Promise<Customer | null> {
   return await sdk.store.customer
     .retrieve(
       {
@@ -87,13 +86,15 @@ export async function signup(_currentState: unknown, formData: FormData) {
     }
 
     createdCompany = await createCompany(companyForm).then(
-      ({ companies }) => companies[0]
+      ({ company }) => company
     )
 
     if (createdCompany) {
-      createdEmployee = await createEmployee(createdCompany.id as string, {
+      createdEmployee = await createEmployee({
+        company_id: createdCompany.id as string,
         customer_id: createdCustomer.id,
         is_admin: true,
+        spending_limit: 0,
       })
     }
 

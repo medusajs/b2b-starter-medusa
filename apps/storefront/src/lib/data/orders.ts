@@ -18,7 +18,8 @@ export const retrieveOrder = cache(async function (id: string) {
 
 export const listOrders = cache(async function (
   limit: number = 10,
-  offset: number = 0
+  offset: number = 0,
+  filters?: Record<string, any>
 ) {
   return sdk.store.order
     .list(
@@ -27,6 +28,7 @@ export const listOrders = cache(async function (
         offset,
         order: "-created_at",
         fields: "*items,+items.metadata,+items.variant,+items.product*",
+        ...filters,
       },
       { ...getCacheHeaders("orders"), ...getAuthHeaders() }
     )
