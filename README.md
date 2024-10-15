@@ -57,35 +57,25 @@
 
 ### Demo
 
-<i>(Click on the image to open in new tab)</i>
+#### Quote Management
 
-<div style="display:flex; flex-direction: row; flex-wrap: wrap; width: 100%; column-gap: 10px; margin-bottom: 10px">
-  <div style="display: flex;flex-direction: column;flex-basis: 100%;flex: 1;">
-    <a href="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" target="_blank">
-      <img align="right" src="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" alt="image" />
-    </a>
-  </div>
+<img align="right" src="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" alt="image" />
+<br />
 
-  <div style="display: flex;flex-direction: column;flex-basis: 100%;flex: 1;">
-    <a href="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" target="_blank">
-      <img align="right" src="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" alt="image" />
-    </a>
-  </div>
-</div>
+#### Company Management
 
-<div style="display:flex; flex-direction: row; flex-wrap: wrap; width: 100%; column-gap: 10px; margin-bottom: 10px">
-  <div style="display: flex;flex-direction: column;flex-basis: 100%;flex: 1;">
-    <a href="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" target="_blank">
-      <img align="right" src="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" alt="image" />
-    </a>
-  </div>
+<img align="right" src="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" alt="image" />
+<br />
 
-  <div style="display: flex;flex-direction: column;flex-basis: 100%;flex: 1;">
-    <a href="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" target="_blank">
-      <img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" />
-    </a>
-  </div>
-</div>
+#### Cart Summary
+
+<img align="right" src="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" alt="image" />
+<br />
+
+#### Cart Summary
+
+<img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" />
+<br />
 
 ### Prerequisites
 
