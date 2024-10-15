@@ -24,8 +24,8 @@
 </p>
 
 <p align="center">
-  <a href="#features">Features</a> •
-  <a href="#getting-started">Getting Started</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-getting-started">Getting Started</a> •
   <a href="https://docs.medusajs.com/v2">Medusa Documentation</a> •
   <a href="https://medusajs.com/">Medusa Website</a>
 </p>
@@ -41,9 +41,9 @@
 <details>
   <summary><b>Table of Contents</b></summary>
 
-- [Features](#features)
-- [Demo](#demo)
-- [Prerequisites](#-getting-started)
+- [Features](#-features)
+- [Demo](#-demo)
+- [Prerequisites](#-prerequisites)
 - [Getting started](#-getting-started)
 </details>
 
@@ -60,7 +60,7 @@
 
 &nbsp;
 
-### Demo
+### 💜 Demo
 
 #### Quote Management
 
@@ -82,7 +82,7 @@
 <img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" style=: />
 &nbsp;
 
-### Prerequisites
+### 🔔 Prerequisites
 
 - ✅ yarn version 3.5
 - ✅ node 20
