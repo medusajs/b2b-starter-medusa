@@ -1,6 +1,6 @@
 "use client"
 
-import FilterRadioGroup from "@modules/common/components/filter-radio-group"
+import { ChevronUpDown } from "@medusajs/icons"
 
 export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
@@ -35,13 +35,27 @@ const SortProducts = ({
   }
 
   return (
-    <FilterRadioGroup
-      title="Sort by"
-      items={sortOptions}
-      value={sortBy}
-      handleChange={handleChange}
-      data-testid={dataTestId}
-    />
+    <div className="flex items-center gap-2 text-sm p-2 justify-between">
+      <span className="text-neutral-500">Sort by:</span>
+      <div className="relative">
+        <select
+          className="w-full pr-8 overflow-hidden focus:outline-none appearance-none"
+          title="Sort by"
+          value={sortBy}
+          onChange={(e) => handleChange(e.target.value as SortOptions)}
+          data-testid={dataTestId}
+        >
+          {sortOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+          <ChevronUpDown className="w-4 h-4 text-neutral-500" />
+        </div>
+      </div>
+    </div>
   )
 }
 

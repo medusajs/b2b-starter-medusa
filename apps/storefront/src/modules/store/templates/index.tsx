@@ -5,36 +5,40 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 import PaginatedProducts from "./paginated-products"
+import StoreBreadcrumb from "../components/store-breadcrumb"
+import { HttpTypes } from "@medusajs/types"
 
 const StoreTemplate = ({
   sortBy,
   page,
   countryCode,
+  categories,
 }: {
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  categories?: HttpTypes.StoreProductCategory[]
 }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
 
   return (
     <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
+      className="flex flex-col py-6 content-container gap-4"
       data-testid="category-container"
     >
-      <RefinementList sortBy={sort} />
-      <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All products</h1>
+      <StoreBreadcrumb />
+      <div className="flex flex-col small:flex-row small:items-start gap-4">
+        <RefinementList sortBy={sort} categories={categories} />
+        <div className="w-full">
+          <Suspense fallback={<SkeletonProductGrid />}>
+            <PaginatedProducts
+              sortBy={sort}
+              page={pageNumber}
+              countryCode={countryCode}
+            />
+          </Suspense>
         </div>
-        <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
-        </Suspense>
       </div>
     </div>
   )

@@ -1,3 +1,5 @@
+"use server"
+
 import { sdk } from "@lib/config"
 import { cache } from "react"
 import { getCacheHeaders } from "./cookies"
@@ -26,10 +28,12 @@ export const getCategoriesList = cache(async function (
 export const getCategoryByHandle = cache(async function (
   categoryHandle: string[]
 ) {
+  const handle = `${categoryHandle.join("/")}`
+
   return sdk.store.category.list(
     // TODO: Look into fixing the type
     // @ts-ignore
-    { handle: categoryHandle },
+    { handle },
     { ...getCacheHeaders("categories") }
   )
 })
