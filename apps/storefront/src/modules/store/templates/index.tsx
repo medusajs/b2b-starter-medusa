@@ -24,11 +24,11 @@ const StoreTemplate = ({
 
   return (
     <div
-      className="flex flex-col py-6 content-container gap-4"
+      className="flex flex-col py-6 content-container gap-4 bg-neutral-100"
       data-testid="category-container"
     >
       <StoreBreadcrumb />
-      <div className="flex flex-col small:flex-row small:items-start gap-4">
+      <div className="flex flex-col small:flex-row small:items-start gap-2">
         <RefinementList sortBy={sort} categories={categories} />
         <div className="w-full">
           <Suspense fallback={<SkeletonProductGrid />}>

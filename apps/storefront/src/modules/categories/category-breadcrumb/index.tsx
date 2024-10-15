@@ -12,7 +12,7 @@ const CategoryBreadcrumbItem = ({
     <li className="text-neutral-500">
       <LocalizedClientLink
         className="hover:text-neutral-900"
-        href={handle ? `/categories/${handle}` : "/"}
+        href={handle ? `/categories/${handle}` : "/store"}
       >
         {title}
       </LocalizedClientLink>
@@ -56,8 +56,8 @@ const CategoryBreadcrumb = ({
 
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <CategoryBreadcrumbItem title="Home" key="home" />
-      <span className="text-neutral-500" key="separator-home">
+      <CategoryBreadcrumbItem title="Products" key="base" />
+      <span className="text-neutral-500" key="separator-base">
         {">"}
       </span>
       {parentBreadcrumbs}

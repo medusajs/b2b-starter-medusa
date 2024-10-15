@@ -12,7 +12,7 @@ const CollectionBreadcrumbItem = ({
     <li className="text-neutral-500">
       <LocalizedClientLink
         className="hover:text-neutral-900"
-        href={handle ? `/collections/${handle}` : "/"}
+        href={handle ? `/collections/${handle}` : "/store"}
       >
         {title}
       </LocalizedClientLink>
@@ -27,7 +27,7 @@ const CollectionBreadcrumb = ({
 }) => {
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <CollectionBreadcrumbItem title="Home" key="home" />
+      <CollectionBreadcrumbItem title="Products" key="base" />
       <span className="text-neutral-500">{">"}</span>
       <CollectionBreadcrumbItem
         title={collection.title}
