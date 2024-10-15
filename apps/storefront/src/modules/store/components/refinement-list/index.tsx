@@ -44,7 +44,7 @@ const RefinementList = ({
   }
 
   return (
-    <div className="flex flex-col divide-neutral-200 w-1/5 gap-2">
+    <div className="flex flex-col divide-neutral-200 w-1/5 gap-3">
       <Container className="flex flex-col divide-y divide-neutral-200 p-0 w-full">
         <SearchInResults listName={listName} />
         <SortProducts

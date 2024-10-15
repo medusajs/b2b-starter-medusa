@@ -24,7 +24,7 @@ export default function CollectionTemplate({
   return (
     <div className="flex flex-col py-6 content-container gap-4 bg-neutral-100">
       <CollectionBreadcrumb collection={collection} />
-      <div className="flex flex-col small:flex-row small:items-start gap-2">
+      <div className="flex flex-col small:flex-row small:items-start gap-3">
         <RefinementList sortBy={sort} listName={collection.title} />
         <div className="w-full">
           <Suspense fallback={<SkeletonProductGrid />}>

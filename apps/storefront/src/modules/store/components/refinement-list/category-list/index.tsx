@@ -61,7 +61,7 @@ const CategoryList = ({
     return (
       <li key={category.id}>
         <div className={`flex items-center gap-2 mb-2 ml-${marginLeft}`}>
-          {hasChildren && (
+          {hasChildren ? (
             <button
               onClick={() => toggleCategory(category.id)}
               className="flex items-center gap-2"
@@ -71,17 +71,17 @@ const CategoryList = ({
               ) : (
                 <SquarePlus className="h-3 mx-1" />
               )}
+              {category.name}
             </button>
-          )}
-          <LocalizedClientLink
-            href={`/categories/${category.handle}`}
-            className="flex gap-2 items-center"
-          >
-            {!hasChildren && (
+          ) : (
+            <LocalizedClientLink
+              href={`/categories/${category.handle}`}
+              className="flex gap-2 items-center"
+            >
               <Radio checked={isCurrentCategory(category.handle)} />
-            )}
-            {category.name}
-          </LocalizedClientLink>
+              {category.name}
+            </LocalizedClientLink>
+          )}
         </div>
         {hasChildren && isExpanded && (
           <ul>

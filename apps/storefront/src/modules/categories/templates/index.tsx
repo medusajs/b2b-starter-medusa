@@ -32,7 +32,7 @@ export default function CategoryTemplate({
       data-testid="category-container"
     >
       <CategoryBreadcrumb category={currentCategory} />
-      <div className="flex flex-col small:flex-row small:items-start gap-2">
+      <div className="flex flex-col small:flex-row small:items-start gap-3">
         <RefinementList
           sortBy={sort}
           categories={categories}
