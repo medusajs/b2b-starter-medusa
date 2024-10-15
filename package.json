@@ -5,6 +5,9 @@
     "dev": "turbo run dev",
     "build": "build-packages",
     "build-packages": "turbo run build --filter ./packages/*",
+    "setup-db": "cd ./apps/backend && npx medusa db:setup",
+    "setup-user": "cd ./apps/backend && npx medusa user -e admin@test.com -p supersecret -i admin",
+    "generate-env": "cp ./apps/backend/.env.template ./apps/backend/.env && cp ./apps/storefront/.env.template ./apps/storefront/.env",
     "build-apps": "turbo run build --filter ./apps/*",
     "start": "turbo run start",
     "lint": "turbo run lint"
