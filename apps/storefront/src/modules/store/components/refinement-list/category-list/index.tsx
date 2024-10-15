@@ -4,7 +4,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Radio from "@modules/common/components/radio"
 import SquareMinus from "@modules/common/icons/square-minus"
 import SquarePlus from "@modules/common/icons/square-plus"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const CategoryList = ({
@@ -28,6 +28,8 @@ const CategoryList = ({
   const isCurrentCategory = (handle: string) => {
     return pathname.includes(`/categories/${handle}`)
   }
+
+  const searchParams = useSearchParams()
 
   const getCategoriesToExpand = (category: HttpTypes.StoreProductCategory) => {
     const categoriesToExpand = [category.id]
@@ -75,7 +77,9 @@ const CategoryList = ({
             </button>
           ) : (
             <LocalizedClientLink
-              href={`/categories/${category.handle}`}
+              href={`/categories/${category.handle}${
+                searchParams.size ? `?${searchParams.toString()}` : ""
+              }`}
               className="flex gap-2 items-center hover:text-neutral-700"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
