@@ -3,28 +3,40 @@ import "server-only"
 import { cookies } from "next/headers"
 
 export const getAuthHeaders = (): { authorization: string } | {} => {
-  const token = cookies().get("_medusa_jwt")?.value
+  try {
+    const token = cookies().get("_medusa_jwt")?.value
 
-  if (token) {
-    return { authorization: `Bearer ${token}` }
+    if (token) {
+      return { authorization: `Bearer ${token}` }
+    }
+
+    return {}
+  } catch (error) {
+    return {}
   }
-
-  return {}
 }
 
 export const getCacheTag = (tag: string): string => {
-  const cacheId = cookies().get("_medusa_cache_id")?.value
+  try {
+    const cacheId = cookies().get("_medusa_cache_id")?.value
 
-  if (cacheId) {
-    return `${tag}-${cacheId}`
+    if (cacheId) {
+      return `${tag}-${cacheId}`
+    }
+
+    return ""
+  } catch (error) {
+    return ""
   }
-
-  return ""
 }
 
 export const getCacheHeaders = (
   tag: string
 ): { next: { tags: string[] } } | {} => {
+  if (typeof window !== "undefined") {
+    return {}
+  }
+
   const cacheTag = getCacheTag(tag)
 
   if (cacheTag) {

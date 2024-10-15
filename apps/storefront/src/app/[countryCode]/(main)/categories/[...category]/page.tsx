@@ -69,15 +69,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { sortBy, page } = searchParams
 
-  const { product_categories } = await getCategoryByHandle(params.category)
+  const categories = await listCategories()
 
-  if (!product_categories) {
+  const currentCategory = categories.find(
+    (category) => category.handle === params.category.join("/")
+  )
+
+  if (!currentCategory) {
     notFound()
   }
 
   return (
     <CategoryTemplate
-      categories={product_categories}
+      categories={categories}
+      currentCategory={currentCategory}
       sortBy={sortBy}
       page={page}
       countryCode={params.countryCode}

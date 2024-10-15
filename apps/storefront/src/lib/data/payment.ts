@@ -1,3 +1,5 @@
+"use server"
+
 import { sdk } from "@lib/config"
 import { cache } from "react"
 import { getCacheHeaders } from "./cookies"
