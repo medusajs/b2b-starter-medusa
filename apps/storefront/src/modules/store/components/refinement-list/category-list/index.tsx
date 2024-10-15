@@ -64,7 +64,7 @@ const CategoryList = ({
           {hasChildren ? (
             <button
               onClick={() => toggleCategory(category.id)}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 hover:text-neutral-700"
             >
               {isExpanded ? (
                 <SquareMinus className="h-3 mx-1" />
@@ -76,7 +76,7 @@ const CategoryList = ({
           ) : (
             <LocalizedClientLink
               href={`/categories/${category.handle}`}
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center hover:text-neutral-700"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
               {category.name}
@@ -108,12 +108,14 @@ const CategoryList = ({
     <Container className="flex flex-col p-0 divide-y divide-neutral-200">
       <div className="flex justify-between items-center p-3">
         <Text className="text-sm font-medium">Categories</Text>
-        <LocalizedClientLink
-          className="text-xs text-neutral-500 hover:text-neutral-700"
-          href="/store"
-        >
-          Clear
-        </LocalizedClientLink>
+        {pathname.includes("/categories") && (
+          <LocalizedClientLink
+            className="text-xs text-neutral-500 hover:text-neutral-700"
+            href="/store"
+          >
+            Clear
+          </LocalizedClientLink>
+        )}
       </div>
       <ul className="flex flex-col gap-3 text-sm p-3 text-neutral-500">
         {categories
