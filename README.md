@@ -47,35 +47,40 @@
 - [Getting started](#-getting-started)
 </details>
 
+&nbsp;
+
 ### 🎯 Features
 
-- 🔐 **Company**. Customers can be added to a specific company
+- 🔐 **Company Management**. Customers can manage their company and invite employees.
 - ⚡ **Spending Limits**. Company admins can assign spending limits to its employees
-- 🌎 **Quotes**. Customers can request a quote from the store
-- 🌎 **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
-- 🎨 **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price
+- 🚀 **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
+- 📄 **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
+- ✏️ **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price
+- 🛍️ **Next.js storefront**. All new storefront running on Next.js 14, featuring product lists, product pages, cart, checkout, account management and more.
+
+&nbsp;
 
 ### Demo
 
 #### Quote Management
 
-<img align="right" src="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" alt="image" />
-<br />
+<img align="right" src="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" alt="image" style=: />
+&nbsp;
 
 #### Company Management
 
-<img align="right" src="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" alt="image" />
-<br />
+<img align="right" src="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" alt="image" style=: />
+&nbsp;
 
 #### Cart Summary
 
-<img align="right" src="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" alt="image" />
-<br />
+<img align="right" src="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" alt="image" style=: />
+&nbsp;
 
-#### Cart Summary
+#### Product Page
 
-<img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" />
-<br />
+<img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" style=: />
+&nbsp;
 
 ### Prerequisites
 
@@ -85,6 +90,8 @@
 - ✅ Medusa 2.0
 
 ⚠️ We use turborepo to manage this monorepo and have tested this only with the above versions.
+
+&nbsp;
 
 ### 🚀 Getting started
 
@@ -129,6 +136,8 @@ yarn dev
 - [Medusa Storefront](http://localhost:8000)
 
 You are good to go! 🚀
+
+&nbsp;
 
 ### Contributors
 
