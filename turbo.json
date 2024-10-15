@@ -6,8 +6,10 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
+      "dependsOn": ["^build-packages"],
       "persistent": true,
-      "cache": false
+      "cache": false,
+      "env": ["NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY"]
     }
   }
 }
