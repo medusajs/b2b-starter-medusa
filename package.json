@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "build-packages",
     "build-packages": "turbo run build --filter ./packages/*",
+    "build-apps": "turbo run build --filter ./apps/*",
     "start": "turbo run start",
     "lint": "turbo run lint"
   },
