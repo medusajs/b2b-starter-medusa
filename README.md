@@ -78,22 +78,22 @@
 
 #### Demo
 
-##### Quote Management
+#### Quote Management
 
 <img align="right" src="https://github.com/user-attachments/assets/110c99e8-18ba-49e5-8955-84a058b597c7" alt="image" style=: />
 &nbsp;
 
-##### Company Management
+#### Company Management
 
 <img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
 &nbsp;
 
-##### Cart Summary
+#### Cart Summary
 
 <img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
 &nbsp;
 
-##### Product Page
+#### Product Page
 
 <img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
 &nbsp;
