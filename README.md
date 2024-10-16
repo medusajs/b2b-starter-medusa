@@ -60,8 +60,19 @@
 - **Spending Limits**. Company admins can assign spending limits to its employees
 - **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
 - **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
-- **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price
-- **Next.js storefront**. All new storefront running on Next.js 14, featuring product lists, product pages, cart, checkout, account management and more.
+- **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
+- **Full ecommerce support**
+  - Product Pages
+  - Product Collections & Categories
+  - Cart & Checkout
+  - User Accounts
+  - Order Details
+- **Full Next.js 14 support**
+  - App Router
+  - Next fetching/caching
+  - Server components/actions
+  - Streaming
+  - Static Pre-Rendering
 
 &nbsp;
 
