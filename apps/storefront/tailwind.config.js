@@ -26,6 +26,20 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
       },
+      keyframes: {
+        "accordion-open": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-close": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-open": "accordion-open 0.3s ease-out",
+        "accordion-close": "accordion-close 0.3s ease-out",
+      },
     },
   },
 }

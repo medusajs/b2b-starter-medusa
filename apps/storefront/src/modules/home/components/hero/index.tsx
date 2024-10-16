@@ -30,7 +30,6 @@ const Hero = () => {
           src="/hero-image.jpg"
           alt="Hero background"
           layout="fill"
-          objectFit="cover"
           quality={100}
           priority
         />

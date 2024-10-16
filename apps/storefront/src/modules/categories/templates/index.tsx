@@ -27,28 +27,30 @@ export default function CategoryTemplate({
   if (!currentCategory || !countryCode) notFound()
 
   return (
-    <div
-      className="flex flex-col py-6 content-container gap-4 bg-neutral-100"
-      data-testid="category-container"
-    >
-      <CategoryBreadcrumb category={currentCategory} />
-      <div className="flex flex-col small:flex-row small:items-start gap-3">
-        <RefinementList
-          sortBy={sort}
-          categories={categories}
-          currentCategory={currentCategory}
-          listName={currentCategory.name}
-          data-testid="sort-by-container"
-        />
-        <div className="w-full">
-          <Suspense fallback={<SkeletonProductGrid />}>
-            <PaginatedProducts
-              sortBy={sort}
-              page={pageNumber}
-              categoryId={currentCategory.id}
-              countryCode={countryCode}
-            />
-          </Suspense>
+    <div className="bg-neutral-100">
+      <div
+        className="flex flex-col py-6 content-container gap-4"
+        data-testid="category-container"
+      >
+        <CategoryBreadcrumb category={currentCategory} />
+        <div className="flex flex-col small:flex-row small:items-start gap-3">
+          <RefinementList
+            sortBy={sort}
+            categories={categories}
+            currentCategory={currentCategory}
+            listName={currentCategory.name}
+            data-testid="sort-by-container"
+          />
+          <div className="w-full">
+            <Suspense fallback={<SkeletonProductGrid />}>
+              <PaginatedProducts
+                sortBy={sort}
+                page={pageNumber}
+                categoryId={currentCategory.id}
+                countryCode={countryCode}
+              />
+            </Suspense>
+          </div>
         </div>
       </div>
     </div>

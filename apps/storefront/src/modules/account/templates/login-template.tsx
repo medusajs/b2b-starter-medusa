@@ -56,7 +56,6 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
         className="object-cover transition-opacity duration-300 w-full h-full"
         width={500}
         height={1000}
-        objectFit="cover"
         quality={100}
         priority
       />

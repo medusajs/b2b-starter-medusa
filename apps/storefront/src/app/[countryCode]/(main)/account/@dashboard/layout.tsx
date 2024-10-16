@@ -17,7 +17,6 @@ export default async function AccountPageLayout({
         className="object-cover transition-opacity duration-300 w-full h-44"
         width={2000}
         height={200}
-        objectFit="cover"
         quality={100}
         priority
       />

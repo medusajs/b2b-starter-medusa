@@ -31,9 +31,7 @@ export const QuoteTableItem = ({
 
   return (
     <div className="flex gap-x-4">
-      <div className="w-20">
-        <Thumbnail thumbnail={item.thumbnail} size="square" />
-      </div>
+      <Thumbnail thumbnail={item.thumbnail} size="square" className="w-16" />
 
       <div className="flex flex-col w-full">
         <div>

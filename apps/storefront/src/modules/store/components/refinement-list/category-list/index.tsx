@@ -58,11 +58,11 @@ const CategoryList = ({
   const renderCategory = (category: HttpTypes.StoreProductCategory) => {
     const hasChildren = category.category_children.length > 0
     const isExpanded = expandedCategories.includes(category.id)
-    const marginLeft = getCategoryMarginLeft(category)
+    const paddingLeft = getCategoryMarginLeft(category)
 
     return (
       <li key={category.id}>
-        <div className={`flex items-center gap-2 mb-2 ml-${marginLeft}`}>
+        <div className={`flex items-center gap-2 mb-2 pl-${paddingLeft}`}>
           {hasChildren ? (
             <button
               onClick={() => toggleCategory(category.id)}
