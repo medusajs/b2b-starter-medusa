@@ -29,7 +29,6 @@ const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
 } = ({ children, ...props }) => {
   return (
-    /* @ts-expect-error */
     <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
   )
 }
@@ -47,38 +46,28 @@ const Item: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
-    /* @ts-expect-error */
     <AccordionPrimitive.Item
       {...props}
-      className={clx("border-grey-20 group", "py-3", className)}
+      className={clx("border-grey-20", "py-3", className)}
     >
-      {/* @ts-expect-error */}
       <AccordionPrimitive.Header className="px-1 radix-state-open:pt-8 transition-all duration-300">
-        <div className="flex flex-col">
-          <div className="flex w-full items-center gap-3">
-            {/* @ts-expect-error */}
-            <AccordionPrimitive.Trigger>
-              <div className="flex items-center gap-4">
-                {customTrigger || <MorphingTrigger />}
-                <Text className="text-xl text-neutral-950 font-normal">
-                  {title}
-                </Text>
-              </div>
-            </AccordionPrimitive.Trigger>
-          </div>
-          {subtitle && (
-            <Text as="span" size="small" className="mt-1">
-              {subtitle}
+        <AccordionPrimitive.Trigger className="group flex w-full items-center gap-3">
+          <div className="flex items-center gap-4">
+            {customTrigger || <MorphingTrigger />}
+            <Text className="text-xl text-neutral-950 font-normal">
+              {title}
             </Text>
-          )}
-        </div>
+          </div>
+        </AccordionPrimitive.Trigger>
+        {subtitle && (
+          <Text as="span" size="small" className="mt-1">
+            {subtitle}
+          </Text>
+        )}
       </AccordionPrimitive.Header>
-      {/* @ts-expect-error */}
       <AccordionPrimitive.Content
         forceMount={forceMountContent}
-        className={clx(
-          "radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1 h-fit"
-        )}
+        className="radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1 h-fit"
       >
         <div className="inter-base-regular group-radix-state-closed:animate-accordion-close">
           {description && <Text>{description}</Text>}
@@ -94,8 +83,8 @@ Accordion.Item = Item
 const MorphingTrigger = () => {
   return (
     <div className="relative w-[18px] h-[18px] rounded-full">
-      <CirclePlus className="absolute z-10 inset-0 transition-opacity duration-300 group-radix-state-closed:opacity-100 group-radix-state-open:opacity-50" />
-      <CircleMinus className="absolute z-10 inset-0 transition-opacity duration-300 group-radix-state-closed:opacity-0 group-radix-state-open:opacity-100" />
+      <CircleMinus className="absolute inset-0 opacity-0 group-data-[state=open]:opacity-100" />
+      <CirclePlus className="absolute inset-0 opacity-100 group-data-[state=open]:opacity-0" />
     </div>
   )
 }

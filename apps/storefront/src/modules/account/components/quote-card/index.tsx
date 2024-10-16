@@ -1,4 +1,4 @@
-import { Button } from "@medusajs/ui"
+import { Button, Container } from "@medusajs/ui"
 import { useMemo } from "react"
 
 import { convertToLocale } from "@lib/util/money"
@@ -24,7 +24,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
   )
 
   return (
-    <div className="bg-white flex p-4 rounded-md justify-between align-center items-center">
+    <Container className="bg-white flex p-4 rounded-md justify-between align-center items-center">
       <div className="flex gap-x-4 items-center">
         <div className="flex">
           {order.items?.slice(0, 3).map((i) => {
@@ -78,7 +78,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
           </LocalizedClientLink>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }
 

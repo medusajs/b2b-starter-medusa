@@ -39,12 +39,14 @@ export default async function ProductPreview({
         data-testid="product-wrapper"
         className="flex flex-col gap-4 relative w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
       >
-        <Thumbnail
-          thumbnail={product.thumbnail}
-          images={product.images}
-          size="square"
-          isFeatured={isFeatured}
-        />
+        <div className="w-full h-full p-10">
+          <Thumbnail
+            thumbnail={product.thumbnail}
+            images={product.images}
+            size="square"
+            isFeatured={isFeatured}
+          />
+        </div>
         <div className="flex flex-col txt-compact-medium">
           <Text className="text-neutral-600 text-xs">BRAND</Text>
           <Text className="text-ui-fg-base" data-testid="product-title">

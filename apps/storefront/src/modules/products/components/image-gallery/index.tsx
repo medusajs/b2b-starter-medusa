@@ -76,13 +76,10 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
             <Image
               src={selectedImage.url}
               priority
-              className="absolute inset-0 rounded-rounded p-20 overflow-visible"
+              className="absolute inset-0 rounded-rounded p-20 overflow-visible object-cover"
               alt={(selectedImage.metadata?.alt as string) || ""}
               fill
               sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-              style={{
-                objectFit: "cover",
-              }}
             />
           )}
         </div>
@@ -121,11 +118,8 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
                 width={32}
                 className={clx(
                   index === selectedImageIndex ? "opacity-100" : "opacity-40",
-                  "hover:opacity-100"
+                  "hover:opacity-100 object-cover"
                 )}
-                style={{
-                  objectFit: "cover",
-                }}
               />
             </li>
           ))}
