@@ -1,13 +1,12 @@
 <h1 align="center">
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="B2B Commerce Starter" width="80" height="80"></a>
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="B2B Commerce Starter" width="200"></a>
   <br>
-  <br>
-  B2B Commerce Starter
+  Medusa B2B Commerce Starter
   <br>
 </h1>
 
-<h4 align="center">Customizable eCommerce monorepo built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> - Storefront & API</h4>
+<p align="center">Customizable B2B ecommerce monorepo built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
@@ -24,76 +23,84 @@
 </p>
 
 <p align="center">
-  <a href="#-features">Features</a> •
-  <a href="#-getting-started">Getting Started</a> •
-  <a href="https://docs.medusajs.com/v2">Medusa Documentation</a> •
-  <a href="https://medusajs.com/">Medusa Website</a>
+  <video src="https://github.com/user-attachments/assets/20b136d6-3025-42e4-b037-62df107b01b5" controls="controls" muted="muted" playsinline="playsinline">
+</video>
 </p>
 
 <br>
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/00ffe4c0-cba7-422d-8171-2f6bc301f854" alt="Follow @medusajs" />
-</p>
+## Table
 
-<br>
-
-<details>
-  <summary><b>Table of Contents</b></summary>
-
-- [Features](#-features)
-- [Demo](#-demo)
-- [Prerequisites](#-prerequisites)
-- [Getting started](#-getting-started)
-</details>
+- [Prerequisites](#prerequisites)
+- [Overview](#overview)
+  - [Features](#features)
+  - [Demo](#demo)
+- [Quickstart](#quickstart)
+- [Resources](#resources)
+- [Contributors](#contributors)
 
 &nbsp;
 
-### 🎯 Features
+## Prerequisites
 
-- 🔐 **Company Management**. Customers can manage their company and invite employees.
-- ⚡ **Spending Limits**. Company admins can assign spending limits to its employees
-- 🚀 **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
-- 📄 **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
-- ✏️ **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price
-- 🛍️ **Next.js storefront**. All new storefront running on Next.js 14, featuring product lists, product pages, cart, checkout, account management and more.
-
-&nbsp;
-
-### 💜 Demo
-
-#### Quote Management
-
-<img align="right" src="https://github.com/user-attachments/assets/fa53e46a-8f22-40d5-a761-52bf397be191" alt="image" style=: />
-&nbsp;
-
-#### Company Management
-
-<img align="right" src="https://github.com/user-attachments/assets/91afa2e7-4d10-4f41-8319-88e5c4fccf20" alt="image" style=: />
-&nbsp;
-
-#### Cart Summary
-
-<img align="right" src="https://github.com/user-attachments/assets/0401450a-196b-4a28-ba1c-0224d64d510b" alt="image" style=: />
-&nbsp;
-
-#### Product Page
-
-<img align="right" src="https://github.com/user-attachments/assets/8b077e9c-eade-453c-9145-ddca2acbcad2" alt="image" style=: />
-&nbsp;
-
-### 🔔 Prerequisites
+⚠️ We use turborepo to manage this monorepo and have tested this only with the below versions:
 
 - ✅ yarn version 3.5
 - ✅ node 20
 - ✅ Postgres 15
 - ✅ Medusa 2.0
 
-⚠️ We use turborepo to manage this monorepo and have tested this only with the above versions.
+&nbsp;
+
+## Overview
+
+#### Features
+
+- **Company Management**. Customers can manage their company and invite employees.
+- **Spending Limits**. Company admins can assign spending limits to its employees
+- **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
+- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
+- **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
+- **Full ecommerce support**
+  - Product Pages
+  - Product Collections & Categories
+  - Cart & Checkout
+  - User Accounts
+  - Order Details
+- **Full Next.js 14 support**
+  - App Router
+  - Next fetching/caching
+  - Server components/actions
+  - Streaming
+  - Static Pre-Rendering
 
 &nbsp;
 
-### 🚀 Getting started
+#### Demo
+
+#### Quote Management
+
+<img align="right" src="https://github.com/user-attachments/assets/110c99e8-18ba-49e5-8955-84a058b597c7" alt="image" style=: />
+&nbsp;
+
+#### Company Management
+
+<img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
+&nbsp;
+
+#### Cart Summary
+
+<img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
+&nbsp;
+
+#### Product Page
+
+<img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
+&nbsp;
+
+&nbsp;
+
+## Quickstart
 
 #### Setup monorepo
 
@@ -130,16 +137,30 @@ yarn dev
 - ✅ Open file - `apps/storefront/.env`
 - ✅ Add token to this var - `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`
 
-#### Links
+Visit the following links to see the Medusa storefront & admin
 
 - [Medusa Admin](http://localhost:9000/app)
 - [Medusa Storefront](http://localhost:8000)
 
-You are good to go! 🚀
+&nbsp;
+
+# Resources
+
+#### Learn more about Medusa
+
+- [Website](https://www.medusajs.com/)
+- [GitHub](https://github.com/medusajs)
+- [2.0 Documentation](https://docs.medusajs.com/v2)
+
+#### Learn more about Next.js
+
+- [Website](https://nextjs.org/)
+- [GitHub](https://github.com/vercel/next.js)
+- [Documentation](https://nextjs.org/docs)
 
 &nbsp;
 
-### Contributors
+## Contributors
 
 <a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=medusajs/b2b-starter-medusa"/>
