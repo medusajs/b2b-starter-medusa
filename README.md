@@ -22,8 +22,6 @@
   </a>
 </p>
 
-<br>
-
 <p align="center">
   <video src="https://github.com/user-attachments/assets/20b136d6-3025-42e4-b037-62df107b01b5" controls="controls" muted="muted" playsinline="playsinline">
 </video>
