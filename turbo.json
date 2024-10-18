@@ -6,7 +6,6 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
-      "dependsOn": ["^build-packages"],
       "persistent": true,
       "cache": false
     }
