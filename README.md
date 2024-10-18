@@ -123,6 +123,9 @@ yarn generate-env
 # Setup database
 yarn setup-db
 
+# Setup User Data
+yarn setup-user
+
 # Start Servers - storefront & backend
 yarn dev
 ```
