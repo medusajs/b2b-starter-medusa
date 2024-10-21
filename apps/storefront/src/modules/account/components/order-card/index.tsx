@@ -1,7 +1,8 @@
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
-import { Button, Container } from "@medusajs/ui"
+import { Button, clx, Container } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Image from "next/image"
 import { useMemo } from "react"
 import CalendarIcon from "../../../common/icons/calendar"
 import DocumentIcon from "../../../common/icons/document"
@@ -25,13 +26,39 @@ const OrderCard = ({ order }: OrderCardProps) => {
       <Container className="bg-white flex small:flex-row flex-col p-4 rounded-md small:justify-between small:items-center gap-y-2 items-start">
         <div className="flex gap-x-4 items-center pl-3">
           <div className="flex">
-            {order.items?.slice(0, 3).map((i) => {
+            {order.items?.slice(0, 3).map((i, index) => {
+              const numItems = order.items?.length ?? 0
+
               return (
                 <div
                   key={i.id}
-                  className="w-7 h-7 border-2 border-neutral-200 bg-cover bg-center rounded-md ml-[-5px]"
-                  style={{ backgroundImage: `url(${i.thumbnail})` }}
-                />
+                  className={clx(
+                    "block w-7 h-7 border border-white bg-neutral-100 p-2 bg-cover bg-center rounded-md ml-[-5px]",
+                    {
+                      "-rotate-3": index === 0 && numItems > 1,
+                      "rotate-0": index === 0 && numItems === 1,
+                      "rotate-3":
+                        (index === 1 && numItems === 2) ||
+                        (index === 2 && numItems > 2),
+                    }
+                  )}
+                >
+                  <Image
+                    src={i.thumbnail!}
+                    alt={i.title}
+                    className={clx("h-full w-full object-cover object-center", {
+                      "-rotate-3": index === 0 && numItems > 1,
+                      "rotate-0": index === 0 && numItems === 1,
+                      "rotate-3":
+                        (index === 1 && numItems === 2) ||
+                        (index === 2 && numItems > 2),
+                    })}
+                    draggable={false}
+                    quality={50}
+                    width={20}
+                    height={20}
+                  />
+                </div>
               )
             })}
           </div>
