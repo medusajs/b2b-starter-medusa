@@ -1,6 +1,7 @@
 import { getCustomer } from "@lib/data/customer"
 import AccountLayout from "@modules/account/templates/account-layout"
 import Image from "next/image"
+import { Suspense } from "react"
 
 export default async function AccountPageLayout({
   children,
@@ -20,7 +21,9 @@ export default async function AccountPageLayout({
         quality={100}
         priority
       />
-      <AccountLayout customer={customer}>{children}</AccountLayout>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AccountLayout customer={customer}>{children}</AccountLayout>
+      </Suspense>
     </div>
   )
 }
