@@ -1,5 +1,5 @@
 import { MiddlewareRoute } from "@medusajs/medusa";
-import { storeCartsMiddlewares } from "./carts/[id]/line-items/bulk/middlewares";
+import { storeCartsMiddlewares } from "./carts/middlewares";
 import { storeCompaniesMiddlewares } from "./companies/middlewares";
 import { storeQuotesMiddlewares } from "./quotes/middlewares";
 
