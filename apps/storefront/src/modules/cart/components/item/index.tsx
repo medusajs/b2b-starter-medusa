@@ -118,45 +118,51 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
               {item.variant?.title}
             </span>
           </div>
-          <div className="flex gap-x-2">
+          <div className="flex small:flex-row flex-col gap-2">
             {type === "full" && (
               <>
-                <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
-                  <button
-                    className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
-                    onClick={() => changeQuantity(item.quantity - 1)}
-                    disabled={item.quantity <= 1}
-                  >
-                    -
-                  </button>
-                  <span className="w-4 h-4 flex items-center justify-center text-neutral-950 text-xs">
-                    {updating ? (
-                      <Spinner size="12" />
-                    ) : (
-                      <Input
-                        className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
-                        type="number"
-                        value={quantity}
-                        onChange={(e) => {
-                          setQuantity(e.target.value)
-                        }}
-                        onBlur={(e) => {
-                          handleBlur(Number(e.target.value))
-                        }}
-                        onKeyDown={(e) => handleKeyDown(e)}
-                      />
-                    )}
-                  </span>
-                  <button
-                    className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
-                    onClick={() => changeQuantity(item.quantity + 1)}
-                    disabled={item.quantity >= maxQuantity}
-                  >
-                    +
-                  </button>
-                </div>
+                <LineItemPrice
+                  className="flex small:hidden self-start"
+                  item={item}
+                />
+                <div className="flex gap-x-2">
+                  <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
+                    <button
+                      className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
+                      onClick={() => changeQuantity(item.quantity - 1)}
+                      disabled={item.quantity <= 1}
+                    >
+                      -
+                    </button>
+                    <span className="w-4 h-4 flex items-center justify-center text-neutral-950 text-xs">
+                      {updating ? (
+                        <Spinner size="12" />
+                      ) : (
+                        <Input
+                          className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
+                          type="number"
+                          value={quantity}
+                          onChange={(e) => {
+                            setQuantity(e.target.value)
+                          }}
+                          onBlur={(e) => {
+                            handleBlur(Number(e.target.value))
+                          }}
+                          onKeyDown={(e) => handleKeyDown(e)}
+                        />
+                      )}
+                    </span>
+                    <button
+                      className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
+                      onClick={() => changeQuantity(item.quantity + 1)}
+                      disabled={item.quantity >= maxQuantity}
+                    >
+                      +
+                    </button>
+                  </div>
 
-                <DeleteButton id={item.id} />
+                  <DeleteButton id={item.id} />
+                </div>
                 <AddNoteButton item={item as HttpTypes.StoreCartLineItem} />
               </>
             )}
@@ -178,6 +184,7 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
         })}
       >
         <LineItemPrice
+          className="hidden small:flex"
           item={item}
           style={type === "preview" ? "tight" : "default"}
         />

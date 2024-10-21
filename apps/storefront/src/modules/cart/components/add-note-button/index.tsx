@@ -77,7 +77,7 @@ const AddNoteButton = ({ item }: { item: HttpTypes.StoreCartLineItem }) => {
         <span className="text-neutral-950">Note:&nbsp;</span>
 
         <Input
-          className="w-fit max-w-40 h-6 flex items-center justify-center text-neutral-950 text-xs rounded-full"
+          className="w-fit small:max-w-40 max-w-32 h-6 flex items-center justify-center text-neutral-950 text-xs rounded-full"
           type="text"
           value={note}
           onChange={(e) => setNote(e.target.value)}

@@ -4,13 +4,19 @@ import { getPercentageDiff } from "@lib/util/get-precentage-diff"
 import { getPricesForVariant } from "@lib/util/get-product-price"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
+import { HTMLAttributes } from "react"
 
 type LineItemPriceProps = {
   item: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
   style?: "default" | "tight"
+  className?: string
 }
 
-const LineItemPrice = ({ item, style = "default" }: LineItemPriceProps) => {
+const LineItemPrice = ({
+  item,
+  style = "default",
+  className,
+}: LineItemPriceProps) => {
   const { currency_code, calculated_price_number, original_price_number } =
     getPricesForVariant(item.variant) ?? {}
 
@@ -24,7 +30,12 @@ const LineItemPrice = ({ item, style = "default" }: LineItemPriceProps) => {
   const hasReducedPrice = currentPrice < originalPrice
 
   return (
-    <div className="flex flex-col gap-x-2 text-ui-fg-subtle items-end">
+    <div
+      className={clx(
+        "flex flex-col gap-x-2 text-ui-fg-subtle items-end",
+        className
+      )}
+    >
       <div className="text-left">
         {hasReducedPrice && (
           <>

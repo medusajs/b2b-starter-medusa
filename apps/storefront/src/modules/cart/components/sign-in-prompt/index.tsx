@@ -37,16 +37,16 @@ const SignInPrompt = () => {
     <Container className="flex justify-between self-stretch relative w-full h-28 p-0 overflow-hidden">
       <BackgroundImage />
       <div className="absolute inset-0 z-1 flex justify-between items-center text-center p-4">
-        <Text className="text-4xl text-white text-left">
+        <Text className="small:text-4xl text-lg text-white text-left">
           Log in for
           <br />
           faster checkout.
         </Text>
-        <div className="flex gap-4">
+        <div className="flex small:flex-row flex-col small:gap-4 gap-2">
           <LocalizedClientLink href="/account?view=register">
             <Button
               variant="secondary"
-              className="h-10 min-w-36 rounded-full"
+              className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
               Register
@@ -55,7 +55,7 @@ const SignInPrompt = () => {
           <LocalizedClientLink href="/account?view=log-in">
             <Button
               variant="primary"
-              className="h-10 min-w-36 rounded-full"
+              className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
               Log in
