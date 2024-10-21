@@ -1,18 +1,14 @@
-import {
-  createWorkflow,
-  WorkflowData,
-  WorkflowResponse,
-} from "@medusajs/workflows-sdk";
+import { when } from "@medusajs/framework/workflows-sdk";
+import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
 import { ModuleCreateEmployee, ModuleEmployee } from "@starter/types";
 import {
   createEmployeesStep,
   linkEmployeeToCustomerStep,
   setAdminRoleStep,
 } from "../steps";
-import { when } from "@medusajs/framework/workflows-sdk";
 
 type WorkflowInput = {
-  employeeData: ModuleCreateEmployee | WorkflowData<ModuleCreateEmployee>;
+  employeeData: ModuleCreateEmployee;
   customerId: string;
 };
 
@@ -27,11 +23,9 @@ export const createEmployeesWorkflow = createWorkflow(
     });
 
     when(employee, ({ is_admin }) => {
-      return is_admin === true;
+      return !!is_admin;
     }).then(() => {
-      setAdminRoleStep({
-        employeeId: employee.id,
-      });
+      setAdminRoleStep({ employeeId: employee.id });
     });
 
     return new WorkflowResponse(employee);

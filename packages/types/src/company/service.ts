@@ -3,6 +3,7 @@ import {
   Context,
   FindConfig,
   IModuleService,
+  RestoreReturn,
 } from "@medusajs/types";
 import {
   ModuleCompany,
@@ -52,6 +53,12 @@ export interface ICompanyModuleService extends IModuleService {
 
   softDeleteCompanies(ids: string[], sharedContext?: Context): Promise<void>;
 
+  restoreCompanies<TReturnableLinkableKeys extends string = string>(
+    ids: string[],
+    config?: RestoreReturn<TReturnableLinkableKeys>,
+    sharedContext?: Context
+  ): Promise<Record<TReturnableLinkableKeys, string[]> | void>;
+
   /* Entity: Employees */
 
   listEmployees(
@@ -80,5 +87,9 @@ export interface ICompanyModuleService extends IModuleService {
 
   softDeleteEmployees(ids: string[], sharedContext?: Context): Promise<void>;
 
-  restoreEmployees(ids: string[], sharedContext?: Context): Promise<void>;
+  restoreEmployees<TReturnableLinkableKeys extends string = string>(
+    ids: string[],
+    config?: RestoreReturn<TReturnableLinkableKeys>,
+    sharedContext?: Context
+  ): Promise<Record<TReturnableLinkableKeys, string[]> | void>;
 }

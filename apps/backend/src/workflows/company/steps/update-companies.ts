@@ -1,31 +1,25 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { CompanyDTO } from "src/modules/company/types/common";
+import { ICompanyModuleService, ModuleUpdateCompany } from "@starter/types";
 import { COMPANY_MODULE } from "../../../modules/company";
-import { UpdateCompanyDTO } from "../../../modules/company/types/mutations";
 
 export const updateCompaniesStep = createStep(
   "update-companies",
-  async (
-    input: UpdateCompanyDTO | UpdateCompanyDTO[],
-    { container }
-  ): Promise<StepResponse<CompanyDTO | CompanyDTO[], CompanyDTO[]>> => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
+  async (input: ModuleUpdateCompany, { container }) => {
+    const companyModule =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
-    const ids = Array.isArray(input)
-      ? input.map((company) => company.id)
-      : [input.id];
-
-    const currentData = await companyModuleService.listCompanies({
-      id: ids,
+    const [previousData] = await companyModule.listCompanies({
+      id: input.id,
     });
 
-    const updatedCompanies = await companyModuleService.updateCompanies(input);
+    const updatedCompanies = await companyModule.updateCompanies(input);
 
-    return new StepResponse(updatedCompanies, currentData);
+    return new StepResponse(updatedCompanies, previousData);
   },
-  async (currentData: UpdateCompanyDTO[], { container }) => {
-    const companyModuleService = container.resolve(COMPANY_MODULE);
-    await companyModuleService.updateCompanies(currentData);
-    return new StepResponse("Company data restored", currentData);
+  async (previousData: ModuleUpdateCompany, { container }) => {
+    const companyModule =
+      container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+
+    await companyModule.updateCompanies(previousData);
   }
 );

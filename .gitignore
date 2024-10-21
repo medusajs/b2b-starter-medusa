@@ -18,12 +18,12 @@ node_modules
 coverage
 
 # Next.js
-.next/
-out/
+**/.next/
+**/out/
 
 # Production
-build
-dist
+**/build
+**/dist
 
 # Misc
 .DS_Store
@@ -35,11 +35,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
 
 # Turbo
 .turbo

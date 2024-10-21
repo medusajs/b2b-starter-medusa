@@ -1,18 +1,18 @@
 "use client"
 
+import { currencySymbolMap } from "@lib/constants"
+import { updateCompany } from "@lib/data/companies"
+import { AdminRegionCountry, HttpTypes } from "@medusajs/types"
 import { Container, Text, Toaster, clx, toast } from "@medusajs/ui"
-import Input from "@modules/common/components/input"
 import Button from "@modules/common/components/button"
+import Input from "@modules/common/components/input"
 import Select from "@modules/common/components/native-select"
 import {
   ModuleCompanySpendingLimitResetFrequency,
   StoreCompanyResponse,
   StoreUpdateCompany,
 } from "@starter/types"
-import { currencySymbolMap } from "@lib/constants"
 import { useState } from "react"
-import { HttpTypes } from "@medusajs/types"
-import { updateCompany } from "@lib/data/companies"
 
 const CompanyCard = ({
   company,
@@ -29,7 +29,7 @@ const CompanyCard = ({
 
   const handleSave = async () => {
     setIsSaving(true)
-    const res = await updateCompany(companyData).catch(() => {
+    await updateCompany(companyData).catch(() => {
       toast.error("Error updating company")
     })
     setIsSaving(false)
@@ -46,7 +46,7 @@ const CompanyCard = ({
     new Set(
       regions.flatMap((region) => region.countries).map((country) => country)
     )
-  )
+  ) as AdminRegionCountry[]
 
   return (
     <div className="h-fit">
@@ -152,14 +152,11 @@ const CompanyCard = ({
                 setCompanyData({ ...companyData, country: e.target.value })
               }
             >
-              {countriesInRegions.map(
-                (country) =>
-                  country && (
-                    <option key={country.id} value={country.id}>
-                      {country.name}
-                    </option>
-                  )
-              )}
+              {countriesInRegions.map((country) => (
+                <option key={country.id} value={country.id}>
+                  {country.name}
+                </option>
+              ))}
             </Select>
           </div>
           <div className="flex flex-col gap-y-2">

@@ -26,11 +26,15 @@ async function getRegionMap(cacheId: string) {
         revalidate: 3600,
         tags: [`regions-${cacheId}`],
       },
+    }).then(async (response) => {
+      const json = await response.json()
+
+      if (!response.ok) {
+        throw new Error(json.message)
+      }
+
+      return json
     })
-      .then((res) => res.json())
-      .catch((err) => {
-        return []
-      })
 
     if (!regions?.length) {
       throw new Error(

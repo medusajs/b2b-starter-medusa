@@ -1,45 +1,47 @@
+import {
+  AuthenticatedMedusaRequest,
+  MedusaResponse,
+} from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import {
   deleteEmployeesWorkflow,
   updateEmployeesWorkflow,
 } from "../../../../../../workflows/employee/workflows";
-import { GetEmployeeParamsType, UpdateEmployeeType } from "../validators";
+import {
+  AdminGetEmployeeParamsType,
+  AdminUpdateEmployeeType,
+} from "../../../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetEmployeeParamsType>,
+  req: AuthenticatedMedusaRequest<AdminGetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
   const { id, employeeId } = req.params;
-
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { data: employees } = await query.graph(
+  const {
+    data: [employee],
+  } = await query.graph(
     {
       entity: "employee",
       fields: req.remoteQueryConfig.fields,
-      filters: {
-        ...req.filterableFields,
-        id: employeeId,
-        company_id: id,
-      },
+      filters: { ...req.filterableFields, id: employeeId, company_id: id },
     },
     { throwIfKeyNotFound: true }
   );
 
-  return res.status(200).json({
-    employee: employees[0],
-  });
+  res.json({ employee });
 };
 
 export const POST = async (
-  req: MedusaRequest<UpdateEmployeeType>,
+  req: AuthenticatedMedusaRequest<AdminUpdateEmployeeType>,
   res: MedusaResponse
 ) => {
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
   const { id, employeeId } = req.params;
   const { spending_limit, is_admin } = req.body;
 
-  const { result } = await updateEmployeesWorkflow.run({
+  await updateEmployeesWorkflow.run({
     input: {
       id: employeeId,
       company_id: id,
@@ -49,10 +51,24 @@ export const POST = async (
     container: req.scope,
   });
 
-  return res.status(202).json({ company_customer: result }).send();
+  const {
+    data: [employee],
+  } = await query.graph(
+    {
+      entity: "employee",
+      fields: req.remoteQueryConfig.fields,
+      filters: { ...req.filterableFields, id: employeeId, company_id: id },
+    },
+    { throwIfKeyNotFound: true }
+  );
+
+  res.json({ employee });
 };
 
-export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
+export const DELETE = async (
+  req: AuthenticatedMedusaRequest,
+  res: MedusaResponse
+) => {
   const { id, employeeId } = req.params;
 
   await deleteEmployeesWorkflow.run({
@@ -63,5 +79,9 @@ export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
     container: req.scope,
   });
 
-  return res.status(204).send();
+  res.status(200).json({
+    id: employeeId,
+    object: "employee",
+    deleted: true,
+  });
 };

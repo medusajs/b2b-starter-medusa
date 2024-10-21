@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/20b136d6-3025-42e4-b037-62df107b01b5" controls="controls" muted="muted" playsinline="playsinline">
+  <video src="https://github.com/user-attachments/assets/833b26a5-4b52-447f-ac30-6ae02cbe8f05" controls="controls" muted="muted" playsinline="playsinline">
 </video>
 </p>
 
@@ -162,6 +162,6 @@ Visit the following links to see the Medusa storefront & admin
 
 ## Contributors
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/medusajs/b2b-starter-medusa/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=medusajs/b2b-starter-medusa"/>
 </a>
