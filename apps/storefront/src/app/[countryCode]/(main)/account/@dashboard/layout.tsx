@@ -21,9 +21,7 @@ export default async function AccountPageLayout({
         quality={100}
         priority
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <AccountLayout customer={customer}>{children}</AccountLayout>
-      </Suspense>
+      <AccountLayout customer={customer}>{children}</AccountLayout>
     </div>
   )
 }
