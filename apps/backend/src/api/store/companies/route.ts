@@ -4,10 +4,13 @@ import type {
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createCompaniesWorkflow } from "../../../workflows/company/workflows/create-companies";
-import { CreateCompanyType, GetCompanyParamsType } from "./validators";
+import {
+  StoreCreateCompanyType,
+  StoreGetCompanyParamsType,
+} from "./validators";
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest<GetCompanyParamsType>,
+  req: AuthenticatedMedusaRequest<StoreGetCompanyParamsType>,
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
@@ -22,24 +25,34 @@ export const GET = async (
     },
   });
 
-  return res.json({
+  res.json({
     companies,
-    metadata,
+    count: metadata!.count,
+    offset: metadata!.skip,
+    limit: metadata!.take,
   });
 };
 
 export const POST = async (
-  req: AuthenticatedMedusaRequest<CreateCompanyType>,
+  req: AuthenticatedMedusaRequest<StoreCreateCompanyType>,
   res: MedusaResponse
 ) => {
-  const {
-    result: { company },
-  } = await createCompaniesWorkflow.run({
-    input: {
-      ...req.validatedBody,
-    },
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+  const { result: createdCompany } = await createCompaniesWorkflow.run({
+    input: { ...req.validatedBody },
     container: req.scope,
   });
 
-  return res.json({ company });
+  const {
+    data: [company],
+  } = await query.graph(
+    {
+      entity: "companies",
+      fields: req.remoteQueryConfig.fields,
+      filters: { id: createdCompany.id },
+    },
+    { throwIfKeyNotFound: true }
+  );
+
+  res.json({ company });
 };

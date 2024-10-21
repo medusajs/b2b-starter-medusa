@@ -1,11 +1,12 @@
 import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
 
-export type GetCompanyParamsType = z.infer<typeof GetCompanyParams>;
-export const GetCompanyParams = createSelectParams();
+/* Company Validators */
+export type StoreGetCompanyParamsType = z.infer<typeof StoreGetCompanyParams>;
+export const StoreGetCompanyParams = createSelectParams();
 
-export type CreateCompanyType = z.infer<typeof CreateCompany>;
-export const CreateCompany = z
+export type StoreCreateCompanyType = z.infer<typeof StoreCreateCompany>;
+export const StoreCreateCompany = z
   .object({
     name: z.string(),
     email: z.string(),
@@ -20,8 +21,8 @@ export const CreateCompany = z
   })
   .strict();
 
-export type UpdateCompanyType = z.infer<typeof UpdateCompany>;
-export const UpdateCompany = z
+export type StoreUpdateCompanyType = z.infer<typeof StoreUpdateCompany>;
+export const StoreUpdateCompany = z
   .object({
     name: z.string().optional(),
     email: z.string().optional(),
@@ -33,5 +34,32 @@ export const UpdateCompany = z
     zip: z.string().optional().nullable(),
     country: z.string().optional().nullable(),
     logo_url: z.string().optional().nullable(),
+  })
+  .strict();
+
+/* Employee Validators */
+export type StoreGetEmployeeParamsType = z.infer<typeof StoreGetEmployeeParams>;
+export const StoreGetEmployeeParams = createSelectParams();
+
+export type StoreCreateEmployeeType = z.infer<typeof StoreCreateEmployee>;
+export const StoreCreateEmployee = z
+  .object({
+    spending_limit: z.number().optional().nullable(),
+    is_admin: z.boolean().optional().nullable().default(false),
+    customer_id: z.string(),
+  })
+  .strict();
+
+export type StoreUpdateEmployeeType = z.infer<typeof StoreUpdateEmployee>;
+export const StoreUpdateEmployee = z
+  .object({
+    spending_limit: z.number().optional(),
+    raw_spending_limit: z
+      .object({
+        value: z.number().optional(),
+        precision: z.number().optional(),
+      })
+      .optional(),
+    is_admin: z.boolean().optional(),
   })
   .strict();

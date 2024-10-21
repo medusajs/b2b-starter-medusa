@@ -1,21 +1,36 @@
 import {
+  MiddlewareRoute,
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
-import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
-
-import { retrieveCompanyTransformQueryConfig } from "./query-config";
-import { CreateCompany, GetCompanyParams } from "./validators";
+import { authenticate } from "@medusajs/medusa";
+import { ensureRole } from "../../middlewares/ensure-role";
+import {
+  storeCompanyQueryConfig,
+  storeEmployeeQueryConfig,
+} from "./query-config";
+import {
+  StoreCreateCompany,
+  StoreCreateEmployee,
+  StoreGetCompanyParams,
+  StoreGetEmployeeParams,
+  StoreUpdateEmployee,
+} from "./validators";
 
 export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
+  /* Company middlewares */
+  {
+    method: "ALL",
+    matcher: "/store/companies*",
+    middlewares: [authenticate("customer", ["session", "bearer"])],
+  },
   {
     method: ["GET"],
     matcher: "/store/companies",
     middlewares: [
-      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        StoreGetCompanyParams,
+        storeCompanyQueryConfig.list
       ),
     ],
   },
@@ -23,10 +38,10 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/store/companies",
     middlewares: [
-      validateAndTransformBody(CreateCompany),
+      validateAndTransformBody(StoreCreateCompany),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        StoreGetCompanyParams,
+        storeCompanyQueryConfig.retrieve
       ),
     ],
   },
@@ -34,10 +49,55 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/store/companies/:id",
     middlewares: [
-      authenticate("customer", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        StoreGetCompanyParams,
+        storeCompanyQueryConfig.retrieve
+      ),
+    ],
+  },
+
+  /* Employee middlewares */
+  {
+    method: ["GET"],
+    matcher: "/store/companies/:id/employees",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetEmployeeParams,
+        storeEmployeeQueryConfig.list
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/companies/:id/employees",
+    middlewares: [
+      ensureRole("company_admin"),
+      validateAndTransformBody(StoreCreateEmployee),
+      validateAndTransformQuery(
+        StoreGetEmployeeParams,
+        storeEmployeeQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/companies/:id/employees/:employee_id",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetEmployeeParams,
+        storeEmployeeQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/companies/:id/employees/:employee_id",
+    middlewares: [
+      ensureRole("company_admin"),
+      validateAndTransformBody(StoreUpdateEmployee),
+      validateAndTransformQuery(
+        StoreGetEmployeeParams,
+        storeEmployeeQueryConfig.retrieve
       ),
     ],
   },

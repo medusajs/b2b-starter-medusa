@@ -2,20 +2,28 @@ import {
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
-import { MiddlewareRoute, authenticate } from "@medusajs/medusa";
-
-import { retrieveCompanyTransformQueryConfig } from "./query-config";
-import { CreateCompany, GetCompanyParams } from "./validators";
+import { MiddlewareRoute } from "@medusajs/medusa";
+import {
+  adminCompanyQueryConfig,
+  adminEmployeeQueryConfig,
+} from "./query-config";
+import {
+  AdminCreateCompany,
+  AdminCreateEmployee,
+  AdminGetCompanyParams,
+  AdminGetEmployeeParams,
+  AdminUpdateEmployee,
+} from "./validators";
 
 export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
+  /* Companies Middlewares */
   {
     method: ["GET"],
     matcher: "/admin/companies",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        AdminGetCompanyParams,
+        adminCompanyQueryConfig.list
       ),
     ],
   },
@@ -23,11 +31,10 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/admin/companies",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
-      validateAndTransformBody(CreateCompany),
+      validateAndTransformBody(AdminCreateCompany),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        AdminGetCompanyParams,
+        adminCompanyQueryConfig.retrieve
       ),
     ],
   },
@@ -35,10 +42,53 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/admin/companies/:id",
     middlewares: [
-      authenticate("user", ["session", "bearer", "api-key"]),
       validateAndTransformQuery(
-        GetCompanyParams,
-        retrieveCompanyTransformQueryConfig
+        AdminGetCompanyParams,
+        adminCompanyQueryConfig.retrieve
+      ),
+    ],
+  },
+
+  /* Employees Middlewares */
+  {
+    method: ["GET"],
+    matcher: "/companies/:id/employees",
+    middlewares: [
+      validateAndTransformQuery(
+        AdminGetEmployeeParams,
+        adminEmployeeQueryConfig.list
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/companies/:id/employees",
+    middlewares: [
+      validateAndTransformBody(AdminCreateEmployee),
+      validateAndTransformQuery(
+        AdminGetEmployeeParams,
+        adminEmployeeQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/companies/:id/employees/:employee_id",
+    middlewares: [
+      validateAndTransformQuery(
+        AdminGetEmployeeParams,
+        adminEmployeeQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/companies/:id/employees/:employee_id",
+    middlewares: [
+      validateAndTransformBody(AdminUpdateEmployee),
+      validateAndTransformQuery(
+        AdminGetEmployeeParams,
+        adminEmployeeQueryConfig.retrieve
       ),
     ],
   },
