@@ -66,7 +66,7 @@ const BillingAddress = ({
   return (
     <Container>
       <div className="flex flex-col gap-y-2">
-        <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex small:flex-row flex-col small:items-center justify-between w-full">
           <div className="flex gap-x-2 items-center">
             <Heading
               level="h2"
