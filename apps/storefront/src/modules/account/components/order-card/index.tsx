@@ -1,7 +1,6 @@
-import getThumbnailRotation from "@lib/util/get-thumbnail-rotation"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
-import { Button, Container } from "@medusajs/ui"
+import { Button, clx, Container } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import { useMemo } from "react"
@@ -28,20 +27,32 @@ const OrderCard = ({ order }: OrderCardProps) => {
         <div className="flex gap-x-4 items-center pl-3">
           <div className="flex">
             {order.items?.slice(0, 3).map((i, index) => {
-              const rotation = getThumbnailRotation(
-                index,
-                order.items?.length ?? 0
-              )
+              const numItems = order.items?.length ?? 0
 
               return (
                 <div
                   key={i.id}
-                  className={`block w-7 h-7 border border-white bg-neutral-100 p-1 bg-cover bg-center rounded-md ml-[-5px] ${rotation}`}
+                  className={clx(
+                    "block w-7 h-7 border border-white bg-neutral-100 p-2 bg-cover bg-center rounded-md ml-[-5px]",
+                    {
+                      "-rotate-3": index === 0 && numItems > 1,
+                      "rotate-0": index === 0 && numItems === 1,
+                      "rotate-3":
+                        (index === 1 && numItems === 2) ||
+                        (index === 2 && numItems > 2),
+                    }
+                  )}
                 >
                   <Image
                     src={i.thumbnail!}
                     alt={i.title}
-                    className={`h-full w-full object-cover object-center ${rotation}`}
+                    className={clx("h-full w-full object-cover object-center", {
+                      "-rotate-3": index === 0 && numItems > 1,
+                      "rotate-0": index === 0 && numItems === 1,
+                      "rotate-3":
+                        (index === 1 && numItems === 2) ||
+                        (index === 2 && numItems > 2),
+                    })}
                     draggable={false}
                     quality={50}
                     width={20}
