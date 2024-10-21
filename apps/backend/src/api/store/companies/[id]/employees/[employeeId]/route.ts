@@ -4,17 +4,21 @@ import {
   deleteEmployeesWorkflow,
   updateEmployeesWorkflow,
 } from "../../../../../../workflows/employee/workflows";
-import { GetEmployeeParamsType, UpdateEmployeeType } from "../validators";
+import {
+  StoreGetEmployeeParamsType,
+  StoreUpdateEmployeeType,
+} from "../../../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetEmployeeParamsType>,
+  req: MedusaRequest<StoreGetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
   const { id, employeeId } = req.params;
-
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { data: employees } = await query.graph(
+  const {
+    data: [employee],
+  } = await query.graph(
     {
       entity: "employee",
       fields: req.remoteQueryConfig.fields,
@@ -27,19 +31,18 @@ export const GET = async (
     { throwIfKeyNotFound: true }
   );
 
-  return res.status(200).json({
-    employee: employees[0],
-  });
+  res.json({ employee });
 };
 
 export const POST = async (
-  req: MedusaRequest<UpdateEmployeeType>,
+  req: MedusaRequest<StoreUpdateEmployeeType>,
   res: MedusaResponse
 ) => {
   const { id, employeeId } = req.params;
   const { spending_limit, is_admin } = req.validatedBody;
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { result } = await updateEmployeesWorkflow.run({
+  await updateEmployeesWorkflow.run({
     input: {
       id: employeeId,
       company_id: id,
@@ -49,7 +52,22 @@ export const POST = async (
     container: req.scope,
   });
 
-  return res.status(202).json({ company_customer: result }).send();
+  const {
+    data: [employee],
+  } = await query.graph(
+    {
+      entity: "employee",
+      fields: req.remoteQueryConfig.fields,
+      filters: {
+        ...req.filterableFields,
+        id: employeeId,
+        company_id: id,
+      },
+    },
+    { throwIfKeyNotFound: true }
+  );
+
+  res.json({ employee });
 };
 
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
@@ -60,5 +78,9 @@ export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
     container: req.scope,
   });
 
-  return res.status(204);
+  res.json({
+    id: employeeId,
+    object: "employee",
+    deleted: true,
+  });
 };

@@ -1,17 +1,19 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { createEmployeesWorkflow } from "../../../../../workflows/employee/workflows";
-import { CreateEmployeeType, GetEmployeeParamsType } from "./validators";
+import {
+  StoreCreateEmployeeType,
+  StoreGetEmployeeParamsType,
+} from "../../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetEmployeeParamsType>,
+  req: MedusaRequest<StoreGetEmployeeParamsType>,
   res: MedusaResponse
 ) => {
   const { id } = req.params;
-
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { data, metadata } = await query.graph(
+  const { data: employees, metadata } = await query.graph(
     {
       entity: "employee",
       fields: req.remoteQueryConfig.fields,
@@ -23,32 +25,46 @@ export const GET = async (
     { throwIfKeyNotFound: true }
   );
 
-  return res.json({
-    employees: data,
-    metadata,
+  res.json({
+    employees,
+    count: metadata!.count,
+    offset: metadata!.skip,
+    limit: metadata!.take,
   });
 };
 
 export const POST = async (
-  req: MedusaRequest<CreateEmployeeType>,
+  req: MedusaRequest<StoreCreateEmployeeType>,
   res: MedusaResponse
 ) => {
   const { id } = req.params;
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  let { is_admin, spending_limit, customer_id } = req.body;
-
-  const { result } = await createEmployeesWorkflow.run({
+  const { result: createdEmployee } = await createEmployeesWorkflow.run({
     input: {
       employeeData: {
+        ...req.body,
         company_id: id,
-        customer_id,
-        is_admin,
-        spending_limit,
       },
-      customerId: customer_id,
+      customerId: req.body.customer_id,
     },
     container: req.scope,
   });
 
-  return res.json({ employee: result });
+  const {
+    data: [employee],
+  } = await query.graph(
+    {
+      entity: "employee",
+      fields: req.remoteQueryConfig.fields,
+      filters: {
+        ...req.filterableFields,
+        id: createdEmployee.id,
+        company_id: id,
+      },
+    },
+    { throwIfKeyNotFound: true }
+  );
+
+  res.json({ employee });
 };

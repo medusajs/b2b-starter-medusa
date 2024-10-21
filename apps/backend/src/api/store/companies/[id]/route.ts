@@ -4,17 +4,21 @@ import {
   deleteCompaniesWorkflow,
   updateCompaniesWorkflow,
 } from "../../../../workflows/company/workflows/";
-import { GetCompanyParamsType, UpdateCompanyType } from "../validators";
+import {
+  StoreGetCompanyParamsType,
+  StoreUpdateCompanyType,
+} from "../validators";
 
 export const GET = async (
-  req: MedusaRequest<GetCompanyParamsType>,
+  req: MedusaRequest<StoreGetCompanyParamsType>,
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
-
   const { id } = req.params;
 
-  const { data } = await query.graph(
+  const {
+    data: [company],
+  } = await query.graph(
     {
       entity: "companies",
       fields: req.remoteQueryConfig.fields,
@@ -25,35 +29,45 @@ export const GET = async (
     { throwIfKeyNotFound: true }
   );
 
-  return res.status(200).json({
-    company: data[0],
-  });
+  res.json({ company });
 };
 
 export const POST = async (
-  req: MedusaRequest<UpdateCompanyType>,
+  req: MedusaRequest<StoreUpdateCompanyType>,
   res: MedusaResponse
 ) => {
   const { id } = req.params;
+  const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { result } = await updateCompaniesWorkflow.run({
+  await updateCompaniesWorkflow.run({
     input: {
       id,
       ...req.body,
     },
   });
 
-  return res.json(result);
+  const {
+    data: [company],
+  } = await query.graph(
+    {
+      entity: "companies",
+      fields: req.remoteQueryConfig.fields,
+      filters: { id },
+    },
+    { throwIfKeyNotFound: true }
+  );
+
+  res.json({ company });
 };
 
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id } = req.params;
 
-  const { result } = await deleteCompaniesWorkflow.run({
-    input: {
-      id,
-    },
-  });
+  await deleteCompaniesWorkflow.run({ input: { id } });
 
-  return res.json({ message: result });
+  res.json({
+    id,
+    object: "employee",
+    deleted: true,
+  });
 };
