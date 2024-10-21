@@ -12,11 +12,14 @@ export async function NavigationHeader() {
 
   return (
     <div className="sticky top-0 inset-x-0 group z-[1] bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base">
-      <header className="flex max-w-7xl relative small:mx-auto">
-        <div className="container small:mx-auto flex justify-between items-center">
+      <header className="flex w-full max-w-7xl relative small:mx-auto justify-between">
+        <div className="container small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
-            <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
-              <h1 className="text-base font-medium flex items-center">
+            <LocalizedClientLink
+              className="hover:text-ui-fg-base flex items-center w-fit"
+              href="/"
+            >
+              <h1 className="small:text-base text-sm font-medium flex items-center">
                 <LogoIcon className="inline mr-2" />
                 Medusa B2B Starter
               </h1>
@@ -35,12 +38,12 @@ export async function NavigationHeader() {
               </ul>
             </nav>
           </div>
-          <div className="flex items-center  gap-2">
-            <div className="relative mr-2 hidden small:inline-block">
+          <div className="flex justify-end items-center gap-2">
+            <div className="relative mr-2 hidden small:inline-flex">
               <input
                 type="text"
                 placeholder="Search for products"
-                className="bg-gray-100 text-white px-4 py-2 rounded-full pr-10 shadow-borders-base"
+                className="bg-gray-100 text-white px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block"
               />
             </div>
 
