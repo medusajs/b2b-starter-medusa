@@ -118,11 +118,15 @@ const Employee = ({
               </>
             )}
           </Text>
-          <div className="flex gap-x-2">
+          <div className="flex gap-x-2 small:flex-row flex-col">
             <Text className=" text-neutral-500">{employee.customer.email}</Text>
-            <Text className=" text-neutral-500">{" • "}</Text>
+            <Text className=" text-neutral-500 hidden small:block">
+              {" • "}
+            </Text>
             <Text className=" text-neutral-500">{employee.customer.phone}</Text>
-            <Text className=" text-neutral-500">{" • "}</Text>
+            <Text className=" text-neutral-500 hidden small:block">
+              {" • "}
+            </Text>
             <Text className=" text-neutral-500">
               {amountSpent} /{" "}
               {employee.spending_limit > 0

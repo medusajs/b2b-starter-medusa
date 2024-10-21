@@ -31,8 +31,8 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
         </LocalizedClientLink>
       </div>
 
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-span-4 flex flex-col gap-y-2">
+      <div className="small:grid small:grid-cols-6 gap-4 flex flex-col-reverse">
+        <div className="small:col-span-4 flex flex-col gap-y-2">
           {order.items?.map((item) => {
             return (
               <Container key={item.id}>
@@ -46,7 +46,7 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
           </Container>
         </div>
 
-        <div className="col-span-2 flex flex-col gap-y-2">
+        <div className="small:col-span-2 flex flex-col gap-y-2">
           <Container>
             <OrderDetails order={order} />
           </Container>

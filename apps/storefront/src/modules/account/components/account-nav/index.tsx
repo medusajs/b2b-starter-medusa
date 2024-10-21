@@ -12,6 +12,8 @@ import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import User from "@modules/common/icons/user"
 import { B2BCustomer } from "types/global"
+import DocumentIcon from "@modules/common/icons/document"
+import FilePlus from "@modules/common/icons/file-plus"
 
 const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
   const route = usePathname()
@@ -97,6 +99,19 @@ const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
                       <span>Orders</span>
+                    </div>
+                    <ChevronDown className="transform -rotate-90" />
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/account/quotes"
+                    className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                    data-testid="quotes-link"
+                  >
+                    <div className="flex items-center gap-x-2">
+                      <FilePlus size={16} />
+                      <span>Quotes</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
