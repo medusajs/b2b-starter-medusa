@@ -22,10 +22,10 @@ export const ensureRole = (role: string) => {
       filters: { auth_identity_id },
     });
 
-    if (providerIdentity.user_metadata.role !== role) {
-      return res.status(403).json({ message: "Forbidden" });
+    if (providerIdentity.user_metadata?.role === role) {
+      return next();
     }
 
-    next();
+    return res.status(403).json({ message: "Forbidden" });
   };
 };

@@ -22,9 +22,7 @@ export const GET = async (
     {
       entity: "companies",
       fields: req.remoteQueryConfig.fields,
-      filters: {
-        id,
-      },
+      filters: { id },
     },
     { throwIfKeyNotFound: true }
   );

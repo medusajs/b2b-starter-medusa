@@ -55,6 +55,16 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
       ),
     ],
   },
+  {
+    method: ["POST"],
+    matcher: "/store/companies/:id",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetCompanyParams,
+        storeCompanyQueryConfig.retrieve
+      ),
+    ],
+  },
 
   /* Employee middlewares */
   {
@@ -75,7 +85,7 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
       validateAndTransformBody(StoreCreateEmployee),
       validateAndTransformQuery(
         StoreGetEmployeeParams,
-        storeEmployeeQueryConfig.retrieve
+        storeEmployeeQueryConfig.list
       ),
     ],
   },
