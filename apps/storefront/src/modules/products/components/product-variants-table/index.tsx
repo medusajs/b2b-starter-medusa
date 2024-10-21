@@ -52,63 +52,67 @@ const ProductVariantsTable = ({
 
   return (
     <div className="flex flex-col gap-6">
-      <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none">
-        <Table.Header className="border-t-0">
-          <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">
-            <Table.HeaderCell className="px-4">SKU</Table.HeaderCell>
-            {product.options?.map((option) => {
-              if (option.title === "Default option") {
-                return null
-              }
+      <div className="overflow-x-auto p-px">
+        <Table className="w-full rounded-xl overflow-hidden shadow-borders-base border-none ">
+          <Table.Header className="border-t-0">
+            <Table.Row className="bg-neutral-100 border-none hover:!bg-neutral-100">
+              <Table.HeaderCell className="px-4">SKU</Table.HeaderCell>
+              {product.options?.map((option) => {
+                if (option.title === "Default option") {
+                  return null
+                }
+                return (
+                  <Table.HeaderCell key={option.id} className="px-4 border-x">
+                    {option.title}
+                  </Table.HeaderCell>
+                )
+              })}
+              <Table.HeaderCell className="px-4 border-x">
+                Price
+              </Table.HeaderCell>
+              <Table.HeaderCell className="px-4">Quantity</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body className="border-none">
+            {product.variants?.map((variant, index) => {
+              const { variantPrice } = getProductPrice({
+                product,
+                variantId: variant.id,
+              })
+
               return (
-                <Table.HeaderCell key={option.id} className="px-4 border-x">
-                  {option.title}
-                </Table.HeaderCell>
+                <Table.Row
+                  key={variant.id}
+                  className={clx({
+                    "border-b-0": index === product.variants?.length! - 1,
+                  })}
+                >
+                  <Table.Cell className="px-4">{variant.sku}</Table.Cell>
+                  {variant.options?.map((option, index) => {
+                    if (option.value === "Default option value") {
+                      return null
+                    }
+                    return (
+                      <Table.Cell key={option.id} className="px-4 border-x">
+                        {option.value}
+                      </Table.Cell>
+                    )
+                  })}
+                  <Table.Cell className="px-4 border-x">
+                    {variantPrice?.calculated_price}
+                  </Table.Cell>
+                  <Table.Cell className="pl-1 !pr-1">
+                    <BulkTableQuantity
+                      variantId={variant.id}
+                      onChange={handleQuantityChange}
+                    />
+                  </Table.Cell>
+                </Table.Row>
               )
             })}
-            <Table.HeaderCell className="px-4 border-x">Price</Table.HeaderCell>
-            <Table.HeaderCell className="px-4">Quantity</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body className="border-none">
-          {product.variants?.map((variant, index) => {
-            const { variantPrice } = getProductPrice({
-              product,
-              variantId: variant.id,
-            })
-
-            return (
-              <Table.Row
-                key={variant.id}
-                className={clx({
-                  "border-b-0": index === product.variants?.length! - 1,
-                })}
-              >
-                <Table.Cell className="px-4">{variant.sku}</Table.Cell>
-                {variant.options?.map((option, index) => {
-                  if (option.value === "Default option value") {
-                    return null
-                  }
-                  return (
-                    <Table.Cell key={option.id} className="px-4 border-x">
-                      {option.value}
-                    </Table.Cell>
-                  )
-                })}
-                <Table.Cell className="px-4 border-x">
-                  {variantPrice?.calculated_price}
-                </Table.Cell>
-                <Table.Cell className="pl-1 !pr-1">
-                  <BulkTableQuantity
-                    variantId={variant.id}
-                    onChange={handleQuantityChange}
-                  />
-                </Table.Cell>
-              </Table.Row>
-            )
-          })}
-        </Table.Body>
-      </Table>
+          </Table.Body>
+        </Table>
+      </div>
       <Button
         onClick={handleAddToCart}
         variant="primary"

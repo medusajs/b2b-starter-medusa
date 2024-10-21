@@ -50,11 +50,11 @@ export default async function RelatedProducts({
   }
 
   return (
-    <div className="flex flex-col gap-y-6 py-16 px-24 bg-neutral-100">
+    <div className="flex flex-col gap-y-6 small:py-16 py-6 small:px-24 px-6 bg-neutral-100">
       <Heading level="h2" className="text-xl text-neutral-950 font-normal">
         Other customers also viewed
       </Heading>
-      <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-2 gap-y-8">
+      <ul className="grid grid-cols-1 small:grid-cols-3 medium:grid-cols-4 gap-x-2 gap-y-8">
         {products.map((product) => (
           <li key={product.id}>
             <Product region={region} product={product} />
