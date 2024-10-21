@@ -80,6 +80,7 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
               alt={(selectedImage.metadata?.alt as string) || ""}
               fill
               sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+              objectFit="contain"
             />
           )}
         </div>
