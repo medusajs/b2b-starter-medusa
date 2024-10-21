@@ -1,15 +1,14 @@
 "use client"
 
-import { loadStripe } from "@stripe/stripe-js"
-import React from "react"
-import StripeWrapper from "./stripe-wrapper"
-import { PayPalScriptProvider } from "@paypal/react-paypal-js"
-import { createContext } from "react"
-import { HttpTypes } from "@medusajs/types"
 import { isPaypal, isStripe } from "@lib/constants"
+import { PayPalScriptProvider } from "@paypal/react-paypal-js"
+import { loadStripe } from "@stripe/stripe-js"
+import React, { createContext } from "react"
+import { B2BCart } from "types/global"
+import StripeWrapper from "./stripe-wrapper"
 
 type WrapperProps = {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   children: React.ReactNode
 }
 

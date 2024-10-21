@@ -9,19 +9,19 @@ import Divider from "@modules/common/components/divider"
 import { setBillingAddress, updateCart } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { CheckCircleSolid } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
 import { useCallback } from "react"
 import { useFormState } from "react-dom"
 import BillingAddressForm from "../billing-address-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
+import { B2BCart, B2BCustomer } from "types/global"
 
 const BillingAddress = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: B2BCart | null
+  customer: B2BCustomer | null
 }) => {
   const searchParams = useSearchParams()
   const router = useRouter()

@@ -3,6 +3,7 @@ import { Container } from "@medusajs/ui"
 import Input from "@modules/common/components/input"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
+import { B2BCart, B2BCustomer } from "types/global"
 import AddressSelect from "../address-select"
 import CountrySelect from "../country-select"
 
@@ -12,8 +13,8 @@ const ShippingAddressForm = ({
   checked,
   onChange,
 }: {
-  customer: HttpTypes.StoreCustomer | null
-  cart: HttpTypes.StoreCart | null
+  customer: B2BCustomer | null
+  cart: B2BCart | null
   checked: boolean
   onChange: () => void
 }) => {
@@ -133,7 +134,7 @@ const ShippingAddressForm = ({
           data-testid="shipping-address-input"
           colSpan={2}
         />
-        <div className="grid grid-cols-3 gap-4 col-span-2">
+        <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
           <Input
             label="Postal code"
             name="shipping_address.postal_code"
@@ -153,6 +154,7 @@ const ShippingAddressForm = ({
             data-testid="shipping-city-input"
           />
           <CountrySelect
+            className="col-span-2"
             name="shipping_address.country_code"
             autoComplete="country"
             region={cart?.region}

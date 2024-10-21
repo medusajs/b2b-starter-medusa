@@ -8,6 +8,7 @@ import ProfileCard from "@modules/account/components/profile-card"
 import SecurityCard from "@modules/account/components/security-card"
 import { QueryEmployee } from "@starter/types"
 import { notFound } from "next/navigation"
+import { B2BCustomer } from "types/global"
 
 export const metadata: Metadata = {
   title: "Profile",
@@ -15,9 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Profile() {
-  const customer = (await getCustomer()) as HttpTypes.StoreCustomer & {
-    employee: QueryEmployee
-  }
+  const customer = await getCustomer()
   const regions = await listRegions()
 
   if (!customer || !regions) {

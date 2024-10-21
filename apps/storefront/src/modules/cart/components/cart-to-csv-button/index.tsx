@@ -2,11 +2,11 @@
 
 import { cartToCsv } from "@lib/util/convert-cart-to-csv"
 import Button from "@modules/common/components/button"
-import { HttpTypes } from "@medusajs/types"
+import { B2BCart } from "types/global"
 import { useState } from "react"
 
 type CartToCsvButtonProps = {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
 }
 
 const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {

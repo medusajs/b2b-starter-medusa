@@ -1,17 +1,15 @@
 "use client"
 
-import { CheckCircleSolid } from "@medusajs/icons"
-import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
-
 import { setShippingAddress } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
-import { HttpTypes } from "@medusajs/types"
+import { CheckCircleSolid } from "@medusajs/icons"
+import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
+import Divider from "@modules/common/components/divider"
+import Spinner from "@modules/common/icons/spinner"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 import { useFormState } from "react-dom"
+import { B2BCart, B2BCustomer } from "types/global"
 import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
 import { SubmitButton } from "../submit-button"
@@ -20,8 +18,8 @@ const ShippingAddress = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: B2BCart | null
+  customer: B2BCustomer | null
 }) => {
   const searchParams = useSearchParams()
   const router = useRouter()

@@ -1,7 +1,7 @@
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
-import { Customer } from "types/global"
+import { B2BCart, B2BCustomer } from "types/global"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
@@ -12,11 +12,11 @@ const CartTemplate = ({
   customer,
 }: {
   cart:
-    | (HttpTypes.StoreCart & {
+    | (B2BCart & {
         promotions?: HttpTypes.StorePromotion[]
       })
     | null
-  customer: Customer | null
+  customer: B2BCustomer | null
 }) => {
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
 

@@ -1,6 +1,5 @@
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
-import { HttpTypes } from "@medusajs/types"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
 import Company from "@modules/checkout/components/company"
@@ -11,14 +10,14 @@ import ShippingAddress from "@modules/checkout/components/shipping-address"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import UTurnArrowRight from "@modules/common/icons/u-turn-arrow-right"
-import { Company as CompanyType } from "types/global"
+import { B2BCart, B2BCustomer } from "types/global"
 
 export default async function CheckoutForm({
   cart,
   customer,
 }: {
-  cart: (HttpTypes.StoreCart & { company: CompanyType }) | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: B2BCart | null
+  customer: B2BCustomer | null
 }) {
   if (!cart) {
     return null

@@ -17,6 +17,7 @@ import {
   StoreUpdateEmployee,
 } from "@starter/types"
 import { useState } from "react"
+import { B2BCustomer } from "types/global"
 
 const RemoveEmployeePrompt = ({ employee }: { employee: QueryEmployee }) => {
   const [isRemoving, setIsRemoving] = useState(false)
@@ -70,7 +71,7 @@ const Employee = ({
   employee: QueryEmployee
   company: QueryCompany
   orders: HttpTypes.StoreOrder[]
-  customer: HttpTypes.StoreCustomer | null
+  customer: B2BCustomer | null
 }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [isSaving, setIsSaving] = useState(false)

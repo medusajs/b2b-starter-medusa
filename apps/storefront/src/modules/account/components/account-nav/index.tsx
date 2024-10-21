@@ -5,19 +5,15 @@ import { clx } from "@medusajs/ui"
 import { useParams, usePathname } from "next/navigation"
 
 import { signout } from "@lib/data/customer"
-import { HttpTypes } from "@medusajs/types"
+import { BuildingStorefront } from "@medusajs/icons"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ChevronDown from "@modules/common/icons/chevron-down"
 import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import User from "@modules/common/icons/user"
-import { BuildingStorefront } from "@medusajs/icons"
+import { B2BCustomer } from "types/global"
 
-const AccountNav = ({
-  customer,
-}: {
-  customer: HttpTypes.StoreCustomer | null
-}) => {
+const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
   const route = usePathname()
 
   const { countryCode } = useParams() as { countryCode: string }

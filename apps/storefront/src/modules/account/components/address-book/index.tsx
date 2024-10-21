@@ -1,11 +1,12 @@
 import React from "react"
 
+import { HttpTypes } from "@medusajs/types"
+import { B2BCustomer } from "types/global"
 import AddAddress from "../address-card/add-address"
 import EditAddress from "../address-card/edit-address-modal"
-import { HttpTypes } from "@medusajs/types"
 
 type AddressBookProps = {
-  customer: HttpTypes.StoreCustomer
+  customer: B2BCustomer
   region: HttpTypes.StoreRegion
 }
 

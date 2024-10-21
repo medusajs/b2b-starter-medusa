@@ -1,14 +1,13 @@
 import { convertToLocale } from "@lib/util/money"
 import repeat from "@lib/util/repeat"
-import { HttpTypes, StoreCartLineItem } from "@medusajs/types"
-import { BaseCartLineItem } from "@medusajs/types/dist/http/cart/common"
+import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
-
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import { B2BCart } from "types/global"
 
 type ItemsTemplateProps = {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   showBorders?: boolean
   showTotal?: boolean
 }

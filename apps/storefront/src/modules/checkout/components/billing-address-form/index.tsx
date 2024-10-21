@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
 import Input from "@modules/common/components/input"
+import React, { useEffect, useState } from "react"
+import { B2BCart } from "types/global"
 import CountrySelect from "../country-select"
-import { HttpTypes } from "@medusajs/types"
 
-const BillingAddressForm = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
+const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
   const [formData, setFormData] = useState<any>({})
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const BillingAddressForm = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
           data-testid="billing-address-input"
           colSpan={2}
         />
-        <div className="grid grid-cols-3 gap-4 col-span-2">
+        <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
           <Input
             label="Postal code"
             name="billing_address.postal_code"

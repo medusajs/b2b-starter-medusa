@@ -1,13 +1,13 @@
-import { HttpTypes } from "@medusajs/types"
 import Input from "@modules/common/components/input"
 import React, { useEffect, useMemo, useState } from "react"
+import { B2BCart, B2BCustomer } from "types/global"
 
 const ContactDetailsForm = ({
   customer,
   cart,
 }: {
-  customer: HttpTypes.StoreCustomer | null
-  cart: HttpTypes.StoreCart | null
+  customer: B2BCustomer | null
+  cart: B2BCart | null
 }) => {
   const [formData, setFormData] = useState<Record<string, any>>({})
 
