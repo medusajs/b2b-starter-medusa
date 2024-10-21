@@ -1,20 +1,19 @@
 "use client"
 
 import { RadioGroup } from "@headlessui/react"
+import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
+import { initiatePaymentSession } from "@lib/data/cart"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
 import { Container, Heading, Text, clx } from "@medusajs/ui"
 import ErrorMessage from "@modules/checkout/components/error-message"
+import PaymentContainer from "@modules/checkout/components/payment-container"
+import { StripeContext } from "@modules/checkout/components/payment-wrapper"
 import Button from "@modules/common/components/button"
+import Divider from "@modules/common/components/divider"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useContext, useEffect, useMemo, useState } from "react"
-
-import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
-import { initiatePaymentSession } from "@lib/data/cart"
-import PaymentContainer from "@modules/checkout/components/payment-container"
-import { StripeContext } from "@modules/checkout/components/payment-wrapper"
-import Divider from "@modules/common/components/divider"
 
 const Payment = ({
   cart,
@@ -89,7 +88,10 @@ const Payment = ({
       const shouldInputCard =
         isStripeFunc(selectedPaymentMethod) && !activeSession
 
-      if (!activeSession) {
+      if (
+        !activeSession ||
+        activeSession.provider_id !== selectedPaymentMethod
+      ) {
         await initiatePaymentSession(cart, {
           provider_id: selectedPaymentMethod,
         })
@@ -165,7 +167,7 @@ const Payment = ({
                     )
                   })}
               </RadioGroup>
-              {isStripe && stripeReady && (
+              {stripeReady && selectedPaymentMethod === "pp_stripe_stripe" && (
                 <div className="mt-5 transition-all duration-150 ease-in-out">
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
                     Enter your card details:
@@ -210,7 +212,8 @@ const Payment = ({
               onClick={handleSubmit}
               isLoading={isLoading}
               disabled={
-                (isStripe && !cardComplete) ||
+                (selectedPaymentMethod === "pp_stripe_stripe" &&
+                  !cardComplete) ||
                 (!selectedPaymentMethod && !paidByGiftcard)
               }
               data-testid="submit-payment-button"
@@ -247,7 +250,7 @@ const Payment = ({
                   <Text>
                     {isStripeFunc(selectedPaymentMethod) && cardBrand
                       ? cardBrand
-                      : "Pay by invoice"}
+                      : paymentInfoMap[selectedPaymentMethod]?.title}
                   </Text>
                 </div>
               </div>
