@@ -1,18 +1,12 @@
 "use client"
 
-import Radio from "@modules/common/components/radio"
 import { RadioGroup } from "@headlessui/react"
-import { HttpTypes } from "@medusajs/types"
-import { Company as CompanyType } from "types/global"
-import { Label } from "@medusajs/ui"
-import { useState } from "react"
 import Divider from "@modules/common/components/divider"
+import Radio from "@modules/common/components/radio"
+import { useState } from "react"
+import { B2BCart } from "types/global"
 
-const CompanyForm = ({
-  cart,
-}: {
-  cart: HttpTypes.StoreCart & { company: CompanyType }
-}) => {
+const CompanyForm = ({ cart }: { cart: B2BCart }) => {
   if (!cart?.company) {
     return null
   }

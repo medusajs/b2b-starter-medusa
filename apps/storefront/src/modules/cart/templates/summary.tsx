@@ -3,7 +3,6 @@
 import { emptyCart } from "@lib/data/cart"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
 import { Container } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import CartTotals from "@modules/common/components/cart-totals"
@@ -12,12 +11,11 @@ import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quo
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { useState } from "react"
 import CartToCsvButton from "../components/cart-to-csv-button"
+import { B2BCart, B2BCustomer } from "types/global"
 
 type SummaryProps = {
-  cart: HttpTypes.StoreCart & {
-    promotions?: HttpTypes.StorePromotion[]
-  }
-  customer: HttpTypes.StoreCustomer | null
+  cart: B2BCart
+  customer: B2BCustomer | null
   spendLimitExceeded: boolean
 }
 

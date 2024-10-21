@@ -24,8 +24,8 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
   )
 
   return (
-    <Container className="bg-white flex p-4 rounded-md justify-between align-center items-center">
-      <div className="flex gap-x-4 items-center">
+    <Container className="bg-white flex small:flex-row flex-col p-4 rounded-md small:justify-between small:items-center gap-y-2 items-start">
+      <div className="flex gap-x-4 items-center pl-3">
         <div className="flex">
           {order.items?.slice(0, 3).map((i) => {
             return (
@@ -38,25 +38,22 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
           })}
         </div>
 
-        <div>
-          <span className="pr-2 text-small-regular">
-            <CalendarMini className="inline-block mr-1" />
-            {createdAt.getDate()}-{createdAt.getMonth()}-
-            {createdAt.getFullYear()}
-          </span>
+        <div className="flex pr-2 text-small-regular items-center">
+          <CalendarMini className="inline-block mr-1" />
+          {createdAt.getDate()}-{createdAt.getMonth()}-{createdAt.getFullYear()}
         </div>
 
-        <div className="text-small-regular">
+        <div className="flex text-small-regular items-center">
           <DocumentText className="inline-block mr-1" />#
           <span>{order.display_id}</span>
         </div>
 
-        <div>
+        <div className="flex items-center">
           <QuoteStatusBadge status={quote.status} />
         </div>
       </div>
 
-      <div className="flex gap-x-4 divide-x divide-gray-200 ">
+      <div className="flex gap-x-4 small:divide-x divide-gray-200 small:justify-normal justify-between w-full small:w-auto">
         <div className="flex items-center text-small-regular text-ui-fg-base">
           <span className="px-2">
             {convertToLocale({

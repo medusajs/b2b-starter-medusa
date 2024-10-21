@@ -16,11 +16,12 @@ import Modal from "@modules/common/components/modal"
 import Spinner from "@modules/common/icons/spinner"
 import React, { useEffect, useState } from "react"
 import { useFormState } from "react-dom"
+import { B2BCustomer } from "types/global"
 
 type EditAddressProps = {
   region: HttpTypes.StoreRegion
   address: HttpTypes.StoreCustomerAddress
-  customer: HttpTypes.StoreCustomer
+  customer: B2BCustomer
   isActive?: boolean
 }
 

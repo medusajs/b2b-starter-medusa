@@ -1,18 +1,10 @@
 "use client"
 
-import { updateCustomer } from "@lib/data/customer"
-import { HttpTypes } from "@medusajs/types"
-import { Container, Text, Toaster, clx, toast } from "@medusajs/ui"
+import { Container, Text, Toaster, toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
-import Input from "@modules/common/components/input"
-import { QueryEmployee } from "@starter/types"
-import { useState } from "react"
+import { B2BCustomer } from "types/global"
 
-const SecurityCard = ({
-  customer,
-}: {
-  customer: HttpTypes.StoreCustomer & { employee: QueryEmployee }
-}) => {
+const SecurityCard = ({ customer }: { customer: B2BCustomer }) => {
   return (
     <div className="h-fit">
       <Container className="p-0 overflow-hidden">

@@ -1,9 +1,9 @@
 import { HttpTypes } from "@medusajs/types"
 import {
-  QueryCompany,
   ModuleCompanySpendingLimitResetFrequency,
+  QueryCompany,
 } from "@starter/types"
-import { Customer } from "types/global"
+import { B2BCart, B2BCustomer } from "types/global"
 
 export function getSpendWindow(company: QueryCompany): {
   start: Date
@@ -47,8 +47,8 @@ export function getOrderTotalInSpendWindow(
 }
 
 export function checkSpendingLimit(
-  cart: HttpTypes.StoreCart | null,
-  customer: Customer | null
+  cart: B2BCart | null,
+  customer: B2BCustomer | null
 ) {
   if (!cart || !customer || !customer.employee) {
     return false
@@ -56,7 +56,7 @@ export function checkSpendingLimit(
 
   const spendingLimit = customer.employee.spending_limit / 100
   const spendWindow = getSpendWindow(customer.employee.company)
-  const spent = getOrderTotalInSpendWindow(customer.orders, spendWindow)
+  const spent = getOrderTotalInSpendWindow(customer.orders || [], spendWindow)
 
   return spent + cart.total > spendingLimit
 }

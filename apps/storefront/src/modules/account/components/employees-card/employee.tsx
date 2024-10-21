@@ -17,6 +17,7 @@ import {
   StoreUpdateEmployee,
 } from "@starter/types"
 import { useState } from "react"
+import { B2BCustomer } from "types/global"
 
 const RemoveEmployeePrompt = ({ employee }: { employee: QueryEmployee }) => {
   const [isRemoving, setIsRemoving] = useState(false)
@@ -70,7 +71,7 @@ const Employee = ({
   employee: QueryEmployee
   company: QueryCompany
   orders: HttpTypes.StoreOrder[]
-  customer: HttpTypes.StoreCustomer | null
+  customer: B2BCustomer | null
 }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
@@ -117,11 +118,15 @@ const Employee = ({
               </>
             )}
           </Text>
-          <div className="flex gap-x-2">
+          <div className="flex gap-x-2 small:flex-row flex-col">
             <Text className=" text-neutral-500">{employee.customer.email}</Text>
-            <Text className=" text-neutral-500">{" • "}</Text>
+            <Text className=" text-neutral-500 hidden small:block">
+              {" • "}
+            </Text>
             <Text className=" text-neutral-500">{employee.customer.phone}</Text>
-            <Text className=" text-neutral-500">{" • "}</Text>
+            <Text className=" text-neutral-500 hidden small:block">
+              {" • "}
+            </Text>
             <Text className=" text-neutral-500">
               {amountSpent} /{" "}
               {employee.spending_limit > 0

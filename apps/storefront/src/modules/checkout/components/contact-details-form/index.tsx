@@ -1,13 +1,13 @@
-import { HttpTypes } from "@medusajs/types"
 import Input from "@modules/common/components/input"
 import React, { useEffect, useMemo, useState } from "react"
+import { B2BCart, B2BCustomer } from "types/global"
 
 const ContactDetailsForm = ({
   customer,
   cart,
 }: {
-  customer: HttpTypes.StoreCustomer | null
-  cart: HttpTypes.StoreCart | null
+  customer: B2BCustomer | null
+  cart: B2BCart | null
 }) => {
   const [formData, setFormData] = useState<Record<string, any>>({})
 
@@ -43,7 +43,7 @@ const ContactDetailsForm = ({
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="flex flex-col small:grid small:grid-cols-2 gap-4">
       <Input
         label="Email"
         name="email"
@@ -52,7 +52,7 @@ const ContactDetailsForm = ({
         onChange={handleChange}
         required
         data-testid="email-input"
-        colSpan={2}
+        className="small:col-span-2"
       />
       <Input
         label="Invoice recipient"
@@ -90,7 +90,7 @@ const ContactDetailsForm = ({
           value={formData["notes"]}
           onChange={handleChange}
           data-testid="notes-input"
-          colSpan={2}
+          className="small:col-span-2"
         />
         <label className="text-xs italic text-neutral-500">
           The note will only appear on the invoice and order confirmation and

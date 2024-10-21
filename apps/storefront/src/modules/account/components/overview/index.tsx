@@ -1,10 +1,11 @@
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
+import { B2BCustomer } from "types/global"
 import OrderCard from "../order-card"
 import PreviouslyPurchasedProducts from "../previously-purchased"
 
 type OverviewProps = {
-  customer: HttpTypes.StoreCustomer | null
+  customer: B2BCustomer | null
   orders: HttpTypes.StoreOrder[] | null
   region?: HttpTypes.StoreRegion | null
 }
@@ -110,7 +111,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
   )
 }
 
-const getProfileCompletion = (customer: HttpTypes.StoreCustomer | null) => {
+const getProfileCompletion = (customer: B2BCustomer | null) => {
   let count = 0
 
   if (!customer) {

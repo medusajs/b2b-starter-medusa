@@ -2,12 +2,12 @@
 
 import { setContactDetails } from "@lib/data/cart"
 import { CheckCircleSolid } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
 import { clx, Container, Heading, Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback } from "react"
 import { useFormState } from "react-dom"
+import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
@@ -16,8 +16,8 @@ const ContactDetails = ({
   cart,
   customer,
 }: {
-  cart: HttpTypes.StoreCart | null
-  customer: HttpTypes.StoreCustomer | null
+  cart: B2BCart | null
+  customer: B2BCustomer | null
 }) => {
   const searchParams = useSearchParams()
   const router = useRouter()

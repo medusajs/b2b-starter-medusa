@@ -84,9 +84,9 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
           )}
         </div>
       </div>
-      <div className="flex flex-row justify-between w-full">
+      <div className="flex small:flex-row flex-col-reverse gap-y-3 justify-between w-full">
         {images.length > 1 && (
-          <div className="flex flex-row gap-x-2">
+          <div className="flex flex-row gap-x-2 self-end small:self-auto">
             <IconButton
               disabled={selectedImageIndex === 0}
               className="rounded-full items-center justify-center"
@@ -103,7 +103,7 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
             </IconButton>
           </div>
         )}
-        <ul className="flex flex-row gap-x-4">
+        <ul className="flex flex-row gap-x-4 overflow-x-auto">
           {images.map((image, index) => (
             <li
               key={image.id}

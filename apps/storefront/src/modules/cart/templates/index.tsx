@@ -1,7 +1,7 @@
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
-import { Customer } from "types/global"
+import { B2BCart, B2BCustomer } from "types/global"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
@@ -12,16 +12,16 @@ const CartTemplate = ({
   customer,
 }: {
   cart:
-    | (HttpTypes.StoreCart & {
+    | (B2BCart & {
         promotions?: HttpTypes.StorePromotion[]
       })
     | null
-  customer: Customer | null
+  customer: B2BCustomer | null
 }) => {
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
 
   return (
-    <div className="py-12 bg-neutral-100">
+    <div className="small:py-12 py-6 bg-neutral-100">
       <div className="content-container" data-testid="cart-container">
         {cart?.items?.length ? (
           <div>

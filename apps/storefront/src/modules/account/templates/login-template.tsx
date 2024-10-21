@@ -42,8 +42,8 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-2 h-fit m-2">
-      <div className="flex justify-center items-center bg-neutral-100">
+    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 h-fit m-2">
+      <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
         ) : (

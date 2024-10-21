@@ -6,7 +6,7 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
-import { Customer } from "types/global"
+import { B2BCustomer } from "types/global"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -16,17 +16,19 @@ import {
 } from "./cookies"
 import { createCompany, createEmployee } from "./companies"
 
-export const getCustomer = cache(async function (): Promise<Customer | null> {
-  return await sdk.store.customer
-    .retrieve(
-      {
-        fields: "+employee.*, +orders.*",
-      },
-      { ...getCacheHeaders("customers"), ...getAuthHeaders() }
-    )
-    .then(({ customer }) => customer as Customer)
-    .catch(() => null)
-})
+export const getCustomer = cache(
+  async function (): Promise<B2BCustomer | null> {
+    return await sdk.store.customer
+      .retrieve(
+        {
+          fields: "+employee.*, +orders.*",
+        },
+        { ...getCacheHeaders("customers"), ...getAuthHeaders() }
+      )
+      .then(({ customer }) => customer as B2BCustomer)
+      .catch(() => null)
+  }
+)
 
 export const updateCustomer = cache(async function (
   body: HttpTypes.StoreUpdateCustomer

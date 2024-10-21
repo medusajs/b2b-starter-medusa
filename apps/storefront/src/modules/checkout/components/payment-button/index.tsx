@@ -9,10 +9,11 @@ import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
+import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
 
 type PaymentButtonProps = {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   "data-testid": string
 }
 
@@ -87,7 +88,7 @@ const StripePaymentButton = ({
   notReady,
   "data-testid": dataTestId,
 }: {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   notReady: boolean
   "data-testid"?: string
 }) => {
@@ -195,7 +196,7 @@ const PayPalPaymentButton = ({
   notReady,
   "data-testid": dataTestId,
 }: {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   notReady: boolean
   "data-testid"?: string
 }) => {

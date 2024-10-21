@@ -1,17 +1,11 @@
 "use client"
 
-import { HttpTypes } from "@medusajs/types"
-import { Container, Heading, Text } from "@medusajs/ui"
-import Radio from "@modules/common/components/radio"
-import { Company as CompanyType } from "types/global"
-import CompanyForm from "../company-form"
+import { Container, Heading } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
+import { B2BCart } from "types/global"
+import CompanyForm from "../company-form"
 
-const Company = ({
-  cart,
-}: {
-  cart: HttpTypes.StoreCart & { company: CompanyType }
-}) => {
+const Company = ({ cart }: { cart: B2BCart }) => {
   return (
     <Container>
       <div className="flex flex-col gap-y-2">

@@ -17,6 +17,7 @@ import {
 import { getCustomer } from "./customer"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
+import { B2BCart } from "types/global"
 
 export async function retrieveCart() {
   const cartId = getCartId()
@@ -35,7 +36,7 @@ export async function retrieveCart() {
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )
     .then(({ cart }) => {
-      return cart as HttpTypes.StoreCart & {
+      return cart as B2BCart & {
         promotions?: HttpTypes.StorePromotion[]
       }
     })
@@ -292,7 +293,7 @@ export async function setShippingMethod({
 }
 
 export async function initiatePaymentSession(
-  cart: HttpTypes.StoreCart,
+  cart: B2BCart,
   data: {
     provider_id: string
     context?: Record<string, unknown>

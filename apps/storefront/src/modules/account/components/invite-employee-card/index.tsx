@@ -8,7 +8,7 @@ import { QueryCompany } from "@starter/types"
 const InviteEmployeeCard = ({ company }: { company: QueryCompany }) => {
   return (
     <Container className="p-0 overflow-hidden">
-      <div className="grid grid-cols-4 gap-x-4 p-4 border-b border-neutral-200">
+      <div className="grid small:grid-cols-4 grid-cols-2 gap-4 p-4 border-b border-neutral-200">
         <div className="flex flex-col gap-y-2">
           <Text className="font-medium text-neutral-950">Name</Text>
           <Input name="first_name" label="First name" />

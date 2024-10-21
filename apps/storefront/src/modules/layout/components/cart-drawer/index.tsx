@@ -1,13 +1,16 @@
 "use client"
 
+import { DialogProps } from "@headlessui/react"
+import { checkSpendingLimit } from "@lib/util/check-spending-limit"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { convertToLocale } from "@lib/util/money"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
-import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { HttpTypes } from "@medusajs/types"
 import { Drawer, Text } from "@medusajs/ui"
 import ItemsTemplate from "@modules/cart/templates/items"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
 import {
   ComponentPropsWithoutRef,
@@ -16,16 +19,13 @@ import {
   useRef,
   useState,
 } from "react"
-import { getCheckoutStep } from "@lib/util/get-checkout-step"
-import { DialogProps } from "@headlessui/react"
-import { checkSpendingLimit } from "@lib/util/check-spending-limit"
-import { Customer } from "types/global"
+import { B2BCart, B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
-  cart: HttpTypes.StoreCart & {
+  cart: B2BCart & {
     promotions?: HttpTypes.StorePromotion[]
   }
-  customer: Customer | null
+  customer: B2BCustomer | null
 } & ComponentPropsWithoutRef<React.FC<DialogProps<"div">>>
 
 const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
@@ -113,7 +113,7 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
         <Drawer.Trigger asChild>
           <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
             <ShoppingBag />
-            <span className="text-sm font-normal">
+            <span className="text-sm font-normal hidden small:inline-block">
               {items && items.length > 0
                 ? convertToLocale({
                     amount: subtotal,

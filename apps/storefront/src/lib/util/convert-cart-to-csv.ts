@@ -1,7 +1,8 @@
 import { HttpTypes } from "@medusajs/types"
+import { B2BCart } from "types/global"
 
 // Function to convert the cart items into CSV format
-export function cartToCsv(cart: HttpTypes.StoreCart) {
+export function cartToCsv(cart: B2BCart) {
   const items = cart.items
 
   // Map each cart item to a structure suitable for CSV

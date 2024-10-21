@@ -1,6 +1,6 @@
-import { HttpTypes } from "@medusajs/types"
+import { B2BCart } from "types/global"
 
-export function getCheckoutStep(cart: HttpTypes.StoreCart) {
+export function getCheckoutStep(cart: B2BCart) {
   if (!cart?.shipping_address?.address_1) {
     return "shipping-address"
   } else if (!cart.billing_address?.address_1) {

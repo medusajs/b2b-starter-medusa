@@ -50,8 +50,8 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
         </LocalizedClientLink>
       </div>
 
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-span-4 flex flex-col gap-y-2">
+      <div className="small:grid small:grid-cols-6 flex flex-col-reverse small:gap-4 gap-2">
+        <div className="small:col-span-4 flex flex-col gap-y-2">
           {quote.status === "accepted" && (
             <Container className="p-0">
               <div className="flex items-center justify-between px-6 py-4">

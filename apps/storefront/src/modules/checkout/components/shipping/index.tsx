@@ -12,9 +12,10 @@ import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
+import { B2BCart } from "types/global"
 
 type ShippingProps = {
-  cart: HttpTypes.StoreCart
+  cart: B2BCart
   availableShippingMethods: HttpTypes.StoreCartShippingOption[] | null
 }
 
