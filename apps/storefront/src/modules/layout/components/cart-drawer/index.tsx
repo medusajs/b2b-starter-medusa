@@ -12,21 +12,17 @@ import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
-import {
-  ComponentPropsWithoutRef,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
-  cart: B2BCart & {
-    promotions?: HttpTypes.StorePromotion[]
-  }
+  cart:
+    | (B2BCart & {
+        promotions?: HttpTypes.StorePromotion[]
+      })
+    | null
   customer: B2BCustomer | null
-} & ComponentPropsWithoutRef<React.FC<DialogProps<"div">>>
+}
 
 const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
@@ -90,6 +86,10 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   useEffect(() => {
     close()
   }, [pathname])
+
+  if (!cart || !customer) {
+    return null
+  }
 
   const checkoutStep = getCheckoutStep(cart)
   const checkoutPath = customer

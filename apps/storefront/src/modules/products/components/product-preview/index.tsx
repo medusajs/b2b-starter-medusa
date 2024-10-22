@@ -54,7 +54,6 @@ export default async function ProductPreview({
           </Text>
         </div>
         <div className="flex flex-col gap-0">
-          {/* @ts-expect-error (TODO: Fix this) */}
           {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
         </div>

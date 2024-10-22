@@ -34,7 +34,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
         { scroll: false }
       )
     }
-  }, [searchParams])
+  }, [searchParams, route, router])
 
   const updateView = (view: LOGIN_VIEW) => {
     setCurrentView(view)

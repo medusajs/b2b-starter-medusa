@@ -45,29 +45,6 @@ export const isManual = (providerId?: string) => {
   return providerId?.startsWith("pp_system_default")
 }
 
-// Add currencies that don't need to be divided by 100
-export const noDivisionCurrencies = [
-  "krw",
-  "jpy",
-  "vnd",
-  "clp",
-  "pyg",
-  "xaf",
-  "xof",
-  "bif",
-  "djf",
-  "gnf",
-  "kmf",
-  "mga",
-  "rwf",
-  "xpf",
-  "htg",
-  "vuv",
-  "xag",
-  "xdr",
-  "xau",
-]
-
 export const currencySymbolMap: Record<string, string> = {
   usd: "$",
   eur: "€",

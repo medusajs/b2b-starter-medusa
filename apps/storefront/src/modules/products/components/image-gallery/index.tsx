@@ -4,15 +4,15 @@ import { ArrowLeftMini, ArrowRightMini } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { clx, IconButton } from "@medusajs/ui"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 type ImageGalleryProps = {
   product: HttpTypes.StoreProduct
 }
 
 const ImageGallery = ({ product }: ImageGalleryProps) => {
-  const images = product?.images || []
   const thumbnail = product?.thumbnail
+  const images = useMemo(() => product?.images || [], [product])
 
   const [selectedImage, setSelectedImage] = useState(
     images[0] || {
@@ -22,28 +22,34 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
   )
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
-  const handleArrowClick = (direction: "left" | "right") => {
-    if (
-      images.length === 0 ||
-      (selectedImageIndex === 0 && direction === "left") ||
-      (selectedImageIndex === images.length - 1 && direction === "right")
-    ) {
-      return
-    }
+  const handleArrowClick = useCallback(
+    (direction: "left" | "right") => {
+      if (
+        images.length === 0 ||
+        (selectedImageIndex === 0 && direction === "left") ||
+        (selectedImageIndex === images.length - 1 && direction === "right")
+      ) {
+        return
+      }
 
-    if (direction === "left") {
-      setSelectedImageIndex((prev) => prev - 1)
-      setSelectedImage(images[selectedImageIndex - 1])
-    } else {
-      setSelectedImageIndex((prev) => prev + 1)
-      setSelectedImage(images[selectedImageIndex + 1])
-    }
-  }
+      if (direction === "left") {
+        setSelectedImageIndex((prev) => prev - 1)
+        setSelectedImage(images[selectedImageIndex - 1])
+      } else {
+        setSelectedImageIndex((prev) => prev + 1)
+        setSelectedImage(images[selectedImageIndex + 1])
+      }
+    },
+    [images, selectedImageIndex]
+  )
 
-  const handleImageClick = (image: HttpTypes.StoreProductImage) => {
-    setSelectedImage(image)
-    setSelectedImageIndex(images.findIndex((img) => img.id === image.id))
-  }
+  const handleImageClick = useCallback(
+    (image: HttpTypes.StoreProductImage) => {
+      setSelectedImage(image)
+      setSelectedImageIndex(images.findIndex((img) => img.id === image.id))
+    },
+    [images]
+  )
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
