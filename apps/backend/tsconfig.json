@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@starter/types": ["./src/types"],
+      "@starter/types/*": ["./src/types/*"]
+    },
     "target": "ES2021",
     "esModuleInterop": true,
+    "allowJs": true,
     "module": "Node16",
     "moduleResolution": "Node16",
     "emitDecoratorMetadata": true,
@@ -12,7 +17,6 @@
     "declaration": false,
     "sourceMap": false,
     "inlineSourceMap": true,
-    "outDir": "./.medusa/server",
     "rootDir": "./",
     "baseUrl": ".",
     "jsx": "react-jsx",
@@ -23,13 +27,6 @@
   "ts-node": {
     "swc": true
   },
-  "include": [".medusa", "src"],
-  "exclude": [
-    "**/__tests__",
-    "**/__fixtures__",
-    "node_modules",
-    "build",
-    ".cache",
-    ".turbo"
-  ]
+  "include": ["**/*", ".medusa/types/*"],
+  "exclude": ["node_modules", ".medusa/server", ".medusa/admin", ".cache"]
 }
