@@ -5,7 +5,6 @@
     "setup": "yarn build-packages && yarn generate-env && yarn setup-db && yarn seed && yarn setup-user",
     "dev": "turbo run dev",
     "build-packages": "turbo run build --filter ./packages/*",
-    "build-apps": "turbo run build --filter ./apps/*",
     "setup-db": "cd ./apps/backend && npx medusa db:setup",
     "seed": "turbo run seed --filter=medusa-starter-default",
     "setup-user": "cd ./apps/backend && npx medusa user -e admin@test.com -p supersecret -i admin",
