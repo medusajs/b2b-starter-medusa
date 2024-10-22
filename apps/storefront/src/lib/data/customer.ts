@@ -7,6 +7,7 @@ import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { cache } from "react"
 import { B2BCustomer } from "types/global"
+import { createCompany, createEmployee } from "./companies"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -14,14 +15,13 @@ import {
   removeAuthToken,
   setAuthToken,
 } from "./cookies"
-import { createCompany, createEmployee } from "./companies"
 
 export const getCustomer = cache(
   async function (): Promise<B2BCustomer | null> {
     return await sdk.store.customer
       .retrieve(
         {
-          fields: "+employee.*, +orders.*",
+          fields: "*employee, *orders",
         },
         { ...getCacheHeaders("customers"), ...getAuthHeaders() }
       )

@@ -11,7 +11,7 @@ export const adminCompanyFields = [
   "zip",
   "country",
   "currency_code",
-  "employees.*",
+  "*employees",
 ];
 
 export const adminCompanyQueryConfig = {
@@ -31,9 +31,9 @@ export const adminEmployeeFields = [
   "spending_limit",
   "is_admin",
   "customer_id",
-  "customer.*",
+  "*customer",
   "company_id",
-  "company.*",
+  "*company",
 ];
 
 export const adminEmployeeQueryConfig = {

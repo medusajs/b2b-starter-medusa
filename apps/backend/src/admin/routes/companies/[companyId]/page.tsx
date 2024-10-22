@@ -18,7 +18,7 @@ import { formatAmount } from "../../../utils";
 const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, loading, refetch } = useCompany(companyId!, {
-    fields: "+employees, +employees.customer.*, +employees.company.*",
+    fields: "*employees,*employees.customer,*employees.company",
   });
 
   const company = data?.company;
