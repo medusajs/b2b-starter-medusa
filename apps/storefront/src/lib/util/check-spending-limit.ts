@@ -54,7 +54,7 @@ export function checkSpendingLimit(
     return false
   }
 
-  const spendingLimit = customer.employee.spending_limit / 100
+  const spendingLimit = customer.employee.spending_limit
   const spendWindow = getSpendWindow(customer.employee.company)
   const spent = getOrderTotalInSpendWindow(customer.orders || [], spendWindow)
 
