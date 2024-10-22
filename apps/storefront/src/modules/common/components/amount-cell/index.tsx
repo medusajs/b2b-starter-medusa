@@ -1,10 +1,6 @@
 import { clx } from "@medusajs/ui"
-import { noDivisionCurrencies } from "@lib/constants"
 
 export const formatAmount = (amount: number, currency_code: string) => {
-  if (!noDivisionCurrencies.includes(currency_code)) {
-    amount = amount / 100
-  }
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: currency_code,

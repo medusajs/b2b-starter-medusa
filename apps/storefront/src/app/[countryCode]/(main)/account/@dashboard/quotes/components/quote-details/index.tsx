@@ -179,7 +179,8 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
               <div className="flex justify-between">
                 <Text>Spend Limit</Text>
                 <Text>
-                  {order.currency_code.toUpperCase()}
+                  {quote.customer?.employee?.spending_limit &&
+                    order.currency_code.toUpperCase()}
                   {/* @ts-expect-error */}
                   {quote.customer?.employee?.spending_limit || "-"}
                 </Text>

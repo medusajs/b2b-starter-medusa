@@ -12,8 +12,8 @@ export async function NavigationHeader() {
 
   return (
     <div className="sticky top-0 inset-x-0 group z-[1] bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base">
-      <header className="flex w-full max-w-7xl relative small:mx-auto justify-between">
-        <div className="container small:mx-auto flex justify-between items-center min-w-full">
+      <header className="flex w-full content-container relative small:mx-auto justify-between">
+        <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
               className="hover:text-ui-fg-base flex items-center w-fit"

@@ -102,7 +102,7 @@
 
 ## Quickstart
 
-#### Setup monorepo
+#### Setup storefront & API
 
 ```bash
 # Clone the repository
@@ -111,17 +111,8 @@ git clone git@github.com:medusajs/b2b-starter-medusa.git
 # Go to the folder
 cd ./b2b-starter-medusa
 
-# Install dependencies
-yarn install
-
-# Install packages
-yarn build-packages
-
-# Generate .env files for backend & storefront
-yarn generate-env
-
-# Setup database
-yarn setup-db
+# Install dependencies & setup medusa storefront & backend
+yarn install && yarn setup
 
 # Start Servers - storefront & backend
 yarn dev

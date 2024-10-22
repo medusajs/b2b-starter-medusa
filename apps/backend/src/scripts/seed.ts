@@ -368,16 +368,13 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/9983be01-3410-4ad3-8fa5-9cb841962613",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/laptop-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/14c81d86-4112-4c6f-b0e2-95e8081ed515",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/laptop-side.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/55980fe8-98f5-4746-9ae2-bd7ba3ba15c2",
-            },
-            {
-              url: "https://github.com/user-attachments/assets/933c4bf4-0e1e-491d-91c3-dd5b0b040b88",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/laptop-top.png",
             },
           ],
           options: [
@@ -454,10 +451,10 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/6454d529-7d02-48ae-90e5-aa65d9024361",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/camera-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/14cab9e7-9ec1-4e59-9030-ef67cbbf501b",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/camera-side.png",
             },
           ],
           options: [
@@ -529,13 +526,13 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/11cc1538-1188-4edc-a30c-0352337c0c75",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/phone-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/4badb86a-fb08-4d92-8db7-4aa5bde94ad6",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/phone-side.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/55c212ee-434b-4744-af99-701cf14bd90c",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/phone-bottom.png",
             },
           ],
           options: [
@@ -613,16 +610,16 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/b0864cfb-0f00-415b-b7de-dfb2e8485876",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/screen-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/f6d1b7a9-2c66-47ca-a21c-b58a176d91f8",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/screen-side.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/8013af0a-07d6-45ec-b411-e8bf2dfe9d54",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/screen-top.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/ac665c8e-0977-425e-bff3-fbad414e21d8",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/screen-back.png",
             },
           ],
           options: [
@@ -693,13 +690,13 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/ee793a4f-4926-48d5-9a1b-c571b96eef27",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/headphone-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/4c9a0a27-7c9e-4a5b-9c6a-4002ec55812e",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/headphone-side.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/0d4dd248-36b3-4afa-bfdc-ef3d477e96d8",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/headphone-top.png",
             },
           ],
           options: [
@@ -769,10 +766,10 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/09f58af0-3e91-4dff-b0f3-58990d3385ba",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/keyboard-front.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/f01eb303-5167-4e24-b34f-a4bdae7cbe3b",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/keyboard-side.png",
             },
           ],
           options: [
@@ -842,10 +839,10 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/1b58546a-63a8-45ab-aaac-8954627d521e",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/mouse-top.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/b8969ab4-902a-4cc9-bbd7-8892974f4678",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/mouse-front.png",
             },
           ],
           options: [
@@ -915,10 +912,10 @@ export default async function seedDemoData({ container }: ExecArgs) {
           status: ProductStatus.PUBLISHED,
           images: [
             {
-              url: "https://github.com/user-attachments/assets/4347381d-c34d-4dc2-8fa3-4dee9eeffe4e",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/speaker-top.png",
             },
             {
-              url: "https://github.com/user-attachments/assets/d2a2f60b-5a7a-4cd4-a0ba-ed771859ceb3",
+              url: "https://medusa-public-images.s3.eu-west-1.amazonaws.com/speaker-front.png",
             },
           ],
           options: [
@@ -974,5 +971,6 @@ export default async function seedDemoData({ container }: ExecArgs) {
       ],
     },
   });
+
   logger.info("Finished seeding product data.");
 }
