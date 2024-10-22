@@ -18,7 +18,9 @@
     "paths": {
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@starter/types": ["types"],
+      "@starter/types/*": ["types/*"]
     },
     "plugins": [
       {
