@@ -1,8 +1,8 @@
-import { AdminPrice } from "@medusajs/types"
+import { VariantPrice } from "@lib/util/get-product-price"
 import { Text, clx } from "@medusajs/ui"
 
 // TODO: Price needs to access price list type
-export default async function PreviewPrice({ price }: { price: AdminPrice }) {
+export default async function PreviewPrice({ price }: { price: VariantPrice }) {
   if (!price) {
     return null
   }
