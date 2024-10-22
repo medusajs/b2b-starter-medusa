@@ -11,8 +11,8 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ product }: ImageGalleryProps) => {
-  const images = useMemo(() => product?.images || [], [product])
   const thumbnail = product?.thumbnail
+  const images = useMemo(() => product?.images || [], [product])
 
   const [selectedImage, setSelectedImage] = useState(
     images[0] || {
@@ -43,10 +43,13 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
     [images, selectedImageIndex]
   )
 
-  const handleImageClick = (image: HttpTypes.StoreProductImage) => {
-    setSelectedImage(image)
-    setSelectedImageIndex(images.findIndex((img) => img.id === image.id))
-  }
+  const handleImageClick = useCallback(
+    (image: HttpTypes.StoreProductImage) => {
+      setSelectedImage(image)
+      setSelectedImageIndex(images.findIndex((img) => img.id === image.id))
+    },
+    [images]
+  )
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

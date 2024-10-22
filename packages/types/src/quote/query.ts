@@ -6,6 +6,7 @@ import {
 } from "@medusajs/types";
 import { QueryEmployee } from "../company";
 import { ModuleQuote, ModuleQuoteMessage } from "./module";
+import { QueryEmployee } from "../company";
 
 export type QueryQuote = ModuleQuote & {
   draft_order: AdminOrder;

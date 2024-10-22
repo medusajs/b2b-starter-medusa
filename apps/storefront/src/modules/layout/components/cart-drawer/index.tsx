@@ -15,9 +15,11 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
-  cart: B2BCart & {
-    promotions?: HttpTypes.StorePromotion[]
-  }
+  cart:
+    | (B2BCart & {
+        promotions?: HttpTypes.StorePromotion[]
+      })
+    | null
   customer: B2BCustomer | null
 }
 
