@@ -30,7 +30,7 @@ export function EmployeesUpdateForm({
     spending_limit: string;
     is_admin: boolean;
   }>({
-    spending_limit: (employee?.spending_limit / 100).toString() || "0",
+    spending_limit: employee?.spending_limit?.toString() || "0",
     is_admin: employee?.is_admin || false,
   });
 
@@ -38,7 +38,7 @@ export function EmployeesUpdateForm({
     e.preventDefault();
 
     const spendingLimit = formData.spending_limit
-      ? Number(formData.spending_limit) * 100
+      ? Number(formData.spending_limit)
       : undefined;
 
     const data = {

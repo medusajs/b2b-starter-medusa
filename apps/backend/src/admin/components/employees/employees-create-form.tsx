@@ -56,7 +56,7 @@ export function EmployeesCreateForm({
     e.preventDefault();
 
     const spendingLimit = formData.spending_limit
-      ? parseInt(formData.spending_limit) * 100
+      ? parseInt(formData.spending_limit)
       : 0;
 
     const data = {

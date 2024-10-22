@@ -78,7 +78,7 @@ const Employee = ({
   const [employeeData, setEmployeeData] = useState({
     id: employee.id,
     company_id: employee.company_id,
-    spending_limit: (employee.spending_limit / 100).toString(),
+    spending_limit: employee.spending_limit.toString(),
     is_admin: employee.is_admin,
   })
 
@@ -87,7 +87,7 @@ const Employee = ({
   const handleSubmit = async () => {
     const updateData = {
       ...employeeData,
-      spending_limit: parseFloat(employeeData.spending_limit) * 100,
+      spending_limit: parseFloat(employeeData.spending_limit),
     }
 
     setIsSaving(true)
