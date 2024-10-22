@@ -4,12 +4,15 @@ import {
   AdminUser,
   StoreCart,
 } from "@medusajs/types";
+import { QueryEmployee } from "../company";
 import { ModuleQuote, ModuleQuoteMessage } from "./module";
 
 export type QueryQuote = ModuleQuote & {
   draft_order: AdminOrder;
   cart: StoreCart;
-  customer: AdminCustomer;
+  customer: AdminCustomer & {
+    employee: QueryEmployee;
+  };
   messages: QueryQuoteMessage[];
 };
 

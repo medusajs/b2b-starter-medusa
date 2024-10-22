@@ -181,7 +181,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
                 <Text>
                   {quote.customer?.employee?.spending_limit &&
                     order.currency_code.toUpperCase()}
-                  {/* @ts-expect-error */}
+
                   {quote.customer?.employee?.spending_limit || "-"}
                 </Text>
               </div>
@@ -196,7 +196,6 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
             <div className="text-sm text-ui-fg-subtle">
               <div className="flex justify-between">
                 <Text>Name</Text>
-                {/* @ts-expect-error */}
                 <Text>{quote.customer?.employee?.company?.name || "-"}</Text>
               </div>
             </div>

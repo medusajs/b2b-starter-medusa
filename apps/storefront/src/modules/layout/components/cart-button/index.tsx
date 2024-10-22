@@ -1,6 +1,6 @@
 import { enrichLineItems, retrieveCart } from "@lib/data/cart"
-import CartDrawer from "../cart-drawer"
 import { getCustomer } from "@lib/data/customer"
+import CartDrawer from "../cart-drawer"
 
 const fetchCart = async () => {
   const cart = await retrieveCart()
@@ -20,6 +20,10 @@ const fetchCart = async () => {
 export default async function CartButton() {
   const cart = await fetchCart()
   const customer = await getCustomer()
+
+  if (cart === null) {
+    return
+  }
 
   return <CartDrawer cart={cart} customer={customer} />
 }

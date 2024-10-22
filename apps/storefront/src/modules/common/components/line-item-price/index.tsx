@@ -4,7 +4,6 @@ import { getPercentageDiff } from "@lib/util/get-precentage-diff"
 import { getPricesForVariant } from "@lib/util/get-product-price"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
-import { HTMLAttributes } from "react"
 
 type LineItemPriceProps = {
   item: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
@@ -17,16 +16,23 @@ const LineItemPrice = ({
   style = "default",
   className,
 }: LineItemPriceProps) => {
+  const variantPrice = getPricesForVariant(item.variant)
+
+  if (variantPrice === null) {
+    return
+  }
+
   const { currency_code, calculated_price_number, original_price_number } =
-    getPricesForVariant(item.variant) ?? {}
+    variantPrice
 
   const adjustmentsSum = (item.adjustments || []).reduce(
     (acc, adjustment) => adjustment.amount + acc,
     0
   )
 
-  const originalPrice = original_price_number * item.quantity
-  const currentPrice = calculated_price_number * item.quantity - adjustmentsSum
+  const originalPrice = parseFloat(original_price_number) * item.quantity
+  const currentPrice =
+    parseFloat(calculated_price_number) * item.quantity - adjustmentsSum
   const hasReducedPrice = currentPrice < originalPrice
 
   return (

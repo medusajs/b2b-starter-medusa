@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react"
 
+import { HttpTypes } from "@medusajs/types"
 import Login from "@modules/account/components/login"
 import Register from "@modules/account/components/register"
 import Image from "next/image"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { HttpTypes } from "@medusajs/types"
 
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",
@@ -34,7 +34,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
         { scroll: false }
       )
     }
-  }, [searchParams])
+  }, [searchParams, router, route])
 
   const updateView = (view: LOGIN_VIEW) => {
     setCurrentView(view)

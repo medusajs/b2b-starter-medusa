@@ -6991,9 +6991,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"medusa-next@workspace:.":
+"medusa-b2b-storefront@workspace:.":
   version: 0.0.0-use.local
-  resolution: "medusa-next@workspace:."
+  resolution: "medusa-b2b-storefront@workspace:."
   dependencies:
     "@babel/core": "npm:^7.17.5"
     "@headlessui/react": "npm:^1.6.1"
