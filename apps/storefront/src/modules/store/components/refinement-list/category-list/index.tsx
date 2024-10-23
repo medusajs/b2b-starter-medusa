@@ -5,7 +5,7 @@ import Radio from "@modules/common/components/radio"
 import SquareMinus from "@modules/common/icons/square-minus"
 import SquarePlus from "@modules/common/icons/square-plus"
 import { usePathname, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const CategoryList = ({
   categories,
@@ -31,17 +31,20 @@ const CategoryList = ({
 
   const searchParams = useSearchParams()
 
-  const getCategoriesToExpand = (category: HttpTypes.StoreProductCategory) => {
-    const categoriesToExpand = [category.id]
-    let currentCategory = category
-    while (currentCategory.parent_category_id) {
-      categoriesToExpand.push(currentCategory.parent_category_id)
-      currentCategory = categories.find(
-        (cat) => cat.id === currentCategory.parent_category_id
-      ) as HttpTypes.StoreProductCategory
-    }
-    return categoriesToExpand
-  }
+  const getCategoriesToExpand = useCallback(
+    (category: HttpTypes.StoreProductCategory) => {
+      const categoriesToExpand = [category.id]
+      let currentCategory = category
+      while (currentCategory.parent_category_id) {
+        categoriesToExpand.push(currentCategory.parent_category_id)
+        currentCategory = categories.find(
+          (cat) => cat.id === currentCategory.parent_category_id
+        ) as HttpTypes.StoreProductCategory
+      }
+      return categoriesToExpand
+    },
+    [categories]
+  )
 
   const getCategoryMarginLeft = (category: HttpTypes.StoreProductCategory) => {
     let level = 0

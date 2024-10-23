@@ -21,9 +21,5 @@ export default async function CartButton() {
   const cart = await fetchCart()
   const customer = await getCustomer()
 
-  if (cart === null) {
-    return
-  }
-
   return <CartDrawer cart={cart} customer={customer} />
 }
