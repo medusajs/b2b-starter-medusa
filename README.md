@@ -114,6 +114,9 @@ cd ./b2b-starter-medusa
 # Install dependencies & setup medusa storefront & backend
 yarn install && yarn setup
 
+# Setup User Data
+yarn setup-user
+
 # Start Servers - storefront & backend
 yarn dev
 ```
