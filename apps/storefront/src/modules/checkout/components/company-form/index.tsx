@@ -7,11 +7,11 @@ import { useState } from "react"
 import { B2BCart } from "types/global"
 
 const CompanyForm = ({ cart }: { cart: B2BCart }) => {
+  const [selectedOption, setSelectedOption] = useState("company")
+
   if (!cart?.company) {
     return null
   }
-
-  const [selectedOption, setSelectedOption] = useState("company")
 
   return (
     <div>

@@ -14,7 +14,8 @@
   },
   "packageManager": "yarn@4.5.0",
   "devDependencies": {
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "latest"
   },
   "workspaces": [
     "apps/*",
