@@ -16,7 +16,7 @@ const Login = ({ setCurrentView }: Props) => {
 
   return (
     <div
-      className="max-w-sm w-full flex flex-col gap-6"
+      className="max-w-sm w-full h-full flex flex-col justify-center gap-6 my-auto"
       data-testid="login-page"
     >
       <Text className="text-4xl text-neutral-950 text-left">
