@@ -5,8 +5,6 @@ node_modules
 
 # Yarn 2+
 .yarn/*
-.yarn
-.yarnrc.yml
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

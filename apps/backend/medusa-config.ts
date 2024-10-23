@@ -1,9 +1,11 @@
-import { defineConfig, loadEnv, Modules } from "@medusajs/framework/utils";
-import { QUOTE_MODULE } from "./src/modules/quote";
+import { defineConfig, loadEnv } from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
 export default defineConfig({
+  admin: {
+    backendUrl: process.env.BACKEND_URL || "https://b2b-starter.medusajs.app",
+  },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     http: {
@@ -14,18 +16,10 @@ export default defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  modules: {
-    companyModuleService: {
-      resolve: "./modules/company",
-    },
-    [QUOTE_MODULE]: {
-      resolve: "./modules/quote",
-    },
-    [Modules.CACHE]: {
-      resolve: "@medusajs/medusa/cache-inmemory",
-    },
-    [Modules.WORKFLOW_ENGINE]: {
-      resolve: "@medusajs/medusa/workflow-engine-inmemory",
-    },
-  },
+  modules: [
+    { resolve: "./src/modules/company" },
+    { resolve: "./src/modules/quote" },
+    { resolve: "@medusajs/medusa/cache-inmemory" },
+    { resolve: "@medusajs/medusa/workflow-engine-inmemory" },
+  ],
 });
