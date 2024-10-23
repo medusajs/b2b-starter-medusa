@@ -6,6 +6,7 @@ import { HttpTypes } from "@medusajs/types"
 import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
+import { B2BCart } from "types/global"
 import {
   getAuthHeaders,
   getCacheHeaders,
@@ -17,7 +18,6 @@ import {
 import { getCustomer } from "./customer"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
-import { B2BCart } from "types/global"
 
 export async function retrieveCart() {
   const cartId = getCartId()
@@ -31,7 +31,7 @@ export async function retrieveCart() {
       cartId,
       {
         fields:
-          "+items, +region, +items.product.*, +items.variant.*, +items.thumbnail, +items.metadata, +promotions.*, +company.*,",
+          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company",
       },
       { ...getAuthHeaders(), ...getCacheHeaders("carts") }
     )

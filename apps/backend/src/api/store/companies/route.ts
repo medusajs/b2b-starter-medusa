@@ -20,8 +20,7 @@ export const GET = async (
     fields: req.remoteQueryConfig.fields,
     filters: req.filterableFields,
     pagination: {
-      ...req.remoteQueryConfig.pagination,
-      skip: req.remoteQueryConfig.pagination.skip ?? 0,
+      ...req.remoteQueryConfig.pagination
     },
   });
 

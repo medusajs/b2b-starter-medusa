@@ -14,7 +14,7 @@ import { revalidateTag } from "next/cache"
 
 export const retrieveCompany = async (companyId: string) => {
   const company = await sdk.client.fetch<StoreCompanyResponse>(
-    `/store/companies/${companyId}?fields=+spending_limit_reset_frequency,+employees.customer.*,+employees.customer.orders.id`,
+    `/store/companies/${companyId}?fields=+spending_limit_reset_frequency,*employees.customer,+employees.customer.orders.id`,
     {
       method: "GET",
       headers: {
