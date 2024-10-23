@@ -144,7 +144,7 @@ const CompanyDetails = () => {
                       <Table.Cell>{employee.customer?.email}</Table.Cell>
                       <Table.Cell>
                         {formatAmount(
-                          employee.spending_limit / 100,
+                          employee.spending_limit,
                           company?.currency_code || "USD"
                         )}
                       </Table.Cell>

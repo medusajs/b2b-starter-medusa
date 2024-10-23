@@ -10,7 +10,7 @@ export function cartToCsv(cart: B2BCart) {
     items?.map((item: HttpTypes.StoreCartLineItem) => {
       const taxRate = item.tax_lines?.[0]?.rate || 0
       const totalPrice = item.quantity * item.unit_price
-      const totalTax = (totalPrice * taxRate) / 100
+      const totalTax = totalPrice * taxRate
 
       return {
         id: item.id,
