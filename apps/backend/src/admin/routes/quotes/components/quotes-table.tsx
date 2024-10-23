@@ -21,7 +21,7 @@ export const QuotesTable = () => {
   } = useQuotes({
     ...searchParams,
     fields:
-      "+draft_order.total,+draft_order.customer.email,+draft_order.customer.employee.company.*",
+      "+draft_order.total,+draft_order.customer.email,*draft_order.customer.employee.company",
     order: "-created_at",
   });
 

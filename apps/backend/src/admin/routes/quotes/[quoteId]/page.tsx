@@ -35,8 +35,7 @@ const QuoteDetails = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { quote, isLoading } = useQuote(quoteId!, {
-    fields:
-      "+draft_order.customer.*,+draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
+    fields: "*draft_order.customer,*draft_order.customer.employee,*draft_order.customer.employee.company",
   });
 
   const { order: preview, isLoading: isPreviewLoading } = useOrderPreview(

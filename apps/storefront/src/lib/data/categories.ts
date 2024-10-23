@@ -7,7 +7,7 @@ import { getCacheHeaders } from "./cookies"
 export const listCategories = cache(async function () {
   return sdk.store.category
     .list(
-      { fields: "+category_children" },
+      { fields: "*category_children" },
       { ...getCacheHeaders("categories") }
     )
     .then(({ product_categories }) => product_categories)
