@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 
 import { HttpTypes } from "@medusajs/types"
+import { clx } from "@medusajs/ui"
 import Login from "@modules/account/components/login"
 import Register from "@modules/account/components/register"
 import Image from "next/image"
@@ -18,6 +19,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
   const searchParams = useSearchParams()
   const router = useRouter()
 
+  const [imageLoaded, setImageLoaded] = useState(false)
   const [currentView, setCurrentView] = useState<LOGIN_VIEW>(() => {
     const viewFromUrl = searchParams.get("view") as LOGIN_VIEW
     return viewFromUrl && Object.values(LOGIN_VIEW).includes(viewFromUrl)
@@ -36,14 +38,22 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
     }
   }, [searchParams, router, route])
 
+  useEffect(() => {
+    const image = new window.Image()
+    image.src = "/account-block.png"
+    image.onload = () => {
+      setImageLoaded(true)
+    }
+  }, [])
+
   const updateView = (view: LOGIN_VIEW) => {
     setCurrentView(view)
     router.push(`/account?view=${view}`)
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 h-fit m-2">
-      <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0">
+    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 min-h-[80vh] m-2">
+      <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
         ) : (
@@ -53,7 +63,10 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
       <Image
         src="/account-block.png"
         alt="Login banner background"
-        className="object-cover transition-opacity duration-300 w-full h-full"
+        className={clx(
+          "object-cover transition-opacity duration-300 w-full h-full",
+          imageLoaded ? "opacity-100" : "opacity-0"
+        )}
         width={500}
         height={1000}
         quality={100}
