@@ -21,7 +21,7 @@ export const linkEmployeeToCustomerStep = createStep(
       },
     };
 
-    remoteLink.create(link);
+    await remoteLink.create(link);
 
     return new StepResponse(undefined, input);
   },
@@ -42,7 +42,7 @@ export const linkEmployeeToCustomerStep = createStep(
       },
     };
 
-    remoteLink.dismiss(link);
+    await remoteLink.dismiss(link);
 
     return new StepResponse(undefined, input);
   }

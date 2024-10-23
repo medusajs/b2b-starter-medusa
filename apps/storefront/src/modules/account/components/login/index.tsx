@@ -34,14 +34,12 @@ const Login = ({ setCurrentView }: Props) => {
             autoComplete="email"
             required
             data-testid="email-input"
-            className="!bg-white"
           />
           <Input
             label="Password"
             name="password"
             type="password"
             autoComplete="current-password"
-            className="!bg-white"
             required
             data-testid="password-input"
           />

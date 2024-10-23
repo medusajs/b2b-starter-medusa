@@ -48,7 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     useImperativeHandle(ref, () => inputRef.current!)
 
     return (
-      <div className={`flex flex-col w-full ${className}`}>
+      <div className={`flex flex-col w-full`}>
         {topLabel && (
           <Label className="mb-2 txt-compact-medium-plus">{topLabel}</Label>
         )}

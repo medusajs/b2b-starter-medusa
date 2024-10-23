@@ -50,6 +50,5 @@ export const removeAdminRoleStep = createStep(
         },
       },
     ]);
-    return new StepResponse(undefined, providerIdentityId);
   }
 );

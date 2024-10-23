@@ -14,13 +14,11 @@ export const deleteEmployeesStep = createStep(
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
     await companyModuleService.softDeleteEmployees(ids);
 
-    return new StepResponse(ids, ids);
+    return new StepResponse(ids);
   },
   async (ids: string[], { container }) => {
     const companyModuleService =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
     await companyModuleService.restoreEmployees(ids);
-
-    return new StepResponse("Employees restored", ids);
   }
 );
