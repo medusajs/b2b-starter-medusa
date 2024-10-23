@@ -23,10 +23,12 @@ export const createEmployeesWorkflow = createWorkflow(
     });
 
     when(employee, (employee) => {
-      console.log("employee - ", employee);
       return !!employee.is_admin;
     }).then(() => {
-      setAdminRoleStep({ employeeId: employee.id });
+      setAdminRoleStep({
+        employeeId: employee.id,
+        customerId: input.customerId,
+      });
     });
 
     return new WorkflowResponse(employee);

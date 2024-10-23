@@ -50,7 +50,7 @@ export const POST = async (
     },
     container: req.scope,
   });
-  console.log("createdEmployee BE -- ", createdEmployee);
+
   const {
     data: [employee],
   } = await query.graph(
@@ -65,6 +65,6 @@ export const POST = async (
     },
     { throwIfKeyNotFound: true }
   );
-  console.log("employee -- ", employee);
+
   res.json({ employee });
 };
