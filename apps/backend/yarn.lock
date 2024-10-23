@@ -3381,7 +3381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@medusajs/ui@npm:4.0.0":
+"@medusajs/ui@npm:4.0.0, @medusajs/ui@npm:latest":
   version: 4.0.0
   resolution: "@medusajs/ui@npm:4.0.0"
   dependencies:
@@ -12085,6 +12085,7 @@ __metadata:
     "@medusajs/js-sdk": "npm:latest"
     "@medusajs/medusa": "npm:latest"
     "@medusajs/test-utils": "npm:latest"
+    "@medusajs/ui": "npm:latest"
     "@medusajs/ui-preset": "npm:latest"
     "@mikro-orm/cli": "npm:5.9.7"
     "@mikro-orm/core": "npm:5.9.7"
