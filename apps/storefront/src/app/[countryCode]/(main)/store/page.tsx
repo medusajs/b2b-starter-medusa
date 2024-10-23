@@ -19,33 +19,6 @@ type Params = {
   }
 }
 
-export async function generateStaticParams() {
-  const countryCodes = await listRegions().then(
-    (regions) =>
-      regions
-        ?.map((r) => r.countries?.map((c) => c.iso_2))
-        .flat()
-        .filter(Boolean) as string[]
-  )
-
-  if (!countryCodes) {
-    return null
-  }
-
-  const categories = await listCategories()
-
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
-      categories.map((category) => ({
-        countryCode,
-        handle: category.handle,
-      }))
-    )
-    .flat()
-
-  return staticParams
-}
-
 export default async function StorePage({ searchParams, params }: Params) {
   const { sortBy, page } = searchParams
 
