@@ -11,7 +11,7 @@ createOrdersWorkflow.hooks.orderCreated(
       return new StepResponse(undefined, null);
     }
 
-    remoteLink.create({
+    await remoteLink.create({
       [Modules.ORDER]: {
         order_id: order.id,
       },
@@ -29,7 +29,7 @@ createOrdersWorkflow.hooks.orderCreated(
 
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
-    remoteLink.dismiss({
+    await remoteLink.dismiss({
       [Modules.ORDER]: {
         order_id: orderId,
       },

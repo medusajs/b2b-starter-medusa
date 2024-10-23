@@ -10,12 +10,10 @@ export const deleteCompaniesStep = createStep(
 
     await companyModule.softDeleteCompanies(id);
 
-    return new StepResponse(id, id);
+    return new StepResponse(id);
   },
   async (companyId: string[], { container }) => {
     const companyModule =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
-
-    await companyModule.restoreCompanies(companyId);
   }
 );

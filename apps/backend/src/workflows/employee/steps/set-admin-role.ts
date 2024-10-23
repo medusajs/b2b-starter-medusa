@@ -79,6 +79,5 @@ export const setAdminRoleStep = createStep(
         },
       },
     ]);
-    return new StepResponse(undefined, input);
   }
 );

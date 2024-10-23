@@ -11,7 +11,7 @@ createCartWorkflow.hooks.cartCreated(
       return new StepResponse(undefined, null);
     }
 
-    remoteLink.create({
+    await remoteLink.create({
       [Modules.CART]: {
         cart_id: cart.id,
       },
@@ -29,7 +29,7 @@ createCartWorkflow.hooks.cartCreated(
 
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
-    remoteLink.dismiss({
+    await remoteLink.dismiss({
       [Modules.CART]: {
         cart_id: cartId,
       },

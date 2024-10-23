@@ -3,7 +3,7 @@ import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import {
   ICompanyModuleService,
   ModuleUpdateEmployee,
-  QueryEmployee
+  QueryEmployee,
 } from "@starter/types";
 import { COMPANY_MODULE } from "../../../modules/company";
 
@@ -47,7 +47,5 @@ export const updateEmployeesStep = createStep(
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
     await companyModuleService.updateEmployees(currentData);
-
-    return new StepResponse("Company customer data restored", currentData);
   }
 );

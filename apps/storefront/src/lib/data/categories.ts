@@ -18,8 +18,6 @@ export const getCategoriesList = cache(async function (
   limit: number = 100
 ) {
   return sdk.store.category.list(
-    // TODO: Look into fixing the type
-    // @ts-ignore
     { limit, offset },
     { ...getCacheHeaders("categories") }
   )

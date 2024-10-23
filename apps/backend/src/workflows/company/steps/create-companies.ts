@@ -19,7 +19,5 @@ export const createCompaniesStep = createStep(
 
     const companyModuleService =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
-
-    await companyModuleService.deleteCompanies([companyId]);
   }
 );

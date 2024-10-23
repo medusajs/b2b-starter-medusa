@@ -50,6 +50,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             type="email"
             autoComplete="email"
             data-testid="email-input"
+            className="bg-white"
           />
           <Input
             label="First name"
@@ -57,6 +58,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="given-name"
             data-testid="first-name-input"
+            className="bg-white"
           />
           <Input
             label="Last name"
@@ -64,6 +66,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="family-name"
             data-testid="last-name-input"
+            className="bg-white"
           />
           <Input
             label="Company name"
@@ -71,6 +74,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="organization"
             data-testid="company-name-input"
+            className="bg-white"
           />
           <Input
             label="Password"
@@ -79,6 +83,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             type="password"
             autoComplete="new-password"
             data-testid="password-input"
+            className="bg-white"
           />
           <Input
             label="Company address"
@@ -86,6 +91,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="address"
             data-testid="company-address-input"
+            className="bg-white"
           />
           <Input
             label="Company city"
@@ -93,6 +99,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="city"
             data-testid="company-city-input"
+            className="bg-white"
           />
           <Input
             label="Company state"
@@ -100,6 +107,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="state"
             data-testid="company-state-input"
+            className="bg-white"
           />
           <Input
             label="Company zip"
@@ -107,6 +115,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="postal-code"
             data-testid="company-zip-input"
+            className="bg-white"
           />
           <Select
             name="company_country"

@@ -23,6 +23,5 @@ export const createEmployeesStep = createStep(
     const companyModuleService =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
     await companyModuleService.deleteEmployees([employeeId]);
-    return new StepResponse("Employee deleted", employeeId);
   }
 );
