@@ -7,7 +7,7 @@ const QuoteManage = () => {
   const { quoteId } = useParams();
   const { quote, isLoading } = useQuote(quoteId!, {
     fields:
-      "+draft_order.customer.*, +draft_order.customer.employee.*, +draft_order.customer.employee.company.*",
+      "*draft_order.customer,*draft_order.customer.employee,*draft_order.customer.employee.company",
   });
 
   if (isLoading) {
