@@ -106,7 +106,7 @@
 
 ```bash
 # Clone the repository
-git clone git@github.com:medusajs/b2b-starter-medusa.git
+git clone https://github.com/medusajs/b2b-starter-medusa.git
 
 # Go to the folder
 cd ./b2b-starter-medusa
