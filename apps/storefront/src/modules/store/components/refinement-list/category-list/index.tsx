@@ -106,7 +106,7 @@ const CategoryList = ({
       const categoriesToExpand = getCategoriesToExpand(currentCategory)
       setExpandedCategories((prev) => [...prev, ...categoriesToExpand])
     }
-  }, [pathname, currentCategory])
+  }, [pathname, currentCategory, getCategoriesToExpand])
 
   return (
     <Container className="flex flex-col p-0 divide-y divide-neutral-200">

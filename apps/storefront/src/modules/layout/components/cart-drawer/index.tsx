@@ -1,6 +1,5 @@
 "use client"
 
-import { DialogProps } from "@headlessui/react"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { convertToLocale } from "@lib/util/money"
@@ -12,13 +11,7 @@ import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
-import {
-  ComponentPropsWithoutRef,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
@@ -26,7 +19,7 @@ type CartDrawerProps = {
     promotions?: HttpTypes.StorePromotion[]
   }
   customer: B2BCustomer | null
-} & ComponentPropsWithoutRef<React.FC<DialogProps<"div">>>
+}
 
 const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
