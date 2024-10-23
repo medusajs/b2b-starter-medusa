@@ -87,11 +87,7 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
     close()
   }, [pathname])
 
-  if (!cart || !customer) {
-    return null
-  }
-
-  const checkoutStep = getCheckoutStep(cart)
+  const checkoutStep = cart ? getCheckoutStep(cart) : undefined
   const checkoutPath = customer
     ? checkoutStep
       ? `/checkout?step=${checkoutStep}`
