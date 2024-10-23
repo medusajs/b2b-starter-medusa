@@ -14,7 +14,7 @@ const Hero = () => {
 
   useEffect(() => {
     const img = new window.Image()
-    img.src = "http://localhost:8000/hero-image.jpg"
+    img.src = "/hero-image.jpg"
     img.onload = () => {
       setImageLoaded(true)
       setTimeout(() => {
