@@ -36,7 +36,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
         { scroll: false }
       )
     }
-  }, [searchParams, router, route])
+  }, [searchParams, route, router])
 
   useEffect(() => {
     const image = new window.Image()
@@ -52,7 +52,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2">
+    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2 min-h-[80vh]">
       <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
@@ -60,18 +60,21 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
           <Register setCurrentView={updateView} regions={regions} />
         )}
       </div>
-      <Image
-        src="/account-block.png"
-        alt="Login banner background"
-        className={clx(
-          "object-cover transition-opacity duration-300 w-full h-full",
-          imageLoaded ? "opacity-100" : "opacity-0"
-        )}
-        width={500}
-        height={1000}
-        quality={100}
-        priority
-      />
+
+      <div className="relative">
+        <Image
+          src="/account-block.png"
+          alt="Login banner background"
+          className={clx(
+            "object-cover transition-opacity duration-300 w-full h-full",
+            imageLoaded ? "opacity-100" : "opacity-0"
+          )}
+          fill
+          objectFit="cover"
+          quality={100}
+          priority
+        />
+      </div>
     </div>
   )
 }
