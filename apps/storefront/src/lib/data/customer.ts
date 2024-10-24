@@ -18,12 +18,16 @@ import {
 
 export const getCustomer = cache(
   async function (): Promise<B2BCustomer | null> {
+    const headers = {
+      ...(await getCacheHeaders("customers")),
+      ...(await getAuthHeaders()),
+    }
     return await sdk.store.customer
       .retrieve(
         {
           fields: "*employee, *orders",
         },
-        { ...getCacheHeaders("customers"), ...getAuthHeaders() }
+        headers
       )
       .then(({ customer }) => customer as B2BCustomer)
       .catch(() => null)
@@ -33,12 +37,19 @@ export const getCustomer = cache(
 export const updateCustomer = cache(async function (
   body: HttpTypes.StoreUpdateCustomer
 ) {
+  const headers = {
+    ...(await getCacheHeaders("customers")),
+    ...(await getAuthHeaders()),
+  }
+
   const updateRes = await sdk.store.customer
-    .update(body, {}, getAuthHeaders())
+    .update(body, {}, headers)
     .then(({ customer }) => customer)
     .catch(medusaError)
 
-  revalidateTag(getCacheTag("customers"))
+  const cacheTag = await getCacheTag("customers")
+  revalidateTag(cacheTag)
+
   return updateRes
 })
 
@@ -96,7 +107,8 @@ export async function signup(_currentState: unknown, formData: FormData) {
       console.log("error creating employee", err)
     })
 
-    revalidateTag(getCacheTag("customers"))
+    const cacheTag = await getCacheTag("customers")
+    revalidateTag(cacheTag)
 
     return {
       customer: createdCustomer,
@@ -115,9 +127,10 @@ export async function login(_currentState: unknown, formData: FormData) {
   try {
     await sdk.auth
       .login("customer", "emailpass", { email, password })
-      .then((token) => {
+      .then(async (token) => {
         setAuthToken(token as string)
-        revalidateTag(getCacheTag("customers"))
+        const cacheTag = await getCacheTag("customers")
+        revalidateTag(cacheTag)
       })
   } catch (error: any) {
     return error.toString()
@@ -127,8 +140,10 @@ export async function login(_currentState: unknown, formData: FormData) {
 export async function signout(countryCode: string, customerId: string) {
   await sdk.auth.logout()
   removeAuthToken()
-  revalidateTag(getCacheTag("auth"))
-  revalidateTag(getCacheTag("customers"))
+  const authCacheTag = await getCacheTag("auth")
+  revalidateTag(authCacheTag)
+  const customerCacheTag = await getCacheTag("customers")
+  revalidateTag(customerCacheTag)
   redirect(`/${countryCode}/account`)
 }
 
@@ -149,10 +164,16 @@ export const addCustomerAddress = async (
     phone: formData.get("phone") as string,
   }
 
+  const headers = {
+    ...(await getCacheHeaders("customers")),
+    ...(await getAuthHeaders()),
+  }
+
   return sdk.store.customer
-    .createAddress(address, {}, getAuthHeaders())
-    .then(({ customer }) => {
-      revalidateTag(getCacheTag("customers"))
+    .createAddress(address, {}, headers)
+    .then(async () => {
+      const cacheTag = await getCacheTag("customers")
+      revalidateTag(cacheTag)
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -164,10 +185,16 @@ export const deleteCustomerAddress = async (
   addressId: string,
   customerId: string
 ): Promise<void> => {
+  const headers = {
+    ...(await getCacheHeaders("customers")),
+    ...(await getAuthHeaders()),
+  }
+
   await sdk.store.customer
-    .deleteAddress(addressId, getAuthHeaders())
-    .then(() => {
-      revalidateTag(getCacheTag("customers"))
+    .deleteAddress(addressId, headers)
+    .then(async () => {
+      const cacheTag = await getCacheTag("customers")
+      revalidateTag(cacheTag)
       return { success: true, error: null }
     })
     .catch((err) => {
@@ -195,10 +222,16 @@ export const updateCustomerAddress = async (
     phone: formData.get("phone") as string,
   }
 
+  const headers = {
+    ...(await getCacheHeaders("customers")),
+    ...(await getAuthHeaders()),
+  }
+
   return sdk.store.customer
-    .updateAddress(addressId, address, {}, getAuthHeaders())
-    .then(() => {
-      revalidateTag(getCacheTag("customers"))
+    .updateAddress(addressId, address, {}, headers)
+    .then(async () => {
+      const cacheTag = await getCacheTag("customers")
+      revalidateTag(cacheTag)
       return { success: true, error: null }
     })
     .catch((err) => {

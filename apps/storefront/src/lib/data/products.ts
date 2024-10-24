@@ -15,6 +15,10 @@ export const getProductsById = cache(async function ({
   ids: string[]
   regionId: string
 }) {
+  const headers = {
+    ...(await getCacheHeaders("products")),
+  }
+
   return sdk.store.product
     .list(
       {
@@ -23,7 +27,7 @@ export const getProductsById = cache(async function ({
         fields:
           "*variants.calculated_price,+variants.inventory_quantity,+inventory_quantity",
       },
-      { ...getCacheHeaders("products") }
+      headers
     )
     .then(({ products }) => products)
 })
@@ -32,6 +36,10 @@ export const getProductByHandle = cache(async function (
   handle: string,
   regionId: string
 ) {
+  const headers = {
+    ...(await getCacheHeaders("products")),
+  }
+
   return sdk.store.product
     .list(
       {
@@ -40,7 +48,7 @@ export const getProductByHandle = cache(async function (
         fields:
           "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
       },
-      { ...getCacheHeaders("products") }
+      headers
     )
     .then(({ products }) => products[0])
 })
@@ -69,6 +77,11 @@ export const getProductsList = cache(async function ({
       nextPage: null,
     }
   }
+
+  const headers = {
+    ...(await getCacheHeaders("products")),
+  }
+
   return sdk.store.product
     .list(
       {
@@ -78,7 +91,7 @@ export const getProductsList = cache(async function ({
         fields: "*variants.calculated_price",
         ...queryParams,
       },
-      { ...getCacheHeaders("products") }
+      headers
     )
     .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null

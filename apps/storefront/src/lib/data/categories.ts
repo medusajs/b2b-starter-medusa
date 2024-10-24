@@ -5,11 +5,12 @@ import { cache } from "react"
 import { getCacheHeaders } from "./cookies"
 
 export const listCategories = cache(async function () {
+  const headers = {
+    ...(await getCacheHeaders("categories")),
+  }
+
   return sdk.store.category
-    .list(
-      { fields: "*category_children" },
-      { ...getCacheHeaders("categories") }
-    )
+    .list({ fields: "*category_children" }, headers)
     .then(({ product_categories }) => product_categories)
 })
 
@@ -17,10 +18,11 @@ export const getCategoriesList = cache(async function (
   offset: number = 0,
   limit: number = 100
 ) {
-  return sdk.store.category.list(
-    { limit, offset },
-    { ...getCacheHeaders("categories") }
-  )
+  const headers = {
+    ...(await getCacheHeaders("categories")),
+  }
+
+  return sdk.store.category.list({ limit, offset }, headers)
 })
 
 export const getCategoryByHandle = cache(async function (
@@ -28,10 +30,9 @@ export const getCategoryByHandle = cache(async function (
 ) {
   const handle = `${categoryHandle.join("/")}`
 
-  return sdk.store.category.list(
-    // TODO: Look into fixing the type
-    // @ts-ignore
-    { handle },
-    { ...getCacheHeaders("categories") }
-  )
+  const headers = {
+    ...(await getCacheHeaders("categories")),
+  }
+
+  return sdk.store.category.list({ handle }, headers)
 })

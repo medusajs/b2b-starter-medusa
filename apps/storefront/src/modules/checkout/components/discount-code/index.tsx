@@ -5,8 +5,7 @@ import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 import { Badge, Heading, Input, Label, Text } from "@medusajs/ui"
 import Trash from "@modules/common/icons/trash"
-import React from "react"
-import { useFormState } from "react-dom"
+import React, { useActionState } from "react"
 import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
@@ -49,7 +48,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
     }
   }
 
-  const [message, formAction] = useFormState(submitPromotionForm, null)
+  const [message, formAction] = useActionState(submitPromotionForm, null)
 
   return (
     <div className="w-full bg-white flex flex-col">
