@@ -7,15 +7,23 @@ import { HttpTypes } from "@medusajs/types"
 import { getCacheHeaders } from "./cookies"
 
 export const listRegions = cache(async function () {
+  const headers = {
+    ...(await getCacheHeaders("regions")),
+  }
+
   return sdk.store.region
-    .list({}, { ...getCacheHeaders("regions") })
+    .list({}, headers)
     .then(({ regions }) => regions)
     .catch(medusaError)
 })
 
 export const retrieveRegion = cache(async function (id: string) {
+  const headers = {
+    ...(await getCacheHeaders("regions")),
+  }
+
   return sdk.store.region
-    .retrieve(id, {}, { ...getCacheHeaders("regions") })
+    .retrieve(id, {}, headers)
     .then(({ region }) => region)
     .catch(medusaError)
 })

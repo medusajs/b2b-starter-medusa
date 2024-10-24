@@ -5,16 +5,18 @@ import { getCategoryByHandle, listCategories } from "@lib/data/categories"
 import { StoreProductCategory } from "@medusajs/types"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { listRegions } from "@lib/data/regions"
 
 type Props = {
-  params: { category: string[]; countryCode: string }
-  searchParams: {
+  params: Promise<{ category: string[]; countryCode: string }>
+  searchParams: Promise<{
     sortBy?: SortOptions
     page?: string
-  }
+  }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params
   try {
     const { product_categories } = await getCategoryByHandle(params.category)
 
@@ -38,7 +40,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function CategoryPage({ params, searchParams }: Props) {
+export async function generateStaticParams() {
+  const countryCodes = await listRegions().then(
+    (regions) =>
+      regions
+        ?.map((r) => r.countries?.map((c) => c.iso_2))
+        .flat()
+        .filter(Boolean) as string[]
+  )
+
+  if (!countryCodes) {
+    return null
+  }
+
+  const categories = await listCategories()
+
+  return countryCodes
+    .map((countryCode) =>
+      categories.map((category) => ({
+        countryCode,
+        category: category.handle.split("/"),
+      }))
+    )
+    .flat()
+}
+
+export default async function CategoryPage(props: Props) {
+  const searchParams = await props.searchParams
+  const params = await props.params
   const { sortBy, page } = searchParams
 
   const categories = await listCategories()

@@ -1,6 +1,5 @@
 "use client"
 
-import { DialogProps } from "@headlessui/react"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { convertToLocale } from "@lib/util/money"
