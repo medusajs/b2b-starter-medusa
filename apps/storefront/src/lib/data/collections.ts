@@ -7,8 +7,12 @@ import { HttpTypes } from "@medusajs/types"
 import { getCacheHeaders } from "./cookies"
 
 export const retrieveCollection = cache(async function (id: string) {
+  const headers = {
+    ...(await getCacheHeaders("collections")),
+  }
+
   return sdk.store.collection
-    .retrieve(id, {}, { ...getCacheHeaders("collections") })
+    .retrieve(id, {}, headers)
     .then(({ collection }) => collection)
 })
 
@@ -16,16 +20,24 @@ export const getCollectionsList = cache(async function (
   offset: number = 0,
   limit: number = 100
 ): Promise<{ collections: HttpTypes.StoreCollection[]; count: number }> {
+  const headers = {
+    ...(await getCacheHeaders("collections")),
+  }
+
   return sdk.store.collection
-    .list({ limit, offset: 0 }, { ...getCacheHeaders("collections") })
+    .list({ limit, offset: 0 }, headers)
     .then(({ collections }) => ({ collections, count: collections.length }))
 })
 
 export const getCollectionByHandle = cache(async function (
   handle: string
 ): Promise<HttpTypes.StoreCollection> {
+  const headers = {
+    ...(await getCacheHeaders("collections")),
+  }
+
   return sdk.store.collection
-    .list({ handle }, { ...getCacheHeaders("collections") })
+    .list({ handle }, headers)
     .then(({ collections }) => collections[0])
 })
 

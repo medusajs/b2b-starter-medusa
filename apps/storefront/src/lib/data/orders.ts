@@ -6,12 +6,13 @@ import { cache } from "react"
 import { getAuthHeaders, getCacheHeaders } from "./cookies"
 
 export const retrieveOrder = cache(async function (id: string) {
+  const headers = {
+    ...(await getCacheHeaders("orders")),
+    ...(await getAuthHeaders()),
+  }
+
   return sdk.store.order
-    .retrieve(
-      id,
-      { fields: "*payment_collections.payments" },
-      { ...getCacheHeaders("orders"), ...getAuthHeaders() }
-    )
+    .retrieve(id, { fields: "*payment_collections.payments" }, headers)
     .then(({ order }) => order)
     .catch((err) => medusaError(err))
 })
@@ -21,6 +22,11 @@ export const listOrders = cache(async function (
   offset: number = 0,
   filters?: Record<string, any>
 ) {
+  const headers = {
+    ...(await getCacheHeaders("orders")),
+    ...(await getAuthHeaders()),
+  }
+
   return sdk.store.order
     .list(
       {
@@ -30,7 +36,7 @@ export const listOrders = cache(async function (
         fields: "*items,+items.metadata,*items.variant,*items.product",
         ...filters,
       },
-      { ...getCacheHeaders("orders"), ...getAuthHeaders() }
+      headers
     )
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))
