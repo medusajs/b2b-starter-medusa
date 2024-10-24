@@ -70,7 +70,6 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
             imageLoaded ? "opacity-100" : "opacity-0"
           )}
           fill
-          objectFit="cover"
           quality={100}
           priority
         />

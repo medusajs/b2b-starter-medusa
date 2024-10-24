@@ -5,8 +5,7 @@ import { CheckCircleSolid } from "@medusajs/icons"
 import { clx, Container, Heading, Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useCallback } from "react"
-import { useFormState } from "react-dom"
+import { useActionState, useCallback } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
@@ -48,7 +47,7 @@ const ContactDetails = ({
     })
   }
 
-  const [message, formAction] = useFormState(setContactDetails, null)
+  const [message, formAction] = useActionState(setContactDetails, null)
 
   return (
     <Container>

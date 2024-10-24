@@ -2,7 +2,6 @@
 
 import { signup } from "@lib/data/customer"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
-import { useFormState } from "react-dom"
 
 import { currencySymbolMap } from "@lib/constants"
 import { HttpTypes } from "@medusajs/types"
@@ -10,8 +9,7 @@ import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import Input from "@modules/common/components/input"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { useState } from "react"
+import { useActionState, useState } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -19,7 +17,7 @@ type Props = {
 }
 
 const Register = ({ setCurrentView, regions }: Props) => {
-  const [message, formAction] = useFormState(signup, null)
+  const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
 
   const countryNames = regions

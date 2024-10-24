@@ -7,8 +7,7 @@ import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import Spinner from "@modules/common/icons/spinner"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useCallback } from "react"
-import { useFormState } from "react-dom"
+import { useActionState, useCallback } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
@@ -49,7 +48,7 @@ const ShippingAddress = ({
     )
   }
 
-  const [message, formAction] = useFormState(setShippingAddress, null)
+  const [message, formAction] = useActionState(setShippingAddress, null)
 
   return (
     <Container>

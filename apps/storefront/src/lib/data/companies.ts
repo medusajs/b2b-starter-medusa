@@ -13,14 +13,16 @@ import {
 import { revalidateTag } from "next/cache"
 
 export const retrieveCompany = async (companyId: string) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+    ...(await getCacheHeaders("companies")),
+  }
+
   const company = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies/${companyId}?fields=+spending_limit_reset_frequency,*employees.customer`,
     {
       method: "GET",
-      headers: {
-        ...getAuthHeaders(),
-        ...getCacheHeaders("companies"),
-      },
+      headers,
     }
   )
 
@@ -28,36 +30,43 @@ export const retrieveCompany = async (companyId: string) => {
 }
 
 export const createCompany = async (data: StoreCreateCompany) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   const { company } = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies`,
     {
       method: "POST",
       body: data,
-      headers: {
-        ...getAuthHeaders(),
-      },
+      headers,
     }
   )
 
-  revalidateTag(getCacheTag("companies"))
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
 
   return company
 }
 
 export const updateCompany = async (data: StoreUpdateCompany) => {
   const { id, ...companyData } = data
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   const company = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies/${id}`,
     {
       method: "POST",
       body: companyData,
-      headers: {
-        ...getAuthHeaders(),
-      },
+      headers,
     }
   )
 
-  revalidateTag(getCacheTag("companies"))
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
 
   return company
 }
@@ -65,50 +74,60 @@ export const updateCompany = async (data: StoreUpdateCompany) => {
 export const createEmployee = async (data: StoreCreateEmployee) => {
   const { company_id, ...employeeData } = data
 
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   const employee = await sdk.client.fetch<StoreEmployeeResponse>(
     `/store/companies/${company_id}/employees`,
     {
       method: "POST",
       body: employeeData,
-      headers: {
-        ...getAuthHeaders(),
-      },
+      headers,
     }
   )
 
-  revalidateTag(getCacheTag("companies"))
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
 
   return employee
 }
 
 export const updateEmployee = async (data: StoreUpdateEmployee) => {
   const { id, company_id, ...employeeData } = data
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   const employee = await sdk.client.fetch<StoreEmployeeResponse>(
     `/store/companies/${company_id}/employees/${id}`,
     {
       method: "POST",
       body: employeeData,
-      headers: {
-        ...getAuthHeaders(),
-      },
+      headers,
     }
   )
 
-  revalidateTag(getCacheTag("companies"))
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
 
   return employee
 }
 
 export const deleteEmployee = async (companyId: string, employeeId: string) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   await sdk.client.fetch(
     `/store/companies/${companyId}/employees/${employeeId}`,
     {
       method: "DELETE",
-      headers: {
-        ...getAuthHeaders(),
-      },
+      headers,
     }
   )
 
-  revalidateTag(getCacheTag("companies"))
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
 }
