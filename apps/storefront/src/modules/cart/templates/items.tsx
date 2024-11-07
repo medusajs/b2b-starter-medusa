@@ -23,27 +23,19 @@ const ItemsTemplate = ({
     <div className="w-full flex flex-col gap-y-2">
       <div className="flex flex-col gap-y-2 w-full">
         {items
-          ? items
-              .sort((a, b) => {
-                if (a.created_at === b.created_at) {
-                  return a.id?.localeCompare(b.id ?? "") ?? 0
-                }
-
-                return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
-              })
-              .map((item: StoreCartLineItem) => {
-                return (
-                  <Item
-                    showBorders={showBorders}
-                    key={item.id}
-                    item={
-                      item as StoreCartLineItem & {
-                        metadata?: { note?: string }
-                      }
+          ? items.map((item: StoreCartLineItem) => {
+              return (
+                <Item
+                  showBorders={showBorders}
+                  key={item.id}
+                  item={
+                    item as StoreCartLineItem & {
+                      metadata?: { note?: string }
                     }
-                  />
-                )
-              })
+                  }
+                />
+              )
+            })
           : repeat(5).map((i) => {
               return <SkeletonLineItem key={i} />
             })}
@@ -54,7 +46,7 @@ const ItemsTemplate = ({
             <Text>Total: {items?.length} items</Text>
             <Text>
               {convertToLocale({
-                amount: cart?.total,
+                amount: cart?.item_subtotal,
                 currency_code: cart?.currency_code,
               })}
             </Text>

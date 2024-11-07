@@ -1,7 +1,9 @@
-import type { StoreProductVariant } from "@medusajs/types"
+import type { StoreProduct, StoreProductVariant } from "@medusajs/types"
 
 export type AddToCartEventPayload = {
-  productVariant: StoreProductVariant
+  productVariant: StoreProductVariant & {
+    product: StoreProduct
+  }
   regionId: string
 }
 

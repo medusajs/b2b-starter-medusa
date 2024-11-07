@@ -1,24 +1,22 @@
-import { deleteLineItem } from "@lib/data/cart"
-import Spinner from "@modules/common/icons/spinner"
+import { useCart } from "@lib/context/cart-context"
 import { clx } from "@medusajs/ui"
+import Spinner from "@modules/common/icons/spinner"
 import { useState } from "react"
 
 const DeleteButton = ({
   id,
-  children,
   className,
 }: {
   id: string
-  children?: React.ReactNode
   className?: string
 }) => {
   const [isDeleting, setIsDeleting] = useState(false)
 
+  const { handleDeleteItem } = useCart()
+
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
-    await deleteLineItem(id).catch((err) => {
-      setIsDeleting(false)
-    })
+    await handleDeleteItem(id)
   }
 
   return (

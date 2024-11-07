@@ -4,6 +4,7 @@ import CartTemplate from "@modules/cart/templates"
 import { enrichLineItems, retrieveCart } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import { getCustomer } from "@lib/data/customer"
+import { CartProvider } from "@lib/context/cart-context"
 
 export const metadata: Metadata = {
   title: "Cart",
@@ -29,5 +30,9 @@ export default async function Cart() {
   const cart = await fetchCart()
   const customer = await getCustomer()
 
-  return <CartTemplate cart={cart} customer={customer} />
+  return (
+    <CartProvider cart={cart}>
+      <CartTemplate customer={customer} />
+    </CartProvider>
+  )
 }
