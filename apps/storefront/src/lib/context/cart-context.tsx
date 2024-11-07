@@ -3,42 +3,42 @@
 import type {
   StoreCart,
   StoreCartLineItem,
-  StorePromotion,
+  StoreProduct,
 } from "@medusajs/types"
-import type { Dispatch, PropsWithChildren, SetStateAction } from "react"
+import type { PropsWithChildren } from "react"
 
-import { addToCart, updateLineItem } from "@lib/data/cart"
+import { addToCart, deleteLineItem, updateLineItem } from "@lib/data/cart"
 
-import { useParams, usePathname } from "next/navigation"
+import { useParams } from "next/navigation"
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useOptimistic,
-  useState,
   useTransition,
 } from "react"
 
-import type { StoreProductVariant } from "@medusajs/types"
 import { addToCartEventBus } from "@lib/data/cart-event-bus"
+import type { StoreProductVariant } from "@medusajs/types"
 import { B2BCart } from "types/global"
 
 export type AddToCartEventPayload = {
-  productVariant: StoreProductVariant
+  productVariant: StoreProductVariant & {
+    product: StoreProduct
+  }
   regionId: string
 }
 
 const CartContext = createContext<
   | {
       cart: B2BCart | null
-      cartOpen: boolean
       handleDeleteItem: (lineItem: string) => Promise<void>
       handleUpdateCartQuantity: (
         lineItem: string,
         newQuantity: number
       ) => Promise<void>
-      setCartOpen: Dispatch<SetStateAction<boolean>>
     }
   | undefined
 >(undefined)
@@ -54,15 +54,11 @@ export function CartProvider({
   const [optimisticCart, setOptimisticCart] = useOptimistic<B2BCart | null>(
     cart
   )
-  const [cartOpen, setCartOpen] = useState(false)
 
   const [, startTransition] = useTransition()
-  const pathname = usePathname()
 
   const handleOptimisticAddToCart = useCallback(
     async (payload: AddToCartEventPayload) => {
-      setCartOpen(true)
-
       startTransition(async () => {
         setOptimisticCart((prev) => {
           console.log({ prev: cart?.items?.length })
@@ -106,8 +102,11 @@ export function CartProvider({
             tax_total: 0,
             title: payload.productVariant.title || "",
             total: priceAmount,
+            thumbnail: payload.productVariant.product?.thumbnail || undefined,
             unit_price: priceAmount,
             variant: payload.productVariant || undefined,
+            // @ts-expect-error
+            created_at: new Date().toISOString(),
           }
 
           const newItems = [...items, newItem]
@@ -124,19 +123,38 @@ export function CartProvider({
         })
       })
     },
-    [setCartOpen, setOptimisticCart]
+    [setOptimisticCart]
   )
 
   useEffect(() => {
     addToCartEventBus.registerCartAddHandler(handleOptimisticAddToCart)
   }, [handleOptimisticAddToCart])
 
-  useEffect(() => {
-    setCartOpen(false)
-  }, [pathname])
-
   const handleDeleteItem = async (lineItem: string) => {
-    handleUpdateCartQuantity(lineItem, 0)
+    const item = optimisticCart?.items?.find(({ id }) => id === lineItem)
+
+    if (!item) return
+
+    startTransition(() => {
+      setOptimisticCart((prev) => {
+        if (!prev) return prev
+
+        const optimisticItems = prev.items?.filter(({ id }) => id !== lineItem)
+
+        const optimisticTotal = optimisticItems?.reduce(
+          (acc, item) => acc + item.unit_price * item.quantity,
+          0
+        )
+
+        return {
+          ...prev,
+          item_subtotal: optimisticTotal || 0,
+          items: optimisticItems,
+        }
+      })
+    })
+
+    await deleteLineItem(lineItem)
   }
 
   const handleUpdateCartQuantity = async (
@@ -182,14 +200,18 @@ export function CartProvider({
     }
   }
 
+  const sortedItems = useMemo(() => {
+    return optimisticCart?.items?.sort((a, b) => {
+      return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
+    })
+  }, [optimisticCart])
+
   return (
     <CartContext.Provider
       value={{
-        cart: optimisticCart,
-        cartOpen,
+        cart: { ...optimisticCart, items: sortedItems } as B2BCart,
         handleDeleteItem,
         handleUpdateCartQuantity,
-        setCartOpen,
       }}
     >
       {children}

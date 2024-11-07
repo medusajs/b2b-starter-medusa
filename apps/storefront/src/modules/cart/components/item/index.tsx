@@ -1,15 +1,15 @@
 "use client"
 
-import { updateLineItem, deleteLineItem } from "@lib/data/cart"
+import { useCart } from "@lib/context/cart-context"
 import { HttpTypes } from "@medusajs/types"
 import { clx, Container, Input } from "@medusajs/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemPrice from "@modules/common/components/line-item-price"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Spinner from "@modules/common/icons/spinner"
 import Thumbnail from "@modules/products/components/thumbnail"
-import { startTransition, useState } from "react"
+import { startTransition, useEffect, useState } from "react"
 import AddNoteButton from "../add-note-button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem
@@ -25,32 +25,22 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
 
   const [quantity, setQuantity] = useState(item.quantity.toString())
 
+  const { handleDeleteItem, handleUpdateCartQuantity } = useCart()
+
   const changeQuantity = async (newQuantity: number) => {
     setError(null)
-    setUpdating(true)
+    // setUpdating(true)
 
     startTransition(() => {
       setQuantity(newQuantity.toString())
     })
 
-    try {
-      await updateLineItem({
-        lineId: item.id,
-        data: {
-          quantity: Number(newQuantity),
-        },
-      })
-    } catch (err) {
-      setError(err as string)
-      // Revert the optimistic update if there's an error
-      startTransition(() => {
-        setQuantity(item.quantity.toString())
-      })
-    } finally {
-      setQuantity(newQuantity.toString())
-      setUpdating(false)
-    }
+    await handleUpdateCartQuantity(item.id, Number(newQuantity))
   }
+
+  useEffect(() => {
+    setQuantity(item.quantity.toString())
+  }, [item.quantity])
 
   const handleBlur = (value: number) => {
     if (value === item.quantity) {
@@ -58,12 +48,12 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
     }
 
     if (value > maxQuantity) {
-      setQuantity(maxQuantity.toString())
+      changeQuantity(maxQuantity)
     }
 
     if (value < 1) {
       setUpdating(true)
-      deleteLineItem(item.id)
+      handleDeleteItem(item.id)
       setUpdating(false)
     }
 

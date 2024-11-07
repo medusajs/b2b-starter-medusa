@@ -5,7 +5,6 @@ import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { convertToLocale } from "@lib/util/money"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
-import { HttpTypes } from "@medusajs/types"
 import { Drawer, Text } from "@medusajs/ui"
 import ItemsTemplate from "@modules/cart/templates/items"
 import Button from "@modules/common/components/button"
@@ -13,7 +12,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
+import { B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
@@ -37,7 +36,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = cart?.subtotal ?? 0
+  const subtotal = cart?.item_subtotal ?? 0
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -47,6 +46,10 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
   const itemRef = useRef<number>(totalItems || 0)
 
   const timedOpen = () => {
+    if (isOpen) {
+      return
+    }
+
     open()
 
     const timer = setTimeout(close, 5000)
@@ -81,6 +84,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
 
   //close cart drawe when navigating to a different page
   useEffect(() => {
+    cancelTimer()
     close()
   }, [pathname])
 

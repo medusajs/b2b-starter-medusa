@@ -17,6 +17,8 @@ const PreviewAddToCart = ({
 }) => {
   const [isAdding, setIsAdding] = useState(false)
 
+  console.log({ product })
+
   const handleAddToCart = async () => {
     if (!product?.variants?.[0]?.id) return null
 
@@ -29,7 +31,10 @@ const PreviewAddToCart = ({
     // })
 
     addToCartEventBus.emitCartAdd({
-      productVariant: product?.variants?.[0],
+      productVariant: {
+        ...product?.variants?.[0],
+        product,
+      },
       regionId: region.id,
     })
 

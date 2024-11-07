@@ -8,7 +8,7 @@ import Divider from "../divider"
 type CartTotalsProps = {
   totals: {
     total?: number | null
-    subtotal?: number | null
+    item_subtotal?: number | null
     tax_total?: number | null
     shipping_total?: number | null
     discount_total?: number | null
@@ -21,7 +21,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   const {
     currency_code,
     total,
-    subtotal,
+    item_subtotal,
     tax_total,
     shipping_total,
     discount_total,
@@ -35,8 +35,11 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <Text className="flex gap-x-1 items-center">
             Subtotal (excl. shipping and taxes)
           </Text>
-          <Text data-testid="cart-subtotal" data-value={subtotal || 0}>
-            {convertToLocale({ amount: subtotal ?? 0, currency_code })}
+          <Text
+            data-testid="cart-item-subtotal"
+            data-value={item_subtotal || 0}
+          >
+            {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
           </Text>
         </div>
         {!!discount_total && (
