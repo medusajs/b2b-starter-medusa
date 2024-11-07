@@ -1,6 +1,7 @@
 "use client"
 
 import { addToCart } from "@lib/data/cart"
+import { addToCartEventBus } from "@lib/data/cart-event-bus"
 import { Spinner } from "@medusajs/icons"
 import { StoreProduct, StoreRegion } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
@@ -21,10 +22,15 @@ const PreviewAddToCart = ({
 
     setIsAdding(true)
 
-    await addToCart({
-      variantId: product?.variants?.[0]?.id,
-      quantity: 1,
-      countryCode: region.countries?.[0]?.iso_2 || "GB",
+    // await addToCart({
+    //   variantId: product?.variants?.[0]?.id,
+    //   quantity: 1,
+    //   countryCode: region.countries?.[0]?.iso_2 || "GB",
+    // })
+
+    addToCartEventBus.emitCartAdd({
+      productVariant: product?.variants?.[0],
+      regionId: region.id,
     })
 
     setIsAdding(false)

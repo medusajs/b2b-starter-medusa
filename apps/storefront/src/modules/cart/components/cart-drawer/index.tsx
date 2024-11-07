@@ -1,5 +1,6 @@
 "use client"
 
+import { useCart } from "@lib/context/cart-context"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { convertToLocale } from "@lib/util/money"
@@ -15,15 +16,10 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
-  cart:
-    | (B2BCart & {
-        promotions?: HttpTypes.StorePromotion[]
-      })
-    | null
   customer: B2BCustomer | null
 }
 
-const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
+const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -31,6 +27,8 @@ const CartDrawer = ({ cart, customer, ...props }: CartDrawerProps) => {
 
   const open = () => setIsOpen(true)
   const close = () => setIsOpen(false)
+
+  const { cart } = useCart()
 
   const items = cart?.items
 
