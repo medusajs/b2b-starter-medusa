@@ -13,7 +13,7 @@ export default async function AccountPageLayout({
   return (
     <div className="flex flex-col gap-2 p-2">
       <Image
-        src="/account-block.png"
+        src="/account-block.jpg"
         alt="Login banner background"
         className="object-cover transition-opacity duration-300 w-full h-44"
         width={2000}
