@@ -75,7 +75,14 @@ export function CartProvider({
               ...item,
               quantity: item.quantity + 1,
             }
-            return { ...prev, items } as B2BCart
+
+            const newTotal = calculateCartTotal(items)
+
+            return {
+              ...prev,
+              item_subtotal: newTotal,
+              items,
+            } as B2BCart
           }
 
           const priceAmount =
@@ -113,7 +120,11 @@ export function CartProvider({
 
           const newTotal = calculateCartTotal(newItems)
 
-          return { ...prev, item_total: newTotal, items: newItems } as B2BCart
+          return {
+            ...prev,
+            item_subtotal: newTotal,
+            items: newItems,
+          } as B2BCart
         })
 
         await addToCart({
@@ -183,6 +194,8 @@ export function CartProvider({
           (acc, item) => acc + item.unit_price * item.quantity,
           0
         )
+
+        console.log({ optimisticTotal })
 
         return {
           ...prev,

@@ -36,7 +36,9 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = cart?.item_subtotal ?? 0
+  const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
+
+  console.log({ subtotal })
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
