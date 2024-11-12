@@ -15,8 +15,6 @@ const PreviewAddToCart = ({
 }) => {
   const [isAdding, setIsAdding] = useState(false)
 
-  console.log({ product })
-
   const handleAddToCart = async () => {
     if (!product?.variants?.[0]?.id) return null
 
