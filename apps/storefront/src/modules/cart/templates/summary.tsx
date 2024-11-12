@@ -12,6 +12,7 @@ import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-pro
 import { useState } from "react"
 import CartToCsvButton from "../components/cart-to-csv-button"
 import { B2BCart, B2BCustomer } from "types/global"
+import { useCart } from "@lib/context/cart-context"
 
 type SummaryProps = {
   cart: B2BCart
@@ -20,22 +21,13 @@ type SummaryProps = {
 }
 
 const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
-  const [isEmptyingCart, setIsEmptyingCart] = useState(false)
+  const { handleEmptyCart } = useCart()
   const checkoutStep = getCheckoutStep(cart)
   const checkoutPath = checkoutStep
     ? `/checkout?step=${checkoutStep}`
     : "/checkout"
 
   const checkoutButtonLink = customer ? checkoutPath : "/account"
-
-  const handleEmptyCart = async () => {
-    setIsEmptyingCart(true)
-    try {
-      await emptyCart()
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -90,7 +82,6 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
       <CartToCsvButton cart={cart} />
       <Button
         onClick={handleEmptyCart}
-        isLoading={isEmptyingCart}
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
       >
