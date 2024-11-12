@@ -76,29 +76,19 @@ export function CartProvider({
           const newItems: StoreCartLineItem[] = [...items]
 
           for (const lineItem of lineItems) {
-            const existingItemIndex = items.findIndex(
+            const existingItemIndex = newItems.findIndex(
               ({ variant }) => variant?.id === lineItem.productVariant.id
             )
 
-            console.log({ existingItemIndex })
-
             if (existingItemIndex > -1) {
-              console.log("updating quantity")
-              const item = items[existingItemIndex]
-              items[existingItemIndex] = {
+              const item = newItems[existingItemIndex]
+
+              newItems[existingItemIndex] = {
                 ...item,
                 quantity: item.quantity + lineItem.quantity,
               }
 
-              console.log({ items })
-
-              const newTotal = calculateCartTotal(items)
-
-              return {
-                ...prev,
-                item_subtotal: newTotal,
-                items,
-              } as B2BCart
+              continue
             }
 
             const priceAmount =
@@ -119,7 +109,7 @@ export function CartProvider({
               original_tax_total: 0,
               original_total: priceAmount,
               product: lineItem.productVariant.product || undefined,
-              quantity: 1,
+              quantity: lineItem.quantity,
               requires_shipping: true,
               subtotal: priceAmount,
               tax_total: 0,
