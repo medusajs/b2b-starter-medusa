@@ -1,20 +1,16 @@
 "use client"
 
+import { addToCartBulk, deleteLineItem, updateLineItem } from "@lib/data/cart"
+import { addToCartEventBus } from "@lib/data/cart-event-bus"
 import type {
   StoreCart,
   StoreCartLineItem,
   StoreProduct,
+  StoreProductVariant,
 } from "@medusajs/types"
-import type { PropsWithChildren } from "react"
-
-import {
-  addToCart,
-  addToCartBulk,
-  deleteLineItem,
-  updateLineItem,
-} from "@lib/data/cart"
-
+import { Toaster, toast } from "@medusajs/ui"
 import { useParams } from "next/navigation"
+import type { PropsWithChildren } from "react"
 import {
   createContext,
   useCallback,
@@ -22,11 +18,9 @@ import {
   useEffect,
   useMemo,
   useOptimistic,
+  useRef,
   useTransition,
 } from "react"
-
-import { addToCartEventBus } from "@lib/data/cart-event-bus"
-import type { StoreProductVariant } from "@medusajs/types"
 import { B2BCart } from "types/global"
 
 export type AddToCartEventPayload = {
@@ -67,8 +61,12 @@ export function CartProvider({
 
   const handleOptimisticAddToCart = useCallback(
     async (payload: AddToCartEventPayload) => {
+      let prevCart = {} as B2BCart
+
       startTransition(async () => {
         setOptimisticCart((prev) => {
+          prevCart = structuredClone(prev) as B2BCart
+
           const items = [...(prev?.items || [])]
 
           const lineItems = payload.lineItems
@@ -141,6 +139,9 @@ export function CartProvider({
             quantity: lineItem.quantity,
           })),
           countryCode: countryCode as string,
+        }).catch((e) => {
+          toast.error("Failed to add to cart")
+          setOptimisticCart(prevCart)
         })
       })
     },
@@ -156,9 +157,13 @@ export function CartProvider({
 
     if (!item) return
 
+    let prevCart = {} as B2BCart
+
     startTransition(() => {
       setOptimisticCart((prev) => {
         if (!prev) return prev
+
+        prevCart = structuredClone(prev) as B2BCart
 
         const optimisticItems = prev.items?.filter(({ id }) => id !== lineItem)
 
@@ -175,7 +180,10 @@ export function CartProvider({
       })
     })
 
-    await deleteLineItem(lineItem)
+    await deleteLineItem(lineItem).catch((e) => {
+      toast.error("Failed to delete item")
+      setOptimisticCart(prevCart)
+    })
   }
 
   const handleUpdateCartQuantity = async (
@@ -186,9 +194,13 @@ export function CartProvider({
 
     if (!item) return
 
+    let prevCart = {} as B2BCart
+
     startTransition(() => {
       setOptimisticCart((prev) => {
         if (!prev) return prev
+
+        prevCart = structuredClone(prev) as B2BCart
 
         const optimisticItems = prev.items?.reduce(
           (acc: StoreCartLineItem[], item) => {
@@ -217,6 +229,9 @@ export function CartProvider({
       await updateLineItem({
         lineId: lineItem,
         data: { quantity },
+      }).catch((e) => {
+        toast.error("Failed to update cart quantity")
+        setOptimisticCart(prevCart)
       })
     }
   }
@@ -236,6 +251,7 @@ export function CartProvider({
       }}
     >
       {children}
+      <Toaster className="z-[99999]" position="bottom-left" />
     </CartContext.Provider>
   )
 }
