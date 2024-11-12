@@ -4,6 +4,7 @@ import { convertToLocale } from "@lib/util/money"
 import { Text } from "@medusajs/ui"
 import React from "react"
 import Divider from "../divider"
+import { useCart } from "@lib/context/cart-context"
 
 type CartTotalsProps = {
   totals: {
@@ -27,6 +28,8 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
     discount_total,
     gift_card_total,
   } = totals
+
+  const { isUpdatingCart } = useCart()
 
   return (
     <div>
@@ -84,13 +87,17 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
       <Divider className="my-2" />
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
         <Text className="font-medium">Total</Text>
-        <Text
-          className="txt-xlarge-plus"
-          data-testid="cart-total"
-          data-value={total || 0}
-        >
-          {convertToLocale({ amount: total ?? 0, currency_code })}
-        </Text>
+        {isUpdatingCart ? (
+          <div className="w-28 h-6 mt-[3px] bg-neutral-200 rounded-full animate-pulse" />
+        ) : (
+          <Text
+            className="txt-xlarge-plus"
+            data-testid="cart-total"
+            data-value={total || 0}
+          >
+            {convertToLocale({ amount: total ?? 0, currency_code })}
+          </Text>
+        )}
       </div>
       <Divider className="my-6" />
     </div>

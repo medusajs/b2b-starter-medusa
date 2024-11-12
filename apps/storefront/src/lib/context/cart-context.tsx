@@ -1,6 +1,11 @@
 "use client"
 
-import { addToCartBulk, deleteLineItem, updateLineItem } from "@lib/data/cart"
+import {
+  addToCartBulk,
+  deleteLineItem,
+  emptyCart,
+  updateLineItem,
+} from "@lib/data/cart"
 import { addToCartEventBus } from "@lib/data/cart-event-bus"
 import type {
   StoreCart,
@@ -18,7 +23,7 @@ import {
   useEffect,
   useMemo,
   useOptimistic,
-  useRef,
+  useState,
   useTransition,
 } from "react"
 import { B2BCart } from "types/global"
@@ -41,6 +46,8 @@ const CartContext = createContext<
         lineItem: string,
         newQuantity: number
       ) => Promise<void>
+      handleEmptyCart: () => Promise<void>
+      isUpdatingCart: boolean
     }
   | undefined
 >(undefined)
@@ -56,6 +63,8 @@ export function CartProvider({
   const [optimisticCart, setOptimisticCart] = useOptimistic<B2BCart | null>(
     cart
   )
+
+  const [isUpdatingCart, setIsUpdatingCart] = useState(false)
 
   const [, startTransition] = useTransition()
 
@@ -133,16 +142,22 @@ export function CartProvider({
           } as B2BCart
         })
 
+        setIsUpdatingCart(true)
+
         await addToCartBulk({
           lineItems: payload.lineItems.map((lineItem) => ({
             variant_id: lineItem.productVariant.id,
             quantity: lineItem.quantity,
           })),
           countryCode: countryCode as string,
-        }).catch((e) => {
-          toast.error("Failed to add to cart")
-          setOptimisticCart(prevCart)
         })
+          .catch((e) => {
+            toast.error("Failed to add to cart")
+            setOptimisticCart(prevCart)
+          })
+          .finally(() => {
+            setIsUpdatingCart(false)
+          })
       })
     },
     [setOptimisticCart]
@@ -180,10 +195,16 @@ export function CartProvider({
       })
     })
 
-    await deleteLineItem(lineItem).catch((e) => {
-      toast.error("Failed to delete item")
-      setOptimisticCart(prevCart)
-    })
+    setIsUpdatingCart(true)
+
+    await deleteLineItem(lineItem)
+      .catch((e) => {
+        toast.error("Failed to delete item")
+        setOptimisticCart(prevCart)
+      })
+      .finally(() => {
+        setIsUpdatingCart(false)
+      })
   }
 
   const handleUpdateCartQuantity = async (
@@ -226,14 +247,43 @@ export function CartProvider({
     })
 
     if (!isOptimisticItemId(lineItem)) {
+      setIsUpdatingCart(true)
       await updateLineItem({
         lineId: lineItem,
         data: { quantity },
-      }).catch((e) => {
-        toast.error("Failed to update cart quantity")
+      })
+        .catch((e) => {
+          toast.error("Failed to update cart quantity")
+          setOptimisticCart(prevCart)
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setIsUpdatingCart(false)
+          }, 500)
+        })
+    }
+  }
+
+  const handleEmptyCart = async () => {
+    let prevCart = {} as B2BCart
+
+    startTransition(() => {
+      setOptimisticCart((prev) => {
+        prevCart = structuredClone(prev) as B2BCart
+        return null
+      })
+    })
+
+    setIsUpdatingCart(true)
+
+    await emptyCart()
+      .catch((e) => {
+        toast.error("Failed to empty cart")
         setOptimisticCart(prevCart)
       })
-    }
+      .finally(() => {
+        setIsUpdatingCart(false)
+      })
   }
 
   const sortedItems = useMemo(() => {
@@ -248,6 +298,8 @@ export function CartProvider({
         cart: { ...optimisticCart, items: sortedItems } as B2BCart,
         handleDeleteItem,
         handleUpdateCartQuantity,
+        handleEmptyCart,
+        isUpdatingCart,
       }}
     >
       {children}
