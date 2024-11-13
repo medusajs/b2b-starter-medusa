@@ -88,12 +88,12 @@
 <img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
 &nbsp;
 
-#### Cart Summary
+#### Product Page
 
 <img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
 &nbsp;
 
-#### Product Page
+#### Cart Summary
 
 <img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
 &nbsp;
