@@ -18,17 +18,9 @@ export const RequestQuoteConfirmation = ({
     setRequesting(true)
 
     try {
-      await createQuote()
-    } catch {
-      setRequesting(false)
-    }
-
-    try {
       const { quote } = await createQuote()
 
       router.push(`/${countryCode}/account/quotes/details/${quote.id}`)
-    } catch (error) {
-      setRequesting(false)
     } finally {
       setRequesting(false)
     }

@@ -23,10 +23,6 @@
 </p>
 
 <p align="center">
-<a href="https://www.producthunt.com/posts/medusa-2-0?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-medusa&#0045;2&#0045;0" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=504328&theme=light" alt="Medusa&#0032;2&#0046;0 - The&#0032;world&#0039;s&#0032;most&#0032;flexible&#0032;commerce&#0032;platform | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-</p>
-
-<p align="center">
   <video src="https://github.com/user-attachments/assets/833b26a5-4b52-447f-ac30-6ae02cbe8f05" controls="controls" muted="muted" playsinline="playsinline">
 </video>
 </p>
@@ -92,12 +88,12 @@
 <img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
 &nbsp;
 
-#### Cart Summary
+#### Product Page
 
 <img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
 &nbsp;
 
-#### Product Page
+#### Cart Summary
 
 <img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
 &nbsp;
