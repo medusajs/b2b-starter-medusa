@@ -55,7 +55,6 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@medusajs/ui-preset": "latest",
-    "@starter/types": "workspace:^",
     "@types/lodash": "^4.14.195",
     "@types/node": "17.0.21",
     "@types/pg": "^8.11.0",
