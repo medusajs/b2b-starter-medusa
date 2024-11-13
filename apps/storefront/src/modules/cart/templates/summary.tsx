@@ -1,6 +1,6 @@
 "use client"
 
-import { emptyCart } from "@lib/data/cart"
+import { useCart } from "@lib/context/cart-context"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
 import { Container } from "@medusajs/ui"
@@ -9,19 +9,19 @@ import CartTotals from "@modules/common/components/cart-totals"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
-import { useState } from "react"
+import { B2BCustomer } from "types/global"
 import CartToCsvButton from "../components/cart-to-csv-button"
-import { B2BCart, B2BCustomer } from "types/global"
-import { useCart } from "@lib/context/cart-context"
 
 type SummaryProps = {
-  cart: B2BCart
   customer: B2BCustomer | null
   spendLimitExceeded: boolean
 }
 
-const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
-  const { handleEmptyCart } = useCart()
+const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
+  const { handleEmptyCart, cart } = useCart()
+
+  if (!cart) return null
+
   const checkoutStep = getCheckoutStep(cart)
   const checkoutPath = checkoutStep
     ? `/checkout?step=${checkoutStep}`
@@ -33,7 +33,7 @@ const Summary = ({ cart, customer, spendLimitExceeded }: SummaryProps) => {
     <Container className="flex flex-col gap-y-3">
       {/* <DiscountCode cart={cart} /> */}
       {/* <Divider /> */}
-      <CartTotals totals={cart} />
+      <CartTotals />
       {spendLimitExceeded && (
         <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
           <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />

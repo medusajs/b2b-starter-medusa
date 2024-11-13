@@ -6,19 +6,11 @@ import React from "react"
 import Divider from "../divider"
 import { useCart } from "@lib/context/cart-context"
 
-type CartTotalsProps = {
-  totals: {
-    total?: number | null
-    item_subtotal?: number | null
-    tax_total?: number | null
-    shipping_total?: number | null
-    discount_total?: number | null
-    gift_card_total?: number | null
-    currency_code: string
-  }
-}
+const CartTotals: React.FC = () => {
+  const { isUpdatingCart, cart } = useCart()
 
-const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
+  if (!cart) return null
+
   const {
     currency_code,
     total,
@@ -27,9 +19,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
     shipping_total,
     discount_total,
     gift_card_total,
-  } = totals
-
-  const { isUpdatingCart } = useCart()
+  } = cart
 
   return (
     <div>

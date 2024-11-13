@@ -68,6 +68,10 @@ export function CartProvider({
 
   const [, startTransition] = useTransition()
 
+  useEffect(() => {
+    setIsUpdatingCart(false)
+  }, [cart])
+
   const handleOptimisticAddToCart = useCallback(
     async (payload: AddToCartEventPayload) => {
       let prevCart = {} as B2BCart
@@ -93,6 +97,9 @@ export function CartProvider({
               newItems[existingItemIndex] = {
                 ...item,
                 quantity: item.quantity + lineItem.quantity,
+                total: item.total + lineItem.quantity * item.unit_price,
+                original_total:
+                  item.total + lineItem.quantity * item.unit_price,
               }
 
               continue
@@ -150,14 +157,10 @@ export function CartProvider({
             quantity: lineItem.quantity,
           })),
           countryCode: countryCode as string,
+        }).catch((e) => {
+          toast.error("Failed to add to cart")
+          setOptimisticCart(prevCart)
         })
-          .catch((e) => {
-            toast.error("Failed to add to cart")
-            setOptimisticCart(prevCart)
-          })
-          .finally(() => {
-            setIsUpdatingCart(false)
-          })
       })
     },
     [setOptimisticCart]
@@ -197,14 +200,10 @@ export function CartProvider({
 
     setIsUpdatingCart(true)
 
-    await deleteLineItem(lineItem)
-      .catch((e) => {
-        toast.error("Failed to delete item")
-        setOptimisticCart(prevCart)
-      })
-      .finally(() => {
-        setIsUpdatingCart(false)
-      })
+    await deleteLineItem(lineItem).catch((e) => {
+      toast.error("Failed to delete item")
+      setOptimisticCart(prevCart)
+    })
   }
 
   const handleUpdateCartQuantity = async (
@@ -226,7 +225,18 @@ export function CartProvider({
         const optimisticItems = prev.items?.reduce(
           (acc: StoreCartLineItem[], item) => {
             if (item.id === lineItem) {
-              return quantity === 0 ? acc : [...acc, { ...item, quantity }]
+              const newQuantity = quantity === 0 ? 0 : quantity
+              const total = item.unit_price * newQuantity
+
+              return [
+                ...acc,
+                {
+                  ...item,
+                  quantity: newQuantity,
+                  total,
+                  original_total: total,
+                },
+              ]
             }
             return [...acc, item]
           },
@@ -251,16 +261,10 @@ export function CartProvider({
       await updateLineItem({
         lineId: lineItem,
         data: { quantity },
+      }).catch((e) => {
+        toast.error("Failed to update cart quantity")
+        setOptimisticCart(prevCart)
       })
-        .catch((e) => {
-          toast.error("Failed to update cart quantity")
-          setOptimisticCart(prevCart)
-        })
-        .finally(() => {
-          setTimeout(() => {
-            setIsUpdatingCart(false)
-          }, 500)
-        })
     }
   }
 
@@ -276,14 +280,10 @@ export function CartProvider({
 
     setIsUpdatingCart(true)
 
-    await emptyCart()
-      .catch((e) => {
-        toast.error("Failed to empty cart")
-        setOptimisticCart(prevCart)
-      })
-      .finally(() => {
-        setIsUpdatingCart(false)
-      })
+    await emptyCart().catch((e) => {
+      toast.error("Failed to empty cart")
+      setOptimisticCart(prevCart)
+    })
   }
 
   const sortedItems = useMemo(() => {
