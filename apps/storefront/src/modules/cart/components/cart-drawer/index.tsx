@@ -11,7 +11,7 @@ import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { startTransition, useEffect, useMemo, useRef, useState } from "react"
 import { B2BCustomer } from "types/global"
 
 type CartDrawerProps = {
@@ -37,8 +37,6 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
     }, 0) || 0
 
   const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
-
-  console.log({ subtotal })
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -80,6 +78,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
   useEffect(() => {
     if (itemRef.current !== totalItems && !pathname.includes("/cart")) {
       timedOpen()
+      return
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalItems, itemRef.current])

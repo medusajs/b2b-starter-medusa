@@ -10,9 +10,10 @@ import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
 type ItemsTemplateProps = {
   items?: HttpTypes.StoreCartLineItem[]
+  currencyCode: string
 }
 
-const ItemsPreviewTemplate = ({ items }: ItemsTemplateProps) => {
+const ItemsPreviewTemplate = ({ items, currencyCode }: ItemsTemplateProps) => {
   const hasOverflow = items && items.length > 4
 
   return (
@@ -32,6 +33,7 @@ const ItemsPreviewTemplate = ({ items }: ItemsTemplateProps) => {
                 return (
                   <Item
                     key={item.id}
+                    currencyCode={currencyCode}
                     item={
                       item as BaseCartLineItem & {
                         metadata?: { note?: string }

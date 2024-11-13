@@ -15,9 +15,15 @@ type ItemProps = {
   item: HttpTypes.StoreCartLineItem
   type?: "full" | "preview"
   showBorders?: boolean
+  currencyCode: string
 }
 
-const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
+const Item = ({
+  item,
+  type = "full",
+  showBorders = true,
+  currencyCode,
+}: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -114,6 +120,7 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
                 <LineItemPrice
                   className="flex small:hidden self-start"
                   item={item}
+                  currencyCode={currencyCode}
                 />
                 <div className="flex gap-x-2">
                   <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
@@ -177,6 +184,7 @@ const Item = ({ item, type = "full", showBorders = true }: ItemProps) => {
           className="hidden small:flex"
           item={item}
           style={type === "preview" ? "tight" : "default"}
+          currencyCode={currencyCode}
         />
         {type === "preview" && (
           <span className="self-end text-xs text-neutral-600 italic">

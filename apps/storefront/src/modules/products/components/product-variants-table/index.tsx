@@ -63,8 +63,6 @@ const ProductVariantsTable = ({
       })
     )
 
-    console.log({ lineItems })
-
     addToCartEventBus.emitCartAdd({
       lineItems,
       regionId: region.id,

@@ -4,6 +4,7 @@ import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import Item from "@modules/cart/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import { useEffect } from "react"
 import { B2BCart } from "types/global"
 
 type ItemsTemplateProps = {
@@ -26,6 +27,7 @@ const ItemsTemplate = ({
           ? items.map((item: StoreCartLineItem) => {
               return (
                 <Item
+                  currencyCode={cart?.currency_code}
                   showBorders={showBorders}
                   key={item.id}
                   item={

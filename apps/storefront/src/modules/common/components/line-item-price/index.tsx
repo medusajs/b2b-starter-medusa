@@ -1,5 +1,4 @@
 import { getPercentageDiff } from "@lib/util/get-precentage-diff"
-import { getPricesForVariant } from "@lib/util/get-product-price"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
@@ -8,30 +7,24 @@ type LineItemPriceProps = {
   item: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
   style?: "default" | "tight"
   className?: string
+  currencyCode: string
 }
 
 const LineItemPrice = ({
   item,
   style = "default",
   className,
+  currencyCode,
 }: LineItemPriceProps) => {
-  const variantPrice = getPricesForVariant(item.variant)
-
-  if (variantPrice === null) {
-    return
-  }
-
-  const { currency_code, calculated_price_number, original_price_number } =
-    variantPrice
-
   const adjustmentsSum = (item.adjustments || []).reduce(
     (acc, adjustment) => adjustment.amount + acc,
     0
   )
 
-  const originalPrice = parseFloat(original_price_number ?? "0") * item.quantity
-  const currentPrice =
-    parseFloat(calculated_price_number ?? "0") * item.quantity - adjustmentsSum
+  const originalPrice = item.original_total ?? 0 / item.quantity
+
+  const currentPrice = item.total ?? 0 / item.quantity - adjustmentsSum
+
   const hasReducedPrice = currentPrice < originalPrice
 
   return (
@@ -54,7 +47,7 @@ const LineItemPrice = ({
               >
                 {convertToLocale({
                   amount: originalPrice,
-                  currency_code: currency_code ?? "eur",
+                  currency_code: currencyCode ?? "eur",
                 })}
               </span>
             </p>
@@ -73,7 +66,7 @@ const LineItemPrice = ({
         >
           {convertToLocale({
             amount: currentPrice,
-            currency_code: currency_code ?? "eur",
+            currency_code: currencyCode ?? "eur",
           })}
         </span>
       </div>
