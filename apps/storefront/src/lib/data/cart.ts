@@ -213,8 +213,8 @@ export async function updateLineItem({
   await sdk.store.cart
     .updateLineItem(cartId, lineId, data, {}, headers)
     .then(async () => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
+      // const cartCacheTag = await getCacheTag("carts")
+      // revalidateTag(cartCacheTag)
     })
     .catch(medusaError)
 }
