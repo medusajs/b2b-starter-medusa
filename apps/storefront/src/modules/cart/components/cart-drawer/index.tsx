@@ -29,7 +29,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
 
   const { cart } = useCart()
 
-  const items = cart?.items
+  const items = cart?.items || []
 
   const totalItems =
     items?.reduce((acc, item) => {
@@ -83,7 +83,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalItems, itemRef.current])
 
-  //close cart drawe when navigating to a different page
+  //close cart drawer when navigating to a different page
   useEffect(() => {
     cancelTimer()
     close()
@@ -112,7 +112,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
           <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
             <ShoppingBag />
             <span className="text-sm font-normal hidden small:inline-block">
-              {items && items.length > 0
+              {cart && items && items.length > 0
                 ? convertToLocale({
                     amount: subtotal,
                     currency_code: cart.currency_code,
@@ -136,7 +136,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
             </Drawer.Title>
           </Drawer.Header>
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
-            {cart && (
+            {cart && cart.items && (
               <>
                 <ItemsTemplate
                   cart={cart}
