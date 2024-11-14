@@ -87,6 +87,8 @@ export function CartProvider({
           const newItems: StoreCartLineItem[] = [...items]
 
           for (const lineItem of lineItems) {
+            console.log("lineItem quantity", lineItem.quantity)
+
             const existingItemIndex = newItems.findIndex(
               ({ variant }) => variant?.id === lineItem.productVariant.id
             )
@@ -106,7 +108,8 @@ export function CartProvider({
             }
 
             const priceAmount =
-              lineItem.productVariant.calculated_price?.calculated_amount || 0
+              (lineItem.productVariant.calculated_price?.calculated_amount ||
+                0) * lineItem.quantity
 
             const newItem: StoreCartLineItem = {
               cart: prev || ({} as StoreCart),
