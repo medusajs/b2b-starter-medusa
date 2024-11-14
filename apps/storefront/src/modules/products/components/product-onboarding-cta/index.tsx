@@ -1,9 +1,10 @@
 import { Container, Text } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
-import { cookies } from "next/headers"
+import { cookies as nextCookies } from "next/headers"
 
-const ProductOnboardingCta = () => {
-  const isOnboarding = cookies().get("_medusa_onboarding")?.value === "true"
+const ProductOnboardingCta = async () => {
+  const cookies = await nextCookies()
+  const isOnboarding = cookies.get("_medusa_onboarding")?.value === "true"
 
   if (!isOnboarding) {
     return null

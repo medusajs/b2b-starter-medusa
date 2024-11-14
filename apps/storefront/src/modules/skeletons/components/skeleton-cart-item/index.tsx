@@ -1,34 +1,29 @@
-import { Table } from "@medusajs/ui"
+import { Container } from "@medusajs/ui"
 
 const SkeletonCartItem = () => {
   return (
-    <Table.Row className="w-full m-4">
-      <Table.Cell className="!pl-0 p-4 w-24">
-        <div className="flex w-24 h-24 p-4 bg-gray-200 rounded-large animate-pulse" />
-      </Table.Cell>
-      <Table.Cell className="text-left">
-        <div className="flex flex-col gap-y-2">
-          <div className="w-32 h-4 bg-gray-200 animate-pulse" />
-          <div className="w-24 h-4 bg-gray-200 animate-pulse" />
+    <Container className="flex gap-4 w-full h-full items-center justify-between animate-pulse">
+      <div className="flex gap-x-4 items-start">
+        <div className="bg-neutral-200 rounded-lg w-20 h-20" />
+        <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
+          <div className="flex flex-col gap-y-1">
+            <div className="w-10 h-2 bg-neutral-200 rounded-full" />
+            <div className="w-32 h-4 bg-neutral-200 rounded-full" />
+            <div className="w-24 h-3 bg-neutral-200 rounded-full" />
+          </div>
+          <div className="flex small:flex-row flex-col gap-2">
+            <div className="flex gap-x-2">
+              <div className="w-20 h-6 bg-neutral-200 rounded-full" />
+              <div className="w-20 h-6 bg-neutral-200 rounded-full" />
+              <div className="w-20 h-6 bg-neutral-200 rounded-full" />
+            </div>
+          </div>
         </div>
-      </Table.Cell>
-      <Table.Cell>
-        <div className="flex gap-2 items-center">
-          <div className="w-6 h-8 bg-gray-200 animate-pulse" />
-          <div className="w-14 h-10 bg-gray-200 animate-pulse" />
-        </div>
-      </Table.Cell>
-      <Table.Cell>
-        <div className="flex gap-2">
-          <div className="w-12 h-6 bg-gray-200 animate-pulse" />
-        </div>
-      </Table.Cell>
-      <Table.Cell className="!pr-0 text-right">
-        <div className="flex gap-2 justify-end">
-          <div className="w-12 h-6 bg-gray-200 animate-pulse" />
-        </div>
-      </Table.Cell>
-    </Table.Row>
+      </div>
+      <div className="flex flex-col items-start justify-between min-h-full self-stretch">
+        <div className="w-20 h-4 bg-neutral-200 rounded-full" />
+      </div>
+    </Container>
   )
 }
 

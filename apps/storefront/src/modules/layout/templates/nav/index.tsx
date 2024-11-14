@@ -3,8 +3,9 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import FilePlus from "@modules/common/icons/file-plus"
 import LogoIcon from "@modules/common/icons/logo"
 import User from "@modules/common/icons/user"
-import CartButton from "@modules/layout/components/cart-button"
+import CartButton from "@modules/cart/components/cart-button"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
+import SkeletonCartButton from "@modules/skeletons/components/skeleton-cart-button"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
@@ -68,14 +69,7 @@ export async function NavigationHeader() {
               </button>
             </LocalizedClientLink>
 
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                ></LocalizedClientLink>
-              }
-            >
+            <Suspense fallback={<SkeletonCartButton />}>
               <CartButton />
             </Suspense>
           </div>

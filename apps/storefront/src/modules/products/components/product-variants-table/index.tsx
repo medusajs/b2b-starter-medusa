@@ -1,33 +1,52 @@
-import { addToCartBulk } from "@lib/data/cart"
+import { addToCartEventBus } from "@lib/data/cart-event-bus"
 import { getProductPrice } from "@lib/util/get-product-price"
-import ShoppingBag from "@modules/common/icons/shopping-bag"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes, StoreProduct, StoreProductVariant } from "@medusajs/types"
 import { clx, Table } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
+import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
 
 const ProductVariantsTable = ({
   product,
-  countryCode,
+  region,
 }: {
   product: HttpTypes.StoreProduct
-  countryCode: string
+  region: HttpTypes.StoreRegion
 }) => {
   const [isAdding, setIsAdding] = useState(false)
-  const [lineItemsMap, setLineItemsMap] = useState<Map<string, number>>(
-    new Map()
-  )
+  const [lineItemsMap, setLineItemsMap] = useState<
+    Map<
+      string,
+      StoreProductVariant & {
+        product: StoreProduct
+        quantity: number
+      }
+    >
+  >(new Map())
 
   const totalQuantity = Array.from(lineItemsMap.values()).reduce(
-    (acc, curr) => acc + curr,
+    (acc, curr) => acc + curr.quantity,
     0
   )
 
   const handleQuantityChange = (variantId: string, quantity: number) => {
     setLineItemsMap((prev) => {
       const newLineItems = new Map(prev)
-      newLineItems.set(variantId, quantity)
+
+      if (!prev.get(variantId)) {
+        newLineItems.set(variantId, {
+          ...product.variants?.find((v) => v.id === variantId)!,
+          product,
+          quantity,
+        })
+      } else {
+        newLineItems.set(variantId, {
+          ...prev.get(variantId)!,
+          quantity,
+        })
+      }
+
       return newLineItems
     })
   }
@@ -36,15 +55,17 @@ const ProductVariantsTable = ({
     setIsAdding(true)
 
     const lineItems = Array.from(lineItemsMap.entries()).map(
-      ([variantId, quantity]) => ({
-        variant_id: variantId,
+      ([variantId, { quantity, ...variant }]) => ({
+        productVariant: {
+          ...variant,
+        },
         quantity,
       })
     )
 
-    await addToCartBulk({
+    addToCartEventBus.emitCartAdd({
       lineItems,
-      countryCode,
+      regionId: region.id,
     })
 
     setIsAdding(false)

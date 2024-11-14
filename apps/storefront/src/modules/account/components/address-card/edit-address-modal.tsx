@@ -14,8 +14,7 @@ import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
 import Modal from "@modules/common/components/modal"
 import Spinner from "@modules/common/icons/spinner"
-import React, { useEffect, useState } from "react"
-import { useFormState } from "react-dom"
+import React, { useActionState, useEffect, useState } from "react"
 import { B2BCustomer } from "types/global"
 
 type EditAddressProps = {
@@ -35,7 +34,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction] = useFormState(updateCustomerAddress, {
+  const [formState, formAction] = useActionState(updateCustomerAddress, {
     success: false,
     error: null,
     addressId: address.id,

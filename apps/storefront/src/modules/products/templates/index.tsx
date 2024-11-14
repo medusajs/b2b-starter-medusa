@@ -35,7 +35,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <ImageGallery product={product} />
         <div className="flex flex-col bg-neutral-100 w-full gap-6 items-start justify-center small:p-20 p-6 h-full">
           <ProductInfo product={product} />
-          <Suspense fallback={<ProductActions product={product} />}>
+          <Suspense
+            fallback={<ProductActions product={product} region={region} />}
+          >
             <ProductActionsWrapper id={product.id} region={region} />
           </Suspense>
           <ProductFacts product={product} />

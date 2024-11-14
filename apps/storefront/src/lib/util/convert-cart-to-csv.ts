@@ -24,7 +24,7 @@ export function cartToCsv(cart: B2BCart) {
         tax_rate: taxRate,
         total_price: totalPrice,
         total_tax: totalTax,
-      }
+      };
     }) || []
 
   // Create CSV header

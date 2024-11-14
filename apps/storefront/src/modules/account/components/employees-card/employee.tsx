@@ -105,7 +105,7 @@ const Employee = ({
   const amountSpent = formatAmount(spent, company.currency_code!)
 
   return (
-    <div className="flex flex-col">
+    (<div className="flex flex-col">
       <div className="flex justify-between p-4 border-b border-neutral-200">
         <div className="flex flex-col">
           <Text className=" text-neutral-950 font-medium">
@@ -217,8 +217,8 @@ const Employee = ({
         </div>
       </form>
       <Toaster />
-    </div>
-  )
+    </div>)
+  );
 }
 
 export default Employee

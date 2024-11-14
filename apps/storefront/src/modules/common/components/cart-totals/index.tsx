@@ -4,29 +4,22 @@ import { convertToLocale } from "@lib/util/money"
 import { Text } from "@medusajs/ui"
 import React from "react"
 import Divider from "../divider"
+import { useCart } from "@lib/context/cart-context"
 
-type CartTotalsProps = {
-  totals: {
-    total?: number | null
-    subtotal?: number | null
-    tax_total?: number | null
-    shipping_total?: number | null
-    discount_total?: number | null
-    gift_card_total?: number | null
-    currency_code: string
-  }
-}
+const CartTotals: React.FC = () => {
+  const { isUpdatingCart, cart } = useCart()
 
-const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
+  if (!cart) return null
+
   const {
     currency_code,
     total,
-    subtotal,
+    item_subtotal,
     tax_total,
     shipping_total,
     discount_total,
     gift_card_total,
-  } = totals
+  } = cart
 
   return (
     <div>
@@ -35,8 +28,11 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
           <Text className="flex gap-x-1 items-center">
             Subtotal (excl. shipping and taxes)
           </Text>
-          <Text data-testid="cart-subtotal" data-value={subtotal || 0}>
-            {convertToLocale({ amount: subtotal ?? 0, currency_code })}
+          <Text
+            data-testid="cart-item-subtotal"
+            data-value={item_subtotal || 0}
+          >
+            {convertToLocale({ amount: item_subtotal ?? 0, currency_code })}
           </Text>
         </div>
         {!!discount_total && (
@@ -81,13 +77,17 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
       <Divider className="my-2" />
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
         <Text className="font-medium">Total</Text>
-        <Text
-          className="txt-xlarge-plus"
-          data-testid="cart-total"
-          data-value={total || 0}
-        >
-          {convertToLocale({ amount: total ?? 0, currency_code })}
-        </Text>
+        {isUpdatingCart ? (
+          <div className="w-28 h-6 mt-[3px] bg-neutral-200 rounded-full animate-pulse" />
+        ) : (
+          <Text
+            className="txt-xlarge-plus"
+            data-testid="cart-total"
+            data-value={total || 0}
+          >
+            {convertToLocale({ amount: total ?? 0, currency_code })}
+          </Text>
+        )}
       </div>
       <Divider className="my-6" />
     </div>

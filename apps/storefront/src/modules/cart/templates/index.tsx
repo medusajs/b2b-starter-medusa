@@ -1,24 +1,21 @@
+"use client"
+
+import { useCart } from "@lib/context/cart-context"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
-import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
-import { B2BCart, B2BCustomer } from "types/global"
+import { B2BCustomer } from "types/global"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
 import Summary from "./summary"
 
-const CartTemplate = ({
-  cart,
-  customer,
-}: {
-  cart:
-    | (B2BCart & {
-        promotions?: HttpTypes.StorePromotion[]
-      })
-    | null
-  customer: B2BCustomer | null
-}) => {
+const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
+  const { cart } = useCart()
+
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
+
+  const totalItems =
+    cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0
 
   return (
     <div className="small:py-12 py-6 bg-neutral-100">
@@ -28,7 +25,7 @@ const CartTemplate = ({
             <div className="flex flex-col py-6 gap-y-6">
               <div className="pb-3 flex items-center">
                 <Heading className="text-neutral-950">
-                  You have {cart?.items?.length} items in your cart
+                  You have {totalItems} items in your cart
                 </Heading>
               </div>
               <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-2">
@@ -40,7 +37,6 @@ const CartTemplate = ({
                   <div className="flex flex-col gap-y-8 sticky top-20">
                     {cart && cart.region && (
                       <Summary
-                        cart={cart}
                         customer={customer}
                         spendLimitExceeded={spendLimitExceeded}
                       />
