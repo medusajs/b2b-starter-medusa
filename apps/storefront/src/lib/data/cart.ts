@@ -33,18 +33,15 @@ export async function retrieveCart() {
   }
 
   return await sdk.client
-    .fetch<{ cart: B2BCart & { promotions?: HttpTypes.StorePromotion[] } }>(
-      `/store/carts/${cartId}`,
-      {
-        method: "GET",
-        query: {
-          fields:
-            "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company",
-        },
-        headers,
-        next,
-      }
-    )
+    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+      method: "GET",
+      query: {
+        fields:
+          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company",
+      },
+      headers,
+      next,
+    })
     .then(({ cart }) => cart)
     .catch(() => {
       return null

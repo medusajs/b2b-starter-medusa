@@ -18,8 +18,9 @@ const CheckoutSummary = async ({ cart }: { cart: B2BCart }) => {
         currencyCode={cart.currency_code}
       />
       <Divider className="my-2" />
-      <CheckoutTotals cart={cart} />
+      <CheckoutTotals cartOrOrder={cart} />
       {/* <DiscountCode cart={cart} /> */}
+      <Divider className="my-2" />
       <Review cart={cart} spendLimitExceeded={spendLimitExceeded} />
     </Container>
   )

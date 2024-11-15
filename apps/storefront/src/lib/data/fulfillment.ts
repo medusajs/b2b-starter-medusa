@@ -2,7 +2,7 @@
 
 import { sdk } from "@lib/config"
 import { getAuthHeaders, getCacheOptions } from "./cookies"
-import { StoreShippingOption } from "@medusajs/types"
+import { HttpTypes, StoreShippingOption } from "@medusajs/types"
 
 export const listCartShippingMethods = async (cartId: string) => {
   const headers = {
@@ -14,8 +14,8 @@ export const listCartShippingMethods = async (cartId: string) => {
   }
 
   return sdk.client
-    .fetch<{ shipping_options: StoreShippingOption[] }>(
-      `/store/fulfillment/shipping-options`,
+    .fetch<HttpTypes.StoreShippingOptionListResponse>(
+      `/store/shipping-options`,
       {
         method: "GET",
         query: { cart_id: cartId },

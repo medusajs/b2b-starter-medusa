@@ -15,9 +15,12 @@ export const retrieveOrder = async (id: string) => {
   }
 
   return sdk.client
-    .fetch<{ order: HttpTypes.StoreOrder }>(`/store/orders/${id}`, {
+    .fetch<HttpTypes.StoreOrderResponse>(`/store/orders/${id}`, {
       method: "GET",
-      query: { fields: "*payment_collections.payments" },
+      query: {
+        fields:
+          "*payment_collections.payments,*items,+items.metadata,*items.variant,*items.product",
+      },
       headers,
       next,
     })
@@ -39,7 +42,7 @@ export const listOrders = async (
   }
 
   return sdk.client
-    .fetch<{ orders: HttpTypes.StoreOrder[] }>(`/store/orders`, {
+    .fetch<HttpTypes.StoreOrderListResponse>(`/store/orders`, {
       method: "GET",
       query: {
         limit,
