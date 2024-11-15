@@ -1,5 +1,5 @@
 import { retrieveCompany } from "@lib/data/companies"
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 import { listRegions } from "@lib/data/regions"
 import { Heading } from "@medusajs/ui"
 import CompanyCard from "@modules/account/components/company-card"
@@ -8,7 +8,7 @@ import InviteEmployeeCard from "@modules/account/components/invite-employee-card
 import { notFound } from "next/navigation"
 
 export default async function Company() {
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const regions = await listRegions()
 
   if (!customer || !customer?.employee?.company) return notFound()

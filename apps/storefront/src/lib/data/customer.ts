@@ -5,40 +5,40 @@ import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
-import { cache } from "react"
 import { B2BCustomer } from "types/global"
 import { createCompany, createEmployee } from "./companies"
 import {
   getAuthHeaders,
-  getCacheHeaders,
+  getCacheOptions,
   getCacheTag,
   removeAuthToken,
   setAuthToken,
 } from "./cookies"
 
-export const getCustomer = cache(
-  async function (): Promise<B2BCustomer | null> {
-    const headers = {
-      ...(await getCacheHeaders("customers")),
-      ...(await getAuthHeaders()),
-    }
-    return await sdk.store.customer
-      .retrieve(
-        {
-          fields: "*employee, *orders",
-        },
-        headers
-      )
-      .then(({ customer }) => customer as B2BCustomer)
-      .catch(() => null)
-  }
-)
-
-export const updateCustomer = cache(async function (
-  body: HttpTypes.StoreUpdateCustomer
-) {
+export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const headers = {
-    ...(await getCacheHeaders("customers")),
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("customers")),
+  }
+
+  return await sdk.client
+    .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
+      method: "GET",
+      query: {
+        fields: "*employee, *orders",
+      },
+      headers,
+      next,
+    })
+    .then(({ customer }) => customer as B2BCustomer)
+    .catch(() => null)
+}
+
+export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
+  const headers = {
     ...(await getAuthHeaders()),
   }
 
@@ -51,7 +51,7 @@ export const updateCustomer = cache(async function (
   revalidateTag(cacheTag)
 
   return updateRes
-})
+}
 
 export async function signup(_currentState: unknown, formData: FormData) {
   const password = formData.get("password") as string
@@ -165,7 +165,6 @@ export const addCustomerAddress = async (
   }
 
   const headers = {
-    ...(await getCacheHeaders("customers")),
     ...(await getAuthHeaders()),
   }
 
@@ -186,7 +185,6 @@ export const deleteCustomerAddress = async (
   customerId: string
 ): Promise<void> => {
   const headers = {
-    ...(await getCacheHeaders("customers")),
     ...(await getAuthHeaders()),
   }
 
@@ -223,7 +221,6 @@ export const updateCustomerAddress = async (
   }
 
   const headers = {
-    ...(await getCacheHeaders("customers")),
     ...(await getAuthHeaders()),
   }
 

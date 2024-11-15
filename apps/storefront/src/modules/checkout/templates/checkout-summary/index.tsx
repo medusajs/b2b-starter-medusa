@@ -1,4 +1,4 @@
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { Container } from "@medusajs/ui"
 import CheckoutTotals from "@modules/checkout/components/checkout-totals"
@@ -8,7 +8,7 @@ import Divider from "@modules/common/components/divider"
 import { B2BCart } from "types/global"
 
 const CheckoutSummary = async ({ cart }: { cart: B2BCart }) => {
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const spendLimitExceeded = checkSpendingLimit(cart, customer)
 
   return (

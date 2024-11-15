@@ -2,10 +2,9 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getCategoryByHandle, listCategories } from "@lib/data/categories"
-import { StoreProductCategory } from "@medusajs/types"
+import { listRegions } from "@lib/data/regions"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { listRegions } from "@lib/data/regions"
 
 type Props = {
   params: Promise<{ category: string[]; countryCode: string }>
@@ -18,15 +17,11 @@ type Props = {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   try {
-    const { product_categories } = await getCategoryByHandle(params.category)
+    const product_category = await getCategoryByHandle(params.category)
 
-    const title = product_categories
-      .map((category: StoreProductCategory) => category.name)
-      .join(" | ")
+    const title = product_category.name
 
-    const description =
-      product_categories[product_categories.length - 1].description ??
-      `${title} category.`
+    const description = product_category.description ?? `${title} category.`
 
     return {
       title: `${title} | Medusa Store`,

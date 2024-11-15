@@ -1,38 +1,38 @@
 "use server"
 
 import { sdk } from "@lib/config"
-import { cache } from "react"
-import { getCacheHeaders } from "./cookies"
+import { getCacheOptions } from "./cookies"
+import { HttpTypes } from "@medusajs/types"
 
-export const listCategories = cache(async function () {
-  const headers = {
-    ...(await getCacheHeaders("categories")),
+export const listCategories = async (query?: Record<string, any>) => {
+  const next = {
+    ...(await getCacheOptions("categories")),
   }
 
-  return sdk.store.category
-    .list({ fields: "*category_children" }, headers)
+  return sdk.client
+    .fetch<{ product_categories: HttpTypes.StoreProductCategory[] }>(
+      "/store/product-categories",
+      {
+        query: { fields: "*category_children", ...query },
+        next,
+      }
+    )
     .then(({ product_categories }) => product_categories)
-})
+}
 
-export const getCategoriesList = cache(async function (
-  offset: number = 0,
-  limit: number = 100
-) {
-  const headers = {
-    ...(await getCacheHeaders("categories")),
-  }
-
-  return sdk.store.category.list({ limit, offset }, headers)
-})
-
-export const getCategoryByHandle = cache(async function (
-  categoryHandle: string[]
-) {
+export const getCategoryByHandle = async (categoryHandle: string[]) => {
   const handle = `${categoryHandle.join("/")}`
 
-  const headers = {
-    ...(await getCacheHeaders("categories")),
+  const next = {
+    ...(await getCacheOptions("categories")),
   }
 
-  return sdk.store.category.list({ handle }, headers)
-})
+  return sdk.client
+    .fetch<{ product_category: HttpTypes.StoreProductCategory }>(
+      `/store/product-categories/${handle}`,
+      {
+        next,
+      }
+    )
+    .then(({ product_category }) => product_category)
+}

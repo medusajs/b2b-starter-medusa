@@ -1,11 +1,11 @@
 import { Container } from "@medusajs/ui"
 import { QueryCompany } from "@starter/types"
 import EmployeeWrapper from "./employee-wrapper"
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 
 const EmployeesCard = async ({ company }: { company: QueryCompany }) => {
   const { employees } = company
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
 
   return (
     <Container className="p-0 overflow-hidden">
