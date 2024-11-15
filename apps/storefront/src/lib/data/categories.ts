@@ -29,8 +29,9 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
 
   return sdk.client
     .fetch<{ product_category: HttpTypes.StoreProductCategory }>(
-      `/store/product-categories/${handle}`,
+      `/store/product-categories`,
       {
+        query: { handle },
         next,
       }
     )
