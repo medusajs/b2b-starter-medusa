@@ -7,7 +7,7 @@ import {
   getSpendWindow,
 } from "@lib/util/check-spending-limit"
 import { HttpTypes } from "@medusajs/types"
-import { CurrencyInput, Prompt, Text, Toaster, clx, toast } from "@medusajs/ui"
+import { CurrencyInput, Prompt, Text, clx, toast } from "@medusajs/ui"
 import { formatAmount } from "@modules/common/components/amount-cell"
 import Button from "@modules/common/components/button"
 import NativeSelect from "@modules/common/components/native-select"
@@ -105,7 +105,7 @@ const Employee = ({
   const amountSpent = formatAmount(spent, company.currency_code!)
 
   return (
-    (<div className="flex flex-col">
+    <div className="flex flex-col">
       <div className="flex justify-between p-4 border-b border-neutral-200">
         <div className="flex flex-col">
           <Text className=" text-neutral-950 font-medium">
@@ -216,9 +216,8 @@ const Employee = ({
           </NativeSelect>
         </div>
       </form>
-      <Toaster />
-    </div>)
-  );
+    </div>
+  )
 }
 
 export default Employee

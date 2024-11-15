@@ -63,10 +63,9 @@ export async function getOrSetCart(countryCode: string) {
 
   if (!cart) {
     const body = {
-      email: customer?.email,
       region_id: region.id,
       metadata: {
-        company_id: customer?.employee?.company?.id,
+        company_id: customer?.employee?.company_id,
       },
     }
 
@@ -91,6 +90,7 @@ export async function getOrSetCart(countryCode: string) {
 
 export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   const cartId = await getCartId()
+
   if (!cartId) {
     throw new Error("No existing cart found, please create one before updating")
   }

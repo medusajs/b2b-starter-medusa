@@ -2,7 +2,7 @@
 
 import { updateCustomer } from "@lib/data/customer"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Text, Toaster, clx, toast } from "@medusajs/ui"
+import { Container, Text, clx, toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
 import { useState } from "react"
@@ -145,7 +145,6 @@ const ProfileCard = ({ customer }: { customer: B2BCustomer }) => {
           )}
         </div>
       </Container>
-      <Toaster />
     </div>
   )
 }
