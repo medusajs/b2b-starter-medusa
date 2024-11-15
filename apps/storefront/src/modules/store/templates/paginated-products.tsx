@@ -1,5 +1,5 @@
-import { getProductsListWithSort } from "@lib/data/products"
-import { getRegion } from "@lib/data/regions"
+import { listProductsWithSort } from "@lib/data/products"
+import { retrieveRegion } from "@lib/data/regions"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
@@ -49,7 +49,7 @@ export default async function PaginatedProducts({
     queryParams["order"] = "created_at"
   }
 
-  const region = await getRegion(countryCode)
+  const region = await retrieveRegion(countryCode)
 
   if (!region) {
     return null
@@ -57,7 +57,7 @@ export default async function PaginatedProducts({
 
   let {
     response: { products, count },
-  } = await getProductsListWithSort({
+  } = await listProductsWithSort({
     page,
     queryParams,
     sortBy,
