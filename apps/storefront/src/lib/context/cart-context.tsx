@@ -106,8 +106,7 @@ export function CartProvider({
             }
 
             const priceAmount =
-              (lineItem.productVariant.calculated_price?.calculated_amount ||
-                0) * lineItem.quantity
+              lineItem.productVariant.calculated_price?.calculated_amount || 0
 
             const newItem: StoreCartLineItem = {
               cart: prev || ({} as StoreCart),
@@ -117,19 +116,19 @@ export function CartProvider({
               id: generateOptimisticItemId(lineItem.productVariant.id),
               is_discountable: false,
               is_tax_inclusive: false,
-              item_subtotal: priceAmount,
+              item_subtotal: priceAmount * lineItem.quantity,
               item_tax_total: 0,
-              item_total: priceAmount,
-              original_subtotal: priceAmount,
+              item_total: priceAmount * lineItem.quantity,
+              original_subtotal: priceAmount * lineItem.quantity,
               original_tax_total: 0,
-              original_total: priceAmount,
+              original_total: priceAmount * lineItem.quantity,
               product: lineItem.productVariant.product || undefined,
               quantity: lineItem.quantity,
               requires_shipping: true,
-              subtotal: priceAmount,
+              subtotal: priceAmount * lineItem.quantity,
               tax_total: 0,
               title: lineItem.productVariant.title || "",
-              total: priceAmount,
+              total: priceAmount * lineItem.quantity,
               thumbnail:
                 lineItem.productVariant.product?.thumbnail || undefined,
               unit_price: priceAmount,
