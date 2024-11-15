@@ -13,7 +13,7 @@ import type {
   StoreProduct,
   StoreProductVariant,
 } from "@medusajs/types"
-import { Toaster, toast } from "@medusajs/ui"
+import { toast } from "@medusajs/ui"
 import { useParams } from "next/navigation"
 import type { PropsWithChildren } from "react"
 import {
@@ -304,7 +304,6 @@ export function CartProvider({
       }}
     >
       {children}
-      <Toaster className="z-[99999]" position="bottom-left" />
     </CartContext.Provider>
   )
 }

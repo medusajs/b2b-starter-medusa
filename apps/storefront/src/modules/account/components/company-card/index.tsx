@@ -3,7 +3,7 @@
 import { currencySymbolMap } from "@lib/constants"
 import { updateCompany } from "@lib/data/companies"
 import { AdminRegionCountry, HttpTypes } from "@medusajs/types"
-import { Container, Text, Toaster, clx, toast } from "@medusajs/ui"
+import { Container, Text, clx, toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
 import Select from "@modules/common/components/native-select"
@@ -152,8 +152,8 @@ const CompanyCard = ({
                 setCompanyData({ ...companyData, country: e.target.value })
               }
             >
-              {countriesInRegions.map((country) => (
-                <option key={country.id} value={country.id}>
+              {countriesInRegions.map((country, index) => (
+                <option key={index} value={country.id}>
                   {country.name}
                 </option>
               ))}
@@ -274,7 +274,6 @@ const CompanyCard = ({
           )}
         </div>
       </Container>
-      <Toaster />
     </div>
   )
 }
