@@ -21,9 +21,11 @@ export const createQuote = async () => {
     ...(await getAuthHeaders()),
   }
 
+  const cartId = await getCartId()
+
   return sdk.client.fetch<StoreQuoteResponse>(`/store/quotes`, {
     method: "POST",
-    body: { cart_id: getCartId() },
+    body: { cart_id: cartId },
     headers,
   })
 }
