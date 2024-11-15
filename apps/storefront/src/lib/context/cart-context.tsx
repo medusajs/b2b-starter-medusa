@@ -87,8 +87,6 @@ export function CartProvider({
           const newItems: StoreCartLineItem[] = [...items]
 
           for (const lineItem of lineItems) {
-            console.log("lineItem quantity", lineItem.quantity)
-
             const existingItemIndex = newItems.findIndex(
               ({ variant }) => variant?.id === lineItem.productVariant.id
             )

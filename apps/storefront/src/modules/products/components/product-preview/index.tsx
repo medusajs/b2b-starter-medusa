@@ -16,8 +16,6 @@ export default async function ProductPreview({
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
 }) {
-  console.log("product", product)
-
   if (!product) {
     return null
   }

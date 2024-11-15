@@ -18,8 +18,6 @@ export default async function ProductRail({
     return null
   }
 
-  console.log("region", region)
-
   const productsWithPrices = await getProductsById({
     ids: products.map((p) => p.id!),
     regionId: region.id,
