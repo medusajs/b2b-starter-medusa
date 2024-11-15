@@ -13,6 +13,10 @@ export interface B2BCart extends HttpTypes.StoreCart {
   company: QueryCompany
 }
 
+export interface B2BOrder extends HttpTypes.StoreOrder {
+  company: QueryCompany
+}
+
 export interface B2BCustomer extends HttpTypes.StoreCustomer {
   employee: QueryEmployee | null
   orders?: HttpTypes.StoreOrder[]

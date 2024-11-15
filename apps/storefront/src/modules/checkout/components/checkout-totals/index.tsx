@@ -1,13 +1,16 @@
 "use client"
 
 import { convertToLocale } from "@lib/util/money"
+import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import React from "react"
-import { B2BCart } from "types/global"
+import { B2BCart, B2BOrder } from "types/global"
 
-const CheckoutTotals: React.FC<{ cart: B2BCart }> = ({ cart }) => {
-  if (!cart) return null
+const CheckoutTotals: React.FC<{
+  cartOrOrder: B2BCart | B2BOrder
+}> = ({ cartOrOrder }) => {
+  if (!cartOrOrder) return null
 
   const {
     currency_code,
@@ -17,7 +20,7 @@ const CheckoutTotals: React.FC<{ cart: B2BCart }> = ({ cart }) => {
     shipping_total,
     discount_total,
     gift_card_total,
-  } = cart
+  } = cartOrOrder
 
   return (
     <div>
@@ -83,7 +86,6 @@ const CheckoutTotals: React.FC<{ cart: B2BCart }> = ({ cart }) => {
           {convertToLocale({ amount: total ?? 0, currency_code })}
         </Text>
       </div>
-      <Divider className="my-6" />
     </div>
   )
 }

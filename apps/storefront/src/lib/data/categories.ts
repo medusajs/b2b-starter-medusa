@@ -23,8 +23,6 @@ export const listCategories = async (query?: Record<string, any>) => {
 export const getCategoryByHandle = async (categoryHandle: string[]) => {
   const handle = `${categoryHandle.join("/")}`
 
-  console.log("handle", handle)
-
   const next = {
     ...(await getCacheOptions("categories")),
   }

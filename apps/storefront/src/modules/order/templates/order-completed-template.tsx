@@ -1,17 +1,16 @@
 import { Heading } from "@medusajs/ui"
-import { cookies as nextCookies } from "next/headers"
-
-import { HttpTypes } from "@medusajs/types"
-import CartTotals from "@modules/cart/components/cart-totals"
+import CheckoutTotals from "@modules/checkout/components/checkout-totals"
 import Help from "@modules/order/components/help"
 import Items from "@modules/order/components/items"
 import OnboardingCta from "@modules/order/components/onboarding-cta"
 import OrderDetails from "@modules/order/components/order-details"
 import PaymentDetails from "@modules/order/components/payment-details"
 import ShippingDetails from "@modules/order/components/shipping-details"
+import { cookies as nextCookies } from "next/headers"
+import { B2BOrder } from "types/global"
 
 type OrderCompletedTemplateProps = {
-  order: HttpTypes.StoreOrder
+  order: B2BOrder
 }
 
 export default async function OrderCompletedTemplate({
@@ -40,7 +39,7 @@ export default async function OrderCompletedTemplate({
             Summary
           </Heading>
           <Items items={order.items} order={order} />
-          <CartTotals totals={order} />
+          <CheckoutTotals cartOrOrder={order} />
           <ShippingDetails order={order} />
           <PaymentDetails order={order} />
           <Help />

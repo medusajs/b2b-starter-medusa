@@ -15,7 +15,7 @@ export const listCartPaymentMethods = async (regionId: string) => {
   }
 
   return sdk.client
-    .fetch<{ payment_providers: HttpTypes.StorePaymentProvider[] }>(
+    .fetch<HttpTypes.StorePaymentProviderListResponse>(
       `/store/payment-providers`,
       {
         method: "GET",
