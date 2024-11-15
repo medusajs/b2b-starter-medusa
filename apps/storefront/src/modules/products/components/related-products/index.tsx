@@ -1,6 +1,6 @@
 import Product from "../product-preview"
 import { listProducts } from "@lib/data/products"
-import { retrieveRegion } from "@lib/data/regions"
+import { getRegion } from "@lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
 
@@ -13,7 +13,7 @@ export default async function RelatedProducts({
   product,
   countryCode,
 }: RelatedProductsProps) {
-  const region = await retrieveRegion(countryCode)
+  const region = await getRegion(countryCode)
 
   if (!region) {
     return null

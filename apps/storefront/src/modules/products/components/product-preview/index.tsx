@@ -16,20 +16,17 @@ export default async function ProductPreview({
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
 }) {
-  const [pricedProduct] = await getProductsById({
-    ids: [product.id!],
-    regionId: region.id,
-  })
+  console.log("product", product)
 
-  if (!pricedProduct) {
+  if (!product) {
     return null
   }
 
   const { cheapestPrice } = getProductPrice({
-    product: pricedProduct,
+    product,
   })
 
-  const inventoryQuantity = pricedProduct.variants?.reduce((acc, variant) => {
+  const inventoryQuantity = product.variants?.reduce((acc, variant) => {
     return acc + (variant?.inventory_quantity || 0)
   }, 0)
 
