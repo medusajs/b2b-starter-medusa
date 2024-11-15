@@ -2,42 +2,58 @@
 
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
-import { cache } from "react"
-import { getAuthHeaders, getCacheHeaders } from "./cookies"
+import { getAuthHeaders, getCacheOptions } from "./cookies"
+import { HttpTypes } from "@medusajs/types"
 
-export const retrieveOrder = cache(async function (id: string) {
+export const retrieveOrder = async (id: string) => {
   const headers = {
-    ...(await getCacheHeaders("orders")),
     ...(await getAuthHeaders()),
   }
 
-  return sdk.store.order
-    .retrieve(id, { fields: "*payment_collections.payments" }, headers)
+  const next = {
+    ...(await getCacheOptions("orders")),
+  }
+
+  return sdk.client
+    .fetch<HttpTypes.StoreOrderResponse>(`/store/orders/${id}`, {
+      method: "GET",
+      query: {
+        fields:
+          "*payment_collections.payments,*items,+items.metadata,*items.variant,*items.product",
+      },
+      headers,
+      next,
+    })
     .then(({ order }) => order)
     .catch((err) => medusaError(err))
-})
+}
 
-export const listOrders = cache(async function (
+export const listOrders = async (
   limit: number = 10,
   offset: number = 0,
   filters?: Record<string, any>
-) {
+) => {
   const headers = {
-    ...(await getCacheHeaders("orders")),
     ...(await getAuthHeaders()),
   }
 
-  return sdk.store.order
-    .list(
-      {
+  const next = {
+    ...(await getCacheOptions("orders")),
+  }
+
+  return sdk.client
+    .fetch<HttpTypes.StoreOrderListResponse>(`/store/orders`, {
+      method: "GET",
+      query: {
         limit,
         offset,
         order: "-created_at",
         fields: "*items,+items.metadata,*items.variant,*items.product",
         ...filters,
       },
-      headers
-    )
+      headers,
+      next,
+    })
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))
-})
+}

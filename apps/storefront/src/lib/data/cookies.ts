@@ -26,30 +26,30 @@ export const getCacheTag = async (tag: string): Promise<string> => {
     const cookies = await nextCookies()
     const cacheId = cookies.get("_medusa_cache_id")?.value
 
-    if (cacheId) {
-      return `${tag}-${cacheId}`
+    if (!cacheId) {
+      return ""
     }
 
-    return ""
+    return `${tag}-${cacheId}`
   } catch (error) {
     return ""
   }
 }
 
-export const getCacheHeaders = async (
+export const getCacheOptions = async (
   tag: string
-): Promise<{ next: { tags: string[] } } | {}> => {
+): Promise<{ tags: string[] } | {}> => {
   if (typeof window !== "undefined") {
     return {}
   }
 
   const cacheTag = await getCacheTag(tag)
 
-  if (cacheTag) {
-    return { next: { tags: [`${cacheTag}`] } }
+  if (!cacheTag) {
+    return {}
   }
 
-  return {}
+  return { tags: [`${cacheTag}`] }
 }
 
 export const setAuthToken = async (token: string) => {

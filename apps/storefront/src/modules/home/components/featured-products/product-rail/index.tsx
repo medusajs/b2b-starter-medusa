@@ -1,10 +1,11 @@
+import { getProductsById } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
 
-export default function ProductRail({
+export default async function ProductRail({
   collection,
   region,
 }: {
@@ -17,6 +18,11 @@ export default function ProductRail({
     return null
   }
 
+  const productsWithPrices = await getProductsById({
+    ids: products.map((p) => p.id!),
+    regionId: region.id,
+  })
+
   return (
     <div className="content-container py-12 small:py-24 bg-neutral-100">
       <div className="flex justify-between mb-8">
@@ -26,8 +32,8 @@ export default function ProductRail({
         </InteractiveLink>
       </div>
       <ul className="grid grid-cols-1 small:grid-cols-4 gap-x-3 gap-y-3 small:gap-y-36">
-        {products &&
-          products.map((product) => (
+        {productsWithPrices &&
+          productsWithPrices.map((product) => (
             <li key={product.id}>
               <ProductPreview product={product} region={region} isFeatured />
             </li>

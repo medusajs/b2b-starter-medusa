@@ -3,7 +3,7 @@
 import { sdk } from "@lib/config"
 import {
   getAuthHeaders,
-  getCacheHeaders,
+  getCacheOptions,
   getCacheTag,
   getCartId,
 } from "@lib/data/cookies"
@@ -21,9 +21,11 @@ export const createQuote = async () => {
     ...(await getAuthHeaders()),
   }
 
+  const cartId = await getCartId()
+
   return sdk.client.fetch<StoreQuoteResponse>(`/store/quotes`, {
     method: "POST",
-    body: { cart_id: getCartId() },
+    body: { cart_id: cartId },
     headers,
   })
 }
@@ -31,7 +33,10 @@ export const createQuote = async () => {
 export const fetchQuotes = async (query?: QuoteFilterParams) => {
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders("quotes")),
+  }
+
+  const next = {
+    ...(await getCacheOptions("quotes")),
   }
 
   return sdk.client.fetch<StoreQuotesResponse>(
@@ -40,6 +45,7 @@ export const fetchQuotes = async (query?: QuoteFilterParams) => {
       method: "GET",
       query,
       headers,
+      next,
     }
   )
 }
@@ -47,13 +53,17 @@ export const fetchQuotes = async (query?: QuoteFilterParams) => {
 export const fetchQuote = async (id: string, query?: QuoteFilterParams) => {
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders(["quote", id].join("-"))),
+  }
+
+  const next = {
+    ...(await getCacheOptions(["quote", id].join("-"))),
   }
 
   return sdk.client.fetch<StoreQuoteResponse>(`/store/quotes/${id}`, {
     method: "GET",
     query,
     headers,
+    next,
   })
 }
 
@@ -63,7 +73,10 @@ export const fetchQuotePreview = async (
 ) => {
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders(["quotePreview", id].join("-"))),
+  }
+
+  const next = {
+    ...(await getCacheOptions(["quotePreview", id].join("-"))),
   }
 
   return sdk.client.fetch<StoreQuotePreviewResponse>(
@@ -72,6 +85,7 @@ export const fetchQuotePreview = async (
       method: "GET",
       query,
       headers,
+      next,
     }
   )
 }

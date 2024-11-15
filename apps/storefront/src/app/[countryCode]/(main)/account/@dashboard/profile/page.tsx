@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 import { listRegions } from "@lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Profile() {
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const regions = await listRegions()
 
   if (!customer || !regions) {

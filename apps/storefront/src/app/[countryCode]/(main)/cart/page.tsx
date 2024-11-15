@@ -1,6 +1,6 @@
 import { CartProvider } from "@lib/context/cart-context"
 import { retrieveCart } from "@lib/data/cart"
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 import CartTemplate from "@modules/cart/templates"
 import { Metadata } from "next"
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function Cart() {
   const cart = await retrieveCart().catch(() => null)
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
 
   return (
     <CartProvider cart={cart}>

@@ -3,20 +3,18 @@
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
-import { omit } from "lodash"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { B2BCart } from "types/global"
 import {
   getAuthHeaders,
-  getCacheHeaders,
+  getCacheOptions,
   getCacheTag,
   getCartId,
   removeCartId,
   setCartId,
 } from "./cookies"
-import { getCustomer } from "./customer"
-import { getProductsById } from "./products"
+import { retrieveCustomer } from "./customer"
 import { getRegion } from "./regions"
 
 export async function retrieveCart() {
@@ -28,23 +26,23 @@ export async function retrieveCart() {
 
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders("carts")),
   }
 
-  return await sdk.store.cart
-    .retrieve(
-      cartId,
-      {
+  const next = {
+    ...(await getCacheOptions("carts")),
+  }
+
+  return await sdk.client
+    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+      method: "GET",
+      query: {
         fields:
           "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company",
       },
-      headers
-    )
-    .then(({ cart }) => {
-      return cart as B2BCart & {
-        promotions?: HttpTypes.StorePromotion[]
-      }
+      headers,
+      next,
     })
+    .then(({ cart }) => cart)
     .catch(() => {
       return null
     })
@@ -53,7 +51,7 @@ export async function retrieveCart() {
 export async function getOrSetCart(countryCode: string) {
   let cart = await retrieveCart()
   const region = await getRegion(countryCode)
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
 
   if (!region) {
     throw new Error(`Region not found for country code: ${countryCode}`)
@@ -61,15 +59,13 @@ export async function getOrSetCart(countryCode: string) {
 
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders("carts")),
   }
 
   if (!cart) {
     const body = {
-      email: customer?.email,
       region_id: region.id,
       metadata: {
-        company_id: customer?.employee?.company?.id,
+        company_id: customer?.employee?.company_id,
       },
     }
 
@@ -94,6 +90,7 @@ export async function getOrSetCart(countryCode: string) {
 
 export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   const cartId = await getCartId()
+
   if (!cartId) {
     throw new Error("No existing cart found, please create one before updating")
   }
@@ -256,53 +253,6 @@ export async function emptyCart() {
   revalidateTag(cartCacheTag)
 }
 
-export async function enrichLineItems(
-  lineItems:
-    | HttpTypes.StoreCartLineItem[]
-    | HttpTypes.StoreOrderLineItem[]
-    | null,
-  regionId: string
-) {
-  if (!lineItems) return []
-
-  // Prepare query parameters
-  const queryParams = {
-    ids: lineItems.map((lineItem) => lineItem.product_id!),
-    regionId: regionId,
-  }
-
-  // Fetch products by their IDs
-  const products = await getProductsById(queryParams)
-  // If there are no line items or products, return an empty array
-  if (!lineItems?.length || !products) {
-    return []
-  }
-
-  // Enrich line items with product and variant information
-  const enrichedItems = lineItems.map((item) => {
-    const product = products.find((p: any) => p.id === item.product_id)
-    const variant = product?.variants?.find(
-      (v: any) => v.id === item.variant_id
-    )
-
-    // If product or variant is not found, return the original item
-    if (!product || !variant) {
-      return item
-    }
-
-    // If product and variant are found, enrich the item
-    return {
-      ...item,
-      variant: {
-        ...variant,
-        product: omit(product, "variants"),
-      },
-    }
-  }) as HttpTypes.StoreCartLineItem[]
-
-  return enrichedItems
-}
-
 export async function setShippingMethod({
   cartId,
   shippingMethodId,
@@ -423,8 +373,8 @@ export async function setShippingAddress(
       throw new Error("No form data found when setting addresses")
     }
 
-    const cartId = getCartId()
-    const customer = await getCustomer()
+    const cartId = await getCartId()
+    const customer = await retrieveCustomer()
 
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses")

@@ -1,4 +1,4 @@
-import { getCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@lib/data/customer"
 import { listOrders } from "@lib/data/orders"
 import { QueryCompany, QueryEmployee } from "@starter/types"
 import Employee from "./employee"
@@ -10,7 +10,7 @@ const EmployeeWrapper = async ({
   employee: QueryEmployee
   company: QueryCompany
 }) => {
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const customerOrders = await listOrders()
   const orderIds = customerOrders.map((order) => order.id)
 

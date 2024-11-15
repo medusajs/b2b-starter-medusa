@@ -1,3 +1,4 @@
+import { retrieveCart } from "@lib/data/cart"
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"

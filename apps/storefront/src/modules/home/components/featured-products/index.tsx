@@ -1,4 +1,4 @@
-import { getCollectionsWithProducts } from "@lib/data/collections"
+import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import ProductRail from "@modules/home/components/featured-products/product-rail"
 
@@ -7,7 +7,10 @@ export default async function FeaturedProducts({
 }: {
   countryCode: string
 }) {
-  const collections = await getCollectionsWithProducts(countryCode)
+  const { collections } = await listCollections({
+    limit: "3",
+    fields: "*products",
+  })
   const region = await getRegion(countryCode)
 
   if (!collections || !region) {

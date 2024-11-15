@@ -1,7 +1,7 @@
 "use server"
 
 import { sdk } from "@lib/config"
-import { getAuthHeaders, getCacheHeaders, getCacheTag } from "@lib/data/cookies"
+import { getAuthHeaders, getCacheOptions, getCacheTag } from "@lib/data/cookies"
 import {
   StoreCompanyResponse,
   StoreCreateCompany,
@@ -15,14 +15,21 @@ import { revalidateTag } from "next/cache"
 export const retrieveCompany = async (companyId: string) => {
   const headers = {
     ...(await getAuthHeaders()),
-    ...(await getCacheHeaders("companies")),
+  }
+
+  const next = {
+    ...(await getCacheOptions("companies")),
   }
 
   const company = await sdk.client.fetch<StoreCompanyResponse>(
-    `/store/companies/${companyId}?fields=+spending_limit_reset_frequency,*employees.customer`,
+    `/store/companies/${companyId}`,
     {
+      query: {
+        fields: "+spending_limit_reset_frequency,*employees.customer",
+      },
       method: "GET",
       headers,
+      next,
     }
   )
 

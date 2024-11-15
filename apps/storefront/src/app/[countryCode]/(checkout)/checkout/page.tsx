@@ -1,34 +1,24 @@
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
-
+import { retrieveCart } from "@lib/data/cart"
+import { retrieveCustomer } from "@lib/data/customer"
 import Wrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
-import { enrichLineItems, retrieveCart } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
-import { getCustomer } from "@lib/data/customer"
+import { B2BCart } from "types/global"
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Checkout",
 }
 
-const fetchCart = async () => {
-  const cart = await retrieveCart()
+export default async function Checkout() {
+  const cart = (await retrieveCart()) as B2BCart
+
   if (!cart) {
     return notFound()
   }
 
-  if (cart?.items?.length) {
-    const enrichedItems = await enrichLineItems(cart?.items, cart?.region_id!)
-    cart.items = enrichedItems as HttpTypes.StoreCartLineItem[]
-  }
-
-  return cart
-}
-
-export default async function Checkout() {
-  const cart = await fetchCart()
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
 
   return (
     <Wrapper cart={cart}>

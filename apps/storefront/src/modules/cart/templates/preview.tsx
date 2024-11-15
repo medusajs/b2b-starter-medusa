@@ -8,7 +8,7 @@ import ItemPreview from "@modules/cart/components/item-preview"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
 type ItemsTemplateProps = {
-  items?: HttpTypes.StoreCartLineItem[]
+  items?: HttpTypes.StoreCartLineItem[] | HttpTypes.StoreOrderLineItem[]
   currencyCode: string
 }
 
