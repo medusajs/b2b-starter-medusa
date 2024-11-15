@@ -4,8 +4,9 @@ import { sdk } from "@lib/config"
 import { sortProducts } from "@lib/util/sort-products"
 import { HttpTypes } from "@medusajs/types"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
+import { getAuthHeaders, getCacheOptions, getCacheTag } from "./cookies"
 import { getRegion } from "./regions"
+import { revalidateTag } from "next/cache"
 
 export const getProductsById = async ({
   ids,
@@ -29,7 +30,7 @@ export const getProductsById = async ({
         id: ids,
         region_id: regionId,
         fields:
-          "*variants.calculated_price,+variants.inventory_quantity,+inventory_quantity",
+          "*variants,*variants.calculated_price,*variants.inventory_quantity",
       },
       headers,
       next,
