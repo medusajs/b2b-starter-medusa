@@ -106,10 +106,7 @@ const MegaMenu = ({
             </div>
             {selectedCategory && (
               <div className="grid grid-cols-4 gap-20">
-                {[
-                  ...getSubCategories(selectedCategory),
-                  ...getSubCategories(selectedCategory),
-                ].map((category) => (
+                {getSubCategories(selectedCategory).map((category) => (
                   <div key={category.id} className="flex flex-col gap-2">
                     <LocalizedClientLink
                       className="font-medium text-zinc-500 hover:underline"
@@ -118,12 +115,7 @@ const MegaMenu = ({
                       {category.name}
                     </LocalizedClientLink>
                     <div className="flex flex-col gap-2">
-                      {[
-                        ...getSubCategories(category.id),
-                        ...getSubCategories(category.id),
-                        ...getSubCategories(category.id),
-                        ...getSubCategories(category.id),
-                      ].map((subCategory) => (
+                      {getSubCategories(category.id).map((subCategory) => (
                         <LocalizedClientLink
                           key={subCategory.id}
                           className="hover:underline"

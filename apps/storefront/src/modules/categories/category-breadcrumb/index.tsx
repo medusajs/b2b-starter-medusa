@@ -10,7 +10,7 @@ const CategoryBreadcrumbItem = ({
   handle?: string
 }) => {
   return (
-    <li className="text-neutral-500">
+    <li className="text-neutral-500" key={handle}>
       <LocalizedClientLink
         className="hover:text-neutral-900"
         href={handle ? `/categories/${handle}` : "/store"}

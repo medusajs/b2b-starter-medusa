@@ -79,7 +79,13 @@ const CategoryList = ({
               ) : (
                 <SquarePlus className="h-3 mx-1" />
               )}
-              {category.name}
+              <LocalizedClientLink
+                href={`/categories/${category.handle}${
+                  searchParams.size ? `?${searchParams.toString()}` : ""
+                }`}
+              >
+                {category.name}
+              </LocalizedClientLink>
             </button>
           ) : (
             <LocalizedClientLink
