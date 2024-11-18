@@ -60,8 +60,8 @@ const CategoryBreadcrumb = ({
 
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <CategoryBreadcrumbItem title="Products" key="base" />
-      <span className="text-neutral-500" key="separator-base">
+      <CategoryBreadcrumbItem title="Products" key={`base-${category.id}`} />
+      <span className="text-neutral-500" key={`separator-base-${category.id}`}>
         {">"}
       </span>
       {parentBreadcrumbs}
