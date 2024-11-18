@@ -1,7 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-
-import type { JSX } from "react";
+import type { JSX } from "react"
 
 const CategoryBreadcrumbItem = ({
   title,
@@ -39,7 +38,10 @@ const CategoryBreadcrumb = ({
             handle={currentCategory.parent_category.handle}
             key={currentCategory.parent_category.id}
           />
-          <span className="text-neutral-500" key="separator-parent">
+          <span
+            className="text-neutral-500"
+            key={`separator-parent-${currentCategory.parent_category.id}`}
+          >
             {">"}
           </span>
         </>

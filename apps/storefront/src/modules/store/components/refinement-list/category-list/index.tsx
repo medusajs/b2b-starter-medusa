@@ -46,17 +46,20 @@ const CategoryList = ({
     [categories]
   )
 
-  const getCategoryMarginLeft = (category: HttpTypes.StoreProductCategory) => {
-    let level = 0
-    let currentCategory = category
-    while (currentCategory.parent_category_id) {
-      level++
-      currentCategory = categories.find(
-        (cat) => cat.id === currentCategory.parent_category_id
-      ) as HttpTypes.StoreProductCategory
-    }
-    return level * 4
-  }
+  const getCategoryMarginLeft = useCallback(
+    (category: HttpTypes.StoreProductCategory) => {
+      let level = 0
+      let currentCategory = category
+      while (currentCategory.parent_category_id) {
+        level++
+        currentCategory = categories.find(
+          (cat) => cat.id === currentCategory.parent_category_id
+        ) as HttpTypes.StoreProductCategory
+      }
+      return level * 4
+    },
+    [categories]
+  )
 
   const renderCategory = (category: HttpTypes.StoreProductCategory) => {
     const hasChildren = category.category_children.length > 0
@@ -69,7 +72,7 @@ const CategoryList = ({
           {hasChildren ? (
             <button
               onClick={() => toggleCategory(category.id)}
-              className="flex items-center gap-2 hover:text-neutral-700"
+              className="flex items-center gap-2 hover:text-neutral-700 text-start"
             >
               {isExpanded ? (
                 <SquareMinus className="h-3 mx-1" />
