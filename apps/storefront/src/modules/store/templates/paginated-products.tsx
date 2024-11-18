@@ -1,5 +1,6 @@
 import { listProductsWithSort } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
+import { Container } from "@medusajs/ui"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
@@ -72,13 +73,19 @@ export default async function PaginatedProducts({
         className="grid grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-3"
         data-testid="products-list"
       >
-        {products.map((p) => {
-          return (
-            <li key={p.id}>
-              <ProductPreview product={p} region={region} />
-            </li>
-          )
-        })}
+        {products.length > 0 ? (
+          products.map((p) => {
+            return (
+              <li key={p.id}>
+                <ProductPreview product={p} region={region} />
+              </li>
+            )
+          })
+        ) : (
+          <Container className="text-center text-sm text-neutral-500">
+            No products found for this category.
+          </Container>
+        )}
       </ul>
       {totalPages > 1 && (
         <Pagination
