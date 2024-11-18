@@ -1,15 +1,18 @@
+import { listCategories } from "@lib/data/categories"
 import { retrieveCustomer } from "@lib/data/customer"
+import CartButton from "@modules/cart/components/cart-button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import FilePlus from "@modules/common/icons/file-plus"
 import LogoIcon from "@modules/common/icons/logo"
 import User from "@modules/common/icons/user"
-import CartButton from "@modules/cart/components/cart-button"
+import MegaMenu from "@modules/layout/components/mega-menu"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import SkeletonCartButton from "@modules/skeletons/components/skeleton-cart-button"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
   const customer = await retrieveCustomer().catch(() => null)
+  const categories = await listCategories().catch(() => [])
 
   return (
     <div className="sticky top-0 inset-x-0 group z-[1] bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base">
@@ -29,12 +32,7 @@ export async function NavigationHeader() {
             <nav>
               <ul className="space-x-4 hidden small:flex">
                 <li>
-                  <LocalizedClientLink
-                    className="hover:text-ui-fg-base"
-                    href="/store"
-                  >
-                    Products
-                  </LocalizedClientLink>
+                  <MegaMenu categories={categories} />
                 </li>
               </ul>
             </nav>
