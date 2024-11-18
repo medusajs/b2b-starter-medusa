@@ -70,72 +70,80 @@ const MegaMenu = ({
   }
 
   useEffect(() => {
-    setSelectedCategory(null)
     setIsHovered(false)
   }, [pathname])
 
   return (
-    <div onMouseEnter={handleMenuHover} onMouseLeave={handleMenuLeave}>
-      <LocalizedClientLink
-        className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
-        href="/store"
+    <>
+      <div
+        onMouseEnter={handleMenuHover}
+        onMouseLeave={handleMenuLeave}
+        className="z-50"
       >
-        Products
-      </LocalizedClientLink>
-      {isHovered && (
-        <div className="fixed left-0 right-0 top-[60px] flex gap-20 py-10 px-20 bg-white border border-red-500">
-          <div className="flex flex-col gap-2">
-            {mainCategories.map((category) => (
-              <LocalizedClientLink
-                key={category.id}
-                href={`/categories/${category.handle}`}
-                className={clx(
-                  "hover:bg-neutral-100 hover:cursor-pointer rounded-full px-3 py-2 w-fit font-medium",
-                  selectedCategory === category.id && "bg-neutral-100"
-                )}
-                onMouseEnter={() => handleCategoryHover(category.id)}
-                onMouseLeave={handleCategoryLeave}
-              >
-                {category.name}
-              </LocalizedClientLink>
-            ))}
-          </div>
-          {selectedCategory && (
-            <div className="grid grid-cols-4 gap-20">
-              {[
-                ...getSubCategories(selectedCategory),
-                ...getSubCategories(selectedCategory),
-              ].map((category) => (
-                <div key={category.id} className="flex flex-col gap-2">
-                  <LocalizedClientLink
-                    className="font-medium text-zinc-500 hover:underline"
-                    href={`/categories/${category.handle}`}
-                  >
-                    {category.name}
-                  </LocalizedClientLink>
-                  <div className="flex flex-col gap-2">
-                    {[
-                      ...getSubCategories(category.id),
-                      ...getSubCategories(category.id),
-                      ...getSubCategories(category.id),
-                      ...getSubCategories(category.id),
-                    ].map((subCategory) => (
-                      <LocalizedClientLink
-                        key={subCategory.id}
-                        className="hover:underline"
-                        href={`/categories/${subCategory.handle}`}
-                      >
-                        {subCategory.name}
-                      </LocalizedClientLink>
-                    ))}
-                  </div>
-                </div>
+        <LocalizedClientLink
+          className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
+          href="/store"
+        >
+          Products
+        </LocalizedClientLink>
+        {isHovered && (
+          <div className="fixed left-0 right-0 top-[60px] flex gap-20 py-10 px-20 bg-white border">
+            <div className="flex flex-col gap-2">
+              {mainCategories.map((category) => (
+                <LocalizedClientLink
+                  key={category.id}
+                  href={`/categories/${category.handle}`}
+                  className={clx(
+                    "hover:bg-neutral-100 hover:cursor-pointer rounded-full px-3 py-2 w-fit font-medium",
+                    selectedCategory === category.id && "bg-neutral-100"
+                  )}
+                  onMouseEnter={() => handleCategoryHover(category.id)}
+                  onMouseLeave={handleCategoryLeave}
+                >
+                  {category.name}
+                </LocalizedClientLink>
               ))}
             </div>
-          )}
-        </div>
+            {selectedCategory && (
+              <div className="grid grid-cols-4 gap-20">
+                {[
+                  ...getSubCategories(selectedCategory),
+                  ...getSubCategories(selectedCategory),
+                ].map((category) => (
+                  <div key={category.id} className="flex flex-col gap-2">
+                    <LocalizedClientLink
+                      className="font-medium text-zinc-500 hover:underline"
+                      href={`/categories/${category.handle}`}
+                    >
+                      {category.name}
+                    </LocalizedClientLink>
+                    <div className="flex flex-col gap-2">
+                      {[
+                        ...getSubCategories(category.id),
+                        ...getSubCategories(category.id),
+                        ...getSubCategories(category.id),
+                        ...getSubCategories(category.id),
+                      ].map((subCategory) => (
+                        <LocalizedClientLink
+                          key={subCategory.id}
+                          className="hover:underline"
+                          href={`/categories/${subCategory.handle}`}
+                        >
+                          {subCategory.name}
+                        </LocalizedClientLink>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+      {isHovered && (
+        <div className="fixed inset-0 blur-sm backdrop-blur-sm z-[-1]" />
       )}
-    </div>
+    </>
   )
 }
 
