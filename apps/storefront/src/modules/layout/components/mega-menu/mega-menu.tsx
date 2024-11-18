@@ -78,7 +78,7 @@ const MegaMenu = ({
       <div
         onMouseEnter={handleMenuHover}
         onMouseLeave={handleMenuLeave}
-        className="z-50"
+        className="z-50 focus-visible:outline-none"
       >
         <LocalizedClientLink
           className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
