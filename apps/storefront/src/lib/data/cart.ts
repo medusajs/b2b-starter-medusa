@@ -42,7 +42,7 @@ export async function retrieveCart() {
       headers,
       next,
     })
-    .then(({ cart }) => cart)
+    .then(({ cart }) => cart as B2BCart)
     .catch(() => {
       return null
     })
