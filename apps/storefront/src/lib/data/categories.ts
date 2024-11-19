@@ -9,11 +9,13 @@ export const listCategories = async (query?: Record<string, any>) => {
     ...(await getCacheOptions("categories")),
   }
 
+  const limit = query?.limit || 100
+
   return sdk.client
     .fetch<{ product_categories: HttpTypes.StoreProductCategory[] }>(
       "/store/product-categories",
       {
-        query: { fields: "*category_children", ...query },
+        query: { fields: "*category_children", limit, ...query },
         next,
       }
     )
