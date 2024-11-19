@@ -1,20 +1,18 @@
-import { notFound } from "next/navigation"
-import { Suspense } from "react"
-
+import { ArrowUturnLeft } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { Container, Text } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ProductPreview from "@modules/products/components/product-preview"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import PaginatedProducts from "@modules/store/templates/paginated-products"
+import { notFound } from "next/navigation"
+import { Suspense } from "react"
 import CategoryBreadcrumb from "../category-breadcrumb"
-import { Container, Text } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import {
-  ArrowUpRightMicro,
-  ArrowUpRightMini,
-  ArrowUturnLeft,
-} from "@medusajs/icons"
-import Button from "@modules/common/components/button"
+import { Pagination } from "@modules/store/components/pagination"
+
+const PRODUCT_LIMIT = 12
 
 export default function CategoryTemplate({
   categories,
@@ -22,19 +20,25 @@ export default function CategoryTemplate({
   sortBy,
   page,
   countryCode,
+  products,
+  count,
+  region,
 }: {
   categories: HttpTypes.StoreProductCategory[]
   currentCategory: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  products: HttpTypes.StoreProduct[]
+  count: number
+  region: HttpTypes.StoreRegion
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
 
   if (!currentCategory || !countryCode) notFound()
 
-  console.log(currentCategory.products)
+  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 
   return (
     <div className="bg-neutral-100">
@@ -78,12 +82,31 @@ export default function CategoryTemplate({
                   />
                 }
               >
-                <PaginatedProducts
-                  sortBy={sort}
-                  page={pageNumber}
-                  categoryId={currentCategory.id}
-                  countryCode={countryCode}
-                />
+                <ul
+                  className="grid grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-3"
+                  data-testid="products-list"
+                >
+                  {products.length > 0 ? (
+                    products.map((p) => {
+                      return (
+                        <li key={p.id}>
+                          <ProductPreview product={p} region={region} />
+                        </li>
+                      )
+                    })
+                  ) : (
+                    <Container className="text-center text-sm text-neutral-500">
+                      No products found for this category.
+                    </Container>
+                  )}
+                </ul>
+                {totalPages > 1 && (
+                  <Pagination
+                    data-testid="product-pagination"
+                    page={pageNumber}
+                    totalPages={totalPages}
+                  />
+                )}
               </Suspense>
             )}
           </div>

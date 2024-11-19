@@ -144,7 +144,7 @@ export const listProductsWithSort = async ({
   nextPage: number | null
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
 }> => {
-  const limit = queryParams?.limit || 12
+  const limit = queryParams?.limit || 100
 
   const {
     response: { products, count },

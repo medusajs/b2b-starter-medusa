@@ -2,9 +2,10 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getCategoryByHandle, listCategories } from "@lib/data/categories"
-import { listRegions } from "@lib/data/regions"
+import { getRegion, listRegions } from "@lib/data/regions"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { listProductsWithSort } from "@lib/data/products"
 
 type Props = {
   params: Promise<{ category: string[]; countryCode: string }>
@@ -64,7 +65,7 @@ export async function generateStaticParams() {
 export default async function CategoryPage(props: Props) {
   const searchParams = await props.searchParams
   const params = await props.params
-  const { sortBy, page } = searchParams
+  const { sortBy, page, ...queryParams } = searchParams
 
   const categories = await listCategories()
 
@@ -76,6 +77,24 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
+  let {
+    response: { products, count },
+  } = await listProductsWithSort({
+    page: page ? parseInt(page) : 1,
+    queryParams: {
+      category_id: [currentCategory?.id],
+      ...queryParams,
+    },
+    sortBy,
+    countryCode: params.countryCode,
+  })
+
+  const region = await getRegion(params.countryCode)
+
+  if (!region) {
+    notFound()
+  }
+
   return (
     <CategoryTemplate
       categories={categories}
@@ -83,6 +102,9 @@ export default async function CategoryPage(props: Props) {
       sortBy={sortBy}
       page={page}
       countryCode={params.countryCode}
+      products={products}
+      count={count}
+      region={region}
     />
   )
 }
