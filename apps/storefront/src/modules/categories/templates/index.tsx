@@ -7,6 +7,14 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import CategoryBreadcrumb from "../category-breadcrumb"
+import { Container, Text } from "@medusajs/ui"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import {
+  ArrowUpRightMicro,
+  ArrowUpRightMini,
+  ArrowUturnLeft,
+} from "@medusajs/icons"
+import Button from "@modules/common/components/button"
 
 export default function CategoryTemplate({
   categories,
@@ -26,13 +34,18 @@ export default function CategoryTemplate({
 
   if (!currentCategory || !countryCode) notFound()
 
+  console.log(currentCategory.products)
+
   return (
     <div className="bg-neutral-100">
       <div
         className="flex flex-col py-6 content-container gap-4"
         data-testid="category-container"
       >
-        <CategoryBreadcrumb category={currentCategory} />
+        <CategoryBreadcrumb
+          categories={categories}
+          category={currentCategory}
+        />
         <div className="flex flex-col small:flex-row small:items-start gap-3">
           <RefinementList
             sortBy={sort}
@@ -42,14 +55,37 @@ export default function CategoryTemplate({
             data-testid="sort-by-container"
           />
           <div className="w-full">
-            <Suspense fallback={<SkeletonProductGrid />}>
-              <PaginatedProducts
-                sortBy={sort}
-                page={pageNumber}
-                categoryId={currentCategory.id}
-                countryCode={countryCode}
-              />
-            </Suspense>
+            {currentCategory.products?.length === 0 ? (
+              <Container className="flex flex-col gap-2 justify-center text-center items-center text-sm text-neutral-500">
+                <Text className="font-medium">
+                  No products found for this category.
+                </Text>
+                <LocalizedClientLink
+                  href="/store"
+                  className="flex gap-2 items-center"
+                >
+                  <Button variant="secondary">
+                    Back to all products
+                    <ArrowUturnLeft className="w-4 h-4" />
+                  </Button>
+                </LocalizedClientLink>
+              </Container>
+            ) : (
+              <Suspense
+                fallback={
+                  <SkeletonProductGrid
+                    count={currentCategory.products?.length}
+                  />
+                }
+              >
+                <PaginatedProducts
+                  sortBy={sort}
+                  page={pageNumber}
+                  categoryId={currentCategory.id}
+                  countryCode={countryCode}
+                />
+              </Suspense>
+            )}
           </div>
         </div>
       </div>
