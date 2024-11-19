@@ -1,7 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-
-import type { JSX } from "react";
+import type { JSX } from "react"
 
 const CategoryBreadcrumbItem = ({
   title,
@@ -11,7 +10,7 @@ const CategoryBreadcrumbItem = ({
   handle?: string
 }) => {
   return (
-    <li className="text-neutral-500">
+    <li className="text-neutral-500" key={handle}>
       <LocalizedClientLink
         className="hover:text-neutral-900"
         href={handle ? `/categories/${handle}` : "/store"}
@@ -39,7 +38,10 @@ const CategoryBreadcrumb = ({
             handle={currentCategory.parent_category.handle}
             key={currentCategory.parent_category.id}
           />
-          <span className="text-neutral-500" key="separator-parent">
+          <span
+            className="text-neutral-500"
+            key={`separator-parent-${currentCategory.parent_category.id}`}
+          >
             {">"}
           </span>
         </>
@@ -58,8 +60,8 @@ const CategoryBreadcrumb = ({
 
   return (
     <ul className="flex items-center gap-x-3 text-sm">
-      <CategoryBreadcrumbItem title="Products" key="base" />
-      <span className="text-neutral-500" key="separator-base">
+      <CategoryBreadcrumbItem title="Products" key={`base-${category.id}`} />
+      <span className="text-neutral-500" key={`separator-base-${category.id}`}>
         {">"}
       </span>
       {parentBreadcrumbs}

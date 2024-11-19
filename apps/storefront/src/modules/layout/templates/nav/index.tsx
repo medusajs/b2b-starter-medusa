@@ -1,18 +1,18 @@
-import { retrieveCustomer } from "@lib/data/customer"
+import AccountButton from "@modules/account/components/account-button"
+import CartButton from "@modules/cart/components/cart-button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import FilePlus from "@modules/common/icons/file-plus"
 import LogoIcon from "@modules/common/icons/logo"
-import User from "@modules/common/icons/user"
-import CartButton from "@modules/cart/components/cart-button"
+import { MegaMenuWrapper } from "@modules/layout/components/mega-menu"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
+import SkeletonAccountButton from "@modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@modules/skeletons/components/skeleton-cart-button"
+import SkeletonMegaMenu from "@modules/skeletons/components/skeleton-mega-menu"
 import { Suspense } from "react"
 
-export async function NavigationHeader() {
-  const customer = await retrieveCustomer().catch(() => null)
-
+export function NavigationHeader() {
   return (
-    <div className="sticky top-0 inset-x-0 group z-[1] bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base">
+    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
@@ -29,12 +29,9 @@ export async function NavigationHeader() {
             <nav>
               <ul className="space-x-4 hidden small:flex">
                 <li>
-                  <LocalizedClientLink
-                    className="hover:text-ui-fg-base"
-                    href="/store"
-                  >
-                    Products
-                  </LocalizedClientLink>
+                  <Suspense fallback={<SkeletonMegaMenu />}>
+                    <MegaMenuWrapper />
+                  </Suspense>
                 </li>
               </ul>
             </nav>
@@ -57,17 +54,9 @@ export async function NavigationHeader() {
               </button>
             </RequestQuotePrompt>
 
-            <LocalizedClientLink
-              className="hover:text-ui-fg-base"
-              href="/account"
-            >
-              <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
-                <User />
-                <span className="hidden small:inline-block">
-                  {customer ? customer.first_name : "Log in"}
-                </span>
-              </button>
-            </LocalizedClientLink>
+            <Suspense fallback={<SkeletonAccountButton />}>
+              <AccountButton />
+            </Suspense>
 
             <Suspense fallback={<SkeletonCartButton />}>
               <CartButton />
