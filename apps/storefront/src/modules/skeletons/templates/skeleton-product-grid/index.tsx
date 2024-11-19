@@ -7,7 +7,7 @@ const SkeletonProductGrid = () => {
       className="grid grid-cols-1 small:grid-cols-3 medium:grid-cols-4 gap-3 flex-1"
       data-testid="products-list-loader"
     >
-      {repeat(8).map((index) => (
+      {repeat(4).map((index) => (
         <li key={index}>
           <SkeletonProductPreview />
         </li>
