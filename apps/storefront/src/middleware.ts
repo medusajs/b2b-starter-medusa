@@ -117,56 +117,53 @@ export async function middleware(request: NextRequest) {
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
 
-  let redirectUrl = request.nextUrl.href
+  // Create response only when we know we need to redirect
+  let response: NextResponse
 
-  let response = NextResponse.redirect(redirectUrl, 307)
+  // First handle static assets
+  if (request.nextUrl.pathname.includes(".")) {
+    return NextResponse.next()
+  }
+
+  // Create a default response for setting cookies
+  response = NextResponse.next()
 
   // Set a cache id to invalidate the cache for this instance only
   const cacheId = await setCacheId(request, response)
 
   const regionMap = await getRegionMap(cacheId)
-
   const countryCode = regionMap && (await getCountryCode(request, regionMap))
 
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
-  // check if one of the country codes is in the url
-  if (
-    urlHasCountryCode &&
-    (!isOnboarding || onboardingCookie) &&
-    (!cartId || cartIdCookie) &&
-    cacheIdCookie
-  ) {
-    return NextResponse.next()
-  }
+  let shouldRedirect = false
+  let redirectUrl = request.nextUrl.href
 
-  // check if the url is a static asset
-  if (request.nextUrl.pathname.includes(".")) {
-    return NextResponse.next()
-  }
-
-  const redirectPath =
-    request.nextUrl.pathname === "/" ? "" : request.nextUrl.pathname
-
-  const queryString = request.nextUrl.search ? request.nextUrl.search : ""
-
-  // If no country code is set, we redirect to the relevant region.
+  // If no country code is set, we redirect to the relevant region
   if (!urlHasCountryCode && countryCode) {
+    const redirectPath =
+      request.nextUrl.pathname === "/" ? "" : request.nextUrl.pathname
+    const queryString = request.nextUrl.search ? request.nextUrl.search : ""
     redirectUrl = `${request.nextUrl.origin}/${countryCode}${redirectPath}${queryString}`
-    response = NextResponse.redirect(`${redirectUrl}`, 307)
+    shouldRedirect = true
   }
 
-  // If a cart_id is in the params, we set it as a cookie and redirect to the address step.
+  // Handle cart_id parameter
   if (cartId && !checkoutStep) {
     redirectUrl = `${redirectUrl}&step=address`
-    response = NextResponse.redirect(`${redirectUrl}`, 307)
+    shouldRedirect = true
     response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
   }
 
-  // Set a cookie to indicate that we're onboarding. This is used to show the onboarding flow.
+  // Set onboarding cookie if needed
   if (isOnboarding) {
     response.cookies.set("_medusa_onboarding", "true", { maxAge: 60 * 60 * 24 })
+  }
+
+  // Only create redirect response if actually needed
+  if (shouldRedirect) {
+    response = NextResponse.redirect(redirectUrl, 307)
   }
 
   return response
