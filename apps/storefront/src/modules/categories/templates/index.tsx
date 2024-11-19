@@ -75,30 +75,18 @@ export default function CategoryTemplate({
                 </LocalizedClientLink>
               </Container>
             ) : (
-              <Suspense
-                fallback={
-                  <SkeletonProductGrid
-                    count={currentCategory.products?.length}
-                  />
-                }
-              >
+              <>
                 <ul
                   className="grid grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-3"
                   data-testid="products-list"
                 >
-                  {products.length > 0 ? (
-                    products.map((p) => {
-                      return (
-                        <li key={p.id}>
-                          <ProductPreview product={p} region={region} />
-                        </li>
-                      )
-                    })
-                  ) : (
-                    <Container className="text-center text-sm text-neutral-500">
-                      No products found for this category.
-                    </Container>
-                  )}
+                  {products.map((p) => {
+                    return (
+                      <li key={p.id}>
+                        <ProductPreview product={p} region={region} />
+                      </li>
+                    )
+                  })}
                 </ul>
                 {totalPages > 1 && (
                   <Pagination
@@ -107,7 +95,7 @@ export default function CategoryTemplate({
                     totalPages={totalPages}
                   />
                 )}
-              </Suspense>
+              </>
             )}
           </div>
         </div>
