@@ -1,9 +1,10 @@
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Radio from "@modules/common/components/radio"
 import SquareMinus from "@modules/common/icons/square-minus"
 import SquarePlus from "@modules/common/icons/square-plus"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 
 const CategoryList = ({
@@ -33,7 +34,6 @@ const CategoryList = ({
   )
 
   const pathname = usePathname()
-  const router = useRouter()
 
   const toggleCategory = (categoryId: string) => {
     setExpandedCategories((prev) =>
@@ -44,18 +44,6 @@ const CategoryList = ({
   }
 
   const searchParams = useSearchParams()
-
-  const updatePathname = useCallback(
-    (handle: string) => {
-      const countryCode = pathname.split("/")[1]
-      router.push(
-        `/${countryCode}/categories/${handle}${
-          searchParams.size ? `?${searchParams.toString()}` : ""
-        }`
-      )
-    },
-    [pathname, router, searchParams]
-  )
 
   const isCurrentCategory = (handle: string) =>
     pathname.split("/").slice(2).join("/") === `categories/${handle}`
@@ -104,21 +92,25 @@ const CategoryList = ({
                   <SquarePlus className="h-3 mx-1" />
                 )}
               </button>
-              <button
-                onClick={() => updatePathname(category.handle)}
+              <LocalizedClientLink
+                href={`/categories/${category.handle}${
+                  searchParams.size ? `?${searchParams.toString()}` : ""
+                }`}
                 className="flex gap-2 items-center hover:text-neutral-700"
               >
                 {category.name} ({category.products?.length})
-              </button>
+              </LocalizedClientLink>
             </div>
           ) : (
-            <div
-              onClick={() => updatePathname(category.handle)}
+            <LocalizedClientLink
+              href={`/categories/${category.handle}${
+                searchParams.size ? `?${searchParams.toString()}` : ""
+              }`}
               className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
               {category.name} ({category.products?.length})
-            </div>
+            </LocalizedClientLink>
           )}
         </div>
         {hasChildren && isExpanded && (
@@ -140,12 +132,12 @@ const CategoryList = ({
       <div className="flex justify-between items-center p-3">
         <Text className="text-sm font-medium">Categories</Text>
         {pathname.includes("/categories") && (
-          <button
-            onClick={() => router.push("/store")}
+          <LocalizedClientLink
+            href="/store"
             className="text-xs text-neutral-500 hover:text-neutral-700"
           >
             Clear
-          </button>
+          </LocalizedClientLink>
         )}
       </div>
       <ul className="flex flex-col gap-3 text-sm p-3 text-neutral-500">
