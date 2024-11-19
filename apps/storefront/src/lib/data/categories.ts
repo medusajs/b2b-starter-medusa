@@ -1,8 +1,8 @@
 "use server"
 
 import { sdk } from "@lib/config"
-import { getCacheOptions } from "./cookies"
 import { HttpTypes } from "@medusajs/types"
+import { getCacheOptions } from "./cookies"
 
 export const listCategories = async (query?: Record<string, any>) => {
   const next = {
@@ -15,7 +15,12 @@ export const listCategories = async (query?: Record<string, any>) => {
     .fetch<{ product_categories: HttpTypes.StoreProductCategory[] }>(
       "/store/product-categories",
       {
-        query: { fields: "*category_children", limit, ...query },
+        query: {
+          fields:
+            "*category_children, *products, *parent_category, *parent_category.parent_category",
+          limit,
+          ...query,
+        },
         next,
       }
     )
@@ -33,7 +38,10 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
     .fetch<HttpTypes.StoreProductCategoryListResponse>(
       `/store/product-categories`,
       {
-        query: { handle },
+        query: {
+          fields: "*category_children, *products",
+          handle,
+        },
         next,
       }
     )
