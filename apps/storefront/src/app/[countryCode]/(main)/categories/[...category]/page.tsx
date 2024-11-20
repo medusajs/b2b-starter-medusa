@@ -63,9 +63,7 @@ export async function generateStaticParams() {
 }
 
 export default async function CategoryPage(props: Props) {
-  const searchParams = await props.searchParams
   const params = await props.params
-  const { sortBy, page, ...queryParams } = searchParams
 
   const categories = await listCategories()
 
@@ -80,12 +78,10 @@ export default async function CategoryPage(props: Props) {
   let {
     response: { products, count },
   } = await listProductsWithSort({
-    page: page ? parseInt(page) : 1,
+    page: 1,
     queryParams: {
       category_id: [currentCategory?.id],
-      ...queryParams,
     },
-    sortBy,
     countryCode: params.countryCode,
   })
 
@@ -99,8 +95,6 @@ export default async function CategoryPage(props: Props) {
     <CategoryTemplate
       categories={categories}
       currentCategory={currentCategory}
-      sortBy={sortBy}
-      page={page}
       countryCode={params.countryCode}
       products={products}
       count={count}

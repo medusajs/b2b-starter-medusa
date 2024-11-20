@@ -1,12 +1,11 @@
 "use client"
 
+import { useSort } from "@lib/context/sort-context"
 import { ChevronUpDown } from "@medusajs/icons"
 
 export type SortOptions = "price_asc" | "price_desc" | "created_at"
 
 type SortProductsProps = {
-  sortBy: SortOptions
-  setQueryParams: (name: string, value: SortOptions) => void
   "data-testid"?: string
 }
 
@@ -25,13 +24,11 @@ const sortOptions = [
   },
 ]
 
-const SortProducts = ({
-  "data-testid": dataTestId,
-  sortBy,
-  setQueryParams,
-}: SortProductsProps) => {
+const SortProducts = ({ "data-testid": dataTestId }: SortProductsProps) => {
+  const { sortBy, setSortBy } = useSort()
+
   const handleChange = (value: SortOptions) => {
-    setQueryParams("sortBy", value)
+    setSortBy(value)
   }
 
   return (
