@@ -2,20 +2,27 @@
 
 import { useCart } from "@lib/context/cart-context"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
-import { Heading } from "@medusajs/ui"
+import { Badge, Container, Heading, Text } from "@medusajs/ui"
 import { B2BCustomer } from "types/global"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
 import Summary from "./summary"
+import { useMemo } from "react"
+import AppliedPromotions from "../components/applied-promotions"
 
 const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   const { cart } = useCart()
 
-  const spendLimitExceeded = checkSpendingLimit(cart, customer)
+  const spendLimitExceeded = useMemo(
+    () => checkSpendingLimit(cart, customer),
+    [cart, customer]
+  )
 
-  const totalItems =
-    cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0
+  const totalItems = useMemo(
+    () => cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0,
+    [cart?.items]
+  )
 
   return (
     <div className="small:py-12 py-6 bg-neutral-100">

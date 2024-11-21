@@ -89,7 +89,6 @@ const CartTotals: React.FC = () => {
           </Text>
         )}
       </div>
-      <Divider className="my-6" />
     </div>
   )
 }
