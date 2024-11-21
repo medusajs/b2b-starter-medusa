@@ -2,8 +2,8 @@
 
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
 import { HttpTypes } from "@medusajs/types"
+import { getAuthHeaders, getCacheOptions } from "./cookies"
 
 export const retrieveOrder = async (id: string) => {
   const headers = {
