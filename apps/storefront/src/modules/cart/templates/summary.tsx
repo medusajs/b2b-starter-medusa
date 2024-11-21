@@ -11,6 +11,8 @@ import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quo
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { B2BCustomer } from "types/global"
 import CartToCsvButton from "../components/cart-to-csv-button"
+import PromotionCode from "@modules/checkout/components/promotion-code"
+import Divider from "@modules/common/components/divider"
 
 type SummaryProps = {
   customer: B2BCustomer | null
@@ -31,9 +33,10 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
 
   return (
     <Container className="flex flex-col gap-y-3">
-      {/* <DiscountCode cart={cart} /> */}
-      {/* <Divider /> */}
       <CartTotals />
+      <Divider />
+      <PromotionCode cart={cart} />
+      <Divider className="my-6" />
       {spendLimitExceeded && (
         <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
           <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />

@@ -2,6 +2,7 @@ import { convertToLocale } from "@lib/util/money"
 import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import ItemFull from "@modules/cart/components/item-full"
+import { useMemo } from "react"
 import { B2BCart } from "types/global"
 
 type ItemsTemplateProps = {
@@ -16,6 +17,10 @@ const ItemsTemplate = ({
   showTotal = true,
 }: ItemsTemplateProps) => {
   const items = cart?.items
+  const totalQuantity = useMemo(
+    () => cart?.items?.reduce((acc, item) => acc + item.quantity, 0),
+    [cart?.items]
+  )
 
   return (
     <div className="w-full flex flex-col gap-y-2">
@@ -39,10 +44,10 @@ const ItemsTemplate = ({
       {showTotal && (
         <Container>
           <div className="flex items-start justify-between h-full self-stretch">
-            <Text>Total: {items?.length} items</Text>
+            <Text>Total: {totalQuantity} items</Text>
             <Text>
               {convertToLocale({
-                amount: cart?.item_subtotal,
+                amount: cart?.item_total,
                 currency_code: cart?.currency_code,
               })}
             </Text>

@@ -11,6 +11,7 @@ export enum SpendingLimitResetFrequency {
 
 export interface B2BCart extends HttpTypes.StoreCart {
   company: QueryCompany
+  promotions?: HttpTypes.StorePromotion[]
 }
 
 export interface B2BOrder extends HttpTypes.StoreOrder {

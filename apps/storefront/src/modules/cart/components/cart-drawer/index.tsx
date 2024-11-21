@@ -11,8 +11,9 @@ import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
 import { usePathname } from "next/navigation"
-import { startTransition, useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCustomer } from "types/global"
+import AppliedPromotions from "../applied-promotions"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
@@ -30,13 +31,14 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
   const { cart } = useCart()
 
   const items = cart?.items || []
+  const promotions = cart?.promotions || []
 
   const totalItems =
     items?.reduce((acc, item) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
+  const subtotal = useMemo(() => cart?.item_total ?? 0, [cart])
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -135,6 +137,11 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
                 : "Your cart is empty"}
             </Drawer.Title>
           </Drawer.Header>
+          {promotions.length > 0 && (
+            <div className="p-4">
+              <AppliedPromotions promotions={promotions} />
+            </div>
+          )}
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
             {cart && cart.items && (
               <>
