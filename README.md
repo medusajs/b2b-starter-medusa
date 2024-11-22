@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<p align="center">Customizable B2B ecommerce monorepo built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
+<p align="center">Customizable B2B ecommerce built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
@@ -43,11 +43,12 @@
 
 ## Prerequisites
 
-⚠️ We use turborepo to manage this monorepo and have tested this only with the below versions:
+⚠️ We have tested this repo with the below versions:
 
-- ✅ node 20
+- ✅ Node 20
 - ✅ Postgres 15
 - ✅ Medusa 2.0
+- ✅ Next.js 15
 
 &nbsp;
 
@@ -134,9 +135,6 @@ cp .env.template .env
 
 # Install dependencies
 yarn install
-
-# Start Medusa storefront
-yarn dev
 ```
 
 #### Setup publishable key
@@ -146,8 +144,13 @@ yarn dev
     - <b>email</b>: `admin@test.com`
     - <b>password</b>: `supersecret`
 - ✅ Copy token key of "Webshop"
-- ✅ Open file - `apps/storefront/.env`
+- ✅ Open file - `storefront/.env`
 - ✅ Add token to this var - `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`
+
+```
+# Start Medusa storefront
+yarn dev
+```
 
 Visit the following links to see the Medusa storefront & admin
 
