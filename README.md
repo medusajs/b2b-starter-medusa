@@ -45,7 +45,6 @@
 
 ⚠️ We use turborepo to manage this monorepo and have tested this only with the below versions:
 
-- ✅ yarn version 3.5
 - ✅ node 20
 - ✅ Postgres 15
 - ✅ Medusa 2.0
@@ -102,19 +101,41 @@
 
 ## Quickstart
 
-#### Setup storefront & API
+#### Setup Medusa project
 
 ```bash
 # Clone the repository
 git clone https://github.com/medusajs/b2b-starter-medusa.git
 
+## Setup Backend
+
 # Go to the folder
-cd ./b2b-starter-medusa
+cd ./backend
 
-# Install dependencies & setup medusa storefront & backend
-yarn install && yarn setup
+# Clone .env.template
+cp .env.template .env
 
-# Start Servers - storefront & backend
+# Install dependencies
+yarn install
+
+# Install dependencies, setup database & seed data
+yarn install && yarn medusa db:create && yarn medusa db:migrate && yarn run seed && yarn medusa user -e admin@test.com -p supersecret -i admin
+
+# Start Medusa project - backend & admin
+yarn dev
+
+## Setup Storefront
+
+# Go to folder
+cd ../storefront
+
+# Clone .env.template
+cp .env.template .env
+
+# Install dependencies
+yarn install
+
+# Start Medusa storefront
 yarn dev
 ```
 
