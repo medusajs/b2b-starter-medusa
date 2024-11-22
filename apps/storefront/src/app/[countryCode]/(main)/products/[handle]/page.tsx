@@ -1,4 +1,5 @@
 import { sdk } from "@lib/config"
+import { getAuthHeaders } from "@lib/data/cookies"
 import { getProductByHandle } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
@@ -21,7 +22,7 @@ export async function generateStaticParams() {
 
     const { products } = await sdk.store.product.list(
       { fields: "handle" },
-      { next: { tags: ["products"] } }
+      { next: { tags: ["products"] }, ...(await getAuthHeaders()) }
     )
 
     return countryCodes

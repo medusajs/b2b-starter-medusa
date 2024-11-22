@@ -11,6 +11,7 @@ import {
   getAuthHeaders,
   getCacheOptions,
   getCacheTag,
+  getCartId,
   removeAuthToken,
   setAuthToken,
 } from "./cookies"
@@ -110,6 +111,8 @@ export async function signup(_currentState: unknown, formData: FormData) {
     const cacheTag = await getCacheTag("customers")
     revalidateTag(cacheTag)
 
+    await transferCart()
+
     return {
       customer: createdCustomer,
       company: createdCompany,
@@ -135,6 +138,12 @@ export async function login(_currentState: unknown, formData: FormData) {
   } catch (error: any) {
     return error.toString()
   }
+
+  try {
+    await transferCart()
+  } catch (error: any) {
+    return error.toString()
+  }
 }
 
 export async function signout(countryCode: string, customerId: string) {
@@ -145,6 +154,24 @@ export async function signout(countryCode: string, customerId: string) {
   const customerCacheTag = await getCacheTag("customers")
   revalidateTag(customerCacheTag)
   redirect(`/${countryCode}/account`)
+}
+
+export async function transferCart() {
+  const cartId = await getCartId()
+
+  if (!cartId) {
+    return
+  }
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  await sdk.store.cart.transferCart(cartId, {}, headers)
+
+  const cartCacheTag = await getCacheTag("carts")
+
+  revalidateTag(cartCacheTag)
 }
 
 export const addCustomerAddress = async (

@@ -3562,6 +3562,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@medusajs/js-sdk@npm:2.0.5-preview-20241120121037":
+  version: 2.0.5-preview-20241120121037
+  resolution: "@medusajs/js-sdk@npm:2.0.5-preview-20241120121037"
+  dependencies:
+    "@medusajs/types": "npm:2.0.5-preview-20241120121037"
+    fetch-event-stream: "npm:^0.1.5"
+    qs: "npm:^6.12.1"
+  checksum: 10/eb2f8f629ae892faf1502077929f61093189fa909881b3cd5e544ce6a7199ea4eae4c0333c7ff6c1e57a610a582ea97516c880a943633657ac61f4172a3081e2
+  languageName: node
+  linkType: hard
+
 "@medusajs/link-modules@npm:^2.0.4":
   version: 2.0.4
   resolution: "@medusajs/link-modules@npm:2.0.4"
@@ -3937,7 +3948,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@medusajs/types@npm:^2.0.4, @medusajs/types@npm:latest":
+"@medusajs/types@npm:2.0.5-preview-20241120121037":
+  version: 2.0.5-preview-20241120121037
+  resolution: "@medusajs/types@npm:2.0.5-preview-20241120121037"
+  dependencies:
+    bignumber.js: "npm:^9.1.2"
+  peerDependencies:
+    awilix: ^8.0.1
+    ioredis: ^5.4.1
+    vite: ^5.2.11
+  peerDependenciesMeta:
+    ioredis:
+      optional: true
+    vite:
+      optional: true
+  checksum: 10/1b5bd0ddccd87f9b881738a018fdcf1ef7cb02e6c12d6d6ad4e0d8e307cb07041db2cf330096798275fc269495bfafb607775b46a597733ca72fb278eb74c9a3
+  languageName: node
+  linkType: hard
+
+"@medusajs/types@npm:^2.0.4":
   version: 2.0.4
   resolution: "@medusajs/types@npm:2.0.4"
   dependencies:
@@ -15156,8 +15185,8 @@ __metadata:
     "@hookform/error-message": "npm:^2.0.0"
     "@hookform/resolvers": "npm:^3.9.0"
     "@medusajs/icons": "npm:latest"
-    "@medusajs/js-sdk": "npm:latest"
-    "@medusajs/types": "npm:latest"
+    "@medusajs/js-sdk": "npm:2.0.5-preview-20241120121037"
+    "@medusajs/types": "npm:2.0.5-preview-20241120121037"
     "@medusajs/ui": "npm:latest"
     "@medusajs/ui-preset": "npm:latest"
     "@meilisearch/instant-meilisearch": "npm:^0.7.1"
