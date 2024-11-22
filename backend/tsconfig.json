@@ -33,7 +33,6 @@
     "**/__fixtures__",
     "node_modules",
     "build",
-    ".cache",
-    ".turbo"
+    ".cache"
   ]
 }

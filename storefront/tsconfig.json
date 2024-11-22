@@ -19,7 +19,8 @@
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"],
-      "@types/*": ["./src/types/*"]
+      "@starter/types": ["types"],
+      "@starter/types/*": ["types/*"]
     },
     "plugins": [
       {

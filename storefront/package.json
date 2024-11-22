@@ -9,9 +9,9 @@
     "medusa-b2b-storefront"
   ],
   "scripts": {
-    "dev": "next dev --turbopack -p 8000",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8000",
+    "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build"
   },
