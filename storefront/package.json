@@ -9,9 +9,9 @@
     "medusa-b2b-storefront"
   ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8000",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build"
   },
@@ -25,8 +25,8 @@
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^3.9.0",
     "@medusajs/icons": "latest",
-    "@medusajs/js-sdk": "2.0.5-preview-20241120121037",
-    "@medusajs/types": "2.0.5-preview-20241120121037",
+    "@medusajs/js-sdk": "latest",
+    "@medusajs/types": "latest",
     "@medusajs/ui": "latest",
     "@meilisearch/instant-meilisearch": "^0.7.1",
     "@paypal/paypal-js": "^5.0.6",
