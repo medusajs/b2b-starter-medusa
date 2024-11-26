@@ -1,8 +1,8 @@
 import repeat from "@lib/util/repeat"
 import SkeletonProductPreview from "@modules/skeletons/components/skeleton-product-preview"
 
-const SkeletonProductGrid = ({ count = 12 }: { count?: number }) => {
-  const countToRender = Math.min(count, 12)
+const SkeletonProductGrid = ({ count = 8 }: { count?: number }) => {
+  const countToRender = Math.min(count, 8)
 
   return (
     <ul

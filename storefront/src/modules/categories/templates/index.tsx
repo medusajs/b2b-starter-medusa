@@ -1,20 +1,16 @@
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
+import { ArrowUturnLeft } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
+import { Container, Text } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import CategoryBreadcrumb from "../category-breadcrumb"
-import { Container, Text } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import {
-  ArrowUpRightMicro,
-  ArrowUpRightMini,
-  ArrowUturnLeft,
-} from "@medusajs/icons"
-import Button from "@modules/common/components/button"
 
 export default function CategoryTemplate({
   categories,
