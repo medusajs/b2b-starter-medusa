@@ -18,7 +18,7 @@ import { formatAmount } from "../../../utils";
 const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, loading, refetch } = useCompany(companyId!, {
-    fields: "*employees,*employees.customer,*employees.company",
+    fields: "*employees,*employees.customer,*employees.company,*customer_group",
   });
 
   const company = data?.company;
@@ -82,6 +82,20 @@ const CompanyDetails = () => {
                   </Table.Cell>
                   <Table.Cell>
                     {company?.currency_code?.toUpperCase()}
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Customer Group
+                  </Table.Cell>
+                  <Table.Cell>
+                    {company?.customer_group ? (
+                      <Badge size="small" color="blue">
+                        {company?.customer_group?.name}
+                      </Badge>
+                    ) : (
+                      "-"
+                    )}
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>

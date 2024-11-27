@@ -6,19 +6,11 @@ import {
   Label,
   Text,
 } from "@medusajs/ui";
+import { AdminCreateEmployee } from "@starter/types";
 import { useState } from "react";
-import { currencySymbolMap } from "../../utils";
 import { CompanyDTO } from "src/modules/company/types/common";
-import {
-  CreateEmployeeDTO,
-  UpdateEmployeeDTO,
-} from "src/modules/company/types/mutations";
+import { currencySymbolMap } from "../../utils";
 import { CoolSwitch } from "../common";
-import {
-  AdminCreateEmployee,
-  ModuleCreateEmployee,
-  StoreCreateEmployee,
-} from "@starter/types";
 
 export function EmployeesCreateForm({
   handleSubmit,

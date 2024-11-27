@@ -1,4 +1,4 @@
-import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
+import { EllipsisHorizontal, Link, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { CompanyDTO } from "src/modules/company/types/common";
 import { useDeleteCompany } from "../../hooks/companies";
 import { DeletePrompt } from "../common/delete-prompt";
 import { CompanyUpdateDrawer } from "./";
+import { CompanyCustomerGroupDrawer } from "./company-customer-group-drawer";
 
 export const CompanyActionsMenu = ({
   company,
@@ -15,6 +16,7 @@ export const CompanyActionsMenu = ({
   refetch: () => void;
 }) => {
   const [editOpen, setEditOpen] = useState(false);
+  const [customerGroupOpen, setCustomerGroupOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const { mutate: mutateDelete, loading: loadingDelete } = useDeleteCompany(
     company.id
@@ -42,7 +44,14 @@ export const CompanyActionsMenu = ({
             onClick={() => setEditOpen(true)}
           >
             <PencilSquare />
-            Edit
+            Edit details
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className="gap-x-2"
+            onClick={() => setCustomerGroupOpen(true)}
+          >
+            <Link />
+            Manage customer group
           </DropdownMenu.Item>
           <DropdownMenu.Separator />
           <DropdownMenu.Item
@@ -59,6 +68,12 @@ export const CompanyActionsMenu = ({
         refetch={refetch}
         open={editOpen}
         setOpen={setEditOpen}
+      />
+      <CompanyCustomerGroupDrawer
+        company={company}
+        refetch={refetch}
+        open={customerGroupOpen}
+        setOpen={setCustomerGroupOpen}
       />
       <DeletePrompt
         handleDelete={handleDelete}

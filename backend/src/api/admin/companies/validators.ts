@@ -33,9 +33,28 @@ export const AdminUpdateCompany = z
     state: z.string().optional(),
     zip: z.string().optional(),
     country: z.string().optional(),
-    logo_url: z.string().optional(),
+    logo_url: z.string().optional().nullable(),
   })
   .strict();
+
+export type AdminGetCustomerGroupParamsType = z.infer<
+  typeof AdminGetCustomerGroupParams
+>;
+export const AdminGetCustomerGroupParams = createSelectParams();
+
+export type AdminAddCompanyToCustomerGroupType = z.infer<
+  typeof AdminAddCompanyToCustomerGroup
+>;
+export const AdminAddCompanyToCustomerGroup = z.object({
+  group_id: z.string(),
+});
+
+export type AdminRemoveCompanyFromCustomerGroupType = z.infer<
+  typeof AdminRemoveCompanyFromCustomerGroup
+>;
+export const AdminRemoveCompanyFromCustomerGroup = z.object({
+  group_id: z.string(),
+});
 
 /* Employee Validators */
 

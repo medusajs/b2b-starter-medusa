@@ -30,8 +30,6 @@ export default function CategoryTemplate({
 
   if (!currentCategory || !countryCode) notFound()
 
-  console.log(currentCategory.products)
-
   return (
     <div className="bg-neutral-100">
       <div

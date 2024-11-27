@@ -142,7 +142,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
               <Select.Value placeholder="Select a currency" />
             </Select.Trigger>
             <Select.Content>
-              {currencies?.map((currency) => (
+              {[...new Set(currencies)].map((currency) => (
                 <Select.Item key={currency} value={currency}>
                   {currency.toUpperCase()} ({currencySymbolMap[currency]})
                 </Select.Item>

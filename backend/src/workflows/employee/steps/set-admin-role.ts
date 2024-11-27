@@ -15,7 +15,7 @@ export const setAdminRoleStep = createStep(
     } = await query.graph(
       {
         entity: "employee",
-        fields: ["id"],
+        fields: ["id", "is_admin", "customer.has_account"],
         filters: {
           id: input.employeeId,
         },
@@ -23,7 +23,7 @@ export const setAdminRoleStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    if (employee.is_admin === true) {
+    if (employee.is_admin === true || employee.customer.has_account === false) {
       return new StepResponse(undefined, input);
     }
 
@@ -44,7 +44,7 @@ export const setAdminRoleStep = createStep(
       data: [providerIdentity],
     } = await query.graph({
       entity: "provider_identity",
-      fields: ["id"],
+      fields: ["*"],
       filters: {
         provider: "emailpass",
         entity_id: customer.email,
@@ -55,14 +55,16 @@ export const setAdminRoleStep = createStep(
       Modules.AUTH
     );
 
-    await authModuleService.updateProviderIdentities([
-      {
-        id: providerIdentity.id,
-        user_metadata: {
-          role: "company_admin",
+    if (providerIdentity) {
+      await authModuleService.updateProviderIdentities([
+        {
+          id: providerIdentity.id,
+          user_metadata: {
+            role: "company_admin",
+          },
         },
-      },
-    ]);
+      ]);
+    }
 
     return new StepResponse(undefined, input);
   },
