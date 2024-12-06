@@ -7,7 +7,7 @@ import { updateOrderStep } from "../steps/update-order";
   to an active order.
 */
 export const updateOrderWorkflow = createWorkflow(
-  "update-order-workflow",
+  "b2b-update-order-workflow",
   function (input: { id: string; is_draft_order: boolean; status: string }) {
     useRemoteQueryStep({
       entry_point: "order",
