@@ -53,6 +53,15 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-last-name-input"
         />
         <Input
+            label="Phone"
+            name="billing_address.phone"
+            autoComplete="tel"
+            value={formData["billing_address.phone"]}
+            onChange={handleChange}
+            required
+            data-testid="billing-phone-input"
+        />
+        <Input
           label="Company name"
           name="billing_address.company"
           defaultValue={cart?.company?.name}
@@ -90,6 +99,15 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
             onChange={handleChange}
             required
             data-testid="billing-city-input"
+          />
+          <Input
+              label="Province"
+              name="billing_address.province"
+              autoComplete="address-level1"
+              value={formData["billing_address.province"]}
+              onChange={handleChange}
+              required
+              data-testid="billing-province-input"
           />
           <CountrySelect
             name="billing_address.country_code"
