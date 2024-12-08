@@ -142,7 +142,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
               <AppliedPromotions promotions={promotions} />
             </div>
           )}
-          <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
+          <div className="flex flex-col gap-y-4 h-full self-stretch justify-between overflow-auto">
             {cart && cart.items && (
               <>
                 <ItemsTemplate
