@@ -1,8 +1,9 @@
 "use server"
 
 import { sdk } from "@lib/config"
+import { HttpTypes } from "@medusajs/types"
+import { StoreFreeShippingPrice } from "@starter/types/shipping-option/http"
 import { getAuthHeaders, getCacheOptions } from "./cookies"
-import { HttpTypes, StoreShippingOption } from "@medusajs/types"
 
 export const listCartShippingMethods = async (cartId: string) => {
   const headers = {
@@ -27,4 +28,27 @@ export const listCartShippingMethods = async (cartId: string) => {
     .catch(() => {
       return null
     })
+}
+
+export const listCartFreeShippingPrices = async (
+  cartId: string
+): Promise<StoreFreeShippingPrice[]> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("freeShipping")),
+  }
+
+  return sdk.client
+    .fetch<{
+      prices: StoreFreeShippingPrice[]
+    }>(`/store/free-shipping/prices`, {
+      method: "GET",
+      query: { cart_id: cartId },
+      headers,
+      next,
+    })
+    .then((data) => data.prices)
 }
