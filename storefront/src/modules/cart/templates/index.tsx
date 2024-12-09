@@ -2,14 +2,13 @@
 
 import { useCart } from "@lib/context/cart-context"
 import { checkSpendingLimit } from "@lib/util/check-spending-limit"
-import { Badge, Container, Heading, Text } from "@medusajs/ui"
+import { Heading } from "@medusajs/ui"
+import { useMemo } from "react"
 import { B2BCustomer } from "types/global"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
 import Summary from "./summary"
-import { useMemo } from "react"
-import AppliedPromotions from "../components/applied-promotions"
 
 const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   const { cart } = useCart()

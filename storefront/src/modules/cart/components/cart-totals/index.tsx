@@ -1,10 +1,10 @@
 "use client"
 
+import { useCart } from "@lib/context/cart-context"
 import { convertToLocale } from "@lib/util/money"
 import { Text } from "@medusajs/ui"
-import React from "react"
 import Divider from "@modules/common/components/divider"
-import { useCart } from "@lib/context/cart-context"
+import React from "react"
 
 const CartTotals: React.FC = () => {
   const { isUpdatingCart, cart } = useCart()
