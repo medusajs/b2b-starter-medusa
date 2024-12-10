@@ -4,15 +4,15 @@ import { useCart } from "@lib/context/cart-context"
 import { getCheckoutStep } from "@lib/util/get-checkout-step"
 import { ExclamationCircle } from "@medusajs/icons"
 import { Container } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
 import CartTotals from "@modules/cart/components/cart-totals"
+import PromotionCode from "@modules/checkout/components/promotion-code"
+import Button from "@modules/common/components/button"
+import Divider from "@modules/common/components/divider"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { B2BCustomer } from "types/global"
 import CartToCsvButton from "../components/cart-to-csv-button"
-import PromotionCode from "@modules/checkout/components/promotion-code"
-import Divider from "@modules/common/components/divider"
 
 type SummaryProps = {
   customer: B2BCustomer | null
