@@ -1,48 +1,27 @@
-# Dependencies
-node_modules
-.pnp
-.pnp.js
+/dist
+.env
+.DS_Store
+/uploads
+/node_modules
+yarn-error.log
 
-# Yarn 2+
+.idea
+
+coverage
+
+!src/**
+
+./tsconfig.tsbuildinfo
+package-lock.json
+medusa-db.sql
+build
+.cache
+
 .yarn/*
-.yarn
-.yarnrc.yml
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
-# Testing
-coverage
-
-# Next.js
-**/.next/
-**/out/
-
-# Production
-**/build
-**/dist
-
-# Misc
-.DS_Store
-*.pem
-
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Local env files
-**/.env
-**/.env.local
-**/.env.development.local
-**/.env.test.local
-**/.env.production.local
-
-# Turbo
-.turbo
-
-# vercel
-.vercel
+.medusa
