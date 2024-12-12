@@ -50,6 +50,7 @@ export const listCartFreeShippingPrices = async (
       query: { cart_id: cartId },
       headers,
       next,
+      cache: "force-cache",
     })
     .then((data) => data.prices)
 }
