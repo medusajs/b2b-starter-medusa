@@ -100,6 +100,7 @@ export const acceptQuote = async (id: string) => {
       method: "POST",
       body: {},
       headers,
+      cache: "force-cache",
     })
     .finally(async () => {
       const tags = await Promise.all([
@@ -121,6 +122,7 @@ export const rejectQuote = async (id: string) => {
       method: "POST",
       body: {},
       headers,
+      cache: "force-cache",
     })
     .finally(async () => {
       const tags = await Promise.all([
@@ -145,6 +147,7 @@ export const createQuoteMessage = async (
       method: "POST",
       body,
       headers,
+      cache: "force-cache",
     })
     .finally(async () => {
       const tags = await Promise.all([

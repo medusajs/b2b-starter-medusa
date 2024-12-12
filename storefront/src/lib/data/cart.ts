@@ -41,6 +41,7 @@ export async function retrieveCart() {
       },
       headers,
       next,
+      cache: "force-cache",
     })
     .then(({ cart }) => cart as B2BCart)
     .catch(() => {

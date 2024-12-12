@@ -34,6 +34,7 @@ export const getProductsById = async ({
       },
       headers,
       next,
+      cache: "force-cache",
     })
     .then(({ products }) => products)
 }
@@ -58,6 +59,7 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
       },
       headers,
       next,
+      cache: "force-cache",
     })
     .then(({ products }) => products[0])
 }
@@ -109,6 +111,7 @@ export const listProducts = async ({
         },
         headers,
         next,
+        cache: "force-cache",
       }
     )
     .then(({ products, count }) => {
