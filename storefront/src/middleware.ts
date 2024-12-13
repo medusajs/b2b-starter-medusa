@@ -106,14 +106,12 @@ async function setCacheId(request: NextRequest, response: NextResponse) {
 }
 
 /**
- * Middleware to handle region selection and onboarding status.
+ * Middleware to handle region selection and cache id.
  */
 export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
-  const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
-  const onboardingCookie = request.cookies.get("_medusa_onboarding")
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
 
@@ -132,12 +130,7 @@ export async function middleware(request: NextRequest) {
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
   // check if one of the country codes is in the url
-  if (
-    urlHasCountryCode &&
-    (!isOnboarding || onboardingCookie) &&
-    (!cartId || cartIdCookie) &&
-    cacheIdCookie
-  ) {
+  if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {
     return NextResponse.next()
   }
 
@@ -162,11 +155,6 @@ export async function middleware(request: NextRequest) {
     redirectUrl = `${redirectUrl}&step=address`
     response = NextResponse.redirect(`${redirectUrl}`, 307)
     response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
-  }
-
-  // Set a cookie to indicate that we're onboarding. This is used to show the onboarding flow.
-  if (isOnboarding) {
-    response.cookies.set("_medusa_onboarding", "true", { maxAge: 60 * 60 * 24 })
   }
 
   return response

@@ -3,6 +3,7 @@
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
+import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { B2BCustomer } from "types/global"
@@ -132,6 +133,7 @@ export async function login(_currentState: unknown, formData: FormData) {
     await sdk.auth
       .login("customer", "emailpass", { email, password })
       .then(async (token) => {
+        track("customer_logged_in")
         setAuthToken(token as string)
         const cacheTag = await getCacheTag("customers")
         revalidateTag(cacheTag)
@@ -154,6 +156,7 @@ export async function signout(countryCode: string, customerId: string) {
   revalidateTag(authCacheTag)
   const customerCacheTag = await getCacheTag("customers")
   revalidateTag(customerCacheTag)
+  track("customer_logged_out")
   redirect(`/${countryCode}/account`)
 }
 
