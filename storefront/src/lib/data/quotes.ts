@@ -30,10 +30,12 @@ export const createQuote = async () => {
       body: { cart_id: cartId },
       headers,
     })
-    .then(({ quote }) => {
+    .then((quote) => {
       track("quote_created", {
-        quote_id: quote.id,
+        quote_id: quote.quote.id,
       })
+
+      return quote
     })
 }
 
@@ -109,10 +111,12 @@ export const acceptQuote = async (id: string) => {
       headers,
       cache: "force-cache",
     })
-    .then(({ quote }) => {
+    .then((res) => {
       track("quote_accepted", {
-        quote_id: quote.id,
+        quote_id: res.quote.id,
       })
+
+      return res
     })
     .finally(async () => {
       const tags = await Promise.all([
@@ -161,10 +165,12 @@ export const createQuoteMessage = async (
       headers,
       cache: "force-cache",
     })
-    .then(({ quote }) => {
+    .then((res) => {
       track("quote_message_created", {
-        quote_id: quote.id,
+        quote_id: res.quote.id,
       })
+
+      return res
     })
     .finally(async () => {
       const tags = await Promise.all([
