@@ -1,5 +1,6 @@
 import { createQuote } from "@lib/data/quotes"
 import { XCircle } from "@medusajs/icons"
+import { toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import * as Dialog from "@radix-ui/react-dialog"
 import { useParams, useRouter } from "next/navigation"
@@ -21,8 +22,9 @@ export const RequestQuoteConfirmation = ({
       const { quote } = await createQuote()
 
       router.push(`/${countryCode}/account/quotes/details/${quote.id}`)
-    } finally {
+    } catch (error) {
       setRequesting(false)
+      toast.error("Failed to create quote request")
     }
   }
 
