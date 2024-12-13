@@ -3,6 +3,7 @@
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
+import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { B2BCart } from "types/global"
@@ -490,6 +491,9 @@ export async function placeOrder() {
     .catch(medusaError)
 
   if (cartRes?.type === "order") {
+    track("order_completed", {
+      order_id: cartRes.order.id,
+    })
     const countryCode =
       cartRes.order.shipping_address?.country_code?.toLowerCase()
     removeCartId()

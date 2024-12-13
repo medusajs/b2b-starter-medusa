@@ -15,6 +15,7 @@ import {
   StoreQuotesResponse,
 } from "@starter/types"
 import { revalidateTag } from "next/cache"
+import { track } from "@vercel/analytics/server"
 
 export const createQuote = async () => {
   const headers = {
@@ -23,11 +24,17 @@ export const createQuote = async () => {
 
   const cartId = await getCartId()
 
-  return sdk.client.fetch<StoreQuoteResponse>(`/store/quotes`, {
-    method: "POST",
-    body: { cart_id: cartId },
-    headers,
-  })
+  return sdk.client
+    .fetch<StoreQuoteResponse>(`/store/quotes`, {
+      method: "POST",
+      body: { cart_id: cartId },
+      headers,
+    })
+    .then(({ quote }) => {
+      track("quote_created", {
+        quote_id: quote.id,
+      })
+    })
 }
 
 export const fetchQuotes = async (query?: QuoteFilterParams) => {
@@ -102,6 +109,11 @@ export const acceptQuote = async (id: string) => {
       headers,
       cache: "force-cache",
     })
+    .then(({ quote }) => {
+      track("quote_accepted", {
+        quote_id: quote.id,
+      })
+    })
     .finally(async () => {
       const tags = await Promise.all([
         getCacheTag("quotes"),
@@ -148,6 +160,11 @@ export const createQuoteMessage = async (
       body,
       headers,
       cache: "force-cache",
+    })
+    .then(({ quote }) => {
+      track("quote_message_created", {
+        quote_id: quote.id,
+      })
     })
     .finally(async () => {
       const tags = await Promise.all([
