@@ -1,8 +1,9 @@
 import { listCategories } from "@lib/data/categories"
-import { listRegions } from "@lib/data/regions"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import StoreTemplate from "@modules/store/templates"
 import { Metadata } from "next"
+
+export const dynamicParams = true
 
 export const metadata: Metadata = {
   title: "Store",
@@ -20,8 +21,8 @@ type Params = {
 }
 
 export default async function StorePage(props: Params) {
-  const params = await props.params;
-  const searchParams = await props.searchParams;
+  const params = await props.params
+  const searchParams = await props.searchParams
   const { sortBy, page } = searchParams
 
   const categories = await listCategories()
