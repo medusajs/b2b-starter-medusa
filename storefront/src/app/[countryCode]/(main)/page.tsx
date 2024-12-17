@@ -5,6 +5,9 @@ import SkeletonFeaturedProducts from "@modules/skeletons/templates/skeleton-feat
 import { Metadata } from "next"
 import { Suspense } from "react"
 
+export const experimental_ppr = true
+export const dynamicParams = true
+
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
   description:

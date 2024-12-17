@@ -6,6 +6,9 @@ import ProductTemplate from "@modules/products/templates"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
+export const experimental_ppr = true
+export const dynamicParams = true
+
 type Props = {
   params: { countryCode: string; handle: string }
 }
