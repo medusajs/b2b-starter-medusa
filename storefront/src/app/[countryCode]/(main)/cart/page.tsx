@@ -4,8 +4,6 @@ import { retrieveCustomer } from "@lib/data/customer"
 import CartTemplate from "@modules/cart/templates"
 import { Metadata } from "next"
 
-export const experimental_ppr = true
-
 export const metadata: Metadata = {
   title: "Cart",
   description: "View your cart",

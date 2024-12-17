@@ -7,7 +7,6 @@ import { StoreCollection, StoreRegion } from "@medusajs/types"
 import CollectionTemplate from "@modules/collections/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
-export const experimental_ppr = true
 export const dynamicParams = true
 
 type Props = {

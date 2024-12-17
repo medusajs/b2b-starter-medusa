@@ -3,7 +3,6 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import StoreTemplate from "@modules/store/templates"
 import { Metadata } from "next"
 
-export const experimental_ppr = true
 export const dynamicParams = true
 
 export const metadata: Metadata = {
