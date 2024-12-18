@@ -10,6 +10,8 @@ import ItemsTemplate from "@modules/cart/templates/items"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ShoppingBag from "@modules/common/icons/shopping-bag"
+import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge"
+import { StoreFreeShippingPrice } from "@starter/types/shipping-option/http"
 import { usePathname } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCustomer } from "types/global"
@@ -17,9 +19,14 @@ import AppliedPromotions from "../applied-promotions"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
+  freeShippingPrices: StoreFreeShippingPrice[]
 }
 
-const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
+const CartDrawer = ({
+  customer,
+  freeShippingPrices,
+  ...props
+}: CartDrawerProps) => {
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -38,7 +45,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = useMemo(() => cart?.item_total ?? 0, [cart])
+  const subtotal = useMemo(() => cart?.item_subtotal ?? 0, [cart])
 
   const spendLimitExceeded = useMemo(
     () => checkSpendingLimit(cart, customer),
@@ -142,7 +149,7 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
               <AppliedPromotions promotions={promotions} />
             </div>
           )}
-          <div className="flex flex-col gap-y-4 h-full self-stretch justify-between">
+          <div className="flex flex-col gap-y-4 h-full self-stretch justify-between overflow-auto">
             {cart && cart.items && (
               <>
                 <ItemsTemplate
@@ -151,6 +158,13 @@ const CartDrawer = ({ customer, ...props }: CartDrawerProps) => {
                   showTotal={false}
                 />
                 <div className="flex flex-col gap-y-3 w-full p-4">
+                  {cart && freeShippingPrices && (
+                    <FreeShippingPriceNudge
+                      variant="inline"
+                      cart={cart}
+                      freeShippingPrices={freeShippingPrices}
+                    />
+                  )}
                   <div className="flex justify-between">
                     <Text>Subtotal</Text>
                     <Text>

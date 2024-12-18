@@ -1,7 +1,7 @@
 {
-  "name": "medusa-starter-default",
+  "name": "medusa-b2b-starter",
   "version": "0.0.1",
-  "description": "A starter for Medusa projects.",
+  "description": "A starter for Medusa B2B projects.",
   "author": "Medusa (https://medusajs.com)",
   "license": "MIT",
   "keywords": [
@@ -55,5 +55,6 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "yarn@4.4.0"
 }

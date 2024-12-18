@@ -113,6 +113,15 @@ const ShippingAddressForm = ({
           onChange={handleChange}
           required
           data-testid="shipping-last-name-input"
+        />        
+        <Input
+            label="Phone"
+            name="shipping_address.phone"
+            autoComplete="tel"
+            value={formData["shipping_address.phone"]}
+            onChange={handleChange}
+            required
+            data-testid="shipping-phone-input"
         />
         <Input
           label="Company name"
@@ -152,6 +161,15 @@ const ShippingAddressForm = ({
             onChange={handleChange}
             required
             data-testid="shipping-city-input"
+          />
+          <Input
+            label="Province"
+            name="shipping_address.province"
+            autoComplete="address-level1"
+            value={formData["shipping_address.province"]}
+            onChange={handleChange}
+            required
+            data-testid="shipping-province-input"
           />
           <CountrySelect
             className="col-span-2"

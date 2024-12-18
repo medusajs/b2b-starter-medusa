@@ -47,6 +47,9 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
               {order.shipping_address?.first_name}{" "}
               {order.shipping_address?.last_name}
             </Text>
+            <Text className="txt-medium text-ui-fg-subtle capitalize">
+              {order.shipping_address?.phone}
+            </Text>
             <Text className="txt-medium text-ui-fg-subtle">
               {order.shipping_address?.address_1}{" "}
               {order.shipping_address?.address_2}
@@ -54,6 +57,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
             <Text className="txt-medium text-ui-fg-subtle">
               {order.shipping_address?.postal_code},{" "}
               {order.shipping_address?.city},{" "}
+              {order.shipping_address?.province},{" "}
               {order.shipping_address?.country_code?.toUpperCase()}
             </Text>
           </div>

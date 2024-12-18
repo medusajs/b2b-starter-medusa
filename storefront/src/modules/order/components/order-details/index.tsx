@@ -14,7 +14,7 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
         Details
       </Heading>
 
-      <div className="text-sm text-ui-fg-subtle">
+      <div className="text-sm text-ui-fg-subtle overflow-auto">
         <div className="flex justify-between">
           <Text>Order Number</Text>
           <Text>#{order.display_id}</Text>

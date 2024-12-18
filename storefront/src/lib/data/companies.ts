@@ -10,6 +10,7 @@ import {
   StoreUpdateCompany,
   StoreUpdateEmployee,
 } from "@starter/types"
+import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 
 export const retrieveCompany = async (companyId: string) => {
@@ -49,6 +50,11 @@ export const createCompany = async (data: StoreCreateCompany) => {
       headers,
     }
   )
+
+  track("company_created", {
+    company_id: company.id,
+    company_name: company.name,
+  })
 
   const cacheTag = await getCacheTag("companies")
   revalidateTag(cacheTag)
@@ -93,6 +99,10 @@ export const createEmployee = async (data: StoreCreateEmployee) => {
       headers,
     }
   )
+
+  track("employee_created", {
+    employee_id: employee.employee.id,
+  })
 
   const cacheTag = await getCacheTag("companies")
   revalidateTag(cacheTag)
