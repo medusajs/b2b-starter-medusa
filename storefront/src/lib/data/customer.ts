@@ -212,8 +212,7 @@ export const addCustomerAddress = async (
 }
 
 export const deleteCustomerAddress = async (
-  addressId: string,
-  customerId: string
+  addressId: string
 ): Promise<void> => {
   const headers = {
     ...(await getAuthHeaders()),
