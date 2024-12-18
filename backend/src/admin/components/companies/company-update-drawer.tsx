@@ -17,7 +17,14 @@ export function CompanyUpdateDrawer({
 }) {
   const { mutate, loading, error } = useUpdateCompany(company.id);
 
-  const { created_at, updated_at, id, employees, ...currentData } = company;
+  const {
+    created_at,
+    updated_at,
+    id,
+    employees,
+    customer_group,
+    ...currentData
+  } = company;
 
   const handleSubmit = async (formData: UpdateCompanyDTO) => {
     await mutate(formData).then(() => {

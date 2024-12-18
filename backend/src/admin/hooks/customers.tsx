@@ -1,6 +1,7 @@
+import { HttpTypes } from "@medusajs/framework/types";
 import { MedusaClient } from "./client";
 import { AdminCreateCustomer, AdminCustomer } from "@medusajs/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useAdminCreateCustomer = () => {
   const [loading, setLoading] = useState(false);
@@ -24,4 +25,33 @@ export const useAdminCreateCustomer = () => {
   };
 
   return { mutate, loading, error };
+};
+
+export const useAdminCustomerGroups = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+  const [data, setData] = useState<HttpTypes.AdminCustomerGroup[]>([]);
+
+  useEffect(() => {
+    const fetchCustomerGroups = async () => {
+      setLoading(true);
+      setError(null);
+
+      await MedusaClient.admin.customerGroup
+        .list()
+        .then(({ customer_groups }) => {
+          setData(customer_groups);
+        })
+        .catch((err) => {
+          setError(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    };
+
+    fetchCustomerGroups();
+  }, []);
+
+  return { data, loading, error };
 };

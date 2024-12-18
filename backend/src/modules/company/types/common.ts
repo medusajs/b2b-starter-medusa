@@ -1,4 +1,4 @@
-import { CustomerDTO } from "@medusajs/framework/types";
+import { CustomerDTO, CustomerGroupDTO } from "@medusajs/framework/types";
 
 export interface CompanyDTO {
   id: string;
@@ -13,6 +13,7 @@ export interface CompanyDTO {
   logo_url: string | null;
   employees?: EmployeeDTO[];
   currency_code: string | null;
+  customer_group?: CustomerGroupDTO;
   created_at: Date;
   updated_at: Date;
 }

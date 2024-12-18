@@ -14,8 +14,10 @@ import {
   getCacheTag,
   getCartId,
   removeAuthToken,
+  removeCartId,
   setAuthToken,
 } from "./cookies"
+import { retrieveCart, updateCart } from "./cart"
 
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const headers = {
@@ -135,8 +137,30 @@ export async function login(_currentState: unknown, formData: FormData) {
       .then(async (token) => {
         track("customer_logged_in")
         setAuthToken(token as string)
-        const cacheTag = await getCacheTag("customers")
-        revalidateTag(cacheTag)
+
+        const [customerCacheTag, productsCacheTag, cartsCacheTag] =
+          await Promise.all([
+            getCacheTag("customers"),
+            getCacheTag("products"),
+            getCacheTag("carts"),
+          ])
+
+        revalidateTag(customerCacheTag)
+
+        const customer = await retrieveCustomer()
+        const cart = await retrieveCart()
+
+        if (customer?.employee?.company_id) {
+          await updateCart({
+            metadata: {
+              ...cart?.metadata,
+              company_id: customer.employee.company_id,
+            },
+          })
+        }
+
+        revalidateTag(productsCacheTag)
+        revalidateTag(cartsCacheTag)
       })
   } catch (error: any) {
     return error.toString()
@@ -152,11 +176,24 @@ export async function login(_currentState: unknown, formData: FormData) {
 export async function signout(countryCode: string, customerId: string) {
   await sdk.auth.logout()
   removeAuthToken()
-  const authCacheTag = await getCacheTag("auth")
-  revalidateTag(authCacheTag)
-  const customerCacheTag = await getCacheTag("customers")
-  revalidateTag(customerCacheTag)
   track("customer_logged_out")
+
+  // remove next line if want the cart to persist after logout
+  await removeCartId()
+
+  const [authCacheTag, customerCacheTag, productsCacheTag, cartsCacheTag] =
+    await Promise.all([
+      getCacheTag("auth"),
+      getCacheTag("customers"),
+      getCacheTag("products"),
+      getCacheTag("carts"),
+    ])
+
+  revalidateTag(authCacheTag)
+  revalidateTag(customerCacheTag)
+  revalidateTag(productsCacheTag)
+  revalidateTag(cartsCacheTag)
+
   redirect(`/${countryCode}/account`)
 }
 
@@ -235,7 +272,6 @@ export const updateCustomerAddress = async (
   formData: FormData
 ): Promise<any> => {
   const addressId = currentState.addressId as string
-  const customerId = currentState.customerId as string
 
   const address = {
     first_name: formData.get("first_name") as string,

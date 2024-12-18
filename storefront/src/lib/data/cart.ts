@@ -35,6 +35,7 @@ export async function retrieveCart() {
 
   return await sdk.client
     .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+      credentials: "include",
       method: "GET",
       query: {
         fields:

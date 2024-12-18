@@ -38,6 +38,12 @@ export interface ICompanyModuleService extends IModuleService {
     sharedContext?: Context
   ): Promise<ModuleCompany>;
 
+  retrieveCompany(
+    id: string,
+    config?: FindConfig<ModuleCompany>,
+    sharedContext?: Context
+  ): Promise<ModuleCompany>;
+
   updateCompanies(
     data: ModuleUpdateCompany,
     sharedContext?: Context

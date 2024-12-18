@@ -209,3 +209,87 @@ export const useDeleteCompany = (
 
   return { mutate, loading, error };
 };
+
+export const useAddCompanyToCustomerGroup = (
+  companyId: string
+): {
+  mutate: (groupId: string) => Promise<void>;
+  loading: boolean;
+  error: Error | null;
+} => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  const mutate = async (groupId: string) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        `/admin/companies/${companyId}/customer-group`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ group_id: groupId }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to add company to customer group");
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err : new Error("An unknown error occurred")
+      );
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { mutate, loading, error };
+};
+
+export const useRemoveCompanyFromCustomerGroup = (
+  companyId: string
+): {
+  mutate: (groupId: string) => Promise<void>;
+  loading: boolean;
+  error: Error | null;
+} => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  const mutate = async (groupId: string) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        `/admin/companies/${companyId}/customer-group`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ group_id: groupId }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to remove company from customer group");
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err : new Error("An unknown error occurred")
+      );
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { mutate, loading, error };
+};

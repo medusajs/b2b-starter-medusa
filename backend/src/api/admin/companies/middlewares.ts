@@ -12,6 +12,7 @@ import {
   AdminCreateEmployee,
   AdminGetCompanyParams,
   AdminGetEmployeeParams,
+  AdminUpdateCompany,
   AdminUpdateEmployee,
 } from "./validators";
 
@@ -48,11 +49,22 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
       ),
     ],
   },
+  {
+    method: ["POST"],
+    matcher: "/admin/companies/:id",
+    middlewares: [
+      validateAndTransformBody(AdminUpdateCompany),
+      validateAndTransformQuery(
+        AdminGetCompanyParams,
+        adminCompanyQueryConfig.retrieve
+      ),
+    ],
+  },
 
   /* Employees Middlewares */
   {
     method: ["GET"],
-    matcher: "/companies/:id/employees",
+    matcher: "/admin/companies/:id/employees",
     middlewares: [
       validateAndTransformQuery(
         AdminGetEmployeeParams,
@@ -62,7 +74,7 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/employees",
+    matcher: "/admin/companies/:id/employees",
     middlewares: [
       validateAndTransformBody(AdminCreateEmployee),
       validateAndTransformQuery(
@@ -73,7 +85,7 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["GET"],
-    matcher: "/companies/:id/employees/:employee_id",
+    matcher: "/admin/companies/:id/employees/:employee_id",
     middlewares: [
       validateAndTransformQuery(
         AdminGetEmployeeParams,
@@ -83,7 +95,7 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
   },
   {
     method: ["POST"],
-    matcher: "/companies/:id/employees/:employee_id",
+    matcher: "/admin/companies/:id/employees/:employee_id",
     middlewares: [
       validateAndTransformBody(AdminUpdateEmployee),
       validateAndTransformQuery(

@@ -1,12 +1,22 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk";
 import { BuildingStorefront } from "@medusajs/icons";
-import { Avatar, Container, Heading, Table, Text, Toaster } from "@medusajs/ui";
+import {
+  Avatar,
+  Badge,
+  Container,
+  Heading,
+  Table,
+  Text,
+  Toaster,
+} from "@medusajs/ui";
 import { CompanyDTO } from "../../../modules/company/types/common";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "../../components";
 import { useCompanies } from "../../hooks/companies";
 
 const Companies = () => {
-  const { data, loading, refetch } = useCompanies();
+  const { data, loading, refetch } = useCompanies({
+    fields: ["customer_group.*"],
+  });
 
   return (
     <>
@@ -25,6 +35,7 @@ const Companies = () => {
               <Table.HeaderCell>Email</Table.HeaderCell>
               <Table.HeaderCell>Address</Table.HeaderCell>
               <Table.HeaderCell>Employees</Table.HeaderCell>
+              <Table.HeaderCell>Customer Group</Table.HeaderCell>
               <Table.HeaderCell>Actions</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -49,6 +60,15 @@ const Companies = () => {
                   <Table.Cell>{company.email}</Table.Cell>
                   <Table.Cell>{`${company.address}, ${company.city}, ${company.state} ${company.zip}`}</Table.Cell>
                   <Table.Cell>{company.employees?.length || 0}</Table.Cell>
+                  <Table.Cell>
+                    {company.customer_group?.name ? (
+                      <Badge size="small" color="blue">
+                        {company.customer_group.name}
+                      </Badge>
+                    ) : (
+                      "-"
+                    )}
+                  </Table.Cell>
                   <Table.Cell onClick={(e) => e.stopPropagation()}>
                     <CompanyActionsMenu company={company} refetch={refetch} />
                   </Table.Cell>

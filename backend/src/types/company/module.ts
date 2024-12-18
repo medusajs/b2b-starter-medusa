@@ -1,5 +1,8 @@
 /* Entity: Company */
 
+import { CustomerGroupDTO } from "@medusajs/framework/types";
+import { CustomerDTO } from "@medusajs/types/dist/customer/common";
+
 export enum ModuleCompanySpendingLimitResetFrequency {
   NEVER = "never",
   DAILY = "daily",
@@ -23,6 +26,7 @@ export type ModuleCompany = {
   spending_limit_reset_frequency: ModuleCompanySpendingLimitResetFrequency;
   created_at: Date;
   updated_at: Date;
+  customer_group: CustomerGroupDTO;
 };
 
 export type ModuleCreateCompany = {
@@ -56,6 +60,8 @@ export interface ModuleEmployee {
   company_id: string;
   created_at: Date;
   updated_at: Date;
+  customer: CustomerDTO;
+  company: ModuleCompany;
 }
 
 export type ModuleCreateEmployee = {
