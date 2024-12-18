@@ -24,8 +24,8 @@ export async function POST(
   );
 
   const workflowInput = {
+    cart_id: cart.id,
     items: line_items,
-    cart,
   };
 
   await addToCartWorkflow(req.scope).run({
