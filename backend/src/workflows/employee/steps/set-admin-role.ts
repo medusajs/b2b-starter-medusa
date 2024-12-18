@@ -23,7 +23,7 @@ export const setAdminRoleStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    if (employee.is_admin === true || employee.customer.has_account === false) {
+    if (employee.customer?.has_account === false) {
       return new StepResponse(undefined, input);
     }
 
@@ -39,6 +39,10 @@ export const setAdminRoleStep = createStep(
       },
       { throwIfKeyNotFound: true }
     );
+
+    if (!customer.email) {
+      return new StepResponse(undefined, input);
+    }
 
     const {
       data: [providerIdentity],

@@ -21,8 +21,6 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const { handle } = item.variant?.product ?? {}
-
   const [quantity, setQuantity] = useState(item.quantity.toString())
 
   const { handleDeleteItem, handleUpdateCartQuantity } = useCart()
@@ -85,7 +83,7 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
       })}
     >
       <div className="flex gap-x-4 items-start">
-        <LocalizedClientLink href={`/products/${handle}`}>
+        <LocalizedClientLink href={`/products/${item.product_handle}`}>
           <Thumbnail
             thumbnail={item.thumbnail}
             size="square"

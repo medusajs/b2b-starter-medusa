@@ -56,53 +56,56 @@ export function CompanyCustomerGroupDrawer({
         <Drawer.Header>
           <Drawer.Title>Add {company.name} to a Customer Group</Drawer.Title>
         </Drawer.Header>
-        <Drawer.Body className="space-y-4">
+        <Drawer.Body className="space-y-4 h-full overflow-y-hidden">
           <Hint variant="info">
             Adding {company.name} to a customer group will automatically add{" "}
             {company.employees?.length} linked employee
             {company.employees?.length === 1 ? "" : "s"} to the customer group.
           </Hint>
-          <Table>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Customer Group</Table.HeaderCell>
-                <Table.HeaderCell className="text-right">
-                  Actions
-                </Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-
-            <Table.Body>
-              {data?.map((group) => (
-                <Table.Row key={group.id}>
-                  <Table.Cell>{group.name}</Table.Cell>
-                  <Table.Cell className="text-right">
-                    {company.customer_group?.id &&
-                    company.customer_group.id === group.id ? (
-                      <Button
-                        onClick={() => handleRemove(group.id)}
-                        isLoading={removeLoading}
-                      >
-                        Remove
-                      </Button>
-                    ) : (
-                      <Button
-                        onClick={() => handleAdd(group.id)}
-                        disabled={
-                          (company.customer_group?.id &&
-                            company.customer_group.id !== group.id) ||
-                          addLoading
-                        }
-                        isLoading={addLoading}
-                      >
-                        Add
-                      </Button>
-                    )}
-                  </Table.Cell>
+          <div className="h-full overflow-y-auto">
+            <Table>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Customer Group</Table.HeaderCell>
+                  <Table.HeaderCell className="text-right">
+                    Actions
+                  </Table.HeaderCell>
                 </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
+              </Table.Header>
+
+              <Table.Body>
+                {data?.map((group) => (
+                  <Table.Row key={group.id}>
+                    <Table.Cell>{group.name}</Table.Cell>
+                    <Table.Cell className="text-right">
+                      {company.customer_group?.id &&
+                      company.customer_group.id === group.id ? (
+                        <Button
+                          onClick={() => handleRemove(group.id)}
+                          isLoading={removeLoading}
+                          variant="danger"
+                        >
+                          Remove
+                        </Button>
+                      ) : (
+                        <Button
+                          onClick={() => handleAdd(group.id)}
+                          disabled={
+                            (company.customer_group?.id &&
+                              company.customer_group.id !== group.id) ||
+                            addLoading
+                          }
+                          isLoading={addLoading}
+                        >
+                          Add
+                        </Button>
+                      )}
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table.Body>
+            </Table>
+          </div>
         </Drawer.Body>
       </Drawer.Content>
     </Drawer>

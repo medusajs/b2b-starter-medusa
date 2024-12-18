@@ -1,8 +1,6 @@
 import { ICustomerModuleService } from "@medusajs/framework/types";
-import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { ICompanyModuleService } from "@starter/types";
-import { COMPANY_MODULE } from "../../../modules/company";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 
 export const addEmployeeToCustomerGroupStep = createStep(
   "add-employee-to-customer-group",
@@ -35,6 +33,13 @@ export const addEmployeeToCustomerGroupStep = createStep(
       Modules.CUSTOMER
     );
 
+    if (!employee.customer?.id || !company.customer_group?.id) {
+      return new StepResponse(null, {
+        customer_id: employee.customer?.id,
+        group_id: company.customer_group?.id,
+      });
+    }
+
     await customerModuleService.addCustomerToGroup({
       customer_id: employee.customer.id,
       customer_group_id: company.customer_group.id,
@@ -49,7 +54,14 @@ export const addEmployeeToCustomerGroupStep = createStep(
       group_id: company.customer_group.id,
     });
   },
-  async (input: { customer_id: string; group_id: string }, { container }) => {
+  async (
+    input: { customer_id: string | undefined; group_id: string | undefined },
+    { container }
+  ) => {
+    if (!input.customer_id || !input.group_id) {
+      return;
+    }
+
     const customerModuleService = container.resolve<ICustomerModuleService>(
       Modules.CUSTOMER
     );

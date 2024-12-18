@@ -71,7 +71,7 @@ const CompanyCard = ({
             <Input
               label="Company Name"
               name="name"
-              value={companyData.name}
+              value={companyData.name || ""}
               onChange={(e) =>
                 setCompanyData({ ...companyData, name: e.target.value })
               }
@@ -82,7 +82,7 @@ const CompanyCard = ({
             <Input
               label="Email"
               name="email"
-              value={companyData.email}
+              value={companyData.email || ""}
               onChange={(e) =>
                 setCompanyData({ ...companyData, email: e.target.value })
               }
@@ -93,7 +93,7 @@ const CompanyCard = ({
             <Input
               label="Phone"
               name="phone"
-              value={companyData.phone}
+              value={companyData.phone || ""}
               onChange={(e) =>
                 setCompanyData({ ...companyData, phone: e.target.value })
               }
