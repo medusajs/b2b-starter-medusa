@@ -8,7 +8,7 @@ import {
   AdminAddCompanyToCustomerGroupType,
   AdminRemoveCompanyFromCustomerGroupType,
 } from "../../validators";
-import { removeCompanyFromCustomerGroupWorkflow } from "src/workflows/company/workflows/remove-company-from-customer-group";
+import { removeCompanyFromCustomerGroupWorkflow } from "../../../../../workflows/company/workflows/remove-company-from-customer-group";
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<AdminAddCompanyToCustomerGroupType>,
