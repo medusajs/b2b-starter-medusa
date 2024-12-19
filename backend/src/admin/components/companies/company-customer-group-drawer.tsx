@@ -1,18 +1,20 @@
+import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, Hint, Table, toast } from "@medusajs/ui";
-import { CompanyDTO } from "src/modules/company/types/common";
+import { QueryCompany } from "@starter/types";
 import {
   useAddCompanyToCustomerGroup,
-  useAdminCustomerGroups,
   useRemoveCompanyFromCustomerGroup,
 } from "../../hooks";
 
 export function CompanyCustomerGroupDrawer({
   company,
+  customerGroups,
   refetch,
   open,
   setOpen,
 }: {
-  company: CompanyDTO;
+  company: QueryCompany;
+  customerGroups: HttpTypes.AdminCustomerGroup[];
   refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -29,12 +31,6 @@ export function CompanyCustomerGroupDrawer({
     error: removeError,
   } = useRemoveCompanyFromCustomerGroup(company.id);
 
-  const {
-    data,
-    loading: customerGroupsLoading,
-    error: customerGroupsError,
-  } = useAdminCustomerGroups();
-
   const handleAdd = async (groupId: string) => {
     await addMutate(groupId).then(() => {
       setOpen(false);
@@ -44,7 +40,7 @@ export function CompanyCustomerGroupDrawer({
   };
 
   const handleRemove = async (groupId: string) => {
-    await removeMutate(groupId).then(() => {
+    await removeMutate(groupId).finally(() => {
       refetch();
       toast.success(`Company removed from customer group successfully`);
     });
@@ -74,7 +70,7 @@ export function CompanyCustomerGroupDrawer({
               </Table.Header>
 
               <Table.Body>
-                {data?.map((group) => (
+                {customerGroups?.map((group) => (
                   <Table.Row key={group.id}>
                     <Table.Cell>{group.name}</Table.Cell>
                     <Table.Cell className="text-right">

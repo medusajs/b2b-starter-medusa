@@ -1,6 +1,6 @@
 import { Button, Drawer } from "@medusajs/ui";
+import { AdminCreateCompany } from "@starter/types";
 import { useState } from "react";
-import { CreateCompanyDTO } from "src/modules/company/types/mutations";
 import { useCreateCompany } from "../../hooks";
 import { CompanyForm } from "./company-form";
 
@@ -9,7 +9,7 @@ export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
 
   const { mutate, loading, error } = useCreateCompany();
 
-  const handleSubmit = async (formData: CreateCompanyDTO) => {
+  const handleSubmit = async (formData: AdminCreateCompany) => {
     await mutate(formData).then(() => setOpen(false));
     refetch();
   };

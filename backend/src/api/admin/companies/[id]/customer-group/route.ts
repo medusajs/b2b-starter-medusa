@@ -4,11 +4,7 @@ import {
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { addCompanyToCustomerGroupWorkflow } from "../../../../../workflows/company/workflows/";
-import {
-  AdminAddCompanyToCustomerGroupType,
-  AdminRemoveCompanyFromCustomerGroupType,
-} from "../../validators";
-import { removeCompanyFromCustomerGroupWorkflow } from "../../../../../workflows/company/workflows/remove-company-from-customer-group";
+import { AdminAddCompanyToCustomerGroupType } from "../../validators";
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<AdminAddCompanyToCustomerGroupType>,
@@ -35,19 +31,4 @@ export const POST = async (
   );
 
   res.json({ company });
-};
-
-export const DELETE = async (
-  req: AuthenticatedMedusaRequest<AdminRemoveCompanyFromCustomerGroupType>,
-  res: MedusaResponse
-) => {
-  const { id } = req.params;
-  const { group_id } = req.body;
-
-  await removeCompanyFromCustomerGroupWorkflow.run({
-    input: { company_id: id, group_id },
-    container: req.scope,
-  });
-
-  res.status(201).send();
 };

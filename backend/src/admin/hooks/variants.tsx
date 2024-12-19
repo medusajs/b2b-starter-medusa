@@ -1,7 +1,7 @@
 import { FetchError } from "@medusajs/js-sdk";
 import { QueryKey, useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { queryKeysFactory } from "../lib/query-key-factory";
-import { sdk } from "../lib/sdk";
+import { sdk } from "../lib/client";
 
 const PRODUCT_VARIANT_QUERY_KEY = "product_variant" as const;
 export const productVariantQueryKeys = queryKeysFactory(

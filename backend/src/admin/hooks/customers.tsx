@@ -1,5 +1,5 @@
 import { HttpTypes } from "@medusajs/framework/types";
-import { MedusaClient } from "./client";
+import { sdk } from "../lib/client";
 import { AdminCreateCustomer, AdminCustomer } from "@medusajs/types";
 import { useEffect, useState } from "react";
 
@@ -12,7 +12,7 @@ export const useAdminCreateCustomer = () => {
     setError(null);
 
     try {
-      const result = await MedusaClient.admin.customer.create(customer);
+      const result = await sdk.admin.customer.create(customer);
       return result.customer;
     } catch (err) {
       setError(
@@ -37,7 +37,7 @@ export const useAdminCustomerGroups = () => {
       setLoading(true);
       setError(null);
 
-      await MedusaClient.admin.customerGroup
+      await sdk.admin.customerGroup
         .list()
         .then(({ customer_groups }) => {
           setData(customer_groups);

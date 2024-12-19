@@ -6,9 +6,8 @@ import {
   Label,
   Text,
 } from "@medusajs/ui";
-import { AdminCreateEmployee } from "@starter/types";
+import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
-import { CompanyDTO } from "src/modules/company/types/common";
 import { currencySymbolMap } from "../../utils";
 import { CoolSwitch } from "../common";
 
@@ -21,7 +20,7 @@ export function EmployeesCreateForm({
   handleSubmit: (data: AdminCreateEmployee) => Promise<void>;
   loading: boolean;
   error: Error | null;
-  company: CompanyDTO;
+  company: QueryCompany;
 }) {
   const [formData, setFormData] = useState<
     Omit<AdminCreateEmployee, "spending_limit"> & {

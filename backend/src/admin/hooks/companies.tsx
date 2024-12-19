@@ -4,16 +4,23 @@ import {
   CreateCompanyDTO,
   UpdateCompanyDTO,
 } from "../../modules/company/types/mutations";
+import { sdk } from "../lib/client";
+import {
+  AdminCompaniesResponse,
+  AdminCompanyResponse,
+  AdminCreateCompany,
+  AdminUpdateCompany,
+} from "@starter/types";
 
 export const useCompanies = (
   query?: Record<string, any>
 ): {
-  data: { companies: CompanyDTO[] } | null;
+  data: AdminCompaniesResponse | null;
   refetch: () => void;
   loading: boolean;
   error: Error | null;
 } => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<AdminCompaniesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [refetchTrigger, setRefetchTrigger] = useState(0);
@@ -21,15 +28,22 @@ export const useCompanies = (
 
   const refetch = () => {
     setRefetchTrigger((prev) => prev + 1);
+    console.log("refetchTrigger", refetchTrigger);
+    console.log("filterQuery", filterQuery);
+    console.log("query", query);
+    console.log("data", data);
   };
 
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await fetch(
-          "/admin/companies" + (filterQuery ? `?${filterQuery}` : "")
+        const result: AdminCompaniesResponse = await sdk.client.fetch(
+          "/admin/companies" + (filterQuery ? `?${filterQuery}` : ""),
+          {
+            method: "GET",
+          }
         );
-        const result = await response.json();
+
         setData(result);
       } catch (err) {
         setError(
@@ -51,12 +65,12 @@ export const useCompany = (
   companyId: string,
   query?: Record<string, any>
 ): {
-  data: { company: CompanyDTO } | null;
+  data: AdminCompanyResponse | null;
   refetch: () => void;
   loading: boolean;
   error: Error | null;
 } => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<AdminCompanyResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [refetchTrigger, setRefetchTrigger] = useState(0);
@@ -68,11 +82,13 @@ export const useCompany = (
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await fetch(
+        const result: AdminCompanyResponse = await sdk.client.fetch(
           `/admin/companies/${companyId}` +
-            (filterQuery ? `?${filterQuery}` : "")
+            (filterQuery ? `?${filterQuery}` : ""),
+          {
+            method: "GET",
+          }
         );
-        const result = await response.json();
         setData(result);
       } catch (err) {
         setError(
@@ -91,7 +107,7 @@ export const useCompany = (
 };
 
 export const useCreateCompany = (): {
-  mutate: (company: CreateCompanyDTO) => Promise<CompanyDTO>;
+  mutate: (company: AdminCreateCompany) => Promise<AdminCompanyResponse>;
   loading: boolean;
   error: Error | null;
 } => {
@@ -103,19 +119,17 @@ export const useCreateCompany = (): {
     setError(null);
 
     try {
-      const response = await fetch("/admin/companies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(company),
-      });
+      const result: AdminCompanyResponse = await sdk.client.fetch(
+        "/admin/companies",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: company,
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error("Failed to create company");
-      }
-
-      const result = await response.json();
       return result;
     } catch (err) {
       setError(
@@ -133,31 +147,29 @@ export const useCreateCompany = (): {
 export const useUpdateCompany = (
   companyId: string
 ): {
-  mutate: (company: UpdateCompanyDTO) => Promise<CompanyDTO>;
+  mutate: (company: AdminUpdateCompany) => Promise<AdminCompanyResponse>;
   loading: boolean;
   error: Error | null;
 } => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const mutate = async (company: UpdateCompanyDTO) => {
+  const mutate = async (company: AdminUpdateCompany) => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(`/admin/companies/${companyId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(company),
-      });
+      const result: AdminCompanyResponse = await sdk.client.fetch(
+        `/admin/companies/${companyId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: company,
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error("Failed to update company");
-      }
-
-      const result = await response.json();
       return result;
     } catch (err) {
       setError(
@@ -187,16 +199,9 @@ export const useDeleteCompany = (
     setError(null);
 
     try {
-      const response = await fetch(`/admin/companies/${companyId}`, {
+      await sdk.client.fetch(`/admin/companies/${companyId}`, {
         method: "DELETE",
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete company");
-      }
-
-      const result = await response.json();
-      return result;
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")
@@ -225,20 +230,13 @@ export const useAddCompanyToCustomerGroup = (
     setError(null);
 
     try {
-      const response = await fetch(
-        `/admin/companies/${companyId}/customer-group`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ group_id: groupId }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to add company to customer group");
-      }
+      await sdk.client.fetch(`/admin/companies/${companyId}/customer-group`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: { group_id: groupId },
+      });
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")
@@ -267,20 +265,12 @@ export const useRemoveCompanyFromCustomerGroup = (
     setError(null);
 
     try {
-      const response = await fetch(
-        `/admin/companies/${companyId}/customer-group`,
+      await sdk.client.fetch(
+        `/admin/companies/${companyId}/customer-group/${groupId}`,
         {
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ group_id: groupId }),
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Failed to remove company from customer group");
-      }
     } catch (err) {
       setError(
         err instanceof Error ? err : new Error("An unknown error occurred")

@@ -1,8 +1,8 @@
 import { Drawer, toast as toastType } from "@medusajs/ui";
-import { EmployeeDTO, CompanyDTO } from "src/modules/company/types/common";
+import { QueryCompany, QueryEmployee } from "@starter/types";
 import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
-import { useUpdateEmployee } from "../../hooks";
 import { EmployeesUpdateForm } from ".";
+import { useUpdateEmployee } from "../../hooks";
 
 export function EmployeesUpdateDrawer({
   company,
@@ -12,8 +12,8 @@ export function EmployeesUpdateDrawer({
   setOpen,
   toast,
 }: {
-  company: CompanyDTO;
-  employee: EmployeeDTO;
+  company: QueryCompany;
+  employee: QueryEmployee;
   refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;

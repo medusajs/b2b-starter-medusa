@@ -1,6 +1,5 @@
 import { Drawer, toast } from "@medusajs/ui";
-import { CompanyDTO } from "src/modules/company/types/common";
-import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
+import { AdminUpdateCompany, QueryCompany } from "@starter/types";
 import { useUpdateCompany } from "../../hooks";
 import { CompanyForm } from "./company-form";
 
@@ -10,7 +9,7 @@ export function CompanyUpdateDrawer({
   open,
   setOpen,
 }: {
-  company: CompanyDTO;
+  company: QueryCompany;
   refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -26,7 +25,7 @@ export function CompanyUpdateDrawer({
     ...currentData
   } = company;
 
-  const handleSubmit = async (formData: UpdateCompanyDTO) => {
+  const handleSubmit = async (formData: AdminUpdateCompany) => {
     await mutate(formData).then(() => {
       setOpen(false);
       refetch();

@@ -1,19 +1,22 @@
 import { EllipsisHorizontal, Link, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
+import { QueryCompany } from "@starter/types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CompanyDTO } from "src/modules/company/types/common";
 import { useDeleteCompany } from "../../hooks/companies";
 import { DeletePrompt } from "../common/delete-prompt";
 import { CompanyUpdateDrawer } from "./";
 import { CompanyCustomerGroupDrawer } from "./company-customer-group-drawer";
+import { HttpTypes } from "@medusajs/framework/types";
 
 export const CompanyActionsMenu = ({
   company,
   refetch,
+  customerGroups,
 }: {
-  company: CompanyDTO;
+  company: QueryCompany;
   refetch: () => void;
+  customerGroups: HttpTypes.AdminCustomerGroup[];
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [customerGroupOpen, setCustomerGroupOpen] = useState(false);
@@ -71,6 +74,7 @@ export const CompanyActionsMenu = ({
       />
       <CompanyCustomerGroupDrawer
         company={company}
+        customerGroups={customerGroups}
         refetch={refetch}
         open={customerGroupOpen}
         setOpen={setCustomerGroupOpen}

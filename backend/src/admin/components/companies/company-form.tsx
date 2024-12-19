@@ -18,10 +18,7 @@ export function CompanyForm({
     company || ({} as Partial<UpdateCompanyDTO>)
   );
 
-  const {
-    data: { regions },
-    loading: regionsLoading,
-  } = useRegions();
+  const { data: regions, loading: regionsLoading } = useRegions();
 
   const currencyCodes = regions?.map((region) => region.currency_code);
   const countries = regions?.flatMap((region) => region.countries);

@@ -9,14 +9,16 @@ import {
   Text,
   Toaster,
 } from "@medusajs/ui";
-import { CompanyDTO } from "../../../modules/company/types/common";
+import { QueryCompany } from "@starter/types";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "../../components";
-import { useCompanies } from "../../hooks/companies";
+import { useAdminCustomerGroups, useCompanies } from "../../hooks";
 
 const Companies = () => {
   const { data, loading, refetch } = useCompanies({
     fields: ["customer_group.*"],
   });
+
+  const { data: customerGroups } = useAdminCustomerGroups();
 
   return (
     <>
@@ -41,7 +43,7 @@ const Companies = () => {
           </Table.Header>
           {data?.companies && (
             <Table.Body>
-              {data.companies.map((company: CompanyDTO) => (
+              {data.companies.map((company: QueryCompany) => (
                 <Table.Row
                   key={company.id}
                   className="cursor-pointer hover:bg-gray-50"
@@ -70,7 +72,11 @@ const Companies = () => {
                     )}
                   </Table.Cell>
                   <Table.Cell onClick={(e) => e.stopPropagation()}>
-                    <CompanyActionsMenu company={company} refetch={refetch} />
+                    <CompanyActionsMenu
+                      company={company}
+                      refetch={refetch}
+                      customerGroups={customerGroups}
+                    />
                   </Table.Cell>
                 </Table.Row>
               ))}

@@ -1,7 +1,7 @@
 import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
+import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
-import { CompanyDTO, EmployeeDTO } from "src/modules/company/types/common";
 import { EmployeesUpdateDrawer } from ".";
 import { DeletePrompt } from "..";
 import { useDeleteEmployee } from "../../hooks";
@@ -11,8 +11,8 @@ export const EmployeesActionsMenu = ({
   employee,
   refetch,
 }: {
-  company: CompanyDTO;
-  employee: EmployeeDTO;
+  company: QueryCompany;
+  employee: QueryEmployee;
   refetch: () => void;
 }) => {
   const [editOpen, setEditOpen] = useState(false);

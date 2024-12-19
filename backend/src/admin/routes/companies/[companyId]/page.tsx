@@ -12,14 +12,17 @@ import { useParams } from "react-router-dom";
 import { EmployeeDTO } from "../../../../modules/company/types/common";
 import { CompanyActionsMenu, EmployeesActionsMenu } from "../../../components";
 import { EmployeeCreateDrawer } from "../../../components/employees/employees-create-drawer";
-import { useCompany } from "../../../hooks";
+import { useAdminCustomerGroups, useCompany } from "../../../hooks";
 import { formatAmount } from "../../../utils";
+import { QueryEmployee } from "@starter/types";
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, loading, refetch } = useCompany(companyId!, {
     fields: "*employees,*employees.customer,*employees.company,*customer_group",
   });
+
+  const { data: customerGroups } = useAdminCustomerGroups();
 
   const company = data?.company;
 
@@ -42,7 +45,11 @@ const CompanyDetails = () => {
                   {company?.name}
                 </Heading>
               </div>
-              <CompanyActionsMenu company={company} refetch={refetch} />
+              <CompanyActionsMenu
+                company={company}
+                refetch={refetch}
+                customerGroups={customerGroups}
+              />
             </div>
             <Table>
               <Table.Body>
@@ -126,7 +133,7 @@ const CompanyDetails = () => {
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  {company?.employees.map((employee: EmployeeDTO) => (
+                  {company?.employees.map((employee: QueryEmployee) => (
                     <Table.Row
                       key={employee.id}
                       onClick={() => {

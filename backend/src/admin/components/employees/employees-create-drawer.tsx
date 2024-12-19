@@ -1,8 +1,7 @@
 import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, toast } from "@medusajs/ui";
-import { AdminCreateEmployee } from "@starter/types";
+import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
-import { CompanyDTO } from "src/modules/company/types/common";
 import { useAdminCreateCustomer, useCreateEmployee } from "../../hooks";
 import { EmployeesCreateForm } from "./employees-create-form";
 
@@ -10,7 +9,7 @@ export function EmployeeCreateDrawer({
   company,
   refetch,
 }: {
-  company: CompanyDTO;
+  company: QueryCompany;
   refetch: () => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -57,7 +56,7 @@ export function EmployeeCreateDrawer({
     refetch();
     setOpen(false);
     toast.success(
-      `Employee ${employee?.first_name} ${employee?.last_name} created successfully`
+      `Employee ${employee?.customer?.first_name} ${employee?.customer?.last_name} created successfully`
     );
   };
 

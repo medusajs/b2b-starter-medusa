@@ -16,7 +16,7 @@ import {
   UseQueryOptions,
 } from "@tanstack/react-query";
 import { queryKeysFactory } from "../../lib/query-key-factory";
-import { sdk } from "../../lib/sdk";
+import { sdk } from "../../lib/client";
 import { orderPreviewQueryKey } from "./order-preview";
 
 export const quoteQueryKey = queryKeysFactory("quote");
