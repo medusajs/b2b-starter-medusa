@@ -12,7 +12,6 @@ import {
 import { QueryCompany } from "@starter/types";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "../../components";
 import { useAdminCustomerGroups, useCompanies } from "../../hooks";
-import { useEffect } from "react";
 
 const Companies = () => {
   const { data, loading, refetch } = useCompanies({
