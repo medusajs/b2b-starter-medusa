@@ -1,6 +1,6 @@
 import { Button, Drawer, Input, Label, Select, Text } from "@medusajs/ui";
+import { AdminUpdateCompany } from "@starter/types";
 import { useState } from "react";
-import { UpdateCompanyDTO } from "src/modules/company/types/mutations";
 import { useRegions } from "../../hooks";
 
 export function CompanyForm({
@@ -9,13 +9,13 @@ export function CompanyForm({
   loading,
   error,
 }: {
-  company?: Partial<UpdateCompanyDTO>;
-  handleSubmit: (data: Partial<UpdateCompanyDTO>) => Promise<void>;
+  company?: AdminUpdateCompany;
+  handleSubmit: (data: AdminUpdateCompany) => Promise<void>;
   loading: boolean;
   error: Error | null;
 }) {
-  const [formData, setFormData] = useState<Partial<UpdateCompanyDTO>>(
-    company || ({} as Partial<UpdateCompanyDTO>)
+  const [formData, setFormData] = useState<AdminUpdateCompany>(
+    company || ({} as AdminUpdateCompany)
   );
 
   const { data: regions, loading: regionsLoading } = useRegions();
@@ -109,8 +109,11 @@ export function CompanyForm({
                 </Select.Trigger>
                 <Select.Content className="z-50">
                   {countries?.map((country) => (
-                    <Select.Item key={country.iso_2} value={country.iso_2}>
-                      {country.name}
+                    <Select.Item
+                      key={country?.iso_2 || ""}
+                      value={country?.iso_2 || ""}
+                    >
+                      {country?.name}
                     </Select.Item>
                   ))}
                 </Select.Content>

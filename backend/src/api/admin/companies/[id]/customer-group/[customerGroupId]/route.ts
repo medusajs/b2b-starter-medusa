@@ -2,7 +2,7 @@ import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework";
-import { removeCompanyFromCustomerGroupWorkflow } from "src/workflows/company/workflows/remove-company-from-customer-group";
+import { removeCompanyFromCustomerGroupWorkflow } from "../../../../../../workflows/company/workflows/remove-company-from-customer-group";
 import { AdminRemoveCompanyFromCustomerGroupType } from "../../../validators";
 
 export const DELETE = async (

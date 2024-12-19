@@ -54,13 +54,7 @@ export type AdminCreateEmployee = {
   customer_id?: string;
 };
 
-export type AdminUpdateEmployee = {
-  id: string;
-  spending_limit: number;
-  is_admin: boolean;
-  company_id: string;
-  customer_id?: string;
-};
+export type AdminUpdateEmployee = Partial<AdminCreateEmployee>;
 
 /* Store */
 

@@ -1,6 +1,9 @@
 import { Drawer, toast as toastType } from "@medusajs/ui";
-import { QueryCompany, QueryEmployee } from "@starter/types";
-import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
+import {
+  AdminUpdateEmployee,
+  QueryCompany,
+  QueryEmployee,
+} from "@starter/types";
 import { EmployeesUpdateForm } from ".";
 import { useUpdateEmployee } from "../../hooks";
 
@@ -24,7 +27,7 @@ export function EmployeesUpdateDrawer({
     employee.id
   );
 
-  const handleSubmit = async (formData: UpdateEmployeeDTO) => {
+  const handleSubmit = async (formData: AdminUpdateEmployee) => {
     await mutate(formData).then(() => {
       setOpen(false);
       refetch();

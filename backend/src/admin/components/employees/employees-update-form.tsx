@@ -9,7 +9,7 @@ import {
 } from "@medusajs/ui";
 import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
-import { UpdateEmployeeDTO } from "src/modules/company/types/mutations";
+import { AdminUpdateEmployee } from "@starter/types";
 import { currencySymbolMap } from "../../utils";
 import { CoolSwitch } from "../common";
 
@@ -22,7 +22,7 @@ export function EmployeesUpdateForm({
 }: {
   employee: QueryEmployee;
   company: QueryCompany;
-  handleSubmit: (data: UpdateEmployeeDTO) => Promise<void>;
+  handleSubmit: (data: AdminUpdateEmployee) => Promise<void>;
   loading: boolean;
   error: Error | null;
 }) {
