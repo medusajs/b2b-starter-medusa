@@ -28,7 +28,7 @@ export const createEmployeesWorkflow = createWorkflow(
       },
     ]);
 
-    when(employee, (employee) => !!employee.is_admin).then(() => {
+    when(input.employeeData, (employee) => !!employee.is_admin).then(() => {
       setAdminRoleStep({
         employeeId: employee.id,
         customerId: input.customerId,
