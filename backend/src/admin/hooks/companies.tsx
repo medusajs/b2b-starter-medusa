@@ -28,10 +28,6 @@ export const useCompanies = (
 
   const refetch = () => {
     setRefetchTrigger((prev) => prev + 1);
-    console.log("refetchTrigger", refetchTrigger);
-    console.log("filterQuery", filterQuery);
-    console.log("query", query);
-    console.log("data", data);
   };
 
   useEffect(() => {

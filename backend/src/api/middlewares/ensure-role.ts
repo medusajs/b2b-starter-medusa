@@ -13,7 +13,7 @@ export const ensureRole = (role: string) => {
   ) => {
     const { auth_identity_id } = req.auth_context;
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
-    console.log("auth_identity_id", auth_identity_id);
+
     const {
       data: [company],
     } = await query.graph({
@@ -21,8 +21,6 @@ export const ensureRole = (role: string) => {
       fields: ["id", "employees.id"],
       filters: { id: req.params.id },
     });
-
-    console.log("company", company);
 
     if (company?.employees?.length === 0) {
       return next();
@@ -35,8 +33,6 @@ export const ensureRole = (role: string) => {
       fields: ["id", "user_metadata"],
       filters: { auth_identity_id },
     });
-
-    console.log("providerIdentity", providerIdentity);
 
     if (providerIdentity.user_metadata?.role === role) {
       return next();

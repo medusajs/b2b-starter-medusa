@@ -23,8 +23,6 @@ export const setAdminRoleStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    console.log("employee from set-admin-role", employee);
-
     if (employee.customer?.has_account === false) {
       return new StepResponse(undefined, input);
     }
@@ -42,8 +40,6 @@ export const setAdminRoleStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    console.log("customer from set-admin-role", customer);
-
     if (!customer.email) {
       return new StepResponse(undefined, input);
     }
@@ -58,8 +54,6 @@ export const setAdminRoleStep = createStep(
         entity_id: customer.email,
       },
     });
-
-    console.log("providerIdentity from set-admin-role", providerIdentity);
 
     const authModuleService = container.resolve<IAuthModuleService>(
       Modules.AUTH
