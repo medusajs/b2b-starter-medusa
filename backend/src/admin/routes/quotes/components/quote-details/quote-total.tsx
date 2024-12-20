@@ -48,7 +48,7 @@ export const QuoteTotal = ({
           leading="compact"
           weight="plus"
         >
-          {formatAmount(preview.total, order.currency_code)}
+          {formatAmount(preview.summary.current_order_total, order.currency_code)}
         </Text>
       </div>
     </div>
