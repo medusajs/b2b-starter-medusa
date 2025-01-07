@@ -1,4 +1,6 @@
 import { QUOTE_MODULE } from "./src/modules/quote";
+import { APPROVAL_MODULE } from "./src/modules/approval";
+import { COMPANY_MODULE } from "./src/modules/company";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
@@ -15,11 +17,14 @@ module.exports = defineConfig({
     },
   },
   modules: {
-    companyModuleService: {
+    [COMPANY_MODULE]: {
       resolve: "./modules/company",
     },
     [QUOTE_MODULE]: {
       resolve: "./modules/quote",
+    },
+    [APPROVAL_MODULE]: {
+      resolve: "./modules/approval",
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
