@@ -4,16 +4,18 @@ import { COMPANY_MODULE } from "../../../modules/company";
 
 export const deleteCompaniesStep = createStep(
   "delete-companies",
-  async (id: string[], { container }) => {
+  async (ids: string[], { container }) => {
     const companyModule =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
-    await companyModule.softDeleteCompanies(id);
+    await companyModule.softDeleteCompanies(ids);
 
-    return new StepResponse(id);
+    return new StepResponse(ids, ids);
   },
-  async (companyId: string[], { container }) => {
+  async (companyIds: string[], { container }) => {
     const companyModule =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+
+    await companyModule.restoreCompanies(companyIds);
   }
 );

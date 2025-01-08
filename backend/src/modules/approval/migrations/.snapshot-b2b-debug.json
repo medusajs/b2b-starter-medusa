@@ -15,6 +15,15 @@
           "nullable": false,
           "mappedType": "text"
         },
+        "company_id": {
+          "name": "company_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
         "requires_admin_approval": {
           "name": "requires_admin_approval",
           "type": "boolean",

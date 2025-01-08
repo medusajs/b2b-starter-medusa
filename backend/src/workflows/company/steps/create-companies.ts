@@ -4,20 +4,25 @@ import { COMPANY_MODULE } from "../../../modules/company";
 
 export const createCompaniesStep = createStep(
   "create-companies",
-  async (input: ModuleCreateCompany, { container }) => {
+  async (input: ModuleCreateCompany[], { container }) => {
     const companyModuleService =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
 
-    const company = await companyModuleService.createCompanies(input);
+    const companies = await companyModuleService.createCompanies(input);
 
-    return new StepResponse(company, company.id);
+    return new StepResponse(
+      companies,
+      companies.map((company) => company.id)
+    );
   },
-  async (companyId: string, { container }) => {
-    if (!companyId) {
+  async (companyIds: string[], { container }) => {
+    if (!companyIds) {
       return;
     }
 
     const companyModuleService =
       container.resolve<ICompanyModuleService>(COMPANY_MODULE);
+
+    await companyModuleService.deleteCompanies(companyIds);
   }
 );

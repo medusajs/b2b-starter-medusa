@@ -20,7 +20,7 @@ export const GET = async (
     fields: req.remoteQueryConfig.fields,
     filters: req.filterableFields,
     pagination: {
-      ...req.remoteQueryConfig.pagination
+      ...req.remoteQueryConfig.pagination,
     },
   });
 
@@ -33,25 +33,28 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: AuthenticatedMedusaRequest<StoreCreateCompanyType>,
+  req: AuthenticatedMedusaRequest<
+    StoreCreateCompanyType | StoreCreateCompanyType[]
+  >,
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
-  const { result: createdCompany } = await createCompaniesWorkflow.run({
-    input: { ...req.validatedBody },
+
+  const { result: createdCompanies } = await createCompaniesWorkflow.run({
+    input: Array.isArray(req.validatedBody)
+      ? req.validatedBody.map((company) => ({ ...company }))
+      : [{ ...req.validatedBody }],
     container: req.scope,
   });
 
-  const {
-    data: [company],
-  } = await query.graph(
+  const { data: companies } = await query.graph(
     {
       entity: "companies",
       fields: req.remoteQueryConfig.fields,
-      filters: { id: createdCompany.id },
+      filters: { id: createdCompanies.map((company) => company.id) },
     },
     { throwIfKeyNotFound: true }
   );
 
-  res.json({ company });
+  res.json({ companies });
 };
