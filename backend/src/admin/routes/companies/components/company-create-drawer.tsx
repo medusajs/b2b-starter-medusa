@@ -1,7 +1,7 @@
 import { Button, Drawer } from "@medusajs/ui";
 import { AdminCreateCompany } from "@starter/types";
 import { useState } from "react";
-import { useCreateCompany } from "../../hooks";
+import { useCreateCompany } from "../../../hooks";
 import { CompanyForm } from "./company-form";
 
 export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {

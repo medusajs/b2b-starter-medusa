@@ -8,8 +8,8 @@ import {
 } from "@medusajs/ui";
 import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
-import { currencySymbolMap } from "../../utils";
-import { CoolSwitch } from "../common";
+import { CoolSwitch } from "../../../../components/common";
+import { currencySymbolMap } from "../../../../utils";
 
 export function EmployeesCreateForm({
   handleSubmit,

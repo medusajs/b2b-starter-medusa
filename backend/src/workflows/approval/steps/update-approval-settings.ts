@@ -8,6 +8,7 @@ import { APPROVAL_MODULE } from "../../../modules/approval";
 export const updateApprovalSettingsStep = createStep(
   "update-approval-settings",
   async (input: ModuleUpdateApprovalSettings, { container }) => {
+    console.log("input", input);
     const approvalModule =
       container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 

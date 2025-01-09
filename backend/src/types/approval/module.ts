@@ -7,6 +7,7 @@ export type ModuleApprovalSettings = {
   requires_sales_manager_approval: boolean;
   created_at: string;
   updated_at: string;
+  deleted_at: string | null;
 };
 
 export type ModuleCreateApprovalSettings = {

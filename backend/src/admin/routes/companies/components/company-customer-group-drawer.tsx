@@ -4,7 +4,7 @@ import { QueryCompany } from "@starter/types";
 import {
   useAddCompanyToCustomerGroup,
   useRemoveCompanyFromCustomerGroup,
-} from "../../hooks";
+} from "../../../hooks";
 
 export function CompanyCustomerGroupDrawer({
   company,

@@ -1,7 +1,7 @@
 import { Button, Drawer, Input, Label, Select, Text } from "@medusajs/ui";
 import { AdminUpdateCompany } from "@starter/types";
 import { useState } from "react";
-import { useRegions } from "../../hooks";
+import { useRegions } from "../../../hooks";
 
 export function CompanyForm({
   company,

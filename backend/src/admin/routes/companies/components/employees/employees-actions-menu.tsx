@@ -3,8 +3,8 @@ import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
 import { EmployeesUpdateDrawer } from ".";
-import { DeletePrompt } from "..";
-import { useDeleteEmployee } from "../../hooks";
+import { DeletePrompt } from "../../../../components/common";
+import { useDeleteEmployee } from "../../../../hooks";
 
 export const EmployeesActionsMenu = ({
   company,

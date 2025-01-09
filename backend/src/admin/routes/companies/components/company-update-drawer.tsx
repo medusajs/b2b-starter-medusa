@@ -1,6 +1,6 @@
 import { Drawer, toast } from "@medusajs/ui";
 import { AdminUpdateCompany, QueryCompany } from "@starter/types";
-import { useUpdateCompany } from "../../hooks";
+import { useUpdateCompany } from "../../../hooks";
 import { CompanyForm } from "./company-form";
 
 export function CompanyUpdateDrawer({
@@ -22,6 +22,7 @@ export function CompanyUpdateDrawer({
     id,
     employees,
     customer_group,
+    approval_settings,
     ...currentData
   } = company;
 

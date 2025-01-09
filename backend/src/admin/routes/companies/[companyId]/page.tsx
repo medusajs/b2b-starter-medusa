@@ -1,25 +1,28 @@
+import { ExclamationCircle } from "@medusajs/icons";
 import {
   Avatar,
   Badge,
   Container,
   Heading,
   Table,
-  Toaster,
   Text,
+  Toaster,
 } from "@medusajs/ui";
-import { ExclamationCircle } from "@medusajs/icons";
+import { QueryEmployee } from "@starter/types";
 import { useParams } from "react-router-dom";
-import { EmployeeDTO } from "../../../../modules/company/types/common";
-import { CompanyActionsMenu, EmployeesActionsMenu } from "../../../components";
-import { EmployeeCreateDrawer } from "../../../components/employees/employees-create-drawer";
 import { useAdminCustomerGroups, useCompany } from "../../../hooks";
 import { formatAmount } from "../../../utils";
-import { QueryEmployee } from "@starter/types";
+import { CompanyActionsMenu } from "../components";
+import {
+  EmployeeCreateDrawer,
+  EmployeesActionsMenu,
+} from "../components/employees";
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, loading, refetch } = useCompany(companyId!, {
-    fields: "*employees,*employees.customer,*employees.company,*customer_group",
+    fields:
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
   });
 
   const { data: customerGroups } = useAdminCustomerGroups();
@@ -105,6 +108,33 @@ const CompanyDetails = () => {
                     )}
                   </Table.Cell>
                 </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Approval Settings
+                  </Table.Cell>
+                  <Table.Cell>
+                    <div className="flex gap-2">
+                      {company?.approval_settings?.requires_admin_approval && (
+                        <Badge size="small" color="purple">
+                          Requires admin approval
+                        </Badge>
+                      )}
+                      {company?.approval_settings
+                        ?.requires_sales_manager_approval && (
+                        <Badge size="small" color="purple">
+                          Requires sales manager approval
+                        </Badge>
+                      )}
+                      {!company?.approval_settings?.requires_admin_approval &&
+                        !company?.approval_settings
+                          ?.requires_sales_manager_approval && (
+                          <Badge size="small" color="grey">
+                            No approval required
+                          </Badge>
+                        )}
+                    </div>
+                  </Table.Cell>
+                </Table.Row>
               </Table.Body>
             </Table>
           </>
@@ -116,7 +146,7 @@ const CompanyDetails = () => {
             <div className="flex items-center gap-2 px-6 py-4 justify-between border-b border-gray-200">
               <div className="flex items-center gap-2">
                 <Heading className="font-sans font-medium h1-core">
-                  Company Employees
+                  Employees
                 </Heading>
               </div>
               <EmployeeCreateDrawer company={company} refetch={refetch} />

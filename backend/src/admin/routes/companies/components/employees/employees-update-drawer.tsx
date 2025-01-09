@@ -5,7 +5,7 @@ import {
   QueryEmployee,
 } from "@starter/types";
 import { EmployeesUpdateForm } from ".";
-import { useUpdateEmployee } from "../../hooks";
+import { useUpdateEmployee } from "../../../../hooks";
 
 export function EmployeesUpdateDrawer({
   company,

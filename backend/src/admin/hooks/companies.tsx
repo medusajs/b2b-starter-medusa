@@ -85,6 +85,7 @@ export const useCompany = (
             method: "GET",
           }
         );
+        console.log("result", result);
         setData(result);
       } catch (err) {
         setError(

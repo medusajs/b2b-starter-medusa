@@ -1,13 +1,22 @@
-import { EllipsisHorizontal, Link, PencilSquare, Trash } from "@medusajs/icons";
+import { HttpTypes } from "@medusajs/framework/types";
+import {
+  EllipsisHorizontal,
+  Link,
+  LockClosedSolid,
+  PencilSquare,
+  Trash,
+} from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDeleteCompany } from "../../hooks/companies";
-import { DeletePrompt } from "../common/delete-prompt";
-import { CompanyUpdateDrawer } from "./";
-import { CompanyCustomerGroupDrawer } from "./company-customer-group-drawer";
-import { HttpTypes } from "@medusajs/framework/types";
+import {
+  CompanyUpdateDrawer,
+  CompanyCustomerGroupDrawer,
+  CompanyApprovalSettingsDrawer,
+} from "./";
+import { DeletePrompt } from "../../../components/common/delete-prompt";
+import { useDeleteCompany } from "../../../hooks/companies";
 
 export const CompanyActionsMenu = ({
   company,
@@ -20,6 +29,7 @@ export const CompanyActionsMenu = ({
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [customerGroupOpen, setCustomerGroupOpen] = useState(false);
+  const [approvalSettingsOpen, setApprovalSettingsOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const { mutate: mutateDelete, loading: loadingDelete } = useDeleteCompany(
     company.id
@@ -56,6 +66,13 @@ export const CompanyActionsMenu = ({
             <Link />
             Manage customer group
           </DropdownMenu.Item>
+          <DropdownMenu.Item
+            className="gap-x-2"
+            onClick={() => setApprovalSettingsOpen(true)}
+          >
+            <LockClosedSolid />
+            Approval settings
+          </DropdownMenu.Item>
           <DropdownMenu.Separator />
           <DropdownMenu.Item
             className="gap-x-2"
@@ -78,6 +95,12 @@ export const CompanyActionsMenu = ({
         refetch={refetch}
         open={customerGroupOpen}
         setOpen={setCustomerGroupOpen}
+      />
+      <CompanyApprovalSettingsDrawer
+        company={company}
+        refetch={refetch}
+        open={approvalSettingsOpen}
+        setOpen={setApprovalSettingsOpen}
       />
       <DeletePrompt
         handleDelete={handleDelete}

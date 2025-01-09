@@ -2,7 +2,7 @@ import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, toast } from "@medusajs/ui";
 import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
-import { useAdminCreateCustomer, useCreateEmployee } from "../../hooks";
+import { useAdminCreateCustomer, useCreateEmployee } from "../../../../hooks";
 import { EmployeesCreateForm } from "./employees-create-form";
 
 export function EmployeeCreateDrawer({

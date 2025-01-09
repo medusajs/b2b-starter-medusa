@@ -10,8 +10,8 @@ import {
 import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
 import { AdminUpdateEmployee } from "@starter/types";
-import { currencySymbolMap } from "../../utils";
-import { CoolSwitch } from "../common";
+import { currencySymbolMap } from "../../../../utils";
+import { CoolSwitch } from "../../../../components/common";
 
 export function EmployeesUpdateForm({
   company,
