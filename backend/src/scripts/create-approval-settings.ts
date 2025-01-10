@@ -5,6 +5,8 @@ import { createApprovalSettingsWorkflow } from "../workflows/approval/workflows"
 /**
  * This script creates approval settings for companies that don't have them.
  * It's meant to be run once to set up the approval settings for existing companies.
+ *
+ * Execute by running `npx medusa exec src/scripts/create-approval-settings.ts`
  */
 export default async function createApprovalSettings({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
