@@ -8,7 +8,7 @@ import {
 } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   CompanyUpdateDrawer,
@@ -16,7 +16,7 @@ import {
   CompanyApprovalSettingsDrawer,
 } from "./";
 import { DeletePrompt } from "../../../components/common/delete-prompt";
-import { useDeleteCompany } from "../../../hooks/companies";
+import { useDeleteCompany } from "../../../hooks/api";
 
 export const CompanyActionsMenu = ({
   company,
@@ -25,22 +25,25 @@ export const CompanyActionsMenu = ({
 }: {
   company: QueryCompany;
   refetch: () => void;
-  customerGroups: HttpTypes.AdminCustomerGroup[];
+  customerGroups?: HttpTypes.AdminCustomerGroup[];
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [customerGroupOpen, setCustomerGroupOpen] = useState(false);
   const [approvalSettingsOpen, setApprovalSettingsOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const { mutate: mutateDelete, loading: loadingDelete } = useDeleteCompany(
-    company.id
-  );
+  const { mutateAsync: mutateDelete, isPending: loadingDelete } =
+    useDeleteCompany(company.id);
 
   const navigate = useNavigate();
-  const handleDelete = async () => {
-    await mutateDelete();
-    navigate("/companies");
-    refetch();
-    toast.success(`Company ${company.name} deleted successfully`);
+
+  const handleDelete = () => {
+    mutateDelete(company.id, {
+      onSuccess: () => {
+        navigate("/companies");
+        refetch();
+        toast.success(`Company ${company.name} deleted successfully`);
+      },
+    });
   };
 
   return (
@@ -85,20 +88,17 @@ export const CompanyActionsMenu = ({
       </DropdownMenu>
       <CompanyUpdateDrawer
         company={company}
-        refetch={refetch}
         open={editOpen}
         setOpen={setEditOpen}
       />
       <CompanyCustomerGroupDrawer
         company={company}
         customerGroups={customerGroups}
-        refetch={refetch}
         open={customerGroupOpen}
         setOpen={setCustomerGroupOpen}
       />
       <CompanyApprovalSettingsDrawer
         company={company}
-        refetch={refetch}
         open={approvalSettingsOpen}
         setOpen={setApprovalSettingsOpen}
       />

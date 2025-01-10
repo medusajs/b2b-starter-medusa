@@ -1,20 +1,23 @@
 import { Drawer, toast } from "@medusajs/ui";
 import { AdminUpdateCompany, QueryCompany } from "@starter/types";
-import { useUpdateCompany } from "../../../hooks";
+import { useCompany, useUpdateCompany } from "../../../hooks/api";
 import { CompanyForm } from "./company-form";
 
 export function CompanyUpdateDrawer({
   company,
-  refetch,
   open,
   setOpen,
 }: {
   company: QueryCompany;
-  refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
 }) {
-  const { mutate, loading, error } = useUpdateCompany(company.id);
+  const { mutate, isPending, error } = useUpdateCompany(company.id);
+
+  const { refetch: refetchCompany } = useCompany(company.id, {
+    fields:
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
+  });
 
   const {
     created_at,
@@ -27,10 +30,15 @@ export function CompanyUpdateDrawer({
   } = company;
 
   const handleSubmit = async (formData: AdminUpdateCompany) => {
-    await mutate(formData).then(() => {
-      setOpen(false);
-      refetch();
-      toast.success(`Company ${formData.name} updated successfully`);
+    await mutate(formData, {
+      onSuccess: async () => {
+        setOpen(false);
+        await refetchCompany();
+        toast.success(`Company ${formData.name} updated successfully`);
+      },
+      onError: (error) => {
+        toast.error("Failed to update company");
+      },
     });
   };
 
@@ -43,7 +51,7 @@ export function CompanyUpdateDrawer({
 
         <CompanyForm
           handleSubmit={handleSubmit}
-          loading={loading}
+          loading={isPending}
           error={error}
           company={currentData}
         />

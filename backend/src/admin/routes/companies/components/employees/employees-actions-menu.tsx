@@ -4,7 +4,7 @@ import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
 import { EmployeesUpdateDrawer } from ".";
 import { DeletePrompt } from "../../../../components/common";
-import { useDeleteEmployee } from "../../../../hooks";
+import { useDeleteEmployee } from "../../../../hooks/api";
 
 export const EmployeesActionsMenu = ({
   company,
@@ -17,15 +17,16 @@ export const EmployeesActionsMenu = ({
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
-  const { mutate: mutateDelete, loading: loadingDelete } = useDeleteEmployee(
-    employee.company_id,
-    employee.id
-  );
+  const { mutateAsync: mutateDelete, isPending: loadingDelete } =
+    useDeleteEmployee(employee.company_id);
 
   const handleDelete = async () => {
-    await mutateDelete();
-    toast.success(`Employee deleted successfully`);
-    refetch();
+    await mutateDelete(employee.id, {
+      onSuccess: () => {
+        toast.success(`Employee deleted successfully`);
+        refetch();
+      },
+    });
   };
 
   return (

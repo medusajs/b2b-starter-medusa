@@ -1,17 +1,21 @@
 import { Button, Drawer } from "@medusajs/ui";
 import { AdminCreateCompany } from "@starter/types";
 import { useState } from "react";
-import { useCreateCompany } from "../../../hooks";
+import { useCreateCompany } from "../../../hooks/api";
 import { CompanyForm } from "./company-form";
 
 export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
   const [open, setOpen] = useState(false);
 
-  const { mutate, loading, error } = useCreateCompany();
+  const { mutateAsync, isPending, error } = useCreateCompany();
 
   const handleSubmit = async (formData: AdminCreateCompany) => {
-    await mutate(formData).then(() => setOpen(false));
-    refetch();
+    await mutateAsync(formData, {
+      onSuccess: () => {
+        setOpen(false);
+        refetch();
+      },
+    });
   };
 
   return (
@@ -27,7 +31,7 @@ export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
         </Drawer.Header>
         <CompanyForm
           handleSubmit={handleSubmit}
-          loading={loading}
+          loading={isPending}
           error={error}
         />
       </Drawer.Content>

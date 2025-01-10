@@ -5,7 +5,7 @@ import {
   QueryEmployee,
 } from "@starter/types";
 import { EmployeesUpdateForm } from ".";
-import { useUpdateEmployee } from "../../../../hooks";
+import { useUpdateEmployee } from "../../../../hooks/api";
 
 export function EmployeesUpdateDrawer({
   company,
@@ -22,18 +22,20 @@ export function EmployeesUpdateDrawer({
   setOpen: (open: boolean) => void;
   toast: typeof toastType;
 }) {
-  const { mutate, loading, error } = useUpdateEmployee(
+  const { mutateAsync, isPending, error } = useUpdateEmployee(
     employee.company_id,
     employee.id
   );
 
   const handleSubmit = async (formData: AdminUpdateEmployee) => {
-    await mutate(formData).then(() => {
-      setOpen(false);
-      refetch();
-      toast.success(
-        `Employee ${employee?.customer?.email} updated successfully`
-      );
+    await mutateAsync(formData, {
+      onSuccess: () => {
+        setOpen(false);
+        refetch();
+        toast.success(
+          `Employee ${employee?.customer?.email} updated successfully`
+        );
+      },
     });
   };
 
@@ -46,7 +48,7 @@ export function EmployeesUpdateDrawer({
 
         <EmployeesUpdateForm
           handleSubmit={handleSubmit}
-          loading={loading}
+          loading={isPending}
           error={error}
           employee={employee}
           company={company}

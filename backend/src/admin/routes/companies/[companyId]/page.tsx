@@ -10,7 +10,7 @@ import {
 } from "@medusajs/ui";
 import { QueryEmployee } from "@starter/types";
 import { useParams } from "react-router-dom";
-import { useAdminCustomerGroups, useCompany } from "../../../hooks";
+import { useAdminCustomerGroups, useCompany } from "../../../hooks/api";
 import { formatAmount } from "../../../utils";
 import { CompanyActionsMenu } from "../components";
 import {
@@ -20,7 +20,7 @@ import {
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
-  const { data, loading, refetch } = useCompany(companyId!, {
+  const { data, isPending, refetch } = useCompany(companyId!, {
     fields:
       "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
   });
@@ -36,7 +36,7 @@ const CompanyDetails = () => {
   return (
     <div className="flex flex-col gap-4">
       <Container className="flex flex-col p-0 overflow-hidden">
-        {!loading && (
+        {!isPending && (
           <>
             <div className="flex items-center gap-2 px-6 py-4 border-b border-gray-200 justify-between">
               <div className="flex items-center gap-2">
@@ -141,7 +141,7 @@ const CompanyDetails = () => {
         )}
       </Container>
       <Container className="flex flex-col p-0 overflow-hidden">
-        {!loading && (
+        {!isPending && (
           <>
             <div className="flex items-center gap-2 px-6 py-4 justify-between border-b border-gray-200">
               <div className="flex items-center gap-2">

@@ -1,17 +1,15 @@
-import { Button, Drawer, Switch, Text, toast } from "@medusajs/ui";
+import { Button, Drawer, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
-import { useEffect, useState } from "react";
-import { useUpdateApprovalSettings } from "../../../hooks/api/approvals";
+import { useState } from "react";
 import { CoolSwitch } from "../../../components/common";
+import { useCompany, useUpdateApprovalSettings } from "../../../hooks/api";
 
 export function CompanyApprovalSettingsDrawer({
   company,
-  refetch,
   open,
   setOpen,
 }: {
   company: QueryCompany;
-  refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
 }) {
@@ -23,33 +21,34 @@ export function CompanyApprovalSettingsDrawer({
       company.approval_settings?.requires_sales_manager_approval || false
     );
 
-  const { mutate, isPending, error, isSuccess } = useUpdateApprovalSettings(
-    company.id
-  );
+  const { refetch: refetchCompany } = useCompany(company.id, {
+    fields:
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
+  });
+
+  const { mutateAsync, isPending } = useUpdateApprovalSettings(company.id);
 
   const { approval_settings } = company;
 
-  const handleSubmit = () => {
-    mutate({
-      id: approval_settings.id,
-      requires_admin_approval: requiresAdminApproval,
-      requires_sales_manager_approval: requiresSalesManagerApproval,
-    });
+  const handleSubmit = async () => {
+    await mutateAsync(
+      {
+        id: approval_settings.id,
+        requires_admin_approval: requiresAdminApproval,
+        requires_sales_manager_approval: requiresSalesManagerApproval,
+      },
+      {
+        onSuccess: async () => {
+          setOpen(false);
+          await refetchCompany();
+          toast.success(`Company ${company.name} updated successfully`);
+        },
+        onError: (error) => {
+          toast.error("Failed to update company approval settings");
+        },
+      }
+    );
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      setOpen(false);
-      refetch();
-      toast.success(`Company ${company.name} updated successfully`);
-    }
-  }, [isSuccess]);
-
-  useEffect(() => {
-    if (error) {
-      toast.error("Failed to update company approval settings");
-    }
-  }, [error]);
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>

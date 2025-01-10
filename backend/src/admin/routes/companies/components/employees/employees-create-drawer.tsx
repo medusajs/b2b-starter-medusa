@@ -2,7 +2,10 @@ import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, toast } from "@medusajs/ui";
 import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
-import { useAdminCreateCustomer, useCreateEmployee } from "../../../../hooks";
+import {
+  useAdminCreateCustomer,
+  useCreateEmployee,
+} from "../../../../hooks/api";
 import { EmployeesCreateForm } from "./employees-create-form";
 
 export function EmployeeCreateDrawer({
@@ -15,14 +18,14 @@ export function EmployeeCreateDrawer({
   const [open, setOpen] = useState(false);
 
   const {
-    mutate: createEmployee,
-    loading: createEmployeeLoading,
+    mutateAsync: createEmployee,
+    isPending: createEmployeeLoading,
     error: createEmployeeError,
   } = useCreateEmployee(company.id);
 
   const {
-    mutate: createCustomer,
-    loading: createCustomerLoading,
+    mutateAsync: createCustomer,
+    isPending: createCustomerLoading,
     error: createCustomerError,
   } = useAdminCreateCustomer();
 

@@ -1,7 +1,7 @@
 import { Button, Drawer, Input, Label, Select, Text } from "@medusajs/ui";
 import { AdminUpdateCompany } from "@starter/types";
 import { useState } from "react";
-import { useRegions } from "../../../hooks";
+import { useRegions } from "../../../hooks/api";
 
 export function CompanyForm({
   company,
@@ -18,7 +18,7 @@ export function CompanyForm({
     company || ({} as AdminUpdateCompany)
   );
 
-  const { data: regions, loading: regionsLoading } = useRegions();
+  const { regions, isPending: regionsLoading } = useRegions();
 
   const currencyCodes = regions?.map((region) => region.currency_code);
   const countries = regions?.flatMap((region) => region.countries);

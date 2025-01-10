@@ -10,12 +10,12 @@ import {
   Toaster,
 } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
-import { useAdminCustomerGroups, useCompanies } from "../../hooks";
+import { useAdminCustomerGroups, useCompanies } from "../../hooks/api";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "./components";
 
 const Companies = () => {
-  const { data, loading, refetch } = useCompanies({
-    fields: ["customer_group.*"],
+  const { data, isPending, refetch } = useCompanies({
+    fields: ["customer_group.*", "approval_settings.*"],
   });
 
   const { data: customerGroups } = useAdminCustomerGroups();
@@ -27,7 +27,7 @@ const Companies = () => {
           <Heading className="font-sans font-medium h1-core">Companies</Heading>
           <CompanyCreateDrawer refetch={refetch} />
         </div>
-        {loading && <Text>Loading...</Text>}
+        {isPending && <Text>Loading...</Text>}
         <Table>
           <Table.Header>
             <Table.Row>
