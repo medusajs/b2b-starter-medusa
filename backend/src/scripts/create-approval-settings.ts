@@ -2,6 +2,10 @@ import { ExecArgs } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createApprovalSettingsWorkflow } from "../workflows/approval/workflows";
 
+/**
+ * This script creates approval settings for companies that don't have them.
+ * It's meant to be run once to set up the approval settings for existing companies.
+ */
 export default async function createApprovalSettings({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
