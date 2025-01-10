@@ -12,7 +12,7 @@ export function CompanyUpdateDrawer({
   open: boolean;
   setOpen: (open: boolean) => void;
 }) {
-  const { mutate, isPending, error } = useUpdateCompany(company.id);
+  const { mutateAsync, isPending, error } = useUpdateCompany(company.id);
 
   const {
     created_at,
@@ -25,7 +25,7 @@ export function CompanyUpdateDrawer({
   } = company;
 
   const handleSubmit = async (formData: AdminUpdateCompany) => {
-    await mutate(formData, {
+    await mutateAsync(formData, {
       onSuccess: async () => {
         setOpen(false);
         toast.success(`Company ${formData.name} updated successfully`);
