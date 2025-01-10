@@ -46,3 +46,30 @@ export const storeEmployeeQueryConfig = {
     isList: false,
   },
 };
+
+/* Store Approval Settings Query Config */
+type ApprovalSettingsField =
+  | "id"
+  | "company_id"
+  | "requires_admin_approval"
+  | "requires_sales_manager_approval"
+  | "created_at"
+  | "updated_at"
+  | "deleted_at";
+
+export const storeApprovalSettingsFields: ApprovalSettingsField[] = [
+  "id",
+  "company_id",
+  "requires_admin_approval",
+  "requires_sales_manager_approval",
+  "created_at",
+  "updated_at",
+  "deleted_at",
+];
+
+export const storeApprovalSettingsQueryConfig = {
+  retrieve: {
+    defaults: storeApprovalSettingsFields,
+    isList: false,
+  },
+};

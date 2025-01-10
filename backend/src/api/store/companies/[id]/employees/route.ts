@@ -43,10 +43,10 @@ export const POST = async (
   const { result: createdEmployee } = await createEmployeesWorkflow.run({
     input: {
       employeeData: {
-        ...req.body,
+        ...req.validatedBody,
         company_id: id,
       },
-      customerId: req.body.customer_id,
+      customerId: req.validatedBody.customer_id,
     },
     container: req.scope,
   });
