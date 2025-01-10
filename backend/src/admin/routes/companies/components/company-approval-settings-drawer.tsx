@@ -2,7 +2,7 @@ import { Button, Drawer, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
 import { useState } from "react";
 import { CoolSwitch } from "../../../components/common";
-import { useCompany, useUpdateApprovalSettings } from "../../../hooks/api";
+import { useUpdateApprovalSettings } from "../../../hooks/api";
 
 export function CompanyApprovalSettingsDrawer({
   company,
@@ -21,11 +21,6 @@ export function CompanyApprovalSettingsDrawer({
       company.approval_settings?.requires_sales_manager_approval || false
     );
 
-  const { refetch: refetchCompany } = useCompany(company.id, {
-    fields:
-      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
-  });
-
   const { mutateAsync, isPending } = useUpdateApprovalSettings(company.id);
 
   const { approval_settings } = company;
@@ -40,8 +35,7 @@ export function CompanyApprovalSettingsDrawer({
       {
         onSuccess: async () => {
           setOpen(false);
-          await refetchCompany();
-          toast.success(`Company ${company.name} updated successfully`);
+          toast.success("Company approval settings updated successfully");
         },
         onError: (error) => {
           toast.error("Failed to update company approval settings");

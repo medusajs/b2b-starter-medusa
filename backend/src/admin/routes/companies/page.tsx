@@ -14,8 +14,9 @@ import { useAdminCustomerGroups, useCompanies } from "../../hooks/api";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "./components";
 
 const Companies = () => {
-  const { data, isPending, refetch } = useCompanies({
-    fields: ["customer_group.*", "approval_settings.*"],
+  const { data, isPending } = useCompanies({
+    fields:
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
   });
 
   const { data: customerGroups } = useAdminCustomerGroups();
@@ -25,7 +26,7 @@ const Companies = () => {
       <Container className="flex flex-col p-0 overflow-hidden">
         <div className="p-6 flex justify-between">
           <Heading className="font-sans font-medium h1-core">Companies</Heading>
-          <CompanyCreateDrawer refetch={refetch} />
+          <CompanyCreateDrawer />
         </div>
         {isPending && <Text>Loading...</Text>}
         <Table>
@@ -74,7 +75,6 @@ const Companies = () => {
                   <Table.Cell onClick={(e) => e.stopPropagation()}>
                     <CompanyActionsMenu
                       company={company}
-                      refetch={refetch}
                       customerGroups={customerGroups}
                     />
                   </Table.Cell>

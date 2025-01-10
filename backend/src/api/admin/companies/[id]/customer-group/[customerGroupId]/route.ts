@@ -16,5 +16,5 @@ export const DELETE = async (
     container: req.scope,
   });
 
-  res.status(201).send();
+  res.status(200).send();
 };

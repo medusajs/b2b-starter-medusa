@@ -3,7 +3,6 @@ import { Button, Drawer, Hint, Table, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
 import {
   useAddCompanyToCustomerGroup,
-  useCompany,
   useRemoveCompanyFromCustomerGroup,
 } from "../../../hooks/api";
 
@@ -18,8 +17,6 @@ export function CompanyCustomerGroupDrawer({
   open: boolean;
   setOpen: (open: boolean) => void;
 }) {
-  const { refetch: refetchCompany } = useCompany(company.id);
-
   const { mutateAsync: addMutate, isPending: addLoading } =
     useAddCompanyToCustomerGroup(company.id);
 
@@ -30,7 +27,6 @@ export function CompanyCustomerGroupDrawer({
     await addMutate(groupId, {
       onSuccess: async () => {
         setOpen(false);
-        await refetchCompany();
         toast.success(`Company added to customer group successfully`);
       },
       onError: (error) => {
@@ -42,10 +38,10 @@ export function CompanyCustomerGroupDrawer({
   const handleRemove = async (groupId: string) => {
     await removeMutate(groupId, {
       onSuccess: async () => {
-        await refetchCompany();
         toast.success(`Company removed from customer group successfully`);
       },
       onError: (error) => {
+        console.log(error);
         toast.error("Failed to remove company from customer group");
       },
     });

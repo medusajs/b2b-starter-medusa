@@ -93,6 +93,9 @@ export const useCreateCompany = (
       queryClient.invalidateQueries({
         queryKey: companyQueryKey.lists(),
       });
+      queryClient.invalidateQueries({
+        queryKey: companyQueryKey.detail(data.id),
+      });
       options?.onSuccess?.(data, variables, context);
     },
     ...options,
@@ -120,10 +123,10 @@ export const useUpdateCompany = (
       }),
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({
-        queryKey: companyQueryKey.detail(companyId),
+        queryKey: companyQueryKey.lists(),
       });
       queryClient.invalidateQueries({
-        queryKey: companyQueryKey.lists(),
+        queryKey: companyQueryKey.detail(companyId),
       });
       options?.onSuccess?.(data, variables, context);
     },
@@ -168,6 +171,9 @@ export const useAddCompanyToCustomerGroup = (
       }),
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({
+        queryKey: companyQueryKey.lists(),
+      });
+      queryClient.invalidateQueries({
         queryKey: companyQueryKey.detail(companyId),
       });
       options?.onSuccess?.(data, variables, context);
@@ -183,20 +189,24 @@ export const useRemoveCompanyFromCustomerGroup = (
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (groupId: string) => {
+    mutationFn: (groupId: string) =>
       sdk.client.fetch(
         `/admin/companies/${companyId}/customer-group/${groupId}`,
         {
           method: "DELETE",
+          headers: {
+            Accept: "text/plain",
+          },
         }
-      );
-    },
-    onSuccess: (data: void, variables: any, context: any) => {
-      console.log("onSuccess", data, variables, context);
+      ),
+    onSuccess: (_, variables: any, context: any) => {
+      queryClient.invalidateQueries({
+        queryKey: companyQueryKey.lists(),
+      });
       queryClient.invalidateQueries({
         queryKey: companyQueryKey.detail(companyId),
       });
-      options?.onSuccess?.(data, variables, context);
+      options?.onSuccess?.(undefined, variables, context);
     },
     ...options,
   });

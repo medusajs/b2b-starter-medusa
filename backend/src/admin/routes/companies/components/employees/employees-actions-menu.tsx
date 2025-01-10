@@ -9,11 +9,9 @@ import { useDeleteEmployee } from "../../../../hooks/api";
 export const EmployeesActionsMenu = ({
   company,
   employee,
-  refetch,
 }: {
   company: QueryCompany;
   employee: QueryEmployee;
-  refetch: () => void;
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -24,7 +22,6 @@ export const EmployeesActionsMenu = ({
     await mutateDelete(employee.id, {
       onSuccess: () => {
         toast.success(`Employee deleted successfully`);
-        refetch();
       },
     });
   };
@@ -58,7 +55,6 @@ export const EmployeesActionsMenu = ({
       <EmployeesUpdateDrawer
         company={company}
         employee={employee}
-        refetch={refetch}
         open={editOpen}
         setOpen={setEditOpen}
         toast={toast}

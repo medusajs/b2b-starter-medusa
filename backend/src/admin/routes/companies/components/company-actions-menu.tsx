@@ -1,30 +1,23 @@
 import { HttpTypes } from "@medusajs/framework/types";
-import {
-  EllipsisHorizontal,
-  Link,
-  LockClosedSolid,
-  PencilSquare,
-  Trash,
-} from "@medusajs/icons";
-import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
+import { Link, LockClosedSolid, PencilSquare, Trash } from "@medusajs/icons";
+import { toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  CompanyUpdateDrawer,
-  CompanyCustomerGroupDrawer,
-  CompanyApprovalSettingsDrawer,
-} from "./";
+import { ActionMenu } from "../../../components/common";
 import { DeletePrompt } from "../../../components/common/delete-prompt";
 import { useDeleteCompany } from "../../../hooks/api";
+import {
+  CompanyApprovalSettingsDrawer,
+  CompanyCustomerGroupDrawer,
+  CompanyUpdateDrawer,
+} from "./";
 
 export const CompanyActionsMenu = ({
   company,
-  refetch,
   customerGroups,
 }: {
   company: QueryCompany;
-  refetch: () => void;
   customerGroups?: HttpTypes.AdminCustomerGroup[];
 }) => {
   const [editOpen, setEditOpen] = useState(false);
@@ -40,7 +33,6 @@ export const CompanyActionsMenu = ({
     mutateDelete(company.id, {
       onSuccess: () => {
         navigate("/companies");
-        refetch();
         toast.success(`Company ${company.name} deleted successfully`);
       },
     });
@@ -48,44 +40,39 @@ export const CompanyActionsMenu = ({
 
   return (
     <>
-      <DropdownMenu>
-        <DropdownMenu.Trigger asChild>
-          <IconButton variant="transparent">
-            <EllipsisHorizontal />
-          </IconButton>
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
-          <DropdownMenu.Item
-            className="gap-x-2"
-            onClick={() => setEditOpen(true)}
-          >
-            <PencilSquare />
-            Edit details
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            className="gap-x-2"
-            onClick={() => setCustomerGroupOpen(true)}
-          >
-            <Link />
-            Manage customer group
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            className="gap-x-2"
-            onClick={() => setApprovalSettingsOpen(true)}
-          >
-            <LockClosedSolid />
-            Approval settings
-          </DropdownMenu.Item>
-          <DropdownMenu.Separator />
-          <DropdownMenu.Item
-            className="gap-x-2"
-            onClick={() => setDeleteOpen(true)}
-          >
-            <Trash />
-            Delete
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu>
+      <ActionMenu
+        groups={[
+          {
+            actions: [
+              {
+                icon: <PencilSquare />,
+                label: "Edit details",
+                onClick: () => setEditOpen(true),
+              },
+              {
+                icon: <Link />,
+                label: "Manage customer group",
+                onClick: () => setCustomerGroupOpen(true),
+              },
+              {
+                icon: <LockClosedSolid />,
+                label: "Approval settings",
+                onClick: () => setApprovalSettingsOpen(true),
+              },
+            ],
+          },
+          {
+            actions: [
+              {
+                icon: <Trash />,
+                label: "Delete",
+                onClick: () => setDeleteOpen(true),
+              },
+            ],
+          },
+        ]}
+      />
+
       <CompanyUpdateDrawer
         company={company}
         open={editOpen}

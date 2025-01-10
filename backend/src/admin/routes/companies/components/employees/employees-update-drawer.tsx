@@ -10,14 +10,12 @@ import { useUpdateEmployee } from "../../../../hooks/api";
 export function EmployeesUpdateDrawer({
   company,
   employee,
-  refetch,
   open,
   setOpen,
   toast,
 }: {
   company: QueryCompany;
   employee: QueryEmployee;
-  refetch: () => void;
   open: boolean;
   setOpen: (open: boolean) => void;
   toast: typeof toastType;
@@ -31,7 +29,6 @@ export function EmployeesUpdateDrawer({
     await mutateAsync(formData, {
       onSuccess: () => {
         setOpen(false);
-        refetch();
         toast.success(
           `Employee ${employee?.customer?.email} updated successfully`
         );

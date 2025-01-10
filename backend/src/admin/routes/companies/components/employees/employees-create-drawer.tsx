@@ -8,13 +8,7 @@ import {
 } from "../../../../hooks/api";
 import { EmployeesCreateForm } from "./employees-create-form";
 
-export function EmployeeCreateDrawer({
-  company,
-  refetch,
-}: {
-  company: QueryCompany;
-  refetch: () => void;
-}) {
+export function EmployeeCreateDrawer({ company }: { company: QueryCompany }) {
   const [open, setOpen] = useState(false);
 
   const {
@@ -56,7 +50,6 @@ export function EmployeeCreateDrawer({
       return;
     }
 
-    refetch();
     setOpen(false);
     toast.success(
       `Employee ${employee?.customer?.first_name} ${employee?.customer?.last_name} created successfully`

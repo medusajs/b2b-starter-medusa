@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useCreateCompany } from "../../../hooks/api";
 import { CompanyForm } from "./company-form";
 
-export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
+export function CompanyCreateDrawer() {
   const [open, setOpen] = useState(false);
 
   const { mutateAsync, isPending, error } = useCreateCompany();
@@ -13,7 +13,6 @@ export function CompanyCreateDrawer({ refetch }: { refetch: () => void }) {
     await mutateAsync(formData, {
       onSuccess: () => {
         setOpen(false);
-        refetch();
       },
     });
   };

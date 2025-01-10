@@ -20,7 +20,7 @@ import {
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
-  const { data, isPending, refetch } = useCompany(companyId!, {
+  const { data, isPending } = useCompany(companyId!, {
     fields:
       "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
   });
@@ -50,14 +50,13 @@ const CompanyDetails = () => {
               </div>
               <CompanyActionsMenu
                 company={company}
-                refetch={refetch}
                 customerGroups={customerGroups}
               />
             </div>
             <Table>
               <Table.Body>
                 <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                  <Table.Cell className="font-medium font-sans txt-compact-small max-w-fit">
                     Phone
                   </Table.Cell>
                   <Table.Cell>{company?.phone}</Table.Cell>
@@ -149,7 +148,7 @@ const CompanyDetails = () => {
                   Employees
                 </Heading>
               </div>
-              <EmployeeCreateDrawer company={company} refetch={refetch} />
+              <EmployeeCreateDrawer company={company} />
             </div>
             {company?.employees && company?.employees.length > 0 ? (
               <Table>
@@ -203,7 +202,6 @@ const CompanyDetails = () => {
                         <EmployeesActionsMenu
                           company={company}
                           employee={employee}
-                          refetch={refetch}
                         />
                       </Table.Cell>
                     </Table.Row>

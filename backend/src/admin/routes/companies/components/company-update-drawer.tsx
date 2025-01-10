@@ -1,6 +1,6 @@
 import { Drawer, toast } from "@medusajs/ui";
 import { AdminUpdateCompany, QueryCompany } from "@starter/types";
-import { useCompany, useUpdateCompany } from "../../../hooks/api";
+import { useUpdateCompany } from "../../../hooks/api";
 import { CompanyForm } from "./company-form";
 
 export function CompanyUpdateDrawer({
@@ -13,11 +13,6 @@ export function CompanyUpdateDrawer({
   setOpen: (open: boolean) => void;
 }) {
   const { mutate, isPending, error } = useUpdateCompany(company.id);
-
-  const { refetch: refetchCompany } = useCompany(company.id, {
-    fields:
-      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
-  });
 
   const {
     created_at,
@@ -33,7 +28,6 @@ export function CompanyUpdateDrawer({
     await mutate(formData, {
       onSuccess: async () => {
         setOpen(false);
-        await refetchCompany();
         toast.success(`Company ${formData.name} updated successfully`);
       },
       onError: (error) => {
