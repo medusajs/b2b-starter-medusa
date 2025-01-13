@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-query";
 import { sdk } from "../../lib/client";
 import { queryKeysFactory } from "../../lib/query-key-factory";
+import { companyQueryKey } from "./companies";
 
 export const approvalQueryKey = queryKeysFactory("approval");
 
@@ -35,6 +36,18 @@ export const useUpdateApprovalSettings = (
     onSuccess: (data: any, variables: any, context: any) => {
       queryClient.invalidateQueries({
         queryKey: approvalQueryKey.detail(companyId),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: companyQueryKey.detail(companyId),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: companyQueryKey.detail(companyId),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: companyQueryKey.list(),
       });
 
       options?.onSuccess?.(data, variables, context);

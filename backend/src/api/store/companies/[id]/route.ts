@@ -8,6 +8,7 @@ import {
   StoreGetCompanyParamsType,
   StoreUpdateCompanyType,
 } from "../validators";
+import { storeCompanyFields } from "../query-config";
 
 export const GET = async (
   req: MedusaRequest<StoreGetCompanyParamsType>,
@@ -21,7 +22,7 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "companies",
-      fields: req.remoteQueryConfig.fields,
+      fields: storeCompanyFields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
@@ -49,7 +50,7 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "companies",
-      fields: req.remoteQueryConfig.fields,
+      fields: storeCompanyFields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }

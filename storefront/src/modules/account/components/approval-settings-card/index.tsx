@@ -13,7 +13,7 @@ import {
 } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import { B2BCustomer, QueryCompany } from "@starter/types"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const ApprovalSettingsCard = ({
   company,
@@ -28,7 +28,7 @@ const ApprovalSettingsCard = ({
   const { approval_settings } = company
 
   const [requiresAdminApproval, setRequiresAdminApproval] = useState(
-    approval_settings.requires_admin_approval
+    approval_settings?.requires_admin_approval ?? false
   )
 
   const handleSave = async () => {
@@ -90,7 +90,7 @@ const ApprovalSettingsCard = ({
               </Text>
               <div className="flex items-center gap-x-2 h-3">
                 <Text className="text-neutral-500">
-                  {approval_settings.requires_sales_manager_approval
+                  {approval_settings?.requires_sales_manager_approval
                     ? "Yes"
                     : "No"}
                 </Text>

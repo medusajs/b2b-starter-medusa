@@ -12,6 +12,7 @@ export const storeCompanyFields = [
   "country",
   "currency_code",
   "*employees",
+  "*approval_settings",
 ];
 
 export const storeCompanyQueryConfig = {

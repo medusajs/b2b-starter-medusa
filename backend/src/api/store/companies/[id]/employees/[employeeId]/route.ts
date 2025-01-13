@@ -8,6 +8,7 @@ import {
   StoreGetEmployeeParamsType,
   StoreUpdateEmployeeType,
 } from "../../../validators";
+import { storeEmployeeFields } from "../../../query-config";
 
 export const GET = async (
   req: MedusaRequest<StoreGetEmployeeParamsType>,
@@ -21,7 +22,7 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: storeEmployeeFields,
       filters: {
         ...req.filterableFields,
         id: employeeId,
@@ -56,7 +57,7 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: storeEmployeeFields,
       filters: {
         ...req.filterableFields,
         id: employeeId,

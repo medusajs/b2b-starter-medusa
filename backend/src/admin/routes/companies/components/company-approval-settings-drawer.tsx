@@ -1,6 +1,6 @@
 import { Button, Drawer, toast } from "@medusajs/ui";
 import { QueryCompany } from "@starter/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CoolSwitch } from "../../../components/common";
 import { useUpdateApprovalSettings } from "../../../hooks/api";
 
@@ -24,6 +24,10 @@ export function CompanyApprovalSettingsDrawer({
   const { mutateAsync, isPending } = useUpdateApprovalSettings(company.id);
 
   const { approval_settings } = company;
+
+  useEffect(() => {
+    console.log("approval_settings", approval_settings);
+  }, [approval_settings]);
 
   const handleSubmit = async () => {
     await mutateAsync(
