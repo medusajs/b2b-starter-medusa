@@ -38,6 +38,11 @@ export interface ICompanyModuleService extends IModuleService {
     sharedContext?: Context
   ): Promise<ModuleCompany>;
 
+  createCompanies(
+    data: ModuleCreateCompany[],
+    sharedContext?: Context
+  ): Promise<ModuleCompany[]>;
+
   retrieveCompany(
     id: string,
     config?: FindConfig<ModuleCompany>,
@@ -48,6 +53,11 @@ export interface ICompanyModuleService extends IModuleService {
     data: ModuleUpdateCompany,
     sharedContext?: Context
   ): Promise<ModuleCompany>;
+
+  updateCompanies(
+    data: ModuleUpdateCompany[],
+    sharedContext?: Context
+  ): Promise<ModuleCompany[]>;
 
   listCompanies(
     filters?: ModuleCompanyFilters,

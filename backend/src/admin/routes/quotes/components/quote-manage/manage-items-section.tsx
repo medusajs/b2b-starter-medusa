@@ -11,7 +11,7 @@ import {
   StackedFocusModal,
   useStackedModal,
 } from "../../../../components/common/modals/route-focus-modal";
-import { useAddItemsToQuote } from "../../../../hooks/api/quotes";
+import { useAddItemsToQuote } from "../../../../hooks/api";
 import { ManageItem } from "./manage-item";
 import { ManageItemsTable } from "./manage-items-table";
 

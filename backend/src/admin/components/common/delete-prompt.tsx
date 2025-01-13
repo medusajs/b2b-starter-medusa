@@ -2,7 +2,7 @@ import { Trash } from "@medusajs/icons";
 import { Button, Prompt } from "@medusajs/ui";
 
 interface DeletePromptProps {
-  handleDelete: () => Promise<void>;
+  handleDelete: () => void;
   loading: boolean;
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -15,7 +15,7 @@ export const DeletePrompt = ({
   setOpen,
 }: DeletePromptProps) => {
   const handleConfirmDelete = async () => {
-    await handleDelete();
+    handleDelete();
     setOpen(false);
   };
 

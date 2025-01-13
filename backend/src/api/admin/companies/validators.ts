@@ -90,3 +90,38 @@ export const AdminUpdateEmployee = z
     is_admin: z.boolean().optional(),
   })
   .strict();
+
+/* Approval Settings Validators */
+export type AdminGetApprovalSettingsParamsType = z.infer<
+  typeof AdminGetApprovalSettingsParams
+>;
+export const AdminGetApprovalSettingsParams = createSelectParams();
+
+export type AdminCreateApprovalSettingsType = z.infer<
+  typeof AdminCreateApprovalSettings
+>;
+export const AdminCreateApprovalSettings = z
+  .object({
+    company_id: z.string(),
+    requires_admin_approval: z.boolean(),
+    requires_sales_manager_approval: z.boolean(),
+  })
+  .strict();
+
+export type AdminUpdateApprovalSettingsType = z.infer<
+  typeof AdminUpdateApprovalSettings
+>;
+export const AdminUpdateApprovalSettings = z
+  .object({
+    id: z.string(),
+    requires_admin_approval: z.boolean(),
+    requires_sales_manager_approval: z.boolean(),
+  })
+  .strict();
+
+export type AdminDeleteApprovalSettingsType = z.infer<
+  typeof AdminDeleteApprovalSettings
+>;
+export const AdminDeleteApprovalSettings = z.object({
+  ids: z.array(z.string()),
+});

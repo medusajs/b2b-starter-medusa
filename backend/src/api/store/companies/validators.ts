@@ -63,3 +63,18 @@ export const StoreUpdateEmployee = z
     is_admin: z.boolean().optional(),
   })
   .strict();
+
+/* Approval Settings Validators */
+export type StoreGetApprovalSettingsParamsType = z.infer<
+  typeof StoreGetApprovalSettingsParams
+>;
+export const StoreGetApprovalSettingsParams = createSelectParams();
+
+export type StoreUpdateApprovalSettingsType = z.infer<
+  typeof StoreUpdateApprovalSettings
+>;
+export const StoreUpdateApprovalSettings = z
+  .object({
+    requires_admin_approval: z.boolean().optional(),
+  })
+  .strict();
