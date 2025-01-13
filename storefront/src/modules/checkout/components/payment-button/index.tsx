@@ -2,7 +2,7 @@
 
 import { isManual, isPaypal, isStripe } from "@lib/constants"
 import { placeOrder } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
+import { Container, Text } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
@@ -28,6 +28,9 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     !cart.email ||
     (cart.shipping_methods?.length ?? 0) < 1
 
+  const { requires_admin_approval, requires_sales_manager_approval } =
+    cart.company?.approval_settings || {}
+
   // TODO: Add this once gift cards are implemented
   // const paidByGiftcard =
   //   cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
@@ -35,6 +38,23 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
   // if (paidByGiftcard) {
   //   return <GiftCardPaymentButton />
   // }
+
+  if (requires_admin_approval || requires_sales_manager_approval) {
+    return (
+      <>
+        <Container className="flex flex-col gap-y-2">
+          <Text className="text-neutral-700-950 text-xs text-center">
+            {requires_admin_approval
+              ? "This order requires approval by a company admin."
+              : "This order requires approval by a sales manager."}
+          </Text>
+          <Button className="w-full h-10 rounded-full shadow-none">
+            Request Approval
+          </Button>
+        </Container>
+      </>
+    )
+  }
 
   const paymentSession = cart.payment_collection?.payment_sessions?.[0]
 
