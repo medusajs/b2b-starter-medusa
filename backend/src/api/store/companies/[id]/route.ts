@@ -8,7 +8,6 @@ import {
   StoreGetCompanyParamsType,
   StoreUpdateCompanyType,
 } from "../validators";
-import { storeCompanyFields } from "../query-config";
 
 export const GET = async (
   req: MedusaRequest<StoreGetCompanyParamsType>,
