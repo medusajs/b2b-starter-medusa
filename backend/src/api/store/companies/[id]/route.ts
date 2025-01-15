@@ -22,7 +22,8 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "companies",
-      fields: storeCompanyFields,
+      // TODO: fix this
+      fields: req.remoteQueryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
@@ -50,7 +51,8 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "companies",
-      fields: storeCompanyFields,
+      // TODO: fix this
+      fields: req.remoteQueryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
