@@ -46,6 +46,7 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             className,
             {
               "text-ui-fg-muted": isPlaceholder,
+              "pointer-events-none opacity-50": props.disabled,
             }
           )}
         >
