@@ -1,7 +1,7 @@
 "use client"
 
 import { isManual, isPaypal, isStripe } from "@lib/constants"
-import { placeOrder } from "@lib/data/cart"
+import { createCartApproval, placeOrder } from "@lib/data/cart"
 import { Container, Text } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
@@ -11,6 +11,7 @@ import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
 import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
+import { ApprovalStatus, ApprovalType } from "@starter/types/approval/module"
 
 type PaymentButtonProps = {
   cart: B2BCart
@@ -40,20 +41,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
   // }
 
   if (requires_admin_approval || requires_sales_manager_approval) {
-    return (
-      <>
-        <Container className="flex flex-col gap-y-2">
-          <Text className="text-neutral-700-950 text-xs text-center">
-            {requires_admin_approval
-              ? "This order requires approval by a company admin."
-              : "This order requires approval by a sales manager."}
-          </Text>
-          <Button className="w-full h-10 rounded-full shadow-none">
-            Request Approval
-          </Button>
-        </Container>
-      </>
-    )
+    return <RequestApprovalButton cart={cart} notReady={notReady} />
   }
 
   const paymentSession = cart.payment_collection?.payment_sessions?.[0]
@@ -82,6 +70,55 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     default:
       return <Button disabled>Select a payment method</Button>
   }
+}
+
+const RequestApprovalButton = ({
+  cart,
+  notReady,
+}: {
+  cart: B2BCart
+  notReady: boolean
+}) => {
+  const [submitting, setSubmitting] = useState(false)
+
+  const { requires_admin_approval } = cart.company?.approval_settings || {}
+
+  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+
+  const createApproval = async () => {
+    setSubmitting(true)
+
+    const data = {
+      type: requires_admin_approval
+        ? ApprovalType.ADMIN
+        : ApprovalType.SALES_MANAGER,
+      created_by: cart.customer!.id,
+    }
+
+    await createCartApproval(cart.id, data)
+
+    setSubmitting(false)
+  }
+
+  return (
+    <>
+      <Container className="flex flex-col gap-y-2">
+        <Text className="text-neutral-700-950 text-xs text-center">
+          {requires_admin_approval
+            ? "This order requires approval by a company admin."
+            : "This order requires approval by a sales manager."}
+        </Text>
+        <Button
+          className="w-full h-10 rounded-full shadow-none"
+          disabled={notReady || isPendingApproval}
+          onClick={createApproval}
+          isLoading={submitting}
+        >
+          {isPendingApproval ? "Approval Requested" : "Request Approval"}
+        </Button>
+      </Container>
+    </>
+  )
 }
 
 const GiftCardPaymentButton = () => {

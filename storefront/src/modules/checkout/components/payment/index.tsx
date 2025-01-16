@@ -10,6 +10,7 @@ import PaymentContainer from "@modules/checkout/components/payment-container"
 import { StripeContext } from "@modules/checkout/components/payment-wrapper"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
+import { ApprovalStatus } from "@starter/types/approval"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
@@ -40,7 +41,8 @@ const Payment = ({
 
   const isOpen = searchParams.get("step") === "payment"
 
-  const isStripe = isStripeFunc(activeSession?.provider_id)
+  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+
   const stripeReady = useContext(StripeContext)
 
   const paidByGiftcard =
@@ -130,7 +132,7 @@ const Payment = ({
             Payment Method
             {!isOpen && paymentReady && <CheckCircleSolid />}
           </Heading>
-          {!isOpen && paymentReady && (
+          {!isOpen && paymentReady && !isPendingApproval && (
             <Text>
               <button
                 onClick={handleEdit}

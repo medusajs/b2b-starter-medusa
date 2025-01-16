@@ -2,6 +2,7 @@ import { convertToLocale } from "@lib/util/money"
 import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import ItemFull from "@modules/cart/components/item-full"
+import { ApprovalStatus } from "@starter/types/approval"
 import { useMemo } from "react"
 import { B2BCart } from "types/global"
 
@@ -22,6 +23,11 @@ const ItemsTemplate = ({
     [cart?.items]
   )
 
+  const isPendingApproval = useMemo(
+    () => cart?.approval?.status === ApprovalStatus.PENDING,
+    [cart?.approval]
+  )
+
   return (
     <div className="w-full flex flex-col gap-y-2">
       <div className="flex flex-col gap-y-2 w-full">
@@ -29,6 +35,7 @@ const ItemsTemplate = ({
           items.map((item: StoreCartLineItem) => {
             return (
               <ItemFull
+                disabled={isPendingApproval}
                 currencyCode={cart?.currency_code}
                 showBorders={showBorders}
                 key={item.id}

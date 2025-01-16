@@ -10,6 +10,7 @@ import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
+import { ApprovalStatus } from "@starter/types/approval"
 
 const ContactDetails = ({
   cart,
@@ -31,6 +32,8 @@ const ContactDetails = ({
     cart.payment_collection?.payment_sessions &&
     cart.payment_collection?.payment_sessions?.length > 0 &&
     cart?.email
+
+  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -67,7 +70,7 @@ const ContactDetails = ({
             {!isOpen && isCompleted && <CheckCircleSolid />}
           </Heading>
 
-          {!isOpen && isCompleted && (
+          {!isOpen && isCompleted && !isPendingApproval && (
             <Text>
               <button
                 onClick={handleEdit}
