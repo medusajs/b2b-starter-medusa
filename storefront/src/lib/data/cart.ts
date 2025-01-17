@@ -22,8 +22,8 @@ import {
   StoreCreateApproval,
 } from "@starter/types/approval"
 
-export async function retrieveCart() {
-  const cartId = await getCartId()
+export async function retrieveCart(id?: string) {
+  const cartId = id || (await getCartId())
 
   if (!cartId) {
     return null

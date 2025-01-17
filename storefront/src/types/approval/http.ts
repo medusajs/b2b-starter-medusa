@@ -32,3 +32,7 @@ export type StoreUpdateApproval = {
 export type StoreApprovalResponse = {
   approval: StoreApproval
 }
+
+export type StoreApprovalsResponse = {
+  approvals: StoreApproval[]
+}

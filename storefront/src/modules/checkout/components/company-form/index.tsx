@@ -30,7 +30,7 @@ const CompanyForm = ({ cart }: { cart: B2BCart }) => {
           <div
             className={clx(
               "flex items-center gap-x-4 text-sm text-neutral-600 cursor-pointer",
-              isPendingApproval && "opacity-50 cursor-not-allowed"
+              isPendingApproval && "opacity-50 cursor-default"
             )}
           >
             <Radio
@@ -46,7 +46,7 @@ const CompanyForm = ({ cart }: { cart: B2BCart }) => {
           <div
             className={clx(
               "flex items-center gap-x-4 text-sm text-neutral-600 cursor-pointer",
-              isPendingApproval && "opacity-50 cursor-not-allowed"
+              isPendingApproval && "opacity-50 cursor-default"
             )}
             onClick={() => {
               !isPendingApproval && setSelectedOption("custom")
