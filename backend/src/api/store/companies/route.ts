@@ -15,13 +15,13 @@ export const GET = async (
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
+  const { fields, pagination } = req.queryConfig;
+
   const { data: companies, metadata } = await query.graph({
     entity: "companies",
-    fields: req.remoteQueryConfig.fields,
+    fields,
     filters: req.filterableFields,
-    pagination: {
-      ...req.remoteQueryConfig.pagination,
-    },
+    pagination,
   });
 
   res.json({
@@ -50,7 +50,7 @@ export const POST = async (
   const { data: companies } = await query.graph(
     {
       entity: "companies",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id: createdCompanies.map((company) => company.id) },
     },
     { throwIfKeyNotFound: true }

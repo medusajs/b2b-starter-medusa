@@ -22,7 +22,7 @@ export const GET = async (
     {
       entity: "companies",
       // TODO: fix this
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
@@ -51,7 +51,7 @@ export const POST = async (
     {
       entity: "companies",
       // TODO: fix this
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }

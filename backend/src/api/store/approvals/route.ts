@@ -8,16 +8,9 @@ export const GET = async (
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  // TODO: Use the correct fields
-  const { fields } = req.query;
-
-  const fieldsArray = (Array.isArray(fields) ? fields : [fields]).filter(
-    (field) => field
-  );
-
   const { data: approvals } = await query.graph({
     entity: "approval",
-    fields: fieldsArray,
+    fields: req.queryConfig.fields,
     filters: req.filterableFields,
   });
 

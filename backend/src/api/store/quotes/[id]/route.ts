@@ -21,7 +21,7 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "quote",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         id,
         customer_id: req.auth_context.actor_id,

@@ -16,7 +16,7 @@ export const GET = async (
   const { data: employees, metadata } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         company_id: id,
         ...req.filterableFields,
@@ -53,7 +53,7 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id: createdEmployee.id },
     },
     { throwIfKeyNotFound: true }

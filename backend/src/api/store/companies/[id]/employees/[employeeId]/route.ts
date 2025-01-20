@@ -22,7 +22,7 @@ export const GET = async (
     {
       entity: "employee",
       // TODO: fix this
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         ...req.filterableFields,
         id: employeeId,
@@ -58,7 +58,7 @@ export const POST = async (
     {
       entity: "employee",
       // TODO: fix this
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         ...req.filterableFields,
         id: employeeId,
