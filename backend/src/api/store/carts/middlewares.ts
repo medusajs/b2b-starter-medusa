@@ -7,6 +7,7 @@ import { retrieveCartTransformQueryConfig } from "./query-config";
 import {
   GetCartLineItemsBulkParams,
   StoreAddLineItemsBulk,
+  StoreCreateApproval,
 } from "./validators";
 
 export const storeCartsMiddlewares: MiddlewareRoute[] = [
@@ -20,5 +21,10 @@ export const storeCartsMiddlewares: MiddlewareRoute[] = [
         retrieveCartTransformQueryConfig
       ),
     ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/carts/:id/approvals",
+    middlewares: [validateAndTransformBody(StoreCreateApproval)],
   },
 ];

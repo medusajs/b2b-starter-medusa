@@ -29,11 +29,7 @@ export const retrieveOrder = async (id: string) => {
     .catch((err) => medusaError(err))
 }
 
-export const listOrders = async (
-  limit: number = 10,
-  offset: number = 0,
-  filters?: Record<string, any>
-) => {
+export const listOrders = async (limit: number = 10, offset: number = 0) => {
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -49,8 +45,8 @@ export const listOrders = async (
         limit,
         offset,
         order: "-created_at",
-        fields: "*items,+items.metadata,*items.variant,*items.product",
-        ...filters,
+        fields:
+          "*items,+items.metadata,*items.variant,*items.product,*customer",
       },
       headers,
       next,

@@ -1,5 +1,4 @@
 import { retrieveCustomer } from "@lib/data/customer"
-import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { Container } from "@medusajs/ui"
 import ItemsPreviewTemplate from "@modules/cart/templates/preview"
 import CheckoutTotals from "@modules/checkout/components/checkout-totals"
@@ -10,7 +9,6 @@ import { B2BCart } from "types/global"
 
 const CheckoutSummary = async ({ cart }: { cart: B2BCart }) => {
   const customer = await retrieveCustomer()
-  const spendLimitExceeded = checkSpendingLimit(cart, customer)
 
   return (
     <Container className="sticky top-2 h-fit w-full flex flex-col small:mt-10">
@@ -22,7 +20,7 @@ const CheckoutSummary = async ({ cart }: { cart: B2BCart }) => {
       <CheckoutTotals cartOrOrder={cart} />
       <PromotionCode cart={cart} />
       <Divider className="my-2" />
-      <Review cart={cart} spendLimitExceeded={spendLimitExceeded} />
+      <Review cart={cart} customer={customer} />
     </Container>
   )
 }

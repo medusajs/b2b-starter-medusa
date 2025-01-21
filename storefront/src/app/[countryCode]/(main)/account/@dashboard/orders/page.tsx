@@ -1,9 +1,12 @@
-import { Metadata } from "next"
-
+import { listApprovals } from "@lib/data/approvals"
+import { retrieveCompany } from "@lib/data/companies"
+import { retrieveCustomer } from "@lib/data/customer"
 import { listOrders } from "@lib/data/orders"
 import { Heading } from "@medusajs/ui"
 import OrderOverview from "@modules/account/components/order-overview"
-import { notFound } from "next/navigation"
+import PendingApprovalsOverview from "@modules/account/components/pending-approvals"
+import { ApprovalStatus } from "@starter/types/approval"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -11,18 +14,50 @@ export const metadata: Metadata = {
 }
 
 export default async function Orders() {
+  const customer = await retrieveCustomer()
   const orders = await listOrders()
 
-  if (!orders) {
-    notFound()
-  }
+  const { approval_settings } =
+    (await retrieveCompany(customer?.employee?.company_id!)) || {}
+
+  const approval_required =
+    approval_settings?.requires_admin_approval ||
+    approval_settings?.requires_sales_manager_approval
+
+  const approvals =
+    (approval_required &&
+      (await listApprovals({
+        cart: {
+          approval: {
+            status: ApprovalStatus.PENDING,
+            created_by: customer?.id,
+          },
+        },
+      }))) ||
+    []
 
   return (
-    <div className="w-full" data-testid="orders-page-wrapper">
+    <div
+      className="w-full flex flex-col gap-y-4"
+      data-testid="orders-page-wrapper"
+    >
       <div className="mb-4">
         <Heading>Orders</Heading>
       </div>
+      {approval_required && (
+        <div>
+          <Heading level="h2" className="text-neutral-700 mb-4">
+            Pending Approvals
+          </Heading>
+
+          <PendingApprovalsOverview approvals={approvals} />
+        </div>
+      )}
       <div>
+        <Heading level="h2" className="text-neutral-700 mb-4">
+          Completed Orders
+        </Heading>
+
         <OrderOverview orders={orders} />
       </div>
     </div>

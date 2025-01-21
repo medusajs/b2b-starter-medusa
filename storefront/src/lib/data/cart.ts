@@ -17,9 +17,13 @@ import {
 } from "./cookies"
 import { retrieveCustomer } from "./customer"
 import { getRegion } from "./regions"
+import {
+  StoreApprovalResponse,
+  StoreCreateApproval,
+} from "@starter/types/approval"
 
-export async function retrieveCart() {
-  const cartId = await getCartId()
+export async function retrieveCart(id?: string) {
+  const cartId = id || (await getCartId())
 
   if (!cartId) {
     return null
@@ -39,13 +43,16 @@ export async function retrieveCart() {
       method: "GET",
       query: {
         fields:
-          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company",
+          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approval",
       },
       headers,
       next,
       cache: "force-cache",
     })
-    .then(({ cart }) => cart as B2BCart)
+    .then(({ cart }) => {
+      console.log("cart", cart)
+      return cart as B2BCart
+    })
     .catch(() => {
       return null
     })
@@ -530,4 +537,30 @@ export async function updateRegion(countryCode: string, currentPath: string) {
   revalidateTag(productsCacheTag)
 
   redirect(`/${countryCode}${currentPath}`)
+}
+
+export async function createCartApproval(
+  cartId: string,
+  data: StoreCreateApproval
+) {
+  const headers = {
+    "Content-Type": "application/json",
+    ...(await getAuthHeaders()),
+  }
+
+  console.log("data", data)
+
+  const { approval } = await sdk.client.fetch<StoreApprovalResponse>(
+    `/store/carts/${cartId}/approvals`,
+    {
+      method: "POST",
+      headers,
+      body: data,
+    }
+  )
+
+  const cartCacheTag = await getCacheTag("carts")
+  revalidateTag(cartCacheTag)
+
+  return approval
 }

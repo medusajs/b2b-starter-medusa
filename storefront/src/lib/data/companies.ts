@@ -11,7 +11,6 @@ import {
   StoreUpdateCompany,
   StoreUpdateEmployee,
 } from "@starter/types"
-import { StoreUpdateApprovalSettings } from "@starter/types/approval"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 
@@ -24,12 +23,12 @@ export const retrieveCompany = async (companyId: string) => {
     ...(await getCacheOptions("companies")),
   }
 
-  const company = await sdk.client.fetch<StoreCompanyResponse>(
+  const { company } = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies/${companyId}`,
     {
       query: {
         fields:
-          "+spending_limit_reset_frequency,*employees.customer,*approval_settings",
+          "+spending_limit_reset_frequency,*employees.customer,*approval_settings,*cart.approval",
       },
       method: "GET",
       headers,

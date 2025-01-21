@@ -204,6 +204,7 @@ const Employee = ({
             className="bg-white"
             name="permissions"
             value={employeeData.is_admin ? "true" : "false"}
+            disabled={!customer?.employee?.is_admin}
             onChange={(e) => {
               setEmployeeData({
                 ...employeeData,

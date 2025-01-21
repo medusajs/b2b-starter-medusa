@@ -10,6 +10,7 @@ import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
 import { ChevronDownMini, ChevronUpMini } from "@medusajs/icons"
 import { usePathname } from "next/navigation"
+import { ApprovalStatus } from "@starter/types/approval"
 
 type PromotionCodeProps = {
   cart: B2BCart
@@ -22,6 +23,8 @@ const PromotionCode: React.FC<PromotionCodeProps> = ({ cart }) => {
   const isCheckout = pathname.includes("/checkout")
 
   const { promotions = [] } = cart
+
+  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
 
   const removePromotionCode = async (code: string) => {
     const validPromotions = promotions.filter(
@@ -56,7 +59,7 @@ const PromotionCode: React.FC<PromotionCodeProps> = ({ cart }) => {
   return (
     <div className="w-full bg-white flex flex-col">
       <div className="txt-medium">
-        {!isCheckout && (
+        {!isCheckout && !isPendingApproval && (
           <form action={(a) => addPromotionCode(a)} className="w-full mb-5">
             <button
               onClick={() => setIsOpen(!isOpen)}

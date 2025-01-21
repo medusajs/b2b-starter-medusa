@@ -1,6 +1,6 @@
-import { retrieveCart } from "@lib/data/cart"
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
+import ApprovalStatus from "@modules/cart/components/approval-status"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
 import Company from "@modules/checkout/components/company"
@@ -45,6 +45,8 @@ export default async function CheckoutForm({
         </LocalizedClientLink>
 
         {!customer ? <SignInPrompt /> : null}
+
+        {cart?.approval && <ApprovalStatus approval={cart.approval} />}
 
         {cart?.company && <Company cart={cart} />}
 

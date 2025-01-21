@@ -10,6 +10,7 @@ import ErrorMessage from "@modules/checkout/components/error-message"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
+import { ApprovalStatus } from "@starter/types/approval"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { B2BCart } from "types/global"
@@ -31,6 +32,8 @@ const Shipping: React.FC<ShippingProps> = ({
   const pathname = usePathname()
 
   const isOpen = searchParams.get("step") === "delivery"
+
+  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
 
   const selectedShippingMethod = availableShippingMethods?.find(
     // To do: remove the previously selected shipping method instead of using the last one
@@ -79,7 +82,8 @@ const Shipping: React.FC<ShippingProps> = ({
           {!isOpen &&
             cart?.shipping_address &&
             cart?.billing_address &&
-            cart?.email && (
+            cart?.email &&
+            !isPendingApproval && (
               <Text>
                 <button
                   onClick={handleEdit}

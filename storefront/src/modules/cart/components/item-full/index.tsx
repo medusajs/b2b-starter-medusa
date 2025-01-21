@@ -15,9 +15,15 @@ type ItemProps = {
   item: HttpTypes.StoreCartLineItem
   showBorders?: boolean
   currencyCode: string
+  disabled?: boolean
 }
 
-const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
+const ItemFull = ({
+  item,
+  showBorders = true,
+  currencyCode,
+  disabled,
+}: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -59,6 +65,10 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (disabled) {
+      return
+    }
+
     if (e.key === "Enter") {
       changeQuantity(Number(quantity))
     }
@@ -111,9 +121,12 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
             <div className="flex gap-x-2">
               <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
                 <button
-                  className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
+                  className={clx(
+                    "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
+                    disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+                  )}
                   onClick={() => changeQuantity(item.quantity - 1)}
-                  disabled={item.quantity <= 1}
+                  disabled={item.quantity <= 1 || disabled}
                 >
                   -
                 </button>
@@ -122,7 +135,12 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
                     <Spinner size="12" />
                   ) : (
                     <Input
-                      className="w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none"
+                      className={clx(
+                        "w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none",
+                        disabled
+                          ? "opacity-50 pointer-events-none"
+                          : "opacity-100"
+                      )}
                       type="number"
                       value={quantity}
                       onChange={(e) => {
@@ -132,21 +150,28 @@ const ItemFull = ({ item, showBorders = true, currencyCode }: ItemProps) => {
                         handleBlur(Number(e.target.value))
                       }}
                       onKeyDown={(e) => handleKeyDown(e)}
+                      disabled={disabled}
                     />
                   )}
                 </span>
                 <button
-                  className="w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md"
+                  className={clx(
+                    "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
+                    disabled ? "opacity-50 pointer-events-none" : "opacity-100"
+                  )}
                   onClick={() => changeQuantity(item.quantity + 1)}
-                  disabled={item.quantity >= maxQuantity}
+                  disabled={item.quantity >= maxQuantity || disabled}
                 >
                   +
                 </button>
               </div>
 
-              <DeleteButton id={item.id} />
+              <DeleteButton id={item.id} disabled={disabled} />
             </div>
-            <AddNoteButton item={item as HttpTypes.StoreCartLineItem} />
+            <AddNoteButton
+              item={item as HttpTypes.StoreCartLineItem}
+              disabled={disabled}
+            />
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import type {
   StoreProductVariant,
 } from "@medusajs/types"
 import { toast } from "@medusajs/ui"
+import { ApprovalStatus } from "@starter/types/approval/module"
 import { useParams } from "next/navigation"
 import type { PropsWithChildren } from "react"
 import {
@@ -75,6 +76,11 @@ export function CartProvider({
   const handleOptimisticAddToCart = useCallback(
     async (payload: AddToCartEventPayload) => {
       let prevCart = {} as B2BCart
+
+      if (cart?.approval?.status === ApprovalStatus.PENDING) {
+        toast.error("Cart is locked for approval.")
+        return
+      }
 
       startTransition(async () => {
         setOptimisticCart((prev) => {
@@ -158,7 +164,11 @@ export function CartProvider({
           })),
           countryCode: countryCode as string,
         }).catch((e) => {
-          toast.error("Failed to add to cart")
+          if (e.message === "Cart is pending approval") {
+            toast.error("Cart is locked for approval.")
+          } else {
+            toast.error("Failed to add to cart")
+          }
           setOptimisticCart(prevCart)
         })
       })

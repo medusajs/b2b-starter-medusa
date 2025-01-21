@@ -42,14 +42,16 @@ export const POST = async (
       container: req.scope,
     });
 
-  const { data: approvalSettings } = await query.graph({
-    entity: "approval_settings",
-    fields: adminApprovalSettingsFields,
-    filters: {
-      id: updatedApprovalSettings.id,
+  const { data: approvalSettings } = await query.graph(
+    {
+      entity: "approval_settings",
+      fields: adminApprovalSettingsFields,
+      filters: {
+        id: updatedApprovalSettings.id,
+      },
     },
-    throwIfKeyNotFound: true,
-  });
+    { throwIfKeyNotFound: true }
+  );
 
   res.json({ approvalSettings });
 };
