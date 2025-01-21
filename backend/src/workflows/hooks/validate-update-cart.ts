@@ -19,7 +19,7 @@ updateCartWorkflow.hooks.validate(async ({ cart }, { container }) => {
   const approval = queryCart.approval;
   const status = approval?.status as unknown as ApprovalStatus;
 
-  if (approval && status !== ApprovalStatus.PENDING) {
+  if (approval && status === ApprovalStatus.PENDING) {
     throw new Error("Cart is pending approval");
   }
 
