@@ -46,10 +46,6 @@ export const useUpdateApprovalSettings = (
         queryKey: companyQueryKey.detail(companyId),
       });
 
-      queryClient.invalidateQueries({
-        queryKey: companyQueryKey.list(),
-      });
-
       options?.onSuccess?.(data, variables, context);
     },
     ...options,
