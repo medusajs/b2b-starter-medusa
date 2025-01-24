@@ -28,7 +28,7 @@ export const retrieveCompany = async (companyId: string) => {
     {
       query: {
         fields:
-          "+spending_limit_reset_frequency,*employees.customer,*approval_settings,*cart.approval",
+          "+spending_limit_reset_frequency,*employees.customer,*approval_settings",
       },
       method: "GET",
       headers,

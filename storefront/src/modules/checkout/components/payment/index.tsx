@@ -3,6 +3,7 @@
 import { RadioGroup } from "@headlessui/react"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
 import { initiatePaymentSession } from "@lib/data/cart"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
 import { Container, Heading, Text, clx } from "@medusajs/ui"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -41,7 +42,7 @@ const Payment = ({
 
   const isOpen = searchParams.get("step") === "payment"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const stripeReady = useContext(StripeContext)
 

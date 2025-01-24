@@ -1,6 +1,6 @@
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
-import ApprovalStatus from "@modules/cart/components/approval-status"
+import ApprovalStatusBanner from "@modules/cart/components/approval-status-banner"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
 import Company from "@modules/checkout/components/company"
@@ -46,7 +46,9 @@ export default async function CheckoutForm({
 
         {!customer ? <SignInPrompt /> : null}
 
-        {cart?.approval && <ApprovalStatus approval={cart.approval} />}
+        {cart?.approvals && cart.approvals.length > 0 && (
+          <ApprovalStatusBanner approvals={cart.approvals} />
+        )}
 
         {cart?.company && <Company cart={cart} />}
 

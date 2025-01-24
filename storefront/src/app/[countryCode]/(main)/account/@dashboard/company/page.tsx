@@ -14,7 +14,7 @@ export default async function Company() {
 
   if (!customer || !customer?.employee?.company) return notFound()
 
-  const { company } = await retrieveCompany(customer.employee.company.id)
+  const company = await retrieveCompany(customer.employee.company.id)
 
   return (
     <div className="w-full">

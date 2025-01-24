@@ -14,7 +14,7 @@ export interface B2BCart extends HttpTypes.StoreCart {
   company: QueryCompany
   promotions?: HttpTypes.StorePromotion[]
   customer?: HttpTypes.StoreCustomer
-  approval?: QueryApproval
+  approvals?: QueryApproval[]
 }
 
 export interface B2BOrder extends HttpTypes.StoreOrder {

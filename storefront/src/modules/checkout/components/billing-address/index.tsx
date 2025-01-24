@@ -29,7 +29,9 @@ const BillingAddress = ({
 
   const isOpen = searchParams.get("step") === "billing-address"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const isPendingApproval = cart?.approvals?.some(
+    (approval) => approval.status === ApprovalStatus.PENDING
+  )
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address

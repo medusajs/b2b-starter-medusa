@@ -5,11 +5,11 @@ import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 import { Heading } from "@medusajs/ui"
 import { useMemo } from "react"
 import { B2BCustomer } from "types/global"
+import ApprovalStatusBanner from "../components/approval-status-banner"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
 import ItemsTemplate from "./items"
 import Summary from "./summary"
-import ApprovalStatus from "../components/approval-status"
 
 const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   const { cart } = useCart()
@@ -38,8 +38,8 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
               <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-2">
                 <div className="flex flex-col gap-y-2">
                   {!customer && <SignInPrompt />}
-                  {cart?.approval && (
-                    <ApprovalStatus approval={cart.approval} />
+                  {cart?.approvals && cart.approvals.length > 0 && (
+                    <ApprovalStatusBanner approvals={cart.approvals} />
                   )}
                   <ItemsTemplate cart={cart} />
                 </div>

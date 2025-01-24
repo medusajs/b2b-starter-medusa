@@ -2,16 +2,17 @@
 
 import { isManual, isPaypal, isStripe } from "@lib/constants"
 import { createCartApproval, placeOrder } from "@lib/data/cart"
-import { Container, Text } from "@medusajs/ui"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
+import { Container, Text, toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
+import { ApprovalType } from "@starter/types/approval/module"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
 import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
-import { ApprovalStatus, ApprovalType } from "@starter/types/approval/module"
 
 type PaymentButtonProps = {
   cart: B2BCart
@@ -83,7 +84,7 @@ const RequestApprovalButton = ({
 
   const { requires_admin_approval } = cart.company?.approval_settings || {}
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const createApproval = async () => {
     setSubmitting(true)
@@ -95,7 +96,9 @@ const RequestApprovalButton = ({
       created_by: cart.customer!.id,
     }
 
-    await createCartApproval(cart.id, data)
+    await createCartApproval(cart.id, data).catch((err) => {
+      toast.error(err.message)
+    })
 
     setSubmitting(false)
   }

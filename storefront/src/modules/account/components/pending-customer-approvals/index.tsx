@@ -2,7 +2,7 @@ import { Text } from "@medusajs/ui"
 import { QueryApproval } from "@starter/types/approval"
 import ApprovalCard from "../approval-card"
 
-const PendingApprovalsOverview = ({
+const PendingCustomerApprovals = ({
   approvals,
 }: {
   approvals: QueryApproval[]
@@ -11,7 +11,7 @@ const PendingApprovalsOverview = ({
     return (
       <div className="flex flex-col gap-y-2 w-full">
         {approvals.map((a) => (
-          <ApprovalCard key={a.id} cartId={a.cart!.id} />
+          <ApprovalCard key={a.id} approval={a} />
         ))}
       </div>
     )
@@ -30,4 +30,4 @@ const PendingApprovalsOverview = ({
   )
 }
 
-export default PendingApprovalsOverview
+export default PendingCustomerApprovals

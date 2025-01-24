@@ -1,26 +1,24 @@
-import { StepResponse } from "@medusajs/framework/workflows-sdk";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { ApprovalStatus } from "@starter/types";
+import { StepResponse } from "@medusajs/framework/workflows-sdk";
 import { addToCartWorkflow } from "@medusajs/medusa/core-flows";
+import { getCartApprovalStatus } from "src/utils/get-cart-approval-status";
 
 addToCartWorkflow.hooks.validate(async ({ cart }, { container }) => {
-  console.log("addToCartWorkflow.hooks.validate");
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
   const {
     data: [queryCart],
   } = await query.graph({
     entity: "cart",
-    fields: ["approval.*"],
+    fields: ["approvals.*"],
     filters: {
       id: cart.id,
     },
   });
 
-  const approval = queryCart.approval;
-  const status = approval?.status as unknown as ApprovalStatus;
+  const { isPendingApproval } = getCartApprovalStatus(queryCart);
 
-  if (approval && status === ApprovalStatus.PENDING) {
+  if (isPendingApproval) {
     throw new Error("Cart is pending approval");
   }
 

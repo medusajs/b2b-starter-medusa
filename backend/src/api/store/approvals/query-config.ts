@@ -1,5 +1,5 @@
 export const approvalFields = [
-  "id",
+  "*",
   "cart.*",
   "cart.items.*",
   "cart.customer.*",

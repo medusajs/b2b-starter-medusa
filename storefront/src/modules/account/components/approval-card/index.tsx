@@ -1,18 +1,30 @@
 import { retrieveCart } from "@lib/data/cart"
 import { convertToLocale } from "@lib/util/money"
+import { CheckMini, XMarkMini } from "@medusajs/icons"
 import { clx, Container } from "@medusajs/ui"
+import { ApprovalStatus, QueryApproval } from "@starter/types/approval"
 import Image from "next/image"
 import CalendarIcon from "../../../common/icons/calendar"
 import DocumentIcon from "../../../common/icons/document"
+import ApprovalCardActions from "../approval-card-actions"
 
-export default async function ApprovalCard({ cartId }: { cartId: string }) {
-  const cart = await retrieveCart(cartId)
+type ApprovalCardProps = {
+  approval: QueryApproval
+  type?: "admin" | "customer"
+}
 
-  if (!cart) {
+export default async function ApprovalCard({
+  approval,
+  type = "customer",
+}: ApprovalCardProps) {
+  const cart = await retrieveCart(approval.cart_id)
+
+  if (!cart || !approval) {
     return null
   }
 
   const createdAt = new Date(cart.created_at!)
+  const updatedAt = new Date(cart.updated_at!)
   const numberOfLines = cart.items?.length ?? 0
 
   return (
@@ -72,6 +84,34 @@ export default async function ApprovalCard({ cartId }: { cartId: string }) {
           <DocumentIcon className="inline-block mr-1" />
           <span data-testid="order-display-id">#{cart.id.slice(-5, -1)}</span>
         </div>
+
+        {approval.status === ApprovalStatus.APPROVED && (
+          <div className="flex items-center text-small-regular">
+            <CheckMini className="inline-block mr-1" />
+            <span data-testid="order-display-id">
+              Approved at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+        )}
+
+        {approval.status === ApprovalStatus.REJECTED && (
+          <div className="flex items-center text-small-regular">
+            <XMarkMini className="inline-block mr-1" />
+            <span data-testid="order-display-id">
+              Rejected at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-x-4 divide-gray-200 small:justify-normal justify-between w-full small:w-auto">
@@ -87,6 +127,9 @@ export default async function ApprovalCard({ cartId }: { cartId: string }) {
             numberOfLines > 1 ? "items" : "item"
           }`}</span>
         </div>
+        {type === "admin" && approval.status === ApprovalStatus.PENDING && (
+          <ApprovalCardActions approvalId={approval.id} />
+        )}
       </div>
     </Container>
   )

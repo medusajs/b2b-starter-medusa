@@ -77,7 +77,11 @@ export function CartProvider({
     async (payload: AddToCartEventPayload) => {
       let prevCart = {} as B2BCart
 
-      if (cart?.approval?.status === ApprovalStatus.PENDING) {
+      if (
+        cart?.approvals?.some(
+          (approval) => approval.status === ApprovalStatus.PENDING
+        )
+      ) {
         toast.error("Cart is locked for approval.")
         return
       }

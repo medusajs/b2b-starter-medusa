@@ -1,6 +1,11 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { IApprovalModuleService, ModuleCreateApproval } from "@starter/types";
+import {
+  ApprovalStatus,
+  IApprovalModuleService,
+  ModuleCreateApproval,
+} from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
+import { getCartApprovalStatus } from "src/utils/get-cart-approval-status";
 
 export const createApprovalStep = createStep(
   "create-approval",
@@ -8,6 +13,35 @@ export const createApprovalStep = createStep(
     input: ModuleCreateApproval | ModuleCreateApproval[],
     { container }
   ) => {
+    const query = container.resolve("query");
+
+    const approvalData = Array.isArray(input) ? input : [input];
+
+    const {
+      data: [cart],
+    } = await query.graph(
+      {
+        entity: "cart",
+        fields: ["id", "approvals.*"],
+        filters: {
+          id: approvalData[0].cart_id,
+        },
+      },
+      {
+        throwIfKeyNotFound: true,
+      }
+    );
+
+    const { isPendingApproval, isApproved } = getCartApprovalStatus(cart);
+
+    if (isPendingApproval) {
+      throw new Error("Cart already has a pending approval");
+    }
+
+    if (isApproved) {
+      throw new Error("Cart is already approved");
+    }
+
     const approvalModuleService =
       container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 

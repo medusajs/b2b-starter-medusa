@@ -1,10 +1,25 @@
 "use server"
 
 import { sdk } from "@lib/config"
-import { getAuthHeaders, getCacheOptions } from "@lib/data/cookies"
-import { StoreApprovalsResponse } from "@starter/types/approval"
+import { getAuthHeaders, getCacheOptions, getCacheTag } from "@lib/data/cookies"
+import {
+  ApprovalStatus,
+  StoreApprovalResponse,
+  StoreApprovalsResponse,
+} from "@starter/types/approval"
+import { revalidateTag } from "next/cache"
 
-export const listApprovals = async (filters: Record<string, any>) => {
+type ListApprovalsParams = {
+  filters?: Record<string, any>
+  offset?: number
+  limit?: number
+}
+
+export const listApprovals = async ({
+  filters = {},
+  offset = 0,
+  limit = 10,
+}: ListApprovalsParams = {}) => {
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -13,20 +28,71 @@ export const listApprovals = async (filters: Record<string, any>) => {
     ...(await getCacheOptions("approvals")),
   }
 
-  const { approvals } = await sdk.client.fetch<StoreApprovalsResponse>(
+  const { approvals, count } = await sdk.client.fetch<StoreApprovalsResponse>(
     `/store/approvals`,
     {
       query: {
-        fields: "cart.items.*",
         filters,
+        offset,
+        limit,
       },
       method: "GET",
       headers,
       next,
+      credentials: "include",
     }
   )
 
-  console.log("approvals", JSON.stringify(approvals, null, 2))
+  return { approvals, count }
+}
 
-  return approvals
+export const retrieveApproval = async (approvalId: string) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("approvals")),
+  }
+
+  const { approval } = await sdk.client.fetch<StoreApprovalResponse>(
+    `/store/approvals/${approvalId}`,
+    {
+      method: "GET",
+      headers,
+      next,
+      credentials: "include",
+    }
+  )
+
+  return approval
+}
+
+export const updateApproval = async (
+  approvalId: string,
+  status: ApprovalStatus
+) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const { approval } = await sdk.client.fetch<StoreApprovalResponse>(
+    `/store/approvals/${approvalId}`,
+    {
+      method: "POST",
+      headers,
+      body: {
+        status,
+      },
+      credentials: "include",
+    }
+  )
+
+  const cacheTag = await getCacheTag("approvals")
+  revalidateTag(cacheTag)
+
+  const cartTag = await getCacheTag("carts")
+  revalidateTag(cartTag)
+
+  return approval
 }

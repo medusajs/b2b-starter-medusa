@@ -35,4 +35,5 @@ export type StoreApprovalResponse = {
 
 export type StoreApprovalsResponse = {
   approvals: StoreApproval[]
+  count: number
 }

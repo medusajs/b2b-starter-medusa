@@ -2,6 +2,7 @@
 
 import { RadioGroup } from "@headlessui/react"
 import { setShippingMethod } from "@lib/data/cart"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { convertToLocale } from "@lib/util/money"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
@@ -33,7 +34,7 @@ const Shipping: React.FC<ShippingProps> = ({
 
   const isOpen = searchParams.get("step") === "delivery"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const selectedShippingMethod = availableShippingMethods?.find(
     // To do: remove the previously selected shipping method instead of using the last one

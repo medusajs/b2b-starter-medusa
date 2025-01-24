@@ -32,7 +32,9 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
 
   const checkoutButtonLink = customer ? checkoutPath : "/account"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const isPendingApproval = cart?.approvals?.some(
+    (approval) => approval.status === ApprovalStatus.PENDING
+  )
 
   return (
     <Container className="flex flex-col gap-y-3">

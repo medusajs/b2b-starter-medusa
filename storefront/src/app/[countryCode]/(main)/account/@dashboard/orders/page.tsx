@@ -4,7 +4,7 @@ import { retrieveCustomer } from "@lib/data/customer"
 import { listOrders } from "@lib/data/orders"
 import { Heading } from "@medusajs/ui"
 import OrderOverview from "@modules/account/components/order-overview"
-import PendingApprovalsOverview from "@modules/account/components/pending-approvals"
+import PendingCustomerApprovals from "@modules/account/components/pending-customer-approvals"
 import { ApprovalStatus } from "@starter/types/approval"
 import { Metadata } from "next"
 
@@ -24,17 +24,12 @@ export default async function Orders() {
     approval_settings?.requires_admin_approval ||
     approval_settings?.requires_sales_manager_approval
 
-  const approvals =
-    (approval_required &&
-      (await listApprovals({
-        cart: {
-          approval: {
-            status: ApprovalStatus.PENDING,
-            created_by: customer?.id,
-          },
-        },
-      }))) ||
-    []
+  const { approvals } = await listApprovals({
+    filters: {
+      status: ApprovalStatus.PENDING,
+      created_by: customer?.id,
+    },
+  })
 
   return (
     <div
@@ -50,7 +45,7 @@ export default async function Orders() {
             Pending Approvals
           </Heading>
 
-          <PendingApprovalsOverview approvals={approvals} />
+          <PendingCustomerApprovals approvals={approvals} />
         </div>
       )}
       <div>

@@ -1,18 +1,36 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { IApprovalModuleService, ModuleUpdateApproval } from "@starter/types";
+import {
+  ApprovalStatus,
+  IApprovalModuleService,
+  ModuleUpdateApproval,
+} from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
 
 export const updateApprovalStep = createStep(
   "update-approval",
   async (input: ModuleUpdateApproval, { container }) => {
-    const approvalModule =
-      container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
+    const query = container.resolve("query");
+    const approvalModule = container.resolve(APPROVAL_MODULE);
 
-    const previousData = await approvalModule.retrieveApproval(input.id);
+    const {
+      data: [approval],
+    } = await query.graph({
+      entity: "approval",
+      fields: ["*"],
+      filters: {
+        id: input.id,
+      },
+    });
 
-    const updatedApproval = await approvalModule.updateApproval(input);
+    const previousData = {
+      id: approval.id,
+      status: approval.status as unknown as ApprovalStatus,
+      handled_by: approval.handled_by,
+    } as ModuleUpdateApproval;
 
-    return new StepResponse(updatedApproval, previousData);
+    const updatedApprovals = await approvalModule.updateApprovals([input]);
+
+    return new StepResponse(updatedApprovals, previousData);
   },
   async (previousData: ModuleUpdateApproval, { container }) => {
     const approvalModule =

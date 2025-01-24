@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { B2BCustomer } from "types/global"
 import AppliedPromotions from "../applied-promotions"
-import ApprovalStatus from "../approval-status"
+import ApprovalStatusBanner from "../approval-status-banner"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
@@ -149,9 +149,9 @@ const CartDrawer = ({
                 : "Your cart is empty"}
             </Drawer.Title>
           </Drawer.Header>
-          {cart?.approval && (
+          {cart?.approvals && cart.approvals.length > 0 && (
             <div className="p-4">
-              <ApprovalStatus approval={cart.approval} />
+              <ApprovalStatusBanner approvals={cart.approvals} />
             </div>
           )}
           {promotions.length > 0 && (

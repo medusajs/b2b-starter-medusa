@@ -13,6 +13,7 @@ import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
 import { SubmitButton } from "../submit-button"
 import { ApprovalStatus } from "@starter/types/approval"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 
 const ShippingAddress = ({
   cart,
@@ -27,7 +28,7 @@ const ShippingAddress = ({
 
   const isOpen = searchParams.get("step") === "shipping-address"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address

@@ -43,14 +43,13 @@ export async function retrieveCart(id?: string) {
       method: "GET",
       query: {
         fields:
-          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approval",
+          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approvals",
       },
       headers,
       next,
       cache: "force-cache",
     })
     .then(({ cart }) => {
-      console.log("cart", cart)
       return cart as B2BCart
     })
     .catch(() => {
@@ -550,14 +549,20 @@ export async function createCartApproval(
 
   console.log("data", data)
 
-  const { approval } = await sdk.client.fetch<StoreApprovalResponse>(
-    `/store/carts/${cartId}/approvals`,
-    {
+  const { approval } = await sdk.client
+    .fetch<StoreApprovalResponse>(`/store/carts/${cartId}/approvals`, {
       method: "POST",
       headers,
       body: data,
-    }
-  )
+    })
+    .catch((err) => {
+      if (err.response?.json) {
+        return err.response.json().then((body: any) => {
+          throw new Error(body.message || err.message)
+        })
+      }
+      throw err
+    })
 
   const cartCacheTag = await getCacheTag("carts")
   revalidateTag(cartCacheTag)

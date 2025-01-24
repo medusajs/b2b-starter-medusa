@@ -25,10 +25,6 @@ export function CompanyApprovalSettingsDrawer({
 
   const { approval_settings } = company;
 
-  useEffect(() => {
-    console.log("approval_settings", approval_settings);
-  }, [approval_settings]);
-
   const handleSubmit = async () => {
     await mutateAsync(
       {

@@ -11,6 +11,7 @@ import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
 import { ApprovalStatus } from "@starter/types/approval"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 
 const ContactDetails = ({
   cart,
@@ -33,7 +34,7 @@ const ContactDetails = ({
     cart.payment_collection?.payment_sessions?.length > 0 &&
     cart?.email
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const createQueryString = useCallback(
     (name: string, value: string) => {

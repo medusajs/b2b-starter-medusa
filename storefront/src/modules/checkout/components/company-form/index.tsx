@@ -1,6 +1,7 @@
 "use client"
 
 import { RadioGroup } from "@headlessui/react"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { clx } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
@@ -11,7 +12,7 @@ import { B2BCart } from "types/global"
 const CompanyForm = ({ cart }: { cart: B2BCart }) => {
   const [selectedOption, setSelectedOption] = useState("company")
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   if (!cart?.company) {
     return null

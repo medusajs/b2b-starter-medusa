@@ -1,21 +1,25 @@
 "use client"
 
-import { ArrowRightOnRectangle } from "@medusajs/icons"
-import { clx } from "@medusajs/ui"
-import { useParams, usePathname } from "next/navigation"
-
 import { signout } from "@lib/data/customer"
-import { BuildingStorefront } from "@medusajs/icons"
+import { ArrowRightOnRectangle, BuildingStorefront } from "@medusajs/icons"
+import { clx } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ChevronDown from "@modules/common/icons/chevron-down"
+import FilePlus from "@modules/common/icons/file-plus"
 import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import User from "@modules/common/icons/user"
+import { ApprovalStatus, StoreApprovalsResponse } from "@starter/types/approval"
+import { useParams, usePathname } from "next/navigation"
 import { B2BCustomer } from "types/global"
-import DocumentIcon from "@modules/common/icons/document"
-import FilePlus from "@modules/common/icons/file-plus"
 
-const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
+const AccountNav = ({
+  customer,
+  approvals,
+}: {
+  customer: B2BCustomer | null
+  approvals: StoreApprovalsResponse["approvals"] | null
+}) => {
   const route = usePathname()
 
   const { countryCode } = useParams() as { countryCode: string }
@@ -103,6 +107,21 @@ const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
                 </li>
+                {customer?.employee?.is_admin && (
+                  <li>
+                    <LocalizedClientLink
+                      href="/account/approvals"
+                      className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                      data-testid="approvals-link"
+                    >
+                      <div className="flex items-center gap-x-2">
+                        <FilePlus size={16} />
+                        <span>Approvals</span>
+                      </div>
+                      <ChevronDown className="transform -rotate-90" />
+                    </LocalizedClientLink>
+                  </li>
+                )}
                 <li>
                   <LocalizedClientLink
                     href="/account/quotes"
@@ -183,6 +202,22 @@ const AccountNav = ({ customer }: { customer: B2BCustomer | null }) => {
                 Orders
               </AccountNavLink>
             </li>
+            {customer?.employee?.is_admin && (
+              <li>
+                <AccountNavLink
+                  href="/account/approvals"
+                  route={route!}
+                  data-testid="approvals-link"
+                >
+                  Approvals{" "}
+                  {approvals && approvals.length > 0 && (
+                    <span className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
+                      {approvals.length}
+                    </span>
+                  )}
+                </AccountNavLink>
+              </li>
+            )}
             <li>
               <AccountNavLink
                 href="/account/quotes"
@@ -227,9 +262,12 @@ const AccountNavLink = ({
   return (
     <LocalizedClientLink
       href={href}
-      className={clx("text-neutral-400 hover:text-neutral-950", {
-        "text-neutral-950": active,
-      })}
+      className={clx(
+        "text-neutral-400 hover:text-neutral-950 flex items-center gap-x-2",
+        {
+          "text-neutral-950": active,
+        }
+      )}
       data-testid={dataTestId}
     >
       {children}
