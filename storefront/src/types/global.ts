@@ -1,7 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import { QueryCompany, QueryEmployee } from "@starter/types"
 import { QueryApproval, QueryApprovalStatus } from "./approval/query"
-import { ApprovalStatusType } from "./approval"
 
 export enum SpendingLimitResetFrequency {
   never = "never",
@@ -12,6 +11,7 @@ export enum SpendingLimitResetFrequency {
 }
 
 export interface B2BCart extends HttpTypes.StoreCart {
+  completed_at?: string
   company: QueryCompany
   promotions?: HttpTypes.StorePromotion[]
   customer?: HttpTypes.StoreCustomer

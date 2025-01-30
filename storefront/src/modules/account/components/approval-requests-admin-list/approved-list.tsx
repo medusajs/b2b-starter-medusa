@@ -1,10 +1,8 @@
 import { listApprovals } from "@lib/data/approvals"
-import { mapApprovalsByCartId } from "@lib/util/map-approvals-by-cart-id"
 import { Text } from "@medusajs/ui"
-import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 import ApprovalCard from "../approval-card"
 import ResourcePagination from "../resource-pagination"
-import { B2BCart } from "@starter/types"
 
 export default async function ApprovedApprovalRequestsAdminList({
   searchParams,
@@ -17,14 +15,9 @@ export default async function ApprovedApprovalRequestsAdminList({
 
   let { carts_with_approvals, count } = await listApprovals({
     status: ApprovalStatusType.APPROVED,
-    type: ApprovalType.ADMIN,
     offset: (currentPage - 1) * limit,
     limit,
   })
-
-  carts_with_approvals = carts_with_approvals.filter(
-    (cart) => cart?.approval_status?.status === ApprovalStatusType.APPROVED
-  )
 
   const totalPages = Math.ceil((count || 0) / limit)
 

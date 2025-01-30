@@ -1,15 +1,17 @@
 "use client"
 
 import { updateApproval } from "@lib/data/approvals"
-import { CheckMini, LockClosedSolidMini, XMarkMini } from "@medusajs/icons"
-import { B2BCart } from "@starter/types"
 import {
-  ApprovalStatusType,
-  ApprovalType,
-  QueryApproval,
-} from "@starter/types/approval"
+  ArrowRightMini,
+  CheckMini,
+  LockClosedSolidMini,
+  XMarkMini,
+} from "@medusajs/icons"
+import { B2BCart } from "@starter/types"
+import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
 import { useState } from "react"
 import Button from "../../../common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const ApprovalCardActions = ({
   cartWithApprovals,
@@ -44,6 +46,10 @@ const ApprovalCardActions = ({
     setRejecting(false)
   }
 
+  const handlePlaceOrder = async () => {
+    document.location.href = `/checkout?cart_id=${cartWithApprovals.id}&step=payment`
+  }
+
   return (
     <div className="flex gap-x-2">
       {pendingAdminApproval ? (
@@ -75,10 +81,21 @@ const ApprovalCardActions = ({
         </Button>
       ) : cartWithApprovals.approval_status?.status ===
         ApprovalStatusType.APPROVED ? (
-        <Button variant="primary">
-          <CheckMini className="inline-block" />
-          Complete Order
-        </Button>
+        !cartWithApprovals.completed_at ? (
+          <LocalizedClientLink
+            href={`/checkout?cart_id=${cartWithApprovals.id}&step=payment`}
+          >
+            <Button variant="primary" size="small" className="px-3">
+              Place Order
+              <ArrowRightMini className="inline-block" />
+            </Button>
+          </LocalizedClientLink>
+        ) : (
+          <span className="flex items-center gap-x-1 text-sm text-grey-500">
+            Order Completed
+            <CheckMini className="inline-block" />
+          </span>
+        )
       ) : null}
     </div>
   )

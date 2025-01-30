@@ -8,12 +8,12 @@ class ApprovalModuleService extends MedusaService({
   ApprovalStatus,
 }) {
   async hasPendingApprovals(cartId: string) {
-    const approvals = await this.listAndCountApprovals({
+    const [_, count] = await this.listAndCountApprovals({
       cart_id: cartId,
       status: ApprovalStatusType.PENDING,
     });
 
-    return approvals.length > 0;
+    return count > 0;
   }
 }
 

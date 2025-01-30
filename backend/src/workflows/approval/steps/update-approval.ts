@@ -14,7 +14,8 @@ export const updateApprovalStep = createStep(
     { container }
   ): Promise<StepResponse<ModuleApproval, ModuleUpdateApproval>> => {
     const query = container.resolve("query");
-    const approvalModule = container.resolve(APPROVAL_MODULE);
+    const approvalModule =
+      container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
     const {
       data: [approval],
@@ -25,6 +26,27 @@ export const updateApprovalStep = createStep(
         id: input.id,
       },
     });
+
+    if (input.status === ApprovalStatusType.REJECTED) {
+      const { data: approvalsToReject } = await query.graph({
+        entity: "approval",
+        fields: ["*"],
+        filters: {
+          cart_id: approval.cart_id,
+          id: {
+            $ne: approval.id,
+          },
+        },
+      });
+
+      const updateData = approvalsToReject.map((approval) => ({
+        id: approval.id,
+        status: ApprovalStatusType.REJECTED,
+        handled_by: input.handled_by,
+      }));
+
+      await approvalModule.updateApprovals(updateData);
+    }
 
     const previousData = {
       id: approval.id,
@@ -40,6 +62,10 @@ export const updateApprovalStep = createStep(
     const approvalModule =
       container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
-    await approvalModule.updateApproval(previousData);
+    const updateData = Array.isArray(previousData)
+      ? previousData
+      : [previousData];
+
+    await approvalModule.updateApprovals(updateData);
   }
 );

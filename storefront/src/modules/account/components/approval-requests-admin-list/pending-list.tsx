@@ -19,10 +19,6 @@ export default async function PendingApprovalRequestsAdminList({
     limit,
   })
 
-  carts_with_approvals = carts_with_approvals.filter(
-    (cart) => cart?.approval_status?.status !== ApprovalStatusType.REJECTED
-  )
-
   const totalPages = Math.ceil((count || 0) / limit)
 
   if (carts_with_approvals.length > 0) {

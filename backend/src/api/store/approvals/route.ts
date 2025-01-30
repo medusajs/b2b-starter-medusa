@@ -3,6 +3,7 @@ import {
   MedusaResponse,
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
+import { ApprovalType } from "@starter/types/approval";
 import { StoreGetApprovalsType } from "./validators";
 
 export const GET = async (
@@ -33,58 +34,83 @@ export const GET = async (
   } = await query.graph({
     entity: "company",
     fields: [
-      "id",
       "carts.*",
+      "carts.approval_status.*",
+      "carts.company.approval_settings.*",
+      "carts.company.*",
       "carts.items.*",
-      "carts.approvals.*",
-      "carts.approval_status.status",
-      "approval_settings.*",
+      "carts.completed_at",
     ],
-    filters: {
-      id: companyId,
-      carts: {
-        approvals: {
-          ...req.filterableFields,
-        },
-      },
-    },
+    filters: { id: companyId },
   });
 
-  // todo: this shouldn't be done here, but for some reason the query returns incorrect data
-  let carts = company?.carts?.reduce<any[]>((acc, cart) => {
-    if (!cart || !cart.approvals?.some(Boolean)) return acc;
-
-    acc.push({
-      ...cart,
-      approvals: cart.approvals.filter(Boolean),
-      approval_status: Array.isArray(cart.approval_status)
-        ? cart.approval_status.find(Boolean)
-        : cart.approval_status,
-    });
-
-    return acc;
-  }, []);
-
-  if (!carts) {
+  if (!company?.carts) {
     return res.json({ carts_with_approvals: [], count: 0 });
   }
 
-  const totalCount = carts.length;
+  const { status } = req.validatedQuery || {};
 
-  const { limit, offset } = req.validatedQuery || {};
+  const cartIds = company.carts
+    .filter((cart) => cart !== undefined && cart !== null)
+    .map((cart) => cart.id);
 
-  if (offset !== undefined && limit !== undefined) {
-    const numericOffset = Number(offset);
-    const numericLimit = Number(limit);
-    const paginatedCarts = carts.slice(
-      numericOffset,
-      numericOffset + numericLimit
-    );
-    carts = paginatedCarts;
+  let approvalStatusFilters: any = {
+    cart_id: cartIds,
+  };
+
+  if (status) {
+    approvalStatusFilters.status = status;
   }
 
+  const { data: approvalStatuses, metadata } = await query.graph({
+    entity: "approval_status",
+    ...req.queryConfig,
+    fields: ["cart.approvals.id"],
+    filters: approvalStatusFilters,
+  });
+
+  console.log("vic logs approvalStatuses", approvalStatuses);
+
+  const approvalIds = approvalStatuses
+    .flatMap((approvalStatus) =>
+      approvalStatus.cart?.approvals?.map((approval) => approval?.id)
+    )
+    .filter(Boolean) as string[];
+
+  const { data: approvals } = await query.graph({
+    entity: "approval",
+    fields: ["*"],
+    filters: {
+      id: approvalIds,
+      type: ApprovalType.ADMIN,
+    },
+  });
+
+  const cartsWithAdminApprovals = company.carts
+    .map((cart) => {
+      const cartApprovals = approvals.filter(
+        (approval) => approval.cart_id === cart?.id
+      );
+      if (cartApprovals.length > 0) {
+        cart && (cart.approvals = cartApprovals);
+        return cart;
+      }
+      return null;
+    })
+    .filter(Boolean);
+
+  if (!cartsWithAdminApprovals.length) {
+    return res.json({ carts_with_approvals: [], count: 0 });
+  }
+
+  console.log(
+    "vic logs cartsWithAdminApprovals",
+    cartsWithAdminApprovals.map((cart) => cart?.approvals)
+  );
+  console.log("vic logs metadata", metadata);
+
   res.json({
-    carts_with_approvals: carts,
-    count: totalCount,
+    carts_with_approvals: cartsWithAdminApprovals,
+    ...metadata,
   });
 };

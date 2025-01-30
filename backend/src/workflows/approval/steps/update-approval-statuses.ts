@@ -4,7 +4,6 @@ import {
   IApprovalModuleService,
   ModuleApproval,
   ModuleApprovalStatus,
-  ModuleUpdateApproval,
 } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
 

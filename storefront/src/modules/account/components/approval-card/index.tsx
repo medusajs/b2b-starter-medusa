@@ -85,7 +85,7 @@ export default async function ApprovalCard({
 
         <div className="flex items-center text-small-regular">
           <DocumentIcon className="inline-block mr-1" />
-          <span data-testid="order-display-id">#{cart.id.slice(-5, -1)}</span>
+          <span data-testid="order-display-id">#{cart.id.slice(-4)}</span>
         </div>
         {cartWithApprovals.approval_status?.status ===
           ApprovalStatusType.APPROVED && (
