@@ -9,16 +9,15 @@ import FilePlus from "@modules/common/icons/file-plus"
 import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import User from "@modules/common/icons/user"
-import { ApprovalStatus, StoreApprovalsResponse } from "@starter/types/approval"
 import { useParams, usePathname } from "next/navigation"
 import { B2BCustomer } from "types/global"
 
 const AccountNav = ({
   customer,
-  approvals,
+  numPendingApprovals,
 }: {
   customer: B2BCustomer | null
-  approvals: StoreApprovalsResponse["approvals"] | null
+  numPendingApprovals: number
 }) => {
   const route = usePathname()
 
@@ -210,9 +209,9 @@ const AccountNav = ({
                   data-testid="approvals-link"
                 >
                   Approvals{" "}
-                  {approvals && approvals.length > 0 && (
+                  {numPendingApprovals > 0 && (
                     <span className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
-                      {approvals.length}
+                      {numPendingApprovals}
                     </span>
                   )}
                 </AccountNavLink>

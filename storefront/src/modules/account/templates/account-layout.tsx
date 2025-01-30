@@ -3,7 +3,11 @@ import { B2BCustomer } from "types/global"
 import AccountNav from "../components/account-nav"
 import { retrieveCompany } from "@lib/data/companies"
 import { listApprovals } from "@lib/data/approvals"
-import { ApprovalStatus } from "@starter/types/approval"
+import {
+  ApprovalStatusType,
+  ApprovalType,
+  StoreApprovalsResponse,
+} from "@starter/types/approval"
 
 interface AccountLayoutProps {
   customer: B2BCustomer | null
@@ -14,13 +18,13 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
   customer,
   children,
 }) => {
-  const { approvals } = customer?.employee?.company
-    ? await listApprovals()
-    : { approvals: [] }
+  const { carts_with_approvals } = await listApprovals({
+    type: ApprovalType.ADMIN,
+  })
 
-  const pendingApprovals = approvals.filter(
-    (approval) => approval.status === ApprovalStatus.PENDING
-  )
+  const numPendingApprovals = carts_with_approvals.filter(
+    (c) => c.has_pending_approvals
+  ).length
 
   return (
     <div
@@ -31,7 +35,10 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
         <div className="grid grid-cols-1  small:grid-cols-[240px_1fr] py-12">
           <div>
             {customer && (
-              <AccountNav customer={customer} approvals={pendingApprovals} />
+              <AccountNav
+                customer={customer}
+                numPendingApprovals={numPendingApprovals}
+              />
             )}
           </div>
           <div className="flex-1">{children}</div>

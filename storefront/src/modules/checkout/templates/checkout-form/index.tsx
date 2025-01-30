@@ -1,5 +1,6 @@
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import ApprovalStatusBanner from "@modules/cart/components/approval-status-banner"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
@@ -26,6 +27,13 @@ export default async function CheckoutForm({
 
   const shippingMethods = await listCartShippingMethods(cart.id)
   const paymentMethods = await listCartPaymentMethods(cart.region?.id ?? "")
+  const requiresApproval =
+    cart.company.approval_settings.requires_admin_approval ||
+    cart.company.approval_settings.requires_sales_manager_approval
+
+  const { isFullyApproved } = requiresApproval
+    ? getCartApprovalStatus(cart)
+    : { isFullyApproved: false }
 
   if (!shippingMethods || !paymentMethods) {
     return null
@@ -47,7 +55,7 @@ export default async function CheckoutForm({
         {!customer ? <SignInPrompt /> : null}
 
         {cart?.approvals && cart.approvals.length > 0 && (
-          <ApprovalStatusBanner approvals={cart.approvals} />
+          <ApprovalStatusBanner cart={cart} />
         )}
 
         {cart?.company && <Company cart={cart} />}
@@ -58,9 +66,12 @@ export default async function CheckoutForm({
 
         <Shipping cart={cart} availableShippingMethods={shippingMethods} />
 
-        <Payment cart={cart} availablePaymentMethods={paymentMethods} />
-
         <ContactDetails cart={cart} customer={customer} />
+
+        {(customer?.employee?.is_admin && isFullyApproved) ||
+        !requiresApproval ? (
+          <Payment cart={cart} availablePaymentMethods={paymentMethods} />
+        ) : null}
       </div>
     </div>
   )

@@ -3,6 +3,7 @@
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
+import { StoreApprovalResponse } from "@starter/types/approval"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
@@ -12,15 +13,10 @@ import {
   getCacheOptions,
   getCacheTag,
   getCartId,
-  removeCartId,
   setCartId,
 } from "./cookies"
 import { retrieveCustomer } from "./customer"
 import { getRegion } from "./regions"
-import {
-  StoreApprovalResponse,
-  StoreCreateApproval,
-} from "@starter/types/approval"
 
 export async function retrieveCart(id?: string) {
   const cartId = id || (await getCartId())
@@ -43,7 +39,7 @@ export async function retrieveCart(id?: string) {
       method: "GET",
       query: {
         fields:
-          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approvals",
+          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approvals, +completed_at",
       },
       headers,
       next,
@@ -373,10 +369,7 @@ export async function submitPromotionForm(
 }
 
 // TODO: Pass a POJO instead of a form entity here
-export async function setShippingAddress(
-  currentState: unknown,
-  formData: FormData
-) {
+export async function setShippingAddress(formData: FormData) {
   try {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
@@ -407,20 +400,11 @@ export async function setShippingAddress(
     } as any
     await updateCart(data)
   } catch (e: any) {
-    return e.message
+    throw new Error(e)
   }
-
-  redirect(
-    `/${formData.get(
-      "shipping_address.country_code"
-    )}/checkout?step=billing-address`
-  )
 }
 
-export async function setBillingAddress(
-  currentState: unknown,
-  formData: FormData
-) {
+export async function setBillingAddress(formData: FormData) {
   try {
     const cartId = getCartId()
     if (!cartId) {
@@ -446,8 +430,6 @@ export async function setBillingAddress(
   } catch (e: any) {
     return e.message
   }
-
-  redirect(`/checkout?step=delivery`)
 }
 
 export async function setContactDetails(
@@ -473,13 +455,14 @@ export async function setContactDetails(
   } catch (e: any) {
     return e.message
   }
-
-  redirect(`/checkout`)
 }
 
-export async function placeOrder() {
-  const cartId = await getCartId()
-  if (!cartId) {
+export async function placeOrder(
+  cartId?: string
+): Promise<HttpTypes.StoreCompleteCartResponse> {
+  const id = cartId || (await getCartId())
+
+  if (!id) {
     throw new Error("No existing cart found when placing an order")
   }
 
@@ -487,27 +470,24 @@ export async function placeOrder() {
     ...(await getAuthHeaders()),
   }
 
-  const cacheTag = await getCacheTag("carts")
+  const cartsTag = await getCacheTag("carts")
+  const ordersTag = await getCacheTag("orders")
 
-  const cartRes = await sdk.store.cart
-    .complete(cartId, {}, headers)
+  const response = await sdk.store.cart
+    .complete(id, {}, headers)
     .then((cartRes) => {
-      revalidateTag(cacheTag)
+      revalidateTag(cartsTag)
+      revalidateTag(ordersTag)
+      if (cartRes?.type === "order") {
+        track("order_completed", {
+          order_id: cartRes.order.id,
+        })
+      }
       return cartRes
     })
     .catch(medusaError)
 
-  if (cartRes?.type === "order") {
-    track("order_completed", {
-      order_id: cartRes.order.id,
-    })
-    const countryCode =
-      cartRes.order.shipping_address?.country_code?.toLowerCase()
-    removeCartId()
-    redirect(`/${countryCode}/order/confirmed/${cartRes?.order.id}`)
-  }
-
-  return cartRes.type === "cart" ? cartRes.cart : null
+  return response
 }
 
 /**
@@ -538,22 +518,17 @@ export async function updateRegion(countryCode: string, currentPath: string) {
   redirect(`/${countryCode}${currentPath}`)
 }
 
-export async function createCartApproval(
-  cartId: string,
-  data: StoreCreateApproval
-) {
+export async function createCartApproval(cartId: string, createdBy: string) {
   const headers = {
     "Content-Type": "application/json",
     ...(await getAuthHeaders()),
   }
 
-  console.log("data", data)
-
   const { approval } = await sdk.client
     .fetch<StoreApprovalResponse>(`/store/carts/${cartId}/approvals`, {
       method: "POST",
       headers,
-      body: data,
+      credentials: "include",
     })
     .catch((err) => {
       if (err.response?.json) {
@@ -566,6 +541,9 @@ export async function createCartApproval(
 
   const cartCacheTag = await getCacheTag("carts")
   revalidateTag(cartCacheTag)
+
+  const approvalsCacheTag = await getCacheTag("approvals")
+  revalidateTag(approvalsCacheTag)
 
   return approval
 }

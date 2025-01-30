@@ -1,14 +1,18 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import {
-  ApprovalStatus,
+  ApprovalStatusType,
   IApprovalModuleService,
+  ModuleApproval,
   ModuleUpdateApproval,
 } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
 
 export const updateApprovalStep = createStep(
   "update-approval",
-  async (input: ModuleUpdateApproval, { container }) => {
+  async (
+    input: ModuleUpdateApproval,
+    { container }
+  ): Promise<StepResponse<ModuleApproval, ModuleUpdateApproval>> => {
     const query = container.resolve("query");
     const approvalModule = container.resolve(APPROVAL_MODULE);
 
@@ -24,13 +28,13 @@ export const updateApprovalStep = createStep(
 
     const previousData = {
       id: approval.id,
-      status: approval.status as unknown as ApprovalStatus,
+      status: approval.status as unknown as ApprovalStatusType,
       handled_by: approval.handled_by,
     } as ModuleUpdateApproval;
 
-    const updatedApprovals = await approvalModule.updateApprovals([input]);
+    const [updatedApproval] = await approvalModule.updateApprovals([input]);
 
-    return new StepResponse(updatedApprovals, previousData);
+    return new StepResponse(updatedApproval, previousData);
   },
   async (previousData: ModuleUpdateApproval, { container }) => {
     const approvalModule =

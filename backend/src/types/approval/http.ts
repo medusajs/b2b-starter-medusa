@@ -1,4 +1,4 @@
-import { ApprovalStatus, ApprovalType } from "./module";
+import { ApprovalStatusType, ApprovalType } from "./module";
 import { QueryApproval, QueryApprovalSettings } from "./query";
 
 /* Admin */
@@ -12,7 +12,7 @@ export type AdminUpdateApprovalSettings = {
 export type AdminApproval = QueryApproval;
 
 export type AdminUpdateApproval = {
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   handled_by: string;
 };
 
@@ -33,6 +33,6 @@ export type StoreCreateApproval = {
 };
 
 export type StoreUpdateApproval = {
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   handled_by: string;
 };

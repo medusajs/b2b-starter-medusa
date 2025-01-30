@@ -1,34 +1,39 @@
 import { listApprovals } from "@lib/data/approvals"
+import { mapApprovalsByCartId } from "@lib/util/map-approvals-by-cart-id"
 import { Text } from "@medusajs/ui"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
 import ApprovalCard from "../approval-card"
 import ResourcePagination from "../resource-pagination"
 
-export default async function ApprovalRequestsAdminList({
-  status,
+export default async function RejectedApprovalRequestsAdminList({
   searchParams,
 }: {
-  status: ApprovalStatus
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const pageParam = `${status}Page`
+  const pageParam = `rejectedPage`
   const currentPage = Number(searchParams[pageParam]) || 1
   const limit = 5
 
-  const { approvals, count } = await listApprovals({
-    filters: { status },
+  const { carts_with_approvals } = await listApprovals({
+    type: ApprovalType.ADMIN,
+    status: ApprovalStatusType.REJECTED,
     offset: (currentPage - 1) * limit,
     limit,
   })
 
+  const count = carts_with_approvals.length
   const totalPages = Math.ceil((count || 0) / limit)
 
-  if (approvals?.length) {
+  if (carts_with_approvals.length > 0) {
     return (
       <div className="flex flex-col gap-y-4 w-full">
         <div className="flex flex-col gap-y-2">
-          {approvals.map((a) => (
-            <ApprovalCard key={a.id} approval={a} type="admin" />
+          {carts_with_approvals.map((cartWithApprovals) => (
+            <ApprovalCard
+              key={cartWithApprovals.id}
+              cartWithApprovals={cartWithApprovals}
+              type="admin"
+            />
           ))}
         </div>
 

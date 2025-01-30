@@ -1,42 +1,28 @@
-import { CheckMini, LockClosedSolid, XMarkMini } from "@medusajs/icons"
+import { retrieveCustomer } from "@lib/data/customer"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
+import { LockClosedSolid, XMarkMini } from "@medusajs/icons"
 import { Container, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import {
-  ApprovalStatus,
-  ApprovalType,
-  StoreApproval,
-} from "@starter/types/approval"
+import { B2BCart } from "@starter/types/global"
+import Button from "@modules/common/components/button"
+import { updateApproval } from "@lib/data/approvals"
 
-const ApprovalStatusBanner = ({
-  approvals,
-}: {
-  approvals: StoreApproval[]
-}) => {
-  const cartHasPendingApproval = approvals.some(
-    (approval) => approval.status === ApprovalStatus.PENDING
-  )
+const ApprovalStatusBanner = ({ cart }: { cart: B2BCart }) => {
+  const { isPendingApproval, isApproved, isRejected } =
+    getCartApprovalStatus(cart)
 
-  const cartIsApproved = approvals.some(
-    (approval) => approval.status === ApprovalStatus.APPROVED
-  )
-
-  const cartIsRejected =
-    approvals.some((approval) => approval.status === ApprovalStatus.REJECTED) &&
-    !cartHasPendingApproval &&
-    !cartIsApproved
-
-  if (cartIsApproved) {
+  if (isApproved || (!isPendingApproval && !isRejected)) {
     return null
   }
 
   return (
     <Container className="flex gap-2 self-stretch relative w-full h-fit overflow-hidden items-center">
-      {cartHasPendingApproval && (
+      {isPendingApproval && (
         <>
           <LockClosedSolid className="w-4 h-4" />
           <Text className="text-left">
             This cart is locked for approval by a{" "}
-            {approvals[0].type === ApprovalType.ADMIN
+            {cart.company.approval_settings.requires_admin_approval
               ? "company admin"
               : "sales manager"}
             .
@@ -44,12 +30,12 @@ const ApprovalStatusBanner = ({
         </>
       )}
 
-      {cartIsRejected && (
+      {isRejected && (
         <>
           <XMarkMini className="w-4 h-4" />
           <Text className="text-left">
             This cart has been rejected by a{" "}
-            {approvals[0].type === ApprovalType.ADMIN
+            {cart.company.approval_settings.requires_admin_approval
               ? "company admin"
               : "sales manager"}
             . You can re-request approval from the{" "}

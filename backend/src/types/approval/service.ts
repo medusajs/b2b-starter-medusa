@@ -11,6 +11,9 @@ import {
   ModuleApproval,
   ModuleCreateApproval,
   ModuleUpdateApproval,
+  ModuleCreateApprovalStatus,
+  ModuleApprovalStatus,
+  ModuleUpdateApprovalStatus,
 } from "./module";
 
 export interface ModuleApprovalSettingsFilters
@@ -67,6 +70,8 @@ export interface IApprovalModuleService extends IModuleService {
 
   restoreApprovals(ids: string[], sharedContext?: Context): Promise<void>;
 
+  hasPendingApprovals(cartId: string): Promise<boolean>;
+
   /* Entity: Approval Settings */
   retrieveApprovalSettings(
     id: string,
@@ -100,4 +105,27 @@ export interface IApprovalModuleService extends IModuleService {
   ): Promise<ModuleApprovalSettings[]>;
 
   deleteApprovalSettings(ids: string[], sharedContext?: Context): Promise<void>;
+
+  /* Entity: Approval Status */
+  createApprovalStatus(
+    data: ModuleCreateApprovalStatus,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalStatus>;
+
+  createApprovalStatuses(
+    data: ModuleCreateApprovalStatus[],
+    sharedContext?: Context
+  ): Promise<ModuleApprovalStatus[]>;
+
+  updateApprovalStatus(
+    data: ModuleUpdateApprovalStatus,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalStatus>;
+
+  updateApprovalStatuses(
+    data: ModuleUpdateApprovalStatus[],
+    sharedContext?: Context
+  ): Promise<ModuleApprovalStatus[]>;
+
+  deleteApprovalStatuses(ids: string[], sharedContext?: Context): Promise<void>;
 }

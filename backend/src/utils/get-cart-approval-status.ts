@@ -1,28 +1,35 @@
-import { ApprovalStatus } from "@starter/types/approval";
+import { ApprovalStatusType, QueryApproval } from "@starter/types/approval";
 
 export const getCartApprovalStatus = (cart: Record<string, any> | null) => {
-  if (!cart || !cart.approvals)
-    return { isPendingApproval: false, isApproved: false, isRejected: false };
+  const defaultStatus = {
+    isPendingApproval: false,
+    isApproved: false,
+    isRejected: false,
+  };
 
-  const isApproved =
-    cart?.approvals?.some(
-      (approval) => approval.status === ApprovalStatus.APPROVED
-    ) || false;
+  if (!cart?.approvals?.length) return defaultStatus;
 
-  const isPendingApproval =
-    (cart?.approvals?.some(
-      (approval) => approval.status === ApprovalStatus.PENDING
-    ) &&
-      !isApproved) ||
-    false;
+  const approvals = cart.approvals as QueryApproval[];
 
-  const isRejected =
-    (cart?.approvals?.some(
-      (approval) => approval.status === ApprovalStatus.REJECTED
-    ) &&
-      !isPendingApproval &&
-      !isApproved) ||
-    false;
+  const isPendingApproval = approvals.some(
+    (approval) => approval?.status === ApprovalStatusType.PENDING
+  );
 
-  return { isPendingApproval, isApproved, isRejected };
+  if (isPendingApproval) {
+    return { ...defaultStatus, isPendingApproval: true };
+  }
+
+  const isApproved = approvals.some(
+    (approval) => approval?.status === ApprovalStatusType.APPROVED
+  );
+
+  if (isApproved) {
+    return { ...defaultStatus, isApproved: true };
+  }
+
+  const isRejected = approvals.some(
+    (approval) => approval?.status === ApprovalStatusType.REJECTED
+  );
+
+  return { ...defaultStatus, isRejected };
 };

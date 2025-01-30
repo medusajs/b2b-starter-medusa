@@ -1,30 +1,33 @@
 import { retrieveCart } from "@lib/data/cart"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { convertToLocale } from "@lib/util/money"
 import { CheckMini, XMarkMini } from "@medusajs/icons"
 import { clx, Container } from "@medusajs/ui"
-import { ApprovalStatus, QueryApproval } from "@starter/types/approval"
+import { ApprovalStatusType, QueryApproval } from "@starter/types/approval"
 import Image from "next/image"
 import CalendarIcon from "../../../common/icons/calendar"
 import DocumentIcon from "../../../common/icons/document"
 import ApprovalCardActions from "../approval-card-actions"
+import { B2BCart } from "@starter/types"
 
 type ApprovalCardProps = {
-  approval: QueryApproval
+  cartWithApprovals: B2BCart
   type?: "admin" | "customer"
 }
 
 export default async function ApprovalCard({
-  approval,
+  cartWithApprovals,
   type = "customer",
 }: ApprovalCardProps) {
-  const cart = await retrieveCart(approval.cart_id)
+  const cart = await retrieveCart(cartWithApprovals.id)
 
-  if (!cart || !approval) {
+  if (!cart) {
     return null
   }
 
   const createdAt = new Date(cart.created_at!)
   const updatedAt = new Date(cart.updated_at!)
+
   const numberOfLines = cart.items?.length ?? 0
 
   return (
@@ -84,8 +87,8 @@ export default async function ApprovalCard({
           <DocumentIcon className="inline-block mr-1" />
           <span data-testid="order-display-id">#{cart.id.slice(-5, -1)}</span>
         </div>
-
-        {approval.status === ApprovalStatus.APPROVED && (
+        {cartWithApprovals.approval_status?.status ===
+          ApprovalStatusType.APPROVED && (
           <div className="flex items-center text-small-regular">
             <CheckMini className="inline-block mr-1" />
             <span data-testid="order-display-id">
@@ -99,7 +102,8 @@ export default async function ApprovalCard({
           </div>
         )}
 
-        {approval.status === ApprovalStatus.REJECTED && (
+        {cartWithApprovals.approval_status?.status ===
+          ApprovalStatusType.REJECTED && (
           <div className="flex items-center text-small-regular">
             <XMarkMini className="inline-block mr-1" />
             <span data-testid="order-display-id">
@@ -127,8 +131,8 @@ export default async function ApprovalCard({
             numberOfLines > 1 ? "items" : "item"
           }`}</span>
         </div>
-        {type === "admin" && approval.status === ApprovalStatus.PENDING && (
-          <ApprovalCardActions approvalId={approval.id} />
+        {type === "admin" && (
+          <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
         )}
       </div>
     </Container>

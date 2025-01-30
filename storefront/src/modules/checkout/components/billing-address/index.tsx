@@ -8,30 +8,24 @@ import Divider from "@modules/common/components/divider"
 
 import { setBillingAddress, updateCart } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { CheckCircleSolid } from "@medusajs/icons"
-import { useActionState, useCallback } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
+import { useCallback, useState } from "react"
+import { B2BCart } from "types/global"
 import BillingAddressForm from "../billing-address-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
-import { ApprovalStatus } from "@starter/types/approval"
 
-const BillingAddress = ({
-  cart,
-  customer,
-}: {
-  cart: B2BCart | null
-  customer: B2BCustomer | null
-}) => {
+const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
 
+  const [error, setError] = useState<string | null>(null)
+
   const isOpen = searchParams.get("step") === "billing-address"
 
-  const isPendingApproval = cart?.approvals?.some(
-    (approval) => approval.status === ApprovalStatus.PENDING
-  )
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
@@ -65,7 +59,14 @@ const BillingAddress = ({
     }
   }
 
-  const [message, formAction] = useActionState(setBillingAddress, null)
+  const handleSubmit = async (formData: FormData) => {
+    await setBillingAddress(formData).catch((e) => {
+      setError(e.message)
+      return
+    })
+
+    router.push(pathname + "?step=delivery", { scroll: false })
+  }
 
   return (
     <Container>
@@ -103,7 +104,7 @@ const BillingAddress = ({
         {isOpen ? (
           <div>
             <Divider />
-            <form action={formAction}>
+            <form action={handleSubmit}>
               <div className="py-2">
                 <BillingAddressForm cart={cart} />
               </div>
@@ -115,7 +116,7 @@ const BillingAddress = ({
                   Next step
                 </SubmitButton>
                 <ErrorMessage
-                  error={message}
+                  error={error}
                   data-testid="address-error-message"
                 />
               </div>

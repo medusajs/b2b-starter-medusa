@@ -1,6 +1,8 @@
 "use client"
 
 import { useRouter, useSearchParams } from "next/navigation"
+import { useState, useTransition } from "react"
+import Button from "../../../common/components/button"
 
 export default function ResourcePagination({
   totalPages,
@@ -13,11 +15,16 @@ export default function ResourcePagination({
 }) {
   const searchParams = useSearchParams()
   const router = useRouter()
+  const [pending, startTransition] = useTransition()
+  const [pendingPage, setPendingPage] = useState<number | null>(null)
 
   const handlePageChange = (page: number) => {
-    const params = new URLSearchParams(searchParams)
-    params.set(pageParam, String(page))
-    router.push(`${window.location.pathname}?${params}`, { scroll: false })
+    setPendingPage(page)
+    startTransition(() => {
+      const params = new URLSearchParams(searchParams)
+      params.set(pageParam, String(page))
+      router.push(`${window.location.pathname}?${params}`, { scroll: false })
+    })
   }
 
   const generatePagination = (): (number | string)[] => {
@@ -60,17 +67,15 @@ export default function ResourcePagination({
             . . .
           </span>
         ) : (
-          <button
+          <Button
             key={page}
             onClick={() => handlePageChange(page as number)}
-            className={`px-2 py-1 rounded-full min-w-8 text-center ${
-              currentPage === page
-                ? "bg-gray-900 text-white"
-                : "bg-gray-100 hover:bg-gray-200"
-            }`}
+            isLoading={pending && page === pendingPage}
+            className="px-1 py-1 rounded-full min-w-8 text-center"
+            variant={currentPage === page ? "primary" : "secondary"}
           >
             {page}
-          </button>
+          </Button>
         )
       )}
     </div>

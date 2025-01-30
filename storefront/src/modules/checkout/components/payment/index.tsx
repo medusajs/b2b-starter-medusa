@@ -11,7 +11,7 @@ import PaymentContainer from "@modules/checkout/components/payment-container"
 import { StripeContext } from "@modules/checkout/components/payment-wrapper"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
@@ -102,7 +102,7 @@ const Payment = ({
 
       if (!shouldInputCard) {
         return router.push(
-          pathname + "?" + createQueryString("step", "contact-details"),
+          pathname + "?" + createQueryString("step", "review"),
           {
             scroll: false,
           }

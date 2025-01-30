@@ -39,7 +39,7 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
                 <div className="flex flex-col gap-y-2">
                   {!customer && <SignInPrompt />}
                   {cart?.approvals && cart.approvals.length > 0 && (
-                    <ApprovalStatusBanner approvals={cart.approvals} />
+                    <ApprovalStatusBanner cart={cart} />
                   )}
                   <ItemsTemplate cart={cart} />
                 </div>

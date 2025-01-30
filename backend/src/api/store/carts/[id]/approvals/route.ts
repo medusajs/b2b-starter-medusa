@@ -1,20 +1,24 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { ApprovalStatus } from "@starter/types/approval";
+import {
+  AuthenticatedMedusaRequest,
+  MedusaResponse,
+} from "@medusajs/framework";
+import { ApprovalStatusType } from "@starter/types/approval";
 import { createApprovalsWorkflow } from "../../../../../workflows/approval/workflows";
-import { StoreCreateApprovalType } from "../../validators";
 
 export const POST = async (
-  req: MedusaRequest<StoreCreateApprovalType>,
+  req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) => {
-  const data = req.validatedBody;
   const { id: cartId } = req.params;
+  const { customer_id } = req.auth_context.app_metadata as {
+    customer_id: string;
+  };
 
   const { result: approvals, errors } = await createApprovalsWorkflow.run({
     input: {
-      ...data,
+      created_by: customer_id,
       cart_id: cartId,
-      status: ApprovalStatus.PENDING,
+      status: ApprovalStatusType.PENDING,
     },
     container: req.scope,
     throwOnError: false,

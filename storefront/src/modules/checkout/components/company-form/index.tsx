@@ -5,7 +5,7 @@ import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { clx } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { useState } from "react"
 import { B2BCart } from "types/global"
 

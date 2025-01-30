@@ -10,7 +10,6 @@ export const GET = async (
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
-
   const { customer_id } = req.auth_context.app_metadata as {
     customer_id: string;
   };
@@ -26,40 +25,44 @@ export const GET = async (
   const companyId = customer?.employee?.company?.id as string;
 
   if (!companyId) {
-    return res.json({ approvals: [] });
+    return res.json({ approvals: [], count: 0 });
   }
 
-  const { filters } = req.filterableFields as { filters: Record<string, any> };
+  const { limit = 100, offset = 0 } = req.validatedQuery || {};
 
   const {
     data: [company],
   } = await query.graph({
     entity: "company",
-    fields: ["carts.approvals.*"],
+    fields: [
+      "id",
+      "carts.*",
+      "carts.approvals.*",
+      "carts.approval_status.status",
+      "approval_settings.*",
+    ],
     filters: {
       id: companyId,
       carts: {
         approvals: {
-          ...filters,
+          ...req.filterableFields,
         },
       },
     },
-    pagination: {
-      skip: 0,
-      take: 1,
-    },
   });
 
-  const approvals = company?.carts
-    ?.flatMap((cart) => cart?.approvals?.flatMap((a) => a).filter(Boolean))
-    .filter(Boolean);
+  let carts = company?.carts?.filter(
+    (cart) => cart?.approvals?.filter(Boolean)?.length
+  );
 
-  const { pagination } = req.queryConfig;
+  if (!carts) {
+    return res.json({ approvals: [], count: 0 });
+  }
 
-  const skip = pagination?.skip || 0;
-  const take = pagination?.take || 10;
+  carts = carts.slice(offset, offset + limit);
 
-  const paginatedApprovals = approvals?.slice(skip, skip + take);
-
-  res.json({ approvals: paginatedApprovals, count: approvals?.length || 0 });
+  res.json({
+    carts_with_approvals: carts,
+    count: carts.length,
+  });
 };

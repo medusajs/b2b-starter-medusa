@@ -3,20 +3,21 @@ import {
   createOperatorMap,
 } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
+import { ApprovalType } from "@starter/types/approval";
 
 export type StoreGetApprovalsType = z.infer<typeof StoreGetApprovals>;
 export const StoreGetApprovals = createFindParams()
   .merge(
     z.object({
-      filters: z
-        .object({
-          company: z.string().optional(),
-          status: z.string().optional(),
-          handled_by: z.string().optional(),
-          created_by: z.string().optional(),
-          created_at: createOperatorMap().optional(),
-          updated_at: createOperatorMap().optional(),
-        })
+      status: z
+        .union([z.string(), z.array(z.string()), createOperatorMap()])
+        .optional(),
+      type: z
+        .union([
+          z.nativeEnum(ApprovalType),
+          z.array(z.nativeEnum(ApprovalType)),
+          createOperatorMap(),
+        ])
         .optional(),
     })
   )

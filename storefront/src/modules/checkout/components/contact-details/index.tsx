@@ -1,6 +1,7 @@
 "use client"
 
 import { setContactDetails } from "@lib/data/cart"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { clx, Container, Heading, Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
@@ -10,8 +11,6 @@ import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
-import { ApprovalStatus } from "@starter/types/approval"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 
 const ContactDetails = ({
   cart,
@@ -20,21 +19,29 @@ const ContactDetails = ({
   cart: B2BCart | null
   customer: B2BCustomer | null
 }) => {
+  if (!cart) return null
+
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
 
   const isOpen = searchParams.get("step") === "contact-details"
   const isCompleted =
-    cart?.shipping_address?.address_1 &&
+    cart.shipping_address?.address_1 &&
     cart.shipping_methods &&
     cart.shipping_methods?.length > 0 &&
     cart.billing_address?.address_1 &&
-    cart.payment_collection?.payment_sessions &&
-    cart.payment_collection?.payment_sessions?.length > 0 &&
-    cart?.email
+    cart.email
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const requiresApproval =
+    cart.company?.approval_settings.requires_admin_approval ||
+    cart.company?.approval_settings.requires_sales_manager_approval
+
+  const { isPendingApproval, isApproved } = requiresApproval
+    ? getCartApprovalStatus(cart)
+    : { isPendingApproval: false, isApproved: false }
+
+  const customerIsAdmin = customer?.employee?.is_admin || false
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -45,6 +52,7 @@ const ContactDetails = ({
     },
     [searchParams]
   )
+
   const handleEdit = () => {
     router.push(pathname + "?" + createQueryString("step", "contact-details"), {
       scroll: false,
@@ -52,6 +60,19 @@ const ContactDetails = ({
   }
 
   const [message, formAction] = useActionState(setContactDetails, null)
+
+  const handleSubmit = (formData: FormData) => {
+    formAction(formData)
+
+    const step =
+      requiresApproval && (!customerIsAdmin || !isApproved)
+        ? "review"
+        : "payment"
+
+    router.push(pathname + "?" + createQueryString("step", step), {
+      scroll: false,
+    })
+  }
 
   return (
     <Container>
@@ -85,7 +106,7 @@ const ContactDetails = ({
         </div>
         {(isOpen || isCompleted) && <Divider />}
         {isOpen ? (
-          <form action={formAction}>
+          <form action={handleSubmit}>
             <div className="pb-8">
               <ContactDetailsForm customer={customer} cart={cart} />
               <div className="flex flex-col gap-y-2 items-end">
@@ -93,7 +114,9 @@ const ContactDetails = ({
                   className="mt-6"
                   data-testid="submit-address-button"
                 >
-                  Review order
+                  {requiresApproval && !isApproved && !customerIsAdmin
+                    ? "Review order"
+                    : "Next step"}
                 </SubmitButton>
                 <ErrorMessage
                   error={message}

@@ -1,17 +1,21 @@
+import { mapApprovalsByCartId } from "@lib/util/map-approvals-by-cart-id"
 import { Text } from "@medusajs/ui"
-import { QueryApproval } from "@starter/types/approval"
 import ApprovalCard from "../approval-card"
 
 const PendingCustomerApprovals = ({
-  approvals,
+  cartsWithApprovals,
 }: {
-  approvals: QueryApproval[]
+  cartsWithApprovals: any[]
 }) => {
-  if (approvals?.length) {
+  if (cartsWithApprovals.length) {
     return (
       <div className="flex flex-col gap-y-2 w-full">
-        {approvals.map((a) => (
-          <ApprovalCard key={a.id} approval={a} />
+        {cartsWithApprovals.map((cart) => (
+          <ApprovalCard
+            key={cart.id}
+            cartId={cart.id}
+            approvals={cart.approvals}
+          />
         ))}
       </div>
     )

@@ -5,13 +5,21 @@ import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
 import { ModuleCreateApproval } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
 import { createApprovalStep } from "../steps";
+import { createApprovalStatusStep } from "../steps/create-approval-status";
 
 export const createApprovalsWorkflow = createWorkflow(
   "create-approvals",
   function (input: ModuleCreateApproval | ModuleCreateApproval[]) {
     const result = createApprovalStep(input);
 
-    const linkData = transform(result, (approval) => {
+    const cartIds = transform(input, (input) => {
+      const approvals = Array.isArray(input) ? input : [input];
+      return approvals.map((approval) => approval.cart_id);
+    });
+
+    const approvalStatusResult = createApprovalStatusStep(cartIds);
+
+    const approvalLinkData = transform(result, (approval) => {
       const approvals = Array.isArray(approval) ? approval : [approval];
       return approvals.map((approval) => ({
         [Modules.CART]: {
@@ -22,6 +30,25 @@ export const createApprovalsWorkflow = createWorkflow(
         },
       }));
     });
+
+    const approvalStatusLinkData = transform(approvalStatusResult, (status) => {
+      const statuses = Array.isArray(status) ? status : [status];
+      return statuses.map((status) => ({
+        [Modules.CART]: {
+          cart_id: status.cart_id,
+        },
+        [APPROVAL_MODULE]: {
+          approval_status_id: status.id,
+        },
+      }));
+    });
+
+    const linkData = transform(
+      [approvalLinkData, approvalStatusLinkData],
+      (data) => {
+        return data.flat();
+      }
+    );
 
     createRemoteLinkStep(linkData);
 

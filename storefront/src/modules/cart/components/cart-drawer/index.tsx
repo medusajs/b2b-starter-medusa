@@ -151,7 +151,7 @@ const CartDrawer = ({
           </Drawer.Header>
           {cart?.approvals && cart.approvals.length > 0 && (
             <div className="p-4">
-              <ApprovalStatusBanner approvals={cart.approvals} />
+              <ApprovalStatusBanner cart={cart} />
             </div>
           )}
           {promotions.length > 0 && (

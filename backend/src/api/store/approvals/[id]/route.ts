@@ -32,6 +32,5 @@ export const POST = async (
     });
     return;
   }
-
   res.json({ approval });
 };

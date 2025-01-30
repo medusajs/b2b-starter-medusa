@@ -1,19 +1,17 @@
 "use client"
 
 import { setShippingAddress } from "@lib/data/cart"
-import compareAddresses from "@lib/util/compare-addresses"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { CheckCircleSolid } from "@medusajs/icons"
-import { Container, Heading, Text, useToggleState } from "@medusajs/ui"
+import { Container, Heading, Text } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import Spinner from "@modules/common/icons/spinner"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useActionState, useCallback } from "react"
+import { useCallback, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
 import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
 import { SubmitButton } from "../submit-button"
-import { ApprovalStatus } from "@starter/types/approval"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 
 const ShippingAddress = ({
   cart,
@@ -25,16 +23,11 @@ const ShippingAddress = ({
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
+  const [error, setError] = useState<string | null>(null)
 
   const isOpen = searchParams.get("step") === "shipping-address"
 
   const { isPendingApproval } = getCartApprovalStatus(cart)
-
-  const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
-    cart?.shipping_address && cart?.billing_address
-      ? compareAddresses(cart?.shipping_address, cart?.billing_address)
-      : true
-  )
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -52,7 +45,16 @@ const ShippingAddress = ({
     )
   }
 
-  const [message, formAction] = useActionState(setShippingAddress, null)
+  const handleSubmit = async (formData: FormData) => {
+    await setShippingAddress(formData).catch((e) => {
+      setError(e.message)
+      return
+    })
+
+    router.push(pathname + "?" + createQueryString("step", "billing-address"), {
+      scroll: false,
+    })
+  }
 
   return (
     <Container>
@@ -80,14 +82,9 @@ const ShippingAddress = ({
         </div>
         <Divider />
         {isOpen ? (
-          <form action={formAction}>
+          <form action={handleSubmit}>
             <div className="pb-8">
-              <ShippingAddressForm
-                customer={customer}
-                checked={sameAsBilling}
-                onChange={toggleSameAsBilling}
-                cart={cart}
-              />
+              <ShippingAddressForm customer={customer} cart={cart} />
               <div className="flex flex-col gap-y-2 items-end">
                 <SubmitButton
                   className="mt-6"
@@ -96,7 +93,7 @@ const ShippingAddress = ({
                   Next step
                 </SubmitButton>
                 <ErrorMessage
-                  error={message}
+                  error={error}
                   data-testid="address-error-message"
                 />
               </div>

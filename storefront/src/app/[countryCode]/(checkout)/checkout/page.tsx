@@ -11,8 +11,13 @@ export const metadata: Metadata = {
   title: "Checkout",
 }
 
-export default async function Checkout() {
-  const cart = (await retrieveCart()) as B2BCart
+export default async function Checkout({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
+  const cartId = searchParams?.cartId as string
+  const cart = (await retrieveCart(cartId)) as B2BCart
 
   if (!cart) {
     return notFound()

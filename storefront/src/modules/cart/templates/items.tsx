@@ -3,7 +3,7 @@ import { convertToLocale } from "@lib/util/money"
 import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import ItemFull from "@modules/cart/components/item-full"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { useMemo } from "react"
 import { B2BCart } from "types/global"
 
