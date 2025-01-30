@@ -50,27 +50,26 @@ export const GET = async (
     },
   });
 
-  let carts = company?.carts?.filter(
-    (cart) => cart?.approvals?.filter(Boolean).length
-  );
+  // todo: this shouldn't be done here, but for some reason the query returns incorrect data
+  let carts = company?.carts?.reduce<any[]>((acc, cart) => {
+    if (!cart || !cart.approvals?.some(Boolean)) return acc;
 
-  carts = carts?.map((cart) => {
-    if (!cart) return null;
-    cart.approvals = cart?.approvals?.filter(Boolean) || [];
-    cart.approval_status = Array.isArray(cart?.approval_status)
-      ? cart?.approval_status.filter(Boolean)[0]
-      : cart?.approval_status;
-    return cart;
-  });
+    acc.push({
+      ...cart,
+      approvals: cart.approvals.filter(Boolean),
+      approval_status: Array.isArray(cart.approval_status)
+        ? cart.approval_status.find(Boolean)
+        : cart.approval_status,
+    });
+
+    return acc;
+  }, []);
 
   if (!carts) {
     return res.json({ carts_with_approvals: [], count: 0 });
   }
 
-  // Store total count before pagination
   const totalCount = carts.length;
-
-  console.log("no of carts before", totalCount);
 
   const { limit, offset } = req.validatedQuery || {};
 
@@ -83,8 +82,6 @@ export const GET = async (
     );
     carts = paginatedCarts;
   }
-
-  console.log("no of carts after", carts.length);
 
   res.json({
     carts_with_approvals: carts,
