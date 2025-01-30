@@ -14,14 +14,17 @@ export default async function RejectedApprovalRequestsAdminList({
   const currentPage = Number(searchParams[pageParam]) || 1
   const limit = 5
 
-  const { carts_with_approvals } = await listApprovals({
+  let { carts_with_approvals, count } = await listApprovals({
     type: ApprovalType.ADMIN,
     status: ApprovalStatusType.REJECTED,
     offset: (currentPage - 1) * limit,
     limit,
   })
 
-  const count = carts_with_approvals.length
+  carts_with_approvals = carts_with_approvals.filter(
+    (cart) => cart?.approval_status?.status !== ApprovalStatusType.PENDING
+  )
+
   const totalPages = Math.ceil((count || 0) / limit)
 
   if (carts_with_approvals.length > 0) {

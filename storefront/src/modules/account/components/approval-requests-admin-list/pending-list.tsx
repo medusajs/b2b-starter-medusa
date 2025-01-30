@@ -13,7 +13,7 @@ export default async function PendingApprovalRequestsAdminList({
   const currentPage = Number(searchParams[pageParam]) || 1
   const limit = 5
 
-  let { carts_with_approvals } = await listApprovals({
+  let { carts_with_approvals, count } = await listApprovals({
     status: ApprovalStatusType.PENDING,
     offset: (currentPage - 1) * limit,
     limit,
@@ -23,7 +23,6 @@ export default async function PendingApprovalRequestsAdminList({
     (cart) => cart?.approval_status?.status !== ApprovalStatusType.REJECTED
   )
 
-  const count = carts_with_approvals.length
   const totalPages = Math.ceil((count || 0) / limit)
 
   if (carts_with_approvals.length > 0) {

@@ -15,6 +15,7 @@ import { B2BCart } from "types/global"
 import BillingAddressForm from "../billing-address-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
+import { ApprovalStatusType } from "@starter/types/approval"
 
 const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
   const searchParams = useSearchParams()
@@ -25,7 +26,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
 
   const isOpen = searchParams.get("step") === "billing-address"
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const cartApprovalStatus = cart?.approval_status?.status
 
   const { state: sameAsBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
@@ -91,7 +92,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
           </div>
           {cart?.shipping_address?.address_1 && (
             <CheckboxWithLabel
-              disabled={isPendingApproval}
+              disabled={cartApprovalStatus === ApprovalStatusType.PENDING}
               label="Same as shipping address"
               name="same_as_billing"
               checked={sameAsBilling}

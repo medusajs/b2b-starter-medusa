@@ -12,6 +12,7 @@ import { B2BCart, B2BCustomer } from "types/global"
 import ErrorMessage from "../error-message"
 import ShippingAddressForm from "../shipping-address-form"
 import { SubmitButton } from "../submit-button"
+import { ApprovalStatusType } from "@starter/types/approval"
 
 const ShippingAddress = ({
   cart,
@@ -27,7 +28,7 @@ const ShippingAddress = ({
 
   const isOpen = searchParams.get("step") === "shipping-address"
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const cartApprovalStatus = cart?.approval_status?.status
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -68,17 +69,19 @@ const ShippingAddress = ({
             {!isOpen && <CheckCircleSolid />}
           </Heading>
 
-          {!isOpen && cart?.shipping_address && !isPendingApproval && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-address-button"
-              >
-                Edit
-              </button>
-            </Text>
-          )}
+          {!isOpen &&
+            cart?.shipping_address &&
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-address-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
         </div>
         <Divider />
         {isOpen ? (

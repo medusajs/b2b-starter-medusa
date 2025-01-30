@@ -8,7 +8,10 @@ import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
-import { ApprovalType } from "@starter/types/approval/module"
+import {
+  ApprovalStatusType,
+  ApprovalType,
+} from "@starter/types/approval/module"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useMemo, useState } from "react"
 import { B2BCart } from "types/global"
@@ -51,7 +54,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     cart.company?.approval_settings?.requires_admin_approval ||
     cart.company?.approval_settings?.requires_sales_manager_approval
 
-  const { isFullyApproved } = getCartApprovalStatus(cart)
+  const cartApprovalStatus = cart?.approval_status?.status
 
   // TODO: Add this once gift cards are implemented
   // const paidByGiftcard =
@@ -61,7 +64,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
   //   return <GiftCardPaymentButton />
   // }
 
-  if (requiresApproval && !isFullyApproved) {
+  if (requiresApproval && cartApprovalStatus !== ApprovalStatusType.APPROVED) {
     return <RequestApprovalButton cart={cart} notReady={notReady} />
   }
 
@@ -106,12 +109,13 @@ const RequestApprovalButton = ({
 }) => {
   const [submitting, setSubmitting] = useState(false)
 
-  const { requires_admin_approval } = cart.company?.approval_settings || {}
+  const { requires_admin_approval, requires_sales_manager_approval } =
+    cart.company?.approval_settings || {}
 
-  const { isPendingAdminApproval } = useMemo(
-    () => getCartApprovalStatus(cart),
-    [cart]
-  )
+  const cartApprovalStatus = cart?.approval_status?.status
+
+  const isPendingAdminApproval =
+    cartApprovalStatus === ApprovalStatusType.PENDING
 
   const createApproval = async () => {
     setSubmitting(true)
@@ -127,7 +131,9 @@ const RequestApprovalButton = ({
     <>
       <Container className="flex flex-col gap-y-2">
         <Text className="text-neutral-700-950 text-xs text-center">
-          {requires_admin_approval
+          {requires_admin_approval && requires_sales_manager_approval
+            ? "This order requires approval by both a company admin and a sales manager."
+            : requires_admin_approval
             ? "This order requires approval by a company admin."
             : "This order requires approval by a sales manager."}
         </Text>

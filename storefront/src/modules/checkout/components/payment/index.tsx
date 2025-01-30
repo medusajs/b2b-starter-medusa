@@ -42,7 +42,7 @@ const Payment = ({
 
   const isOpen = searchParams.get("step") === "payment"
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const cartApprovalStatus = cart.approval_status?.status
 
   const stripeReady = useContext(StripeContext)
 
@@ -133,17 +133,19 @@ const Payment = ({
             Payment Method
             {!isOpen && paymentReady && <CheckCircleSolid />}
           </Heading>
-          {!isOpen && paymentReady && !isPendingApproval && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-payment-button"
-              >
-                Edit
-              </button>
-            </Text>
-          )}
+          {!isOpen &&
+            paymentReady &&
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-payment-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
         </div>
         {(isOpen || (cart && paymentReady && activeSession)) && <Divider />}
       </div>

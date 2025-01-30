@@ -1,20 +1,49 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { ApprovalStatusType, IApprovalModuleService } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 
 export const createApprovalStatusStep = createStep(
   "create-approval-status",
   async (cartIds: string[], { container }) => {
+    const query = container.resolve(ContainerRegistrationKeys.QUERY);
     const approvalModuleService =
       container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
-    const approvalStatuses = cartIds.map((cartId) => ({
+    console.log("cartIds", cartIds);
+    const {
+      data: [existingApprovalStatus],
+    } = await query.graph({
+      entity: "approval_status",
+      fields: ["*"],
+      filters: {
+        cart_id: cartIds[0],
+      },
+    });
+
+    console.log("existingApprovalStatus", existingApprovalStatus);
+
+    if (existingApprovalStatus) {
+      const [approvalStatus] =
+        await approvalModuleService.updateApprovalStatuses([
+          {
+            id: existingApprovalStatus.id,
+            status: ApprovalStatusType.PENDING,
+          },
+        ]);
+
+      console.log("approvalStatus", approvalStatus);
+
+      return new StepResponse(approvalStatus, [approvalStatus.id]);
+    }
+
+    const approvalStatusesToCreate = cartIds.map((cartId) => ({
       cart_id: cartId,
       status: ApprovalStatusType.PENDING,
     }));
 
     const [approvalStatus] = await approvalModuleService.createApprovalStatuses(
-      approvalStatuses
+      approvalStatusesToCreate
     );
 
     return new StepResponse(approvalStatus, [approvalStatus.id]);

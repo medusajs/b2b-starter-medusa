@@ -28,8 +28,6 @@ export const GET = async (
     return res.json({ approvals: [], count: 0 });
   }
 
-  const { limit = 100, offset = 0 } = req.validatedQuery || {};
-
   const {
     data: [company],
   } = await query.graph({
@@ -37,6 +35,7 @@ export const GET = async (
     fields: [
       "id",
       "carts.*",
+      "carts.items.*",
       "carts.approvals.*",
       "carts.approval_status.status",
       "approval_settings.*",
@@ -52,17 +51,43 @@ export const GET = async (
   });
 
   let carts = company?.carts?.filter(
-    (cart) => cart?.approvals?.filter(Boolean)?.length
+    (cart) => cart?.approvals?.filter(Boolean).length
   );
 
+  carts = carts?.map((cart) => {
+    if (!cart) return null;
+    cart.approvals = cart?.approvals?.filter(Boolean) || [];
+    cart.approval_status = Array.isArray(cart?.approval_status)
+      ? cart?.approval_status.filter(Boolean)[0]
+      : cart?.approval_status;
+    return cart;
+  });
+
   if (!carts) {
-    return res.json({ approvals: [], count: 0 });
+    return res.json({ carts_with_approvals: [], count: 0 });
   }
 
-  carts = carts.slice(offset, offset + limit);
+  // Store total count before pagination
+  const totalCount = carts.length;
+
+  console.log("no of carts before", totalCount);
+
+  const { limit, offset } = req.validatedQuery || {};
+
+  if (offset !== undefined && limit !== undefined) {
+    const numericOffset = Number(offset);
+    const numericLimit = Number(limit);
+    const paginatedCarts = carts.slice(
+      numericOffset,
+      numericOffset + numericLimit
+    );
+    carts = paginatedCarts;
+  }
+
+  console.log("no of carts after", carts.length);
 
   res.json({
     carts_with_approvals: carts,
-    count: carts.length,
+    count: totalCount,
   });
 };

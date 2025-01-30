@@ -11,6 +11,7 @@ import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
+import { ApprovalStatusType } from "@starter/types/approval"
 
 const ContactDetails = ({
   cart,
@@ -37,9 +38,7 @@ const ContactDetails = ({
     cart.company?.approval_settings.requires_admin_approval ||
     cart.company?.approval_settings.requires_sales_manager_approval
 
-  const { isPendingApproval, isApproved } = requiresApproval
-    ? getCartApprovalStatus(cart)
-    : { isPendingApproval: false, isApproved: false }
+  const cartApprovalStatus = cart?.approval_status?.status
 
   const customerIsAdmin = customer?.employee?.is_admin || false
 
@@ -65,7 +64,8 @@ const ContactDetails = ({
     formAction(formData)
 
     const step =
-      requiresApproval && (!customerIsAdmin || !isApproved)
+      requiresApproval &&
+      (!customerIsAdmin || cartApprovalStatus !== ApprovalStatusType.APPROVED)
         ? "review"
         : "payment"
 
@@ -92,17 +92,19 @@ const ContactDetails = ({
             {!isOpen && isCompleted && <CheckCircleSolid />}
           </Heading>
 
-          {!isOpen && isCompleted && !isPendingApproval && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-contact-details-button"
-              >
-                Edit
-              </button>
-            </Text>
-          )}
+          {!isOpen &&
+            isCompleted &&
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-contact-details-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
         </div>
         {(isOpen || isCompleted) && <Divider />}
         {isOpen ? (
@@ -114,7 +116,9 @@ const ContactDetails = ({
                   className="mt-6"
                   data-testid="submit-address-button"
                 >
-                  {requiresApproval && !isApproved && !customerIsAdmin
+                  {requiresApproval &&
+                  cartApprovalStatus !== ApprovalStatusType.APPROVED &&
+                  !customerIsAdmin
                     ? "Review order"
                     : "Next step"}
                 </SubmitButton>

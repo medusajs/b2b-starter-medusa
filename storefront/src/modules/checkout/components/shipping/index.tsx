@@ -11,6 +11,7 @@ import ErrorMessage from "@modules/checkout/components/error-message"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { B2BCart, B2BCustomer } from "types/global"
@@ -33,7 +34,7 @@ const Shipping: React.FC<ShippingProps> = ({
 
   const isOpen = searchParams.get("step") === "delivery"
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const cartApprovalStatus = cart?.approval_status?.status
 
   const selectedShippingMethod = availableShippingMethods?.find(
     (method) => method.id === cart.shipping_methods?.at(-1)?.shipping_option_id
@@ -84,7 +85,7 @@ const Shipping: React.FC<ShippingProps> = ({
             cart?.shipping_address &&
             cart?.billing_address &&
             cart?.email &&
-            !isPendingApproval && (
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
               <Text>
                 <button
                   onClick={handleEdit}

@@ -13,8 +13,8 @@ const PendingCustomerApprovals = ({
         {cartsWithApprovals.map((cart) => (
           <ApprovalCard
             key={cart.id}
-            cartId={cart.id}
-            approvals={cart.approvals}
+            cartWithApprovals={cart}
+            type="customer"
           />
         ))}
       </div>

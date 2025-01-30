@@ -1,6 +1,5 @@
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import ApprovalStatusBanner from "@modules/cart/components/approval-status-banner"
 import SignInPrompt from "@modules/cart/components/sign-in-prompt"
 import BillingAddress from "@modules/checkout/components/billing-address"
@@ -12,6 +11,7 @@ import ShippingAddress from "@modules/checkout/components/shipping-address"
 import Button from "@modules/common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import UTurnArrowRight from "@modules/common/icons/u-turn-arrow-right"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { B2BCart, B2BCustomer } from "types/global"
 
 export default async function CheckoutForm({
@@ -30,10 +30,6 @@ export default async function CheckoutForm({
   const requiresApproval =
     cart.company.approval_settings.requires_admin_approval ||
     cart.company.approval_settings.requires_sales_manager_approval
-
-  const { isFullyApproved } = requiresApproval
-    ? getCartApprovalStatus(cart)
-    : { isFullyApproved: false }
 
   if (!shippingMethods || !paymentMethods) {
     return null
@@ -54,21 +50,23 @@ export default async function CheckoutForm({
 
         {!customer ? <SignInPrompt /> : null}
 
-        {cart?.approvals && cart.approvals.length > 0 && (
-          <ApprovalStatusBanner cart={cart} />
-        )}
+        {cart.approval_status &&
+          cart.approval_status.status !== ApprovalStatusType.APPROVED && (
+            <ApprovalStatusBanner cart={cart} />
+          )}
 
         {cart?.company && <Company cart={cart} />}
 
         <ShippingAddress cart={cart} customer={customer} />
 
-        <BillingAddress cart={cart} customer={customer} />
+        <BillingAddress cart={cart} />
 
         <Shipping cart={cart} availableShippingMethods={shippingMethods} />
 
         <ContactDetails cart={cart} customer={customer} />
 
-        {(customer?.employee?.is_admin && isFullyApproved) ||
+        {(customer?.employee?.is_admin &&
+          cart.approval_status?.status === ApprovalStatusType.APPROVED) ||
         !requiresApproval ? (
           <Payment cart={cart} availablePaymentMethods={paymentMethods} />
         ) : null}

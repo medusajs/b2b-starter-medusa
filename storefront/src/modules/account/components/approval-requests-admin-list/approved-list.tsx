@@ -13,9 +13,9 @@ export default async function ApprovedApprovalRequestsAdminList({
 }) {
   const pageParam = `approvedPage`
   const currentPage = Number(searchParams[pageParam]) || 1
-  const limit = 10
+  const limit = 5
 
-  let { carts_with_approvals } = await listApprovals({
+  let { carts_with_approvals, count } = await listApprovals({
     status: ApprovalStatusType.APPROVED,
     type: ApprovalType.ADMIN,
     offset: (currentPage - 1) * limit,
@@ -25,8 +25,6 @@ export default async function ApprovedApprovalRequestsAdminList({
   carts_with_approvals = carts_with_approvals.filter(
     (cart) => cart?.approval_status?.status === ApprovalStatusType.APPROVED
   )
-
-  const count = carts_with_approvals.length
 
   const totalPages = Math.ceil((count || 0) / limit)
 

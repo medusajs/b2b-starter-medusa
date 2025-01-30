@@ -48,6 +48,7 @@ export const listApprovals = async ({
       headers,
       next,
       credentials: "include",
+      cache: "force-cache",
     }
   )
 
