@@ -36,7 +36,7 @@
   - [Features](#features)
   - [Demo](#demo)
 - [Quickstart](#quickstart)
-- [Update from pre-Approval module](#-update)
+- [Update](#update)
 - [Resources](#resources)
 - [Contributors](#contributors)
 
