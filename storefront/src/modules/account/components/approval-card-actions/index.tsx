@@ -12,6 +12,8 @@ import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
 import { useState } from "react"
 import Button from "../../../common/components/button"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { Text, usePrompt } from "@medusajs/ui"
+import { useRouter, useParams } from "next/navigation"
 
 const ApprovalCardActions = ({
   cartWithApprovals,
@@ -20,7 +22,11 @@ const ApprovalCardActions = ({
 }) => {
   const [approving, setApproving] = useState(false)
   const [rejecting, setRejecting] = useState(false)
+  const [isRedirecting, setIsRedirecting] = useState(false)
+  const { countryCode } = useParams()
+  const router = useRouter()
 
+  const dialog = usePrompt()
   if (!cartWithApprovals?.approvals) return null
 
   const pendingAdminApproval =
@@ -34,6 +40,14 @@ const ApprovalCardActions = ({
 
   const handleApprove = async () => {
     if (!pendingAdminApproval) return
+
+    const confirmed = await dialog({
+      title: "Are you sure you want to approve this cart?",
+      description: "This action cannot be undone.",
+    })
+
+    if (!confirmed) return
+
     setApproving(true)
     await updateApproval(pendingAdminApproval.id, ApprovalStatusType.APPROVED)
     setApproving(false)
@@ -41,20 +55,34 @@ const ApprovalCardActions = ({
 
   const handleReject = async () => {
     if (!pendingAdminApproval) return
+
+    const confirmed = await dialog({
+      title: "Are you sure you want to reject this cart?",
+      description: "This action cannot be undone.",
+    })
+
+    if (!confirmed) return
+
     setRejecting(true)
     await updateApproval(pendingAdminApproval.id, ApprovalStatusType.REJECTED)
     setRejecting(false)
   }
 
-  const handlePlaceOrder = async () => {
-    document.location.href = `/checkout?cart_id=${cartWithApprovals.id}&step=payment`
+  const handlePlaceOrder = () => {
+    setIsRedirecting(true)
+    router.push(
+      `/${countryCode}/checkout?cart_id=${cartWithApprovals.id}&step=payment`
+    )
   }
 
   return (
     <div className="flex gap-x-2">
       {pendingAdminApproval ? (
         <>
+          {"·"}
           <Button
+            size="small"
+            className="px-3"
             variant="secondary"
             onClick={handleReject}
             disabled={approving}
@@ -64,6 +92,8 @@ const ApprovalCardActions = ({
             Reject
           </Button>
           <Button
+            size="small"
+            className="px-3"
             variant="primary"
             onClick={handleApprove}
             disabled={rejecting}
@@ -75,27 +105,34 @@ const ApprovalCardActions = ({
         </>
       ) : cartWithApprovals.approval_status?.status ===
         ApprovalStatusType.PENDING ? (
-        <Button variant="primary" disabled>
-          <LockClosedSolidMini className="inline-block" />
-          Awaiting External Approval
-        </Button>
+        <>
+          {"·"}
+          <Button variant="primary" disabled>
+            <LockClosedSolidMini className="inline-block" />
+            Awaiting External Approval
+          </Button>
+        </>
       ) : cartWithApprovals.approval_status?.status ===
         ApprovalStatusType.APPROVED ? (
         !cartWithApprovals.completed_at ? (
-          <LocalizedClientLink
-            href={`/checkout?cart_id=${cartWithApprovals.id}&step=payment`}
-          >
-            <Button variant="primary" size="small" className="px-3">
-              Place Order
-              <ArrowRightMini className="inline-block" />
+          <>
+            {"·"}
+            <Button
+              variant="primary"
+              size="small"
+              className="px-3"
+              isLoading={isRedirecting}
+              onClick={handlePlaceOrder}
+            >
+              <LocalizedClientLink
+                href={`/checkout?cart_id=${cartWithApprovals.id}&step=payment`}
+              >
+                Place Order
+                <ArrowRightMini className="inline-block" />
+              </LocalizedClientLink>
             </Button>
-          </LocalizedClientLink>
-        ) : (
-          <span className="flex items-center gap-x-1 text-sm text-grey-500">
-            Order Completed
-            <CheckMini className="inline-block" />
-          </span>
-        )
+          </>
+        ) : null
       ) : null}
     </div>
   )

@@ -69,8 +69,6 @@ export const GET = async (
     filters: approvalStatusFilters,
   });
 
-  console.log("vic logs approvalStatuses", approvalStatuses);
-
   const approvalIds = approvalStatuses
     .flatMap((approvalStatus) =>
       approvalStatus.cart?.approvals?.map((approval) => approval?.id)
@@ -97,17 +95,12 @@ export const GET = async (
       }
       return null;
     })
-    .filter(Boolean);
+    .filter(Boolean)
+    .reverse();
 
   if (!cartsWithAdminApprovals.length) {
     return res.json({ carts_with_approvals: [], count: 0 });
   }
-
-  console.log(
-    "vic logs cartsWithAdminApprovals",
-    cartsWithAdminApprovals.map((cart) => cart?.approvals)
-  );
-  console.log("vic logs metadata", metadata);
 
   res.json({
     carts_with_approvals: cartsWithAdminApprovals,

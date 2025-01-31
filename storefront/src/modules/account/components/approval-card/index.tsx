@@ -1,14 +1,13 @@
 import { retrieveCart } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { convertToLocale } from "@lib/util/money"
 import { CheckMini, XMarkMini } from "@medusajs/icons"
-import { clx, Container } from "@medusajs/ui"
-import { ApprovalStatusType, QueryApproval } from "@starter/types/approval"
+import { clx, Container, Text } from "@medusajs/ui"
+import { B2BCart } from "@starter/types"
+import { ApprovalStatusType } from "@starter/types/approval"
 import Image from "next/image"
 import CalendarIcon from "../../../common/icons/calendar"
 import DocumentIcon from "../../../common/icons/document"
 import ApprovalCardActions from "../approval-card-actions"
-import { B2BCart } from "@starter/types"
 
 type ApprovalCardProps = {
   cartWithApprovals: B2BCart
@@ -88,19 +87,29 @@ export default async function ApprovalCard({
           <span data-testid="order-display-id">#{cart.id.slice(-4)}</span>
         </div>
         {cartWithApprovals.approval_status?.status ===
-          ApprovalStatusType.APPROVED && (
-          <div className="flex items-center text-small-regular">
-            <CheckMini className="inline-block mr-1" />
-            <span data-testid="order-display-id">
+        ApprovalStatusType.APPROVED ? (
+          cartWithApprovals.completed_at ? (
+            <Text className="flex items-center gap-x-1 text-xs text-grey-500">
+              <CheckMini className="inline-block" />
+              Order completed at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </Text>
+          ) : (
+            <Text className="flex items-center gap-x-1 text-xs text-grey-500">
               Approved at{" "}
               {updatedAt.toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
               })}
-            </span>
-          </div>
-        )}
+              <CheckMini className="inline-block" />
+            </Text>
+          )
+        ) : null}
 
         {cartWithApprovals.approval_status?.status ===
           ApprovalStatusType.REJECTED && (
@@ -130,10 +139,10 @@ export default async function ApprovalCard({
           <span className="px-2">{`${numberOfLines} ${
             numberOfLines > 1 ? "items" : "item"
           }`}</span>
+          {type === "admin" && (
+            <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
+          )}
         </div>
-        {type === "admin" && (
-          <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
-        )}
       </div>
     </Container>
   )

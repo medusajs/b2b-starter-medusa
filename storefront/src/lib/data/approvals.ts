@@ -19,6 +19,7 @@ type ListApprovalsParams = {
   type?: FilterType
   offset?: number
   limit?: number
+  order?: string
 }
 
 export const listApprovals = async ({
@@ -26,6 +27,7 @@ export const listApprovals = async ({
   type,
   offset = 0,
   limit = 100,
+  order = "updated_at",
 }: ListApprovalsParams = {}) => {
   const headers = {
     ...(await getAuthHeaders()),
@@ -43,6 +45,7 @@ export const listApprovals = async ({
         type,
         offset,
         limit,
+        order,
       },
       method: "GET",
       headers,

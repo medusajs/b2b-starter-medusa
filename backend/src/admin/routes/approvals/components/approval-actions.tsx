@@ -16,8 +16,6 @@ export const ApprovalActions = ({ cart }: { cart: Record<string, any> }) => {
       approval.status === ApprovalStatusType.PENDING
   );
 
-  console.log("vic logs cart", cart);
-
   const { mutateAsync: updateApproval } = useUpdateApproval(
     awaitingSalesManagerApproval?.id
   );

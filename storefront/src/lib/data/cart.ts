@@ -13,6 +13,7 @@ import {
   getCacheOptions,
   getCacheTag,
   getCartId,
+  removeCartId,
   setCartId,
 } from "./cookies"
 import { retrieveCustomer } from "./customer"
@@ -472,22 +473,31 @@ export async function placeOrder(
 
   const cartsTag = await getCacheTag("carts")
   const ordersTag = await getCacheTag("orders")
+  const approvalsTag = await getCacheTag("approvals")
 
   const response = await sdk.store.cart
     .complete(id, {}, headers)
-    .then((cartRes) => {
-      revalidateTag(cartsTag)
-      revalidateTag(ordersTag)
-      if (cartRes?.type === "order") {
-        track("order_completed", {
-          order_id: cartRes.order.id,
-        })
-      }
-      return cartRes
-    })
     .catch(medusaError)
 
-  return response
+  if (response.type === "cart") {
+    return response
+  }
+
+  track("order_completed", {
+    order_id: response.order.id,
+  })
+
+  revalidateTag(cartsTag)
+  revalidateTag(ordersTag)
+  revalidateTag(approvalsTag)
+
+  await removeCartId()
+
+  redirect(
+    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
+      response.order.id
+    }`
+  )
 }
 
 /**

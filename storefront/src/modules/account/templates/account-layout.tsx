@@ -20,11 +20,8 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
 }) => {
   const { carts_with_approvals } = await listApprovals({
     type: ApprovalType.ADMIN,
+    status: ApprovalStatusType.PENDING,
   })
-
-  const numPendingApprovals = carts_with_approvals.filter(
-    (c) => c.has_pending_approvals
-  ).length
 
   return (
     <div
@@ -37,7 +34,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
             {customer && (
               <AccountNav
                 customer={customer}
-                numPendingApprovals={numPendingApprovals}
+                numPendingApprovals={carts_with_approvals.length}
               />
             )}
           </div>

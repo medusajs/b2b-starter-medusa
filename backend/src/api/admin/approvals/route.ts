@@ -42,8 +42,6 @@ export const GET = async (
     .map((approvalStatus) => approvalStatus.cart)
     .filter(Boolean);
 
-  console.log("vic logs carts", carts);
-
   res.json({
     carts_with_approvals: carts,
     ...metadata,

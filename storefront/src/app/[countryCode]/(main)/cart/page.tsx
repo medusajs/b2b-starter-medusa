@@ -13,8 +13,6 @@ export default async function Cart() {
   const cart = await retrieveCart().catch(() => null)
   const customer = await retrieveCustomer()
 
-  console.log("vic logs cart", cart)
-
   return (
     <CartProvider cart={cart}>
       <CartTemplate customer={customer} />

@@ -2,22 +2,17 @@
 
 import { isManual, isPaypal, isStripe } from "@lib/constants"
 import { createCartApproval, placeOrder } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
+import { removeCartId } from "@lib/data/cookies"
 import { Container, Text, toast } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
-import {
-  ApprovalStatusType,
-  ApprovalType,
-} from "@starter/types/approval/module"
+import { ApprovalStatusType } from "@starter/types/approval/module"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
-import React, { useMemo, useState } from "react"
+import React, { useState } from "react"
 import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
-import { redirect } from "next/navigation"
-import { removeCartId } from "@lib/data/cookies"
 
 type PaymentButtonProps = {
   cart: B2BCart
@@ -25,16 +20,13 @@ type PaymentButtonProps = {
 }
 
 const completeCart = async (cart: B2BCart) => {
-  const response = await placeOrder(cart.id)
+  const response = await placeOrder(cart.id).catch((err) => {
+    if (!err.message.includes("NEXT_REDIRECT")) {
+      throw new Error(err)
+    }
+  })
 
-  if (response.type === "order") {
-    await removeCartId()
-    window.location.href = `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
-      response.order.id
-    }`
-  }
-
-  if (response.type === "cart") {
+  if (response?.type === "cart") {
     throw new Error(response.error.message)
   }
 }
@@ -50,9 +42,11 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     !cart.email ||
     (cart.shipping_methods?.length ?? 0) < 1
 
+  const { requires_admin_approval, requires_sales_manager_approval } =
+    cart.company?.approval_settings || {}
+
   const requiresApproval =
-    cart.company?.approval_settings?.requires_admin_approval ||
-    cart.company?.approval_settings?.requires_sales_manager_approval
+    requires_admin_approval || requires_sales_manager_approval
 
   const cartApprovalStatus = cart?.approval_status?.status
 

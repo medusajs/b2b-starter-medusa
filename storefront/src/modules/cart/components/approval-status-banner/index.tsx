@@ -1,4 +1,4 @@
-import { LockClosedSolid, XMarkMini } from "@medusajs/icons"
+import { CheckMini, LockClosedSolid, XMarkMini } from "@medusajs/icons"
 import { Container, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ApprovalStatusType } from "@starter/types/approval"
@@ -6,8 +6,6 @@ import { B2BCart } from "@starter/types/global"
 
 const ApprovalStatusBanner = ({ cart }: { cart: B2BCart }) => {
   const cartApprovalStatus = cart.approval_status?.status
-  console.log("cartApprovalStatus", cartApprovalStatus)
-  console.log("cartId", cart.id)
 
   if (!cartApprovalStatus) {
     return null
@@ -34,6 +32,15 @@ const ApprovalStatusBanner = ({ cart }: { cart: B2BCart }) => {
               checkout page
             </LocalizedClientLink>
             .
+          </Text>
+        </>
+      )}
+
+      {cartApprovalStatus === ApprovalStatusType.APPROVED && (
+        <>
+          <CheckMini className="w-4 h-4" />
+          <Text className="text-left">
+            This cart has been approved and can now be completed.
           </Text>
         </>
       )}
