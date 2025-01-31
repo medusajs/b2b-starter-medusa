@@ -27,7 +27,7 @@ export const listApprovals = async ({
   type,
   offset = 0,
   limit = 100,
-  order = "updated_at",
+  order = "-updated_at",
 }: ListApprovalsParams = {}) => {
   const headers = {
     ...(await getAuthHeaders()),
