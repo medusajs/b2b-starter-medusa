@@ -62,22 +62,12 @@ export const GET = async (
     approvalStatusFilters.status = status;
   }
 
-  console.log("vic logs req.queryConfig", req.queryConfig);
-
   const { data: approvalStatuses, metadata } = await query.graph({
     entity: "approval_status",
     ...req.queryConfig,
     fields: ["*", "cart.approvals.id"],
     filters: approvalStatusFilters,
   });
-
-  console.log(
-    "vic logs approvalStatus ids with updated_at",
-    approvalStatuses.map((approvalStatus) => [
-      approvalStatus.id,
-      approvalStatus.updated_at,
-    ])
-  );
 
   const approvalIds = approvalStatuses
     .flatMap((approvalStatus) =>
