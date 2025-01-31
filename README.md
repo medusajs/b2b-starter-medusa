@@ -47,7 +47,7 @@
 
 - ✅ Node 20
 - ✅ Postgres 15
-- ✅ Medusa 2.0
+- ✅ Medusa 2.4
 - ✅ Next.js 15
 
 &nbsp;
@@ -57,10 +57,12 @@
 #### Features
 
 - **Company Management**. Customers can manage their company and invite employees.
-- **Spending Limits**. Company admins can assign spending limits to its employees
+- **Spending Limits**. Company admins can assign spending limits to its employees.
 - **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
-- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
+- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes.
 - **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
+- **Company Approvals**. Companies can mandate approvals from company admins before employees can finalize a cart.
+- **Merchant Approvals**. Merchants can set up approval processes for orders, ensuring compliance with business rules before fulfillment.
 - **Promotions**. Customers can apply manual and automatic promotions to their cart.
 - **Free Shipping Nudge**. Displays a component showing progress toward free shipping.
 - **Full ecommerce support**
