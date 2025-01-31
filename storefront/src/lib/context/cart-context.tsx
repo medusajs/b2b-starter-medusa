@@ -14,7 +14,7 @@ import type {
   StoreProductVariant,
 } from "@medusajs/types"
 import { toast } from "@medusajs/ui"
-import { ApprovalStatus } from "@starter/types/approval/module"
+import { ApprovalStatusType } from "@starter/types/approval/module"
 import { useParams } from "next/navigation"
 import type { PropsWithChildren } from "react"
 import {
@@ -77,7 +77,11 @@ export function CartProvider({
     async (payload: AddToCartEventPayload) => {
       let prevCart = {} as B2BCart
 
-      if (cart?.approval?.status === ApprovalStatus.PENDING) {
+      if (
+        cart?.approvals?.some(
+          (approval) => approval.status === ApprovalStatusType.PENDING
+        )
+      ) {
         toast.error("Cart is locked for approval.")
         return
       }

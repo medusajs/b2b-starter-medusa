@@ -28,7 +28,7 @@ export enum ApprovalType {
   SALES_MANAGER = "sales_manager",
 }
 
-export enum ApprovalStatus {
+export enum ApprovalStatusType {
   PENDING = "pending",
   APPROVED = "approved",
   REJECTED = "rejected",
@@ -38,7 +38,7 @@ export type ModuleApproval = {
   id: string;
   cart_id: string;
   type: ApprovalType;
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   created_by: string;
   handled_by: string;
 };
@@ -51,6 +51,23 @@ export type ModuleCreateApproval = {
 
 export type ModuleUpdateApproval = {
   id: string;
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   handled_by: string;
+};
+
+/* Entity: Approval Status */
+export type ModuleApprovalStatus = {
+  id: string;
+  cart_id: string;
+  status: ApprovalStatusType;
+};
+
+export type ModuleCreateApprovalStatus = {
+  cart_id: string;
+  status: ApprovalStatusType;
+};
+
+export type ModuleUpdateApprovalStatus = {
+  id: string;
+  status: ApprovalStatusType;
 };

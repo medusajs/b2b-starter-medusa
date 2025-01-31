@@ -1,9 +1,9 @@
-import { createOrdersWorkflow } from "@medusajs/core-flows";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import { createOrderWorkflow } from "@medusajs/medusa/core-flows";
 import { StepResponse } from "@medusajs/workflows-sdk";
 import { COMPANY_MODULE } from "../../modules/company";
 
-createOrdersWorkflow.hooks.orderCreated(
+createOrderWorkflow.hooks.orderCreated(
   async ({ order }, { container }) => {
     const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 

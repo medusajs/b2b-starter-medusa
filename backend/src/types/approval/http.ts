@@ -1,5 +1,11 @@
-import { ApprovalStatus, ApprovalType } from "./module";
-import { QueryApproval, QueryApprovalSettings } from "./query";
+import { QueryCompany } from "../company/query";
+import { ApprovalStatusType, ApprovalType } from "./module";
+import {
+  QueryApproval,
+  QueryApprovalSettings,
+  QueryApprovalStatus,
+} from "./query";
+import { HttpTypes } from "@medusajs/types";
 
 /* Admin */
 export type AdminApprovalSettings = QueryApprovalSettings;
@@ -11,11 +17,23 @@ export type AdminUpdateApprovalSettings = {
 
 export type AdminApproval = QueryApproval;
 
+export type AdminApprovalsResponse = {
+  carts_with_approvals: AdminCartWithApprovals[];
+  count: number;
+};
+
+export type AdminCartWithApprovals = HttpTypes.StoreCart & {
+  company: QueryCompany;
+  approval_status: QueryApprovalStatus;
+  approval_requests: QueryApproval[];
+};
+
 export type AdminUpdateApproval = {
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   handled_by: string;
 };
 
+export type AdminApprovalStatus = QueryApprovalStatus;
 /* Store */
 export type StoreApprovalSettings = QueryApprovalSettings;
 
@@ -33,6 +51,6 @@ export type StoreCreateApproval = {
 };
 
 export type StoreUpdateApproval = {
-  status: ApprovalStatus;
+  status: ApprovalStatusType;
   handled_by: string;
 };

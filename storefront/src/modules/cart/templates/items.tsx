@@ -1,8 +1,9 @@
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { convertToLocale } from "@lib/util/money"
 import { StoreCartLineItem } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
 import ItemFull from "@modules/cart/components/item-full"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { useMemo } from "react"
 import { B2BCart } from "types/global"
 
@@ -23,10 +24,7 @@ const ItemsTemplate = ({
     [cart?.items]
   )
 
-  const isPendingApproval = useMemo(
-    () => cart?.approval?.status === ApprovalStatus.PENDING,
-    [cart?.approval]
-  )
+  const { isPendingApproval } = getCartApprovalStatus(cart)
 
   return (
     <div className="w-full flex flex-col gap-y-2">

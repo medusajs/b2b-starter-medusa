@@ -13,7 +13,7 @@ import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quo
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { B2BCustomer } from "types/global"
 import CartToCsvButton from "../components/cart-to-csv-button"
-import { ApprovalStatus } from "@starter/types/approval"
+import { ApprovalStatusType } from "@starter/types/approval"
 
 type SummaryProps = {
   customer: B2BCustomer | null
@@ -32,7 +32,9 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
 
   const checkoutButtonLink = customer ? checkoutPath : "/account"
 
-  const isPendingApproval = cart?.approval?.status === ApprovalStatus.PENDING
+  const isPendingApproval = cart?.approvals?.some(
+    (approval) => approval?.status === ApprovalStatusType.PENDING
+  )
 
   return (
     <Container className="flex flex-col gap-y-3">

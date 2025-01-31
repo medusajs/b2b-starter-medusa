@@ -1,18 +1,32 @@
 import { retrieveCart } from "@lib/data/cart"
 import { convertToLocale } from "@lib/util/money"
-import { clx, Container } from "@medusajs/ui"
+import { CheckMini, XMarkMini } from "@medusajs/icons"
+import { clx, Container, Text } from "@medusajs/ui"
+import { B2BCart } from "@starter/types"
+import { ApprovalStatusType } from "@starter/types/approval"
 import Image from "next/image"
 import CalendarIcon from "../../../common/icons/calendar"
 import DocumentIcon from "../../../common/icons/document"
+import ApprovalCardActions from "../approval-card-actions"
 
-export default async function ApprovalCard({ cartId }: { cartId: string }) {
-  const cart = await retrieveCart(cartId)
+type ApprovalCardProps = {
+  cartWithApprovals: B2BCart
+  type?: "admin" | "customer"
+}
+
+export default async function ApprovalCard({
+  cartWithApprovals,
+  type = "customer",
+}: ApprovalCardProps) {
+  const cart = await retrieveCart(cartWithApprovals.id)
 
   if (!cart) {
     return null
   }
 
   const createdAt = new Date(cart.created_at!)
+  const updatedAt = new Date(cart.updated_at!)
+
   const numberOfLines = cart.items?.length ?? 0
 
   return (
@@ -70,8 +84,47 @@ export default async function ApprovalCard({ cartId }: { cartId: string }) {
 
         <div className="flex items-center text-small-regular">
           <DocumentIcon className="inline-block mr-1" />
-          <span data-testid="order-display-id">#{cart.id.slice(-5, -1)}</span>
+          <span data-testid="order-display-id">#{cart.id.slice(-4)}</span>
         </div>
+        {cartWithApprovals.approval_status?.status ===
+        ApprovalStatusType.APPROVED ? (
+          cartWithApprovals.completed_at ? (
+            <Text className="flex items-center gap-x-1 text-xs text-grey-500">
+              <CheckMini className="inline-block" />
+              Order completed at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </Text>
+          ) : (
+            <Text className="flex items-center gap-x-1 text-xs text-grey-500">
+              Approved at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+              <CheckMini className="inline-block" />
+            </Text>
+          )
+        ) : null}
+
+        {cartWithApprovals.approval_status?.status ===
+          ApprovalStatusType.REJECTED && (
+          <div className="flex items-center text-small-regular">
+            <XMarkMini className="inline-block mr-1" />
+            <span data-testid="order-display-id">
+              Rejected at{" "}
+              {updatedAt.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-x-4 divide-gray-200 small:justify-normal justify-between w-full small:w-auto">
@@ -86,6 +139,9 @@ export default async function ApprovalCard({ cartId }: { cartId: string }) {
           <span className="px-2">{`${numberOfLines} ${
             numberOfLines > 1 ? "items" : "item"
           }`}</span>
+          {type === "admin" && (
+            <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
+          )}
         </div>
       </div>
     </Container>

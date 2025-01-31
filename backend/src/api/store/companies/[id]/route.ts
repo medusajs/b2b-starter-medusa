@@ -16,19 +16,16 @@ export const GET = async (
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
   const { id } = req.params;
 
-  const {
-    data: [company],
-  } = await query.graph(
+  const { data } = await query.graph(
     {
       entity: "companies",
-      // TODO: fix this
       fields: req.queryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
   );
 
-  res.json({ company });
+  res.json({ company: data[0] });
 };
 
 export const POST = async (
@@ -50,7 +47,6 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "companies",
-      // TODO: fix this
       fields: req.queryConfig.fields,
       filters: { id },
     },

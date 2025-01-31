@@ -3,8 +3,9 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createApprovalSettingsWorkflow } from "../workflows/approval/workflows";
 
 /**
- * This script creates approval settings for companies that don't have them.
- * It's meant to be run once to set up the approval settings for existing companies.
+ * This script adds approval settings to companies that don't have them yet.
+ * It's meant to be run once when you're upgrading the Starter for an existing project.
+ * If you're doing a fresh install, you can ignore this script.
  *
  * Execute by running `npx medusa exec src/scripts/create-approval-settings.ts`
  */
