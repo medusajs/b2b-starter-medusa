@@ -36,6 +36,7 @@
   - [Features](#features)
   - [Demo](#demo)
 - [Quickstart](#quickstart)
+- [Update from pre-Approval module](#-update)
 - [Resources](#resources)
 - [Contributors](#contributors)
 
@@ -167,6 +168,20 @@ Visit the following links to see the Medusa storefront & admin
 - [Medusa Storefront](http://localhost:8000)
 
 &nbsp;
+
+# Update
+
+Some general guidelines for when you're updating this Starter to a newer version.
+
+## Update packages
+
+Run `yarn install` in both projects to update you're packages to the latest versions.
+
+## Run migrations
+
+To reflect any changes made to data models, make sure to run `npx medusa db:migrate` in the backend project.
+
+> Note: are you updating from a version of this Starter that didn't have the Approval module yet? Run `npx medusa exec src/scripts/create-approval-settings.ts` in the backend project to add approval settings to all existing companies.
 
 # Resources
 
