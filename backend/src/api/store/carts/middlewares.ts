@@ -1,7 +1,5 @@
 import {
   authenticate,
-  AuthenticatedMedusaRequest,
-  MedusaResponse,
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
