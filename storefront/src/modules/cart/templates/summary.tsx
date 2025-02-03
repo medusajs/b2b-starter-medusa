@@ -13,6 +13,7 @@ import { RequestQuoteConfirmation } from "@modules/quotes/components/request-quo
 import { RequestQuotePrompt } from "@modules/quotes/components/request-quote-prompt"
 import { B2BCustomer } from "types/global"
 import CartToCsvButton from "../components/cart-to-csv-button"
+import { ApprovalStatusType } from "@starter/types/approval"
 
 type SummaryProps = {
   customer: B2BCustomer | null
@@ -30,6 +31,10 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
     : "/checkout"
 
   const checkoutButtonLink = customer ? checkoutPath : "/account"
+
+  const isPendingApproval = cart?.approvals?.some(
+    (approval) => approval?.status === ApprovalStatusType.PENDING
+  )
 
   return (
     <Container className="flex flex-col gap-y-3">
@@ -67,6 +72,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
           <Button
             className="w-full h-10 rounded-full shadow-borders-base"
             variant="secondary"
+            disabled={isPendingApproval}
           >
             Request Quote
           </Button>
@@ -77,6 +83,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
           <Button
             className="w-full h-10 rounded-full shadow-borders-base"
             variant="secondary"
+            disabled={isPendingApproval}
           >
             Request Quote
           </Button>
@@ -87,6 +94,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         onClick={handleEmptyCart}
         className="w-full h-10 rounded-full shadow-borders-base"
         variant="secondary"
+        disabled={isPendingApproval}
       >
         Empty Cart
       </Button>

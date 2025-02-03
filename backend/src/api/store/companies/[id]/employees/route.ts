@@ -16,7 +16,7 @@ export const GET = async (
   const { data: employees, metadata } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         company_id: id,
         ...req.filterableFields,
@@ -43,10 +43,10 @@ export const POST = async (
   const { result: createdEmployee } = await createEmployeesWorkflow.run({
     input: {
       employeeData: {
-        ...req.body,
+        ...req.validatedBody,
         company_id: id,
       },
-      customerId: req.body.customer_id,
+      customerId: req.validatedBody.customer_id,
     },
     container: req.scope,
   });
@@ -56,7 +56,7 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: {
         ...req.filterableFields,
         id: createdEmployee.id,

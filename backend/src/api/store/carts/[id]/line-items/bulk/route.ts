@@ -17,7 +17,7 @@ export async function POST(
   } = await query.graph(
     {
       entity: "cart",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }
@@ -37,7 +37,7 @@ export async function POST(
   } = await query.graph(
     {
       entity: "cart",
-      fields: req.remoteQueryConfig.fields,
+      fields: req.queryConfig.fields,
       filters: { id },
     },
     { throwIfKeyNotFound: true }

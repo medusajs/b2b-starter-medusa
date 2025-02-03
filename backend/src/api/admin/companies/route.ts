@@ -12,13 +12,13 @@ export const GET = async (
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
+  const { fields, pagination } = req.queryConfig;
+
   const { data: companies, metadata } = await query.graph({
     entity: "companies",
-    fields: req.remoteQueryConfig.fields,
+    fields,
     filters: req.filterableFields,
-    pagination: {
-      ...req.remoteQueryConfig.pagination
-    },
+    pagination,
   });
 
   res.json({
@@ -30,26 +30,28 @@ export const GET = async (
 };
 
 export const POST = async (
-  req: AuthenticatedMedusaRequest<AdminCreateCompanyType>,
+  req: AuthenticatedMedusaRequest<
+    AdminCreateCompanyType | AdminCreateCompanyType[]
+  >,
   res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-  const { result: createdCompany } = await createCompaniesWorkflow.run({
-    input: { ...req.validatedBody },
+  const { result: createdCompanies } = await createCompaniesWorkflow.run({
+    input: Array.isArray(req.validatedBody)
+      ? req.validatedBody.map((company) => ({ ...company }))
+      : [{ ...req.validatedBody }],
     container: req.scope,
   });
 
-  const {
-    data: [company],
-  } = await query.graph(
+  const { data: companies } = await query.graph(
     {
       entity: "companies",
-      fields: req.remoteQueryConfig.fields,
-      filters: { id: createdCompany.id },
+      fields: req.queryConfig.fields,
+      filters: { id: createdCompanies.map((company) => company.id) },
     },
     { throwIfKeyNotFound: true }
   );
 
-  res.json({ company });
+  res.json({ companies });
 };

@@ -3,6 +3,7 @@
 import { RadioGroup } from "@headlessui/react"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
 import { initiatePaymentSession } from "@lib/data/cart"
+import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
 import { Container, Heading, Text, clx } from "@medusajs/ui"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -10,6 +11,7 @@ import PaymentContainer from "@modules/checkout/components/payment-container"
 import { StripeContext } from "@modules/checkout/components/payment-wrapper"
 import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
+import { ApprovalStatusType } from "@starter/types/approval"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
@@ -40,7 +42,8 @@ const Payment = ({
 
   const isOpen = searchParams.get("step") === "payment"
 
-  const isStripe = isStripeFunc(activeSession?.provider_id)
+  const cartApprovalStatus = cart.approval_status?.status
+
   const stripeReady = useContext(StripeContext)
 
   const paidByGiftcard =
@@ -99,7 +102,7 @@ const Payment = ({
 
       if (!shouldInputCard) {
         return router.push(
-          pathname + "?" + createQueryString("step", "contact-details"),
+          pathname + "?" + createQueryString("step", "review"),
           {
             scroll: false,
           }
@@ -130,17 +133,19 @@ const Payment = ({
             Payment Method
             {!isOpen && paymentReady && <CheckCircleSolid />}
           </Heading>
-          {!isOpen && paymentReady && (
-            <Text>
-              <button
-                onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-payment-button"
-              >
-                Edit
-              </button>
-            </Text>
-          )}
+          {!isOpen &&
+            paymentReady &&
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-payment-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
         </div>
         {(isOpen || (cart && paymentReady && activeSession)) && <Divider />}
       </div>

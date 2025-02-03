@@ -21,7 +21,8 @@ export const GET = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      // TODO: fix this
+      fields: req.queryConfig.fields,
       filters: {
         ...req.filterableFields,
         id: employeeId,
@@ -56,7 +57,8 @@ export const POST = async (
   } = await query.graph(
     {
       entity: "employee",
-      fields: req.remoteQueryConfig.fields,
+      // TODO: fix this
+      fields: req.queryConfig.fields,
       filters: {
         ...req.filterableFields,
         id: employeeId,

@@ -10,15 +10,22 @@ import CountrySelect from "../country-select"
 const ShippingAddressForm = ({
   customer,
   cart,
-  checked,
-  onChange,
 }: {
   customer: B2BCustomer | null
   cart: B2BCart | null
-  checked: boolean
-  onChange: () => void
 }) => {
-  const [formData, setFormData] = useState<Record<string, any>>({})
+  const [formData, setFormData] = useState<Record<string, any>>({
+    "shipping_address.first_name": "",
+    "shipping_address.last_name": "",
+    "shipping_address.address_1": "",
+    "shipping_address.company": cart?.company?.name || "",
+    "shipping_address.postal_code": "",
+    "shipping_address.city": "",
+    "shipping_address.country_code": "",
+    "shipping_address.province": "",
+    "shipping_address.phone": "",
+    email: "",
+  })
 
   const countriesInRegion = useMemo(
     () => cart?.region?.countries?.map((c) => c.iso_2),
@@ -41,21 +48,22 @@ const ShippingAddressForm = ({
     address &&
       setFormData((prevState: Record<string, any>) => ({
         ...prevState,
-        "shipping_address.first_name": address?.first_name || "",
-        "shipping_address.last_name": address?.last_name || "",
-        "shipping_address.address_1": address?.address_1 || "",
-        "shipping_address.company": address?.company || "",
-        "shipping_address.postal_code": address?.postal_code || "",
-        "shipping_address.city": address?.city || "",
-        "shipping_address.country_code": address?.country_code || "",
-        "shipping_address.province": address?.province || "",
-        "shipping_address.phone": address?.phone || "",
+        "shipping_address.first_name": address?.first_name?.toString() || "",
+        "shipping_address.last_name": address?.last_name?.toString() || "",
+        "shipping_address.address_1": address?.address_1?.toString() || "",
+        "shipping_address.company": address?.company?.toString() || "",
+        "shipping_address.postal_code": address?.postal_code?.toString() || "",
+        "shipping_address.city": address?.city?.toString() || "",
+        "shipping_address.country_code":
+          address?.country_code?.toString() || "",
+        "shipping_address.province": address?.province?.toString() || "",
+        "shipping_address.phone": address?.phone?.toString() || "",
       }))
 
     email &&
       setFormData((prevState: Record<string, any>) => ({
         ...prevState,
-        email: email,
+        email: email.toString() || "",
       }))
   }
 
@@ -113,21 +121,20 @@ const ShippingAddressForm = ({
           onChange={handleChange}
           required
           data-testid="shipping-last-name-input"
-        />        
+        />
         <Input
-            label="Phone"
-            name="shipping_address.phone"
-            autoComplete="tel"
-            value={formData["shipping_address.phone"]}
-            onChange={handleChange}
-            required
-            data-testid="shipping-phone-input"
+          label="Phone"
+          name="shipping_address.phone"
+          autoComplete="tel"
+          value={formData["shipping_address.phone"]}
+          onChange={handleChange}
+          required
+          data-testid="shipping-phone-input"
         />
         <Input
           label="Company name"
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
-          defaultValue={cart?.company?.name}
           onChange={handleChange}
           autoComplete="organization"
           data-testid="shipping-company-input"

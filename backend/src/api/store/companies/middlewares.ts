@@ -14,6 +14,7 @@ import {
   StoreCreateEmployee,
   StoreGetCompanyParams,
   StoreGetEmployeeParams,
+  StoreUpdateApprovalSettings,
   StoreUpdateEmployee,
 } from "./validators";
 
@@ -109,6 +110,14 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
         StoreGetEmployeeParams,
         storeEmployeeQueryConfig.retrieve
       ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/companies/:id/approval-settings",
+    middlewares: [
+      ensureRole("company_admin"),
+      validateAndTransformBody(StoreUpdateApprovalSettings),
     ],
   },
 ];

@@ -25,14 +25,10 @@ import {
   Modules,
   ProductStatus,
 } from "@medusajs/framework/utils";
-import { Logger } from "@medusajs/medusa";
-import { RemoteLink } from "@medusajs/modules-sdk";
 
 export default async function seedDemoData({ container }: ExecArgs) {
-  const logger: Logger = container.resolve(ContainerRegistrationKeys.LOGGER);
-  const remoteLink: RemoteLink = container.resolve(
-    ContainerRegistrationKeys.REMOTE_LINK
-  );
+  const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
+  const link = container.resolve(ContainerRegistrationKeys.LINK);
   const fulfillmentModuleService: IFulfillmentModuleService = container.resolve(
     ModuleRegistrationName.FULFILLMENT
   );
@@ -126,7 +122,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
   });
   const stockLocation = stockLocationResult[0];
 
-  await remoteLink.create({
+  await link.create({
     [Modules.STOCK_LOCATION]: {
       stock_location_id: stockLocation.id,
     },
@@ -189,7 +185,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     ],
   });
 
-  await remoteLink.create({
+  await link.create({
     [Modules.STOCK_LOCATION]: {
       stock_location_id: stockLocation.id,
     },

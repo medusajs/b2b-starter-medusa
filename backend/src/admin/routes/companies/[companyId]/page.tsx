@@ -1,25 +1,28 @@
+import { ExclamationCircle } from "@medusajs/icons";
 import {
   Avatar,
   Badge,
   Container,
   Heading,
   Table,
-  Toaster,
   Text,
+  Toaster,
 } from "@medusajs/ui";
-import { ExclamationCircle } from "@medusajs/icons";
-import { useParams } from "react-router-dom";
-import { EmployeeDTO } from "../../../../modules/company/types/common";
-import { CompanyActionsMenu, EmployeesActionsMenu } from "../../../components";
-import { EmployeeCreateDrawer } from "../../../components/employees/employees-create-drawer";
-import { useAdminCustomerGroups, useCompany } from "../../../hooks";
-import { formatAmount } from "../../../utils";
 import { QueryEmployee } from "@starter/types";
+import { useParams } from "react-router-dom";
+import { useAdminCustomerGroups, useCompany } from "../../../hooks/api";
+import { formatAmount } from "../../../utils";
+import { CompanyActionsMenu } from "../components";
+import {
+  EmployeeCreateDrawer,
+  EmployeesActionsMenu,
+} from "../components/employees";
 
 const CompanyDetails = () => {
   const { companyId } = useParams();
-  const { data, loading, refetch } = useCompany(companyId!, {
-    fields: "*employees,*employees.customer,*employees.company,*customer_group",
+  const { data, isPending } = useCompany(companyId!, {
+    fields:
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
   });
 
   const { data: customerGroups } = useAdminCustomerGroups();
@@ -33,7 +36,7 @@ const CompanyDetails = () => {
   return (
     <div className="flex flex-col gap-4">
       <Container className="flex flex-col p-0 overflow-hidden">
-        {!loading && (
+        {!isPending && (
           <>
             <div className="flex items-center gap-2 px-6 py-4 border-b border-gray-200 justify-between">
               <div className="flex items-center gap-2">
@@ -47,14 +50,13 @@ const CompanyDetails = () => {
               </div>
               <CompanyActionsMenu
                 company={company}
-                refetch={refetch}
                 customerGroups={customerGroups}
               />
             </div>
             <Table>
               <Table.Body>
                 <Table.Row>
-                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                  <Table.Cell className="font-medium font-sans txt-compact-small max-w-fit">
                     Phone
                   </Table.Cell>
                   <Table.Cell>{company?.phone}</Table.Cell>
@@ -105,21 +107,48 @@ const CompanyDetails = () => {
                     )}
                   </Table.Cell>
                 </Table.Row>
+                <Table.Row>
+                  <Table.Cell className="font-medium font-sans txt-compact-small">
+                    Approval Settings
+                  </Table.Cell>
+                  <Table.Cell>
+                    <div className="flex gap-2">
+                      {company?.approval_settings?.requires_admin_approval && (
+                        <Badge size="small" color="purple">
+                          Requires admin approval
+                        </Badge>
+                      )}
+                      {company?.approval_settings
+                        ?.requires_sales_manager_approval && (
+                        <Badge size="small" color="purple">
+                          Requires sales manager approval
+                        </Badge>
+                      )}
+                      {!company?.approval_settings?.requires_admin_approval &&
+                        !company?.approval_settings
+                          ?.requires_sales_manager_approval && (
+                          <Badge size="small" color="grey">
+                            No approval required
+                          </Badge>
+                        )}
+                    </div>
+                  </Table.Cell>
+                </Table.Row>
               </Table.Body>
             </Table>
           </>
         )}
       </Container>
       <Container className="flex flex-col p-0 overflow-hidden">
-        {!loading && (
+        {!isPending && (
           <>
             <div className="flex items-center gap-2 px-6 py-4 justify-between border-b border-gray-200">
               <div className="flex items-center gap-2">
                 <Heading className="font-sans font-medium h1-core">
-                  Company Employees
+                  Employees
                 </Heading>
               </div>
-              <EmployeeCreateDrawer company={company} refetch={refetch} />
+              <EmployeeCreateDrawer company={company} />
             </div>
             {company?.employees && company?.employees.length > 0 ? (
               <Table>
@@ -173,7 +202,6 @@ const CompanyDetails = () => {
                         <EmployeesActionsMenu
                           company={company}
                           employee={employee}
-                          refetch={refetch}
                         />
                       </Table.Cell>
                     </Table.Row>

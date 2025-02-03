@@ -36,6 +36,7 @@
   - [Features](#features)
   - [Demo](#demo)
 - [Quickstart](#quickstart)
+- [Update](#update)
 - [Resources](#resources)
 - [Contributors](#contributors)
 
@@ -47,7 +48,7 @@
 
 - ✅ Node 20
 - ✅ Postgres 15
-- ✅ Medusa 2.0
+- ✅ Medusa 2.4
 - ✅ Next.js 15
 
 &nbsp;
@@ -57,10 +58,12 @@
 #### Features
 
 - **Company Management**. Customers can manage their company and invite employees.
-- **Spending Limits**. Company admins can assign spending limits to its employees
+- **Spending Limits**. Company admins can assign spending limits to its employees.
 - **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
-- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes
+- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes.
 - **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
+- **Company Approvals**. Companies can mandate approvals from company admins before employees can finalize a cart.
+- **Merchant Approvals**. Merchants can set up approval processes for orders, ensuring compliance with business rules before fulfillment.
 - **Promotions**. Customers can apply manual and automatic promotions to their cart.
 - **Free Shipping Nudge**. Displays a component showing progress toward free shipping.
 - **Full ecommerce support**
@@ -88,6 +91,11 @@
 #### Company Management
 
 <img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
+&nbsp;
+
+#### Approval Management
+
+<img align="right" src="https://github.com/user-attachments/assets/b93b7b94-41a9-4c5f-bd6b-abf87492ed46" alt="image" style=: />
 &nbsp;
 
 #### Product Page
@@ -160,6 +168,20 @@ Visit the following links to see the Medusa storefront & admin
 - [Medusa Storefront](http://localhost:8000)
 
 &nbsp;
+
+# Update
+
+Some general guidelines for when you're updating this Starter to a newer version.
+
+## Update packages
+
+Run `yarn install` in both projects to update you're packages to the latest versions.
+
+## Run migrations
+
+To reflect any changes made to data models, make sure to run `npx medusa db:migrate` in the backend project.
+
+> Note: are you updating from a version of this Starter that didn't have the Approval module yet? Run `npx medusa exec src/scripts/create-approval-settings.ts` in the backend project to add approval settings to all existing companies.
 
 # Resources
 

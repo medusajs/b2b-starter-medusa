@@ -2,6 +2,7 @@
 
 import { CustomerGroupDTO } from "@medusajs/framework/types";
 import { CustomerDTO } from "@medusajs/types/dist/customer/common";
+import { ModuleApprovalSettings } from "../approval/module";
 
 export enum ModuleCompanySpendingLimitResetFrequency {
   NEVER = "never",
@@ -27,6 +28,7 @@ export type ModuleCompany = {
   created_at: Date;
   updated_at: Date;
   customer_group: CustomerGroupDTO;
+  approval_settings: ModuleApprovalSettings;
 };
 
 export type ModuleCreateCompany = {

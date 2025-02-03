@@ -46,3 +46,23 @@ export const adminEmployeeQueryConfig = {
     isList: false,
   },
 };
+
+/* Approval Settings Query Config */
+export const adminApprovalSettingsFields = [
+  "id",
+  "company_id",
+  "requires_admin_approval",
+  "requires_sales_manager_approval",
+  "*company",
+];
+
+export const adminApprovalSettingsQueryConfig = {
+  list: {
+    defaults: adminApprovalSettingsFields,
+    isList: true,
+  },
+  retrieve: {
+    defaults: adminApprovalSettingsFields,
+    isList: false,
+  },
+};

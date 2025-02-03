@@ -123,6 +123,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
       employee: createdEmployee,
     }
   } catch (error: any) {
+    console.log("error", error)
     return error.toString()
   }
 }

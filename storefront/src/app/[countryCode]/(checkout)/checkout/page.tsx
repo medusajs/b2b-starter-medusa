@@ -3,16 +3,21 @@ import { retrieveCustomer } from "@lib/data/customer"
 import Wrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
-import { B2BCart } from "types/global"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { B2BCart } from "types/global"
 
 export const metadata: Metadata = {
   title: "Checkout",
 }
 
-export default async function Checkout() {
-  const cart = (await retrieveCart()) as B2BCart
+export default async function Checkout({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
+  const cartId = searchParams?.cartId as string
+  const cart = (await retrieveCart(cartId)) as B2BCart
 
   if (!cart) {
     return notFound()

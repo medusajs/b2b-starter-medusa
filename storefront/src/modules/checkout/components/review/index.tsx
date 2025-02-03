@@ -2,18 +2,24 @@
 
 import { Text } from "@medusajs/ui"
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import PaymentButton from "../payment-button"
 import { ExclamationCircle } from "@medusajs/icons"
 import Button from "@modules/common/components/button"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import PaymentButton from "../payment-button"
+import { B2BCart, B2BCustomer } from "@starter/types/global"
+import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 
 const Review = ({
   cart,
-  spendLimitExceeded,
+  customer,
 }: {
-  cart: any
-  spendLimitExceeded: boolean
+  cart: B2BCart
+  customer: B2BCustomer | null
 }) => {
+  const spendLimitExceeded = customer
+    ? checkSpendingLimit(cart, customer)
+    : false
+
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex items-start gap-x-1 w-full">

@@ -3,6 +3,7 @@
 import { sdk } from "@lib/config"
 import { getAuthHeaders, getCacheOptions, getCacheTag } from "@lib/data/cookies"
 import {
+  StoreCompaniesResponse,
   StoreCompanyResponse,
   StoreCreateCompany,
   StoreCreateEmployee,
@@ -22,11 +23,12 @@ export const retrieveCompany = async (companyId: string) => {
     ...(await getCacheOptions("companies")),
   }
 
-  const company = await sdk.client.fetch<StoreCompanyResponse>(
+  const { company } = await sdk.client.fetch<StoreCompanyResponse>(
     `/store/companies/${companyId}`,
     {
       query: {
-        fields: "+spending_limit_reset_frequency,*employees.customer",
+        fields:
+          "+spending_limit_reset_frequency,*employees.customer,*approval_settings",
       },
       method: "GET",
       headers,
@@ -42,14 +44,13 @@ export const createCompany = async (data: StoreCreateCompany) => {
     ...(await getAuthHeaders()),
   }
 
-  const { company } = await sdk.client.fetch<StoreCompanyResponse>(
-    `/store/companies`,
-    {
-      method: "POST",
-      body: data,
-      headers,
-    }
-  )
+  const {
+    companies: [company],
+  } = await sdk.client.fetch<StoreCompaniesResponse>(`/store/companies`, {
+    method: "POST",
+    body: data,
+    headers,
+  })
 
   track("company_created", {
     company_id: company.id,
@@ -144,6 +145,28 @@ export const deleteEmployee = async (companyId: string, employeeId: string) => {
       headers,
     }
   )
+
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
+}
+
+export const updateApprovalSettings = async (
+  companyId: string,
+  requiresAdminApproval: boolean
+) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+    "Content-Type": "application/json",
+    Accept: "plain/text",
+  }
+
+  await sdk.client.fetch(`/store/companies/${companyId}/approval-settings`, {
+    method: "POST",
+    body: {
+      requires_admin_approval: requiresAdminApproval,
+    },
+    headers,
+  })
 
   const cacheTag = await getCacheTag("companies")
   revalidateTag(cacheTag)

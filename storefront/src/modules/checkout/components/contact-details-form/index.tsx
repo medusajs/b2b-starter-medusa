@@ -9,7 +9,14 @@ const ContactDetailsForm = ({
   customer: B2BCustomer | null
   cart: B2BCart | null
 }) => {
-  const [formData, setFormData] = useState<Record<string, any>>({})
+  const [formData, setFormData] = useState<Record<string, string>>({
+    email: "",
+    invoice_recipient: "",
+    cost_center: "",
+    requisition_number: "",
+    door_code: "",
+    notes: "",
+  })
 
   const countriesInRegion = useMemo(
     () => cart?.region?.countries?.map((c) => c.iso_2),
@@ -17,19 +24,18 @@ const ContactDetailsForm = ({
   )
 
   useEffect(() => {
-    // Ensure cart is not null and has a shipping_address before setting form data
     if (cart && cart.email) {
-      setFormData((prevState: Record<string, any>) => ({
+      setFormData((prevState) => ({
         ...prevState,
-        email: cart?.email,
-        invoice_recipient: cart?.metadata?.invoice_recipient,
-        cost_center: cart?.metadata?.cost_center,
-        requisition_number: cart?.metadata?.requisition_number,
-        door_code: cart?.metadata?.door_code,
-        notes: cart?.metadata?.notes,
+        email: cart.email || "",
+        invoice_recipient: cart.metadata?.invoice_recipient?.toString() || "",
+        cost_center: cart.metadata?.cost_center?.toString() || "",
+        requisition_number: cart.metadata?.requisition_number?.toString() || "",
+        door_code: cart.metadata?.door_code?.toString() || "",
+        notes: cart.metadata?.notes?.toString() || "",
       }))
     }
-  }, [cart]) // Add cart as a dependency
+  }, [cart])
 
   const handleChange = (
     e: React.ChangeEvent<
