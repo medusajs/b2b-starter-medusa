@@ -81,7 +81,8 @@ export const createApprovalStep = createStep(
       throw new Error("No enabled approval types found");
     }
 
-    const approvalModuleService = container.resolve(APPROVAL_MODULE);
+    const approvalModuleService =
+      container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
     const approvals = await approvalModuleService.createApprovals(
       approvalsToCreate
