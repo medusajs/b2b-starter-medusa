@@ -3,13 +3,12 @@ import type {
   MedusaResponse,
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { AdminQuoteResponse } from "@starter/types";
 import { customerAcceptQuoteWorkflow } from "../../../../../workflows/quote/workflows";
 import { AcceptQuoteType } from "../../validators";
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<AcceptQuoteType>,
-  res: MedusaResponse<AdminQuoteResponse>
+  res: MedusaResponse
 ) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
   const { id } = req.params;

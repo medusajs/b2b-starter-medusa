@@ -8,47 +8,52 @@ export const removeCompanyEmployeesFromCustomerGroupStep = createStep(
     const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
     const {
-      data: [company],
-    } = await query.graph(
-      {
-        entity: "companies",
-        filters: { id: input.company_id },
-        fields: ["id", "customer_group.*"],
-      },
-      { throwIfKeyNotFound: true }
-    );
-
-    const { data: employees } = await query.graph({
-      entity: "employees",
-      filters: { company_id: input.company_id },
-      fields: ["id", "customer.*"],
+      data: [{ employees, customer_group }],
+    } = await query.graph({
+      entity: "company",
+      filters: { id: input.company_id },
+      fields: ["id", "customer_group.*", "employees.*", "employees.customer.*"],
     });
 
     const customerModuleService = container.resolve<ICustomerModuleService>(
       Modules.CUSTOMER
     );
 
-    await customerModuleService.removeCustomerFromGroup(
-      employees.map(({ customer }) => ({
-        customer_id: customer.id,
-        customer_group_id: company.customer_group.id,
-      }))
-    );
+    const customerGroupCustomers = employees
+      .filter(
+        (
+          employee
+        ): employee is typeof employee & {
+          customer: { id: string };
+        } =>
+          Boolean(employee) &&
+          Boolean(employee?.customer) &&
+          Boolean(employee?.customer?.id) &&
+          Boolean(customer_group?.id)
+      )
+      .map((employee) => ({
+        customer_id: employee.customer.id,
+        customer_group_id: customer_group!.id,
+      }));
+
+    await customerModuleService.removeCustomerFromGroup(customerGroupCustomers);
 
     const {
-      data: [customerGroup],
+      data: [{ customer_group: newCustomerGroup }],
     } = await query.graph(
       {
-        entity: "customer_groups",
-        filters: { id: company.customer_group.id },
-        fields: ["*"],
+        entity: "company",
+        filters: { id: input.company_id },
+        fields: ["*", "customer_group.*"],
       },
       { throwIfKeyNotFound: true }
     );
 
-    return new StepResponse(customerGroup, {
-      customer_ids: employees.map(({ customer }) => customer.id),
-      group_id: company.customer_group.id,
+    return new StepResponse(newCustomerGroup, {
+      customer_ids: customerGroupCustomers.map(
+        ({ customer_id }) => customer_id
+      ),
+      group_id: newCustomerGroup!.id,
     });
   },
   async (

@@ -1,12 +1,11 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { HttpTypes } from "@medusajs/framework/types";
 import { addToCartWorkflow } from "@medusajs/medusa/core-flows";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import { StoreAddLineItemsBulkType } from "../../../validators";
 
 export async function POST(
   req: MedusaRequest<StoreAddLineItemsBulkType>,
-  res: MedusaResponse<HttpTypes.StoreCartResponse>
+  res: MedusaResponse
 ) {
   const { id } = req.params;
   const { line_items } = req.validatedBody;

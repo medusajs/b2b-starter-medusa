@@ -31,7 +31,7 @@ export const createEmployeesStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    return new StepResponse(employee, employee.id);
+    return new StepResponse(employee as unknown as ModuleEmployee, employee.id);
   },
   async (employeeId: string, { container }) => {
     const companyModuleService =

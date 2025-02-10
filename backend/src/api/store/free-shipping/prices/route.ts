@@ -60,7 +60,7 @@ export const GET = async (
         return {
           ...price,
           shipping_option_id: shippingOption.id,
-          ...computeShippingOptionTargets(cart, price),
+          ...computeShippingOptionTargets(cart as any, price),
         };
       });
     })

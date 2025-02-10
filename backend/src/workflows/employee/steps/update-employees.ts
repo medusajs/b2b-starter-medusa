@@ -20,7 +20,7 @@ export const updateEmployeesStep = createStep(
 
     const {
       data: [currentData],
-    }: { data: QueryEmployee[] } = await query.graph({
+    } = await query.graph({
       entity: "employee",
       fields: ["*"],
       filters: {
@@ -32,7 +32,7 @@ export const updateEmployeesStep = createStep(
 
     const {
       data: [employee],
-    }: { data: QueryEmployee[] } = await query.graph({
+    } = await query.graph({
       entity: "employee",
       fields: ["*", "customer.*", "company.*"],
       filters: {
@@ -40,7 +40,10 @@ export const updateEmployeesStep = createStep(
       },
     });
 
-    return new StepResponse(employee, currentData);
+    return new StepResponse(
+      employee as unknown as QueryEmployee,
+      currentData as unknown as QueryEmployee
+    );
   },
   async (currentData: ModuleUpdateEmployee, { container }) => {
     const companyModuleService =

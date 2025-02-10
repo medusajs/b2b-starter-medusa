@@ -80,7 +80,7 @@ export const GET = async (
     fields: ["*"],
     filters: {
       id: approvalIds,
-      type: ApprovalType.ADMIN,
+      type: ApprovalType.ADMIN as any,
     },
   });
 
