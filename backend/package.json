@@ -13,6 +13,7 @@
     "medusa"
   ],
   "scripts": {
+    "resolve:aliases": "tsc --showConfig -p tsconfig.json > tsconfig.resolved.json && tsc-alias -p tsconfig.resolved.json && rimraf tsconfig.resolved.json",
     "build": "medusa build",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "start": "medusa start",
@@ -49,7 +50,9 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
     "typescript": "^5.5.3",
     "vite": "^5.2.11"
   },
