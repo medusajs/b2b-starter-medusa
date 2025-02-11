@@ -4,19 +4,18 @@ import {
 } from "@medusajs/framework";
 import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { AdminQuoteResponse, AdminQuotesResponse } from "@starter/types";
 import { createRequestForQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-for-quote";
 import { CreateQuoteType, GetQuoteParamsType } from "./validators";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<GetQuoteParamsType>,
-  res: MedusaResponse<AdminQuotesResponse>
+  res: MedusaResponse
 ) => {
   const query = req.scope.resolve<RemoteQueryFunction>(
     ContainerRegistrationKeys.QUERY
   );
 
-  const { fields, pagination } = req.remoteQueryConfig;
+  const { fields, pagination } = req.queryConfig;
   const { data: quotes, metadata } = await query.graph({
     entity: "quote",
     fields,
@@ -39,7 +38,7 @@ export const GET = async (
 
 export const POST = async (
   req: AuthenticatedMedusaRequest<CreateQuoteType>,
-  res: MedusaResponse<AdminQuoteResponse>
+  res: MedusaResponse
 ) => {
   const query = req.scope.resolve<RemoteQueryFunction>(
     ContainerRegistrationKeys.QUERY

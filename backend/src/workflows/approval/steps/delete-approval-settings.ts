@@ -1,9 +1,9 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { APPROVAL_MODULE } from "../../../modules/approval";
 import {
   IApprovalModuleService,
   ModuleApprovalSettingsFilters,
-} from "@starter/types";
-import { APPROVAL_MODULE } from "../../../modules/approval";
+} from "../../../types";
 
 type DeleteApprovalSettingsStepInput = {
   ids?: string[];

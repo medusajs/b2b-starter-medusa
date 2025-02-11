@@ -6,8 +6,8 @@ import {
   Label,
   Text,
 } from "@medusajs/ui";
-import { AdminCreateEmployee, QueryCompany } from "@starter/types";
 import { useState } from "react";
+import { AdminCreateEmployee, QueryCompany } from "../../../../../types";
 import { CoolSwitch } from "../../../../components/common";
 import { currencySymbolMap } from "../../../../utils";
 

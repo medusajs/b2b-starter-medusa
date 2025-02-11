@@ -1,8 +1,8 @@
 import { EllipsisHorizontal, PencilSquare, Trash } from "@medusajs/icons";
 import { DropdownMenu, IconButton, toast } from "@medusajs/ui";
-import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
 import { EmployeesUpdateDrawer } from ".";
+import { QueryCompany, QueryEmployee } from "../../../../../types";
 import { DeletePrompt } from "../../../../components/common";
 import { useDeleteEmployee } from "../../../../hooks/api";
 

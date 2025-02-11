@@ -7,11 +7,14 @@ import {
   Table,
   Text,
 } from "@medusajs/ui";
-import { QueryCompany, QueryEmployee } from "@starter/types";
 import { useState } from "react";
-import { AdminUpdateEmployee } from "@starter/types";
-import { currencySymbolMap } from "../../../../utils";
+import {
+  AdminUpdateEmployee,
+  QueryCompany,
+  QueryEmployee,
+} from "../../../../../types";
 import { CoolSwitch } from "../../../../components/common";
+import { currencySymbolMap } from "../../../../utils";
 
 export function EmployeesUpdateForm({
   company,

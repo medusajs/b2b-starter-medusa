@@ -6,7 +6,7 @@ import {
   QuoteFilterParams,
   StoreQuoteResponse,
   StoreQuotesResponse,
-} from "@starter/types";
+} from "../../../types";
 import {
   QueryKey,
   useMutation,

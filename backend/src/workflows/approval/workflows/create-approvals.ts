@@ -2,8 +2,8 @@ import { Modules } from "@medusajs/framework/utils";
 import { transform } from "@medusajs/framework/workflows-sdk";
 import { createRemoteLinkStep } from "@medusajs/medusa/core-flows";
 import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
-import { ModuleCreateApproval } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
+import { ModuleCreateApproval } from "../../../types";
 import { createApprovalStep } from "../steps";
 import { createApprovalStatusStep } from "../steps/create-approval-status";
 

@@ -1,5 +1,5 @@
 import { Button, Drawer, Input, Label, Select, Text } from "@medusajs/ui";
-import { AdminUpdateCompany } from "@starter/types";
+import { AdminUpdateCompany } from "../../../../types";
 import { useState } from "react";
 import { useRegions } from "../../../hooks/api";
 

@@ -31,7 +31,7 @@ export const ensureRole = (role: string) => {
     } = await query.graph({
       entity: "provider_identity",
       fields: ["id", "user_metadata"],
-      filters: { auth_identity_id },
+      filters: { auth_identity_id } as any,
     });
 
     if (providerIdentity.user_metadata?.role === role) {

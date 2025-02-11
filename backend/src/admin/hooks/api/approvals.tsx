@@ -1,12 +1,11 @@
 import { FetchError } from "@medusajs/js-sdk";
 import {
+  AdminApproval,
   AdminApprovalSettings,
   AdminApprovalsResponse,
-  AdminCartWithApprovals,
-  AdminApproval,
   AdminUpdateApproval,
   AdminUpdateApprovalSettings,
-} from "@starter/types";
+} from "../../../types";
 import {
   useMutation,
   UseMutationOptions,

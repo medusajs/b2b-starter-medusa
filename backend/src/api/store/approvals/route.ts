@@ -3,7 +3,7 @@ import {
   MedusaResponse,
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { ApprovalType } from "@starter/types/approval";
+import { ApprovalType } from "../../../types/approval";
 import { StoreGetApprovalsType } from "./validators";
 
 export const GET = async (
@@ -80,7 +80,7 @@ export const GET = async (
     fields: ["*"],
     filters: {
       id: approvalIds,
-      type: ApprovalType.ADMIN,
+      type: ApprovalType.ADMIN as any,
     },
   });
 

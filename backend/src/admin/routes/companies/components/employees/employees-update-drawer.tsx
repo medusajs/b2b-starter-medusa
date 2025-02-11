@@ -1,10 +1,10 @@
 import { Drawer, toast as toastType } from "@medusajs/ui";
+import { EmployeesUpdateForm } from ".";
 import {
   AdminUpdateEmployee,
   QueryCompany,
   QueryEmployee,
-} from "@starter/types";
-import { EmployeesUpdateForm } from ".";
+} from "../../../../../types";
 import { useUpdateEmployee } from "../../../../hooks/api";
 
 export function EmployeesUpdateDrawer({

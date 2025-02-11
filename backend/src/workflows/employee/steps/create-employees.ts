@@ -1,11 +1,11 @@
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { COMPANY_MODULE } from "../../../modules/company";
 import {
   ICompanyModuleService,
   ModuleCreateEmployee,
   ModuleEmployee,
-} from "@starter/types";
-import { COMPANY_MODULE } from "../../../modules/company";
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
+} from "../../../types";
 
 export const createEmployeesStep = createStep(
   "create-employees",
@@ -31,7 +31,7 @@ export const createEmployeesStep = createStep(
       { throwIfKeyNotFound: true }
     );
 
-    return new StepResponse(employee, employee.id);
+    return new StepResponse(employee as unknown as ModuleEmployee, employee.id);
   },
   async (employeeId: string, { container }) => {
     const companyModuleService =

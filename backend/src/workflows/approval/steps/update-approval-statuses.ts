@@ -1,11 +1,11 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { APPROVAL_MODULE } from "../../../modules/approval";
 import {
   ApprovalStatusType,
   IApprovalModuleService,
   ModuleApproval,
   ModuleApprovalStatus,
-} from "@starter/types";
-import { APPROVAL_MODULE } from "../../../modules/approval";
+} from "../../../types";
 
 export const updateApprovalStatusStep = createStep(
   "update-approval-status",

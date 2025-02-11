@@ -1,6 +1,6 @@
 import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, toast } from "@medusajs/ui";
-import { AdminCreateEmployee, QueryCompany } from "@starter/types";
+import { AdminCreateEmployee, QueryCompany } from "../../../../../types";
 import { useState } from "react";
 import {
   useAdminCreateCustomer,

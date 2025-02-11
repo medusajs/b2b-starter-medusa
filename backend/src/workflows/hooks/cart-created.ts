@@ -2,6 +2,7 @@ import { createCartWorkflow } from "@medusajs/core-flows";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
 import { StepResponse } from "@medusajs/workflows-sdk";
 import { COMPANY_MODULE } from "../../modules/company";
+import { CartDTO } from "@medusajs/framework/types";
 
 createCartWorkflow.hooks.cartCreated(
   async (
@@ -13,22 +14,24 @@ createCartWorkflow.hooks.cartCreated(
   > => {
     const remoteLink = container.resolve(ContainerRegistrationKeys.LINK);
 
-    if (!cart.metadata?.company_id) {
+    const cartInputdata = cart as CartDTO;
+
+    if (!cartInputdata.metadata?.company_id) {
       return new StepResponse(undefined, null);
     }
 
     await remoteLink.create({
       [COMPANY_MODULE]: {
-        company_id: cart.metadata?.company_id,
+        company_id: cartInputdata.metadata?.company_id,
       },
       [Modules.CART]: {
-        cart_id: cart.id as string,
+        cart_id: cartInputdata.id,
       },
     });
 
     return new StepResponse(undefined, {
-      cart_id: cart.id as string,
-      company_id: cart.metadata?.company_id as string,
+      cart_id: cartInputdata.id,
+      company_id: cartInputdata.metadata?.company_id as string,
     });
   },
   async (

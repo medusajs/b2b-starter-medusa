@@ -8,47 +8,48 @@ export const addCompanyEmployeesToCustomerGroupStep = createStep(
     const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
     const {
-      data: [company],
+      data: [{ id, customer_group, employees }],
     } = await query.graph(
       {
         entity: "companies",
         filters: { id: input.company_id },
-        fields: ["*", "customer_group.*"],
+        fields: [
+          "*",
+          "customer_group.*",
+          "employees.*",
+          "employees.customer.*",
+        ],
       },
       { throwIfKeyNotFound: true }
     );
-
-    const { data: employees } = await query.graph({
-      entity: "employees",
-      filters: { company_id: input.company_id },
-      fields: ["customer.*"],
-    });
 
     const customerModuleService = container.resolve<ICustomerModuleService>(
       Modules.CUSTOMER
     );
+    const customerGroupCustomers = employees
+      .filter(
+        (
+          employee
+        ): employee is typeof employee & {
+          customer: { id: string };
+        } =>
+          Boolean(employee) &&
+          Boolean(employee?.customer) &&
+          Boolean(employee?.customer?.id) &&
+          Boolean(customer_group?.id)
+      )
+      .map((employee) => ({
+        customer_id: employee.customer.id,
+        customer_group_id: customer_group!.id,
+      }));
 
-    await customerModuleService.addCustomerToGroup(
-      employees.map(({ customer }) => ({
-        customer_id: customer.id,
-        customer_group_id: company.customer_group.id,
-      }))
-    );
+    await customerModuleService.addCustomerToGroup(customerGroupCustomers);
 
-    const {
-      data: [customerGroup],
-    } = await query.graph(
-      {
-        entity: "customer_groups",
-        filters: { id: company.customer_group.id },
-        fields: ["*"],
-      },
-      { throwIfKeyNotFound: true }
-    );
-
-    return new StepResponse(customerGroup, {
-      customer_ids: employees.map(({ customer }) => customer.id),
-      group_id: company.customer_group.id,
+    return new StepResponse(customer_group, {
+      customer_ids: customerGroupCustomers.map(
+        ({ customer_id }) => customer_id
+      ),
+      group_id: customer_group!.id,
     });
   },
   async (

@@ -1,6 +1,6 @@
 import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
-import { ApprovalStatusType, ApprovalType } from "@starter/types/approval";
 import { z } from "zod";
+import { ApprovalStatusType } from "../../../types/approval";
 
 /* Company Validators */
 export type StoreGetCompanyParamsType = z.infer<typeof StoreGetCompanyParams>;

@@ -1,11 +1,11 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { APPROVAL_MODULE } from "../../../modules/approval";
 import {
   ApprovalStatusType,
   ApprovalType,
   IApprovalModuleService,
   ModuleCreateApproval,
-} from "@starter/types";
-import { APPROVAL_MODULE } from "../../../modules/approval";
+} from "../../../types";
 
 export const createApprovalStep = createStep(
   "create-approval",
@@ -81,7 +81,8 @@ export const createApprovalStep = createStep(
       throw new Error("No enabled approval types found");
     }
 
-    const approvalModuleService = container.resolve(APPROVAL_MODULE);
+    const approvalModuleService =
+      container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
     const approvals = await approvalModuleService.createApprovals(
       approvalsToCreate
