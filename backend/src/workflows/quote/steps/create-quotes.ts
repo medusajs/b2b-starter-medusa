@@ -1,10 +1,10 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { QUOTE_MODULE } from "../../../modules/quote";
 import {
   IQuoteModuleService,
   ModuleCreateQuote,
   ModuleQuote,
-} from "@starter/types";
-import { QUOTE_MODULE } from "../../../modules/quote";
+} from "../../../types";
 
 /*
   A step to create a quote.

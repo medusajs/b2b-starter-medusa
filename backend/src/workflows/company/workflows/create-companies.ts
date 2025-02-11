@@ -4,9 +4,9 @@ import {
   transform,
   WorkflowResponse,
 } from "@medusajs/workflows-sdk";
-import { ModuleCreateCompany } from "@starter/types";
 import { APPROVAL_MODULE } from "../../../modules/approval";
 import { COMPANY_MODULE } from "../../../modules/company";
+import { ModuleCreateCompany } from "../../../types";
 import { createApprovalSettingsStep } from "../../../workflows/approval/steps/create-approval-settings";
 import { createCompaniesStep } from "../steps";
 

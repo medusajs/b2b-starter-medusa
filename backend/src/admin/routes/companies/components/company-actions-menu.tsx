@@ -1,7 +1,7 @@
 import { HttpTypes } from "@medusajs/framework/types";
 import { Link, LockClosedSolid, PencilSquare, Trash } from "@medusajs/icons";
 import { toast } from "@medusajs/ui";
-import { QueryCompany } from "@starter/types";
+import { QueryCompany } from "../../../../types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ActionMenu } from "../../../components/common";

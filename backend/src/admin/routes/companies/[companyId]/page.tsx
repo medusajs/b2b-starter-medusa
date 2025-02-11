@@ -8,7 +8,7 @@ import {
   Text,
   Toaster,
 } from "@medusajs/ui";
-import { QueryEmployee } from "@starter/types";
+import { QueryEmployee } from "../../../../types";
 import { useParams } from "react-router-dom";
 import { useAdminCustomerGroups, useCompany } from "../../../hooks/api";
 import { formatAmount } from "../../../utils";

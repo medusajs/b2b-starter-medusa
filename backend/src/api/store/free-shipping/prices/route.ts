@@ -2,7 +2,7 @@ import { listShippingOptionsForCartWorkflow } from "@medusajs/core-flows";
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { StoreFreeShippingPrice } from "@starter/types/shipping-options";
+import { StoreFreeShippingPrice } from "../../../../types/shipping-options";
 import { computeShippingOptionTargets } from "../utils";
 import { StoreGetFreeShippingPricesParamsType } from "../validators";
 

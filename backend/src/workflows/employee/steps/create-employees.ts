@@ -1,11 +1,11 @@
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { COMPANY_MODULE } from "../../../modules/company";
 import {
   ICompanyModuleService,
   ModuleCreateEmployee,
   ModuleEmployee,
-} from "@starter/types";
-import { COMPANY_MODULE } from "../../../modules/company";
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
+} from "../../../types";
 
 export const createEmployeesStep = createStep(
   "create-employees",

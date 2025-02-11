@@ -1,10 +1,10 @@
-import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
-import { ModuleCompany } from "@starter/types";
-import { createApprovalSettingsStep } from "../steps";
-import { createRemoteLinkStep } from "@medusajs/medusa/core-flows";
 import { transform } from "@medusajs/framework/workflows-sdk";
-import { COMPANY_MODULE } from "src/modules/company";
-import { APPROVAL_MODULE } from "src/modules/approval";
+import { createRemoteLinkStep } from "@medusajs/medusa/core-flows";
+import { createWorkflow, WorkflowResponse } from "@medusajs/workflows-sdk";
+import { APPROVAL_MODULE } from "../../../modules/approval";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { ModuleCompany } from "../../../types";
+import { createApprovalSettingsStep } from "../steps";
 
 export const createApprovalSettingsWorkflow = createWorkflow(
   "create-approval-settings",

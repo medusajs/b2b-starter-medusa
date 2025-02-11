@@ -9,7 +9,7 @@ import {
   Text,
   Toaster,
 } from "@medusajs/ui";
-import { QueryCompany } from "@starter/types";
+import { QueryCompany } from "../../../types";
 import { useAdminCustomerGroups, useCompanies } from "../../hooks/api";
 import { CompanyActionsMenu, CompanyCreateDrawer } from "./components";
 

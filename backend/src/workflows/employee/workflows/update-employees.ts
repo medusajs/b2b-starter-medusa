@@ -1,11 +1,11 @@
+import { when } from "@medusajs/framework/workflows-sdk";
 import {
   createWorkflow,
   WorkflowData,
   WorkflowResponse,
 } from "@medusajs/workflows-sdk";
-import { ModuleUpdateEmployee, QueryEmployee } from "@starter/types";
+import { ModuleUpdateEmployee, QueryEmployee } from "../../../types";
 import { removeAdminRoleStep, updateEmployeesStep } from "../steps";
-import { when } from "@medusajs/framework/workflows-sdk";
 
 export const updateEmployeesWorkflow = createWorkflow(
   "update-employees",

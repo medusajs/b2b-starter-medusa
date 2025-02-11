@@ -3,7 +3,7 @@ import {
   MedusaResponse,
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { ApprovalType } from "@starter/types/approval";
+import { ApprovalType } from "../../../types/approval";
 import { StoreGetApprovalsType } from "./validators";
 
 export const GET = async (

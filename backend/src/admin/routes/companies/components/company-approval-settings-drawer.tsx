@@ -1,6 +1,6 @@
 import { Button, Drawer, toast } from "@medusajs/ui";
-import { QueryCompany } from "@starter/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { QueryCompany } from "../../../../types";
 import { CoolSwitch } from "../../../components/common";
 import { useUpdateApprovalSettings } from "../../../hooks/api";
 

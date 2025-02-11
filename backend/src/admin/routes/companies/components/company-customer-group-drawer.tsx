@@ -1,6 +1,6 @@
 import { HttpTypes } from "@medusajs/types";
 import { Button, Drawer, Hint, Table, toast } from "@medusajs/ui";
-import { QueryCompany } from "@starter/types";
+import { QueryCompany } from "../../../../types";
 import {
   useAddCompanyToCustomerGroup,
   useRemoveCompanyFromCustomerGroup,
