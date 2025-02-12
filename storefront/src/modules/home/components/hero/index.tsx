@@ -18,7 +18,7 @@ const Hero = () => {
 </div>
           <Heading
             level="h1"
-            className="text-xl  !text-white leading-10 text-ui-fg-base font-normal "
+            className="text-xl mt-6 !text-white leading-10 text-ui-fg-base font-normal "
           >Explore our B2B Store
           </Heading>
 

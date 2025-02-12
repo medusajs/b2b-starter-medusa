@@ -6,7 +6,7 @@ import LogoAlt from '../../../../public/img/logoalt.png'
 interface Logo{
   height: number
   width: number
-  logoAlt?: string
+  logoAlt?: boolean
 }
 
 export const LogoIcon = (props:Logo) => {

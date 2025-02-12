@@ -3,6 +3,7 @@ import { listCollections } from "@lib/data/collections"
 import { Button, Text, clx } from "@medusajs/ui"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import LogoIcon from "@modules/common/icons/logo"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
 
 export default async function Footer() {
@@ -94,17 +95,16 @@ export default async function Footer() {
   }
 
   return (
-   <footer className="bg-black text-white py-10">
+   <footer className="bg-black text-white pt-10 pb-4">
     <>
-    <h2 className="sr-only !text-white"><LocalizedClientLink
+    
+      <div className='max-w-full '>
+        <div className=' px-6'><LocalizedClientLink
        href="/"
        className="txt-compact-xlarge-plus text-white text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-     >
-       Pulsehub B2B
-     </LocalizedClientLink></h2>
-      <div className='max-w-full '>
-        <div className=' border-t#border-[#DFDEDB] pt-8 p-6'>
-          <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
+     ><LogoIcon width={150} logoAlt height={15} />
+     </LocalizedClientLink>
+          <div className='xl:grid xl:grid-cols-3 pt-8 xl:gap-8'>
             <div className='grid grid-cols-2 gap-8 xl:col-span-2'>
               <div className='md:grid md:grid-cols-2 md:gap-8'>
               {product_categories && product_categories?.length > 0 && (
