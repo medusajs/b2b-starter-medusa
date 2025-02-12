@@ -22,7 +22,7 @@ export function NavigationHeader() {
             >
               <h1 className="small:text-base text-sm font-medium flex items-center">
                 <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
+              
               </h1>
             </LocalizedClientLink>
 

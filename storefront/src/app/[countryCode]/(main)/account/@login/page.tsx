@@ -5,7 +5,7 @@ import { listRegions } from "@lib/data/regions"
 
 export const metadata: Metadata = {
   title: "Log in",
-  description: "Log in to your Medusa Store account.",
+  description: "Log in to your Pulsehub B2B account.",
 }
 
 export default async function Login() {
