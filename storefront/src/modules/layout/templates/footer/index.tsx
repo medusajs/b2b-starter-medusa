@@ -94,15 +94,15 @@ export default async function Footer() {
   }
 
   return (
-   <footer className="bg-black text-white mt-20 py-10">
+   <footer className="bg-black text-white py-10">
     <>
-    <h2 className="sr-only"><LocalizedClientLink
+    <h2 className="sr-only !text-white"><LocalizedClientLink
        href="/"
-       className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+       className="txt-compact-xlarge-plus text-white text-ui-fg-subtle hover:text-ui-fg-base uppercase"
      >
        Pulsehub B2B
      </LocalizedClientLink></h2>
-      <div className='max-w-full mt-20 py-10'>
+      <div className='max-w-full '>
         <div className=' border-t#border-[#DFDEDB] pt-8 p-6'>
           <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
             <div className='grid grid-cols-2 gap-8 xl:col-span-2'>
@@ -195,15 +195,14 @@ export default async function Footer() {
               </div>
               <div className='md:grid md:grid-cols-2 md:gap-8'>
                 <div>
-                  <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>
-                    Company
-                  </h3>
+                <span className="txt-small-plus txt-ui-fg-base">  Company
+                  </span>
                   <ul role='list' className='mt-4 space-y-4'>
                     {navigation.company.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
-                          className='text-base text-gray-500 hover:'
+                          className=' text-ui-fg-subtle txt-small  hover:'
                         >
                           {item.name}
                         </a>
@@ -212,15 +211,14 @@ export default async function Footer() {
                   </ul>
                 </div>
                 <div className='mt-12 md:mt-0'>
-                  <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>
-                    Legal
-                  </h3>
+                <span className="txt-small-plus txt-ui-fg-base"> Legal
+                  </span>
                   <ul role='list' className='mt-4 space-y-4'>
                     {navigation.legal.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
-                          className='text-base text-gray-500 hover:'
+                          className='text-ui-fg-subtle txt-small hover:'
                         >
                           {item.name}
                         </a>
@@ -231,10 +229,9 @@ export default async function Footer() {
               </div>
             </div>
             <div className='mt-8 xl:mt-0'>
-              <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>
-                Subscribe to our newsletter
-              </h3>
-              <p className='mt-4 text-base text-gray-500'>
+            <span className="txt-small-plus txt-ui-fg-base"> Subscribe to our newsletter
+              </span>
+              <p className='mt-4 txt-small-plus txt-ui-fg-base text-gray-500'>
                 The latest news, articles, and resources, sent to your inbox
                 weekly.
               </p>
@@ -268,9 +265,9 @@ export default async function Footer() {
         </div>
         <div className='mt-8 border-t border-[#DFDEDB] pt-8 p-6 md:flex md:items-center md:justify-between'>
           <div className='flex space-x-6 md:order-2'></div>
-          <p className='mt-8 text-base text-gray-400 md:mt-0 md:order-1'>
+          <span className="txt-small-plus md:order-1 txt-ui-fg-base">
             © {new Date().getFullYear()} Pulsehub B2B. All rights reserved.
-          </p>
+          </span>
         </div>
       </div>
     </>
