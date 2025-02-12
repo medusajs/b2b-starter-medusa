@@ -15,15 +15,12 @@ export function NavigationHeader() {
     <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
-          <div className="flex items-center small:space-x-4">
+          <div className="flex items-center small:space-x-6">
             <LocalizedClientLink
-              className="hover:text-ui-fg-base flex items-center w-fit"
+              className="hover:text-ui-fg-base flex w-fit"
               href="/"
             >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
-              
-              </h1>
+              <LogoIcon width={120} height={10} />
             </LocalizedClientLink>
 
             <nav>

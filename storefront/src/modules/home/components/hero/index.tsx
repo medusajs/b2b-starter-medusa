@@ -1,6 +1,7 @@
+//@ts-nocheck
+
 "use client"
 
-import { Github } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
 import Button from "@modules/common/components/button"
 import LogoIcon from "@modules/common/icons/logo"
@@ -10,20 +11,14 @@ const Hero = () => {
   return (
     <div  style={{  background: `url(/img/bg.png)`, backgroundSize:'cover', backgroundPosition: 'center', backgroundRepeat:'no-repeat' }}
     className="h-[80vh] w-full  relative  mt-2">
-     
-      {/* <Image
-        src="/img/bg.png"
-        alt="Hero background"
-        layout="fill"
-        quality={100}
-        priority
-      /> */}
       <div className="absolute inset-0 z-1 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         <span>
-<LogoIcon />
+<div className="flex justify-center ">
+<LogoIcon width={270} height={60} logoAlt />
+</div>
           <Heading
             level="h1"
-            className="text-2xl md:text-4xl !text-white xl:text-6xl leading-10 text-ui-fg-base font-normal mt-10"
+            className="text-xl  !text-white leading-10 text-ui-fg-base font-normal "
           >Explore our B2B Store
           </Heading>
 

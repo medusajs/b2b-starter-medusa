@@ -27,14 +27,14 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
     <>
       <NavigationHeader />
       <div className="flex items-center text-neutral-50 justify-center small:p-4 p-2 text-center bg-neutral-900 small:gap-2 gap-1 text-sm">
-        <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
+        <div className="flex flex-col sm:flex-row small:flex-row small:gap-3 gap-2 items-center">
           <span className="flex items-center gap-1">
             {/* <ExclamationCircleSolid className="inline" color="#A1A1AA" /> */}
             Welcome to the Pulsehub B2B Storefront
           </span>
 
           <a
-            className="group hover:text-ui-fg-interactive-hover text-ui-fg-interactive self-end small:self-auto"
+            className="group hover:text-ui-fg-interactive-hover text-ui-fg-interactive self-en small:self-aut"
             href="/store"
           >
             Explore now
