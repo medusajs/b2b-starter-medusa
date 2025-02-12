@@ -30,7 +30,6 @@ const Hero = () => {
           href="/store"
         >
           <Button variant="secondary" className="rounded-2xl">
-           
             Shop now
           </Button>
         </a>
