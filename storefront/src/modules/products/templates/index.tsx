@@ -28,7 +28,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   return (
     <div className="flex flex-col gap-y-2 my-2">
       <div
-        className="content-container grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-fit"
+        className=" grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-fit"
         data-testid="product-container"
       >
         <ImageGallery product={product} />
@@ -42,11 +42,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <ProductFacts product={product} />
         </div>
       </div>
-      <div className="content-container">
+      <div className="">
         <ProductTabs product={product} />
       </div>
       <div
-        className="content-container"
+        className=""
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>
