@@ -1,13 +1,8 @@
+import { listApprovals } from "@lib/data/approvals"
+import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
 import React from "react"
 import { B2BCustomer } from "types/global"
 import AccountNav from "../components/account-nav"
-import { retrieveCompany } from "@lib/data/companies"
-import { listApprovals } from "@lib/data/approvals"
-import {
-  ApprovalStatusType,
-  ApprovalType,
-  StoreApprovalsResponse,
-} from "@starter/types/approval"
 
 interface AccountLayoutProps {
   customer: B2BCustomer | null
@@ -23,6 +18,8 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
     status: ApprovalStatusType.PENDING,
   })
 
+  const numPendingApprovals = carts_with_approvals?.length || 0
+
   return (
     <div
       className="flex-1 small:py-12 bg-neutral-100"
@@ -34,7 +31,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = async ({
             {customer && (
               <AccountNav
                 customer={customer}
-                numPendingApprovals={carts_with_approvals.length}
+                numPendingApprovals={numPendingApprovals}
               />
             )}
           </div>

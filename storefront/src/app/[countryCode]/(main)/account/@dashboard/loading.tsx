@@ -1,5 +1,4 @@
 import Spinner from "@modules/common/icons/spinner"
-import Image from "next/image"
 
 export default function Loading() {
   return (
