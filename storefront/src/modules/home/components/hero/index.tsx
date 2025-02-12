@@ -21,10 +21,6 @@ const Hero = () => {
             className="text-xl mt-6 !text-white leading-10 text-ui-fg-base font-normal "
           >Explore our B2B Store
           </Heading>
-
-          {/* <p className="leading-10 text-ui-fg-subtle font-normal text-lg">
-            See our widest selection of electronics
-          </p> */}
         </span>
         <a
           href="/store"
