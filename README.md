@@ -54,8 +54,9 @@
 &nbsp;
 
 ## Overview
+For a full feature overview, please visit [the project wiki](https://github.com/medusajs/b2b-starter-medusa/wiki).
 
-#### Features
+#### Core features
 
 - **Company Management**. Customers can manage their company and invite employees.
 - **Spending Limits**. Company admins can assign spending limits to its employees.
