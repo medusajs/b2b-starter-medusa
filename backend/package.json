@@ -42,6 +42,7 @@
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "^1.5.7",
     "@swc/jest": "^0.2.36",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.2.25",
