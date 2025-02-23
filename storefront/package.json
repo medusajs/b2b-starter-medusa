@@ -2,7 +2,7 @@
   "name": "medusa-next",
   "version": "1.0.3",
   "private": true,
-  "author": "Riqwan Thamir <riqwan@medusajs.com> & Victor Gerbrands <victor@medusajs.com> (https://www.medusajs.com)",
+  "author": "MohammadReza",
   "description": "Medusa B2B Starter Storefront",
   "keywords": [
     "medusa-storefront",
@@ -65,6 +65,5 @@
     "prettier": "^2.8.8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3"
-  },
-  "packageManager": "yarn@4.4.0+sha512.91d93b445d9284e7ed52931369bc89a663414e5582d00eea45c67ddc459a2582919eece27c412d6ffd1bd0793ff35399381cb229326b961798ce4f4cc60ddfdb"
+  }
 }

@@ -6,6 +6,9 @@ checkEnvVariables()
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY,
+  },
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
