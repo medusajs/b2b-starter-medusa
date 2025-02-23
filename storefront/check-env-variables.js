@@ -8,7 +8,7 @@ const requiredEnvs = [
       "Learn how to create a publishable key: https://docs.medusajs.com/v2/resources/storefront-development/publishable-api-keys",
   },
 ]
-
+console.log("test", requiredEnvs)
 function checkEnvVariables() {
   const missingEnvs = requiredEnvs.filter(function (env) {
     return !process.env[env.key]
