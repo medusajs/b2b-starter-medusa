@@ -36,7 +36,12 @@ export function CompanyForm({
   };
 
   return (
-    <form>
+    <form
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await handleSubmit(formData)
+        }}
+    >
       <Drawer.Body className="p-4">
         <div className="flex flex-col gap-2">
           <Label size="xsmall">Company Name</Label>
@@ -159,8 +164,8 @@ export function CompanyForm({
           <Button variant="secondary">Cancel</Button>
         </Drawer.Close>
         <Button
+          type={"submit"}
           isLoading={loading}
-          onClick={async () => await handleSubmit(formData)}
         >
           Save
         </Button>
