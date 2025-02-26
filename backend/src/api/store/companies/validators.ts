@@ -19,6 +19,10 @@ export const StoreCreateCompany = z
     zip: z.string().optional().nullable(),
     country: z.string().optional().nullable(),
     logo_url: z.string().optional().nullable(),
+    spending_limit_reset_frequency: z
+      .enum(["never", "daily", "weekly", "monthly", "yearly"])
+      .optional()
+      .nullable(),
   })
   .strict();
 
@@ -35,6 +39,10 @@ export const StoreUpdateCompany = z
     zip: z.string().optional().nullable(),
     country: z.string().optional().nullable(),
     logo_url: z.string().optional().nullable(),
+    spending_limit_reset_frequency: z
+      .enum(["never", "daily", "weekly", "monthly", "yearly"])
+      .optional()
+      .nullable(),
   })
   .strict();
 

@@ -35,8 +35,8 @@ const ContactDetails = ({
     cart.email
 
   const requiresApproval =
-    cart.company?.approval_settings.requires_admin_approval ||
-    cart.company?.approval_settings.requires_sales_manager_approval
+    cart.company?.approval_settings?.requires_admin_approval ||
+    cart.company?.approval_settings?.requires_sales_manager_approval
 
   const cartApprovalStatus = cart?.approval_status?.status
 

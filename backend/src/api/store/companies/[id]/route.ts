@@ -40,6 +40,7 @@ export const POST = async (
       id,
       ...req.body,
     },
+    container: req.scope,
   });
 
   const {
@@ -59,11 +60,11 @@ export const POST = async (
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id } = req.params;
 
-  await deleteCompaniesWorkflow.run({ input: { id } });
-
-  res.json({
-    id,
-    object: "employee",
-    deleted: true,
+  await deleteCompaniesWorkflow.run({
+    input: { id },
+    container: req.scope,
+    throwOnError: true,
   });
+
+  res.status(204).send();
 };
