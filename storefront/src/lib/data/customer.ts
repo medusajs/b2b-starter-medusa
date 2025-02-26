@@ -20,8 +20,12 @@ import {
 import { retrieveCart, updateCart } from "./cart"
 
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
+  const authHeaders = await getAuthHeaders()
+
+  if (!authHeaders) return null
+
   const headers = {
-    ...(await getAuthHeaders()),
+    ...authHeaders,
   }
 
   const next = {
