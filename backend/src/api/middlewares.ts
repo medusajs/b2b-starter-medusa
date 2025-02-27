@@ -16,10 +16,27 @@ export default defineMiddlewares({
       middlewares: [
         (req: MedusaRequest, res: MedusaResponse, next: MedusaNextFunction) => {
           req.allowed = [
+            "id",
+            "email",
+            "first_name",
+            "last_name",
             "orders",
             "addresses",
+            "company",
+            "customer_id",
+            "address_1",
+            "address_2",
+            "city",
+            "province",
+            "postal_code",
+            "country_code",
+            "phone",
+            "metadata",
+            "is_default_shipping",
+            "is_default_billing",
+            "created_at",
+            "updated_at",
             "employee",
-            "employees",
           ];
 
           next();
