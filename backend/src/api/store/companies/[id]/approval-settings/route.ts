@@ -14,14 +14,11 @@ export const POST = async (
 
   const {
     data: [approval_settings],
-  } = await query.graph(
-    {
-      entity: "approval_settings",
-      fields: storeApprovalSettingsFields,
-      filters: { company_id: id },
-    },
-    { throwIfKeyNotFound: true }
-  );
+  } = await query.graph({
+    entity: "approval_settings",
+    fields: storeApprovalSettingsFields,
+    filters: { company_id: id },
+  });
 
   const { requires_admin_approval } = req.validatedBody;
 
