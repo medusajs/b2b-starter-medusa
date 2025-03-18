@@ -26,7 +26,7 @@ export function EmployeeCreateDrawer({ company }: { company: QueryCompany }) {
   const handleSubmit = async (
     formData: AdminCreateEmployee & HttpTypes.AdminCreateCustomer
   ) => {
-    const customer = await createCustomer({
+    const { customer } = await createCustomer({
       email: formData.email!,
       first_name: formData.first_name!,
       last_name: formData.last_name!,
@@ -34,7 +34,7 @@ export function EmployeeCreateDrawer({ company }: { company: QueryCompany }) {
       company_name: company.name,
     });
 
-    if (!customer) {
+    if (!customer?.id) {
       toast.error("Failed to create customer");
       return;
     }
@@ -52,7 +52,7 @@ export function EmployeeCreateDrawer({ company }: { company: QueryCompany }) {
 
     setOpen(false);
     toast.success(
-      `Employee ${employee?.customer?.first_name} ${employee?.customer?.last_name} created successfully`
+      `Employee ${customer?.first_name} ${customer?.last_name} created successfully`
     );
   };
 

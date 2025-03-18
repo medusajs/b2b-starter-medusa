@@ -51,7 +51,7 @@ export type AdminCreateEmployee = {
   spending_limit: number;
   is_admin: boolean;
   company_id: string;
-  customer_id?: string;
+  customer_id: string;
 };
 
 export type AdminUpdateEmployee = Partial<AdminCreateEmployee>;
