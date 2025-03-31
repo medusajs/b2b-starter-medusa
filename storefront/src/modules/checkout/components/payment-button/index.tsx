@@ -1,18 +1,17 @@
 "use client"
 
-import { isManual, isPaypal, isStripe } from "@lib/constants"
-import { createCartApproval, placeOrder } from "@lib/data/cart"
-import { removeCartId } from "@lib/data/cookies"
+import { isManual, isPaypal, isStripe } from "@/lib/constants"
+import { createCartApproval, placeOrder } from "@/lib/data/cart"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import Button from "@/modules/common/components/button"
+import Spinner from "@/modules/common/icons/spinner"
+import { B2BCart } from "@/types"
+import { ApprovalStatusType } from "@/types/approval/module"
 import { Container, Text, toast } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
-import { ApprovalStatusType } from "@starter/types/approval/module"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
-import { B2BCart } from "types/global"
-import ErrorMessage from "../error-message"
 
 type PaymentButtonProps = {
   cart: B2BCart

@@ -1,9 +1,7 @@
-import React from "react"
-
+import AddAddress from "@/modules/account/components/address-card/add-address"
+import EditAddress from "@/modules/account/components/address-card/edit-address-modal"
+import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
-import { B2BCustomer } from "types/global"
-import AddAddress from "../address-card/add-address"
-import EditAddress from "../address-card/edit-address-modal"
 
 type AddressBookProps = {
   customer: B2BCustomer

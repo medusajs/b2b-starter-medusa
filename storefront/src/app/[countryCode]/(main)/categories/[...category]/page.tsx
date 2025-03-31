@@ -1,9 +1,9 @@
+import { getCategoryByHandle, listCategories } from "@/lib/data/categories"
+import { listRegions } from "@/lib/data/regions"
+import CategoryTemplate from "@/modules/categories/templates"
+import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getCategoryByHandle, listCategories } from "@lib/data/categories"
-import { listRegions } from "@lib/data/regions"
-import CategoryTemplate from "@modules/categories/templates"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 export const dynamicParams = true
 

@@ -1,9 +1,9 @@
 "use server"
 
-import { sdk } from "@lib/config"
-import medusaError from "@lib/util/medusa-error"
+import { sdk } from "@/lib/config"
+import { getAuthHeaders, getCacheOptions } from "@/lib/data/cookies"
+import medusaError from "@/lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
 
 export const retrieveOrder = async (id: string) => {
   const headers = {
@@ -29,7 +29,11 @@ export const retrieveOrder = async (id: string) => {
     .catch((err) => medusaError(err))
 }
 
-export const listOrders = async (limit: number = 10, offset: number = 0) => {
+export const listOrders = async (
+  limit: number = 10,
+  offset: number = 0,
+  filters?: Record<string, any>
+) => {
   const headers = {
     ...(await getAuthHeaders()),
   }
@@ -47,6 +51,7 @@ export const listOrders = async (limit: number = 10, offset: number = 0) => {
         order: "-created_at",
         fields:
           "*items,+items.metadata,*items.variant,*items.product,*customer",
+        ...filters,
       },
       headers,
       next,

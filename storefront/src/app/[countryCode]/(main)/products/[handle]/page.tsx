@@ -1,8 +1,8 @@
-import { sdk } from "@lib/config"
-import { getAuthHeaders } from "@lib/data/cookies"
-import { getProductByHandle } from "@lib/data/products"
-import { getRegion, listRegions } from "@lib/data/regions"
-import ProductTemplate from "@modules/products/templates"
+import { sdk } from "@/lib/config"
+import { getAuthHeaders } from "@/lib/data/cookies"
+import { getProductByHandle } from "@/lib/data/products"
+import { getRegion, listRegions } from "@/lib/data/regions"
+import ProductTemplate from "@/modules/products/templates"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 

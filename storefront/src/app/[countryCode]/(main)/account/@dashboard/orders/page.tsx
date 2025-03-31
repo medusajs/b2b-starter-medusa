@@ -1,11 +1,11 @@
-import { listApprovals } from "@lib/data/approvals"
-import { retrieveCompany } from "@lib/data/companies"
-import { retrieveCustomer } from "@lib/data/customer"
-import { listOrders } from "@lib/data/orders"
+import { listApprovals } from "@/lib/data/approvals"
+import { retrieveCompany } from "@/lib/data/companies"
+import { retrieveCustomer } from "@/lib/data/customer"
+import { listOrders } from "@/lib/data/orders"
+import OrderOverview from "@/modules/account/components/order-overview"
+import PendingCustomerApprovals from "@/modules/account/components/pending-customer-approvals"
+import { ApprovalStatusType } from "@/types/approval"
 import { Heading } from "@medusajs/ui"
-import OrderOverview from "@modules/account/components/order-overview"
-import PendingCustomerApprovals from "@modules/account/components/pending-customer-approvals"
-import { ApprovalStatusType } from "@starter/types/approval"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

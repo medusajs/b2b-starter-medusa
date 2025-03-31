@@ -1,14 +1,14 @@
 "use client"
 
-import { applyPromotions, submitPromotionForm } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
-import { convertToLocale } from "@lib/util/money"
+import { applyPromotions, submitPromotionForm } from "@/lib/data/cart"
+import { getCartApprovalStatus } from "@/lib/util/get-cart-approval-status"
+import { convertToLocale } from "@/lib/util/money"
+import Trash from "@/modules/common/icons/trash"
+import { B2BCart } from "@/types"
 import { ChevronDownMini, ChevronUpMini } from "@medusajs/icons"
 import { Badge, Heading, Input, Text } from "@medusajs/ui"
-import Trash from "@modules/common/icons/trash"
 import { usePathname } from "next/navigation"
 import React, { useActionState } from "react"
-import { B2BCart } from "types/global"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
 
@@ -24,7 +24,11 @@ const PromotionCode: React.FC<PromotionCodeProps> = ({ cart }) => {
 
   const { promotions = [] } = cart
 
-  const { isPendingApproval } = getCartApprovalStatus(cart)
+  const { isPendingAdminApproval, isPendingSalesManagerApproval } =
+    getCartApprovalStatus(cart)
+
+  const isPendingApproval =
+    isPendingAdminApproval || isPendingSalesManagerApproval
 
   const removePromotionCode = async (code: string) => {
     const validPromotions = promotions.filter(

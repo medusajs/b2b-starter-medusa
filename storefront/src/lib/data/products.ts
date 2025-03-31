@@ -1,11 +1,11 @@
 "use server"
 
-import { sdk } from "@lib/config"
-import { sortProducts } from "@lib/util/sort-products"
+import { sdk } from "@/lib/config"
+import { getAuthHeaders, getCacheOptions } from "@/lib/data/cookies"
+import { getRegion } from "@/lib/data/regions"
+import { sortProducts } from "@/lib/util/sort-products"
+import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { HttpTypes } from "@medusajs/types"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
-import { getRegion } from "./regions"
 
 export const getProductsById = async ({
   ids,

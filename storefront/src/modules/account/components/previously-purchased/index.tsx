@@ -1,5 +1,5 @@
+import PreviouslyPurchasedProduct from "@/modules/account/components/previously-purchased/product"
 import { HttpTypes } from "@medusajs/types"
-import PreviouslyPurchasedProduct from "./product"
 
 type PreviouslyPurchasedProps = {
   orders: HttpTypes.StoreOrder[]

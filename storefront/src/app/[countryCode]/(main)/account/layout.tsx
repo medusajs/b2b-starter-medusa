@@ -1,4 +1,4 @@
-import { retrieveCustomer } from "@lib/data/customer"
+import { retrieveCustomer } from "@/lib/data/customer"
 
 export default async function AccountPageLayout({
   dashboard,

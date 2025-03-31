@@ -1,14 +1,13 @@
 "use client"
 
-import { signup } from "@lib/data/customer"
-import { Checkbox, Label, Select, Text } from "@medusajs/ui"
-
-import { currencySymbolMap } from "@lib/constants"
+import { currencySymbolMap } from "@/lib/constants"
+import { signup } from "@/lib/data/customer"
+import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import Input from "@/modules/common/components/input"
 import { HttpTypes } from "@medusajs/types"
-import { LOGIN_VIEW } from "@modules/account/templates/login-template"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
-import Input from "@modules/common/components/input"
+import { Checkbox, Label, Select, Text } from "@medusajs/ui"
 import { useActionState, useState } from "react"
 
 type Props = {

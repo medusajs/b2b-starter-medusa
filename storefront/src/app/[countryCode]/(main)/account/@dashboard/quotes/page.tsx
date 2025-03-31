@@ -1,6 +1,6 @@
-import { fetchQuotes } from "@lib/data/quotes"
+import { fetchQuotes } from "@/lib/data/quotes"
 import { Heading } from "@medusajs/ui"
-import QuotesOverview from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quotes-overview"
+import QuotesOverview from "./components/quotes-overview"
 
 export default async function Quotes() {
   const { quotes } = await fetchQuotes()

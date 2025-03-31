@@ -1,9 +1,9 @@
 "use client"
 
+import CompanyForm from "@/modules/checkout/components/company-form"
+import Divider from "@/modules/common/components/divider"
+import { B2BCart } from "@/types"
 import { Container, Heading } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
-import { B2BCart } from "types/global"
-import CompanyForm from "../company-form"
 
 const Company = ({ cart }: { cart: B2BCart }) => {
   return (

@@ -1,4 +1,4 @@
-import { getBaseURL } from "@lib/util/env"
+import { getBaseURL } from "@/lib/util/env"
 import { Toaster } from "@medusajs/ui"
 import { Analytics } from "@vercel/analytics/next"
 import { GeistSans } from "geist/font/sans"

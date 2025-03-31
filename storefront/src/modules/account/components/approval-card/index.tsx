@@ -1,13 +1,13 @@
-import { retrieveCart } from "@lib/data/cart"
-import { convertToLocale } from "@lib/util/money"
+import { retrieveCart } from "@/lib/data/cart"
+import { convertToLocale } from "@/lib/util/money"
+import ApprovalCardActions from "@/modules/account/components/approval-card-actions"
+import CalendarIcon from "@/modules/common/icons/calendar"
+import DocumentIcon from "@/modules/common/icons/document"
+import { ApprovalStatusType } from "@/types/approval"
+import { B2BCart } from "@/types/global"
 import { CheckMini, XMarkMini } from "@medusajs/icons"
 import { clx, Container, Text } from "@medusajs/ui"
-import { B2BCart } from "@starter/types"
-import { ApprovalStatusType } from "@starter/types/approval"
 import Image from "next/image"
-import CalendarIcon from "../../../common/icons/calendar"
-import DocumentIcon from "../../../common/icons/document"
-import ApprovalCardActions from "../approval-card-actions"
 
 type ApprovalCardProps = {
   cartWithApprovals: B2BCart

@@ -1,15 +1,18 @@
 "use server"
 
-import { sdk } from "@lib/config"
-import { getAuthHeaders, getCacheOptions, getCacheTag } from "@lib/data/cookies"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
-import { FilterType } from "@starter/types"
+import { sdk } from "@/lib/config"
+import {
+  getAuthHeaders,
+  getCacheOptions,
+  getCacheTag,
+} from "@/lib/data/cookies"
+import { getCartApprovalStatus } from "@/lib/util/get-cart-approval-status"
+import { FilterType } from "@/types"
 import {
   ApprovalStatusType,
-  ApprovalType,
   StoreApprovalResponse,
   StoreApprovalsResponse,
-} from "@starter/types/approval"
+} from "@/types/approval"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { retrieveCart } from "./cart"

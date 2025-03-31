@@ -1,8 +1,8 @@
 "use client"
 
+import Button from "@/modules/common/components/button"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useState, useTransition } from "react"
-import Button from "../../../common/components/button"
 
 export default function ResourcePagination({
   totalPages,

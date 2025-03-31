@@ -1,4 +1,4 @@
-import { updateLineItem } from "@lib/data/cart"
+import { updateLineItem } from "@/lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import { Input, clx } from "@medusajs/ui"
 import { useState } from "react"

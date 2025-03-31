@@ -1,5 +1,5 @@
+import { B2BCart } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
-import { B2BCart } from "types/global"
 
 // Function to convert the cart items into CSV format
 export function cartToCsv(cart: B2BCart) {
@@ -24,7 +24,7 @@ export function cartToCsv(cart: B2BCart) {
         tax_rate: taxRate,
         total_price: totalPrice,
         total_tax: totalTax,
-      };
+      }
     }) || []
 
   // Create CSV header

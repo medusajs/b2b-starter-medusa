@@ -1,8 +1,8 @@
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { B2BCart } from "@/types"
+import { ApprovalStatusType } from "@/types/approval"
 import { CheckMini, LockClosedSolid, XMarkMini } from "@medusajs/icons"
 import { Container, Text } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { ApprovalStatusType } from "@starter/types/approval"
-import { B2BCart } from "@starter/types/global"
 
 const ApprovalStatusBanner = ({ cart }: { cart: B2BCart }) => {
   const cartApprovalStatus = cart.approval_status?.status

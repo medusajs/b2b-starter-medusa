@@ -1,6 +1,6 @@
-import { useCart } from "@lib/context/cart-context"
+import { useCart } from "@/lib/context/cart-context"
 import { clx } from "@medusajs/ui"
-import Spinner from "@modules/common/icons/spinner"
+import Spinner from "@/modules/common/icons/spinner"
 import { useState } from "react"
 
 const DeleteButton = ({

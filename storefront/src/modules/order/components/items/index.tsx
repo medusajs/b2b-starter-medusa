@@ -1,9 +1,9 @@
-import repeat from "@lib/util/repeat"
+import repeat from "@/lib/util/repeat"
 import { HttpTypes } from "@medusajs/types"
 import { Table } from "@medusajs/ui"
 
-import Item from "@modules/order/components/item"
-import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import Item from "@/modules/order/components/item"
+import SkeletonLineItem from "@/modules/skeletons/components/skeleton-line-item"
 
 type ItemsProps = {
   items: HttpTypes.StoreOrderLineItem[] | null

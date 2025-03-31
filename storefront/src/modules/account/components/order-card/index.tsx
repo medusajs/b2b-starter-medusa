@@ -1,11 +1,11 @@
-import { convertToLocale } from "@lib/util/money"
+import { convertToLocale } from "@/lib/util/money"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import CalendarIcon from "@/modules/common/icons/calendar"
+import DocumentIcon from "@/modules/common/icons/document"
 import { HttpTypes } from "@medusajs/types"
 import { Button, clx, Container } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import { useMemo } from "react"
-import CalendarIcon from "../../../common/icons/calendar"
-import DocumentIcon from "../../../common/icons/document"
 
 type OrderCardProps = {
   order: HttpTypes.StoreOrder

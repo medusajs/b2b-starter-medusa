@@ -1,13 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
-
-import Login from "@modules/account/components/login"
-import Register from "@modules/account/components/register"
-import Image from "next/image"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import Login from "@/modules/account/components/login"
+import Register from "@/modules/account/components/register"
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
+import Image from "next/image"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",

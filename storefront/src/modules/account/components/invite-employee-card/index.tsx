@@ -1,9 +1,9 @@
 "use client"
 
+import Button from "@/modules/common/components/button"
+import Input from "@/modules/common/components/input"
+import { QueryCompany } from "@/types"
 import { Container, Text, toast } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import Input from "@modules/common/components/input"
-import { QueryCompany } from "@starter/types"
 
 const InviteEmployeeCard = ({ company }: { company: QueryCompany }) => {
   return (

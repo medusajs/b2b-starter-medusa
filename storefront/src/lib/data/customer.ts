@@ -1,12 +1,13 @@
 "use server"
 
-import { sdk } from "@lib/config"
-import medusaError from "@lib/util/medusa-error"
+import { sdk } from "@/lib/config"
+import medusaError from "@/lib/util/medusa-error"
+import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
-import { B2BCustomer } from "types/global"
+import { retrieveCart, updateCart } from "./cart"
 import { createCompany, createEmployee } from "./companies"
 import {
   getAuthHeaders,
@@ -17,7 +18,6 @@ import {
   removeCartId,
   setAuthToken,
 } from "./cookies"
-import { retrieveCart, updateCart } from "./cart"
 
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const authHeaders = await getAuthHeaders()

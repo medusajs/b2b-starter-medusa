@@ -2,7 +2,7 @@
 
 import { Github } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
+import Button from "@/modules/common/components/button"
 import Image from "next/image"
 
 const Hero = () => {

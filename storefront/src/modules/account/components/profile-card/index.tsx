@@ -1,12 +1,12 @@
 "use client"
 
-import { updateCustomer } from "@lib/data/customer"
+import { updateCustomer } from "@/lib/data/customer"
+import Button from "@/modules/common/components/button"
+import Input from "@/modules/common/components/input"
+import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text, clx, toast } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import Input from "@modules/common/components/input"
 import { useState } from "react"
-import { B2BCustomer } from "types/global"
 
 const ProfileCard = ({ customer }: { customer: B2BCustomer }) => {
   const [isEditing, setIsEditing] = useState(false)

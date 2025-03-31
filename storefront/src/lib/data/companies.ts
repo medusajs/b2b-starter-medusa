@@ -1,7 +1,11 @@
 "use server"
 
-import { sdk } from "@lib/config"
-import { getAuthHeaders, getCacheOptions, getCacheTag } from "@lib/data/cookies"
+import { sdk } from "@/lib/config"
+import {
+  getAuthHeaders,
+  getCacheOptions,
+  getCacheTag,
+} from "@/lib/data/cookies"
 import {
   StoreCompaniesResponse,
   StoreCompanyResponse,
@@ -10,7 +14,7 @@ import {
   StoreEmployeeResponse,
   StoreUpdateCompany,
   StoreUpdateEmployee,
-} from "@starter/types"
+} from "@/types"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 

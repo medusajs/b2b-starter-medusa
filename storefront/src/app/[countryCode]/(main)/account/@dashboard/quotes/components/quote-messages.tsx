@@ -1,10 +1,10 @@
 "use client"
 
+import { createQuoteMessage } from "@/lib/data/quotes"
+import { StoreCreateQuoteMessage, StoreQuoteResponse } from "@/types/quote"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { createQuoteMessage } from "@lib/data/quotes"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Button, clx, Container, Heading, Select, Textarea } from "@medusajs/ui"
-import { StoreCreateQuoteMessage, StoreQuoteResponse } from "@starter/types"
 import { useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"

@@ -1,9 +1,9 @@
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import Radio from "@/modules/common/components/radio"
+import SquareMinus from "@/modules/common/icons/square-minus"
+import SquarePlus from "@/modules/common/icons/square-plus"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Radio from "@modules/common/components/radio"
-import SquareMinus from "@modules/common/icons/square-minus"
-import SquarePlus from "@modules/common/icons/square-plus"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 

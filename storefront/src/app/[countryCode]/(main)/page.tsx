@@ -1,7 +1,7 @@
-import { listRegions } from "@lib/data/regions"
-import FeaturedProducts from "@modules/home/components/featured-products"
-import Hero from "@modules/home/components/hero"
-import SkeletonFeaturedProducts from "@modules/skeletons/templates/skeleton-featured-products"
+import { listRegions } from "@/lib/data/regions"
+import FeaturedProducts from "@/modules/home/components/featured-products"
+import Hero from "@/modules/home/components/hero"
+import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
 import { Metadata } from "next"
 import { Suspense } from "react"
 

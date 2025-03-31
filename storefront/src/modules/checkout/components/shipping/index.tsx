@@ -1,20 +1,18 @@
 "use client"
 
+import { setShippingMethod } from "@/lib/data/cart"
+import { convertToLocale } from "@/lib/util/money"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import Button from "@/modules/common/components/button"
+import Divider from "@/modules/common/components/divider"
+import Radio from "@/modules/common/components/radio"
+import { ApprovalStatusType, B2BCart } from "@/types"
 import { RadioGroup, Radio as RadioGroupOption } from "@headlessui/react"
-import { setShippingMethod } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
-import { convertToLocale } from "@lib/util/money"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Heading, Text, clx } from "@medusajs/ui"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import Button from "@modules/common/components/button"
-import Divider from "@modules/common/components/divider"
-import Radio from "@modules/common/components/radio"
-import { ApprovalStatusType } from "@starter/types/approval"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
 
 type ShippingProps = {
   cart: B2BCart

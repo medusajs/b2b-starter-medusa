@@ -1,7 +1,6 @@
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import LogoIcon from "@modules/common/icons/logo"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import LogoIcon from "@/modules/common/icons/logo"
+import MedusaCTA from "@/modules/layout/components/medusa-cta"
 
 export default function CheckoutLayout({
   children,

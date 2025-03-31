@@ -1,10 +1,10 @@
 "use client"
 
+import LineItemPrice from "@/modules/common/components/line-item-price"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import Thumbnail from "@/modules/products/components/thumbnail"
 import { HttpTypes } from "@medusajs/types"
 import { clx, Container } from "@medusajs/ui"
-import LineItemPrice from "@modules/common/components/line-item-price"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Thumbnail from "@modules/products/components/thumbnail"
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem

@@ -1,9 +1,9 @@
-import { convertToLocale } from "@lib/util/money"
+import QuoteStatusBadge from "@/app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
+import { convertToLocale } from "@/lib/util/money"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { StoreQuoteResponse } from "@/types"
 import { CalendarMini, DocumentText } from "@medusajs/icons"
 import { Button, clx, Container } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { StoreQuoteResponse } from "@starter/types"
-import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
 import Image from "next/image"
 import { useMemo } from "react"
 
