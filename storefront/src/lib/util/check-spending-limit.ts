@@ -1,5 +1,9 @@
-import { ModuleCompanySpendingLimitResetFrequency, QueryCompany } from "@/types"
-import { B2BCart, B2BCustomer } from "@/types/global"
+import {
+  ModuleCompanySpendingLimitResetFrequency,
+  QueryCompany,
+  B2BCart,
+  B2BCustomer,
+} from "@/types"
 import { HttpTypes } from "@medusajs/types"
 
 export function getSpendWindow(company: QueryCompany): {
