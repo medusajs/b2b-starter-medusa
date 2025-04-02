@@ -1,4 +1,4 @@
-import { B2BCart } from "types/global"
+import { B2BCart } from "@/types/global"
 
 export function getCheckoutStep(cart: B2BCart) {
   if (!cart?.shipping_address?.address_1) {

@@ -1,6 +1,8 @@
 "use client"
 
-import { updateApprovalSettings } from "@lib/data/companies"
+import { updateApprovalSettings } from "@/lib/data/companies"
+import Button from "@/modules/common/components/button"
+import { B2BCustomer, QueryCompany } from "@/types"
 import { InformationCircleSolid } from "@medusajs/icons"
 import {
   Container,
@@ -11,9 +13,7 @@ import {
   clx,
   toast,
 } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import { B2BCustomer, QueryCompany } from "@starter/types"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const ApprovalSettingsCard = ({
   company,

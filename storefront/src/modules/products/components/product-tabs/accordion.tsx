@@ -1,6 +1,6 @@
 import { Text, clx } from "@medusajs/ui"
-import CircleMinus from "@modules/common/icons/circle-minus"
-import CirclePlus from "@modules/common/icons/circle-plus"
+import CircleMinus from "@/modules/common/icons/circle-minus"
+import CirclePlus from "@/modules/common/icons/circle-plus"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import React from "react"
 

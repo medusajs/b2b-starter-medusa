@@ -1,23 +1,23 @@
 "use client"
 
-import { currencySymbolMap } from "@lib/constants"
-import { deleteEmployee, updateEmployee } from "@lib/data/companies"
+import { currencySymbolMap } from "@/lib/constants"
+import { deleteEmployee, updateEmployee } from "@/lib/data/companies"
 import {
   getOrderTotalInSpendWindow,
   getSpendWindow,
-} from "@lib/util/check-spending-limit"
-import { HttpTypes } from "@medusajs/types"
-import { CurrencyInput, Prompt, Text, clx, toast } from "@medusajs/ui"
-import { formatAmount } from "@modules/common/components/amount-cell"
-import Button from "@modules/common/components/button"
-import NativeSelect from "@modules/common/components/native-select"
+} from "@/lib/util/check-spending-limit"
+import { formatAmount } from "@/modules/common/components/amount-cell"
+import Button from "@/modules/common/components/button"
+import NativeSelect from "@/modules/common/components/native-select"
 import {
+  B2BCustomer,
   QueryCompany,
   QueryEmployee,
   StoreUpdateEmployee,
-} from "@starter/types"
+} from "@/types"
+import { HttpTypes } from "@medusajs/types"
+import { CurrencyInput, Prompt, Text, clx, toast } from "@medusajs/ui"
 import { useState } from "react"
-import { B2BCustomer } from "types/global"
 
 const RemoveEmployeePrompt = ({ employee }: { employee: QueryEmployee }) => {
   const [isRemoving, setIsRemoving] = useState(false)

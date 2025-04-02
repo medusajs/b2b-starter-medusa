@@ -1,4 +1,4 @@
-import ShoppingBag from "@modules/common/icons/shopping-bag"
+import ShoppingBag from "@/modules/common/icons/shopping-bag"
 
 export default function SkeletonCartButton() {
   return (

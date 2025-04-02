@@ -1,13 +1,10 @@
+import { isManual } from "@/lib/constants"
+import PaymentTest from "@/modules/checkout/components/payment-test"
+import Divider from "@/modules/common/components/divider"
+import Radio from "@/modules/common/components/radio"
 import { RadioGroup } from "@headlessui/react"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Text, Tooltip, clx } from "@medusajs/ui"
-import React, { type JSX } from "react";
-
-import Radio from "@modules/common/components/radio"
-
-import PaymentTest from "../payment-test"
-import { isManual } from "@lib/constants"
-import Divider from "@modules/common/components/divider"
+import { Text, clx } from "@medusajs/ui"
+import React, { type JSX } from "react"
 
 type PaymentContainerProps = {
   paymentProviderId: string

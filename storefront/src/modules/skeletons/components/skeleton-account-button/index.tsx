@@ -1,5 +1,5 @@
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import User from "@modules/common/icons/user"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import User from "@/modules/common/icons/user"
 
 export default function SkeletonAccountButton() {
   return (

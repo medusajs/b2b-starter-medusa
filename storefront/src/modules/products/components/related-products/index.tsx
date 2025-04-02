@@ -1,5 +1,5 @@
-import { listProducts } from "@lib/data/products"
-import { getRegion } from "@lib/data/regions"
+import { listProducts } from "@/lib/data/products"
+import { getRegion } from "@/lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
 import Product from "../product-preview"

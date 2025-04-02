@@ -2,12 +2,12 @@
 
 import { Text } from "@medusajs/ui"
 
+import { checkSpendingLimit } from "@/lib/util/check-spending-limit"
+import PaymentButton from "@/modules/checkout/components/payment-button"
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { B2BCart, B2BCustomer } from "@/types"
 import { ExclamationCircle } from "@medusajs/icons"
-import Button from "@modules/common/components/button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import PaymentButton from "../payment-button"
-import { B2BCart, B2BCustomer } from "@starter/types/global"
-import { checkSpendingLimit } from "@lib/util/check-spending-limit"
 
 const Review = ({
   cart,

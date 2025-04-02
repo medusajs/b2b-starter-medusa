@@ -2,7 +2,7 @@
 
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 

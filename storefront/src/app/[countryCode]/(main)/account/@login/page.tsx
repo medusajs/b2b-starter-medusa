@@ -1,7 +1,6 @@
+import { listRegions } from "@/lib/data/regions"
+import LoginTemplate from "@/modules/account/templates/login-template"
 import { Metadata } from "next"
-
-import LoginTemplate from "@modules/account/templates/login-template"
-import { listRegions } from "@lib/data/regions"
 
 export const metadata: Metadata = {
   title: "Log in",

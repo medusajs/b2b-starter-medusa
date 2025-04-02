@@ -3,9 +3,9 @@
 import { CheckCircleSolid, XMark } from "@medusajs/icons"
 import { StoreCart, StorePrice } from "@medusajs/types"
 import { Button, clx } from "@medusajs/ui"
-import { formatAmount } from "@modules/common/components/amount-cell"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { StoreFreeShippingPrice } from "@starter/types/shipping-option/http"
+import { formatAmount } from "@/modules/common/components/amount-cell"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { useState } from "react"
 
 export default function FreeShippingPriceNudge({

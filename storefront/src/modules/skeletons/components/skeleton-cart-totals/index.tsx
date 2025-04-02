@@ -1,4 +1,4 @@
-import Divider from "@modules/common/components/divider"
+import Divider from "@/modules/common/components/divider"
 
 const SkeletonCartTotals = ({ header = true }) => {
   return (

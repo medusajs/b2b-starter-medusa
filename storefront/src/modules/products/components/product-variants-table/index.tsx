@@ -1,9 +1,9 @@
-import { addToCartEventBus } from "@lib/data/cart-event-bus"
-import { getProductPrice } from "@lib/util/get-product-price"
+import { addToCartEventBus } from "@/lib/data/cart-event-bus"
+import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes, StoreProduct, StoreProductVariant } from "@medusajs/types"
 import { clx, Table } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import ShoppingBag from "@modules/common/icons/shopping-bag"
+import Button from "@/modules/common/components/button"
+import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
 

@@ -1,7 +1,7 @@
-import Input from "@modules/common/components/input"
+import CountrySelect from "@/modules/checkout/components/country-select"
+import Input from "@/modules/common/components/input"
+import { B2BCart } from "@/types"
 import React, { useEffect, useState } from "react"
-import { B2BCart } from "types/global"
-import CountrySelect from "../country-select"
 
 const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
   const [formData, setFormData] = useState<Record<string, any>>({

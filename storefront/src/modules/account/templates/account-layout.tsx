@@ -1,8 +1,8 @@
-import { listApprovals } from "@lib/data/approvals"
-import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
+import { listApprovals } from "@/lib/data/approvals"
+import AccountNav from "@/modules/account/components/account-nav"
+import { B2BCustomer } from "@/types"
+import { ApprovalStatusType, ApprovalType } from "@/types/approval"
 import React from "react"
-import { B2BCustomer } from "types/global"
-import AccountNav from "../components/account-nav"
 
 interface AccountLayoutProps {
   customer: B2BCustomer | null

@@ -1,9 +1,9 @@
 import { Disclosure } from "@headlessui/react";
 import { Badge, clx } from "@medusajs/ui";
-import Button from "@modules/common/components/button";
+import Button from "@/modules/common/components/button";
 import { useEffect } from "react";
 
-import useToggleState from "@lib/hooks/use-toggle-state";
+import useToggleState from "@/lib/hooks/use-toggle-state";
 import { useFormStatus } from "react-dom";
 
 type AccountInfoProps = {

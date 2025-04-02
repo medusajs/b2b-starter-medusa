@@ -1,6 +1,6 @@
-import Input from "@modules/common/components/input"
+import Input from "@/modules/common/components/input"
+import { B2BCart, B2BCustomer } from "@/types"
 import React, { useEffect, useMemo, useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
 
 const ContactDetailsForm = ({
   customer,

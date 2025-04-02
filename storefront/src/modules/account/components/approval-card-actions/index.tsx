@@ -1,19 +1,19 @@
 "use client"
 
-import { updateApproval } from "@lib/data/approvals"
+import { updateApproval } from "@/lib/data/approvals"
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { ApprovalStatusType, ApprovalType } from "@/types/approval"
+import { B2BCart } from "@/types/global"
 import {
   ArrowRightMini,
   CheckMini,
   LockClosedSolidMini,
   XMarkMini,
 } from "@medusajs/icons"
-import { B2BCart } from "@starter/types"
-import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
+import { usePrompt } from "@medusajs/ui"
+import { useParams, useRouter } from "next/navigation"
 import { useState } from "react"
-import Button from "../../../common/components/button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { Text, usePrompt } from "@medusajs/ui"
-import { useRouter, useParams } from "next/navigation"
 
 const ApprovalCardActions = ({
   cartWithApprovals,

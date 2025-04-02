@@ -1,19 +1,19 @@
 "use client"
 
-import { acceptQuote, rejectQuote } from "@lib/data/quotes"
+import { acceptQuote, rejectQuote } from "@/lib/data/quotes"
+import { formatAmount } from "@/modules/common/components/amount-cell"
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { PromptModal } from "@/modules/common/components/prompt-modal"
+import { B2BCustomer } from "@/types/global"
+import { StoreQuoteResponse } from "@/types/quote"
 import { ArrowUturnLeft, CheckCircleSolid } from "@medusajs/icons"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Container, Heading, Text, toast } from "@medusajs/ui"
-import { formatAmount } from "@modules/common/components/amount-cell"
-import Button from "@modules/common/components/button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { PromptModal } from "@modules/common/components/prompt-modal"
-import { StoreQuoteResponse } from "@starter/types"
-import QuoteStatusBadge from "app/[countryCode]/(main)/account/@dashboard/quotes/components/quote-status-badge"
 import { useRouter } from "next/navigation"
 import React, { useMemo, useState } from "react"
-import { B2BCustomer } from "types/global"
 import QuoteMessages from "../quote-messages"
+import QuoteStatusBadge from "../quote-status-badge"
 import { QuoteTableItem } from "../quote-table"
 
 type QuoteDetailsProps = {
@@ -182,9 +182,12 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
               <div className="flex justify-between">
                 <Text>Spend Limit</Text>
                 <Text>
-                  {quote.customer?.employee?.spending_limit &&
-                      formatAmount(quote.customer?.employee?.spending_limit || 0, order.currency_code.toUpperCase())
-                   || "-"}
+                  {(quote.customer?.employee?.spending_limit &&
+                    formatAmount(
+                      quote.customer?.employee?.spending_limit || 0,
+                      order.currency_code.toUpperCase()
+                    )) ||
+                    "-"}
                 </Text>
               </div>
             </div>

@@ -1,7 +1,7 @@
-import { retrieveCustomer } from "@lib/data/customer"
-import { listOrders } from "@lib/data/orders"
-import { QueryCompany, QueryEmployee } from "@starter/types"
-import Employee from "./employee"
+import { retrieveCustomer } from "@/lib/data/customer"
+import { listOrders } from "@/lib/data/orders"
+import Employee from "@/modules/account/components/employees-card/employee"
+import { QueryCompany, QueryEmployee } from "@/types"
 
 const EmployeeWrapper = async ({
   employee,

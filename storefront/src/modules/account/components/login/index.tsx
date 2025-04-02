@@ -1,11 +1,11 @@
-import { useActionState } from "react";
-import { LOGIN_VIEW } from "@modules/account/templates/login-template"
+import { login } from "@/lib/data/customer"
+import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import Button from "@/modules/common/components/button"
+import Input from "@/modules/common/components/input"
 import { Checkbox, Text } from "@medusajs/ui"
-import Input from "@modules/common/components/input"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
-import { login } from "@lib/data/customer"
-import Button from "@modules/common/components/button"
+import { useActionState } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void

@@ -1,4 +1,4 @@
-import { QueryApproval } from "@starter/types/approval"
+import { QueryApproval } from "@/types/approval"
 
 export const mapApprovalsByCartId = (approvals: QueryApproval[]) => {
   const map = new Map<string, QueryApproval[]>()

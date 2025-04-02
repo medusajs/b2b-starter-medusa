@@ -1,7 +1,7 @@
+import { AmountCell } from "@/modules/common/components/amount-cell"
+import Thumbnail from "@/modules/products/components/thumbnail"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Badge, Text } from "@medusajs/ui"
-import { AmountCell } from "@modules/common/components/amount-cell"
-import Thumbnail from "@modules/products/components/thumbnail"
 import { useMemo } from "react"
 
 export const QuoteTableItem = ({

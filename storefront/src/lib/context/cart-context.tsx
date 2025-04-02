@@ -5,8 +5,10 @@ import {
   deleteLineItem,
   emptyCart,
   updateLineItem,
-} from "@lib/data/cart"
-import { addToCartEventBus } from "@lib/data/cart-event-bus"
+} from "@/lib/data/cart"
+import { addToCartEventBus } from "@/lib/data/cart-event-bus"
+import { ApprovalStatusType } from "@/types/approval/module"
+import { B2BCart } from "@/types/global"
 import type {
   StoreCart,
   StoreCartLineItem,
@@ -14,7 +16,6 @@ import type {
   StoreProductVariant,
 } from "@medusajs/types"
 import { toast } from "@medusajs/ui"
-import { ApprovalStatusType } from "@starter/types/approval/module"
 import { useParams } from "next/navigation"
 import type { PropsWithChildren } from "react"
 import {
@@ -27,7 +28,6 @@ import {
   useState,
   useTransition,
 } from "react"
-import { B2BCart } from "types/global"
 
 export type AddToCartEventPayload = {
   lineItems: {

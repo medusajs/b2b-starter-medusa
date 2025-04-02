@@ -1,8 +1,8 @@
+import OrderCard from "@/modules/account/components/order-card"
+import PreviouslyPurchasedProducts from "@/modules/account/components/previously-purchased"
+import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
-import { B2BCustomer } from "types/global"
-import OrderCard from "../order-card"
-import PreviouslyPurchasedProducts from "../previously-purchased"
 
 type OverviewProps = {
   customer: B2BCustomer | null

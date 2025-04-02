@@ -1,10 +1,10 @@
-import { listProductsWithSort } from "@lib/data/products"
-import { getRegion } from "@lib/data/regions"
+import { listProductsWithSort } from "@/lib/data/products"
+import { getRegion } from "@/lib/data/regions"
+import ProductPreview from "@/modules/products/components/product-preview"
+import { Pagination } from "@/modules/store/components/pagination"
+import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
+import { B2BCustomer } from "@/types"
 import { Container } from "@medusajs/ui"
-import ProductPreview from "@modules/products/components/product-preview"
-import { Pagination } from "@modules/store/components/pagination"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { B2BCustomer } from "types/global"
 
 const PRODUCT_LIMIT = 12
 
@@ -32,7 +32,7 @@ export default async function PaginatedProducts({
   categoryId?: string
   productsIds?: string[]
   countryCode: string
-  customer: B2BCustomer | null
+  customer?: B2BCustomer | null
 }) {
   const queryParams: PaginatedProductsParams = {
     limit: 12,

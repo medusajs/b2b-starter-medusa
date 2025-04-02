@@ -1,11 +1,11 @@
-import { retrieveCompany } from "@lib/data/companies"
-import { retrieveCustomer } from "@lib/data/customer"
-import { listRegions } from "@lib/data/regions"
+import { retrieveCompany } from "@/lib/data/companies"
+import { retrieveCustomer } from "@/lib/data/customer"
+import { listRegions } from "@/lib/data/regions"
+import ApprovalSettingsCard from "@/modules/account/components/approval-settings-card"
+import CompanyCard from "@/modules/account/components/company-card"
+import EmployeesCard from "@/modules/account/components/employees-card"
+import InviteEmployeeCard from "@/modules/account/components/invite-employee-card"
 import { Heading } from "@medusajs/ui"
-import ApprovalSettingsCard from "@modules/account/components/approval-settings-card"
-import CompanyCard from "@modules/account/components/company-card"
-import EmployeesCard from "@modules/account/components/employees-card"
-import InviteEmployeeCard from "@modules/account/components/invite-employee-card"
 import { notFound } from "next/navigation"
 
 export default async function Company() {

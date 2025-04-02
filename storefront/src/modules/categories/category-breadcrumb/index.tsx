@@ -1,5 +1,5 @@
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import type { JSX } from "react"
 
 const CategoryBreadcrumbItem = ({

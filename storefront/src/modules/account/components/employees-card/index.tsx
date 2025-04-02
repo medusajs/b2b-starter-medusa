@@ -1,7 +1,7 @@
+import { retrieveCustomer } from "@/lib/data/customer"
+import EmployeeWrapper from "@/modules/account/components/employees-card/employee-wrapper"
+import { QueryCompany } from "@/types"
 import { Container } from "@medusajs/ui"
-import { QueryCompany } from "@starter/types"
-import EmployeeWrapper from "./employee-wrapper"
-import { retrieveCustomer } from "@lib/data/customer"
 
 const EmployeesCard = async ({ company }: { company: QueryCompany }) => {
   const { employees } = company

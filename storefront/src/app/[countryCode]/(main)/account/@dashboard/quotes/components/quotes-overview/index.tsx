@@ -1,10 +1,9 @@
 "use client"
 
+import QuoteCard from "@/modules/account/components/quote-card"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { StoreQuoteResponse } from "@/types/quote"
 import { Button } from "@medusajs/ui"
-
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { StoreQuoteResponse } from "@starter/types"
-import QuoteCard from "../../../../../../../../modules/account/components/quote-card"
 
 const QuotesOverview = ({
   quotes,

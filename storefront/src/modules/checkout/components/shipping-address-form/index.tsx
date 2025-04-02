@@ -1,11 +1,11 @@
+import AddressSelect from "@/modules/checkout/components/address-select"
+import CountrySelect from "@/modules/checkout/components/country-select"
+import Input from "@/modules/common/components/input"
+import { B2BCart, B2BCustomer } from "@/types"
 import { HttpTypes } from "@medusajs/types"
 import { Container } from "@medusajs/ui"
-import Input from "@modules/common/components/input"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
-import AddressSelect from "../address-select"
-import CountrySelect from "../country-select"
 
 const ShippingAddressForm = ({
   customer,

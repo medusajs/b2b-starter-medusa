@@ -1,21 +1,21 @@
 "use server"
 
-import { sdk } from "@lib/config"
+import { sdk } from "@/lib/config"
 import {
   getAuthHeaders,
   getCacheOptions,
   getCacheTag,
   getCartId,
-} from "@lib/data/cookies"
+} from "@/lib/data/cookies"
 import {
   QuoteFilterParams,
   StoreCreateQuoteMessage,
   StoreQuotePreviewResponse,
   StoreQuoteResponse,
   StoreQuotesResponse,
-} from "@starter/types"
-import { revalidateTag } from "next/cache"
+} from "@/types"
 import { track } from "@vercel/analytics/server"
+import { revalidateTag } from "next/cache"
 
 export const createQuote = async () => {
   const headers = {

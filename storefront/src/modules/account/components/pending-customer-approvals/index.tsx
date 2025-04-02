@@ -1,6 +1,5 @@
-import { mapApprovalsByCartId } from "@lib/util/map-approvals-by-cart-id"
+import ApprovalCard from "@/modules/account/components/approval-card"
 import { Text } from "@medusajs/ui"
-import ApprovalCard from "../approval-card"
 
 const PendingCustomerApprovals = ({
   cartsWithApprovals,

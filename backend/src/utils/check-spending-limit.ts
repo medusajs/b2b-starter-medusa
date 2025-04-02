@@ -9,6 +9,10 @@ export function getSpendWindow(company: QueryCompany): {
   start: Date;
   end: Date;
 } {
+  if (!company) {
+    return { start: new Date(0), end: new Date() };
+  }
+
   const now = new Date();
   const resetFrequency = company.spending_limit_reset_frequency;
 

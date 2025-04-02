@@ -1,10 +1,10 @@
 "use client"
 
-import { convertToLocale } from "@lib/util/money"
+import { convertToLocale } from "@/lib/util/money"
+import Divider from "@/modules/common/components/divider"
+import { B2BCart, B2BOrder } from "@/types"
 import { Text } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
 import React from "react"
-import { B2BCart, B2BOrder } from "types/global"
 
 const CheckoutTotals: React.FC<{
   cartOrOrder: B2BCart | B2BOrder

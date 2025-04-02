@@ -1,6 +1,6 @@
 "use client"
 
-import { transferCart } from "@lib/data/customer"
+import { transferCart } from "@/lib/data/customer"
 import { ExclamationCircleSolid } from "@medusajs/icons"
 import { Button } from "@medusajs/ui"
 import { useState } from "react"

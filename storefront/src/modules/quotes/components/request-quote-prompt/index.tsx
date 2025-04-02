@@ -2,7 +2,7 @@
 
 import { XCircle } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import * as Dialog from "@radix-ui/react-dialog"
 
 export const RequestQuotePrompt = ({

@@ -1,4 +1,4 @@
-import { listCategories } from "@lib/data/categories"
+import { listCategories } from "@/lib/data/categories"
 import MegaMenu from "./mega-menu"
 
 export async function MegaMenuWrapper() {

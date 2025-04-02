@@ -1,10 +1,9 @@
-import { Metadata } from "next"
-
-import { retrieveCustomer } from "@lib/data/customer"
-import { listRegions } from "@lib/data/regions"
+import { retrieveCustomer } from "@/lib/data/customer"
+import { listRegions } from "@/lib/data/regions"
+import ProfileCard from "@/modules/account/components/profile-card"
+import SecurityCard from "@/modules/account/components/security-card"
 import { Heading } from "@medusajs/ui"
-import ProfileCard from "@modules/account/components/profile-card"
-import SecurityCard from "@modules/account/components/security-card"
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {

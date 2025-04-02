@@ -2,7 +2,7 @@ import {
   ApprovalStatusType,
   ApprovalType,
   QueryApproval,
-} from "@starter/types/approval"
+} from "@/types/approval"
 
 export const getCartApprovalStatus = (cart: Record<string, any> | null) => {
   const defaultStatus = {

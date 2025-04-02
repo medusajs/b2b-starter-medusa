@@ -1,9 +1,9 @@
 "use client"
 
-import { useCart } from "@lib/context/cart-context"
-import { convertToLocale } from "@lib/util/money"
+import { useCart } from "@/lib/context/cart-context"
+import { convertToLocale } from "@/lib/util/money"
+import Divider from "@/modules/common/components/divider"
 import { Text } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
 import React from "react"
 
 const CartTotals: React.FC = () => {

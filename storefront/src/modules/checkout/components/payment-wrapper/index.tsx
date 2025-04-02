@@ -1,10 +1,10 @@
 "use client"
 
-import { isPaypal, isStripe } from "@lib/constants"
+import { isPaypal, isStripe } from "@/lib/constants"
+import { B2BCart } from "@/types"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { loadStripe } from "@stripe/stripe-js"
 import React, { createContext } from "react"
-import { B2BCart } from "types/global"
 import StripeWrapper from "./stripe-wrapper"
 
 type WrapperProps = {

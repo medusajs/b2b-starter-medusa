@@ -1,10 +1,12 @@
 "use server"
 
-import { sdk } from "@lib/config"
+import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
-export const listCategories = async (query?: Record<string, any>) => {
+export const listCategories = async (
+  query?: Record<string, any>
+): Promise<HttpTypes.StoreProductCategory[]> => {
   const next = {
     ...(await getCacheOptions("categories")),
   }
@@ -28,7 +30,9 @@ export const listCategories = async (query?: Record<string, any>) => {
     .then(({ product_categories }) => product_categories)
 }
 
-export const getCategoryByHandle = async (categoryHandle: string[]) => {
+export const getCategoryByHandle = async (
+  categoryHandle: string[]
+): Promise<HttpTypes.StoreProductCategory> => {
   const handle = `${categoryHandle.join("/")}`
 
   const next = {

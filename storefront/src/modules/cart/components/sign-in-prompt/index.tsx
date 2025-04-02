@@ -1,8 +1,8 @@
 "use client"
 
+import Button from "@/modules/common/components/button"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { clx, Container, Text } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 

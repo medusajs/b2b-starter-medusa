@@ -1,17 +1,15 @@
 "use client"
 
-import { setContactDetails } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
+import { setContactDetails } from "@/lib/data/cart"
+import Divider from "@/modules/common/components/divider"
+import { ApprovalStatusType, B2BCart, B2BCustomer } from "@/types"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { clx, Container, Heading, Text } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useActionState, useCallback } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
 import ContactDetailsForm from "../contact-details-form"
 import ErrorMessage from "../error-message"
 import { SubmitButton } from "../submit-button"
-import { ApprovalStatusType } from "@starter/types/approval"
 
 const ContactDetails = ({
   cart,

@@ -1,9 +1,7 @@
+import ApprovedApprovalRequestsAdminList from "@/modules/account/components/approval-requests-admin-list/approved-list"
+import PendingApprovalRequestsAdminList from "@/modules/account/components/approval-requests-admin-list/pending-list"
+import RejectedApprovalRequestsAdminList from "@/modules/account/components/approval-requests-admin-list/rejected-list"
 import { Heading } from "@medusajs/ui"
-import ApprovalRequestsAdminList from "@modules/account/components/approval-requests-admin-list"
-import ApprovedApprovalRequestsAdminList from "@modules/account/components/approval-requests-admin-list/approved-list"
-import PendingApprovalRequestsAdminList from "@modules/account/components/approval-requests-admin-list/pending-list"
-import RejectedApprovalRequestsAdminList from "@modules/account/components/approval-requests-admin-list/rejected-list"
-import { ApprovalStatusType, ApprovalType } from "@starter/types/approval"
 import { Metadata } from "next"
 import { Suspense } from "react"
 

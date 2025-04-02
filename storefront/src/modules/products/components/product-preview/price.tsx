@@ -1,4 +1,4 @@
-import { VariantPrice } from "@lib/util/get-product-price"
+import { VariantPrice } from "@/lib/util/get-product-price"
 import { Text, clx } from "@medusajs/ui"
 
 // TODO: Price needs to access price list type

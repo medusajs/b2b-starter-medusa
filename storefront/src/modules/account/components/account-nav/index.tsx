@@ -1,16 +1,16 @@
 "use client"
 
-import { signout } from "@lib/data/customer"
+import { signout } from "@/lib/data/customer"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import ChevronDown from "@/modules/common/icons/chevron-down"
+import FilePlus from "@/modules/common/icons/file-plus"
+import MapPin from "@/modules/common/icons/map-pin"
+import Package from "@/modules/common/icons/package"
+import User from "@/modules/common/icons/user"
+import { B2BCustomer } from "@/types/global"
 import { ArrowRightOnRectangle, BuildingStorefront } from "@medusajs/icons"
 import { clx } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import FilePlus from "@modules/common/icons/file-plus"
-import MapPin from "@modules/common/icons/map-pin"
-import Package from "@modules/common/icons/package"
-import User from "@modules/common/icons/user"
 import { useParams, usePathname } from "next/navigation"
-import { B2BCustomer } from "types/global"
 
 const AccountNav = ({
   customer,

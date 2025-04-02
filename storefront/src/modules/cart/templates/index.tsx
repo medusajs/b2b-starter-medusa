@@ -1,15 +1,15 @@
 "use client"
 
-import { useCart } from "@lib/context/cart-context"
-import { checkSpendingLimit } from "@lib/util/check-spending-limit"
+import { useCart } from "@/lib/context/cart-context"
+import { checkSpendingLimit } from "@/lib/util/check-spending-limit"
+import ApprovalStatusBanner from "@/modules/cart/components/approval-status-banner"
+import EmptyCartMessage from "@/modules/cart/components/empty-cart-message"
+import SignInPrompt from "@/modules/cart/components/sign-in-prompt"
+import ItemsTemplate from "@/modules/cart/templates/items"
+import Summary from "@/modules/cart/templates/summary"
+import { B2BCustomer } from "@/types/global"
 import { Heading } from "@medusajs/ui"
 import { useMemo } from "react"
-import { B2BCustomer } from "types/global"
-import ApprovalStatusBanner from "../components/approval-status-banner"
-import EmptyCartMessage from "../components/empty-cart-message"
-import SignInPrompt from "../components/sign-in-prompt"
-import ItemsTemplate from "./items"
-import Summary from "./summary"
 
 const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   const { cart } = useCart()

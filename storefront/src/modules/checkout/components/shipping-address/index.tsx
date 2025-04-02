@@ -1,18 +1,17 @@
 "use client"
 
-import { setShippingAddress } from "@lib/data/cart"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
+import { setShippingAddress } from "@/lib/data/cart"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import ShippingAddressForm from "@/modules/checkout/components/shipping-address-form"
+import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import Divider from "@/modules/common/components/divider"
+import Spinner from "@/modules/common/icons/spinner"
+import { B2BCart, B2BCustomer } from "@/types"
+import { ApprovalStatusType } from "@/types/approval"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { Container, Heading, Text } from "@medusajs/ui"
-import Divider from "@modules/common/components/divider"
-import Spinner from "@modules/common/icons/spinner"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
-import ErrorMessage from "../error-message"
-import ShippingAddressForm from "../shipping-address-form"
-import { SubmitButton } from "../submit-button"
-import { ApprovalStatusType } from "@starter/types/approval"
 
 const ShippingAddress = ({
   cart,

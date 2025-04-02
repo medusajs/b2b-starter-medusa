@@ -1,17 +1,17 @@
 "use client"
 
-import { currencySymbolMap } from "@lib/constants"
-import { updateCompany } from "@lib/data/companies"
-import { AdminRegionCountry, HttpTypes } from "@medusajs/types"
-import { Container, Text, clx, toast } from "@medusajs/ui"
-import Button from "@modules/common/components/button"
-import Input from "@modules/common/components/input"
-import Select from "@modules/common/components/native-select"
+import { currencySymbolMap } from "@/lib/constants"
+import { updateCompany } from "@/lib/data/companies"
+import Button from "@/modules/common/components/button"
+import Input from "@/modules/common/components/input"
+import Select from "@/modules/common/components/native-select"
 import {
   ModuleCompanySpendingLimitResetFrequency,
   StoreCompanyResponse,
   StoreUpdateCompany,
-} from "@starter/types"
+} from "@/types"
+import { AdminRegionCountry, HttpTypes } from "@medusajs/types"
+import { Container, Text, clx, toast } from "@medusajs/ui"
 import { useState } from "react"
 
 const CompanyCard = ({

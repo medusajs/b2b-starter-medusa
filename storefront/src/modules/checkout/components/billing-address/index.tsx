@@ -1,21 +1,18 @@
 "use client"
 
+import { setBillingAddress, updateCart } from "@/lib/data/cart"
+import compareAddresses from "@/lib/util/compare-addresses"
+import BillingAddressForm from "@/modules/checkout/components/billing-address-form"
+import ErrorMessage from "@/modules/checkout/components/error-message"
+import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import CheckboxWithLabel from "@/modules/common/components/checkbox"
+import Divider from "@/modules/common/components/divider"
+import { B2BCart } from "@/types"
+import { ApprovalStatusType } from "@/types/approval"
+import { CheckCircleSolid } from "@medusajs/icons"
 import { clx, Container, Heading, Text, useToggleState } from "@medusajs/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-
-import CheckboxWithLabel from "@modules/common/components/checkbox"
-import Divider from "@modules/common/components/divider"
-
-import { setBillingAddress, updateCart } from "@lib/data/cart"
-import compareAddresses from "@lib/util/compare-addresses"
-import { getCartApprovalStatus } from "@lib/util/get-cart-approval-status"
-import { CheckCircleSolid } from "@medusajs/icons"
 import { useCallback, useState } from "react"
-import { B2BCart } from "types/global"
-import BillingAddressForm from "../billing-address-form"
-import ErrorMessage from "../error-message"
-import { SubmitButton } from "../submit-button"
-import { ApprovalStatusType } from "@starter/types/approval"
 
 const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
   const searchParams = useSearchParams()

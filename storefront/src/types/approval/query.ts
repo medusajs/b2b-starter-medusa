@@ -1,4 +1,4 @@
-import { B2BCart } from "@starter/types"
+import { B2BCart } from "@/types"
 import {
   ApprovalStatusType,
   ModuleApproval,
