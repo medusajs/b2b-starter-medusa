@@ -5,6 +5,7 @@ import { getBaseURL } from "@/lib/util/env"
 import CartMismatchBanner from "@/modules/layout/components/cart-mismatch-banner"
 import Footer from "@/modules/layout/templates/footer"
 import { NavigationHeader } from "@/modules/layout/templates/nav"
+import WelcomeModal from "@/modules/layout/components/welcome-modal" // <-- Add import
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ArrowUpRightMini, ExclamationCircleSolid } from "@medusajs/icons"
@@ -47,6 +48,8 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       {customer && cart && (
         <CartMismatchBanner customer={customer} cart={cart} />
       )}
+
+      <WelcomeModal /> {/* <-- Add WelcomeModal component */}
 
       {props.children}
 
