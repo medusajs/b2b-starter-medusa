@@ -33,7 +33,7 @@ const Hero = () => {
           </p>
         </span>
         <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
+          href="https://github.com/medusajs/b2b-starter-medusa"
           target="_blank"
         >
           <Button variant="secondary" className="rounded-2xl">
