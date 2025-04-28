@@ -1,3 +1,5 @@
+"use client"
+
 import { createQuote } from "@/lib/data/quotes"
 import { XCircle } from "@medusajs/icons"
 import { toast } from "@medusajs/ui"
@@ -12,6 +14,7 @@ export const RequestQuoteConfirmation = ({
   children: React.ReactNode
 }) => {
   const [requesting, setRequesting] = useState(false)
+  const [open, setOpen] = useState(false)
   const { countryCode } = useParams()
   const router = useRouter()
 
@@ -26,10 +29,13 @@ export const RequestQuoteConfirmation = ({
       setRequesting(false)
       toast.error("Failed to create quote request")
     }
+
+    setOpen(false)
+    setRequesting(false)
   }
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
 
       <Dialog.Portal>
