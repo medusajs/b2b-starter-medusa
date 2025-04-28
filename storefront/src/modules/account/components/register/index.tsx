@@ -8,22 +8,95 @@ import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Input from "@/modules/common/components/input"
 import { HttpTypes } from "@medusajs/types"
 import { Checkbox, Label, Select, Text } from "@medusajs/ui"
-import { useActionState, useState } from "react"
+import { ChangeEvent, useActionState, useState } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
   regions: HttpTypes.StoreRegion[]
 }
 
+interface FormData {
+  email: string
+  first_name: string
+  last_name: string
+  company_name: string
+  password: string
+  company_address: string
+  company_city: string
+  company_state: string
+  company_zip: string
+  company_country: string
+  currency_code: string
+}
+
+const initialFormData: FormData = {
+  email: "",
+  first_name: "",
+  last_name: "",
+  company_name: "",
+  password: "",
+  company_address: "",
+  company_city: "",
+  company_state: "",
+  company_zip: "",
+  company_country: "",
+  currency_code: "",
+}
+
+const placeholder = ({
+  placeholder,
+  required,
+}: {
+  placeholder: string
+  required: boolean
+}) => {
+  return (
+    <span className="text-ui-fg-muted">
+      {placeholder}
+      {required && <span className="text-ui-fg-error">*</span>}
+    </span>
+  )
+}
+
 const Register = ({ setCurrentView, regions }: Props) => {
   const [message, formAction] = useActionState(signup, null)
   const [termsAccepted, setTermsAccepted] = useState(false)
+  const [formData, setFormData] = useState<FormData>(initialFormData)
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSelectChange = (name: keyof FormData) => (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const isValid =
+    termsAccepted &&
+    !!formData.email &&
+    !!formData.first_name &&
+    !!formData.last_name &&
+    !!formData.company_name &&
+    !!formData.password &&
+    !!formData.company_address &&
+    !!formData.company_city &&
+    !!formData.company_zip &&
+    !!formData.company_country &&
+    !!formData.currency_code
 
   const countryNames = regions
-    .map((region) =>
+    .flatMap((region) =>
       region.countries?.map((country) => country?.display_name || country?.name)
     )
-    .flat()
     .filter((country) => country !== undefined)
 
   const currencies = regions.map((region) => region.currency_code)
@@ -48,6 +121,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="email"
             data-testid="email-input"
             className="bg-white"
+            value={formData.email}
+            onChange={handleChange}
           />
           <Input
             label="First name"
@@ -56,6 +131,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="given-name"
             data-testid="first-name-input"
             className="bg-white"
+            value={formData.first_name}
+            onChange={handleChange}
           />
           <Input
             label="Last name"
@@ -64,6 +141,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="family-name"
             data-testid="last-name-input"
             className="bg-white"
+            value={formData.last_name}
+            onChange={handleChange}
           />
           <Input
             label="Company name"
@@ -72,6 +151,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="organization"
             data-testid="company-name-input"
             className="bg-white"
+            value={formData.company_name}
+            onChange={handleChange}
           />
           <Input
             label="Password"
@@ -81,6 +162,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="new-password"
             data-testid="password-input"
             className="bg-white"
+            value={formData.password}
+            onChange={handleChange}
           />
           <Input
             label="Company address"
@@ -89,6 +172,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="address"
             data-testid="company-address-input"
             className="bg-white"
+            value={formData.company_address}
+            onChange={handleChange}
           />
           <Input
             label="Company city"
@@ -97,6 +182,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="city"
             data-testid="company-city-input"
             className="bg-white"
+            value={formData.company_city}
+            onChange={handleChange}
           />
           <Input
             label="Company state"
@@ -104,6 +191,8 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="state"
             data-testid="company-state-input"
             className="bg-white"
+            value={formData.company_state}
+            onChange={handleChange}
           />
           <Input
             label="Company zip"
@@ -112,15 +201,24 @@ const Register = ({ setCurrentView, regions }: Props) => {
             autoComplete="postal-code"
             data-testid="company-zip-input"
             className="bg-white"
+            value={formData.company_zip}
+            onChange={handleChange}
           />
           <Select
             name="company_country"
             required
             autoComplete="country"
             data-testid="company-country-input"
+            value={formData.company_country}
+            onValueChange={handleSelectChange("company_country")}
           >
             <Select.Trigger className="rounded-full h-10 px-4">
-              <Select.Value placeholder="Select a country" />
+              <Select.Value
+                placeholder={placeholder({
+                  placeholder: "Select a country",
+                  required: true,
+                })}
+              />
             </Select.Trigger>
             <Select.Content>
               {countryNames?.map((country) => (
@@ -135,9 +233,16 @@ const Register = ({ setCurrentView, regions }: Props) => {
             required
             autoComplete="currency"
             data-testid="company-currency-input"
+            value={formData.currency_code}
+            onValueChange={handleSelectChange("currency_code")}
           >
             <Select.Trigger className="rounded-full h-10 px-4">
-              <Select.Value placeholder="Select a currency" />
+              <Select.Value
+                placeholder={placeholder({
+                  placeholder: "Select a currency",
+                  required: true,
+                })}
+              />
             </Select.Trigger>
             <Select.Content>
               {[...new Set(currencies)].map((currency) => (
@@ -170,7 +275,7 @@ const Register = ({ setCurrentView, regions }: Props) => {
         <SubmitButton
           className="w-full mt-6"
           data-testid="register-button"
-          disabled={!termsAccepted}
+          disabled={!isValid}
         >
           Register
         </SubmitButton>
