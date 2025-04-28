@@ -101,7 +101,6 @@ const Register = ({ setCurrentView, regions }: Props) => {
           <Input
             label="Company state"
             name="company_state"
-            required
             autoComplete="state"
             data-testid="company-state-input"
             className="bg-white"
