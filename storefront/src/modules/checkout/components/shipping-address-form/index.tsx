@@ -68,11 +68,10 @@ const ShippingAddressForm = ({
   }
 
   useEffect(() => {
-    // Ensure cart is not null and has a shipping_address before setting form data
     if (cart && cart.shipping_address) {
       setFormAddress(cart?.shipping_address)
     }
-  }, [cart]) // Add cart as a dependency
+  }, [cart])
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -150,16 +149,17 @@ const ShippingAddressForm = ({
           data-testid="shipping-address-input"
           colSpan={2}
         />
+        <Input
+          label="Postal code"
+          name="shipping_address.postal_code"
+          autoComplete="postal-code"
+          value={formData["shipping_address.postal_code"]}
+          onChange={handleChange}
+          required
+          data-testid="shipping-postal-code-input"
+          colSpan={2}
+        />
         <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
-          <Input
-            label="Postal code"
-            name="shipping_address.postal_code"
-            autoComplete="postal-code"
-            value={formData["shipping_address.postal_code"]}
-            onChange={handleChange}
-            required
-            data-testid="shipping-postal-code-input"
-          />
           <Input
             label="City"
             name="shipping_address.city"
@@ -175,7 +175,6 @@ const ShippingAddressForm = ({
             autoComplete="address-level1"
             value={formData["shipping_address.province"]}
             onChange={handleChange}
-            required
             data-testid="shipping-province-input"
           />
           <CountrySelect

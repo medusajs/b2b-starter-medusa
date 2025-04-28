@@ -92,16 +92,17 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-address-input"
           colSpan={2}
         />
+        <Input
+          label="Postal code"
+          name="billing_address.postal_code"
+          autoComplete="postal-code"
+          value={formData["billing_address.postal_code"]}
+          onChange={handleChange}
+          required
+          data-testid="billing-postal-code-input"
+          colSpan={2}
+        />
         <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
-          <Input
-            label="Postal code"
-            name="billing_address.postal_code"
-            autoComplete="postal-code"
-            value={formData["billing_address.postal_code"]}
-            onChange={handleChange}
-            required
-            data-testid="billing-postal-code-input"
-          />
           <Input
             label="City"
             name="billing_address.city"
