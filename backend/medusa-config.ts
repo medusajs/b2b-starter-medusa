@@ -17,6 +17,18 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
+  admin: {
+    backendUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000", // URL of your Medusa backend
+    disable: process.env.ADMIN_DISABLED === "true" || false, // Disable admin (useful for worker mode)
+    storefrontUrl: process.env.MEDUSA_STOREFRONT_URL || "http://localhost:8000", // Storefront URL for admin links
+    vite: () => {
+      return {
+        optimizeDeps: {
+          include: ["qs"], // Example: include non-ESM compatible libraries
+        },
+      };
+    },
+  },
   modules: {
     [COMPANY_MODULE]: {
       resolve: "./modules/company",
