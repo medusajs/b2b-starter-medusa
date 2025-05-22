@@ -88,3 +88,4 @@ export default async function CollectionPage(props: Props) {
     />
   )
 }
+export const dynamic = "force-dynamic"

@@ -11,3 +11,4 @@ export default async function AccountPageLayout({
 
   return <>{customer ? dashboard : login}</>
 }
+export const dynamic = "force-dynamic"
