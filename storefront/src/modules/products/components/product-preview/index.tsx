@@ -80,7 +80,7 @@ export default async function ProductPreview({
               </Text>
             </div>
           )}
-          <PreviewAddToCart product={product} region={region} />
+          <PreviewAddToCart product={product} region={region} customer={customer} />
         </div>
       </div>
     </LocalizedClientLink>

@@ -32,11 +32,10 @@ const CartDrawer = ({
     undefined
   )
   const [isOpen, setIsOpen] = useState(false)
+  const { cart } = useCart()
 
   const open = useCallback(() => setIsOpen(true), [])
   const close = useCallback(() => setIsOpen(false), [])
-
-  const { cart } = useCart()
 
   const items = cart?.items || []
   const promotions = cart?.promotions || []
@@ -63,7 +62,6 @@ const CartDrawer = ({
     open()
 
     const timer = setTimeout(close, 5000)
-
     setActiveTimer(timer)
   }, [isOpen, open, close])
 
@@ -93,6 +91,7 @@ const CartDrawer = ({
     ) {
       timedOpen()
     }
+    itemRef.current = totalItems
   }, [totalItems, pathname, timedOpen])
 
   //close cart drawer when navigating to a different page
