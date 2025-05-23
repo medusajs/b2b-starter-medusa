@@ -177,7 +177,7 @@ export function CartProvider({
         })
       })
     },
-    [setOptimisticCart]
+    [setOptimisticCart, cart?.approvals, countryCode]
   )
 
   useEffect(() => {

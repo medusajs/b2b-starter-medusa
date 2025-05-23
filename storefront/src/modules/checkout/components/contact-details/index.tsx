@@ -18,11 +18,21 @@ const ContactDetails = ({
   cart: B2BCart | null
   customer: B2BCustomer | null
 }) => {
-  if (!cart) return null
-
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
+  const [message, formAction] = useActionState(setContactDetails, null)
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams)
+      params.set(name, value)
+      return params.toString()
+    },
+    [searchParams]
+  )
+
+  if (!cart) return null
 
   const isOpen = searchParams.get("step") === "contact-details"
   const isCompleted =
@@ -37,26 +47,13 @@ const ContactDetails = ({
     cart.company?.approval_settings?.requires_sales_manager_approval
 
   const cartApprovalStatus = cart?.approval_status?.status
-
   const customerIsAdmin = customer?.employee?.is_admin || false
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-
-      return params.toString()
-    },
-    [searchParams]
-  )
 
   const handleEdit = () => {
     router.push(pathname + "?" + createQueryString("step", "contact-details"), {
       scroll: false,
     })
   }
-
-  const [message, formAction] = useActionState(setContactDetails, null)
 
   const handleSubmit = (formData: FormData) => {
     formAction(formData)

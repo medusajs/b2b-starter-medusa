@@ -5,15 +5,18 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import Thumbnail from "../thumbnail"
 import PreviewAddToCart from "./preview-add-to-cart"
 import PreviewPrice from "./price"
+import { MinimalCustomerInfo } from "@/types"
 
 export default async function ProductPreview({
   product,
   isFeatured,
   region,
+  customer,
 }: {
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
+  customer: MinimalCustomerInfo | null
 }) {
   if (!product) {
     return null
@@ -24,8 +27,11 @@ export default async function ProductPreview({
   })
 
   const inventoryQuantity = product.variants?.reduce((acc, variant) => {
-    return acc + (variant?.inventory_quantity || 0)
-  }, 0)
+    return acc + (variant.inventory_quantity || 0)
+  }, 0) || 0
+
+  const isLoggedIn = customer?.isLoggedIn ?? false
+  const isApproved = customer?.isApproved ?? false
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
@@ -48,27 +54,32 @@ export default async function ProductPreview({
           </Text>
         </div>
         <div className="flex flex-col gap-0">
-          {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
+          {cheapestPrice && <PreviewPrice price={cheapestPrice} customer={customer} />}
         </div>
         <div className="flex justify-between">
-          <div className="flex flex-row gap-1 items-center">
-            <span
-              className={clx({
-                "text-green-500": inventoryQuantity && inventoryQuantity > 50,
-                "text-orange-500":
-                  inventoryQuantity &&
-                  inventoryQuantity <= 50 &&
-                  inventoryQuantity > 0,
-                "text-red-500": inventoryQuantity === 0,
-              })}
-            >
-              •
-            </span>
-            <Text className="text-neutral-600 text-xs">
-              {inventoryQuantity} left
-            </Text>
-          </div>
+          {isLoggedIn && isApproved ? (
+            <div className="flex flex-row gap-1 items-center">
+              <span
+                className={clx({
+                  "text-green-500": inventoryQuantity > 50,
+                  "text-orange-500": inventoryQuantity <= 50 && inventoryQuantity > 0,
+                  "text-red-500": inventoryQuantity === 0,
+                })}
+              >
+                •
+              </span>
+              <Text className="text-neutral-600 text-xs">
+                {inventoryQuantity} left
+              </Text>
+            </div>
+          ) : (
+            <div className="flex flex-row gap-1 items-center">
+              <span className="text-neutral-400">•</span>
+              <Text className="text-neutral-400 text-xs">
+                {!isLoggedIn ? "Please log in to view stock" : "Contact us for stock"}
+              </Text>
+            </div>
+          )}
           <PreviewAddToCart product={product} region={region} />
         </div>
       </div>

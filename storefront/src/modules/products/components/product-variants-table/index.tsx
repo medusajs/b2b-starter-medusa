@@ -1,18 +1,21 @@
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes, StoreProduct, StoreProductVariant } from "@medusajs/types"
-import { clx, Table } from "@medusajs/ui"
+import { clx, Table, Text } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 import BulkTableQuantity from "../bulk-table-quantity"
+import { B2BCustomer } from "@/types"
 
 const ProductVariantsTable = ({
   product,
   region,
+  customer,
 }: {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
+  customer: B2BCustomer | null
 }) => {
   const [isAdding, setIsAdding] = useState(false)
   const [lineItemsMap, setLineItemsMap] = useState<
@@ -69,6 +72,19 @@ const ProductVariantsTable = ({
     })
 
     setIsAdding(false)
+  }
+
+  const isLoggedIn = !!customer
+  const isApproved = !!customer?.metadata?.approved
+
+  if (!isLoggedIn || !isApproved) {
+    return (
+      <div className="flex flex-col gap-6">
+        <Text className="text-neutral-600 text-sm">
+          {!isLoggedIn ? "Please log in to view pricing" : "Contact us for pricing"}
+        </Text>
+      </div>
+    )
   }
 
   return (

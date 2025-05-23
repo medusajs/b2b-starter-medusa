@@ -34,6 +34,7 @@
     "@mikro-orm/migrations": "6.4.3",
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
+    "medusa-react": "^2.5.1",
     "pg": "^8.13.0",
     "zod": "3.22.4"
   },

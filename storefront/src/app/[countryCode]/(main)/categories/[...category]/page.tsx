@@ -1,7 +1,9 @@
 import { getCategoryByHandle, listCategories } from "@/lib/data/categories"
 import { listRegions } from "@/lib/data/regions"
+import { retrieveCustomer } from "@/lib/data/customer"
 import CategoryTemplate from "@/modules/categories/templates"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
+import { MinimalCustomerInfo } from "@/types"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -68,6 +70,11 @@ export default async function CategoryPage(props: Props) {
   const { sortBy, page } = searchParams
 
   const categories = await listCategories()
+  const customer = await retrieveCustomer()
+  const minimalCustomerInfo: MinimalCustomerInfo = {
+    isLoggedIn: !!customer,
+    isApproved: !!customer?.metadata?.approved,
+  }
 
   const currentCategory = categories.find(
     (category) => category.handle === params.category.join("/")
@@ -84,6 +91,7 @@ export default async function CategoryPage(props: Props) {
       sortBy={sortBy}
       page={page}
       countryCode={params.countryCode}
+      customer={minimalCustomerInfo}
     />
   )
 }

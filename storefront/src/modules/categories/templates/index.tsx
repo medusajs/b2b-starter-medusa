@@ -5,6 +5,7 @@ import SkeletonProductGrid from "@/modules/skeletons/templates/skeleton-product-
 import RefinementList from "@/modules/store/components/refinement-list"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@/modules/store/templates/paginated-products"
+import { MinimalCustomerInfo } from "@/types"
 import { ArrowUturnLeft } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"
@@ -17,12 +18,14 @@ export default function CategoryTemplate({
   sortBy,
   page,
   countryCode,
+  customer,
 }: {
   categories: HttpTypes.StoreProductCategory[]
   currentCategory: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  customer: MinimalCustomerInfo | null
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
@@ -76,6 +79,7 @@ export default function CategoryTemplate({
                   page={pageNumber}
                   categoryId={currentCategory.id}
                   countryCode={countryCode}
+                  customer={customer}
                 />
               </Suspense>
             )}

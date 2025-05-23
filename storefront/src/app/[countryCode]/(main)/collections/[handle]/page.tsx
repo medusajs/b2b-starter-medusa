@@ -1,7 +1,9 @@
 import { getCollectionByHandle, listCollections } from "@/lib/data/collections"
 import { listRegions } from "@/lib/data/regions"
+import { retrieveCustomer } from "@/lib/data/customer"
 import CollectionTemplate from "@/modules/collections/templates"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
+import { MinimalCustomerInfo } from "@/types"
 import { StoreCollection, StoreRegion } from "@medusajs/types"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -74,6 +76,11 @@ export default async function CollectionPage(props: Props) {
   const { sortBy, page } = searchParams
 
   const collection = await getCollectionByHandle(params.handle)
+  const customer = await retrieveCustomer()
+  const minimalCustomerInfo: MinimalCustomerInfo = {
+    isLoggedIn: !!customer,
+    isApproved: !!customer?.metadata?.approved,
+  }
 
   if (!collection) {
     notFound()
@@ -85,6 +92,7 @@ export default async function CollectionPage(props: Props) {
       page={page}
       sortBy={sortBy}
       countryCode={params.countryCode}
+      customer={minimalCustomerInfo}
     />
   )
 }

@@ -30,3 +30,8 @@ export interface B2BCustomer extends HttpTypes.StoreCustomer {
 }
 
 export type FilterType = string | string[] | { [key: string]: any }
+
+export interface MinimalCustomerInfo {
+  isLoggedIn: boolean
+  isApproved: boolean
+}

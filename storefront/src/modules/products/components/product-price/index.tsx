@@ -1,11 +1,14 @@
 import { clx, Text } from "@medusajs/ui"
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
+import { B2BCustomer } from "@/types"
 
 export default function ProductPrice({
   product,
+  customer,
 }: {
   product: HttpTypes.StoreProduct
+  customer: B2BCustomer | null
 }) {
   const { cheapestPrice } = getProductPrice({
     product,
@@ -13,6 +16,19 @@ export default function ProductPrice({
 
   if (!cheapestPrice) {
     return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />
+  }
+
+  const isLoggedIn = !!customer
+  const isApproved = !!customer?.metadata?.approved
+
+  if (!isLoggedIn || !isApproved) {
+    return (
+      <div className="flex flex-col text-neutral-950">
+        <Text className="text-neutral-600 text-sm">
+          {!isLoggedIn ? "Please log in to view pricing" : "Contact us for pricing"}
+        </Text>
+      </div>
+    )
   }
 
   return (
@@ -29,7 +45,6 @@ export default function ProductPrice({
         >
           From {cheapestPrice.calculated_price}
         </Text>
-        <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
       </span>
       {cheapestPrice.price_type === "sale" && (
         <p

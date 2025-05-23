@@ -9,17 +9,20 @@ import { notFound } from "next/navigation"
 import React, { Suspense } from "react"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import ProductFacts from "../components/product-facts"
+import { B2BCustomer } from "@/types"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   countryCode: string
+  customer: B2BCustomer | null
 }
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
   product,
   region,
   countryCode,
+  customer,
 }) => {
   if (!product || !product.id) {
     return notFound()
@@ -35,11 +38,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <div className="flex flex-col bg-neutral-100 w-full gap-6 items-start justify-center small:p-20 p-6 h-full">
           <ProductInfo product={product} />
           <Suspense
-            fallback={<ProductActions product={product} region={region} />}
+            fallback={<ProductActions product={product} region={region} customer={customer} />}
           >
-            <ProductActionsWrapper id={product.id} region={region} />
+            <ProductActionsWrapper id={product.id} region={region} customer={customer} />
           </Suspense>
-          <ProductFacts product={product} />
+          <ProductFacts product={product} customer={customer} />
         </div>
       </div>
       <div className="content-container">

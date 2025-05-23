@@ -16,7 +16,7 @@ import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
 import { Drawer, Text } from "@medusajs/ui"
 import { usePathname } from "next/navigation"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
@@ -33,8 +33,8 @@ const CartDrawer = ({
   )
   const [isOpen, setIsOpen] = useState(false)
 
-  const open = () => setIsOpen(true)
-  const close = () => setIsOpen(false)
+  const open = useCallback(() => setIsOpen(true), [])
+  const close = useCallback(() => setIsOpen(false), [])
 
   const { cart } = useCart()
 
@@ -55,7 +55,7 @@ const CartDrawer = ({
 
   const itemRef = useRef<number>(totalItems || 0)
 
-  const timedOpen = () => {
+  const timedOpen = useCallback(() => {
     if (isOpen) {
       return
     }
@@ -65,7 +65,7 @@ const CartDrawer = ({
     const timer = setTimeout(close, 5000)
 
     setActiveTimer(timer)
-  }
+  }, [isOpen, open, close])
 
   // Clean up the timer when the component unmounts
   useEffect(() => {
@@ -78,11 +78,11 @@ const CartDrawer = ({
 
   const pathname = usePathname()
 
-  const cancelTimer = () => {
+  const cancelTimer = useCallback(() => {
     if (activeTimer) {
       clearTimeout(activeTimer)
     }
-  }
+  }, [activeTimer])
 
   // open cart dropdown when modifying the cart items, but only if we're not on the cart page
   useEffect(() => {
@@ -92,16 +92,14 @@ const CartDrawer = ({
       !pathname.includes("/account")
     ) {
       timedOpen()
-      return
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [totalItems, itemRef.current])
+  }, [totalItems, pathname, timedOpen])
 
   //close cart drawer when navigating to a different page
   useEffect(() => {
     cancelTimer()
     close()
-  }, [pathname])
+  }, [pathname, cancelTimer, close])
 
   const checkoutStep = cart ? getCheckoutStep(cart) : undefined
   const checkoutPath = customer
