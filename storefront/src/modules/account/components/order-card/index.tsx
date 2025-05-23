@@ -43,21 +43,27 @@ const OrderCard = ({ order }: OrderCardProps) => {
                     }
                   )}
                 >
-                  <Image
-                    src={i.thumbnail!}
-                    alt={i.title}
-                    className={clx("h-full w-full object-cover object-center", {
-                      "-rotate-3": index === 0 && numItems > 1,
-                      "rotate-0": index === 0 && numItems === 1,
-                      "rotate-3":
-                        (index === 1 && numItems === 2) ||
-                        (index === 2 && numItems > 2),
-                    })}
-                    draggable={false}
-                    quality={50}
-                    width={20}
-                    height={20}
-                  />
+                  {i.thumbnail ? (
+                    <Image
+                      src={i.thumbnail}
+                      alt={i.title}
+                      className={clx("h-full w-full object-cover object-center", {
+                        "-rotate-3": index === 0 && numItems > 1,
+                        "rotate-0": index === 0 && numItems === 1,
+                        "rotate-3":
+                          (index === 1 && numItems === 2) ||
+                          (index === 2 && numItems > 2),
+                      })}
+                      draggable={false}
+                      quality={50}
+                      width={20}
+                      height={20}
+                    />
+                  ) : (
+                    <div className="h-full w-full flex items-center justify-center text-xs text-neutral-500">
+                      {i.title?.charAt(0)}
+                    </div>
+                  )}
                 </div>
               )
             })}
