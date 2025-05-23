@@ -2,7 +2,7 @@ import { ArrowUturnLeft } from "@medusajs/icons"
 import React from "react"
 
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
+import { Container, Table } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Item from "@/modules/order/components/item"
@@ -34,13 +34,15 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
 
       <div className="small:grid small:grid-cols-6 gap-4 flex flex-col-reverse">
         <div className="small:col-span-4 flex flex-col gap-y-2">
-          {order.items?.map((item) => {
-            return (
-              <Container key={item.id}>
-                <Item item={item} order={order} />
-              </Container>
-            )
-          })}
+          <Container>
+            <Table>
+              <Table.Body>
+                {order.items?.map((item) => (
+                  <Item key={item.id} item={item} order={order} />
+                ))}
+              </Table.Body>
+            </Table>
+          </Container>
 
           <Container>
             <OrderSummary order={order} />

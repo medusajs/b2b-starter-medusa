@@ -15,9 +15,9 @@ const ProfileCard = ({ customer }: { customer: B2BCustomer }) => {
   const { first_name, last_name, phone } = customer
 
   const [customerData, setCustomerData] = useState({
-    first_name,
-    last_name,
-    phone,
+    first_name: first_name || "",
+    last_name: last_name || "",
+    phone: phone || "",
   } as HttpTypes.StoreUpdateCustomer)
 
   const handleSave = async () => {
