@@ -2,41 +2,36 @@ import type { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/frame
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { z } from "zod";
 
-const CustomerAnalyticsQuerySchema = z.object({
+const GrowthAnalyticsQuerySchema = z.object({
   start_date: z.string(),
   end_date: z.string(),
-  customer_id: z.string()
 });
 
 export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
     // Validate query parameters
-    const result = CustomerAnalyticsQuerySchema.safeParse(req.query);
+    const result = GrowthAnalyticsQuerySchema.safeParse(req.query);
     if (!result.success) {
-      return res.status(400).json({ message: "Start date, end date, and customer ID are required" });
+      return res.status(400).json({ message: "Start date and end date are required" });
     }
 
-    const { start_date, end_date, customer_id } = result.data;
+    const { start_date, end_date } = result.data;
 
     // Get the query service from the request scope
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
 
-    // Get all orders for the customer
+    // Get all orders
     const { data: orders } = await query.graph({
       entity: "order",
       fields: [
         "created_at",
         "total",
-        "status",
-        "customer_id"
+        "status"
       ]
     });
 
-    // Filter orders for the specific customer
-    const customerOrders = orders.filter((order: any) => order.customer_id === customer_id);
-
     // Filter out canceled orders
-    const validOrders = customerOrders.filter((order: any) => order.status !== "canceled");
+    const validOrders = orders.filter((order: any) => order.status !== "canceled");
 
     const now = new Date();
 
@@ -51,7 +46,7 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       }, 0);
     };
 
-    // Periods for tiles (fixed time periods regardless of chart time frame)
+    // Fixed time periods for tiles (regardless of chart time frame)
     const periods = {
       oneWeek: {
         current: { 
@@ -144,8 +139,8 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     };
 
     // Filter orders for chart based on selected time frame
-    const chartStartDate = new Date(String(start_date));
-    const chartEndDate = new Date(String(end_date));
+    const chartStartDate = new Date(start_date);
+    const chartEndDate = new Date(end_date);
     const chartOrders = validOrders.filter((order: any) => {
       const orderDate = new Date(order.created_at);
       return orderDate >= chartStartDate && orderDate <= chartEndDate;
@@ -195,7 +190,6 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       }
     });
   } catch (error) {
-    console.error("Error in customer analytics API:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 }; 
