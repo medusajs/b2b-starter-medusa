@@ -20,30 +20,38 @@ import {
 } from "./cookies"
 
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
-  const authHeaders = await getAuthHeaders()
+  try {
+    const authHeaders = await getAuthHeaders()
 
-  if (!authHeaders) return null
+    if (!authHeaders) {
+      console.log("No auth headers found")
+      return null
+    }
 
-  const headers = {
-    ...authHeaders,
+    const headers = {
+      ...authHeaders,
+    }
+
+    const next = {
+      ...(await getCacheOptions("customers")),
+    }
+
+    const response = await sdk.client
+      .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
+        method: "GET",
+        query: {
+          fields: "*employee, *orders",
+        },
+        headers,
+        next,
+        cache: "no-store",
+      })
+
+    return response.customer as B2BCustomer
+  } catch (error) {
+    console.error("Error retrieving customer:", error)
+    return null
   }
-
-  const next = {
-    ...(await getCacheOptions("customers")),
-  }
-
-  return await sdk.client
-    .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
-      method: "GET",
-      query: {
-        fields: "*employee, *orders",
-      },
-      headers,
-      next,
-      cache: "no-store",
-    })
-    .then(({ customer }) => customer as B2BCustomer)
-    .catch(() => null)
 }
 
 export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {

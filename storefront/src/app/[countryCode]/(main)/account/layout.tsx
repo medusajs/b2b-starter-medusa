@@ -1,4 +1,5 @@
 import { retrieveCustomer } from "@/lib/data/customer"
+import { redirect } from "next/navigation"
 
 export default async function AccountPageLayout({
   dashboard,
@@ -7,8 +8,12 @@ export default async function AccountPageLayout({
   dashboard?: React.ReactNode
   login?: React.ReactNode
 }) {
-  const customer = await retrieveCustomer().catch(() => null)
-
-  return <>{customer ? dashboard : login}</>
+  try {
+    const customer = await retrieveCustomer()
+    return <>{customer ? dashboard : login}</>
+  } catch (error) {
+    console.error("Error in account layout:", error)
+    return <>{login}</>
+  }
 }
 export const dynamic = "force-dynamic"
