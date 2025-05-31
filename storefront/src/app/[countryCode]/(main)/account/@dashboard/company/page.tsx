@@ -24,7 +24,7 @@ export default async function Company() {
         </Heading>
         <CompanyCard company={company} regions={regions} />
       </div>
-      <div className="mb-8 flex flex-col gap-y-4">
+      {/* <div className="mb-8 flex flex-col gap-y-4">
         <Heading level="h2" className="text-lg text-neutral-950">
           Approval Settings
         </Heading>
@@ -41,7 +41,7 @@ export default async function Company() {
           Invite Employees
         </Heading>
         <InviteEmployeeCard company={company} />
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -26,20 +26,11 @@ const ProductFacts = ({
   return (
     <div className="flex flex-col gap-y-2 w-full">
       {isLoggedIn && isApproved ? (
-        inventoryQuantity > 10 ? (
-          <span className="flex items-center gap-x-2 text-neutral-600 text-sm">
-            <CheckCircleSolid className="text-green-500" /> Can be shipped
-            immediately ({inventoryQuantity} in stock)
-          </span>
-        ) : (
-          <span className="flex items-center gap-x-2 text-neutral-600 text-sm ">
-            <ExclamationCircleSolid className="text-orange-500" />
-            Limited quantity available ({inventoryQuantity} in stock)
-          </span>
-        )
+        <span className="flex items-center gap-x-2 text-neutral-600 text-sm">
+          {inventoryQuantity < 100 ? `< 100` : `100+`} in stock
+        </span>
       ) : (
         <span className="flex items-center gap-x-2 text-neutral-600 text-sm">
-          <ExclamationCircleSolid className="text-neutral-400" />
           {!isLoggedIn ? "Please log in to view stock" : "Contact us for stock"}
         </span>
       )}

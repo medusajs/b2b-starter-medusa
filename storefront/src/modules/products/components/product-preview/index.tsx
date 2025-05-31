@@ -48,8 +48,8 @@ export default async function ProductPreview({
           />
         </div>
         <div className="flex flex-col txt-compact-medium">
-          <Text className="text-neutral-600 text-xs">BRAND</Text>
-          <Text className="text-ui-fg-base" data-testid="product-title">
+          <Text className="text-neutral-600 text-xs">SKU: {product.handle}</Text>
+          <Text className="text-ui-fg-base font-medium" data-testid="product-title">
             {product.title}
           </Text>
         </div>
@@ -59,22 +59,12 @@ export default async function ProductPreview({
         <div className="flex justify-between">
           {isLoggedIn && isApproved ? (
             <div className="flex flex-row gap-1 items-center">
-              <span
-                className={clx({
-                  "text-green-500": inventoryQuantity > 50,
-                  "text-orange-500": inventoryQuantity <= 50 && inventoryQuantity > 0,
-                  "text-red-500": inventoryQuantity === 0,
-                })}
-              >
-                •
-              </span>
               <Text className="text-neutral-600 text-xs">
-                {inventoryQuantity} left
+                {inventoryQuantity < 100 ? `< 100` : `100+`} in stock
               </Text>
             </div>
           ) : (
             <div className="flex flex-row gap-1 items-center">
-              <span className="text-neutral-400">•</span>
               <Text className="text-neutral-400 text-xs">
                 {!isLoggedIn ? "Please log in to view stock" : "Contact us for stock"}
               </Text>

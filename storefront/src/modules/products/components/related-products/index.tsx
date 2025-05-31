@@ -7,11 +7,13 @@ import Product from "../product-preview"
 type RelatedProductsProps = {
   product: HttpTypes.StoreProduct
   countryCode: string
+  customer: any
 }
 
 export default async function RelatedProducts({
   product,
   countryCode,
+  customer,
 }: RelatedProductsProps) {
   const region = await getRegion(countryCode)
 
@@ -57,7 +59,7 @@ export default async function RelatedProducts({
       <ul className="grid grid-cols-1 small:grid-cols-3 medium:grid-cols-4 gap-x-2 gap-y-8">
         {products.map((product) => (
           <li key={product.id}>
-            <Product region={region} product={product} />
+            <Product region={region} product={product} customer={customer} />
           </li>
         ))}
       </ul>

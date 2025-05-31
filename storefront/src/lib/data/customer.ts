@@ -24,7 +24,6 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
     const authHeaders = await getAuthHeaders()
 
     if (!authHeaders) {
-      console.log("No auth headers found")
       return null
     }
 
@@ -49,7 +48,7 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
 
     return response.customer as B2BCustomer
   } catch (error) {
-    console.error("Error retrieving customer:", error)
+    // Silently handle unauthorized errors
     return null
   }
 }

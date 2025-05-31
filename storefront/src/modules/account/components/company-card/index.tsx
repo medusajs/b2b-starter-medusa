@@ -178,7 +178,7 @@ const CompanyCard = ({
               ))}
             </Select>
           </div>
-          <div className="flex flex-col gap-y-2">
+          {/* <div className="flex flex-col gap-y-2">
             <Text className="font-medium text-neutral-950">
               Spending Limit Reset Frequency
             </Text>
@@ -201,7 +201,7 @@ const CompanyCard = ({
                 )
               )}
             </Select>
-          </div>
+          </div> */}
         </form>
         <div
           className={clx(
@@ -238,7 +238,7 @@ const CompanyCard = ({
               {currencySymbolMap[company.currency_code!]})
             </Text>
           </div>
-          <div className="flex flex-col gap-y-2">
+          {/* <div className="flex flex-col gap-y-2">
             <Text className="font-medium text-neutral-950">
               Spending Limit Reset Frequency
             </Text>
@@ -246,7 +246,7 @@ const CompanyCard = ({
               {company.spending_limit_reset_frequency?.charAt(0).toUpperCase() +
                 company.spending_limit_reset_frequency?.slice(1)}
             </Text>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex items-center justify-end gap-2 bg-neutral-50 p-4">

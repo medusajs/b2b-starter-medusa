@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light" className={GeistSans.variable}>
-      <body>
+      <body className="font-sans">
         <main className="relative">{props.children}</main>
         <Toaster className="z-[99999]" position="bottom-left" />
         <Analytics />

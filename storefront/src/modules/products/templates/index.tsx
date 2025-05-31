@@ -28,6 +28,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
     return notFound()
   }
 
+  const minimalCustomer = customer
+    ? {
+        isLoggedIn: true,
+        isApproved: !!customer.metadata?.approved,
+      }
+    : { isLoggedIn: false, isApproved: false }
+
   return (
     <div className="flex flex-col gap-y-2 my-2">
       <div
@@ -53,7 +60,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>
-          <RelatedProducts product={product} countryCode={countryCode} />
+          <RelatedProducts product={product} countryCode={countryCode} customer={minimalCustomer} />
         </Suspense>
       </div>
     </div>
