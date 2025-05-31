@@ -45,9 +45,9 @@ export default async function Home({ params: { countryCode } }: { params: { coun
           <span aria-hidden="true" className="text-xl">↗</span>
         </LocalizedClientLink>
       </div>
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <FeaturedProducts countryCode={countryCode} />
-      </Suspense>
+      </Suspense> */}
     </div>
   )
 }

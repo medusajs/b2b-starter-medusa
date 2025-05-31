@@ -4,6 +4,7 @@ import { Text } from "@medusajs/ui"
 
 import InteractiveLink from "@/modules/common/components/interactive-link"
 import ProductPreview from "@/modules/products/components/product-preview"
+import { retrieveCustomer } from "@/lib/data/customer"
 
 export default async function ProductRail({
   collection,
@@ -13,6 +14,12 @@ export default async function ProductRail({
   region: HttpTypes.StoreRegion
 }) {
   const { products } = collection
+  const customer = await retrieveCustomer()
+  const minimalCustomer = customer ? {
+    ...customer,
+    isLoggedIn: true,
+    isApproved: !!customer.metadata?.approved
+  } : null
 
   if (!products) {
     return null
@@ -35,7 +42,7 @@ export default async function ProductRail({
         {productsWithPrices &&
           productsWithPrices.map((product) => (
             <li key={product.id}>
-              <ProductPreview product={product} region={region} isFeatured />
+              <ProductPreview product={product} region={region} isFeatured customer={minimalCustomer} />
             </li>
           ))}
       </ul>
