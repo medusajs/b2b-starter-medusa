@@ -41,7 +41,7 @@ module.exports = defineConfig({
     [Modules.WORKFLOW_ENGINE]: {
       resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        url: process.env.REDIS_URL,
       },
     },
     [Modules.EVENT_BUS]: {
