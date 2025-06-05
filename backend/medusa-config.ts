@@ -55,7 +55,9 @@ if (!isDevelopment && config.projectConfig) {
   config.modules ? config.modules[Modules.WORKFLOW_ENGINE] = {
     resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        redis: {
+          url: process.env.REDIS_URL,
+        }
       },
   } : undefined;
   config.modules ? config.modules[Modules.EVENT_BUS] = {
