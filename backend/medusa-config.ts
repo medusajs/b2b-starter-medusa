@@ -15,6 +15,11 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
+    workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
+    redisUrl: process.env.REDIS_URL,
+  },
+  admin: {
+    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
   },
   modules: {
     [COMPANY_MODULE]: {
@@ -27,10 +32,13 @@ module.exports = defineConfig({
       resolve: "./modules/approval",
     },
     [Modules.CACHE]: {
-      resolve: "@medusajs/medusa/cache-inmemory",
+      resolve: "@medusajs/medusa/cache-redis",
     },
     [Modules.WORKFLOW_ENGINE]: {
-      resolve: "@medusajs/medusa/workflow-engine-inmemory",
+      resolve: "@medusajs/medusa/workflow-engine-redis",
+    },
+    [Modules.EVENT_BUS]: {
+      resolve: "@medusajs/medusa/event-bus-redis",
     },
   },
 });
