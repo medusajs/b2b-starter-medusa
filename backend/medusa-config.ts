@@ -34,12 +34,21 @@ module.exports = defineConfig({
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
     },
     [Modules.WORKFLOW_ENGINE]: {
       resolve: "@medusajs/medusa/workflow-engine-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
     },
     [Modules.EVENT_BUS]: {
       resolve: "@medusajs/medusa/event-bus-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
     },
   },
 });
