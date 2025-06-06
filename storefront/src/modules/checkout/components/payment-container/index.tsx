@@ -11,6 +11,7 @@ type PaymentContainerProps = {
   selectedPaymentOptionId: string | null
   disabled?: boolean
   paymentInfoMap: Record<string, { title: string; icon: JSX.Element }>
+  paymentProviderTitle: string
 }
 
 const PaymentContainer: React.FC<PaymentContainerProps> = ({
@@ -18,6 +19,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   selectedPaymentOptionId,
   paymentInfoMap,
   disabled = false,
+  paymentProviderTitle
 }) => {
   const isDevelopment = process.env.NODE_ENV === "development"
 
@@ -39,7 +41,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           <div className="flex items-center gap-x-4">
             <Radio checked={selectedPaymentOptionId === paymentProviderId} />
             <Text className="text-base-regular">
-              {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
+              {paymentProviderTitle}
             </Text>
             {isManual(paymentProviderId) && isDevelopment && (
               <PaymentTest className="hidden small:block" />

@@ -34,6 +34,12 @@ export enum ApprovalStatusType {
   REJECTED = "rejected",
 }
 
+export enum FulfillmentStatusType {
+  NOT_FULFILLED = "not_fulfilled",
+  FULFILLED = "fulfilled",
+  PARTIALLY_FULFILLED = "partially_fulfilled",
+}
+
 export type ModuleApproval = {
   id: string;
   cart_id: string;

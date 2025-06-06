@@ -1,13 +1,13 @@
 "use client"
 
 import { isStripe as isStripeFunc, paymentInfoMap } from "@/lib/constants"
-import { initiatePaymentSession } from "@/lib/data/cart"
+import { initiatePaymentSession, placeOrder } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import PaymentContainer from "@/modules/checkout/components/payment-container"
 import { StripeContext } from "@/modules/checkout/components/payment-wrapper"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
-import { ApprovalStatusType } from "@/types"
+import { ApprovalStatusType, B2BCart } from "@/types"
 import { RadioGroup } from "@headlessui/react"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
 import { Container, Heading, Text, clx } from "@medusajs/ui"
@@ -15,6 +15,9 @@ import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useContext, useEffect, useMemo, useState } from "react"
+import { paymentMethods } from '../../../../lib/data/payment-method-static';
+
+
 
 const Payment = ({
   cart,
@@ -32,8 +35,9 @@ const Payment = ({
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
-    activeSession?.provider_id ?? ""
-  )
+    paymentMethods[0].id)
+  const [submitting, setSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -51,22 +55,22 @@ const Payment = ({
   const paymentReady =
     (activeSession && cart?.shipping_methods.length !== 0) || paidByGiftcard
 
-  const useOptions: StripeCardElementOptions = useMemo(() => {
-    return {
-      style: {
-        base: {
-          fontFamily: "Inter, sans-serif",
-          color: "#424270",
-          "::placeholder": {
-            color: "rgb(107 114 128)",
-          },
-        },
-      },
-      classes: {
-        base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out",
-      },
-    }
-  }, [])
+  // const useOptions: StripeCardElementOptions = useMemo(() => {
+  //   return {
+  //     style: {
+  //       base: {
+  //         fontFamily: "Inter, sans-serif",
+  //         color: "#424270",
+  //         "::placeholder": {
+  //           color: "rgb(107 114 128)",
+  //         },
+  //       },
+  //     },
+  //     classes: {
+  //       base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out",
+  //     },
+  //   }
+  // }, [])
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -83,6 +87,39 @@ const Payment = ({
       scroll: false,
     })
   }
+
+  const completeCart = async (cart: B2BCart) => {
+    await initiatePaymentSession(cart, {
+      provider_id: availablePaymentMethods[0].id,
+    })
+
+    const response = await placeOrder(cart.id, selectedPaymentMethod).catch((err) => {
+      if (!err.message.includes("NEXT_REDIRECT")) {
+        throw new Error(err)
+      }
+    })
+  
+    if (response?.type === "cart") {
+      throw new Error(response.error.message)
+    }
+  }
+
+  const onPaymentCompleted = async () => {
+    await completeCart(cart)
+      .catch((err) => {
+        setErrorMessage(err.message)
+      })
+      .finally(() => {
+        setSubmitting(false)
+      })
+  }
+
+  const handlePayment = () => {
+    setSubmitting(true)
+
+    onPaymentCompleted()
+  }
+
 
   const handleSubmit = async () => {
     setIsLoading(true)
@@ -150,7 +187,7 @@ const Payment = ({
       </div>
       <div>
         <div className={isOpen ? "block" : "hidden"}>
-          {!paidByGiftcard && availablePaymentMethods?.length && (
+          {/* {!paidByGiftcard && availablePaymentMethods?.length && (
             <>
               <RadioGroup
                 value={selectedPaymentMethod}
@@ -191,7 +228,25 @@ const Payment = ({
                 </div>
               )}
             </>
-          )}
+          )} */}
+
+          <RadioGroup value={selectedPaymentMethod}
+                onChange={(value: string) => setSelectedPaymentMethod(value)}>
+                {
+              paymentMethods.map((paymentMethod) => {
+                return (
+                  <PaymentContainer
+                    paymentInfoMap={paymentInfoMap}
+                    paymentProviderId={paymentMethod.id}
+                    paymentProviderTitle={paymentMethod.name}
+                    key={paymentMethod.id}
+                    selectedPaymentOptionId={selectedPaymentMethod}
+                  />
+                )
+              })
+              } 
+          </RadioGroup>
+
 
           {paidByGiftcard && (
             <div className="flex flex-col w-1/3">
@@ -210,7 +265,7 @@ const Payment = ({
               data-testid="payment-method-error-message"
             />
 
-            <Button
+            {/* <Button
               size="large"
               className="mt-6"
               onClick={handleSubmit}
@@ -225,11 +280,25 @@ const Payment = ({
               {!activeSession && isStripeFunc(selectedPaymentMethod)
                 ? " Enter card details"
                 : "Next step"}
-            </Button>
+            </Button> */}
+            <Button
+        className="w-min truncate"
+        disabled={submitting}
+        isLoading={submitting}
+        onClick={handlePayment}
+        size="large"
+        data-testid="submit-order-button"
+      >
+        Place order
+      </Button>
+      <ErrorMessage
+        error={errorMessage}
+        data-testid="manual-payment-error-message"
+      />
           </div>
         </div>
 
-        <div className={isOpen ? "hidden" : "block"}>
+        {/* <div className={isOpen ? "hidden" : "block"}>
           {cart && paymentReady && activeSession ? (
             <div className="flex items-center gap-x-1 w-full pt-2">
               <div className="flex flex-col w-1/3">
@@ -272,7 +341,7 @@ const Payment = ({
               </Text>
             </div>
           ) : null}
-        </div>
+        </div> */}
       </div>
     </Container>
   )

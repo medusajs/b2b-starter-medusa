@@ -1,0 +1,15 @@
+export const provinceData = [
+    { value: "CA-AB", label: "Alberta" },
+    { value: "CA-BC", label: "British Columbia" },
+    { value: "CA-MB", label: "Manitoba" },
+    { value: "CA-NB", label: "New Brunswick" },
+    { value: "CA-PE", label: "Prince Edward Island" },
+    { value: "CA-QC", label: "Quebec" },
+    { value: "CA-SK", label: "Saskatchewan" },
+    { value: "CA-ON", label: "Ontario" },
+    { value: "CA-NS", label: "Nova Scotia" },
+    { value: "CA-NL", label: "Newfoundland and Labrador" },
+    { value: "CA-YT", label: "Yukon" },
+    { value: "CA-NT", label: "Northwest Territories" },
+    { value: "CA-NU", label: "Nunavut" },
+  ];
