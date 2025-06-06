@@ -6,6 +6,9 @@ import { HttpTypes } from "@medusajs/types"
 import { Container } from "@medusajs/ui"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
+import ProvinceSelect from "../province-select"
+import { provinceData } from "@/lib/data/province-static"
+
 
 const ShippingAddressForm = ({
   customer,
@@ -169,13 +172,22 @@ const ShippingAddressForm = ({
             required
             data-testid="shipping-city-input"
           />
-          <Input
+          {/* <Input
             label="Province"
             name="shipping_address.province"
             autoComplete="address-level1"
             value={formData["shipping_address.province"]}
             onChange={handleChange}
             data-testid="shipping-province-input"
+          /> */}
+          <ProvinceSelect
+            className="col-span-2"
+            name="shipping_address.province"
+            autoComplete="address-level1"
+            province={provinceData}
+            value={formData["shipping_address.province"]}
+            onChange={handleChange}
+            data-testid="shipping-province-select"
           />
           <CountrySelect
             className="col-span-2"

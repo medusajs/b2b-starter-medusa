@@ -42,7 +42,7 @@ const Review = ({
           </LocalizedClientLink>
         </Text>
       </div>
-      {spendLimitExceeded ? (
+      {/* {spendLimitExceeded ? (
         <>
           <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
             <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
@@ -58,7 +58,7 @@ const Review = ({
         </>
       ) : (
         <PaymentButton cart={cart} data-testid="submit-order-button" />
-      )}
+      )} */}
     </div>
   )
 }

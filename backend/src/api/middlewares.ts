@@ -6,6 +6,8 @@ import {
 import { defineMiddlewares } from "@medusajs/medusa";
 import { adminMiddlewares } from "./admin/middlewares";
 import { storeMiddlewares } from "./store/middlewares";
+import { z } from "zod";
+
 
 export default defineMiddlewares({
   routes: [
@@ -20,6 +22,13 @@ export default defineMiddlewares({
           next();
         },
       ],
+    },
+    {
+      matcher: "/admin/orders/{id}/fulfillments",
+      method: "POST",
+      additionalDataValidator: {
+        shipping_amount: z.string().optional(),
+      },
     },
   ],
 });

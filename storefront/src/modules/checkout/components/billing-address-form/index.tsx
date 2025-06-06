@@ -2,6 +2,8 @@ import CountrySelect from "@/modules/checkout/components/country-select"
 import Input from "@/modules/common/components/input"
 import { B2BCart } from "@/types"
 import React, { useEffect, useState } from "react"
+import ProvinceSelect from "../province-select"
+import { provinceData } from "@/lib/data/province-static"
 
 const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
   const [formData, setFormData] = useState<Record<string, any>>({
@@ -112,14 +114,14 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
             required
             data-testid="billing-city-input"
           />
-          <Input
-            label="Province"
+          <ProvinceSelect
+            className="col-span-2"
             name="billing_address.province"
             autoComplete="address-level1"
+            province={provinceData}
             value={formData["billing_address.province"]}
             onChange={handleChange}
-            required
-            data-testid="billing-province-input"
+            data-testid="billing-province-select"
           />
           <CountrySelect
             name="billing_address.country_code"

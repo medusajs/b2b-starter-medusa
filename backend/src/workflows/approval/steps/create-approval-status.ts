@@ -10,7 +10,6 @@ export const createApprovalStatusStep = createStep(
     const approvalModuleService =
       container.resolve<IApprovalModuleService>(APPROVAL_MODULE);
 
-    console.log("cartIds", cartIds);
     const {
       data: [existingApprovalStatus],
     } = await query.graph({

@@ -300,8 +300,19 @@ export async function initiatePaymentSession(
     ...(await getAuthHeaders()),
   }
 
+  console.log({ cart, data })
+
   return sdk.store.payment
-    .initiatePaymentSession(cart, data, {}, headers)
+    .initiatePaymentSession(
+      cart,
+      data,
+      {
+        metadata: {
+          payment_mode: "cheque",
+        },
+      },
+      headers
+    )
     .then(async (resp) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
@@ -471,7 +482,8 @@ export async function setContactDetails(
 }
 
 export async function placeOrder(
-  cartId?: string
+  cartId?: string,
+  payment_mode: string
 ): Promise<HttpTypes.StoreCompleteCartResponse> {
   const id = cartId || (await getCartId())
 
@@ -479,13 +491,15 @@ export async function placeOrder(
     throw new Error("No existing cart found when placing an order")
   }
 
-  const headers = {
+  const headers: any = {
     ...(await getAuthHeaders()),
   }
 
   const cartsTag = await getCacheTag("carts")
   const ordersTag = await getCacheTag("orders")
   const approvalsTag = await getCacheTag("approvals")
+
+  await updateCart({ metadata: { payment_mode } })
 
   const response = await sdk.store.cart
     .complete(id, {}, headers)
