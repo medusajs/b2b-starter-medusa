@@ -11,7 +11,7 @@ const Button = ({
   const className = clx(classNameProp, {
     "!shadow-borders-base !border-none":
       variant === "secondary" || props.disabled,
-    "!shadow-none bg-neutral-900 text-white":
+    "!shadow-none bg-secondary text-white":
       variant === "primary" && !props.disabled,
     "!shadow-none bg-transparent text-neutral-900": variant === "transparent",
   })

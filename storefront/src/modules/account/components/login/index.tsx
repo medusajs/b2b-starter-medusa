@@ -3,6 +3,7 @@ import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import Input from "@/modules/common/components/input"
+import Button from "@/modules/common/components/button"
 import { Checkbox, Text } from "@medusajs/ui"
 import { useActionState } from "react"
 
@@ -48,9 +49,17 @@ const Login = ({ setCurrentView }: Props) => {
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
         <div className="flex flex-col gap-2">
-          <SubmitButton data-testid="sign-in-button" className="w-full mt-6 bg-primary-900">
+          <SubmitButton data-testid="sign-in-button" className="w-full mt-6" variant="primary">
             Log in
           </SubmitButton>
+          <Button
+            variant="secondary"
+            onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+            className="w-full h-10"
+            data-testid="register-button"
+          >
+            Register
+          </Button>
         </div>
       </form>
     </div>
