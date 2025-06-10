@@ -57,12 +57,6 @@ const LineItemPrice = ({
             )}
           </>
         )}
-        <span className="text-base-regular" data-testid="product-price">
-          {convertToLocale({
-            amount: currentPrice,
-            currency_code: currencyCode ?? "eur",
-          })}
-        </span>
       </span>
     </Text>
   )

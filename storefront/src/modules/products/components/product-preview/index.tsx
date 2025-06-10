@@ -33,7 +33,7 @@ export default async function ProductPreview({
         data-testid="product-wrapper"
         className="flex flex-col gap-4 relative aspect-[3/5] w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
       >
-        <div className="w-full h-full p-10">
+        <div className="w-full h-full p-2">
           <Thumbnail
             thumbnail={product.thumbnail}
             images={product.images}
@@ -46,10 +46,6 @@ export default async function ProductPreview({
           <Text className="text-ui-fg-base" data-testid="product-title">
             {product.title}
           </Text>
-        </div>
-        <div className="flex flex-col gap-0">
-          {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          <Text className="text-neutral-600 text-[0.6rem]">Excl. VAT</Text>
         </div>
         <div className="flex justify-between">
           <div className="flex flex-row gap-1 items-center">

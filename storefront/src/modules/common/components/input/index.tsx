@@ -59,7 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             placeholder=" "
             required={required}
             className={clx(
-              "pt-4 pb-1 block w-full h-9 px-4 mt-0 bg-ui-bg-field rounded-full appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active shadow-borders-base hover:bg-ui-bg-field-hover",
+              "pt-4 pb-1 block w-full h-9 px-4 mt-0 rounded-none bg-ui-bg-field appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active shadow-borders-base hover:bg-ui-bg-field-hover",
               className
             )}
             {...props}

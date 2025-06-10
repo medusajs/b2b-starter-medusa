@@ -5,6 +5,11 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
 
+// Public routes that don't require authentication
+const publicRoutes = [
+  "account",
+]
+
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
   regionMapUpdated: Date.now(),
@@ -106,9 +111,22 @@ async function setCacheId(request: NextRequest, response: NextResponse) {
 }
 
 /**
- * Middleware to handle region selection and cache id.
+ * Middleware to handle region selection, cache id, and authentication.
  */
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Check if the route is public
+  const isPublicRoute = publicRoutes.some(route => {
+    // Remove country code from pathname for comparison
+    const pathWithoutCountry = pathname.split('/').slice(2).join('/')
+    console.log("pathWithoutCountry", pathWithoutCountry)
+    return pathWithoutCountry.startsWith(route)
+  })
+
+  // Get the session token from cookies
+  const sessionToken = request.cookies.get("_medusa_jwt")?.value
+
   const searchParams = request.nextUrl.searchParams
   const cartId = searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
@@ -116,18 +134,24 @@ export async function middleware(request: NextRequest) {
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
 
   let redirectUrl = request.nextUrl.href
-
   let response = NextResponse.redirect(redirectUrl, 307)
 
   // Set a cache id to invalidate the cache for this instance only
   const cacheId = await setCacheId(request, response)
 
   const regionMap = await getRegionMap(cacheId)
-
   const countryCode = regionMap && (await getCountryCode(request, regionMap))
 
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
+
+  // If not a public route and no session token, redirect to login
+  if (!isPublicRoute && !sessionToken) {
+    // Get the country code from the current URL
+    const loginUrl = new URL(`/${countryCode}/account`, request.url)
+    loginUrl.searchParams.set("redirect", pathname)
+    return NextResponse.redirect(loginUrl)
+  }
 
   // check if one of the country codes is in the url
   if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {

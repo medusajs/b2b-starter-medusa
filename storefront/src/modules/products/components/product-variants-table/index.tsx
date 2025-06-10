@@ -88,9 +88,6 @@ const ProductVariantsTable = ({
                   </Table.HeaderCell>
                 )
               })}
-              <Table.HeaderCell className="px-4 border-x">
-                Price
-              </Table.HeaderCell>
               <Table.HeaderCell className="px-4">Quantity</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -119,9 +116,6 @@ const ProductVariantsTable = ({
                       </Table.Cell>
                     )
                   })}
-                  <Table.Cell className="px-4 border-x">
-                    {variantPrice?.calculated_price}
-                  </Table.Cell>
                   <Table.Cell className="pl-1 !pr-1">
                     <BulkTableQuantity
                       variantId={variant.id}

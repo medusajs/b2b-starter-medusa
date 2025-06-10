@@ -1,7 +1,6 @@
 "use client"
 
 import { HttpTypes } from "@medusajs/types"
-import ProductPrice from "../product-price"
 import ProductVariantsTable from "../product-variants-table"
 
 type ProductActionsProps = {
@@ -16,7 +15,6 @@ export default function ProductActions({
   return (
     <>
       <div className="flex flex-col gap-y-2 w-full">
-        <ProductPrice product={product} />
         <ProductVariantsTable product={product} region={region} />
       </div>
     </>

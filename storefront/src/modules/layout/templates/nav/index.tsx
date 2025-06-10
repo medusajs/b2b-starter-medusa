@@ -23,13 +23,10 @@ export async function NavigationHeader() {
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
-              className="hover:text-ui-fg-base flex items-center w-fit"
+              className="hover:text-ui-fg-base flex items-center w-xl"
               href="/"
             >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
-              </h1>
+              <LogoIcon className="inline" />
             </LocalizedClientLink>
 
             <nav>
@@ -48,7 +45,7 @@ export async function NavigationHeader() {
                 disabled
                 type="text"
                 placeholder="Search for products"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
+                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-none pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
                 title="Install a search provider to enable product search"
               />
             </div>

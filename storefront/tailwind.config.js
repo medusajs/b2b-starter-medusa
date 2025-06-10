@@ -11,6 +11,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#112C40",
+        secondary: "#82D562",
+      },
       maxWidth: {
         "8xl": "100rem",
       },

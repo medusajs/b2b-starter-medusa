@@ -2,9 +2,8 @@
 
 import Login from "@/modules/account/components/login"
 import Register from "@/modules/account/components/register"
+import LogoIcon from "@/modules/common/icons/logo"
 import { HttpTypes } from "@medusajs/types"
-import { clx } from "@medusajs/ui"
-import Image from "next/image"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -51,27 +50,30 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2 min-h-[80vh]">
-      <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
+    <div className="grid grid-cols-1 small:grid-cols-2 gap-2 m-2 h-[100vh]">
+      <div className="flex flex-col justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
+      {currentView === LOGIN_VIEW.LOG_IN ? (
+        <div>
+          <h1 className="text-5xl text-primary">Welcome back 👋</h1>
+          <p>We take care of your IT equipment from inventory management to provisioning</p>
+        </div>
+      ) : (
+        <div>
+          <h1>Register</h1>
+        </div>
+        )}
+        <div className="fixed bottom-4 left-4 z-50">
+          <p>Powered by</p>
+          <LogoIcon className="inline" />
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center p-6 small:p-0 h-full">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
         ) : (
           <Register setCurrentView={updateView} regions={regions} />
         )}
-      </div>
-
-      <div className="relative">
-        <Image
-          src="/account-block.jpg"
-          alt="Login banner background"
-          className={clx(
-            "object-cover transition-opacity duration-300 w-full h-full",
-            imageLoaded ? "opacity-100" : "opacity-0"
-          )}
-          fill
-          quality={100}
-          priority
-        />
       </div>
     </div>
   )

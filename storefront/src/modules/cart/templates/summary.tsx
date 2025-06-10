@@ -38,20 +38,6 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
 
   return (
     <Container className="flex flex-col gap-y-3">
-      <CartTotals />
-      <Divider />
-      <PromotionCode cart={cart} />
-      <Divider className="my-6" />
-      {spendLimitExceeded && (
-        <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
-          <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
-          <p className="text-neutral-950 text-xs">
-            This order exceeds your spending limit.
-            <br />
-            Please contact your manager for approval.
-          </p>
-        </div>
-      )}
       <LocalizedClientLink
         href={checkoutButtonLink}
         data-testid="checkout-button"

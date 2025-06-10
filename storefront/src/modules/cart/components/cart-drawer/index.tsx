@@ -127,10 +127,7 @@ const CartDrawer = ({
             <ShoppingBag />
             <span className="text-sm font-normal hidden small:inline-block">
               {cart && items && items.length > 0
-                ? convertToLocale({
-                    amount: subtotal,
-                    currency_code: cart.currency_code,
-                  })
+                ? "Checkout"
                 : "Cart"}
             </span>
             <div className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
@@ -175,15 +172,6 @@ const CartDrawer = ({
                       freeShippingPrices={freeShippingPrices}
                     />
                   )}
-                  <div className="flex justify-between">
-                    <Text>Subtotal</Text>
-                    <Text>
-                      {convertToLocale({
-                        amount: subtotal,
-                        currency_code: cart?.currency_code,
-                      })}
-                    </Text>
-                  </div>
                   <div className="flex flex-col gap-y-2">
                     <LocalizedClientLink href="/cart">
                       <Button
