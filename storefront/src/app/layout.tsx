@@ -17,7 +17,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <main className="relative">{props.children}</main>
         <Toaster className="z-[99999]" position="bottom-left" />
         <Analytics />
-        <div className="fixed bottom-4 left-4 z-50">
+        <div>
           <LogoIcon />
         </div>
       </body>
