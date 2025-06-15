@@ -36,3 +36,4 @@ export default async function Checkout({
     </Wrapper>
   )
 }
+export const dynamic = 'force-dynamic'
