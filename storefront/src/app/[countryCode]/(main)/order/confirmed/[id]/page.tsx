@@ -23,3 +23,5 @@ export default async function OrderConfirmedPage(props: Props) {
 
   return <OrderCompletedTemplate order={order} />
 }
+
+export const dynamic = 'force-dynamic'
