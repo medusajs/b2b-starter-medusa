@@ -220,7 +220,8 @@ const QuoteDetails = () => {
               <Text size="small" leading="compact" className="text-pretty">
                 {formatAmount(
                   quote?.customer?.employee?.spending_limit,
-                  quote?.customer?.employee?.company?.currency_code as string
+                  (quote?.customer?.employee?.company
+                    ?.currency_code as string) || "USD"
                 )}
               </Text>
             </div>
