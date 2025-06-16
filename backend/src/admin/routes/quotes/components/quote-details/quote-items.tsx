@@ -48,8 +48,6 @@ export const QuoteItem = ({
 }) => {
   const { t } = useTranslation();
 
-  console.log({ item });
-
   const isAddedItem = useMemo(
     () => !!item.actions?.find((a) => a.action === "ITEM_ADD"),
     [item]
