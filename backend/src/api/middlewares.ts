@@ -13,7 +13,6 @@ export default defineMiddlewares({
     ...storeMiddlewares,
     {
       matcher: "/store/customers/me",
-      method: "GET",
       middlewares: [
         (req: MedusaRequest, res: MedusaResponse, next: MedusaNextFunction) => {
           req.allowed = ["employee"];
