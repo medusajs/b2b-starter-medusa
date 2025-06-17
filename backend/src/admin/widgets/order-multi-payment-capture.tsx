@@ -80,27 +80,27 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
       <Heading level="h2">💳 Partial Payment Capture</Heading>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="p-4 bg-gray-50 rounded-lg border">
-          <Text className="font-semibold text-sm text-gray-500 mb-1">
+        <div className="p-4 bg-ui-bg-base rounded-lg border">
+          <Text className="font-semibold text-sm text-ui-fg-subtle mb-1">
             Total Amount
           </Text>
-          <Text className="text-lg font-medium">
+          <Text className="text-lg font-medium text-ui-fg-base">
             {formatCurrency(total, currency)}
           </Text>
         </div>
-        <div className="p-4 bg-gray-50 rounded-lg border">
-          <Text className="font-semibold text-sm text-gray-500 mb-1">
+        <div className="p-4 bg-ui-bg-base rounded-lg border">
+          <Text className="font-semibold text-sm text-ui-fg-subtle mb-1">
             Captured Amount
           </Text>
-          <Text className="text-lg font-medium">
+          <Text className="text-lg font-medium text-ui-fg-base">
             {formatCurrency(capturedTotal, currency)}
           </Text>
         </div>
-        <div className="p-4 bg-gray-50 rounded-lg border">
-          <Text className="font-semibold text-sm text-gray-500 mb-1">
+        <div className="p-4 bg-ui-bg-base rounded-lg border">
+          <Text className="font-semibold text-sm text-ui-fg-subtle mb-1">
             Outstanding
           </Text>
-          <Text className="text-lg font-medium">
+          <Text className="text-lg font-medium text-ui-fg-base">
             {formatCurrency(outstanding, currency)}
           </Text>
         </div>
@@ -114,7 +114,6 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
           placeholder="amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          className=""
         />
         <Button
           variant="primary"
@@ -128,19 +127,19 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
 
       <div className="space-y-2">
         <Heading level="h3">📜 Capture History</Heading>
-        <div className="border rounded-lg divide-y bg-white">
+        <div className="border rounded-lg divide-y bg-ui-bg-base">
           {captures.length === 0 ? (
-            <Text className="p-4 text-gray-500">No captures yet.</Text>
+            <Text className="p-4 text-ui-fg-subtle">No captures yet.</Text>
           ) : (
             captures.map((c, i) => (
               <div
                 key={c.id}
                 className="flex justify-between px-4 py-3 text-sm"
               >
-                <Text className="text-gray-700">
+                <Text className="text-ui-fg-base">
                   {i + 1}. {new Date(c.created_at).toLocaleString()}
                 </Text>
-                <Text className="font-medium">
+                <Text className="font-medium text-ui-fg-base">
                   {formatCurrency(c.amount, currency)}
                 </Text>
               </div>
