@@ -300,25 +300,7 @@ export async function initiatePaymentSession(
     ...(await getAuthHeaders()),
   }
 
-  console.log({ cart, data })
-
-  return sdk.store.payment
-    .initiatePaymentSession(
-      cart,
-      data,
-      {
-        metadata: {
-          payment_mode: "cheque",
-        },
-      },
-      headers
-    )
-    .then(async (resp) => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-      return resp
-    })
-    .catch(medusaError)
+  return sdk.store.payment.initiatePaymentSession(cart, data, {}, headers)
 }
 
 export async function applyPromotions(codes: string[]) {
@@ -486,6 +468,8 @@ export async function placeOrder(
   payment_mode: string
 ): Promise<HttpTypes.StoreCompleteCartResponse> {
   const id = cartId || (await getCartId())
+
+  console.log("here place order function..")
 
   if (!id) {
     throw new Error("No existing cart found when placing an order")
