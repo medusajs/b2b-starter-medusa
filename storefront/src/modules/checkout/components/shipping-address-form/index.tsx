@@ -9,7 +9,6 @@ import React, { useEffect, useMemo, useState } from "react"
 import ProvinceSelect from "../province-select"
 import { provinceData } from "@/lib/data/province-static"
 
-
 const ShippingAddressForm = ({
   customer,
   cart,
@@ -187,6 +186,7 @@ const ShippingAddressForm = ({
             province={provinceData}
             value={formData["shipping_address.province"]}
             onChange={handleChange}
+            required
             data-testid="shipping-province-select"
           />
           <CountrySelect
