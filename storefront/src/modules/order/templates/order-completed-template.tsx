@@ -13,7 +13,8 @@ type OrderCompletedTemplateProps = {
 
 export default async function OrderCompletedTemplate({
   order,
-}: OrderCompletedTemplateProps) {
+  paymentMode,
+}: any) {
   return (
     <div className="py-6 min-h-[calc(100vh-64px)]">
       <div className="content-container flex flex-col justify-center items-center gap-y-10 max-w-4xl h-full w-full">
@@ -35,7 +36,7 @@ export default async function OrderCompletedTemplate({
           <Items items={order.items} order={order} />
           <CheckoutTotals cartOrOrder={order} />
           <ShippingDetails order={order} />
-          <PaymentDetails order={order} />
+          <PaymentDetails order={order} paymentMode={paymentMode} />
           <Help />
         </div>
       </div>

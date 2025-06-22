@@ -9,7 +9,14 @@ type PaymentDetailsProps = {
   order: HttpTypes.StoreOrder
 }
 
-const PaymentDetails = ({ order }: PaymentDetailsProps) => {
+const paymentLabels: Record<string, string> = {
+  "debit-card": "Debit Card",
+  "credit-card": "Credit Card",
+  cheque: "Cheque",
+  cash: "Cash",
+}
+
+const PaymentDetails = ({ order, paymentMode }: any) => {
   const payment = order.payment_collections?.[0].payments?.[0]
 
   return (
@@ -28,7 +35,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method"
               >
-                {paymentInfoMap[payment.provider_id].title}
+                {paymentLabels[paymentMode] ?? paymentMode}
               </Text>
             </div>
             <div className="flex flex-col w-2/3">

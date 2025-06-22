@@ -1,3 +1,4 @@
+import { sdk } from "@/lib/config"
 import { retrieveOrder } from "@/lib/data/orders"
 import OrderCompletedTemplate from "@/modules/order/templates/order-completed-template"
 import { B2BOrder } from "@/types/global"
@@ -15,13 +16,22 @@ export const metadata: Metadata = {
 
 export default async function OrderConfirmedPage(props: Props) {
   const params = await props.params
+
   const order = (await retrieveOrder(params.id).catch(() => null)) as B2BOrder
+
+  const orderData = await sdk.client.fetch<{ order: { metadata: any } }>(
+    `/store/orders/${params.id}?fields=metadata`
+  )
 
   if (!order) {
     return notFound()
   }
 
-  return <OrderCompletedTemplate order={order} />
+  return (
+    <OrderCompletedTemplate
+      order={order}
+      paymentMode={orderData?.order?.metadata?.payment_mode}
+    />
+  )
 }
-
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic"

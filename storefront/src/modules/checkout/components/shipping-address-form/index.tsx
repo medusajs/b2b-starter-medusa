@@ -180,13 +180,12 @@ const ShippingAddressForm = ({
             data-testid="shipping-province-input"
           /> */}
           <ProvinceSelect
-            className="col-span-2"
             name="shipping_address.province"
             autoComplete="address-level1"
             province={provinceData}
             value={formData["shipping_address.province"]}
             onChange={handleChange}
-            required
+            isRequired={true}
             data-testid="shipping-province-select"
           />
           <CountrySelect
@@ -204,5 +203,4 @@ const ShippingAddressForm = ({
     </>
   )
 }
-
 export default ShippingAddressForm

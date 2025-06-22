@@ -121,7 +121,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
             province={provinceData}
             value={formData["billing_address.province"]}
             onChange={handleChange}
-            required
+            isRequired={true}
             data-testid="billing-province-select"
           />
           <CountrySelect
