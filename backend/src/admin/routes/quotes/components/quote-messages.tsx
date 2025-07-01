@@ -13,6 +13,7 @@ import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { z } from "zod";
+import { QueryQuote } from "../../../../types";
 import { Form } from "../../../components/common/form";
 import { useCreateQuoteMessage } from "../../../hooks/api/quotes";
 import { QuoteItem } from "./quote-details";
@@ -26,7 +27,7 @@ export function QuoteMessages({
   quote,
   preview,
 }: {
-  quote: any;
+  quote: QueryQuote;
   preview: AdminOrderPreview;
 }) {
   const { quoteId } = useParams();
@@ -135,7 +136,11 @@ export function QuoteMessages({
                       </div>
                       <div className="flex-1">
                         <Form.Control>
-                          <Select onValueChange={onChange} {...field}>
+                          <Select
+                            onValueChange={onChange}
+                            {...field}
+                            value={field.value ?? undefined}
+                          >
                             <Select.Trigger className="bg-ui-bg-base" ref={ref}>
                               <Select.Value placeholder="Select Item" />
                             </Select.Trigger>
