@@ -30,6 +30,7 @@ export function EmployeesCreateForm({
     company_id: company.id,
     is_admin: false,
     spending_limit: "0",
+    customer_id: "",
   });
 
   const handleChange = (
