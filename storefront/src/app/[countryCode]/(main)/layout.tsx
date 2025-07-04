@@ -7,8 +7,9 @@ import Footer from "@/modules/layout/templates/footer"
 import { NavigationHeader } from "@/modules/layout/templates/nav"
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
-import { ExclamationCircleSolid } from "@medusajs/icons"
+import { ExclamationCircleSolid, InformationCircleSolid } from "@medusajs/icons"
 import { Metadata } from "next"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -26,14 +27,31 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
       <NavigationHeader />
+      
+      {/* Login banner for non-logged-in users */}
+      {!customer && (
+        <div className="flex items-center text-white justify-center small:p-4 p-2 text-center bg-blue-600 small:gap-2 gap-1 text-sm">
+          <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
+            <span className="flex items-center gap-1">
+              <InformationCircleSolid className="inline" />
+              To view pricing and inventory, please{" "}
+              <LocalizedClientLink 
+                href="/account" 
+                className="underline hover:text-blue-200 transition-colors"
+              >
+                log in
+              </LocalizedClientLink>
+            </span>
+          </div>
+        </div>
+      )}
+
       {customer && !customer.metadata?.approved && (
         <div className="flex items-center text-white justify-center small:p-4 p-2 text-center bg-red-600 small:gap-2 gap-1 text-sm">
           <div className="flex flex-col small:flex-row small:gap-2 gap-1 items-center">
             <span className="flex items-center gap-1">
               <ExclamationCircleSolid className="inline" />
-              Your account status is set to unapproved. Please get in touch with us to
-              change this and get the full experience. See product prices, add them to
-              the cart, and check out.
+              Your account is pending approval, please contact us
             </span>
           </div>
         </div>

@@ -1,5 +1,7 @@
-import { ArrowUturnLeft } from "@medusajs/icons"
-import React from "react"
+"use client"
+
+import { ArrowUturnLeft, ShoppingBag } from "@medusajs/icons"
+import React, { useState } from "react"
 
 import { HttpTypes } from "@medusajs/types"
 import { Container, Table } from "@medusajs/ui"
@@ -10,6 +12,7 @@ import OrderDetails from "@/modules/order/components/order-details"
 import OrderSummary from "@/modules/order/components/order-summary"
 import ShippingDetails from "@/modules/order/components/shipping-details"
 import BillingDetails from "@/modules/order/components/billing-details"
+import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 
 type OrderDetailsTemplateProps = {
   order: HttpTypes.StoreOrder
@@ -18,6 +21,37 @@ type OrderDetailsTemplateProps = {
 const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
   order,
 }) => {
+  const [isAddingAll, setIsAddingAll] = useState(false)
+
+  const handleAddAllToCart = async () => {
+    if (!order.items || order.items.length === 0) return
+
+    setIsAddingAll(true)
+    
+    try {
+      const lineItems = order.items
+        .filter(item => item.variant && item.product)
+        .map(item => ({
+          productVariant: {
+            ...item.variant!,
+            product: item.product!,
+          },
+          quantity: item.quantity,
+        }))
+
+      if (lineItems.length > 0) {
+        addToCartEventBus.emitCartAdd({
+          lineItems,
+          regionId: order.region_id || "",
+        })
+      }
+    } catch (error) {
+      console.error("Error adding all items to cart:", error)
+    } finally {
+      setIsAddingAll(false)
+    }
+  }
+
   return (
     <div className="flex flex-col justify-center gap-y-2">
       <div className="flex gap-2 justify-between items-center mb-2">
@@ -43,6 +77,22 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
               </Table.Body>
             </Table>
           </Container>
+
+          {/* Add All to Cart Button */}
+          {order.items && order.items.length > 0 && (
+            <div className="flex justify-center p-4">
+              <Button
+                variant="primary"
+                onClick={handleAddAllToCart}
+                disabled={isAddingAll}
+                isLoading={isAddingAll}
+                className="flex items-center gap-2"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                Add All to Cart
+              </Button>
+            </div>
+          )}
 
           <Container>
             <OrderSummary order={order} />

@@ -106,6 +106,7 @@ const AccountNav = ({
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
                 </li>
+                {/* Approvals tab commented out
                 {customer?.employee?.is_admin && (
                   <li>
                     <LocalizedClientLink
@@ -121,6 +122,8 @@ const AccountNav = ({
                     </LocalizedClientLink>
                   </li>
                 )}
+                */}
+                {/* Quotes tab commented out
                 <li>
                   <LocalizedClientLink
                     href="/account/quotes"
@@ -134,6 +137,7 @@ const AccountNav = ({
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
                 </li>
+                */}
                 <li>
                   <button
                     type="button"
@@ -201,6 +205,7 @@ const AccountNav = ({
                 Orders
               </AccountNavLink>
             </li>
+            {/* Approvals tab commented out
             {customer?.employee?.is_admin && (
               <li>
                 <AccountNavLink
@@ -217,6 +222,8 @@ const AccountNav = ({
                 </AccountNavLink>
               </li>
             )}
+            */}
+            {/* Quotes tab commented out
             <li>
               <AccountNavLink
                 href="/account/quotes"
@@ -226,6 +233,7 @@ const AccountNav = ({
                 Quotes
               </AccountNavLink>
             </li>
+            */}
             <li className="text-neutral-400 hover:text-neutral-950">
               <button
                 type="button"

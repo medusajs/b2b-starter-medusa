@@ -22,7 +22,7 @@ const PreviewAddToCart = ({
   const isLoggedIn = customer?.isLoggedIn ?? false
   const isApproved = customer?.isApproved ?? false
 
-  const maxQuantity = product.variants?.[0]?.inventory_quantity ?? 100
+  const maxQuantity = 999999
 
   const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault()

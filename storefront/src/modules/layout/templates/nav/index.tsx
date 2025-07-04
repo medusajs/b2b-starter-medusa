@@ -52,11 +52,13 @@ export async function NavigationHeader() {
 
             <nav>
               <ul className="space-x-4 hidden small:flex">
+                {/* Products dropdown commented out
                 <li>
                   <Suspense fallback={<SkeletonMegaMenu />}>
                     <MegaMenuWrapper />
                   </Suspense>
                 </li>
+                */}
               </ul>
             </nav>
           </div>
