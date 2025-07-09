@@ -1,6 +1,7 @@
 import {
   createApiKeysWorkflow,
   createCollectionsWorkflow,
+  createCustomerAccountWorkflow,
   createProductCategoriesWorkflow,
   createProductsWorkflow,
   createRegionsWorkflow,
@@ -15,6 +16,7 @@ import {
 } from "@medusajs/core-flows";
 import {
   ExecArgs,
+  IAuthModuleService,
   IFulfillmentModuleService,
   ISalesChannelModuleService,
   IStoreModuleService,
@@ -25,6 +27,7 @@ import {
   Modules,
   ProductStatus,
 } from "@medusajs/framework/utils";
+import { createEmployeesWorkflow } from "src/workflows/employee/workflows";
 import { ModuleCompanySpendingLimitResetFrequency } from "../types/company";
 import { createCompaniesWorkflow } from "../workflows/company/workflows";
 
@@ -38,6 +41,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     container.resolve(ModuleRegistrationName.SALES_CHANNEL);
   const storeModuleService: IStoreModuleService = container.resolve(
     ModuleRegistrationName.STORE
+  );
+  const authModuleService: IAuthModuleService = container.resolve(
+    ModuleRegistrationName.AUTH
   );
 
   const countriesEU = ["de", "dk", "se", "fr", "es", "it"];
@@ -357,6 +363,8 @@ export default async function seedDemoData({ container }: ExecArgs) {
   });
   const publishableApiKey = publishableApiKeyResult[0];
 
+  logger.log(`publishableApiKey: ${publishableApiKey}`);
+
   await linkSalesChannelsToApiKeyWorkflow(container).run({
     input: {
       id: publishableApiKey.id,
@@ -367,7 +375,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   logger.info("Seeding company data...");
 
-  await createCompaniesWorkflow(container).run({
+  const {
+    result: [companyDE, companyUK],
+  } = await createCompaniesWorkflow(container).run({
     input: [
       {
         name: "Muster GmbH",
@@ -398,6 +408,87 @@ export default async function seedDemoData({ container }: ExecArgs) {
           ModuleCompanySpendingLimitResetFrequency.NEVER,
       },
     ],
+  });
+
+  const [identityDE, identityUK] = await authModuleService.createAuthIdentities(
+    [
+      {
+        provider_identities: [
+          {
+            provider: "emailpass",
+            entity_id: "max@muster.de",
+          },
+        ],
+      },
+      {
+        provider_identities: [
+          {
+            provider: "emailpass",
+            entity_id: "john@example.co.uk",
+          },
+        ],
+      },
+    ]
+  );
+
+  const { result: customerDE } = await createCustomerAccountWorkflow(
+    container
+  ).run({
+    input: {
+      authIdentityId: identityDE.id,
+      customerData: {
+        email: "max@muster.de",
+        has_account: true,
+      },
+    },
+  });
+
+  const { result: customerUK } = await createCustomerAccountWorkflow(
+    container
+  ).run({
+    input: {
+      authIdentityId: identityUK.id,
+      customerData: {
+        email: "john@example.co.uk",
+        has_account: true,
+      },
+    },
+  });
+
+  await createEmployeesWorkflow(container).run({
+    input: {
+      customerId: customerDE.id,
+      employeeData: {
+        customer_id: customerDE.id,
+        company_id: companyDE.id,
+        spending_limit: 0,
+        is_admin: true,
+      },
+    },
+  });
+
+  await createEmployeesWorkflow(container).run({
+    input: {
+      customerId: customerUK.id,
+      employeeData: {
+        customer_id: customerUK.id,
+        company_id: companyUK.id,
+        spending_limit: 0,
+        is_admin: true,
+      },
+    },
+  });
+
+  await authModuleService.updateProvider("emailpass", {
+    email: "max@muster.de",
+    password: "1234",
+    entity_id: "max@muster.de",
+  });
+
+  await authModuleService.updateProvider("emailpass", {
+    email: "john@example.co.uk",
+    password: "1234",
+    entity_id: "john@example.co.uk",
   });
 
   logger.info("Finished seeding company data.");
