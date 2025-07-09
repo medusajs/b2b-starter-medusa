@@ -25,6 +25,8 @@ import {
   Modules,
   ProductStatus,
 } from "@medusajs/framework/utils";
+import { ModuleCompanySpendingLimitResetFrequency } from "../types/company";
+import { createCompaniesWorkflow } from "../workflows/company/workflows";
 
 export default async function seedDemoData({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
@@ -362,6 +364,43 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
   logger.info("Finished seeding publishable API key data.");
+
+  logger.info("Seeding company data...");
+
+  await createCompaniesWorkflow(container).run({
+    input: [
+      {
+        name: "Muster GmbH",
+        country: "de",
+        currency_code: "eur",
+        phone: "",
+        email: "kontakt@muster.de",
+        address: null,
+        city: null,
+        zip: null,
+        state: null,
+        logo_url: null,
+        spending_limit_reset_frequency:
+          ModuleCompanySpendingLimitResetFrequency.NEVER,
+      },
+      {
+        name: "Example Ltd.",
+        country: "gb",
+        currency_code: "gbp",
+        phone: "",
+        email: "contact@example.co.uk",
+        address: null,
+        city: null,
+        zip: null,
+        state: null,
+        logo_url: null,
+        spending_limit_reset_frequency:
+          ModuleCompanySpendingLimitResetFrequency.NEVER,
+      },
+    ],
+  });
+
+  logger.info("Finished seeding company data.");
 
   logger.info("Seeding product data...");
 
