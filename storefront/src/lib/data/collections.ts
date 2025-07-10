@@ -2,7 +2,7 @@
 
 import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
-import { getCacheOptions } from "./cookies"
+import { getAuthHeaders, getCacheOptions } from "./cookies"
 
 export const retrieveCollection = async (id: string) => {
   const next = {
@@ -23,6 +23,10 @@ export const retrieveCollection = async (id: string) => {
 export const listCollections = async (
   queryParams: Record<string, string> = {}
 ): Promise<{ collections: HttpTypes.StoreCollection[]; count: number }> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
   const next = {
     ...(await getCacheOptions("collections")),
   }
@@ -35,8 +39,9 @@ export const listCollections = async (
       "/store/collections",
       {
         query: queryParams,
+        headers,
         next,
-        cache: "force-cache",
+        // cache: "force-cache",
       }
     )
     .then(({ collections }) => ({ collections, count: collections.length }))

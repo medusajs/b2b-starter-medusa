@@ -2,6 +2,7 @@ import {
   createApiKeysWorkflow,
   createCollectionsWorkflow,
   createCustomerAccountWorkflow,
+  createLinksWorkflow,
   createProductCategoriesWorkflow,
   createProductsWorkflow,
   createRegionsWorkflow,
@@ -27,6 +28,7 @@ import {
   Modules,
   ProductStatus,
 } from "@medusajs/framework/utils";
+import { COMPANY_MODULE } from "src/modules/company";
 import { createEmployeesWorkflow } from "src/workflows/employee/workflows";
 import { ModuleCompanySpendingLimitResetFrequency } from "../types/company";
 import { createCompaniesWorkflow } from "../workflows/company/workflows";
@@ -123,6 +125,12 @@ export default async function seedDemoData({ container }: ExecArgs) {
   await createTaxRegionsWorkflow(container).run({
     input: [...countriesEU, ...countriesUK].map((country_code) => ({
       country_code,
+      provider_id: "tp_system",
+      default_tax_rate: {
+        name: "default",
+        code: "default",
+        rate: 0,
+      },
     })),
   });
   logger.info("Finished seeding tax regions.");
@@ -277,15 +285,11 @@ export default async function seedDemoData({ container }: ExecArgs) {
             region_id: regionEU.id,
             amount: 0,
           },
-          {
-            region_id: regionUK.id,
-            amount: 0,
-          },
         ],
         rules: [
           {
             attribute: "enabled_in_store",
-            value: '"true"',
+            value: "true",
             operator: "eq",
           },
           {
@@ -311,6 +315,62 @@ export default async function seedDemoData({ container }: ExecArgs) {
             region_id: regionEU.id,
             amount: 10,
           },
+        ],
+        rules: [
+          {
+            attribute: "enabled_in_store",
+            value: "true",
+            operator: "eq",
+          },
+          {
+            attribute: "is_return",
+            value: "false",
+            operator: "eq",
+          },
+        ],
+      },
+      {
+        name: "Standard Shipping",
+        price_type: "flat",
+        provider_id: "manual_manual",
+        service_zone_id: fulfillmentSetUK.service_zones[0].id,
+        shipping_profile_id: shippingProfile.id,
+        type: {
+          label: "Standard",
+          description: "Ship in 2-3 days.",
+          code: "standard",
+        },
+        prices: [
+          {
+            region_id: regionUK.id,
+            amount: 0,
+          },
+        ],
+        rules: [
+          {
+            attribute: "enabled_in_store",
+            value: "true",
+            operator: "eq",
+          },
+          {
+            attribute: "is_return",
+            value: "false",
+            operator: "eq",
+          },
+        ],
+      },
+      {
+        name: "Express Shipping",
+        price_type: "flat",
+        provider_id: "manual_manual",
+        service_zone_id: fulfillmentSetUK.service_zones[0].id,
+        shipping_profile_id: shippingProfile.id,
+        type: {
+          label: "Express",
+          description: "Ship in 24 hours.",
+          code: "express",
+        },
+        prices: [
           {
             region_id: regionUK.id,
             amount: 8,
@@ -319,7 +379,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
         rules: [
           {
             attribute: "enabled_in_store",
-            value: '"true"',
+            value: "true",
             operator: "eq",
           },
           {
@@ -363,7 +423,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
   });
   const publishableApiKey = publishableApiKeyResult[0];
 
-  logger.log(`publishableApiKey: ${publishableApiKey}`);
+  logger.log(`publishableApiKey: ${publishableApiKey.token}`);
 
   await linkSalesChannelsToApiKeyWorkflow(container).run({
     input: {
@@ -533,7 +593,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productLaptop],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -579,11 +641,11 @@ export default async function seedDemoData({ container }: ExecArgs) {
               manage_inventory: false,
               prices: [
                 {
-                  amount: 1299,
+                  amount: 0,
                   currency_code: "eur",
                 },
                 {
-                  amount: 1299,
+                  amount: 0,
                   currency_code: "gbp",
                 },
               ],
@@ -618,7 +680,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productWebcam],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -692,7 +756,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productSmartphone],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -776,7 +842,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productMonitor],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -857,12 +925,13 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productHeadset],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
           title: "Hi-Fi Gaming Headset | Pro-Grade DAC | Hi-Res Certified",
-          collection_id: collection.id,
           category_ids: [
             categoryResult.find((cat) => cat.name === "Accessories")?.id!,
           ],
@@ -934,7 +1003,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productKeyboard],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -1007,7 +1078,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productMouse],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -1080,7 +1153,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
     },
   });
 
-  await createProductsWorkflow(container).run({
+  const {
+    result: [productSpeaker],
+  } = await createProductsWorkflow(container).run({
     input: {
       products: [
         {
@@ -1151,6 +1226,83 @@ export default async function seedDemoData({ container }: ExecArgs) {
         },
       ],
     },
+  });
+
+  await createLinksWorkflow(container).run({
+    input: [
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_collection_id: collection.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productLaptop.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productMonitor.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productKeyboard.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productMouse.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyDE.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productSmartphone.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyDE.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productWebcam.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyDE.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productHeadset.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyDE.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productSpeaker.id,
+        },
+      },
+    ],
   });
 
   logger.info("Finished seeding product data.");
