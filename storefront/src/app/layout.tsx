@@ -5,6 +5,8 @@ import { GeistSans } from "geist/font/sans"
 import { Metadata } from "next"
 import "@/styles/globals.css"
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
