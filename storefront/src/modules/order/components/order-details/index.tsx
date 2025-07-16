@@ -20,7 +20,7 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
           <Text>#{order.display_id}</Text>
         </div>
 
-        <div className="flex justify-between mb-2">
+        <div className="flex justify-between">
           <Text>Order Date</Text>
           <Text>
             {" "}
@@ -28,6 +28,13 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
             {createdAt.getFullYear()}
           </Text>
         </div>
+
+        {order.fulfillments?.[0]?.labels?.[0]?.tracking_number && (
+          <div className="flex justify-between mb-2">
+            <Text>Tracking number</Text>
+            <Text>{order.fulfillments?.[0]?.labels[0].tracking_number}</Text>
+          </div>
+        )}
 
         <Text>
           We have sent the order confirmation details to{" "}
