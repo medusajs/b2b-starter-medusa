@@ -9,11 +9,6 @@ export default async function autoCaptureOrder({
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
   const paymentService = container.resolve(Modules.PAYMENT);
-  const orderService = container.resolve(Modules.ORDER);
-
-  // paymentService.listPayments({
-  //   q: "pay_col_01K0ACF11SN9SQKA4YSV3937YA",
-  // });
 
   const orderId = data.id;
 
@@ -35,10 +30,10 @@ export default async function autoCaptureOrder({
     }
   );
 
-  const payment = payments?.[0]
+  const payment = payments?.[0];
 
   if (!payment) {
-    logger.error(`Order does not have payment. OrderId=${orderId}.`)
+    logger.error(`Order does not have payment. OrderId=${orderId}.`);
     return;
   }
 
