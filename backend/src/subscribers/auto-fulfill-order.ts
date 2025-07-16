@@ -32,10 +32,8 @@ export default async function autoFulfillOrder({
     relations: ["items", "shipping_address"],
   });
 
-  console.log({ order });
-
   if (!order.items) {
-    logger.error(`Order ${order.id} does not have items`);
+    logger.error(`Order does not have items. OrderId=${order.id}.`);
     return;
   }
 
@@ -64,6 +62,8 @@ export default async function autoFulfillOrder({
       ],
     },
   });
+
+  logger.info(`Order auto-fulfilled. OrderId=${order.id}.`);
 }
 
 export const config: SubscriberConfig = {
