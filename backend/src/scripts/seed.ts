@@ -323,7 +323,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
         prices: [
           {
             region_id: regionEU.id,
-            amount: 10,
+            amount: 0,
           },
         ],
         rules: [
@@ -383,7 +383,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
         prices: [
           {
             region_id: regionUK.id,
-            amount: 8,
+            amount: 0,
           },
         ],
         rules: [
@@ -652,6 +652,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Blue", "Red"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "256 GB / Blue",
@@ -730,6 +731,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Black", "White"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "Webcam Black",
@@ -814,6 +816,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Purple", "Red"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "256 GB Purple",
@@ -899,6 +902,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["White", "Black"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "ACME Monitor 4k White",
@@ -977,6 +981,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Black", "White"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "Headphone Black",
@@ -1052,6 +1057,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Black", "White"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "Keyboard Black",
@@ -1127,6 +1133,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Black", "White"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "Mouse Black",
@@ -1202,6 +1209,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               values: ["Black", "White"],
             },
           ],
+          shipping_profile_id: shippingProfile.id,
           variants: [
             {
               title: "Speaker Black",
