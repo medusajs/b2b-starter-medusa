@@ -25,13 +25,16 @@ export const GET = async (
 
   const { rows: allCollections, metadata } = await remoteQuery(query);
 
-  const [{ employee }] = await remoteQuery({
-    entryPoint: "customer",
-    fields: ["employee.company.id"],
-    variables: {
-      filters: { id: req.auth_context?.actor_id },
+  const [{ employee }] = await remoteQuery(
+    {
+      entryPoint: "customer",
+      fields: ["employee.company.id"],
+      variables: {
+        filters: { id: req.auth_context?.actor_id },
+      },
     },
-  });
+    { throwIfKeyNotFound: true }
+  );
 
   if (!employee) {
     throw new Error("No employee");
@@ -39,7 +42,7 @@ export const GET = async (
 
   const collections = allCollections.reduce((acc, el) => {
     const products = el.products.filter(
-      (p) => p.company.id === employee.company_id
+      (p) => p.company?.id === employee.company_id
     );
 
     if (products.length > 0) {

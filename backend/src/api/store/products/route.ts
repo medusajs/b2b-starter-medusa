@@ -131,20 +131,23 @@ async function getProducts(
     );
   }
 
-  const [{ employee }] = await remoteQuery({
-    entryPoint: "customer",
-    fields: ["employee.company.id"],
-    variables: {
-      filters: { id: req.auth_context?.actor_id },
+  const [{ employee }] = await remoteQuery(
+    {
+      entryPoint: "customer",
+      fields: ["employee.company.id"],
+      variables: {
+        filters: { id: req.auth_context?.actor_id },
+      },
     },
-  });
+    { throwIfKeyNotFound: true }
+  );
 
   if (!employee) {
     throw new Error("No employee");
   }
 
   const products = allProducts.filter(
-    (p) => p.company.id === employee.company_id
+    (p) => p.company?.id === employee.company_id
   );
 
   await wrapProductsWithTaxPrices(req, allProducts);
