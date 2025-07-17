@@ -38,7 +38,7 @@ export async function NavigationHeader() {
             </nav>
           </div>
           <div className="flex justify-end items-center gap-2">
-            <div className="relative mr-2 inline-flex">
+            <div className="mr-2 inline-flex">
               <Search />
             </div>
 

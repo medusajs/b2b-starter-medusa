@@ -69,7 +69,7 @@ const Search = () => {
   }, [performSearch, searchTerm])
 
   return (
-    <div className="relative w-full">
+    <div className="sm:relative w-full">
       <Input
         value={searchTerm}
         onChange={(e) => {
@@ -90,7 +90,7 @@ const Search = () => {
       />
 
       {showResults && (searchTerm || loading) && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg max-h-[80vh] overflow-y-auto z-50">
+        <div className="absolute top-full left-0 right-0 sm:left-1/2 small:right-auto small:-translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-md shadow-lg max-h-[80vh] overflow-y-auto z-50 w-full small:w-96">
           {loading ? (
             <div className="p-4 text-center text-gray-500">Loading...</div>
           ) : results.length > 0 ? (
