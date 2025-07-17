@@ -3,9 +3,10 @@ import CountrySelect from "@/modules/checkout/components/country-select"
 import Input from "@/modules/common/components/input"
 import { B2BCart, B2BCustomer } from "@/types"
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
-import { mapKeys } from "lodash"
+import { Container, Popover, Text } from "@medusajs/ui"
+import { debounce, mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
+import { MOCK_ADDRESSES, MockAddress } from "./mock-addresses"
 
 const ShippingAddressForm = ({
   customer,
@@ -26,6 +27,11 @@ const ShippingAddressForm = ({
     "shipping_address.phone": "",
     email: "",
   })
+
+  const [addressSuggestions, setAddressSuggestions] = useState<MockAddress[]>(
+    []
+  )
+  const [showSuggestions, setShowSuggestions] = useState(false)
 
   const countriesInRegion = useMemo(
     () => cart?.region?.countries?.map((c) => c.iso_2),
@@ -84,6 +90,41 @@ const ShippingAddressForm = ({
     })
   }
 
+  const mockGoogleMapsAutocomplete = (input: string) => {
+    if (!input) {
+      setAddressSuggestions([])
+      return
+    }
+
+    const filteredAddresses = MOCK_ADDRESSES.filter((address) =>
+      address.address_1.toLowerCase().includes(input.toLowerCase())
+    )
+    setAddressSuggestions(filteredAddresses)
+  }
+
+  const debouncedAutocomplete = useMemo(
+    () => debounce(mockGoogleMapsAutocomplete, 300),
+    []
+  )
+
+  const handleAddressSelect = (address: MockAddress) => {
+    setFormData((prev) => ({
+      ...prev,
+      "shipping_address.address_1": address.address_1,
+      "shipping_address.city": address.city,
+      "shipping_address.postal_code": address.postal_code,
+      "shipping_address.country_code": "GB",
+    }))
+    setShowSuggestions(false)
+    setAddressSuggestions([])
+  }
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange(e)
+    setShowSuggestions(true)
+    debouncedAutocomplete(e.target.value)
+  }
+
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
@@ -139,16 +180,38 @@ const ShippingAddressForm = ({
           data-testid="shipping-company-input"
           colSpan={2}
         />
-        <Input
-          label="Address"
-          name="shipping_address.address_1"
-          autoComplete="address-line1"
-          value={formData["shipping_address.address_1"]}
-          onChange={handleChange}
-          required
-          data-testid="shipping-address-input"
-          colSpan={2}
-        />
+        <Popover open={showSuggestions && addressSuggestions.length > 0}>
+          <Popover.Trigger>
+            <div className="col-span-2">
+              <Input
+                label="Address"
+                name="shipping_address.address_1"
+                autoComplete="off"
+                value={formData["shipping_address.address_1"]}
+                onChange={handleAddressChange}
+                onFocus={() => setShowSuggestions(true)}
+                required
+                data-testid="shipping-address-input"
+              />
+            </div>
+          </Popover.Trigger>
+          <Popover.Content>
+            <div className="bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto">
+              {addressSuggestions.map((suggestion, index) => (
+                <button
+                  key={index}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                  onClick={() => handleAddressSelect(suggestion)}
+                >
+                  <Text className="font-medium">{suggestion.address_1}</Text>
+                  <Text className="text-sm text-gray-600">
+                    {suggestion.city}, {suggestion.postal_code}
+                  </Text>
+                </button>
+              ))}
+            </div>
+          </Popover.Content>
+        </Popover>
         <Input
           label="Postal code"
           name="shipping_address.postal_code"
