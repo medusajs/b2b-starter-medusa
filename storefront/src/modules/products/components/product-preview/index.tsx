@@ -1,10 +1,9 @@
 import { getProductPrice } from "@/lib/util/get-product-price"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
 import { Text, clx } from "@medusajs/ui"
-import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewAddToCart from "./preview-add-to-cart"
-import PreviewPrice from "./price"
 
 export default async function ProductPreview({
   product,
@@ -51,10 +50,10 @@ export default async function ProductPreview({
           <div className="flex flex-row gap-1 items-center">
             <span
               className={clx({
-                "text-green-500": inventoryQuantity && inventoryQuantity > 50,
+                "text-green-500": inventoryQuantity && inventoryQuantity > 10,
                 "text-orange-500":
                   inventoryQuantity &&
-                  inventoryQuantity <= 50 &&
+                  inventoryQuantity <= 10 &&
                   inventoryQuantity > 0,
                 "text-red-500": inventoryQuantity === 0,
               })}

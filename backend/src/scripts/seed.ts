@@ -2,6 +2,7 @@ import {
   createApiKeysWorkflow,
   createCollectionsWorkflow,
   createCustomerAccountWorkflow,
+  createInventoryLevelsWorkflow,
   createLinksWorkflow,
   createProductCategoriesWorkflow,
   createProductsWorkflow,
@@ -17,8 +18,10 @@ import {
 } from "@medusajs/core-flows";
 import {
   ExecArgs,
+  IApiKeyModuleService,
   IAuthModuleService,
   IFulfillmentModuleService,
+  IInventoryService,
   ISalesChannelModuleService,
   IStoreModuleService,
 } from "@medusajs/framework/types";
@@ -35,6 +38,7 @@ import { createCompaniesWorkflow } from "../workflows/company/workflows";
 
 export default async function seedDemoData({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
+  const query = container.resolve(ContainerRegistrationKeys.QUERY);
   const link = container.resolve(ContainerRegistrationKeys.LINK);
   const fulfillmentModuleService: IFulfillmentModuleService = container.resolve(
     ModuleRegistrationName.FULFILLMENT
@@ -46,6 +50,12 @@ export default async function seedDemoData({ container }: ExecArgs) {
   );
   const authModuleService: IAuthModuleService = container.resolve(
     ModuleRegistrationName.AUTH
+  );
+  const inventoryModuleService: IInventoryService = container.resolve(
+    ModuleRegistrationName.INVENTORY
+  );
+  const apiKeyModuleService: IApiKeyModuleService = container.resolve(
+    ModuleRegistrationName.API_KEY
   );
 
   const countriesEU = ["de", "dk", "se", "fr", "es", "it"];
@@ -408,22 +418,27 @@ export default async function seedDemoData({ container }: ExecArgs) {
   logger.info("Finished seeding stock location data.");
 
   logger.info("Seeding publishable API key data...");
-  const { result: publishableApiKeyResult } = await createApiKeysWorkflow(
-    container
-  ).run({
-    input: {
-      api_keys: [
-        {
-          title: "Webshop",
-          type: "publishable",
-          created_by: "",
-        },
-      ],
-    },
-  });
-  const publishableApiKey = publishableApiKeyResult[0];
 
-  logger.log(`publishableApiKey: ${publishableApiKey.token}`);
+  const publishableApiKeys = await apiKeyModuleService.listApiKeys();
+
+  const [publishableApiKey] =
+    publishableApiKeys.length > 0
+      ? publishableApiKeys
+      : (
+          await createApiKeysWorkflow(container).run({
+            input: {
+              api_keys: [
+                {
+                  title: "Webshop",
+                  type: "publishable",
+                  created_by: "",
+                },
+              ],
+            },
+          })
+        ).result;
+
+  // logger.log(`publishableApiKey: ${publishableApiKey.token}`);
 
   await linkSalesChannelsToApiKeyWorkflow(container).run({
     input: {
@@ -469,6 +484,13 @@ export default async function seedDemoData({ container }: ExecArgs) {
       },
     ],
   });
+
+  const existingIdentities = await authModuleService.listAuthIdentities();
+  const idsToDelete = existingIdentities
+    .filter((i) => !i.app_metadata?.user_id)
+    .map(({ id }) => id);
+
+  await authModuleService.deleteAuthIdentities(idsToDelete);
 
   const [identityDE, identityUK] = await authModuleService.createAuthIdentities(
     [
@@ -638,7 +660,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
                 Storage: "256 GB",
                 Color: "Blue",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -657,7 +679,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
                 Storage: "512 GB",
                 Color: "Red",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -715,7 +737,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -733,7 +755,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -800,7 +822,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
                 Memory: "256 GB",
                 Color: "Purple",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -819,7 +841,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
                 Memory: "256 GB",
                 Color: "Red",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -884,7 +906,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -902,7 +924,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -962,7 +984,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -980,7 +1002,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1037,7 +1059,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1055,7 +1077,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1112,7 +1134,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1130,7 +1152,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1187,7 +1209,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "Black",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1205,7 +1227,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
               options: {
                 Color: "White",
               },
-              manage_inventory: false,
+              manage_inventory: true,
               prices: [
                 {
                   amount: 0,
@@ -1216,6 +1238,88 @@ export default async function seedDemoData({ container }: ExecArgs) {
                   currency_code: "gbp",
                 },
               ],
+            },
+          ],
+          sales_channels: [
+            {
+              id: defaultSalesChannel[0].id,
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const inventoryItems = await inventoryModuleService.listInventoryItems(
+    {},
+    { select: ["id"], take: 20 }
+  );
+
+  await createInventoryLevelsWorkflow(container).run({
+    input: {
+      inventory_levels: inventoryItems.flatMap(({ id }) => [
+        {
+          inventory_item_id: id,
+          location_id: stockLocationEU.id,
+          stocked_quantity: 10,
+        },
+        {
+          inventory_item_id: id,
+          location_id: stockLocationUK.id,
+          stocked_quantity: 10,
+        },
+      ]),
+    },
+  });
+
+  // Bundled product
+  const { data: productsWithInventory } = await query.graph({
+    entity: "product",
+    fields: ["variants.*", "variants.inventory_items.*"],
+    filters: {
+      id: [productMonitor.id, productKeyboard.id, productMouse.id],
+    },
+  });
+
+  const inventoryItemIds = productsWithInventory.map((product) => ({
+    inventory_item_id:
+      product.variants[0].inventory_items?.[0]?.inventory_item_id!,
+  }));
+
+  const {
+    result: [productBundleHomeOffice],
+  } = await createProductsWorkflow(container).run({
+    input: {
+      products: [
+        {
+          title: `Bundle Home Office`,
+          collection_id: collection.id,
+          description: "All-in-one bundle for enabling Home Office",
+          weight: 1200,
+          status: ProductStatus.PUBLISHED,
+          images: [],
+          options: [
+            {
+              title: "Default option",
+              values: ["Default variant"],
+            },
+          ],
+          shipping_profile_id: shippingProfile.id,
+          variants: [
+            {
+              title: "Bundle",
+              sku: "BUNDLE-HOME-OFFICE",
+              prices: [
+                {
+                  amount: 0,
+                  currency_code: "eur",
+                },
+                {
+                  amount: 0,
+                  currency_code: "gbp",
+                },
+              ],
+              inventory_items: inventoryItemIds,
             },
           ],
           sales_channels: [
@@ -1268,6 +1372,14 @@ export default async function seedDemoData({ container }: ExecArgs) {
         },
         [Modules.PRODUCT]: {
           product_id: productMouse.id,
+        },
+      },
+      {
+        [COMPANY_MODULE]: {
+          company_id: companyUK.id,
+        },
+        [Modules.PRODUCT]: {
+          product_id: productBundleHomeOffice.id,
         },
       },
       {
