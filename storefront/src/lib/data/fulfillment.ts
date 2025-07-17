@@ -22,7 +22,6 @@ export const listCartShippingMethods = async (cartId: string) => {
         query: { cart_id: cartId },
         headers,
         next,
-        cache: "force-cache",
       }
     )
     .then(({ shipping_options }) => shipping_options)
@@ -50,7 +49,6 @@ export const listCartFreeShippingPrices = async (
       query: { cart_id: cartId },
       headers,
       next,
-      cache: "force-cache",
     })
     .then((data) => data.prices)
 }
