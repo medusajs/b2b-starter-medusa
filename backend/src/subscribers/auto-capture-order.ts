@@ -33,7 +33,7 @@ export default async function autoCaptureOrder({
   const payment = payments?.[0];
 
   if (!payment) {
-    logger.error(`Order does not have payment. OrderId=${orderId}.`);
+    logger.info(`Order does not have payment. OrderId=${orderId}.`);
     return;
   }
 

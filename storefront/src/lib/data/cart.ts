@@ -3,11 +3,11 @@
 import { sdk } from "@/lib/config"
 import medusaError from "@/lib/util/medusa-error"
 import { StoreApprovalResponse } from "@/types/approval"
+import { B2BCart } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
-import { B2BCart } from "@/types/global"
 import {
   getAuthHeaders,
   getCacheOptions,
@@ -17,6 +17,7 @@ import {
   setCartId,
 } from "./cookies"
 import { retrieveCustomer } from "./customer"
+import { listCartPaymentMethods } from "./payment"
 import { getRegion } from "./regions"
 
 export async function retrieveCart(id?: string) {
@@ -88,6 +89,13 @@ export async function getOrSetCart(countryCode: string) {
     await sdk.store.cart.update(cart.id, { region_id: region.id }, {}, headers)
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
+  }
+
+  if (cart) {
+    const [provider] = (await listCartPaymentMethods(region.id)) || []
+    const { payment_collection } = await initiatePaymentSession(cart, {
+      provider_id: provider.id,
+    })
   }
 
   return cart
