@@ -52,14 +52,14 @@ const Login = ({ setCurrentView }: Props) => {
           <SubmitButton data-testid="sign-in-button" className="w-full mt-6" variant="primary">
             Log in
           </SubmitButton>
-          <Button
+          {/* <Button
             variant="secondary"
             onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
             className="w-full h-10"
             data-testid="register-button"
           >
             Register
-          </Button>
+          </Button> */}
         </div>
       </form>
     </div>

@@ -54,8 +54,6 @@ export default async function CheckoutForm({
             <ApprovalStatusBanner cart={cart} />
           )}
 
-        {cart?.company && <Company cart={cart} />}
-
         <ShippingAddress cart={cart} customer={customer} />
 
         <BillingAddress cart={cart} />
@@ -63,12 +61,6 @@ export default async function CheckoutForm({
         <Shipping cart={cart} availableShippingMethods={shippingMethods} />
 
         <ContactDetails cart={cart} customer={customer} />
-
-        {(customer?.employee?.is_admin &&
-          cart.approval_status?.status === ApprovalStatusType.APPROVED) ||
-        !requiresApproval ? (
-          <Payment cart={cart} availablePaymentMethods={paymentMethods} />
-        ) : null}
       </div>
     </div>
   )

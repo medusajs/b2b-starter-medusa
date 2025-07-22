@@ -1,3 +1,4 @@
+import { AdminProduct } from "@medusajs/framework/types";
 import { ExclamationCircle } from "@medusajs/icons";
 import {
   Avatar,
@@ -8,8 +9,8 @@ import {
   Text,
   Toaster,
 } from "@medusajs/ui";
-import { QueryEmployee } from "../../../../types";
 import { useParams } from "react-router-dom";
+import { QueryEmployee } from "../../../../types";
 import { useAdminCustomerGroups, useCompany } from "../../../hooks/api";
 import { formatAmount } from "../../../utils";
 import { CompanyActionsMenu } from "../components";
@@ -22,7 +23,7 @@ const CompanyDetails = () => {
   const { companyId } = useParams();
   const { data, isPending } = useCompany(companyId!, {
     fields:
-      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings",
+      "*employees,*employees.customer,*employees.company,*customer_group,*approval_settings,*products",
   });
 
   const { data: customerGroups } = useAdminCustomerGroups();
@@ -218,6 +219,73 @@ const CompanyDetails = () => {
                     </Text>
                     <Text className="txt-small text-ui-fg-muted">
                       This company doesn't have any employees.
+                    </Text>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </Container>
+      <Container className="flex flex-col p-0 overflow-hidden">
+        {!isPending && (
+          <>
+            <div className="flex items-center gap-2 px-6 py-4 justify-between border-b border-gray-200">
+              <div className="flex items-center gap-2">
+                <Heading className="font-sans font-medium h1-core">
+                  Products
+                </Heading>
+              </div>
+            </div>
+            {company?.products && company?.products.length > 0 ? (
+              <Table>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell></Table.HeaderCell>
+                    <Table.HeaderCell>Name</Table.HeaderCell>
+                    <Table.HeaderCell>Actions</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  {company?.products.map((product: AdminProduct) => (
+                    <Table.Row
+                      key={product.id}
+                      onClick={() => {
+                        window.location.href = `/app/products/${product!.id}`;
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <Table.Cell className="w-6 h-6 items-center justify-center">
+                        <Avatar
+                          src={product.thumbnail || undefined}
+                          fallback={product.title?.charAt(0)}
+                          variant="squared"
+                        />
+                      </Table.Cell>
+                      <Table.Cell className="flex w-fit gap-2 items-center">
+                        {product.title}
+                      </Table.Cell>
+                      <Table.Cell />
+                      {/* <Table.Cell onClick={(e) => e.stopPropagation()}>
+                        <EmployeesActionsMenu
+                          company={company}
+                          employee={employee}
+                        />
+                      </Table.Cell> */}
+                    </Table.Row>
+                  ))}
+                </Table.Body>
+              </Table>
+            ) : (
+              <div className="flex h-[400px] w-full flex-col items-center justify-center gap-y-4">
+                <div className="flex flex-col items-center gap-y-3">
+                  <ExclamationCircle />
+                  <div className="flex flex-col items-center gap-y-1">
+                    <Text className="font-medium font-sans txt-compact-small">
+                      No records
+                    </Text>
+                    <Text className="txt-small text-ui-fg-muted">
+                      This company doesn't have any products.
                     </Text>
                   </div>
                 </div>

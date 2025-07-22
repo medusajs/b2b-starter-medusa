@@ -34,7 +34,6 @@ export const getProductsById = async ({
       },
       headers,
       next,
-      cache: "force-cache",
     })
     .then(({ products }) => products)
 }
@@ -60,7 +59,6 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
       },
       headers,
       next,
-      cache: "force-cache",
     })
     .then(({ products }) => products[0])
 }
@@ -71,12 +69,12 @@ export const listProducts = async ({
   countryCode,
 }: {
   pageParam?: number
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
+  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductListParams
   countryCode: string
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
-  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
+  queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductListParams
 }> => {
   const limit = queryParams?.limit || 12
   const _pageParam = Math.max(pageParam, 1)
@@ -108,12 +106,11 @@ export const listProducts = async ({
           limit,
           offset,
           region_id: region.id,
-          fields: "*variants.calculated_price",
+          fields: "*variants.calculated_price,*variants.inventory_quantity",
           ...queryParams,
         },
         headers,
         next,
-        cache: "force-cache",
       }
     )
     .then(({ products, count }) => {
