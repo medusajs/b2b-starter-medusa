@@ -5,11 +5,11 @@ import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import LogoIcon from "@/modules/common/icons/logo"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
+import SearchModal from "@/modules/search/components/modal"
 import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { Suspense } from "react"
-import Search from "../../components/search"
 
 export async function NavigationHeader() {
   const customer = await retrieveCustomer().catch(() => null)
@@ -39,7 +39,7 @@ export async function NavigationHeader() {
           </div>
           <div className="flex justify-end items-center gap-2">
             <div className="mr-2 inline-flex">
-              <Search />
+              <SearchModal />
             </div>
 
             <Suspense fallback={<SkeletonAccountButton />}>
