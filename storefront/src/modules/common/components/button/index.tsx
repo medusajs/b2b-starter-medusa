@@ -18,7 +18,7 @@ const Button = ({
   console.log(className)
   return (
     <MedusaButton
-      className={`text-sm font-normal ${className} rounded-none`}
+      className={`text-sm font-normal ${className}`}
       variant={variant}
       {...props}
     >

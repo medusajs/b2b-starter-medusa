@@ -26,7 +26,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       <Accordion type="multiple" className="flex flex-col gap-y-2">
         {tabs.map((tab, i) => (
           <Accordion.Item
-            className="bg-neutral-100 small:px-24 px-6"
+            className="bg-ui-bg-field-component px-8"
             key={i}
             title={tab.label}
             headingSize="medium"
@@ -68,9 +68,9 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
   return (
     <div className="text-small-regular py-8">
       <Table className="rounded-lg shadow-borders-base overflow-hidden border-none">
-        <Table.Body>
+        <Table.Body className="border-none">
           {product.weight && (
-            <Table.Row>
+            <Table.Row className="border-none">
               <Table.Cell className="border-r">
                 <span className="font-semibold">Weight</span>
               </Table.Cell>
@@ -78,7 +78,7 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
             </Table.Row>
           )}
           {(product.height || product.width || product.length) && (
-            <Table.Row>
+            <Table.Row className="border-none">
               <Table.Cell className="border-r">
                 <span className="font-semibold">Dimensions (HxWxL)</span>
               </Table.Cell>
@@ -90,7 +90,7 @@ const ProductSpecificationsTab = ({ product }: ProductTabsProps) => {
 
           {product.metadata &&
             Object.entries(product.metadata).map(([key, value]) => (
-              <Table.Row key={key}>
+              <Table.Row key={key} className="border-none">
                 <Table.Cell className="border-r">
                   <span className="font-semibold">{key}</span>
                 </Table.Cell>

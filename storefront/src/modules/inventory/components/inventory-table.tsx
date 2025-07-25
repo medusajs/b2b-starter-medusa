@@ -82,18 +82,18 @@ export function InventoryTable({
                 products.map((product) => {
                   return (
                     <Table.Row key={product.id}>
-                      <Table.Cell className="px-0">
+                      <Table.Cell className="py-2 px-0">
                         <Thumbnail
                           thumbnail={product.thumbnail}
                           size="square"
                           className="w-12"
                         />
                       </Table.Cell>
-                      <Table.Cell className="pr-4">{product.title}</Table.Cell>
-                      <Table.Cell className="px-4 whitespace-pre">
+                      <Table.Cell className="py-2 pr-4">{product.title}</Table.Cell>
+                      <Table.Cell className="py-2 px-4 whitespace-pre">
                         {product.variants?.map(({ sku }) => sku).join("\n")}
                       </Table.Cell>
-                      <Table.Cell className="px-4 text-center whitespace-pre">
+                      <Table.Cell className="py-2 px-4 text-center whitespace-pre">
                         {product.variants
                           ?.map(
                             ({ inventory_quantity }) => inventory_quantity || 0
