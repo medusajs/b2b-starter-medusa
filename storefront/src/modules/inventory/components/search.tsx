@@ -1,7 +1,7 @@
 "use client"
 
 import { Input } from "@medusajs/ui"
-import debounce from "lodash/debounce"
+import { debounce } from "lodash"
 import { useCallback } from "react"
 
 export function SearchProducts({
@@ -9,6 +9,8 @@ export function SearchProducts({
 }: {
   onSearch: (term: string) => void
 }) {
+  // linter is just not capable of reading `debounce` dependencies
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSearch = useCallback(
     debounce((term: string) => {
       onSearch(term)
