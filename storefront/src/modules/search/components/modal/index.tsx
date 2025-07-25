@@ -60,11 +60,11 @@ export default function SearchModal() {
       <Button
         variant="secondary"
         onClick={openSearch}
-        className="hidden small:flex items-center gap-2 px-4 py-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors font-normal"
+        className="hidden small:flex items-center gap-2 px-4 w-56 py-2 text-sm text-ui-fg-muted bg-ui-bg-component border border-ui-border-base shadow-none rounded-lg hover:bg-gray-100 transition-colors font-normal"
       >
         <MagnifyingGlass />
-        Search products...
-        <kbd className="ml-auto text-xs bg-white px-2 py-1 rounded border">
+        Search...
+        <kbd className="ml-auto text-xs bg-ui-bg-base px-2 py-1 rounded border">
           ⌘K
         </kbd>
       </Button>

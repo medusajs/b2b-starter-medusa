@@ -10,9 +10,9 @@ const CategoryBreadcrumbItem = ({
   handle?: string
 }) => {
   return (
-    <li className="text-neutral-500" key={handle}>
+    <li key={handle}>
       <LocalizedClientLink
-        className="hover:text-neutral-900"
+        className="hover:text-ui-fg-interactive"
         href={handle ? `/categories/${handle}` : "/store"}
       >
         {title}
@@ -48,12 +48,7 @@ const CategoryBreadcrumb = ({
 
     while (currentCategory) {
       breadcrumbs.unshift(
-        <li
-          className="text-neutral-500"
-          key={`separator-parent-${currentCategory.id}`}
-        >
-          {">"}
-        </li>
+        <li key={`separator-parent-${currentCategory.id}`}>{">"}</li>
       )
 
       breadcrumbs.unshift(
@@ -69,11 +64,7 @@ const CategoryBreadcrumb = ({
         null
     }
 
-    breadcrumbs.unshift(
-      <li className="text-neutral-500" key={`separator-parent-base`}>
-        {">"}
-      </li>
-    )
+    breadcrumbs.unshift(<li key={`separator-parent-base`}>{">"}</li>)
 
     breadcrumbs.unshift(
       <CategoryBreadcrumbItem title="Products" key={`base`} />
@@ -84,7 +75,11 @@ const CategoryBreadcrumb = ({
 
   const breadcrumbs = generateBreadcrumbs(category)
 
-  return <ul className="flex items-center gap-x-3 text-sm">{breadcrumbs}</ul>
+  return (
+    <ul className="flex items-center gap-x-3 text-sm text-ui-fg-subtle">
+      {breadcrumbs}
+    </ul>
+  )
 }
 
 export default CategoryBreadcrumb

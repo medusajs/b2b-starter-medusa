@@ -9,9 +9,9 @@ const CollectionBreadcrumbItem = ({
   handle?: string
 }) => {
   return (
-    <li className="text-neutral-500">
+    <li className="text-neutral-600">
       <LocalizedClientLink
-        className="hover:text-neutral-900"
+        className="hover:text-neutral-700"
         href={handle ? `/collections/${handle}` : "/store"}
       >
         {title}

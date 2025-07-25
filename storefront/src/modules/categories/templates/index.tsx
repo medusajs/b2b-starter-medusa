@@ -30,7 +30,7 @@ export default function CategoryTemplate({
   if (!currentCategory || !countryCode) notFound()
 
   return (
-    <div className="bg-neutral-100">
+    <div className="bg-ui-bg-base">
       <div
         className="flex flex-col py-6 content-container gap-4"
         data-testid="category-container"

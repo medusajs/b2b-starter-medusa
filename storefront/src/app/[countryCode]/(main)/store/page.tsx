@@ -37,7 +37,7 @@ export default async function StorePage(props: Params) {
   const customer = await retrieveCustomer()
 
   return (
-    <div className="bg-neutral-100">
+    <div className="bg-ui-bg-component">
       <div
         className="flex flex-col py-6 content-container gap-4"
         data-testid="category-container"

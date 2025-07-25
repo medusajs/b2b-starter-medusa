@@ -16,7 +16,7 @@ export async function NavigationHeader() {
   const cart = await retrieveCart()
 
   return (
-    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
+    <div className="sticky top-0 inset-x-0 group bg-ui-bg-base text-ui-fg-base small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
       <header className="flex w-full content-container relative small:mx-auto justify-between">
         <div className="small:mx-auto flex justify-between items-center min-w-full gap-2">
           <div className="flex items-center small:space-x-4">
