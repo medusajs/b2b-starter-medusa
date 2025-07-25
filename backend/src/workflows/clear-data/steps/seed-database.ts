@@ -124,7 +124,7 @@ export const seedDatabaseStep = createStep(
             ],
           },
         })
-        .then((result) => result[0]));
+        .then(({ result }) => result[0]));
 
     const regionUK =
       regions.find((r) => r.name === "UK") ||
@@ -141,7 +141,7 @@ export const seedDatabaseStep = createStep(
             ],
           },
         })
-        .then((result) => result[0]));
+        .then(({ result }) => result[0]));
     logger.info("Finished seeding regions.");
 
     logger.info("Seeding tax regions...");
