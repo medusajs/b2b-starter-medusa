@@ -32,10 +32,9 @@ import {
   ProductStatus,
 } from "@medusajs/framework/utils";
 import { createStep } from "@medusajs/framework/workflows-sdk";
-import { ModuleCompanySpendingLimitResetFrequency } from "@starter/types";
-import { COMPANY_MODULE } from "src/modules/company";
-import { createCompaniesWorkflow } from "src/workflows/company/workflows";
-import { createEmployeesWorkflow } from "src/workflows/employee/workflows";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { createCompaniesWorkflow } from "../../../workflows/company/workflows";
+import { createEmployeesWorkflow } from "../../../workflows/employee/workflows";
 
 export const seedDatabaseStep = createStep(
   "seed-database",
@@ -477,8 +476,8 @@ export const seedDatabaseStep = createStep(
           zip: null,
           state: null,
           logo_url: null,
-          spending_limit_reset_frequency:
-            ModuleCompanySpendingLimitResetFrequency.NEVER,
+          //@ts-ignore
+          spending_limit_reset_frequency: "never",
         },
         {
           name: "Example Ltd.",
@@ -491,8 +490,8 @@ export const seedDatabaseStep = createStep(
           zip: null,
           state: null,
           logo_url: null,
-          spending_limit_reset_frequency:
-            ModuleCompanySpendingLimitResetFrequency.NEVER,
+          //@ts-ignore
+          spending_limit_reset_frequency: "never",
         },
       ],
     });
