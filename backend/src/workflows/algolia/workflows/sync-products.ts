@@ -17,6 +17,7 @@ type SyncProductsWorkflowInput = {
 export const syncProductsWorkflow = createWorkflow(
   "sync-products",
   ({ filters, limit, offset }: SyncProductsWorkflowInput) => {
+    //@ts-ignore
     const { data, metadata } = useQueryGraphStep({
       entity: "product",
       fields: [
@@ -36,6 +37,7 @@ export const syncProductsWorkflow = createWorkflow(
         skip: offset,
       },
       filters: {
+        //@ts-ignore
         status: "published",
         ...filters,
       },
