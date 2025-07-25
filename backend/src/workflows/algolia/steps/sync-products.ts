@@ -19,17 +19,30 @@ export const syncProductsStep = createStep(
         "product"
       )
     ).results.filter(Boolean);
+
     const newProducts = products.filter(
       (product) => !existingProducts.some((p) => p.objectID === product.id)
     );
-    await algoliaModuleService.indexData(
-      products as unknown as Record<string, unknown>[],
-      "product"
-    );
+
+    const {
+      results: [{ hits: removedProducts }],
+    } = (await algoliaModuleService.getProductsNotInList(
+      products.map((p) => p.id)
+    )) as { results: Array<{ hits: any[] }> };
+
+    if (removedProducts.length > 0) {
+      const removedProductIds = removedProducts.map(
+        (product) => product.objectID as string
+      );
+      await algoliaModuleService.deleteFromIndex(removedProductIds, "product");
+    }
 
     return new StepResponse(undefined, {
       newProducts: newProducts.map((product) => product.id),
       existingProducts,
+      removedProducts: removedProducts.map(
+        (product) => product.objectID as string
+      ),
     });
   },
   async (input, { container }) => {

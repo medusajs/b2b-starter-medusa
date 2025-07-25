@@ -1,4 +1,4 @@
-import { algoliasearch, SearchClient } from "algoliasearch";
+import { algoliasearch, SearchClient, SearchResponses } from "algoliasearch";
 
 type AlgoliaOptions = {
   apiKey: string;
@@ -76,6 +76,31 @@ export default class AlgoliaModuleService {
         {
           indexName,
           query: companyId + " " + query,
+        },
+      ],
+    });
+  }
+
+  async getProductsNotInList(
+    excludeObjectIDs: string[],
+    type: AlgoliaIndexType = "product"
+  ): Promise<SearchResponses<{ hits: any[] }>> {
+    const indexName = await this.getIndexName(type);
+
+    if (excludeObjectIDs.length === 0) {
+      return { results: [] };
+    }
+
+    const filters = excludeObjectIDs
+      .map((id) => `NOT objectID:${id}`)
+      .join(" AND ");
+
+    return await this.client.search({
+      requests: [
+        {
+          indexName,
+          query: "",
+          filters,
         },
       ],
     });
