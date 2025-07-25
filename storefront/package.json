@@ -21,6 +21,8 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.19.2",
+    "@algolia/autocomplete-theme-classic": "^1.19.2",
     "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.0",
     "@medusajs/icons": "2.8.4",
