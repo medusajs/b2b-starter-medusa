@@ -24,6 +24,7 @@ import {
   IRegionModuleService,
   ISalesChannelModuleService,
   IStoreModuleService,
+  RegionDTO,
 } from "@medusajs/framework/types";
 import {
   ContainerRegistrationKeys,
@@ -109,7 +110,7 @@ export const seedDatabaseStep = createStep(
     logger.info("Seeding region data...");
     const regions = await regionModuleService.listRegions();
 
-    const regionEU =
+    const regionEU: RegionDTO =
       regions.find((r) => r.name === "EU") ||
       (await createRegionsWorkflow(container)
         .run({
@@ -126,7 +127,7 @@ export const seedDatabaseStep = createStep(
         })
         .then(({ result }) => result[0]));
 
-    const regionUK =
+    const regionUK: RegionDTO =
       regions.find((r) => r.name === "UK") ||
       (await createRegionsWorkflow(container)
         .run({
