@@ -31,10 +31,10 @@ import {
   Modules,
   ProductStatus,
 } from "@medusajs/framework/utils";
-import { COMPANY_MODULE } from "src/modules/company";
-import { createEmployeesWorkflow } from "src/workflows/employee/workflows";
+import { COMPANY_MODULE } from "../modules/company";
 import { ModuleCompanySpendingLimitResetFrequency } from "../types/company";
 import { createCompaniesWorkflow } from "../workflows/company/workflows";
+import { createEmployeesWorkflow } from "../workflows/employee/workflows";
 
 export default async function seedDemoData({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
