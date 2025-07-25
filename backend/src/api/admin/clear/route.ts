@@ -1,13 +1,9 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { exec } from "child_process";
-import { promisify } from "util";
-
-const execAsync = promisify(exec);
+import { clearDataWorkflow } from "../../../workflows/clear-data/workflows/clear-data";
 
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   try {
-    await execAsync("medusa exec ./src/scripts/clear-database.ts");
-    await execAsync("medusa exec ./src/scripts/seed.ts");
+    await clearDataWorkflow(req.scope).run({});
 
     res.json({ success: true });
   } catch (error) {
