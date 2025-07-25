@@ -148,7 +148,7 @@ function SearchResults({ onProductClick }: { onProductClick: () => void }) {
           No products found
         </h3>
         <p className="text-sm">
-          We couldn't find any products matching "{indexUiState.query}".
+          {`We couldn't find any products matching "{indexUiState.query}".`}
         </p>
         <p className="text-sm mt-1">
           Try adjusting your search or browse our product categories.
