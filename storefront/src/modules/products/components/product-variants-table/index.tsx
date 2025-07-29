@@ -101,9 +101,6 @@ const ProductVariantsTable = ({
               return (
                 <Table.Row
                   key={variant.id}
-                  className={clx({
-                    "border-b-0": index === product.variants?.length! - 1,
-                  })}
                 >
                   <Table.Cell className="px-4">{variant.sku}</Table.Cell>
                   {variant.options?.map((option, index) => {

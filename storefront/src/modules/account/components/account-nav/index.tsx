@@ -8,7 +8,7 @@ import MapPin from "@/modules/common/icons/map-pin"
 import Package from "@/modules/common/icons/package"
 import User from "@/modules/common/icons/user"
 import { B2BCustomer } from "@/types/global"
-import { ArrowRightOnRectangle, BuildingStorefront } from "@medusajs/icons"
+import { ArrowRightOnRectangle, Buildings, BuildingStorefront } from "@medusajs/icons"
 import { clx } from "@medusajs/ui"
 import { useParams, usePathname } from "next/navigation"
 
@@ -50,14 +50,15 @@ const AccountNav = ({
               <ul>
                 <li>
                   <LocalizedClientLink
-                    href="/account/profile"
+                    href="/account/inventory"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
-                    data-testid="profile-link"
+                    data-testid="inventory-link"
                   >
                     <>
                       <div className="flex items-center gap-x-2">
-                        <User size={20} />
-                        <span>Profile</span>
+                        <Buildings width={20} />
+                        
+                        <span>Inventory</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -135,6 +136,21 @@ const AccountNav = ({
                   </LocalizedClientLink>
                 </li>
                 <li>
+                  <LocalizedClientLink
+                    href="/account/profile"
+                    className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
+                    data-testid="profile-link"
+                  >
+                    <>
+                      <div className="flex items-center gap-x-2">
+                        <User size={20} />
+                        <span>Profile</span>
+                      </div>
+                      <ChevronDown className="transform -rotate-90" />
+                    </>
+                  </LocalizedClientLink>
+                </li>
+                <li>
                   <button
                     type="button"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8 w-full"
@@ -167,11 +183,11 @@ const AccountNav = ({
             </li>
             <li>
               <AccountNavLink
-                href="/account/profile"
+                href="/account/inventory"
                 route={route!}
-                data-testid="profile-link"
+                data-testid="inventory-link"
               >
-                Profile
+                Inventory
               </AccountNavLink>
             </li>
             <li>
@@ -224,6 +240,15 @@ const AccountNav = ({
                 data-testid="quotes-link"
               >
                 Quotes
+              </AccountNavLink>
+            </li>
+            <li>
+              <AccountNavLink
+                href="/account/profile"
+                route={route!}
+                data-testid="profile-link"
+              >
+                Profile
               </AccountNavLink>
             </li>
             <li className="text-neutral-400 hover:text-neutral-950">

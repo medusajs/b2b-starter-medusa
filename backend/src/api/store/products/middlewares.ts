@@ -3,12 +3,14 @@ import {
   featureFlagRouter,
   maybeApplyLinkFilter,
   MiddlewareRoute,
+  validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
 import { listProductQueryConfig } from "@medusajs/medusa/api/admin/products/query-config";
 import { maybeApplyPriceListsFilter } from "@medusajs/medusa/api/admin/products/utils/index";
 import { AdminGetProductsParams } from "@medusajs/medusa/api/admin/products/validators";
 import IndexEngineFeatureFlag from "@medusajs/medusa/loaders/feature-flags/index-engine";
+import { SearchSchema } from "./search/route";
 
 export const storeProductsMiddlewares: MiddlewareRoute[] = [
   {
@@ -34,5 +36,10 @@ export const storeProductsMiddlewares: MiddlewareRoute[] = [
       },
       maybeApplyPriceListsFilter(),
     ],
+  },
+  {
+    matcher: "/store/products/search",
+    method: ["POST"],
+    middlewares: [validateAndTransformBody(SearchSchema)],
   },
 ];

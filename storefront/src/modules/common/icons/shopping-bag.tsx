@@ -3,7 +3,7 @@ import { IconProps } from "types/icon"
 export default function ShoppingBag({
   size = 12,
   color = "currentColor",
-  fill = "#52525B",
+  fill = "currentColor",
   ...props
 }: IconProps) {
   return (

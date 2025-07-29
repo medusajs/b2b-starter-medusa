@@ -72,9 +72,9 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
   }, [handleArrowClick])
 
   return (
-    <div className="flex flex-col justify-end items-center bg-neutral-100 p-8 pt-0 gap-6 w-full h-full">
+    <div className="flex flex-col justify-end items-center p-8 pt-0 gap-6 w-full h-full">
       <div
-        className="relative aspect-[29/34] w-full overflow-hidden"
+        className="relative aspect-[4/3] w-full overflow-hidden"
         id={selectedImage.id}
       >
         <div className="flex p-48">

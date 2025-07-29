@@ -30,7 +30,7 @@ export default async function ProductPreview({
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div
         data-testid="product-wrapper"
-        className="flex flex-col gap-4 relative aspect-[3/5] w-full overflow-hidden p-4 bg-white shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_4px_rgba(0,0,0,0.1)] transition-shadow ease-in-out duration-150"
+        className="flex flex-col gap-4 relative aspect-[3/5] w-full overflow-hidden p-4 bg-ui-bg-base shadow-borders-base rounded-lg group-hover:shadow-[0_0_0_2px_rgba(0,0,0,0.1)] group-hover:shadow-ui-border-interactive transition-shadow ease-in-out duration-150"
       >
         <div className="w-full h-full p-2">
           <Thumbnail

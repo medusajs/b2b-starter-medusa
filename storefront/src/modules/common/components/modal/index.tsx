@@ -1,9 +1,8 @@
+import { ModalProvider, useModal } from "@/lib/context/modal-context"
+import X from "@/modules/common/icons/x"
 import { Dialog, Transition } from "@headlessui/react"
 import { clx } from "@medusajs/ui"
 import React, { Fragment } from "react"
-
-import { ModalProvider, useModal } from "@/lib/context/modal-context"
-import X from "@/modules/common/icons/x"
 
 type ModalProps = {
   isOpen: boolean
@@ -34,7 +33,7 @@ const Modal = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md  h-screen" />
+          <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md h-screen" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-hidden">
@@ -59,13 +58,13 @@ const Modal = ({
               <Dialog.Panel
                 data-testid={dataTestId}
                 className={clx(
-                  "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
+                  "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[90vh] h-fit",
                   {
                     "max-w-md": size === "small",
                     "max-w-xl": size === "medium",
                     "max-w-3xl": size === "large",
                     "bg-transparent shadow-none": search,
-                    "bg-white shadow-xl border rounded-rounded": !search,
+                    "bg-ui-bg-base shadow-xl border border-ui-border-strong rounded-xl": !search,
                   }
                 )}
               >
