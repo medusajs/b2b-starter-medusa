@@ -1,4 +1,5 @@
 import CountrySelect from "@/modules/checkout/components/country-select"
+import GoogleAddressAutocomplete from "@/modules/common/components/google-address-autocomplete"
 import Input from "@/modules/common/components/input"
 import { B2BCart } from "@/types"
 import React, { useEffect, useState } from "react"
@@ -43,6 +44,24 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
     })
   }
 
+  const handleGoogleAddressSelect = (address: {
+    address_1: string
+    address_2: string
+    city: string
+    postal_code: string
+    country_code: string
+    province: string
+  }) => {
+    setFormData((prev) => ({
+      ...prev,
+      "billing_address.address_1": address.address_1 || "",
+      "billing_address.city": address.city || "",
+      "billing_address.postal_code": address.postal_code || "",
+      "billing_address.country_code": address.country_code || "",
+      "billing_address.province": address.province || "",
+    }))
+  }
+
   return (
     <>
       <div className="grid grid-cols-2 gap-4">
@@ -82,16 +101,32 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-company-input"
           colSpan={2}
         />
-        <Input
-          label="Address"
-          name="billing_address.address_1"
-          autoComplete="address-line1"
-          value={formData["billing_address.address_1"]}
-          onChange={handleChange}
-          required
-          data-testid="billing-address-input"
-          colSpan={2}
-        />
+        <div className="col-span-2">
+          <GoogleAddressAutocomplete
+            label="Address"
+            name="billing_address_search"
+            required
+            value={formData["billing_address.address_1"]}
+            onAddressSelect={handleGoogleAddressSelect}
+            onChange={(e) => {
+              setFormData((prev) => ({
+                ...prev,
+                "billing_address.address_1": e.target.value,
+              }))
+            }}
+            data-testid="billing-address-input"
+            regions={
+              cart?.region?.countries
+                ?.map((c) => c.iso_2)
+                .filter(Boolean) as string[]
+            }
+          />
+          <input
+            type="hidden"
+            name="billing_address.address_1"
+            value={formData["billing_address.address_1"]}
+          />
+        </div>
         <Input
           label="Postal code"
           name="billing_address.postal_code"
