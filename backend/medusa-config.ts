@@ -39,6 +39,20 @@ const config = {
         productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME!,
       },
     },
+    [Modules.NOTIFICATION]: {
+      resolve: "@medusajs/medusa/notification",
+      providers: [
+        {
+          resolve: "./src/modules/resend",
+          id: "resend",
+          options: {
+            channels: ["email"],
+            api_key: process.env.RESEND_API_KEY,
+            from: process.env.RESEND_FROM_EMAIL,
+          },
+        },
+      ],
+    },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
     },
@@ -49,11 +63,11 @@ const config = {
 } as InputConfig;
 
 if (!isDevelopment && config.projectConfig) {
-  (config.projectConfig.workerMode = process.env.MEDUSA_WORKER_MODE as
+  ((config.projectConfig.workerMode = process.env.MEDUSA_WORKER_MODE as
     | "shared"
     | "worker"
     | "server"),
-    (config.projectConfig.redisUrl = process.env.REDIS_URL);
+    (config.projectConfig.redisUrl = process.env.REDIS_URL));
   config.admin = {
     backendUrl: process.env.MEDUSA_BACKEND_URL,
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",

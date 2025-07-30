@@ -54,3 +54,4 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 **/.DS_Store
+backend/.react-email
