@@ -18,14 +18,14 @@ export async function GET(request: NextRequest) {
     }
 
     // Get place details with only postalAddress field
-    const [{ postalAddress }] = await placesClient.getPlace(
+    const [{ postalAddress, displayName }] = await placesClient.getPlace(
       {
         name: placeId,
       },
       {
         otherArgs: {
           headers: {
-            "X-Goog-FieldMask": "postalAddress",
+            "X-Goog-FieldMask": "postalAddress,displayName",
           },
         },
       }
@@ -40,12 +40,14 @@ export async function GET(request: NextRequest) {
 
     // Map postalAddress to Medusa address format
     const medusaAddress = {
-      address_1: postalAddress.addressLines?.[0] || "",
+      address_1: postalAddress.addressLines?.[0] || displayName?.text || "",
       address_2: postalAddress.addressLines?.[1] || "",
       city: postalAddress.locality || "",
       postal_code: postalAddress.postalCode || "",
       country_code: postalAddress.regionCode?.toLowerCase() || "",
     }
+
+    console.error({ postalAddress, displayName })
 
     return NextResponse.json(medusaAddress)
   } catch (error) {
