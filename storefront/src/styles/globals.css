@@ -18,7 +18,7 @@
   }
 
   input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:not([type=checkbox]):not(:placeholder-shown) ~ label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 

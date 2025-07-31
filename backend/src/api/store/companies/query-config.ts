@@ -74,3 +74,34 @@ export const storeApprovalSettingsQueryConfig = {
     isList: false,
   },
 };
+
+/* Store Company Address Query Config */
+export const storeCompanyAddressFields = [
+  "id",
+  "label",
+  "firstName",
+  "lastName",
+  "companyName",
+  "address_1",
+  "address_2",
+  "city",
+  "province",
+  "postal_code",
+  "country_code",
+  "phone",
+  "company_id",
+  "is_default",
+  "created_at",
+  "updated_at",
+];
+
+export const storeCompanyAddressQueryConfig = {
+  list: {
+    defaults: storeCompanyAddressFields,
+    isList: true,
+  },
+  retrieve: {
+    defaults: storeCompanyAddressFields,
+    isList: false,
+  },
+};

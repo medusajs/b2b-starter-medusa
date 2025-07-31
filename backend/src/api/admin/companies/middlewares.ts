@@ -6,16 +6,20 @@ import { MiddlewareRoute } from "@medusajs/medusa";
 import {
   adminApprovalSettingsQueryConfig,
   adminCompanyQueryConfig,
+  adminCompanyAddressQueryConfig,
   adminEmployeeQueryConfig,
 } from "./query-config";
 import {
   AdminCreateCompany,
+  AdminCreateCompanyAddress,
   AdminCreateEmployee,
   AdminGetApprovalSettingsParams,
+  AdminGetCompanyAddressParams,
   AdminGetCompanyParams,
   AdminGetEmployeeParams,
   AdminUpdateApprovalSettings,
   AdminUpdateCompany,
+  AdminUpdateCompanyAddress,
   AdminUpdateEmployee,
 } from "./validators";
 
@@ -116,6 +120,48 @@ export const adminCompaniesMiddlewares: MiddlewareRoute[] = [
       validateAndTransformQuery(
         AdminGetApprovalSettingsParams,
         adminApprovalSettingsQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/admin/companies/:id/addresses",
+    middlewares: [
+      validateAndTransformQuery(
+        AdminGetCompanyAddressParams,
+        adminCompanyAddressQueryConfig.list
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/admin/companies/:id/addresses",
+    middlewares: [
+      validateAndTransformBody(AdminCreateCompanyAddress),
+      validateAndTransformQuery(
+        AdminGetCompanyAddressParams,
+        adminCompanyAddressQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["PUT"],
+    matcher: "/admin/companies/:id/addresses/:address_id",
+    middlewares: [
+      validateAndTransformBody(AdminUpdateCompanyAddress),
+      validateAndTransformQuery(
+        AdminGetCompanyAddressParams,
+        adminCompanyAddressQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["DELETE"],
+    matcher: "/admin/companies/:id/addresses/:address_id",
+    middlewares: [
+      validateAndTransformQuery(
+        AdminGetCompanyAddressParams,
+        adminCompanyAddressQueryConfig.retrieve
       ),
     ],
   },

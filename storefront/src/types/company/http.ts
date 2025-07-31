@@ -1,7 +1,7 @@
 import { FindParams, PaginatedResponse } from "@medusajs/types";
+import { ModuleCompanySpendingLimitResetFrequency } from "./module";
 import { QueryCompany, QueryEmployee } from "./query";
 import { ModuleCompanyFilters, ModuleEmployeeFilters } from "./service";
-import { ModuleCompanySpendingLimitResetFrequency } from "./module";
 
 /* Filters */
 
@@ -117,4 +117,64 @@ export type StoreUpdateEmployee = {
   spending_limit: number;
   is_admin: boolean;
   company_id: string;
+};
+
+/* Company Address */
+
+export type CompanyAddress = {
+  id: string;
+  label: string;
+  address_1: string;
+  address_2: string | null;
+  city: string;
+  province: string | null;
+  postal_code: string;
+  country_code: string;
+  phone: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  companyName: string | null;
+  is_default: boolean;
+  company_id: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type StoreCompanyAddressesResponse = PaginatedResponse<{
+  addresses: CompanyAddress[];
+}>;
+
+export type StoreCompanyAddressResponse = {
+  address: CompanyAddress;
+};
+
+export type StoreCreateCompanyAddress = {
+  label: string;
+  address_1: string;
+  address_2?: string | null;
+  city: string;
+  province?: string | null;
+  postal_code: string;
+  country_code: string;
+  phone?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  companyName?: string | null;
+  is_default?: boolean;
+};
+
+export type StoreUpdateCompanyAddress = {
+  id: string;
+  label?: string;
+  address_1?: string;
+  address_2?: string | null;
+  city?: string;
+  province?: string | null;
+  postal_code?: string;
+  country_code?: string;
+  phone?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  companyName?: string | null;
+  is_default?: boolean;
 };

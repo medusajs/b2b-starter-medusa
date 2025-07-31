@@ -1,10 +1,11 @@
+import { listCompanyAddresses } from "@/lib/data/companies"
 import AddressSelect from "@/modules/checkout/components/address-select"
 import CountrySelect from "@/modules/checkout/components/country-select"
 import GoogleAddressAutocomplete from "@/modules/common/components/google-address-autocomplete"
 import Input from "@/modules/common/components/input"
-import { B2BCart, B2BCustomer } from "@/types"
+import { B2BCart, B2BCustomer, CompanyAddress } from "@/types"
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
+import { Checkbox, Container, Label } from "@medusajs/ui"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
 
@@ -25,22 +26,51 @@ const ShippingAddressForm = ({
     "shipping_address.country_code": "",
     "shipping_address.province": "",
     "shipping_address.phone": "",
+    "shipping_address.label": "",
     email: "",
   })
+
+  const [companyAddresses, setCompanyAddresses] = useState<CompanyAddress[]>([])
+  const [saveToCompany, setSaveToCompany] = useState(false)
 
   const countriesInRegion = useMemo(
     () => cart?.region?.countries?.map((c) => c.iso_2),
     [cart?.region]
   )
 
-  // check if customer has saved addresses that are in the current region
+  // check if company has saved addresses that are in the current region
   const addressesInRegion = useMemo(
     () =>
-      customer?.addresses.filter(
+      companyAddresses.filter(
         (a) => a.country_code && countriesInRegion?.includes(a.country_code)
       ),
-    [customer?.addresses, countriesInRegion]
+    [companyAddresses, countriesInRegion]
   )
+
+  // Load company addresses
+  useEffect(() => {
+    const loadCompanyAddresses = async () => {
+      if (customer?.employee?.company_id) {
+        try {
+          const addresses = await listCompanyAddresses()
+          setCompanyAddresses(addresses)
+
+          // Auto-select default address
+          const defaultAddress = addresses.find((a) => a.is_default)
+          if (
+            defaultAddress &&
+            (!cart?.shipping_address || !cart.shipping_address.address_1)
+          ) {
+            setFormAddress(defaultAddress as any)
+          }
+        } catch (error) {
+          console.error("Failed to load company addresses:", error)
+        }
+      }
+    }
+
+    loadCompanyAddresses()
+  }, [customer?.employee?.company_id, cart?.shipping_address])
 
   const setFormAddress = (
     address?: HttpTypes.StoreCartAddress,
@@ -49,10 +79,13 @@ const ShippingAddressForm = ({
     address &&
       setFormData((prevState: Record<string, any>) => ({
         ...prevState,
-        "shipping_address.first_name": address?.first_name?.toString() || "",
-        "shipping_address.last_name": address?.last_name?.toString() || "",
+        "shipping_address.first_name": address?.first_name?.toString() || 
+          (address as any)?.firstName?.toString() || "",
+        "shipping_address.last_name": address?.last_name?.toString() || 
+          (address as any)?.lastName?.toString() || "",
         "shipping_address.address_1": address?.address_1?.toString() || "",
-        "shipping_address.company": address?.company?.toString() || "",
+        "shipping_address.company": address?.company?.toString() || 
+          (address as any)?.companyName?.toString() || "",
         "shipping_address.postal_code": address?.postal_code?.toString() || "",
         "shipping_address.city": address?.city?.toString() || "",
         "shipping_address.country_code":
@@ -73,6 +106,15 @@ const ShippingAddressForm = ({
       setFormAddress(cart?.shipping_address)
     }
   }, [cart])
+
+  useEffect(() => {
+    if (!saveToCompany) {
+      setFormData((prevState: Record<string, any>) => ({
+        ...prevState,
+        "shipping_address.label": "",
+      }))
+    }
+  }, [saveToCompany])
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -108,10 +150,10 @@ const ShippingAddressForm = ({
       {customer && (addressesInRegion?.length || 0) > 0 && (
         <Container className="mb-6 flex flex-col gap-y-4 p-5">
           <p className="text-small-regular">
-            {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
+            Do you want to use one of your company&apos;s saved addresses?
           </p>
           <AddressSelect
-            addresses={customer.addresses}
+            addresses={addressesInRegion}
             addressInput={
               mapKeys(formData, (_, key) =>
                 key.replace("shipping_address.", "")
@@ -222,6 +264,28 @@ const ShippingAddressForm = ({
             required
             data-testid="shipping-country-select"
           />
+        </div>
+
+        <div className="mt-6">
+          <div className="flex items-center gap-x-3 mb-4">
+            <Checkbox
+              id="save-to-company"
+              checked={saveToCompany}
+              onCheckedChange={() => setSaveToCompany(!saveToCompany)}
+              aria-placeholder=" "
+            />
+            <Label htmlFor="save-to-company">Save this address</Label>
+          </div>
+          {saveToCompany && (
+            <Input
+              label="Address Label"
+              name="shipping_address.label"
+              value={formData["shipping_address.label"]}
+              onChange={handleChange}
+              data-testid="shipping-label-input"
+              required={saveToCompany}
+            />
+          )}
         </div>
       </div>
     </>

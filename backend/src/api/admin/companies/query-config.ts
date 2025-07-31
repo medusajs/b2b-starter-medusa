@@ -66,3 +66,30 @@ export const adminApprovalSettingsQueryConfig = {
     isList: false,
   },
 };
+
+/* Company Address Query Config */
+export const adminCompanyAddressFields = [
+  "id",
+  "label",
+  "address_1",
+  "address_2",
+  "city",
+  "province",
+  "postal_code",
+  "country_code",
+  "phone",
+  "is_default",
+  "company_id",
+  "*company",
+];
+
+export const adminCompanyAddressQueryConfig = {
+  list: {
+    defaults: adminCompanyAddressFields,
+    isList: true,
+  },
+  retrieve: {
+    defaults: adminCompanyAddressFields,
+    isList: false,
+  },
+};

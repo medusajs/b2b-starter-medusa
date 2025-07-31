@@ -1,5 +1,6 @@
 import compareAddresses from "@/lib/util/compare-addresses"
 import Radio from "@/modules/common/components/radio"
+import { CompanyAddress } from "@/types"
 import { Listbox, Transition } from "@headlessui/react"
 import { ChevronUpDown } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
@@ -7,7 +8,7 @@ import { clx } from "@medusajs/ui"
 import { Fragment, useMemo } from "react"
 
 type AddressSelectProps = {
-  addresses: HttpTypes.StoreCustomerAddress[]
+  addresses: CompanyAddress[]
   addressInput: HttpTypes.StoreCartAddress | null
   onSelect: (
     address: HttpTypes.StoreCartAddress | undefined,
@@ -42,7 +43,7 @@ const AddressSelect = ({
             <>
               <span className="block truncate">
                 {selectedAddress
-                  ? selectedAddress.address_1
+                  ? `${selectedAddress.label} - ${selectedAddress.address_1}`
                   : "Choose an address"}
               </span>
               <ChevronUpDown
@@ -77,14 +78,16 @@ const AddressSelect = ({
                       data-testid="shipping-address-radio"
                     />
                     <div className="flex flex-col">
-                      <span className="text-left text-base-semi">
-                        {address.first_name} {address.last_name}
-                      </span>
-                      {address.company && (
-                        <span className="text-small-regular text-ui-fg-base">
-                          {address.company}
+                      <div className="flex items-center gap-2">
+                        <span className="text-left text-base-semi text-ui-fg-base">
+                          {address.label}
                         </span>
-                      )}
+                        {address.is_default && (
+                          <span className="text-xs bg-ui-tag-neutral-bg text-ui-tag-neutral-text px-2 py-1 rounded">
+                            Default
+                          </span>
+                        )}
+                      </div>
                       <div className="flex flex-col text-left text-base-regular mt-2">
                         <span>
                           {address.address_1}
@@ -99,6 +102,11 @@ const AddressSelect = ({
                           {address.province && `${address.province}, `}
                           {address.country_code?.toUpperCase()}
                         </span>
+                        {address.phone && (
+                          <span className="text-small-regular text-ui-fg-subtle">
+                            {address.phone}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>

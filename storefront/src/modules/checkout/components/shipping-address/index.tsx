@@ -1,6 +1,7 @@
 "use client"
 
 import { setShippingAddress } from "@/lib/data/cart"
+import { createCompanyAddress } from "@/lib/data/companies"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import ShippingAddressForm from "@/modules/checkout/components/shipping-address-form"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
@@ -46,14 +47,44 @@ const ShippingAddress = ({
   }
 
   const handleSubmit = async (formData: FormData) => {
-    await setShippingAddress(formData).catch((e) => {
-      setError(e.message)
-      return
-    })
+    try {
+      const addressLabel = formData
+        .get("shipping_address.label")
+        ?.toString()
+        .trim()
 
-    router.push(pathname + "?" + createQueryString("step", "billing-address"), {
-      scroll: false,
-    })
+      if (addressLabel && customer?.employee?.company_id) {
+        await createCompanyAddress({
+          label: addressLabel,
+          firstName:
+            (formData.get("shipping_address.first_name") as string) || null,
+          lastName:
+            (formData.get("shipping_address.last_name") as string) || null,
+          companyName:
+            (formData.get("shipping_address.company") as string) || null,
+          address_1: formData.get("shipping_address.address_1") as string,
+          address_2: null,
+          city: formData.get("shipping_address.city") as string,
+          province:
+            (formData.get("shipping_address.province") as string) || null,
+          postal_code: formData.get("shipping_address.postal_code") as string,
+          country_code: formData.get("shipping_address.country_code") as string,
+          phone: (formData.get("shipping_address.phone") as string) || null,
+          is_default: false,
+        })
+      }
+
+      await setShippingAddress(formData)
+
+      router.push(
+        pathname + "?" + createQueryString("step", "billing-address"),
+        {
+          scroll: false,
+        }
+      )
+    } catch (e: any) {
+      setError(e.message)
+    }
   }
 
   return (

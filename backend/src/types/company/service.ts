@@ -7,10 +7,13 @@ import {
 } from "@medusajs/types";
 import {
   ModuleCompany,
+  ModuleCompanyAddress,
   ModuleCreateCompany,
+  ModuleCreateCompanyAddress,
   ModuleCreateEmployee,
   ModuleEmployee,
   ModuleUpdateCompany,
+  ModuleUpdateCompanyAddress,
   ModuleUpdateEmployee,
 } from "./module";
 
@@ -26,6 +29,14 @@ export interface ModuleEmployeeFilters
   id?: string | string[];
   company_id?: string | string[];
   customer_id?: string | string[];
+}
+
+export interface ModuleCompanyAddressFilters
+  extends BaseFilterable<ModuleCompanyAddressFilters> {
+  q?: string;
+  id?: string | string[];
+  company_id?: string | string[];
+  is_default?: boolean;
 }
 
 /**
@@ -104,6 +115,50 @@ export interface ICompanyModuleService extends IModuleService {
   softDeleteEmployees(ids: string[], sharedContext?: Context): Promise<void>;
 
   restoreEmployees<TReturnableLinkableKeys extends string = string>(
+    ids: string[],
+    config?: RestoreReturn<TReturnableLinkableKeys>,
+    sharedContext?: Context
+  ): Promise<Record<TReturnableLinkableKeys, string[]> | void>;
+
+  /* Entity: CompanyAddresses */
+
+  createCompanyAddresses(
+    data: ModuleCreateCompanyAddress,
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress>;
+
+  createCompanyAddresses(
+    data: ModuleCreateCompanyAddress[],
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress[]>;
+
+  retrieveCompanyAddress(
+    id: string,
+    config?: FindConfig<ModuleCompanyAddress>,
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress>;
+
+  updateCompanyAddresses(
+    data: ModuleUpdateCompanyAddress,
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress>;
+
+  updateCompanyAddresses(
+    data: ModuleUpdateCompanyAddress[],
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress[]>;
+
+  listCompanyAddresses(
+    filters?: ModuleCompanyAddressFilters,
+    config?: FindConfig<ModuleCompanyAddress>,
+    sharedContext?: Context
+  ): Promise<ModuleCompanyAddress[]>;
+
+  deleteCompanyAddresses(ids: string[], sharedContext?: Context): Promise<void>;
+
+  softDeleteCompanyAddresses(ids: string[], sharedContext?: Context): Promise<void>;
+
+  restoreCompanyAddresses<TReturnableLinkableKeys extends string = string>(
     ids: string[],
     config?: RestoreReturn<TReturnableLinkableKeys>,
     sharedContext?: Context

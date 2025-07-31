@@ -7,12 +7,17 @@ import {
   getCacheTag,
 } from "@/lib/data/cookies"
 import {
+  CompanyAddress,
   StoreCompaniesResponse,
+  StoreCompanyAddressesResponse,
+  StoreCompanyAddressResponse,
   StoreCompanyResponse,
   StoreCreateCompany,
+  StoreCreateCompanyAddress,
   StoreCreateEmployee,
   StoreEmployeeResponse,
   StoreUpdateCompany,
+  StoreUpdateCompanyAddress,
   StoreUpdateEmployee,
 } from "@/types"
 import { track } from "@vercel/analytics/server"
@@ -169,6 +174,94 @@ export const updateApprovalSettings = async (
     body: {
       requires_admin_approval: requiresAdminApproval,
     },
+    headers,
+  })
+
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
+}
+
+export const listCompanyAddresses = async (): Promise<CompanyAddress[]> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const next = {
+    ...(await getCacheOptions("companies")),
+  }
+
+  const { addresses } = await sdk.client.fetch<StoreCompanyAddressesResponse>(
+    `/store/companies/addresses`,
+    {
+      method: "GET",
+      headers,
+      next,
+    }
+  )
+
+  return addresses
+}
+
+export const createCompanyAddress = async (
+  data: StoreCreateCompanyAddress
+): Promise<CompanyAddress> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const { address } = await sdk.client.fetch<StoreCompanyAddressResponse>(
+    `/store/companies/addresses`,
+    {
+      method: "POST",
+      body: data,
+      headers,
+    }
+  )
+
+  track("company_address_created", {
+    address_id: address.id,
+    label: address.label,
+  })
+
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
+
+  return address
+}
+
+export const updateCompanyAddress = async (
+  data: StoreUpdateCompanyAddress
+): Promise<CompanyAddress> => {
+  const { id, ...addressData } = data
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const { address } = await sdk.client.fetch<StoreCompanyAddressResponse>(
+    `/store/companies/addresses/${id}`,
+    {
+      method: "POST",
+      body: addressData,
+      headers,
+    }
+  )
+
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
+
+  return address
+}
+
+export const deleteCompanyAddress = async (
+  addressId: string
+): Promise<void> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  await sdk.client.fetch(`/store/companies/addresses/${addressId}`, {
+    method: "DELETE",
     headers,
   })
 

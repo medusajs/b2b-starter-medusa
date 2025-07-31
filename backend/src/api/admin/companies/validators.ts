@@ -125,3 +125,49 @@ export type AdminDeleteApprovalSettingsType = z.infer<
 export const AdminDeleteApprovalSettings = z.object({
   ids: z.array(z.string()),
 });
+
+/* CompanyAddress Validators */
+export type AdminGetCompanyAddressParamsType = z.infer<
+  typeof AdminGetCompanyAddressParams
+>;
+export const AdminGetCompanyAddressParams = createSelectParams();
+
+export type AdminCreateCompanyAddressType = z.infer<
+  typeof AdminCreateCompanyAddress
+>;
+export const AdminCreateCompanyAddress = z
+  .object({
+    label: z.string(),
+    address_1: z.string(),
+    address_2: z.string().optional().nullable(),
+    city: z.string(),
+    province: z.string().optional().nullable(),
+    postal_code: z.string(),
+    country_code: z.string(),
+    phone: z.string().optional().nullable(),
+    firstName: z.string().optional().nullable(),
+    lastName: z.string().optional().nullable(),
+    companyName: z.string().optional().nullable(),
+    is_default: z.boolean().optional().default(false),
+  })
+  .strict();
+
+export type AdminUpdateCompanyAddressType = z.infer<
+  typeof AdminUpdateCompanyAddress
+>;
+export const AdminUpdateCompanyAddress = z
+  .object({
+    label: z.string().optional(),
+    address_1: z.string().optional(),
+    address_2: z.string().optional().nullable(),
+    city: z.string().optional(),
+    province: z.string().optional().nullable(),
+    postal_code: z.string().optional(),
+    country_code: z.string().optional(),
+    phone: z.string().optional().nullable(),
+    firstName: z.string().optional().nullable(),
+    lastName: z.string().optional().nullable(),
+    companyName: z.string().optional().nullable(),
+    is_default: z.boolean().optional(),
+  })
+  .strict();

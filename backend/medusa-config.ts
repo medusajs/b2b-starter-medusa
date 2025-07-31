@@ -1,10 +1,9 @@
+import type { InputConfig } from "@medusajs/framework/types";
 import { defineConfig, loadEnv, Modules } from "@medusajs/framework/utils";
+import { ALGOLIA_MODULE } from "./src/modules/algolia";
 import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
 import { QUOTE_MODULE } from "./src/modules/quote";
-
-import type { InputConfig } from "@medusajs/framework/types";
-import { ALGOLIA_MODULE } from "src/modules/algolia";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 

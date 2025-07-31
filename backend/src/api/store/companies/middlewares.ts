@@ -8,6 +8,7 @@ import { ensureRole } from "../../middlewares/ensure-role";
 import {
   storeCompanyQueryConfig,
   storeEmployeeQueryConfig,
+  storeCompanyAddressQueryConfig,
 } from "./query-config";
 import {
   StoreCreateCompany,
@@ -16,6 +17,9 @@ import {
   StoreGetEmployeeParams,
   StoreUpdateApprovalSettings,
   StoreUpdateEmployee,
+  StoreGetCompanyAddressParams,
+  StoreCreateCompanyAddress,
+  StoreUpdateCompanyAddress,
 } from "./validators";
 
 export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
@@ -118,6 +122,55 @@ export const storeCompaniesMiddlewares: MiddlewareRoute[] = [
     middlewares: [
       ensureRole("company_admin"),
       validateAndTransformBody(StoreUpdateApprovalSettings),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/companies/addresses",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetCompanyAddressParams,
+        storeCompanyAddressQueryConfig.list
+      ),
+    ],
+  },
+  {
+    method: ["POST"],
+    matcher: "/store/companies/addresses",
+    middlewares: [
+      validateAndTransformBody(StoreCreateCompanyAddress),
+      validateAndTransformQuery(
+        StoreGetCompanyAddressParams,
+        storeCompanyAddressQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/store/companies/addresses/:address_id",
+    middlewares: [
+      validateAndTransformQuery(
+        StoreGetCompanyAddressParams,
+        storeCompanyAddressQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["PUT"],
+    matcher: "/store/companies/addresses/:address_id",
+    middlewares: [
+      validateAndTransformBody(StoreUpdateCompanyAddress),
+      validateAndTransformQuery(
+        StoreGetCompanyAddressParams,
+        storeCompanyAddressQueryConfig.retrieve
+      ),
+    ],
+  },
+  {
+    method: ["DELETE"],
+    matcher: "/store/companies/addresses/:address_id",
+    middlewares: [
+      ensureRole("company_admin"),
     ],
   },
 ];
