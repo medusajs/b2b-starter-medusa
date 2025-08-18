@@ -1,0 +1,21 @@
+productTypes:
+  get:
+    summary: Get product types
+    description: Retrieve lookup data for product types
+    operationId: getProductTypes
+    tags:
+      - Product Types
+    responses:
+      '200':
+        description: Product types retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                # TODO: Define product type schema based on actual API response
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'

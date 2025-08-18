@@ -1,0 +1,82 @@
+invoices:
+  get:
+    summary: Get invoices
+    description: Retrieve invoices with pagination
+    operationId: getInvoices
+    tags:
+      - Invoices
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/PageNumber'
+      - $ref: '../components/parameters/index.yaml#/PageSize'
+      - name: dateFilterFrom
+        in: query
+        description: Start date for filtering invoices (ISO 8601 format)
+        required: false
+        schema:
+          type: string
+          format: date
+        example: "2024-01-01"
+      - name: dateFilterTo
+        in: query
+        description: End date for filtering invoices (ISO 8601 format)
+        required: false
+        schema:
+          type: string
+          format: date
+        example: "2024-12-31"
+    responses:
+      '200':
+        description: Invoices retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    # TODO: Define invoice schema based on actual API response
+                meta:
+                  $ref: '../components/schemas/index.yaml#/PaginationMeta'
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'
+
+invoiceDownload:
+  get:
+    summary: Download invoice
+    description: Download invoice as PDF or other format
+    operationId: downloadInvoice
+    tags:
+      - Invoices
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/InvoiceId'
+      - name: fileFormat
+        in: query
+        description: File format for download
+        required: false
+        schema:
+          type: string
+          enum: [pdf, excel]
+          default: pdf
+        example: "excel"
+    responses:
+      '200':
+        description: Invoice file downloaded successfully
+        content:
+          application/pdf:
+            schema:
+              type: string
+              format: binary
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '404':
+        $ref: '../components/responses/index.yaml#/NotFound'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'

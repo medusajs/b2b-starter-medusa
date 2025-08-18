@@ -38,6 +38,20 @@ const config = {
         productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME!,
       },
     },
+    [Modules.FULFILLMENT]: {
+      resolve: "@medusajs/medusa/fulfillment",
+      providers: [
+        {
+          resolve: "./modules/despatch-lab",
+          id: "despatch-lab",
+          options: {
+            apiUrl: process.env.DESPATCH_LAB_API_URL,
+            key: process.env.DESPATCH_LAB_KEY!,
+            secret: process.env.DESPATCH_LAB_SECRET!,
+          },
+        },
+      ],
+    },
     [Modules.NOTIFICATION]: {
       resolve: "@medusajs/medusa/notification",
       providers: [

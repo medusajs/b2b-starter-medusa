@@ -1,0 +1,63 @@
+orders:
+  get:
+    summary: Get orders
+    description: Retrieve warehouse orders with filtering by customer, date range, and pagination
+    operationId: getOrders
+    tags:
+      - Orders
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/PageNumber'
+      - $ref: '../components/parameters/index.yaml#/PageSize'
+      - $ref: '../components/parameters/index.yaml#/DateFrom'
+      - $ref: '../components/parameters/index.yaml#/DateTo'
+      - name: customerId
+        in: query
+        description: Filter orders by customer ID
+        required: false
+        schema:
+          type: string
+          format: uuid
+        example: "4dd5de71-8ac1-4d6c-8393-af8e1c940f9d"
+    responses:
+      '200':
+        description: Orders retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    # TODO: Define order schema based on actual API response
+                meta:
+                  $ref: '../components/schemas/index.yaml#/PaginationMeta'
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'
+
+orderById:
+  get:
+    summary: Get order by ID
+    description: Retrieve a specific order by its unique identifier
+    operationId: getOrderById
+    tags:
+      - Orders
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/OrderId'
+    responses:
+      '200':
+        description: Order retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              # TODO: Define order schema based on actual API response
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '404':
+        $ref: '../components/responses/index.yaml#/NotFound'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'

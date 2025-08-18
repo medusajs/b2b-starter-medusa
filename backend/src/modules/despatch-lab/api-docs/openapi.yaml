@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: DespatchLab API
+  description: DespatchLab warehouse and logistics management API
+  version: 1.0.0
+  contact:
+    name: DespatchLab Support
+    url: https://despatchlab.tech
+servers:
+  - url: https://api.despatchlab.tech/v1
+    description: Production server
+
+security:
+  - bearerAuth: []
+
+paths:
+  # Authentication endpoints
+  /auth/token/credentials:
+    $ref: './paths/authentication.yaml#/authenticate'
+  /core/impersonation/impersonate:
+    $ref: './paths/authentication.yaml#/impersonate'
+  /auth/token/refresh:
+    $ref: './paths/authentication.yaml#/refresh'
+
+  # Product management endpoints
+  /warehouse/lookups/product-types:
+    $ref: './paths/product-types.yaml#/productTypes'
+  /warehouse/products:
+    $ref: './paths/products.yaml#/products'
+  /warehouse/products/{productId}:
+    $ref: './paths/products.yaml#/productById'
+
+  # Customer management endpoints
+  /core/customers:
+    $ref: './paths/customers.yaml#/customers'
+  /core/customers/{customerId}:
+    $ref: './paths/customers.yaml#/customerById'
+
+  # Order management endpoints
+  /warehouse/orders:
+    $ref: './paths/orders.yaml#/orders'
+  /warehouse/orders/{orderId}:
+    $ref: './paths/orders.yaml#/orderById'
+
+  # Shipment endpoints
+  /core/shipments/{shipmentId}:
+    $ref: './paths/shipments.yaml#/shipmentById'
+
+  # Invoice endpoints
+  /core/invoices:
+    $ref: './paths/invoices.yaml#/invoices'
+  /core/invoices/{invoiceId}/download:
+    $ref: './paths/invoices.yaml#/invoiceDownload'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from authentication endpoints
+
+  schemas:
+    $ref: './components/schemas/index.yaml'
+  
+  responses:
+    $ref: './components/responses/index.yaml'
+    
+  parameters:
+    $ref: './components/parameters/index.yaml'

@@ -1,0 +1,89 @@
+# Authentication Schemas
+AuthCredentials:
+  type: object
+  required:
+    - key
+    - secret
+  properties:
+    key:
+      type: string
+      description: Username/email for authentication
+    secret:
+      type: string
+      description: Password for authentication
+      format: password
+
+TokenResponse:
+  type: object
+  properties:
+    tokens:
+      type: object
+      properties:
+        access:
+          type: string
+          description: JWT access token
+        refresh:
+          type: string
+          description: JWT refresh token
+
+ImpersonateRequest:
+  type: object
+  required:
+    - customerId
+    - refreshToken
+  properties:
+    depotId:
+      type: string
+      nullable: true
+      description: Depot ID (optional)
+    customerId:
+      type: string
+      format: uuid
+      description: Customer UUID to impersonate
+    refreshToken:
+      type: string
+      description: Valid refresh token
+
+RefreshTokenRequest:
+  type: object
+  required:
+    - token
+  properties:
+    token:
+      type: string
+      description: Valid refresh token
+
+# Common Error Schema
+Error:
+  type: object
+  properties:
+    error:
+      type: string
+      description: Error message
+    code:
+      type: string
+      description: Error code (optional)
+    details:
+      type: object
+      description: Additional error details (optional)
+
+# Pagination Schema
+PaginationMeta:
+  type: object
+  properties:
+    pageNumber:
+      type: integer
+      minimum: 1
+      description: Current page number
+    pageSize:
+      type: integer
+      minimum: 1
+      description: Number of items per page
+    totalItems:
+      type: integer
+      minimum: 0
+      description: Total number of items
+    totalPages:
+      type: integer
+      minimum: 0
+      description: Total number of pages

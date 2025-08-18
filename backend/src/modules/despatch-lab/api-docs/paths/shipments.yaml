@@ -1,0 +1,23 @@
+shipmentById:
+  get:
+    summary: Get shipment by ID
+    description: Retrieve a specific shipment by its unique identifier
+    operationId: getShipmentById
+    tags:
+      - Shipments
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/ShipmentId'
+    responses:
+      '200':
+        description: Shipment retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              # TODO: Define shipment schema based on actual API response
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '404':
+        $ref: '../components/responses/index.yaml#/NotFound'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'

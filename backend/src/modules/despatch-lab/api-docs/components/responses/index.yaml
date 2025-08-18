@@ -1,0 +1,55 @@
+# Common Response Definitions
+
+# Error Responses
+BadRequest:
+  description: Bad request - invalid or missing parameters
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/Error'
+      example:
+        error: "Missing required fields"
+
+Unauthorized:
+  description: Unauthorized - invalid or missing authentication
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/Error'
+      example:
+        error: "Invalid authentication token"
+
+Forbidden:
+  description: Forbidden - insufficient permissions
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/Error'
+      example:
+        error: "Insufficient permissions"
+
+NotFound:
+  description: Resource not found
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/Error'
+      example:
+        error: "Resource not found"
+
+InternalServerError:
+  description: Internal server error
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/Error'
+      example:
+        error: "Internal server error"
+
+# Success Responses
+TokenSuccess:
+  description: Authentication successful
+  content:
+    application/json:
+      schema:
+        $ref: '../schemas/index.yaml#/TokenResponse'

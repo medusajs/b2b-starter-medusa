@@ -1,0 +1,62 @@
+customers:
+  get:
+    summary: Get customers
+    description: Retrieve customers with filtering and pagination options
+    operationId: getCustomers
+    tags:
+      - Customers
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/PageNumber'
+      - $ref: '../components/parameters/index.yaml#/PageSize'
+      - $ref: '../components/parameters/index.yaml#/ActiveStatus'
+      - $ref: '../components/parameters/index.yaml#/Filter'
+      - name: approvalStatus
+        in: query
+        description: Filter by approval status
+        required: false
+        schema:
+          type: string
+        example: "approved"
+    responses:
+      '200':
+        description: Customers retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    # TODO: Define customer schema based on actual API response
+                meta:
+                  $ref: '../components/schemas/index.yaml#/PaginationMeta'
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'
+
+customerById:
+  get:
+    summary: Get customer by ID
+    description: Retrieve a specific customer by their unique identifier
+    operationId: getCustomerById
+    tags:
+      - Customers
+    parameters:
+      - $ref: '../components/parameters/index.yaml#/CustomerId'
+    responses:
+      '200':
+        description: Customer retrieved successfully
+        content:
+          application/json:
+            schema:
+              type: object
+              # TODO: Define customer schema based on actual API response
+      '401':
+        $ref: '../components/responses/index.yaml#/Unauthorized'
+      '404':
+        $ref: '../components/responses/index.yaml#/NotFound'
+      '500':
+        $ref: '../components/responses/index.yaml#/InternalServerError'

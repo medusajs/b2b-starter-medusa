@@ -1,0 +1,199 @@
+authenticate:
+  post:
+    summary: Authenticate with credentials
+    description: Authenticate using username and password to obtain access and refresh tokens
+    operationId: authenticate
+    security: []
+    tags:
+      - Authentication
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - key
+              - secret
+            properties:
+              key:
+                type: string
+                description: Username/email for authentication
+                example: "user@example.com"
+              secret:
+                type: string
+                description: Password for authentication
+                format: password
+                example: "password123"
+    responses:
+      '200':
+        description: Authentication successful
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tokens:
+                  type: object
+                  properties:
+                    access:
+                      type: string
+                      description: JWT access token
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    refresh:
+                      type: string
+                      description: JWT refresh token
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      '401':
+        description: Invalid credentials
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Invalid credentials"
+      '400':
+        description: Bad request - missing or invalid parameters
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Missing required fields"
+
+impersonate:
+  post:
+    summary: Impersonate user
+    description: Impersonate a customer to act on their behalf
+    operationId: impersonate
+    security: []
+    tags:
+      - Authentication
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - customerId
+              - refreshToken
+            properties:
+              depotId:
+                type: string
+                nullable: true
+                description: Depot ID (optional)
+                example: null
+              customerId:
+                type: string
+                format: uuid
+                description: Customer UUID to impersonate
+                example: "a2c996a8-0858-438b-97ca-481a129d6a3b"
+              refreshToken:
+                type: string
+                description: Valid refresh token
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    responses:
+      '200':
+        description: Impersonation successful
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tokens:
+                  type: object
+                  properties:
+                    accessToken:
+                      type: string
+                      description: JWT access token for impersonated user
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    refreshToken:
+                      type: string
+                      description: JWT refresh token for impersonated user
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      '401':
+        description: Invalid refresh token or insufficient permissions
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Invalid refresh token"
+      '404':
+        description: Customer not found
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Customer not found"
+
+refresh:
+  post:
+    summary: Refresh access token
+    description: Use refresh token to obtain a new access token
+    operationId: refreshToken
+    security: []
+    tags:
+      - Authentication
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - token
+            properties:
+              token:
+                type: string
+                description: Valid refresh token
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    responses:
+      '200':
+        description: Token refresh successful
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tokens:
+                  type: object
+                  properties:
+                    access:
+                      type: string
+                      description: New JWT access token
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    refresh:
+                      type: string
+                      description: New JWT refresh token
+                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      '401':
+        description: Invalid or expired refresh token
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Invalid refresh token"
+      '400':
+        description: Bad request - missing token
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Missing token parameter"

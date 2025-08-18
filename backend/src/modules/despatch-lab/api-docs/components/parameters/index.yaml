@@ -1,0 +1,116 @@
+# Common Parameter Definitions
+
+# Pagination Parameters
+PageNumber:
+  name: pageNumber
+  in: query
+  description: Page number for pagination (1-based)
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+    default: 1
+  example: 1
+
+PageSize:
+  name: pageSize
+  in: query
+  description: Number of items per page
+  required: false
+  schema:
+    type: integer
+    minimum: 1
+    maximum: 1000
+    default: 100
+  example: 100
+
+# Common Filter Parameters
+Filter:
+  name: filter
+  in: query
+  description: General filter parameter
+  required: false
+  schema:
+    type: string
+  example: "name:contains:test"
+
+ActiveStatus:
+  name: activeStatus
+  in: query
+  description: Filter by active status
+  required: false
+  schema:
+    type: boolean
+  example: true
+
+# Date Range Parameters
+DateFrom:
+  name: dateFrom
+  in: query
+  description: Start date for filtering (ISO 8601 format)
+  required: false
+  schema:
+    type: string
+    format: date
+  example: "2024-01-01"
+
+DateTo:
+  name: dateTo
+  in: query
+  description: End date for filtering (ISO 8601 format)
+  required: false
+  schema:
+    type: string
+    format: date
+  example: "2024-12-31"
+
+# ID Parameters
+CustomerId:
+  name: customerId
+  in: path
+  description: Customer unique identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "a2c996a8-0858-438b-97ca-481a129d6a3b"
+
+ProductId:
+  name: productId
+  in: path
+  description: Product unique identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "c8020000-6fd2-47c5-9538-abf0ac967f68"
+
+OrderId:
+  name: orderId
+  in: path
+  description: Order unique identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "f1234567-1234-1234-1234-123456789abc"
+
+ShipmentId:
+  name: shipmentId
+  in: path
+  description: Shipment unique identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "f1234567-1234-1234-1234-123456789abc"
+
+InvoiceId:
+  name: invoiceId
+  in: path
+  description: Invoice unique identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "f1234567-1234-1234-1234-123456789abc"
