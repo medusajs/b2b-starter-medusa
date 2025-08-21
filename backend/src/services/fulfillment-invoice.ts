@@ -213,32 +213,39 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     
     // Calculate subtotal and tax for fulfilled items
     let subtotal = 0
-    let taxTotal = 0
-    let effectiveTaxRate = 0
 
     order.items.forEach(item => {
       const fulfilledQuantity = fulfillment.items.find(fi => fi.item_id === item.id)?.quantity || 0
       if (fulfilledQuantity > 0) {
         const itemSubtotal = (item.unit_price || 0) * fulfilledQuantity
         subtotal += itemSubtotal
-        
-        // Calculate proportional tax for fulfilled quantity
-        const itemTaxRate = item.tax_total / item.quantity
-        taxTotal += itemTaxRate * fulfilledQuantity
-        
-        // Calculate effective tax rate from items
-        if (itemSubtotal > 0) {
-          effectiveTaxRate = (itemTaxRate * fulfilledQuantity) / itemSubtotal
-        }
       }
     })
 
     // Get shipping price from the fulfillment
     const shippingPrice = fulfillment.shipping_details?.price || 0
-    const shippingTax = shippingPrice * effectiveTaxRate
+    
+    // Use the order's existing tax calculation - calculate proportional tax for this fulfillment
+    let taxRate = 0
+    let taxTotal = 0
+    
+    console.log(`[FulfillmentInvoiceGenerator] Order tax_total: ${order.tax_total}, subtotal: ${order.subtotal}`)
+    
+    if (order.tax_total && order.subtotal) {
+      // Calculate the effective tax rate from the order's total tax
+      const orderTaxRate = (order.tax_total / order.subtotal) * 100
+      console.log(`[FulfillmentInvoiceGenerator] Order tax rate: ${orderTaxRate}%`)
+      
+      // Apply the same tax rate to this fulfillment's subtotal + shipping
+      taxTotal = (subtotal + shippingPrice) * (orderTaxRate / 100)
+      taxRate = orderTaxRate
+      console.log(`[FulfillmentInvoiceGenerator] Fulfillment taxTotal: ${taxTotal}`)
+    }
 
-    // Calculate total
-    const total = subtotal + shippingPrice + taxTotal + shippingTax
+    // Calculate total (ensure numeric addition)
+    const total = Number(subtotal) + Number(shippingPrice) + Number(taxTotal)
+    console.log(`[FulfillmentInvoiceGenerator] subtotal: ${subtotal}, shippingPrice: ${shippingPrice}, taxTotal: ${taxTotal}, total: ${total}`)
+    console.log(`[FulfillmentInvoiceGenerator] Total in dollars: ${total / 100}`)
 
     // Save starting Y position for each row
     let currentY = doc.y
@@ -256,9 +263,8 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     currentY = doc.y
 
     // Third row - GST
-    const taxRate = order.region?.tax_rate || 0
     doc.text(`GST @ ${taxRate}%:`, summaryX, currentY)
-    doc.text(formatAmount(taxTotal + shippingTax, order.region), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(taxTotal, order.region), totalX, currentY, { align: 'right', width: 80 })
     doc.moveDown(0.5)
     currentY = doc.y
 
@@ -302,7 +308,7 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     const rowY = headerY + 25
     doc.font('Helvetica')
     doc.text(`GST @ ${taxRate}%`, rateX, rowY)
-    doc.text(formatAmount(taxTotal + shippingTax, order.region), taxX, rowY)
+    doc.text(formatAmount(taxTotal, order.region), taxX, rowY)
     doc.text(formatAmount(subtotal + shippingPrice, order.region), netX, rowY)
   }
 }

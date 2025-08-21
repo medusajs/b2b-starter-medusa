@@ -91,7 +91,15 @@ class InvoiceService {
             "items", 
             "shipping_address",
             "billing_address"
-          ] 
+          ],
+          select: [
+            "id",
+            "display_id", 
+            "currency_code",
+            "subtotal",
+            "tax_total",
+            "total"
+          ]
         }
       )
 
@@ -100,6 +108,8 @@ class InvoiceService {
       }
       
       order = orders[0]
+
+
 
       if (fulfillmentId) {
         // Query fulfillment separately since relations don't work the same way
