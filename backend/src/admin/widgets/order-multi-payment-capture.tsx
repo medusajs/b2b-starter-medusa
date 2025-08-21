@@ -18,14 +18,33 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
     { id: string; created_at: string; amount: number }[]
   >([]);
   const [loading, setLoading] = useState(false);
+  const [orderTotal, setOrderTotal] = useState<number>(0);
+  const [orderCurrency, setOrderCurrency] = useState<string>(data?.currency_code || "USD");
 
   const paymentCollection = data.payment_collections.find((pc) =>
     pc.payments?.find((p) => p.provider_id === "pp_system_default")
   );
 
   const payment = paymentCollection?.payments?.[0];
-  const total = payment?.amount ?? 0;
-  const currency = payment?.currency_code ?? "usd";
+  const currency = orderCurrency || payment?.currency_code || "usd";
+
+  const fetchOrderTotals = async () => {
+    if (!data?.id) return;
+    try {
+      const totals = await sdk.client.fetch<{
+        id: string;
+        currency_code: string;
+        subtotal: number;
+        shipping_total: number;
+        tax_total: number;
+        total: number;
+      }>(`/admin/orders/${data.id}/totals`, { method: "GET" });
+      setOrderTotal(totals.total || 0);
+      setOrderCurrency(totals.currency_code || data?.currency_code || "USD");
+    } catch (e) {
+      setOrderTotal((data as any)?.total || 0);
+    }
+  };
 
   const fetchCaptures = async () => {
     if (!payment?.id) return;
@@ -38,6 +57,21 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
       setCaptures(res.captures || []);
     } catch (err) {
       console.error("Failed to fetch captures", err);
+    }
+  };
+
+  const handleDeleteCapture = async (captureId: string) => {
+    if (!payment?.id) return;
+    setLoading(true);
+    try {
+      await sdk.client.fetch(`/admin/payments/${payment.id}/partial-capture?capture_id=${captureId}`, {
+        method: "DELETE",
+      });
+      await Promise.all([fetchCaptures(), fetchOrderTotals()]);
+    } catch (err) {
+      console.error("Failed to delete capture", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,7 +88,7 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
         },
       });
       setAmount("");
-      await fetchCaptures();
+      await Promise.all([fetchCaptures(), fetchOrderTotals()]);
     } catch (err) {
       console.error("Capture failed", err);
     } finally {
@@ -64,16 +98,11 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
 
   useEffect(() => {
     fetchCaptures();
-  }, [payment?.id]);
+    fetchOrderTotals();
+  }, [payment?.id, data?.id]);
 
   const capturedTotal = captures.reduce((sum, c) => sum + c.amount, 0);
-  const outstanding = total - capturedTotal;
-
-  const isInvalidAmount =
-    !amount ||
-    isNaN(Number(amount)) ||
-    Number(amount) > outstanding ||
-    Number(amount) <= 0;
+  const outstanding = Math.max(orderTotal - capturedTotal, 0);
 
   return (
     <Container className="p-6 space-y-6">
@@ -82,10 +111,10 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="p-4 bg-ui-bg-base rounded-lg border">
           <Text className="font-semibold text-sm text-ui-fg-subtle mb-1">
-            Total Amount
+            Order Total
           </Text>
           <Text className="text-lg font-medium text-ui-fg-base">
-            {formatCurrency(total, currency)}
+            {formatCurrency(orderTotal, currency)}
           </Text>
         </div>
         <div className="p-4 bg-ui-bg-base rounded-lg border">
@@ -119,7 +148,7 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
           variant="primary"
           isLoading={loading}
           onClick={handleCapture}
-          disabled={isInvalidAmount}
+          disabled={!amount || isNaN(Number(amount)) || Number(amount) <= 0 || Number(amount) > outstanding}
         >
           Capture
         </Button>
@@ -136,12 +165,22 @@ const PartialCaptureWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
                 key={c.id}
                 className="flex justify-between px-4 py-3 text-sm"
               >
-                <Text className="text-ui-fg-base">
-                  {i + 1}. {new Date(c.created_at).toLocaleString()}
-                </Text>
-                <Text className="font-medium text-ui-fg-base">
-                  {formatCurrency(c.amount, currency)}
-                </Text>
+                <div className="flex items-center gap-3">
+                  <Text className="text-ui-fg-base">
+                    {i + 1}. {new Date(c.created_at).toLocaleString()}
+                  </Text>
+                  <Text className="font-medium text-ui-fg-base">
+                    {formatCurrency(c.amount, currency)}
+                  </Text>
+                </div>
+                <Button
+                  variant="danger"
+                  size="small"
+                  onClick={() => handleDeleteCapture(c.id)}
+                  disabled={loading}
+                >
+                  ×
+                </Button>
               </div>
             ))
           )}

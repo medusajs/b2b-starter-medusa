@@ -1,0 +1,213 @@
+import { defineWidgetConfig } from "@medusajs/admin-sdk";
+import { AdminOrder, DetailWidgetProps } from "@medusajs/framework/types";
+import { Button, Container, Heading, Input, Table, Text, toast } from "@medusajs/ui";
+import { useEffect, useMemo, useState } from "react";
+import { sdk } from "../lib/client";
+
+// A simple currency formatter similar to other widgets
+const formatCurrency = (amount: number, currency?: string) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency || "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount || 0);
+
+// Local ephemeral structure to stage shipping price edits per-fulfillment
+type FulfillmentPriceDraft = Record<string, string>; // fulfillment_id -> input string
+
+const FulfillmentShippingWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
+  // Stage shipping price input values by fulfillment id (as strings to avoid locale issues)
+  const [draftPrices, setDraftPrices] = useState<FulfillmentPriceDraft>({});
+  const [savingMap, setSavingMap] = useState<Record<string, boolean>>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [fulfillments, setFulfillments] = useState<any[]>([]);
+  // Removed order-level tiles; no need to store order totals here
+
+  // Choose a currency; prefer order currency
+  const currency = data?.currency_code || "USD";
+
+  // Order items map to enrich fulfillment items with title/SKU
+  const orderItemsById = useMemo<Record<string, any>>(() => {
+    const map: Record<string, any> = {};
+    ((data as any)?.items || []).forEach((it: any) => {
+      map[it.id] = it;
+    });
+    return map;
+  }, [data?.items]);
+
+  // Load current fulfillment shipping prices and totals
+  useEffect(() => {
+    const load = async () => {
+      if (!data?.id) return;
+      setIsLoading(true);
+      try {
+        const res = await sdk.client.fetch<{
+          fulfillments: { id: string; items: { id: string; item_id: string; quantity: number }[]; shipping_price: number }[];
+        }>(`/admin/orders/fulfillment/${data.id}`, { method: "GET" });
+
+        setFulfillments(res.fulfillments || []);
+      } catch (e) {
+        console.error("Failed to load fulfillment shipping data", e);
+        toast.error("Failed to load fulfillment shipping data");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    load();
+  }, [data?.id]);
+
+  const handlePriceChange = (fulfillmentId: string, value: string) => {
+    setDraftPrices((prev) => ({ ...prev, [fulfillmentId]: value }));
+  };
+
+  // Save shipping price and refresh totals
+  const handleSavePrice = async (fulfillmentId: string) => {
+    setSavingMap((prev) => ({ ...prev, [fulfillmentId]: true }));
+    try {
+      const raw = draftPrices[fulfillmentId];
+      const numeric = Number(raw);
+      if (!raw || isNaN(numeric) || numeric < 0) {
+        toast.error("Enter a valid non-negative price");
+        return;
+      }
+
+      const priceInCents = Math.round(numeric * 100);
+      const shippingMethodId = (data as any)?.shipping_methods?.[0]?.id as string | undefined;
+      if (!shippingMethodId) {
+        console.error("No shipping method found on order to apply price to");
+        toast.error("No shipping method found on order");
+        return;
+      }
+
+      const res = await sdk.client.fetch<{
+        fulfillment_id: string;
+        shipping_method_id: string;
+        price: number;
+      }>(`/admin/orders/fulfillment/${data.id}/shipping`, {
+        method: "POST",
+        body: {
+          fulfillment_id: fulfillmentId,
+          shipping_method_id: shippingMethodId,
+          price: priceInCents,
+        },
+      });
+
+      // Clear draft
+      setDraftPrices((prev) => ({ ...prev, [fulfillmentId]: "" }));
+
+      // Refresh list to show updated placeholders
+      try {
+        const ref = await sdk.client.fetch<{
+          fulfillments: { id: string; items: { id: string; item_id: string; quantity: number }[]; shipping_price: number }[];
+        }>(`/admin/orders/fulfillment/${data.id}`, { method: "GET" });
+        setFulfillments(ref.fulfillments || []);
+        toast.success("Shipping price saved");
+      } catch {
+        toast.error("Saved, but failed to refresh data");
+      }
+    } catch (e) {
+      console.error("Failed to save shipping price", e);
+      toast.error("Failed to save shipping price");
+    } finally {
+      setSavingMap((prev) => ({ ...prev, [fulfillmentId]: false }));
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <Container className="p-6">
+        <Text>Loading…</Text>
+      </Container>
+    );
+  }
+
+  if (!fulfillments?.length) {
+    return null;
+  }
+
+  return (
+    <Container className="p-6 space-y-6">
+      <Heading level="h2">🚚 Fulfillment Shipping</Heading>
+      <Text className="text-ui-fg-subtle">Set a shipping price per fulfillment. This will be used for invoicing and reconciliation.</Text>
+
+      {/* Removed order-level summary tiles */}
+
+      {fulfillments.map((fulfillment, index) => {
+        const fulfillmentId = (fulfillment as any).id as string;
+        const draft = draftPrices[fulfillmentId] ?? "";
+        const isSaving = !!savingMap[fulfillmentId];
+
+        return (
+          <Container key={fulfillmentId} className="p-4 space-y-4 border rounded-lg bg-ui-bg-base">
+            <div className="flex items-center justify-between">
+              <Text size="large" className="font-semibold">
+                {`Fulfillment #${index + 1}`}
+              </Text>
+              <div className="flex items-center gap-3">
+                <Input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="Shipping price"
+                  value={draft}
+                  onChange={(e) => handlePriceChange(fulfillmentId, e.target.value)}
+                />
+                <Button
+                  variant="primary"
+                  onClick={() => handleSavePrice(fulfillmentId)}
+                  isLoading={isSaving}
+                  disabled={!draft || Number(draft) < 0}
+                >
+                  Save
+                </Button>
+              </div>
+            </div>
+
+            <Table>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Item</Table.HeaderCell>
+                  <Table.HeaderCell>SKU</Table.HeaderCell>
+                  <Table.HeaderCell className="text-right">Quantity</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {(((fulfillment as any).items) || []).map((fi: any) => {
+                  const orderItem = orderItemsById[fi.item_id];
+                  return (
+                    <Table.Row key={fi.id}>
+                      <Table.Cell>
+                        <div className="flex flex-col">
+                          <Text className="font-medium">{orderItem?.title || orderItem?.variant?.title || "Item"}</Text>
+                          {orderItem?.variant?.product?.title && (
+                            <Text className="text-ui-fg-subtle text-xs">{orderItem.variant.product.title}</Text>
+                          )}
+                        </div>
+                      </Table.Cell>
+                      <Table.Cell>{orderItem?.variant?.sku || "—"}</Table.Cell>
+                      <Table.Cell className="text-right">{fi.quantity}</Table.Cell>
+                    </Table.Row>
+                  );
+                })}
+              </Table.Body>
+            </Table>
+
+            {/* Summary row could be enhanced later with totals */}
+            <div className="flex items-center justify-end gap-2 text-sm text-ui-fg-subtle">
+              <Text>
+                Saved shipping price: {formatCurrency(((fulfillment as any).shipping_price || 0) / 100, currency)}
+              </Text>
+            </div>
+          </Container>
+        );
+      })}
+    </Container>
+  );
+};
+
+export const config = defineWidgetConfig({
+  zone: "order.details.after", // render above the payment capture widget
+});
+
+export default FulfillmentShippingWidget; 

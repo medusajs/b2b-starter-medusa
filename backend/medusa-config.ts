@@ -2,6 +2,7 @@ import { QUOTE_MODULE } from "./src/modules/quote";
 import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
+import { FULFILLMENT_SHIPPING_MODULE } from "./src/modules/fulfillment-shipping";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -38,6 +39,9 @@ module.exports = defineConfig({
     },
     [APPROVAL_MODULE]: {
       resolve: "./modules/approval",
+    },
+    [FULFILLMENT_SHIPPING_MODULE]: {
+      resolve: "./modules/fulfillment-shipping",
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-redis",
