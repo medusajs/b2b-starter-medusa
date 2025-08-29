@@ -2480,6 +2480,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@medusajs/draft-order@npm:^2.10.1":
+  version: 2.10.1
+  resolution: "@medusajs/draft-order@npm:2.10.1"
+  dependencies:
+    "@ariakit/react": "npm:^0.4.15"
+    "@hookform/resolvers": "npm:3.4.2"
+    "@medusajs/js-sdk": "npm:2.10.1"
+    "@tanstack/react-query": "npm:5.64.2"
+    "@uiw/react-json-view": "npm:^2.0.0-alpha.17"
+    date-fns: "npm:^3.6.0"
+    match-sorter: "npm:^6.3.4"
+    radix-ui: "npm:1.1.2"
+    react-hook-form: "npm:7.49.1"
+  peerDependencies:
+    "@medusajs/admin-sdk": 2.10.1
+    "@medusajs/cli": 2.10.1
+    "@medusajs/framework": 2.10.1
+    "@medusajs/icons": 2.10.1
+    "@medusajs/test-utils": 2.10.1
+    "@medusajs/ui": 4.0.21
+    "@mikro-orm/cli": 6.4.3
+    "@mikro-orm/core": 6.4.3
+    "@mikro-orm/knex": 6.4.3
+    "@mikro-orm/migrations": 6.4.3
+    "@mikro-orm/postgresql": 6.4.3
+    awilix: ^8.0.1
+    lodash: ^4.17.21
+    pg: ^8.13.0
+    react-router-dom: 6.20.1
+  checksum: 10c0/04b1bbdbfe0c342bd666d30708c1cb42b31a55aea999bad83f2d1f5870d2983b0077cbcf5bfc480916ec6456ba7801627a99952f96a2daa0bb907203623a31ee
+  languageName: node
+  linkType: hard
+
 "@medusajs/event-bus-local@npm:^2.5.1":
   version: 2.10.1
   resolution: "@medusajs/event-bus-local@npm:2.10.1"
@@ -14429,6 +14462,7 @@ __metadata:
   dependencies:
     "@medusajs/admin-sdk": "npm:2.5.1"
     "@medusajs/cli": "npm:2.5.1"
+    "@medusajs/draft-order": "npm:^2.10.1"
     "@medusajs/framework": "npm:2.5.1"
     "@medusajs/js-sdk": "npm:2.5.1"
     "@medusajs/medusa": "npm:2.5.1"
