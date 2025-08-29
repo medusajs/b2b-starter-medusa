@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { Modules } from "@medusajs/framework/utils"
 import { INVOICE_MODULE } from "../../../modules/invoice"
 import InvoiceService from "../../../services/invoice"
@@ -7,6 +7,7 @@ import { Client } from "pg"
 type InvoiceRequestBody = {
   order_id: string
   fulfillment_id?: string
+  fulfillment_index?: number
 }
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {

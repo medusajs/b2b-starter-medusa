@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { Modules } from "@medusajs/framework/utils"
 import { INVOICE_MODULE } from "../../../modules/invoice"
 import InvoiceService from "../../../services/invoice"
@@ -19,6 +19,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   }
 
   const invoiceService: InvoiceService = req.scope.resolve(INVOICE_MODULE)
+  const orderService = req.scope.resolve(Modules.ORDER)
 
   try {
     const invoice = await invoiceService.retrieveInvoice(
