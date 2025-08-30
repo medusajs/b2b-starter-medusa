@@ -23,12 +23,12 @@
     "predeploy": "medusa db:migrate"
   },
   "dependencies": {
-    "@medusajs/admin-sdk": "2.5.1",
-    "@medusajs/cli": "2.5.1",
-    "@medusajs/draft-order": "^2.10.1",
-    "@medusajs/framework": "2.5.1",
-    "@medusajs/js-sdk": "2.5.1",
-    "@medusajs/medusa": "2.5.1",
+    "@medusajs/admin-sdk": "2.10.1",
+    "@medusajs/cli": "2.10.1",
+    "@medusajs/draft-order": "2.10.1",
+    "@medusajs/framework": "2.10.1",
+    "@medusajs/js-sdk": "2.10.1",
+    "@medusajs/medusa": "2.10.1",
     "@medusajs/ui": "4.0.6",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
@@ -47,8 +47,8 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@medusajs/test-utils": "2.5.1",
-    "@medusajs/ui-preset": "2.5.1",
+    "@medusajs/test-utils": "2.10.1",
+    "@medusajs/ui-preset": "2.10.1",
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "^1.5.7",
     "@swc/jest": "^0.2.36",
