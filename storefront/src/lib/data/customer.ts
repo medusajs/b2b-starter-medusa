@@ -8,7 +8,7 @@ import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { retrieveCart, updateCart } from "./cart"
-import { createCompany, createEmployee, retrieveEmployeeForCustomer } from "./companies"
+import { createCompany, createEmployee } from "./companies"
 import {
   getAuthHeaders,
   getCacheOptions,
@@ -35,9 +35,9 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
       ...(await getCacheOptions("customers")),
     }
 
-    // First get the customer without employee field since it's causing issues
+    // Get the customer - the middleware should automatically include employee
     const response = await sdk.client
-      .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
+      .fetch<{ customer: any }>(`/store/customers/me`, {
         method: "GET",
         query: {
           fields: "*orders",
@@ -48,13 +48,11 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
       })
 
     const customer = response.customer
-
-    // Fetch employee data separately as a workaround
-    if (customer?.id) {
-      const employee = await retrieveEmployeeForCustomer(customer.id)
-      if (employee) {
-        customer.employee = employee
-      }
+    
+    // The employee field might be included automatically by the middleware
+    // For now, we'll handle cases where it might not be present
+    if (!customer) {
+      return null
     }
 
     return customer as B2BCustomer

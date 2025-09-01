@@ -154,42 +154,6 @@ export const deleteEmployee = async (companyId: string, employeeId: string) => {
   revalidateTag(cacheTag)
 }
 
-export const retrieveEmployeeForCustomer = async (customerId: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
-
-  try {
-    // Query all companies to find the employee for this customer
-    // This is a workaround since the employee field on customer isn't working
-    const { companies } = await sdk.client.fetch<StoreCompaniesResponse>(
-      `/store/companies`,
-      {
-        method: "GET",
-        query: {
-          fields: "+employees,+employees.customer",
-        },
-        headers,
-      }
-    )
-
-    // Find the employee that matches this customer
-    for (const company of companies || []) {
-      const employee = company.employees?.find(
-        (emp: any) => emp.customer_id === customerId
-      )
-      if (employee) {
-        return { ...employee, company }
-      }
-    }
-
-    return null
-  } catch (error) {
-    console.error("Error fetching employee for customer:", error)
-    return null
-  }
-}
-
 export const updateApprovalSettings = async (
   companyId: string,
   requiresAdminApproval: boolean
