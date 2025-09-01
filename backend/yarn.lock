@@ -14520,7 +14520,7 @@ __metadata:
     typeorm: "npm:^0.3.24"
     typescript: "npm:^5.5.3"
     vite: "npm:^5.2.11"
-    zod: "npm:3.22.4"
+    zod: "npm:3.25.76"
   languageName: unknown
   linkType: soft
 
@@ -19718,13 +19718,6 @@ __metadata:
   peerDependencies:
     zod: ^3.25.0
   checksum: 10c0/37e83266755f798cf7f0437441ad72657882afae36e451177e9ae6ba555d211aa80b4f5d9dfbb08839ddb5538b94325499f0445aae923e09c0f7d9f472868c85
-  languageName: node
-  linkType: hard
-
-"zod@npm:3.22.4":
-  version: 3.22.4
-  resolution: "zod@npm:3.22.4"
-  checksum: 10c0/7578ab283dac0eee66a0ad0fc4a7f28c43e6745aadb3a529f59a4b851aa10872b3890398b3160f257f4b6817b4ce643debdda4fb21a2c040adda7862cab0a587
   languageName: node
   linkType: hard
 
