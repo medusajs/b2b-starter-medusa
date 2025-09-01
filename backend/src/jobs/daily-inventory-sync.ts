@@ -10,7 +10,7 @@ export default async function dailyInventorySyncJob(container: MedusaContainer) 
         // Execute the workflow
         const workflowResult = await dailyInventorySyncWorkflow(container).run({})
         
-        if (workflowResult.result?.success) {
+        if (workflowResult.result?.result?.success) {
             logger.info("Daily inventory sync completed successfully")
         } else {
             logger.error("Daily inventory sync failed")
