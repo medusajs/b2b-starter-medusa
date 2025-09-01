@@ -1,7 +1,6 @@
 import { retrieveCustomer } from "@/lib/data/customer"
 import AccountLayout from "@/modules/account/templates/account-layout"
 import Image from "next/image"
-import { notFound } from "next/navigation"
 
 export default async function AccountPageLayout({
   children,
@@ -12,7 +11,8 @@ export default async function AccountPageLayout({
     const customer = await retrieveCustomer()
     
     if (!customer) {
-      notFound()
+      // Return null to let the parent layout handle the login state
+      return null
     }
 
     return (
@@ -29,6 +29,7 @@ export default async function AccountPageLayout({
     )
   } catch (error) {
     console.error("Error in dashboard layout:", error)
-    notFound()
+    // Return null to let the parent layout handle errors
+    return null
   }
 }

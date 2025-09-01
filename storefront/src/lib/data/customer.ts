@@ -8,7 +8,7 @@ import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import { retrieveCart, updateCart } from "./cart"
-import { createCompany, createEmployee } from "./companies"
+import { createCompany, createEmployee, retrieveEmployeeForCustomer } from "./companies"
 import {
   getAuthHeaders,
   getCacheOptions,
@@ -35,18 +35,29 @@ export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
       ...(await getCacheOptions("customers")),
     }
 
+    // First get the customer without employee field since it's causing issues
     const response = await sdk.client
       .fetch<{ customer: B2BCustomer }>(`/store/customers/me`, {
         method: "GET",
         query: {
-          fields: "*employee, *orders",
+          fields: "*orders",
         },
         headers,
         next,
         cache: "no-store",
       })
 
-    return response.customer as B2BCustomer
+    const customer = response.customer
+
+    // Fetch employee data separately as a workaround
+    if (customer?.id) {
+      const employee = await retrieveEmployeeForCustomer(customer.id)
+      if (employee) {
+        customer.employee = employee
+      }
+    }
+
+    return customer as B2BCustomer
   } catch (error) {
     // Silently handle unauthorized errors
     return null
@@ -128,12 +139,13 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
     await transferCart()
 
-    return {
-      customer: createdCustomer,
-      company: createdCompany,
-      employee: createdEmployee,
-    }
+    // Redirect to account page after successful signup
+    redirect("/account")
   } catch (error: any) {
+    // Check if this is a redirect error (which is expected)
+    if (error?.message?.includes("NEXT_REDIRECT")) {
+      throw error // Re-throw redirect errors so Next.js can handle them
+    }
     console.log("error", error)
     return error.toString()
   }
@@ -174,13 +186,16 @@ export async function login(_currentState: unknown, formData: FormData) {
         revalidateTag(productsCacheTag)
         revalidateTag(cartsCacheTag)
       })
+      
+      await transferCart()
+      
+      // Redirect to account page after successful login
+      redirect("/account")
   } catch (error: any) {
-    return error.toString()
-  }
-
-  try {
-    await transferCart()
-  } catch (error: any) {
+    // Check if this is a redirect error (which is expected)
+    if (error?.message?.includes("NEXT_REDIRECT")) {
+      throw error // Re-throw redirect errors so Next.js can handle them
+    }
     return error.toString()
   }
 }
