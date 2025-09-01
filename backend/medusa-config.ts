@@ -4,6 +4,7 @@ import { COMPANY_MODULE } from "./src/modules/company";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { FULFILLMENT_SHIPPING_MODULE } from "./src/modules/fulfillment-shipping";
 import { INVOICE_MODULE } from "./src/modules/invoice";
+import { ALGOLIA_MODULE } from "./src/modules/algolia";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -47,6 +48,14 @@ module.exports = defineConfig({
     },
     [INVOICE_MODULE]: {
       resolve: "./modules/invoice",
+    },
+    [ALGOLIA_MODULE]: {
+      resolve: "./modules/algolia",
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME,
+      },
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-redis",
