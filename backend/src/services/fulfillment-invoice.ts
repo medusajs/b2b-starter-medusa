@@ -143,6 +143,13 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
       if (fulfillment.tracking_numbers?.length) {
         doc.text(`Tracking Number: ${fulfillment.tracking_numbers.join(', ')}`, shippingMethodX, doc.y + 12)
       }
+    } else {
+      // Fallback if shipping_details is missing
+      const shippingMethodX = 500
+      doc.font('Helvetica-Bold')
+      doc.text('Shipping Method:', shippingMethodX, addressStartY)
+      doc.font('Helvetica')
+      doc.text('Standard Shipping', shippingMethodX, doc.y)
     }
 
     // Move cursor to just below the addresses with minimal spacing
@@ -185,7 +192,10 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
 
     // Items in current fulfillment
     fulfillment.items.forEach(fulfillmentItem => {
-      const orderItem = order.items.find(item => item.id === fulfillmentItem.item_id)
+      // Try to find order item by item_id or line_item_id
+      const orderItem = order.items.find(item => 
+        item.id === fulfillmentItem.item_id || item.id === fulfillmentItem.line_item_id
+      )
       if (!orderItem) return
 
       const y = doc.y
@@ -215,34 +225,47 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     let subtotal = 0
 
     order.items.forEach(item => {
-      const fulfilledQuantity = fulfillment.items.find(fi => fi.item_id === item.id)?.quantity || 0
+      // Try to find fulfillment item by item_id or line_item_id
+      const fulfillmentItem = fulfillment.items.find(fi => 
+        fi.item_id === item.id || fi.line_item_id === item.id
+      )
+      const fulfilledQuantity = fulfillmentItem?.quantity || 0
+      
       if (fulfilledQuantity > 0) {
-        const itemSubtotal = (item.unit_price || 0) * fulfilledQuantity
+        const itemSubtotal = Number(item.unit_price || 0) * Number(fulfilledQuantity)
         subtotal += itemSubtotal
       }
     })
 
-    // Get shipping price from the fulfillment
-    const shippingPrice = fulfillment.shipping_details?.price || 0
+    // Get shipping price from the fulfillment (stored in cents)
+    const shippingPrice = Number(fulfillment.shipping_details?.price || 0)
     
-    // Use the order's existing tax calculation - calculate proportional tax for this fulfillment
+    // Calculate tax for this fulfillment more accurately
     let taxRate = 0
     let taxTotal = 0
     
+    // Simple and correct tax calculation
     if (order.tax_total && order.subtotal) {
-      // Calculate the effective tax rate from the order's total tax
-      const orderTaxRate = (order.tax_total / order.subtotal) * 100
+      // Calculate tax rate from order data (ensure both are in same units)
+      // order.tax_total is in cents, order.subtotal is also in cents
+      const orderTaxRate = (order.tax_total / 100) / (order.subtotal / 100);
       
-      // Apply the same tax rate to this fulfillment's subtotal + shipping
-      taxTotal = (subtotal + shippingPrice) * (orderTaxRate / 100)
-      taxRate = orderTaxRate
+      // Apply tax rate to fulfillment subtotal + shipping (both converted to dollars)
+      const taxableAmount = (subtotal / 100) + (shippingPrice / 100);
+      taxTotal = taxableAmount * orderTaxRate;
+      taxRate = orderTaxRate * 100; // Convert to percentage for display
     }
 
-    // Calculate total (ensure numeric addition)
-    const total = Number(subtotal) + Number(shippingPrice) + Number(taxTotal)
+    // Calculate total (ensure numeric addition with consistent units)
+    const total = (Number(subtotal) / 100) + (Number(shippingPrice) / 100) + Number(taxTotal)
+
+    // Determine tax label based on currency
+    const taxLabel = order.currency_code?.toLowerCase() === 'cad' ? 'GST' : 'Tax'
 
     // Save starting Y position for each row
     let currentY = doc.y
+
+
 
     // First row - Subtotal
     doc.text('Subtotal:', summaryX, currentY)
@@ -256,15 +279,15 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     doc.moveDown(0.5)
     currentY = doc.y
 
-    // Third row - GST
-    doc.text(`GST @ ${taxRate}%:`, summaryX, currentY)
-    doc.text(formatAmount(taxTotal, order), totalX, currentY, { align: 'right', width: 80 })
+    // Third row - Tax
+    doc.text(`${taxLabel} @ ${taxRate}%:`, summaryX, currentY)
+    doc.text(formatAmount(taxTotal * 100, order), totalX, currentY, { align: 'right', width: 80 })
     doc.moveDown(0.5)
     currentY = doc.y
 
     // Fourth row - Total
     doc.text('Total:', summaryX, currentY)
-    doc.text(formatAmount(total, order), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(total * 100, order), totalX, currentY, { align: 'right', width: 80 })
     
     // Add extra space before notes
     doc.moveDown(2)
@@ -301,9 +324,13 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     // Add tax row with same Y position
     const rowY = headerY + 25
     doc.font('Helvetica')
-    doc.text(`GST @ ${taxRate}%`, rateX, rowY)
-    doc.text(formatAmount(taxTotal, order), taxX, rowY)
-    doc.text(formatAmount(subtotal + shippingPrice, order), netX, rowY)
+    doc.text(`${taxLabel} @ ${taxRate}%`, rateX, rowY)
+    doc.text(formatAmount(taxTotal * 100, order), taxX, rowY)
+    
+    // Calculate net amount for tax summary
+    const netAmount = Number(subtotal) + Number(shippingPrice)
+    
+    doc.text(formatAmount(netAmount, order), netX, rowY)
   }
 }
 

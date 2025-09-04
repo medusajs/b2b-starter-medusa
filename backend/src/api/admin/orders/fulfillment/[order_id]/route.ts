@@ -73,7 +73,7 @@ export async function GET(
           item_id: fi.item_id || fi.line_item_id, // Try both possible field names
           quantity: fi.quantity,
         })) || [],
-      shipping_price: savedPrices[f.id] ?? 0,
+      shipping_price: savedPrices[f.id] ?? 0, // Keep in cents - frontend will handle conversion
     }));
 
     const orderShippingTotalFromMethods = ((order as any)?.shipping_methods || [])
