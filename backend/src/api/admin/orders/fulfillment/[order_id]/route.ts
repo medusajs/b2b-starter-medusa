@@ -32,9 +32,7 @@ export async function GET(
           "shipping_tax_total",
           "tax_total",
           "fulfillments.id",
-          "fulfillments.items.id",
-          "fulfillments.items.item_id",
-          "fulfillments.items.quantity",
+          "fulfillments.items.*",
           "shipping_methods.id",
           "shipping_methods.price",
           "shipping_methods.tax_total",
@@ -72,10 +70,10 @@ export async function GET(
       items:
         (f.items || []).map((fi: any) => ({
           id: fi.id,
-          item_id: fi.item_id,
+          item_id: fi.item_id || fi.line_item_id, // Try both possible field names
           quantity: fi.quantity,
         })) || [],
-      shipping_price: savedPrices[f.id] ?? 0,
+      shipping_price: savedPrices[f.id] ?? 0, // Keep in cents - frontend will handle conversion
     }));
 
     const orderShippingTotalFromMethods = ((order as any)?.shipping_methods || [])

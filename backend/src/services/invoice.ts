@@ -81,6 +81,7 @@ class InvoiceService {
 
     let order
     let fulfillment
+    
     if (orderOverride) {
       order = orderOverride
     } else if (orderService) {
@@ -98,7 +99,11 @@ class InvoiceService {
             "currency_code",
             "subtotal",
             "tax_total",
-            "total"
+            "total",
+            "items.id",
+            "items.title",
+            "items.unit_price",
+            "items.quantity"
           ]
         }
       )
@@ -108,27 +113,76 @@ class InvoiceService {
       }
       
       order = orders[0]
+    }
 
-
-
-      if (fulfillmentId) {
-        // Query fulfillment separately since relations don't work the same way
+    // Handle fulfillment logic regardless of how order was loaded
+    if (fulfillmentId) {
+      // Find the fulfillment from the order data
+      const orderFulfillment = order.fulfillments?.find((f: any) => f.id === fulfillmentId);
+      
+              if (orderFulfillment) {
+          // Transform the fulfillment items to match the expected structure
+          const rawItems = orderFulfillment.items || [];
+          const transformedItems = rawItems.map((item: any) => ({
+            id: item.id,
+            item_id: item.item_id || item.line_item_id || item.id, // Try to find the reference to order item
+            quantity: item.quantity || 1
+          }));
+          
+          fulfillment = { 
+            id: orderFulfillment.id,
+            items: transformedItems,
+            shipping_details: { price: 0, option_name: 'Standard Shipping' } // Initialize with default values
+          };
+          
+          // Get the fulfillment shipping price from the database
+          const connectionString = process.env.DATABASE_URL as string | undefined;
+          if (connectionString) {
+            const client = new Client({ connectionString });
+            await client.connect();
+            
+            const priceResult = await client.query(`
+              SELECT price
+              FROM fulfillment_shipping_price
+              WHERE fulfillment_id = $1
+            `, [fulfillmentId]);
+            
+            if (priceResult.rows[0]) {
+              fulfillment.shipping_details = {
+                price: priceResult.rows[0].price, // Keep in cents - formatAmount will handle conversion
+                option_name: fulfillment.shipping_details.option_name || 'Standard Shipping'
+              }
+            }
+            
+            await client.end();
+          }
+        } else {
+        // Fallback to database query if fulfillment not found in order
         const connectionString = process.env.DATABASE_URL as string | undefined;
         if (connectionString) {
           const client = new Client({ connectionString });
           await client.connect();
           
-          // Get fulfillment details
+          // Get fulfillment details with items
           const fulfillmentResult = await client.query(`
-            SELECT id
+            SELECT id, items
             FROM fulfillment
             WHERE id = $1
           `, [fulfillmentId]);
           
           if (fulfillmentResult.rows[0]) {
+            // Transform the raw fulfillment items to match the expected structure
+            const rawItems = fulfillmentResult.rows[0].items || [];
+            const transformedItems = rawItems.map((item: any) => ({
+              id: item.id,
+              item_id: item.item_id || item.line_item_id || item.id, // Try to find the reference to order item
+              quantity: item.quantity || 1
+            }));
+            
             fulfillment = { 
               id: fulfillmentResult.rows[0].id,
-              items: [] // Empty items array for now
+              items: transformedItems,
+              shipping_details: { price: 0, option_name: 'Standard Shipping' } // Initialize with default values
             };
             
             // Get the fulfillment shipping price
@@ -140,7 +194,8 @@ class InvoiceService {
             
             if (priceResult.rows[0]) {
               fulfillment.shipping_details = {
-                price: priceResult.rows[0].price
+                price: priceResult.rows[0].price, // Keep in cents - formatAmount will handle conversion
+                option_name: fulfillment.shipping_details.option_name || 'Standard Shipping'
               }
             }
           }
@@ -165,6 +220,11 @@ class InvoiceService {
     const generator = isFulfillment
       ? this.fulfillmentInvoiceGenerator 
       : this.orderInvoiceGenerator
+
+    // Ensure fulfillment object exists for fulfillment invoices
+    if (isFulfillment && !fulfillment) {
+      throw new Error('Fulfillment object is required for fulfillment invoices');
+    }
 
     // Generate the invoice
     generator.generateInvoice(doc, order, fulfillment, fulfillmentIndex)
