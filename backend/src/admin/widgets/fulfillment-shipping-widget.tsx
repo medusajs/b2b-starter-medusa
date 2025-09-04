@@ -24,6 +24,8 @@ const FulfillmentShippingWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
   const [invoiceDataMap, setInvoiceDataMap] = useState<Record<string, { invoice_url: string; generated_at: string }>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [fulfillments, setFulfillments] = useState<any[]>([]);
+  // Initialize orderItems with data.items if available
+  const [orderItems, setOrderItems] = useState<any[]>((data as any)?.items || []);
   // Removed order-level tiles; no need to store order totals here
 
   // Choose a currency; prefer order currency
@@ -32,22 +34,50 @@ const FulfillmentShippingWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
   // Order items map to enrich fulfillment items with title/SKU
   const orderItemsById = useMemo<Record<string, any>>(() => {
     const map: Record<string, any> = {};
-    ((data as any)?.items || []).forEach((it: any) => {
+    orderItems.forEach((it: any) => {
       map[it.id] = it;
     });
     return map;
-  }, [data?.items]);
+  }, [orderItems]);
 
   // Load current fulfillment shipping prices and totals
   useEffect(() => {
     const load = async () => {
       if (!data?.id) return;
       setIsLoading(true);
+      
       try {
+        // Fetch the complete order data with ALL the item details we need
+        const orderRes = await sdk.client.fetch<{
+          order: {
+            id: string;
+            items: Array<{
+              id: string;
+              title: string;
+              product_title: string | null;
+              variant_sku: string | null;
+              thumbnail: string | null;
+              variant: {
+                sku?: string;
+                title?: string;
+                product?: {
+                  title?: string;
+                };
+              } | null;
+            }>;
+          };
+        }>(`/admin/orders/${data.id}?fields=id,items.*`, { method: "GET" });
+
+        // Store the fetched order items in state
+        if (orderRes?.order?.items) {
+          setOrderItems(orderRes.order.items);
+        }
+
+        // Then fetch fulfillment data
         const res = await sdk.client.fetch<{
           fulfillments: { id: string; items: { id: string; item_id: string; quantity: number }[]; shipping_price: number }[];
         }>(`/admin/orders/fulfillment/${data.id}`, { method: "GET" });
-
+        
         setFulfillments(res.fulfillments || []);
         
         // Check for existing invoices for each fulfillment
@@ -163,6 +193,25 @@ const FulfillmentShippingWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
 
       // Refresh list to show updated placeholders
       try {
+        // Re-fetch order items with all fields
+        const orderRes = await sdk.client.fetch<{
+          order: {
+            id: string;
+            items: Array<{
+              id: string;
+              title: string;
+              product_title: string | null;
+              variant_sku: string | null;
+              thumbnail: string | null;
+            }>;
+          };
+        }>(`/admin/orders/${data.id}?fields=id,items.*`, { method: "GET" });
+        
+        if (orderRes?.order?.items) {
+          setOrderItems(orderRes.order.items);
+        }
+        
+        // Re-fetch fulfillments
         const ref = await sdk.client.fetch<{
           fulfillments: { id: string; items: { id: string; item_id: string; quantity: number }[]; shipping_price: number }[];
         }>(`/admin/orders/fulfillment/${data.id}`, { method: "GET" });
@@ -257,17 +306,23 @@ const FulfillmentShippingWidget = ({ data }: DetailWidgetProps<AdminOrder>) => {
               <Table.Body>
                 {(((fulfillment as any).items) || []).map((fi: any) => {
                   const orderItem = orderItemsById[fi.item_id];
+                  
+                  // Use the direct fields from BaseOrderLineItem
+                  const itemTitle = orderItem?.title || "Item";
+                  const sku = orderItem?.variant_sku || "—";
+                  const productTitle = orderItem?.product_title;
+                  
                   return (
                     <Table.Row key={fi.id}>
                       <Table.Cell>
                         <div className="flex flex-col">
-                          <Text className="font-medium">{orderItem?.title || orderItem?.variant?.title || "Item"}</Text>
-                          {orderItem?.variant?.product?.title && (
-                            <Text className="text-ui-fg-subtle text-xs">{orderItem.variant.product.title}</Text>
+                          <Text className="font-medium">{itemTitle}</Text>
+                          {productTitle && (
+                            <Text className="text-ui-fg-subtle text-xs">{productTitle}</Text>
                           )}
                         </div>
                       </Table.Cell>
-                      <Table.Cell>{orderItem?.variant?.sku || "—"}</Table.Cell>
+                      <Table.Cell>{sku}</Table.Cell>
                       <Table.Cell className="text-right">{fi.quantity}</Table.Cell>
                     </Table.Row>
                   );

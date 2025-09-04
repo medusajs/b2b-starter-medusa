@@ -98,7 +98,11 @@ class InvoiceService {
             "currency_code",
             "subtotal",
             "tax_total",
-            "total"
+            "total",
+            "items.id",
+            "items.title",
+            "items.unit_price",
+            "items.quantity"
           ]
         }
       )
@@ -108,8 +112,6 @@ class InvoiceService {
       }
       
       order = orders[0]
-
-
 
       if (fulfillmentId) {
         // Query fulfillment separately since relations don't work the same way
@@ -126,9 +128,16 @@ class InvoiceService {
           `, [fulfillmentId]);
           
           if (fulfillmentResult.rows[0]) {
+            // Get fulfillment items
+            const itemsResult = await client.query(`
+              SELECT id, item_id, quantity
+              FROM fulfillment_item
+              WHERE fulfillment_id = $1
+            `, [fulfillmentId]);
+            
             fulfillment = { 
               id: fulfillmentResult.rows[0].id,
-              items: [] // Empty items array for now
+              items: itemsResult.rows || []
             };
             
             // Get the fulfillment shipping price

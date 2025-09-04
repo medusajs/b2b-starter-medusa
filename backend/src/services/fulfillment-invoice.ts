@@ -194,10 +194,10 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
         align: 'left'
       })
       doc.text(fulfillmentItem.quantity.toString(), quantityX, y, { width: 80 })
-      doc.text(formatAmount((orderItem.unit_price || 0), order.region), priceX, y, { width: 80, align: 'right' })
+      doc.text(formatAmount((orderItem.unit_price || 0), order), priceX, y, { width: 80, align: 'right' })
       
       const lineTotal = (orderItem.unit_price || 0) * fulfillmentItem.quantity
-      doc.text(formatAmount(lineTotal, order.region), totalX, y, { width: 80, align: 'right' })
+      doc.text(formatAmount(lineTotal, order), totalX, y, { width: 80, align: 'right' })
       
       // Add 0.5 spacing between rows
       doc.moveDown(2.0)
@@ -229,48 +229,42 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     let taxRate = 0
     let taxTotal = 0
     
-    console.log(`[FulfillmentInvoiceGenerator] Order tax_total: ${order.tax_total}, subtotal: ${order.subtotal}`)
-    
     if (order.tax_total && order.subtotal) {
       // Calculate the effective tax rate from the order's total tax
       const orderTaxRate = (order.tax_total / order.subtotal) * 100
-      console.log(`[FulfillmentInvoiceGenerator] Order tax rate: ${orderTaxRate}%`)
       
       // Apply the same tax rate to this fulfillment's subtotal + shipping
       taxTotal = (subtotal + shippingPrice) * (orderTaxRate / 100)
       taxRate = orderTaxRate
-      console.log(`[FulfillmentInvoiceGenerator] Fulfillment taxTotal: ${taxTotal}`)
     }
 
     // Calculate total (ensure numeric addition)
     const total = Number(subtotal) + Number(shippingPrice) + Number(taxTotal)
-    console.log(`[FulfillmentInvoiceGenerator] subtotal: ${subtotal}, shippingPrice: ${shippingPrice}, taxTotal: ${taxTotal}, total: ${total}`)
-    console.log(`[FulfillmentInvoiceGenerator] Total in dollars: ${total / 100}`)
 
     // Save starting Y position for each row
     let currentY = doc.y
 
     // First row - Subtotal
     doc.text('Subtotal:', summaryX, currentY)
-    doc.text(formatAmount(subtotal, order.region), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(subtotal, order), totalX, currentY, { align: 'right', width: 80 })
     doc.moveDown(0.5)
     currentY = doc.y
 
     // Second row - Shipping
     doc.text('Shipping:', summaryX, currentY)
-    doc.text(formatAmount(shippingPrice, order.region), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(shippingPrice, order), totalX, currentY, { align: 'right', width: 80 })
     doc.moveDown(0.5)
     currentY = doc.y
 
     // Third row - GST
     doc.text(`GST @ ${taxRate}%:`, summaryX, currentY)
-    doc.text(formatAmount(taxTotal, order.region), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(taxTotal, order), totalX, currentY, { align: 'right', width: 80 })
     doc.moveDown(0.5)
     currentY = doc.y
 
     // Fourth row - Total
     doc.text('Total:', summaryX, currentY)
-    doc.text(formatAmount(total, order.region), totalX, currentY, { align: 'right', width: 80 })
+    doc.text(formatAmount(total, order), totalX, currentY, { align: 'right', width: 80 })
     
     // Add extra space before notes
     doc.moveDown(2)
@@ -308,8 +302,8 @@ class FulfillmentInvoiceGenerator implements InvoiceGenerator {
     const rowY = headerY + 25
     doc.font('Helvetica')
     doc.text(`GST @ ${taxRate}%`, rateX, rowY)
-    doc.text(formatAmount(taxTotal, order.region), taxX, rowY)
-    doc.text(formatAmount(subtotal + shippingPrice, order.region), netX, rowY)
+    doc.text(formatAmount(taxTotal, order), taxX, rowY)
+    doc.text(formatAmount(subtotal + shippingPrice, order), netX, rowY)
   }
 }
 
