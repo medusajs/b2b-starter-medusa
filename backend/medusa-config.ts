@@ -4,6 +4,7 @@ import { COMPANY_MODULE } from "./src/modules/company";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { FULFILLMENT_SHIPPING_MODULE } from "./src/modules/fulfillment-shipping";
 import { INVOICE_MODULE } from "./src/modules/invoice";
+import { EMAIL_MODULE } from "./src/modules/email";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -47,6 +48,9 @@ module.exports = defineConfig({
     },
     [INVOICE_MODULE]: {
       resolve: "./modules/invoice",
+    },
+    [EMAIL_MODULE]: {
+      resolve: "./modules/email",
     },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-redis",
