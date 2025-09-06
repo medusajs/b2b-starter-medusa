@@ -8,6 +8,9 @@ export default async function orderPlacedHandler({
   container,
 }: SubscriberArgs<{ id: string }>) {
   console.log("========== ORDER PLACED SUBSCRIBER START ==========");
+  console.log("========== THIS IS THE ORDER.PLACED EVENT HANDLER ==========");
+  console.log("[OrderPlaced] 🚨 SUBSCRIBER ACTUALLY TRIGGERED!");
+  console.log("[OrderPlaced] Timestamp:", new Date().toISOString());
   console.log("[OrderPlaced] Subscriber triggered with order ID:", data.id);
   
   const orderId = data?.id;

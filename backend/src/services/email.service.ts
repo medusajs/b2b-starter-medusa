@@ -147,6 +147,25 @@ export default class EmailService {
     order: any;
     customer: any;
   }): Promise<boolean> {
+    console.log("========== SENDORDERPLACEDEMAIL START ==========");
+    console.log("[EMAIL VALIDATION] 📧 Validating email address:", data.to);
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(data.to);
+    console.log("[EMAIL VALIDATION] Email format valid:", isValidEmail);
+    console.log("[EMAIL VALIDATION] Email:", data.to);
+    console.log("[EMAIL VALIDATION] Email length:", data.to?.length);
+    console.log("[EMAIL VALIDATION] Email type:", typeof data.to);
+    
+    if (!isValidEmail) {
+      console.error("[EMAIL VALIDATION] ❌ INVALID EMAIL FORMAT!", {
+        email: data.to,
+        format: "Expected format: user@domain.com"
+      });
+      return false;
+    }
+    
     this.logger.info("[EMAIL] Attempting to send order placed email", {
       to: data.to,
       orderId: data.order.id,
@@ -154,27 +173,89 @@ export default class EmailService {
       customerId: data.customer.id,
     });
 
+    console.log("[EMAIL CONFIG CHECK] 🔧 Checking SendGrid configuration:");
+    console.log("  API Key exists:", !!this.options.apiKey);
+    console.log("  API Key length:", this.options.apiKey?.length);
+    console.log("  API Key starts with 'SG.':", this.options.apiKey?.startsWith('SG.'));
+    console.log("  From Email:", this.options.fromEmail);
+    console.log("  Order Template ID:", this.options.orderPlacedTemplateId);
+    console.log("  Order Template ID exists:", !!this.options.orderPlacedTemplateId);
+    console.log("  Order Template ID length:", this.options.orderPlacedTemplateId?.length);
+
     if (!this.options.apiKey) {
+      console.error("[EMAIL CONFIG] ❌ NO API KEY! SendGrid not configured");
       this.logger.warn("[EMAIL] SendGrid not configured, skipping order placed email");
+      return false;
+    }
+    
+    if (!this.options.orderPlacedTemplateId) {
+      console.error("[EMAIL CONFIG] ❌ NO TEMPLATE ID! Order template not configured");
+      console.error("  Expected env var: SENDGRID_ORDER_PLACED_TEMPLATE");
       return false;
     }
 
     try {
+      // Calculate order totals
+      const subtotal = data.order.items?.reduce((sum: number, item: any) => 
+        sum + (item.unit_price * item.quantity), 0) || 0;
+      const shippingTotal = data.order.shipping_methods?.reduce((sum: number, method: any) => 
+        sum + (method.amount || 0), 0) || 0;
+      const taxTotal = data.order.tax_total || 0;
+      const orderTotal = data.order.total || subtotal + shippingTotal + taxTotal;
+      
+      // Format the template data to match SendGrid template variables
       const templateData = {
-        order_id: data.order.id,
-        order_display_id: data.order.display_id,
+        // Customer info
+        first_name: data.customer.first_name || data.order.shipping_address?.first_name || "",
+        last_name: data.customer.last_name || data.order.shipping_address?.last_name || "",
         customer_name: `${data.customer.first_name} ${data.customer.last_name}`,
         customer_email: data.customer.email,
-        order_total: (data.order.total / 100).toFixed(2),
-        currency: data.order.currency_code?.toUpperCase(),
+        
+        // Order info
+        order_number: data.order.display_id || data.order.id,
+        order_id: data.order.id,
+        order_display_id: data.order.display_id,
+        order_date: new Date(data.order.created_at || Date.now()).toLocaleDateString(),
+        
+        // Line items (matching template variable names)
+        line_items: data.order.items?.map((item: any) => ({
+          name: item.title || item.product_title || "Product",
+          sku: item.variant?.sku || item.sku || "N/A",
+          quantity: item.quantity || 1,
+          price: ((item.unit_price || 0) / 100).toFixed(2),
+          total: (((item.unit_price || 0) * (item.quantity || 1)) / 100).toFixed(2),
+        })) || [],
+        
+        // Order summary
+        order_summary: {
+          subtotal: (subtotal / 100).toFixed(2),
+          shipping: (shippingTotal / 100).toFixed(2),
+          tax: (taxTotal / 100).toFixed(2),
+          total: (orderTotal / 100).toFixed(2),
+        },
+        
+        // Addresses
+        shipping_address: {
+          first_name: data.order.shipping_address?.first_name || "",
+          last_name: data.order.shipping_address?.last_name || "",
+          address_1: data.order.shipping_address?.address_1 || "",
+          address_2: data.order.shipping_address?.address_2 || "",
+          city: data.order.shipping_address?.city || "",
+          province: data.order.shipping_address?.province || data.order.shipping_address?.province_code || "",
+          postal_code: data.order.shipping_address?.postal_code || "",
+          country: data.order.shipping_address?.country || data.order.shipping_address?.country_code || "",
+        },
+        billing_address: data.order.billing_address,
+        
+        // Legacy fields (keep for compatibility)
         items: data.order.items?.map((item: any) => ({
           title: item.title,
           quantity: item.quantity,
           price: (item.unit_price / 100).toFixed(2),
           total: ((item.unit_price * item.quantity) / 100).toFixed(2),
         })) || [],
-        shipping_address: data.order.shipping_address,
-        billing_address: data.order.billing_address,
+        order_total: (orderTotal / 100).toFixed(2),
+        currency: data.order.currency_code?.toUpperCase(),
       };
 
       console.log("[EMAIL] 📧 DETAILED EMAIL DATA BEING SENT:");
@@ -182,17 +263,22 @@ export default class EmailService {
       console.log("  📤 FROM:", this.options.fromEmail);
       console.log("  🎨 TEMPLATE ID:", this.options.orderPlacedTemplateId);
       console.log("  📋 TEMPLATE DATA:");
-      console.log("    🛒 Order ID:", templateData.order_id);
-      console.log("    🏷️  Display ID:", templateData.order_display_id);
-      console.log("    👤 Customer:", templateData.customer_name);
+      console.log("    👤 Customer Name:", templateData.first_name, templateData.last_name);
       console.log("    📧 Customer Email:", templateData.customer_email);
-      console.log("    💰 Total:", `$${templateData.order_total} ${templateData.currency}`);
-      console.log("    📦 Items Count:", templateData.items.length);
+      console.log("    🛒 Order Number:", templateData.order_number);
+      console.log("    📅 Order Date:", templateData.order_date);
+      console.log("    💰 Order Summary:");
+      console.log("       Subtotal: $", templateData.order_summary.subtotal);
+      console.log("       Shipping: $", templateData.order_summary.shipping);
+      console.log("       Tax: $", templateData.order_summary.tax);
+      console.log("       Total: $", templateData.order_summary.total);
+      console.log("    📦 Line Items Count:", templateData.line_items.length);
       
-      if (templateData.items.length > 0) {
-        console.log("    📋 ITEMS:");
-        templateData.items.forEach((item, index) => {
-          console.log(`      ${index + 1}. ${item.title}`);
+      if (templateData.line_items.length > 0) {
+        console.log("    📋 LINE ITEMS:");
+        templateData.line_items.forEach((item, index) => {
+          console.log(`      ${index + 1}. ${item.name}`);
+          console.log(`         SKU: ${item.sku}`);
           console.log(`         Quantity: ${item.quantity}`);
           console.log(`         Price: $${item.price}`);
           console.log(`         Total: $${item.total}`);
@@ -221,12 +307,14 @@ export default class EmailService {
         console.log(`      ${templateData.billing_address.country_code?.toUpperCase()}`);
       }
 
+      console.log("[EMAIL] 🔍 COMPLETE TEMPLATE DATA BEING SENT TO SENDGRID:");
+      console.log(JSON.stringify(templateData, null, 2));
+      
       this.logger.debug("[EMAIL] Order placed template data:", {
         orderId: templateData.order_id,
         displayId: templateData.order_display_id,
-        total: templateData.order_total,
-        currency: templateData.currency,
-        itemsCount: templateData.items.length,
+        orderNumber: templateData.order_number,
+        lineItemsCount: templateData.line_items.length,
       });
 
       const msg = {
@@ -248,6 +336,14 @@ export default class EmailService {
         templateId: msg.templateId,
       });
 
+      console.log("[EMAIL] 🚀 ABOUT TO CALL SENDGRID API...");
+      console.log("[EMAIL] SendGrid message object:", JSON.stringify({
+        to: msg.to,
+        from: msg.from,
+        templateId: msg.templateId,
+        dynamicTemplateDataKeys: Object.keys(msg.dynamicTemplateData || {})
+      }, null, 2));
+      
       const [response] = await sgMail.send(msg);
       
       console.log("[EMAIL] ✅ EMAIL SENT SUCCESSFULLY!");
@@ -257,6 +353,7 @@ export default class EmailService {
       console.log("  🆔 MESSAGE ID:", response.headers['x-message-id']);
       console.log("  📅 SENT AT:", new Date().toISOString());
       console.log("  🎨 TEMPLATE USED:", this.options.orderPlacedTemplateId);
+      console.log("  📨 FULL RESPONSE HEADERS:", JSON.stringify(response.headers, null, 2));
       
       this.logger.info("[EMAIL] ✅ Order placed email sent successfully", {
         to: data.to,
@@ -266,16 +363,25 @@ export default class EmailService {
       });
       return true;
     } catch (error: any) {
-      console.log("[EMAIL] ❌ EMAIL SEND FAILED!");
+      console.log("[EMAIL] ❌❌❌ EMAIL SEND FAILED! ❌❌❌");
       console.log("  📧 ATTEMPTED TO:", data.to);
       console.log("  🛒 ORDER:", data.order.display_id);
-      console.log("  ❌ ERROR:", error.message);
-      console.log("  📊 STATUS CODE:", error.code);
+      console.log("  ❌ ERROR TYPE:", error.constructor.name);
+      console.log("  ❌ ERROR MESSAGE:", error.message);
+      console.log("  📊 ERROR CODE:", error.code);
       console.log("  📅 FAILED AT:", new Date().toISOString());
       console.log("  🎨 TEMPLATE ID:", this.options.orderPlacedTemplateId);
-      if (error.response?.body) {
-        console.log("  📋 SENDGRID RESPONSE:", JSON.stringify(error.response.body, null, 2));
+      console.log("  🔑 API KEY EXISTS:", !!this.options.apiKey);
+      console.log("  📤 FROM EMAIL:", this.options.fromEmail);
+      
+      if (error.response) {
+        console.log("  📋 SENDGRID RESPONSE STATUS:", error.response.statusCode);
+        console.log("  📋 SENDGRID RESPONSE BODY:", JSON.stringify(error.response.body, null, 2));
+        console.log("  📋 SENDGRID RESPONSE HEADERS:", JSON.stringify(error.response.headers, null, 2));
       }
+      
+      console.log("  🔍 FULL ERROR OBJECT:");
+      console.log(JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
       
       this.logger.error("[EMAIL] ❌ Failed to send order placed email", {
         to: data.to,

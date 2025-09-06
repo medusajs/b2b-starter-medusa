@@ -4,6 +4,7 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { getCartApprovalStatus } from "../../utils/get-cart-approval-status";
 import { checkSpendingLimit } from "../../utils/check-spending-limit";
 import { HttpTypes } from "@medusajs/framework/types";
+
 completeCartWorkflow.hooks.validate(async ({ cart }, { container }) => {
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
