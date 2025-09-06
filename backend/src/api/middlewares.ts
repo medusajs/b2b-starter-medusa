@@ -16,43 +16,25 @@ const sendOrderEmailAfterComplete = async (
   res: MedusaResponse,
   next: MedusaNextFunction
 ) => {
-  console.log("🔍 [ORDER EMAIL MW] Intercepting cart completion...");
-  
   // Store original json method
   const originalJson = res.json.bind(res);
   
   // Override json method to intercept response
   res.json = function(data: any) {
-    console.log("📦 [ORDER EMAIL MW] Response data intercepted!");
-    
     // Check if this is a successful order creation
     if (data?.order?.id) {
-      console.log("🎯 [ORDER EMAIL MW] ORDER FOUND IN RESPONSE!");
-      console.log("   Order ID:", data.order.id);
-      console.log("   Display ID:", data.order.display_id);
-      console.log("   Customer Email:", data.order.email);
-      console.log("   Items Count:", data.order.items?.length || 0);
-      console.log("   Has Shipping Address:", !!data.order.shipping_address);
-      console.log("   Order Total:", data.order.total);
-      
-      // Log the full order structure to debug
-      console.log("📋 [ORDER EMAIL MW] Full order data keys:", Object.keys(data.order));
+      console.log("📧 [Order Email] Sending confirmation for order", data.order.display_id);
       
       // Use the order data from the response directly
       const order = data.order;
       const customerEmail = order.email;
       
-      // Send email synchronously before returning response
+      // Send email asynchronously
       (async () => {
         try {
-          console.log("📧 [ORDER EMAIL MW] SENDING ORDER CONFIRMATION EMAIL...");
-          
           if (!customerEmail) {
-            console.log("⚠️ [ORDER EMAIL MW] No customer email in order");
             return;
           }
-          
-          console.log("📬 [ORDER EMAIL MW] Sending email to:", customerEmail);
           
           const emailService = req.scope.resolve("emailService") as EmailService;
           
@@ -64,28 +46,19 @@ const sendOrderEmailAfterComplete = async (
             last_name: order.shipping_address?.last_name || order.billing_address?.last_name || "",
           };
           
-          console.log("📦 [ORDER EMAIL MW] Using order data from response:", {
-            id: order.id,
-            display_id: order.display_id,
-            customer_email: customerEmail,
-            total: order.total,
-            items_count: order.items?.length || 0,
-          });
-          
           const sent = await emailService.sendOrderPlacedEmail({
             to: customerEmail,
             order: order,
             customer: customer,
           });
           
-          console.log("✅ [ORDER EMAIL MW] EMAIL RESULT:", sent ? "SENT SUCCESSFULLY!" : "FAILED TO SEND!");
+          if (sent) {
+            console.log("✅ [Order Email] Sent successfully to", customerEmail);
+          } else {
+            console.error("❌ [Order Email] Failed to send to", customerEmail);
+          }
         } catch (error: any) {
-          console.error("❌ [ORDER EMAIL MW] Error sending email:", error.message);
-          console.error("❌ [ORDER EMAIL MW] Error details:", {
-            name: error.name,
-            message: error.message,
-            stack: error.stack,
-          });
+          console.error("❌ [Order Email] Error:", error.message);
         }
       })();
     }
