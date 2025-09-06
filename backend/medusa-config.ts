@@ -33,6 +33,12 @@ module.exports = defineConfig({
       };
     },
   },
+  workflows: {
+    resolve: "./src/workflows",
+  },
+  subscribers: {
+    resolve: "./src/subscribers",
+  },
   modules: {
     [COMPANY_MODULE]: {
       resolve: "./modules/company",

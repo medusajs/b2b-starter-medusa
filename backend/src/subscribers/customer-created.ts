@@ -4,43 +4,44 @@ import { Modules, ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import EmailService from "../services/email.service";
 
 export default async function customerCreatedHandler({
-  event,
+  event: { data },
   container,
 }: SubscriberArgs<{ id: string }>) {
+  console.log("========== CUSTOMER CREATED SUBSCRIBER START ==========");
+  console.log("[CustomerCreated] Subscriber triggered with customer ID:", data.id);
+  
   const emailService = container.resolve("emailService") as EmailService;
   const customerModuleService: ICustomerModuleService = container.resolve(Modules.CUSTOMER);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
-  const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
 
-  const customerId = event.data.id;
-  logger.info("[SUBSCRIBER] Customer created event triggered", {
+  const customerId = data.id;
+  console.log("[CustomerCreated] Event details:", {
     customerId,
-    eventName: event.name,
   });
 
   try {
     
-    logger.debug("[SUBSCRIBER] Retrieving customer data", { customerId });
+    console.log("[CustomerCreated] Retrieving customer data...");
     
     const customer = await customerModuleService.retrieveCustomer(customerId, {
       relations: ["addresses"],
     });
 
-    logger.debug("[SUBSCRIBER] Customer data retrieved", {
+    console.log("[CustomerCreated] Customer data retrieved:", {
       customerId: customer.id,
       email: customer.email,
       name: `${customer.first_name} ${customer.last_name}`,
     });
 
     if (!customer?.email) {
-      logger.warn(`[SUBSCRIBER] Customer ${customerId} has no email address - skipping email`);
+      console.log(`[CustomerCreated] Customer ${customerId} has no email address - skipping email`);
       return;
     }
 
     // Try to get employee and company data through the link
     let companyData: any = null;
     try {
-      logger.debug("[SUBSCRIBER] Querying for employee/company data", { customerId });
+      console.log("[CustomerCreated] Querying for employee/company data...");
       
       const { data } = await query.graph({
         entity: "customer",
@@ -56,15 +57,15 @@ export default async function customerCreatedHandler({
 
       if (data && data.length > 0 && data[0].employee) {
         companyData = data[0].employee.company;
-        logger.debug("[SUBSCRIBER] Company data found", {
+        console.debug("[SUBSCRIBER] Company data found", {
           companyId: companyData?.id,
           companyName: companyData?.name,
         });
       } else {
-        logger.debug("[SUBSCRIBER] No company data found for customer", { customerId });
+        console.debug("[SUBSCRIBER] No company data found for customer", { customerId });
       }
     } catch (error) {
-      logger.warn(`[SUBSCRIBER] Could not retrieve company for customer ${customerId}`, error);
+      console.warn(`[SUBSCRIBER] Could not retrieve company for customer ${customerId}`, error);
     }
 
     const enrichedCustomer = {
@@ -72,7 +73,7 @@ export default async function customerCreatedHandler({
       company: companyData,
     };
 
-    logger.info("[SUBSCRIBER] Sending customer confirmation email", {
+    console.info("[SUBSCRIBER] Sending customer confirmation email", {
       to: customer.email,
       customerId,
       hasCompany: !!companyData,
@@ -84,26 +85,32 @@ export default async function customerCreatedHandler({
     });
 
     if (emailSent) {
-      logger.info(`[SUBSCRIBER] ✅ Customer created email successfully sent`, {
+      console.info(`[SUBSCRIBER] ✅ Customer created email successfully sent`, {
         customerId,
         email: customer.email,
       });
     } else {
-      logger.warn(`[SUBSCRIBER] ⚠️ Customer created email was NOT sent (check email service logs)`, {
+      console.warn(`[SUBSCRIBER] ⚠️ Customer created email was NOT sent (check email service logs)`, {
         customerId,
         email: customer.email,
       });
     }
   } catch (error: any) {
-    logger.error(`[SUBSCRIBER] ❌ Failed to handle customer created event`, {
-      customerId,
-      error: error.message,
+    console.error("[CustomerCreated] Error details:", {
+      message: error.message,
       stack: error.stack,
+      name: error.name,
     });
+    console.error("[CustomerCreated] Full error object:", error);
     throw error;
+  } finally {
+    console.log("========== CUSTOMER CREATED SUBSCRIBER END ==========");
   }
 }
 
 export const config: SubscriberConfig = {
   event: "customer.created",
+  context: {
+    subscriberId: "customer-created-handler",
+  },
 };

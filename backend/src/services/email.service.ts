@@ -177,6 +177,50 @@ export default class EmailService {
         billing_address: data.order.billing_address,
       };
 
+      console.log("[EMAIL] 📧 DETAILED EMAIL DATA BEING SENT:");
+      console.log("  📬 TO:", data.to);
+      console.log("  📤 FROM:", this.options.fromEmail);
+      console.log("  🎨 TEMPLATE ID:", this.options.orderPlacedTemplateId);
+      console.log("  📋 TEMPLATE DATA:");
+      console.log("    🛒 Order ID:", templateData.order_id);
+      console.log("    🏷️  Display ID:", templateData.order_display_id);
+      console.log("    👤 Customer:", templateData.customer_name);
+      console.log("    📧 Customer Email:", templateData.customer_email);
+      console.log("    💰 Total:", `$${templateData.order_total} ${templateData.currency}`);
+      console.log("    📦 Items Count:", templateData.items.length);
+      
+      if (templateData.items.length > 0) {
+        console.log("    📋 ITEMS:");
+        templateData.items.forEach((item, index) => {
+          console.log(`      ${index + 1}. ${item.title}`);
+          console.log(`         Quantity: ${item.quantity}`);
+          console.log(`         Price: $${item.price}`);
+          console.log(`         Total: $${item.total}`);
+        });
+      }
+      
+      if (templateData.shipping_address) {
+        console.log("    🚚 SHIPPING ADDRESS:");
+        console.log(`      ${templateData.shipping_address.first_name} ${templateData.shipping_address.last_name}`);
+        console.log(`      ${templateData.shipping_address.address_1}`);
+        if (templateData.shipping_address.address_2) {
+          console.log(`      ${templateData.shipping_address.address_2}`);
+        }
+        console.log(`      ${templateData.shipping_address.city}, ${templateData.shipping_address.province || ''} ${templateData.shipping_address.postal_code || ''}`);
+        console.log(`      ${templateData.shipping_address.country_code?.toUpperCase()}`);
+      }
+      
+      if (templateData.billing_address) {
+        console.log("    💳 BILLING ADDRESS:");
+        console.log(`      ${templateData.billing_address.first_name} ${templateData.billing_address.last_name}`);
+        console.log(`      ${templateData.billing_address.address_1}`);
+        if (templateData.billing_address.address_2) {
+          console.log(`      ${templateData.billing_address.address_2}`);
+        }
+        console.log(`      ${templateData.billing_address.city}, ${templateData.billing_address.province || ''} ${templateData.billing_address.postal_code || ''}`);
+        console.log(`      ${templateData.billing_address.country_code?.toUpperCase()}`);
+      }
+
       this.logger.debug("[EMAIL] Order placed template data:", {
         orderId: templateData.order_id,
         displayId: templateData.order_display_id,
@@ -192,6 +236,12 @@ export default class EmailService {
         dynamicTemplateData: templateData,
       };
 
+      console.log("[EMAIL] 📤 SENDING EMAIL VIA SENDGRID:");
+      console.log("  📬 TO:", msg.to);
+      console.log("  📤 FROM:", msg.from);
+      console.log("  🎨 TEMPLATE ID:", msg.templateId);
+      console.log("  📅 TIMESTAMP:", new Date().toISOString());
+
       this.logger.debug("[EMAIL] Sending order placed email with SendGrid", {
         to: msg.to,
         from: msg.from,
@@ -199,6 +249,14 @@ export default class EmailService {
       });
 
       const [response] = await sgMail.send(msg);
+      
+      console.log("[EMAIL] ✅ EMAIL SENT SUCCESSFULLY!");
+      console.log("  📧 SENT TO:", data.to);
+      console.log("  🛒 ORDER:", data.order.display_id);
+      console.log("  📊 STATUS CODE:", response.statusCode);
+      console.log("  🆔 MESSAGE ID:", response.headers['x-message-id']);
+      console.log("  📅 SENT AT:", new Date().toISOString());
+      console.log("  🎨 TEMPLATE USED:", this.options.orderPlacedTemplateId);
       
       this.logger.info("[EMAIL] ✅ Order placed email sent successfully", {
         to: data.to,
@@ -208,6 +266,17 @@ export default class EmailService {
       });
       return true;
     } catch (error: any) {
+      console.log("[EMAIL] ❌ EMAIL SEND FAILED!");
+      console.log("  📧 ATTEMPTED TO:", data.to);
+      console.log("  🛒 ORDER:", data.order.display_id);
+      console.log("  ❌ ERROR:", error.message);
+      console.log("  📊 STATUS CODE:", error.code);
+      console.log("  📅 FAILED AT:", new Date().toISOString());
+      console.log("  🎨 TEMPLATE ID:", this.options.orderPlacedTemplateId);
+      if (error.response?.body) {
+        console.log("  📋 SENDGRID RESPONSE:", JSON.stringify(error.response.body, null, 2));
+      }
+      
       this.logger.error("[EMAIL] ❌ Failed to send order placed email", {
         to: data.to,
         orderId: data.order.id,
