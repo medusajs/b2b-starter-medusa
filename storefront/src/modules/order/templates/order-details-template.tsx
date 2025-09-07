@@ -26,6 +26,8 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
   const [isAddingAll, setIsAddingAll] = useState(false)
   const [invoiceData, setInvoiceData] = useState<Record<string, { invoice_url: string; generated_at: string }>>({})
   const [isLoadingInvoices, setIsLoadingInvoices] = useState(false)
+  const [trackingData, setTrackingData] = useState<Record<string, string[]>>({})
+  const [isLoadingTracking, setIsLoadingTracking] = useState(false)
 
   // Fetch invoice data for each fulfillment
   useEffect(() => {
@@ -67,6 +69,46 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
     }
 
     fetchInvoiceData()
+  }, [order.id, order.fulfillments])
+
+  // Fetch tracking numbers for each fulfillment
+  useEffect(() => {
+    const fetchTrackingData = async () => {
+      if (!order.fulfillments || order.fulfillments.length === 0) return
+      
+      setIsLoadingTracking(true)
+      try {
+        const trackingPromises = order.fulfillments.map(async (fulfillment) => {
+          try {
+            const headers = await getAuthHeaders()
+            const data = await sdk.client.fetch(`/store/fulfillment-tracking?fulfillment_id=${fulfillment.id}`, {
+              method: "GET",
+              credentials: "include",
+              headers
+            })
+            return { fulfillmentId: fulfillment.id, trackingNumbers: data.tracking_numbers || [] }
+          } catch (error) {
+            // No tracking numbers found for this fulfillment
+          }
+          return { fulfillmentId: fulfillment.id, trackingNumbers: [] }
+        })
+        
+        const results = await Promise.all(trackingPromises)
+        const trackingMap: Record<string, string[]> = {}
+        
+        results.forEach(({ fulfillmentId, trackingNumbers }) => {
+          trackingMap[fulfillmentId] = trackingNumbers
+        })
+        
+        setTrackingData(trackingMap)
+      } catch (error) {
+        console.error('Failed to fetch tracking data:', error)
+      } finally {
+        setIsLoadingTracking(false)
+      }
+    }
+
+    fetchTrackingData()
   }, [order.id, order.fulfillments])
 
   const handleAddAllToCart = async () => {
@@ -146,25 +188,34 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
             <div className="flex flex-col gap-y-4">
               {order.fulfillments.map((fulfillment, index) => (
                   <Container key={fulfillment.id}>
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-lg font-semibold">
-                      Fulfillment #{index + 1}
-                    </h3>
-                    <div className="text-sm">
-                      {isLoadingInvoices ? (
-                        <span className="text-gray-500">Loading invoice...</span>
-                      ) : invoiceData[fulfillment.id] ? (
-                        <a
-                          href={invoiceData[fulfillment.id].invoice_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline font-medium"
-                        >
-                          View Invoice
-                        </a>
-                      ) : (
-                        <span className="text-gray-500">Invoice not available yet</span>
-                      )}
+                  <div className="mb-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-lg font-semibold">
+                        Fulfillment #{index + 1}
+                      </h3>
+                      <div className="text-sm">
+                        {isLoadingInvoices ? (
+                          <span className="text-gray-500">Loading invoice...</span>
+                        ) : invoiceData[fulfillment.id] ? (
+                          <a
+                            href={invoiceData[fulfillment.id].invoice_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline font-medium"
+                          >
+                            View Invoice
+                          </a>
+                        ) : (
+                          <span className="text-gray-500">Invoice not available yet</span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      <strong>Tracking Number(s):</strong> {isLoadingTracking 
+                        ? 'Loading...' 
+                        : trackingData[fulfillment.id] && trackingData[fulfillment.id].length > 0 
+                          ? trackingData[fulfillment.id].join(', ') 
+                          : 'Tracking number not available yet'}
                     </div>
                   </div>
                   <Table>
@@ -224,7 +275,7 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
                       )}
                     </Table.Body>
                   </Table>
-                </Container>
+                  </Container>
               ))}
             </div>
           )}
