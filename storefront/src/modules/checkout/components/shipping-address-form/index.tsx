@@ -37,9 +37,9 @@ const ShippingAddressForm = ({
   // check if customer has saved addresses that are in the current region
   const addressesInRegion = useMemo(
     () =>
-      customer?.addresses.filter(
+      customer?.addresses?.filter(
         (a) => a.country_code && countriesInRegion?.includes(a.country_code)
-      ),
+      ) || [],
     [customer?.addresses, countriesInRegion]
   )
 
