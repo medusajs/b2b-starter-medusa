@@ -23,6 +23,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "bngproducts.s3.us-east-2.amazonaws.com",
+      },
+      {
+        protocol: "https",
         hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
       },
       {

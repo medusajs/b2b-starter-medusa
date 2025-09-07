@@ -27,10 +27,34 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       return res.status(400).json({ message: "Not a file" })
     }
 
-    // Set appropriate headers for PDF files
-    if (fullPath.endsWith('.pdf')) {
-      res.setHeader('Content-Type', 'application/pdf')
-      res.setHeader('Content-Disposition', `inline; filename="${path.basename(fullPath)}"`)
+    // Set appropriate headers based on file type
+    const ext = path.extname(fullPath).toLowerCase()
+    
+    // Set Content-Type based on file extension
+    switch (ext) {
+      case '.jpg':
+      case '.jpeg':
+        res.setHeader('Content-Type', 'image/jpeg')
+        break
+      case '.png':
+        res.setHeader('Content-Type', 'image/png')
+        break
+      case '.gif':
+        res.setHeader('Content-Type', 'image/gif')
+        break
+      case '.webp':
+        res.setHeader('Content-Type', 'image/webp')
+        break
+      case '.svg':
+        res.setHeader('Content-Type', 'image/svg+xml')
+        break
+      case '.pdf':
+        res.setHeader('Content-Type', 'application/pdf')
+        res.setHeader('Content-Disposition', `inline; filename="${path.basename(fullPath)}"`)
+        break
+      default:
+        // For other files, let the browser determine the type
+        res.setHeader('Content-Type', 'application/octet-stream')
     }
 
     // Stream the file
