@@ -6,7 +6,7 @@ export async function POST(req: MedusaRequest, res: MedusaResponse) {
   try {
     console.log("🧪 [ADMIN API] Order email endpoint called...");
     
-    const { order_id } = req.body;
+    const { order_id } = req.body as { order_id?: string };
     
     if (!order_id) {
       return res.status(400).json({ 

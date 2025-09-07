@@ -39,7 +39,7 @@ export default async function fulfillmentShippedHandler({
     console.debug("[SUBSCRIBER] Fulfillment data retrieved", {
       fulfillmentId: fulfillment.id,
       itemCount: fulfillment.items?.length || 0,
-      trackingNumbers: fulfillment.tracking_numbers,
+      trackingNumbers: (fulfillment as any).tracking_numbers,
       provider: fulfillment.provider_id,
     });
 
@@ -108,7 +108,7 @@ export default async function fulfillmentShippedHandler({
       fulfillmentId,
       orderId,
       orderDisplayId: order.display_id,
-      trackingNumbers: fulfillment.tracking_numbers,
+      trackingNumbers: (fulfillment as any).tracking_numbers,
       itemsCount: fulfillment.items?.length || 0,
       shippingAddress: `${order.shipping_address?.address_1}, ${order.shipping_address?.city}, ${order.shipping_address?.province} ${order.shipping_address?.postal_code}`,
     });
