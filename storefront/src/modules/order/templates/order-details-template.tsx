@@ -68,6 +68,7 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
 
       <div className="small:grid small:grid-cols-6 gap-4 flex flex-col-reverse">
         <div className="small:col-span-4 flex flex-col gap-y-2">
+          <h2 className="text-lg font-semibold mb-4">Order Details</h2>
           <Container>
             <Table>
               <Table.Body>

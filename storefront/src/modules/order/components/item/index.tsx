@@ -45,7 +45,7 @@ const Item = ({ item, order }: ItemProps) => {
   }
 
   return (
-    <Table.Row className="flex gap-x-4">
+    <Table.Row className="flex gap-x-4 py-4">
       <Table.Cell className="w-20">
         <Thumbnail thumbnail={item.thumbnail} size="square" />
       </Table.Cell>
