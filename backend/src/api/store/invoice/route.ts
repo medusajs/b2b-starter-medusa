@@ -30,7 +30,9 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     
     if (!invoice) {
       return res.status(404).json({ 
-        message: "Invoice not found" 
+        message: "Invoice not found",
+        invoice_url: null,
+        generated_at: null
       })
     }
     

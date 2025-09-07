@@ -13,6 +13,8 @@ import OrderSummary from "@/modules/order/components/order-summary"
 import ShippingDetails from "@/modules/order/components/shipping-details"
 import BillingDetails from "@/modules/order/components/billing-details"
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
+import { sdk } from "@/lib/config"
+import { getAuthHeaders } from "@/lib/data/cookies"
 
 type OrderDetailsTemplateProps = {
   order: HttpTypes.StoreOrder
@@ -22,6 +24,50 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
   order,
 }) => {
   const [isAddingAll, setIsAddingAll] = useState(false)
+  const [invoiceData, setInvoiceData] = useState<Record<string, { invoice_url: string; generated_at: string }>>({})
+  const [isLoadingInvoices, setIsLoadingInvoices] = useState(false)
+
+  // Fetch invoice data for each fulfillment
+  useEffect(() => {
+    const fetchInvoiceData = async () => {
+      if (!order.fulfillments || order.fulfillments.length === 0) return
+      
+      setIsLoadingInvoices(true)
+      try {
+        const invoicePromises = order.fulfillments.map(async (fulfillment) => {
+          try {
+            const headers = await getAuthHeaders()
+            const data = await sdk.client.fetch(`/store/invoice?order_id=${order.id}&fulfillment_id=${fulfillment.id}`, {
+              method: "GET",
+              credentials: "include",
+              headers
+            })
+            return { fulfillmentId: fulfillment.id, invoiceData: data }
+          } catch (error) {
+            // No invoice found for this fulfillment
+          }
+          return { fulfillmentId: fulfillment.id, invoiceData: null }
+        })
+        
+        const results = await Promise.all(invoicePromises)
+        const invoiceMap: Record<string, { invoice_url: string; generated_at: string }> = {}
+        
+        results.forEach(({ fulfillmentId, invoiceData }) => {
+          if (invoiceData) {
+            invoiceMap[fulfillmentId] = invoiceData
+          }
+        })
+        
+        setInvoiceData(invoiceMap)
+      } catch (error) {
+        console.error('Failed to fetch invoice data:', error)
+      } finally {
+        setIsLoadingInvoices(false)
+      }
+    }
+
+    fetchInvoiceData()
+  }, [order.id, order.fulfillments])
 
   const handleAddAllToCart = async () => {
     if (!order.items || order.items.length === 0) return
@@ -100,10 +146,28 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
             <div className="flex flex-col gap-y-4">
               {order.fulfillments.map((fulfillment, index) => (
                   <Container key={fulfillment.id}>
-                    <h3 className="text-lg font-semibold mb-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold">
                       Fulfillment #{index + 1}
                     </h3>
-                    <Table>
+                    <div className="text-sm">
+                      {isLoadingInvoices ? (
+                        <span className="text-gray-500">Loading invoice...</span>
+                      ) : invoiceData[fulfillment.id] ? (
+                        <a
+                          href={invoiceData[fulfillment.id].invoice_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline font-medium"
+                        >
+                          View Invoice
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">Invoice not available yet</span>
+                      )}
+                    </div>
+                  </div>
+                  <Table>
                     <Table.Header>
                       <Table.Row>
                         <Table.HeaderCell>Product</Table.HeaderCell>

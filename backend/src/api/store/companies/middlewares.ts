@@ -3,7 +3,7 @@ import {
   validateAndTransformBody,
   validateAndTransformQuery,
 } from "@medusajs/framework";
-import { authenticate } from "@medusajs/medusa";
+import { authenticate } from "@medusajs/framework";
 import { ensureRole } from "../../middlewares/ensure-role";
 import {
   storeCompanyQueryConfig,
