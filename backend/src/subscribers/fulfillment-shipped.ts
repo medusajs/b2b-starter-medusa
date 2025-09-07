@@ -3,6 +3,11 @@ import { IFulfillmentModuleService, IOrderModuleService, ICustomerModuleService 
 import { Modules, ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import EmailService from "../services/email.service";
 
+console.log("==========================================");
+console.log("LOADING FULFILLMENT-SHIPPED SUBSCRIBER");
+console.log("Subscribing to event: shipment.created");
+console.log("==========================================");
+
 export default async function fulfillmentShippedHandler({
   event: { data },
   container,
@@ -14,8 +19,9 @@ export default async function fulfillmentShippedHandler({
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
   const fulfillmentId = data.id;
-  console.log("========== FULFILLMENT SHIPPED SUBSCRIBER START ==========");
-  console.log("[FulfillmentShipped] Subscriber triggered with fulfillment ID:", fulfillmentId);
+  console.log("========== SHIPMENT CREATED SUBSCRIBER START ==========");
+  console.log("[ShipmentCreated] Subscriber triggered with shipment/fulfillment ID:", fulfillmentId);
+  console.log("[ShipmentCreated] Event data:", JSON.stringify(data, null, 2));
 
   try {
     
@@ -93,11 +99,18 @@ export default async function fulfillmentShippedHandler({
       return;
     }
 
-    console.info("[SUBSCRIBER] Sending fulfillment shipped email", {
+    console.info("╔════════════════════════════════════════════════════════════════╗");
+    console.info("║       PROCESSING FULFILLMENT SHIPPED EMAIL NOTIFICATION         ║");
+    console.info("╚════════════════════════════════════════════════════════════════╝");
+    console.info("[SUBSCRIBER] Email Details:", {
       to: customer.email,
+      customerName: `${customer.first_name} ${customer.last_name}`,
       fulfillmentId,
       orderId,
       orderDisplayId: order.display_id,
+      trackingNumbers: fulfillment.tracking_numbers,
+      itemsCount: fulfillment.items?.length || 0,
+      shippingAddress: `${order.shipping_address?.address_1}, ${order.shipping_address?.city}, ${order.shipping_address?.province} ${order.shipping_address?.postal_code}`,
     });
 
     await emailService.sendOrderShippedEmail({
@@ -107,27 +120,25 @@ export default async function fulfillmentShippedHandler({
       customer: customer,
     });
 
-    console.info(`[SUBSCRIBER] ✅ Fulfillment shipped email successfully processed`, {
-      fulfillmentId,
-      orderId,
-      orderDisplayId: order.display_id,
-      email: customer.email,
-    });
+    console.info("╔════════════════════════════════════════════════════════════════╗");
+    console.info("║     ✅ FULFILLMENT SHIPPED EMAIL SUCCESSFULLY PROCESSED!        ║");
+    console.info("╚════════════════════════════════════════════════════════════════╝");
+    console.info(`[SUBSCRIBER] Email sent to: ${customer.email}`);
   } catch (error: any) {
-    console.error("[FulfillmentShipped] Error details:", {
+    console.error("[ShipmentCreated] Error details:", {
       message: error.message,
       stack: error.stack,
       name: error.name,
     });
-    console.error("[FulfillmentShipped] Full error object:", error);
+    console.error("[ShipmentCreated] Full error object:", error);
     throw error;
   } finally {
-    console.log("========== FULFILLMENT SHIPPED SUBSCRIBER END ==========");
+    console.log("========== SHIPMENT CREATED SUBSCRIBER END ==========");
   }
 }
 
 export const config: SubscriberConfig = {
-  event: "fulfillment.shipped",
+  event: "shipment.created",
   context: {
     subscriberId: "fulfillment-shipped-handler",
   },

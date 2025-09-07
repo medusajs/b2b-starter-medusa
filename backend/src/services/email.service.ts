@@ -32,9 +32,6 @@ export default class EmailService {
 
     if (this.options.apiKey) {
       sgMail.setApiKey(this.options.apiKey);
-      this.logger.info("[EMAIL] SendGrid initialized");
-    } else {
-      this.logger.error("[EMAIL] SendGrid API key not found");
     }
   }
 
@@ -109,37 +106,9 @@ export default class EmailService {
       };
 
       const [response] = await sgMail.send(msg);
-      
-      this.logger.info("[EMAIL] Order email sent", {
-        to: data.to,
-        orderId: data.order.id,
-        displayId: data.order.display_id,
-      });
-      
       return true;
     } catch (error: any) {
-      this.logger.error("[EMAIL] Failed to send order email", {
-        to: data.to,
-        orderId: data.order.id,
-        error: error.message,
-      });
-      
-      if (error.code === 401) {
-        this.logger.error("[EMAIL] Invalid API key");
-        return false;
-      }
-      
-      if (error.code === 403) {
-        this.logger.error("[EMAIL] Sender not verified");
-        return false;
-      }
-      
-      if (error.code === 400) {
-        this.logger.error("[EMAIL] Invalid template ID");
-        return false;
-      }
-      
-      throw error;
+      return false;
     }
   }
 
@@ -166,17 +135,8 @@ export default class EmailService {
       };
 
       const [response] = await sgMail.send(msg);
-      
-      this.logger.info("[EMAIL] Customer confirmation email sent", {
-        to: data.to,
-      });
-      
       return true;
     } catch (error: any) {
-      this.logger.error("[EMAIL] Failed to send customer confirmation email", {
-        to: data.to,
-        error: error.message,
-      });
       return false;
     }
   }
@@ -192,18 +152,53 @@ export default class EmailService {
     }
 
     try {
+      // Format tracking links for template
+      const trackingLinks = data.fulfillment.tracking_numbers?.map((num: string, index: number) => ({
+        number: num,
+        url: data.fulfillment.tracking_links?.[index]?.url || "#"
+      })) || [];
+
+      // Format items for template - need to match order items with fulfillment items
+      const formattedItems = data.fulfillment.items?.map((fulfillmentItem: any) => {
+        // Find the corresponding order item
+        const orderItem = data.order.items?.find((oi: any) => oi.id === fulfillmentItem.id);
+        
+        return {
+          item: {
+            title: orderItem?.title || orderItem?.product_title || fulfillmentItem.title || "Product",
+            variant: {
+              sku: orderItem?.variant_sku || orderItem?.variant?.sku || orderItem?.sku || "N/A"
+            }
+          },
+          quantity: fulfillmentItem.quantity || 1,
+        };
+      }) || [];
+
       const templateData = {
-        order_id: data.order.id,
-        order_display_id: data.order.display_id,
+        // Customer info - matching template variable names
+        first_name: data.customer.first_name || "",
+        last_name: data.customer.last_name || "",
         customer_name: `${data.customer.first_name} ${data.customer.last_name}`,
         customer_email: data.customer.email,
-        tracking_number: data.fulfillment.tracking_numbers?.[0] || "N/A",
-        tracking_url: data.fulfillment.tracking_links?.[0]?.url || "",
+        
+        // Order info - matching template variable names
+        order_number: data.order.display_id || data.order.id,
+        order_id: data.order.id,
+        order_display_id: data.order.display_id,
+        
+        // Shipment info
+        shipped_date: new Date().toLocaleDateString(),
         carrier: data.fulfillment.provider_id || "Standard Shipping",
-        items: data.fulfillment.items?.map((item: any) => ({
-          title: item.title,
-          quantity: item.quantity,
-        })) || [],
+        
+        // Tracking info - as array for template
+        tracking_links: trackingLinks,
+        tracking_number: data.fulfillment.tracking_numbers?.[0] || "N/A", // Keep for backwards compatibility
+        tracking_url: data.fulfillment.tracking_links?.[0]?.url || "", // Keep for backwards compatibility
+        
+        // Items - matching template structure
+        items: formattedItems,
+        
+        // Address
         shipping_address: data.order.shipping_address,
       };
 
@@ -216,18 +211,8 @@ export default class EmailService {
 
       const [response] = await sgMail.send(msg);
       
-      this.logger.info("[EMAIL] Order shipped email sent", {
-        to: data.to,
-        orderId: data.order.id,
-      });
-      
       return true;
     } catch (error: any) {
-      this.logger.error("[EMAIL] Failed to send order shipped email", {
-        to: data.to,
-        orderId: data.order.id,
-        error: error.message,
-      });
       return false;
     }
   }
@@ -257,15 +242,7 @@ export default class EmailService {
       };
 
       const [response] = await sgMail.send(msg);
-      
-      this.logger.info("[EMAIL] Password reset email sent", {
-        to: data.to,
-      });
     } catch (error: any) {
-      this.logger.error("[EMAIL] Failed to send password reset email", {
-        to: data.to,
-        error: error.message,
-      });
       throw error;
     }
   }
