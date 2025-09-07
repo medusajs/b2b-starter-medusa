@@ -2,6 +2,7 @@
 
 import { ArrowUturnLeft, ShoppingBag } from "@medusajs/icons"
 import React, { useState, useEffect } from "react"
+import Image from "next/image"
 
 import { HttpTypes } from "@medusajs/types"
 import { Container, Table } from "@medusajs/ui"
@@ -240,9 +241,11 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
                               <Table.Cell>
                                 <div className="flex items-center gap-3">
                                   {orderItem?.thumbnail && (
-                                    <img
+                                    <Image
                                       src={orderItem.thumbnail}
-                                      alt={orderItem.title}
+                                      alt={orderItem.title || 'Product image'}
+                                      width={48}
+                                      height={48}
                                       className="w-12 h-12 object-contain rounded"
                                     />
                                   )}
