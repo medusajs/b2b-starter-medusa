@@ -9,16 +9,16 @@ import jsPDF from 'jspdf';
 
 type TimeFrame = "day" | "week" | "month" | "year" | "custom";
 
-// Array of colors for different products
+// Array of colors for different products - optimized for both light and dark modes
 const CHART_COLORS = [
-  "#2563eb", // blue
-  "#dc2626", // red
-  "#16a34a", // green
-  "#9333ea", // purple
-  "#ea580c", // orange
-  "#0891b2", // cyan
-  "#be185d", // pink
-  "#854d0e", // amber
+  "#3b82f6", // blue - more vibrant
+  "#ef4444", // red - more vibrant
+  "#10b981", // green - more vibrant
+  "#8b5cf6", // purple - more vibrant
+  "#f59e0b", // orange - more vibrant
+  "#06b6d4", // cyan - more vibrant
+  "#ec4899", // pink - more vibrant
+  "#84cc16", // lime - more vibrant
 ];
 
 interface SelectedProduct {
@@ -37,11 +37,72 @@ const ProductAnalyticsPage = () => {
   const [LineChart, setLineChart] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const chartRef = useRef<HTMLDivElement>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const { products = [], isLoading: isLoadingProducts } = useProducts({
-    q: searchQuery,
-    fields: "id,title,thumbnail,handle",
+    fields: "id,title,thumbnail,handle,variants",
   });
+
+  // Filter products by search query (title, handle, or SKU)
+  const filteredProducts = React.useMemo(() => {
+    if (!searchQuery.trim()) return products;
+    
+    const query = searchQuery.toLowerCase().trim();
+    return products.filter((product) => {
+      // Search in title
+      if (product.title?.toLowerCase().includes(query)) return true;
+      
+      // Search in handle
+      if (product.handle?.toLowerCase().includes(query)) return true;
+      
+      // Search in variant SKUs
+      if (product.variants?.some((variant: any) => 
+        variant.sku?.toLowerCase().includes(query)
+      )) return true;
+      
+      return false;
+    });
+  }, [products, searchQuery]);
+
+  // Helper function to highlight matching text
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+    
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const parts = text.split(regex);
+    
+    return parts.map((part, index) => 
+      regex.test(part) ? (
+        <mark key={index} className="bg-ui-bg-highlight text-ui-fg-base px-1 rounded font-medium">
+          {part}
+        </mark>
+      ) : part
+    );
+  };
+
+  // Detect dark mode
+  useEffect(() => {
+    const detectDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') || 
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(isDark);
+    };
+
+    detectDarkMode();
+    
+    // Listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', detectDarkMode);
+    
+    // Listen for class changes on document element
+    const observer = new MutationObserver(detectDarkMode);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      mediaQuery.removeEventListener('change', detectDarkMode);
+      observer.disconnect();
+    };
+  }, []);
 
   // Load chart components dynamically
   useEffect(() => {
@@ -70,6 +131,31 @@ const ProductAnalyticsPage = () => {
 
     loadChartComponents();
   }, []);
+
+  // Get theme-aware colors
+  const getThemeColors = () => {
+    if (isDarkMode) {
+      return {
+        text: '#e5e7eb', // light gray
+        textSecondary: '#9ca3af', // medium gray
+        grid: '#374151', // dark gray
+        border: '#4b5563', // medium dark gray
+        background: '#1f2937', // dark background
+        tooltipBg: '#1f2937', // dark tooltip background
+        tooltipBorder: '#4b5563' // dark tooltip border
+      };
+    } else {
+      return {
+        text: '#111827', // dark gray
+        textSecondary: '#6b7280', // medium gray
+        grid: '#e5e7eb', // light gray
+        border: '#d1d5db', // light border
+        background: '#ffffff', // white background
+        tooltipBg: '#ffffff', // white tooltip background
+        tooltipBorder: '#d1d5db' // light tooltip border
+      };
+    }
+  };
 
   const fetchChartData = async () => {
     if (selectedProducts.length === 0) return;
@@ -136,14 +222,17 @@ const ProductAnalyticsPage = () => {
           label: data.product.title,
           data: data.sales,
           borderColor: data.product.color,
-          backgroundColor: `${data.product.color}20`,
+          backgroundColor: `${data.product.color}15`, // Reduced opacity for better dark mode
           tension: 0.4,
           fill: true,
           pointStyle: 'circle',
           pointRadius: 6,
           pointHoverRadius: 8,
           pointBackgroundColor: data.product.color,
-          pointBorderColor: data.product.color
+          pointBorderColor: data.product.color,
+          pointBorderWidth: 2,
+          borderWidth: 3, // Thicker lines for better visibility
+          hoverBorderWidth: 4
         }))
       });
     } catch (error) {
@@ -194,7 +283,7 @@ const ProductAnalyticsPage = () => {
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'transparent'
       });
 
       const pdf = new jsPDF({
@@ -223,7 +312,7 @@ const ProductAnalyticsPage = () => {
     <Container>
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center justify-between">
-          <Heading level="h1">Product Analytics</Heading>
+          <Heading level="h1" className="text-ui-fg-base">Product Analytics</Heading>
           {selectedProducts.length > 0 && (
             <Button
               variant="secondary"
@@ -235,32 +324,39 @@ const ProductAnalyticsPage = () => {
           )}
         </div>
         
-        <div className="flex flex-col gap-4 mb-8 bg-white p-6 rounded-lg shadow-sm">
-          <Heading level="h2" className="text-xl">Search Products</Heading>
+        <div className="flex flex-col gap-4 mb-8 bg-ui-bg-base p-6 rounded-lg shadow-sm border border-ui-border-base">
+          <div className="flex items-center justify-between">
+            <Heading level="h2" className="text-xl text-ui-fg-base">Search Products</Heading>
+            {searchQuery.trim() && (
+              <div className="text-sm text-ui-fg-subtle">
+                {filteredProducts.length} of {products.length} products
+              </div>
+            )}
+          </div>
           <div className="flex-1">
             <div className="relative">
               <Input
-                placeholder="Search products..."
+                placeholder="Search by product name, handle, or SKU..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full"
               />
             </div>
-            <div className="mt-2 max-h-60 overflow-y-auto border border-gray-200 rounded-md">
+            <div className="mt-2 max-h-60 overflow-y-auto border border-ui-border-base rounded-md bg-ui-bg-subtle">
               {isLoadingProducts ? (
-                <div className="px-4 py-2 text-gray-500 text-center">
+                <div className="px-4 py-2 text-ui-fg-subtle text-center">
                   Loading...
                 </div>
-              ) : products.length > 0 ? (
-                products.map((product) => {
+              ) : filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => {
                   const isSelected = selectedProducts.some(p => p.id === product.id);
                   const selectedProduct = selectedProducts.find(p => p.id === product.id);
                   
                   return (
                     <div
                       key={product.id}
-                      className={`px-4 py-2 hover:bg-gray-50 cursor-pointer ${
-                        isSelected ? 'bg-blue-50' : ''
+                      className={`px-4 py-2 hover:bg-ui-bg-base-hover cursor-pointer transition-colors ${
+                        isSelected ? 'bg-ui-bg-highlight' : ''
                       }`}
                       onClick={() => handleProductSelect(product)}
                     >
@@ -273,10 +369,15 @@ const ProductAnalyticsPage = () => {
                           />
                         )}
                         <div className="flex-1">
-                          <div className="font-medium">{product.title}</div>
-                          <div className="text-sm text-gray-500">
-                            {product.handle}
+                          <div className="font-medium text-ui-fg-base">{highlightText(product.title, searchQuery)}</div>
+                          <div className="text-sm text-ui-fg-subtle">
+                            {highlightText(product.handle, searchQuery)}
                           </div>
+                          {product.variants && product.variants.length > 0 && (
+                            <div className="text-xs text-ui-fg-muted mt-1">
+                              SKUs: {product.variants.map((v: any) => v.sku).filter(Boolean).map(sku => highlightText(sku, searchQuery)).join(', ') || 'No SKUs'}
+                            </div>
+                          )}
                         </div>
                         {isSelected && (
                           <div 
@@ -289,8 +390,8 @@ const ProductAnalyticsPage = () => {
                   );
                 })
               ) : (
-                <div className="px-4 py-2 text-gray-500 text-center">
-                  No products found
+                <div className="px-4 py-2 text-ui-fg-subtle text-center">
+                  {searchQuery.trim() ? 'No products found matching your search' : 'No products available'}
                 </div>
               )}
             </div>
@@ -298,9 +399,9 @@ const ProductAnalyticsPage = () => {
         </div>
 
         {selectedProducts.length > 0 && (
-          <div className="flex flex-col gap-4 mb-8 bg-white p-6 rounded-lg shadow-sm">
+          <div className="flex flex-col gap-4 mb-8 bg-ui-bg-base p-6 rounded-lg shadow-sm border border-ui-border-base">
             <div className="flex items-center justify-between">
-              <Heading level="h2" className="text-xl">Sales Analytics</Heading>
+              <Heading level="h2" className="text-xl text-ui-fg-base">Sales Analytics</Heading>
               <div className="flex items-center gap-2">
                 <Select
                   value={timeFrame}
@@ -335,19 +436,25 @@ const ProductAnalyticsPage = () => {
 
             {isLoading ? (
               <div className="h-[400px] flex items-center justify-center">
-                <div className="text-gray-500">Loading chart data...</div>
+                <div className="text-ui-fg-subtle">Loading chart data...</div>
               </div>
             ) : error ? (
               <div className="h-[400px] flex items-center justify-center">
-                <div className="text-red-500">{error}</div>
+                <div className="text-ui-fg-error">{error}</div>
               </div>
             ) : chartData && LineChart ? (
-              <div className="h-[400px]" ref={chartRef}>
+              <div className="h-[400px] bg-ui-bg-base rounded-lg p-4 border border-ui-border-base" ref={chartRef}>
                 <LineChart
+                  key={`chart-${isDarkMode}`}
                   data={chartData}
                   options={{
                     responsive: true,
                     maintainAspectRatio: false,
+                    backgroundColor: 'transparent',
+                    interaction: {
+                      intersect: false,
+                      mode: 'index'
+                    },
                     plugins: {
                       legend: {
                         position: 'top' as const,
@@ -355,22 +462,85 @@ const ProductAnalyticsPage = () => {
                           usePointStyle: true,
                           pointStyle: 'circle',
                           boxWidth: 8,
-                          boxHeight: 8
+                          boxHeight: 8,
+                          color: getThemeColors().text,
+                          font: {
+                            size: 12,
+                            weight: '500'
+                          },
+                          padding: 20
                         }
                       },
+                      tooltip: {
+                        backgroundColor: getThemeColors().tooltipBg,
+                        titleColor: getThemeColors().text,
+                        bodyColor: getThemeColors().text,
+                        borderColor: getThemeColors().tooltipBorder,
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        usePointStyle: true,
+                        padding: 12,
+                        titleFont: {
+                          size: 13,
+                          weight: '600'
+                        },
+                        bodyFont: {
+                          size: 12
+                        }
+                      }
                     },
                     scales: {
                       y: {
                         beginAtZero: true,
                         title: {
                           display: true,
-                          text: 'Units Sold'
+                          text: 'Units Sold',
+                          color: getThemeColors().text,
+                          font: {
+                            size: 13,
+                            weight: '600'
+                          }
+                        },
+                        ticks: {
+                          color: getThemeColors().textSecondary,
+                          font: {
+                            size: 11
+                          },
+                          padding: 8
+                        },
+                        grid: {
+                          color: getThemeColors().grid,
+                          drawBorder: false
+                        },
+                        border: {
+                          color: getThemeColors().border
                         }
                       },
                       x: {
                         title: {
                           display: true,
-                          text: 'Date'
+                          text: 'Date',
+                          color: getThemeColors().text,
+                          font: {
+                            size: 13,
+                            weight: '600'
+                          }
+                        },
+                        ticks: {
+                          color: getThemeColors().textSecondary,
+                          font: {
+                            size: 11
+                          },
+                          padding: 8,
+                          maxRotation: 45
+                        },
+                        grid: {
+                          color: getThemeColors().grid,
+                          drawBorder: false
+                        },
+                        border: {
+                          color: getThemeColors().border
                         }
                       }
                     }
@@ -379,7 +549,7 @@ const ProductAnalyticsPage = () => {
               </div>
             ) : (
               <div className="h-[400px] flex items-center justify-center">
-                <div className="text-gray-500">Select products to view analytics</div>
+                <div className="text-ui-fg-subtle">Select products to view analytics</div>
               </div>
             )}
           </div>
