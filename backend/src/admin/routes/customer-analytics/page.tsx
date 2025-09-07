@@ -28,6 +28,56 @@ const CustomerAnalyticsPage = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isApproved, setIsApproved] = useState(false);
   const [LineChart, setLineChart] = useState<any>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Detect dark mode
+  useEffect(() => {
+    const detectDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') || 
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(isDark);
+    };
+
+    detectDarkMode();
+    
+    // Listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', detectDarkMode);
+    
+    // Listen for class changes on document element
+    const observer = new MutationObserver(detectDarkMode);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      mediaQuery.removeEventListener('change', detectDarkMode);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Get theme-aware colors
+  const getThemeColors = () => {
+    if (isDarkMode) {
+      return {
+        text: '#e5e7eb', // light gray
+        textSecondary: '#9ca3af', // medium gray
+        grid: '#374151', // dark gray
+        border: '#4b5563', // medium dark gray
+        background: '#1f2937', // dark background
+        tooltipBg: '#1f2937', // dark tooltip background
+        tooltipBorder: '#4b5563' // dark tooltip border
+      };
+    } else {
+      return {
+        text: '#111827', // dark gray
+        textSecondary: '#6b7280', // medium gray
+        grid: '#e5e7eb', // light gray
+        border: '#d1d5db', // light border
+        background: '#ffffff', // white background
+        tooltipBg: '#ffffff', // white tooltip background
+        tooltipBorder: '#d1d5db' // light tooltip border
+      };
+    }
+  };
 
   // Load chart components dynamically
   useEffect(() => {
@@ -219,7 +269,7 @@ const CustomerAnalyticsPage = () => {
         <Heading level="h1">Customer Analytics</Heading>
 
         {/* Customer Selection */}
-        <div className="flex flex-col gap-4 mb-8 bg-white p-6 rounded-lg shadow-sm">
+        <div className="flex flex-col gap-4 mb-8 bg-ui-bg-base p-6 rounded-lg shadow-sm border border-ui-border-base">
           <Heading level="h2" className="text-xl">Select Customer</Heading>
           <div className="flex-1">
             <div className="relative">
@@ -230,24 +280,24 @@ const CustomerAnalyticsPage = () => {
                 className="w-full"
               />
             </div>
-            <div className="mt-2 max-h-60 overflow-y-auto border border-gray-200 rounded-md">
+            <div className="mt-2 max-h-60 overflow-y-auto border border-ui-border-base rounded-md bg-ui-bg-subtle">
               {filteredCustomers.length > 0 ? (
                 filteredCustomers.map((customer) => (
                   <div
                     key={customer.id}
-                    className={`px-4 py-2 cursor-pointer hover:bg-gray-50 ${
-                      selectedCustomer === customer.id ? 'bg-blue-50' : ''
+                    className={`px-4 py-2 cursor-pointer hover:bg-ui-bg-base-hover transition-colors ${
+                      selectedCustomer === customer.id ? 'bg-ui-bg-highlight' : ''
                     }`}
                     onClick={() => setSelectedCustomer(customer.id)}
                   >
                     <div className="font-medium">{customer.email}</div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-ui-fg-subtle">
                       {customer.first_name} {customer.last_name}
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="px-4 py-2 text-gray-500 text-center">
+                <div className="px-4 py-2 text-ui-fg-subtle text-center">
                   No customers found
                 </div>
               )}
@@ -269,9 +319,9 @@ const CustomerAnalyticsPage = () => {
         {/* Spending Metrics Cards */}
         <div className="grid grid-cols-5 gap-4 mb-8">
           {/* 1 Week Change */}
-          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="bg-ui-bg-base p-5 rounded-lg shadow-sm border border-ui-border-base hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-500">1 Week</h3>
+              <h3 className="text-sm font-medium text-ui-fg-subtle">1 Week</h3>
               {tileData?.oneWeek && (
                 <div className={`flex items-center ${tileData.oneWeek.percentageChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   <ArrowUpRightMini className={`w-4 h-4 ${tileData.oneWeek.percentageChange < 0 ? 'rotate-180' : ''}`} />
@@ -282,15 +332,15 @@ const CustomerAnalyticsPage = () => {
             <div className="text-2xl font-bold mb-1">
               {tileData?.oneWeek ? formatCurrency(tileData.oneWeek.current) : '...'}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-ui-fg-subtle">
               vs {tileData?.oneWeek ? formatCurrency(tileData.oneWeek.previous) : '...'}
             </div>
           </div>
 
           {/* 1 Month Change */}
-          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="bg-ui-bg-base p-5 rounded-lg shadow-sm border border-ui-border-base hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-500">1 Month</h3>
+              <h3 className="text-sm font-medium text-ui-fg-subtle">1 Month</h3>
               {tileData?.oneMonth && (
                 <div className={`flex items-center ${tileData.oneMonth.percentageChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   <ArrowUpRightMini className={`w-4 h-4 ${tileData.oneMonth.percentageChange < 0 ? 'rotate-180' : ''}`} />
@@ -301,15 +351,15 @@ const CustomerAnalyticsPage = () => {
             <div className="text-2xl font-bold mb-1">
               {tileData?.oneMonth ? formatCurrency(tileData.oneMonth.current) : '...'}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-ui-fg-subtle">
               vs {tileData?.oneMonth ? formatCurrency(tileData.oneMonth.previous) : '...'}
             </div>
           </div>
 
           {/* 3 Months Change */}
-          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="bg-ui-bg-base p-5 rounded-lg shadow-sm border border-ui-border-base hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-500">3 Months</h3>
+              <h3 className="text-sm font-medium text-ui-fg-subtle">3 Months</h3>
               {tileData?.threeMonths && (
                 <div className={`flex items-center ${tileData.threeMonths.percentageChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   <ArrowUpRightMini className={`w-4 h-4 ${tileData.threeMonths.percentageChange < 0 ? 'rotate-180' : ''}`} />
@@ -320,15 +370,15 @@ const CustomerAnalyticsPage = () => {
             <div className="text-2xl font-bold mb-1">
               {tileData?.threeMonths ? formatCurrency(tileData.threeMonths.current) : '...'}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-ui-fg-subtle">
               vs {tileData?.threeMonths ? formatCurrency(tileData.threeMonths.previous) : '...'}
             </div>
           </div>
 
           {/* 6 Months Change */}
-          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="bg-ui-bg-base p-5 rounded-lg shadow-sm border border-ui-border-base hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-500">6 Months</h3>
+              <h3 className="text-sm font-medium text-ui-fg-subtle">6 Months</h3>
               {tileData?.sixMonths && (
                 <div className={`flex items-center ${tileData.sixMonths.percentageChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   <ArrowUpRightMini className={`w-4 h-4 ${tileData.sixMonths.percentageChange < 0 ? 'rotate-180' : ''}`} />
@@ -339,15 +389,15 @@ const CustomerAnalyticsPage = () => {
             <div className="text-2xl font-bold mb-1">
               {tileData?.sixMonths ? formatCurrency(tileData.sixMonths.current) : '...'}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-ui-fg-subtle">
               vs {tileData?.sixMonths ? formatCurrency(tileData.sixMonths.previous) : '...'}
             </div>
           </div>
 
           {/* 1 Year Change */}
-          <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="bg-ui-bg-base p-5 rounded-lg shadow-sm border border-ui-border-base hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-500">1 Year</h3>
+              <h3 className="text-sm font-medium text-ui-fg-subtle">1 Year</h3>
               {tileData?.oneYear && (
                 <div className={`flex items-center ${tileData.oneYear.percentageChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   <ArrowUpRightMini className={`w-4 h-4 ${tileData.oneYear.percentageChange < 0 ? 'rotate-180' : ''}`} />
@@ -358,14 +408,14 @@ const CustomerAnalyticsPage = () => {
             <div className="text-2xl font-bold mb-1">
               {tileData?.oneYear ? formatCurrency(tileData.oneYear.current) : '...'}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-ui-fg-subtle">
               vs {tileData?.oneYear ? formatCurrency(tileData.oneYear.previous) : '...'}
             </div>
           </div>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-col gap-4 mb-8 bg-white p-6 rounded-lg shadow-sm">
+        <div className="flex flex-col gap-4 mb-8 bg-ui-bg-base p-6 rounded-lg shadow-sm border border-ui-border-base">
           <Heading level="h2" className="text-xl">Time Frame</Heading>
           <div className="flex items-end justify-between gap-12">
             <div className="flex-1">
@@ -409,10 +459,10 @@ const CustomerAnalyticsPage = () => {
         </div>
 
         {/* Chart */}
-        <div className="bg-white p-6 rounded-lg shadow-sm min-h-[500px]">
+        <div className="bg-ui-bg-base p-6 rounded-lg shadow-sm border border-ui-border-base min-h-[500px]">
           {isLoading ? (
             <div className="h-full flex items-center justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-700"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ui-fg-base"></div>
             </div>
           ) : error ? (
             <div className="h-full flex flex-col items-center justify-center text-red-500">
@@ -422,10 +472,12 @@ const CustomerAnalyticsPage = () => {
             </div>
           ) : chartData && LineChart ? (
             <LineChart
+              key={`chart-${isDarkMode}`}
               data={chartData}
               options={{
                 maintainAspectRatio: false,
                 responsive: true,
+                backgroundColor: 'transparent',
                 interaction: {
                   intersect: false,
                   mode: "index" as const,
@@ -437,6 +489,7 @@ const CustomerAnalyticsPage = () => {
                   title: {
                     display: true,
                     text: "Customer Spending Over Time",
+                    color: getThemeColors().text,
                     font: {
                       size: 16,
                       weight: "bold",
@@ -446,9 +499,9 @@ const CustomerAnalyticsPage = () => {
                     },
                   },
                   tooltip: {
-                    backgroundColor: "white",
-                    titleColor: "black",
-                    bodyColor: "black",
+                    backgroundColor: getThemeColors().tooltipBg,
+                    titleColor: getThemeColors().text,
+                    bodyColor: getThemeColors().text,
                     bodyFont: {
                       size: 13,
                     },
@@ -457,8 +510,9 @@ const CustomerAnalyticsPage = () => {
                       weight: "bold",
                     },
                     padding: 12,
-                    borderColor: "rgb(226, 232, 240)",
+                    borderColor: getThemeColors().tooltipBorder,
                     borderWidth: 1,
+                    cornerRadius: 8,
                     displayColors: true,
                     usePointStyle: true,
                   },
@@ -469,6 +523,7 @@ const CustomerAnalyticsPage = () => {
                     title: {
                       display: true,
                       text: "Spending (CAD)",
+                      color: getThemeColors().text,
                       font: {
                         size: 13,
                         weight: "normal",
@@ -476,35 +531,45 @@ const CustomerAnalyticsPage = () => {
                       padding: 10,
                     },
                     grid: {
-                      color: "rgb(241, 245, 249)",
+                      color: getThemeColors().grid,
+                      drawBorder: false,
                     },
                     ticks: {
+                      color: getThemeColors().textSecondary,
                       font: {
                         size: 12,
                       },
                       padding: 8,
                     },
+                    border: {
+                      color: getThemeColors().border,
+                    },
                   },
                   x: {
                     grid: {
-                      color: "rgb(241, 245, 249)",
+                      color: getThemeColors().grid,
+                      drawBorder: false,
                     },
                     ticks: {
+                      color: getThemeColors().textSecondary,
                       font: {
                         size: 12,
                       },
                       padding: 8,
                       maxRotation: 45,
                     },
+                    border: {
+                      color: getThemeColors().border,
+                    },
                   },
                 },
               }}
             />
           ) : (
-            <div className="h-full flex flex-col items-center justify-center text-gray-500">
-              <ChartBar className="w-12 h-12 mb-4 text-gray-400" />
+            <div className="h-full flex flex-col items-center justify-center text-ui-fg-subtle">
+              <ChartBar className="w-12 h-12 mb-4 text-ui-fg-muted" />
               <p className="text-lg">No data available</p>
-              <p className="text-sm text-gray-400">Select a customer and time frame to view spending data</p>
+              <p className="text-sm text-ui-fg-muted">Select a customer and time frame to view spending data</p>
             </div>
           )}
         </div>
