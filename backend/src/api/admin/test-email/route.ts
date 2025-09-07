@@ -25,7 +25,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
   // Test API key validity with a simple request
   let apiKeyValid = false;
-  let apiKeyError = null;
+  let apiKeyError: { code?: number; message?: string; response?: any } | null = null;
   
   if (process.env.SENDGRID_API_KEY) {
     try {
@@ -70,8 +70,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
     recommendations: [
       !config.apiKey.exists && "❌ No API key found - add SENDGRID_API_KEY to .env",
-      config.apiKey.exists && !config.apiKey.startsWithSG && "⚠️ API key doesn't start with 'SG.' - may be invalid",
-      config.apiKey.exists && config.apiKey.length < 50 && "⚠️ API key seems too short",
+      config.apiKey.exists && !(config.apiKey as any).startsWithSG && "⚠️ API key doesn't start with 'SG.' - may be invalid",
+      config.apiKey.exists && (config.apiKey as any).length && (config.apiKey as any).length < 50 && "⚠️ API key seems too short",
       apiKeyError?.code === 401 && "🔐 API key is invalid - generate a new one from SendGrid",
       apiKeyError?.code === 403 && "🚫 API key lacks permissions or sender not verified",
       !apiKeyValid && !apiKeyError && config.apiKey.exists && "⚠️ Could not validate API key",

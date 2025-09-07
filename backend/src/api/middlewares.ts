@@ -93,12 +93,13 @@ const sendShipmentEmailAfterCreate = async (
           const order = data.order;
           
           // Create fulfillment object from request body with proper structure
+          const body = req.body as { labels?: Array<{ tracking_number: string; tracking_url: string }>; items?: any[] };
           const fulfillment = {
             id: fulfillmentId,
-            tracking_numbers: req.body.labels?.map((l: any) => l.tracking_number) || [],
-            tracking_links: req.body.labels?.map((l: any) => ({ url: l.tracking_url })) || [],
+            tracking_numbers: body.labels?.map((l: any) => l.tracking_number) || [],
+            tracking_links: body.labels?.map((l: any) => ({ url: l.tracking_url })) || [],
             provider_id: "manual",
-            items: req.body.items || [],
+            items: body.items || [],
             shipped_at: new Date(),
           };
           
@@ -128,7 +129,7 @@ const sendShipmentEmailAfterCreate = async (
           
           // Try to get email from multiple sources
           let customerEmail = fullOrder?.email || fullOrder?.customer?.email;
-          let customer = fullOrder?.customer;
+          let customer: any = fullOrder?.customer;
           
           // If no customer object, create one from order data
           if (!customer && customerEmail) {
@@ -144,8 +145,9 @@ const sendShipmentEmailAfterCreate = async (
           if (!customerEmail && fullOrder?.customer_id) {
             const customerModule = req.scope.resolve(Modules.CUSTOMER);
             try {
-              customer = await customerModule.retrieveCustomer(fullOrder.customer_id);
-              customerEmail = customer.email;
+              const fetchedCustomer = await customerModule.retrieveCustomer(fullOrder.customer_id);
+              customer = fetchedCustomer;
+              customerEmail = fetchedCustomer?.email;
             } catch (e) {
               // Silently fail
             }
