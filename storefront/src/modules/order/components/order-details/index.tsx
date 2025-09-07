@@ -23,9 +23,11 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
         <div className="flex justify-between mb-2">
           <Text>Order Date</Text>
           <Text>
-            {" "}
-            {createdAt.getDate()}-{createdAt.getMonth()}-
-            {createdAt.getFullYear()}
+            {createdAt.toLocaleDateString('en-US', { 
+              month: 'short', 
+              day: 'numeric', 
+              year: 'numeric' 
+            })}
           </Text>
         </div>
 
