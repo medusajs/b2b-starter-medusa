@@ -52,7 +52,7 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     console.log("Valid orders (not canceled):", validOrders.length);
 
     // Process each order individually
-    const orderData = [];
+    const orderData: any[] = [];
     
     for (const order of validOrders) {
       let totalPaid = 0;

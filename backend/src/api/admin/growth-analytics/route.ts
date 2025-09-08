@@ -148,7 +148,7 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
 
     // Generate complete date range for consistent intervals
     const generateDateRange = (start: Date, end: Date) => {
-      const dates = [];
+      const dates: Date[] = [];
       const current = new Date(start);
       current.setHours(0, 0, 0, 0); // Start at beginning of day
       
