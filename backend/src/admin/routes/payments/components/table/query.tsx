@@ -8,7 +8,7 @@ export const usePaymentsTableQuery = ({
   prefix?: string;
 }) => {
   const raw = useQueryParams(
-    ["q", "offset", "order", "customer_name", "company_name", "email", "order_number", "order_date", "order_total", "total_paid", "outstanding_amount", "reminder_last_sent_at"],
+    ["q", "offset", "order"],
     prefix
   );
 

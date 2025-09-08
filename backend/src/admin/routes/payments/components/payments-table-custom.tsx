@@ -37,10 +37,6 @@ export const PaymentsTableCustom = () => {
   const orders = data?.orders || [];
   const count = data?.count || 0;
 
-  console.log("PaymentsTableCustom - data:", data);
-  console.log("PaymentsTableCustom - orders:", orders);
-  console.log("PaymentsTableCustom - count:", count);
-  console.log("PaymentsTableCustom - isPending:", isPending);
 
   const columns = usePaymentsTableColumns();
 

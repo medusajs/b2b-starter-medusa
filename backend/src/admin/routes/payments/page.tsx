@@ -1,7 +1,7 @@
 import React from "react";
 import { defineRouteConfig } from "@medusajs/admin-sdk";
 import { Container, Heading, Toaster } from "@medusajs/ui";
-import { PaymentsTable } from "./components/payments-table";
+import { PaymentsTableCustom } from "./components/payments-table-custom";
 
 const PaymentsPage = () => {
   return (
@@ -10,7 +10,7 @@ const PaymentsPage = () => {
         <Heading className="p-6 pb-0 font-sans font-medium h1-core">
           Payments
         </Heading>
-        <PaymentsTable />
+        <PaymentsTableCustom />
       </Container>
       <Toaster />
     </>
