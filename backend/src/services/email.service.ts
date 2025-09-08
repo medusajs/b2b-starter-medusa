@@ -7,6 +7,7 @@ export type EmailServiceOptions = {
   orderPlacedTemplateId: string;
   orderShippedTemplateId: string;
   customerResetPasswordTemplateId: string;
+  paymentReminderTemplateId: string;
 };
 
 export default class EmailService {
@@ -28,6 +29,7 @@ export default class EmailService {
       orderPlacedTemplateId: process.env.SENDGRID_ORDER_PLACED_TEMPLATE || "",
       orderShippedTemplateId: process.env.SENDGRID_ORDER_SHIPPED_TEMPLATE || "",
       customerResetPasswordTemplateId: process.env.SENDGRID_CUSTOMER_RESET_PASSWORD_TEMPLATE || "",
+      paymentReminderTemplateId: process.env.SENDGRID_PAYMENT_REMINDER_TEMPLATE || "",
     };
 
     if (this.options.apiKey) {
@@ -244,6 +246,85 @@ export default class EmailService {
       const [response] = await sgMail.send(msg);
     } catch (error: any) {
       throw error;
+    }
+  }
+
+  async sendPaymentReminderEmail(data: {
+    to: string;
+    customer: any;
+    order: any;
+  }): Promise<{ success: boolean; messageId?: string; error?: string }> {
+    this.logger.info("📧 [EMAIL SERVICE] Starting payment reminder email send...");
+    this.logger.info("📧 [EMAIL SERVICE] Email data:", {
+      to: data.to,
+      customer_name: `${data.customer.first_name} ${data.customer.last_name}`,
+      order_number: data.order.display_id,
+      order_id: data.order.id
+    });
+
+    if (!this.options.apiKey) {
+      const errorMsg = "SendGrid API key not configured";
+      this.logger.error("❌ [EMAIL SERVICE] Error:", errorMsg);
+      return { success: false, error: errorMsg };
+    }
+
+    if (!this.options.paymentReminderTemplateId) {
+      const errorMsg = "Payment reminder template ID not configured";
+      this.logger.error("❌ [EMAIL SERVICE] Error:", errorMsg);
+      return { success: false, error: errorMsg };
+    }
+
+    try {
+      // Prepare template data for SendGrid
+      const templateData = {
+        first_name: data.customer.first_name || 'there',
+        order_number: data.order.display_id,
+        order_id: data.order.id,
+        customer_name: `${data.customer.first_name || ''} ${data.customer.last_name || ''}`.trim(),
+        customer_email: data.customer.email,
+        order_total: data.order.total ? (data.order.total / 100).toFixed(2) : '0.00',
+        currency_code: data.order.currency_code || 'CAD'
+      };
+
+      this.logger.info("📧 [EMAIL SERVICE] Template data:", templateData);
+
+      const msg = {
+        to: data.to,
+        from: this.options.fromEmail,
+        templateId: this.options.paymentReminderTemplateId,
+        dynamicTemplateData: templateData,
+      };
+
+      this.logger.info("📧 [EMAIL SERVICE] Sending email with SendGrid template...");
+      this.logger.info("📧 [EMAIL SERVICE] Email message:", {
+        to: msg.to,
+        from: msg.from,
+        templateId: msg.templateId,
+        template_data: templateData
+      });
+
+      const [response] = await sgMail.send(msg);
+      
+      this.logger.info("✅ [EMAIL SERVICE] Email sent successfully!");
+      this.logger.info("✅ [EMAIL SERVICE] SendGrid response:", {
+        statusCode: response.statusCode,
+        messageId: response.headers?.['x-message-id'],
+        headers: response.headers
+      });
+
+      return { 
+        success: true, 
+        messageId: response.headers?.['x-message-id'] as string 
+      };
+    } catch (error: any) {
+      const errorMsg = this.formatSendGridError(error);
+      this.logger.error("❌ [EMAIL SERVICE] Failed to send email:", errorMsg);
+      this.logger.error("❌ [EMAIL SERVICE] Full error:", error);
+      
+      return { 
+        success: false, 
+        error: errorMsg 
+      };
     }
   }
 

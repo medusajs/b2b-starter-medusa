@@ -151,9 +151,34 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       return orderDate >= chartStartDate && orderDate <= chartEndDate;
     });
 
-    // Format data for chart
-    const labels = chartOrders.map((o: any) => {
-      const date = new Date(o.created_at);
+    // Generate complete date range for consistent intervals
+    const generateDateRange = (start: Date, end: Date) => {
+      const dates = [];
+      const current = new Date(start);
+      current.setHours(0, 0, 0, 0); // Start at beginning of day
+      
+      while (current <= end) {
+        dates.push(new Date(current));
+        current.setDate(current.getDate() + 1);
+      }
+      return dates;
+    };
+
+    const dateRange = generateDateRange(chartStartDate, chartEndDate);
+    
+    // Create a map of orders by date for quick lookup
+    const ordersByDate = new Map();
+    chartOrders.forEach((order: any) => {
+      const orderDate = new Date(order.created_at);
+      const dateKey = orderDate.toISOString().split('T')[0]; // YYYY-MM-DD format
+      if (!ordersByDate.has(dateKey)) {
+        ordersByDate.set(dateKey, []);
+      }
+      ordersByDate.get(dateKey).push(order);
+    });
+
+    // Format data for chart with complete date range
+    const labels = dateRange.map(date => {
       return date.toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
@@ -161,7 +186,11 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       });
     });
 
-    const orderData = chartOrders.map((o: any) => Number(o.total));
+    const orderData = dateRange.map(date => {
+      const dateKey = date.toISOString().split('T')[0];
+      const dayOrders = ordersByDate.get(dateKey) || [];
+      return dayOrders.reduce((total: number, order: any) => total + Number(order.total), 0);
+    });
 
     return res.json({
       labels,

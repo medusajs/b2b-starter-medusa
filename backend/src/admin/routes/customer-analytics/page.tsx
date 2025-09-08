@@ -546,6 +546,7 @@ const CustomerAnalyticsPage = () => {
                     },
                   },
                   x: {
+                    type: 'category',
                     grid: {
                       color: getThemeColors().grid,
                       drawBorder: false,
@@ -557,6 +558,7 @@ const CustomerAnalyticsPage = () => {
                       },
                       padding: 8,
                       maxRotation: 45,
+                      maxTicksLimit: 10 // Limit number of ticks to prevent overcrowding
                     },
                     border: {
                       color: getThemeColors().border,

@@ -115,7 +115,7 @@ export const SelectFilter = ({
             sideOffset={8}
             collisionPadding={8}
             className={clx(
-              "bg-ui-bg-base text-ui-fg-base shadow-elevation-flyout z-[1] h-full max-h-[200px] w-[300px] overflow-hidden rounded-lg outline-none"
+              "bg-ui-bg-base text-ui-fg-base shadow-elevation-flyout z-[20] h-full max-h-[200px] w-[300px] overflow-hidden rounded-lg outline-none"
             )}
             onInteractOutside={(e) => {
               if (e.target instanceof HTMLElement) {

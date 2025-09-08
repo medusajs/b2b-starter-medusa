@@ -6,3 +6,4 @@ export * from "./employees";
 export * from "./regions";
 export * from "./variants";
 export * from "./customers";
+export * from "./payments";
