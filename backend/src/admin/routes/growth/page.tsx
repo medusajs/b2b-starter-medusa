@@ -389,6 +389,7 @@ const GrowthPage = () => {
                       }
                     },
                     x: {
+                      type: 'category',
                       title: {
                         display: true,
                         text: '',
@@ -404,7 +405,8 @@ const GrowthPage = () => {
                           size: 11
                         },
                         padding: 8,
-                        maxRotation: 45
+                        maxRotation: 45,
+                        maxTicksLimit: 10 // Limit number of ticks to prevent overcrowding
                       },
                       grid: {
                         color: getThemeColors().grid,
