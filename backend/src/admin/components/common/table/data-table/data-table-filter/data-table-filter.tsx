@@ -172,7 +172,7 @@ export const DataTableFilter = ({
             <Popover.Portal>
               <Popover.Content
                 className={clx(
-                  "bg-ui-bg-base text-ui-fg-base shadow-elevation-flyout z-[1] h-full max-h-[200px] w-[300px] overflow-auto rounded-lg p-1 outline-none"
+                  "bg-ui-bg-base text-ui-fg-base shadow-elevation-flyout z-[20] h-full max-h-[200px] w-[300px] overflow-auto rounded-lg p-1 outline-none"
                 )}
                 data-name="filters_menu_content"
                 align="start"
