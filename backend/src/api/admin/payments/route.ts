@@ -82,16 +82,16 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       const outstandingAmount = Math.max(orderTotal - totalPaid, 0);
       
       // Get reminder data from order metadata (or customer metadata as fallback)
-      let reminderLastSentAt = null;
+      let reminderLastSentAt: any = null;
       if (order.metadata?.reminder_last_sent_at) {
-        reminderLastSentAt = order.metadata.reminder_last_sent_at;
+        reminderLastSentAt = order.metadata.reminder_last_sent_at as any;
       } else if (order.customer?.metadata?.reminder_last_sent_at) {
-        reminderLastSentAt = order.customer.metadata.reminder_last_sent_at;
+        reminderLastSentAt = order.customer.metadata.reminder_last_sent_at as any;
       }
       
       orderData.push({
         order_id: order.id,
-        order_number: order.display_id,
+        order_number: (order as any).display_id || order.id,
         order_date: order.created_at,
         customer_name: `${order.customer?.first_name || ''} ${order.customer?.last_name || ''}`.trim(),
         company_name: order.customer?.company_name || '',
