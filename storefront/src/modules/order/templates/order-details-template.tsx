@@ -13,6 +13,7 @@ import OrderDetails from "@/modules/order/components/order-details"
 import OrderSummary from "@/modules/order/components/order-summary"
 import ShippingDetails from "@/modules/order/components/shipping-details"
 import BillingDetails from "@/modules/order/components/billing-details"
+import PaymentSummary from "@/modules/order/components/payment-summary"
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { sdk } from "@/lib/config"
 import { getAuthHeaders } from "@/lib/data/cookies"
@@ -303,6 +304,10 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
               <BillingDetails order={order} />
             </Container>
           )}
+
+          <Container>
+            <PaymentSummary order={order} />
+          </Container>
         </div>
       </div>
     </div>

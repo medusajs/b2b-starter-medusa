@@ -6,3 +6,4 @@ export const EMAIL_SERVICE = "emailService";
 export default Module(EMAIL_SERVICE, {
   service: EmailService,
 });
+

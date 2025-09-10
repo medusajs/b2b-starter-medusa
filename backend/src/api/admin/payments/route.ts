@@ -51,8 +51,8 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     const validOrders = orders.filter((order: any) => order.status !== "canceled");
     console.log("Valid orders (not canceled):", validOrders.length);
 
-    // Process each order individually
-    const orderData: any[] = [];
+    // Process each order individually and group by customer
+    const customerGroups: Record<string, any> = {};
     
     for (const order of validOrders) {
       let totalPaid = 0;
@@ -89,7 +89,10 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
         reminderLastSentAt = order.customer.metadata.reminder_last_sent_at as any;
       }
       
-      orderData.push({
+      const customerId = order.customer_id || 'anonymous';
+      const customerKey = `${customerId}_${order.customer?.email || 'no-email'}`;
+      
+      const orderData = {
         order_id: order.id,
         order_number: (order as any).display_id || order.id,
         order_date: order.created_at,
@@ -99,9 +102,43 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
         order_total: orderTotal,
         total_paid: totalPaid,
         outstanding_amount: outstandingAmount,
-        reminder_last_sent_at: reminderLastSentAt
-      });
+        reminder_last_sent_at: reminderLastSentAt,
+        customer_id: customerId
+      };
+      
+      // Initialize customer group if it doesn't exist
+      if (!customerGroups[customerKey]) {
+        customerGroups[customerKey] = {
+          customer_id: customerId,
+          customer_name: orderData.customer_name,
+          company_name: orderData.company_name,
+          email: orderData.email,
+          total_order_total: 0,
+          total_paid: 0,
+          total_outstanding: 0,
+          orders: [],
+          reminder_last_sent_at: reminderLastSentAt
+        };
+      }
+      
+      // Add to customer totals
+      customerGroups[customerKey].total_order_total += orderTotal;
+      customerGroups[customerKey].total_paid += totalPaid;
+      customerGroups[customerKey].total_outstanding += outstandingAmount;
+      
+      // Add order to customer's orders list
+      customerGroups[customerKey].orders.push(orderData);
     }
+    
+    // Convert customer groups to array format
+    const orderData: any[] = Object.values(customerGroups).map((customer: any) => ({
+      ...customer,
+      // For backward compatibility, set these fields for the main row
+      order_total: customer.total_order_total,
+      total_paid: customer.total_paid,
+      outstanding_amount: customer.total_outstanding,
+      is_customer_group: true
+    }));
 
     console.log("Orders processed:", orderData.length);
 
@@ -109,13 +146,15 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     let filteredOrders = orderData;
     if (q) {
       const searchTerm = q.toLowerCase();
-      filteredOrders = orderData.filter((order: any) => 
-        order.customer_name.toLowerCase().includes(searchTerm) ||
-        order.company_name.toLowerCase().includes(searchTerm) ||
-        order.email.toLowerCase().includes(searchTerm) ||
-        order.order_number.toString().includes(searchTerm)
+      filteredOrders = orderData.filter((customer: any) => 
+        customer.customer_name.toLowerCase().includes(searchTerm) ||
+        customer.company_name.toLowerCase().includes(searchTerm) ||
+        customer.email.toLowerCase().includes(searchTerm) ||
+        customer.orders.some((order: any) => 
+          order.order_number.toString().includes(searchTerm)
+        )
       );
-      console.log("Orders after search filter:", filteredOrders.length);
+      console.log("Customer groups after search filter:", filteredOrders.length);
     }
 
     // Apply sorting
@@ -126,10 +165,16 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
         let aVal = a[field];
         let bVal = b[field];
         
-        // Handle date fields
+        // Handle date fields - use the most recent order date for customer groups
         if (field === 'order_date' || field === 'created_at') {
-          aVal = new Date(aVal).getTime();
-          bVal = new Date(bVal).getTime();
+          const aLatestOrder = a.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          const bLatestOrder = b.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          aVal = new Date(aLatestOrder.order_date).getTime();
+          bVal = new Date(bLatestOrder.order_date).getTime();
         }
         
         // Handle string fields
@@ -155,7 +200,13 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       const field = order.substring(1);
       filteredOrders.sort((a: any, b: any) => {
         if (field === 'created_at' || field === 'order_date') {
-          return new Date(b.order_date).getTime() - new Date(a.order_date).getTime();
+          const aLatestOrder = a.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          const bLatestOrder = b.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          return new Date(bLatestOrder.order_date).getTime() - new Date(aLatestOrder.order_date).getTime();
         }
         return (b[field] || 0) - (a[field] || 0);
       });
@@ -164,7 +215,13 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       const field = order;
       filteredOrders.sort((a: any, b: any) => {
         if (field === 'created_at' || field === 'order_date') {
-          return new Date(a.order_date).getTime() - new Date(b.order_date).getTime();
+          const aLatestOrder = a.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          const bLatestOrder = b.orders.reduce((latest: any, order: any) => 
+            new Date(order.order_date) > new Date(latest.order_date) ? order : latest
+          );
+          return new Date(aLatestOrder.order_date).getTime() - new Date(bLatestOrder.order_date).getTime();
         }
         return (a[field] || 0) - (b[field] || 0);
       });
@@ -175,7 +232,7 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     const offsetNum = parseInt(offset);
     const paginatedOrders = filteredOrders.slice(offsetNum, offsetNum + limitNum);
 
-    console.log("Final response - orders:", paginatedOrders.length, "total count:", filteredOrders.length);
+    console.log("Final response - customer groups:", paginatedOrders.length, "total count:", filteredOrders.length);
 
     return res.json({
       orders: paginatedOrders,
