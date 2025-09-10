@@ -161,7 +161,7 @@ const ResetPasswordContent = () => {
         Set New Password
       </Text>
       <Text className="text-neutral-600 mb-6">
-        Enter your new password below. Make sure it's secure and easy for you to remember.
+        Enter your new password below. Make sure it&apos;s secure and easy for you to remember.
       </Text>
       
       <form 

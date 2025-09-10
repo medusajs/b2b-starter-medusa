@@ -29,7 +29,7 @@ const ForgotPassword = ({ setCurrentView }: Props) => {
             Check your email
           </Text>
           <Text className="text-neutral-600 mb-6">
-            We've sent you a password reset link. Please check your email and click the link to reset your password.
+            We&apos;ve sent you a password reset link. Please check your email and click the link to reset your password.
           </Text>
           <Button
             variant="secondary"
@@ -56,7 +56,7 @@ const ForgotPassword = ({ setCurrentView }: Props) => {
           Forgot your password?
         </Text>
         <Text className="text-neutral-600">
-          No worries! Enter your email address and we'll send you a link to reset your password.
+          No worries! Enter your email address and we&apos;ll send you a link to reset your password.
         </Text>
       </div>
       
