@@ -15,6 +15,7 @@ export default class EmailService {
   protected options: EmailServiceOptions;
 
   constructor() {
+    console.log("🔧 [EmailService] EmailService constructor called!");
     this.logger = {
       info: (...args: any[]) => console.log(...args),
       debug: (...args: any[]) => console.debug(...args),
@@ -224,29 +225,55 @@ export default class EmailService {
     customer: any;
     token: string;
   }): Promise<void> {
+    console.log("📧 [EmailService] Sending password reset email to:", data.to);
+    console.log("📧 [EmailService] API Key present:", !!this.options.apiKey);
+    console.log("📧 [EmailService] Template ID:", this.options.customerResetPasswordTemplateId);
+    console.log("📧 [EmailService] From Email:", this.options.fromEmail);
+
     if (!this.options.apiKey || !this.options.customerResetPasswordTemplateId) {
+      console.log("❌ [EmailService] Missing configuration");
       return;
     }
 
-    try {
-      const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:8000"}/reset-password?token=${data.token}`;
-      
-      const templateData = {
-        customer_name: `${data.customer.first_name} ${data.customer.last_name}`,
-        reset_url: resetUrl,
-      };
+    // Simple retry mechanism - try 3 times
+    let lastError: any = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        console.log(`📧 [EmailService] Attempt ${attempt}/3 to send email`);
+        
+        const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:8000"}/reset-password?token=${data.token}`;
+        
+        const templateData = {
+          first_name: data.customer.first_name,
+          reset_password_url: resetUrl,
+        };
 
-      const msg = {
-        to: data.to,
-        from: this.options.fromEmail,
-        templateId: this.options.customerResetPasswordTemplateId,
-        dynamicTemplateData: templateData,
-      };
+        const msg = {
+          to: data.to,
+          from: this.options.fromEmail,
+          templateId: this.options.customerResetPasswordTemplateId,
+          dynamicTemplateData: templateData,
+        };
 
-      const [response] = await sgMail.send(msg);
-    } catch (error: any) {
-      throw error;
+        console.log("📧 [EmailService] Sending message:", JSON.stringify(msg, null, 2));
+        const [response] = await sgMail.send(msg);
+        console.log("✅ [EmailService] Email sent successfully on attempt", attempt);
+        console.log("✅ [EmailService] Response status:", response.statusCode);
+        return; // Success - exit retry loop
+      } catch (error: any) {
+        lastError = error;
+        console.error(`❌ [EmailService] Attempt ${attempt} failed:`, error.message);
+        
+        if (attempt < 3) {
+          console.log("⏳ [EmailService] Waiting 2 seconds before retry...");
+          await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+      }
     }
+    
+    // All attempts failed
+    console.error("❌ [EmailService] All 3 attempts failed");
+    throw lastError;
   }
 
   async sendPaymentReminderEmail(data: {
