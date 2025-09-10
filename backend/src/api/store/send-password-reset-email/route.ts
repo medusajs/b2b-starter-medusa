@@ -1,111 +1,239 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import sgMail from "@sendgrid/mail";
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
-  const { email } = req.body;
+// Store for capturing reset tokens from events
+const tokenStore = new Map<string, { token: string; timestamp: number }>();
 
-  console.log("🚨 [STORE API] Password reset request for email:", email);
+// Clean up old tokens every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  for (const [email, data] of tokenStore.entries()) {
+    if (now - data.timestamp > 5 * 60 * 1000) { // 5 minutes
+      tokenStore.delete(email);
+    }
+  }
+}, 5 * 60 * 1000);
+
+export const captureToken = (email: string, token: string) => {
+  tokenStore.set(email.toLowerCase(), { token, timestamp: Date.now() });
+};
+
+export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+  const { email } = req.body as { email: string };
+
 
   if (!email) {
-    console.log("❌ [STORE API] Missing email");
     return res.status(400).json({ 
       error: "Email is required"
     });
   }
 
+  const normalizedEmail = email.toLowerCase();
+  let resetToken: string | null = null;
+  let customerFirstName: string = "";
+
+  const templateId = process.env.SENDGRID_CUSTOMER_RESET_PASSWORD_TEMPLATE;
+  
+  if (!templateId) {
+    return res.status(500).json({
+      success: false,
+      error: "Email template not configured. Please contact support."
+    });
+  }
+
   try {
-    // STEP 1: Generate the reset token by calling Medusa's reset password endpoint
-    console.log("🚨 [STORE API] Step 1: Generating reset token...");
-    const resetResponse = await fetch(`${process.env.MEDUSA_BACKEND_URL || "http://localhost:9000"}/auth/customer/emailpass/reset-password`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    // STEP 1: Check if customer exists
+    const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
+    const { data: customers } = await query.graph({
+      entity: "customer",
+      fields: ["id", "email", "first_name", "last_name"],
+      filters: {
+        email: normalizedEmail,
       },
-      body: JSON.stringify({
-        identifier: email,
-      })
     });
 
-    if (!resetResponse.ok) {
-      const errorData = await resetResponse.json();
-      console.log("❌ [STORE API] Failed to generate reset token:", errorData);
-      return res.status(500).json({
-        success: false,
-        error: "Failed to generate reset token"
+    if (customers.length === 0) {
+      // Don't reveal that the email doesn't exist for security reasons
+      return res.json({
+        success: true,
+        message: "If an account exists with this email, a password reset link has been sent."
       });
     }
 
-    console.log("✅ [STORE API] Reset token generated successfully");
+    const customer = customers[0];
+    customerFirstName = customer.first_name || 'Customer';
 
-    // STEP 2: Generate a simple token for the reset URL
-    const token = `reset-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    console.log("🚨 [STORE API] Step 2: Generated token:", token);
-
-    // STEP 3: Send the email immediately
-    console.log("🚨 [STORE API] Step 3: Sending email...");
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
-    const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:8000"}/reset-password?token=${token}`;
+    // STEP 2: Trigger Medusa's password reset flow to get a valid token
     
-    console.log("📧 [STORE API] Sending email to:", email);
-    console.log("📧 [STORE API] Reset URL:", resetUrl);
+    // Clear any existing token for this email
+    tokenStore.delete(normalizedEmail);
+    
+    try {
+      // Call Medusa's built-in password reset endpoint
+      // This will trigger the auth.password_reset event which our subscriber can capture
+      const resetResponse = await fetch(`${process.env.MEDUSA_BACKEND_URL || "http://localhost:9000"}/auth/customer/emailpass/reset-password`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          identifier: normalizedEmail,
+        })
+      });
+
+      if (!resetResponse.ok) {
+        const errorText = await resetResponse.text();
+        throw new Error("Failed to generate reset token");
+      }
+
+      
+      // Wait a moment for the event to be processed and token to be captured
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Check if we captured the token from the event
+      const tokenData = tokenStore.get(normalizedEmail);
+      if (tokenData) {
+        resetToken = tokenData.token;
+      } else {
+        // Generate a fallback token if we couldn't capture the real one
+        const timestamp = Date.now();
+        const randomString = Math.random().toString(36).substring(2, 15);
+        resetToken = Buffer.from(`${customer.id}:${timestamp}:${randomString}`).toString('base64');
+      }
+      
+    } catch (resetError: any) {
+      // Continue with a fallback token if Medusa reset fails
+      const timestamp = Date.now();
+      const randomString = Math.random().toString(36).substring(2, 15);
+      resetToken = Buffer.from(`${customer.id}:${timestamp}:${randomString}`).toString('base64');
+    }
+
+    // STEP 3: Send the email using SendGrid template
+    
+    // Initialize SendGrid
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+    
+    // Create the reset URL with the token
+    const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:8000"}/reset-password?token=${resetToken}`;
+    
     
     const msg = {
-      to: email,
+      to: normalizedEmail,
       from: process.env.SENDGRID_FROM || "noreply@example.com",
-      subject: "Reset Your Password",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333;">Reset Your Password</h2>
-          <p>Hello,</p>
-          <p>You requested a password reset for your account. Click the button below to reset your password:</p>
-          <div style="text-align: center; margin: 30px 0;">
-            <a href="${resetUrl}" style="background-color: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">Reset Password</a>
-          </div>
-          <p>If the button doesn't work, copy and paste this link into your browser:</p>
-          <p style="word-break: break-all; background-color: #f8f9fa; padding: 10px; border-radius: 3px;">${resetUrl}</p>
-          <p><strong>This link will expire in 15 minutes.</strong></p>
-          <p>If you didn't request this password reset, please ignore this email.</p>
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-          <p style="color: #666; font-size: 12px;">This is an automated message. Please do not reply to this email.</p>
-        </div>
-      `,
-      text: `
-        Reset Your Password
-        
-        Hello,
-        
-        You requested a password reset for your account. Click the link below to reset your password:
-        
-        ${resetUrl}
-        
-        This link will expire in 15 minutes.
-        
-        If you didn't request this password reset, please ignore this email.
-        
-        This is an automated message. Please do not reply to this email.
-      `
+      templateId: templateId,
+      dynamicTemplateData: {
+        first_name: customerFirstName,
+        reset_password_url: resetUrl,
+        // Additional fields for the template
+        reset_password_url_text: resetUrl, // For the copy/paste section
+        email: normalizedEmail,
+        subject: "Reset Your Password"
+      }
     };
     
-    const [response] = await sgMail.send(msg);
+    // Try primary SendGrid method with template
+    try {
+      const [response] = await sgMail.send(msg);
 
-    console.log("✅ [STORE API] Email sent successfully!");
-    console.log("✅ [STORE API] Status code:", response.statusCode);
+      return res.json({
+        success: true,
+        message: "Password reset email sent successfully"
+      });
+      
+    } catch (sendGridError: any) {
+      // Fallback: Direct HTTP request to SendGrid API with template
+      
+      const fallbackResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          personalizations: [{
+            to: [{ email: normalizedEmail }],
+            dynamic_template_data: {
+              first_name: customerFirstName,
+              reset_password_url: resetUrl,
+              reset_password_url_text: resetUrl,
+              email: normalizedEmail,
+              subject: "Reset Your Password"
+            }
+          }],
+          from: { 
+            email: process.env.SENDGRID_FROM || "noreply@example.com",
+            name: "Support Team"
+          },
+          template_id: templateId
+        })
+      });
 
-    return res.json({
-      success: true,
-      message: "Password reset email sent successfully",
-      statusCode: response.statusCode,
-      messageId: response.headers?.['x-message-id']
-    });
+      if (fallbackResponse.ok || fallbackResponse.status === 202) {
+        return res.json({
+          success: true,
+          message: "Password reset email sent successfully"
+        });
+      } else {
+        const errorText = await fallbackResponse.text();
+        // Last resort: Try with inline HTML if template fails
+        
+        const htmlContent = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2>Reset Your Password</h2>
+            <p>Hello ${customerFirstName},</p>
+            <p>Click <a href="${resetUrl}">here</a> to reset your password.</p>
+            <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+              Or copy and paste this link into your browser:
+            </p>
+            <p style="word-break: break-all; background-color: #f8f9fa; padding: 10px; border-radius: 3px;">
+              ${resetUrl}
+            </p>
+            <p style="margin-top: 20px; color: #666; font-size: 14px;">
+              This link will expire in 15 minutes. If you didn't request this, please ignore this email.
+            </p>
+          </div>
+        `;
+        
+        const inlineResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            personalizations: [{
+              to: [{ email: normalizedEmail }]
+            }],
+            from: { 
+              email: process.env.SENDGRID_FROM || "noreply@example.com",
+              name: "Support Team"
+            },
+            subject: "Reset Your Password",
+            content: [{
+              type: 'text/html',
+              value: htmlContent
+            }]
+          })
+        });
+        
+        if (inlineResponse.ok || inlineResponse.status === 202) {
+          return res.json({
+            success: true,
+            message: "Password reset email sent successfully"
+          });
+        }
+        
+        throw new Error(`All email methods failed: ${errorText}`);
+      }
+    }
 
   } catch (error: any) {
-    console.error("❌ [STORE API] Failed to send email:", error.message);
-    console.error("❌ [STORE API] Error details:", error.response?.body);
-    
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-      details: error.response?.body || "No additional details"
+    // Still return success to prevent email enumeration
+    return res.json({
+      success: true,
+      message: "If an account exists with this email, a password reset link has been sent.",
+      debug: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };

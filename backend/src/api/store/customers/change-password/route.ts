@@ -30,7 +30,6 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
       });
     }
 
-    console.log("🔐 [CHANGE PASSWORD API] Processing password change");
 
     // Get customer ID from auth context
     const { customer_id } = req.auth_context.app_metadata as {
@@ -59,10 +58,6 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
       });
     }
 
-    console.log("👤 [CHANGE PASSWORD API] Customer found:", {
-      id: customer.id,
-      email: customer.email
-    });
 
     // Find the auth identity for this customer
     const { data: [providerIdentity] } = await query.graph({
@@ -81,17 +76,24 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
       });
     }
 
-    // Verify current password by attempting to authenticate
-    try {
-      await authModuleService.authenticate({
-        provider: "emailpass",
-        entity_id: customer.email,
-        provider_metadata: {
-          password: currentPassword,
-        },
+    // Verify current password by checking the provider identity
+    // We'll validate by attempting to authenticate with the current credentials
+    const bcrypt = require("bcrypt");
+    
+    // Get the hashed password from provider metadata
+    const hashedPassword = providerIdentity.provider_metadata?.password;
+    
+    if (!hashedPassword) {
+      return res.status(500).json({ 
+        success: false, 
+        message: "Unable to verify current password" 
       });
-    } catch (error) {
-      console.log("❌ [CHANGE PASSWORD API] Current password verification failed");
+    }
+    
+    // Verify the current password matches
+    const isValidPassword = await bcrypt.compare(currentPassword, hashedPassword);
+    
+    if (!isValidPassword) {
       return res.status(400).json({ 
         success: false, 
         message: "Current password is incorrect" 
@@ -108,7 +110,6 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
       },
     ]);
 
-    console.log("✅ [CHANGE PASSWORD API] Password updated successfully");
 
     res.json({ 
       success: true, 
@@ -116,8 +117,6 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
     });
 
   } catch (error: any) {
-    console.error("❌ [CHANGE PASSWORD API] Error:", error);
-    
     res.status(500).json({ 
       success: false, 
       message: "Failed to update password" 

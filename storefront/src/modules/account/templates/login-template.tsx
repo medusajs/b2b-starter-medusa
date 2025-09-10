@@ -2,6 +2,7 @@
 
 import Login from "@/modules/account/components/login"
 import Register from "@/modules/account/components/register"
+import ForgotPassword from "@/modules/account/components/forgot-password"
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
 import Image from "next/image"
@@ -11,6 +12,7 @@ import { useEffect, useState } from "react"
 export enum LOGIN_VIEW {
   LOG_IN = "log-in",
   REGISTER = "register",
+  FORGOT_PASSWORD = "forgot-password",
 }
 
 const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
@@ -55,8 +57,10 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
       <div className="flex justify-center items-center bg-neutral-100 p-6 small:p-0 h-full">
         {currentView === LOGIN_VIEW.LOG_IN ? (
           <Login setCurrentView={updateView} />
-        ) : (
+        ) : currentView === LOGIN_VIEW.REGISTER ? (
           <Register setCurrentView={updateView} regions={regions} />
+        ) : (
+          <ForgotPassword setCurrentView={updateView} />
         )}
       </div>
 

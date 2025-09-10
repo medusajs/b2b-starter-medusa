@@ -5,7 +5,6 @@ import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { FULFILLMENT_SHIPPING_MODULE } from "./src/modules/fulfillment-shipping";
 import { INVOICE_MODULE } from "./src/modules/invoice";
 import { EMAIL_MODULE } from "./src/modules/email";
-import { EMAIL_SERVICE } from "./src/services/email-service-registration";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -52,9 +51,6 @@ module.exports = defineConfig({
     },
     [EMAIL_MODULE]: {
       resolve: "./modules/email",
-    },
-    [EMAIL_SERVICE]: {
-      resolve: "./services/email-service-registration",
     },
     [Modules.FILE]: {
       resolve: "@medusajs/medusa/file",

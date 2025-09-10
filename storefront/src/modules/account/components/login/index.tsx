@@ -44,11 +44,21 @@ const Login = ({ setCurrentView }: Props) => {
             data-testid="password-input"
           />
           <div className="flex flex-col gap-2 w-full border-b border-neutral-200 my-6" />
-          <div className="flex items-center gap-2">
-            <Checkbox name="remember_me" data-testid="remember-me-checkbox" />
-            <Text className="text-neutral-950 text-base-regular">
-              Remember me
-            </Text>
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2">
+              <Checkbox name="remember_me" data-testid="remember-me-checkbox" />
+              <Text className="text-neutral-950 text-base-regular">
+                Remember me
+              </Text>
+            </div>
+            <button
+              type="button"
+              onClick={() => setCurrentView(LOGIN_VIEW.FORGOT_PASSWORD)}
+              className="text-neutral-600 hover:text-neutral-950 text-sm underline transition-colors"
+              data-testid="forgot-password-link"
+            >
+              Forgot Password?
+            </button>
           </div>
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />

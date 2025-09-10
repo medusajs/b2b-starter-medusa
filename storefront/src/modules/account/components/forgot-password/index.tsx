@@ -8,9 +8,10 @@ import Button from "@/modules/common/components/button"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import { forgotPassword } from "@/lib/data/customer"
+import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
 
 type Props = {
-  setCurrentView: (view: string) => void
+  setCurrentView: (view: LOGIN_VIEW) => void
 }
 
 const ForgotPassword = ({ setCurrentView }: Props) => {
@@ -34,7 +35,7 @@ const ForgotPassword = ({ setCurrentView }: Props) => {
             variant="secondary"
             onClick={() => {
               setIsSubmitted(false)
-              setCurrentView("login")
+              setCurrentView(LOGIN_VIEW.LOG_IN)
             }}
             className="w-full h-10"
           >
@@ -84,7 +85,7 @@ const ForgotPassword = ({ setCurrentView }: Props) => {
           </SubmitButton>
           <Button
             variant="secondary"
-            onClick={() => setCurrentView("login")}
+            onClick={() => setCurrentView(LOGIN_VIEW.LOG_IN)}
             className="w-full h-10"
             data-testid="back-to-login-button"
           >

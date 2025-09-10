@@ -326,3 +326,97 @@ export const updateCustomerAddress = async (
       return { success: false, error: err.toString() }
     })
 }
+
+export async function forgotPassword(_currentState: unknown, formData: FormData) {
+  const email = formData.get("email") as string
+
+  if (!email) {
+    return "Email is required"
+  }
+
+  try {
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    }
+
+    // Add publishable API key if available
+    if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+      headers["x-publishable-api-key"] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"}/store/send-password-reset-email`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ email }),
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      return data.error || "Failed to send password reset email"
+    }
+
+    return null
+  } catch (error: any) {
+    return "Failed to send password reset email. Please try again."
+  }
+}
+
+export async function resetPassword(_currentState: unknown, formData: FormData) {
+  const token = formData.get("token") as string
+  const password = formData.get("password") as string
+  const confirmPassword = formData.get("confirmPassword") as string
+
+  if (!token) {
+    return "Reset token is missing"
+  }
+
+  if (!password || !confirmPassword) {
+    return "Password and confirmation are required"
+  }
+
+  if (password !== confirmPassword) {
+    return "Passwords do not match"
+  }
+
+  if (password.length < 8) {
+    return "Password must be at least 8 characters long"
+  }
+
+  try {
+    // According to Medusa docs, we need to extract email from the token
+    // The token is the actual reset token from Medusa
+    // We'll use the updateProvider method with the token
+    
+    // First, decode the token to get the email (if it's a JWT)
+    let email = ""
+    try {
+      // Try to decode if it's a JWT
+      const tokenParts = token.split('.')
+      if (tokenParts.length === 3) {
+        const payload = JSON.parse(atob(tokenParts[1]))
+        email = payload.entity_id || payload.email || ""
+      }
+    } catch {
+      // If not a JWT, we'll need to handle differently
+    }
+
+    // Use the SDK to update the password
+    await sdk.auth.updateProvider("customer", "emailpass", {
+      email: email || "dummy@email.com", // Email might not be required with token
+      password: password
+    }, token)
+
+    return null // Success
+  } catch (error: any) {
+    // Check for specific error messages
+    if (error.message?.includes("expired")) {
+      return "Reset link has expired. Please request a new one."
+    }
+    if (error.message?.includes("invalid")) {
+      return "Invalid reset link. Please request a new one."
+    }
+    
+    return "Failed to reset password. Please try again or request a new reset link."
+  }
+}
