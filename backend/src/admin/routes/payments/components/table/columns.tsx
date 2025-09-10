@@ -2,13 +2,14 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { useMemo } from "react";
 import { TextCell } from "../../../../components/common/table/table-cells/text-cell";
 import { AmountCell } from "../../../../components/common/table/table-cells/amount-cell";
-import { Button } from "@medusajs/ui";
+import { Button, IconButton } from "@medusajs/ui";
 import { useNavigate } from "react-router-dom";
 import { useSendReminder } from "../../../../hooks/api/payments";
+import { ChevronDownMini, ChevronRightMini } from "@medusajs/icons";
 
 const columnHelper = createColumnHelper<any>();
 
-export const usePaymentsTableColumns = () => {
+export const usePaymentsTableColumns = (expandedRows: Set<string>, toggleRow: (customerId: string) => void) => {
   const navigate = useNavigate();
   const sendReminderMutation = useSendReminder();
 
@@ -16,7 +17,30 @@ export const usePaymentsTableColumns = () => {
     () => [
       columnHelper.accessor("customer_name", {
         header: "Customer",
-        cell: ({ getValue }) => <TextCell text={getValue()} />,
+        cell: ({ getValue, row }) => {
+          const customer = row.original;
+          const isExpanded = expandedRows.has(customer.customer_id);
+          const hasOrders = customer.orders && customer.orders.length > 0;
+          
+          return (
+            <div className="flex items-center gap-2">
+              {hasOrders && (
+                <IconButton
+                  variant="transparent"
+                  size="small"
+                  onClick={() => toggleRow(customer.customer_id)}
+                >
+                  {isExpanded ? (
+                    <ChevronDownMini className="h-4 w-4" />
+                  ) : (
+                    <ChevronRightMini className="h-4 w-4" />
+                  )}
+                </IconButton>
+              )}
+              <TextCell text={getValue()} />
+            </div>
+          );
+        },
       }),
       columnHelper.accessor("company_name", {
         header: "Company",
@@ -25,17 +49,6 @@ export const usePaymentsTableColumns = () => {
       columnHelper.accessor("email", {
         header: "Email",
         cell: ({ getValue }) => <TextCell text={getValue()} />,
-      }),
-      columnHelper.accessor("order_number", {
-        header: "Order Number",
-        cell: ({ getValue }) => <TextCell text={getValue()?.toString()} />,
-      }),
-      columnHelper.accessor("order_date", {
-        header: "Order Date",
-        cell: ({ getValue }) => {
-          const date = new Date(getValue());
-          return <TextCell text={date.toLocaleDateString()} />;
-        },
       }),
       columnHelper.accessor("order_total", {
         header: "Order Total",
@@ -73,27 +86,33 @@ export const usePaymentsTableColumns = () => {
       columnHelper.accessor("reminder_action", {
         header: "Reminder?",
         cell: ({ row }) => {
-          const isOutstanding = row.original.outstanding_amount > 0;
+          const customer = row.original;
+          const isOutstanding = customer.outstanding_amount > 0;
           
           return (
             <div className="flex items-center gap-2">
               {isOutstanding && (
-                <Button
-                  variant="secondary"
-                  size="small"
-                  isLoading={sendReminderMutation.isPending}
-                  onClick={() => {
-                    sendReminderMutation.mutate(row.original.order_id);
-                  }}
-                >
-                  Send
-                </Button>
+                 <Button
+                   variant="secondary"
+                   size="small"
+                   isLoading={sendReminderMutation.isPending}
+                   onClick={() => {
+                     // Send reminder for all outstanding orders of this customer
+                     customer.orders
+                       .filter((order: any) => order.outstanding_amount > 0)
+                       .forEach((order: any) => {
+                         sendReminderMutation.mutate(order.order_id);
+                       });
+                   }}
+                 >
+                   Send All
+                 </Button>
               )}
             </div>
           );
         },
       }),
     ],
-    [navigate, sendReminderMutation]
+    [navigate, sendReminderMutation, expandedRows, toggleRow]
   );
 };

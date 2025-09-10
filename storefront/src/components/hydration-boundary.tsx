@@ -18,3 +18,4 @@ export default function HydrationBoundary({ children }: HydrationBoundaryProps) 
   // After hydration, continue rendering normally
   return <>{children}</>
 }
+
