@@ -1,10 +1,9 @@
 import { listCartShippingMethods } from "@/lib/data/fulfillment"
 import { listCartPaymentMethods } from "@/lib/data/payment"
+import { setContactDetails } from "@/lib/data/cart"
 import ApprovalStatusBanner from "@/modules/cart/components/approval-status-banner"
 import SignInPrompt from "@/modules/cart/components/sign-in-prompt"
 import BillingAddress from "@/modules/checkout/components/billing-address"
-import Company from "@/modules/checkout/components/company"
-import ContactDetails from "@/modules/checkout/components/contact-details"
 import Payment from "@/modules/checkout/components/payment"
 import Shipping from "@/modules/checkout/components/shipping"
 import ShippingAddress from "@/modules/checkout/components/shipping-address"
@@ -34,6 +33,19 @@ export default async function CheckoutForm({
     return null
   }
 
+  // Automatically set contact details if customer is logged in and email is not set
+  if (customer && !cart.email) {
+    const customerEmail = customer.email || cart.customer?.email
+    if (customerEmail) {
+      // Create form data with the customer's email
+      const formData = new FormData()
+      formData.append('email', customerEmail)
+      
+      // Set the contact details automatically
+      await setContactDetails(formData)
+    }
+  }
+
   return (
     <div>
       <div className="w-full grid grid-cols-1 gap-y-2">
@@ -54,7 +66,6 @@ export default async function CheckoutForm({
             <ApprovalStatusBanner cart={cart} />
           )}
 
-        {cart?.company && <Company cart={cart} />}
 
         <ShippingAddress cart={cart} customer={customer} />
 
@@ -62,7 +73,6 @@ export default async function CheckoutForm({
 
         <Shipping cart={cart} availableShippingMethods={shippingMethods} />
 
-        <ContactDetails cart={cart} customer={customer} />
 
         {(customer?.employee?.is_admin &&
           cart.approval_status?.status === ApprovalStatusType.APPROVED) ||

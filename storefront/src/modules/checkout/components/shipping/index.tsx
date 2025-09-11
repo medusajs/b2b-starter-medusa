@@ -45,7 +45,21 @@ const Shipping: React.FC<ShippingProps> = ({
   }
 
   const handleSubmit = () => {
-    router.push(pathname + "?step=contact-details", { scroll: false })
+    // Skip contact details step since email is automatically set
+    // Go directly to payment or review based on approval requirements
+    const requiresApproval =
+      cart.company?.approval_settings?.requires_admin_approval ||
+      cart.company?.approval_settings?.requires_sales_manager_approval
+    
+    const cartApprovalStatus = cart?.approval_status?.status
+    const customerIsAdmin = cart.customer?.employee?.is_admin || false
+    
+    const step = requiresApproval &&
+      (!customerIsAdmin || cartApprovalStatus !== ApprovalStatusType.APPROVED)
+        ? "review"
+        : "payment"
+    
+    router.push(pathname + `?step=${step}`, { scroll: false })
   }
 
   const set = async (id: string) => {
@@ -80,9 +94,7 @@ const Shipping: React.FC<ShippingProps> = ({
             )}
           </Heading>
           {!isOpen &&
-            cart?.shipping_address &&
-            cart?.billing_address &&
-            cart?.email &&
+            (cart.shipping_methods?.length ?? 0) > 0 &&
             cartApprovalStatus !== ApprovalStatusType.PENDING && (
               <Text>
                 <button
