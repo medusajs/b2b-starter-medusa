@@ -97,6 +97,19 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
               data-testid="billing-address-checkbox"
             />
           )}
+          {!isOpen &&
+            cart?.billing_address?.address_1 &&
+            cartApprovalStatus !== ApprovalStatusType.PENDING && (
+              <Text>
+                <button
+                  onClick={handleEdit}
+                  className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                  data-testid="edit-billing-address-button"
+                >
+                  Edit
+                </button>
+              </Text>
+            )}
         </div>
         {!isOpen && cart?.billing_address?.address_1 && <Divider />}
         {isOpen ? (

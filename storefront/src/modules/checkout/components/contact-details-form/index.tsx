@@ -9,8 +9,21 @@ const ContactDetailsForm = ({
   customer: B2BCustomer | null
   cart: B2BCart | null
 }) => {
+  // Get the email from customer first, then cart customer, then cart email, then empty string
+  const getInitialEmail = () => {
+    console.log("🔍 DEBUG - Customer object:", customer)
+    console.log("🔍 DEBUG - Customer email:", customer?.email)
+    console.log("🔍 DEBUG - Cart customer:", cart?.customer)
+    console.log("🔍 DEBUG - Cart customer email:", cart?.customer?.email)
+    console.log("🔍 DEBUG - Cart email:", cart?.email)
+    
+    const email = customer?.email || cart?.customer?.email || cart?.email || ""
+    console.log("🔍 DEBUG - Final email:", email)
+    return email
+  }
+
   const [formData, setFormData] = useState<Record<string, string>>({
-    email: "",
+    email: getInitialEmail(),
     invoice_recipient: "",
     cost_center: "",
     requisition_number: "",
@@ -23,19 +36,20 @@ const ContactDetailsForm = ({
     [cart?.region]
   )
 
+  // Force update email when customer or cart changes
   useEffect(() => {
-    if (cart && cart.email) {
-      setFormData((prevState) => ({
-        ...prevState,
-        email: cart.email || "",
-        invoice_recipient: cart.metadata?.invoice_recipient?.toString() || "",
-        cost_center: cart.metadata?.cost_center?.toString() || "",
-        requisition_number: cart.metadata?.requisition_number?.toString() || "",
-        door_code: cart.metadata?.door_code?.toString() || "",
-        notes: cart.metadata?.notes?.toString() || "",
-      }))
-    }
-  }, [cart])
+    const newEmail = customer?.email || cart?.customer?.email || cart?.email || ""
+    console.log("🔄 DEBUG - Updating email to:", newEmail)
+    setFormData((prevState) => ({
+      ...prevState,
+      email: newEmail,
+      invoice_recipient: cart?.metadata?.invoice_recipient?.toString() || prevState.invoice_recipient || "",
+      cost_center: cart?.metadata?.cost_center?.toString() || prevState.cost_center || "",
+      requisition_number: cart?.metadata?.requisition_number?.toString() || prevState.requisition_number || "",
+      door_code: cart?.metadata?.door_code?.toString() || prevState.door_code || "",
+      notes: cart?.metadata?.notes?.toString() || prevState.notes || "",
+    }))
+  }, [customer?.email, cart?.customer?.email, cart?.email, cart?.metadata])
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -51,6 +65,7 @@ const ContactDetailsForm = ({
   return (
     <div className="flex flex-col small:grid small:grid-cols-2 gap-4">
       <Input
+        key={`email-${customer?.email || 'no-customer'}`}
         label="Email"
         name="email"
         autoComplete="email"
