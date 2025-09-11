@@ -16,33 +16,97 @@ const sendOrderEmailAfterComplete = async (
   res: MedusaResponse,
   next: MedusaNextFunction
 ) => {
+  console.log("🔥🔥🔥 ===========================================");
+  console.log("🔥🔥🔥 [MIDDLEWARE] sendOrderEmailAfterComplete TRIGGERED!");
+  console.log("🔥🔥🔥 [MIDDLEWARE] URL:", req.url);
+  console.log("🔥🔥🔥 [MIDDLEWARE] Method:", req.method);
+  console.log("🔥🔥🔥 ===========================================");
+  
   // Store original json method
   const originalJson = res.json.bind(res);
   
   // Override json method to intercept response
   res.json = function(data: any) {
+    console.log("🔥 [MIDDLEWARE] Response intercepted!");
+    console.log("🔥 [MIDDLEWARE] Response has order?", !!data?.order);
+    console.log("🔥 [MIDDLEWARE] Order ID:", data?.order?.id);
+    
     // Check if this is a successful order creation
     if (data?.order?.id) {
+      console.log("🔥🔥🔥 [MIDDLEWARE] ORDER FOUND IN RESPONSE!");
       // Use the order data from the response directly
       const order = data.order;
-      const customerEmail = order.email;
+      let customerEmail = order.email;
+      console.log("🔥 [MIDDLEWARE] Order email:", customerEmail);
+      console.log("🔥 [MIDDLEWARE] Order customer_id:", order.customer_id);
       
       // Send email asynchronously
       (async () => {
+        console.log("🔥 [MIDDLEWARE] Starting async email send...");
         try {
+          // First try to get customer from auth token
+          const authToken = req.headers.authorization;
+          let customer: any = null;
+          
+          if (!customerEmail && authToken) {
+            console.log("🔥 [MIDDLEWARE] Trying to get customer from auth token...");
+            try {
+              const tokenPayload = authToken.split('.')[1];
+              const decodedToken = JSON.parse(Buffer.from(tokenPayload, 'base64').toString());
+              const customerId = decodedToken.actor_id || decodedToken.app_metadata?.customer_id;
+              
+              if (customerId && customerId.startsWith('cus_')) {
+                console.log("🔥 [MIDDLEWARE] Found customer ID in token:", customerId);
+                const customerModule = req.scope.resolve(Modules.CUSTOMER);
+                customer = await customerModule.retrieveCustomer(customerId);
+                customerEmail = customer?.email;
+                console.log("🔥 [MIDDLEWARE] Got customer email from token:", customerEmail);
+              }
+            } catch (e) {
+              console.error("❌ [MIDDLEWARE] Failed to get customer from token:", e);
+            }
+          }
+          
+          // If no email on order and we have customer_id, try to fetch from customer
+          if (!customerEmail && order.customer_id) {
+            console.log("🔥 [MIDDLEWARE] No email on order, fetching customer...");
+            const customerModule = req.scope.resolve(Modules.CUSTOMER);
+            try {
+              customer = await customerModule.retrieveCustomer(order.customer_id);
+              customerEmail = customer?.email;
+              console.log("🔥 [MIDDLEWARE] Customer email from customer module:", customerEmail);
+            } catch (e) {
+              console.error("❌ [MIDDLEWARE] Failed to fetch customer:", e);
+            }
+          }
+          
           if (!customerEmail) {
+            console.error("❌ [MIDDLEWARE] No customer email found after all attempts!");
             return;
           }
           
+          console.log("🔥 [MIDDLEWARE] Resolving email service...");
           const emailService = req.scope.resolve("emailService") as EmailService;
           
-          // Create a simplified customer object from order data
-          const customer = {
-            id: order.customer_id || "guest",
-            email: customerEmail,
-            first_name: order.shipping_address?.first_name || order.billing_address?.first_name || "",
-            last_name: order.shipping_address?.last_name || order.billing_address?.last_name || "",
-          };
+          // Use the customer we already fetched, or create a fallback
+          if (!customer) {
+            customer = {
+              id: order.customer_id || "guest",
+              email: customerEmail,
+              first_name: order.shipping_address?.first_name || order.billing_address?.first_name || "",
+              last_name: order.shipping_address?.last_name || order.billing_address?.last_name || "",
+            };
+            console.log("🔥 [MIDDLEWARE] Using fallback customer data");
+          } else {
+            console.log("🔥 [MIDDLEWARE] Using fetched customer:", {
+              id: customer.id,
+              email: customer.email,
+              name: `${customer.first_name} ${customer.last_name}`
+            });
+          }
+          
+          console.log("🔥 [MIDDLEWARE] Customer object created:", customer);
+          console.log("🔥 [MIDDLEWARE] Calling emailService.sendOrderPlacedEmail...");
           
           const sent = await emailService.sendOrderPlacedEmail({
             to: customerEmail,
@@ -50,8 +114,17 @@ const sendOrderEmailAfterComplete = async (
             customer: customer,
           });
           
+          console.log("🔥 [MIDDLEWARE] Email send result:", sent);
+          
+          if (sent) {
+            console.log("✅✅✅ [MIDDLEWARE] ORDER EMAIL SENT SUCCESSFULLY VIA MIDDLEWARE!");
+          } else {
+            console.error("❌❌❌ [MIDDLEWARE] ORDER EMAIL FAILED TO SEND VIA MIDDLEWARE!");
+          }
+          
         } catch (error: any) {
-          console.error("❌ [Order Email] Error:", error.message);
+          console.error("❌❌❌ [MIDDLEWARE] Error in async email send:", error.message);
+          console.error("❌❌❌ [MIDDLEWARE] Error stack:", error.stack);
         }
       })();
     }

@@ -465,49 +465,142 @@ export async function setContactDetails(
 
 export async function placeOrder(
   cartId?: string,
-  payment_mode: string
+  payment_mode: string = "manual"
 ): Promise<HttpTypes.StoreCompleteCartResponse> {
   const id = cartId || (await getCartId())
 
-  console.log("here place order function..")
+  console.log("🚀 [PLACE ORDER] Starting order placement...")
+  console.log("🔍 [PLACE ORDER] Cart ID:", id)
+  console.log("💳 [PLACE ORDER] Payment mode:", payment_mode)
 
   if (!id) {
+    console.error("❌ [PLACE ORDER] No cart ID found!")
     throw new Error("No existing cart found when placing an order")
+  }
+
+  // Make sure cart has email before completing
+  const cart = await retrieveCart(id)
+  const customer = await retrieveCustomer()
+  
+  console.log("📧 [PLACE ORDER] Cart email:", cart?.email)
+  console.log("📧 [PLACE ORDER] Customer email:", customer?.email)
+  
+  if (!cart?.email && customer?.email) {
+    console.log("📧 [PLACE ORDER] Cart missing email, updating with customer email...")
+    await updateCart({ email: customer.email })
   }
 
   const headers: any = {
     ...(await getAuthHeaders()),
   }
 
+  console.log("📝 [PLACE ORDER] Headers prepared:", Object.keys(headers))
+
   const cartsTag = await getCacheTag("carts")
   const ordersTag = await getCacheTag("orders")
   const approvalsTag = await getCacheTag("approvals")
 
+  console.log("🏷️ [PLACE ORDER] Cache tags retrieved")
+  console.log("💾 [PLACE ORDER] Updating cart metadata with payment mode...")
+  
   await updateCart({ metadata: { payment_mode } })
+  
+  console.log("✅ [PLACE ORDER] Cart metadata updated")
+
+  console.log("🎯 [PLACE ORDER] Calling sdk.store.cart.complete()...")
+  console.log("📤 [PLACE ORDER] Request details:", {
+    cartId: id,
+    headers: headers,
+    timestamp: new Date().toISOString()
+  })
 
   const response = await sdk.store.cart
     .complete(id, {}, headers)
-    .catch(medusaError)
+    .catch((error) => {
+      console.error("❌ [PLACE ORDER] Cart completion failed:", error)
+      console.error("❌ [PLACE ORDER] Error details:", {
+        message: error.message,
+        stack: error.stack,
+        response: error.response
+      })
+      return medusaError(error)
+    })
+
+  console.log("📦 [PLACE ORDER] Response received:", {
+    type: response.type,
+    hasOrder: !!response.order,
+    orderId: response.order?.id,
+    orderDisplayId: response.order?.display_id
+  })
 
   if (response.type === "cart") {
+    console.warn("⚠️ [PLACE ORDER] Response is still a cart, not an order")
+    console.warn("⚠️ [PLACE ORDER] Cart error:", response.error)
     return response
+  }
+
+  console.log("🎉 [PLACE ORDER] Order created successfully!")
+  console.log("📊 [PLACE ORDER] Order details:", {
+    orderId: response.order.id,
+    displayId: response.order.display_id,
+    customerId: response.order.customer_id,
+    email: response.order.email,
+    total: response.order.total
+  })
+
+  // Send order confirmation email
+  console.log("📧 [PLACE ORDER] Triggering order confirmation email...")
+  try {
+    // Add publishable key to headers
+    const emailHeaders: any = {
+      "Content-Type": "application/json",
+      ...headers
+    }
+    
+    if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+      emailHeaders["x-publishable-api-key"] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+      console.log("📧 [PLACE ORDER] Added publishable key to email request")
+    }
+    
+    const emailResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/send-order-confirmation`,
+      {
+        method: "POST",
+        headers: emailHeaders,
+        body: JSON.stringify({ order_id: response.order.id })
+      }
+    )
+    
+    const emailResult = await emailResponse.json()
+    console.log("📧 [PLACE ORDER] Email API response:", emailResult)
+    
+    if (!emailResponse.ok) {
+      console.error("❌ [PLACE ORDER] Email API returned error:", emailResult)
+    } else {
+      console.log("✅ [PLACE ORDER] Email sent successfully!")
+    }
+  } catch (emailError) {
+    console.error("❌ [PLACE ORDER] Failed to send email:", emailError)
   }
 
   track("order_completed", {
     order_id: response.order.id,
   })
 
+  console.log("🔄 [PLACE ORDER] Revalidating cache tags...")
   revalidateTag(cartsTag)
   revalidateTag(ordersTag)
   revalidateTag(approvalsTag)
 
+  console.log("🗑️ [PLACE ORDER] Removing cart ID from cookies...")
   await removeCartId()
 
-  redirect(
-    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
-      response.order.id
-    }`
-  )
+  const redirectUrl = `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
+    response.order.id
+  }`
+  console.log("🔀 [PLACE ORDER] Redirecting to:", redirectUrl)
+  
+  redirect(redirectUrl)
 }
 
 /**
