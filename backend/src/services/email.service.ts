@@ -124,6 +124,8 @@ export default class EmailService {
 
     try {
       const templateData = {
+        first_name: data.customer.first_name || "Customer",
+        last_name: data.customer.last_name || "",
         customer_name: `${data.customer.first_name} ${data.customer.last_name}`,
         customer_email: data.customer.email,
         company_name: data.customer.company?.name || "",
