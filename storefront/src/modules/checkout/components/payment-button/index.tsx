@@ -19,25 +19,15 @@ type PaymentButtonProps = {
 }
 
 const completeCart = async (cart: B2BCart, paymentMode: string = "manual") => {
-  console.log("🎬 [PAYMENT BUTTON] Starting completeCart...")
-  console.log("🎬 [PAYMENT BUTTON] Cart ID:", cart.id)
-  console.log("🎬 [PAYMENT BUTTON] Payment Mode:", paymentMode)
-  
   const response = await placeOrder(cart.id, paymentMode).catch((err) => {
-    console.error("❌ [PAYMENT BUTTON] placeOrder failed:", err)
     if (!err.message.includes("NEXT_REDIRECT")) {
       throw new Error(err)
     }
   })
 
-  console.log("🎬 [PAYMENT BUTTON] placeOrder response:", response)
-  
   if (response?.type === "cart") {
-    console.error("❌ [PAYMENT BUTTON] Response is still cart, throwing error")
     throw new Error(response.error.message)
   }
-  
-  console.log("✅ [PAYMENT BUTTON] Cart completed successfully")
 }
 
 const PaymentButton: React.FC<PaymentButtonProps> = ({
@@ -185,10 +175,8 @@ const StripePaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    console.log("💳 [STRIPE] onPaymentCompleted called")
     await completeCart(cart, "stripe")
       .catch((err) => {
-        console.error("❌ [STRIPE] completeCart failed:", err)
         setErrorMessage(err.message)
       })
       .finally(() => {
@@ -295,10 +283,8 @@ const PayPalPaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    console.log("💰 [PAYPAL] onPaymentCompleted called")
     await completeCart(cart, "paypal")
       .catch((err) => {
-        console.error("❌ [PAYPAL] completeCart failed:", err)
         setErrorMessage(err.message)
       })
       .finally(() => {
@@ -365,10 +351,8 @@ const ManualTestPaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    console.log("🧪 [MANUAL] onPaymentCompleted called")
     await completeCart(cart, "manual")
       .catch((err) => {
-        console.error("❌ [MANUAL] completeCart failed:", err)
         setErrorMessage(err.message)
       })
       .finally(() => {
@@ -377,15 +361,7 @@ const ManualTestPaymentButton = ({
   }
 
   const handlePayment = () => {
-    console.log("🧪 [MANUAL] handlePayment called")
-    console.log("🧪 [MANUAL] Cart details:", {
-      cartId: cart.id,
-      email: cart.email,
-      customerId: cart.customer?.id,
-      total: cart.total
-    })
     setSubmitting(true)
-
     onPaymentCompleted()
   }
 

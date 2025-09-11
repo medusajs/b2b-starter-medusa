@@ -42,26 +42,7 @@ export default class EmailService {
     order: any;
     customer: any;
   }): Promise<boolean> {
-    console.log("🚀🚀🚀 ===========================================");
-    console.log("🚀🚀🚀 [EMAIL SERVICE] sendOrderPlacedEmail CALLED!");
-    console.log("🚀 [EMAIL SERVICE] To:", data.to);
-    console.log("🚀 [EMAIL SERVICE] Order ID:", data.order?.id);
-    console.log("🚀 [EMAIL SERVICE] Order Display ID:", data.order?.display_id);
-    console.log("🚀 [EMAIL SERVICE] Customer:", data.customer?.email);
-    console.log("🚀 [EMAIL SERVICE] API Key exists:", !!this.options.apiKey);
-    console.log("🚀 [EMAIL SERVICE] Template ID:", this.options.orderPlacedTemplateId);
-    console.log("🚀 [EMAIL SERVICE] From Email:", this.options.fromEmail);
-    console.log("🚀🚀🚀 ===========================================");
-    
-    if (!this.options.apiKey) {
-      console.error("❌❌❌ [EMAIL SERVICE] NO SENDGRID API KEY!");
-      console.error("❌❌❌ [EMAIL SERVICE] Please set SENDGRID_API_KEY environment variable");
-      return false;
-    }
-    
-    if (!this.options.orderPlacedTemplateId) {
-      console.error("❌❌❌ [EMAIL SERVICE] NO ORDER PLACED TEMPLATE ID!");
-      console.error("❌❌❌ [EMAIL SERVICE] Please set SENDGRID_ORDER_PLACED_TEMPLATE environment variable");
+    if (!this.options.apiKey || !this.options.orderPlacedTemplateId) {
       return false;
     }
 
@@ -125,34 +106,10 @@ export default class EmailService {
         templateId: this.options.orderPlacedTemplateId,
         dynamicTemplateData: templateData,
       };
-      
-      console.log("📨 [EMAIL SERVICE] Sending email with SendGrid...");
-      console.log("📨 [EMAIL SERVICE] Message object:", {
-        to: msg.to,
-        from: msg.from,
-        templateId: msg.templateId,
-        hasTemplateData: !!msg.dynamicTemplateData
-      });
-      console.log("📨 [EMAIL SERVICE] Template data keys:", Object.keys(templateData));
 
       const [response] = await sgMail.send(msg);
-      
-      console.log("✅✅✅ ===========================================");
-      console.log("✅✅✅ [EMAIL SERVICE] EMAIL SENT SUCCESSFULLY!");
-      console.log("✅✅✅ [EMAIL SERVICE] SendGrid Response Status:", response?.statusCode);
-      console.log("✅✅✅ [EMAIL SERVICE] Email sent to:", data.to);
-      console.log("✅✅✅ [EMAIL SERVICE] Order:", data.order.display_id);
-      console.log("✅✅✅ ===========================================");
-      
       return true;
     } catch (error: any) {
-      console.error("❌❌❌ ===========================================");
-      console.error("❌❌❌ [EMAIL SERVICE] FAILED TO SEND EMAIL!");
-      console.error("❌❌❌ [EMAIL SERVICE] Error message:", error.message);
-      console.error("❌❌❌ [EMAIL SERVICE] Error code:", error.code);
-      console.error("❌❌❌ [EMAIL SERVICE] Error response:", error.response?.body);
-      console.error("❌❌❌ [EMAIL SERVICE] Full error:", error);
-      console.error("❌❌❌ ===========================================");
       return false;
     }
   }
