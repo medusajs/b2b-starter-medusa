@@ -18,8 +18,8 @@ type PaymentButtonProps = {
   "data-testid": string
 }
 
-const completeCart = async (cart: B2BCart) => {
-  const response = await placeOrder(cart.id).catch((err) => {
+const completeCart = async (cart: B2BCart, paymentMode: string = "manual") => {
+  const response = await placeOrder(cart.id, paymentMode).catch((err) => {
     if (!err.message.includes("NEXT_REDIRECT")) {
       throw new Error(err)
     }
@@ -148,7 +148,7 @@ const GiftCardPaymentButton = ({ cart }: { cart: B2BCart }) => {
 
   const handleOrder = async () => {
     setSubmitting(true)
-    await completeCart(cart)
+    await completeCart(cart, "giftcard")
   }
 
   return (
@@ -175,7 +175,7 @@ const StripePaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    await completeCart(cart)
+    await completeCart(cart, "stripe")
       .catch((err) => {
         setErrorMessage(err.message)
       })
@@ -283,7 +283,7 @@ const PayPalPaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    await completeCart(cart)
+    await completeCart(cart, "paypal")
       .catch((err) => {
         setErrorMessage(err.message)
       })
@@ -351,7 +351,7 @@ const ManualTestPaymentButton = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const onPaymentCompleted = async () => {
-    await completeCart(cart)
+    await completeCart(cart, "manual")
       .catch((err) => {
         setErrorMessage(err.message)
       })
@@ -362,7 +362,6 @@ const ManualTestPaymentButton = ({
 
   const handlePayment = () => {
     setSubmitting(true)
-
     onPaymentCompleted()
   }
 

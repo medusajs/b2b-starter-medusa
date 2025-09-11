@@ -465,14 +465,20 @@ export async function setContactDetails(
 
 export async function placeOrder(
   cartId?: string,
-  payment_mode: string
+  payment_mode: string = "manual"
 ): Promise<HttpTypes.StoreCompleteCartResponse> {
   const id = cartId || (await getCartId())
 
-  console.log("here place order function..")
-
   if (!id) {
     throw new Error("No existing cart found when placing an order")
+  }
+
+  // Make sure cart has email before completing
+  const cart = await retrieveCart(id)
+  const customer = await retrieveCustomer()
+  
+  if (!cart?.email && customer?.email) {
+    await updateCart({ email: customer.email })
   }
 
   const headers: any = {
@@ -482,7 +488,7 @@ export async function placeOrder(
   const cartsTag = await getCacheTag("carts")
   const ordersTag = await getCacheTag("orders")
   const approvalsTag = await getCacheTag("approvals")
-
+  
   await updateCart({ metadata: { payment_mode } })
 
   const response = await sdk.store.cart

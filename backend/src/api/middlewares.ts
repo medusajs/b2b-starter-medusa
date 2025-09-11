@@ -25,33 +25,66 @@ const sendOrderEmailAfterComplete = async (
     if (data?.order?.id) {
       // Use the order data from the response directly
       const order = data.order;
-      const customerEmail = order.email;
+      let customerEmail = order.email;
       
       // Send email asynchronously
       (async () => {
         try {
+          // First try to get customer from auth token
+          const authToken = req.headers.authorization;
+          let customer: any = null;
+          
+          if (!customerEmail && authToken) {
+            try {
+              const tokenPayload = authToken.split('.')[1];
+              const decodedToken = JSON.parse(Buffer.from(tokenPayload, 'base64').toString());
+              const customerId = decodedToken.actor_id || decodedToken.app_metadata?.customer_id;
+              
+              if (customerId && customerId.startsWith('cus_')) {
+                const customerModule = req.scope.resolve(Modules.CUSTOMER);
+                customer = await customerModule.retrieveCustomer(customerId);
+                customerEmail = customer?.email;
+              }
+            } catch (e) {
+              // Silently fail
+            }
+          }
+          
+          // If no email on order and we have customer_id, try to fetch from customer
+          if (!customerEmail && order.customer_id) {
+            const customerModule = req.scope.resolve(Modules.CUSTOMER);
+            try {
+              customer = await customerModule.retrieveCustomer(order.customer_id);
+              customerEmail = customer?.email;
+            } catch (e) {
+              // Silently fail
+            }
+          }
+          
           if (!customerEmail) {
             return;
           }
           
           const emailService = req.scope.resolve("emailService") as EmailService;
           
-          // Create a simplified customer object from order data
-          const customer = {
-            id: order.customer_id || "guest",
-            email: customerEmail,
-            first_name: order.shipping_address?.first_name || order.billing_address?.first_name || "",
-            last_name: order.shipping_address?.last_name || order.billing_address?.last_name || "",
-          };
+          // Use the customer we already fetched, or create a fallback
+          if (!customer) {
+            customer = {
+              id: order.customer_id || "guest",
+              email: customerEmail,
+              first_name: order.shipping_address?.first_name || order.billing_address?.first_name || "",
+              last_name: order.shipping_address?.last_name || order.billing_address?.last_name || "",
+            };
+          }
           
-          const sent = await emailService.sendOrderPlacedEmail({
+          await emailService.sendOrderPlacedEmail({
             to: customerEmail,
             order: order,
             customer: customer,
           });
           
         } catch (error: any) {
-          console.error("❌ [Order Email] Error:", error.message);
+          // Silently fail - don't block order completion
         }
       })();
     }
