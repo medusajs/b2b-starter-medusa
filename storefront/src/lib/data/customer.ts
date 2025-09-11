@@ -132,6 +132,38 @@ export async function signup(_currentState: unknown, formData: FormData) {
       console.log("error creating employee", err)
     })
 
+    // Send welcome email using the same pattern as password reset
+    try {
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      }
+
+      // Add publishable API key if available
+      if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+        headers["x-publishable-api-key"] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+      }
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"}/store/send-welcome-email`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ 
+          email: customerForm.email,
+          firstName: customerForm.first_name,
+          lastName: customerForm.last_name,
+          companyName: companyForm.name
+        }),
+      })
+
+      const data = await response.json()
+      
+      if (!response.ok) {
+        console.log("Failed to send welcome email:", data.error || "Unknown error")
+      }
+    } catch (emailError: any) {
+      console.log("Error sending welcome email:", emailError.message)
+      // Don't throw - we don't want to block signup if email fails
+    }
+
     const cacheTag = await getCacheTag("customers")
     revalidateTag(cacheTag)
 
