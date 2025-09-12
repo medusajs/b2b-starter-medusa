@@ -5,6 +5,7 @@ import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { FULFILLMENT_SHIPPING_MODULE } from "./src/modules/fulfillment-shipping";
 import { INVOICE_MODULE } from "./src/modules/invoice";
 import { EMAIL_MODULE } from "./src/modules/email";
+import { ALGOLIA_MODULE } from "./src/modules/algolia";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -51,6 +52,14 @@ module.exports = defineConfig({
     },
     [EMAIL_MODULE]: {
       resolve: "./modules/email",
+    },
+    [ALGOLIA_MODULE]: {
+      resolve: "./modules/algolia",
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME,
+      },
     },
     [Modules.FILE]: {
       resolve: "@medusajs/medusa/file",

@@ -35,6 +35,7 @@
     "@mikro-orm/migrations": "6.4.3",
     "@mikro-orm/postgresql": "6.4.3",
     "@sendgrid/mail": "^8.1.5",
+    "algoliasearch": "^5.37.0",
     "awilix": "^8.0.1",
     "aws-sdk": "^2.1691.0",
     "chart.js": "^4.4.9",
