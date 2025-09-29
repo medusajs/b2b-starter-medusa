@@ -22,7 +22,9 @@
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1",
+    "doctor:db": "medusa exec ./src/scripts/check-database-health.ts"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.8.4",
@@ -37,6 +39,7 @@
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
     "pg": "^8.13.0",
+    "posthog-node": "^4.17.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -53,6 +56,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
     "vite": "^5.2.11"
