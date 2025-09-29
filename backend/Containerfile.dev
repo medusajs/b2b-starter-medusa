@@ -1,12 +1,11 @@
 # ==========================================
-# Containerfile (Podfile) para Backend Medusa
-# Otimizado para desenvolvimento com Fedora/RHEL
+# Containerfile para Backend Medusa B2B
+# Otimizado para desenvolvimento com correções
 # ==========================================
 
-# Stage 1: Base Fedora com Node.js
-FROM registry.fedoraproject.org/fedora:latest AS base
+FROM registry.fedoraproject.org/fedora:latest AS dev
 
-# Instalar Node.js e dependências do sistema
+# Instalar dependências do sistema
 RUN dnf update -y && \
       dnf install -y \
       nodejs \
@@ -17,64 +16,54 @@ RUN dnf update -y && \
       wget \
       git \
       python3 \
-      python3-pip \
       gcc \
       gcc-c++ \
       make \
-      glibc-devel \
       && dnf clean all
 
-# Configurar diretório de trabalho
+# Configurações globais do npm
+RUN npm config set legacy-peer-deps true && \
+      npm config set fund false && \
+      npm config set audit false
+
+# Criar usuário não-root
+RUN useradd --system --create-home --shell /bin/bash medusa
+
+# Definir diretório de trabalho  
 WORKDIR /app
 
-# Configurações de performance para Node.js
+# Copiar script de inicialização
+COPY start-dev.sh ./
+RUN chmod +x start-dev.sh && chown medusa:medusa start-dev.sh
+
+# Copiar arquivos de configuração
+COPY --chown=medusa:medusa package*.json ./
+COPY --chown=medusa:medusa .env.build ./.env
+
+# Configurações de ambiente
 ENV NODE_ENV=development
-ENV NODE_OPTIONS="--max-old-space-size=2048 --enable-source-maps"
-ENV NPM_CONFIG_LOGLEVEL=warn
-ENV NPM_CONFIG_PROGRESS=false
-
-# Stage 2: Dependency installer
-FROM base AS deps
-COPY package*.json ./
-COPY .npmrc* ./
-
-# Cache otimizado para dependências
-RUN --mount=type=cache,target=/root/.npm \
-      npm ci --no-audit --no-fund && \
-      npm cache clean --force
-
-# Stage 3: Development runner
-FROM base AS dev
-
-# Criar usuário não-root para desenvolvimento
-RUN useradd --system --create-home --shell /bin/bash medusa && \
-      usermod -aG wheel medusa
-
-# Copiar dependências
-COPY --from=deps --chown=medusa:medusa /app/node_modules ./node_modules
-COPY --chown=medusa:medusa . .
-
-# Instalar ferramentas de desenvolvimento
-RUN npm install -g \
-      nodemon \
-      @medusajs/cli \
-      typescript \
-      ts-node
-
-# Configurar hot reload e debugging
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 ENV CHOKIDAR_USEPOLLING=true
 ENV WATCHPACK_POLLING=true
-ENV DEBUG=medusa:*
 
-# Expor portas para desenvolvimento
-EXPOSE 9000 9001 9002
+# Criar diretório node_modules com permissões corretas antes de mudar usuário
+RUN mkdir -p /app/node_modules && chown -R medusa:medusa /app
 
-# Health check otimizado
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-      CMD curl -f http://localhost:9000/health || exit 1
-
-# Configurar usuário
+# Mudar para usuário não-root
 USER medusa
 
-# Script de entrada para desenvolvimento
-ENTRYPOINT ["sh", "-c", "npm run dev"]
+# Instalar dependências
+RUN npm install --legacy-peer-deps
+
+# Copiar código fonte
+COPY --chown=medusa:medusa . .
+
+# Expor portas
+EXPOSE 9000-9002
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
+      CMD curl -f http://localhost:9000/health || exit 1
+
+# Usar script de inicialização
+CMD ["./start-dev.sh"]

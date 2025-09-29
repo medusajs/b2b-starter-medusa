@@ -14,6 +14,9 @@
   ],
   "scripts": {
     "build": "medusa build",
+    "migrate": "medusa migrations run",
+    "migrate:create": "medusa migrations create",
+    "db:setup": "medusa db:create && medusa migrations run",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
@@ -34,7 +37,7 @@
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
     "pg": "^8.13.0",
-    "zod": "3.22.4"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.8.4",
