@@ -3,6 +3,8 @@
 # Backend Initialization Script for Medusa B2B
 set -e
 
+export PGSSLMODE="${PGSSLMODE:-disable}"
+
 echo "🚀 Iniciando Backend Medusa B2B..."
 
 # Wait for database to be ready

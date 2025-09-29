@@ -62,6 +62,8 @@ services:
       NODE_ENV: development
       DATABASE_URL: postgres://medusa_user:medusa_password@postgres-dev:5432/medusa_db?sslmode=disable
       REDIS_URL: redis://redis-dev:6379
+      MEDUSA_REDIS_URL: redis://redis-dev:6379
+      PGSSLMODE: disable
       JWT_SECRET: dev-jwt-secret-key
       COOKIE_SECRET: dev-cookie-secret-key
       MEDUSA_ADMIN_CORS: http://localhost:9000,http://localhost:7001
@@ -173,7 +175,10 @@ volumes:
 
 networks:
   ysh-b2b-dev-network:
+    name: ysh-b2b-dev
     driver: bridge
+    driver_opts:
+      dns_enabled: "true"
     ipam:
       config:
         - subnet: 172.28.0.0/16
