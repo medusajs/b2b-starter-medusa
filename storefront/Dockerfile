@@ -1,0 +1,69 @@
+# ==========================================
+# Multi-stage Dockerfile para Storefront Next.js
+# Otimizado para performance e Vercel compatibility
+# ==========================================
+
+# Stage 1: Base com Node.js otimizado
+FROM node:20-alpine AS base
+RUN apk add --no-cache libc6-compat dumb-init
+WORKDIR /app
+
+# Configurações de performance para Next.js
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
+# Stage 2: Dependency installer
+FROM base AS deps
+COPY package*.json ./
+COPY .npmrc* ./
+
+# Cache otimizado para dependências
+RUN --mount=type=cache,target=/root/.npm \
+      npm ci --only=production --no-audit --no-fund --legacy-peer-deps && \
+      npm cache clean --force
+
+# Instalar dependências de desenvolvimento em stage separado
+FROM base AS dev-deps
+COPY package*.json ./
+COPY .npmrc* ./
+
+RUN --mount=type=cache,target=/root/.npm \
+      npm ci --no-audit --no-fund --legacy-peer-deps
+
+# Stage 3: Build stage
+FROM base AS builder
+COPY package*.json ./
+COPY --from=dev-deps /app/node_modules ./node_modules
+COPY . .
+
+# Build otimizado do Next.js
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+# Stage 4: Production runner
+FROM base AS runner
+
+# Criar usuário não-root
+RUN addgroup --system --gid 1001 nextjs && \
+      adduser --system --uid 1001 nextjs
+
+# Copiar arquivos de produção
+COPY --from=deps --chown=nextjs:nextjs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nextjs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nextjs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nextjs /app/public ./public
+
+# Configurações de runtime
+USER nextjs
+EXPOSE 8000
+ENV PORT=8000
+ENV HOSTNAME="0.0.0.0"
+
+# Health check para Next.js
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+      CMD curl -f http://localhost:8000/api/health || exit 1
+
+# Usar dumb-init para gerenciamento de sinais
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "server.js"]

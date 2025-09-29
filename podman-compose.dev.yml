@@ -1,0 +1,191 @@
+# ==========================================
+# Podman Compose para Ambiente de Desenvolvimento
+# Configuração otimizada para máxima performance
+# ==========================================
+
+version: "3.8"
+
+services:
+  # PostgreSQL Database
+  postgres-dev:
+    image: registry.fedoraproject.org/fedora:latest
+    container_name: ysh-b2b-postgres-dev
+    restart: unless-stopped
+    command: >
+      bash -c "
+        dnf install -y postgresql-server postgresql-contrib &&
+        postgresql-setup --initdb &&
+        systemctl enable postgresql &&
+        systemctl start postgresql &&
+        su - postgres -c \"createdb medusa_db\" &&
+        su - postgres -c \"createuser medusa_user\" &&
+        su - postgres -c \"psql -c \\\"ALTER USER medusa_user WITH PASSWORD 'medusa_password';\\\"\" &&
+        su - postgres -c \"psql -c \\\"GRANT ALL PRIVILEGES ON DATABASE medusa_db TO medusa_user;\\\"\" &&
+        tail -f /dev/null
+      "
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - ysh-b2b-dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis-dev:
+    image: registry.fedoraproject.org/fedora:latest
+    container_name: ysh-b2b-redis-dev
+    restart: unless-stopped
+    command: >
+      bash -c "
+        dnf install -y redis &&
+        redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru --bind 0.0.0.0
+      "
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_dev_data:/var/lib/redis
+    networks:
+      - ysh-b2b-dev-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Medusa Development
+  backend-dev:
+    build:
+      context: ./backend
+      dockerfile: Containerfile.dev
+    container_name: ysh-b2b-backend-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://medusa_user:medusa_password@postgres-dev:5432/medusa_db
+      REDIS_URL: redis://redis-dev:6379
+      JWT_SECRET: dev-jwt-secret-key
+      COOKIE_SECRET: dev-cookie-secret-key
+      MEDUSA_ADMIN_CORS: http://localhost:9000,http://localhost:7001
+      MEDUSA_STORE_CORS: http://localhost:8000
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+      - "9002:9002"
+    volumes:
+      - ./backend:/app:z
+      - backend_dev_uploads:/app/uploads
+      - /app/node_modules
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      postgres-dev:
+        condition: service_healthy
+      redis-dev:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+          ignore:
+            - node_modules/
+            - dist/
+            - .git/
+
+  # Storefront Next.js Development
+  storefront-dev:
+    build:
+      context: ./storefront
+      dockerfile: Containerfile.dev
+    container_name: ysh-b2b-storefront-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_dev_test
+      NEXT_PUBLIC_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEFAULT_REGION: us
+      REVALIDATE_SECRET: dev-revalidate-secret
+      NEXT_TELEMETRY_DISABLED: 1
+      CHOKIDAR_USEPOLLING: true
+      WATCHPACK_POLLING: true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storefront:/app:z
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      - backend-dev
+    develop:
+      watch:
+        - action: sync
+          path: ./storefront
+          target: /app
+          ignore:
+            - node_modules/
+            - .next/
+            - .git/
+
+  # Adminer para administração de banco
+  adminer-dev:
+    image: registry.fedoraproject.org/fedora:latest
+    container_name: ysh-b2b-adminer-dev
+    restart: unless-stopped
+    command: >
+      bash -c "
+        dnf install -y php php-pdo php-pgsql php-json wget &&
+        wget -O /tmp/adminer.php https://www.adminer.org/latest.php &&
+        php -S 0.0.0.0:8080 /tmp/adminer.php
+      "
+    ports:
+      - "8080:8080"
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      - postgres-dev
+
+  # Mailhog para captura de emails de desenvolvimento
+  mailhog-dev:
+    image: registry.fedoraproject.org/fedora:latest
+    container_name: ysh-b2b-mailhog-dev
+    restart: unless-stopped
+    command: >
+      bash -c "
+        dnf install -y golang git &&
+        go install github.com/mailhog/MailHog@latest &&
+        /root/go/bin/MailHog
+      "
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - ysh-b2b-dev-network
+
+volumes:
+  postgres_dev_data:
+    driver: local
+  redis_dev_data:
+    driver: local
+  backend_dev_uploads:
+    driver: local
+
+networks:
+  ysh-b2b-dev-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
