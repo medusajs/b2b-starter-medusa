@@ -9,7 +9,6 @@ const nextConfig = {
   reactStrictMode: true,
 
   // Configurações de performance otimizadas
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
@@ -22,15 +21,11 @@ const nextConfig = {
     optimizeCss: true,
     gzipSize: true,
     optimizePackageImports: ["@medusajs/ui", "lucide-react"],
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
   },
+
+  // Next 15+: usar chave `turbopack` (substitui experimental.turbo)
+  // Observação: regras de loaders personalizados não são suportadas em Turbopack como no Webpack.
+  turbopack: {},
 
   typescript: {
     ignoreBuildErrors: true,
