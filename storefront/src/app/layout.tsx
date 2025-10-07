@@ -6,7 +6,7 @@ import { Metadata } from "next"
 import { PWAProvider } from "@/components/PWAProvider"
 import "@/styles/globals.css"
 import { LeadQuoteProvider } from "@/modules/lead-quote/context"
-import PostHogScript from "@/modules/analytics/PostHogScript"
+import { AnalyticsProvider } from "@/modules/analytics/AnalyticsProvider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,14 +57,15 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
       <body className="font-sans">
-        <PostHogScript />
-        <PWAProvider>
-          <LeadQuoteProvider>
-            <main className="relative">{props.children}</main>
-          </LeadQuoteProvider>
-          <Toaster className="z-[99999]" position="bottom-left" />
-          <Analytics />
-        </PWAProvider>
+        <AnalyticsProvider>
+          <PWAProvider>
+            <LeadQuoteProvider>
+              <main className="relative">{props.children}</main>
+            </LeadQuoteProvider>
+            <Toaster className="z-[99999]" position="bottom-left" />
+            <Analytics />
+          </PWAProvider>
+        </AnalyticsProvider>
       </body>
     </html>
   )
