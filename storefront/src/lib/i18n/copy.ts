@@ -92,6 +92,16 @@ const ptBR: DeepRecord = {
     card_gc_desc: { default: "Geração compartilhada para áreas comuns e unidades." },
     card_ind_title: { default: "Indústria/Grandes" },
     card_ind_desc: { default: "EaaS e PPA com previsibilidade e SLA." },
+    cta_b1: { default: "Ver kits residenciais" },
+    cta_b2: { default: "Ver soluções rurais" },
+    cta_b3: { default: "Cotação empresarial" },
+    cta_gc: { default: "Soluções coletivas" },
+    cta_ind: { default: "Falar com especialista" },
+  },
+  videos_home: {
+    tag: { default: "Histórias reais" },
+    heading: { default: "Energia limpa em ação" },
+    subheading: { default: "Conheça projetos reais de energia solar sustentável" },
   },
   quote: {
     status: {
