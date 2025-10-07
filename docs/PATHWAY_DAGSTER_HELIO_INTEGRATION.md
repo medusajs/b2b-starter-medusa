@@ -185,6 +185,7 @@ def sales_kb(context, postgres: PostgresResource, qdrant: QdrantResource):
 ```
 
 **Schedules**:
+
 - `helio_kb_schedule`: Diário às **02:00** (atualiza todas KBs)
 - `catalog_schedule`: Diário às **02:00** (apenas catálogo)
 - `tarifas_schedule`: Diário às **06:00** (tarifas ANEEL)
@@ -527,6 +528,7 @@ yarn dev
 ### Problema 1: Dagster assets falham com "No module named 'definitions'"
 
 **Solução**:
+
 ```bash
 # Verificar pyproject.toml existe
 ls data-platform/dagster/pyproject.toml
@@ -541,6 +543,7 @@ docker logs ysh-dagster-daemon
 ### Problema 2: Qdrant retorna "Collection not found"
 
 **Solução**:
+
 ```bash
 # Listar collections
 curl http://localhost:6333/collections
@@ -554,11 +557,13 @@ curl -X PUT http://localhost:6333/collections/helio-catalog \
 ### Problema 3: Hélio retorna respostas genéricas (sem contexto)
 
 **Causas possíveis**:
+
 1. Collections vazias (não materializou assets)
 2. Embeddings desatualizados
 3. Query embedding falhou
 
 **Solução**:
+
 ```bash
 # 1. Verificar count de vectors
 curl http://localhost:6333/collections/helio-catalog
@@ -613,6 +618,6 @@ curl -X POST http://localhost:6333/collections/helio-catalog/points/search \
 
 ---
 
-**Contato**: eng@yellowsolarhub.com  
+**Contato**: <eng@yellowsolarhub.com>  
 **Licença**: Proprietário YSH  
 **Última atualização**: 7 de outubro de 2025
