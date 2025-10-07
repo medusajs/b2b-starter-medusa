@@ -1,4 +1,3 @@
-import { MedusaService } from "@medusajs/framework/utils";
 import fs from "fs";
 import path from "path";
 
@@ -53,16 +52,13 @@ export interface CatalogResponse {
     limit: number;
 }
 
-class YshCatalogModuleService extends MedusaService({
-    // Define entities if needed
-}) {
+class YshCatalogModuleService {
     private catalogPath: string;
     private unifiedSchemasPath: string;
     private imagesProcessedPath: string;
     private enrichedSchemasPath: string;
 
-    constructor() {
-        super();
+    constructor(container: any, options: any = {}) {
         // Caminhos para os dados do catálogo - caminhos absolutos
         this.catalogPath = path.resolve(__dirname, '../../../../../data/catalog');
         this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
@@ -176,7 +172,7 @@ class YshCatalogModuleService extends MedusaService({
                             if ((parsed as any)[key]) return (parsed as any)[key]
                         }
                     }
-                } catch {}
+                } catch { }
             }
         } catch (e) {
             // ignore
