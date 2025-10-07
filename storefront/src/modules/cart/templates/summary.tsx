@@ -24,8 +24,6 @@ type SummaryProps = {
 
 const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
   const { handleEmptyCart, cart } = useCart()
-  const leadQuote = useLeadQuote()
-  const addQuote = leadQuote?.add
 
   if (!cart) return null
 
@@ -94,18 +92,6 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         </RequestQuotePrompt>
       )}
       <CartToCsvButton cart={cart} />
-      <Button
-        className="w-full h-10 rounded-full shadow-borders-base"
-        variant="secondary"
-        onClick={() => {
-          cart.items?.forEach((li) => {
-            addQuote?.({ id: li.product_id || li.id, category: 'panels', name: li.title, manufacturer: li?.metadata?.brand || '', image_url: li.thumbnail || '', price_brl: li.unit_price })
-          })
-          sendEvent("add_cart_to_quote", { cart_id: cart.id, count: cart.items?.length || 0 })
-        }}
-      >
-        Adicionar itens do carrinho à cotação
-      </Button>
       <Button
         onClick={handleEmptyCart}
         className="w-full h-10 rounded-full shadow-borders-base"

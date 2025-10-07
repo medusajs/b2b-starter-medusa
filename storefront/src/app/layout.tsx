@@ -31,7 +31,25 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="pt-BR" data-mode="light" className={inter.variable}>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#fbbf24" />
+        {/* Theme colors for light/dark (zinc-950) */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+        {/* Initialize color scheme early to prevent FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+  try {
+    const storageKey = 'theme';
+    const stored = window.localStorage.getItem(storageKey);
+    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = stored ? stored === 'dark' : systemDark;
+    const html = document.documentElement;
+    if (dark) { html.classList.add('dark'); html.setAttribute('data-mode','dark'); }
+    else { html.classList.remove('dark'); html.setAttribute('data-mode','light'); }
+  } catch {}
+})();`,
+          }}
+        />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Yello Solar Hub" />

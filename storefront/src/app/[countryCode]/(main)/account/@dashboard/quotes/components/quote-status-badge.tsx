@@ -20,8 +20,8 @@ const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
   merchant_rejected: "red",
   pending_merchant: "orange",
   pending_customer: "orange",
-  pending_review: "Em revis�o Comercial",
-  pending_approval: "Aguardando Aprova��o Interna",
+  pending_review: "orange",
+  pending_approval: "orange",
   approved: "green",
   rejected: "red",
 }
