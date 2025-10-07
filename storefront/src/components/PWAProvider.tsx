@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react'
 
 export function PWAProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
+        // Verificar se estamos no browser
+        if (typeof window === 'undefined') return
+
         // Register service worker
-        if (typeof window !== 'undefined' && 'serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+        if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
             navigator.serviceWorker
                 .register('/sw.js')
                 .then((registration) => {
@@ -34,35 +37,34 @@ export function PWAProvider({ children }: { children: React.ReactNode }) {
         // Handle PWA install prompt
         let deferredPrompt: any
 
-        window.addEventListener('beforeinstallprompt', (e) => {
+        const handleBeforeInstallPrompt = (e: Event) => {
             e.preventDefault()
             deferredPrompt = e
-
-            // Show install button or notification
             console.log('PWA install prompt available')
-        })
+        }
 
-        // Handle app installed
-        window.addEventListener('appinstalled', () => {
+        const handleAppInstalled = () => {
             console.log('PWA was installed')
             deferredPrompt = null
-        })
+        }
 
         // Handle online/offline status
         const handleOnline = () => {
             console.log('App is online')
-            // You can dispatch custom events or update state here
         }
 
         const handleOffline = () => {
             console.log('App is offline')
-            // Show offline notification or update UI
         }
 
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+        window.addEventListener('appinstalled', handleAppInstalled)
         window.addEventListener('online', handleOnline)
         window.addEventListener('offline', handleOffline)
 
         return () => {
+            window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+            window.removeEventListener('appinstalled', handleAppInstalled)
             window.removeEventListener('online', handleOnline)
             window.removeEventListener('offline', handleOffline)
         }
@@ -77,6 +79,9 @@ export function usePWAInstall() {
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
 
     useEffect(() => {
+        // Verificar se estamos no browser
+        if (typeof window === 'undefined') return
+
         const handleBeforeInstallPrompt = (e: Event) => {
             e.preventDefault()
             setDeferredPrompt(e)
