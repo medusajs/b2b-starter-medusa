@@ -57,24 +57,10 @@ export async function NavigationHeader() {
 
             <div className="h-4 w-px bg-neutral-300" />
 
-            {customer && cart?.items && cart.items.length > 0 ? (
-              <RequestQuoteConfirmation>
-                <button
-                  className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1"
-                // disabled={isPendingApproval}
-                >
-                  <FilePlus />
-                  <span className="hidden small:inline-block">Cotação</span>
-                </button>
-              </RequestQuoteConfirmation>
-            ) : (
-              <RequestQuotePrompt>
-                <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
-                  <FilePlus />
-                  <span className="hidden small:inline-block">Cotação</span>
-              </button>
-              </RequestQuotePrompt>
-            )}
+            <LocalizedClientLink href="/cotacao" className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
+              <FilePlus />
+              <span className="hidden small:inline-block">Cotação</span>
+            </LocalizedClientLink>
 
             <Suspense fallback={<SkeletonAccountButton />}>
               <AccountButton customer={customer} />
