@@ -29,17 +29,17 @@ export function cartToCsv(cart: B2BCart) {
 
   // Create CSV header
   const header = [
-    "Item ID",
-    "Variant ID",
-    "Product Title",
-    "Product Description",
-    "Variant SKU",
-    "Variant Title",
-    "Quantity",
-    "Unit Price",
-    "Tax Rate",
-    "Total Price",
-    "Total Tax",
+    "ID do Item",
+    "ID da Variante",
+    "Título do Produto",
+    "Descrição do Produto",
+    "SKU da Variante",
+    "Título da Variante",
+    "Quantidade",
+    "Preço Unitário",
+    "Taxa de Imposto",
+    "Preço Total",
+    "Imposto Total",
   ].join(",")
 
   // Create CSV rows
