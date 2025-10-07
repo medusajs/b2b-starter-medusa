@@ -65,23 +65,25 @@ export const GET = async (
   const { category } = req.params;
 
   try {
-    const {
-      page = 1,
-      limit = 20,
-      manufacturer,
-      minPrice,
-      maxPrice,
-      availability
-    } = req.query;
+        const {
+            page = 1,
+            limit = 20,
+            manufacturer,
+            minPrice,
+            maxPrice,
+            availability,
+            sort
+        } = req.query;
 
-    const options = {
-      page: parseInt(page as string) || 1,
-      limit: parseInt(limit as string) || 20,
-      manufacturer: manufacturer as string,
-      minPrice: minPrice ? parseFloat(minPrice as string) : undefined,
-      maxPrice: maxPrice ? parseFloat(maxPrice as string) : undefined,
-      availability: availability as string
-    };
+        const options = {
+            page: parseInt(page as string) || 1,
+            limit: parseInt(limit as string) || 20,
+            manufacturer: manufacturer as string,
+            minPrice: minPrice ? parseFloat(minPrice as string) : undefined,
+            maxPrice: maxPrice ? parseFloat(maxPrice as string) : undefined,
+            availability: availability as string,
+            sort: (sort as string) === 'price_asc' || (sort as string) === 'price_desc' ? (sort as any) : undefined,
+        };
 
     const result = await yshCatalogService.listProductsByCategory(category, options);
     const normalized = result.products.map((p) => normalizeProduct(category, p))

@@ -64,7 +64,7 @@ export const GET = async (
     const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
 
     try {
-        const { q: query, category, limit = 20 } = req.query;
+        const { q: query, category, limit = 20, page = 1, manufacturer, minPrice, maxPrice, availability, sort } = req.query;
 
         if (!query || typeof query !== 'string') {
             return res.status(400).json({
@@ -75,15 +75,59 @@ export const GET = async (
 
         const options = {
             category: category as string,
-            limit: parseInt(limit as string) || 20
+            limit: 10000,
         };
 
-        const products = await yshCatalogService.searchProducts(query, options);
-        const normalized = products.map((p) => normalizeProduct(options.category, p))
+        let products = await yshCatalogService.searchProducts(query, options);
+
+        // Additional filters
+        if (manufacturer) {
+            products = products.filter((p) => p.manufacturer?.toLowerCase().includes((manufacturer as string).toLowerCase()))
+        }
+
+        const parseNumber = (s?: string) => {
+            if (!s) return undefined
+            const cleaned = s.replace(/[^0-9.,]/g, "")
+            if (cleaned.includes('.') && cleaned.includes(',')) return parseFloat(cleaned.replace(/\./g, '').replace(',', '.'))
+            if (cleaned.includes(',')) return parseFloat(cleaned.replace(',', '.'))
+            return parseFloat(cleaned)
+        }
+        const minP = minPrice ? parseFloat(minPrice as string) : undefined
+        const maxP = maxPrice ? parseFloat(maxPrice as string) : undefined
+        if (minP !== undefined || maxP !== undefined) {
+            products = products.filter((p) => {
+                const val = parseNumber(p.price)
+                if (val === undefined || isNaN(val)) return false
+                if (minP !== undefined && val < minP) return false
+                if (maxP !== undefined && val > maxP) return false
+                return true
+            })
+        }
+        if (availability) {
+            products = products.filter((p) => p.availability?.toLowerCase().includes((availability as string).toLowerCase()))
+        }
+        if (sort === 'price_asc' || sort === 'price_desc') {
+            products = [...products].sort((a, b) => {
+                const pa = parseNumber(a.price) ?? Number.POSITIVE_INFINITY
+                const pb = parseNumber(b.price) ?? Number.POSITIVE_INFINITY
+                return sort === 'price_asc' ? pa - pb : pb - pa
+            })
+        }
+
+        const total = products.length
+        const pageNum = parseInt(page as string) || 1
+        const pageSize = parseInt(limit as string) || 20
+        const start = (pageNum - 1) * pageSize
+        const end = start + pageSize
+        const pageItems = products.slice(start, end)
+
+        const normalized = pageItems.map((p) => normalizeProduct(options.category, p))
 
         res.json({
             query,
-            results: normalized.length,
+            total,
+            page: pageNum,
+            limit: pageSize,
             products: normalized
         });
     } catch (error) {

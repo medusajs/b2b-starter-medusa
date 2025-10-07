@@ -67,7 +67,7 @@ class YshCatalogModuleService extends MedusaService({
     /**
      * Lê um arquivo JSON do catálogo
      */
-    private readCatalogFile(filename: string): CatalogProduct[] {
+  private readCatalogFile(filename: string): CatalogProduct[] {
         try {
             const filePath = path.join(this.catalogPath, filename);
             if (!fs.existsSync(filePath)) {
@@ -90,6 +90,21 @@ class YshCatalogModuleService extends MedusaService({
         }
     }
 
+    private parsePriceValue(priceStr?: string): number | undefined {
+        if (!priceStr) return undefined
+        // Keep only digits, dots and commas
+        const cleaned = priceStr.replace(/[^0-9.,]/g, "")
+        // If has both '.' and ',', assume '.' thousand sep and ',' decimal
+        let normalized = cleaned
+        if (cleaned.includes('.') && cleaned.includes(',')) {
+            normalized = cleaned.replace(/\./g, '').replace(',', '.')
+        } else if (cleaned.includes(',')) {
+            normalized = cleaned.replace(',', '.')
+        } // else only dot present -> already decimal
+        const num = parseFloat(normalized)
+        return isNaN(num) ? undefined : num
+    }
+
     /**
      * Lista produtos por categoria
      */
@@ -102,6 +117,7 @@ class YshCatalogModuleService extends MedusaService({
             minPrice?: number;
             maxPrice?: number;
             availability?: string;
+            sort?: 'price_asc' | 'price_desc';
         } = {}
     ): Promise<CatalogResponse> {
         const { page = 1, limit = 50, manufacturer, minPrice, maxPrice, availability } = options;
@@ -143,15 +159,22 @@ class YshCatalogModuleService extends MedusaService({
 
         if (minPrice !== undefined || maxPrice !== undefined) {
             products = products.filter(p => {
-                if (!p.price) return false;
-                const priceMatch = p.price.match(/[\d.,]+/);
-                if (!priceMatch) return false;
-
-                const price = parseFloat(priceMatch[0].replace(',', '.'));
-                if (minPrice !== undefined && price < minPrice) return false;
-                if (maxPrice !== undefined && price > maxPrice) return false;
-                return true;
+                const price = this.parsePriceValue(p.price)
+                if (price === undefined) return false
+                if (minPrice !== undefined && price < minPrice) return false
+                if (maxPrice !== undefined && price > maxPrice) return false
+                return true
             });
+        }
+
+        // Sorting prior to pagination
+        if (options.sort) {
+            products = [...products].sort((a, b) => {
+                const pa = this.parsePriceValue(a.price) ?? Number.POSITIVE_INFINITY
+                const pb = this.parsePriceValue(b.price) ?? Number.POSITIVE_INFINITY
+                if (options.sort === 'price_asc') return pa - pb
+                return pb - pa
+            })
         }
 
         // Paginação
