@@ -1,8 +1,7 @@
 # Pathway
 pathway==0.15.0
 
-# Connectors
-pathway-airbyte==0.1.0  # Para 300+ fontes via Airbyte
+# Connectors (Airbyte optional; removido para build mais rápido)
 kafka-python==2.0.2
 boto3==1.34.0  # S3
 
@@ -21,7 +20,7 @@ qdrant-client==1.7.0
 openai==1.50.0
 
 # Validation
-pydantic==2.5.3
+pydantic==2.7.4
 
 # Utils
 python-dotenv==1.0.0

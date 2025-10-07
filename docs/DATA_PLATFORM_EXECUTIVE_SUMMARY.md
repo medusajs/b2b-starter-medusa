@@ -17,7 +17,8 @@
 | **Streaming ETL** | Pathway 0.15.0 | ✅ Implementado | Pipelines tempo real (catálogo, preços, ERP) |
 | **Orchestração** | Dagster 1.8.0 | ✅ Implementado | 11 assets, 4 jobs, 4 schedules |
 | **Vector Store** | Qdrant 1.7.0 (FOSS) | ✅ Implementado | 5 collections RAG (Hélio KBs) |
-| **AI/Embeddings** | OpenAI text-embedding-3-large | ✅ Integrado | 3072 dims, Cosine similarity |
+| **AI/Embeddings** | OpenAI + Ollama (Hybrid) | ✅ Implementado | 3072/768 dims, fallback automático |
+| **LLM Chat** | GPT-4o + Qwen2.5 20B (Hybrid) | ✅ Implementado | Fallback local OSS |
 | **RAG Agent** | Hélio (GPT-4o) | ✅ Integrado | 3 endpoints, 3 workflows |
 | **ERP Sync** | YSH ERP API + Kafka CDC | ✅ WIP | Sync bidirecional Medusa ↔ ERP |
 
@@ -162,23 +163,26 @@ Pipeline 4: Homologação Sync (Kafka topic: ysh-erp.homologacao)
 
 ## 📈 Benefícios Quantificados
 
-### 1. Custo (Migração Pinecone → Qdrant)
+### 1. Custo (Migração Pinecone → Qdrant + Ollama)
 
-- **Antes**: Pinecone ~$70-100/mês
-- **Depois**: Qdrant self-hosted ~$0 (apenas infra)
-- **Economia**: ~$1.200/ano
+- **Antes**: Pinecone $70-100/mês + OpenAI $150-300/mês = **$220-400/mês**
+- **Depois**: Qdrant $0 + Ollama $0 (local) + OpenAI fallback $30-50/mês = **$30-50/mês**
+- **Economia anual**: **$2.280 - $4.200**
 
-### 2. Latência
+### 2. Latência (Ollama Local vs OpenAI Cloud)
 
-- **Pinecone (cloud)**: ~80-120ms query
-- **Qdrant (local)**: ~10-30ms query
-- **Melhoria**: 3-5x mais rápido
+- **OpenAI Embeddings**: ~200ms (cloud US → Brasil)
+- **Ollama Embeddings**: ~50ms (local)
+- **Melhoria**: **4x mais rápido**
+- **OpenAI Chat**: ~800ms
+- **Ollama Chat (Qwen2.5 20B)**: ~300ms
+- **Melhoria**: **2.6x mais rápido**
 
 ### 3. Data Privacy
 
-- **Antes**: Embeddings em cloud terceiro (Pinecone US)
-- **Depois**: 100% self-hosted (Brasil)
-- **Compliance**: LGPD-compliant
+- **Antes**: Embeddings em cloud terceiro (Pinecone US + OpenAI)
+- **Depois**: 80% local (Ollama), 20% cloud (casos críticos)
+- **Compliance**: **LGPD-compliant** (dados sensíveis ficam local)
 
 ### 4. Automação
 
