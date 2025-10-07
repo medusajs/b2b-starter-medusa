@@ -46,9 +46,9 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
           <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
           <p className="text-neutral-950 text-xs">
-            This order exceeds your spending limit.
+            Este pedido excede seu limite de gastos.
             <br />
-            Please contact your manager for approval.
+            Entre em contato com seu gerente para aprovação.
           </p>
         </div>
       )}
@@ -62,9 +62,9 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         >
           {customer
             ? spendLimitExceeded
-              ? "Spending Limit Exceeded"
-              : "Checkout"
-            : "Log in to Checkout"}
+              ? "Limite de gastos excedido"
+              : "Finalizar compra"
+            : "Entrar para finalizar"}
         </Button>
       </LocalizedClientLink>
       {!!customer && (
@@ -74,7 +74,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
             variant="secondary"
             disabled={isPendingApproval}
           >
-            Request Quote
+            Solicitar cotação
           </Button>
         </RequestQuoteConfirmation>
       )}
@@ -85,7 +85,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
             variant="secondary"
             disabled={isPendingApproval}
           >
-            Request Quote
+            Solicitar cotação
           </Button>
         </RequestQuotePrompt>
       )}
@@ -96,7 +96,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         variant="secondary"
         disabled={isPendingApproval}
       >
-        Empty Cart
+        Esvaziar carrinho
       </Button>
     </Container>
   )

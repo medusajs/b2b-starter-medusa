@@ -159,7 +159,7 @@ const PromotionCode: React.FC<PromotionCodeProps> = ({ cart }) => {
                       >
                         <Trash size={14} />
                         <span className="sr-only">
-                          Remove discount code from order
+                          Remover código de desconto do pedido
                         </span>
                       </button>
                     )}
