@@ -82,7 +82,7 @@ export function CartProvider({
           (approval) => approval.status === ApprovalStatusType.PENDING
         )
       ) {
-        toast.error("Cart is locked for approval.")
+        toast.error("Carrinho bloqueado para aprovação.")
         return
       }
 
@@ -169,9 +169,9 @@ export function CartProvider({
           countryCode: countryCode as string,
         }).catch((e) => {
           if (e.message === "Cart is pending approval") {
-            toast.error("Cart is locked for approval.")
+            toast.error("Carrinho bloqueado para aprovação.")
           } else {
-            toast.error("Failed to add to cart")
+            toast.error("Falha ao adicionar ao carrinho")
           }
           setOptimisticCart(prevCart)
         })
@@ -215,7 +215,7 @@ export function CartProvider({
     setIsUpdatingCart(true)
 
     await deleteLineItem(lineItem).catch((e) => {
-      toast.error("Failed to delete item")
+      toast.error("Falha ao remover item")
       setOptimisticCart(prevCart)
     })
   }

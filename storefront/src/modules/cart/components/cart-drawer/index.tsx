@@ -149,7 +149,7 @@ const CartDrawer = ({
                   amount: subtotal,
                   currency_code: cart.currency_code,
                 })
-                : "Cart"}
+                : "Carrinho"}
             </span>
             <div className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
               {totalItems}
@@ -163,8 +163,8 @@ const CartDrawer = ({
           <Drawer.Header className="flex self-center">
             <Drawer.Title>
               {totalItems > 0
-                ? `You have ${totalItems} items in your cart`
-                : "Your cart is empty"}
+                ? `Você tem ${totalItems} item(s) no carrinho`
+                : "Seu carrinho está vazio"}
             </Drawer.Title>
           </Drawer.Header>
           {cart?.approvals && cart.approvals.length > 0 && (
