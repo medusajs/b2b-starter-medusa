@@ -9,22 +9,22 @@
     --ysh-orange: #FF6600;
     --ysh-pink: #FF0066;
 
-    /* Yello Solar Hub Gradient Utilities */
-    .bg-gradient-yello {
-        background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
-    }
-
-    .text-gradient-yello {
-        background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
     /* Glass Effects */
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Yello Solar Hub Gradient Utilities */
+.bg-gradient-yello {
+    background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+}
+
+.text-gradient-yello {
+    background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Glass morphism utilities */

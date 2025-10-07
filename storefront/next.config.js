@@ -77,21 +77,8 @@ const nextConfig = {
 
   // Webpack optimizations básicas
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Otimização básica de bundle splitting
-    config.optimization = {
-      ...config.optimization,
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\\/]node_modules[\\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-            priority: 10,
-          },
-        },
-      },
-    }
+    // Removendo configuração customizada de splitChunks para evitar conflitos
+    // O Next.js já tem otimizações próprias de bundle splitting
 
     return config
   },
