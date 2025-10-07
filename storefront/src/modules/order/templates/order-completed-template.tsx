@@ -5,7 +5,7 @@ import Items from "@/modules/order/components/items"
 import OrderDetails from "@/modules/order/components/order-details"
 import PaymentDetails from "@/modules/order/components/payment-details"
 import ShippingDetails from "@/modules/order/components/shipping-details"
-import { B2BOrder } from "types/global"
+import { B2BOrder } from "@/types/global"
 
 type OrderCompletedTemplateProps = {
   order: B2BOrder

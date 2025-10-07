@@ -4,7 +4,7 @@ import { transferCart } from "@/lib/data/customer"
 import { ExclamationCircleSolid } from "@medusajs/icons"
 import { Button } from "@medusajs/ui"
 import { useState } from "react"
-import { B2BCart, B2BCustomer } from "types/global"
+import { B2BCart, B2BCustomer } from "@/types/global"
 
 function CartMismatchBanner(props: { customer: B2BCustomer; cart: B2BCart }) {
   const { customer, cart } = props
