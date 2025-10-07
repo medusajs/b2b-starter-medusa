@@ -27,7 +27,7 @@ export const RequestQuoteConfirmation = ({
       router.push(`/${countryCode}/account/quotes/details/${quote.id}`)
     } catch (error) {
       setRequesting(false)
-      toast.error("Failed to create quote request")
+      toast.error("Falha ao criar solicitação de cotação")
     }
 
     setOpen(false)

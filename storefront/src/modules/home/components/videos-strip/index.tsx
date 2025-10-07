@@ -13,16 +13,13 @@ export default function VideosStrip() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm rounded-full border border-white/20 dark:border-zinc-800 mb-6">
             <span className="text-2xl">🎥</span>
-            <span className="text-gray-900 font-semibold">Histórias reais</span>
+            <span className="text-gray-900 dark:text-zinc-50 font-semibold">{t("videos_home.tag")}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-zinc-50 mb-4">
-            Energia limpa em
-            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-              ação
-            </span>
+            {t("videos_home.heading")}
           </h2>
           <p className="text-xl text-gray-600 dark:text-zinc-300 max-w-2xl mx-auto">
-            Conheça projetos reais de energia solar sustentável
+            {t("videos_home.subheading")}
           </p>
         </div>
 

@@ -74,6 +74,23 @@ export default async function Home(props: {
       </Suspense>
       <VideosStrip />
       <Testimonials />
+      {/* WebSite schema with SearchAction (basic) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Yello Solar Hub',
+            url: 'https://yellohub.com.br',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://yellohub.com.br/search?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          }),
+        }}
+      />
     </div>
   )
 }

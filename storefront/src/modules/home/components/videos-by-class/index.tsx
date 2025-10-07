@@ -103,7 +103,7 @@ export default function VideosByClass() {
             <div className="content-container">
                 <div className="text-center mb-12">
                     <Text className="text-blue-600 dark:text-blue-400 text-sm uppercase tracking-wider font-semibold mb-2">
-                        Aprenda Mais
+                        Aprenda mais
                     </Text>
                     <Heading level="h2" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-zinc-50 mb-4">
                         Vídeos por Classe Consumidora
