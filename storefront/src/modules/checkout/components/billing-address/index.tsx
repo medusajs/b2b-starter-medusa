@@ -81,7 +81,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
                 }
               )}
             >
-              Billing Address
+              Endereço de Cobrança
             </Heading>
             {!isOpen && cart?.billing_address?.address_1 && (
               <CheckCircleSolid />
@@ -90,7 +90,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
           {cart?.shipping_address?.address_1 && (
             <CheckboxWithLabel
               disabled={cartApprovalStatus === ApprovalStatusType.PENDING}
-              label="Same as shipping address"
+              label="Igual ao endereço de entrega"
               name="same_as_billing"
               checked={sameAsBilling}
               onChange={handleToggleSameAsBilling}
@@ -111,7 +111,7 @@ const BillingAddress = ({ cart }: { cart: B2BCart | null }) => {
                   className="mt-6"
                   data-testid="submit-address-button"
                 >
-                  Next step
+                  Próxima etapa
                 </SubmitButton>
                 <ErrorMessage
                   error={error}

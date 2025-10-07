@@ -47,7 +47,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
     <>
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="First name"
+          label="Nome"
           name="billing_address.first_name"
           autoComplete="given-name"
           value={formData["billing_address.first_name"]}
@@ -56,7 +56,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-first-name-input"
         />
         <Input
-          label="Last name"
+          label="Sobrenome"
           name="billing_address.last_name"
           autoComplete="family-name"
           value={formData["billing_address.last_name"]}
@@ -65,7 +65,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-last-name-input"
         />
         <Input
-          label="Phone"
+          label="Telefone"
           name="billing_address.phone"
           autoComplete="tel"
           value={formData["billing_address.phone"]}
@@ -74,7 +74,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           data-testid="billing-phone-input"
         />
         <Input
-          label="Company name"
+          label="Empresa"
           name="billing_address.company"
           value={formData["billing_address.company"]}
           onChange={handleChange}
@@ -83,7 +83,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           colSpan={2}
         />
         <Input
-          label="Address"
+          label="Endereço"
           name="billing_address.address_1"
           autoComplete="address-line1"
           value={formData["billing_address.address_1"]}
@@ -93,7 +93,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
           colSpan={2}
         />
         <Input
-          label="Postal code"
+          label="CEP"
           name="billing_address.postal_code"
           autoComplete="postal-code"
           value={formData["billing_address.postal_code"]}
@@ -104,7 +104,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
         />
         <div className="grid small:grid-cols-3 grid-cols-2 gap-4 col-span-2">
           <Input
-            label="City"
+            label="Cidade"
             name="billing_address.city"
             autoComplete="address-level2"
             value={formData["billing_address.city"]}
@@ -113,7 +113,7 @@ const BillingAddressForm = ({ cart }: { cart: B2BCart | null }) => {
             data-testid="billing-city-input"
           />
           <Input
-            label="Province"
+            label="Estado"
             name="billing_address.province"
             autoComplete="address-level1"
             value={formData["billing_address.province"]}
