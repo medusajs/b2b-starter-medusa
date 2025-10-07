@@ -8,6 +8,10 @@ const StatusTitles: Record<string, string> = {
   merchant_rejected: "Rejeitado pelo Vendedor",
   pending_merchant: "Pendente Vendedor",
   pending_customer: "Pendente Cliente",
+  pending_review: "Em Revisão Comercial",
+  pending_approval: "Aguardando Aprovação Interna",
+  approved: "Aprovado",
+  rejected: "Rejeitado",
 }
 
 const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
@@ -16,6 +20,10 @@ const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
   merchant_rejected: "red",
   pending_merchant: "orange",
   pending_customer: "orange",
+  pending_review: "blue",
+  pending_approval: "orange",
+  approved: "green",
+  rejected: "red",
 }
 
 export default function QuoteStatusBadge({ status }: { status: string }) {
