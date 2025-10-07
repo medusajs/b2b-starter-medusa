@@ -26,15 +26,8 @@ export default async function RelatedProducts({
   if (region?.id) {
     queryParams.region_id = region.id
   }
-  if (product.collection_id) {
-    queryParams.collection_id = [product.collection_id]
-  }
-  if (product.tags) {
-    queryParams.tag_id = product.tags
-      .map((t) => t.id)
-      .filter(Boolean) as string[]
-  }
-  queryParams.is_giftcard = false
+  // Removed collection_id and tag_id as they don't exist in StoreProductParams
+  // Removed is_giftcard as it doesn't exist in StoreProductParams
 
   const products = await listProducts({
     queryParams,

@@ -51,18 +51,27 @@ const Payment = ({
     (activeSession && cart?.shipping_methods.length !== 0) || paidByGiftcard
 
   const useOptions: StripeCardElementOptions = useMemo(() => {
+    let fg = "#111827"
+    let muted = "#6b7280"
+    try {
+      const styles = getComputedStyle(document.documentElement)
+      fg = styles.getPropertyValue("--fg").trim() || fg
+      muted = styles.getPropertyValue("--muted").trim() || muted
+    } catch {}
     return {
       style: {
         base: {
           fontFamily: "Inter, sans-serif",
-          color: "#424270",
-          "::placeholder": {
-            color: "rgb(107 114 128)",
+          color: fg,
+          iconColor: fg,
+          '::placeholder': {
+            color: muted,
           },
         },
       },
       classes: {
-        base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out",
+        base:
+          "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-[var(--surface)]/70 border border-[var(--border)] rounded-xl appearance-none focus:outline-none focus:ring-0 focus:shadow-[0_0_0_3px_rgba(251,191,36,0.35)] hover:bg-[var(--surface)]/80 backdrop-blur-sm transition-all duration-300 ease-in-out",
       },
     }
   }, [])
@@ -118,7 +127,7 @@ const Payment = ({
   }, [isOpen])
 
   return (
-    <Container>
+    <Container className="rounded-2xl p-5 bg-[var(--surface)]/80 border border-[var(--border)] backdrop-blur-sm shadow-lg">
       <div className="flex flex-col gap-y-2">
         <div className="flex flex-row items-center justify-between w-full">
           <Heading
@@ -171,7 +180,7 @@ const Payment = ({
                   })}
               </RadioGroup>
               {stripeReady && selectedPaymentMethod === "pp_stripe_stripe" && (
-                <div className="mt-5 transition-all duration-150 ease-in-out">
+                <div className="mt-5 transition-all duration-200 ease-in-out">
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
                     Insira os dados do cartão:
                   </Text>
@@ -211,7 +220,7 @@ const Payment = ({
 
             <Button
               size="large"
-              className="mt-6"
+              className="mt-6 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
               onClick={handleSubmit}
               isLoading={isLoading}
               disabled={
@@ -245,7 +254,7 @@ const Payment = ({
                   className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
                   data-testid="payment-details-summary"
                 >
-                  <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
+                  <Container className="flex items-center h-7 w-fit p-2 bg-[var(--surface)]/70 border border-[var(--border)] rounded-md backdrop-blur-sm">
                     {paymentInfoMap[selectedPaymentMethod]?.icon || (
                       <CreditCard />
                     )}
