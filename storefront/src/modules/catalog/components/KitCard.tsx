@@ -2,7 +2,7 @@ import { Badge } from "@medusajs/ui"
 import { useCatalogCustomization } from "@/modules/catalog/context/customization"
 import { Package, Sun, Battery, Zap } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
 
 interface KitCardProps {
@@ -121,9 +121,9 @@ const KitCard = ({ kit }: KitCardProps) => {
             <div className="p-4">
                 {/* Kit Name */}
                 <h3 className="font-semibold text-gray-900 mb-3 line-clamp-2">
-                    <Link href={`/produtos/kits/${kit.id}`} className="hover:text-blue-600 transition-colors">
+                    <LocalizedClientLink href={`/produtos/kits/${kit.id}`} className="hover:text-blue-600 transition-colors">
                         {kit.name}
-                    </Link>
+                    </LocalizedClientLink>
                 </h3>
 
                 {/* Key Specs */}
@@ -174,11 +174,11 @@ const KitCard = ({ kit }: KitCardProps) => {
                     <div className="flex gap-2">
                         {secondaryCta && (
                             secondaryCta.href ? (
-                                <Link href={secondaryCta.href}>
+                                <LocalizedClientLink href={secondaryCta.href}>
                                     <button className="ysh-btn-outline text-sm px-3 py-2">
                                         {secondaryCta.label}
                                     </button>
-                                </Link>
+                                </LocalizedClientLink>
                             ) : (
                                 <button
                                     className="ysh-btn-outline text-sm px-3 py-2"
@@ -205,11 +205,11 @@ const KitCard = ({ kit }: KitCardProps) => {
                         )}
                         {primaryCta ? (
                             primaryCta.href ? (
-                                <Link href={primaryCta.href}>
+                                <LocalizedClientLink href={primaryCta.href}>
                                     <button className="ysh-btn-primary text-sm px-4 py-2">
                                         {primaryCta.label}
                                     </button>
-                                </Link>
+                                </LocalizedClientLink>
                             ) : (
                                 <button
                                     className="ysh-btn-primary text-sm px-4 py-2"
@@ -222,9 +222,9 @@ const KitCard = ({ kit }: KitCardProps) => {
                                 </button>
                             )
                         ) : (
-                            <Link href={`/produtos/kits/${kit.id}`}>
+                            <LocalizedClientLink href={`/produtos/kits/${kit.id}`}>
                                 <button className="ysh-btn-primary text-sm px-4 py-2">Ver Kit</button>
-                            </Link>
+                            </LocalizedClientLink>
                         )}
                     </div>
                 </div>
