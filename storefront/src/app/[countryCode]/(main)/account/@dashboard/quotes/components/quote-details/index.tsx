@@ -156,7 +156,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
         <div className="col-span-2 flex flex-col gap-y-2">
           <Container className="flex gap-x-3 justify-between">
             <div className="text-sm">
-              <span className="font-semibold text-ui-fg-subtle">Quote ID:</span>{" "}
+              <span className="font-semibold text-ui-fg-subtle">ID da Cotação:</span>{" "}
               #<span>{quote.draft_order.display_id}</span>
             </div>
 

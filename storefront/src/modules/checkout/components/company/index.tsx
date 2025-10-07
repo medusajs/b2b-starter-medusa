@@ -11,7 +11,7 @@ const Company = ({ cart }: { cart: B2BCart }) => {
       <div className="flex flex-col gap-y-2">
         <div className="flex flex-row items-center justify-between w-full">
           <Heading level="h2" className="text-xl">
-            Company
+            Empresa
           </Heading>
         </div>
         <Divider />
