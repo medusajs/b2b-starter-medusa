@@ -3,7 +3,7 @@ import { retrieveCustomer } from "@/lib/data/customer"
 import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import FilePlus from "@/modules/common/icons/file-plus"
+import QuoteLink from "@/modules/layout/templates/nav/quote-link"
 import LogoIcon from "@/modules/common/icons/logo"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
@@ -57,10 +57,7 @@ export async function NavigationHeader() {
 
             <div className="h-4 w-px bg-neutral-300" />
 
-            <LocalizedClientLink href="/cotacao" className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
-              <FilePlus />
-              <span className="hidden small:inline-block">Cotação</span>
-            </LocalizedClientLink>
+            <QuoteLink />
 
             <Suspense fallback={<SkeletonAccountButton />}>
               <AccountButton customer={customer} />

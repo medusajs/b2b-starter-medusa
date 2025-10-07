@@ -69,29 +69,66 @@ class YshCatalogModuleService extends MedusaService({
     }
 
     /**
-     * Lê um arquivo JSON do catálogo
+     * Lê um arquivo JSON do catálogo (usando schemas unificados quando disponíveis)
      */
     private readCatalogFile(filename: string): CatalogProduct[] {
         try {
-            const filePath = path.join(this.catalogPath, filename);
-            if (!fs.existsSync(filePath)) {
-                console.warn(`Arquivo não encontrado: ${filePath}`);
-                return [];
+            // Primeiro tenta ler do schema unificado
+            const unifiedFilename = filename.replace('.json', '_unified.json');
+            const unifiedFilePath = path.join(this.unifiedSchemasPath, unifiedFilename);
+
+            if (fs.existsSync(unifiedFilePath)) {
+                console.log(`📄 Lendo schema unificado: ${unifiedFilename}`);
+                const data = fs.readFileSync(unifiedFilePath, 'utf-8');
+                const parsed = JSON.parse(data);
+                return Array.isArray(parsed) ? parsed : [];
             }
 
-            const data = fs.readFileSync(filePath, 'utf-8');
-            const parsed = JSON.parse(data);
+            // Fallback para arquivo original
+            const originalFilePath = path.join(this.catalogPath, filename);
+            if (fs.existsSync(originalFilePath)) {
+                console.log(`📄 Lendo arquivo original: ${filename}`);
+                const data = fs.readFileSync(originalFilePath, 'utf-8');
+                const parsed = JSON.parse(data);
 
-            // Alguns arquivos têm estrutura diferente
-            if (filename === 'panels.json' && parsed.panels) {
-                return parsed.panels;
+                // Alguns arquivos têm estrutura diferente
+                if (filename === 'panels.json' && parsed.panels) {
+                    return parsed.panels;
+                }
+
+                return Array.isArray(parsed) ? parsed : [];
             }
 
-            return Array.isArray(parsed) ? parsed : [];
+            console.warn(`Arquivo não encontrado: ${filename} (nem unificado nem original)`);
+            return [];
         } catch (error) {
             console.error(`Erro ao ler arquivo ${filename}:`, error);
             return [];
         }
+    }
+
+    /**
+     * Normaliza os caminhos das imagens processadas para URLs acessíveis
+     */
+    private normalizeImagePaths(product: CatalogProduct): CatalogProduct {
+        if (!product.processed_images) {
+            product.processed_images = {};
+        }
+
+        const processedImages = product.processed_images;
+
+        // Converte caminhos relativos para caminhos absolutos acessíveis via API
+        Object.keys(processedImages).forEach(size => {
+            const imagePath = processedImages[size as keyof typeof processedImages];
+            if (imagePath && typeof imagePath === 'string') {
+                // Remove 'catalog\' do início se existir e converte para URL
+                const cleanPath = imagePath.replace(/^catalog[\/\\]/, '');
+                // Converte barras para o formato da web
+                processedImages[size as keyof typeof processedImages] = cleanPath.replace(/\\/g, '/');
+            }
+        });
+
+        return product;
     }
 
     private parsePriceValue(priceStr?: string): number | undefined {
@@ -128,17 +165,20 @@ class YshCatalogModuleService extends MedusaService({
 
         let products: CatalogProduct[] = [];
 
-        // Mapeamento de categorias para arquivos
+        // Mapeamento de categorias para arquivos (usando schemas unificados quando disponíveis)
         const categoryFiles: { [key: string]: string } = {
-            kits: 'kits.json',
-            panels: 'panels.json',
-            inverters: 'inverters.json',
-            cables: 'cables.json',
-            chargers: 'chargers.json',
-            controllers: 'controllers.json',
-            accessories: 'accessories.json',
-            structures: 'structures.json',
-            batteries: 'batteries.json'
+            kits: 'kits_unified.json',
+            panels: 'panels_unified.json',
+            inverters: 'inverters_unified.json',
+            cables: 'cables_unified.json',
+            chargers: 'ev_chargers_unified.json', // Atualizado para usar ev_chargers
+            controllers: 'controllers_unified.json',
+            accessories: 'accessories_unified.json',
+            structures: 'structures_unified.json',
+            batteries: 'batteries_unified.json',
+            stringboxes: 'stringboxes_unified.json',
+            posts: 'posts_unified.json',
+            others: 'others_unified.json'
         };
 
         const filename = categoryFiles[category];
@@ -187,8 +227,11 @@ class YshCatalogModuleService extends MedusaService({
         const endIndex = startIndex + limit;
         const paginatedProducts = products.slice(startIndex, endIndex);
 
+        // Normalizar caminhos das imagens
+        const normalizedProducts = paginatedProducts.map(product => this.normalizeImagePaths(product));
+
         return {
-            products: paginatedProducts,
+            products: normalizedProducts,
             total,
             page,
             limit
@@ -200,7 +243,8 @@ class YshCatalogModuleService extends MedusaService({
      */
     async getProductById(category: string, id: string): Promise<CatalogProduct | null> {
         const response = await this.listProductsByCategory(category, { limit: 1000 });
-        return response.products.find(p => p.id === id || p.sku === id) || null;
+        const product = response.products.find(p => p.id === id || p.sku === id);
+        return product ? this.normalizeImagePaths(product) : null;
     }
 
     /**
@@ -255,7 +299,8 @@ class YshCatalogModuleService extends MedusaService({
             product.model?.toLowerCase().includes(query.toLowerCase())
         );
 
-        return filtered.slice(0, limit);
+        // Normalizar caminhos das imagens e limitar resultados
+        return filtered.slice(0, limit).map(product => this.normalizeImagePaths(product));
     }
 }
 
