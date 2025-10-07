@@ -5,7 +5,10 @@ async function testCatalogAPIs() {
 
     console.log('🧪 Testando APIs do Catálogo YSH...\n');
 
-    try {
+    // Aguardar servidor iniciar
+    console.log('⏳ Aguardando servidor iniciar...');
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log('✅ Pronto para testar!\n'); try {
         // 1. Testar endpoint principal
         console.log('1️⃣ Testando GET /store/catalog');
         const catalogResponse = await fetch(`${baseUrl}/store/catalog`);
