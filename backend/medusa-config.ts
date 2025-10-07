@@ -29,7 +29,7 @@ module.exports = defineConfig({
     [Modules.CART]: true,
     [Modules.ORDER]: true,
     [Modules.INVENTORY]: true,
-    // [Modules.STOCK_LOCATION]: true,
+    // [Modules.STOCK_LOCATION]: true, // Temporarily disabled due to connection issues
     [Modules.FULFILLMENT]: true,
     [Modules.PAYMENT]: true,
     [Modules.TAX]: true,
