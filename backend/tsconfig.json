@@ -20,13 +20,28 @@
     "resolveJsonModule": true,
     "checkJs": false,
     "paths": {
-      "@starter/types": ["./src/types"],
-      "@starter/types/*": ["./src/types/*"]
+      "@starter/types": [
+        "./src/types"
+      ],
+      "@starter/types/*": [
+        "./src/types/*"
+      ]
     }
   },
   "ts-node": {
     "swc": true
   },
-  "include": ["**/*", ".medusa/types/*"],
-  "exclude": ["node_modules", ".medusa/server", ".medusa/admin", ".cache"]
+  "include": [
+    "**/*",
+    ".medusa/types/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".medusa/server",
+    ".medusa/admin",
+    ".cache",
+    "src/scripts/run-api-tests.ts",
+    "src/scripts/start-test-server.ts",
+    "src/scripts/test-catalog-paths.ts"
+  ]
 }

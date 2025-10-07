@@ -10,7 +10,7 @@ export default function CotacaoPage() {
   const { items, remove, clear } = useLeadQuote()
   const total = useMemo(() => items.length, [items])
   const [submitting, setSubmitting] = useState(false)
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" })
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", consent: false })
 
   return (
     <div className="content-container py-10">
@@ -62,6 +62,10 @@ export default function CotacaoPage() {
               <input className="border rounded-md h-9 px-2" placeholder="E-mail*" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
               <input className="border rounded-md h-9 px-2" placeholder="Telefone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
               <textarea className="border rounded-md p-2 md:col-span-3" placeholder="Mensagem" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+              <label className="md:col-span-3 flex items-center gap-2 text-sm text-neutral-700">
+                <input type="checkbox" checked={form.consent} onChange={(e) => setForm({ ...form, consent: e.target.checked })} />
+                Autorizo o contato para fins comerciais e concordo com a Política de Privacidade.
+              </label>
             </div>
             <div className="flex gap-3 mt-3">
               <button
@@ -69,6 +73,10 @@ export default function CotacaoPage() {
                 onClick={async () => {
                   if (!form.email) {
                     toast.error("Informe um e-mail válido")
+                    return
+                  }
+                  if (!form.consent) {
+                    toast.error("É necessário aceitar o contato para prosseguir")
                     return
                   }
                   setSubmitting(true)
