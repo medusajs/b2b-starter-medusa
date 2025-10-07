@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import Link from "next/link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { CatalogCustomizationProvider } from "@/modules/catalog/context/customization"
@@ -56,9 +56,9 @@ async function CatalogSection({ title, description, viewAllLink, items, ItemComp
                         {description}
                     </p>
                 </div>
-                <Link href={viewAllLink} className="ysh-btn-outline">
+                <LocalizedClientLink href={viewAllLink} className="ysh-btn-outline">
                     Ver Todos
-                </Link>
+                </LocalizedClientLink>
             </div>
 
             <div className={`grid gap-6 ${category === 'kits' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
@@ -198,12 +198,12 @@ export default async function ProductsPage() {
                         Nossa equipe especializada pode ajudar a encontrar a solução ideal para seu projeto.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/dimensionamento" className="ysh-btn-secondary">
+                        <LocalizedClientLink href="/dimensionamento" className="ysh-btn-secondary">
                             Fazer Dimensionamento
-                        </Link>
-                        <Link href="/contato" className="ysh-btn-outline">
+                        </LocalizedClientLink>
+                        <LocalizedClientLink href="/contato" className="ysh-btn-outline">
                             Falar com Especialista
-                        </Link>
+                        </LocalizedClientLink>
                     </div>
                 </section>
             </div>

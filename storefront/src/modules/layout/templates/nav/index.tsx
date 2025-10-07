@@ -45,7 +45,7 @@ export async function NavigationHeader() {
           </div>
           <div className="flex justify-end items-center gap-2">
             <div className="relative mr-2 hidden small:inline-flex">
-              <form action="/search" method="get" className="hidden small:inline-block">
+              <form action="search" method="get" className="hidden small:inline-block">
                 <input
                   name="q"
                   type="text"
