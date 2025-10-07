@@ -27,6 +27,19 @@ tarifas_job = define_asset_job(
     description="Atualização de tarifas ANEEL",
 )
 
+helio_kb_job = define_asset_job(
+    name="helio_kb_job",
+    selection=[
+        "helio_kb_regulations",
+        "helio_kb_catalog",
+        "helio_kb_tariffs",
+        "helio_kb_geospatial",
+        "helio_kb_finance",
+        "helio_kb_summary"
+    ],
+    description="Indexar todas as Knowledge Bases do Hélio (RAG)",
+)
+
 # Define schedules
 catalog_schedule = ScheduleDefinition(
     job=catalog_job,
@@ -38,6 +51,12 @@ tarifas_schedule = ScheduleDefinition(
     job=tarifas_job,
     cron_schedule="0 6 * * *",  # 6h diariamente
     description="Atualizar tarifas ANEEL diariamente às 6h",
+)
+
+helio_kb_schedule = ScheduleDefinition(
+    job=helio_kb_job,
+    cron_schedule="0 4 * * *",  # 4h diariamente
+    description="Reindexar Knowledge Bases do Hélio diariamente às 4h",
 )
 
 # Define resources
@@ -62,7 +81,7 @@ resources = {
 # Dagster definitions
 defs = Definitions(
     assets=all_assets,
-    jobs=[catalog_job, tarifas_job],
-    schedules=[catalog_schedule, tarifas_schedule],
+    jobs=[catalog_job, tarifas_job, helio_kb_job],
+    schedules=[catalog_schedule, tarifas_schedule, helio_kb_schedule],
     resources=resources,
 )
