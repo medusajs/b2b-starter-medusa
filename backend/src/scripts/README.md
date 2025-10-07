@@ -94,15 +94,18 @@ node medusa-starter/backend/src/scripts/run-api-tests.ts
 
 ### Categorias suportadas
 
-- kits
-- panels
-- inverters
-- cables
-- chargers
-- controllers
-- accessories
-- structures
-- batteries
+- kits - Kits solares completos
+- panels - Painéis solares
+- inverters - Inversores
+- cables - Cabos e conectores
+- chargers - Carregadores elétricos
+- controllers - Controladores de carga
+- accessories - Acessórios diversos
+- structures - Estruturas de montagem
+- batteries - Baterias
+- stringboxes - Caixas de string
+- posts - Postes e suportes
+- others - Outros produtos
 
 ### Exemplo de uso
 

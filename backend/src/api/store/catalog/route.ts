@@ -21,9 +21,14 @@ export const GET = async (
                 "controllers",
                 "accessories",
                 "structures",
-                "batteries"
+                "batteries",
+                "stringboxes",
+                "posts",
+                "others"
             ],
             manufacturers,
+            total_categories: 12,
+            total_manufacturers: manufacturers.length,
             endpoints: {
                 categories: "/api/store/catalog/categories",
                 manufacturers: "/api/store/catalog/manufacturers",

@@ -3,11 +3,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
+import { toast } from "@medusajs/ui"
 
 export default function CotacaoPage() {
   const { items, remove, clear } = useLeadQuote()
   const total = useMemo(() => items.length, [items])
+  const [submitting, setSubmitting] = useState(false)
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" })
 
   return (
     <div className="content-container py-10">
@@ -51,29 +54,68 @@ export default function CotacaoPage() {
       )}
 
       {total > 0 && (
-        <div className="mt-8 flex gap-3">
-          <a
-            className="ysh-btn-secondary"
-            href={(() => {
-              const lines = items.map((i) => `- ${i.name} (${i.manufacturer || ''}) [${(i as any).category}/${i.id}]`).join('\n')
-              const body = `Gostaria de solicitar uma cotação dos seguintes itens:\n${lines}`
-              return `mailto:contato@yellosolarhub.com?subject=Solicitação%20de%20Cotação&body=${encodeURIComponent(body)}`
-            })()}
-          >
-            Solicitar por e-mail
-          </a>
-          <button
-            className="ysh-btn-primary"
-            onClick={() => {
-              const data = JSON.stringify({ items }, null, 2)
-              navigator.clipboard.writeText(data)
-            }}
-          >
-            Copiar itens (JSON)
-          </button>
+        <div className="mt-8 flex flex-col gap-4">
+          <div className="bg-white p-4 rounded-lg border">
+            <h2 className="text-lg font-medium mb-3">Solicitar cotação</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <input className="border rounded-md h-9 px-2" placeholder="Nome" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+              <input className="border rounded-md h-9 px-2" placeholder="E-mail*" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+              <input className="border rounded-md h-9 px-2" placeholder="Telefone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+              <textarea className="border rounded-md p-2 md:col-span-3" placeholder="Mensagem" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            </div>
+            <div className="flex gap-3 mt-3">
+              <button
+                className="ysh-btn-primary"
+                onClick={async () => {
+                  if (!form.email) {
+                    toast.error("Informe um e-mail válido")
+                    return
+                  }
+                  setSubmitting(true)
+                  try {
+                    const backend = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL as string
+                    const res = await fetch(`${backend}/store/leads`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ ...form, items }),
+                    })
+                    if (!res.ok) throw new Error("Falha ao enviar")
+                    const json = await res.json()
+                    toast.success("Cotação enviada! Código: " + json.id)
+                  } catch (e: any) {
+                    toast.error(e.message || "Erro ao enviar")
+                  } finally {
+                    setSubmitting(false)
+                  }
+                }}
+                disabled={submitting}
+              >
+                {submitting ? "Enviando..." : "Enviar cotação"}
+              </button>
+              <a
+                className="ysh-btn-secondary"
+                href={(() => {
+                  const lines = items.map((i) => `- ${i.name} (${i.manufacturer || ''}) [${(i as any).category}/${i.id}]`).join('\n')
+                  const body = `Gostaria de solicitar uma cotação dos seguintes itens:\n${lines}`
+                  return `mailto:contato@yellosolarhub.com?subject=Solicitação%20de%20Cotação&body=${encodeURIComponent(body)}`
+                })()}
+              >
+                Solicitar por e-mail
+              </a>
+              <button
+                className="ysh-btn-outline"
+                onClick={() => {
+                  const data = JSON.stringify({ items }, null, 2)
+                  navigator.clipboard.writeText(data)
+                  toast.success("Itens copiados para a área de transferência")
+                }}
+              >
+                Copiar itens (JSON)
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
   )
 }
-
