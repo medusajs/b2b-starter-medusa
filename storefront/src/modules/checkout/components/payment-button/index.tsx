@@ -89,7 +89,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
         />
       )
     default:
-      return <Button disabled>Select a payment method</Button>
+      return <Button disabled>Selecione um método de pagamento</Button>
   }
 }
 
@@ -125,10 +125,10 @@ const RequestApprovalButton = ({
       <Container className="flex flex-col gap-y-2">
         <Text className="text-neutral-700-950 text-xs text-center">
           {requires_admin_approval && requires_sales_manager_approval
-            ? "This order requires approval by both a company admin and a sales manager."
+            ? "Este pedido precisa de aprovação do administrador e do gerente de vendas."
             : requires_admin_approval
-            ? "This order requires approval by a company admin."
-            : "This order requires approval by a sales manager."}
+            ? "Este pedido precisa de aprovação do administrador da empresa."
+            : "Este pedido precisa de aprovação do gerente de vendas."}
         </Text>
         <Button
           className="w-full h-10 rounded-full shadow-none"
@@ -136,7 +136,7 @@ const RequestApprovalButton = ({
           onClick={createApproval}
           isLoading={submitting}
         >
-          {isPendingAdminApproval ? "Approval Requested" : "Request Approval"}
+          {isPendingAdminApproval ? "Aprovação solicitada" : "Solicitar aprovação"}
         </Button>
       </Container>
     </>

@@ -11,6 +11,7 @@ import Testimonials from "@/modules/home/components/testimonials"
 import DesignSystemTest from "@/components/DesignSystemTest"
 import { Metadata } from "next"
 import { Suspense } from "react"
+import React from "react"
 
 export const dynamicParams = true
 
@@ -48,6 +49,19 @@ export default async function Home(props: {
 
   return (
     <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Yello Solar Hub',
+            url: 'https://yellohub.com.br',
+            logo: '/opengraph-image.jpg',
+            sameAs: ['https://www.linkedin.com/company/yello-solar-hub'],
+          }),
+        }}
+      />
       <Hero />
       <OnboardingCTA />
       <SolutionsByClass />

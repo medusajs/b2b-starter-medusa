@@ -8,7 +8,7 @@ version: "3.8"
 services:
   # Kafka (streaming backbone)
   kafka:
-    image: bitnami/kafka:3.6
+    image: bitnami/kafka:latest
     container_name: ysh-kafka
     restart: unless-stopped
     ports:
