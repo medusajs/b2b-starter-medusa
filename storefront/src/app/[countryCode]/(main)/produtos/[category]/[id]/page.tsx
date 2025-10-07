@@ -137,6 +137,68 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
         </div>
       </div>
 
+      {/* Seções enriquecidas */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {(product.specs || product.warranty || product.installation || product.compatibility) && (
+          <div className="bg-white rounded-lg border p-4">
+            <h2 className="text-lg font-semibold mb-3">Especificações</h2>
+            {/* specs podem vir como objeto ou array */}
+            {product.specs && (
+              Array.isArray(product.specs) ? (
+                <ul className="list-disc pl-5 text-sm text-neutral-700">
+                  {(product.specs as any[]).map((s: any, idx: number) => (
+                    <li key={idx}>{typeof s === 'string' ? s : JSON.stringify(s)}</li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-neutral-700">
+                  {Object.entries(product.specs as Record<string, any>).map(([k, v]) => (
+                    <div key={k} className="flex justify-between gap-2 border-b py-1">
+                      <span className="text-neutral-500">{k}</span>
+                      <span className="font-medium text-neutral-900">{typeof v === 'string' ? v : JSON.stringify(v)}</span>
+                    </div>
+                  ))}
+                </div>
+              )
+            )}
+            {product.warranty && (
+              <div className="mt-4">
+                <h3 className="font-medium mb-1">Garantia</h3>
+                <pre className="whitespace-pre-wrap text-sm text-neutral-700">{typeof product.warranty === 'string' ? product.warranty : JSON.stringify(product.warranty, null, 2)}</pre>
+              </div>
+            )}
+            {product.installation && (
+              <div className="mt-4">
+                <h3 className="font-medium mb-1">Instalação</h3>
+                <pre className="whitespace-pre-wrap text-sm text-neutral-700">{typeof product.installation === 'string' ? product.installation : JSON.stringify(product.installation, null, 2)}</pre>
+              </div>
+            )}
+            {product.compatibility && (
+              <div className="mt-4">
+                <h3 className="font-medium mb-1">Compatibilidade</h3>
+                {Array.isArray(product.compatibility) ? (
+                  <ul className="list-disc pl-5 text-sm text-neutral-700">
+                    {(product.compatibility as any[]).map((c: any, idx: number) => (
+                      <li key={idx}>{typeof c === 'string' ? c : JSON.stringify(c)}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <pre className="whitespace-pre-wrap text-sm text-neutral-700">{JSON.stringify(product.compatibility, null, 2)}</pre>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+        {product.datasheet_url && (
+          <div className="bg-white rounded-lg border p-4 h-fit">
+            <h2 className="text-lg font-semibold mb-3">Documentos</h2>
+            <a href={product.datasheet_url as string} target="_blank" rel="noopener noreferrer" className="ysh-btn-outline">
+              Ficha técnica (PDF)
+            </a>
+          </div>
+        )}
+      </div>
+
       {category === "kits" && product.panels && (
         <div className="mt-12">
           <h2 className="text-xl font-semibold mb-4">Componentes do Kit</h2>
