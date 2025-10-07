@@ -4,6 +4,7 @@ import { Popover, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
+import { useLeadQuote } from "@/modules/lead-quote/context"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
@@ -27,6 +28,11 @@ const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
 
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
   const toggleState = useToggleState()
+  let quoteCount = 0
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    quoteCount = useLeadQuote().items.length
+  } catch {}
 
   return (
     <div className="h-full">
@@ -78,6 +84,16 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                           </li>
                         )
                       })}
+                      <li>
+                        <LocalizedClientLink
+                          href="/cotacao"
+                          className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                          onClick={close}
+                          data-testid={`quote-link`}
+                        >
+                          Cotação {quoteCount > 0 && <span className="text-sm bg-amber-400 text-neutral-900 px-2 py-0.5 rounded-full">{quoteCount}</span>}
+                        </LocalizedClientLink>
+                      </li>
                     </ul>
                     <div className="flex flex-col gap-y-6">
                       <div
