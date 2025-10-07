@@ -15,7 +15,7 @@ export default function QuoteLink() {
       aria-label={count > 0 ? `Cotação, ${count} item(s)` : "Cotação"}
     >
       <div className="relative">
-        <FilePlus />
+        <FileText />
         {count > 0 && (
           <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-amber-400 text-[10px] leading-4 text-neutral-900 text-center">
             {count}
