@@ -80,28 +80,28 @@ const AddAddress = ({ region }: { region: HttpTypes.StoreRegion }) => {
                 data-testid="company-input"
               />
               <Input
-                label="Address"
+                label="Endereço"
                 name="address_1"
                 required
                 autoComplete="address-line1"
                 data-testid="address-1-input"
               />
               <Input
-                label="Apartment, suite, etc."
+                label="Complemento"
                 name="address_2"
                 autoComplete="address-line2"
                 data-testid="address-2-input"
               />
               <div className="grid grid-cols-[144px_1fr] gap-x-2">
                 <Input
-                  label="Postal code"
+                  label="CEP"
                   name="postal_code"
                   required
                   autoComplete="postal-code"
                   data-testid="postal-code-input"
                 />
                 <Input
-                  label="City"
+                  label="Cidade"
                   name="city"
                   required
                   autoComplete="locality"
@@ -109,7 +109,7 @@ const AddAddress = ({ region }: { region: HttpTypes.StoreRegion }) => {
                 />
               </div>
               <Input
-                label="Province / State"
+                label="Estado"
                 name="province"
                 autoComplete="address-level1"
                 data-testid="state-input"
@@ -122,11 +122,44 @@ const AddAddress = ({ region }: { region: HttpTypes.StoreRegion }) => {
                 data-testid="country-select"
               />
               <Input
-                label="Phone"
+                label="Telefone"
                 name="phone"
                 autoComplete="phone"
                 data-testid="phone-input"
               />
+              <div className="grid grid-cols-2 gap-x-2">
+                <div>
+                  <label htmlFor="installation-type-add" className="block text-sm font-medium text-gray-700 mb-1">
+                    Tipo de instalação
+                  </label>
+                  <select
+                    id="installation-type-add"
+                    name="installation_type"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    data-testid="installation-type-select"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="laje">Laje</option>
+                    <option value="solo">Solo</option>
+                    <option value="metalico">Metálico</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="phase-add" className="block text-sm font-medium text-gray-700 mb-1">
+                    Fase
+                  </label>
+                  <select
+                    id="phase-add"
+                    name="phase"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    data-testid="phase-select"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="monofasica">Monofásica</option>
+                    <option value="trifasica">Trifásica</option>
+                  </select>
+                </div>
+              </div>
             </div>
             {formState.error && (
               <div
@@ -146,9 +179,9 @@ const AddAddress = ({ region }: { region: HttpTypes.StoreRegion }) => {
                 className="h-10"
                 data-testid="cancel-button"
               >
-                Cancel
+                Cancelar
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <SubmitButton data-testid="save-button">Salvar</SubmitButton>
             </div>
           </Modal.Footer>
         </form>

@@ -75,7 +75,7 @@ export default async function ApprovalCard({
           data-testid="order-created-at"
         >
           <CalendarIcon className="inline-block mr-1" />
-          {createdAt.toLocaleDateString("en-GB", {
+          {createdAt.toLocaleDateString("pt-BR", {
             year: "numeric",
             month: "numeric",
             day: "numeric",
@@ -91,8 +91,8 @@ export default async function ApprovalCard({
           cartWithApprovals.completed_at ? (
             <Text className="flex items-center gap-x-1 text-xs text-grey-500">
               <CheckMini className="inline-block" />
-              Order completed at{" "}
-              {updatedAt.toLocaleDateString("en-GB", {
+              Pedido concluído em{" "}
+              {updatedAt.toLocaleDateString("pt-BR", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
@@ -100,8 +100,8 @@ export default async function ApprovalCard({
             </Text>
           ) : (
             <Text className="flex items-center gap-x-1 text-xs text-grey-500">
-              Approved at{" "}
-              {updatedAt.toLocaleDateString("en-GB", {
+              Aprovado em{" "}
+              {updatedAt.toLocaleDateString("pt-BR", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
@@ -116,8 +116,8 @@ export default async function ApprovalCard({
           <div className="flex items-center text-small-regular">
             <XMarkMini className="inline-block mr-1" />
             <span data-testid="order-display-id">
-              Rejected at{" "}
-              {updatedAt.toLocaleDateString("en-GB", {
+              Rejeitado em{" "}
+              {updatedAt.toLocaleDateString("pt-BR", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
@@ -137,7 +137,7 @@ export default async function ApprovalCard({
           </span>
           {"·"}
           <span className="px-2">{`${numberOfLines} ${
-            numberOfLines > 1 ? "items" : "item"
+            numberOfLines > 1 ? "itens" : "item"
           }`}</span>
           {type === "admin" && (
             <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
