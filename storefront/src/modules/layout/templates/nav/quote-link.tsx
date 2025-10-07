@@ -1,7 +1,7 @@
 "use client"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import { FilePlus } from "@medusajs/icons"
+import { FileText } from "@medusajs/icons"
 import { useLeadQuote } from "@/modules/lead-quote/context"
 
 export default function QuoteLink() {
