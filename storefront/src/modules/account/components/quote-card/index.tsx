@@ -84,7 +84,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
         {/* Solar Financing Badge */}
         <div className="flex items-center text-small-regular">
           <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-            Financiamento disponível
+            Financiamento disponÃ­vel
           </span>
         </div>
       </div>

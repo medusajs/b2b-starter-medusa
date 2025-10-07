@@ -8,8 +8,8 @@ const StatusTitles: Record<string, string> = {
   merchant_rejected: "Rejeitado pelo Vendedor",
   pending_merchant: "Pendente Vendedor",
   pending_customer: "Pendente Cliente",
-  pending_review: "Em revisão Comercial",
-  pending_approval: "Aguardando Aprovação Interna",
+  pending_review: "Em revisÃ£o Comercial",
+  pending_approval: "Aguardando AprovaÃ§Ã£o Interna",
   approved: "Aprovado",
   rejected: "Rejeitado",
 }
@@ -20,8 +20,8 @@ const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
   merchant_rejected: "red",
   pending_merchant: "orange",
   pending_customer: "orange",
-  pending_review: "Em revisão Comercial",
-  pending_approval: "Aguardando Aprovação Interna",
+  pending_review: "Em revisï¿½o Comercial",
+  pending_approval: "Aguardando Aprovaï¿½ï¿½o Interna",
   approved: "green",
   rejected: "red",
 }
