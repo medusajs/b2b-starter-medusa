@@ -1,0 +1,45 @@
+{
+    "name": "Yello Solar Hub - Energia Solar sob Medida",
+    "short_name": "Yello Solar Hub",
+    "description": "Soluções completas em energia solar: painéis, inversores, kits prontos e dimensionamento personalizado para sua economia de energia.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#fbbf24",
+    "orientation": "portrait-primary",
+    "categories": [
+        "business",
+        "productivity",
+        "utilities"
+    ],
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ]
+}

@@ -1,8 +1,79 @@
 import { Metadata } from "next"
-import ProductCard from "@/modules/catalog/components/ProductCard"
-import KitCard from "@/modules/catalog/components/KitCard"
-import { promises as fs } from 'fs'
-import path from 'path'
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
+
+// Lazy load components para melhor performance
+const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"), {
+    loading: () => <ProductCardSkeleton />
+})
+
+const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"), {
+    loading: () => <KitCardSkeleton />
+})
+
+// Skeleton components para loading states
+function ProductCardSkeleton() {
+    return (
+        <div className="bg-white rounded-lg shadow-sm p-6 animate-pulse">
+            <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+            <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+        </div>
+    )
+}
+
+function KitCardSkeleton() {
+    return (
+        <div className="bg-white rounded-lg shadow-sm p-6 animate-pulse">
+            <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+            <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+        </div>
+    )
+}
+
+// Server Component para carregar dados
+async function CatalogSection({ title, description, viewAllLink, items, ItemComponent, category }: {
+    title: string
+    description: string
+    viewAllLink: string
+    items: any[]
+    ItemComponent: any
+    category?: string
+}) {
+    return (
+        <section className="mb-16">
+            <div className="flex items-center justify-between mb-8">
+                <div>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        {title}
+                    </h2>
+                    <p className="text-gray-600">
+                        {description}
+                    </p>
+                </div>
+                <a href={viewAllLink} className="ysh-btn-outline">
+                    Ver Todos
+                </a>
+            </div>
+
+            <div className={`grid gap-6 ${category === 'kits' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}>
+                {items.map((item: any, index: number) => (
+                    <Suspense key={item.id || item.sku || index} fallback={
+                        category === 'kits' ? <KitCardSkeleton /> : <ProductCardSkeleton />
+                    }>
+                        <ItemComponent
+                            {...(category === 'kits' ? { kit: item } : { product: item, category })}
+                        />
+                    </Suspense>
+                ))}
+            </div>
+        </section>
+    )
+}
 
 export const metadata: Metadata = {
     title: "Catálogo de Produtos Solares - Yello Solar Hub",
@@ -10,21 +81,28 @@ export const metadata: Metadata = {
     keywords: "catálogo solar, painéis solares, inversores, kits fotovoltaicos, componentes solares, Yello Solar Hub",
 }
 
+// ISR - revalidar a cada hora
+export const revalidate = 3600
+
 async function getCatalogData() {
+    'use server'
+
     try {
+        const { promises: fs } = await import('fs')
+        const path = await import('path')
+
         const catalogPath = path.join(process.cwd(), '../../../data/catalog')
 
-        // Load panels
-        const panelsData = await fs.readFile(path.join(catalogPath, 'panels.json'), 'utf8')
-        const panels = JSON.parse(panelsData).panels.slice(0, 6) // Show first 6 panels
+        // Load data in parallel for better performance
+        const [panelsData, kitsData, invertersData] = await Promise.all([
+            fs.readFile(path.join(catalogPath, 'panels.json'), 'utf8'),
+            fs.readFile(path.join(catalogPath, 'fotus-kits.json'), 'utf8'),
+            fs.readFile(path.join(catalogPath, 'inverters.json'), 'utf8')
+        ])
 
-        // Load kits
-        const kitsData = await fs.readFile(path.join(catalogPath, 'fotus-kits.json'), 'utf8')
-        const kits = JSON.parse(kitsData).slice(0, 4) // Show first 4 kits
-
-        // Load inverters
-        const invertersData = await fs.readFile(path.join(catalogPath, 'inverters.json'), 'utf8')
-        const inverters = JSON.parse(invertersData).inverters.slice(0, 6) // Show first 6 inverters
+        const panels = JSON.parse(panelsData).panels.slice(0, 6)
+        const kits = JSON.parse(kitsData).slice(0, 4)
+        const inverters = JSON.parse(invertersData).inverters.slice(0, 6)
 
         return { panels, kits, inverters }
     } catch (error) {
@@ -55,81 +133,40 @@ export default async function ProductsPage() {
 
             <div className="content-container py-12">
                 {/* Kits Section */}
-                <section className="mb-16">
-                    <div className="flex items-center justify-between mb-8">
-                        <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                                Kits Fotovoltaicos Completos
-                            </h2>
-                            <p className="text-gray-600">
-                                Soluções completas para instalação imediata
-                            </p>
-                        </div>
-                        <a href="/produtos/kits" className="ysh-btn-outline">
-                            Ver Todos os Kits
-                        </a>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {kits.map((kit: any) => (
-                            <KitCard key={kit.id} kit={kit} />
-                        ))}
-                    </div>
-                </section>
+                <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mb-16"></div>}>
+                    <CatalogSection
+                        title="Kits Fotovoltaicos Completos"
+                        description="Soluções completas para instalação imediata"
+                        viewAllLink="/produtos/kits"
+                        items={kits}
+                        ItemComponent={KitCard}
+                        category="kits"
+                    />
+                </Suspense>
 
                 {/* Panels Section */}
-                <section className="mb-16">
-                    <div className="flex items-center justify-between mb-8">
-                        <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                                Painéis Solares
-                            </h2>
-                            <p className="text-gray-600">
-                                Painéis fotovoltaicos de alta eficiência para máxima geração
-                            </p>
-                        </div>
-                        <a href="/produtos/paineis" className="ysh-btn-outline">
-                            Ver Todos os Painéis
-                        </a>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {panels.map((panel: any, index: number) => (
-                            <ProductCard
-                                key={panel.sku || index}
-                                product={panel}
-                                category="panels"
-                            />
-                        ))}
-                    </div>
-                </section>
+                <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mb-16"></div>}>
+                    <CatalogSection
+                        title="Painéis Solares"
+                        description="Painéis fotovoltaicos de alta eficiência para máxima geração"
+                        viewAllLink="/produtos/paineis"
+                        items={panels}
+                        ItemComponent={ProductCard}
+                        category="panels"
+                    />
+                </Suspense>
 
                 {/* Inverters Section */}
-                <section className="mb-16">
-                    <div className="flex items-center justify-between mb-8">
-                        <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                                Inversores Solares
-                            </h2>
-                            <p className="text-gray-600">
-                                Inversores de string e microinversores para todos os tipos de instalação
-                            </p>
-                        </div>
-                        <a href="/produtos/inversores" className="ysh-btn-outline">
-                            Ver Todos os Inversores
-                        </a>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {inverters.map((inverter: any, index: number) => (
-                            <ProductCard
-                                key={inverter.sku || index}
-                                product={inverter}
-                                category="inverters"
-                            />
-                        ))}
-                    </div>
-                </section>
+                <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg mb-16"></div>}>
+                    <CatalogSection
+                        title="Inversores Solares"
+                        description="Inversores de string e microinversores para todos os tipos de instalação"
+                        viewAllLink="/produtos/inversores"
+                        items={inverters}
+                        ItemComponent={ProductCard}
+                        category="inverters"
+                    />
+                </Suspense>
 
                 {/* CTA Section */}
                 <section className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-8 text-center text-gray-900">

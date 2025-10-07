@@ -51,6 +51,8 @@
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.3.1",
     "webpack": "^5",
+    "workbox-sw": "^7.3.0",
+    "workbox-webpack-plugin": "^7.3.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

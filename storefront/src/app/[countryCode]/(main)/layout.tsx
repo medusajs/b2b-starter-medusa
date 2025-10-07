@@ -9,14 +9,36 @@ import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ArrowUpRightMini, ExclamationCircleSolid } from "@medusajs/icons"
 import { Metadata } from "next"
+import dynamic from "next/dynamic"
+
+// Lazy load components pesados para melhor performance
+const LazyCartMismatchBanner = dynamic(
+  () => import("@/modules/layout/components/cart-mismatch-banner"),
+  {
+    loading: () => null,
+    ssr: false
+  }
+)
+
+const LazyFreeShippingPriceNudge = dynamic(
+  () => import("@/modules/shipping/components/free-shipping-price-nudge"),
+  {
+    loading: () => null,
+    ssr: false
+  }
+)
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
-  const customer = await retrieveCustomer().catch(() => null)
-  const cart = await retrieveCart()
+  // Otimização: executar operações em paralelo
+  const [customer, cart] = await Promise.all([
+    retrieveCustomer().catch(() => null),
+    retrieveCart().catch(() => null)
+  ])
+
   let freeShippingPrices: StoreFreeShippingPrice[] = []
 
   if (cart) {
@@ -37,6 +59,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
             className="group hover:text-ui-fg-interactive-hover text-ui-fg-interactive self-end small:self-auto"
             href="https://git.new/b2b-starter-repo"
             target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub Repo
             <ArrowUpRightMini className="group-hover:text-ui-fg-interactive-hover inline text-ui-fg-interactive" />
@@ -45,17 +68,17 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       </div>
 
       {customer && cart && (
-        <CartMismatchBanner customer={customer} cart={cart} />
+        <LazyCartMismatchBanner customer={customer} cart={cart} />
       )}
 
       {props.children}
 
       <Footer />
 
-      {cart && freeShippingPrices && (
-        <FreeShippingPriceNudge
+      {cart && freeShippingPrices && freeShippingPrices.length > 0 && (
+        <LazyFreeShippingPriceNudge
           variant="popup"
-          cart={cart}
+          cart={cart as any}
           freeShippingPrices={freeShippingPrices}
         />
       )}

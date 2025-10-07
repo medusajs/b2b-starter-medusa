@@ -3,6 +3,7 @@ import { Toaster } from "@medusajs/ui"
 import { Analytics } from "@vercel/analytics/next"
 import { Inter } from "next/font/google"
 import { Metadata } from "next"
+import { PWAProvider } from "@/components/PWAProvider"
 import "@/styles/globals.css"
 
 const inter = Inter({
@@ -27,10 +28,20 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" data-mode="light" className={inter.variable}>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#fbbf24" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Yello Solar Hub" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+      </head>
       <body className="font-sans">
-        <main className="relative">{props.children}</main>
-        <Toaster className="z-[99999]" position="bottom-left" />
-        <Analytics />
+        <PWAProvider>
+          <main className="relative">{props.children}</main>
+          <Toaster className="z-[99999]" position="bottom-left" />
+          <Analytics />
+        </PWAProvider>
       </body>
     </html>
   )
