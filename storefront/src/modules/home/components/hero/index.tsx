@@ -30,15 +30,12 @@ const Hero = () => {
 
         {/* Main headline with gradient text */}
         <div className="space-y-8 mb-16">
-          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-zinc-50 leading-tight">
-            Energia solar
-            <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
-              do seu jeito
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-zinc-50 leading-tight">
+            {t("home.hero_title")}
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 dark:text-zinc-300 max-w-4xl mx-auto leading-relaxed font-light">
-            Compare kits, simule economia e acompanhe a instalação com suporte especialista.
+            {t("home.hero_sub")}
           </p>
         </div>
 
