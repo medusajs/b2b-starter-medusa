@@ -23,10 +23,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119987",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656495",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.656495"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
@@ -57,14 +54,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119991",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656505",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.656505"
     },
-    "technical_specs": {
-      "power_w": 3200
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
     "price_brl": 5983.17,
     "model": ""
@@ -101,16 +93,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119997",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656506",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.656506"
     },
-    "technical_specs": {
-      "power_w": 5100,
-      "voltage_v": 48,
-      "current_a": 100
-    },
+    "technical_specs": {},
     "price_brl": 6255.94,
     "model": ""
   },
@@ -138,14 +123,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120002",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656508",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.656508"
     },
-    "technical_specs": {
-      "power_w": 5000
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
     "price_brl": 7323.74,
     "model": ""
@@ -180,10 +160,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656516",
       "original_category": "battery",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "technical_specs": {
       "power_w": 5
@@ -222,10 +199,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656518",
       "original_category": "batteries",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "technical_specs": {},
     "category": "batteries",
@@ -260,10 +234,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656519",
       "original_category": "batteries",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "technical_specs": {
       "power_w": 3.2
@@ -310,15 +281,10 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656520",
       "original_category": "batteries",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 3
+      "distributor": "Solfácil"
     },
     "technical_specs": {
-      "power_w": 5.1,
-      "voltage_v": 48,
-      "current_a": 100
+      "power_w": 5.1
     },
     "category": "batteries",
     "availability": true,
@@ -352,10 +318,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656521",
       "original_category": "batteries",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "technical_specs": {
       "power_w": 5

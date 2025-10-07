@@ -27,19 +27,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092835",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686944",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "price_brl": 6
   },
   {
@@ -70,19 +65,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092840",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686954",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 88
-    },
+    "technical_specs": {},
     "price_brl": 6
   },
   {
@@ -113,19 +103,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092845",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686956",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "price_brl": 9
   },
   {
@@ -156,19 +141,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092850",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686958",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "price_brl": 15
   },
   {
@@ -194,19 +174,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092857",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686959",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 3
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_20286",
@@ -236,19 +211,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092863",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686961",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 697
-    },
+    "technical_specs": {},
     "price_brl": 199
   },
   {
@@ -274,19 +244,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092871",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686963",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 99
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_20925",
@@ -316,10 +281,7 @@
       "last_consolidated": "2025-10-07T04:51:42.092878",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686964",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -357,19 +319,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092886",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686966",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 46
-    },
+    "technical_specs": {},
     "price_brl": 429
   },
   {
@@ -400,19 +357,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092894",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686967",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 350
-    },
+    "technical_specs": {},
     "price_brl": 458
   },
   {
@@ -443,19 +395,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092904",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686968",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 84
-    },
+    "technical_specs": {},
     "price_brl": 480
   },
   {
@@ -486,20 +433,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092914",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686969",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 1000,
-      "current_a": 0
-    },
+    "technical_specs": {},
     "price_brl": 670
   },
   {
@@ -530,10 +471,7 @@
       "last_consolidated": "2025-10-07T04:51:42.092924",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686971",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -571,10 +509,7 @@
       "last_consolidated": "2025-10-07T04:51:42.092934",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686972",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -612,19 +547,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092946",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686973",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 875
-    },
+    "technical_specs": {},
     "price_brl": 648
   },
   {
@@ -655,19 +585,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092957",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686975",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 8
-    },
+    "technical_specs": {},
     "price_brl": 901
   },
   {
@@ -698,19 +623,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092970",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686976",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 39
-    },
+    "technical_specs": {},
     "price_brl": 994
   },
   {
@@ -736,19 +656,14 @@
       "last_consolidated": "2025-10-07T04:51:42.092983",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686977",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
     "original_category": "cables",
-    "technical_specs": {
-      "current_a": 29
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_25205",
@@ -778,10 +693,7 @@
       "last_consolidated": "2025-10-07T04:51:42.092996",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686979",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -819,10 +731,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120335",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686981",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -860,10 +769,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120351",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686982",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -901,10 +807,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120367",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686983",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -942,10 +845,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120383",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686984",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -983,19 +883,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120399",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686986",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 44.8
   },
   {
@@ -1026,10 +921,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120416",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686987",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1067,19 +959,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120433",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686988",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 134.4
   },
   {
@@ -1110,10 +997,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120451",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686989",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1151,19 +1035,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120469",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686990",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 185.63
   },
   {
@@ -1194,19 +1073,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120488",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686991",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 266
   },
   {
@@ -1237,10 +1111,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120508",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686993",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1278,19 +1149,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120527",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686994",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 366.8
   },
   {
@@ -1321,10 +1187,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120548",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686995",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1362,19 +1225,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120569",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686996",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 392
   },
   {
@@ -1405,10 +1263,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120590",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686997",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1446,19 +1301,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120612",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686998",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 515.2
   },
   {
@@ -1489,10 +1339,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120635",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.686999",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1530,19 +1377,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120658",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687000",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 551.6
   },
   {
@@ -1573,10 +1415,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120681",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687001",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1614,10 +1453,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120707",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687002",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1663,10 +1499,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120733",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687003",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1712,10 +1545,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120760",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687004",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1753,19 +1583,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120786",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687005",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 734.47
   },
   {
@@ -1796,10 +1621,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120813",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687006",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1837,10 +1659,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120841",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687007",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1878,10 +1697,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120871",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687008",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1927,10 +1743,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120901",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687009",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -1968,10 +1781,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120931",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687010",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2009,10 +1819,7 @@
       "last_consolidated": "2025-10-07T04:51:42.120963",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687011",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2050,19 +1857,14 @@
       "last_consolidated": "2025-10-07T04:51:42.120994",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687012",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
     "original_category": "cables",
-    "technical_specs": {
-      "voltage_v": 2
-    },
+    "technical_specs": {},
     "price_brl": 1398.6
   },
   {
@@ -2093,10 +1895,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121026",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687013",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2134,10 +1933,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121059",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687014",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2175,10 +1971,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121093",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687015",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2216,10 +2009,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121128",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687016",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2257,10 +2047,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121163",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687017",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2298,10 +2085,7 @@
       "last_consolidated": "2025-10-07T04:51:42.121198",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.687019",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-      "specs_count": 0
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,

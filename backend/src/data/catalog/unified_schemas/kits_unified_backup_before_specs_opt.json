@@ -54,10 +54,7 @@
       "last_consolidated": "2025-10-07T04:51:42.096317",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628048",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 600
@@ -122,10 +119,7 @@
       "last_consolidated": "2025-10-07T04:51:42.096475",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628060",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 570
@@ -190,10 +184,7 @@
       "last_consolidated": "2025-10-07T04:51:42.096487",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628062",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 600
@@ -258,10 +249,7 @@
       "last_consolidated": "2025-10-07T04:51:42.096498",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628064",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 710
@@ -291,14 +279,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109846",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628066",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628066"
     },
-    "technical_specs": {
-      "current_a": 878
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27314.jpg",
     "pricing": {
       "price": 6807,
@@ -328,16 +311,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109853",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628068",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628068"
     },
-    "technical_specs": {
-      "power_w": 680,
-      "voltage_v": 24,
-      "current_a": 3
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25049.jpg",
     "pricing": {
       "price": 5897,
@@ -367,16 +343,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109859",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628070",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628070"
     },
-    "technical_specs": {
-      "power_w": 680,
-      "voltage_v": 24,
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27475.jpg",
     "pricing": {
       "price": 4653,
@@ -414,16 +383,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109867",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628072",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628072"
     },
-    "technical_specs": {
-      "power_w": 680,
-      "voltage_v": 24,
-      "current_a": 100
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 6812,
       "price_brl": 6812,
@@ -452,14 +414,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109875",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628074",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628074"
     },
-    "technical_specs": {
-      "current_a": 516
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27315.jpg",
     "pricing": {
       "price": 12731,
@@ -489,16 +446,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109883",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628076",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628076"
     },
-    "technical_specs": {
-      "power_w": 30,
-      "voltage_v": 12,
-      "current_a": 9
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_23927.jpg",
     "pricing": {
       "price": 1256,
@@ -528,10 +478,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109892",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628078",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628078"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27347.jpg",
@@ -557,14 +504,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109901",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628079",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628079"
     },
-    "technical_specs": {
-      "current_a": 8973
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27349.jpg",
     "model": ""
   },
@@ -588,15 +530,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109911",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628081",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.628081"
     },
-    "technical_specs": {
-      "power_w": 1.28,
-      "current_a": 40
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25131.jpg",
     "pricing": {
       "price": 2414,
@@ -626,16 +562,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109921",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628082",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628082"
     },
-    "technical_specs": {
-      "power_w": 60,
-      "voltage_v": 12,
-      "current_a": 21
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_23928.jpg",
     "pricing": {
       "price": 1343,
@@ -665,16 +594,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109932",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628083",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628083"
     },
-    "technical_specs": {
-      "power_w": 100,
-      "voltage_v": 12,
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27339.jpg",
     "pricing": {
       "price": 1113,
@@ -704,16 +626,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109943",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628085",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628085"
     },
-    "technical_specs": {
-      "power_w": 100,
-      "voltage_v": 12,
-      "current_a": 5
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_23929.jpg",
     "pricing": {
       "price": 1343,
@@ -743,16 +658,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109955",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628086",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628086"
     },
-    "technical_specs": {
-      "power_w": 680,
-      "voltage_v": 24,
-      "current_a": 220
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27476.jpg",
     "pricing": {
       "price": 3767,
@@ -782,16 +690,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109967",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628088",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628088"
     },
-    "technical_specs": {
-      "power_w": 320,
-      "voltage_v": 12,
-      "current_a": 240
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26720.jpg",
     "pricing": {
       "price": 2195,
@@ -821,16 +722,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109980",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628089",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628089"
     },
-    "technical_specs": {
-      "power_w": 320,
-      "voltage_v": 12,
-      "current_a": 885
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26721.jpg",
     "pricing": {
       "price": 2272,
@@ -868,16 +762,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.109993",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628090",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.401Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628090"
     },
-    "technical_specs": {
-      "power_w": 160,
-      "voltage_v": 12,
-      "current_a": 105
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 2070,
       "price_brl": 2070,
@@ -906,16 +793,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110007",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628091",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628091"
     },
-    "technical_specs": {
-      "power_w": 480,
-      "voltage_v": 12,
-      "current_a": 1
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26722.jpg",
     "pricing": {
       "price": 4162,
@@ -945,14 +825,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110022",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628093",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628093"
     },
-    "technical_specs": {
-      "current_a": 24
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27348.jpg",
     "model": ""
   },
@@ -976,14 +851,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110037",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628094",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628094"
     },
-    "technical_specs": {
-      "current_a": 539
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27378.jpg",
     "pricing": {
       "price": 13837,
@@ -1013,16 +883,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110052",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628095",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628095"
     },
-    "technical_specs": {
-      "power_w": 960,
-      "voltage_v": 12,
-      "current_a": 240
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27313.jpg",
     "pricing": {
       "price": 5600,
@@ -1052,14 +915,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110068",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628096",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628096"
     },
-    "technical_specs": {
-      "power_w": 640
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25130.jpg",
     "pricing": {
       "price": 2037,
@@ -1089,16 +947,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110085",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628098",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628098"
     },
-    "technical_specs": {
-      "power_w": 340,
-      "voltage_v": 24,
-      "current_a": 97
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25048.jpg",
     "pricing": {
       "price": 2600,
@@ -1128,16 +979,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110102",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628099",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628099"
     },
-    "technical_specs": {
-      "power_w": 320,
-      "voltage_v": 12,
-      "current_a": 846
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25047.jpg",
     "pricing": {
       "price": 2159,
@@ -1175,16 +1019,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110119",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628101",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628101"
     },
-    "technical_specs": {
-      "power_w": 340,
-      "voltage_v": 24,
-      "current_a": 105
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 3515,
       "price_brl": 3515,
@@ -1221,16 +1058,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110138",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628102",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628102"
     },
-    "technical_specs": {
-      "power_w": 320,
-      "voltage_v": 12,
-      "current_a": 150
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 2806,
       "price_brl": 2806,
@@ -1267,16 +1097,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110156",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628103",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628103"
     },
-    "technical_specs": {
-      "power_w": 340,
-      "voltage_v": 24,
-      "current_a": 105
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 3515,
       "price_brl": 3515,
@@ -1305,10 +1128,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110175",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628105",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628105"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27267.jpg",
@@ -1340,10 +1160,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110195",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628107",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628107"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27303.jpg",
@@ -1375,14 +1192,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110215",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628108",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628108"
     },
-    "technical_specs": {
-      "current_a": 588
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27299.jpg",
     "pricing": {
       "price": 10552,
@@ -1412,14 +1224,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110236",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628110",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628110"
     },
-    "technical_specs": {
-      "current_a": 9
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27263.jpg",
     "pricing": {
       "price": 10481,
@@ -1449,10 +1256,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110258",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628112",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628112"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27259.jpg",
@@ -1484,15 +1288,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110279",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628113",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.628113"
     },
-    "technical_specs": {
-      "power_w": 640,
-      "current_a": 557
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25129.jpg",
     "pricing": {
       "price": 1980,
@@ -1522,15 +1320,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110301",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628114",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.628114"
     },
-    "technical_specs": {
-      "power_w": 640,
-      "current_a": 2
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_23699.jpg",
     "model": ""
   },
@@ -1554,15 +1346,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110324",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628115",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.628115"
     },
-    "technical_specs": {
-      "power_w": 1.28,
-      "current_a": 494
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_23703.jpg",
     "model": ""
   },
@@ -1586,14 +1372,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110347",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628117",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628117"
     },
-    "technical_specs": {
-      "current_a": 1
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27266.jpg",
     "pricing": {
       "price": 26697,
@@ -1623,10 +1404,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110371",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628118",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628118"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27304.jpg",
@@ -1658,14 +1436,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110396",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628120",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628120"
     },
-    "technical_specs": {
-      "current_a": 3
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27298.jpg",
     "pricing": {
       "price": 33355,
@@ -1695,14 +1468,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110421",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628121",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628121"
     },
-    "technical_specs": {
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27297.jpg",
     "pricing": {
       "price": 27362,
@@ -1732,14 +1500,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110447",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628122",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628122"
     },
-    "technical_specs": {
-      "current_a": 73
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27305.jpg",
     "pricing": {
       "price": 24023,
@@ -1769,10 +1532,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110473",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628123",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628123"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27306.jpg",
@@ -1804,10 +1564,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110500",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628125",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628125"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27269.jpg",
@@ -1839,14 +1596,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110527",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628126",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628126"
     },
-    "technical_specs": {
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27268.jpg",
     "pricing": {
       "price": 17920,
@@ -1876,14 +1628,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110554",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628127",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628127"
     },
-    "technical_specs": {
-      "current_a": 66
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27300.jpg",
     "pricing": {
       "price": 16923,
@@ -1913,14 +1660,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110582",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628128",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628128"
     },
-    "technical_specs": {
-      "current_a": 3
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27302.jpg",
     "pricing": {
       "price": 26768,
@@ -1950,10 +1692,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110611",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628130",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628130"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27301.jpg",
@@ -1985,10 +1724,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110641",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628131",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628131"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27296.jpg",
@@ -2020,10 +1756,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110670",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628132",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628132"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27270.jpg",
@@ -2055,14 +1788,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110700",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628133",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628133"
     },
-    "technical_specs": {
-      "current_a": 25324
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27260.jpg",
     "pricing": {
       "price": 20147,
@@ -2092,10 +1820,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110731",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628135",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628135"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27261.jpg",
@@ -2127,14 +1852,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110762",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628136",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628136"
     },
-    "technical_specs": {
-      "current_a": 1707
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27264.jpg",
     "pricing": {
       "price": 16853,
@@ -2164,14 +1884,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110798",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628137",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628137"
     },
-    "technical_specs": {
-      "current_a": 31108
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27265.jpg",
     "pricing": {
       "price": 22351,
@@ -2201,14 +1916,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110832",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628139",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628139"
     },
-    "technical_specs": {
-      "current_a": 41
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27262.jpg",
     "pricing": {
       "price": 33285,
@@ -2238,10 +1948,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110865",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628140",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628140"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26701.jpg",
@@ -2267,16 +1974,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110900",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628141",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628141"
     },
-    "technical_specs": {
-      "power_w": 160,
-      "voltage_v": 12,
-      "current_a": 3
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26723.jpg",
     "pricing": {
       "price": 1563,
@@ -2306,15 +2006,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110934",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628142",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.628142"
     },
-    "technical_specs": {
-      "power_w": 1.28,
-      "current_a": 4
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25132.jpg",
     "pricing": {
       "price": 2470,
@@ -2344,16 +2038,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.110969",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628144",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628144"
     },
-    "technical_specs": {
-      "power_w": 60,
-      "voltage_v": 12,
-      "current_a": 7527425
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25044.jpg",
     "pricing": {
       "price": 916,
@@ -2383,16 +2070,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111005",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628145",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628145"
     },
-    "technical_specs": {
-      "power_w": 100,
-      "voltage_v": 12,
-      "current_a": 2
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25045.jpg",
     "pricing": {
       "price": 932,
@@ -2422,16 +2102,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111042",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628147",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628147"
     },
-    "technical_specs": {
-      "power_w": 30,
-      "voltage_v": 12,
-      "current_a": 18
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25043.jpg",
     "pricing": {
       "price": 861,
@@ -2469,16 +2142,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111078",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628148",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628148"
     },
-    "technical_specs": {
-      "power_w": 60,
-      "voltage_v": 12,
-      "current_a": 45
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 1563,
       "price_brl": 1563,
@@ -2515,16 +2181,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111115",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628149",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628149"
     },
-    "technical_specs": {
-      "power_w": 100,
-      "voltage_v": 12,
-      "current_a": 45
-    },
+    "technical_specs": {},
     "pricing": {
       "price": 1579,
       "price_brl": 1579,
@@ -2553,14 +2212,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111153",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628151",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628151"
     },
-    "technical_specs": {
-      "current_a": 0
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26695.jpg",
     "model": ""
   },
@@ -2584,14 +2238,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111191",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628152",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628152"
     },
-    "technical_specs": {
-      "current_a": 9
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26694.jpg",
     "model": ""
   },
@@ -2615,10 +2264,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111230",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628154",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628154"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26698.jpg",
@@ -2644,14 +2290,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111270",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628155",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628155"
     },
-    "technical_specs": {
-      "current_a": 9942
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26699.jpg",
     "model": ""
   },
@@ -2675,10 +2316,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111309",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628156",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628156"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26697.jpg",
@@ -2704,14 +2342,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111349",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628158",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628158"
     },
-    "technical_specs": {
-      "current_a": 5
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26696.jpg",
     "model": ""
   },
@@ -2735,10 +2368,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111390",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628159",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628159"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26700.jpg",
@@ -2764,16 +2394,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111431",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628160",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628160"
     },
-    "technical_specs": {
-      "power_w": 680,
-      "voltage_v": 24,
-      "current_a": 5
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25053.jpg",
     "pricing": {
       "price": 4624,
@@ -2803,10 +2426,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111473",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628162",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628162"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26968.jpg",
@@ -2832,10 +2452,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111515",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628163",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628163"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26991.jpg",
@@ -2861,10 +2478,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111559",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628164",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628164"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26975.jpg",
@@ -2890,14 +2504,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111602",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628166",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628166"
     },
-    "technical_specs": {
-      "current_a": 81
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26984.jpg",
     "model": ""
   },
@@ -2921,10 +2530,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111646",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628167",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628167"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26971.jpg",
@@ -2950,10 +2556,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111691",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628169",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628169"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26972.jpg",
@@ -2979,14 +2582,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111737",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628170",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628170"
     },
-    "technical_specs": {
-      "current_a": 6
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26969.jpg",
     "model": ""
   },
@@ -3010,14 +2608,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111783",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628171",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628171"
     },
-    "technical_specs": {
-      "current_a": 80
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26970.jpg",
     "model": ""
   },
@@ -3041,14 +2634,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111829",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628173",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628173"
     },
-    "technical_specs": {
-      "current_a": 2
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26988.jpg",
     "model": ""
   },
@@ -3072,14 +2660,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111876",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628174",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628174"
     },
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26987.jpg",
     "model": ""
   },
@@ -3103,14 +2686,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111924",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628175",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.628175"
     },
-    "technical_specs": {
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26986.jpg",
     "model": ""
   },
@@ -3134,10 +2712,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.111972",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628177",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.628177"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_26985.jpg",
@@ -3162,16 +2737,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.112021",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628178",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628178"
     },
-    "technical_specs": {
-      "power_w": 160,
-      "voltage_v": 12,
-      "current_a": 84
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_25046.jpg",
     "pricing": {
       "price": 1423,
@@ -3200,16 +2768,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.112070",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628179",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628179"
     },
-    "technical_specs": {
-      "power_w": 1380,
-      "voltage_v": 48,
-      "current_a": 200
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_22691.jpg",
     "model": ""
   },
@@ -3232,16 +2793,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.112121",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.628180",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.628180"
     },
-    "technical_specs": {
-      "power_w": 1380,
-      "voltage_v": 48,
-      "current_a": 43
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-KITS/neosolar_kits_22690.jpg",
     "model": ""
   },
@@ -3337,10 +2891,7 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628194",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 570
@@ -3442,16 +2993,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628197",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -3550,15 +3095,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628200",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -3678,16 +3218,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628202",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -3807,16 +3341,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628204",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 20,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -3936,16 +3464,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628207",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -4066,16 +3588,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628209",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 95,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -4175,16 +3691,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628211",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 90,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -4284,16 +3794,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628213",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 368,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -4393,16 +3897,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628215",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -4502,16 +4000,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628217",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -4611,15 +4103,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628219",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -4719,16 +4206,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628221",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 99,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -4827,16 +4308,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628223",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 48,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -4936,15 +4411,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628225",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -5044,16 +4514,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628226",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -5153,16 +4617,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628228",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -5262,16 +4720,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628230",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -5370,16 +4822,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628232",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -5479,16 +4925,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628234",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 30,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -5588,15 +5028,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628236",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -5716,16 +5151,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628238",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -5846,16 +5275,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628240",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 47,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -5955,16 +5378,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628242",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -6085,16 +5502,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628244",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -6214,16 +5625,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628246",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 506229,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -6323,16 +5728,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628248",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 82,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -6432,16 +5831,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628250",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -6541,16 +5934,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628252",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 405,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -6650,16 +6037,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628254",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.402Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 37,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -6758,16 +6139,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628256",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 45160,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -6867,16 +6242,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628258",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -6976,15 +6345,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628259",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -7084,16 +6448,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628261",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -7193,15 +6551,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628263",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7301,15 +6654,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628265",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7409,15 +6757,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628267",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7517,16 +6860,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628269",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7625,16 +6962,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628271",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7733,16 +7064,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628273",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 44,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7841,16 +7166,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628275",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -7950,16 +7269,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628276",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -8080,16 +7393,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628278",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -8210,16 +7517,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628280",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -8340,16 +7641,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628282",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -8470,16 +7765,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628284",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -8600,16 +7889,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628286",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -8709,16 +7992,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628288",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -8818,15 +8095,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628289",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -8891,15 +8163,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628291",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -8964,16 +8231,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628293",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9038,16 +8299,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628295",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9147,16 +8402,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628297",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9256,15 +8505,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628299",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -9363,16 +8607,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628301",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9471,16 +8709,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628303",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9545,15 +8777,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628304",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 74
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9618,16 +8845,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628306",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 969,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9726,15 +8947,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628308",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9833,16 +9049,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628310",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -9942,16 +9152,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628312",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 86,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -10051,15 +9255,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628314",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -10159,15 +9358,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628316",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -10267,16 +9461,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628318",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 342,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -10396,16 +9584,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628320",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 718,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -10505,15 +9687,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628322",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -10613,16 +9790,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628323",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -10722,15 +9893,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628325",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 42
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -10830,16 +9996,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628327",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -10939,16 +10099,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628329",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -11047,16 +10201,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628331",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -11156,15 +10304,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628333",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 8
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -11264,15 +10407,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628334",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -11372,16 +10510,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628336",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 52,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -11481,16 +10613,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628338",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -11611,15 +10737,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628340",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -11739,16 +10860,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628342",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 244,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -11848,16 +10963,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628343",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 545,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -11957,16 +11066,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628346",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -12066,15 +11169,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628347",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -12195,15 +11293,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628349",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -12303,16 +11396,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628351",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.403Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 11,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -12412,16 +11499,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628353",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 97,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -12521,16 +11602,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628355",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -12630,15 +11705,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628357",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -12738,16 +11808,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628359",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -12846,15 +11910,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628360",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -12953,16 +12012,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628362",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -13062,16 +12115,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628364",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4087,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -13192,16 +12239,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628366",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -13321,16 +12362,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628368",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -13429,16 +12464,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628370",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -13538,16 +12567,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628372",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -13647,16 +12670,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628374",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -13756,16 +12773,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628376",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 997,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -13886,16 +12897,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628378",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 156418,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -14016,16 +13021,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628379",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -14125,16 +13124,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628381",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -14234,15 +13227,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628383",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -14342,16 +13330,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628385",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 8281,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -14471,15 +13453,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628387",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -14579,16 +13556,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628389",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 658,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -14688,16 +13659,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628391",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -14762,15 +13727,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628393",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -14869,15 +13829,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628395",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -14976,16 +13931,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628397",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15085,16 +14034,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628399",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15215,15 +14158,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628401",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15344,16 +14282,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628403",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -15453,15 +14385,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628404",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15561,16 +14488,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628406",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15670,15 +14591,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628408",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -15799,15 +14715,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628410",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -15928,15 +14839,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628412",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -16057,16 +14963,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628414",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16186,15 +15086,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628416",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -16294,15 +15189,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628418",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16402,16 +15292,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628420",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16476,15 +15360,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628422",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16549,16 +15428,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628424",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16658,15 +15531,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628426",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16766,16 +15634,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628428",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -16875,16 +15737,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628430",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 6926481,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -16984,16 +15840,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628431",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -17092,15 +15942,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628433",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -17165,15 +16010,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628435",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 991
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -17273,16 +16113,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628437",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4457,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -17382,16 +16216,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628439",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 3201869,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -17456,16 +16284,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628441",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -17564,16 +16386,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628443",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 721,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -17672,16 +16488,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628445",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 286,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -17780,15 +16590,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628447",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -17887,16 +16692,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628449",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.404Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 32,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -17961,14 +16760,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628451",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 2
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18033,15 +16828,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628452",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 0
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18106,16 +16896,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628454",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 40,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18215,15 +16999,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628456",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18323,16 +17102,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628458",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -18431,16 +17204,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628460",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 26,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18539,15 +17306,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628462",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18647,15 +17409,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628464",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -18755,16 +17512,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628466",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 88,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -18863,16 +17614,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628468",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -18971,16 +17716,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628470",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 913,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19045,16 +17784,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628472",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19119,15 +17852,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628474",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19227,15 +17955,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628476",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19356,16 +18079,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628478",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19465,16 +18182,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628480",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -19574,16 +18285,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628482",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 6,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -19683,15 +18388,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628483",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -19791,16 +18491,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628485",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -19900,16 +18594,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628487",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 2315,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -20030,16 +18718,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628489",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 60,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -20159,16 +18841,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628491",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 888776,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -20267,15 +18943,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628493",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -20340,15 +19011,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628495",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 418
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -20447,16 +19113,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628497",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 59,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -20556,16 +19216,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628499",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 215,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -20665,16 +19319,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628501",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -20794,15 +19442,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628503",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 3
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -20901,15 +19544,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628505",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -21009,16 +19647,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628507",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -21118,16 +19750,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628509",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 86,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -21226,16 +19852,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628511",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 705,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -21335,14 +19955,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628513",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 2
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -21442,16 +20058,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628515",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -21551,16 +20161,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628516",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 40,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -21681,16 +20285,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628519",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 7347,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -21811,16 +20409,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628521",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -21920,16 +20512,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628523",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -22029,15 +20615,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628525",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -22137,16 +20718,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628527",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 96,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -22246,15 +20821,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628529",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -22354,15 +20924,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628531",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 437
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -22462,16 +21027,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628533",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -22592,15 +21151,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628535",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -22700,16 +21254,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628537",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -22809,16 +21357,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628539",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -22917,16 +21459,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628541",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -22991,15 +21527,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628544",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -23119,15 +21650,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628546",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 24
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -23227,16 +21753,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628548",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 1,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -23336,16 +21856,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628550",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -23445,16 +21959,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628552",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.405Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 85,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -23554,16 +22062,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628554",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 88376,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -23662,15 +22164,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628556",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -23770,16 +22267,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628558",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 213,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -23879,16 +22370,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628560",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 5103,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -23988,16 +22473,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628562",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 96,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -24097,16 +22576,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628564",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 37,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -24206,16 +22679,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628566",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 433,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -24314,15 +22781,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628568",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -24422,15 +22884,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628570",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -24530,16 +22987,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628572",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -24604,16 +23055,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628574",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -24713,16 +23158,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628576",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 444,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -24822,16 +23261,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628578",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 2,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -24931,16 +23364,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628580",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 32,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -25005,16 +23432,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628582",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -25079,15 +23500,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628584",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -25186,16 +23602,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628586",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 7,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -25294,15 +23704,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628588",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -25401,16 +23806,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628590",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -25510,15 +23909,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628592",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -25618,15 +24012,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628594",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -25726,16 +24115,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628596",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 54,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -25835,16 +24218,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628598",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 19,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -25944,16 +24321,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628599",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -26018,16 +24389,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628601",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 90,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -26127,16 +24492,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628603",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 51,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -26236,15 +24595,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628605",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -26344,16 +24698,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628608",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -26453,15 +24801,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628610",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 268927
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -26561,16 +24904,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628612",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 47,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -26670,16 +25007,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628614",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 125,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -26779,15 +25110,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628616",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -26887,15 +25213,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628618",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -26995,15 +25316,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628620",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 457
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -27103,16 +25419,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628622",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 95,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -27212,16 +25522,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628625",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 710,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 710
     },
     "category": "inverters",
     "availability": true,
@@ -27321,16 +25625,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628627",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220,
-      "current_a": 799,
-      "phases": 1
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -27430,14 +25728,10 @@
       "loaded_at": "2025-10-07T04:51:42.139229",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628628",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 2
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 570,
-      "voltage_v": 220
+      "power_w": 570
     },
     "category": "inverters",
     "availability": true,
@@ -27558,10 +25852,7 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628631",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 1
+      "distributor": "FOTUS"
     },
     "technical_specs": {
       "power_w": 600
@@ -27685,16 +25976,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628633",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 3,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -27815,16 +26100,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628636",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 46,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -27945,16 +26224,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628638",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 8,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28075,16 +26348,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628640",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28205,15 +26472,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628642",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28334,15 +26596,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628644",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28463,15 +26720,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628646",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28592,16 +26844,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628648",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 38,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28722,16 +26968,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628650",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28852,16 +27092,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628652",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 9,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -28982,15 +27216,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628655",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.406Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29111,16 +27340,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628657",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 98,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29241,16 +27464,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628659",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29371,16 +27588,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628661",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29501,15 +27712,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628663",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29630,16 +27836,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628666",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 4,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29760,16 +27960,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628668",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 5,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -29890,15 +28084,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628670",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -30019,16 +28208,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628672",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 17416348,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -30149,15 +28332,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628674",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -30278,15 +28456,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628676",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 3
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -30407,16 +28580,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628678",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 0,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,
@@ -30537,16 +28704,10 @@
       "loaded_at": "2025-10-07T04:51:42.140900",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.628680",
-      "distributor": "FOTUS",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.407Z",
-      "specs_count": 4
+      "distributor": "FOTUS"
     },
     "technical_specs": {
-      "power_w": 600,
-      "voltage_v": 220,
-      "current_a": 678,
-      "phases": 1
+      "power_w": 600
     },
     "category": "inverters",
     "availability": true,

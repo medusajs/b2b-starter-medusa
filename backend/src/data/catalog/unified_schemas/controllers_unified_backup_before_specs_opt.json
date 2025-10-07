@@ -27,19 +27,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095624",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.677995",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20080.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 75
-    },
+    "technical_specs": {},
     "price_brl": 469
   },
   {
@@ -70,10 +65,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095630",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678006",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -111,10 +103,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095635",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678008",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -152,10 +141,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095641",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678009",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -193,20 +179,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095647",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678010",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_24245.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 30000,
-      "current_a": 178
-    },
+    "technical_specs": {},
     "price_brl": 37265
   },
   {
@@ -237,19 +217,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095653",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678011",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_24166.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 7000
-    },
+    "technical_specs": {},
     "price_brl": 466
   },
   {
@@ -280,10 +255,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095660",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678013",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -321,20 +293,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095668",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678014",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20359.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 2
-    },
+    "technical_specs": {},
     "price_brl": 653
   },
   {
@@ -365,19 +331,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095676",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678015",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_22724.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 17
-    },
+    "technical_specs": {},
     "price_brl": 2055
   },
   {
@@ -408,19 +369,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095684",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678016",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_24798.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 9
-    },
+    "technical_specs": {},
     "price_brl": 3606
   },
   {
@@ -446,19 +402,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095694",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678017",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_23072.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 21
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_controllers_22725",
@@ -488,19 +439,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095704",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678018",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_22725.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "price_brl": 2268
   },
   {
@@ -531,19 +477,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095715",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678019",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_21565.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000
-    },
+    "technical_specs": {},
     "price_brl": 3296
   },
   {
@@ -569,19 +510,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095726",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678020",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_23071.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 5
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_controllers_24241",
@@ -611,19 +547,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095737",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678021",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_24241.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 60000
-    },
+    "technical_specs": {},
     "price_brl": 74537
   },
   {
@@ -654,19 +585,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095750",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678022",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_24349.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 888
-    },
+    "technical_specs": {},
     "price_brl": 420
   },
   {
@@ -697,19 +623,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095762",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678023",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_23500.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 30000
-    },
+    "technical_specs": {},
     "price_brl": 3969
   },
   {
@@ -740,20 +661,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095775",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678024",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20358.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 0
-    },
+    "technical_specs": {},
     "price_brl": 508
   },
   {
@@ -784,19 +699,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095789",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678025",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20107.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 259
-    },
+    "technical_specs": {},
     "price_brl": 1924
   },
   {
@@ -827,19 +737,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095804",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678027",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20112.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "price_brl": 2694
   },
   {
@@ -870,19 +775,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095819",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678028",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20079.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 7
-    },
+    "technical_specs": {},
     "price_brl": 440
   },
   {
@@ -913,20 +813,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095834",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678029",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_23354.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 30000,
-      "current_a": 102
-    },
+    "technical_specs": {},
     "price_brl": 37265
   },
   {
@@ -957,19 +851,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095850",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678030",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_23355.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 60000
-    },
+    "technical_specs": {},
     "price_brl": 74537
   },
   {
@@ -1000,19 +889,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095867",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678031",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20056.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 4571
-    },
+    "technical_specs": {},
     "price_brl": 427
   },
   {
@@ -1043,19 +927,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095884",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678032",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20057.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 832
-    },
+    "technical_specs": {},
     "price_brl": 19
   },
   {
@@ -1086,10 +965,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095901",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678033",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -1127,10 +1003,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095920",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678034",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -1168,20 +1041,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095938",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678035",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20082.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 34
-    },
+    "technical_specs": {},
     "price_brl": 938
   },
   {
@@ -1212,10 +1079,7 @@
       "last_consolidated": "2025-10-07T04:51:42.095958",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678036",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -1253,19 +1117,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095978",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678037",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20106.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 29
-    },
+    "technical_specs": {},
     "price_brl": 864
   },
   {
@@ -1296,20 +1155,14 @@
       "last_consolidated": "2025-10-07T04:51:42.095998",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678038",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20109.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 47
-    },
+    "technical_specs": {},
     "price_brl": 2126
   },
   {
@@ -1340,20 +1193,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096018",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678039",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20110.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 2
-    },
+    "technical_specs": {},
     "price_brl": 2126
   },
   {
@@ -1384,20 +1231,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096040",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678040",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20114.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 13
-    },
+    "technical_specs": {},
     "price_brl": 3127
   },
   {
@@ -1428,20 +1269,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096061",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678042",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20356.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 7000,
-      "current_a": 52
-    },
+    "technical_specs": {},
     "price_brl": 451
   },
   {
@@ -1472,19 +1307,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096084",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678043",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20357.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 7000
-    },
+    "technical_specs": {},
     "price_brl": 403
   },
   {
@@ -1515,10 +1345,7 @@
       "last_consolidated": "2025-10-07T04:51:42.096126",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678044",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -1551,20 +1378,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096155",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678045",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 2
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20781.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "power_w": 22000,
-      "current_a": 8
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_controllers_20085",
@@ -1594,19 +1415,14 @@
       "last_consolidated": "2025-10-07T04:51:42.096180",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.678046",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.384Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CONTROLLERS/neosolar_controllers_20085.jpg",
     "original_category": "controllers",
-    "technical_specs": {
-      "current_a": 9
-    },
+    "technical_specs": {},
     "price_brl": 3764
   }
 ]

@@ -32,10 +32,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092653",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707746",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.378Z",
-      "specs_count": 11
+      "normalized_at": "2025-10-07T05:03:13.707746"
     },
     "technical_specs": {
       "technology": "LiFePO4",
@@ -53,9 +50,7 @@
       "certifications": [
         "INMETRO",
         "UN38.3"
-      ],
-      "power_w": 5000,
-      "current_a": 10
+      ]
     },
     "price_brl": 6716.83,
     "model": ""
@@ -93,14 +88,11 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092661",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707756",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.378Z",
-      "specs_count": 10
+      "normalized_at": "2025-10-07T05:03:13.707756"
     },
     "technical_specs": {
       "power_kw": 7,
-      "voltage_v": 220,
+      "voltage": "monofasico_220v",
       "connector_type": "Type 2 (IEC 62196-2)",
       "features": [
         "WiFi",
@@ -119,9 +111,7 @@
       "certifications": [
         "INMETRO",
         "IEC 61851-1"
-      ],
-      "power_w": 7000,
-      "current_a": 7
+      ]
     },
     "price_brl": 3423.66,
     "model": ""
@@ -159,14 +149,11 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092667",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707759",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.378Z",
-      "specs_count": 9
+      "normalized_at": "2025-10-07T05:03:13.707759"
     },
     "technical_specs": {
       "power_kw": 7.3,
-      "voltage_v": 220,
+      "voltage": "monofasico_220v",
       "connector_type": "Type 2 (IEC 62196-2)",
       "features": [
         "WiFi/Bluetooth",
@@ -186,8 +173,7 @@
         "INMETRO",
         "IEC 61851-1",
         "OCPP"
-      ],
-      "power_w": 7300
+      ]
     },
     "price_brl": 2811.46,
     "model": ""
@@ -225,10 +211,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092674",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707761",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 9
+      "normalized_at": "2025-10-07T05:03:13.707761"
     },
     "technical_specs": {
       "rated_current_a": 20,
@@ -249,8 +232,7 @@
       "certifications": [
         "UL 3741",
         "IEC 62109"
-      ],
-      "current_a": 20
+      ]
     },
     "price_brl": 91178,
     "model": ""
@@ -288,10 +270,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092681",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707763",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 6
+      "normalized_at": "2025-10-07T05:03:13.707763"
     },
     "technical_specs": {
       "material": "PEAD (Polietileno de Alta Densidade)",
@@ -343,10 +322,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092690",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707765",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.707765"
     },
     "technical_specs": {
       "material": "PRFV (Plástico Reforçado com Fibra de Vidro)",
@@ -396,10 +372,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092699",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707767",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.707767"
     },
     "technical_specs": {
       "material": "Aço galvanizado",
@@ -442,10 +415,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119589",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707768",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707768"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450083.png",
@@ -476,10 +446,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119599",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707770",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707770"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450114.png",
@@ -510,10 +477,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119609",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707771",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707771"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
@@ -544,10 +508,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119631",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707772",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707772"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
@@ -578,10 +539,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119642",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707773",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707773"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
@@ -612,10 +570,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119654",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707774",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707774"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
@@ -646,10 +601,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119666",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707775",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707775"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
@@ -680,10 +632,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119679",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707776",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707776"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450123.png",
@@ -714,10 +663,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119692",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707777",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707777"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450094.png",
@@ -748,10 +694,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119706",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.707779",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.379Z",
-      "specs_count": 0
+      "normalized_at": "2025-10-07T05:03:13.707779"
     },
     "technical_specs": {},
     "image_url": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450118.jpg",

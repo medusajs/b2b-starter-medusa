@@ -33,10 +33,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116478",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612013",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612013"
     },
     "technical_specs": {
       "power_w": 585,
@@ -71,10 +68,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116486",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612030",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612030"
     },
     "technical_specs": {
       "power_w": 600,
@@ -118,10 +112,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116492",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612037",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612037"
     },
     "technical_specs": {
       "power_w": 610,
@@ -156,10 +147,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116498",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612043",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612043"
     },
     "technical_specs": {
       "power_w": 660,
@@ -203,10 +191,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116504",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612048",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612048"
     },
     "technical_specs": {
       "power_w": 700,
@@ -250,10 +235,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116511",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612054",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612054"
     },
     "technical_specs": {
       "power_w": 600,
@@ -297,10 +279,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116519",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612060",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612060"
     },
     "technical_specs": {
       "power_w": 560,
@@ -344,10 +323,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116527",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612065",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612065"
     },
     "technical_specs": {
       "power_w": 610,
@@ -391,10 +367,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.116535",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612070",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "normalized_at": "2025-10-07T05:03:13.612070"
     },
     "technical_specs": {
       "power_w": 615,
@@ -987,10 +960,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.134819",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612078",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 1
+      "normalized_at": "2025-10-07T05:03:13.612078"
     },
     "panels": [
       {
@@ -2215,10 +2185,7 @@
       "last_consolidated": "2025-10-07T04:51:42.133118",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612088",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2263,10 +2230,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133132",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612092",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.612092"
     },
     "technical_specs": {
       "technology": "Monocristalino",
@@ -2300,10 +2264,7 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133143",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612097",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.612097"
     },
     "technical_specs": {
       "technology": "Monocristalino",
@@ -2344,10 +2305,7 @@
       "last_consolidated": "2025-10-07T04:51:42.133156",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612105",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2364,8 +2322,7 @@
     "technology": "Monocristalino",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 559381,
-      "voltage_v": 33
+      "efficiency": 559381
     },
     "pricing": {
       "price": null,
@@ -2400,10 +2357,7 @@
       "last_consolidated": "2025-10-07T04:51:42.133169",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612114",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2455,10 +2409,7 @@
       "last_consolidated": "2025-10-07T04:51:42.133182",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612121",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2510,10 +2461,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612126",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2565,10 +2513,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612131",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2620,10 +2565,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612136",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2675,10 +2617,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612140",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2730,10 +2669,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612144",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2783,10 +2719,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612149",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2836,10 +2769,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612153",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2889,10 +2819,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612158",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2942,10 +2869,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612163",
-      "distributor": "ODEX",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 3
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2998,10 +2922,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612169",
       "original_category": "accessories",
-      "distributor": "Solfacil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "distributor": "Solfacil"
     },
     "certifications": {
       "inmetro": {
@@ -3053,10 +2974,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612174",
       "original_category": "accessories",
-      "distributor": "Solfacil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 2
+      "distributor": "Solfacil"
     },
     "certifications": {
       "inmetro": {
@@ -3104,10 +3022,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612177",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "certifications": {
       "inmetro": {
@@ -3154,10 +3069,7 @@
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.612180",
-      "distributor": "Solfácil",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.414Z",
-      "specs_count": 1
+      "distributor": "Solfácil"
     },
     "certifications": {
       "inmetro": {

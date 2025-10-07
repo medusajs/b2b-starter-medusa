@@ -24,14 +24,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716045",
       "original_category": "rsd",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 20
-    },
+    "technical_specs": {},
     "category": "others",
     "availability": true,
     "pricing": {
@@ -67,10 +62,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716054",
       "original_category": "conduit",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "technical_specs": {},
     "category": "others",
@@ -108,10 +100,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716057",
       "original_category": "junction_box",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "technical_specs": {},
     "category": "others",
@@ -149,10 +138,7 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716059",
       "original_category": "fencing",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 0
+      "distributor": "YSH"
     },
     "technical_specs": {},
     "category": "others",
@@ -182,14 +168,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716095",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 21
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {
@@ -217,14 +198,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716097",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 1339335
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {
@@ -252,14 +228,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716099",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 401
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {
@@ -287,14 +258,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716100",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 8
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {
@@ -322,14 +288,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716101",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 89
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {
@@ -357,14 +318,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.716102",
       "original_category": "posts",
-      "distributor": "YSH",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-      "specs_count": 1
+      "distributor": "YSH"
     },
-    "technical_specs": {
-      "current_a": 4
-    },
+    "technical_specs": {},
     "category": "posts",
     "availability": true,
     "pricing": {

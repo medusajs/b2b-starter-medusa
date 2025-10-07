@@ -18,15 +18,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119122",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714679",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714679"
     },
-    "technical_specs": {
-      "power_w": 100,
-      "current_a": 21
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
     "pricing": {
       "price": 17148,
@@ -55,15 +49,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119127",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714693",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714693"
     },
-    "technical_specs": {
-      "power_w": 80,
-      "current_a": 1339335
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
     "pricing": {
       "price": 16357,
@@ -92,15 +80,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119132",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714697",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714697"
     },
-    "technical_specs": {
-      "power_w": 40,
-      "current_a": 401
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
     "pricing": {
       "price": 9166,
@@ -129,15 +111,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119138",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714701",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714701"
     },
-    "technical_specs": {
-      "power_w": 30,
-      "current_a": 8
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
     "pricing": {
       "price": 7901,
@@ -166,15 +142,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119143",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714704",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714704"
     },
-    "technical_specs": {
-      "power_w": 60,
-      "current_a": 89
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
     "pricing": {
       "price": 15804,
@@ -203,15 +173,9 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.119150",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.714707",
-      "specs_enriched": true,
-      "specs_enriched_at": "2025-10-07T16:05:09.415Z",
-      "specs_count": 2
+      "normalized_at": "2025-10-07T05:03:13.714707"
     },
-    "technical_specs": {
-      "power_w": 30,
-      "current_a": 4
-    },
+    "technical_specs": {},
     "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
     "pricing": {
       "price": 8217,
