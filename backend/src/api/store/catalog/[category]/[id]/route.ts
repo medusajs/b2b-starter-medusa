@@ -83,8 +83,7 @@ export const GET = async (
             });
         }
 
-        const normalized = normalizeProduct(category, product)
-        res.json({ product: normalized });
+        res.json({ product });
     } catch (error) {
         res.status(400).json({
             error: "Erro ao buscar produto",

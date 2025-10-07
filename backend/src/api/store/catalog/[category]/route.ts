@@ -103,9 +103,7 @@ export const GET = async (
 
         // Fetch paginated data for the response
         const result = await yshCatalogService.listProductsByCategory(category, options);
-        const normalized = result.products.map((p) => normalizeProduct(category, p))
-
-        res.json({ ...result, products: normalized, facets: { manufacturers: manufacturersFacet } });
+        res.json({ ...result, facets: { manufacturers: manufacturersFacet } });
   } catch (error) {
     res.status(400).json({
       error: "Erro ao buscar produtos",

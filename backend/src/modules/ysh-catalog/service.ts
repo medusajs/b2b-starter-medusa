@@ -59,6 +59,7 @@ class YshCatalogModuleService extends MedusaService({
     private catalogPath: string;
     private unifiedSchemasPath: string;
     private imagesProcessedPath: string;
+    private enrichedSchemasPath: string;
 
     constructor() {
         super();
@@ -66,6 +67,7 @@ class YshCatalogModuleService extends MedusaService({
         this.catalogPath = path.resolve(__dirname, '../../../../../data/catalog');
         this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
         this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
+        this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
     }
 
     /**
@@ -144,6 +146,59 @@ class YshCatalogModuleService extends MedusaService({
         } // else only dot present -> already decimal
         const num = parseFloat(normalized)
         return isNaN(num) ? undefined : num
+    }
+
+    /**
+     * Tenta carregar schema enriquecido por id/sku
+     */
+    private loadEnrichedSchema(id?: string, sku?: string): Record<string, any> | null {
+        try {
+            const candidates = [id, sku].filter(Boolean) as string[]
+            for (const name of candidates) {
+                const file = path.join(this.enrichedSchemasPath, `${name}.json`)
+                if (fs.existsSync(file)) {
+                    const raw = fs.readFileSync(file, 'utf-8')
+                    return JSON.parse(raw)
+                }
+            }
+        } catch (e) {
+            // ignore
+        }
+        return null
+    }
+
+    /**
+     * Normaliza e enriquece um produto para consumo no storefront
+     */
+    private prepareProduct(category: string, product: CatalogProduct): CatalogProduct {
+        // Normaliza imagens primeiro
+        const base = this.normalizeImagePaths({ ...(product as any) }) as any
+
+        // Campos derivados/unificados
+        base.price_brl = base.price_brl ?? this.parsePriceValue(base.price)
+        base.distributor = base.distributor || base.centro_distribuicao || base.manufacturer
+        base.potencia_kwp = base.potencia_kwp ?? base.kwp
+
+        if (category === 'kits') {
+            base.panels = base.panels || []
+            base.inverters = base.inverters || []
+            base.batteries = base.batteries || []
+            base.total_panels = base.total_panels ?? (Array.isArray(base.panels) ? base.panels.reduce((acc: number, x: any) => acc + (x.quantity || 0), 0) : undefined)
+            base.total_inverters = base.total_inverters ?? (Array.isArray(base.inverters) ? base.inverters.reduce((acc: number, x: any) => acc + (x.quantity || 0), 0) : undefined)
+            base.total_power_w = base.total_power_w ?? (Array.isArray(base.panels) ? base.panels.reduce((acc: number, x: any) => acc + ((x.power_w || 0) * (x.quantity || 0)), 0) : undefined)
+        }
+
+        // Merge de schema enriquecido (se existir)
+        const enriched = this.loadEnrichedSchema(base.id, base.sku)
+        if (enriched) {
+            base.warranty = enriched.warranty ?? base.warranty
+            base.installation = enriched.installation ?? base.installation
+            base.specs = enriched.specs ?? base.specs
+            base.compatibility = enriched.compatibility ?? base.compatibility
+            base.datasheet_url = enriched.datasheet_url ?? base.datasheet_url
+        }
+
+        return base as CatalogProduct
     }
 
     /**
@@ -227,8 +282,8 @@ class YshCatalogModuleService extends MedusaService({
         const endIndex = startIndex + limit;
         const paginatedProducts = products.slice(startIndex, endIndex);
 
-        // Normalizar caminhos das imagens
-        const normalizedProducts = paginatedProducts.map(product => this.normalizeImagePaths(product));
+        // Normalizar e enriquece
+        const normalizedProducts = paginatedProducts.map(product => this.prepareProduct(category, product));
 
         return {
             products: normalizedProducts,
@@ -244,7 +299,7 @@ class YshCatalogModuleService extends MedusaService({
     async getProductById(category: string, id: string): Promise<CatalogProduct | null> {
         const response = await this.listProductsByCategory(category, { limit: 1000 });
         const product = response.products.find(p => p.id === id || p.sku === id);
-        return product ? this.normalizeImagePaths(product) : null;
+        return product ? this.prepareProduct(category, product) : null;
     }
 
     /**
