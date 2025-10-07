@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
+import { CatalogCustomizationProvider } from "@/modules/catalog/context/customization"
 
 // Lazy load components para melhor performance
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"), {
@@ -116,6 +117,25 @@ export default async function ProductsPage() {
     const { panels, kits, inverters } = await getCatalogData()
 
     return (
+        <CatalogCustomizationProvider
+            value={{
+                extraBadges: (item) => {
+                    const badges: string[] = []
+                    if ((item as any).type) badges.push((item as any).type)
+                    if ((item as any).distributor) badges.push((item as any).distributor)
+                    return badges
+                },
+                primaryCta: (item) => ({ label: "Ver Detalhes", href: `/produtos/${item.id}` }),
+                secondaryCta: (item) => ({ label: "Solicitar Cotação", href: "/contato", variant: "secondary" }),
+                highlightSpecs: (p: any) => {
+                    const out: Array<{ label: string; value: string }> = []
+                    if (p?.garantia_anos) out.push({ label: "Garantia", value: `${p.garantia_anos} anos` })
+                    if (p?.tensao) out.push({ label: "Tensão", value: `${p.tensao}` })
+                    if (p?.corrente) out.push({ label: "Corrente", value: `${p.corrente}` })
+                    return out
+                },
+            }}
+        >
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
             <div className="bg-white shadow-sm">
@@ -188,5 +208,6 @@ export default async function ProductsPage() {
                 </section>
             </div>
         </div>
+        </CatalogCustomizationProvider>
     )
 }

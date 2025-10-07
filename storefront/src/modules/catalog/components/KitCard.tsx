@@ -1,4 +1,5 @@
 import { Badge } from "@medusajs/ui"
+import { useCatalogCustomization } from "@/modules/catalog/context/customization"
 import { Package, Sun, Battery, Zap } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -37,6 +38,7 @@ interface KitCardProps {
 }
 
 const KitCard = ({ kit }: KitCardProps) => {
+    const custom = useCatalogCustomization()
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('pt-BR', {
             style: 'currency',
@@ -50,6 +52,11 @@ const KitCard = ({ kit }: KitCardProps) => {
         '/placeholder-kit.jpg'
 
     const totalPowerKw = kit.total_power_w / 1000
+
+    const extraBadges = custom.extraBadges?.(kit) || []
+
+    const primaryCta = custom.primaryCta?.(kit)
+    const secondaryCta = custom.secondaryCta?.(kit)
 
     return (
         <div className="ysh-product-card group">
@@ -81,11 +88,14 @@ const KitCard = ({ kit }: KitCardProps) => {
                     </div>
                 </div>
 
-                {/* Kit Badge */}
-                <div className="absolute top-2 left-2">
-                    <Badge className="ysh-badge-tier-xpp">
-                        KIT COMPLETO
-                    </Badge>
+                {/* Kit Badge + Extra Badges */}
+                <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
+                    <Badge className="ysh-badge-tier-xpp">KIT COMPLETO</Badge>
+                    {extraBadges.map((b, i) => (
+                        <Badge key={i} className="bg-white/90 text-gray-800 border border-gray-200">
+                            {b}
+                        </Badge>
+                    ))}
                 </div>
 
                 {/* Distributor */}
@@ -150,11 +160,50 @@ const KitCard = ({ kit }: KitCardProps) => {
                             {kit.centro_distribuicao}
                         </div>
                     </div>
-                    <Link href={`/produtos/${kit.id}`}>
-                        <button className="ysh-btn-primary text-sm px-4 py-2">
-                            Ver Kit
-                        </button>
-                    </Link>
+                    <div className="flex gap-2">
+                        {secondaryCta && (
+                            secondaryCta.href ? (
+                                <Link href={secondaryCta.href}>
+                                    <button className="ysh-btn-outline text-sm px-3 py-2">
+                                        {secondaryCta.label}
+                                    </button>
+                                </Link>
+                            ) : (
+                                <button
+                                    className="ysh-btn-outline text-sm px-3 py-2"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        secondaryCta.onClick?.(kit)
+                                    }}
+                                >
+                                    {secondaryCta.label}
+                                </button>
+                            )
+                        )}
+                        {primaryCta ? (
+                            primaryCta.href ? (
+                                <Link href={primaryCta.href}>
+                                    <button className="ysh-btn-primary text-sm px-4 py-2">
+                                        {primaryCta.label}
+                                    </button>
+                                </Link>
+                            ) : (
+                                <button
+                                    className="ysh-btn-primary text-sm px-4 py-2"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        primaryCta.onClick?.(kit)
+                                    }}
+                                >
+                                    {primaryCta.label}
+                                </button>
+                            )
+                        ) : (
+                            <Link href={`/produtos/${kit.id}`}>
+                                <button className="ysh-btn-primary text-sm px-4 py-2">Ver Kit</button>
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

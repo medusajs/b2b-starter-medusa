@@ -1,4 +1,5 @@
 import { Badge } from "@medusajs/ui"
+import { useCatalogCustomization } from "@/modules/catalog/context/customization"
 import { Heart, ShoppingCart, Eye } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -28,6 +29,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
+    const custom = useCatalogCustomization()
     const getTierBadge = (tier?: string) => {
         switch (tier) {
             case 'XPP':
@@ -78,6 +80,12 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
     const displayPrice = product.price_brl || (product.price ? parseFloat(product.price.replace('R$ ', '').replace('.', '').replace(',', '.')) : undefined)
     const power = product.kwp || product.potencia_kwp
 
+    const extraBadges = custom.extraBadges?.(product) || []
+    const primaryCta = custom.primaryCta?.(product)
+    const secondaryCta = custom.secondaryCta?.(product)
+
+    const highlight = custom.highlightSpecs?.(product as any)
+
     return (
         <div className="ysh-product-card group">
             {/* Product Image */}
@@ -114,18 +122,32 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     </div>
                 </div>
 
-                {/* Tier Badge */}
-                {product.tier_recommendation && product.tier_recommendation.length > 0 && (
-                    <div className="absolute top-2 left-2">
+                {/* Tier Badge + Extra Badges */}
+                <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
+                    {product.tier_recommendation && product.tier_recommendation.length > 0 && (
                         <Badge className={getTierBadge(product.tier_recommendation[0])}>
                             {product.tier_recommendation[0]}
                         </Badge>
-                    </div>
-                )}
+                    )}
+                    {extraBadges.map((b, i) => (
+                        <Badge key={i} className="bg-white/90 text-gray-800 border border-gray-200">
+                            {b}
+                        </Badge>
+                    ))}
+                </div>
 
-                {/* Category Icon */}
-                <div className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                    <span className="text-sm">{getCategoryIcon()}</span>
+                {/* Category Icon / Manufacturer Logo */}
+                <div className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+                    {(() => {
+                        const logo = custom.logoFor?.(product.manufacturer)
+                        if (logo) {
+                            return (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img src={logo} alt={product.manufacturer || 'brand'} className="w-full h-full object-contain p-1" />
+                            )
+                        }
+                        return <span className="text-sm">{getCategoryIcon()}</span>
+                    })()}
                 </div>
             </div>
 
@@ -164,6 +186,12 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             <span>{product.efficiency_pct}% η</span>
                         </div>
                     )}
+                    {highlight?.slice(0, 2).map((s, i) => (
+                        <div key={i} className="flex items-center gap-1">
+                            <span className="text-gray-500">{s.label}:</span>
+                            <span className="font-medium">{s.value}</span>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Price */}
@@ -171,9 +199,50 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     <div className="ysh-price">
                         {formatPrice(displayPrice)}
                     </div>
-                    <button className="ysh-btn-primary text-sm px-3 py-1">
-                        Ver Detalhes
-                    </button>
+                    <div className="flex gap-2">
+                        {secondaryCta && (
+                            secondaryCta.href ? (
+                                <Link href={secondaryCta.href}>
+                                    <button className="ysh-btn-outline text-sm px-3 py-1">
+                                        {secondaryCta.label}
+                                    </button>
+                                </Link>
+                            ) : (
+                                <button
+                                    className="ysh-btn-outline text-sm px-3 py-1"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        secondaryCta.onClick?.(product)
+                                    }}
+                                >
+                                    {secondaryCta.label}
+                                </button>
+                            )
+                        )}
+                        {primaryCta ? (
+                            primaryCta.href ? (
+                                <Link href={primaryCta.href}>
+                                    <button className="ysh-btn-primary text-sm px-3 py-1">
+                                        {primaryCta.label}
+                                    </button>
+                                </Link>
+                            ) : (
+                                <button
+                                    className="ysh-btn-primary text-sm px-3 py-1"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        primaryCta.onClick?.(product)
+                                    }}
+                                >
+                                    {primaryCta.label}
+                                </button>
+                            )
+                        ) : (
+                            <Link href={`/produtos/${product.id}`}>
+                                <button className="ysh-btn-primary text-sm px-3 py-1">Ver Detalhes</button>
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

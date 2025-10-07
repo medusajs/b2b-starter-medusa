@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 import KitCard from "@/modules/catalog/components/KitCard"
+import { CatalogCustomizationProvider } from "@/modules/catalog/context/customization"
 import { promises as fs } from 'fs'
 import path from 'path'
 
@@ -43,6 +44,18 @@ export default async function KitsPage() {
     const allKits = [...fotusKits, ...yshKits, ...fotusHybridKits]
 
     return (
+        <CatalogCustomizationProvider
+            value={{
+                extraBadges: (kit: any) => {
+                    const badges: string[] = []
+                    if (kit?.tipo) badges.push(String(kit.tipo))
+                    if (kit?.estrutura) badges.push(String(kit.estrutura))
+                    return badges
+                },
+                primaryCta: (kit) => ({ label: "Ver Kit", href: `/produtos/${kit.id}` }),
+                secondaryCta: () => ({ label: "Solicitar Cotação", href: "/contato", variant: "secondary" }),
+            }}
+        >
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
             <div className="bg-white shadow-sm">
@@ -176,5 +189,6 @@ export default async function KitsPage() {
                 </div>
             </div>
         </div>
+        </CatalogCustomizationProvider>
     )
 }
