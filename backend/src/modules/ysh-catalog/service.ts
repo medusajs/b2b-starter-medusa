@@ -161,6 +161,23 @@ class YshCatalogModuleService extends MedusaService({
                     return JSON.parse(raw)
                 }
             }
+            // fallback: procurar em arquivos agregados (ex.: *_enriched.json)
+            const files = fs.readdirSync(this.enrichedSchemasPath).filter((f) => f.endsWith('.json'))
+            for (const f of files) {
+                try {
+                    const p = path.join(this.enrichedSchemasPath, f)
+                    const raw = fs.readFileSync(p, 'utf-8')
+                    const parsed = JSON.parse(raw)
+                    if (Array.isArray(parsed)) {
+                        const found = parsed.find((it: any) => (it?.id && candidates.includes(it.id)) || (it?.sku && candidates.includes(it.sku)))
+                        if (found) return found
+                    } else if (parsed && typeof parsed === 'object') {
+                        for (const key of candidates) {
+                            if ((parsed as any)[key]) return (parsed as any)[key]
+                        }
+                    }
+                } catch {}
+            }
         } catch (e) {
             // ignore
         }

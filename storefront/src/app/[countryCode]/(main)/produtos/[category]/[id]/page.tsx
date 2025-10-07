@@ -173,10 +173,51 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
             <AddToQuoteButton product={product} />
           </div>
         </div>
-      </div>
+  </div>
 
-      {/* Seções enriquecidas */}
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+  {/* Resumo técnico com ícones */}
+  <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+    {product.potencia_kwp && (
+      <div className="bg-white rounded-lg border p-4 flex items-center gap-3">
+        {/* icon placeholder: unicode bolt to avoid extra imports */}
+        <span className="w-5 h-5 inline-flex items-center justify-center text-yellow-600">⚡</span>
+        <div>
+          <div className="text-xs text-neutral-500">Potência</div>
+          <div className="text-sm font-semibold">{product.potencia_kwp} kWp</div>
+        </div>
+      </div>
+    )}
+    {product.efficiency_pct && (
+      <div className="bg-white rounded-lg border p-4 flex items-center gap-3">
+        <span className="w-5 h-5 inline-flex items-center justify-center text-blue-600">⎍</span>
+        <div>
+          <div className="text-xs text-neutral-500">Eficiência</div>
+          <div className="text-sm font-semibold">{product.efficiency_pct}%</div>
+        </div>
+      </div>
+    )}
+    {(product as any).voltage_v && (
+      <div className="bg-white rounded-lg border p-4 flex items-center gap-3">
+        <span className="w-5 h-5 inline-flex items-center justify-center text-green-600">∿</span>
+        <div>
+          <div className="text-xs text-neutral-500">Tensão</div>
+          <div className="text-sm font-semibold">{(product as any).voltage_v} V</div>
+        </div>
+      </div>
+    )}
+    {product.warranty && (
+      <div className="bg-white rounded-lg border p-4 flex items-center gap-3">
+        <span className="w-5 h-5 inline-flex items-center justify-center text-emerald-600">✓</span>
+        <div>
+          <div className="text-xs text-neutral-500">Garantia</div>
+          <div className="text-sm font-semibold">{typeof product.warranty === 'string' ? product.warranty : 'Disponível'}</div>
+        </div>
+      </div>
+    )}
+  </div>
+
+  {/* Seções enriquecidas */}
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         {(product.specs || product.warranty || product.installation || product.compatibility) && (
           <div className="bg-white rounded-lg border p-4">
             <h2 className="text-lg font-semibold mb-3">Especificações</h2>
@@ -234,8 +275,17 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
         {product.datasheet_url && (
           <div className="bg-white rounded-lg border p-4 h-fit">
             <h2 className="text-lg font-semibold mb-3">Documentos</h2>
-            <a href={product.datasheet_url as string} target="_blank" rel="noopener noreferrer" className="ysh-btn-outline">
-              Ficha técnica (PDF)
+            {String(product.datasheet_url).toLowerCase().endsWith('.pdf') ? (
+              <div className="aspect-[16/9] w-full">
+                <iframe
+                  src={`${product.datasheet_url}#toolbar=0`}
+                  className="w-full h-full rounded-md border"
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
+            <a href={product.datasheet_url as string} target="_blank" rel="noopener noreferrer" className="ysh-btn-outline mt-3 inline-block">
+              Abrir ficha técnica
             </a>
           </div>
         )}
