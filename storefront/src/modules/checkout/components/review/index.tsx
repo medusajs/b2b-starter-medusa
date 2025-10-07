@@ -24,21 +24,21 @@ const Review = ({
     <div className="flex flex-col gap-y-2">
       <div className="flex items-start gap-x-1 w-full">
         <Text className="txt-xsmall text-neutral-500 mb-1">
-          By Completing this order, I agree to Medusa&apos;s{" "}
+          Ao concluir este pedido, concordo com os {" "}
           <LocalizedClientLink
             href="/terms-of-sale"
             className="hover:text-neutral-800"
             target="_blank"
           >
-            Terms of Sale ↗
+            Termos de Venda ↗
           </LocalizedClientLink>{" "}
-          and{" "}
+          e {" "}
           <LocalizedClientLink
             href="/privacy-policy"
             className="hover:text-neutral-800"
             target="_blank"
           >
-            Privacy Policy ↗
+            Política de Privacidade ↗
           </LocalizedClientLink>
         </Text>
       </div>
@@ -47,13 +47,13 @@ const Review = ({
           <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
             <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
             <p className="text-neutral-950 text-xs">
-              This order exceeds your spending limit.
+              Este pedido excede seu limite de gastos.
               <br />
-              Please contact your manager for approval.
+              Entre em contato com seu gerente para aprovação.
             </p>
           </div>
           <Button className="w-full h-10 rounded-full shadow-none" disabled>
-            Place Order
+            Finalizar pedido
           </Button>
         </>
       ) : (

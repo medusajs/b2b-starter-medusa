@@ -2038,15 +2038,6 @@
     uuid "^9.0.0"
     zod "3.22.4"
 
-"@medusajs/modules-sdk@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.npmjs.org/@medusajs/modules-sdk/-/modules-sdk-2.10.3.tgz"
-  integrity sha512-4KYUVQc0CSstpyijZNgkUxO9prZC2rsVKTP6615KpguAli9K36dxN3IVp0XxuxXocJ2ZG0Yi8ec3HeN6+W6wJw==
-  dependencies:
-    "@medusajs/orchestration" "2.10.3"
-    "@medusajs/types" "2.10.3"
-    "@medusajs/utils" "2.10.3"
-
 "@medusajs/modules-sdk@2.8.4":
   version "2.8.4"
   resolved "https://registry.npmjs.org/@medusajs/modules-sdk/-/modules-sdk-2.8.4.tgz"
@@ -2072,15 +2063,6 @@
   version "2.8.4"
   resolved "https://registry.npmjs.org/@medusajs/notification/-/notification-2.8.4.tgz"
   integrity sha512-u5rvmH6A6zHWdxS0mTyIGLs4oc6Lne8bKISZAKm1QcbVlW8fQRMxxlBDr9vK1f529G6CSVDhpDAlhmc8Hn7ARQ==
-
-"@medusajs/orchestration@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.npmjs.org/@medusajs/orchestration/-/orchestration-2.10.3.tgz"
-  integrity sha512-2nbpVefyovNX4j8M+jaT73FcJnHsCHkJAfU3OZRoEMd2jq7hKrM17nqeEn5B86xbvSjjOkP8rtqJboVGVuUyxg==
-  dependencies:
-    "@medusajs/types" "2.10.3"
-    "@medusajs/utils" "2.10.3"
-    ulid "^2.3.0"
 
 "@medusajs/orchestration@2.8.4":
   version "2.8.4"
@@ -2175,13 +2157,6 @@
     get-port "^5.1.0"
     randomatic "^3.1.1"
 
-"@medusajs/types@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.npmjs.org/@medusajs/types/-/types-2.10.3.tgz"
-  integrity sha512-Rx1H4LZ17AsOspaFAPpMwpi2rxj14ZWSip+1FA28GZourviWCLR2i3Er0b6SqJdh861fH6RhSyNaYVEKX6rk/w==
-  dependencies:
-    bignumber.js "^9.1.2"
-
 "@medusajs/types@2.8.4":
   version "2.8.4"
   resolved "https://registry.npmjs.org/@medusajs/types/-/types-2.8.4.tgz"
@@ -2223,27 +2198,6 @@
   dependencies:
     jsonwebtoken "^9.0.2"
 
-"@medusajs/utils@2.10.3":
-  version "2.10.3"
-  resolved "https://registry.npmjs.org/@medusajs/utils/-/utils-2.10.3.tgz"
-  integrity sha512-suct9AGHYnvT2ssu8nwZvZjuNRkhUdHCG0jGGn2vcANfh3d7qJNwMxXoUXztNHa0MirUpgmtBoUMKPgCrMW8uA==
-  dependencies:
-    "@graphql-codegen/core" "^4.0.2"
-    "@graphql-codegen/typescript" "^4.0.9"
-    "@graphql-tools/merge" "^9.0.7"
-    "@graphql-tools/schema" "^10.0.6"
-    "@medusajs/types" "2.10.3"
-    "@types/pluralize" "^0.0.33"
-    bignumber.js "^9.1.2"
-    dotenv "^16.4.5"
-    dotenv-expand "^11.0.6"
-    graphql "^16.9.0"
-    jsonwebtoken "^9.0.2"
-    pg-connection-string "^2.7.0"
-    pluralize "^8.0.0"
-    ulid "^2.3.0"
-    zod "3.25.76"
-
 "@medusajs/utils@2.8.4":
   version "2.8.4"
   resolved "https://registry.npmjs.org/@medusajs/utils/-/utils-2.8.4.tgz"
@@ -2280,17 +2234,6 @@
   dependencies:
     bullmq "5.13.0"
     ioredis "^5.4.1"
-    ulid "^2.3.0"
-
-"@medusajs/workflows-sdk@^2.10.3":
-  version "2.10.3"
-  resolved "https://registry.npmjs.org/@medusajs/workflows-sdk/-/workflows-sdk-2.10.3.tgz"
-  integrity sha512-4bS14KBygY5GA/mNvzakOqJIdrFqT/nTi8w0j7vT4ZYlOHY9EWL3cJ/PyctTPl2P7/cynz3qTi/lvlnnhFvtmQ==
-  dependencies:
-    "@medusajs/modules-sdk" "2.10.3"
-    "@medusajs/orchestration" "2.10.3"
-    "@medusajs/types" "2.10.3"
-    "@medusajs/utils" "2.10.3"
     ulid "^2.3.0"
 
 "@medusajs/workflows-sdk@2.8.4":
@@ -10826,12 +10769,7 @@ zod-validation-error@^3.4.1:
   resolved "https://registry.npmjs.org/zod-validation-error/-/zod-validation-error-3.5.3.tgz"
   integrity sha512-OT5Y8lbUadqVZCsnyFaTQ4/O2mys4tj7PqhdbBCp7McPwvIEKfPtdA6QfPeFQK2/Rz5LgwmAXRJTugBNBi0btw==
 
-zod@^3.23.8, "zod@^3.25.0 || ^4.0.0", zod@3.25.76:
-  version "3.25.76"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
-
-zod@3.22.4:
+zod@^3.22.4, "zod@^3.25.0 || ^4.0.0", zod@3.22.4:
   version "3.22.4"
   resolved "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz"
   integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
