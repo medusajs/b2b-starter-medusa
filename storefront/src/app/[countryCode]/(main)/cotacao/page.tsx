@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
 import { useMemo, useState } from "react"
 import { toast } from "@medusajs/ui"
@@ -28,7 +28,7 @@ export default function CotacaoPage() {
         <div className="bg-white p-8 rounded-lg border text-center">
           <p className="text-neutral-700">Sua lista está vazia.</p>
           <div className="mt-4">
-            <Link href="/produtos" className="ysh-btn-primary">Explorar produtos</Link>
+            <LocalizedClientLink href="/produtos" className="ysh-btn-primary">Explorar produtos</LocalizedClientLink>
           </div>
         </div>
       ) : (
@@ -45,7 +45,7 @@ export default function CotacaoPage() {
                 <div className="font-medium text-neutral-900 line-clamp-2">{it.name}</div>
               </div>
               <div className="flex justify-between items-center mt-3">
-                <Link href={`/produtos/${(it as any).category || 'panels'}/${it.id}`} className="ysh-btn-outline text-sm">Ver</Link>
+                <LocalizedClientLink href={`/produtos/${(it as any).category || 'panels'}/${it.id}`} className="ysh-btn-outline text-sm">Ver</LocalizedClientLink>
                 <button className="text-xs text-red-600" onClick={() => remove(it.id)}>Remover</button>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import Link from "next/link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import KitCard from "@/modules/catalog/components/KitCard"
 import { CatalogCustomizationProvider } from "@/modules/catalog/context/customization"
 import { promises as fs } from 'fs'
@@ -179,12 +179,12 @@ export default async function KitsPage() {
                         Podemos montar um kit personalizado com os componentes que você precisa.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/dimensionamento" className="ysh-btn-secondary">
+                        <LocalizedClientLink href="/dimensionamento" className="ysh-btn-secondary">
                             Fazer Dimensionamento
-                        </Link>
-                        <Link href="/contato" className="ysh-btn-outline">
+                        </LocalizedClientLink>
+                        <LocalizedClientLink href="/contato" className="ysh-btn-outline">
                             Consultoria Gratuita
-                        </Link>
+                        </LocalizedClientLink>
                     </div>
                 </div>
             </div>
