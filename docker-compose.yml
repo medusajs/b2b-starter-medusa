@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: medusa-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medusa-backend
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - medusa-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: medusa-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - medusa-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: medusa-backend
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-backend
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: supersecret
+      COOKIE_SECRET: supersecret
+      STORE_CORS: http://localhost:8000,http://localhost:3000
+      ADMIN_CORS: http://localhost:7000,http://localhost:7001
+      AUTH_CORS: http://localhost:7000,http://localhost:7001
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - medusa-network
+    command: yarn dev
+
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+    container_name: medusa-storefront
+    environment:
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_test_placeholder
+    ports:
+      - "8000:8000"
+    depends_on:
+      - backend
+    volumes:
+      - ./storefront:/app
+      - /app/node_modules
+    networks:
+      - medusa-network
+    command: yarn dev
+
+volumes:
+  postgres_data:
+
+networks:
+  medusa-network:
+    driver: bridge
