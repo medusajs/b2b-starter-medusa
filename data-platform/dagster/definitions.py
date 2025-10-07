@@ -40,6 +40,17 @@ helio_kb_job = define_asset_job(
     description="Indexar todas as Knowledge Bases do Hélio (RAG)",
 )
 
+erp_sync_job = define_asset_job(
+    name="erp_sync_job",
+    selection=[
+        "erp_products_sync",
+        "erp_orders_sync",
+        "erp_homologacao_sync",
+        "erp_pricing_kb"
+    ],
+    description="Sincronização bidirecional Medusa ↔ YSH ERP",
+)
+
 # Define schedules
 catalog_schedule = ScheduleDefinition(
     job=catalog_job,
@@ -57,6 +68,12 @@ helio_kb_schedule = ScheduleDefinition(
     job=helio_kb_job,
     cron_schedule="0 4 * * *",  # 4h diariamente
     description="Reindexar Knowledge Bases do Hélio diariamente às 4h",
+)
+
+erp_sync_schedule = ScheduleDefinition(
+    job=erp_sync_job,
+    cron_schedule="*/30 * * * *",  # A cada 30 minutos
+    description="Sincronizar ERP a cada 30 minutos (produtos, ordens, homologação)",
 )
 
 # Define resources
@@ -81,7 +98,7 @@ resources = {
 # Dagster definitions
 defs = Definitions(
     assets=all_assets,
-    jobs=[catalog_job, tarifas_job, helio_kb_job],
-    schedules=[catalog_schedule, tarifas_schedule, helio_kb_schedule],
+    jobs=[catalog_job, tarifas_job, helio_kb_job, erp_sync_job],
+    schedules=[catalog_schedule, tarifas_schedule, helio_kb_schedule, erp_sync_schedule],
     resources=resources,
 )

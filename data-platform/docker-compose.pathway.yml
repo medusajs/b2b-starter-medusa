@@ -6,34 +6,35 @@
 version: "3.8"
 
 services:
-  # Kafka (streaming backbone)
+  # Kafka-compatible (Redpanda) — performático para dev
   kafka:
-    image: bitnami/kafka:latest
+    image: docker.redpanda.com/redpandadata/redpanda:latest
     container_name: ysh-kafka
     restart: unless-stopped
     ports:
-      - "9092:9092"
-      - "9093:9093"
-    environment:
-      # KRaft mode (sem Zookeeper)
-      KAFKA_CFG_NODE_ID: 0
-      KAFKA_CFG_PROCESS_ROLES: controller,broker
-      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
-      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-    volumes:
-      - kafka_data:/bitnami/kafka
+      - "9092:9092"   # Kafka API
+      - "9644:9644"   # Admin API
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - 1G
+      - --reserve-memory
+      - 0M
+      - --node-id
+      - "0"
+      - --check=false
+      - --kafka-addr
+      - "0.0.0.0:9092"
+      - --advertise-kafka-addr
+      - "kafka:9092"
     networks:
       - ysh-data-platform
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "kafka-broker-api-versions.sh --bootstrap-server localhost:9092",
-        ]
+      test: ["CMD", "curl", "-f", "http://localhost:9644/v1/status/ready"]
       interval: 10s
       timeout: 5s
       retries: 5
