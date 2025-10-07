@@ -11,8 +11,8 @@ import { Suspense } from "react"
 export const dynamicParams = true
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Explore all of our products.",
+  title: "Loja - Yello Solar Hub",
+  description: "Explore todos os nossos produtos solares: kits completos, painéis, inversores e acessórios com badges de potência, ROI e estoque.",
 }
 
 type Params = {
@@ -60,4 +60,4 @@ export default async function StorePage(props: Params) {
     </div>
   )
 }
-;``
+; ``

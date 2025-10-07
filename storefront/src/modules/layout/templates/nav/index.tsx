@@ -28,7 +28,8 @@ export async function NavigationHeader() {
             >
               <h1 className="small:text-base text-sm font-medium flex items-center">
                 <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
+                Yello Solar Hub
+                <span className="ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full">Marketplace Solar</span>
               </h1>
             </LocalizedClientLink>
 
@@ -59,7 +60,7 @@ export async function NavigationHeader() {
               <RequestQuoteConfirmation>
                 <button
                   className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1"
-                  // disabled={isPendingApproval}
+                // disabled={isPendingApproval}
                 >
                   <FilePlus />
                   <span className="hidden small:inline-block">Quote</span>

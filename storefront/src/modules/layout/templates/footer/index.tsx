@@ -24,7 +24,7 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              Yello Solar Hub
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
@@ -113,47 +113,50 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base">Pagamento</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/b2b-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
+                <li>Cartão de crédito</li>
+                <li>Boleto bancário</li>
+                <li>PIX</li>
+                <li>Parcelamento</li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <span className="txt-small-plus txt-ui-fg-base">Garantias</span>
+              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                <li>Garantia de fabricante</li>
+                <li>Serviços YSH incluídos</li>
+                <li>Suporte pós-venda</li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <span className="txt-small-plus txt-ui-fg-base">LGPD & Segurança</span>
+              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                <li>Dados protegidos</li>
+                <li>Privacidade garantida</li>
+                <li>Certificado SSL</li>
               </ul>
             </div>
           </div>
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} Yello Solar Hub. Todos os direitos reservados.
           </Text>
-          <MedusaCTA />
+          <div className="flex gap-4">
+            <LocalizedClientLink
+              href="/ferramentas/financiamento"
+              className="txt-compact-small hover:text-ui-fg-base"
+            >
+              Simular financiamento
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href="/suporte"
+              className="txt-compact-small hover:text-ui-fg-base"
+            >
+              Falar com especialista
+            </LocalizedClientLink>
+          </div>
         </div>
       </div>
     </footer>

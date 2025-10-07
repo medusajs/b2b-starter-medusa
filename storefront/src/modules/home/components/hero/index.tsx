@@ -1,6 +1,6 @@
 "use client"
 
-import { Sun, Zap, Calculator } from "@medusajs/icons"
+import { Sun } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import Image from "next/image"
@@ -35,30 +35,35 @@ const Hero = () => {
             level="h1"
             className="text-4xl md:text-6xl leading-tight text-gray-900 font-bold"
           >
-            Transforme sua conta de luz em
+            Energia solar do seu jeito
             <span className="block bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-              economia real
+              — do kit ao financiamento
             </span>
           </Heading>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Kits solares completos, painéis de alta eficiência e inversores premium.
-            Dimensionamento personalizado para máxima economia na sua conta de energia.
+            Compare kits, simule financiamento e acompanhe sua instalação com suporte especialista.
           </p>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <Link href="/dimensionamento">
+          <Link href="/produtos">
             <Button className="ysh-btn-primary text-lg px-8 py-4">
-              <Calculator className="w-5 h-5 mr-2" />
-              Dimensionar meu Sistema
+              <Sun className="w-5 h-5 mr-2" />
+              Explorar soluções
             </Button>
           </Link>
-          <Link href="/produtos">
+          <Link href="/dimensionamento">
             <Button variant="secondary" className="ysh-btn-outline text-lg px-8 py-4">
-              <Zap className="w-5 h-5 mr-2" />
-              Ver Catálogo Completo
+              <Sun className="w-5 h-5 mr-2" />
+              Simular economia
+            </Button>
+          </Link>
+          <Link href="/ferramentas/financiamento">
+            <Button variant="secondary" className="ysh-btn-outline text-lg px-8 py-4">
+              <Sun className="w-5 h-5 mr-2" />
+              Financiamento
             </Button>
           </Link>
         </div>
