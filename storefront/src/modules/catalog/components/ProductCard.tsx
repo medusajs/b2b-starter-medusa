@@ -2,6 +2,7 @@ import { Badge } from "@medusajs/ui"
 import { useCatalogCustomization } from "@/modules/catalog/context/customization"
 import { Heart, ShoppingCart, Eye } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
 
@@ -25,6 +26,9 @@ interface ProductCardProps {
         type?: string
         potencia_kwp?: number
         price?: string
+        modalidade?: string // on-grid, hibrido, off-grid, eaas, ppa
+        classe_consumidora?: string[] // residencial-b1, rural-b2, comercial-b3, condominios, industria
+        roi_estimado?: number // em anos
     }
     category?: 'panels' | 'inverters' | 'kits' | 'batteries' | 'structures'
 }
@@ -36,7 +40,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
     try {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         addToQuote = useLeadQuote().add
-    } catch {}
+    } catch { }
     const custom = useCatalogCustomization()
     const getTierBadge = (tier?: string) => {
         switch (tier) {
@@ -127,7 +131,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
-                                try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch {}
+                                try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                             }}
                         >
                             <ShoppingCart className="w-4 h-4 text-gray-900" />
@@ -135,11 +139,21 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     </div>
                 </div>
 
-                {/* Tier Badge + Extra Badges */}
-                <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
+                {/* Tier Badge + Extra Badges + Modalidade + ROI */}
+                <div className="absolute top-2 left-2 flex gap-1 flex-wrap max-w-[70%]">
                     {product.tier_recommendation && product.tier_recommendation.length > 0 && (
                         <Badge className={getTierBadge(product.tier_recommendation[0])}>
                             {product.tier_recommendation[0]}
+                        </Badge>
+                    )}
+                    {product.modalidade && (
+                        <Badge className="bg-blue-500/90 text-white text-xs px-2 py-0.5">
+                            {product.modalidade}
+                        </Badge>
+                    )}
+                    {product.roi_estimado && (
+                        <Badge className="bg-green-500/90 text-white text-xs px-2 py-0.5">
+                            ROI {product.roi_estimado}a
                         </Badge>
                     )}
                     {extraBadges.map((b, i) => (
@@ -207,6 +221,17 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     ))}
                 </div>
 
+                {/* Classes Consumidoras */}
+                {product.classe_consumidora && product.classe_consumidora.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-3">
+                        {product.classe_consumidora.map((classe) => (
+                            <span key={classe} className="px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full">
+                                {classe}
+                            </span>
+                        ))}
+                    </div>
+                )}
+
                 {/* Price */}
                 <div className="flex items-center justify-between">
                     <div className="ysh-price">
@@ -238,7 +263,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                 onClick={(e) => {
                                     e.preventDefault()
                                     addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
-                                    try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch {}
+                                    try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                                 }}
                             >
                                 Adicionar à cotação

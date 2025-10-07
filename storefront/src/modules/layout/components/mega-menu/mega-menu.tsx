@@ -84,7 +84,7 @@ const MegaMenu = ({
           className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
           href="/store"
         >
-          Products
+          Produtos
         </LocalizedClientLink>
         {isHovered && (
           <div className="fixed left-0 right-0 top-[60px] flex gap-32 py-10 px-20 bg-white border-b border-neutral-200 ">
