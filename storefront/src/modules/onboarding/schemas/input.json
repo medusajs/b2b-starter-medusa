@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OnboardingInput",
+  "type": "object",
+  "properties": {
+    "address": { "type": "string" },
+    "lat": { "type": "number" },
+    "lon": { "type": "number" },
+    "monthly_kwh": { "type": "number", "minimum": 0 },
+    "bills_last_12m_kwh": {
+      "type": "array",
+      "items": { "type": "number", "minimum": 0 },
+      "maxItems": 12
+    },
+    "tariff_class": { "type": "string", "enum": ["B1", "B2", "B3", "Rural", "Outra"] },
+    "roof_tilt_deg": { "type": "number", "minimum": 0, "maximum": 90 },
+    "roof_azimuth_deg": { "type": "number", "minimum": 0, "maximum": 360 },
+    "shading_notes": { "type": "string" },
+    "preference": { "type": "string", "enum": ["economia", "investimento_baixo", "balanceado"] },
+    "batteries": { "type": "boolean" },
+    "expansion_room": { "type": "boolean" },
+    "distributor_name": { "type": "string" }
+  },
+  "additionalProperties": false
+}
+
