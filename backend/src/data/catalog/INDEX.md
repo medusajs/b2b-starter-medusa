@@ -43,7 +43,21 @@
 
 ---
 
-## 🔍 Busca Rápida
+## � Estrutura de Diretórios
+
+| Diretório | Conteúdo | Uso |
+|-----------|----------|-----|
+| **`unified_schemas/`** | Dados consolidados e padronizados | **Produção** |
+| **`distributor_datasets/`** | Dados brutos por distribuidor | Análise e debug |
+| **`consolidated/`** | Arquivos consolidados adicionais | Produção auxiliar |
+| **`reports/`** | Relatórios e inventários | Documentação |
+| **`docs/`** | Documentação histórica | Referência |
+| **`images/`** | Imagens e mapas de imagens | Assets visuais |
+| **`legacy/`** | Arquivos históricos e backups | Arquivo |
+
+---
+
+## �🔍 Busca Rápida
 
 ### Por Tipo de Produto
 
@@ -75,10 +89,10 @@
 
 ### Relatórios
 
-- [`MIGRATION_REPORT.md`](./MIGRATION_REPORT.md) - Relatório de migração
-- [`INVENTORY_REVIEW_REPORT.md`](./INVENTORY_REVIEW_REPORT.md) - Revisão do inventário
+- [`reports/MIGRATION_REPORT.md`](./reports/MIGRATION_REPORT.md) - Relatório de migração
+- [`reports/INVENTORY_REVIEW_REPORT.md`](./reports/INVENTORY_REVIEW_REPORT.md) - Revisão do inventário
 
 ### Dados Históricos
 
-- [`CONSOLIDACAO_VERIFICADA.md`](./CONSOLIDACAO_VERIFICADA.md) - Consolidação verificada
-- [`READY_FOR_UX_UI.md`](./READY_FOR_UX_UI.md) - Status de implementação
+- [`docs/CONSOLIDACAO_VERIFICADA.md`](./docs/CONSOLIDACAO_VERIFICADA.md) - Consolidação verificada
+- [`docs/READY_FOR_UX_UI.md`](./docs/READY_FOR_UX_UI.md) - Status de implementação
