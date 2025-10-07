@@ -65,7 +65,7 @@ const QuoteMessages = ({
   return (
     <Container className="divide-y divide-dashed p-0 ">
       <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h3">Messages</Heading>
+        <Heading level="h3">Mensagens</Heading>
       </div>
 
       <div>
@@ -109,14 +109,14 @@ const QuoteMessages = ({
             <div className="flex-1">
               <div className="flex items-center gap-x-1">
                 <label className="font-sans txt-compact-small font-medium">
-                  Pick Quote Item
+                  Selecionar item da cotação
                 </label>
               </div>
               <span
                 className="txt-small text-ui-fg-subtle"
                 id=":r10:-form-item-description"
               >
-                Select a quote item to write a message around
+                Selecione um item da cotação para escrever uma mensagem
               </span>
             </div>
             <div className="flex-1">
@@ -127,7 +127,7 @@ const QuoteMessages = ({
                   <Select {...field} onValueChange={onChange} value={value}>
                     <Select.Trigger className="bg-ui-bg-base" ref={ref}>
                       <Select.Value />
-                      {value ? <Select.Value /> : "Select Item"}
+                      {value ? <Select.Value /> : "Selecionar item"}
                     </Select.Trigger>
 
                     <Select.Content>
@@ -153,7 +153,7 @@ const QuoteMessages = ({
             className="self-end"
             disabled={isCreatingMessage}
           >
-            Send
+            Enviar
           </Button>
         </form>
       </div>
