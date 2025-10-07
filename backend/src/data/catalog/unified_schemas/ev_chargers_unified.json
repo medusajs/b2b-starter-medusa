@@ -3116,7 +3116,7 @@
     "model": "",
     "power": 7,
     "distributor": "YSH",
-    "price": "3423.66",
+    "price": "R$ 3423,66",
     "image_url": "",
     "original_category": "ev_charger",
     "processed_images": {
@@ -3139,14 +3139,14 @@
     "technical_specs": {
       "power_w": 7
     },
-    "category": "others",
+    "category": "ev_chargers",
     "availability": true,
     "pricing": {
-      "price": 342366,
-      "price_brl": 342366,
+      "price": 3423.66,
+      "price_brl": 3423.66,
       "currency": "BRL"
     },
-    "price_brl": 342366,
+    "price_brl": 3423.66,
     "description": "Carregador EV Growatt THOR07AS-P 7kW"
   },
   {
@@ -3156,7 +3156,7 @@
     "model": "",
     "power": 7.3,
     "distributor": "YSH",
-    "price": "2811.46",
+    "price": "R$ 2811,46",
     "image_url": "",
     "original_category": "ev_charger",
     "processed_images": {
@@ -3179,14 +3179,14 @@
     "technical_specs": {
       "power_w": 7.3
     },
-    "category": "others",
+    "category": "ev_chargers",
     "availability": true,
     "pricing": {
-      "price": 281146,
-      "price_brl": 281146,
+      "price": 2811.46,
+      "price_brl": 2811.46,
       "currency": "BRL"
     },
-    "price_brl": 281146,
+    "price_brl": 2811.46,
     "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW"
   }
 ]

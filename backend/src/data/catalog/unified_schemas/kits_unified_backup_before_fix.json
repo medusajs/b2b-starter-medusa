@@ -2800,6 +2800,46 @@
     "model": ""
   },
   {
+    "kit_id": "neosolar_kits_27314",
+    "kit_name": "https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/content?ingress=portalb2b.neosolar.com.br",
+    "distributor": "YSH",
+    "component_type": "complete_kit",
+    "quantity": 1,
+    "total_power_kwp": null,
+    "metadata": {
+      "source": "unified",
+      "source_file": "kit_components.json",
+      "loaded_at": "2025-10-07T04:51:42.082490",
+      "merged_from_sources": [
+        "unified"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.090670",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.628182"
+    },
+    "technical_specs": {}
+  },
+  {
+    "kit_id": "neosolar_kits_22691",
+    "kit_name": "https://portal.zydon.com.br/api/files/48e603cd-6d4c-4263-ba93-96468c7f7cd1/content?ingress=portalb2b.neosolar.com.br",
+    "distributor": "YSH",
+    "component_type": "inverter",
+    "quantity": 1,
+    "power_kw": 1.38,
+    "metadata": {
+      "source": "unified",
+      "source_file": "kit_components.json",
+      "loaded_at": "2025-10-07T04:51:42.082490",
+      "merged_from_sources": [
+        "unified"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.090621",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.628183"
+    },
+    "technical_specs": {}
+  },
+  {
     "id": "FOTUS-KP-113kWp-Ceramico-kits",
     "name": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW - 1,14 kWp - Cerâmico - CD ESPÍRITO SANTO",
     "type": "kits",

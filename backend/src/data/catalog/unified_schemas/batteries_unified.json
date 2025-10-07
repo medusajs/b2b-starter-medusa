@@ -137,7 +137,7 @@
     "model": "5.0L",
     "power": 5,
     "distributor": "YSH",
-    "price": "6716.83",
+    "price": "R$ 6716,83",
     "image_url": "",
     "original_category": "battery",
     "processed_images": {
@@ -165,14 +165,14 @@
     "technical_specs": {
       "power_w": 5
     },
-    "category": "others",
+    "category": "batteries",
     "availability": true,
     "pricing": {
-      "price": 671683,
-      "price_brl": 671683,
+      "price": 6716.83,
+      "price_brl": 6716.83,
       "currency": "BRL"
     },
-    "price_brl": 671683,
+    "price_brl": 6716.83,
     "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh"
   },
   {
@@ -202,7 +202,7 @@
       "distributor": "Solfácil"
     },
     "technical_specs": {},
-    "category": "others",
+    "category": "batteries",
     "availability": true,
     "pricing": {
       "price": 5322.94,
@@ -239,7 +239,7 @@
     "technical_specs": {
       "power_w": 3.2
     },
-    "category": "others",
+    "category": "batteries",
     "availability": true,
     "pricing": {
       "price": 5983.17,
@@ -286,7 +286,7 @@
     "technical_specs": {
       "power_w": 5.1
     },
-    "category": "others",
+    "category": "batteries",
     "availability": true,
     "pricing": {
       "price": 6255.94,
@@ -323,7 +323,7 @@
     "technical_specs": {
       "power_w": 5
     },
-    "category": "others",
+    "category": "batteries",
     "availability": true,
     "pricing": {
       "price": 7323.74,

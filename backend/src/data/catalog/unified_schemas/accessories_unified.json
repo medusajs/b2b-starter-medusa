@@ -5,7 +5,7 @@
     "manufacturer": "Growatt",
     "category": "others",
     "subcategory": "lithium_battery",
-    "price": "R$ 671.683,00",
+    "price": "R$ 6716,83",
     "image": "",
     "source": "Fortlev",
     "availability": true,
@@ -19,8 +19,8 @@
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 671683,
-      "price_brl": 671683,
+      "price": 6716.83,
+      "price_brl": 6716.83,
       "currency": "BRL"
     },
     "metadata": {
@@ -52,7 +52,7 @@
         "UN38.3"
       ]
     },
-    "price_brl": 671683,
+    "price_brl": 6716.83,
     "model": ""
   },
   {
@@ -61,7 +61,7 @@
     "manufacturer": "Growatt",
     "category": "others",
     "subcategory": "residential_charger",
-    "price": "R$ 342.366,00",
+    "price": "R$ 3423,66",
     "image": "",
     "source": "Fortlev",
     "availability": true,
@@ -75,8 +75,8 @@
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 342366,
-      "price_brl": 342366,
+      "price": 3423.66,
+      "price_brl": 3423.66,
       "currency": "BRL"
     },
     "metadata": {
@@ -113,7 +113,7 @@
         "IEC 61851-1"
       ]
     },
-    "price_brl": 342366,
+    "price_brl": 3423.66,
     "model": ""
   },
   {
@@ -122,7 +122,7 @@
     "manufacturer": "FoxESS",
     "category": "others",
     "subcategory": "smart_charger",
-    "price": "R$ 281.146,00",
+    "price": "R$ 2811,46",
     "image": "",
     "source": "Fortlev",
     "availability": true,
@@ -136,8 +136,8 @@
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 281146,
-      "price_brl": 281146,
+      "price": 2811.46,
+      "price_brl": 2811.46,
       "currency": "BRL"
     },
     "metadata": {
@@ -175,7 +175,7 @@
         "OCPP"
       ]
     },
-    "price_brl": 281146,
+    "price_brl": 2811.46,
     "model": ""
   },
   {

@@ -1,0 +1,1279 @@
+[
+  {
+    "id": "FORTLEV-NEP-PVG-3-20A-L",
+    "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+    "manufacturer": "Nep",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "911.78",
+    "image_url": "",
+    "original_category": "rsd",
+    "processed_images": {
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716045",
+      "original_category": "rsd",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 91178,
+      "price_brl": 91178,
+      "currency": "BRL"
+    },
+    "price_brl": 91178,
+    "description": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown"
+  },
+  {
+    "id": "FORTLEV-CONDUFORT-DN40-PEAD",
+    "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+    "manufacturer": "Condufort",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "5.66",
+    "image_url": "",
+    "original_category": "conduit",
+    "processed_images": {
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716054",
+      "original_category": "conduit",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 566,
+      "price_brl": 566,
+      "currency": "BRL"
+    },
+    "price_brl": 566,
+    "description": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m"
+  },
+  {
+    "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+    "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+    "manufacturer": "Genérico",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "864.88",
+    "image_url": "",
+    "original_category": "junction_box",
+    "processed_images": {
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716057",
+      "original_category": "junction_box",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 86488,
+      "price_brl": 86488,
+      "currency": "BRL"
+    },
+    "price_brl": 86488,
+    "description": "Caixa de Passagem PRFV D 0.8m × H 0.8m"
+  },
+  {
+    "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
+    "name": "Cerca de Arame Galvanizado 1.8m × 20m",
+    "manufacturer": "Genérico",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "887.95",
+    "image_url": "",
+    "original_category": "fencing",
+    "processed_images": {
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716059",
+      "original_category": "fencing",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 88795,
+      "price_brl": 88795,
+      "currency": "BRL"
+    },
+    "price_brl": 88795,
+    "description": "Cerca de Arame Galvanizado 1.8m × 20m"
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-010MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 62.45,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716060"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-020MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 78.26,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716061"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-030M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 94.07,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716062"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-060MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 149.4,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716063"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-100MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 166.56,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716064"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-160MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 237.66,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716065"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-210M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 287.77,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716066"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "LONGi",
+    "model": "LR5-28HTH-225M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 264.17,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716067"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-260M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 341.9,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716068"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-310MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 368.96,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716069"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA330-36-P",
+    "power": null,
+    "distributor": "YSH",
+    "price": 414.29,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716070"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "ZTROON",
+    "model": "ZTP-340MI",
+    "power": null,
+    "distributor": "YSH",
+    "price": 432.03,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716071"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "LONGi",
+    "model": "LR5-54HTH-435M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 449.7,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716071"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Minasol",
+    "model": "MS-545",
+    "power": null,
+    "distributor": "YSH",
+    "price": 887.3,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716072"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Sunova",
+    "model": "SS-550-72MDH",
+    "power": null,
+    "distributor": "YSH",
+    "price": 468.19,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716073"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Luxen",
+    "model": "LNVU-550M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 509.47,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716074"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "TSUN",
+    "model": "TS560S8B",
+    "power": null,
+    "distributor": "YSH",
+    "price": 499.9,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716075"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Odex",
+    "model": "BLK25092024 (Full Black)",
+    "power": null,
+    "distributor": "YSH",
+    "price": 550,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716076"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA575-36V-MH",
+    "power": null,
+    "distributor": "YSH",
+    "price": 531.33,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716077"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA580-36V-MH",
+    "power": null,
+    "distributor": "YSH",
+    "price": 520.38,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716078"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Hanersun",
+    "model": "HN18N-72H",
+    "power": null,
+    "distributor": "YSH",
+    "price": 467.06,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716079"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Odex",
+    "model": "ODE04122024",
+    "power": null,
+    "distributor": "YSH",
+    "price": 490,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716080"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Odex",
+    "model": "ODE10092024",
+    "power": null,
+    "distributor": "YSH",
+    "price": 490,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716081"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "DAH Solar",
+    "model": "DHN-72X16/DG",
+    "power": null,
+    "distributor": "YSH",
+    "price": 469.1,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716082"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA585-36V-MHD",
+    "power": null,
+    "distributor": "YSH",
+    "price": 529.22,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716082"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Luxen",
+    "model": "LNVH-595M",
+    "power": null,
+    "distributor": "YSH",
+    "price": 520.38,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716084"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Astronergy",
+    "model": "CHSM66RN(DG)F-BH",
+    "power": null,
+    "distributor": "YSH",
+    "price": 519,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716085"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Jinko",
+    "model": "66HL4M-BDV (610W)",
+    "power": null,
+    "distributor": "YSH",
+    "price": 530,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716085"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Odex",
+    "model": "ODE06022025",
+    "power": null,
+    "distributor": "YSH",
+    "price": 510,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716086"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA610-33V-MHDRZ",
+    "power": null,
+    "distributor": "YSH",
+    "price": 479.3,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716087"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Jinko",
+    "model": "66HL4M-BDV (615W)",
+    "power": null,
+    "distributor": "YSH",
+    "price": 535,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716089"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "DAH Solar",
+    "model": "DHN-66Z16/DG (620W)",
+    "power": null,
+    "distributor": "YSH",
+    "price": 573.39,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716090"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "OSDA",
+    "model": "ODA620-33V-MHDRZ",
+    "power": null,
+    "distributor": "YSH",
+    "price": 529.22,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716091"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Hanersun",
+    "model": "HJT HN21H-66HT",
+    "power": null,
+    "distributor": "YSH",
+    "price": 560.9,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716092"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": null,
+    "name": null,
+    "manufacturer": "Odex",
+    "model": "ODEHJT06032025",
+    "power": null,
+    "distributor": "YSH",
+    "price": 580,
+    "image_url": "",
+    "original_category": "",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716093"
+    },
+    "technical_specs": {}
+  },
+  {
+    "id": "neosolar_posts_24170",
+    "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 17.148",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716095",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 17148,
+      "price_brl": 17148,
+      "currency": "BRL"
+    },
+    "price_brl": 17148,
+    "description": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br"
+  },
+  {
+    "id": "neosolar_posts_24171",
+    "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 16.357",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716097",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 16357,
+      "price_brl": 16357,
+      "currency": "BRL"
+    },
+    "price_brl": 16357,
+    "description": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br"
+  },
+  {
+    "id": "neosolar_posts_24173",
+    "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 9.166",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716099",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 9166,
+      "price_brl": 9166,
+      "currency": "BRL"
+    },
+    "price_brl": 9166,
+    "description": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br"
+  },
+  {
+    "id": "neosolar_posts_24175",
+    "name": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 7.901",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716100",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 7901,
+      "price_brl": 7901,
+      "currency": "BRL"
+    },
+    "price_brl": 7901,
+    "description": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br"
+  },
+  {
+    "id": "neosolar_posts_24172",
+    "name": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 15.804",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716101",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 15804,
+      "price_brl": 15804,
+      "currency": "BRL"
+    },
+    "price_brl": 15804,
+    "description": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br"
+  },
+  {
+    "id": "neosolar_posts_24174",
+    "name": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "Neosolar",
+    "model": "",
+    "power": null,
+    "distributor": "YSH",
+    "price": "R$ 8.217",
+    "image_url": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
+    "original_category": "posts",
+    "metadata": {
+      "source": "unified",
+      "source_file": "others_unified.json",
+      "loaded_at": "2025-10-07T04:51:42.091069",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.716102",
+      "original_category": "posts",
+      "distributor": "YSH"
+    },
+    "technical_specs": {},
+    "category": "posts",
+    "availability": true,
+    "pricing": {
+      "price": 8217,
+      "price_brl": 8217,
+      "currency": "BRL"
+    },
+    "price_brl": 8217,
+    "description": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br"
+  }
+]
