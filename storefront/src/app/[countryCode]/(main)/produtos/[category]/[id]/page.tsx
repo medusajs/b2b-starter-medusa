@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { LeadQuoteProvider, useLeadQuote } from "@/modules/lead-quote/context"
 import Button from "@/modules/common/components/button"
 import Link from "next/link"
@@ -126,8 +127,8 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
           </div>
 
           <div className="flex gap-3">
-            <Link href="/contato" className="ysh-btn-primary">Solicitar Cotação</Link>
-            <Link href="/produtos" className="ysh-btn-outline">Voltar ao Catálogo</Link>
+            <LocalizedClientLink href="/contato" className="ysh-btn-primary">Solicitar Cotação</LocalizedClientLink>
+            <LocalizedClientLink href="/produtos" className="ysh-btn-outline">Voltar ao Catálogo</LocalizedClientLink>
             <AddToQuoteButton product={product} />
           </div>
         </div>
