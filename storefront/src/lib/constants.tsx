@@ -16,7 +16,7 @@ export const paymentInfoMap: Record<
     icon: <PayPal />,
   },
   pp_system_default: {
-    title: "Pay by invoice",
+    title: "Pagar por fatura",
     icon: <FilePlus />,
   },
   // Add more payment providers here

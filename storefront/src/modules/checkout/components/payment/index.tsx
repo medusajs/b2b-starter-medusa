@@ -129,7 +129,7 @@ const Payment = ({
                 !isOpen && !paymentReady,
             })}
           >
-            Payment Method
+            Método de Pagamento
             {!isOpen && paymentReady && <CheckCircleSolid />}
           </Heading>
           {!isOpen &&
@@ -141,7 +141,7 @@ const Payment = ({
                   className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
                   data-testid="edit-payment-button"
                 >
-                  Edit
+                  Editar
                 </button>
               </Text>
             )}
@@ -174,7 +174,7 @@ const Payment = ({
               {stripeReady && selectedPaymentMethod === "pp_stripe_stripe" && (
                 <div className="mt-5 transition-all duration-150 ease-in-out">
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                    Enter your card details:
+                    Insira os dados do cartão:
                   </Text>
 
                   <CardElement
@@ -199,7 +199,7 @@ const Payment = ({
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Vale-presente
               </Text>
             </div>
           )}
@@ -223,8 +223,8 @@ const Payment = ({
               data-testid="submit-payment-button"
             >
               {!activeSession && isStripeFunc(selectedPaymentMethod)
-                ? " Enter card details"
-                : "Next step"}
+                ? " Inserir dados do cartão"
+                : "Próxima etapa"}
             </Button>
           </div>
         </div>
@@ -262,13 +262,13 @@ const Payment = ({
           ) : paidByGiftcard ? (
             <div className="flex flex-col w-1/3">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+                Método de pagamento
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Vale-presente
               </Text>
             </div>
           ) : null}
