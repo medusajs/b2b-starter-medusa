@@ -1,0 +1,90 @@
+routes:
+  /:
+    loaders: [homeData]
+    components: [Hero, KitsGrid]
+    events: [page_view]
+    acl: public
+  /solucoes:
+    loaders: [solutionsData]
+    components: [Filters, SolutionsList]
+    events: [filter_applied]
+    acl: public
+  /kits:
+    loaders: [kitsData]
+    components: [KitsGrid, Filters]
+    events: [kit_viewed]
+    acl: public
+  /catalogo:
+    loaders: [catalogData]
+    components: [ProductTable, Filters]
+    events: [product_searched]
+    acl: b2b
+  /empresa:
+    loaders: [companyData]
+    components: [CompanyDashboard]
+    events: [company_viewed]
+    acl: company_admin
+  /cotacoes:
+    loaders: [quotesData]
+    components: [QuotesTable]
+    events: [quote_list_viewed]
+    acl: company_member
+  /checkout/flexivel:
+    loaders: [checkoutData]
+    components: [CheckoutStepper]
+    events: [checkout_step_viewed]
+    acl: authenticated
+  /painel:
+    loaders: [ordersData]
+    components: [OrdersList]
+    events: [panel_viewed]
+    acl: authenticated
+
+mapeamento_medusa:
+  price_lists:
+    - id: b2b-integradores-2025q4
+      name: B2B Integradores 2025Q4
+      type: override
+      customer_groups: [integradores]
+      channels: [ysh-b2b]
+  customer_groups:
+    - id: residencial-b1
+      name: Residencial B1
+    - id: rural-b2
+      name: Rural B2
+  sales_channels:
+    - id: ysh-b2b
+      name: YSH B2B
+    - id: ysh-b2c
+      name: YSH B2C
+  companies:
+    - id: company-1
+      name: Empresa Exemplo
+      employees: [user-1, user-2]
+  approvals:
+    - id: approval-1
+      quote_id: quote-1
+      status: pending
+
+esquema_conteudo:
+  paginas_solucao:
+    - titulo: Solução On-Grid
+      conteudo: Descrição...
+  estudos_caso:
+    - classe: B1
+      titulo: Caso Residencial
+  faq:
+    - pergunta: O que é on-grid?
+      resposta: Sistema conectado...
+
+matriz_rota_dados_componentes_eventos_acl:
+  - rota: /
+    dados: Medusa products API
+    componentes: Hero, KitsGrid
+    eventos: page_view
+    acl: public
+  - rota: /empresa
+    dados: Medusa companies API
+    componentes: CompanyDashboard
+    eventos: company_invite_sent
+    acl: company_admin

@@ -1,0 +1,73 @@
+{
+    "events": [
+        {
+            "name": "quote_requested",
+            "payload": {
+                "company_id": "string",
+                "items": "array",
+                "est_value": "number",
+                "group_id": "string"
+            },
+            "trigger": "Usuário submete cotação"
+        },
+        {
+            "name": "quote_approved",
+            "payload": {
+                "approver_id": "string",
+                "quote_id": "string",
+                "policy": "string"
+            },
+            "trigger": "Aprovador aprova cotação"
+        },
+        {
+            "name": "company_invite_sent",
+            "payload": {
+                "company_id": "string",
+                "email": "string",
+                "role": "string"
+            },
+            "trigger": "Admin convida funcionário"
+        },
+        {
+            "name": "bulk_add_completed",
+            "payload": {
+                "skus": "array",
+                "count": "number",
+                "list_id": "string"
+            },
+            "trigger": "Bulk add processado"
+        },
+        {
+            "name": "price_list_applied",
+            "payload": {
+                "price_list_id": "string",
+                "group_id": "string",
+                "channel": "string"
+            },
+            "trigger": "Price list aplicada automaticamente"
+        },
+        {
+            "name": "checkout_step_viewed",
+            "payload": {
+                "step_name": "string"
+            },
+            "trigger": "Usuário vê passo do checkout"
+        },
+        {
+            "name": "payment_selected",
+            "payload": {
+                "method": "string"
+            },
+            "trigger": "Método de pagamento escolhido"
+        },
+        {
+            "name": "order_placed",
+            "payload": {
+                "order_id": "string",
+                "value": "number",
+                "channel": "string"
+            },
+            "trigger": "Pedido confirmado"
+        }
+    ]
+}
