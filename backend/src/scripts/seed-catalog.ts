@@ -1,16 +1,13 @@
 import {
   ExecArgs,
   IProductModuleService,
-  IProductCategoryModuleService,
   IStoreModuleService,
-  ContainerRegistrationKeys,
-  ModuleRegistrationName,
   ProductStatus,
-} from '@medusajs/framework/types';
+} from "@medusajs/framework/types";
 
-import { createProductCategoriesWorkflow, createProductsWorkflow } from '@medusajs/core-flows';
-import * as fs from 'fs';
-import * as path from 'path';
+import { createProductCategoriesWorkflow, createProductsWorkflow } from "@medusajs/core-flows";
+import * as fs from "fs";
+import * as path from "path";
 
 interface CatalogItem {
   id?: string;
@@ -43,26 +40,26 @@ interface CatalogItem {
 
 const parsePrice = (priceStr: string): number => {
   if (!priceStr) return 0;
-  const cleaned = priceStr.replace(/[^\d.,]/g, '').replace(',', '.');
+  const cleaned = priceStr.replace(/[^\d.,]/g, "").replace(",", ".");
   const parsed = parseFloat(cleaned);
   return isNaN(parsed) ? 0 : parsed;
 };
 
 const readCatalogFile = (fileName: string): CatalogItem[] => {
-  const filePath = path.join(__dirname, '../../../data/catalog', fileName);
+  const filePath = path.join(__dirname, "../../../data/catalog", fileName);
   if (!fs.existsSync(filePath)) {
-    console.warn(Arquivo  não encontrado);
+    console.warn(`Arquivo ${fileName} nao encontrado`);
     return [];
   }
 
   try {
-    const data = fs.readFileSync(filePath, 'utf-8');
+    const data = fs.readFileSync(filePath, "utf-8");
     const parsed = JSON.parse(data);
 
     // Handle different JSON structures
     if (Array.isArray(parsed)) {
       return parsed;
-    } else if (parsed && typeof parsed === 'object') {
+    } else if (parsed && typeof parsed === "object") {
       // Check for nested arrays in common keys
       for (const key of Object.keys(parsed)) {
         if (Array.isArray(parsed[key])) {
@@ -75,21 +72,21 @@ const readCatalogFile = (fileName: string): CatalogItem[] => {
 
     return [];
   } catch (error) {
-    console.error(Erro ao ler :, error);
+    console.error(`Erro ao ler ${fileName}:`, error);
     return [];
   }
 };
 
 const categoryMap: Record<string, string> = {
-  'accessories': 'Acessórios',
-  'kits': 'Kits Solares',
-  'panels': 'Painéis Fotovoltaicos',
-  'inverters': 'Inversores',
-  'batteries': 'Baterias',
-  'structures': 'Estruturas',
-  'cables': 'Cabos',
-  'controllers': 'Controladores',
-  'chargers': 'Carregadores'
+  "accessories": "Acessorios",
+  "kits": "Kits Solares",
+  "panels": "Paineis Fotovoltaicos",
+  "inverters": "Inversores",
+  "batteries": "Baterias",
+  "structures": "Estruturas",
+  "cables": "Cabos",
+  "controllers": "Controladores",
+  "chargers": "Carregadores"
 };
 
 const getCategoryId = (categoryName: string): string | undefined => {
@@ -100,24 +97,24 @@ const getCategoryId = (categoryName: string): string | undefined => {
 };
 
 export default async function seedCatalog({ container }: ExecArgs) {
-  const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
-  const productService = container.resolve<IProductModuleService>(ModuleRegistrationName.PRODUCT);
-  const categoryService = container.resolve<IProductCategoryModuleService>(ModuleRegistrationName.PRODUCT_CATEGORY);
-  const storeService = container.resolve<IStoreModuleService>(ModuleRegistrationName.STORE);
+  const logger = container.resolve("logger");
+  const productService = container.resolve("productService");
+  const categoryService = container.resolve("categoryService");
+  const storeService = container.resolve("storeService");
 
-  logger.info('Starting catalog seeding...');
+  logger.info("Starting catalog seeding...");
 
   // Create categories
   const categories = [
-    { name: 'Kits Solares', handle: 'kits' },
-    { name: 'Painéis Fotovoltaicos', handle: 'panels' },
-    { name: 'Inversores', handle: 'inverters' },
-    { name: 'Baterias', handle: 'batteries' },
-    { name: 'Estruturas', handle: 'structures' },
-    { name: 'Cabos', handle: 'cables' },
-    { name: 'Controladores', handle: 'controllers' },
-    { name: 'Carregadores', handle: 'chargers' },
-    { name: 'Acessórios', handle: 'accessories' }
+    { name: "Kits Solares", handle: "kits" },
+    { name: "Paineis Fotovoltaicos", handle: "panels" },
+    { name: "Inversores", handle: "inverters" },
+    { name: "Baterias", handle: "batteries" },
+    { name: "Estruturas", handle: "structures" },
+    { name: "Cabos", handle: "cables" },
+    { name: "Controladores", handle: "controllers" },
+    { name: "Carregadores", handle: "chargers" },
+    { name: "Acessorios", handle: "accessories" }
   ];
 
   const createdCategories = [];
@@ -127,29 +124,29 @@ export default async function seedCatalog({ container }: ExecArgs) {
         input: { product_categories: [category] }
       });
       createdCategories.push(result);
-      logger.info(Created category: );
+      logger.info(`Created category: ${category.name}`);
     } catch (error) {
-      logger.warn(Category  might already exist:, error);
+      logger.warn(`Category ${category.name} might already exist:`, error);
     }
   }
 
   // Read all catalog files
   const catalogFiles = [
-    { file: 'kits.json', category: 'kits' },
-    { file: 'panels.json', category: 'panels' },
-    { file: 'inverters.json', category: 'inverters' },
-    { file: 'batteries.json', category: 'batteries' },
-    { file: 'structures.json', category: 'structures' },
-    { file: 'cables.json', category: 'cables' },
-    { file: 'controllers.json', category: 'controllers' },
-    { file: 'chargers.json', category: 'chargers' },
-    { file: 'accessories.json', category: 'accessories' }
+    { file: "kits.json", category: "kits" },
+    { file: "panels.json", category: "panels" },
+    { file: "inverters.json", category: "inverters" },
+    { file: "batteries.json", category: "batteries" },
+    { file: "structures.json", category: "structures" },
+    { file: "cables.json", category: "cables" },
+    { file: "controllers.json", category: "controllers" },
+    { file: "chargers.json", category: "chargers" },
+    { file: "accessories.json", category: "accessories" }
   ];
 
   const allProducts: any[] = [];
 
   for (const { file, category } of catalogFiles) {
-    logger.info(Processing ...);
+    logger.info(`Processing ${file}...`);
     const items = readCatalogFile(file);
 
     for (const item of items) {
@@ -157,21 +154,21 @@ export default async function seedCatalog({ container }: ExecArgs) {
       if (!categoryId) continue;
 
       // Build product title
-      const title = item.name || item.model || ${item.manufacturer} ;
+      const title = item.name || item.model || `${item.manufacturer} ${item.id || item.sku}`;
 
       // Build description
-      let description = item.description || '';
-      if (item.kwp) description += \nPotência:  kWp;
-      if (item.efficiency_pct) description += \nEficiência: %;
-      if (item.technology) description += \nTecnologia: ;
+      let description = item.description || "";
+      if (item.kwp) description += `\nPotencia: ${item.kwp} kWp`;
+      if (item.efficiency_pct) description += `\nEficiencia: ${item.efficiency_pct}%`;
+      if (item.technology) description += `\nTecnologia: ${item.technology}`;
 
       // Create product object
-      const price = parsePrice(item.price || '');
+      const price = parsePrice(item.price || "");
 
       const images: { url: string }[] = [];
       if (item.processed_images?.large) {
         images.push({ url: item.processed_images.large });
-      } else if (item.image && item.image !== '/catalog/images/NEOSOLAR-KITS/neosolar_kits_27314.jpg') {
+      } else if (item.image && item.image !== "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27314.jpg") {
         images.push({ url: item.image });
       }
 
@@ -179,26 +176,26 @@ export default async function seedCatalog({ container }: ExecArgs) {
         title,
         description,
         category_ids: [categoryId],
-        status: item.availability === 'Disponível' ? ProductStatus.PUBLISHED : ProductStatus.DRAFT,
+        status: item.availability === "Disponivel" ? ProductStatus.PUBLISHED : ProductStatus.DRAFT,
         images,
         options: [{
-          title: 'Fabricante',
-          values: [item.manufacturer || 'YSH']
+          title: "Fabricante",
+          values: [item.manufacturer || "YSH"]
         }],
         variants: [{
           title: item.sku || item.id || title,
-          sku: item.sku || item.id || YSH-,
+          sku: item.sku || item.id || `YSH-${Date.now()}`,
           prices: price > 0 ? [{
             amount: price,
-            currency_code: 'brl'
+            currency_code: "brl"
           }] : [],
           options: {
-            Fabricante: item.manufacturer || 'YSH'
+            Fabricante: item.manufacturer || "YSH"
           },
           weight: item.weight_kg || 1,
           manage_inventory: false,
           metadata: {
-            source: item.source || 'YSH Catalog',
+            source: item.source || "YSH Catalog",
             original_id: item.id || item.sku
           }
         }]
@@ -208,7 +205,7 @@ export default async function seedCatalog({ container }: ExecArgs) {
     }
   }
 
-  logger.info(Creating  products...);
+  logger.info(`Creating ${allProducts.length} products...`);
 
   // Create products in batches
   const batchSize = 50;
@@ -216,7 +213,7 @@ export default async function seedCatalog({ container }: ExecArgs) {
 
   for (let i = 0; i < allProducts.length; i += batchSize) {
     const batch = allProducts.slice(i, i + batchSize);
-    logger.info(Creating products batch /...);
+    logger.info(`Creating products batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(allProducts.length / batchSize)}...`);
 
     try {
       await createProductsWorkflow(container).run({
@@ -225,11 +222,11 @@ export default async function seedCatalog({ container }: ExecArgs) {
         }
       });
       totalProducts += batch.length;
-      logger.info(Created batch of  products);
+      logger.info(`Created batch of ${batch.length} products`);
     } catch (error) {
-      logger.error(Error creating batch :, error);
+      logger.error(`Error creating batch ${Math.floor(i / batchSize) + 1}:`, error);
     }
   }
 
-  logger.info(Finished seeding catalog data. Created  products.);
+  logger.info(`Finished seeding catalog data. Created ${totalProducts} products.`);
 }

@@ -11,17 +11,17 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
   return (
     <>
       <Heading level="h3" className="mb-2">
-        Details
+        Detalhes
       </Heading>
 
       <div className="text-sm text-ui-fg-subtle overflow-auto">
         <div className="flex justify-between">
-          <Text>Order Number</Text>
+          <Text>Número do Pedido</Text>
           <Text>#{order.display_id}</Text>
         </div>
 
         <div className="flex justify-between mb-2">
-          <Text>Order Date</Text>
+          <Text>Data do Pedido</Text>
           <Text>
             {" "}
             {createdAt.getDate()}-{createdAt.getMonth()}-
@@ -30,7 +30,7 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
         </div>
 
         <Text>
-          We have sent the order confirmation details to{" "}
+          Enviamos os detalhes de confirmação do pedido para{" "}
           <span className="font-semibold">{order.email}</span>.
         </Text>
       </div>
