@@ -57,11 +57,15 @@ class YshCatalogModuleService extends MedusaService({
     // Define entities if needed
 }) {
     private catalogPath: string;
+    private unifiedSchemasPath: string;
+    private imagesProcessedPath: string;
 
     constructor() {
         super();
-        // Caminho para os dados do catálogo - caminho absoluto
-        this.catalogPath = 'c:\\Users\\fjuni\\ysh_medusa\\data\\catalog';
+        // Caminhos para os dados do catálogo - caminhos absolutos
+        this.catalogPath = path.resolve(__dirname, '../../../../../data/catalog');
+        this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
+        this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
     }
 
     /**
