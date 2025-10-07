@@ -87,7 +87,7 @@ export default async function ApprovalCard({
           <span data-testid="order-display-id">#{cart.id.slice(-4)}</span>
         </div>
         {cartWithApprovals.approval_status?.status ===
-        ApprovalStatusType.APPROVED ? (
+          ApprovalStatusType.APPROVED ? (
           cartWithApprovals.completed_at ? (
             <Text className="flex items-center gap-x-1 text-xs text-grey-500">
               <CheckMini className="inline-block" />
@@ -113,18 +113,18 @@ export default async function ApprovalCard({
 
         {cartWithApprovals.approval_status?.status ===
           ApprovalStatusType.REJECTED && (
-          <div className="flex items-center text-small-regular">
-            <XMarkMini className="inline-block mr-1" />
-            <span data-testid="order-display-id">
-              Rejeitado em{" "}
-              {updatedAt.toLocaleDateString("pt-BR", {
-                year: "numeric",
-                month: "numeric",
-                day: "numeric",
-              })}
-            </span>
-          </div>
-        )}
+            <div className="flex items-center text-small-regular">
+              <XMarkMini className="inline-block mr-1" />
+              <span data-testid="order-display-id">
+                Rejeitado em{" "}
+                {updatedAt.toLocaleDateString("pt-BR", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
+              </span>
+            </div>
+          )}
       </div>
 
       <div className="flex gap-x-4 divide-gray-200 small:justify-normal justify-between w-full small:w-auto">
@@ -136,9 +136,8 @@ export default async function ApprovalCard({
             })}
           </span>
           {"·"}
-          <span className="px-2">{`${numberOfLines} ${
-            numberOfLines > 1 ? "itens" : "item"
-          }`}</span>
+          <span className="px-2">{`${numberOfLines} ${numberOfLines > 1 ? "itens" : "item"
+            }`}</span>
           {type === "admin" && (
             <ApprovalCardActions cartWithApprovals={cartWithApprovals} />
           )}

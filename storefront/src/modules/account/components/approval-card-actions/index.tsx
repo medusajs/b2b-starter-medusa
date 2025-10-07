@@ -32,10 +32,10 @@ const ApprovalCardActions = ({
   const pendingAdminApproval =
     cartWithApprovals.approval_status?.status === ApprovalStatusType.PENDING
       ? cartWithApprovals.approvals?.find(
-          (a) =>
-            a?.type === ApprovalType.ADMIN &&
-            a?.status === ApprovalStatusType.PENDING
-        )
+        (a) =>
+          a?.type === ApprovalType.ADMIN &&
+          a?.status === ApprovalStatusType.PENDING
+      )
       : null
 
   const handleApprove = async () => {
