@@ -2,31 +2,13 @@ import { retrieveCart } from "@/lib/data/cart"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { listCartFreeShippingPrices } from "@/lib/data/fulfillment"
 import { getBaseURL } from "@/lib/util/env"
-import CartMismatchBanner from "@/modules/layout/components/cart-mismatch-banner"
 import Footer from "@/modules/layout/templates/footer"
 import { NavigationHeader } from "@/modules/layout/templates/nav"
-import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
+import CartMismatchBannerClient from "@/components/client/CartMismatchBannerClient"
+import FreeShippingPriceNudgeClient from "@/components/client/FreeShippingPriceNudgeClient"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ArrowUpRightMini, ExclamationCircleSolid } from "@medusajs/icons"
 import { Metadata } from "next"
-import dynamic from "next/dynamic"
-
-// Lazy load components pesados para melhor performance
-const LazyCartMismatchBanner = dynamic(
-  () => import("@/modules/layout/components/cart-mismatch-banner"),
-  {
-    loading: () => null,
-    ssr: false
-  }
-)
-
-const LazyFreeShippingPriceNudge = dynamic(
-  () => import("@/modules/shipping/components/free-shipping-price-nudge"),
-  {
-    loading: () => null,
-    ssr: false
-  }
-)
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -68,7 +50,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       </div>
 
       {customer && cart && (
-        <LazyCartMismatchBanner customer={customer} cart={cart} />
+        <CartMismatchBannerClient customer={customer} cart={cart} />
       )}
 
       {props.children}
@@ -76,7 +58,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       <Footer />
 
       {cart && freeShippingPrices && freeShippingPrices.length > 0 && (
-        <LazyFreeShippingPriceNudge
+        <FreeShippingPriceNudgeClient
           variant="popup"
           cart={cart as any}
           freeShippingPrices={freeShippingPrices}
