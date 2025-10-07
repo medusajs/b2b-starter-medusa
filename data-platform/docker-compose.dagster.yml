@@ -65,7 +65,7 @@ services:
     depends_on:
       dagster-postgres:
         condition: service_healthy
-    command: dagster-daemon run
+    command: dagster-daemon run -m definitions
 
   # Dagster Webserver (UI)
   dagster-webserver:
@@ -105,7 +105,7 @@ services:
     depends_on:
       dagster-postgres:
         condition: service_healthy
-    command: dagster-webserver -h 0.0.0.0 -p 3000
+    command: dagster-webserver -h 0.0.0.0 -p 3000 -m definitions
 
 volumes:
   dagster_postgres_data:
