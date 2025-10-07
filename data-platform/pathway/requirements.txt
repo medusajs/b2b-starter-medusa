@@ -14,8 +14,8 @@ pyarrow==14.0.2
 psycopg2-binary==2.9.9
 sqlalchemy==2.0.23
 
-# Vector stores
-pinecone-client==3.0.0
+# Vector stores (FOSS)
+qdrant-client==1.7.0
 
 # LLMs & Embeddings
 openai==1.50.0
