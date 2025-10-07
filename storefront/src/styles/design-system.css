@@ -9,10 +9,31 @@
     --ysh-orange: #FF6600;
     --ysh-pink: #FF0066;
 
-    /* Glass Effects */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Base surfaces (light) */
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #0a0a0a; /* zinc-950 on light text counterpart */
+    --muted: #3f3f46; /* zinc-700 */
+    --border: #e5e7eb; /* zinc-200 */
+
+    /* Glass Effects (light) */
+    --glass-bg: rgba(255, 255, 255, 0.10);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}
+
+/* Dark mode tokens using Tailwind's zinc-950 palette */
+.dark {
+    --bg: #09090b;       /* zinc-950 */
+    --surface: #18181b;  /* zinc-900 for cards */
+    --fg: #fafafa;       /* zinc-50 */
+    --muted: #a1a1aa;    /* zinc-400 */
+    --border: #27272a;   /* zinc-800 */
+
+    /* Glass adjusted for dark */
+    --glass-bg: rgba(24, 24, 27, 0.55);  /* zinc-900 ~ 55% */
+    --glass-border: rgba(250, 250, 250, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
 }
 
 /* Yello Solar Hub Gradient Utilities */
@@ -69,7 +90,7 @@
     left: 2px;
     right: 2px;
     bottom: 2px;
-    background: white;
+    background: var(--surface);
     border-radius: 6px;
     z-index: 1;
 }
