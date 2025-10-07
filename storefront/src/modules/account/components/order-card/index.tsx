@@ -68,7 +68,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
             data-testid="order-created-at"
           >
             <CalendarIcon className="inline-block mr-1" />
-            {createdAt.toLocaleDateString("en-GB", {
+            {createdAt.toLocaleDateString("pt-BR", {
               year: "numeric",
               month: "numeric",
               day: "numeric",
@@ -90,9 +90,8 @@ const OrderCard = ({ order }: OrderCardProps) => {
               })}
             </span>
             {"·"}
-            <span className="px-2">{`${numberOfLines} ${
-              numberOfLines > 1 ? "items" : "item"
-            }`}</span>
+            <span className="px-2">{`${numberOfLines} ${numberOfLines > 1 ? "itens" : "item"
+              }`}</span>
           </div>
 
           <div className="flex items-center gap-x-2 pl-4">
@@ -109,7 +108,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                 variant="secondary"
                 className="rounded-full text-xs"
               >
-                Details
+                Detalhes
               </Button>
             </LocalizedClientLink>
           </div>

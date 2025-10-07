@@ -22,8 +22,8 @@ const InviteEmployeeCard = ({ company }: { company: QueryCompany }) => {
         </div>
       </div>
       <div className="flex items-center justify-end gap-2 bg-neutral-50 p-4">
-        <Button variant="primary" onClick={() => toast.info("Not implemented")}>
-          Send Invite
+        <Button variant="primary" onClick={() => toast.info("Não implementado")}>
+          Enviar Convite
         </Button>
       </div>
     </Container>
