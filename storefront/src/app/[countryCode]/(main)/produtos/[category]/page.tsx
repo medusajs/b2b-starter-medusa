@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { getBaseURL } from "@/lib/util/env"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import Link from "next/link"
@@ -20,7 +21,19 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     batteries: "Baterias",
     structures: "Estruturas",
   }
-  return { title: `${titleMap[category] || "Catálogo"} - Yello Solar Hub` }
+  // Canonical com base no domínio e country code
+  const host = getBaseURL()
+  const cc = (await params as any).countryCode
+  const canonical = `${host}/${cc}/produtos/${category}`
+  const title = `${titleMap[category] || "Catálogo"} - Yello Solar Hub`
+  const description = `Explore ${titleMap[category] || "o catálogo"} da Yello Solar Hub`
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title, description, url: canonical, siteName: "Yello Solar Hub" },
+    twitter: { card: "summary", title, description },
+  }
 }
 
 async function listCatalog(category: string, searchParams?: { [k: string]: string }) {
