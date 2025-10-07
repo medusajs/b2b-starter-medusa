@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 import { Calculator, Home, Factory, MapPin } from "lucide-react"
+import dynamic from "next/dynamic"
+const DimensionamentoClient = dynamic(() => import("@/modules/onboarding/components/DimensionamentoClient"), { ssr: false })
 
 export const metadata: Metadata = {
     title: "Dimensionamento Solar - Yello Solar Hub",
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function DimensionamentoPage() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[var(--bg)]">
             {/* Header */}
             <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900">
                 <div className="content-container py-12">
@@ -28,10 +30,11 @@ export default function DimensionamentoPage() {
                 </div>
             </div>
 
+            <DimensionamentoClient />
             <div className="content-container py-12">
                 {/* Input Methods */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="bg-white p-8 rounded-xl shadow-sm">
+                    <div className="bg-[var(--surface)] p-8 rounded-xl shadow-sm border border-[var(--border)]">
                         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                             <Home className="w-8 h-8 text-blue-600" />
                         </div>
@@ -43,7 +46,7 @@ export default function DimensionamentoPage() {
                             o consumo médio e recomendará o sistema ideal.
                         </p>
                         <div className="space-y-4">
-                            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                            <div className="border-2 border-dashed border-[var(--border)] rounded-lg p-8 text-center">
                                 <div className="text-gray-500 mb-2">
                                     📄 Arraste sua conta de luz aqui
                                 </div>
@@ -57,7 +60,7 @@ export default function DimensionamentoPage() {
                         </div>
                     </div>
 
-                    <div className="bg-white p-8 rounded-xl shadow-sm">
+                    <div className="bg-[var(--surface)] p-8 rounded-xl shadow-sm border border-[var(--border)]">
                         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
                             <Calculator className="w-8 h-8 text-green-600" />
                         </div>
@@ -75,7 +78,7 @@ export default function DimensionamentoPage() {
                                 </label>
                                 <input
                                     type="number"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                    className="w-full px-4 py-3 border border-[var(--border)] rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent bg-transparent"
                                     placeholder="Ex: 350"
                                 />
                             </div>
@@ -84,7 +87,7 @@ export default function DimensionamentoPage() {
                                     Tipo de instalação
                                 </label>
                                 <select
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                    className="w-full px-4 py-3 border border-[var(--border)] rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent bg-transparent"
                                     aria-label="Tipo de instalação"
                                 >
                                     <option>Telhado cerâmico</option>
