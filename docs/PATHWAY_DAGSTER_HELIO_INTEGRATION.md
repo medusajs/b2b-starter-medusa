@@ -592,7 +592,145 @@ curl -X POST http://localhost:6333/collections/helio-catalog/points/search \
 
 ---
 
-## 🎯 Próximos Passos
+## � Integração YSH ERP (WIP)
+
+### Arquitetura ERP Sync
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  YSH ERP (Multi-Distribuidor)                                   │
+│  - Neosolar, Solfácil, Odex, Fotus, Fortlev                    │
+│  - Homologação ANEEL                                            │
+│  - Gestão de ordens                                             │
+└────────────────┬────────────────────────────────────────────────┘
+                 │
+                 │  API REST + Kafka CDC
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  Pathway ERP Sync Pipeline (erp_sync.py)                       │
+│  - ERP Orders → Medusa                                          │
+│  - ERP Prices → Medusa                                          │
+│  - Medusa Orders → ERP                                          │
+│  - Homologação Status Sync                                      │
+└────────────────┬────────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  Dagster ERP Assets (erp_sync.py)                              │
+│  - erp_products_sync (produtos + preços + estoque)             │
+│  - erp_orders_sync (ordens pendentes → ERP)                    │
+│  - erp_homologacao_sync (status homologação → Medusa)          │
+│  - erp_pricing_kb (embeddings preços para RAG)                 │
+└────────────────┬────────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  Medusa Backend                                                 │
+│  - Workflows: sync-order-to-ysh.ts, sync-products-from-ysh.ts │
+│  - API: /erp/order-updates, /admin/ysh-erp/*                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Dagster Assets ERP
+
+**Job**: `erp_sync_job`  
+**Schedule**: A cada **30 minutos** (alta frequência para sincronização)
+
+| Asset | Descrição | Dependências |
+|-------|-----------|--------------|
+| `erp_products_sync` | Sincroniza catálogo ERP → Medusa (preços B1/B3, estoque) | - |
+| `erp_orders_sync` | Envia ordens pendentes Medusa → ERP | - |
+| `erp_homologacao_sync` | Atualiza status de homologação ERP → Medusa | - |
+| `erp_pricing_kb` | Gera embeddings de preços para RAG | `erp_products_sync` |
+
+### Pathway Pipelines ERP
+
+**Arquivo**: `pathway/pipelines/erp_sync.py`
+
+#### Pipeline 1: ERP Orders → Medusa
+
+```python
+# Kafka topic: ysh-erp.orders
+# Detecta novas ordens no ERP e atualiza status no Medusa
+# - Tracking code
+# - Fulfillment status
+# - Metadata sync
+```
+
+#### Pipeline 2: ERP Prices → Medusa
+
+```python
+# Kafka topic: ysh-erp.prices
+# Atualiza preços B1/B3 em tempo real
+# - Lookup SKU → product_id
+# - Upsert em price_list
+```
+
+#### Pipeline 3: Medusa Orders → ERP
+
+```python
+# Postgres CDC: medusa.public.order
+# Envia ordens aceitas para processamento no ERP
+# - Separa por distribuidor
+# - POST para API ERP
+```
+
+#### Pipeline 4: Homologação Status Sync
+
+```python
+# Kafka topic: ysh-erp.homologacao
+# Sincroniza status de vistoria ANEEL
+# - pending → vistoria_agendada → aprovado/reprovado
+```
+
+### Workflows Medusa ↔ ERP
+
+| Workflow | Direção | Trigger | Descrição |
+|----------|---------|---------|-----------|
+| `sync-order-to-ysh.ts` | Medusa → ERP | Order placed | Envia ordem para ERP |
+| `sync-products-from-ysh.ts` | ERP → Medusa | Schedule (1h) | Atualiza catálogo |
+| `sync-distributor-prices.ts` | ERP → Medusa | Schedule (30min) | Atualiza preços |
+
+### API Endpoints ERP
+
+| Endpoint | Método | Descrição |
+|----------|--------|-----------|
+| `/erp/order-updates` | POST | Recebe atualizações de ordens do ERP |
+| `/admin/ysh-erp/distributors` | GET | Lista distribuidores sincronizados |
+| `/admin/ysh-erp/sync-prices` | POST | Força sincronização de preços |
+| `/admin/ysh-homologacao/solicitacoes` | GET | Lista solicitações de homologação |
+
+### Configuração
+
+**Variáveis de ambiente** (`.env`):
+
+```bash
+# YSH ERP API
+ERP_API_URL=http://ysh-erp:3001
+ERP_API_KEY=your_erp_api_key
+
+# Kafka Topics
+KAFKA_TOPIC_ERP_ORDERS=ysh-erp.orders
+KAFKA_TOPIC_ERP_PRICES=ysh-erp.prices
+KAFKA_TOPIC_ERP_HOMOLOGACAO=ysh-erp.homologacao
+
+# Sync Frequency
+ERP_SYNC_INTERVAL_MINUTES=30
+```
+
+### Status Atual (WIP)
+
+- ✅ Pathway pipeline criado (`erp_sync.py`)
+- ✅ Dagster assets criados (4 assets)
+- ✅ Job + schedule configurado (30min)
+- ⚠️ **Pendente**: Implementação real das APIs ERP
+- ⚠️ **Pendente**: Configuração Kafka topics
+- ⚠️ **Pendente**: Testes end-to-end Medusa ↔ ERP
+
+---
+
+## �🎯 Próximos Passos
 
 1. ✅ **Implementar mocks → produção**
    - Substituir `context.log.info()` por código real
@@ -606,12 +744,18 @@ curl -X POST http://localhost:6333/collections/helio-catalog/points/search \
    - Confirmar Qdrant recebe embeddings
    - Testar API `/store/helio/ask`
 
-3. ✅ **Deploy staging**
+3. ✅ **Integração ERP completa**
+   - Implementar APIs do ERP
+   - Configurar Kafka CDC
+   - Testar sincronização bidirecional
+   - Validar homologação ANEEL
+
+4. ✅ **Deploy staging**
    - AWS ECS para Dagster
    - MSK para Kafka
    - Qdrant em EC2
 
-4. ✅ **Monitoramento**
+5. ✅ **Monitoramento**
    - Configurar alertas (PagerDuty/Slack)
    - Dashboards Grafana
    - Cost tracking (OpenAI API)
