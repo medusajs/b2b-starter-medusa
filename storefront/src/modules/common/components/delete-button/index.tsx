@@ -36,7 +36,7 @@ const DeleteButton = ({
         onClick={() => handleDelete(id)}
         disabled={disabled}
       >
-        {isDeleting ? <Spinner size={12} /> : "Remove"}
+        {isDeleting ? <Spinner size={12} /> : "Remover"}
       </button>
     </div>
   )

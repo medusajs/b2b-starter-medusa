@@ -64,7 +64,7 @@ const ShippingAddress = ({
             level="h2"
             className="flex flex-row text-xl gap-x-2 items-center"
           >
-            Shipping Address
+            Endereço de Entrega
             {!isOpen && <CheckCircleSolid />}
           </Heading>
 
@@ -77,7 +77,7 @@ const ShippingAddress = ({
                   className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
                   data-testid="edit-address-button"
                 >
-                  Edit
+                  Editar
                 </button>
               </Text>
             )}
@@ -92,7 +92,7 @@ const ShippingAddress = ({
                   className="mt-6"
                   data-testid="submit-address-button"
                 >
-                  Next step
+                  Próxima etapa
                 </SubmitButton>
                 <ErrorMessage
                   error={error}
