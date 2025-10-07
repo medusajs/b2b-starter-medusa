@@ -15,10 +15,12 @@ export const metadata: Metadata = {
   title: "Yello Solar Hub - Energia Solar sob Medida | Kits Solares Completos",
   description:
     "Transforme sua conta de luz com soluções solares completas. Kits prontos, painéis de alta eficiência, inversores premium e dimensionamento personalizado. 713 produtos de 5 distribuidores certificados.",
-  keywords: "energia solar, kits solares, painéis solares, inversores, dimensionamento solar, Yello Solar Hub, economia energia",
+  keywords:
+    "energia solar, kits solares, painéis solares, inversores, dimensionamento solar, Yello Solar Hub, economia energia",
   openGraph: {
     title: "Yello Solar Hub - Energia Solar sob Medida",
-    description: "Kits solares completos para máxima economia na sua conta de energia. Dimensionamento personalizado e instalação profissional.",
+    description:
+      "Kits solares completos para máxima economia na sua conta de energia. Dimensionamento personalizado e instalação profissional.",
     type: "website",
   },
 }
@@ -55,3 +57,4 @@ export default async function Home(props: {
     </div>
   )
 }
+

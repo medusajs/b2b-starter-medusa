@@ -3,7 +3,6 @@
 import { Sun } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
-import Image from "next/image"
 import Link from "next/link"
 
 const Hero = () => {
@@ -31,10 +30,7 @@ const Hero = () => {
             Energia Solar sob Medida
           </p>
 
-          <Heading
-            level="h1"
-            className="text-4xl md:text-6xl leading-tight text-gray-900 font-bold"
-          >
+          <Heading level="h1" className="text-4xl md:text-6xl leading-tight text-gray-900 font-bold">
             Energia solar do seu jeito
             <span className="block bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
               — do kit ao financiamento
@@ -48,22 +44,16 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <Link href="/produtos">
+          <Link href="/solucoes">
             <Button className="ysh-btn-primary text-lg px-8 py-4">
               <Sun className="w-5 h-5 mr-2" />
               Explorar soluções
             </Button>
           </Link>
-          <Link href="/dimensionamento">
+          <Link href="/store">
             <Button variant="secondary" className="ysh-btn-outline text-lg px-8 py-4">
               <Sun className="w-5 h-5 mr-2" />
-              Simular economia
-            </Button>
-          </Link>
-          <Link href="/ferramentas/financiamento">
-            <Button variant="secondary" className="ysh-btn-outline text-lg px-8 py-4">
-              <Sun className="w-5 h-5 mr-2" />
-              Financiamento
+              Ver produtos
             </Button>
           </Link>
         </div>
@@ -105,3 +95,4 @@ const Hero = () => {
 }
 
 export default Hero
+
