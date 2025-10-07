@@ -8,29 +8,52 @@ export default function VideosStrip() {
   const keys = ["amazonia", "condominio", "pousada", "rural"].filter((k) => videos[k])
 
   return (
-    <section className="content-container py-10">
-      <h2 className="text-xl font-semibold mb-4">Histórias de energia limpa</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {keys.map((k) => {
-          const v = videos[k]
-          return (
-            <figure key={k} className="rounded-lg overflow-hidden border border-neutral-200">
-              <video
-                src={v.src}
-                className="w-full aspect-video"
-                loop
-                autoPlay
-                muted
-                playsInline
-                preload="metadata"
-                poster={v.poster || "/opengraph-image.jpg"}
-                onPlay={() => sendEvent("copy_rendered", { component: `video_${k}`, key: `videos.${k}.caption` })}
-                aria-label={v.alt}
-              />
-              <figcaption className="p-3 text-sm text-neutral-700">{v.caption}</figcaption>
-            </figure>
-          )
-        })}
+    <section className="bg-gradient-to-br from-white via-gray-50 to-slate-100 py-24">
+      <div className="content-container">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <span className="text-2xl">🎥</span>
+            <span className="text-gray-900 font-semibold">Histórias reais</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Energia limpa em
+            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              ação
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Conheça projetos reais de energia solar sustentável
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {keys.map((k) => {
+            const v = videos[k]
+            return (
+              <figure key={k} className="group">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                  <video
+                    src={v.src}
+                    className="w-full aspect-video object-cover"
+                    loop
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={v.poster || "/opengraph-image.jpg"}
+                    onPlay={() => sendEvent("copy_rendered", { component: `video_${k}`, key: `videos.${k}.caption` })}
+                    aria-label={v.alt}
+                  />
+                  <div className="p-6">
+                    <figcaption className="text-lg font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors">
+                      {v.caption}
+                    </figcaption>
+                  </div>
+                </div>
+              </figure>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

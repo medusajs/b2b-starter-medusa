@@ -29,43 +29,52 @@ const Testimonials = () => {
     ]
 
     return (
-        <section className="py-16 bg-gradient-to-br from-yellow-50 to-blue-50">
+        <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-gray-50">
             <div className="content-container">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                        O que Nossos Clientes Dizem
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+                        <Quote className="w-4 h-4 text-gray-600" />
+                        <span className="text-gray-900 font-semibold">Depoimentos</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        O que nossos
+                        <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
+                            clientes dizem
+                        </span>
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Histórias reais de clientes que transformaram suas contas de luz com energia solar
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((testimonial, index) => (
-                        <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
-                            <div className="flex items-center mb-4">
-                                <Quote className="w-8 h-8 text-yellow-400 mr-2" />
+                        <div key={index} className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                            <div className="flex items-center mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                                    <Quote className="w-6 h-6 text-white" />
+                                </div>
                                 <div className="flex">
                                     {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                                     ))}
                                 </div>
                             </div>
 
-                            <p className="text-gray-700 mb-6 italic">
+                            <p className="text-gray-700 mb-8 text-lg leading-relaxed italic">
                                 &ldquo;{testimonial.content}&rdquo;
                             </p>
 
-                            <div className="border-t pt-4">
+                            <div className="border-t border-gray-200/50 pt-6">
                                 <div className="flex justify-between items-center">
                                     <div>
-                                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                                        <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
                                         <div className="text-sm text-gray-600">{testimonial.role}</div>
                                         <div className="text-xs text-gray-500">{testimonial.location}</div>
                                     </div>
-                                    <div className="text-right">
-                                        <div className="text-sm font-semibold text-green-600">Economia</div>
-                                        <div className="text-lg font-bold text-green-700">{testimonial.savings}</div>
+                                    <div className="text-right bg-gradient-to-r from-green-50 to-green-100 px-4 py-2 rounded-xl border border-green-200/50">
+                                        <div className="text-sm font-semibold text-green-700">Economia</div>
+                                        <div className="text-xl font-bold text-green-800">{testimonial.savings}</div>
                                     </div>
                                 </div>
                             </div>
@@ -73,16 +82,19 @@ const Testimonials = () => {
                     ))}
                 </div>
 
-                <div className="text-center mt-12">
-                    <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm">
-                        <div className="flex -space-x-2">
+                <div className="text-center mt-16">
+                    <div className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/20 shadow-lg">
+                        <div className="flex -space-x-3">
                             {[...Array(5)].map((_, i) => (
-                                <div key={i} className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full border-2 border-white flex items-center justify-center">
-                                    <span className="text-xs font-bold text-gray-900">{5 - i}</span>
+                                <div key={i} className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-full border-2 border-white flex items-center justify-center shadow-md">
+                                    <span className="text-sm font-bold text-white">{5 - i}</span>
                                 </div>
                             ))}
                         </div>
-                        <span className="text-gray-700 font-medium">+497 clientes satisfeitos</span>
+                        <div className="text-left">
+                            <div className="text-lg font-bold text-gray-900">+497 clientes</div>
+                            <div className="text-sm text-gray-600">satisfeitos</div>
+                        </div>
                     </div>
                 </div>
             </div>

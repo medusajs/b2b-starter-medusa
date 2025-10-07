@@ -61,21 +61,27 @@ const CLASSES = [
 
 export default function SolutionsByClass() {
   return (
-    <div className="bg-white py-16">
+    <div className="bg-gradient-to-br from-gray-50 to-white py-24">
       <div className="content-container">
-        <div className="text-center mb-12">
-          <Text className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">
-            {t("home.solutions_title")}
-          </Text>
-          <Heading level="h2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Energia solar para cada necessidade
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full border border-yellow-200/50 mb-6">
+            <Sun className="w-4 h-4 text-yellow-600" />
+            <Text className="text-yellow-700 text-sm uppercase tracking-wider font-semibold">
+              {t("home.solutions_title")}
+            </Text>
+          </div>
+          <Heading level="h2" className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Energia solar para
+            <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
+              cada necessidade
+            </span>
           </Heading>
-          <Text className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <Text className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {t("home.solutions_sub")}
           </Text>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CLASSES.map((classe) => {
             const Icon = classe.icon
             return (
@@ -93,28 +99,33 @@ export default function SolutionsByClass() {
                   })
                 }
               >
-                <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-200 hover:-translate-y-1 h-full flex flex-col">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${classe.color} flex items-center justify-center mb-4`}>
-                    <Icon className="w-6 h-6 text-white" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/90 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col group-hover:scale-[1.02]">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 via-orange-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg">
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <Heading level="h3" className="text-xl font-bold text-gray-900 mb-2">
+                  <Heading level="h3" className="text-2xl font-bold text-gray-900 mb-3">
                     {classe.title}
                   </Heading>
 
-                  <Text className="text-gray-600 mb-4 flex-grow">{classe.description}</Text>
+                  <Text className="text-gray-600 mb-6 flex-grow leading-relaxed">{classe.description}</Text>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-3 mb-6">
                     {classe.modalidades.map((mod) => (
-                      <span key={mod} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                      <span key={mod} className="px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 text-sm rounded-full border border-gray-300/50">
                         {mod}
                       </span>
                     ))}
                   </div>
 
-                  <Text className="text-blue-600 font-semibold group-hover:underline">
-                    {classe.cta} →
-                  </Text>
+                  <div className="flex items-center justify-between">
+                    <Text className="text-gray-900 font-semibold group-hover:text-yellow-600 transition-colors">
+                      {classe.cta}
+                    </Text>
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-white text-sm">→</span>
+                    </div>
+                  </div>
                 </div>
               </LocalizedClientLink>
             )

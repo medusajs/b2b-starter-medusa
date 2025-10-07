@@ -137,7 +137,11 @@
 
   /* YSH Card Styles */
   .ysh-card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-100;
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 border border-gray-100;
+  }
+
+  .ysh-card-glass {
+    @apply glass-card rounded-xl transition-all duration-200;
   }
 
   .ysh-card-solar {
@@ -151,6 +155,31 @@
 
   .ysh-product-card:hover {
     @apply transform scale-[1.02];
+  }
+
+  /* OpenAI-inspired Components */
+  .openai-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl hover:bg-white/90;
+  }
+
+  .openai-section {
+    @apply py-24 px-6;
+  }
+
+  .openai-hero {
+    @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100;
+  }
+
+  .openai-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .openai-button {
+    @apply px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-200;
+  }
+
+  .openai-button-outline {
+    @apply px-8 py-4 border-2 border-black text-black rounded-full font-medium hover:bg-black hover:text-white transition-all duration-200;
   }
 
   /* YSH Badge Styles */

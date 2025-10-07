@@ -9,68 +9,72 @@ import { sendEvent } from "@/modules/analytics/events"
 
 const Hero = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-yellow-400 rounded-full blur-3xl"></div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
+      {/* Enhanced background with glass effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-        {/* Brand */}
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50">
-            <div className="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-              <Sun className="w-4 h-4 text-gray-900" />
+        {/* Brand with glass effect */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-full flex items-center justify-center shadow-md">
+              <Sun className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-semibold text-gray-900">Yello Solar Hub</span>
+            <span className="text-xl font-bold text-gray-900">Yello Solar Hub</span>
           </div>
         </div>
 
-        {/* Main headline */}
-        <div className="space-y-6 mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
+        {/* Main headline with gradient text */}
+        <div className="space-y-8 mb-16">
+          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 leading-tight">
             Energia solar
-            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
               do seu jeito
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
             Compare kits, simule economia e acompanhe a instalação com suporte especialista.
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        {/* CTA Buttons with glass effects */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
           <Link href="/solucoes" aria-label={t("home.hero_cta_primary")}
             onClick={() => sendEvent("cta_clicked", { component: "hero_primary_cta", key: "home.hero_cta_primary" })}>
-            <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-200 hover:scale-105 hover:shadow-xl">
-              <Sun className="w-5 h-5 mr-2" />
+            <Button className="bg-black hover:bg-gray-800 text-white px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm">
+              <Sun className="w-6 h-6 mr-3" />
               {t("home.hero_cta_primary")}
             </Button>
           </Link>
           <Link href="/store" aria-label={t("home.hero_cta_secondary")}
             onClick={() => sendEvent("cta_clicked", { component: "hero_secondary_cta", key: "home.hero_cta_secondary" })}>
-            <Button variant="secondary" className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-200 hover:scale-105">
+            <Button variant="secondary" className="border-2 border-black/20 bg-white/80 backdrop-blur-md text-gray-900 hover:bg-black hover:text-white px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
               {t("home.hero_cta_secondary")}
             </Button>
           </Link>
         </div>
 
-        {/* Trust indicators - simplified */}
-        <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>5 distribuidores certificados</span>
+        {/* Trust indicators with glass cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
+            <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-green-600 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 mb-1">5 distribuidores certificados</div>
+            <div className="text-xs text-gray-600">Qualidade garantida</div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span>713 produtos disponíveis</span>
+          <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
+            <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 mb-1">713 produtos disponíveis</div>
+            <div className="text-xs text-gray-600">Ampla variedade</div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-            <span>Garantia até 25 anos</span>
+          <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
+            <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 mb-1">Garantia até 25 anos</div>
+            <div className="text-xs text-gray-600">Durabilidade máxima</div>
           </div>
         </div>
       </div>
