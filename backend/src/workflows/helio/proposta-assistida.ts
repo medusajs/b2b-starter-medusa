@@ -1,8 +1,12 @@
 /**
  * Workflow: Proposta FV Assistida por IA (Hélio)
  * Usa RAG para sugerir produtos, calcular dimensionamento e validar viabilidade
+ * 
+ * NOTA: Workflow temporariamente desabilitado devido a refatoração necessária
+ * para compatibilidade com Medusa Framework 2.8.0
  */
 
+/* TEMPORARIAMENTE COMENTADO - REFATORAR STEPS
 import { createWorkflow, createStep, StepResponse, WorkflowResponse } from "@medusajs/framework/workflows-sdk"
 
 // ==========================================
@@ -383,3 +387,8 @@ export const propostaAssistidaWorkflow = createWorkflow<
 })
 
 export default propostaAssistidaWorkflow
+*/
+
+// Placeholder temporário até refatoração
+export const propostaAssistidaWorkflow = null
+export default null
