@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import Link from "next/link"
+import { LeadQuoteProvider } from "@/modules/lead-quote/context"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
 const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
@@ -62,6 +63,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   )
 
   return (
+    <LeadQuoteProvider>
     <div className="content-container py-10">
       <Title />
 
@@ -198,5 +200,6 @@ export default async function CategoryPage({ params, searchParams }: { params: P
         )
       })()}
     </div>
+    </LeadQuoteProvider>
   )
 }
