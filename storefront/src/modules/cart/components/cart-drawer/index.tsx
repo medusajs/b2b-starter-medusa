@@ -43,7 +43,7 @@ const CartDrawer = ({
   try {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     quoteCount = useLeadQuote().items.length
-  } catch {}
+  } catch { }
 
   const items = cart?.items || []
   const promotions = cart?.promotions || []
@@ -131,7 +131,7 @@ const CartDrawer = ({
       >
         <Drawer.Trigger asChild>
           <button
-            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100"
+            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800"
             title={quoteCount > 0 ? `Carrinho • Cotação: ${quoteCount}` : "Carrinho"}
             aria-label={quoteCount > 0 ? `Abrir carrinho, cotação com ${quoteCount} item(s)` : "Abrir carrinho"}
           >
@@ -174,7 +174,7 @@ const CartDrawer = ({
           )}
           {promotions.length > 0 && (
             <div className="p-4">
-              <AppliedPromotions promotions={promotions} />
+              <AppliedPromotions promotions={promotions as any} />
             </div>
           )}
           <div className="flex flex-col gap-y-4 h-full self-stretch justify-between overflow-auto">
@@ -227,9 +227,9 @@ const CartDrawer = ({
                       </Button>
                     </LocalizedClientLink>
                     {spendLimitExceeded && (
-                      <div className="flex items-center gap-x-2 bg-neutral-100 p-3 rounded-md shadow-borders-base">
-                        <ExclamationCircle className="text-orange-500 w-fit overflow-visible" />
-                        <p className="text-neutral-950 text-xs">
+                      <div className="flex items-center gap-x-3 p-3 rounded-xl border border-amber-200/60 dark:border-amber-400/20 bg-amber-50/70 dark:bg-amber-500/10 backdrop-blur-sm">
+                        <ExclamationCircle className="text-amber-600 dark:text-amber-400 w-fit overflow-visible" />
+                        <p className="text-xs text-zinc-800 dark:text-zinc-200">
                           Este pedido excede seu limite de gastos. Entre em contato
                           com seu gerente para aprovação.
                         </p>

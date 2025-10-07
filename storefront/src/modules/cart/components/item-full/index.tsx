@@ -96,7 +96,7 @@ const ItemFull = ({
 
   return (
     <Container
-      className={clx("flex gap-4 w-full h-full items-center justify-between", {
+      className={clx("flex gap-4 w-full h-full items-center justify-between bg-[var(--surface)]/80 border border-[var(--border)] rounded-xl backdrop-blur-sm", {
         "shadow-none": !showBorders,
       })}
     >
@@ -106,17 +106,17 @@ const ItemFull = ({
             thumbnail={item.thumbnail}
             size="square"
             type="full"
-            className="bg-neutral-100 rounded-lg w-20 h-20"
+            className="bg-[var(--surface)] rounded-lg w-20 h-20"
           />
         </LocalizedClientLink>
         <div className="flex flex-col gap-y-2 justify-between min-h-full self-stretch">
           <div className="flex flex-col">
-            <span className="text-neutral-600 text-[0.6rem]">BRAND</span>
+            <span className="text-zinc-500 dark:text-zinc-400 text-[0.6rem]">BRAND</span>
 
-            <span className="txt-medium-plus text-neutral-950">
+            <span className="txt-medium-plus text-zinc-900 dark:text-zinc-50">
               {item.product?.title}
             </span>
-            <span className="text-neutral-600 text-xs">
+            <span className="text-zinc-500 dark:text-zinc-400 text-xs">
               {item.variant?.title}
             </span>
           </div>
@@ -127,10 +127,10 @@ const ItemFull = ({
               currencyCode={currencyCode}
             />
             <div className="flex gap-x-2">
-              <div className="flex gap-x-3 shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-full w-fit p-px items-center">
+              <div className="flex gap-x-3 border border-[var(--border)] bg-[var(--surface)]/60 rounded-full w-fit p-px items-center backdrop-blur-sm">
                 <button
                   className={clx(
-                    "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
+                    "w-4 h-4 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full text-md",
                     disabled ? "opacity-50 pointer-events-none" : "opacity-100"
                   )}
                   onClick={() => changeQuantity(item.quantity - 1)}
@@ -144,7 +144,7 @@ const ItemFull = ({
                   ) : (
                     <Input
                       className={clx(
-                        "w-10 h-4 flex items-center justify-center text-center text-neutral-950 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none",
+                        "w-10 h-4 flex items-center justify-center text-center text-zinc-900 dark:text-zinc-50 text-xs [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent shadow-none",
                         disabled
                           ? "opacity-50 pointer-events-none"
                           : "opacity-100"
@@ -164,7 +164,7 @@ const ItemFull = ({
                 </span>
                 <button
                   className={clx(
-                    "w-4 h-4 flex items-center justify-center text-neutral-600 hover:bg-neutral-100 rounded-full text-md",
+                    "w-4 h-4 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full text-md",
                     disabled ? "opacity-50 pointer-events-none" : "opacity-100"
                   )}
                   onClick={() => changeQuantity(item.quantity + 1)}
@@ -177,7 +177,7 @@ const ItemFull = ({
               <DeleteButton id={item.id} disabled={disabled} />
               <Button
                 variant="secondary"
-                className="h-7 px-2 text-xs"
+                className="h-7 px-2 text-xs rounded-full"
                 onClick={() => {
                   addToQuote?.({
                     id: item.product_id || item.id,

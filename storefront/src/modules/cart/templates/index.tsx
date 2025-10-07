@@ -25,13 +25,13 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
   )
 
   return (
-    <div className="small:py-12 py-6 bg-neutral-100">
+    <div className="small:py-12 py-6 bg-[var(--bg)]">
       <div className="content-container" data-testid="cart-container">
         {cart?.items?.length ? (
           <div>
             <div className="flex flex-col py-6 gap-y-6">
               <div className="pb-3 flex items-center">
-                <Heading className="text-neutral-950">
+                <Heading className="text-zinc-950 dark:text-zinc-50">
                   Você tem {totalItems} item(s) no carrinho
                 </Heading>
               </div>
