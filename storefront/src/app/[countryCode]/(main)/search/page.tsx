@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Suspense } from "react"
+import ViewSearch from "@/modules/analytics/view-search"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
 const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
@@ -49,6 +50,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
 
   return (
     <div className="content-container py-10">
+      <ViewSearch params={searchParams} total={total} />
       <div className="mb-6">
         <h1 className="text-3xl font-semibold text-neutral-950">Resultados da busca</h1>
         <p className="text-neutral-600">{total} itens encontrados</p>
@@ -151,4 +153,3 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
     </div>
   )
 }
-
