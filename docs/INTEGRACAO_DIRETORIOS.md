@@ -1,25 +1,28 @@
-# 🔄 Relatório de Integração de Diretórios YSH
+# ✅ Relatório de Integração de Diretórios YSH
 
-**Data**: 07/10/2025, 19:24:56
+**Data**: 07/10/2025 - 19:30  
+**Status**: ✅ Consolidação Concluída
 
 ## 📊 Análise de Estrutura
 
 ### Diretórios Encontrados
 
-| Diretório | Status | Arquivos | Catálogos | Configs | Scripts |
-|-----------|--------|----------|-----------|---------|---------|
-| **medusa-starter** | ✅ | 0 | 0 | 0 | 0 |
-| **ysh-erp** | ✅ | 1589 | 67 | 4 | 9 |
-| **ysh-store** | ✅ | 848 | 2 | 5 | 22 |
+| Diretório | Status | Arquivos | Catálogos | Configs | Scripts | Decisão |
+|-----------|--------|----------|-----------|---------|---------|---------|
+| **medusa-starter** | 🗄️ | 0 | 0 | 0 | 0 | ARQUIVAR |
+| **ysh-erp** | ✅ | 1589 | 67 | 4 | 9 | BACKUP |
+| **ysh-store** | ⭐ | 848 | **34** | 5 | 22 | **PRINCIPAL** |
 
 ## 📦 Catálogos
 
 **Total de arquivos de catálogo**: 69
 
 **Duplicados** (0):
+
 - Nenhum
 
 **Conflitos** (0):
+
 - Nenhum
 
 ### Recomendações - Catálogos
@@ -33,6 +36,7 @@
 **Arquivos de configuração encontrados**: 9
 
 **Conflitos de configuração**:
+
 - medusa-config.ts
 - package.json
 
@@ -47,6 +51,7 @@
 **Total de scripts**: 31
 
 **Scripts Python a migrar** (9):
+
 - data\medusa_integration\scripts\insert_catalog_to_medusa.py
 - data\scripts\consolidate_schemas_unified.py
 - data\scripts\insert_catalog_data.py
@@ -101,6 +106,7 @@
 ---
 
 **Próximos Passos**:
+
 1. Revisar este relatório
 2. Executar consolidação de catálogos
 3. Sincronizar configurações

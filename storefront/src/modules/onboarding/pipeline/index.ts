@@ -1,4 +1,5 @@
 import { pvwattsV8 } from "../services/nrel"
+import { pvgisPVcalc, parsePvgisMonthly } from "../services/pvgis"
 import { fetchAneelTariff } from "../services/aneel"
 import type { SimulationInput, SimulationResult, ClimateSource } from "./contracts"
 
@@ -39,6 +40,23 @@ export async function runOnboardingSimulation(input: SimulationInput): Promise<S
   let climateSource: ClimateSource = "NASA_POWER"
   let pvlibOut = await simulatePvlibService(input)
 
+  // 1b) PVGIS (FOSS) como fallback externo primário
+  let pvgisOut: { monthly_kwh: number[]; annual_kwh: number } | null = null
+  try {
+    const raw = await pvgisPVcalc({
+      lat: input.lat,
+      lon: input.lon,
+      peakpower_kw: Math.max(0.1, input.system_kwp_hint ?? (input.monthly_kwh ? input.monthly_kwh / 120 : 3)),
+      loss_pct: input.losses_pct ?? 16,
+      angle_deg: input.tilt_deg,
+      aspect_deg: input.azimuth_deg,
+    })
+    const parsed = parsePvgisMonthly(raw)
+    if (parsed) {
+      pvgisOut = parsed
+    }
+  } catch {}
+
   // 2) PVWatts v8 (NREL) como auditoria/base
   const pvw = await pvwattsV8({
     system_capacity: kWp,
@@ -52,15 +70,14 @@ export async function runOnboardingSimulation(input: SimulationInput): Promise<S
   const pvw_kwh_year: number = pvw?.outputs?.ac_annual ?? 0
   const pvw_kwh_month: number[] = pvw?.outputs?.ac_monthly ?? []
 
-  // Preferir pvlib se disponível; senão, PVWatts
-  const kWh_year = pvlibOut?.kwh_year ?? pvw_kwh_year
-  const kWh_month = pvlibOut?.kwh_month ?? pvw_kwh_month
+  // Preferir pvlib se disponível; senão, PVGIS; senão PVWatts
+  const kWh_year = pvlibOut?.kwh_year ?? pvgisOut?.annual_kwh ?? pvw_kwh_year
+  const kWh_month = pvlibOut?.kwh_month ?? pvgisOut?.monthly_kwh ?? pvw_kwh_month
 
   let diffPct: number | undefined
-  if (pvlibOut?.kwh_year) {
-    if (pvw_kwh_year > 0) {
-      diffPct = Math.abs((pvlibOut.kwh_year - pvw_kwh_year) / pvw_kwh_year) * 100
-    }
+  const ref = pvlibOut?.kwh_year ?? pvgisOut?.annual_kwh
+  if (typeof ref === "number" && pvw_kwh_year > 0) {
+    diffPct = Math.abs((ref - pvw_kwh_year) / pvw_kwh_year) * 100
   }
 
   // 3) Tarifa ANEEL (placeholder busca)
@@ -94,7 +111,7 @@ export async function runOnboardingSimulation(input: SimulationInput): Promise<S
     economy_month_brl,
     sources: {
       climate: climateSource,
-      pv_model: pvlibOut ? "pvlib+PVWatts" : "PVWatts",
+      pv_model: pvlibOut ? "pvlib+PVWatts" : (pvgisOut ? "PVGIS+PVWatts" : "PVWatts"),
       pvwatts_diff_pct: diffPct,
       tariff_source: tariff.source_url,
     },
@@ -106,4 +123,3 @@ export async function runOnboardingSimulation(input: SimulationInput): Promise<S
     },
   }
 }
-
