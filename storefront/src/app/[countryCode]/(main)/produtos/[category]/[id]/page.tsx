@@ -39,6 +39,27 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
 
   return (
     <div className="content-container py-8">
+      {/* JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            name: product.name,
+            image: [product.processed_images?.large || product.processed_images?.medium || product.image_url].filter(Boolean),
+            brand: product.manufacturer ? { "@type": "Brand", name: product.manufacturer } : undefined,
+            sku: product.sku,
+            offers: typeof product.price_brl === 'number' ? {
+              "@type": "Offer",
+              priceCurrency: "BRL",
+              price: product.price_brl,
+              availability: product.availability?.toLowerCase()?.includes('dispon') ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            } : undefined,
+          }),
+        }}
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="relative w-full aspect-square bg-neutral-100 rounded-lg overflow-hidden">
           <Image
@@ -126,4 +147,3 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
     </div>
   )
 }
-
