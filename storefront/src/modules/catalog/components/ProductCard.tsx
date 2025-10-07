@@ -3,6 +3,7 @@ import { useCatalogCustomization } from "@/modules/catalog/context/customization
 import { Heart, ShoppingCart, Eye } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useLeadQuote } from "@/modules/lead-quote/context"
 
 interface ProductCardProps {
     product: {
@@ -29,6 +30,13 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
+    const lead = (() => { try { return require("react").useContext(require("@/modules/lead-quote/context").default) } catch { return null } })
+    // use hook safely
+    let addToQuote: undefined | ((...args: any[]) => void)
+    try {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        addToQuote = useLeadQuote().add
+    } catch {}
     const custom = useCatalogCustomization()
     const getTierBadge = (tier?: string) => {
         switch (tier) {
@@ -115,7 +123,11 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                         </button>
                         <button
                             className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors"
-                            aria-label="Adicionar ao carrinho"
+                            aria-label="Adicionar à cotação"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                            }}
                         >
                             <ShoppingCart className="w-4 h-4 text-gray-900" />
                         </button>
@@ -218,6 +230,17 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                     {secondaryCta.label}
                                 </button>
                             )
+                        )}
+                        {!secondaryCta && (
+                            <button
+                                className="ysh-btn-outline text-sm px-3 py-1"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                                }}
+                            >
+                                Adicionar à cotação
+                            </button>
                         )}
                         {primaryCta ? (
                             primaryCta.href ? (

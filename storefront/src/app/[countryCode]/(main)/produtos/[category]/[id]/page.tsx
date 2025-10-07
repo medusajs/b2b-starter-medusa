@@ -1,5 +1,7 @@
 import { Metadata } from "next"
 import Image from "next/image"
+import { LeadQuoteProvider, useLeadQuote } from "@/modules/lead-quote/context"
+import Button from "@/modules/common/components/button"
 import Link from "next/link"
 
 type Params = { countryCode: string; category: string; id: string }
@@ -21,6 +23,16 @@ async function getProduct(category: string, id: string) {
   return json.product
 }
 
+function AddToQuoteButton({ product }: { product: any }) {
+  "use client"
+  const { add } = useLeadQuote()
+  return (
+    <Button onClick={() => add({ id: product.id, category: product.category, name: product.name, manufacturer: product.manufacturer, image_url: product.image_url, price_brl: product.price_brl })}>
+      Adicionar à cotação
+    </Button>
+  )
+}
+
 export default async function CatalogProductPage({ params }: { params: Promise<Params> }) {
   const { category, id } = await params
   const product = await getProduct(category, id)
@@ -38,6 +50,7 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
   }
 
   return (
+    <LeadQuoteProvider>
     <div className="content-container py-8">
       {/* JSON-LD for SEO */}
       <script
@@ -115,6 +128,7 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
           <div className="flex gap-3">
             <Link href="/contato" className="ysh-btn-primary">Solicitar Cotação</Link>
             <Link href="/produtos" className="ysh-btn-outline">Voltar ao Catálogo</Link>
+            <AddToQuoteButton product={product} />
           </div>
         </div>
       </div>
@@ -145,5 +159,6 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
         </div>
       )}
     </div>
+    </LeadQuoteProvider>
   )
 }

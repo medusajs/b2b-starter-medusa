@@ -3,6 +3,7 @@ import { useCatalogCustomization } from "@/modules/catalog/context/customization
 import { Package, Sun, Battery, Zap } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useLeadQuote } from "@/modules/lead-quote/context"
 
 interface KitCardProps {
     kit: {
@@ -38,6 +39,11 @@ interface KitCardProps {
 }
 
 const KitCard = ({ kit }: KitCardProps) => {
+    let addToQuote: undefined | ((...args: any[]) => void)
+    try {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        addToQuote = useLeadQuote().add
+    } catch {}
     const custom = useCatalogCustomization()
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -81,7 +87,11 @@ const KitCard = ({ kit }: KitCardProps) => {
                         </button>
                         <button
                             className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors"
-                            aria-label="Adicionar kit ao carrinho"
+                            aria-label="Adicionar kit à cotação"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                addToQuote?.({ id: kit.id, category: 'kits', name: kit.name, manufacturer: kit.distributor, image_url: imageUrl, price_brl: kit.price_brl })
+                            }}
                         >
                             <span className="text-sm font-bold text-gray-900">+</span>
                         </button>
@@ -179,6 +189,17 @@ const KitCard = ({ kit }: KitCardProps) => {
                                     {secondaryCta.label}
                                 </button>
                             )
+                        )}
+                        {!secondaryCta && (
+                            <button
+                                className="ysh-btn-outline text-sm px-3 py-2"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    addToQuote?.({ id: kit.id, category: 'kits', name: kit.name, manufacturer: kit.distributor, image_url: imageUrl, price_brl: kit.price_brl })
+                                }}
+                            >
+                                Adicionar à cotação
+                            </button>
                         )}
                         {primaryCta ? (
                             primaryCta.href ? (
