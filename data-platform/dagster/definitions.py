@@ -5,10 +5,11 @@ Entry point for all assets, jobs, schedules, and resources.
 
 from dagster import Definitions, ScheduleDefinition, define_asset_job, load_assets_from_modules
 from dagster_aws.s3 import S3Resource
+import os
 
 from . import assets
 from .resources.postgres import PostgresResource
-from .resources.pinecone import PineconeResource
+from .resources.qdrant import QdrantResource
 
 # Load all assets from modules
 all_assets = load_assets_from_modules([assets])
@@ -51,9 +52,10 @@ resources = {
     "s3": S3Resource(
         region_name="us-east-1",
     ),
-    "pinecone": PineconeResource(
-        api_key="pk_***",  # Substituir por env var
-        index_name="ysh-rag",
+    "qdrant": QdrantResource(
+        url=os.getenv("QDRANT_URL", "http://qdrant:6333"),
+        api_key=os.getenv("QDRANT_API_KEY"),
+        collection_name=os.getenv("QDRANT_COLLECTION", "ysh-rag"),
     ),
 }
 

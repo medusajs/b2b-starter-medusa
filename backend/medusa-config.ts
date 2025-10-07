@@ -35,19 +35,19 @@ module.exports = defineConfig({
     [Modules.PAYMENT]: true,
     [Modules.TAX]: true,
     [Modules.REGION]: true,
-    // Custom modules
-    [COMPANY_MODULE]: {
-      resolve: "./modules/company",
-    },
-    [QUOTE_MODULE]: {
-      resolve: "./modules/quote",
-    },
+    // Custom modules - DISABLED for initial setup
+    // [COMPANY_MODULE]: {
+    //   resolve: "./modules/company",
+    // },
+    // [QUOTE_MODULE]: {
+    //   resolve: "./modules/quote",
+    // },
     // [APPROVAL_MODULE]: {
     //   resolve: "./modules/approval",
     // },
-    [YSH_CATALOG_MODULE]: {
-      resolve: "./modules/ysh-catalog",
-    },
+    // [YSH_CATALOG_MODULE]: {
+    //   resolve: "./modules/ysh-catalog",
+    // },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
     },

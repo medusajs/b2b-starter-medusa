@@ -60,6 +60,24 @@ services:
       timeout: 5s
       retries: 5
 
+  # Qdrant (Vector Store FOSS)
+  qdrant:
+    image: qdrant/qdrant:v1.7.0
+    container_name: ysh-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # HTTP API
+      - "6334:6334" # gRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - ysh-data-platform
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # Pathway — Catalog ETL (exemplo de pipeline rodando)
   pathway-catalog:
     build:
@@ -81,9 +99,10 @@ services:
       S3_BUCKET: ysh-catalog
       # Kafka
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      # Pinecone
-      PINECONE_API_KEY: ${PINECONE_API_KEY}
-      PINECONE_INDEX: ysh-rag
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
       # OpenAI
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       # Pipeline config
@@ -99,6 +118,8 @@ services:
         condition: service_healthy
       minio:
         condition: service_healthy
+      qdrant:
+        condition: service_healthy
     command: python -m pipelines.catalog_etl
 
   # Pathway — RAG Streaming (real-time)
@@ -113,8 +134,10 @@ services:
       S3_ACCESS_KEY: minioadmin
       S3_SECRET_KEY: minioadmin
       S3_BUCKET: ysh-docs
-      PINECONE_API_KEY: ${PINECONE_API_KEY}
-      PINECONE_INDEX: ysh-rag
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       PIPELINE_NAME: rag_streaming
       PIPELINE_MODE: streaming
@@ -125,12 +148,16 @@ services:
     depends_on:
       minio:
         condition: service_healthy
+      qdrant:
+        condition: service_healthy
     command: python -m pipelines.rag_streaming
 
 volumes:
   kafka_data:
     driver: local
   minio_data:
+    driver: local
+  qdrant_data:
     driver: local
 
 networks:

@@ -51,9 +51,10 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: us-east-1
       S3_BUCKET: ysh-data-lake
-      # Pinecone
-      PINECONE_API_KEY: ${PINECONE_API_KEY}
-      PINECONE_INDEX: ysh-rag
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
       # OpenAI
       OPENAI_API_KEY: ${OPENAI_API_KEY}
     volumes:
@@ -89,8 +90,10 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: us-east-1
       S3_BUCKET: ysh-data-lake
-      PINECONE_API_KEY: ${PINECONE_API_KEY}
-      PINECONE_INDEX: ysh-rag
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
       OPENAI_API_KEY: ${OPENAI_API_KEY}
     ports:
       - "3001:3000" # UI Dagster em http://localhost:3001

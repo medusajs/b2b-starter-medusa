@@ -7,7 +7,7 @@ import pandas as pd
 import os
 
 from ..resources.postgres import PostgresResource
-from ..resources.pinecone import PineconeResource
+from ..resources.qdrant import QdrantResource
 
 
 @asset(
@@ -62,15 +62,15 @@ def catalog_normalized(
     group_name="catalog",
     deps=[catalog_normalized],
     description="Embeddings do catálogo para RAG",
-    compute_kind="OpenAI + Pinecone",
+    compute_kind="OpenAI + Qdrant",
 )
 def catalog_embeddings(
     context: AssetExecutionContext,
     postgres_medusa: PostgresResource,
-    pinecone: PineconeResource,
+    qdrant: QdrantResource,
 ) -> Output[dict]:
     """
-    Gera embeddings dos itens do catálogo e insere no Pinecone.
+    Gera embeddings dos itens do catálogo e insere no Qdrant (FOSS).
     """
     context.log.info("🔍 Gerando embeddings para catálogo...")
     
