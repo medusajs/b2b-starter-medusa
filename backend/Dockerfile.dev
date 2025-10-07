@@ -23,9 +23,6 @@ COPY .npmrc* ./
 # Instalar dependências
 RUN npm ci --no-audit --no-fund
 
-# Forçar versão compatível do Zod para resolver conflitos
-RUN npm install zod@3.22.4 --save-exact
-
 # Copiar código fonte
 COPY . .
 
