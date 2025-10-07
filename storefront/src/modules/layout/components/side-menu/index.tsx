@@ -17,6 +17,14 @@ const SideMenuItems = {
   Cart: "/cart",
 }
 
+const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
+  Home: "Início",
+  Store: "Loja",
+  Search: "Buscar",
+  Account: "Conta",
+  Cart: "Carrinho",
+}
+
 const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
   const toggleState = useToggleState()
 
@@ -65,7 +73,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                               onClick={close}
                               data-testid={`${name.toLowerCase()}-link`}
                             >
-                              {name}
+                              {SideMenuLabels[name as keyof typeof SideMenuItems]}
                             </LocalizedClientLink>
                           </li>
                         )
@@ -91,8 +99,8 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
-                        reserved.
+                        © {new Date().getFullYear()} Medusa Store. Todos os direitos
+                        reservados.
                       </Text>
                     </div>
                   </div>
