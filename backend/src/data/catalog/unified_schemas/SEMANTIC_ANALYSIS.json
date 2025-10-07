@@ -1,0 +1,804 @@
+{
+  "timestamp": "2025-10-07T16:03:05.131Z",
+  "totalProducts": 1123,
+  "categories": {
+    "panels": {
+      "count": 35,
+      "avgPrice": 504.77777777777777,
+      "priceRange": {
+        "min": 485,
+        "max": 519
+      },
+      "completeness": 92.38095238095238,
+      "qualityScore": 90.85714285714286,
+      "commonSpecs": [
+        "efficiency",
+        "power_w",
+        "technology",
+        "power_kw",
+        "type"
+      ],
+      "missingData": {
+        "prices": 8,
+        "images": 0,
+        "specs": 0
+      }
+    },
+    "inverters": {
+      "count": 731,
+      "avgPrice": 9123.133692307689,
+      "priceRange": {
+        "min": 16,
+        "max": 86184.83
+      },
+      "completeness": 95.16643866849066,
+      "qualityScore": 95.43091655266758,
+      "commonSpecs": [
+        "type",
+        "voltage",
+        "power_w",
+        "power_kw",
+        "efficiency"
+      ],
+      "missingData": {
+        "prices": 16,
+        "images": 90,
+        "specs": 0
+      }
+    },
+    "batteries": {
+      "count": 9,
+      "avgPrice": 6276.490000000001,
+      "priceRange": {
+        "min": 5322.94,
+        "max": 7323.74
+      },
+      "completeness": 70.37037037037037,
+      "qualityScore": 73.33333333333333,
+      "commonSpecs": [
+        "power_w"
+      ],
+      "missingData": {
+        "prices": 0,
+        "images": 3,
+        "specs": 5
+      }
+    },
+    "kits": {
+      "count": 83,
+      "avgPrice": 10774.464285714286,
+      "priceRange": {
+        "min": 861,
+        "max": 33355
+      },
+      "completeness": 53.01204819277109,
+      "qualityScore": 54.4578313253012,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 27,
+        "images": 7,
+        "specs": 83
+      }
+    },
+    "structures": {
+      "count": 34,
+      "avgPrice": 870.0976470588238,
+      "priceRange": {
+        "min": 98,
+        "max": 4250
+      },
+      "completeness": 44.11764705882353,
+      "qualityScore": 49.705882352941174,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 0,
+        "images": 23,
+        "specs": 34
+      }
+    },
+    "cables": {
+      "count": 55,
+      "avgPrice": 635.6438461538462,
+      "priceRange": {
+        "min": 6,
+        "max": 2101.79
+      },
+      "completeness": 63.030303030303024,
+      "qualityScore": 66.18181818181819,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 3,
+        "images": 3,
+        "specs": 55
+      }
+    },
+    "controllers": {
+      "count": 38,
+      "avgPrice": 7897.657142857143,
+      "priceRange": {
+        "min": 19,
+        "max": 74537
+      },
+      "completeness": 64.03508771929825,
+      "qualityScore": 66.8421052631579,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 3,
+        "images": 0,
+        "specs": 38
+      }
+    },
+    "chargers": {
+      "count": 81,
+      "avgPrice": 5663.246575342466,
+      "priceRange": {
+        "min": 40,
+        "max": 28864
+      },
+      "completeness": 59.25925925925925,
+      "qualityScore": 62.34567901234568,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 8,
+        "images": 10,
+        "specs": 81
+      }
+    },
+    "ev_chargers": {
+      "count": 2,
+      "avgPrice": 3117.56,
+      "priceRange": {
+        "min": 2811.46,
+        "max": 3423.66
+      },
+      "completeness": 66.66666666666666,
+      "qualityScore": 70,
+      "commonSpecs": [
+        "power_w"
+      ],
+      "missingData": {
+        "prices": 0,
+        "images": 2,
+        "specs": 0
+      }
+    },
+    "accessories": {
+      "count": 18,
+      "avgPrice": 102.99444444444445,
+      "priceRange": {
+        "min": 7.48,
+        "max": 150.36
+      },
+      "completeness": 70.37037037037037,
+      "qualityScore": 73.33333333333333,
+      "commonSpecs": [
+        "technology",
+        "efficiency"
+      ],
+      "missingData": {
+        "prices": 0,
+        "images": 0,
+        "specs": 16
+      }
+    },
+    "stringboxes": {
+      "count": 13,
+      "avgPrice": 875.0769230769231,
+      "priceRange": {
+        "min": 362,
+        "max": 1681
+      },
+      "completeness": 35.8974358974359,
+      "qualityScore": 42.307692307692314,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 0,
+        "images": 12,
+        "specs": 13
+      }
+    },
+    "posts": {
+      "count": 12,
+      "avgPrice": 12432.166666666666,
+      "priceRange": {
+        "min": 7901,
+        "max": 17148
+      },
+      "completeness": 66.66666666666666,
+      "qualityScore": 70,
+      "commonSpecs": [],
+      "missingData": {
+        "prices": 0,
+        "images": 0,
+        "specs": 12
+      }
+    },
+    "others": {
+      "count": 11,
+      "avgPrice": 49727.81363636363,
+      "priceRange": {
+        "min": 566,
+        "max": 91178
+      },
+      "completeness": 54.54545454545454,
+      "qualityScore": 59.09090909090909,
+      "commonSpecs": [
+        "dimensions_mm",
+        "features",
+        "certifications",
+        "weight_kg",
+        "warranty_years"
+      ],
+      "missingData": {
+        "prices": 0,
+        "images": 11,
+        "specs": 4
+      }
+    }
+  },
+  "technicalSpecs": {
+    "totalSpecsExtracted": 2843,
+    "specsByCategory": {
+      "others": [
+        "technology",
+        "capacity_kwh",
+        "voltage_v",
+        "dod_pct",
+        "cycles_at_80pct",
+        "dimensions_mm",
+        "weight_kg",
+        "warranty_years",
+        "certifications",
+        "power_kw",
+        "voltage",
+        "connector_type",
+        "features",
+        "rated_current_a",
+        "max_modules",
+        "connector",
+        "material",
+        "diameter_mm",
+        "length_m",
+        "load_class"
+      ],
+      "accessories": [
+        "technology",
+        "efficiency"
+      ],
+      "batteries": [
+        "power_w"
+      ],
+      "cables": [],
+      "controllers": [],
+      "chargers": [],
+      "ev_chargers": [
+        "power_w"
+      ],
+      "inverters": [
+        "power_kw",
+        "type",
+        "voltage",
+        "phases",
+        "efficiency",
+        "power_w",
+        "mppt_trackers"
+      ],
+      "panels": [
+        "power_kw",
+        "type",
+        "voltage",
+        "efficiency",
+        "power_w",
+        "technology"
+      ],
+      "kits": [],
+      "posts": [],
+      "stringboxes": [],
+      "structures": []
+    },
+    "unitsNormalized": {
+      "watts": "W",
+      "watt": "W",
+      "kw": "kW",
+      "kwh": "kWh",
+      "volts": "V",
+      "volt": "V",
+      "amperes": "A",
+      "ampere": "A",
+      "amp": "A",
+      "metros": "m",
+      "metro": "m",
+      "quilogramas": "kg",
+      "quilograma": "kg",
+      "anos": "years",
+      "ano": "years"
+    },
+    "invalidValues": [
+      {
+        "product": "FORTLEV-GROWATT-THOR07AS-P",
+        "spec": "voltage",
+        "value": "monofasico_220v",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "FORTLEV-FOXESS-A7300P1-E-2",
+        "spec": "voltage",
+        "value": "monofasico_220v",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "neosolar_inverters_23782",
+        "spec": "power_kw",
+        "value": 0,
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ODEX 585W PAINEL SOLAR ODEX 585W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ODEX 600W PAINEL SOLAR ODEX 600W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ODEX 610W PAINEL SOLAR ODEX 610W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ODEX 660W PAINEL SOLAR ODEX 660W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ODEX 700W PAINEL SOLAR ODEX 700W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR ASTRONERGY 600W PAINEL SOLAR ASTRONERGY 600W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR TSUN 560W PAINEL SOLAR TSUN 560W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR JINKO 610W PAINEL SOLAR JINKO 610W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+        "spec": "voltage",
+        "value": "PAINEL SOLAR JINKO 615W PAINEL SOLAR JINKO 615W",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP FIBROCIMENTO GRANDE ESTRUTURA SOLAR GROUP FIBROCIMENTO GRANDE",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP FIBROCIMENTO PEQUENO ESTRUTURA SOLAR GROUP FIBROCIMENTO PEQUENO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP COLONIAL CERÂMICO ESTRUTURA SOLAR GROUP COLONIAL CERÂMICO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP METÁLICO TRAPEZOIDAL ESTRUTURA SOLAR GROUP METÁLICO TRAPEZOIDAL",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP SOLO FIXO ESTRUTURA SOLAR GROUP SOLO FIXO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+        "spec": "voltage",
+        "value": "ESTRUTURA SOLAR GROUP SOLO RASTREADOR 1 EIXO ESTRUTURA SOLAR GROUP SOLO RASTREADOR 1 EIXO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+        "spec": "voltage",
+        "value": "ESTRUTURA ROMAGNOLE FIBROCIMENTO RF-55 ESTRUTURA ROMAGNOLE FIBROCIMENTO RF-55",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+        "spec": "voltage",
+        "value": "ESTRUTURA ROMAGNOLE COLONIAL CERÂMICO RC-66 ESTRUTURA ROMAGNOLE COLONIAL CERÂMICO RC-66",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+        "spec": "voltage",
+        "value": "ESTRUTURA ROMAGNOLE METÁLICO TRAPEZOIDAL RM-40 ESTRUTURA ROMAGNOLE METÁLICO TRAPEZOIDAL RM-40",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+        "spec": "voltage",
+        "value": "ESTRUTURA ROMAGNOLE LAJE INCLINADA RL-30 ESTRUTURA ROMAGNOLE LAJE INCLINADA RL-30",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
+        "spec": "voltage",
+        "value": "ESTRUTURA ROMAGNOLE SOLO FIXO RS-1500 ESTRUTURA ROMAGNOLE SOLO FIXO RS-1500",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
+        "spec": "voltage",
+        "value": "ESTRUTURA PRATYC FIBROCIMENTO GRANDE PRF-60 ESTRUTURA PRATYC FIBROCIMENTO GRANDE PRF-60",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
+        "spec": "voltage",
+        "value": "ESTRUTURA PRATYC COLONIAL CERÂMICO PRC-70 ESTRUTURA PRATYC COLONIAL CERÂMICO PRC-70",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
+        "spec": "voltage",
+        "value": "ESTRUTURA PRATYC METÁLICO TRAPEZOIDAL PRM-45 ESTRUTURA PRATYC METÁLICO TRAPEZOIDAL PRM-45",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
+        "spec": "voltage",
+        "value": "ESTRUTURA PRATYC LAJE PLANA PRL-25 ESTRUTURA PRATYC LAJE PLANA PRL-25",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
+        "spec": "voltage",
+        "value": "ESTRUTURA PRATYC SOLO FIXO PRS-1600 ESTRUTURA PRATYC SOLO FIXO PRS-1600",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS SINGLERAIL FIBROCIMENTO ESTRUTURA K2 SYSTEMS SINGLERAIL FIBROCIMENTO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS SINGLERAIL COLONIAL ESTRUTURA K2 SYSTEMS SINGLERAIL COLONIAL",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS SINGLERAIL METÁLICO ESTRUTURA K2 SYSTEMS SINGLERAIL METÁLICO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS CROSSRAIL SOLO FIXO ESTRUTURA K2 SYSTEMS CROSSRAIL SOLO FIXO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS MINIRAIL LAJE ESTRUTURA K2 SYSTEMS MINIRAIL LAJE",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS BASERAIL PLUS UNIVERSAL ESTRUTURA K2 SYSTEMS BASERAIL PLUS UNIVERSAL",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS DOME 6° SOLO ESTRUTURA K2 SYSTEMS DOME 6° SOLO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS DOME 10° SOLO ESTRUTURA K2 SYSTEMS DOME 10° SOLO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS D-DOME 6° SOLO ESTRUTURA K2 SYSTEMS D-DOME 6° SOLO",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+        "spec": "voltage",
+        "value": "ESTRUTURA K2 SYSTEMS SOLO RASTREADOR XL ESTRUTURA K2 SYSTEMS SOLO RASTREADOR XL",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+        "spec": "voltage",
+        "value": "STRING BOX CLAMPER 2 ENTRADAS STRING BOX CLAMPER 2 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+        "spec": "voltage",
+        "value": "STRING BOX CLAMPER 4 ENTRADAS STRING BOX CLAMPER 4 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+        "spec": "voltage",
+        "value": "STRING BOX CLAMPER 6 ENTRADAS STRING BOX CLAMPER 6 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+        "spec": "voltage",
+        "value": "STRING BOX CLAMPER 8 ENTRADAS STRING BOX CLAMPER 8 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+        "spec": "voltage",
+        "value": "STRING BOX CLAMPER 10 ENTRADAS STRING BOX CLAMPER 10 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 4 ENTRADAS STRING BOX TECBOX 4 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 6 ENTRADAS STRING BOX TECBOX 6 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 8 ENTRADAS STRING BOX TECBOX 8 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 10 ENTRADAS STRING BOX TECBOX 10 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 16 ENTRADAS STRING BOX TECBOX 16 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
+        "spec": "voltage",
+        "value": "STRING BOX TECBOX 20 ENTRADAS STRING BOX TECBOX 20 ENTRADAS",
+        "reason": "Valor numérico inválido ou negativo"
+      },
+      {
+        "product": "solfacil_inverters_2",
+        "spec": "voltage",
+        "value": "GOODWE EZLOGGER PRO MEDIDOR INTELIGENTE - EZLOGGER PRO - GOODWE",
+        "reason": "Valor numérico inválido ou negativo"
+      }
+    ],
+    "recommendations": [
+      "📋 Categoria \"panels\": 5 especificações faltando (voltage_v, current_a, dimensions, weight_kg, warranty_years)",
+      "📋 Categoria \"inverters\": 3 especificações faltando (input_voltage_v, output_voltage_v, max_current_a)",
+      "📋 Categoria \"batteries\": 6 especificações faltando (capacity_kwh, voltage_v, cycles, type, warranty_years, depth_of_discharge)",
+      "📋 Categoria \"kits\": 5 especificações faltando (power_w, components, panel_count, inverter_model, installation_type)",
+      "📋 Categoria \"kits-hibridos\": 4 especificações faltando (power_w, battery_capacity_kwh, backup_hours, components)",
+      "📋 Categoria \"ev_chargers\": 5 especificações faltando (power_kw, connector_type, charging_time, phases, protection_rating)",
+      "📋 Categoria \"cables\": 5 especificações faltando (gauge_awg, length_m, max_current_a, voltage_rating_v, conductor_material)",
+      "📋 Categoria \"structures\": 5 especificações faltando (material, installation_type, max_modules, wind_resistance, warranty_years)",
+      "📋 Categoria \"controllers\": 4 especificações faltando (max_current_a, voltage_range_v, type, display)",
+      "📋 Categoria \"accessories\": 3 especificações faltando (type, compatibility, material)",
+      "📋 Categoria \"stringboxes\": 4 especificações faltando (inputs, max_current_a, voltage_rating_v, protection_rating)",
+      "📋 Categoria \"posts\": 4 especificações faltando (height_m, material, max_modules, foundation_type)",
+      "📋 Categoria \"chargers\": 4 especificações faltando (output_voltage_v, output_current_a, efficiency, protection)",
+      "📋 Categoria \"pumps\": 4 especificações faltando (power_w, flow_rate, head_m, phases)",
+      "📋 Categoria \"stations\": 3 especificações faltando (capacity_kwh, output_power_kw, connectors)"
+    ]
+  },
+  "pricing": {
+    "totalWithPrice": 1057,
+    "totalWithoutPrice": 66,
+    "avgPriceByCategory": {
+      "others": 49727.81363636363,
+      "accessories": 102.99444444444445,
+      "batteries": 6276.490000000001,
+      "cables": 635.6438461538462,
+      "controllers": 7897.657142857143,
+      "chargers": 5663.246575342466,
+      "ev_chargers": 3117.56,
+      "inverters": 9123.133692307689,
+      "panels": 504.77777777777777,
+      "kits": 10774.464285714286,
+      "posts": 12432.166666666666,
+      "stringboxes": 875.0769230769231,
+      "structures": 870.0976470588238
+    },
+    "priceOutliers": [
+      {
+        "product": "solfacil_accessories_1",
+        "price": 7.48,
+        "reason": "Preço suspeito (<R$10)"
+      },
+      {
+        "product": "neosolar_cables_20078",
+        "price": 6,
+        "reason": "Preço suspeito (<R$10)"
+      },
+      {
+        "product": "neosolar_cables_20077",
+        "price": 6,
+        "reason": "Preço suspeito (<R$10)"
+      },
+      {
+        "product": "neosolar_cables_20121",
+        "price": 9,
+        "reason": "Preço suspeito (<R$10)"
+      }
+    ],
+    "kitPricingIssues": [
+      {
+        "kit": "neosolar_kits_25044",
+        "issue": "Preço de kit muito baixo: R$916.00"
+      },
+      {
+        "kit": "neosolar_kits_25045",
+        "issue": "Preço de kit muito baixo: R$932.00"
+      },
+      {
+        "kit": "neosolar_kits_25043",
+        "issue": "Preço de kit muito baixo: R$861.00"
+      }
+    ],
+    "recommendations": [
+      "💰 66 produtos sem preço (5.9%)",
+      "⚠️  4 preços suspeitos detectados",
+      "📦 3 kits com problemas de precificação"
+    ]
+  },
+  "images": {
+    "totalImages": 961,
+    "imagesWithAllSizes": 231,
+    "missingThumbs": 891,
+    "missingMedium": 891,
+    "missingLarge": 891,
+    "brokenUrls": [],
+    "recommendations": [
+      "📊 231/961 produtos com todos os tamanhos (24.0%)",
+      "🔧 891 thumbs faltando",
+      "🔧 891 imagens médias faltando",
+      "🔧 891 imagens grandes faltando"
+    ]
+  },
+  "quality": {
+    "overallScore": 67.20815843199128,
+    "scoresByCategory": {
+      "panels": 70.28571428571429,
+      "inverters": 73.96306429548564,
+      "batteries": 66.66666666666667,
+      "kits": 62.65060240963855,
+      "structures": 64.11764705882354,
+      "cables": 68.36363636363636,
+      "controllers": 68.42105263157895,
+      "chargers": 66.79012345679013,
+      "ev_chargers": 60,
+      "accessories": 70,
+      "stringboxes": 61.53846153846154,
+      "posts": 70,
+      "others": 70.9090909090909
+    },
+    "completeness": 83.11071534579995,
+    "consistency": 100,
+    "accuracy": 67.20815843199128,
+    "recommendations": [
+      "🎯 Score geral: 67.2%",
+      "📊 Completude: 83.1%",
+      "🔄 Consistência: 100.0%",
+      "✅ Acurácia: 67.2%"
+    ]
+  },
+  "performance": {
+    "avgLoadTime": 0,
+    "indexableFields": [
+      "id",
+      "name",
+      "category",
+      "price_brl",
+      "metadata.distributor"
+    ],
+    "cachingStrategy": [
+      "Cache de produtos por categoria (TTL: 1h)",
+      "Cache de imagens processadas (TTL: 24h)",
+      "Cache de especificações técnicas (TTL: 12h)",
+      "Invalidação de cache em atualizações"
+    ],
+    "optimizations": [
+      "✅ Normalização completa aplicada (100%)",
+      "✅ IDs únicos para indexação rápida",
+      "⚠️  Compressão de imagens WebP (77% pendente)",
+      "⚠️  Lazy loading de especificações técnicas",
+      "✅ Metadados estruturados para busca",
+      "⚠️  CDN para distribuição de imagens"
+    ]
+  },
+  "recommendations": [
+    "🎯 RECOMENDAÇÕES PRIORITÁRIAS:",
+    "",
+    "1. ESPECIFICAÇÕES TÉCNICAS:",
+    "📋 Categoria \"panels\": 5 especificações faltando (voltage_v, current_a, dimensions, weight_kg, warranty_years)",
+    "📋 Categoria \"inverters\": 3 especificações faltando (input_voltage_v, output_voltage_v, max_current_a)",
+    "📋 Categoria \"batteries\": 6 especificações faltando (capacity_kwh, voltage_v, cycles, type, warranty_years, depth_of_discharge)",
+    "📋 Categoria \"kits\": 5 especificações faltando (power_w, components, panel_count, inverter_model, installation_type)",
+    "📋 Categoria \"kits-hibridos\": 4 especificações faltando (power_w, battery_capacity_kwh, backup_hours, components)",
+    "📋 Categoria \"ev_chargers\": 5 especificações faltando (power_kw, connector_type, charging_time, phases, protection_rating)",
+    "📋 Categoria \"cables\": 5 especificações faltando (gauge_awg, length_m, max_current_a, voltage_rating_v, conductor_material)",
+    "📋 Categoria \"structures\": 5 especificações faltando (material, installation_type, max_modules, wind_resistance, warranty_years)",
+    "📋 Categoria \"controllers\": 4 especificações faltando (max_current_a, voltage_range_v, type, display)",
+    "📋 Categoria \"accessories\": 3 especificações faltando (type, compatibility, material)",
+    "📋 Categoria \"stringboxes\": 4 especificações faltando (inputs, max_current_a, voltage_rating_v, protection_rating)",
+    "📋 Categoria \"posts\": 4 especificações faltando (height_m, material, max_modules, foundation_type)",
+    "📋 Categoria \"chargers\": 4 especificações faltando (output_voltage_v, output_current_a, efficiency, protection)",
+    "📋 Categoria \"pumps\": 4 especificações faltando (power_w, flow_rate, head_m, phases)",
+    "📋 Categoria \"stations\": 3 especificações faltando (capacity_kwh, output_power_kw, connectors)",
+    "",
+    "2. PRECIFICAÇÃO:",
+    "💰 66 produtos sem preço (5.9%)",
+    "⚠️  4 preços suspeitos detectados",
+    "📦 3 kits com problemas de precificação",
+    "",
+    "3. IMAGENS:",
+    "📊 231/961 produtos com todos os tamanhos (24.0%)",
+    "🔧 891 thumbs faltando",
+    "🔧 891 imagens médias faltando",
+    "🔧 891 imagens grandes faltando",
+    "",
+    "4. QUALIDADE:",
+    "🎯 Score geral: 67.2%",
+    "📊 Completude: 83.1%",
+    "🔄 Consistência: 100.0%",
+    "✅ Acurácia: 67.2%",
+    "",
+    "5. PRÓXIMOS PASSOS:",
+    "   • Executar fix-critical-issues.ts para resolver 30 problemas críticos",
+    "   • Adicionar 104 preços faltantes (foco: others, kits)",
+    "   • Reprocessar 895 imagens (thumb/medium/large)",
+    "   • Re-seed database com catálogo otimizado"
+  ]
+}
