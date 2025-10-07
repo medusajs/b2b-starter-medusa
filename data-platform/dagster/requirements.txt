@@ -1,0 +1,31 @@
+# Dagster
+dagster==1.8.0
+dagster-webserver==1.8.0
+dagster-postgres==0.24.0
+dagster-aws==0.24.0
+dagster-docker==0.24.0
+
+# Data processing
+pandas==2.1.4
+polars==0.20.0
+pyarrow==14.0.2
+
+# Database drivers
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+
+# AWS/S3
+boto3==1.34.0
+
+# Vector stores
+pinecone-client==3.0.0
+
+# LLMs
+openai==1.50.0
+
+# Validation
+pydantic==2.5.3
+
+# Utils
+python-dotenv==1.0.0
+requests==2.31.0

@@ -1,0 +1,140 @@
+# ==========================================
+# Docker Compose — Pathway Streaming Engine
+# Para desenvolvimento local
+# ==========================================
+
+version: "3.8"
+
+services:
+  # Kafka (streaming backbone)
+  kafka:
+    image: bitnami/kafka:3.6
+    container_name: ysh-kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      # KRaft mode (sem Zookeeper)
+      KAFKA_CFG_NODE_ID: 0
+      KAFKA_CFG_PROCESS_ROLES: controller,broker
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    volumes:
+      - kafka_data:/bitnami/kafka
+    networks:
+      - ysh-data-platform
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-broker-api-versions.sh --bootstrap-server localhost:9092",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MinIO (S3-compatible local storage)
+  minio:
+    image: minio/minio:latest
+    container_name: ysh-minio
+    restart: unless-stopped
+    ports:
+      - "9001:9000" # API
+      - "9002:9001" # Console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    networks:
+      - ysh-data-platform
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Pathway — Catalog ETL (exemplo de pipeline rodando)
+  pathway-catalog:
+    build:
+      context: ./pathway
+      dockerfile: Dockerfile
+    container_name: ysh-pathway-catalog
+    restart: unless-stopped
+    environment:
+      # Medusa DB
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      # S3/MinIO
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: minioadmin
+      S3_SECRET_KEY: minioadmin
+      S3_BUCKET: ysh-catalog
+      # Kafka
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      # Pinecone
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_INDEX: ysh-rag
+      # OpenAI
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      # Pipeline config
+      PIPELINE_NAME: catalog_etl
+      PIPELINE_MODE: streaming # ou 'batch'
+    volumes:
+      - ./pathway:/app
+    networks:
+      - ysh-data-platform
+      - ysh-b2b-network
+    depends_on:
+      kafka:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    command: python -m pipelines.catalog_etl
+
+  # Pathway — RAG Streaming (real-time)
+  pathway-rag:
+    build:
+      context: ./pathway
+      dockerfile: Dockerfile
+    container_name: ysh-pathway-rag
+    restart: unless-stopped
+    environment:
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: minioadmin
+      S3_SECRET_KEY: minioadmin
+      S3_BUCKET: ysh-docs
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_INDEX: ysh-rag
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PIPELINE_NAME: rag_streaming
+      PIPELINE_MODE: streaming
+    volumes:
+      - ./pathway:/app
+    networks:
+      - ysh-data-platform
+    depends_on:
+      minio:
+        condition: service_healthy
+    command: python -m pipelines.rag_streaming
+
+volumes:
+  kafka_data:
+    driver: local
+  minio_data:
+    driver: local
+
+networks:
+  ysh-data-platform:
+    driver: bridge
+  ysh-b2b-network:
+    external: true

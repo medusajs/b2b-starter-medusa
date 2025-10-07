@@ -1,5 +1,5 @@
 import { QUOTE_MODULE } from "./src/modules/quote";
-import { APPROVAL_MODULE } from "./src/modules/approval";
+// import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
 import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";

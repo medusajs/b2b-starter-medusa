@@ -1,0 +1,115 @@
+# ==========================================
+# Docker Compose — Dagster Orchestration
+# Para desenvolvimento local
+# ==========================================
+
+version: "3.8"
+
+services:
+  # PostgreSQL para Dagster (metadados)
+  dagster-postgres:
+    image: postgres:16-alpine
+    container_name: ysh-dagster-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dagster
+      POSTGRES_USER: dagster_user
+      POSTGRES_PASSWORD: dagster_password
+    ports:
+      - "5433:5432" # Porta diferente para não conflitar com Medusa
+    volumes:
+      - dagster_postgres_data:/var/lib/postgresql/data
+    networks:
+      - ysh-data-platform
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dagster_user -d dagster"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Dagster Daemon (schedules, sensors, runs)
+  dagster-daemon:
+    build:
+      context: ./dagster
+      dockerfile: Dockerfile
+    container_name: ysh-dagster-daemon
+    restart: unless-stopped
+    environment:
+      DAGSTER_POSTGRES_HOST: dagster-postgres
+      DAGSTER_POSTGRES_PORT: 5432
+      DAGSTER_POSTGRES_DB: dagster
+      DAGSTER_POSTGRES_USER: dagster_user
+      DAGSTER_POSTGRES_PASSWORD: dagster_password
+      # Medusa DB (data)
+      MEDUSA_DB_HOST: postgres # Service do docker-compose.yml principal
+      MEDUSA_DB_PORT: 5432
+      MEDUSA_DB_NAME: medusa_db
+      MEDUSA_DB_USER: medusa_user
+      MEDUSA_DB_PASSWORD: medusa_password
+      # AWS/S3
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: us-east-1
+      S3_BUCKET: ysh-data-lake
+      # Pinecone
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_INDEX: ysh-rag
+      # OpenAI
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    volumes:
+      - ./dagster:/opt/dagster/app
+    networks:
+      - ysh-data-platform
+      - ysh-b2b-network # Para acessar Postgres Medusa
+    depends_on:
+      dagster-postgres:
+        condition: service_healthy
+    command: dagster-daemon run
+
+  # Dagster Webserver (UI)
+  dagster-webserver:
+    build:
+      context: ./dagster
+      dockerfile: Dockerfile
+    container_name: ysh-dagster-webserver
+    restart: unless-stopped
+    environment:
+      DAGSTER_POSTGRES_HOST: dagster-postgres
+      DAGSTER_POSTGRES_PORT: 5432
+      DAGSTER_POSTGRES_DB: dagster
+      DAGSTER_POSTGRES_USER: dagster_user
+      DAGSTER_POSTGRES_PASSWORD: dagster_password
+      # Same env vars as daemon
+      MEDUSA_DB_HOST: postgres
+      MEDUSA_DB_PORT: 5432
+      MEDUSA_DB_NAME: medusa_db
+      MEDUSA_DB_USER: medusa_user
+      MEDUSA_DB_PASSWORD: medusa_password
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: us-east-1
+      S3_BUCKET: ysh-data-lake
+      PINECONE_API_KEY: ${PINECONE_API_KEY}
+      PINECONE_INDEX: ysh-rag
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+      - "3001:3000" # UI Dagster em http://localhost:3001
+    volumes:
+      - ./dagster:/opt/dagster/app
+    networks:
+      - ysh-data-platform
+      - ysh-b2b-network
+    depends_on:
+      dagster-postgres:
+        condition: service_healthy
+    command: dagster-webserver -h 0.0.0.0 -p 3000
+
+volumes:
+  dagster_postgres_data:
+    driver: local
+
+networks:
+  ysh-data-platform:
+    driver: bridge
+  ysh-b2b-network:
+    external: true # Criada pelo docker-compose.yml principal
