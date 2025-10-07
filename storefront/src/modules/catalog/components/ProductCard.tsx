@@ -127,6 +127,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                                try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch {}
                             }}
                         >
                             <ShoppingCart className="w-4 h-4 text-gray-900" />
@@ -237,6 +238,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                 onClick={(e) => {
                                     e.preventDefault()
                                     addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                                    try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch {}
                                 }}
                             >
                                 Adicionar à cotação

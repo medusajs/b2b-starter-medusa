@@ -33,14 +33,36 @@ async function startServer() {
         // Middleware para JSON
         app.use(express.json());
 
-        // Função simples para ler arquivos do catálogo
+        // Função simples para ler arquivos do catálogo (usando schemas unificados)
         const readCatalogFile = (fileName: string) => {
-            const filePath = path.join(catalogPath, fileName);
-            if (!fs.existsSync(filePath)) {
-                throw new Error(`Arquivo não encontrado: ${fileName}`);
+            // Primeiro tenta ler do schema unificado
+            const unifiedSchemasPath = path.join(catalogPath, 'unified_schemas');
+            const unifiedFilename = fileName.replace('.json', '_unified.json');
+            const unifiedFilePath = path.join(unifiedSchemasPath, unifiedFilename);
+
+            if (fs.existsSync(unifiedFilePath)) {
+                console.log(`📄 Lendo schema unificado: ${unifiedFilename}`);
+                const data = fs.readFileSync(unifiedFilePath, 'utf8');
+                return JSON.parse(data);
             }
-            const data = fs.readFileSync(filePath, 'utf8');
-            return JSON.parse(data);
+
+            // Fallback para arquivo original
+            const originalFilePath = path.join(catalogPath, fileName);
+            if (fs.existsSync(originalFilePath)) {
+                console.log(`📄 Lendo arquivo original: ${fileName}`);
+                const data = fs.readFileSync(originalFilePath, 'utf8');
+                const parsed = JSON.parse(data);
+
+                // Alguns arquivos têm estrutura diferente
+                if (fileName === 'panels.json' && parsed.panels) {
+                    return parsed.panels;
+                }
+
+                return parsed;
+            }
+
+            console.warn(`Arquivo não encontrado: ${fileName}`);
+            return [];
         };
 
         // API Routes
@@ -50,7 +72,8 @@ async function startServer() {
                 const categories = [
                     "kits", "panels", "inverters", "cables",
                     "chargers", "controllers", "accessories",
-                    "structures", "batteries"
+                    "structures", "batteries", "stringboxes",
+                    "posts", "others"
                 ];
 
                 // Tentar ler fabricantes de diferentes arquivos
@@ -129,7 +152,8 @@ async function startServer() {
                 const categories = category ? [category] : [
                     "kits", "panels", "inverters", "cables",
                     "chargers", "controllers", "accessories",
-                    "structures", "batteries"
+                    "structures", "batteries", "stringboxes",
+                    "posts", "others"
                 ];
 
                 const results: any[] = [];
