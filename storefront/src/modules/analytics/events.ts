@@ -5,6 +5,13 @@ export function sendEvent(name: string, payload?: any) {
     if (typeof window !== "undefined") {
       ; (window as any).dataLayer = (window as any).dataLayer || []
         ; (window as any).dataLayer.push({ event: name, payload })
+      // PostHog (se disponível)
+      try {
+        const ph = (window as any).posthog
+        if (ph && typeof ph.capture === "function") {
+          ph.capture(name, payload || {})
+        }
+      } catch {}
     }
     const backend = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL as string
     if (backend && typeof navigator !== "undefined" && (navigator as any).sendBeacon) {
@@ -54,4 +61,3 @@ export const trackVideoPlayed = (payload: { video_id: string; classe: string; ti
 export const trackVideoClosed = (payload: { video_id: string; classe: string }) => {
   sendEvent("video_closed", payload)
 }
-

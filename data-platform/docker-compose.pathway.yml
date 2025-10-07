@@ -73,11 +73,6 @@ services:
       - qdrant_data:/qdrant/storage
     networks:
       - ysh-data-platform
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   # Ollama (Local LLM - OSS Fallback)
   ollama:
@@ -162,7 +157,7 @@ services:
       minio:
         condition: service_healthy
       qdrant:
-        condition: service_healthy
+        condition: service_started
     command: python -m pipelines.catalog_etl
 
   # Pathway — RAG Streaming (real-time)
@@ -198,7 +193,7 @@ services:
       minio:
         condition: service_healthy
       qdrant:
-        condition: service_healthy
+        condition: service_started
     command: python -m pipelines.rag_streaming
 
 volumes:
