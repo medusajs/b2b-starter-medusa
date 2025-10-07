@@ -29,13 +29,13 @@
     "doctor:db": "medusa exec ./src/scripts/check-database-health.ts"
   },
   "dependencies": {
-    "@medusajs/admin-sdk": "2.7.0",
-    "@medusajs/cli": "2.7.0",
-    "@medusajs/framework": "2.7.0",
-    "@medusajs/js-sdk": "2.7.0",
-    "@medusajs/medusa": "2.7.0",
+    "@medusajs/admin-sdk": "2.8.0",
+    "@medusajs/cli": "2.8.0",
+    "@medusajs/framework": "2.8.0",
+    "@medusajs/js-sdk": "2.8.0",
+    "@medusajs/medusa": "2.8.0",
     "@medusajs/ui": "4.0.14",
-    "@medusajs/workflows-sdk": "2.7.0",
+    "@medusajs/workflows-sdk": "2.8.0",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
     "@mikro-orm/migrations": "6.4.3",
@@ -44,11 +44,11 @@
     "node-fetch": "^2.7.0",
     "pg": "^8.13.0",
     "posthog-node": "^4.17.1",
-    "zod": "^3.25.0"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@medusajs/test-utils": "2.7.0",
-    "@medusajs/ui-preset": "2.7.0",
+    "@medusajs/test-utils": "2.8.0",
+    "@medusajs/ui-preset": "2.8.0",
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "^1.5.7",
     "@swc/jest": "^0.2.36",

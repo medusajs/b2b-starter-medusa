@@ -113,9 +113,10 @@ export default function CotacaoPage() {
               <a
                 className="ysh-btn-outline"
                 href={(() => {
+                  const number = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER as string) || '5521979209021'
                   const lines = items.map((i) => `- ${i.name} (${i.manufacturer || ''}) [${(i as any).category}/${i.id}]`).join('%0A')
                   const text = `Gostaria de solicitar uma cotação:%0A${lines}`
-                  return `https://wa.me/5521979209021?text=${text}`
+                  return `https://wa.me/${number}?text=${text}`
                 })()}
                 target="_blank"
                 rel="noopener noreferrer"

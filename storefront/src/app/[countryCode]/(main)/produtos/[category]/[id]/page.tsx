@@ -13,6 +13,44 @@ export const revalidate = 3600
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { countryCode, category, id } = (await params) as any
   const canonical = `${getBaseURL()}/${countryCode}/produtos/${category}/${id}`
+
+  // Tenta recuperar produto para enriquecer OG/Twitter
+  try {
+    const backend = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL as string
+    const res = await fetch(`${backend}/store/catalog/${category}/${id}`, { next: { revalidate: 600 } })
+    if (res.ok) {
+      const json = await res.json()
+      const p = json.product || {}
+      const title = p.name || `Produto | ${category} | ${id}`
+      const descParts: string[] = []
+      if (p.manufacturer) descParts.push(String(p.manufacturer))
+      if (p.potencia_kwp) descParts.push(`${p.potencia_kwp} kWp`)
+      if (p.type) descParts.push(String(p.type))
+      const description = descParts.join(" • ") || undefined
+      const img = p?.processed_images?.large || p?.processed_images?.medium || p?.image_url
+
+      return {
+        title,
+        description,
+        alternates: { canonical },
+        openGraph: {
+          title,
+          description: description || undefined,
+          url: canonical,
+          siteName: "Yello Solar Hub",
+          type: "product",
+          images: img ? [{ url: img } as any] : undefined,
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description: description || undefined,
+          images: img ? [img] : undefined,
+        },
+      }
+    }
+  } catch {}
+
   return {
     title: `Produto | ${category} | ${id}`,
     alternates: { canonical },
@@ -151,13 +189,17 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
                   ))}
                 </ul>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-neutral-700">
-                  {Object.entries(product.specs as Record<string, any>).map(([k, v]) => (
-                    <div key={k} className="flex justify-between gap-2 border-b py-1">
-                      <span className="text-neutral-500">{k}</span>
-                      <span className="font-medium text-neutral-900">{typeof v === 'string' ? v : JSON.stringify(v)}</span>
-                    </div>
-                  ))}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm text-left text-neutral-700">
+                    <tbody>
+                      {Object.entries(product.specs as Record<string, any>).map(([k, v]) => (
+                        <tr key={k} className="border-b last:border-0">
+                          <th className="py-2 pr-4 font-medium text-neutral-500 whitespace-nowrap">{k}</th>
+                          <td className="py-2 text-neutral-900">{typeof v === 'string' ? v : JSON.stringify(v)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               )
             )}
