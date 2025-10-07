@@ -1,6 +1,6 @@
 """
 Pathway Pipeline — RAG Streaming
-Real-time RAG pipeline: docs → chunks → embeddings → Pinecone.
+Real-time RAG pipeline: docs → chunks → embeddings → Qdrant (FOSS).
 """
 
 import pathway as pw
@@ -14,17 +14,18 @@ def run_rag_streaming_pipeline():
     Fluxo:
     1. Monitorar S3/Google Drive (novos PDFs, DOCXs)
     2. Chunking + embeddings (OpenAI)
-    3. Upsert no Pinecone
+    3. Upsert no Qdrant (vector store open source)
     """
     
     s3_bucket = os.getenv("S3_BUCKET", "ysh-docs")
-    pinecone_api_key = os.getenv("PINECONE_API_KEY", "")
-    pinecone_index = os.getenv("PINECONE_INDEX", "ysh-rag")
+    qdrant_url = os.getenv("QDRANT_URL", "http://qdrant:6333")
+    qdrant_collection = os.getenv("QDRANT_COLLECTION", "ysh-rag")
     openai_api_key = os.getenv("OPENAI_API_KEY", "")
     
     print(f"🚀 Iniciando Pathway pipeline — rag_streaming")
     print(f"   S3 Bucket: {s3_bucket}")
-    print(f"   Pinecone Index: {pinecone_index}")
+    print(f"   Qdrant URL: {qdrant_url}")
+    print(f"   Collection: {qdrant_collection}")
     
     # TODO: Implementar pipeline real
     # Exemplo conceitual (requer pathway.xpacks.llm):
@@ -50,12 +51,11 @@ def run_rag_streaming_pipeline():
     #     api_key=openai_api_key,
     # )
     
-    # # Output: Pinecone
-    # vector_store.PineconeVectorStore(
-    #     api_key=pinecone_api_key,
-    #     index_name=pinecone_index,
-    #     namespace="docs",
-    # ).upsert_stream(embeddings)
+    # # Output: Qdrant (FOSS)
+    # from qdrant_client import QdrantClient
+    # client = QdrantClient(url=qdrant_url)
+    # # Stream upserts para Qdrant
+    # # (implementação específica depende da API Pathway)
     
     # # Rodar (non-blocking)
     # pw.run(monitoring_level=pw.MonitoringLevel.ALL)
