@@ -1,0 +1,66 @@
+# Dagster Instance Configuration
+# Stored in DAGSTER_HOME
+
+# Storage configuration
+storage:
+  postgres:
+    postgres_db:
+      username: dagster_user
+      password: dagster_password
+      hostname: dagster-postgres
+      db_name: dagster
+      port: 5432
+
+# Run coordinator
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+    max_concurrent_runs: 10
+
+# Run launcher
+run_launcher:
+  module: dagster.core.launcher
+  class: DefaultRunLauncher
+
+# Compute logs
+compute_logs:
+  module: dagster.core.storage.local_compute_log_manager
+  class: LocalComputeLogManager
+  config:
+    base_dir: /opt/dagster/dagster_home/storage/logs
+
+# Local artifact storage
+local_artifact_storage:
+  module: dagster.core.storage.root
+  class: LocalArtifactStorage
+  config:
+    base_dir: /opt/dagster/dagster_home/storage/artifacts
+
+# Schedules
+scheduler:
+  module: dagster.core.scheduler
+  class: DagsterDaemonScheduler
+
+# Sensors
+sensors:
+  use_threads: true
+  num_workers: 4
+
+# Run monitoring
+run_monitoring:
+  enabled: true
+  start_timeout_seconds: 180
+  cancel_timeout_seconds: 180
+  max_runtime_seconds: 86400
+
+# Telemetry
+telemetry:
+  enabled: false
+
+# Retention
+retention:
+  schedule:
+    purge_after_days: 30
+  sensor:
+    purge_after_days: 30

@@ -1,0 +1,730 @@
+# ==========================================
+# YSH B2B - Docker Compose OTIMIZADO
+# Stack FOSS Completa de Alta Performance
+# ==========================================
+
+version: "3.8"
+
+services:
+  # ==========================================
+  # CORE INFRASTRUCTURE
+  # ==========================================
+
+  # PostgreSQL 16 - Database Principal
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=C"
+      # Performance tuning
+      POSTGRES_MAX_CONNECTIONS: 200
+      POSTGRES_SHARED_BUFFERS: 256MB
+      POSTGRES_EFFECTIVE_CACHE_SIZE: 1GB
+      POSTGRES_WORK_MEM: 16MB
+      POSTGRES_MAINTENANCE_WORK_MEM: 128MB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d:ro
+    networks:
+      - ysh-network
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=128MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=16MB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+      -c max_worker_processes=4
+      -c max_parallel_workers_per_gather=2
+      -c max_parallel_workers=4
+      -c max_parallel_maintenance_workers=2
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Redis 7 - Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ysh-network
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      --save 900 1
+      --save 300 10
+      --save 60 10000
+      --tcp-backlog 511
+      --timeout 0
+      --tcp-keepalive 300
+      --databases 16
+      --maxclients 10000
+      --lazyfree-lazy-eviction yes
+      --lazyfree-lazy-expire yes
+      --lazyfree-lazy-server-del yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  # ==========================================
+  # APPLICATION LAYER
+  # ==========================================
+
+  # Medusa Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        NODE_ENV: production
+    container_name: ysh-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: "--max-old-space-size=768 --enable-source-maps"
+      DATABASE_URL: postgres://medusa_user:medusa_password@postgres:5432/medusa_db
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-token-change-in-production}
+      COOKIE_SECRET: ${COOKIE_SECRET:-your-super-secret-cookie-token-change-in-production}
+      # Performance
+      DATABASE_POOL_MIN: 5
+      DATABASE_POOL_MAX: 20
+      # Cache
+      REDIS_TTL: 3600
+    ports:
+      - "9000:9000"
+    volumes:
+      - backend_uploads:/app/uploads
+    networks:
+      - ysh-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:9000/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+  # Next.js Storefront
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        NODE_ENV: production
+    container_name: ysh-storefront
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: "--max-old-space-size=512"
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_test}
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+      NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-br}
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-supersecret-change-in-production}
+      NEXT_TELEMETRY_DISABLED: 1
+    ports:
+      - "8000:8000"
+    networks:
+      - ysh-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8000",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 768M
+        reservations:
+          cpus: "0.25"
+          memory: 384M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ==========================================
+  # DATA PLATFORM - STREAMING & STORAGE
+  # ==========================================
+
+  # Redpanda Kafka - Streaming Platform
+  kafka:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.2.4
+    container_name: ysh-kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092" # Kafka API
+      - "9644:9644" # Admin API
+      - "8081:8081" # Schema Registry
+      - "8082:8082" # HTTP Proxy
+    volumes:
+      - kafka_data:/var/lib/redpanda/data
+    networks:
+      - ysh-network
+    command:
+      - redpanda
+      - start
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://kafka:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:18082
+      - --advertise-pandaproxy-addr internal://kafka:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:18081
+      - --rpc-addr kafka:33145
+      - --advertise-rpc-addr kafka:33145
+      - --mode dev-container
+      - --smp 2
+      - --memory 1G
+      - --default-log-level=info
+    healthcheck:
+      test:
+        ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy:.+true' || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1.5G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # MinIO - S3-Compatible Object Storage
+  minio:
+    image: minio/minio:RELEASE.2024-10-02T17-50-41Z
+    container_name: ysh-minio
+    restart: unless-stopped
+    ports:
+      - "9001:9000" # API
+      - "9002:9001" # Console
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9002
+      # Performance
+      MINIO_API_REQUESTS_MAX: 1000
+      MINIO_API_REQUESTS_DEADLINE: 10s
+    volumes:
+      - minio_data:/data
+    networks:
+      - ysh-network
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # MinIO Client - Auto-setup buckets
+  minio-setup:
+    image: minio/mc:RELEASE.2024-10-02T08-27-28Z
+    container_name: ysh-minio-setup
+    networks:
+      - ysh-network
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      /usr/bin/mc alias set myminio http://minio:9000 minioadmin minioadmin;
+      /usr/bin/mc mb myminio/ysh-data-lake --ignore-existing;
+      /usr/bin/mc mb myminio/ysh-catalog --ignore-existing;
+      /usr/bin/mc mb myminio/ysh-docs --ignore-existing;
+      /usr/bin/mc anonymous set download myminio/ysh-catalog;
+      echo 'MinIO buckets created successfully';
+      exit 0;
+      "
+    restart: "no"
+
+  # ==========================================
+  # DATA PLATFORM - AI & VECTOR SEARCH
+  # ==========================================
+
+  # Qdrant - Vector Database (FOSS)
+  qdrant:
+    image: qdrant/qdrant:v1.11.3
+    container_name: ysh-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # HTTP API
+      - "6334:6334" # gRPC API
+    environment:
+      QDRANT__SERVICE__HTTP_PORT: 6333
+      QDRANT__SERVICE__GRPC_PORT: 6334
+      QDRANT__LOG_LEVEL: INFO
+      # Performance
+      QDRANT__STORAGE__PERFORMANCE__MAX_SEARCH_THREADS: 4
+      QDRANT__STORAGE__OPTIMIZERS__MEMMAP_THRESHOLD: 50000
+      QDRANT__STORAGE__OPTIMIZERS__INDEXING_THRESHOLD: 20000
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - ysh-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:6333/health",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Ollama - Local LLM Server (FOSS)
+  ollama:
+    image: ollama/ollama:0.3.12
+    container_name: ysh-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    environment:
+      OLLAMA_HOST: 0.0.0.0
+      OLLAMA_KEEP_ALIVE: 5m
+      OLLAMA_MAX_LOADED_MODELS: 2
+      OLLAMA_NUM_PARALLEL: 4
+      OLLAMA_MAX_QUEUE: 128
+    volumes:
+      - ollama_models:/root/.ollama
+    networks:
+      - ysh-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 8G
+        reservations:
+          cpus: "1.0"
+          memory: 2G
+        # Uncomment for GPU support
+        # reservations:
+        #   devices:
+        #     - driver: nvidia
+        #       count: all
+        #       capabilities: [gpu]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+
+  # Ollama Model Loader
+  ollama-setup:
+    image: ollama/ollama:0.3.12
+    container_name: ysh-ollama-setup
+    networks:
+      - ysh-network
+    depends_on:
+      ollama:
+        condition: service_healthy
+    volumes:
+      - ollama_models:/root/.ollama
+    entrypoint: >
+      /bin/sh -c "
+      echo 'Waiting for Ollama server...';
+      sleep 10;
+      echo 'Pulling embedding model (nomic-embed-text)...';
+      ollama pull nomic-embed-text || echo 'Failed to pull nomic-embed-text';
+      echo 'Pulling chat model (qwen2.5:7b - smaller for dev)...';
+      ollama pull qwen2.5:7b || echo 'Failed to pull qwen2.5:7b';
+      echo 'Models pulled successfully';
+      exit 0;
+      "
+    restart: "no"
+
+  # ==========================================
+  # DATA PLATFORM - ORCHESTRATION
+  # ==========================================
+
+  # PostgreSQL for Dagster Metadata
+  dagster-postgres:
+    image: postgres:16-alpine
+    container_name: ysh-dagster-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dagster
+      POSTGRES_USER: dagster_user
+      POSTGRES_PASSWORD: dagster_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - dagster_postgres_data:/var/lib/postgresql/data
+    networks:
+      - ysh-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dagster_user -d dagster"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  # Dagster Daemon - Schedules & Sensors
+  dagster-daemon:
+    build:
+      context: ./data-platform/dagster
+      dockerfile: Dockerfile
+    container_name: ysh-dagster-daemon
+    restart: unless-stopped
+    environment:
+      # Dagster Config
+      DAGSTER_HOME: /opt/dagster/dagster_home
+      DAGSTER_POSTGRES_HOST: dagster-postgres
+      DAGSTER_POSTGRES_PORT: 5432
+      DAGSTER_POSTGRES_DB: dagster
+      DAGSTER_POSTGRES_USER: dagster_user
+      DAGSTER_POSTGRES_PASSWORD: dagster_password
+      # Medusa DB (Data Source)
+      MEDUSA_DB_HOST: postgres
+      MEDUSA_DB_PORT: 5432
+      MEDUSA_DB_NAME: medusa_db
+      MEDUSA_DB_USER: medusa_user
+      MEDUSA_DB_PASSWORD: medusa_password
+      # AWS/S3
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET: ${S3_BUCKET:-ysh-data-lake}
+      S3_ENDPOINT: http://minio:9000
+      # Qdrant
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
+      # OpenAI (Optional)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama (Fallback)
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:7b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
+    volumes:
+      - ./data-platform/dagster:/opt/dagster/app
+      - dagster_home:/opt/dagster/dagster_home
+    networks:
+      - ysh-network
+    depends_on:
+      dagster-postgres:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    command: dagster-daemon run -w /opt/dagster/dagster_home/workspace.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Dagster Webserver - UI
+  dagster-webserver:
+    build:
+      context: ./data-platform/dagster
+      dockerfile: Dockerfile
+    container_name: ysh-dagster-webserver
+    restart: unless-stopped
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home
+      DAGSTER_POSTGRES_HOST: dagster-postgres
+      DAGSTER_POSTGRES_PORT: 5432
+      DAGSTER_POSTGRES_DB: dagster
+      DAGSTER_POSTGRES_USER: dagster_user
+      DAGSTER_POSTGRES_PASSWORD: dagster_password
+      # Same env vars as daemon
+      MEDUSA_DB_HOST: postgres
+      MEDUSA_DB_PORT: 5432
+      MEDUSA_DB_NAME: medusa_db
+      MEDUSA_DB_USER: medusa_user
+      MEDUSA_DB_PASSWORD: medusa_password
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET: ${S3_BUCKET:-ysh-data-lake}
+      S3_ENDPOINT: http://minio:9000
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:7b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./data-platform/dagster:/opt/dagster/app
+      - dagster_home:/opt/dagster/dagster_home
+    networks:
+      - ysh-network
+    depends_on:
+      dagster-postgres:
+        condition: service_healthy
+    command: dagster-webserver -h 0.0.0.0 -p 3000 -w /opt/dagster/dagster_home/workspace.yaml
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ==========================================
+  # MONITORING & OBSERVABILITY
+  # ==========================================
+
+  # Nginx - Reverse Proxy & Load Balancer
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: ysh-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - nginx_cache:/var/cache/nginx
+    networks:
+      - ysh-network
+    depends_on:
+      - backend
+      - storefront
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:80/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+        reservations:
+          cpus: "0.1"
+          memory: 64M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# ==========================================
+# VOLUMES
+# ==========================================
+
+volumes:
+  # Core
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_uploads:
+    driver: local
+
+  # Data Platform
+  kafka_data:
+    driver: local
+  minio_data:
+    driver: local
+  qdrant_data:
+    driver: local
+  ollama_models:
+    driver: local
+  dagster_postgres_data:
+    driver: local
+  dagster_home:
+    driver: local
+
+  # Infrastructure
+  nginx_cache:
+    driver: local
+
+# ==========================================
+# NETWORKS
+# ==========================================
+
+networks:
+  ysh-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+    driver_opts:
+      com.docker.network.bridge.name: ysh-br0
+      com.docker.network.driver.mtu: 1500
