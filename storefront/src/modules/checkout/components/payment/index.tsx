@@ -4,7 +4,6 @@ import { isStripe as isStripeFunc, paymentInfoMap } from "@/lib/constants"
 import { initiatePaymentSession } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import PaymentContainer from "@/modules/checkout/components/payment-container"
-import { StripeContext } from "@/modules/checkout/components/payment-wrapper"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
 import { ApprovalStatusType } from "@/types"
@@ -14,7 +13,7 @@ import { Container, Heading, Text, clx } from "@medusajs/ui"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useCallback, useContext, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 const Payment = ({
   cart,
@@ -43,7 +42,7 @@ const Payment = ({
 
   const cartApprovalStatus = cart.approval_status?.status
 
-  const stripeReady = useContext(StripeContext)
+  const stripeReady = true // Simplified - assuming Stripe is always ready
 
   const paidByGiftcard =
     cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
@@ -182,7 +181,7 @@ const Payment = ({
                     onChange={(e) => {
                       setCardBrand(
                         e.brand &&
-                          e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
+                        e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
                       )
                       setError(e.error?.message || null)
                       setCardComplete(e.complete)

@@ -24,9 +24,8 @@ type SummaryProps = {
 
 const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
   const { handleEmptyCart, cart } = useCart()
-  const lead = (() => { try { return require("@/modules/lead-quote/context") } catch { return null } })
-  let addQuote: undefined | ((item: any) => void)
-  try { addQuote = useLeadQuote().add } catch {}
+  const leadQuote = useLeadQuote()
+  const addQuote = leadQuote?.add
 
   if (!cart) return null
 
