@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { getBaseURL } from "@/lib/util/env"
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { LeadQuoteProvider, useLeadQuote } from "@/modules/lead-quote/context"
@@ -10,9 +11,11 @@ type Params = { countryCode: string; category: string; id: string }
 export const revalidate = 3600
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  const { category, id } = await params
+  const { countryCode, category, id } = (await params) as any
+  const canonical = `${getBaseURL()}/${countryCode}/produtos/${category}/${id}`
   return {
     title: `Produto | ${category} | ${id}`,
+    alternates: { canonical },
   }
 }
 
