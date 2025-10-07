@@ -3,6 +3,7 @@ import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
 import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
+import VideosByClass from "@/modules/home/components/videos-by-class"
 // import SolarStats from "@/modules/home/components/solar-stats"
 import Testimonials from "@/modules/home/components/testimonials"
 import DesignSystemTest from "@/components/DesignSystemTest"
@@ -47,6 +48,7 @@ export default async function Home(props: {
     <div className="flex flex-col">
       <Hero />
       <SolutionsByClass />
+      <VideosByClass />
       <ModalidadesGrid />
       {/* <SolarStats /> */}
       <DesignSystemTest />

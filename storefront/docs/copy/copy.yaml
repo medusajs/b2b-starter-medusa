@@ -1,0 +1,254 @@
+locale: pt-BR
+brand: "Yello Solar Hub"
+placeholders_defaults:
+  meses: 12
+  percentual: 22
+  SLA: "2 dias úteis"
+  data_inicio: "15/10/2025"
+  exemplo_email: "nome@empresa.com.br"
+  exemplo_cpf: "123.456.789-09"
+  exemplo_cnpj: "12.345.678/0001-90"
+  exemplo_cep: "01234-567"
+
+copy:
+  common:
+    brand_tagline:
+      default: "Energia solar sob medida"
+      curto: "Solar sob medida"
+      micro: "Solar YSH"
+    cta_simular:
+      default: "Simular agora"
+      curto: "Simular"
+      micro: "Simular"
+    cta_cotar:
+      default: "Pedir cotação"
+      curto: "Cotação"
+      micro: "Cotar"
+    cta_finalizar:
+      default: "Finalizar pedido"
+      curto: "Finalizar"
+      micro: "Pagar"
+    cta_falar_especialista:
+      default: "Falar com especialista"
+      curto: "Falar com especialista"
+      micro: "Especialista"
+    vazio_padrao:
+      default: "Nada por aqui ainda."
+      curto: "Sem resultados"
+      micro: "Vazio"
+
+  home:
+    hero_title:
+      default: "Energia solar do seu jeito — do kit ao financiamento"
+      curto: "Energia solar do seu jeito"
+      micro: "Solar do seu jeito"
+    hero_sub:
+      default: "Compare kits, simule economia e acompanhe a instalação com suporte especialista."
+      curto: "Compare kits e simule economia."
+      micro: "Compare e simule."
+    hero_cta_primary:
+      default: "Explorar soluções"
+      curto: "Soluções"
+      micro: "Soluções"
+    hero_cta_secondary:
+      default: "Ver produtos"
+      curto: "Produtos"
+      micro: "Produtos"
+    solutions_title:
+      default: "Soluções por Perfil"
+      curto: "Soluções por perfil"
+      micro: "Por perfil"
+    solutions_sub:
+      default: "Escolha a solução ideal por classe consumidora e modalidade energética."
+      curto: "Escolha por classe e modalidade."
+      micro: "Classe e modalidade."
+
+  solutions:
+    card_b1_title:
+      default: "Residencial B1"
+      curto: "B1"
+      micro: "B1"
+    card_b1_desc:
+      default: "Kits on-grid para economizar na conta de luz."
+      curto: "Kits on-grid para economizar."
+      micro: "Kits on-grid."
+    card_b2_title:
+      default: "Rural B2"
+      curto: "B2"
+      micro: "B2"
+    card_b2_desc:
+      default: "Soluções off-grid e híbridas para áreas rurais."
+      curto: "Off-grid e híbrido no campo."
+      micro: "Off-grid/híbrido."
+    card_b3_title:
+      default: "Comercial/PME B3"
+      curto: "B3 PME"
+      micro: "B3"
+    card_b3_desc:
+      default: "Sistemas sob medida para negócios, com ROI claro."
+      curto: "Sistemas para negócios."
+      micro: "Para negócios."
+    card_gc_title:
+      default: "Condomínios"
+      curto: "Condomínios"
+      micro: "GC"
+    card_gc_desc:
+      default: "Geração compartilhada para áreas comuns e unidades."
+      curto: "Geração compartilhada."
+      micro: "GC"
+    card_ind_title:
+      default: "Indústria/Grandes"
+      curto: "Grandes contas"
+      micro: "Enterprise"
+    card_ind_desc:
+      default: "EaaS e PPA com previsibilidade e SLA."
+      curto: "EaaS/PPA com SLA."
+      micro: "EaaS/PPA."
+
+  plp:
+    filtros_title:
+      default: "Filtre por {atributo}"
+      curto: "Filtre"
+      micro: "Filtro"
+    filtros_labels:
+      potencia: "Potência"
+      tensao: "Tensão"
+      telhado: "Telhado"
+      marca: "Marca"
+      modalidade: "Modalidade"
+    chips_limpar:
+      default: "Limpar"
+      curto: "Limpar"
+      micro: "Limpar"
+    empty_state:
+      default: "Nenhum item encontrado. Ajuste os filtros."
+      curto: "Nada encontrado."
+      micro: "Sem itens."
+
+  pdp:
+    title_pattern:
+      default: "{kit} — {potencia} • {inversor} • {tensao}"
+    narrative_oque:
+      default: "O que é: {descricao_curta}."
+    narrative_para_quem:
+      default: "Para quem serve: {perfil_alvo}."
+    narrative_beneficio:
+      default: "Benefício: economia estimada de {percentual}% e payback em {meses} meses."
+    narrative_prereq:
+      default: "Pré-requisitos: {prerequisitos}."
+    cross_sell:
+      default: "Combine com {produto_relacionado} para {beneficio_relacionado}."
+    cta_quote:
+      default: "Pedir cotação"
+      curto: "Cotação"
+      micro: "Cotar"
+
+  quote:
+    button:
+      default: "Pedir cotação"
+      curto: "Cotação"
+      micro: "Cotar"
+    modal_title:
+      default: "Resumo e envio da cotação"
+    modal_hint:
+      default: "Envie dados essenciais. Você pode anexar detalhes depois."
+    status:
+      pending: "Pendente"
+      review: "Em revisão"
+      approved: "Aprovada"
+      expired: "Expirada"
+    approval_needed:
+      default: "Este pedido precisa de aprovação de {role}. Envie para aprovação."
+    success_submitted:
+      default: "Pronto! Sua solicitação de cotação foi enviada. Acompanhe em {rotaPainel}."
+
+  bulk:
+    title:
+      default: "Adicionar por SKU ou CSV"
+    hint:
+      default: "Cole SKUs, um por linha, ou envie um CSV (sku,quantity,notes)."
+    feedback_parse:
+      default: "{x} itens adicionados, {y} com erro. {link_relatorio}."
+    actions:
+      atualizar_qtd: "Atualizar quantidades"
+      salvar_lista: "Salvar como lista de compra"
+
+  checkout:
+    steps:
+      items: "Itens"
+      address: "Endereço"
+      payment: "Pagamento"
+      review: "Revisão"
+      done: "Confirmado"
+    pix_desc:
+      default: "Pagamento instantâneo com PIX."
+      curto: "PIX instantâneo"
+      micro: "PIX"
+    boleto_desc:
+      default: "Compensação em até {dias} dias úteis."
+      curto: "Boleto em {dias} dias"
+      micro: "Boleto"
+    cartao_desc:
+      default: "Pague em até {parcelas}x no cartão."
+      curto: "Até {parcelas}x"
+      micro: "Cartão"
+    microcopy_atrito:
+      use_end_empresa: "Usar endereço da empresa"
+      use_dados_conta: "Usar dados da conta"
+    recorrencia:
+      default: "Cobrança mensal a partir de {data_inicio}; SLA incluso."
+
+  post_venda:
+    welcome:
+      default: "Bem-vindo(a) ao seu painel solar"
+    track:
+      default: "Acompanhe geração e economia estimada."
+    support_call:
+      default: "Descreva o problema. Em até {SLA} entraremos em contato."
+
+  account_empresa:
+    sem_funcionarios:
+      default: "Convide sua equipe para comprar com você."
+    convidar_cta:
+      default: "Convidar pessoas"
+
+  videos:
+    amazonia:
+      src: "/videos/amazonia.mp4"
+      alt: "Painéis solares na Amazônia"
+      caption: "Energia limpa em comunidades ribeirinhas."
+    condominio:
+      src: "/videos/condominio.mp4"
+      alt: "Geração compartilhada em condomínio"
+      caption: "Energia para áreas comuns e unidades."
+    pousada:
+      src: "/videos/pousada.mp4"
+      alt: "Pousada com sistema fotovoltaico"
+      caption: "Autonomia e redução de custos operacionais."
+    rural:
+      src: "/videos/rural.mp4"
+      alt: "Sistema solar em área rural"
+      caption: "Off-grid e híbrido para o campo."
+
+  errors:
+    required:
+      default: "Preencha este campo."
+      curto: "Obrigatório"
+      micro: "Obrigatório"
+    email_format:
+      default: "Use um e-mail válido, por exemplo: {exemplo_email}."
+    cpf_format:
+      default: "Digite um CPF válido (apenas números)."
+    cnpj_format:
+      default: "Digite um CNPJ válido (apenas números)."
+    phone_format:
+      default: "Informe um telefone com DDD, ex.: (11) 91234-5678."
+    cep_format:
+      default: "CEP no formato 00000-000."
+    generic:
+      default: "Algo deu errado. Tente novamente."
+
+  legal:
+    disclaimer:
+      default: "Estimativas sujeitas a homologação da distribuidora e variações de tarifa/irradiação."
+

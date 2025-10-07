@@ -47,3 +47,11 @@ export const trackOrderPlaced = (payload: { order_id: string; value: number; cha
   sendEvent("order_placed", payload)
 }
 
+export const trackVideoPlayed = (payload: { video_id: string; classe: string; title: string }) => {
+  sendEvent("video_played", payload)
+}
+
+export const trackVideoClosed = (payload: { video_id: string; classe: string }) => {
+  sendEvent("video_closed", payload)
+}
+
