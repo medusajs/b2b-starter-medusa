@@ -115,7 +115,7 @@ export default function CotacaoPage() {
                 href={(() => {
                   const lines = items.map((i) => `- ${i.name} (${i.manufacturer || ''}) [${(i as any).category}/${i.id}]`).join('%0A')
                   const text = `Gostaria de solicitar uma cotação:%0A${lines}`
-                  return `https://wa.me/5599999999999?text=${text}`
+                  return `https://wa.me/5521979209021?text=${text}`
                 })()}
                 target="_blank"
                 rel="noopener noreferrer"
