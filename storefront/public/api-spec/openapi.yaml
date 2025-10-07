@@ -1,0 +1,1040 @@
+openapi: 3.1.0
+
+info:
+  title: Yello Solar Hub — Storefront API
+  version: 1.0.0
+  description: |
+    API pública do storefront Yello Solar Hub para catálogo de produtos solares,
+    kits fotovoltaicos, e checkout.
+    
+    **Normas e RFCs aplicadas:**
+    - RFC 9457 - Problem Details for HTTP APIs (erros padronizados)
+    - RFC 8288 - Web Linking (paginação via Link header)
+    - RFC 9111 - HTTP Caching (Cache-Control, ETag)
+    - RFC 9110 - HTTP Semantics (métodos, status codes)
+    - OpenAPI 3.1 - JSON Schema Draft 2020-12
+    
+    **Medusa Integration:**
+    Todas as chamadas ao backend Medusa v2 usam `x-publishable-api-key` header.
+  
+  contact:
+    name: Yello Solar Hub Support
+    url: https://yello.solar
+    email: support@yello.solar
+  
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:3000
+    description: Development
+  - url: https://yello.solar
+    description: Production
+
+tags:
+  - name: Catalog
+    description: Product catalog operations (categories, products)
+  - name: Kits
+    description: Solar kit types (on-grid, off-grid, hybrid, etc)
+  - name: Checkout
+    description: Cart and checkout operations
+  - name: System
+    description: System health and version endpoints
+
+paths:
+  # ============================================================================
+  # SYSTEM ENDPOINTS
+  # ============================================================================
+  
+  /api/health:
+    get:
+      summary: Health Check
+      description: Returns system health status
+      operationId: getHealth
+      tags:
+        - System
+      responses:
+        '200':
+          description: System is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /api/version:
+    get:
+      summary: Version Information
+      description: Returns build and version information
+      operationId: getVersion
+      tags:
+        - System
+      responses:
+        '200':
+          description: Version information
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+
+  # ============================================================================
+  # CATALOG ENDPOINTS
+  # ============================================================================
+  
+  /api/catalog/categories:
+    get:
+      summary: List Categories
+      description: |
+        Lists product categories with pagination support.
+        
+        **Pagination:** Uses RFC 8288 Link header with rel="next" and rel="prev".
+        **Caching:** RFC 9111 Cache-Control and ETag headers.
+      operationId: listCategories
+      tags:
+        - Catalog
+      parameters:
+        - $ref: '#/components/parameters/LimitQuery'
+        - $ref: '#/components/parameters/CursorQuery'
+        - name: parent
+          in: query
+          description: Filter by parent category ID or handle
+          schema:
+            type: string
+          example: cat_kits
+        - name: q
+          in: query
+          description: Search query
+          schema:
+            type: string
+          example: solar
+      responses:
+        '200':
+          description: Categories list
+          headers:
+            Link:
+              $ref: '#/components/headers/LinkPagination'
+            X-Total-Count:
+              $ref: '#/components/headers/TotalCount'
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+            Vary:
+              $ref: '#/components/headers/Vary'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      description: Handle CORS preflight requests
+      operationId: categoriesOptions
+      tags:
+        - Catalog
+      responses:
+        '204':
+          description: CORS headers
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /api/catalog/products:
+    get:
+      summary: List Products
+      description: |
+        Lists products with filtering, sorting, and pagination.
+        
+        **Pagination:** RFC 8288 Link header.
+        **Caching:** RFC 9111 Cache-Control and ETag.
+        **Facets:** Returns aggregated facets for filtering (price range, brands, etc).
+      operationId: listProducts
+      tags:
+        - Catalog
+      parameters:
+        - $ref: '#/components/parameters/LimitQuery'
+        - $ref: '#/components/parameters/CursorQuery'
+        - name: category
+          in: query
+          description: Filter by category ID or handle
+          schema:
+            type: string
+          example: cat_paineis_solares
+        - name: q
+          in: query
+          description: Search query
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum:
+              - price.asc
+              - price.desc
+              - title.asc
+              - title.desc
+              - created_at.desc
+          example: price.asc
+      responses:
+        '200':
+          description: Products list with facets
+          headers:
+            Link:
+              $ref: '#/components/headers/LinkPagination'
+            X-Total-Count:
+              $ref: '#/components/headers/TotalCount'
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+            Vary:
+              $ref: '#/components/headers/Vary'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: productsOptions
+      tags:
+        - Catalog
+      responses:
+        '204':
+          description: CORS headers
+
+  /api/products/{idOrHandle}:
+    get:
+      summary: Get Product Detail
+      description: |
+        Returns detailed product information by ID or handle.
+        
+        **Caching:** Longer TTL (120s) for detail pages.
+      operationId: getProduct
+      tags:
+        - Catalog
+      parameters:
+        - name: idOrHandle
+          in: path
+          required: true
+          description: Product ID or handle (slug)
+          schema:
+            type: string
+          examples:
+            byId:
+              value: prod_01HXYZ123
+              summary: By ID
+            byHandle:
+              value: kit-on-grid-5kwp
+              summary: By handle
+      responses:
+        '200':
+          description: Product detail
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+            Vary:
+              $ref: '#/components/headers/Vary'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetailResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: productOptions
+      tags:
+        - Catalog
+      responses:
+        '204':
+          description: CORS headers
+
+  /api/facets:
+    get:
+      summary: Get Facets
+      description: |
+        Returns aggregated facets for filtering products.
+        Includes price range, brands, power ratings, etc.
+      operationId: getFacets
+      tags:
+        - Catalog
+      parameters:
+        - name: category
+          in: query
+          description: Filter facets by category
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: Search query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Facets data
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacetsResponse'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: facetsOptions
+      tags:
+        - Catalog
+      responses:
+        '204':
+          description: CORS headers
+
+  # ============================================================================
+  # KITS ENDPOINTS
+  # ============================================================================
+  
+  /api/kits/{type}:
+    get:
+      summary: Get Kit Products by Type
+      description: |
+        Returns products for a specific solar kit type.
+        Proxies to /api/catalog/products with category filter.
+        
+        **Kit Types:**
+        - on-grid: Sistema conectado à rede
+        - off-grid-interativo: Sistema isolado com backup
+        - zero-grid: Consumo zero da rede
+        - hibrido: On-grid + baterias
+        - antiapagao: Backup para quedas de energia
+      operationId: getKitsByType
+      tags:
+        - Kits
+      parameters:
+        - name: type
+          in: path
+          required: true
+          description: Kit type
+          schema:
+            type: string
+            enum:
+              - on-grid
+              - off-grid-interativo
+              - zero-grid
+              - hibrido
+              - antiapagao
+          example: on-grid
+        - $ref: '#/components/parameters/LimitQuery'
+        - $ref: '#/components/parameters/CursorQuery'
+        - name: sort
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum:
+              - price.asc
+              - price.desc
+      responses:
+        '200':
+          description: Kit products
+          headers:
+            Link:
+              $ref: '#/components/headers/LinkPagination'
+            X-Total-Count:
+              $ref: '#/components/headers/TotalCount'
+            Cache-Control:
+              $ref: '#/components/headers/CacheControl'
+            ETag:
+              $ref: '#/components/headers/ETag'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KitProductsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: kitsOptions
+      tags:
+        - Kits
+      responses:
+        '204':
+          description: CORS headers
+
+  # ============================================================================
+  # CHECKOUT ENDPOINTS
+  # ============================================================================
+  
+  /api/checkout/carts:
+    post:
+      summary: Create Cart
+      description: Creates a new shopping cart
+      operationId: createCart
+      tags:
+        - Checkout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCartRequest'
+      responses:
+        '201':
+          description: Cart created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: cartsOptions
+      tags:
+        - Checkout
+      responses:
+        '204':
+          description: CORS headers
+
+  /api/checkout/carts/{id}/line-items:
+    post:
+      summary: Add Line Item to Cart
+      description: Adds a product variant to the cart
+      operationId: addLineItem
+      tags:
+        - Checkout
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddLineItemRequest'
+      responses:
+        '200':
+          description: Cart updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: lineItemsOptions
+      tags:
+        - Checkout
+      responses:
+        '204':
+          description: CORS headers
+
+  /api/checkout/sessions:
+    post:
+      summary: Create Checkout Session
+      description: Initializes payment/checkout session
+      operationId: createCheckoutSession
+      tags:
+        - Checkout
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+    
+    options:
+      summary: CORS Preflight
+      operationId: sessionsOptions
+      tags:
+        - Checkout
+      responses:
+        '204':
+          description: CORS headers
+
+# ==============================================================================
+# COMPONENTS
+# ==============================================================================
+
+components:
+  # ============================================================================
+  # PARAMETERS
+  # ============================================================================
+  
+  parameters:
+    LimitQuery:
+      name: limit
+      in: query
+      description: Maximum number of items to return (1-100)
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 24
+      example: 24
+    
+    CursorQuery:
+      name: cursor
+      in: query
+      description: Pagination cursor (opaque string)
+      schema:
+        type: string
+      example: "100"
+
+  # ============================================================================
+  # HEADERS
+  # ============================================================================
+  
+  headers:
+    LinkPagination:
+      description: RFC 8288 Web Linking for pagination
+      schema:
+        type: string
+      example: '</api/catalog/products?cursor=100&limit=24>; rel="next", </api/catalog/products?cursor=0&limit=24>; rel="prev"'
+    
+    TotalCount:
+      description: Total number of items available
+      schema:
+        type: integer
+      example: 42
+    
+    CacheControl:
+      description: RFC 9111 HTTP Caching directives
+      schema:
+        type: string
+      examples:
+        catalog:
+          value: public, max-age=60, stale-while-revalidate=600
+          summary: Catalog (60s cache)
+        detail:
+          value: public, max-age=120, stale-while-revalidate=600
+          summary: Detail (120s cache)
+    
+    ETag:
+      description: Entity tag for cache validation
+      schema:
+        type: string
+      example: '"abc123def456"'
+    
+    Vary:
+      description: RFC 9110 Vary header (indicates response varies by Origin)
+      schema:
+        type: string
+      example: Origin
+
+  # ============================================================================
+  # RESPONSES
+  # ============================================================================
+  
+  responses:
+    BadRequest:
+      description: Bad Request - RFC 9457 Problem Details
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+          example:
+            type: https://yello.solar/errors/validation
+            title: Parâmetro inválido
+            status: 400
+            detail: O parâmetro 'limit' deve estar entre 1 e 100
+            instance: /api/catalog/products
+            errors:
+              - path: limit
+                message: Valor deve estar entre 1 e 100
+    
+    NotFound:
+      description: Not Found - RFC 9457 Problem Details
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+          example:
+            type: https://yello.solar/errors/not-found
+            title: Recurso não encontrado
+            status: 404
+            detail: O produto solicitado não foi encontrado
+            instance: /api/products/invalid-id
+    
+    InternalError:
+      description: Internal Server Error - RFC 9457 Problem Details
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+          example:
+            type: https://yello.solar/errors/internal
+            title: Erro interno do servidor
+            status: 500
+            detail: Ocorreu um erro ao processar a requisição
+            instance: /api/catalog/products
+
+  # ============================================================================
+  # SCHEMAS
+  # ============================================================================
+  
+  schemas:
+    # --------------------------------------------------------------------------
+    # RFC 9457 - Problem Details
+    # --------------------------------------------------------------------------
+    
+    ProblemDetails:
+      type: object
+      description: RFC 9457 Problem Details for HTTP APIs
+      required:
+        - type
+        - title
+        - status
+      properties:
+        type:
+          type: string
+          format: uri
+          description: URI reference identifying the problem type
+          example: https://yello.solar/errors/validation
+        title:
+          type: string
+          description: Short, human-readable summary
+          example: Parâmetro inválido
+        status:
+          type: integer
+          description: HTTP status code
+          example: 400
+        detail:
+          type: string
+          description: Human-readable explanation
+          example: O parâmetro 'limit' deve estar entre 1 e 100
+        instance:
+          type: string
+          format: uri
+          description: URI reference identifying the specific occurrence
+          example: /api/catalog/products
+        errors:
+          type: array
+          description: Validation errors (optional)
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+                description: Field path
+                example: limit
+              message:
+                type: string
+                description: Error message
+                example: Valor deve estar entre 1 e 100
+      additionalProperties: true
+
+    # --------------------------------------------------------------------------
+    # System Schemas
+    # --------------------------------------------------------------------------
+    
+    HealthResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          example: true
+        timestamp:
+          type: string
+          format: date-time
+        service:
+          type: string
+          example: yello-solar-hub-storefront
+        version:
+          type: string
+          example: 1.0.0
+    
+    VersionResponse:
+      type: object
+      properties:
+        version:
+          type: string
+          example: 1.0.0
+        commit:
+          type: string
+          example: abc123def456
+        builtAt:
+          type: string
+          format: date-time
+        environment:
+          type: string
+          enum: [development, production]
+
+    # --------------------------------------------------------------------------
+    # Catalog Schemas
+    # --------------------------------------------------------------------------
+    
+    Category:
+      type: object
+      required:
+        - id
+        - name
+        - handle
+      properties:
+        id:
+          type: string
+          example: cat_kit_on_grid
+        name:
+          type: string
+          example: Kit On-Grid
+        handle:
+          type: string
+          example: kit-on-grid
+        parent_id:
+          type: string
+          nullable: true
+          example: null
+        description:
+          type: string
+          example: Sistemas solares conectados à rede elétrica
+        metadata:
+          type: object
+          additionalProperties: true
+    
+    CategoriesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        meta:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 14
+    
+    ProductSummary:
+      type: object
+      required:
+        - id
+        - title
+        - handle
+      properties:
+        id:
+          type: string
+          example: prod_01HXYZ123
+        title:
+          type: string
+          example: Kit On-Grid 5kWp
+        handle:
+          type: string
+          example: kit-on-grid-5kwp
+        thumbnail:
+          type: string
+          format: uri
+          example: https://picsum.photos/seed/product-1/800/600
+        description:
+          type: string
+          example: Kit completo para geração de energia solar conectado à rede
+        price:
+          type: number
+          format: double
+          example: 25000.00
+          description: Price in currency units (BRL)
+        currency:
+          type: string
+          example: BRL
+        sku:
+          type: string
+          example: SKU-KIT-ON-GRID-5KWP
+        metadata:
+          type: object
+          additionalProperties: true
+    
+    ProductsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductSummary'
+        meta:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 42
+            facets:
+              $ref: '#/components/schemas/Facets'
+    
+    ProductDetail:
+      allOf:
+        - $ref: '#/components/schemas/ProductSummary'
+        - type: object
+          properties:
+            images:
+              type: array
+              items:
+                type: string
+                format: uri
+            variants:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  sku:
+                    type: string
+                  prices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        amount:
+                          type: number
+                          format: double
+                        currency_code:
+                          type: string
+            categories:
+              type: array
+              items:
+                $ref: '#/components/schemas/Category'
+    
+    ProductDetailResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ProductDetail'
+    
+    Facets:
+      type: object
+      properties:
+        price:
+          type: object
+          properties:
+            min:
+              type: number
+              format: double
+              example: 5000.00
+            max:
+              type: number
+              format: double
+              example: 50000.00
+        brands:
+          type: array
+          items:
+            type: string
+          example: [Intelbras, Canadian Solar, Fronius]
+        power_watts:
+          type: array
+          items:
+            type: number
+          example: [550, 600, 650]
+      additionalProperties: true
+    
+    FacetsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Facets'
+
+    # --------------------------------------------------------------------------
+    # Kits Schemas
+    # --------------------------------------------------------------------------
+    
+    KitProductsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductSummary'
+        meta:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 3
+            kitType:
+              type: string
+              example: on-grid
+            categoryId:
+              type: string
+              example: cat_kit_on_grid
+
+    # --------------------------------------------------------------------------
+    # Checkout Schemas
+    # --------------------------------------------------------------------------
+    
+    CreateCartRequest:
+      type: object
+      properties:
+        region_id:
+          type: string
+          example: reg_01HXYZ
+        country_code:
+          type: string
+          example: BR
+        email:
+          type: string
+          format: email
+          example: cliente@example.com
+        sales_channel_id:
+          type: string
+          example: sc_default
+    
+    AddLineItemRequest:
+      type: object
+      required:
+        - variant_id
+        - quantity
+      properties:
+        variant_id:
+          type: string
+          example: variant_01HXYZ
+        quantity:
+          type: integer
+          minimum: 1
+          example: 2
+        metadata:
+          type: object
+          additionalProperties: true
+    
+    CreateSessionRequest:
+      type: object
+      required:
+        - cart_id
+      properties:
+        cart_id:
+          type: string
+          example: cart_01HXYZ
+        provider_id:
+          type: string
+          example: stripe
+    
+    Cart:
+      type: object
+      properties:
+        id:
+          type: string
+          example: cart_01HXYZ
+        email:
+          type: string
+          format: email
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        subtotal:
+          type: number
+          format: double
+        discount_total:
+          type: number
+          format: double
+        tax_total:
+          type: number
+          format: double
+        shipping_total:
+          type: number
+          format: double
+        total:
+          type: number
+          format: double
+        currency_code:
+          type: string
+          example: BRL
+    
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        variant_id:
+          type: string
+        title:
+          type: string
+        thumbnail:
+          type: string
+          format: uri
+        quantity:
+          type: integer
+        unit_price:
+          type: number
+          format: double
+        subtotal:
+          type: number
+          format: double
+        total:
+          type: number
+          format: double
+    
+    CartResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Cart'
+    
+    CheckoutSession:
+      type: object
+      properties:
+        id:
+          type: string
+        cart_id:
+          type: string
+        status:
+          type: string
+          enum: [pending, authorized, requires_more]
+    
+    SessionResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/CheckoutSession'
