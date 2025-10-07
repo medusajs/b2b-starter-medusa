@@ -57,7 +57,7 @@ export async function NavigationHeader() {
 
             <div className="h-4 w-px bg-neutral-300" />
 
-            <QuoteLink />
+            {/* <QuoteLink /> */}
 
             <Suspense fallback={<SkeletonAccountButton />}>
               <AccountButton customer={customer} />
