@@ -17,6 +17,7 @@ type SimResult = {
 }
 
 export default function DimensionamentoClient() {
+  const [cep, setCep] = useState<string]("")
   const [lat, setLat] = useState<string>("")
   const [lon, setLon] = useState<string>("")
   const [monthly, setMonthly] = useState<string>("")
@@ -55,12 +56,37 @@ export default function DimensionamentoClient() {
     }
   }
 
+  const geocode = async () => {
+    setError(null)
+    try {
+      if (!cep) {
+        setError("Informe um CEP válido (ex.: 01311-000)")
+        return
+      }
+      const r = await fetch("/api/onboarding/geocode", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cep }),
+      })
+      const j = await r.json()
+      if (!r.ok) throw new Error(j?.error || "Falha ao geocodificar")
+      setLat(String(j.lat))
+      setLon(String(j.lon))
+    } catch (e: any) {
+      setError(e?.message || "Erro ao geocodificar")
+    }
+  }
+
   return (
     <div className="content-container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Container className="rounded-2xl p-6 bg-[var(--surface)]/80 border border-[var(--border)] backdrop-blur-sm shadow-lg">
           <Heading level="h2" className="text-lg mb-2">Dimensionamento rápido</Heading>
           <Text className="txt-compact-small mb-4">Use lat/lon (ponto no mapa) e consumo médio para estimar seu sistema.</Text>
+          <div className="grid grid-cols-3 gap-3 mb-3">
+            <input className="col-span-1 border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="CEP (01311-000)" value={cep} onChange={(e)=>setCep(e.target.value)} />
+            <Button variant="secondary" className="rounded-full" onClick={geocode}>Usar CEP</Button>
+          </div>
           <div className="grid grid-cols-2 gap-3 mb-3">
             <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Latitude (-23.55)" value={lat} onChange={(e)=>setLat(e.target.value)} />
             <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Longitude (-46.63)" value={lon} onChange={(e)=>setLon(e.target.value)} />
@@ -83,6 +109,30 @@ export default function DimensionamentoClient() {
               {res.alerts?.length ? (
                 <div className="text-xs text-amber-600 mt-2">{res.alerts[0]}</div>
               ) : null}
+              <div className="flex gap-3 pt-3">
+                <Button className="rounded-full" onClick={() => {
+                  try {
+                    const payload = {
+                      summary: {
+                        kwp: res.kWp,
+                        kwh_year: res.kWh_year,
+                        economy_month_brl: res.economy_month_brl,
+                        area_m2: res.area_m2,
+                      },
+                      sources: res.sources,
+                      ts: new Date().toISOString(),
+                    }
+                    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+                    const url = URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.href = url
+                    a.download = 'proposta-yello-draft.json'
+                    a.click()
+                    URL.revokeObjectURL(url)
+                  } catch {}
+                }}>Gerar proposta detalhada + assinatura digital</Button>
+                <a className="contrast-btn" href="/suporte">Falar com especialista</a>
+              </div>
             </div>
           )}
         </Container>
@@ -91,4 +141,3 @@ export default function DimensionamentoClient() {
     </div>
   )
 }
-
