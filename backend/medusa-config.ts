@@ -28,24 +28,25 @@ module.exports = defineConfig({
     [Modules.SALES_CHANNEL]: true,
     [Modules.CART]: true,
     [Modules.ORDER]: true,
-    // [Modules.INVENTORY]: true, // Disabled - depends on STOCK_LOCATION
+    [Modules.INVENTORY]: false, // Explicitly disabled
     [Modules.STOCK_LOCATION]: false, // Explicitly disabled
-    // [Modules.FULFILLMENT]: true, // Disabled - depends on STOCK_LOCATION
+    [Modules.FULFILLMENT]: false, // Explicitly disabled
     [Modules.PAYMENT]: true,
     [Modules.TAX]: true,
     [Modules.REGION]: true,
-    [COMPANY_MODULE]: {
-      resolve: "./modules/company",
-    },
-    [QUOTE_MODULE]: {
-      resolve: "./modules/quote",
-    },
-    [APPROVAL_MODULE]: {
-      resolve: "./modules/approval",
-    },
-    [YSH_CATALOG_MODULE]: {
-      resolve: "./modules/ysh-catalog",
-    },
+    // Custom modules temporarily disabled for debugging
+    // [COMPANY_MODULE]: {
+    //   resolve: "./modules/company",
+    // },
+    // [QUOTE_MODULE]: {
+    //   resolve: "./modules/quote",
+    // },
+    // [APPROVAL_MODULE]: {
+    //   resolve: "./modules/approval",
+    // },
+    // [YSH_CATALOG_MODULE]: {
+    //   resolve: "./modules/ysh-catalog",
+    // },
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
     },

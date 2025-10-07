@@ -6,6 +6,8 @@ import Button from "@/modules/common/components/button"
 import ChecklistOnboarding from "./ChecklistOnboarding"
 import { sendEvent } from "@/modules/analytics/events"
 import { t } from "@/lib/i18n/copy"
+import dynamic from "next/dynamic"
+const MapPicker = dynamic(() => import("./MapPicker"), { ssr: false })
 
 type SimResult = {
   kWp: number
@@ -92,6 +94,14 @@ export default function DimensionamentoClient() {
             <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Latitude (-23.55)" value={lat} onChange={(e)=>setLat(e.target.value)} />
             <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Longitude (-46.63)" value={lon} onChange={(e)=>setLon(e.target.value)} />
           </div>
+          <MapPicker
+            lat={Number(lat) || -23.55}
+            lon={Number(lon) || -46.63}
+            onChange={(p) => {
+              setLat(String(p.lat))
+              setLon(String(p.lon))
+            }}
+          />
           <div className="grid grid-cols-2 gap-3 mb-4">
             <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Consumo (kWh/mês)" value={monthly} onChange={(e)=>setMonthly(e.target.value)} />
           </div>
@@ -134,6 +144,28 @@ export default function DimensionamentoClient() {
                 }}>Gerar proposta detalhada + assinatura digital</Button>
                 <a className="contrast-btn" href="/suporte">Falar com especialista</a>
               </div>
+              {Array.isArray(res.kWh_month) && res.kWh_month.length === 12 && (
+                <div className="mt-4">
+                  <svg width="100%" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid meet">
+                    {(() => {
+                      const w = 560, h = 120, x0 = 20, y0 = 150
+                      const max = Math.max(...res.kWh_month, 1)
+                      const bw = w / 12 - 6
+                      return res.kWh_month.map((v, i) => {
+                        const bh = (v / max) * h
+                        const x = x0 + i * (bw + 6)
+                        const y = y0 - bh
+                        return (
+                          <g key={i}>
+                            <rect x={x} y={y} width={bw} height={bh} fill="#f59e0b" opacity={0.8} rx={4} />
+                          </g>
+                        )
+                      })
+                    })()}
+                  </svg>
+                  <div className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">Curva mensal estimada (kWh)</div>
+                </div>
+              )}
             </div>
           )}
         </Container>

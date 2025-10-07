@@ -99,16 +99,16 @@ export default function VideosByClass() {
     }
 
     return (
-        <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
+        <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-zinc-950 dark:to-zinc-900 py-16">
             <div className="content-container">
                 <div className="text-center mb-12">
-                    <Text className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">
+                    <Text className="text-blue-600 dark:text-blue-400 text-sm uppercase tracking-wider font-semibold mb-2">
                         Aprenda Mais
                     </Text>
-                    <Heading level="h2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <Heading level="h2" className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-zinc-50 mb-4">
                         Vídeos por Classe Consumidora
                     </Heading>
-                    <Text className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <Text className="text-lg text-gray-600 dark:text-zinc-300 max-w-2xl mx-auto">
                         Descubra como a energia solar funciona para o seu perfil
                     </Text>
                 </div>
@@ -118,7 +118,7 @@ export default function VideosByClass() {
                         <button
                             key={video.id}
                             onClick={() => handlePlayVideo(video)}
-                            className="group text-left bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                            className="group text-left bg-white dark:bg-zinc-900/60 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20 dark:border-zinc-800"
                         >
                             {/* Thumbnail */}
                             <div className="relative aspect-video bg-gray-200 overflow-hidden">
@@ -146,10 +146,10 @@ export default function VideosByClass() {
 
                             {/* Content */}
                             <div className="p-4">
-                                <Heading level="h3" className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                <Heading level="h3" className="text-lg font-bold text-gray-900 dark:text-zinc-50 mb-2 group-hover:text-blue-600 transition-colors">
                                     {video.title}
                                 </Heading>
-                                <Text className="text-sm text-gray-600 line-clamp-2">
+                                <Text className="text-sm text-gray-600 dark:text-zinc-300 line-clamp-2">
                                     {video.description}
                                 </Text>
                             </div>

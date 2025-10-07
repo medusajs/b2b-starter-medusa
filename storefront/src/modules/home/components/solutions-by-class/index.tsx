@@ -61,7 +61,7 @@ const CLASSES = [
 
 export default function SolutionsByClass() {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white py-24">
+    <div className="bg-gradient-to-br from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 py-24">
       <div className="content-container">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-full border border-yellow-200/50 mb-6">
@@ -99,16 +99,16 @@ export default function SolutionsByClass() {
                   })
                 }
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/90 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col group-hover:scale-[1.02]">
+                <div className="bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-zinc-900/70 border border-white/20 dark:border-zinc-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col group-hover:scale-[1.02]">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 via-orange-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <Heading level="h3" className="text-2xl font-bold text-gray-900 mb-3">
+                  <Heading level="h3" className="text-2xl font-bold text-gray-900 dark:text-zinc-50 mb-3">
                     {classe.title}
                   </Heading>
 
-                  <Text className="text-gray-600 mb-6 flex-grow leading-relaxed">{classe.description}</Text>
+                  <Text className="text-gray-600 dark:text-zinc-300 mb-6 flex-grow leading-relaxed">{classe.description}</Text>
 
                   <div className="flex flex-wrap gap-3 mb-6">
                     {classe.modalidades.map((mod) => (
@@ -119,7 +119,7 @@ export default function SolutionsByClass() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <Text className="text-gray-900 font-semibold group-hover:text-yellow-600 transition-colors">
+                    <Text className="text-gray-900 dark:text-zinc-50 font-semibold group-hover:text-yellow-600 transition-colors">
                       {classe.cta}
                     </Text>
                     <div className="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
