@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { getBaseURL } from "@/lib/util/env"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Suspense } from "react"
@@ -11,8 +12,18 @@ type SearchParams = { [k: string]: string }
 
 export const revalidate = 300
 
-export const metadata: Metadata = {
-  title: "Buscar produtos - Yello Solar Hub",
+export async function generateMetadata({ params, searchParams }: { params: Promise<{ countryCode: string }>, searchParams: Record<string, string> }): Promise<Metadata> {
+  const { countryCode } = await params
+  const host = getBaseURL()
+  const q = (searchParams && searchParams.q) || ""
+  const title = q ? ("Buscar: " + q + " - Yello Solar Hub") : "Buscar produtos - Yello Solar Hub"
+  const canonical = host + "/" + countryCode + "/search" + (q ? ("?q=" + encodeURIComponent(q)) : "")
+  return {
+    title,
+    alternates: { canonical },
+    openGraph: { title, url: canonical, siteName: "Yello Solar Hub" },
+    twitter: { card: "summary", title },
+  }
 }
 
 async function searchCatalog(sp: SearchParams) {
