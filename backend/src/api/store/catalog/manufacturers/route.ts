@@ -1,11 +1,12 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { YSH_CATALOG_MODULE } from "../../../../modules/ysh-catalog";
 import YshCatalogModuleService from "../../../../modules/ysh-catalog/service";
 
 export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const yshCatalogService = req.scope.resolve("yshCatalog") as YshCatalogModuleService;
+    const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
 
     try {
         const manufacturers = await yshCatalogService.getManufacturers();

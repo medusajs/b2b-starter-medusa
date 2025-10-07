@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
+import Link from "next/link"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
 const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
@@ -23,15 +24,33 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 async function listCatalog(category: string, searchParams?: { [k: string]: string }) {
   const backend = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
-  const qs = new URLSearchParams({ limit: "48", ...(searchParams || {}) })
+  const qs = new URLSearchParams({ limit: searchParams?.limit || "24", page: searchParams?.page || "1" })
+  if (searchParams?.manufacturer) qs.set("manufacturer", searchParams.manufacturer)
+  if (searchParams?.minPrice) qs.set("minPrice", searchParams.minPrice)
+  if (searchParams?.maxPrice) qs.set("maxPrice", searchParams.maxPrice)
+  if (searchParams?.availability) qs.set("availability", searchParams.availability)
   const res = await fetch(`${backend}/store/catalog/${category}?${qs.toString()}`, { next: { revalidate: 600 } })
-  if (!res.ok) return { products: [], total: 0 }
+  if (!res.ok) return { products: [], total: 0, page: 1, limit: Number(qs.get("limit")) || 24 }
   return res.json()
 }
 
+async function listManufacturers() {
+  const backend = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
+  const res = await fetch(`${backend}/store/catalog/manufacturers`, { next: { revalidate: 3600 } })
+  if (!res.ok) return [] as string[]
+  const json = await res.json()
+  return (json.manufacturers || []) as string[]
+}
+
 export default async function CategoryPage({ params, searchParams }: { params: Promise<Params>, searchParams?: { [k: string]: string } }) {
-  const { category } = await params
-  const { products, total } = await listCatalog(category, searchParams)
+  const p = await params
+  const { category } = p
+  const data = await listCatalog(category, searchParams)
+  const products = data.products
+  const total = data.total
+  const currentPage = Number(searchParams?.page || data.page || 1)
+  const pageSize = Number(searchParams?.limit || data.limit || 24)
+  const manufacturers = await listManufacturers()
 
   const isKits = category === "kits"
   const Title = () => (
@@ -44,6 +63,43 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   return (
     <div className="content-container py-10">
       <Title />
+
+      {/* Filtros */}
+      <div className="bg-white rounded-lg shadow-sm p-4 mb-6 border">
+        <form className="grid grid-cols-1 md:grid-cols-5 gap-3" action="" method="get">
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Fabricante</label>
+            <select name="manufacturer" defaultValue={searchParams?.manufacturer || ""} className="w-full border rounded-md h-9 px-2">
+              <option value="">Todos</option>
+              {manufacturers.map((m) => (
+                <option key={m} value={m}>{m}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Preço mín. (BRL)</label>
+            <input type="number" name="minPrice" defaultValue={searchParams?.minPrice || ""} className="w-full border rounded-md h-9 px-2" min="0" step="1" />
+          </div>
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Preço máx. (BRL)</label>
+            <input type="number" name="maxPrice" defaultValue={searchParams?.maxPrice || ""} className="w-full border rounded-md h-9 px-2" min="0" step="1" />
+          </div>
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Disponibilidade</label>
+            <select name="availability" defaultValue={searchParams?.availability || ""} className="w-full border rounded-md h-9 px-2">
+              <option value="">Todas</option>
+              <option value="Disponivel">Disponível</option>
+              <option value="Indisponivel">Indisponível</option>
+            </select>
+          </div>
+          <div className="flex items-end gap-2">
+            <button type="submit" className="ysh-btn-primary h-9 px-4">Filtrar</button>
+            <Link href={`/${p.countryCode}/produtos/${category}`} className="ysh-btn-outline h-9 px-4">Limpar</Link>
+          </div>
+          {searchParams?.limit && <input type="hidden" name="limit" value={searchParams.limit} />}
+        </form>
+      </div>
+
       <div className={`grid gap-6 ${isKits ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}` }>
         {products?.map((item: any) => (
           <Suspense key={item.id}>
@@ -55,7 +111,38 @@ export default async function CategoryPage({ params, searchParams }: { params: P
           </Suspense>
         ))}
       </div>
+
+      {/* Paginação */}
+      {(() => {
+        const totalPages = Math.max(1, Math.ceil((total || 0) / (pageSize || 24)))
+        if (totalPages <= 1) return null
+        const makeHref = (pg: number) => {
+          const sp = new URLSearchParams()
+          if (searchParams?.manufacturer) sp.set("manufacturer", searchParams.manufacturer)
+          if (searchParams?.minPrice) sp.set("minPrice", searchParams.minPrice)
+          if (searchParams?.maxPrice) sp.set("maxPrice", searchParams.maxPrice)
+          if (searchParams?.availability) sp.set("availability", searchParams.availability)
+          sp.set("page", String(pg))
+          sp.set("limit", String(pageSize))
+          return `?${sp.toString()}`
+        }
+        const current = currentPage
+        const pages: number[] = []
+        const start = Math.max(1, current - 2)
+        const end = Math.min(totalPages, current + 2)
+        for (let i = start; i <= end; i++) pages.push(i)
+        return (
+          <div className="flex items-center justify-center gap-2 mt-8">
+            <Link className={`ysh-btn-outline px-3 py-1 ${current <= 1 ? 'pointer-events-none opacity-50' : ''}`} href={current > 1 ? makeHref(current - 1) : "#"}>Anterior</Link>
+            {pages.map((pg) => (
+              <Link key={pg} className={`px-3 py-1 rounded-md border ${pg === current ? 'bg-neutral-900 text-white border-neutral-900' : 'border-neutral-300 hover:bg-neutral-100'}`} href={makeHref(pg)}>
+                {pg}
+              </Link>
+            ))}
+            <Link className={`ysh-btn-outline px-3 py-1 ${current >= totalPages ? 'pointer-events-none opacity-50' : ''}`} href={current < totalPages ? makeHref(current + 1) : "#"}>Próxima</Link>
+          </div>
+        )
+      })()}
     </div>
   )
 }
-
