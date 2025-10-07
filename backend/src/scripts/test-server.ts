@@ -27,13 +27,22 @@ app.use((req: any, res, next) => {
 app.get('/store/catalog', async (req: any, res) => {
     try {
         const yshCatalogService = req.scope.resolve('yshCatalog');
-        const categories = await yshCatalogService.getCategories();
         const manufacturers = await yshCatalogService.getManufacturers();
 
         res.json({
-            categories,
+            categories: [
+                "kits",
+                "panels",
+                "inverters",
+                "cables",
+                "chargers",
+                "controllers",
+                "accessories",
+                "structures",
+                "batteries"
+            ],
             manufacturers,
-            total_categories: categories.length,
+            total_categories: 9,
             total_manufacturers: manufacturers.length
         });
     } catch (error) {

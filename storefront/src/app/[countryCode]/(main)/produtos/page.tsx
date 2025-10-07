@@ -170,7 +170,7 @@ export default async function ProductsPage() {
                     <CatalogSection
                         title="Painéis Solares"
                         description="Painéis fotovoltaicos de alta eficiência para máxima geração"
-                        viewAllLink="/produtos/paineis"
+                        viewAllLink="/produtos/panels"
                         items={panels}
                         ItemComponent={ProductCard}
                         category="panels"
@@ -182,7 +182,7 @@ export default async function ProductsPage() {
                     <CatalogSection
                         title="Inversores Solares"
                         description="Inversores de string e microinversores para todos os tipos de instalação"
-                        viewAllLink="/produtos/inversores"
+                        viewAllLink="/produtos/inverters"
                         items={inverters}
                         ItemComponent={ProductCard}
                         category="inverters"
