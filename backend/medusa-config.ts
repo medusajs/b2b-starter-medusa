@@ -1,7 +1,8 @@
-import { QUOTE_MODULE } from "./src/modules/quote";
+// DISABLED: Custom modules temporarily disabled for initial setup
+// import { QUOTE_MODULE } from "./src/modules/quote";
 // import { APPROVAL_MODULE } from "./src/modules/approval";
-import { COMPANY_MODULE } from "./src/modules/company";
-import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
+// import { COMPANY_MODULE } from "./src/modules/company";
+// import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
