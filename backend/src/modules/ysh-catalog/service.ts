@@ -67,7 +67,7 @@ class YshCatalogModuleService extends MedusaService({
     /**
      * Lê um arquivo JSON do catálogo
      */
-  private readCatalogFile(filename: string): CatalogProduct[] {
+    private readCatalogFile(filename: string): CatalogProduct[] {
         try {
             const filePath = path.join(this.catalogPath, filename);
             if (!fs.existsSync(filePath)) {
