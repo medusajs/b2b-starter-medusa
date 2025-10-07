@@ -79,6 +79,13 @@ const OrderCard = ({ order }: OrderCardProps) => {
             <DocumentIcon className="inline-block mr-1" />
             <span data-testid="order-display-id">#{order.display_id}</span>
           </div>
+          {/* Solar Project Status */}
+          <div className="flex items-center text-small-regular">
+            <span className="inline-block w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+            <span data-testid="order-solar-status">
+              {(order as any).solar_status || "Engenharia"}
+            </span>
+          </div>
         </div>
 
         <div className="flex gap-x-4 small:divide-x divide-gray-200 small:justify-normal justify-between w-full small:w-auto">

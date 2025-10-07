@@ -66,7 +66,11 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 
         <div className="flex pr-2 text-small-regular items-center">
           <CalendarMini className="inline-block mr-1" />
-          {createdAt.getDate()}-{createdAt.getMonth()}-{createdAt.getFullYear()}
+          {createdAt.toLocaleDateString("pt-BR", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          })}
         </div>
 
         <div className="flex text-small-regular items-center">
@@ -88,9 +92,8 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
             })}
           </span>
           {"·"}
-          <span className="pl-2">{`${numberOfLines} ${
-            numberOfLines > 1 ? "items" : "item"
-          }`}</span>
+          <span className="pl-2">{`${numberOfLines} ${numberOfLines > 1 ? "itens" : "item"
+            }`}</span>
         </div>
 
         <div className="pl-4">

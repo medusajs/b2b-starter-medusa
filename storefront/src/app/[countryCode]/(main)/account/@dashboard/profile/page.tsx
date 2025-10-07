@@ -7,8 +7,8 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
-  title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+  title: "Perfil",
+  description: "Visualize e edite seu perfil da loja Medusa.",
 }
 
 export default async function Profile() {
@@ -23,13 +23,13 @@ export default async function Profile() {
     <div className="w-full" data-testid="profile-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
         <Heading level="h2" className="text-lg text-neutral-950">
-          Details
+          Detalhes
         </Heading>
         <ProfileCard customer={customer} />
       </div>
       <div className="mb-8 flex flex-col gap-y-4">
         <Heading level="h2" className="text-lg text-neutral-950">
-          Security
+          Segurança
         </Heading>
         <SecurityCard customer={customer} />
       </div>

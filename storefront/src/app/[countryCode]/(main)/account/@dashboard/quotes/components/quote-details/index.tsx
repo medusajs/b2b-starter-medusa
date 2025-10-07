@@ -48,7 +48,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
           data-testid="back-to-overview-button"
         >
           <Button variant="secondary">
-            <ArrowUturnLeft /> Back
+            <ArrowUturnLeft /> Voltar
           </Button>
         </LocalizedClientLink>
       </div>
@@ -60,7 +60,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
               <div className="flex items-center justify-between px-6 py-4">
                 <Text className="txt-compact-small">
                   <CheckCircleSolid className="inline-block mr-2 text-green-500 text-lg" />
-                  Quote accepted by customer. Order is ready for processing.
+                  Cotação aceita pelo cliente. Pedido pronto para processamento.
                 </Text>
 
                 <Button
@@ -71,7 +71,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
                     )
                   }
                 >
-                  View Order
+                  Ver Pedido
                 </Button>
               </div>
             </Container>
@@ -92,7 +92,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
             <div className="py-4">
               <div className="flex items-center justify-between mb-2 px-6">
                 <span className="txt-small text-ui-fg-subtle font-semibold">
-                  Current Total
+                  Total Atual
                 </span>
 
                 <span className="txt-small text-ui-fg-subtle">
@@ -102,7 +102,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
 
               <div className="flex items-center justify-between px-6">
                 <span className="txt-small text-ui-fg-subtle font-semibold">
-                  New Total
+                  Novo Total
                 </span>
 
                 <span className="txt-small text-ui-fg-subtle">
@@ -115,8 +115,8 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
           {quote.status === "pending_customer" && (
             <div className="flex gap-x-3 justify-end my-4">
               <PromptModal
-                title="Reject Quote?"
-                description="Are you sure you want to reject quote? This action is irreversible."
+                title="Rejeitar cotação?"
+                description="Tem certeza de que deseja rejeitar a cotação? Esta ação é irreversível."
                 handleAction={() => {
                   setIsRejecting(true)
 
@@ -127,13 +127,13 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
                 isLoading={isRejecting}
               >
                 <Button size="small" variant="secondary">
-                  Reject Quote
+                  Rejeitar Cotação
                 </Button>
               </PromptModal>
 
               <PromptModal
-                title="Accept Quote?"
-                description="Are you sure you want to accept quote? This action is irreversible."
+                title="Aceitar cotação?"
+                description="Tem certeza de que deseja aceitar a cotação? Esta ação é irreversível."
                 handleAction={() => {
                   setIsAccepting(true)
 
@@ -144,7 +144,7 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
                 isLoading={isAccepting}
               >
                 <Button size="small" variant="primary">
-                  Accept Quote
+                  Aceitar Cotação
                 </Button>
               </PromptModal>
             </div>
@@ -165,22 +165,22 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
 
           <Container>
             <Heading level="h3" className="mb-2">
-              Customer
+              Cliente
             </Heading>
 
             <div className="text-sm text-ui-fg-subtle">
               <div className="flex justify-between">
-                <Text>Email</Text>
+                <Text>E-mail</Text>
                 <Text>{quote.customer?.email || "-"}</Text>
               </div>
 
               <div className="flex justify-between">
-                <Text>Phone</Text>
+                <Text>Telefone</Text>
                 <Text>{quote.customer?.phone || "-"}</Text>
               </div>
 
               <div className="flex justify-between">
-                <Text>Spend Limit</Text>
+                <Text>Limite de gastos</Text>
                 <Text>
                   {(quote.customer?.employee?.spending_limit &&
                     formatAmount(
@@ -195,12 +195,12 @@ const QuoteDetails: React.FC<QuoteDetailsProps> = ({
 
           <Container>
             <Heading level="h3" className="mb-2">
-              Company
+              Empresa
             </Heading>
 
             <div className="text-sm text-ui-fg-subtle">
               <div className="flex justify-between">
-                <Text>Name</Text>
+                <Text>Nome</Text>
                 <Text>{quote.customer?.employee?.company?.name || "-"}</Text>
               </div>
             </div>
