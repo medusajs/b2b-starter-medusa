@@ -51,6 +51,15 @@
 - ✅ Medusa 2.4
 - ✅ Next.js 15
 
+### Windows development checklist
+
+- ✅ Instale o Node via `nvm-windows` e habilite o Corepack apos selecionar a versao desejada (`nvm install 20 && nvm use 20 && corepack enable`).
+- ✅ Execute `pwsh -File infra/scripts/windows/assert-non-admin.ps1` antes de rodar `yarn install` para garantir que o terminal nao esta elevado.
+- ✅ Configure exclusoes do Windows Defender e desative a indexacao com `pwsh -ExecutionPolicy Bypass -File infra/scripts/windows/setup-dev-environment.ps1`.
+- ✅ Garanta que o banco local usa `DATABASE_SSL=false` (valor padrao em `backend/.env.template`). Para ambientes com SSL, configure as variaveis `DATABASE_SSL`, `DATABASE_SSL_REJECT_UNAUTHORIZED` e `DATABASE_SSL_CA_FILE`.
+- ✅ Para reset deterministico de dependencias, utilize `pwsh -File infra/scripts/windows/reset-node-modules.ps1 -WorkspacePath ../backend` (ajuste o caminho para cada workspace).
+- ➕ Consulte `infra/docs/windows-dev-checklist.md` para instrucoes completas.
+
 &nbsp;
 
 ## Overview

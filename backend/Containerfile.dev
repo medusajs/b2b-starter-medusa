@@ -1,0 +1,69 @@
+# ==========================================
+# Containerfile para Backend Medusa B2B
+# Otimizado para desenvolvimento com correções
+# ==========================================
+
+FROM registry.fedoraproject.org/fedora:latest AS dev
+
+# Instalar dependências do sistema
+RUN dnf update -y && \
+      dnf install -y \
+      nodejs \
+      npm \
+      postgresql \
+      redis \
+      curl \
+      wget \
+      git \
+      python3 \
+      gcc \
+      gcc-c++ \
+      make \
+      && dnf clean all
+
+# Configurações globais do npm
+RUN npm config set legacy-peer-deps true && \
+      npm config set fund false && \
+      npm config set audit false
+
+# Criar usuário não-root
+RUN useradd --system --create-home --shell /bin/bash medusa
+
+# Definir diretório de trabalho  
+WORKDIR /app
+
+# Copiar script de inicialização
+COPY start-dev.sh ./
+RUN chmod +x start-dev.sh && chown medusa:medusa start-dev.sh
+
+# Copiar arquivos de configuração
+COPY --chown=medusa:medusa package*.json ./
+COPY --chown=medusa:medusa .env.build ./.env
+
+# Configurações de ambiente
+ENV NODE_ENV=development
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV CHOKIDAR_USEPOLLING=true
+ENV WATCHPACK_POLLING=true
+
+# Criar diretório node_modules com permissões corretas antes de mudar usuário
+RUN mkdir -p /app/node_modules && chown -R medusa:medusa /app
+
+# Mudar para usuário não-root
+USER medusa
+
+# Instalar dependências
+RUN npm install --legacy-peer-deps
+
+# Copiar código fonte
+COPY --chown=medusa:medusa . .
+
+# Expor portas
+EXPOSE 9000-9002
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
+      CMD curl -f http://localhost:9000/health || exit 1
+
+# Usar script de inicialização
+CMD ["./start-dev.sh"]

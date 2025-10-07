@@ -2,12 +2,17 @@ import { QUOTE_MODULE } from "./src/modules/quote";
 import { APPROVAL_MODULE } from "./src/modules/approval";
 import { COMPANY_MODULE } from "./src/modules/company";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
+import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
+    databaseDriverOptions: {
+      ssl: resolveDatabaseSslConfig(process.env),
+    },
+    redisUrl: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,

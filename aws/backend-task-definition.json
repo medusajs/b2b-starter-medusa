@@ -1,0 +1,97 @@
+{
+      "family": "ysh-b2b-backend",
+      "networkMode": "awsvpc",
+      "requiresCompatibilities": [
+            "FARGATE"
+      ],
+      "cpu": "1024",
+      "memory": "2048",
+      "executionRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskExecutionRole",
+      "taskRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskRole",
+      "containerDefinitions": [
+            {
+                  "name": "ysh-b2b-backend",
+                  "image": "ACCOUNT-ID.dkr.ecr.REGION.amazonaws.com/ysh-b2b-backend:latest",
+                  "portMappings": [
+                        {
+                              "containerPort": 9000,
+                              "protocol": "tcp"
+                        }
+                  ],
+                  "environment": [
+                        {
+                              "name": "NODE_ENV",
+                              "value": "production"
+                        },
+                        {
+                              "name": "NODE_OPTIONS",
+                              "value": "--max-old-space-size=1536 --enable-source-maps"
+                        }
+                  ],
+                  "secrets": [
+                        {
+                              "name": "DATABASE_URL",
+                              "valueFrom": "/ysh-b2b/database-url"
+                        },
+                        {
+                              "name": "REDIS_URL",
+                              "valueFrom": "/ysh-b2b/redis-url"
+                        },
+                        {
+                              "name": "JWT_SECRET",
+                              "valueFrom": "/ysh-b2b/jwt-secret"
+                        },
+                        {
+                              "name": "COOKIE_SECRET",
+                              "valueFrom": "/ysh-b2b/cookie-secret"
+                        }
+                  ],
+                  "logConfiguration": {
+                        "logDriver": "awslogs",
+                        "options": {
+                              "awslogs-group": "/ecs/ysh-b2b-backend",
+                              "awslogs-region": "us-east-1",
+                              "awslogs-stream-prefix": "ecs",
+                              "awslogs-create-group": "true"
+                        }
+                  },
+                  "healthCheck": {
+                        "command": [
+                              "CMD-SHELL",
+                              "curl -f http://localhost:9000/health || exit 1"
+                        ],
+                        "interval": 30,
+                        "timeout": 10,
+                        "retries": 3,
+                        "startPeriod": 60
+                  },
+                  "essential": true,
+                  "mountPoints": [],
+                  "volumesFrom": [],
+                  "ulimits": [
+                        {
+                              "name": "nofile",
+                              "softLimit": 65536,
+                              "hardLimit": 65536
+                        }
+                  ],
+                  "systemControls": []
+            }
+      ],
+      "volumes": [],
+      "placementConstraints": [],
+      "tags": [
+            {
+                  "key": "Environment",
+                  "value": "production"
+            },
+            {
+                  "key": "Application",
+                  "value": "ysh-b2b"
+            },
+            {
+                  "key": "Component",
+                  "value": "backend"
+            }
+      ]
+}

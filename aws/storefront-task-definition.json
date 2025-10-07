@@ -1,0 +1,109 @@
+{
+      "family": "ysh-b2b-storefront",
+      "networkMode": "awsvpc",
+      "requiresCompatibilities": [
+            "FARGATE"
+      ],
+      "cpu": "512",
+      "memory": "1024",
+      "executionRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskExecutionRole",
+      "taskRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskRole",
+      "containerDefinitions": [
+            {
+                  "name": "ysh-b2b-storefront",
+                  "image": "ACCOUNT-ID.dkr.ecr.REGION.amazonaws.com/ysh-b2b-storefront:latest",
+                  "portMappings": [
+                        {
+                              "containerPort": 8000,
+                              "protocol": "tcp"
+                        }
+                  ],
+                  "environment": [
+                        {
+                              "name": "NODE_ENV",
+                              "value": "production"
+                        },
+                        {
+                              "name": "NODE_OPTIONS",
+                              "value": "--max-old-space-size=768"
+                        },
+                        {
+                              "name": "NEXT_TELEMETRY_DISABLED",
+                              "value": "1"
+                        },
+                        {
+                              "name": "PORT",
+                              "value": "8000"
+                        },
+                        {
+                              "name": "HOSTNAME",
+                              "value": "0.0.0.0"
+                        }
+                  ],
+                  "secrets": [
+                        {
+                              "name": "NEXT_PUBLIC_MEDUSA_BACKEND_URL",
+                              "valueFrom": "/ysh-b2b/backend-url"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
+                              "valueFrom": "/ysh-b2b/publishable-key"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_BASE_URL",
+                              "valueFrom": "/ysh-b2b/storefront-url"
+                        },
+                        {
+                              "name": "REVALIDATE_SECRET",
+                              "valueFrom": "/ysh-b2b/revalidate-secret"
+                        }
+                  ],
+                  "logConfiguration": {
+                        "logDriver": "awslogs",
+                        "options": {
+                              "awslogs-group": "/ecs/ysh-b2b-storefront",
+                              "awslogs-region": "us-east-1",
+                              "awslogs-stream-prefix": "ecs",
+                              "awslogs-create-group": "true"
+                        }
+                  },
+                  "healthCheck": {
+                        "command": [
+                              "CMD-SHELL",
+                              "curl -f http://localhost:8000 || exit 1"
+                        ],
+                        "interval": 30,
+                        "timeout": 10,
+                        "retries": 3,
+                        "startPeriod": 30
+                  },
+                  "essential": true,
+                  "mountPoints": [],
+                  "volumesFrom": [],
+                  "ulimits": [
+                        {
+                              "name": "nofile",
+                              "softLimit": 65536,
+                              "hardLimit": 65536
+                        }
+                  ],
+                  "systemControls": []
+            }
+      ],
+      "volumes": [],
+      "placementConstraints": [],
+      "tags": [
+            {
+                  "key": "Environment",
+                  "value": "production"
+            },
+            {
+                  "key": "Application",
+                  "value": "ysh-b2b"
+            },
+            {
+                  "key": "Component",
+                  "value": "storefront"
+            }
+      ]
+}
