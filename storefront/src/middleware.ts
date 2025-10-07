@@ -128,7 +128,7 @@ async function setCacheId(request: NextRequest, response: NextResponse) {
  */
 export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
-  const cartId = searchParams.get("cart_id")
+  const cartId = searchParams.get("cartId") || searchParams.get("cart_id")
   const checkoutStep = searchParams.get("step")
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cartIdCookie = request.cookies.get("_medusa_cart_id")
@@ -168,9 +168,11 @@ export async function middleware(request: NextRequest) {
     response = NextResponse.redirect(`${redirectUrl}`, 307)
   }
 
-  // If a cart_id is in the params, we set it as a cookie and redirect to the address step.
+  // If a cart id is in the params, set cookie and redirect to the first step
   if (cartId && !checkoutStep) {
-    redirectUrl = `${redirectUrl}&step=address`
+    const url = new URL(redirectUrl)
+    url.searchParams.set("step", "shipping-address")
+    redirectUrl = url.toString()
     response = NextResponse.redirect(`${redirectUrl}`, 307)
     response.cookies.set("_medusa_cart_id", cartId, { maxAge: 60 * 60 * 24 })
   }

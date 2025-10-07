@@ -41,6 +41,7 @@
     "@mikro-orm/migrations": "6.4.3",
     "@mikro-orm/postgresql": "6.4.3",
     "awilix": "^8.0.1",
+    "node-fetch": "^2.7.0",
     "pg": "^8.13.0",
     "posthog-node": "^4.17.1",
     "zod": "^3.25.76"

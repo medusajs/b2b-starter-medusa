@@ -16,7 +16,7 @@ export default async function Checkout({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
-  const cartId = searchParams?.cartId as string
+  const cartId = (searchParams?.cartId || searchParams?.cart_id) as string
   const cart = (await retrieveCart(cartId)) as B2BCart
 
   if (!cart) {

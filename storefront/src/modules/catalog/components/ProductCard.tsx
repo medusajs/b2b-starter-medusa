@@ -169,7 +169,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
 
                 {/* Product Name */}
                 <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                    <Link href={`/produtos/${product.id}`} className="hover:text-blue-600 transition-colors">
+                    <Link href={`/produtos/${category}/${product.id}`} className="hover:text-blue-600 transition-colors">
                         {product.name}
                     </Link>
                 </h3>
@@ -238,7 +238,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                 </button>
                             )
                         ) : (
-                            <Link href={`/produtos/${product.id}`}>
+                            <Link href={`/produtos/${category}/${product.id}`}>
                                 <button className="ysh-btn-primary text-sm px-3 py-1">Ver Detalhes</button>
                             </Link>
                         )}

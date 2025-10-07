@@ -110,7 +110,7 @@ const KitCard = ({ kit }: KitCardProps) => {
             <div className="p-4">
                 {/* Kit Name */}
                 <h3 className="font-semibold text-gray-900 mb-3 line-clamp-2">
-                    <Link href={`/produtos/${kit.id}`} className="hover:text-blue-600 transition-colors">
+                    <Link href={`/produtos/kits/${kit.id}`} className="hover:text-blue-600 transition-colors">
                         {kit.name}
                     </Link>
                 </h3>
@@ -199,7 +199,7 @@ const KitCard = ({ kit }: KitCardProps) => {
                                 </button>
                             )
                         ) : (
-                            <Link href={`/produtos/${kit.id}`}>
+                            <Link href={`/produtos/kits/${kit.id}`}>
                                 <button className="ysh-btn-primary text-sm px-4 py-2">Ver Kit</button>
                             </Link>
                         )}
