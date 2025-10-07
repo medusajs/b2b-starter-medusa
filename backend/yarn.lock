@@ -651,7 +651,7 @@
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.28.4.tgz"
   integrity sha512-YsmSKC29MJwf0gF8Rjjrg5LQCmyh+j/nD8/eP7f+BeoQTKYqs9RoWbjGOdy0+1Ekr68RJZMUOPVQaQisnIo4Rw==
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0 || ^8.0.0-0", "@babel/core@^7.0.0-0", "@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.23.9", "@babel/core@^7.28.0", "@babel/core@^7.8.0":
+"@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.23.9", "@babel/core@^7.28.0":
   version "7.28.4"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.28.4.tgz"
   integrity sha512-2BCOP7TN8M+gVDj7/ht3hsaO/B/n5oDbiAyyvnRlNOs+u1o+JWNYTQrmpuNp1/Wq2gcFrI01JAW+paEKDMx/CA==
@@ -912,7 +912,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.27.1"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.13.10", "@babel/runtime@^7.15.4", "@babel/runtime@^7.22.10", "@babel/runtime@^7.22.5", "@babel/runtime@^7.23.2", "@babel/runtime@^7.23.8", "@babel/runtime@^7.26.10", "@babel/runtime@>=7.10.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.13.10", "@babel/runtime@^7.15.4", "@babel/runtime@^7.22.10", "@babel/runtime@^7.22.5", "@babel/runtime@^7.23.2", "@babel/runtime@^7.23.8", "@babel/runtime@^7.26.10":
   version "7.28.4"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.4.tgz"
   integrity sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==
@@ -1646,14 +1646,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@medusajs/admin-bundler@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/admin-bundler/-/admin-bundler-2.8.4.tgz"
-  integrity sha512-rMK7u+IyTxi6zJQsj6Vj/jvsH4Gvj4QpZcOc58UuFHSeG3PjmyWRdl+n8KpYklRoLLPSbQKrL8xWYTNfHPaX7A==
+"@medusajs/admin-bundler@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/admin-bundler/-/admin-bundler-2.8.0.tgz"
+  integrity sha512-9dT1YbkFuCW97NhrUWMuEVHbzyRcBvUsAIZ00A619DkUNIrjbDO+j/3+042wnu98t8gU54htuRx31ooiYpIfqw==
   dependencies:
-    "@medusajs/admin-shared" "2.8.4"
-    "@medusajs/admin-vite-plugin" "2.8.4"
-    "@medusajs/dashboard" "2.8.4"
+    "@medusajs/admin-shared" "2.8.0"
+    "@medusajs/admin-vite-plugin" "2.8.0"
+    "@medusajs/dashboard" "2.8.0"
     "@vitejs/plugin-react" "^4.2.1"
     autoprefixer "^10.4.16"
     compression "^1.7.4"
@@ -1665,102 +1665,87 @@
     tailwindcss "^3.3.6"
     vite "^5.4.14"
 
-"@medusajs/admin-sdk@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/admin-sdk/-/admin-sdk-2.8.4.tgz"
-  integrity sha512-ajJm/D9YlActsJ5/KMb/MdvBrnIjNq8SeIR/8fLY21kr+u9qm3Dz1SHwnbabiaVu8EKDrCrMD6djHOSGnanmvg==
+"@medusajs/admin-sdk@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/admin-sdk/-/admin-sdk-2.8.0.tgz"
+  integrity sha512-EJe1i2PeIdGtnmD4k8sqg+O8o0469mmrAm4fRkz/DNzDHOA6U275KllTvFVvzAxkOUEo1NT4/BuAAwyXPFcP9w==
   dependencies:
-    "@medusajs/admin-shared" "2.8.4"
+    "@medusajs/admin-shared" "2.8.0"
     zod "3.22.4"
 
-"@medusajs/admin-shared@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/admin-shared/-/admin-shared-2.8.4.tgz"
-  integrity sha512-jc6NSkB4+xEmbrx7fS6s9jd63sttxReVu8xOR2M8C0NVYWVQQwPUKoyK6ff4OUytG90gPqAmf6oHVD7wWvXMMA==
+"@medusajs/admin-shared@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/admin-shared/-/admin-shared-2.8.0.tgz"
+  integrity sha512-slMa2QoeqQ+W08SFAlZBVesYDK1nKas2AX1BWgY6beIe8mF3xOFv+YdDoHdIoGURN0oaz53cBnQ/r2uo76+COg==
 
-"@medusajs/admin-vite-plugin@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/admin-vite-plugin/-/admin-vite-plugin-2.8.4.tgz"
-  integrity sha512-qGgc4nG+HyOcMHp5WzmVz86nBW6N0jFH6UgGaBSCIkMhC+OA224KCdfJnJLGBXcUgVSw5U5tE/xQtfNCoevslw==
+"@medusajs/admin-vite-plugin@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/admin-vite-plugin/-/admin-vite-plugin-2.8.0.tgz"
+  integrity sha512-qjOJWMeGd4QFQz7uDwOriwl68Uddv6eRerABcuo9LxnhwmXDBXkDhHl1xVzYq1sfnd1UZ8lKs83fFtpKqYC91g==
   dependencies:
     "@babel/parser" "7.25.6"
     "@babel/traverse" "7.25.6"
     "@babel/types" "7.25.6"
-    "@medusajs/admin-shared" "2.8.4"
+    "@medusajs/admin-shared" "2.8.0"
     chokidar "3.5.3"
     fdir "6.1.1"
     magic-string "0.30.5"
     outdent "^0.8.0"
     picocolors "^1.1.0"
 
-"@medusajs/analytics-local@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/analytics-local/-/analytics-local-2.8.4.tgz"
-  integrity sha512-eBtiumofTOakZ2SCaoEu7PtkyxfVh03scMbfaMs8iemcYtQioHCUos6iLeLF1bpwIdepsvYy4fdT0AuocgzcIA==
+"@medusajs/api-key@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/api-key/-/api-key-2.8.0.tgz"
+  integrity sha512-i9GvQU6B6+StkmpvUNqh+AJ44gUIk26Uhg2v69C0rjizXc5IevVbWdTlS6iG6uq5bs8d/mUHvT5IIbQCLjiZfg==
 
-"@medusajs/analytics-posthog@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/analytics-posthog/-/analytics-posthog-2.8.4.tgz"
-  integrity sha512-SAssjc+Nqb5R1kxPgVh7TnQk00muB4ijkspQHPbzACymS9sLaHl+yNYxhMKDL0CnztiUw82xgLAfOIie6pm3yg==
-
-"@medusajs/analytics@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/analytics/-/analytics-2.8.4.tgz"
-  integrity sha512-IZ150qAoExofEiBnMtTyCc7hACG0OGXbjhf4xKjCm2QXalwNCsZKZVUhzCKLMLXY6Ur12jlQJU0DkvggnBfDNA==
-
-"@medusajs/api-key@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/api-key/-/api-key-2.8.4.tgz"
-  integrity sha512-KbDb9k985BNM5Wy95eYC3j69iljPul2DaYOeg4JulbAtnP/P8y+SlZyLXFbxuVZu/yRd31pJofxjqkQvl0P3zg==
-
-"@medusajs/auth-emailpass@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/auth-emailpass/-/auth-emailpass-2.8.4.tgz"
-  integrity sha512-+vpiXZA7HVLdAcZz6pOFhOXXnDPP9Xwv2DN4ocqCvoZhu32bmleAtAQyrclYB7GsnuhEP8UG5D4LzYPRImm51A==
+"@medusajs/auth-emailpass@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/auth-emailpass/-/auth-emailpass-2.8.0.tgz"
+  integrity sha512-8xp4LrgtKs6lX3RmbuAMq0fshRz+MAnmWtlOVR3EaxfT4xnIrItIq02ClnXGWYAcZ7+8bIMdwYqI5Qtln4sl2w==
   dependencies:
     scrypt-kdf "^2.0.1"
 
-"@medusajs/auth-github@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/auth-github/-/auth-github-2.8.4.tgz"
-  integrity sha512-286k+IligjaZYm9kfdRZiCLPo05sQ0yHWmwr9UriUFFkIKpqBNUur3HaJbnmteSoPTYE5ayyAiCTZGcuOxAwJA==
+"@medusajs/auth-github@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/auth-github/-/auth-github-2.8.0.tgz"
+  integrity sha512-bt9VSuXcpnGvD1an5iLZBLNxFbVlqrS2VYuCYYLP6dVPMRJSg7jUt7/FWxmWYwfLx/opSuHWbOWo4cEmlyTlJg==
 
-"@medusajs/auth-google@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/auth-google/-/auth-google-2.8.4.tgz"
-  integrity sha512-oL4BGrpVE7wnJrd8apX1ZuCCW727tcS5B8mF36drD+If3+3K1PBK/aWsH/0fhjX7Q1t3+gByaN3kiE4BdGkVzg==
+"@medusajs/auth-google@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/auth-google/-/auth-google-2.8.0.tgz"
+  integrity sha512-2nuqUMFtOepZXSrkMctzO6ZPZNBML5MnpBXVFSyUPxaZWkFugJUUTN+IUHeKGEioFNEC6FX/A5b7rjB7x0FnXg==
   dependencies:
     jsonwebtoken "^9.0.2"
 
-"@medusajs/auth@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/auth/-/auth-2.8.4.tgz"
-  integrity sha512-qvUKnDwYiJzZl2wYDIbBnwENpokLEL626aAFJDZFp28FcRGCBiI0Heg4ylNDspJoaWj1Fvuw3WSYe1VoandcyQ==
+"@medusajs/auth@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/auth/-/auth-2.8.0.tgz"
+  integrity sha512-XtMh6uwDvbchA7SNjaZQR+NWxmZcwLaRP0N2pmbPwodCGa8OolHASrwajfQBmA/RB18AnrM0rJlTO8gzJrVlsg==
 
-"@medusajs/cache-inmemory@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/cache-inmemory/-/cache-inmemory-2.8.4.tgz"
-  integrity sha512-WGjxQ+U7y4NCDVksm/8/USAMtt+E/dZ1ucOPFXtIv0hFYCP899XgMjGaS97JLNUWZ5DkHE2jP7dvMy3f7VV02w==
+"@medusajs/cache-inmemory@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/cache-inmemory/-/cache-inmemory-2.8.0.tgz"
+  integrity sha512-mPBii/buwO56jmRhBevsZu6PCmaNBNn+U/A66xO1OD3YIO9KIUTfUAs6NDRXB0AA6IuqPkcUw3CXo+bSyXvGMw==
 
-"@medusajs/cache-redis@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/cache-redis/-/cache-redis-2.8.4.tgz"
-  integrity sha512-j61ctFy2bzX5GZkDFBV2ZByumRdIFd3YLCmfC2O0CcrJ5XUzUBucG+aBSdSEDuJJjUenpfzMVUIBWf5Z1rsV5Q==
+"@medusajs/cache-redis@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/cache-redis/-/cache-redis-2.8.0.tgz"
+  integrity sha512-1E8iNVCajFOXP1Vv9PNe2TLgzf085EqyChVKGgjpgEqGfP2txL0zVnkwQFRBNa5exi75SlcRiqHicfrsbBycdg==
   dependencies:
     ioredis "^5.4.1"
 
-"@medusajs/cart@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/cart/-/cart-2.8.4.tgz"
-  integrity sha512-CQyzPXTeH2TbLzzm9rBR070rGl3vKPFQaLYHzmMudiL4G7QtDnxoKNyJZF2sq57w19YYh34gOQ1AhaHANziEbw==
+"@medusajs/cart@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/cart/-/cart-2.8.0.tgz"
+  integrity sha512-R+MchCFJ2FMfT3vJPPXOfoHvt+jffFxnvd+ob/184FK81iQUHNSm6Q7FTcJwSNk1Qx2XitH7LHjXguDt95bVxQ==
 
-"@medusajs/cli@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/cli/-/cli-2.8.4.tgz"
-  integrity sha512-UO20/wWvjYAiruAnz7YFUfOqxZ+oZUOS8KFT05GX7/N1iDqVIk882KQsKz1RUiYoiPeftF3jxltoASHJgsfFrA==
+"@medusajs/cli@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/cli/-/cli-2.8.0.tgz"
+  integrity sha512-B1OxtbfiFPjHccgJRHpC6h9+A8SC7KNDiS0hlx7WQ0CID7ftwY0U+UdpeZuK3t2vzqZKbdT6e22xuKyhzpwFMA==
   dependencies:
-    "@medusajs/telemetry" "2.8.4"
-    "@medusajs/utils" "2.8.4"
+    "@medusajs/telemetry" "2.8.0"
+    "@medusajs/utils" "2.8.0"
     "@types/express" "^4.17.17"
     chalk "^4.0.0"
     configstore "5.0.1"
@@ -1784,28 +1769,27 @@
     winston "^3.8.2"
     yargs "^15.3.1"
 
-"@medusajs/core-flows@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/core-flows/-/core-flows-2.8.4.tgz"
-  integrity sha512-ELjr4tBoPZkNCrC43YdtZ5VWj8hjp7/x79ZJUByfd6ZwGbwsJaT8di0rNYIYo87EVj/2+hdvCGqq+54rWm3NOg==
+"@medusajs/core-flows@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/core-flows/-/core-flows-2.8.0.tgz"
+  integrity sha512-o8KoKnfBODg3qUqwhnSRHdLyToCRMN8oNzRJX2nzQHVZcRWzTT8OPEThRTUj7AttNPiPn212hOSF6vsxjcptow==
   dependencies:
-    csv-parse "^5.6.0"
     json-2-csv "^5.5.4"
 
-"@medusajs/currency@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/currency/-/currency-2.8.4.tgz"
-  integrity sha512-FzBqcxdhmOVSme6gitlplJ80vw5wKpcrjepEnXmH/6s4I4nm/jqE3H0lqBN6jyTCR/06JCC5blc/5QM3E5LFJg==
+"@medusajs/currency@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/currency/-/currency-2.8.0.tgz"
+  integrity sha512-2S8wM155G1fFda3smacSvCPJuMGSKXEAt4HrZy+Ds+0H0IzuGAcpE1GjnkhyRn3SaLiwGLigAo/SXI9J978/zQ==
 
-"@medusajs/customer@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/customer/-/customer-2.8.4.tgz"
-  integrity sha512-VwYRtZuqCja+20zgO9rsbY4n6xojI5tDZENfy2Sj6rxXZBrhGeu1WnNWAVi+CaGo9ONKsnsdZyX2LMKq8iUbbQ==
+"@medusajs/customer@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/customer/-/customer-2.8.0.tgz"
+  integrity sha512-eUjbTaBHEcerpfx7YocFID7IefbhUKqa8QegWS5B3Re5TlWo9XxD6t+70hDIthaiPvAxRAXXCmTcB9zzrO74uQ==
 
-"@medusajs/dashboard@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/dashboard/-/dashboard-2.8.4.tgz"
-  integrity sha512-vvRvxgVEHkeAMJ3z3fg1lRQGkNq6D+QoTuzCALkGkvJcs1hosl/LUxY+yEyM+ZvlIA/mrIZtN5eLVMdl/iUP6g==
+"@medusajs/dashboard@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/dashboard/-/dashboard-2.8.0.tgz"
+  integrity sha512-idnIziDkBcUVUpN2OK8eGuYftILt8NrEqtaoUoP1Dcg+sfi9AdUihzBcdXMMpZSP15+BulWNX8frBg1IBbdU5g==
   dependencies:
     "@ariakit/react" "^0.4.15"
     "@dnd-kit/core" "^6.1.0"
@@ -1813,10 +1797,10 @@
     "@dnd-kit/utilities" "^3.2.2"
     "@hookform/error-message" "^2.0.1"
     "@hookform/resolvers" "3.4.2"
-    "@medusajs/admin-shared" "2.8.4"
-    "@medusajs/icons" "2.8.4"
-    "@medusajs/js-sdk" "2.8.4"
-    "@medusajs/ui" "4.0.14"
+    "@medusajs/admin-shared" "2.8.0"
+    "@medusajs/icons" "2.8.0"
+    "@medusajs/js-sdk" "2.8.0"
+    "@medusajs/ui" "4.0.10"
     "@tanstack/react-query" "5.64.2"
     "@tanstack/react-table" "8.20.5"
     "@tanstack/react-virtual" "^3.8.3"
@@ -1843,52 +1827,52 @@
     react-router-dom "6.20.1"
     zod "3.22.4"
 
-"@medusajs/event-bus-local@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/event-bus-local/-/event-bus-local-2.8.4.tgz"
-  integrity sha512-UW3864rhfI3In6NY0HNPJk8CqBaVctTctEsArbEa4FxM3ucODzH+lZKNwLhIpQUkC4mlYkcRH1/qfndHazWNJA==
+"@medusajs/event-bus-local@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/event-bus-local/-/event-bus-local-2.8.0.tgz"
+  integrity sha512-M7qy9wUY6ORBrA9wq9zlaIHju4Olvc+h4gsDDbnR942K9t8VzCGOM9zlMAHJLIxtJ/MoUxw/u8FOkGhSXLUwsA==
   dependencies:
     ulid "^2.3.0"
 
-"@medusajs/event-bus-redis@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/event-bus-redis/-/event-bus-redis-2.8.4.tgz"
-  integrity sha512-CHMFTYVF2XVjwmo8RKlUS4btfxAqxx8pElBFjG9K4bQX/BTyFoRYc5w8HQWdab7Hvnn9ZFAb4obXTIo+L2LxRw==
+"@medusajs/event-bus-redis@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/event-bus-redis/-/event-bus-redis-2.8.0.tgz"
+  integrity sha512-3/Fix4+iYhV4eRTfYdYlvo1sPTCiYZS6WVrmxavK5FEHv1+/cGnqPN0bmyBbH10cqJTk54Z+ZaPpAxhIp+4umA==
   dependencies:
     bullmq "5.13.0"
     ioredis "^5.4.1"
 
-"@medusajs/file-local@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/file-local/-/file-local-2.8.4.tgz"
-  integrity sha512-jfwc9oSE1dwoUWcZ8LxWQkHFGRLGjY+DE9FCtdDnpFAPQxK9ioTJpPjABTDpTpoQr75oNkm2vRMSPBmU2BmmXw==
+"@medusajs/file-local@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/file-local/-/file-local-2.8.0.tgz"
+  integrity sha512-KHYj2EfJk3jXXUsmFdkoiOF/UVmpBy3AcFhKS4PU4UTK04arA/DaQYejdlrdUUsIvn/yubLG1wVG2ZB0fuMq1g==
 
-"@medusajs/file-s3@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/file-s3/-/file-s3-2.8.4.tgz"
-  integrity sha512-qj316jNT6a9Rbqg8oirtWFir1KTNeN1h5VOfGCWfUv10Fgr0/fbWiQZN6OLYTTp6zV97Px2Vv8eOwEjEufyRBg==
+"@medusajs/file-s3@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/file-s3/-/file-s3-2.8.0.tgz"
+  integrity sha512-m/XITPiq+74UAe/m/tQ7suih36grZS98VfknjXeVrS+55FifA/g3dQ9OTYz5zPj4+XPLWiQENH+AHPK2r1WXlg==
   dependencies:
     "@aws-sdk/client-s3" "^3.556.0"
     "@aws-sdk/s3-request-presigner" "^3.556.0"
     ulid "^2.3.0"
 
-"@medusajs/file@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/file/-/file-2.8.4.tgz"
-  integrity sha512-Fmb9y2M8S4+QAHtafrxr/IqaROjO5ruOet41k6SqTtZ5X+CTWIjFd6t23jqK7CVVtL+Oe9XY8qGgJ9sLOXZKSw==
+"@medusajs/file@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/file/-/file-2.8.0.tgz"
+  integrity sha512-MHr857xTKO3a3aO+6AjLlhULJggnf7dhUoHM5LinPPKwDDxBudMDhSj1mXSVH1ZIj3mH9A+JfmTxmPLLY2n6/w==
 
-"@medusajs/framework@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/framework/-/framework-2.8.4.tgz"
-  integrity sha512-cLuKdwa8lP+9yokWZnIwIqmbIvTq3J3LBhQZKrKCKJ8llKzbUw1LV84uAwlViu80Dngi/zCgn9lzlJM+vR4UtA==
+"@medusajs/framework@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/framework/-/framework-2.8.0.tgz"
+  integrity sha512-UQ5lf4w3exiuDmqknIFBymtKi98k/v3jfqXHM8CL+c6nLi/pqWNE2izVmrteI7c9oV0PghHoOMId3b5k88HGpQ==
   dependencies:
     "@jercle/yargonaut" "^1.1.5"
-    "@medusajs/modules-sdk" "2.8.4"
-    "@medusajs/orchestration" "2.8.4"
-    "@medusajs/telemetry" "2.8.4"
-    "@medusajs/types" "2.8.4"
-    "@medusajs/utils" "2.8.4"
-    "@medusajs/workflows-sdk" "2.8.4"
+    "@medusajs/modules-sdk" "2.8.0"
+    "@medusajs/orchestration" "2.8.0"
+    "@medusajs/telemetry" "2.8.0"
+    "@medusajs/types" "2.8.0"
+    "@medusajs/utils" "2.8.0"
+    "@medusajs/workflows-sdk" "2.8.0"
     "@opentelemetry/api" "^1.9.0"
     "@types/express" "^4.17.17"
     chokidar "^3.4.2"
@@ -1905,117 +1889,118 @@
     path-to-regexp "^0.1.10"
     tsconfig-paths "^4.2.0"
     zod "3.22.4"
-    zod-validation-error "^3.4.1"
 
-"@medusajs/fulfillment-manual@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/fulfillment-manual/-/fulfillment-manual-2.8.4.tgz"
-  integrity sha512-KLhEiK7OZci4GI1z7WaX2UbVER6d9v+hb5ngRqv06DFWho2uhYF9oipuNeD7xpwS5wf6gL5cGf4ZpxQl8vESfw==
+"@medusajs/fulfillment-manual@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/fulfillment-manual/-/fulfillment-manual-2.8.0.tgz"
+  integrity sha512-3Mj5DT5U8kSvvGAKMcTzkkVUGj5ONWEk9TTGNYFg/ZfMNqVPDqYqqTouRhe9WrAhSYuOtxTOJStlg4rayfQSyg==
 
-"@medusajs/fulfillment@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/fulfillment/-/fulfillment-2.8.4.tgz"
-  integrity sha512-W11VN5Uh1YPpSdsoEefaVu6Vpy04ElL+Uw4AMWMYrH3UCnc+o/nzCf/wcUviwHy5mLGlvFq7cMvaz0WP1L5mMw==
+"@medusajs/fulfillment@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/fulfillment/-/fulfillment-2.8.0.tgz"
+  integrity sha512-/01QbEa+6hZHa6E6TN7kRg+WYZ7QoW1tgpaKXHUVoNbSUM3V15Yo48yrBIouFHaMrWX4+MCDVNKM2OfatjW0BA==
+
+"@medusajs/icons@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/icons/-/icons-2.8.0.tgz"
+  integrity sha512-o+0nbPCLPT9oyMbw1jSGH/hPui/2DpsYXiKZxYgyVvtpxq985WsLw9nxsyEK5/fspy+2jvthqn1jsRtgp5ZSIw==
 
 "@medusajs/icons@2.8.4":
   version "2.8.4"
   resolved "https://registry.npmjs.org/@medusajs/icons/-/icons-2.8.4.tgz"
   integrity sha512-g6Hc+8eRH4HTlYpW3tyNPdQ6Iym1Lvul/7MVD6ANYn9LCNchVU2HFhYz9m6M+tC96/gMDWRExiVWaW/hexvPTg==
 
-"@medusajs/index@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/index/-/index-2.8.4.tgz"
-  integrity sha512-Odo/GSR8GoNNpsjvtgfyVz9YS9jIR/MqE6u8rQiW7k+ii6bCTtzrk8CNKD6vNFMs8lRGJxuW40XwVMUfrkZ6Xg==
+"@medusajs/index@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/index/-/index-2.8.0.tgz"
+  integrity sha512-Kb17Q9M7slnG0adstGsiRTS93C3DdI3FOPUv/iviOvdzDZlqrPUCnrgW7CYOVx+NMlyX74zkq+LizQSSTGdTbQ==
 
-"@medusajs/inventory@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/inventory/-/inventory-2.8.4.tgz"
-  integrity sha512-86ngMU6zb66uSLbZQOL/pcqQw8eKmKj8rR+HR8HeHfQp1AUZdxLFdJniWA+LhNFPLCf4aiz5emhzeeJQQrDwAg==
+"@medusajs/inventory@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/inventory/-/inventory-2.8.0.tgz"
+  integrity sha512-e2vImmKbuxnjO1VJoJ2Tde23LH18pX+6/4OsSIAU/QkDbPeXp0dX4Z8kkkd/jNPpJIAXNQt5xiDgNL7aGDjTjQ==
 
-"@medusajs/js-sdk@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/js-sdk/-/js-sdk-2.8.4.tgz"
-  integrity sha512-G2B/NpXrQl/sry0FotFs4qRpsEaIK2VGQQL5fs49lk1Nt0khWLYc10NtfcEyaSbb2jQI9ese3rocIqQP0McJ1A==
+"@medusajs/js-sdk@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/js-sdk/-/js-sdk-2.8.0.tgz"
+  integrity sha512-/oM9AjODr413q8+SHei4mGyr+j+8kI2Bg3Fqp9nnxDWjBiypgRq/zR+p+NS5mjko6SZwq0lezeqjW5sRXcOLQA==
   dependencies:
-    "@medusajs/types" "2.8.4"
+    "@medusajs/types" "2.8.0"
     fetch-event-stream "^0.1.5"
     qs "^6.12.1"
 
-"@medusajs/link-modules@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/link-modules/-/link-modules-2.8.4.tgz"
-  integrity sha512-1hRPfUkl7ak0o5ETekVzLw6/UM2hnmVV78r1wV7ahLMowhRuYjK91nf+7tyxUJFo8YCZpbTzgW7y9A71eUR3mg==
+"@medusajs/link-modules@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/link-modules/-/link-modules-2.8.0.tgz"
+  integrity sha512-aIGFtDghrpu8rJna48Rq2OKJ9YL3vBrg8fgh7p9jI3H7DWLsQhpoEo/LP6g5R4dG5aJKdR1ux4kjHQxDFZbzJA==
 
-"@medusajs/locking-postgres@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/locking-postgres/-/locking-postgres-2.8.4.tgz"
-  integrity sha512-FkH4jzLqxLrPVc3MNuhoDjLRHKwBV6zo499S6baO9M56qooeHzi5f8mS9l0Vi26MteSmk9rZ7aH7kcAjVRic8g==
+"@medusajs/locking-postgres@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/locking-postgres/-/locking-postgres-2.8.0.tgz"
+  integrity sha512-krwvFRS8iCYjCBfB/DtCXLqhhTpQWcM/dZkcioTMg0+ygfWVIJdGigsk78VMFiYNZK6vRStY5uVVUOM0Ci83FA==
 
-"@medusajs/locking-redis@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/locking-redis/-/locking-redis-2.8.4.tgz"
-  integrity sha512-/vhxV0OzbBdoNNhoTxlcF6iKAM1YJuyCS8ZWK220hFbKpjIM9XO6DiU0uzePpKjAhnTa6+kxGcrvuaoLxykaDw==
+"@medusajs/locking-redis@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/locking-redis/-/locking-redis-2.8.0.tgz"
+  integrity sha512-0TV7cOxoKraLlply7xnN69x58XkJ1psf1lipzqIr/JixsLPoss+9N9nZZa5aTgH/XTyIn1aN/IjmLcsS5hn2gg==
   dependencies:
     ioredis "^5.4.1"
 
-"@medusajs/locking@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/locking/-/locking-2.8.4.tgz"
-  integrity sha512-dZ9zy8l/H2Pq5X1Wd9NSYvQo3Vb1mTzRx1eK0DSn40u5Hmef/pm51gQwdEnZxNlUKV6Lbm/yNopGMIFWiGPJOQ==
+"@medusajs/locking@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/locking/-/locking-2.8.0.tgz"
+  integrity sha512-PhhWtp86Ud76WyvxtYzKkWJ/yIN7lAXCj7yS9wsn2waqIbMPURV4TnixDcOaencfVhkY60Wn06YHMc7C04HK2Q==
 
-"@medusajs/medusa@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/medusa/-/medusa-2.8.4.tgz"
-  integrity sha512-xw/3K6LMA0uuj+TWL4E0u1F8n28lGuDCy67SKA8LzSWT0kcFxaaU7z7QlZ6/z16ocHox6VO+BDBMA+gjq2YpSg==
+"@medusajs/medusa@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/medusa/-/medusa-2.8.0.tgz"
+  integrity sha512-uNGpYUzglz+ZIffrHhiBQLYSPw+159MITkz56u89clc5XBzaIeI8o+HI2fAwLjfy55hXZh9ZE23csb3J6XZumw==
   dependencies:
     "@inquirer/checkbox" "^2.3.11"
     "@inquirer/input" "^2.2.9"
-    "@medusajs/admin-bundler" "2.8.4"
-    "@medusajs/analytics" "2.8.4"
-    "@medusajs/analytics-local" "2.8.4"
-    "@medusajs/analytics-posthog" "2.8.4"
-    "@medusajs/api-key" "2.8.4"
-    "@medusajs/auth" "2.8.4"
-    "@medusajs/auth-emailpass" "2.8.4"
-    "@medusajs/auth-github" "2.8.4"
-    "@medusajs/auth-google" "2.8.4"
-    "@medusajs/cache-inmemory" "2.8.4"
-    "@medusajs/cache-redis" "2.8.4"
-    "@medusajs/cart" "2.8.4"
-    "@medusajs/core-flows" "2.8.4"
-    "@medusajs/currency" "2.8.4"
-    "@medusajs/customer" "2.8.4"
-    "@medusajs/event-bus-local" "2.8.4"
-    "@medusajs/event-bus-redis" "2.8.4"
-    "@medusajs/file" "2.8.4"
-    "@medusajs/file-local" "2.8.4"
-    "@medusajs/file-s3" "2.8.4"
-    "@medusajs/fulfillment" "2.8.4"
-    "@medusajs/fulfillment-manual" "2.8.4"
-    "@medusajs/index" "2.8.4"
-    "@medusajs/inventory" "2.8.4"
-    "@medusajs/link-modules" "2.8.4"
-    "@medusajs/locking" "2.8.4"
-    "@medusajs/locking-postgres" "2.8.4"
-    "@medusajs/locking-redis" "2.8.4"
-    "@medusajs/notification" "2.8.4"
-    "@medusajs/notification-local" "2.8.4"
-    "@medusajs/notification-sendgrid" "2.8.4"
-    "@medusajs/order" "2.8.4"
-    "@medusajs/payment" "2.8.4"
-    "@medusajs/payment-stripe" "2.8.4"
-    "@medusajs/pricing" "2.8.4"
-    "@medusajs/product" "2.8.4"
-    "@medusajs/promotion" "2.8.4"
-    "@medusajs/region" "2.8.4"
-    "@medusajs/sales-channel" "2.8.4"
-    "@medusajs/stock-location" "2.8.4"
-    "@medusajs/store" "2.8.4"
-    "@medusajs/tax" "2.8.4"
-    "@medusajs/telemetry" "2.8.4"
-    "@medusajs/user" "2.8.4"
-    "@medusajs/workflow-engine-inmemory" "2.8.4"
-    "@medusajs/workflow-engine-redis" "2.8.4"
+    "@medusajs/admin-bundler" "2.8.0"
+    "@medusajs/api-key" "2.8.0"
+    "@medusajs/auth" "2.8.0"
+    "@medusajs/auth-emailpass" "2.8.0"
+    "@medusajs/auth-github" "2.8.0"
+    "@medusajs/auth-google" "2.8.0"
+    "@medusajs/cache-inmemory" "2.8.0"
+    "@medusajs/cache-redis" "2.8.0"
+    "@medusajs/cart" "2.8.0"
+    "@medusajs/core-flows" "2.8.0"
+    "@medusajs/currency" "2.8.0"
+    "@medusajs/customer" "2.8.0"
+    "@medusajs/event-bus-local" "2.8.0"
+    "@medusajs/event-bus-redis" "2.8.0"
+    "@medusajs/file" "2.8.0"
+    "@medusajs/file-local" "2.8.0"
+    "@medusajs/file-s3" "2.8.0"
+    "@medusajs/fulfillment" "2.8.0"
+    "@medusajs/fulfillment-manual" "2.8.0"
+    "@medusajs/index" "2.8.0"
+    "@medusajs/inventory" "2.8.0"
+    "@medusajs/link-modules" "2.8.0"
+    "@medusajs/locking" "2.8.0"
+    "@medusajs/locking-postgres" "2.8.0"
+    "@medusajs/locking-redis" "2.8.0"
+    "@medusajs/notification" "2.8.0"
+    "@medusajs/notification-local" "2.8.0"
+    "@medusajs/notification-sendgrid" "2.8.0"
+    "@medusajs/order" "2.8.0"
+    "@medusajs/payment" "2.8.0"
+    "@medusajs/payment-stripe" "2.8.0"
+    "@medusajs/pricing" "2.8.0"
+    "@medusajs/product" "2.8.0"
+    "@medusajs/promotion" "2.8.0"
+    "@medusajs/region" "2.8.0"
+    "@medusajs/sales-channel" "2.8.0"
+    "@medusajs/stock-location" "2.8.0"
+    "@medusajs/store" "2.8.0"
+    "@medusajs/tax" "2.8.0"
+    "@medusajs/telemetry" "2.8.0"
+    "@medusajs/user" "2.8.0"
+    "@medusajs/workflow-engine-inmemory" "2.8.0"
+    "@medusajs/workflow-engine-redis" "2.8.0"
     "@opentelemetry/api" "^1.9.0"
     boxen "^5.0.1"
     chalk "^4.0.0"
@@ -2033,102 +2018,102 @@
     uuid "^9.0.0"
     zod "3.22.4"
 
-"@medusajs/modules-sdk@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/modules-sdk/-/modules-sdk-2.8.4.tgz"
-  integrity sha512-Y3CeDYUNXj64GZKZGIxTuv5VfUzB5poTdClD+p99vC++wHX/K1GZBDw7X5+3zVjG1aEeFl1QRnekdE7ALwrXxQ==
+"@medusajs/modules-sdk@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/modules-sdk/-/modules-sdk-2.8.0.tgz"
+  integrity sha512-2Sbg7NMueyA8qBDz0ZrEASaHyeWq93XswfamentjMXPOhnfruJKOhbw/rBzA2C7Z1K4xLUGuBPItddPRRfQ4MA==
   dependencies:
-    "@medusajs/orchestration" "2.8.4"
-    "@medusajs/types" "2.8.4"
-    "@medusajs/utils" "2.8.4"
+    "@medusajs/orchestration" "2.8.0"
+    "@medusajs/types" "2.8.0"
+    "@medusajs/utils" "2.8.0"
 
-"@medusajs/notification-local@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/notification-local/-/notification-local-2.8.4.tgz"
-  integrity sha512-rn6bD96uhFfjg/PbekfOhWbN+z1lXIAVd81/Kbx8Hn1JB5p+Z5mLcyGJwhFwHAy4MrVfa1zek5R0ioScrXbxeA==
+"@medusajs/notification-local@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/notification-local/-/notification-local-2.8.0.tgz"
+  integrity sha512-uBG510EROlm4pjs/bRojA80KcH3gcs6gH6BxRUvpJJIdjYyb6JJXqD3mXrz+0kyAfDYD+HJRKE8B3v68eO7LAw==
 
-"@medusajs/notification-sendgrid@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/notification-sendgrid/-/notification-sendgrid-2.8.4.tgz"
-  integrity sha512-ZuEtaR918K6V/Xo7ULYf5XPpmrbwU+nV5IHX9WStRLgjqSjUWptL2WWSptlrno33Sk6wiEz22gXWXNj7TCNviQ==
+"@medusajs/notification-sendgrid@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/notification-sendgrid/-/notification-sendgrid-2.8.0.tgz"
+  integrity sha512-lQ/3IMFwck6/X1ZdcJKQGVigRebp6RgGy2I1SaKIM9fAi6nyKaPGvjdN/4fjvgQwWLTAMAB+4EBHYukD5AfdzA==
   dependencies:
     "@sendgrid/mail" "^8.1.3"
 
-"@medusajs/notification@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/notification/-/notification-2.8.4.tgz"
-  integrity sha512-u5rvmH6A6zHWdxS0mTyIGLs4oc6Lne8bKISZAKm1QcbVlW8fQRMxxlBDr9vK1f529G6CSVDhpDAlhmc8Hn7ARQ==
+"@medusajs/notification@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/notification/-/notification-2.8.0.tgz"
+  integrity sha512-9pImrAa71sZXcCmguKJamn7OdIKB3quOcetX1XLSleYEHLU/KNHYDOtA1acERxU2DcrxasAtpAk1m8JwU0h5dg==
 
-"@medusajs/orchestration@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/orchestration/-/orchestration-2.8.4.tgz"
-  integrity sha512-TIYWlwsPENawbq8sl45yqdO89l+hJG7XPTZ8ZUsjhNuXNx+L+Fw+tPljOcO8huKyQXEv+Hz6FE0rF8v8IaHOsQ==
+"@medusajs/orchestration@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/orchestration/-/orchestration-2.8.0.tgz"
+  integrity sha512-34qmVbaXUgPKXxzwA5ZqiRNw85FoPeHBUajhVERTLDUHhPeEs3cnsVTH4Xf1pGN4J1HX5Nt3I1Wmwf5sM8zBmQ==
   dependencies:
-    "@medusajs/types" "2.8.4"
-    "@medusajs/utils" "2.8.4"
+    "@medusajs/types" "2.8.0"
+    "@medusajs/utils" "2.8.0"
     ulid "^2.3.0"
 
-"@medusajs/order@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/order/-/order-2.8.4.tgz"
-  integrity sha512-JCFGHaBpNYWChW5ybbYiIWIFgQv1kcvcL2bWE9RDsbGf9MF109FFerMSVh+vOJJWZqmzwJ6kS1K9S/eQtv/4tw==
+"@medusajs/order@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/order/-/order-2.8.0.tgz"
+  integrity sha512-67pXtQgssPXm62Q9ylnDlfYfUuZ/MGb1RiQSU8S0diEf8aGsUm6Gn24IPQ6XMERgErSv+r5y2t99PhH6fyZ1VQ==
 
-"@medusajs/payment-stripe@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/payment-stripe/-/payment-stripe-2.8.4.tgz"
-  integrity sha512-DTg6vJpK0gcTVsiwUGxH3ZEKwAHAIHdKmYG3Vb15u7W5Hd7vVDf8IYOsQEAHZ3pXIXXYaJ2aHprkrgOUUkcM/Q==
+"@medusajs/payment-stripe@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/payment-stripe/-/payment-stripe-2.8.0.tgz"
+  integrity sha512-cNQUTf1ZeYMwGfBX5Vy/cm1zfcQQ+av33E0t/U5dVqmuKtTcSqq18TXqCF8pl7LKBjqi6djm1AZT5s3Y7AeF8Q==
   dependencies:
     stripe "^15.5.0"
 
-"@medusajs/payment@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/payment/-/payment-2.8.4.tgz"
-  integrity sha512-Z2HmheT/UBF/1WtCDGqWs0WOudcghvw2AdgP5mTALu7/SO2aA/XSmEmNBnj42+wYDOSIVJjNxQAQufOI723VFg==
+"@medusajs/payment@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/payment/-/payment-2.8.0.tgz"
+  integrity sha512-hkL8ANQuoLYGH9nHvCwXwNdkrXGiOYuH/VCb3ZE0msEdTeD9zw8k9kdjSwAqbtRuoPfyZYz9ArPIarUA2Aolvw==
 
-"@medusajs/pricing@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/pricing/-/pricing-2.8.4.tgz"
-  integrity sha512-QnA5puDEZbD7X0SmfZUwwVyYX8dEKDZ1if3R0IoekLvdLbL/dvMwwhrt0JphK505NT/xbZCm8shvLtlEKBJNYw==
+"@medusajs/pricing@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/pricing/-/pricing-2.8.0.tgz"
+  integrity sha512-D3WDIqAEoFboK3Bi3Uwjs7Z1E9lDXq+9MzGbqoxhaKaZglgJg1zMzlCYTkj95nBsJSO9iTPzlO5IQRq1u0aGHw==
 
-"@medusajs/product@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/product/-/product-2.8.4.tgz"
-  integrity sha512-XkyNXhSyVokNF0B1iUT6sktpAlnb9pFA7ND0AYIUMxwLf/e5Rhr5PsKjgUxr9es4Qh2F+bMHs0IoHEjoOfVl1g==
+"@medusajs/product@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/product/-/product-2.8.0.tgz"
+  integrity sha512-37uT6iDwO188WDowU0hsmeznM5aejr19kmArpfUOYVaBjoOP8JpIKPHaH0IKStkUa7ZhikTqZXdx8h44+pua3A==
 
-"@medusajs/promotion@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/promotion/-/promotion-2.8.4.tgz"
-  integrity sha512-xOgwLKOaJ00u2aAskNhb+KMXbBZVAHgzXM+Krytbw9o5/oqWOgEH22cfqEhkCvl6SjMuX5JbSEmrjyVYAoL2SQ==
+"@medusajs/promotion@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/promotion/-/promotion-2.8.0.tgz"
+  integrity sha512-bxeUbjhswpvn4oQbhxsteyT5ixyoXIoyI0+IpQK3jJkIl10P4csxVaUK2Ryo4ReF8KcvAVsM9YYrNMAYGgVy2Q==
 
-"@medusajs/region@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/region/-/region-2.8.4.tgz"
-  integrity sha512-swoSnmY/DRk8XS2zDxt3+UlNi+/WNTeFIEc/32Y6T3dI4XzGjMV1s/IMHbkrtHl2y/r8+N5hCWNHKwPErAIY7g==
+"@medusajs/region@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/region/-/region-2.8.0.tgz"
+  integrity sha512-UZ82/sgsQlnbg+zlJvOajhi+3SHagOFjFjYzcQlO4nyrEDjcAmAQYcwBiFkRYpjDBEjxnsl8E2MAoKUMqn4VfQ==
 
-"@medusajs/sales-channel@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/sales-channel/-/sales-channel-2.8.4.tgz"
-  integrity sha512-TnnyeuaJmzqi9G2BSKzD8xA8K/BMNBreNPDUA7ZCCNtUPR+ypSIpgO6yOozXAz46WHZKIT+sZ1z9DxByS8KPkQ==
+"@medusajs/sales-channel@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/sales-channel/-/sales-channel-2.8.0.tgz"
+  integrity sha512-ryeiGm7zgtp8yA8WVwWBPvm4Al5vqqKtXiBVjKN0d5dmzIes77V8LuFf9GN2jvyMGjgheNPiS8CfaTFYvnx9cw==
 
-"@medusajs/stock-location@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/stock-location/-/stock-location-2.8.4.tgz"
-  integrity sha512-RrotXw06fjZd1KOa24oYLoMIudeyWWqKSDJ19RzMvXfiZT4uYnuQJbz3fuiJKV3X5EWJqi+aoDHNi1t7AjgjoA==
+"@medusajs/stock-location@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/stock-location/-/stock-location-2.8.0.tgz"
+  integrity sha512-sRahljZ8yc3LLEbkAzNEFw2WgQ2YFFIq2jt7Oqu+klrGIrejGdhXsZu+hMAwMSv/7whTJJutu4b95db/Vi+6Pg==
 
-"@medusajs/store@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/store/-/store-2.8.4.tgz"
-  integrity sha512-1dQkiiAHWMoWvylTx3Hou9JsgdNumdDCApQFMGf5A9Feb2CnNIHgElExa/7TaMtyn88cipEetiqCe0Pbf4kC5g==
+"@medusajs/store@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/store/-/store-2.8.0.tgz"
+  integrity sha512-OwEoXy4VeJ+AuwI/nhH92Y4Y+I8P4icfVjZMHxR/UcHH/7au3hpwAAaGJooSfQmopoVccT0vlZ2/QHRXClMyig==
 
-"@medusajs/tax@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/tax/-/tax-2.8.4.tgz"
-  integrity sha512-9yrbuDbtesxCL7uSgs87i1WPIC958JvN29H8IeJRP+D257I4m2IKLFVhW9dpQj7NOr6dD8roAw/xp5YbX4dLCg==
+"@medusajs/tax@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/tax/-/tax-2.8.0.tgz"
+  integrity sha512-DtDpT2JVCytrpR7WRXxezumbnbzA1OtzafM0IG+5fK1vcs6bTB66/3qPrm4kyV0+aJUFkKOzH4hk5nOQdFgQaw==
 
-"@medusajs/telemetry@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/telemetry/-/telemetry-2.8.4.tgz"
-  integrity sha512-iNOMvVWt9zNZT18u0p1OE0873GmdRQvyE+Bdv43cS/NXToJ0WfAQoe73ACvnHZT0I5sUWN0+WQgNo5039nZcxA==
+"@medusajs/telemetry@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/telemetry/-/telemetry-2.8.0.tgz"
+  integrity sha512-xY9MchnKY8TXlnSWPwpQFzvNtQZKglIEpmrN8ue3TdauYl7bi8XXgvftn/zEqFg+M9ScvIudUKbMYk54r9WjBA==
   dependencies:
     "@babel/runtime" "^7.22.10"
     axios "^0.21.4"
@@ -2141,10 +2126,10 @@
     remove-trailing-slash "^0.1.1"
     uuid "^8.3.2"
 
-"@medusajs/test-utils@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/test-utils/-/test-utils-2.8.4.tgz"
-  integrity sha512-6piW/fVHnoKysvT8ki/DiA17VtLq5xCdst3m6ZnfPksh/HmrClgaGIvWVP9+hGxq72LGzQ9bpBGZRBvK2yE8wA==
+"@medusajs/test-utils@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/test-utils/-/test-utils-2.8.0.tgz"
+  integrity sha512-1uYvpx3NjqxHPncAJOwGX8la9BEpxHS2ejCezDR6kFyz91sPXwL8Loa2GITTMC8QsUee7ebw188Vh6jwk8ohMQ==
   dependencies:
     "@types/express" "^4.17.17"
     axios "^0.21.4"
@@ -2152,20 +2137,39 @@
     get-port "^5.1.0"
     randomatic "^3.1.1"
 
-"@medusajs/types@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/types/-/types-2.8.4.tgz"
-  integrity sha512-AMl9XmbMOXk09jwrV2Df1pRVW/Qz74vN2AS0UNFbEBC3YhcFDqTrt4nZpZZrLtckOOcMrR/xG6GgcWvb0vKimw==
+"@medusajs/types@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/types/-/types-2.8.0.tgz"
+  integrity sha512-/NHuSeuUVV5YTlUIS79XjCzMi16ybPD1qbutM9h30cCkwRuey25p0elrh/zweH05qMSBs3fvP2Z+Dn5NH3Uakw==
   dependencies:
     bignumber.js "^9.1.2"
 
-"@medusajs/ui-preset@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/ui-preset/-/ui-preset-2.8.4.tgz"
-  integrity sha512-6eOuuaPcwyKmNEREiZuyj9lt6aD2gg3as+Utt9UqdsUQH1G5jXuFhiNUbuf/F+ELi+Gfq090p1x/C0BneLFSfw==
+"@medusajs/ui-preset@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/ui-preset/-/ui-preset-2.8.0.tgz"
+  integrity sha512-97aFcKZdcuBiBoTWS9ht63EGaSF6fN2RqdEq2mhrBIFWrcum/NweiuetCqe/YFOcTmx/CnZgcNm1bG/p63TrmA==
   dependencies:
     "@tailwindcss/forms" "^0.5.3"
     tailwindcss-animate "^1.0.6"
+
+"@medusajs/ui@4.0.10":
+  version "4.0.10"
+  resolved "https://registry.npmjs.org/@medusajs/ui/-/ui-4.0.10.tgz"
+  integrity sha512-xG+B6/ZOxh+xmhOhIx4tlMRkCPpDULSITHpwby3w+4I4dmBCu8Yses17DxaszdYho87Vbmfvb4v7ox0fufG81Q==
+  dependencies:
+    "@medusajs/icons" "2.8.0"
+    "@tanstack/react-table" "8.20.5"
+    clsx "^1.2.1"
+    copy-to-clipboard "^3.3.3"
+    cva "1.0.0-beta.1"
+    prism-react-renderer "^2.0.6"
+    prismjs "^1.29.0"
+    radix-ui "1.1.2"
+    react-aria "^3.33.1"
+    react-currency-input-field "^3.6.11"
+    react-stately "^3.31.1"
+    sonner "^1.5.0"
+    tailwind-merge "^2.2.1"
 
 "@medusajs/ui@4.0.14":
   version "4.0.14"
@@ -2186,23 +2190,23 @@
     sonner "^1.5.0"
     tailwind-merge "^2.2.1"
 
-"@medusajs/user@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/user/-/user-2.8.4.tgz"
-  integrity sha512-+kD+/s213D03e7YoXVEY0SlVVXB9JU+SPHA0LkGTSTWfrdBI7pqoOFnl70Sgn+R482bzjoYyX+nMQ0ylbllA2w==
+"@medusajs/user@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/user/-/user-2.8.0.tgz"
+  integrity sha512-W9E5NOXpn/HKOBkMgwNKEhv5spE2Lf3S6t0FWzR95IvcjIVfnhdNE2G62f23zERicjGbPyG3JftkTWQp4b8+iQ==
   dependencies:
     jsonwebtoken "^9.0.2"
 
-"@medusajs/utils@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/utils/-/utils-2.8.4.tgz"
-  integrity sha512-nIx7Z1/x7p0nZrwS1DL8X85k0XxQxjEBx/75tSGS4G+BJ5LtDrInEu5zP6s4ip9JRn6xek6aeW50V7Bq6XnZ8Q==
+"@medusajs/utils@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/utils/-/utils-2.8.0.tgz"
+  integrity sha512-I1J53kmHHMw9XiYC95t9aMNZ2FPnaofBXT+AoPVSEnvMqTKD2/iAX1n9fkmmpUjHOM6PWQXe9NYMGbzKLVJJaw==
   dependencies:
     "@graphql-codegen/core" "^4.0.2"
     "@graphql-codegen/typescript" "^4.0.9"
     "@graphql-tools/merge" "^9.0.7"
     "@graphql-tools/schema" "^10.0.6"
-    "@medusajs/types" "2.8.4"
+    "@medusajs/types" "2.8.0"
     "@types/pluralize" "^0.0.33"
     bignumber.js "^9.1.2"
     dotenv "^16.4.5"
@@ -2212,34 +2216,33 @@
     pg-connection-string "^2.7.0"
     pluralize "^8.0.0"
     ulid "^2.3.0"
-    zod "3.22.4"
 
-"@medusajs/workflow-engine-inmemory@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/workflow-engine-inmemory/-/workflow-engine-inmemory-2.8.4.tgz"
-  integrity sha512-FgZbsR9App7j8SUnqB15ocJ0u/EuwycWxxNohpv1Y753NgutAPCGr77YdTxHhv1VjZ8qb8LILyd6WsZSWIOiLA==
+"@medusajs/workflow-engine-inmemory@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/workflow-engine-inmemory/-/workflow-engine-inmemory-2.8.0.tgz"
+  integrity sha512-yA21wRIBoz+tdiIU63gJL2c9afvzKg81POuQBAly6lGE+atHxWxeHKA179Z6ETgi+KTX6jpKahsZaZnoF9zchQ==
   dependencies:
     cron-parser "^4.9.0"
     ulid "^2.3.0"
 
-"@medusajs/workflow-engine-redis@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/workflow-engine-redis/-/workflow-engine-redis-2.8.4.tgz"
-  integrity sha512-8qlDJz8EhRVhLj4HNY6hJuBMViLCEZ0rsNTjQPweGkDj/OeO8pl43Mmsuv6Qd6HGH2B0j2hcEo0mdhdt3KajTg==
+"@medusajs/workflow-engine-redis@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/workflow-engine-redis/-/workflow-engine-redis-2.8.0.tgz"
+  integrity sha512-HfLmNVm5RgRlhF2Zx0UqAeMBn+36u1WP0C7JwvVxVhB5AgkHqe7bYFoTlHb22llIVyEJr0jE5q8tnJtz6QieWw==
   dependencies:
     bullmq "5.13.0"
     ioredis "^5.4.1"
     ulid "^2.3.0"
 
-"@medusajs/workflows-sdk@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.npmjs.org/@medusajs/workflows-sdk/-/workflows-sdk-2.8.4.tgz"
-  integrity sha512-WqegozQMS1ul8SLbKGGRe8KBVel5L935sNlQB5UQeDWyUp3fWWVfND+y3HvLdgxWfAlwcQBBj/Icgw1FLUl1jQ==
+"@medusajs/workflows-sdk@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.npmjs.org/@medusajs/workflows-sdk/-/workflows-sdk-2.8.0.tgz"
+  integrity sha512-Qf6wbkhpx8jQwVeRhv2IMh1QwpAePe/Kwf2KDZaiHMv4s70C1gWnfAglGbvkEjyZVs47g8QPhLG9C0c1HFfrUg==
   dependencies:
-    "@medusajs/modules-sdk" "2.8.4"
-    "@medusajs/orchestration" "2.8.4"
-    "@medusajs/types" "2.8.4"
-    "@medusajs/utils" "2.8.4"
+    "@medusajs/modules-sdk" "2.8.0"
+    "@medusajs/orchestration" "2.8.0"
+    "@medusajs/types" "2.8.0"
+    "@medusajs/utils" "2.8.0"
     ulid "^2.3.0"
 
 "@mikro-orm/cli@6.4.3":
@@ -2254,7 +2257,7 @@
     tsconfig-paths "4.2.0"
     yargs "17.7.2"
 
-"@mikro-orm/core@^6.0.0", "@mikro-orm/core@6.4.3":
+"@mikro-orm/core@6.4.3":
   version "6.4.3"
   resolved "https://registry.npmjs.org/@mikro-orm/core/-/core-6.4.3.tgz"
   integrity sha512-UTaqKs1bomYtGmEEZ8sNBOmW2OqT5NcMh+pBV2iJ6WLM5MuiIEuNhDMuvvPE5gNEwUzc1HyRhUV87bRDhDIGRg==
@@ -4945,7 +4948,7 @@
   resolved "https://registry.npmjs.org/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.5.7.tgz"
   integrity sha512-tp43WfJLCsKLQKBmjmY/0vv1slVywR5Q4qKjF5OIY8QijaEW7/8VwPyUyVoJZEnDgv9jKtUTG5PzqtIYPZGnyg==
 
-"@swc/core@*", "@swc/core@^1.5.7", "@swc/core@>=1.2.50", "@swc/core@1.5.7":
+"@swc/core@^1.5.7":
   version "1.5.7"
   resolved "https://registry.npmjs.org/@swc/core/-/core-1.5.7.tgz"
   integrity sha512-U4qJRBefIJNJDRCCiVtkfa/hpiZ7w0R6kASea+/KLp+vkus3zcLSB8Ub8SvKgTIxjWpwsKcZlPf5nrv4ls46SQ==
@@ -5184,7 +5187,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^18.0.0 || >=20.0.0", "@types/node@^20.0.0", "@types/node@>=18", "@types/node@>=8.1.0":
+"@types/node@*", "@types/node@^20.0.0", "@types/node@>=8.1.0":
   version "20.19.19"
   resolved "https://registry.npmjs.org/@types/node/-/node-20.19.19.tgz"
   integrity sha512-pb1Uqj5WJP7wrcbLU7Ru4QtA0+3kAXrkutGiD26wUKzSMgNNaPARTUDQmElUXp64kh3cWdou3Q0C7qwwxqSFmg==
@@ -5223,12 +5226,12 @@
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.7.tgz"
   integrity sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==
 
-"@types/react-dom@*", "@types/react-dom@^18.2.25":
+"@types/react-dom@^18.2.25":
   version "18.3.7"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.3.7.tgz"
   integrity sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==
 
-"@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^18.0.0", "@types/react@^18.3.2":
+"@types/react@^18.3.2":
   version "18.3.26"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.3.26.tgz"
   integrity sha512-RFA/bURkcKzx/X9oumPG9Vp3D3JUgus/d0b67KB0t5S/raciymilkOa66olh78MUI92QLbEJevO7rvqU/kjwKA==
@@ -5343,7 +5346,7 @@ ajv-formats@~3.0.1:
   dependencies:
     ajv "^8.0.0"
 
-ajv@^8.0.0, ajv@^8.5.0, ajv@~8.13.0:
+ajv@^8.0.0, ajv@~8.13.0:
   version "8.13.0"
   resolved "https://registry.npmjs.org/ajv/-/ajv-8.13.0.tgz"
   integrity sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==
@@ -5687,7 +5690,7 @@ braces@^3.0.3, braces@~3.0.2:
   dependencies:
     fill-range "^7.1.1"
 
-browserslist@^4.24.0, browserslist@^4.24.4, "browserslist@>= 4.21.0":
+browserslist@^4.24.0, browserslist@^4.24.4:
   version "4.26.3"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.26.3.tgz"
   integrity sha512-lAUU+02RFBuCKQPj/P6NgjlbCnLBMp4UtgTx7vNHd3XSIJF87s9a5rA3aH2yw3GS9DqZAUbOtZdCCiZeVRqt0w==
@@ -6315,11 +6318,6 @@ csstype@^3.0.2:
   version "3.1.3"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
-
-csv-parse@^5.6.0:
-  version "5.6.0"
-  resolved "https://registry.npmjs.org/csv-parse/-/csv-parse-5.6.0.tgz"
-  integrity sha512-l3nz3euub2QMg5ouu5U09Ew9Wf6/wQ8I++ch1loQ0ljmzhmfZYrH9fflS22i/PQEvsPvxCwxgz5q7UB8K1JO4Q==
 
 cva@1.0.0-beta.1:
   version "1.0.0-beta.1"
@@ -7140,7 +7138,7 @@ graphql-tag@^2.11.0:
   dependencies:
     tslib "^2.1.0"
 
-graphql@*, "graphql@^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "graphql@^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", graphql@^16.9.0:
+graphql@^16.9.0:
   version "16.11.0"
   resolved "https://registry.npmjs.org/graphql/-/graphql-16.11.0.tgz"
   integrity sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==
@@ -7231,7 +7229,7 @@ i18next-http-backend@2.4.2:
   dependencies:
     cross-fetch "4.0.0"
 
-"i18next@>= 23.2.3", i18next@23.7.11:
+i18next@23.7.11:
   version "23.7.11"
   resolved "https://registry.npmjs.org/i18next/-/i18next-23.7.11.tgz"
   integrity sha512-A/vOkw8vY99YHU9A1Td3I1dcTiYaPnwBWzrpVzfXUXSYgogK3cmBcmop/0cnXPc6QpUWIyqaugKNxRUEZVk9Nw==
@@ -7812,7 +7810,7 @@ jest-resolve-dependencies@^29.7.0:
     jest-regex-util "^29.6.3"
     jest-snapshot "^29.7.0"
 
-jest-resolve@*, jest-resolve@^29.7.0:
+jest-resolve@^29.7.0:
   version "29.7.0"
   resolved "https://registry.npmjs.org/jest-resolve/-/jest-resolve-29.7.0.tgz"
   integrity sha512-IOVhZSrg+UvVAshDSDtHyFCCBUl/Q3AAJv8iZ6ZjnZ74xzvwuzLXid9IIIPgTnY62SJjfuupMKZsZQRsCvxEgA==
@@ -7966,7 +7964,7 @@ jest@^29.7.0:
     import-local "^3.0.2"
     jest-cli "^29.7.0"
 
-jiti@^1.21.7, jiti@>=1.21.0:
+jiti@^1.21.7:
   version "1.21.7"
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.21.7.tgz"
   integrity sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==
@@ -8884,7 +8882,7 @@ pg-types@^2.1.0, pg-types@2.2.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.11.3, pg@^8.13.0, pg@^8.3.0, pg@>=8.0:
+pg@^8.11.3, pg@^8.13.0, pg@^8.3.0:
   version "8.16.3"
   resolved "https://registry.npmjs.org/pg/-/pg-8.16.3.tgz"
   integrity sha512-enxc1h0jA/aq5oSDMvqyW3q89ra6XIIDZgCX9vkMrnz5DFTw/Ny3Li2lFQ+pt3L6MCgm/5o2o8HW9hiJji+xvw==
@@ -8941,11 +8939,6 @@ picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
-
-picomatch@3.x:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/picomatch/-/picomatch-3.0.1.tgz"
-  integrity sha512-I3EurrIQMlRc9IaAZnqRR044Phh2DXY+55o7uJ0V+hYZAcQYSuFWsc9q5PvyDHUSCe1Qxn/iBz+78s86zWnGag==
 
 pify@^2.3.0:
   version "2.3.0"
@@ -9017,7 +9010,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.0.0, postcss@^8.1.0, postcss@^8.2.14, postcss@^8.4.21, postcss@^8.4.32, postcss@^8.4.43, postcss@^8.4.47, postcss@>=8.0.9:
+postcss@^8.4.32, postcss@^8.4.43, postcss@^8.4.47:
   version "8.5.6"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz"
   integrity sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==
@@ -9311,7 +9304,7 @@ react-currency-input-field@^3.6.11:
   resolved "https://registry.npmjs.org/react-currency-input-field/-/react-currency-input-field-3.10.0.tgz"
   integrity sha512-GRmZogHh1e1LrmgXg/fKHSuRLYUnj/c/AumfvfuDMA0UX1mDR6u2NR0fzDemRdq4tNHNLucJeJ2OKCr3ehqyDA==
 
-"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react-dom@^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^18.0.0, "react-dom@^18.0.0 || ^19.0.0", "react-dom@^18.0.0 || ^19.0.0 || ^19.0.0-rc", react-dom@^18.2.0, react-dom@>=16.8, react-dom@>=16.8.0, react-dom@>=18.0.0:
+react-dom@^18.2.0:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -9333,7 +9326,7 @@ react-helmet-async@^2.0.5:
     react-fast-compare "^3.2.2"
     shallowequal "^1.1.0"
 
-react-hook-form@^7.0.0, react-hook-form@7.49.1:
+react-hook-form@7.49.1:
   version "7.49.1"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.49.1.tgz"
   integrity sha512-MId71bfWmpyvwuWjVTe2b4DRc0jIYOb/B9tlrotEHTuHlQGeX1x2QXfjNe9UtMi6TqhO0bsSdSWgjcUFh2fSww==
@@ -9453,7 +9446,7 @@ react-style-singleton@^2.2.1, react-style-singleton@^2.2.2, react-style-singleto
     get-nonce "^1.0.0"
     tslib "^2.0.0"
 
-"react@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.6.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react@^16.9.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^17.0.0 || ^18.0.0 || ^19.0.0", "react@^18 || ^19", react@^18.0.0, "react@^18.0.0 || ^19.0.0", "react@^18.0.0 || ^19.0.0 || ^19.0.0-rc", react@^18.2.0, react@^18.3.1, "react@>= 16.8.0", react@>=16, react@>=16.0.0, react@>=16.8, react@>=16.8.0, react@>=18.0.0:
+react@^18.2.0:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
@@ -10130,7 +10123,7 @@ tailwindcss-animate@^1.0.6:
   resolved "https://registry.npmjs.org/tailwindcss-animate/-/tailwindcss-animate-1.0.7.tgz"
   integrity sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==
 
-tailwindcss@^3.3.6, tailwindcss@^3.4.1, tailwindcss@>=3.0.0, "tailwindcss@>=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1", "tailwindcss@>=3.0.0 || insiders":
+tailwindcss@^3.3.6, tailwindcss@^3.4.1:
   version "3.4.18"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.18.tgz"
   integrity sha512-6A2rnmW5xZMdw11LYjhcI5846rt9pbLSabY5XPxo+XWdxwZaFEn47Go4NzFiHu9sNNmr/kXivP1vStfvMaK1GQ==
@@ -10250,7 +10243,7 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.npmjs.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
-ts-node@^10.9.2, ts-node@>=9.0.0:
+ts-node@^10.9.2:
   version "10.9.2"
   resolved "https://registry.npmjs.org/ts-node/-/ts-node-10.9.2.tgz"
   integrity sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==
@@ -10333,7 +10326,7 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@^5.5.3, "typescript@>= 4.5.5 < 6", typescript@>=2.7:
+typescript@^5.5.3:
   version "5.9.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz"
   integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
@@ -10486,7 +10479,7 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-"vite@^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0", "vite@^5 || ^6", vite@^5.0.0, vite@^5.2.11, vite@^5.4.14:
+vite@^5.2.11, vite@^5.4.14:
   version "5.4.20"
   resolved "https://registry.npmjs.org/vite/-/vite-5.4.20.tgz"
   integrity sha512-j3lYzGC3P+B5Yfy/pfKNgVEg4+UtcIJcVRt2cDjIOmhLourAqPqf8P7acgxeiSgUB7E3p2P8/3gNIgDLpwzs4g==
@@ -10734,12 +10727,12 @@ yoctocolors-cjs@^2.1.2:
   resolved "https://registry.npmjs.org/yoctocolors-cjs/-/yoctocolors-cjs-2.1.3.tgz"
   integrity sha512-U/PBtDf35ff0D8X8D0jfdzHYEPFxAI7jJlxZXwCSez5M3190m+QobIfh+sWDWSHMCWWJN2AWamkegn6vr6YBTw==
 
-zod-validation-error@^3.4.1:
-  version "3.5.3"
-  resolved "https://registry.npmjs.org/zod-validation-error/-/zod-validation-error-3.5.3.tgz"
-  integrity sha512-OT5Y8lbUadqVZCsnyFaTQ4/O2mys4tj7PqhdbBCp7McPwvIEKfPtdA6QfPeFQK2/Rz5LgwmAXRJTugBNBi0btw==
-
-zod@^3.22.4, "zod@^3.25.0 || ^4.0.0", zod@3.22.4:
+zod@3.22.4:
   version "3.22.4"
   resolved "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz"
   integrity sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==
+
+zod@3.23.8:
+  version "3.23.8"
+  resolved "https://registry.npmjs.org/zod/-/zod-3.23.8.tgz"
+  integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==

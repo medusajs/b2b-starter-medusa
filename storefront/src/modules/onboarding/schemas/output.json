@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OnboardingOutput",
+  "type": "object",
+  "properties": {
+    "kWp": { "type": "number" },
+    "modules": { "type": "integer", "minimum": 0 },
+    "inverters": { "type": "integer", "minimum": 0 },
+    "kWh_month": {
+      "type": "array",
+      "items": { "type": "number", "minimum": 0 },
+      "minItems": 12,
+      "maxItems": 12
+    },
+    "kWh_year": { "type": "number", "minimum": 0 },
+    "losses_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+    "area_m2": { "type": "number", "minimum": 0 },
+    "economy_month_brl": { "type": "number" },
+    "economy_pct": { "type": "number" },
+    "payback_years": { "type": "number" },
+    "roi_annual_pct": { "type": "number" },
+    "assumptions": { "type": "object" },
+    "sources": {
+      "type": "object",
+      "properties": {
+        "climate": { "type": "string" },
+        "pv_model": { "type": "string" },
+        "pvwatts_diff_pct": { "type": "number" },
+        "tariff_source": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "alerts": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["kWp", "kWh_month", "kWh_year"],
+  "additionalProperties": true
+}
+
