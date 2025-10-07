@@ -67,7 +67,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
 
       {/* Filtros */}
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6 border">
-        <form className="grid grid-cols-1 md:grid-cols-6 gap-3" action="" method="get">
+        <form className="grid grid-cols-1 md:grid-cols-7 gap-3" action="" method="get">
           <div>
             <label className="block text-xs text-neutral-600 mb-1">Fabricante</label>
             <select name="manufacturer" defaultValue={searchParams?.manufacturer || ""} className="w-full border rounded-md h-9 px-2">
@@ -101,14 +101,57 @@ export default async function CategoryPage({ params, searchParams }: { params: P
               <option value="price_desc">Preço: maior → menor</option>
             </select>
           </div>
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Itens/página</label>
+            <select name="limit" defaultValue={searchParams?.limit || String(pageSize)} className="w-full border rounded-md h-9 px-2">
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="48">48</option>
+            </select>
+          </div>
           <div className="flex items-end gap-2">
             <button type="submit" className="ysh-btn-primary h-9 px-4">Filtrar</button>
             <Link href={`/${p.countryCode}/produtos/${category}`} className="ysh-btn-outline h-9 px-4">Limpar</Link>
           </div>
-          {searchParams?.limit && <input type="hidden" name="limit" value={searchParams.limit} />}
           {searchParams?.page && <input type="hidden" name="page" value={searchParams.page} />}
         </form>
       </div>
+
+      {/* Chips de filtros ativos */}
+      {(() => {
+        const active: Array<{ key: string; label: string; value: string }> = []
+        if (searchParams?.manufacturer) active.push({ key: 'manufacturer', label: 'Fabricante', value: searchParams.manufacturer })
+        if (searchParams?.minPrice) active.push({ key: 'minPrice', label: 'Preço mín.', value: searchParams.minPrice })
+        if (searchParams?.maxPrice) active.push({ key: 'maxPrice', label: 'Preço máx.', value: searchParams.maxPrice })
+        if (searchParams?.availability) active.push({ key: 'availability', label: 'Disponibilidade', value: searchParams.availability })
+        if (searchParams?.sort) active.push({ key: 'sort', label: 'Ordenação', value: searchParams.sort === 'price_asc' ? 'Preço: menor → maior' : searchParams.sort === 'price_desc' ? 'Preço: maior → menor' : searchParams.sort })
+        if (active.length === 0) return null
+
+        const makeClearHref = (param: string) => {
+          const sp = new URLSearchParams()
+          if (searchParams?.manufacturer && param !== 'manufacturer') sp.set('manufacturer', searchParams.manufacturer)
+          if (searchParams?.minPrice && param !== 'minPrice') sp.set('minPrice', searchParams.minPrice)
+          if (searchParams?.maxPrice && param !== 'maxPrice') sp.set('maxPrice', searchParams.maxPrice)
+          if (searchParams?.availability && param !== 'availability') sp.set('availability', searchParams.availability)
+          if (searchParams?.sort && param !== 'sort') sp.set('sort', searchParams.sort)
+          if (searchParams?.limit) sp.set('limit', searchParams.limit)
+          // reset page when changing filters
+          sp.set('page', '1')
+          return `?${sp.toString()}`
+        }
+
+        return (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {active.map((f) => (
+              <Link key={f.key} href={makeClearHref(f.key)} className="inline-flex items-center gap-1 px-2 py-1 rounded-full border text-xs border-neutral-300 hover:bg-neutral-100">
+                <span className="text-neutral-600">{f.label}:</span>
+                <span className="font-medium">{f.value}</span>
+                <span aria-hidden>×</span>
+              </Link>
+            ))}
+          </div>
+        )
+      })()}
 
       <div className={`grid gap-6 ${isKits ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}` }>
         {products?.map((item: any) => (
