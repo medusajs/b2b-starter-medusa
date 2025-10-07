@@ -2,6 +2,7 @@ import { listCategories } from "@/lib/data/categories"
 import { retrieveCustomer } from "@/lib/data/customer"
 import SkeletonProductGrid from "@/modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@/modules/store/components/refinement-list"
+import { classeHandleMap } from "@/lib/mappings"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import StoreBreadcrumb from "@/modules/store/components/store-breadcrumb"
 import PaginatedProducts from "@/modules/store/templates/paginated-products"
@@ -38,20 +39,11 @@ export default async function StorePage(props: Params) {
   const categories = await listCategories()
   const customer = await retrieveCustomer()
 
-  // Best-effort mapping from classe -> category handle keywords
-  const classeToHandle: Record<string, string[]> = {
-    "residencial-b1": ["residencial", "kits-residenciais"],
-    "rural-b2": ["rural"],
-    "comercial-b3": ["comercial", "pme"],
-    condominios: ["condominio", "condomínio", "gc"],
-    industria: ["industria", "industrial", "grandes"],
-  }
-
   let currentCategory: any | undefined
   let selectedCategoryId: string | undefined
 
   if (classe && Array.isArray(categories)) {
-    const needles = classeToHandle[classe] || []
+    const needles = classeHandleMap[classe] || []
     const found = categories.find((c) => {
       const h = (c.handle || "").toLowerCase()
       return needles.some((n) => h.includes(n))
@@ -84,4 +76,3 @@ export default async function StorePage(props: Params) {
     </div>
   )
 }
-

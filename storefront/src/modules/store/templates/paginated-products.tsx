@@ -5,6 +5,7 @@ import { Pagination } from "@/modules/store/components/pagination"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { B2BCustomer } from "@/types"
 import { Container } from "@medusajs/ui"
+import { t } from "@/lib/i18n/copy"
 
 const PRODUCT_LIMIT = 12
 
@@ -85,7 +86,7 @@ export default async function PaginatedProducts({
           })
         ) : (
           <Container className="text-center text-sm text-neutral-500">
-            No products found for this category.
+            {t("plp.empty_state")}
           </Container>
         )}
       </ul>

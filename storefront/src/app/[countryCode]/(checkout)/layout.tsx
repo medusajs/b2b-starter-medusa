@@ -1,6 +1,7 @@
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import LogoIcon from "@/modules/common/icons/logo"
 import MedusaCTA from "@/modules/layout/components/medusa-cta"
+import { t } from "@/lib/i18n/copy"
 
 export default function CheckoutLayout({
   children,
@@ -23,13 +24,13 @@ export default function CheckoutLayout({
       <div className="bg-white py-2 border-b">
         <div className="content-container">
           <div className="flex justify-center space-x-4 text-sm">
-            <span className="text-gray-500">1. Carrinho</span>
-            <span className="text-gray-500">→</span>
-            <span className="text-gray-500">2. Dados & Entrega</span>
-            <span className="text-gray-500">→</span>
-            <span className="font-semibold text-amber-600">3. Pagamento & Financiamento</span>
-            <span className="text-gray-500">→</span>
-            <span className="text-gray-500">4. Confirmação</span>
+            <span className="text-gray-500">1. {t("checkout.steps.items")}</span>
+            <span className="text-gray-500">›</span>
+            <span className="text-gray-500">2. {t("checkout.steps.address")}</span>
+            <span className="text-gray-500">›</span>
+            <span className="font-semibold text-amber-600">3. {t("checkout.steps.payment")} & Financiamento</span>
+            <span className="text-gray-500">›</span>
+            <span className="text-gray-500">4. {t("checkout.steps.done")}</span>
           </div>
         </div>
       </div>
@@ -40,17 +41,18 @@ export default function CheckoutLayout({
         <div className="flex flex-col items-center gap-2">
           <div className="flex gap-4">
             <LocalizedClientLink href="/ferramentas/financiamento" className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover">
-              Simular financiamento
+              {t("common.cta_simular")}
             </LocalizedClientLink>
             <LocalizedClientLink href="/suporte" className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover">
-              Falar com especialista
+              {t("common.cta_falar_especialista")}
             </LocalizedClientLink>
           </div>
           <div className="text-xs text-gray-500 text-center">
-            <p>Pagamento seguro • Dados protegidos (LGPD)</p>
+            <p>{t("checkout.steps.payment")} seguro • Dados protegidos (LGPD)</p>
           </div>
         </div>
       </div>
     </div>
   )
 }
+

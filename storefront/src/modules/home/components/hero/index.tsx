@@ -4,6 +4,8 @@ import { Sun } from "@medusajs/icons"
 import { Heading } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import Link from "next/link"
+import { t } from "@/lib/i18n/copy"
+import { sendEvent } from "@/modules/analytics/events"
 
 const Hero = () => {
   return (
@@ -27,33 +29,35 @@ const Hero = () => {
         {/* Main Heading */}
         <div className="space-y-4">
           <p className="text-blue-600 text-sm uppercase tracking-wider font-semibold">
-            Energia Solar sob Medida
+            {t("home.hero_title", "curto")}
           </p>
 
           <Heading level="h1" className="text-4xl md:text-6xl leading-tight text-gray-900 font-bold">
-            Energia solar do seu jeito
+            {t("home.hero_title").split(" — ")[0]}
             <span className="block bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-              — do kit ao financiamento
+              — {t("home.hero_title").split(" — ")[1] || "do kit ao financiamento"}
             </span>
           </Heading>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Compare kits, simule financiamento e acompanhe sua instalação com suporte especialista.
+            {t("home.hero_sub")}
           </p>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <Link href="/solucoes">
+          <Link href="/solucoes" aria-label={t("home.hero_cta_primary")}
+            onClick={() => sendEvent("cta_clicked", { component: "hero_primary_cta", key: "home.hero_cta_primary" })}>
             <Button className="ysh-btn-primary text-lg px-8 py-4">
               <Sun className="w-5 h-5 mr-2" />
-              Explorar soluções
+              {t("home.hero_cta_primary")}
             </Button>
           </Link>
-          <Link href="/store">
+          <Link href="/store" aria-label={t("home.hero_cta_secondary")}
+            onClick={() => sendEvent("cta_clicked", { component: "hero_secondary_cta", key: "home.hero_cta_secondary" })}>
             <Button variant="secondary" className="ysh-btn-outline text-lg px-8 py-4">
               <Sun className="w-5 h-5 mr-2" />
-              Ver produtos
+              {t("home.hero_cta_secondary")}
             </Button>
           </Link>
         </div>
@@ -95,4 +99,3 @@ const Hero = () => {
 }
 
 export default Hero
-

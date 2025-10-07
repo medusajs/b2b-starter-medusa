@@ -3,6 +3,7 @@ import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
 import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
+import VideosStrip from "@/modules/home/components/videos-strip"
 import VideosByClass from "@/modules/home/components/videos-by-class"
 // import SolarStats from "@/modules/home/components/solar-stats"
 import Testimonials from "@/modules/home/components/testimonials"
@@ -55,8 +56,8 @@ export default async function Home(props: {
       <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg m-4"></div>}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
+      <VideosStrip />
       <Testimonials />
     </div>
   )
 }
-

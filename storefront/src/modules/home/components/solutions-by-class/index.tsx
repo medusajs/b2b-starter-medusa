@@ -4,12 +4,13 @@ import { Buildings, Bolt, Sun, Users } from "@medusajs/icons"
 import { Heading, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { sendEvent } from "@/modules/analytics/events"
+import { t } from "@/lib/i18n/copy"
 
 const CLASSES = [
   {
     id: "residencial-b1",
-    title: "Residencial B1",
-    description: "Kits on-grid para economia na conta de luz",
+    title: t("solutions.card_b1_title"),
+    description: t("solutions.card_b1_desc"),
     icon: Sun,
     modalidades: ["on-grid", "híbrido"],
     cta: "Ver kits residenciais",
@@ -18,8 +19,8 @@ const CLASSES = [
   },
   {
     id: "rural-b2",
-    title: "Rural B2",
-    description: "Soluções off-grid e híbridas para propriedades rurais",
+    title: t("solutions.card_b2_title"),
+    description: t("solutions.card_b2_desc"),
     icon: Bolt,
     modalidades: ["off-grid", "híbrido"],
     cta: "Ver soluções rurais",
@@ -28,8 +29,8 @@ const CLASSES = [
   },
   {
     id: "comercial-b3",
-    title: "Comercial/PME B3",
-    description: "Sistemas dimensionados para empresas e comércio",
+    title: t("solutions.card_b3_title"),
+    description: t("solutions.card_b3_desc"),
     icon: Buildings,
     modalidades: ["on-grid", "EaaS"],
     cta: "Cotação empresarial",
@@ -38,8 +39,8 @@ const CLASSES = [
   },
   {
     id: "condominios",
-    title: "Condomínios",
-    description: "Geração compartilhada para áreas comuns",
+    title: t("solutions.card_gc_title"),
+    description: t("solutions.card_gc_desc"),
     icon: Users,
     modalidades: ["geração compartilhada"],
     cta: "Soluções coletivas",
@@ -48,8 +49,8 @@ const CLASSES = [
   },
   {
     id: "industria",
-    title: "Indústria/Grandes",
-    description: "EaaS e PPA para grandes contas",
+    title: t("solutions.card_ind_title"),
+    description: t("solutions.card_ind_desc"),
     icon: Buildings,
     modalidades: ["EaaS", "PPA"],
     cta: "Falar com especialista",
@@ -64,13 +65,13 @@ export default function SolutionsByClass() {
       <div className="content-container">
         <div className="text-center mb-12">
           <Text className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">
-            Soluções por Perfil
+            {t("home.solutions_title")}
           </Text>
           <Heading level="h2" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Energia solar para cada necessidade
           </Heading>
           <Text className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Escolha a solução ideal por classe consumidora e modalidade energética
+            {t("home.solutions_sub")}
           </Text>
         </div>
 
@@ -82,11 +83,13 @@ export default function SolutionsByClass() {
                 key={classe.id}
                 href={classe.href}
                 className="group"
+                aria-label={`${classe.title} — ${classe.description}`}
                 data-testid={`class-card-${classe.id}`}
                 onClick={() =>
                   sendEvent("solutions_class_clicked", {
                     id: classe.id,
                     href: classe.href,
+                    key: "home.solutions_title",
                   })
                 }
               >

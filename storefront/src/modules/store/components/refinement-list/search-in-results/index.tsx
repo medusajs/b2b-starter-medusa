@@ -1,7 +1,8 @@
 import { MagnifyingGlassMini } from "@medusajs/icons"
+import { t } from "@/lib/i18n/copy"
 
 const SearchInResults = ({ listName }: { listName?: string }) => {
-  const placeholder = listName ? `Search in ${listName}` : "Search in products"
+  const placeholder = listName ? `${t("plp.search_in_results")} ${listName}` : t("plp.search_in_results")
 
   return (
     <div className="group relative text-sm focus-within:border-neutral-500 rounded-t-lg focus-within:outline focus-within:outline-neutral-500">

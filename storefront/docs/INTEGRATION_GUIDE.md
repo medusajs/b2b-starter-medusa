@@ -20,6 +20,17 @@ Este guia documenta as personalizações implementadas no storefront B2B da Yell
 - **Benefícios**: Lista de benefícios por modalidade
 - **Navegação**: Redireciona para `/produtos?modalidade={id}`
 
+#### `VideosByClass` (`/modules/home/components/videos-by-class/index.tsx`)
+
+- **Propósito**: Galeria de vídeos educacionais segmentados por classe consumidora
+- **Funcionalidades**:
+  - Modal de reprodução integrado (fullscreen overlay)
+  - Thumbnails com badges de classe e duração
+  - Tracking de eventos (video_played, video_closed)
+  - Suporte a YouTube embeds com autoplay
+- **Conteúdo**: 5 vídeos (1 por classe: Residencial B1, Rural B2, Comercial B3, Condomínios, Indústria)
+- **Próximo**: Substituir URLs placeholder por vídeos reais do YouTube
+
 ### 2. Soluções Page (`/app/[countryCode]/(main)/solucoes/page.tsx`)
 
 - **Template**: `/modules/solucoes/templates/index.tsx`

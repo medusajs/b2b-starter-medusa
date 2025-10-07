@@ -84,7 +84,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
         {/* Solar Financing Badge */}
         <div className="flex items-center text-small-regular">
           <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-            Financiamento disponÃ­vel
+            Financiamento disponível
           </span>
         </div>
       </div>
@@ -105,7 +105,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
         <div className="pl-4">
           <LocalizedClientLink href={`/account/quotes/details/${quote.id}`}>
             <Button variant="secondary" className="rounded-full text-xs">
-              Ver detalhes
+              __VER_DETALHES__
             </Button>
           </LocalizedClientLink>
         </div>
@@ -115,3 +115,4 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 }
 
 export default QuoteCard
+
