@@ -12,8 +12,8 @@ services:
     container_name: ysh-kafka
     restart: unless-stopped
     ports:
-      - "9092:9092"   # Kafka API
-      - "9644:9644"   # Admin API
+      - "9092:9092" # Kafka API
+      - "9644:9644" # Admin API
     command:
       - redpanda
       - start
@@ -140,8 +140,14 @@ services:
       QDRANT_URL: http://qdrant:6333
       QDRANT_API_KEY: ${QDRANT_API_KEY:-}
       QDRANT_COLLECTION: ysh-rag
-      # OpenAI
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      # OpenAI (primary)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama (fallback)
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:20b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      # LLM Strategy (openai, ollama, hybrid)
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
       # Pipeline config
       PIPELINE_NAME: catalog_etl
       PIPELINE_MODE: streaming # ou 'batch'
@@ -175,7 +181,13 @@ services:
       QDRANT_URL: http://qdrant:6333
       QDRANT_API_KEY: ${QDRANT_API_KEY:-}
       QDRANT_COLLECTION: ysh-rag
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      # OpenAI (primary)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama (fallback)
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:20b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
       PIPELINE_NAME: rag_streaming
       PIPELINE_MODE: streaming
     volumes:
@@ -195,6 +207,8 @@ volumes:
   minio_data:
     driver: local
   qdrant_data:
+    driver: local
+  ollama_models:
     driver: local
 
 networks:

@@ -10,6 +10,7 @@ import os
 from . import assets
 from .resources.postgres import PostgresResource
 from .resources.qdrant import QdrantResource
+from .resources.ollama import OllamaResource, HybridLLMResource
 
 # Load all assets from modules
 all_assets = load_assets_from_modules([assets])
@@ -92,6 +93,18 @@ resources = {
         url=os.getenv("QDRANT_URL", "http://qdrant:6333"),
         api_key=os.getenv("QDRANT_API_KEY"),
         collection_name=os.getenv("QDRANT_COLLECTION", "ysh-rag"),
+    ),
+    "ollama": OllamaResource(
+        host=os.getenv("OLLAMA_HOST", "http://ollama:11434"),
+        model_chat=os.getenv("OLLAMA_MODEL_CHAT", "qwen2.5:20b"),
+        model_embeddings=os.getenv("OLLAMA_MODEL_EMBEDDINGS", "nomic-embed-text"),
+    ),
+    "llm": HybridLLMResource(
+        openai_api_key=os.getenv("OPENAI_API_KEY"),
+        ollama_host=os.getenv("OLLAMA_HOST", "http://ollama:11434"),
+        prefer_local=os.getenv("LLM_PROVIDER", "hybrid") == "ollama",
+        ollama_chat_model=os.getenv("OLLAMA_MODEL_CHAT", "qwen2.5:20b"),
+        ollama_embedding_model=os.getenv("OLLAMA_MODEL_EMBEDDINGS", "nomic-embed-text"),
     ),
 }
 
