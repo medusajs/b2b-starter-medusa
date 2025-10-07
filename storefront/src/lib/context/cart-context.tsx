@@ -41,15 +41,15 @@ export type AddToCartEventPayload = {
 
 const CartContext = createContext<
   | {
-      cart: B2BCart | null
-      handleDeleteItem: (lineItem: string) => Promise<void>
-      handleUpdateCartQuantity: (
-        lineItem: string,
-        newQuantity: number
-      ) => Promise<void>
-      handleEmptyCart: () => Promise<void>
-      isUpdatingCart: boolean
-    }
+    cart: B2BCart | null
+    handleDeleteItem: (lineItem: string) => Promise<void>
+    handleUpdateCartQuantity: (
+      lineItem: string,
+      newQuantity: number
+    ) => Promise<void>
+    handleEmptyCart: () => Promise<void>
+    isUpdatingCart: boolean
+  }
   | undefined
 >(undefined)
 
@@ -119,7 +119,7 @@ export function CartProvider({
               lineItem.productVariant.calculated_price?.calculated_amount || 0
 
             const newItem: StoreCartLineItem = {
-              cart: prev || ({} as StoreCart),
+              cart: prev as StoreCart,
               cart_id: prev?.id || "",
               discount_tax_total: 0,
               discount_total: 0,
@@ -177,7 +177,7 @@ export function CartProvider({
         })
       })
     },
-    [setOptimisticCart]
+    [setOptimisticCart, cart?.approvals, countryCode]
   )
 
   useEffect(() => {

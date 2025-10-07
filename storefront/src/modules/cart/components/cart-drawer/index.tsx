@@ -13,10 +13,11 @@ import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import FreeShippingPriceNudge from "@/modules/shipping/components/free-shipping-price-nudge"
 import { B2BCustomer } from "@/types"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
+import { StoreCart } from "@medusajs/types"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
 import { Drawer, Text } from "@medusajs/ui"
 import { usePathname } from "next/navigation"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState, useCallback } from "react"
 
 type CartDrawerProps = {
   customer: B2BCustomer | null
@@ -78,11 +79,11 @@ const CartDrawer = ({
 
   const pathname = usePathname()
 
-  const cancelTimer = () => {
+  const cancelTimer = useCallback(() => {
     if (activeTimer) {
       clearTimeout(activeTimer)
     }
-  }
+  }, [activeTimer])
 
   // open cart dropdown when modifying the cart items, but only if we're not on the cart page
   useEffect(() => {
@@ -101,7 +102,7 @@ const CartDrawer = ({
   useEffect(() => {
     cancelTimer()
     close()
-  }, [pathname])
+  }, [pathname, cancelTimer])
 
   const checkoutStep = cart ? getCheckoutStep(cart) : undefined
   const checkoutPath = customer
@@ -128,9 +129,9 @@ const CartDrawer = ({
             <span className="text-sm font-normal hidden small:inline-block">
               {cart && items && items.length > 0
                 ? convertToLocale({
-                    amount: subtotal,
-                    currency_code: cart.currency_code,
-                  })
+                  amount: subtotal,
+                  currency_code: cart.currency_code,
+                })
                 : "Cart"}
             </span>
             <div className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
@@ -171,7 +172,7 @@ const CartDrawer = ({
                   {cart && freeShippingPrices && (
                     <FreeShippingPriceNudge
                       variant="inline"
-                      cart={cart}
+                      cart={cart as StoreCart}
                       freeShippingPrices={freeShippingPrices}
                     />
                   )}

@@ -3,7 +3,7 @@
 import { sdk } from "@/lib/config"
 import medusaError from "@/lib/util/medusa-error"
 import { StoreApprovalResponse } from "@/types/approval"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes, StoreCart } from "@medusajs/types"
 import { track } from "@vercel/analytics/server"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
@@ -301,7 +301,7 @@ export async function initiatePaymentSession(
   }
 
   return sdk.store.payment
-    .initiatePaymentSession(cart, data, {}, headers)
+    .initiatePaymentSession(cart as StoreCart, data, {}, headers)
     .then(async (resp) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
@@ -506,8 +506,7 @@ export async function placeOrder(
   await removeCartId()
 
   redirect(
-    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${
-      response.order.id
+    `/${response.order.shipping_address?.country_code?.toLowerCase()}/order/confirmed/${response.order.id
     }`
   )
 }

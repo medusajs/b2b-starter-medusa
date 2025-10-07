@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
 
@@ -54,9 +55,9 @@ async function CatalogSection({ title, description, viewAllLink, items, ItemComp
                         {description}
                     </p>
                 </div>
-                <a href={viewAllLink} className="ysh-btn-outline">
+                <Link href={viewAllLink} className="ysh-btn-outline">
                     Ver Todos
-                </a>
+                </Link>
             </div>
 
             <div className={`grid gap-6 ${category === 'kits' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
@@ -177,12 +178,12 @@ export default async function ProductsPage() {
                         Nossa equipe especializada pode ajudar a encontrar a solução ideal para seu projeto.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="/dimensionamento" className="ysh-btn-secondary">
+                        <Link href="/dimensionamento" className="ysh-btn-secondary">
                             Fazer Dimensionamento
-                        </a>
-                        <a href="/contato" className="ysh-btn-outline">
+                        </Link>
+                        <Link href="/contato" className="ysh-btn-outline">
                             Falar com Especialista
-                        </a>
+                        </Link>
                     </div>
                 </section>
             </div>

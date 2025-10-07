@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import KitCard from "@/modules/catalog/components/KitCard"
 import { promises as fs } from 'fs'
 import path from 'path'
@@ -165,12 +166,12 @@ export default async function KitsPage() {
                         Podemos montar um kit personalizado com os componentes que você precisa.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="/dimensionamento" className="ysh-btn-secondary">
+                        <Link href="/dimensionamento" className="ysh-btn-secondary">
                             Fazer Dimensionamento
-                        </a>
-                        <a href="/contato" className="ysh-btn-outline">
+                        </Link>
+                        <Link href="/contato" className="ysh-btn-outline">
                             Consultoria Gratuita
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -23,9 +23,9 @@ export const paymentInfoMap: Record<
 }
 
 // Stripe removido temporariamente
-// export const isStripe = (providerId?: string) => {
-//   return providerId?.startsWith("pp_stripe")
-// }
+export const isStripe = (providerId?: string) => {
+  return providerId?.startsWith("pp_stripe")
+}
 export const isPaypal = (providerId?: string) => {
   return providerId?.startsWith("pp_paypal")
 }
