@@ -10,14 +10,17 @@
 ## ✅ Entregáveis Criados (v0.1.0)
 
 ### 1. Documentação
+
 - ✅ **Blueprint completo** ([docs/PATHWAY_DAGSTER_PREFECT_BLUEPRINT.md](../docs/PATHWAY_DAGSTER_PREFECT_BLUEPRINT.md))
 - ✅ **README data-platform** ([data-platform/README.md](./README.md))
 
 ### 2. Infraestrutura (Docker Compose)
+
 - ✅ **docker-compose.dagster.yml** — Dagster daemon + webserver + Postgres
 - ✅ **docker-compose.pathway.yml** — Pathway engines + Kafka + MinIO
 
 ### 3. Código Base
+
 - ✅ **Dagster:**
   - `definitions.py` — Assets, jobs, schedules
   - `assets/catalog.py` — `catalog_normalized`, `catalog_embeddings`
@@ -29,6 +32,7 @@
   - `pipelines/rag_streaming.py` — RAG real-time (mock)
 
 ### 4. Configuração
+
 - ✅ `.env.example` — Template de variáveis de ambiente
 
 ---
@@ -36,6 +40,7 @@
 ## 🚀 Fase 1: Validação Local (1-2 dias)
 
 ### Objetivo
+
 Rodar stack completo no seu Windows e validar que Dagster UI está acessível e assets podem ser materializados.
 
 ### Passos
@@ -49,6 +54,7 @@ cp .env.example .env
 ```
 
 **Mínimo necessário:**
+
 ```bash
 OPENAI_API_KEY=sk-***  # Para embeddings
 PINECONE_API_KEY=pk_*** # Para vector store
@@ -58,7 +64,7 @@ AWS_SECRET_ACCESS_KEY=***
 
 #### 1.2. Criar índice Pinecone
 
-1. Acesse https://app.pinecone.io
+1. Acesse <https://app.pinecone.io>
 2. Crie novo índice:
    - **Name:** `ysh-rag`
    - **Dimension:** `3072` (para `text-embedding-3-large`)
@@ -73,6 +79,7 @@ docker-compose up -d postgres redis
 ```
 
 **Validar:**
+
 ```powershell
 docker ps | Select-String "ysh-b2b-postgres"
 # Deve exibir container rodando
@@ -86,12 +93,14 @@ docker-compose -f docker-compose.dagster.yml up -d
 ```
 
 **Validar:**
+
 ```powershell
 docker logs ysh-dagster-webserver
 # Aguardar linha: "Serving dagster-webserver on http://0.0.0.0:3000"
 ```
 
-Acessar **http://localhost:3001** → Deve exibir Dagster UI com 3 assets:
+Acessar **<http://localhost:3001>** → Deve exibir Dagster UI com 3 assets:
+
 - `catalog_normalized`
 - `catalog_embeddings`
 - `tarifas_aneel`
@@ -99,6 +108,7 @@ Acessar **http://localhost:3001** → Deve exibir Dagster UI com 3 assets:
 #### 1.5. Materializar primeiro asset (mock)
 
 Na UI Dagster:
+
 1. Ir em **Assets**
 2. Clicar em `catalog_normalized`
 3. Clicar **Materialize**
@@ -106,6 +116,7 @@ Na UI Dagster:
 5. Verificar **Metadata** → deve exibir preview da tabela
 
 Ou via CLI:
+
 ```powershell
 docker exec ysh-dagster-webserver dagster asset materialize -m definitions --select catalog_normalized
 ```
@@ -117,6 +128,7 @@ docker exec ysh-dagster-webserver dagster asset materialize -m definitions --sel
 ## 🔧 Fase 2: Implementar Pipeline Pathway Real (3-5 dias)
 
 ### Objetivo
+
 Substituir mocks por pipelines Pathway funcionais que leiam S3/MinIO e escrevam no Postgres.
 
 ### 2.1. Criar bucket S3/MinIO local
@@ -128,11 +140,13 @@ cd c:\Users\fjuni\ysh_medusa\ysh-store\data-platform
 docker-compose -f docker-compose.pathway.yml up -d minio
 ```
 
-Acessar **http://localhost:9002**:
+Acessar **<http://localhost:9002>**:
+
 - User: `minioadmin`
 - Password: `minioadmin`
 
 Criar buckets:
+
 - `ysh-catalog` (para CSVs de catálogo)
 - `ysh-docs` (para PDFs RAG)
 
@@ -152,7 +166,8 @@ GROWATT-5KW,Growatt,MIN 5000TL-XH,inverter,5000,{"mppt": 2, "phase": "mono"}
 ```
 
 Upload para MinIO:
-1. Acessar http://localhost:9002
+
+1. Acessar <http://localhost:9002>
 2. Navegar até bucket `ysh-catalog`
 3. Upload `catalog_raw.csv`
 
@@ -250,6 +265,7 @@ python -m pipelines.catalog_etl
 ```
 
 **Validar:**
+
 ```sql
 SELECT * FROM items_normalized;
 -- Deve retornar 3 linhas (BYD, JinkoSolar, Growatt)
@@ -274,6 +290,7 @@ def catalog_normalized(...):
 ```
 
 **Testar via Dagster:**
+
 ```powershell
 docker exec ysh-dagster-webserver dagster asset materialize -m definitions --select catalog_normalized
 ```
@@ -285,6 +302,7 @@ docker exec ysh-dagster-webserver dagster asset materialize -m definitions --sel
 ## 🤖 Fase 3: Embeddings e RAG (2-3 dias)
 
 ### Objetivo
+
 Gerar embeddings do catálogo e armazenar no Pinecone para busca semântica.
 
 ### 3.1. Implementar geração de embeddings
@@ -363,6 +381,7 @@ for match in results.matches:
 ```
 
 **Saída esperada:**
+
 ```
 Score: 0.987 | SKU: BYD-600-MONO
 Score: 0.823 | SKU: JINKO-550-BIF
@@ -378,16 +397,19 @@ Score: 0.654 | SKU: GROWATT-5KW
 ### 4.1. Configurar schedules
 
 Já estão definidos em `definitions.py`:
+
 - `catalog_schedule` — diário às 2h
 - `tarifas_schedule` — diário às 6h
 
 **Ativar na UI Dagster:**
+
 1. Ir em **Automation** → **Schedules**
 2. Toggle ON para cada schedule
 
 ### 4.2. Configurar alertas (Dagster+)
 
 Opções:
+
 - **Dagster+ Cloud** (managed) — alertas nativos via Slack/email
 - **Self-hosted:** integrar com Prometheus/Grafana
 
@@ -416,6 +438,7 @@ def catalog_health_check(context, postgres_medusa):
 ### 5.1. Infraestrutura AWS
 
 **Serviços necessários:**
+
 - **ECS Fargate** — Dagster daemon + webserver + Pathway containers
 - **RDS Aurora Postgres** — DB principal (Medusa + Analytics)
 - **S3** — Data Lake
@@ -426,6 +449,7 @@ def catalog_health_check(context, postgres_medusa):
 ### 5.2. Terraform/CloudFormation
 
 Criar `infra/terraform/data-platform/`:
+
 - `ecs.tf` — Tasks ECS para Dagster e Pathway
 - `rds.tf` — Aurora cluster
 - `s3.tf` — Buckets
@@ -467,19 +491,22 @@ jobs:
 ## 🎓 Recursos de Aprendizado
 
 ### Pathway
-- **Docs oficiais:** https://pathway.com/developers/user-guide/introduction/welcome
-- **Tutoriais RAG:** https://pathway.com/bootcamps/rag-and-llms
-- **GitHub examples:** https://github.com/pathwaycom/llm-app
+
+- **Docs oficiais:** <https://pathway.com/developers/user-guide/introduction/welcome>
+- **Tutoriais RAG:** <https://pathway.com/bootcamps/rag-and-llms>
+- **GitHub examples:** <https://github.com/pathwaycom/llm-app>
 
 ### Dagster
-- **Concepts:** https://docs.dagster.io/concepts
-- **Assets tutorial:** https://docs.dagster.io/tutorial/assets
-- **Deployment:** https://docs.dagster.io/deployment
+
+- **Concepts:** <https://docs.dagster.io/concepts>
+- **Assets tutorial:** <https://docs.dagster.io/tutorial/assets>
+- **Deployment:** <https://docs.dagster.io/deployment>
 
 ### Integrações
-- **Dagster + S3:** https://docs.dagster.io/_apidocs/libraries/dagster-aws
-- **Pathway + Kafka:** https://pathway.com/developers/user-guide/connect/connectors/kafka
-- **Pinecone + OpenAI:** https://docs.pinecone.io/integrations/openai
+
+- **Dagster + S3:** <https://docs.dagster.io/_apidocs/libraries/dagster-aws>
+- **Pathway + Kafka:** <https://pathway.com/developers/user-guide/connect/connectors/kafka>
+- **Pinecone + OpenAI:** <https://docs.pinecone.io/integrations/openai>
 
 ---
 
