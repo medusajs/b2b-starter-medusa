@@ -62,6 +62,26 @@ export default async function seedDemoData({ container }: ExecArgs) {
     defaultSalesChannel = salesChannelResult;
   }
 
+  // Create YSH specific sales channels
+  const yshSalesChannels = [
+    { name: "YSH-B2C" },
+    { name: "YSH-Integradores" },
+    { name: "YSH-Marketplace" },
+  ];
+
+  for (const channel of yshSalesChannels) {
+    const existing = await salesChannelModuleService.listSalesChannels({
+      name: channel.name,
+    });
+    if (!existing.length) {
+      await createSalesChannelsWorkflow(container).run({
+        input: {
+          salesChannelsData: [channel],
+        },
+      });
+    }
+  }
+
   await updateStoresWorkflow(container).run({
     input: {
       selector: { id: store.id },
