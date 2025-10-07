@@ -53,6 +53,25 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'yellosolarhub.com',
+      },
+      ...(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
+        ? (() => {
+            try {
+              const u = new URL(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
+              return [
+                {
+                  protocol: u.protocol.replace(':', ''),
+                  hostname: u.hostname,
+                },
+              ]
+            } catch {
+              return []
+            }
+          })()
+        : []),
     ],
   },
 
