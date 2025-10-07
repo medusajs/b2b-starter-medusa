@@ -119,12 +119,33 @@ class YshCatalogModuleService {
         Object.keys(processedImages).forEach(size => {
             const imagePath = processedImages[size as keyof typeof processedImages];
             if (imagePath && typeof imagePath === 'string') {
-                // Remove 'catalog\' do início se existir e converte para URL
-                const cleanPath = imagePath.replace(/^catalog[\/\\]/, '');
-                // Converte barras para o formato da web
-                processedImages[size as keyof typeof processedImages] = cleanPath.replace(/\\/g, '/');
+                // Remove 'catalog\' ou 'catalog/' do início se existir
+                let cleanPath = imagePath.replace(/^catalog[\/\\]/, '');
+                // Remove './' ou '../' do início
+                cleanPath = cleanPath.replace(/^\.{1,2}[\/\\]/, '');
+                // Converte todas as barras invertidas para barras normais
+                cleanPath = cleanPath.replace(/\\/g, '/');
+                // Garante que começa com /
+                if (!cleanPath.startsWith('/')) {
+                    cleanPath = '/' + cleanPath;
+                }
+                processedImages[size as keyof typeof processedImages] = cleanPath;
             }
         });
+
+        // Fallback para imagem original se processed_images estiver vazio
+        if (!processedImages.thumb && !processedImages.medium && !processedImages.large) {
+            const fallbackImage = product.image || product.image_url;
+            if (fallbackImage) {
+                let cleanFallback = fallbackImage;
+                if (!cleanFallback.startsWith('/')) {
+                    cleanFallback = '/' + cleanFallback;
+                }
+                processedImages.thumb = cleanFallback;
+                processedImages.medium = cleanFallback;
+                processedImages.large = cleanFallback;
+            }
+        }
 
         return product;
     }
