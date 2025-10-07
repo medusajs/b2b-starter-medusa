@@ -5,6 +5,7 @@ import { Container, Heading, Text } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ChecklistOnboarding from "./ChecklistOnboarding"
 import { sendEvent } from "@/modules/analytics/events"
+import { t } from "@/lib/i18n/copy"
 
 type SimResult = {
   kWp: number
@@ -36,7 +37,7 @@ export default function DimensionamentoClient() {
         monthly_kwh: monthly ? Number(monthly) : undefined,
       }
       if (!isFinite(body.lat) || !isFinite(body.lon)) {
-        setError("Informe latitude e longitude válidas (graus decimais)")
+        setError(t("form.errors.required"))
         setLoading(false)
         return
       }
@@ -50,7 +51,7 @@ export default function DimensionamentoClient() {
       setRes(j)
       sendEvent?.("viability_calculated", { proposal_kwp: j.kWp, expected_gen_mwh_y: Math.round((j.kWh_year||0)/1000*10)/10 })
     } catch (e: any) {
-      setError(e?.message || "Erro ao simular")
+      setError(e?.message || t("form.errors.range"))
     } finally {
       setLoading(false)
     }
@@ -60,7 +61,7 @@ export default function DimensionamentoClient() {
     setError(null)
     try {
       if (!cep) {
-        setError("Informe um CEP válido (ex.: 01311-000)")
+        setError(t("form.errors.cep"))
         return
       }
       const r = await fetch("/api/onboarding/geocode", {
@@ -73,7 +74,7 @@ export default function DimensionamentoClient() {
       setLat(String(j.lat))
       setLon(String(j.lon))
     } catch (e: any) {
-      setError(e?.message || "Erro ao geocodificar")
+      setError(e?.message || t("form.errors.cep"))
     }
   }
 

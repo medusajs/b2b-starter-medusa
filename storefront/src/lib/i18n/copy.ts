@@ -10,23 +10,59 @@ const ptBR: DeepRecord = {
   },
   home: {
     hero_title: {
-      default: "Energia solar do seu jeito — do kit ao financiamento",
-      curto: "Energia solar do seu jeito",
-      micro: "Solar do seu jeito",
+      default: "Conta de luz te dominando? Domine de volta.",
+      curto: "Domine a conta de luz.",
+      micro: "Domine a conta.",
     },
     hero_sub: {
-      default: "Compare kits, simule economia e acompanhe a instalação com suporte especialista.",
-      curto: "Compare kits e simule economia.",
-      micro: "Compare e simule.",
+      default: "Simule em 30s com dados ANEEL — sem cadastro chato.",
+      curto: "Simule em 30s (ANEEL).",
+      micro: "Simule em 30s.",
     },
-    hero_cta_primary: { default: "Explorar soluções", curto: "Soluções", micro: "Soluções" },
-    hero_cta_secondary: { default: "Ver produtos", curto: "Produtos", micro: "Produtos" },
+    hero_cta_primary: { default: "Bora calcular agora", curto: "Calcular agora", micro: "Calcular" },
+    hero_cta_secondary: { default: "Ver kits prontos", curto: "Kits prontos", micro: "Kits" },
     solutions_title: { default: "Soluções por Perfil", curto: "Soluções por perfil", micro: "Por perfil" },
     solutions_sub: {
       default: "Escolha a solução ideal por classe consumidora e modalidade energética.",
       curto: "Escolha por classe e modalidade.",
       micro: "Classe e modalidade.",
     },
+  },
+  form: {
+    errors: {
+      required: "Faltou esse aqui. Dois toques e segue o baile.",
+      cep: "Esse CEP não bateu. Confere ou me deixa localizar.",
+      range: "Hmm… número estranho. Confere os dígitos.",
+    },
+  },
+  pdp: {
+    roi_badge: "ROI em ~{{roi_anos}} anos*",
+    roi_note: "*Estimativa com base em ANEEL/consumo informado.",
+    cta_buy: "Fechar esse kit",
+    cta_compare: "Comparar com outro",
+  },
+  config: {
+    heading: "Teu telhado, tuas regras — eu otimizo.",
+    tooltip_inclinacao: "Inclinação = quanto o painel ‘deita’. Perto do ideal, mais geração.",
+    shadow_error: "Sombra braba aqui. Quer ver plano com microinversor?",
+  },
+  checkout: {
+    options: "Pix à vista, cartão, ou crédito solar sem drama.",
+    cta_finance: "Quero financiar",
+    cta_pix: "Pagar no Pix",
+  },
+  status: {
+    homolog: "Papeis no trilho da concessionária. Eu aviso cada virada.",
+    art_missing: "Faltou a ART assinada. Sobe aqui que eu valido.",
+  },
+  om: {
+    warn_light: "Geração abaixo do normal. Provável sujeira — 5 min de mangueira resolvem.",
+    alert_inverter: "Inversor {{modelo}} caiu. Abrindo ticket automático — sem estresse.",
+  },
+  toasts: {
+    ok: "Feito! Teu projeto subiu pra validação.",
+    almost: "Quase lá — confirma a fase elétrica e eu libero a proposta.",
+    confirm_switch: "Certeza que quer trocar de kit agora? Eu salvo o anterior.",
   },
   plp: {
     filtros_title: { default: "Filtre por {atributo}", curto: "Filtre", micro: "Filtro" },
@@ -119,4 +155,3 @@ export function getCopyNamespace(ns: string) {
   }
   return node || {}
 }
-
