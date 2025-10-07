@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.8.4",
-    "@medusajs/cli": "2.7.4",
+    "@medusajs/cli": "2.8.4",
     "@medusajs/framework": "2.8.4",
     "@medusajs/js-sdk": "2.8.4",
     "@medusajs/medusa": "2.8.4",
@@ -44,7 +44,7 @@
     "node-fetch": "^2.7.0",
     "pg": "^8.13.0",
     "posthog-node": "^4.17.1",
-    "zod": "^3.21.4"
+    "zod": "^3.20.0"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.8.4",

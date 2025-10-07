@@ -1,4 +1,4 @@
-import InteractiveLink from "@/modules/common/components/interactive-link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { Heading, Text } from "@medusajs/ui"
 
 const EmptyCartMessage = () => {
@@ -18,7 +18,9 @@ const EmptyCartMessage = () => {
         the link below to start browsing our products.
       </Text>
       <div>
-        <InteractiveLink href="/store">Explore products</InteractiveLink>
+        <LocalizedClientLink href="/produtos" className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover">
+          Explore produtos
+        </LocalizedClientLink>
       </div>
     </div>
   )
