@@ -1,10 +1,10 @@
 import { cva, type VariantProps } from "class-variance-authority"
-import { clx, Card as MedusaCard } from "@medusajs/ui"
+import { clx } from "@medusajs/ui"
 import { forwardRef } from "react"
 
 /**
  * Yello Solar Hub Card Component
- * Built on top of Medusa UI Card with Yello theming
+ * Custom card component with Yello theming
  */
 
 const cardVariants = cva(
@@ -33,13 +33,13 @@ const cardVariants = cva(
 )
 
 export interface CardProps
-    extends React.ComponentProps<typeof MedusaCard>,
+    extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> { }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
     ({ className, variant, elevation, ...props }, ref) => {
         return (
-            <MedusaCard
+            <div
                 className={clx(cardVariants({ variant, elevation, className }))}
                 ref={ref}
                 {...props}

@@ -36,7 +36,9 @@ export interface ButtonProps
     extends Omit<React.ComponentProps<typeof MedusaButton>, 'variant' | 'size'>,
     VariantProps<typeof buttonVariants> {
     asChild?: boolean
-}const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
         return (
             <MedusaButton

@@ -1,127 +1,23 @@
 /**
- * Yello Solar Hub Design System - Medusa UI Integration
- * Phase 1: Foundation Cleanup - Inject Yello tokens into Medusa system
+ * Yello Solar Hub Design System - Essential Tokens Only
+ * Minimal CSS to avoid webpack issues
  */
 
 :root {
-  /* Medusa UI Color Overrides - Yello Solar Hub Theme */
-  --medusa-color-primary: #FFCE00;
-  --medusa-color-primary-hover: #E6B800;
-  --medusa-color-primary-pressed: #CC9900;
+    /* Yello Brand Colors */
+    --ysh-yellow: #FFCE00;
+    --ysh-orange: #FF6600;
+    --ysh-pink: #FF0066;
 
-  --medusa-color-secondary: #FF6600;
-  --medusa-color-secondary-hover: #E65C00;
-  --medusa-color-secondary-pressed: #CC5200;
+    /* Yello Solar Hub Gradient Utilities */
+    .bg-gradient-yello {
+        background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+    }
 
-  --medusa-color-accent: #FF0066;
-  --medusa-color-accent-hover: #E6005C;
-  --medusa-color-accent-pressed: #CC0052;
-
-  /* Neutral Colors */
-  --medusa-color-neutral-50: #F8F9FA;
-  --medusa-color-neutral-100: #E9ECEF;
-  --medusa-color-neutral-200: #DEE2E6;
-  --medusa-color-neutral-300: #CED4DA;
-  --medusa-color-neutral-400: #ADB5BD;
-  --medusa-color-neutral-500: #6C757D;
-  --medusa-color-neutral-600: #495057;
-  --medusa-color-neutral-700: #343A40;
-  --medusa-color-neutral-800: #212529;
-  --medusa-color-neutral-900: #000000;
-
-  /* Semantic Colors */
-  --medusa-color-success: #00AA44;
-  --medusa-color-warning: #FFCE00;
-  --medusa-color-error: #DC3545;
-  --medusa-color-info: #0066CC;
-
-  /* Background Colors */
-  --medusa-color-bg-base: #FFFFFF;
-  --medusa-color-bg-subtle: #F8F9FA;
-  --medusa-color-bg-overlay: rgba(0, 0, 0, 0.5);
-
-  /* Border Colors */
-  --medusa-color-border-base: #DEE2E6;
-  --medusa-color-border-strong: #CED4DA;
-  --medusa-color-border-focus: #FFCE00;
-
-  /* Text Colors */
-  --medusa-color-text-primary: #000000;
-  --medusa-color-text-secondary: #495057;
-  --medusa-color-text-tertiary: #6C757D;
-  --medusa-color-text-inverse: #FFFFFF;
-
-  /* Typography */
-  --medusa-font-family-sans: 'Geist Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --medusa-font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Font Sizes */
-  --medusa-font-size-xs: 0.75rem;
-  --medusa-font-size-sm: 0.875rem;
-  --medusa-font-size-base: 1rem;
-  --medusa-font-size-lg: 1.125rem;
-  --medusa-font-size-xl: 1.25rem;
-  --medusa-font-size-2xl: 1.5rem;
-  --medusa-font-size-3xl: 1.875rem;
-
-  /* Line Heights */
-  --medusa-line-height-xs: 1rem;
-  --medusa-line-height-sm: 1.25rem;
-  --medusa-line-height-base: 1.5rem;
-  --medusa-line-height-lg: 1.75rem;
-  --medusa-line-height-xl: 1.75rem;
-  --medusa-line-height-2xl: 2rem;
-  --medusa-line-height-3xl: 2.25rem;
-
-  /* Font Weights */
-  --medusa-font-weight-normal: 400;
-  --medusa-font-weight-medium: 500;
-  --medusa-font-weight-semibold: 600;
-  --medusa-font-weight-bold: 700;
-
-  /* Spacing */
-  --medusa-space-1: 0.25rem;
-  --medusa-space-2: 0.5rem;
-  --medusa-space-3: 0.75rem;
-  --medusa-space-4: 1rem;
-  --medusa-space-5: 1.25rem;
-  --medusa-space-6: 1.5rem;
-  --medusa-space-8: 2rem;
-  --medusa-space-10: 2.5rem;
-  --medusa-space-12: 3rem;
-  --medusa-space-16: 4rem;
-  --medusa-space-20: 5rem;
-  --medusa-space-24: 6rem;
-}
-
-/* Yello Brand Gradient Utilities */
-@layer utilities {
-  .bg-gradient-yello {
-    background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
-  }
-
-  .text-gradient-yello {
-    background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .bg-gradient-yello-primary {
-    background: linear-gradient(135deg, #FFCE00 0%, #E6B800 100%);
-  }
-
-  .bg-gradient-yello-secondary {
-    background: linear-gradient(135deg, #FF6600 0%, #E65C00 100%);
-  }
-
-  .bg-gradient-yello-accent {
-    background: linear-gradient(135deg, #FF0066 0%, #E6005C 100%);
-  }
-
-  .border-gradient-yello {
-    border: 2px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, #FFCE00, #FF6600, #FF0066) border-box;
-  }
+    .text-gradient-yello {
+        background: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 }
