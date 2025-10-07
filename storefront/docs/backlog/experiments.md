@@ -1,43 +1,32 @@
-# BACKLOG DE EXPERIMENTOS A/B - YSH Store
+# Backlog de Experimentos (A/B)
 
-## Etapa: Discovery
+Métricas norteadoras: AARRR + KPIs B2B
+- Ativação: tempo até primeira cotação; % cadastro→cotação.
+- Receita: % cotação→pedido; ticket médio por empresa.
+- Retenção: % empresas com 2+ pedidos/trim.
 
-### Experimento 1: Quiz de Perfil vs. Navegação Livre
+Discovery
+- Hipótese: quiz de perfil/consumo aumenta engajamento B1.
+  - Métrica: CTR para simulador; taxa de conclusão.
+  - Variações: (A) sem quiz, (B) quiz 3 perguntas, (C) quiz 5 perguntas + ROI.
 
-- **Hipótese**: Quiz aumenta conversão em 20% ao personalizar recomendações.
-- **Métricas**: % usuários que completam quiz, tempo até primeira interação.
-- **Sucesso**: >15% lift em discovery rate.
+Comparação
+- Hipótese: benchmark de tarifa/ROI aumenta solicitação de cotação PME.
+  - Métrica: % visitantes B3 → `Pedir cotação`.
+  - Variações: (A) sem benchmark, (B) tabela simples, (C) simulador interativo.
 
-### Experimento 2: Hero com ROI Calculator
+Decisão
+- Hipótese: CTA `Falar com especialista` vs `Cotação instantânea` afeta conversão.
+  - Métrica: taxa de cliques; % que inicia cotação.
+  - Variações: (A) especialista, (B) cotação, (C) ambos (prioridade dinâmica por grupo).
 
-- **Hipótese**: Calculator aumenta engajamento em 25%.
-- **Métricas**: Cliques no calculator, sessões prolongadas.
-- **Sucesso**: >20% mais sessões >2min.
+Checkout
+- Hipótese: ordem de métodos (PIX primeiro) reduz abandono B2C.
+  - Métrica: abandono na etapa de pagamento; conversão final.
+  - Variações: (A) PIX/BOLETO/Cartão, (B) Cartão/PIX/BOLETO.
 
-## Etapa: Comparação
+Pós-venda
+- Hipótese: notificações proativas reduzem tempo de aprovação.
+  - Métrica: tempo médio `revisão→aprovação`.
+  - Variações: (A) e-mail, (B) in-app + e-mail, (C) in-app + WhatsApp (quando permitido).
 
-### Experimento 3: Bench de ROI vs. Lista Simples
-
-- **Hipótese**: Bench aumenta consideração em 30%.
-- **Métricas**: % usuários que comparam >2 produtos, bounce rate.
-- **Sucesso**: <10% bounce, >25% comparação.
-
-### Experimento 4: Filtros Avançados vs. Básicos
-
-- **Hipótese**: Filtros avançados reduzem tempo de decisão em 15%.
-- **Métricas**: Tempo médio na página, % filtros usados.
-- **Sucesso**: <20s tempo médio.
-
-## Etapa: Decisão
-
-### Experimento 5: CTA "Fale com Especialista" vs. "Cotação Instantânea"
-
-- **Hipótese**: Especialista aumenta confiança, lift 10% em conversão.
-- **Métricas**: % CTAs clicados, taxa de conversão.
-- **Sucesso**: >5% lift em pedidos.
-
-### Experimento 6: Modal Cotação vs. Página Dedicada
-
-- **Hipótese**: Modal aumenta submissões em 15%.
-- **Métricas**: % cotações iniciadas, completadas.
-- **Sucesso**: >10% mais cotações.

@@ -1,50 +1,46 @@
-# POLÍTICAS DE PREÇO, CANAIS & GRUPOS - YSH Store
+# Políticas — Price Lists × Customer Groups × Sales Channels
 
-## Taxonomia de Clientes (Customer Groups)
+Sales Channels
+- `ysh-b2b`: acesso autenticado; catálogo técnico; cotações; quick/bulk order.
+- `ysh-b2c`: vitrine simplificada; kits recomendados; sem SKUs restritos.
 
-Baseado em classes consumidoras e perfis energéticos:
+Customer Groups (taxonomia base)
+- `Residencial B1` (B2C)
+- `Rural B2` (B2B Light)
+- `Comercial/Serviços B3 (PME)` (B2B)
+- `Condomínio GC` (B2B)
+- `Integradores/Revenda` (B2B)
+- `Indústria/Grandes` (B2B Enterprise)
 
-- **Residencial B1 (B2C)**: Consumidores finais residenciais, foco em kits simples on-grid.
-- **Rural B2 (B2B Light)**: Proprietários rurais, off-grid e híbrido.
-- **Comercial/Serviços B3 (PME/PJ)**: Pequenas e médias empresas comerciais.
-- **Condomínio GC**: Condomínios com geração compartilhada.
-- **Integradores/Revenda**: Parceiros revendedores, acesso wholesale.
-- **Indústria/Grandes (B2B Enterprise)**: Grandes contas industriais, EaaS/PPA.
+Price Lists (exemplos iniciais)
+1) `B2B-Integradores-2025Q4`
+   - type: `override`
+   - customer_groups: [`Integradores/Revenda`]
+   - channels: [`ysh-b2b`]
+   - regras: descontos escalonados por quantidade (ex.: ≥10 unidades -7%, ≥50 -12%).
+   - validade: 2025-10-01 a 2025-12-31
 
-## Sales Channels
+2) `B2B-PME-Patamar1`
+   - type: `override`
+   - customer_groups: [`Comercial/Serviços B3 (PME)`]
+   - channels: [`ysh-b2b`]
+   - regras: tiers por ticket (ex.: R$15k -3%, R$50k -6%, R$150k -9%).
+   - validade: rolling trimestral
 
-- **ysh-b2b**: Canal autenticado para B2B, catálogo técnico, bulk order, cotação obrigatória.
-- **ysh-b2c**: Canal público para B2C, kits recomendados, checkout simplificado.
+3) `Residencial-Promo`
+   - type: `sale`
+   - customer_groups: [`Residencial B1`]
+   - channels: [`ysh-b2c`]
+   - regras: campanhas sazonais (ex.: kit on-grid -8%).
+   - validade: conforme campanha
 
-## Matriz Price Lists × Customer Groups
+Diretrizes
+- Manter catálogo único e controlar visibilidade por `sales_channel`.
+- Toda diferenciação de preço via `price_lists` + `customer_groups`.
+- Nomear `price_lists` com padrão: `<segmento>-<tier>-<YYYYQ#>`.
+- Evitar lista por cliente individual, preferir por grupo/segmento; exceção: contratos enterprise.
 
-Price Lists aplicam overrides ou sales por grupo, com condições escalonadas.
+Matriz de visibilidade (exemplo)
+- `ysh-b2c` → visível: `Residencial B1` (preço base + `Residencial-Promo` quando ativo).
+- `ysh-b2b` → visível: `Rural B2`, `B3 PME`, `GC`, `Integradores`, `Grandes` (preço via listas dedicadas).
 
-### Price List 1: "B2B-Integradores-2025Q4"
-
-- **Customer Groups**: Integradores/Revenda
-- **Type**: override
-- **Channels**: ysh-b2b
-- **Condições**: Desconto 20-30% escalonado por volume (Q1: 20%, Q2: 25%, Q3: 30%).
-- **Exemplo**: Módulo solar R$ 500 → R$ 400 (Q1).
-
-### Price List 2: "B2B-PME-Patamar1"
-
-- **Customer Groups**: Comercial/Serviços B3
-- **Type**: override
-- **Channels**: ysh-b2b
-- **Condições**: Desconto 10-15% para primeiras compras, tiers por faturamento anual.
-- **Exemplo**: Kit completo R$ 50.000 → R$ 45.000.
-
-### Price List 3: "Residencial-Promo"
-
-- **Customer Groups**: Residencial B1
-- **Type**: sale
-- **Channels**: ysh-b2c
-- **Condições**: Promo sazonal, desconto fixo 5% em kits selecionados.
-- **Exemplo**: Kit básico R$ 10.000 → R$ 9.500.
-
-## Mapeamento de Produtos por Canal
-
-Produtos restritos a ysh-b2b: acessórios técnicos, baterias industriais.
-Produtos ysh-b2c: kits pré-configurados, EV chargers básicos.

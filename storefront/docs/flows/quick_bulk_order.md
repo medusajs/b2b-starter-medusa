@@ -1,23 +1,36 @@
-# WIREFLOW — QUICK/BULK ORDER
+# Fluxo — Quick/Bulk Order
 
-## Passo a Passo
+Objetivo: acelerar adição de itens por SKU e importação CSV para empresas B2B com compras recorrentes.
 
-1. **Usuário acessa /catalogo ou /kits**: Lista de produtos com opção "Adicionar ao Carrinho" ou "Bulk Add".
-2. **Quick Add**: Clica em ícone + para adicionar 1 unidade rapidamente.
-3. **Bulk Add**: Abre modal/form para inserir SKUs e quantidades, ou upload CSV.
-4. **Processa Lista**: Backend valida SKUs, aplica price list, adiciona ao carrinho múltiplo.
-5. **Carrinho Múltiplo**: Usuário pode gerenciar múltiplos carrinhos por endereço/empresa.
-6. **Salvar/Exportar Lista**: Opção para salvar listas de compra ou exportar CSV.
-7. **Checkout**: Redireciona para /checkout com itens consolidados.
+Perfis
+- Comprador B2B (empresa.funcionário: buyer)
+- Admin Empresa (para listas salvas compartilhadas)
 
-## Estados e Transições
+Entradas suportadas
+- Campo `Adicionar por SKU`: `SKU`, `QTD` (com autocomplete opcional)
+- Upload CSV: colunas `sku, quantity, notes` (UTF-8, separador vírgula)
 
-- Adicionar → Validar → Carrinho → Checkout.
-- Eventos: bulk_add_completed, cart_exported.
+Passo a passo
+1) Acessar `Quick/Bulk Order` (menu B2B)
+   - Importar CSV ou inserir linhas manualmente.
+   - Validar SKUs desconhecidos e quantidades mínimas/múltiplos.
+   - Evento: `bulk_add_completed` {skus[], count, list_id}.
 
-## Componentes UI
+2) Carrinho múltiplo
+   - Selecionar carrinho alvo ou criar novo (rótulo por projeto/obra).
+   - Ações em massa: remover, mover para outro carrinho, salvar como lista.
 
-- Botão Quick Add: Ícone + em cards de produto.
-- Modal Bulk Add: Textarea para SKUs, file upload CSV.
-- Tabela Carrinho: Linhas editáveis, ações em massa (remover, alterar qty).
-- Dropdown Carrinhos: Selecionar carrinho ativo.
+3) Listas de compra
+   - Salvar lista (privada/compartilhada na empresa).
+   - Exportar lista/carrinho (CSV) para ERP ou aprovação externa.
+
+Validações
+- SKU inválido → destacar linha, oferecer busca por similar.
+- Quantidade fora do múltiplo mínimo → sugerir arredondamento.
+- Itens restritos ao canal → informar indisponibilidade no `ysh-b2c`.
+
+Critérios de aceite
+- Importar CSV com 10k+ linhas de forma robusta (streaming/virtualização UI).
+- Aplicar `price_list` vigente no preview do carrinho.
+- Export CSV fiel ao carrinho (SKU, QTD, preço unitário e total, observações).
+
