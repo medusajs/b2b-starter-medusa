@@ -17,7 +17,7 @@ A tabela `publishable_api_key` não existe no banco de dados atual.
 6. Copie a chave gerada (formato: `pk_xxxxx...`)
 7. Adicione no arquivo `.env.local` do storefront:
 
-   ```
+   ```tsx
    NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_xxxxx...
    ```
 
