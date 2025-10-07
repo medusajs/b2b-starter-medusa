@@ -3,6 +3,9 @@
 import { useCart } from "@/lib/context/cart-context"
 import AddNoteButton from "@/modules/cart/components/add-note-button"
 import DeleteButton from "@/modules/common/components/delete-button"
+import Button from "@/modules/common/components/button"
+import { useLeadQuote } from "@/modules/lead-quote/context"
+import { sendEvent } from "@/modules/analytics/events"
 import LineItemPrice from "@/modules/common/components/line-item-price"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import Spinner from "@/modules/common/icons/spinner"
@@ -30,6 +33,11 @@ const ItemFull = ({
   const [quantity, setQuantity] = useState(item.quantity.toString())
 
   const { handleDeleteItem, handleUpdateCartQuantity } = useCart()
+  let addToQuote: undefined | ((item: any) => void)
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    addToQuote = useLeadQuote().add
+  } catch {}
 
   const changeQuantity = async (newQuantity: number) => {
     setError(null)
@@ -167,6 +175,23 @@ const ItemFull = ({
               </div>
 
               <DeleteButton id={item.id} disabled={disabled} />
+              <Button
+                variant="secondary"
+                className="h-7 px-2 text-xs"
+                onClick={() => {
+                  addToQuote?.({
+                    id: item.product_id || item.id,
+                    category: 'panels',
+                    name: item.product?.title || item.title,
+                    manufacturer: (item as any)?.metadata?.brand || '',
+                    image_url: item.thumbnail || '',
+                    price_brl: item.unit_price,
+                  })
+                  sendEvent('add_to_quote', { id: item.product_id || item.id, source: 'cart_item' })
+                }}
+              >
+                Adicionar à cotação
+              </Button>
             </div>
             <AddNoteButton
               item={item as HttpTypes.StoreCartLineItem}
