@@ -21,7 +21,7 @@ COPY package*.json ./
 COPY .npmrc* ./
 
 # Instalar dependências
-RUN npm ci --no-audit --no-fund
+RUN npm ci --no-audit --no-fund --legacy-peer-deps
 
 # Copiar código fonte
 COPY . .
