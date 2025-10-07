@@ -14,6 +14,8 @@ import { B2BCustomer } from "@/types"
 import { ApprovalStatusType } from "@/types/approval"
 import { ExclamationCircle } from "@medusajs/icons"
 import { Container } from "@medusajs/ui"
+import { useLeadQuote } from "@/modules/lead-quote/context"
+import { sendEvent } from "@/modules/analytics/events"
 
 type SummaryProps = {
   customer: B2BCustomer | null
@@ -22,6 +24,9 @@ type SummaryProps = {
 
 const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
   const { handleEmptyCart, cart } = useCart()
+  const lead = (() => { try { return require("@/modules/lead-quote/context") } catch { return null } })
+  let addQuote: undefined | ((item: any) => void)
+  try { addQuote = useLeadQuote().add } catch {}
 
   if (!cart) return null
 
@@ -90,6 +95,18 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         </RequestQuotePrompt>
       )}
       <CartToCsvButton cart={cart} />
+      <Button
+        className="w-full h-10 rounded-full shadow-borders-base"
+        variant="secondary"
+        onClick={() => {
+          cart.items?.forEach((li) => {
+            addQuote?.({ id: li.product_id || li.id, category: 'panels', name: li.title, manufacturer: li?.metadata?.brand || '', image_url: li.thumbnail || '', price_brl: li.unit_price })
+          })
+          sendEvent("add_cart_to_quote", { cart_id: cart.id, count: cart.items?.length || 0 })
+        }}
+      >
+        Adicionar itens do carrinho à cotação
+      </Button>
       <Button
         onClick={handleEmptyCart}
         className="w-full h-10 rounded-full shadow-borders-base"

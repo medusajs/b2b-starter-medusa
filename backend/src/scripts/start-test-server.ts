@@ -188,7 +188,8 @@ async function startServer() {
                 const categories = [
                     "kits", "panels", "inverters", "cables",
                     "chargers", "controllers", "accessories",
-                    "structures", "batteries"
+                    "structures", "batteries", "stringboxes",
+                    "posts", "others"
                 ];
 
                 const manufacturers = new Set<string>();

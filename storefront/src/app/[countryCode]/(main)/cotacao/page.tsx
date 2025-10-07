@@ -102,6 +102,18 @@ export default function CotacaoPage() {
               >
                 Solicitar por e-mail
               </a>
+              <a
+                className="ysh-btn-outline"
+                href={(() => {
+                  const lines = items.map((i) => `- ${i.name} (${i.manufacturer || ''}) [${(i as any).category}/${i.id}]`).join('%0A')
+                  const text = `Gostaria de solicitar uma cotação:%0A${lines}`
+                  return `https://wa.me/5599999999999?text=${text}`
+                })()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
               <button
                 className="ysh-btn-outline"
                 onClick={() => {
