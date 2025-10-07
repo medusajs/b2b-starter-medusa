@@ -45,13 +45,14 @@ export async function NavigationHeader() {
           </div>
           <div className="flex justify-end items-center gap-2">
             <div className="relative mr-2 hidden small:inline-flex">
-              <input
-                disabled
-                type="text"
-                placeholder="Buscar produtos"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
-                title="Instale um provedor de busca para habilitar a pesquisa de produtos"
-              />
+              <form action="/search" method="get" className="hidden small:inline-block">
+                <input
+                  name="q"
+                  type="text"
+                  placeholder="Buscar produtos"
+                  className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base"
+                />
+              </form>
             </div>
 
             <div className="h-4 w-px bg-neutral-300" />

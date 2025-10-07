@@ -56,3 +56,63 @@ Then, pass the arguments in the `exec` command after the file path:
 ```bash
 npx medusa exec ./src/scripts/my-script.ts arg1 arg2
 ```
+
+---
+
+## Scripts de Teste do Catálogo YSH
+
+### Como usar
+
+#### 1. Testar caminhos do catálogo
+
+```bash
+# De qualquer diretório
+node medusa-starter/backend/src/scripts/test-catalog-paths.ts
+```
+
+#### 2. Iniciar servidor de teste
+
+```bash
+# De qualquer diretório
+node medusa-starter/backend/src/scripts/start-test-server.ts
+```
+
+#### 3. Executar testes das APIs
+
+```bash
+# De qualquer diretório (servidor deve estar rodando)
+node medusa-starter/backend/src/scripts/run-api-tests.ts
+```
+
+### APIs Disponíveis
+
+- `GET /store/catalog` - Visão geral do catálogo
+- `GET /store/catalog/:category` - Produtos por categoria
+- `GET /store/catalog/:category/:id` - Produto específico
+- `GET /store/catalog/search?q=termo` - Busca global
+- `GET /store/catalog/manufacturers` - Lista de fabricantes
+
+### Categorias suportadas
+
+- kits
+- panels
+- inverters
+- cables
+- chargers
+- controllers
+- accessories
+- structures
+- batteries
+
+### Exemplo de uso
+
+```bash
+# 1. Testar se tudo está funcionando
+node medusa-starter/backend/src/scripts/test-catalog-paths.ts
+
+# 2. Iniciar servidor (em background)
+node medusa-starter/backend/src/scripts/start-test-server.ts &
+
+# 3. Executar testes
+node medusa-starter/backend/src/scripts/run-api-tests.ts
+```
