@@ -16,6 +16,7 @@ import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { StoreCart } from "@medusajs/types"
 import { ExclamationCircle, LockClosedSolidMini } from "@medusajs/icons"
 import { Drawer, Text } from "@medusajs/ui"
+import { useLeadQuote } from "@/modules/lead-quote/context"
 import { usePathname } from "next/navigation"
 import { useEffect, useMemo, useRef, useState, useCallback } from "react"
 
@@ -38,6 +39,11 @@ const CartDrawer = ({
   const close = () => setIsOpen(false)
 
   const { cart } = useCart()
+  let quoteCount = 0
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    quoteCount = useLeadQuote().items.length
+  } catch {}
 
   const items = cart?.items || []
   const promotions = cart?.promotions || []
@@ -124,8 +130,19 @@ const CartDrawer = ({
         {...(props as any)}
       >
         <Drawer.Trigger asChild>
-          <button className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100">
-            <ShoppingBag />
+          <button
+            className="transition-fg relative inline-flex w-fit items-center justify-center overflow-hidden outline-none txt-compact-small-plus gap-x-1.5 px-3 py-1.5 rounded-full hover:bg-neutral-100"
+            title={quoteCount > 0 ? `Carrinho • Cotação: ${quoteCount}` : "Carrinho"}
+            aria-label={quoteCount > 0 ? `Abrir carrinho, cotação com ${quoteCount} item(s)` : "Abrir carrinho"}
+          >
+            <span className="relative">
+              <ShoppingBag />
+              {quoteCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[14px] h-3.5 px-1 rounded-full bg-amber-400 text-[9px] leading-3.5 text-neutral-900 text-center">
+                  {quoteCount}
+                </span>
+              )}
+            </span>
             <span className="text-sm font-normal hidden small:inline-block">
               {cart && items && items.length > 0
                 ? convertToLocale({
