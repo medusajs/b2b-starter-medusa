@@ -18,7 +18,10 @@ export default function VideosStrip() {
               <video
                 src={v.src}
                 className="w-full aspect-video"
-                controls
+                loop
+                autoPlay
+                muted
+                playsInline
                 preload="metadata"
                 poster={v.poster || "/opengraph-image.jpg"}
                 onPlay={() => sendEvent("copy_rendered", { component: `video_${k}`, key: `videos.${k}.caption` })}

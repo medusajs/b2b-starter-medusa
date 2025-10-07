@@ -59,18 +59,18 @@ const nextConfig = {
       },
       ...(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
         ? (() => {
-            try {
-              const u = new URL(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
-              return [
-                {
-                  protocol: u.protocol.replace(':', ''),
-                  hostname: u.hostname,
-                },
-              ]
-            } catch {
-              return []
-            }
-          })()
+          try {
+            const u = new URL(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
+            return [
+              {
+                protocol: u.protocol.replace(':', ''),
+                hostname: u.hostname,
+              },
+            ]
+          } catch {
+            return []
+          }
+        })()
         : []),
     ],
   },
