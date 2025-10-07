@@ -25,26 +25,26 @@ const ItemsPreviewTemplate = ({ items, currencyCode }: ItemsTemplateProps) => {
       <div className="flex flex-col gap-y-2">
         {items
           ? items
-              .sort((a, b) => {
-                return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
-              })
-              .map((item) => {
-                return (
-                  <ItemPreview
-                    key={item.id}
-                    currencyCode={currencyCode}
-                    item={
-                      item as StoreCartLineItem & {
-                        metadata?: { note?: string }
-                      }
+            .sort((a, b) => {
+              return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
+            })
+            .map((item) => {
+              return (
+                <ItemPreview
+                  key={item.id}
+                  currencyCode={currencyCode}
+                  item={
+                    item as StoreCartLineItem & {
+                      metadata?: { note?: string }
                     }
-                    showBorders={false}
-                  />
-                )
-              })
+                  }
+                  showBorders={false}
+                />
+              )
+            })
           : repeat(5).map((i) => {
-              return <SkeletonLineItem key={i} />
-            })}
+            return <SkeletonLineItem key={i} />
+          })}
       </div>
     </div>
   )
