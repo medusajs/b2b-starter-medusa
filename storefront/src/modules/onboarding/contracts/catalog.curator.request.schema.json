@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "catalog.curator.request",
+  "type": "object",
+  "properties": {
+    "proposal_kwp": {"type": "number"},
+    "fase": {"type": "string"},
+    "telhado_tipo": {"type": "string"}
+  }
+}
+

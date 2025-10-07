@@ -1,0 +1,72 @@
+# nlu/intents.yaml
+# Domínio NLU para o Hélio Copiloto Solar — BR-first
+locale: pt-BR
+timezone: America/Sao_Paulo
+currency: BRL
+
+entities:
+  cep: {type: string, pattern: "^[0-9]{5}-?[0-9]{3}$"}
+  consumo_kwh_m: {type: number, min: 50, max: 20000}
+  classe: {type: enum, values: [B1,B2,B3,A4,A3,A3a,A2,A1]}
+  telhado_tipo: {type: enum, values: [laje,ceramica,metalico,solo,carport,comercial]}
+  fase: {type: enum, values: [monofasica,bifasica,trifasica,desconhecida]}
+  distribuidora: {type: string}
+  tensao: {type: enum, values: [110,127,220,380,desconhecida]}
+  objetivo: {type: enum, values: [economia,investimento_baixo,balanceado,backup]}
+  oversizing_alvo: {type: number, min: 1.14, max: 1.60}
+
+intents:
+  - name: proposta_residencial_b1
+    slots: [cep,consumo_kwh_m,telhado_tipo,fase,oversizing_alvo]
+    required: [cep,consumo_kwh_m]
+    prompts:
+      - "Qual é o CEP do imóvel?"
+      - "Qual o consumo médio mensal (kWh/mês)?"
+      - "O telhado é {laje, cerâmica, metálico ou solo}?"
+      - "A instalação é {monofásica, bifásica ou trifásica}?"
+    fallback_defaults:
+      telhado_tipo: laje
+      fase: desconhecida
+      oversizing_alvo: 1.30
+    sample_utterances:
+      - "Quero um orçamento solar para minha casa no CEP 22290-240 com 450 kWh/m"
+      - "Simular residencial B1 em 04001-000, consumo 520 kWh"
+    route_to: proposta_residencial_pipeline
+
+  - name: proposta_comercial_b3
+    slots: [cep,consumo_kwh_m,telhado_tipo,fase,distribuidora,objetivo]
+    required: [cep,consumo_kwh_m]
+    sample_utterances:
+      - "Cotação solar para meu mercado no 88010-400, 3200 kWh/m"
+      - "PME B3, CEP 30110-012, consumo 5.2 MWh/mês"
+    route_to: proposta_comercial_pipeline
+
+  - name: atualizar_catalogo
+    slots: []
+    sample_utterances:
+      - "Atualize o catálogo e valide Inmetro"
+      - "Importar SKUs e fichas técnicas"
+    route_to: catalog_update_pipeline
+
+  - name: simular_credito
+    slots: [consumo_kwh_m,classe,distribuidora]
+    sample_utterances:
+      - "Simular financiamento para 450 kWh/m B1 ENEL RJ"
+    route_to: credito_pipeline
+
+  - name: tarifas_mmgd
+    slots: [classe,distribuidora,cep]
+    sample_utterances:
+      - "Buscar TE/TUSD B1 Light RJ para 20530-450"
+    route_to: tarifas_pipeline
+
+slot_filling_rules:
+  - if: classe is null and consumo_kwh_m <= 1200
+    then: classe = B1
+  - if: oversizing_alvo is null
+    then: oversizing_alvo = 1.30
+
+confirmations:
+  - for_intents: [proposta_residencial_b1, proposta_comercial_b3]
+    message: "Confere: CEP={cep}, Consumo={consumo_kwh_m} kWh/m, Telhado={telhado_tipo}?"
+

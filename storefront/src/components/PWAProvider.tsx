@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function PWAProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         // Register service worker
-        if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+        if (typeof window !== 'undefined' && 'serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
             navigator.serviceWorker
                 .register('/sw.js')
                 .then((registration) => {
@@ -73,8 +73,8 @@ export function PWAProvider({ children }: { children: React.ReactNode }) {
 
 // Hook para instalar PWA
 export function usePWAInstall() {
-    const [isInstallable, setIsInstallable] = React.useState(false)
-    const [deferredPrompt, setDeferredPrompt] = React.useState<any>(null)
+    const [isInstallable, setIsInstallable] = useState(false)
+    const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
 
     useEffect(() => {
         const handleBeforeInstallPrompt = (e: Event) => {

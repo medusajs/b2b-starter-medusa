@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "finance.credit.request",
+  "type": "object",
+  "required": ["capex", "tarifa", "geracao_anual", "classe"],
+  "properties": {
+    "capex": {"type":"number"},
+    "tarifa": {"type":"number"},
+    "geracao_anual": {"type":"number"},
+    "classe": {"type":"string"},
+    "taxa_anual": {"type":"number","default":17.5},
+    "prazos_meses": {"type":"array","items":{"type":"integer"}, "default":[24,36,48,60]}
+  }
+}
+

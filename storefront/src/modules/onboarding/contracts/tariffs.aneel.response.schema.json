@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "tariffs.aneel.response",
+  "type": "object",
+  "required": ["tarifa", "limites_mmgd"],
+  "properties": {
+    "tarifa": {
+      "type": "object",
+      "properties": {
+        "TE": {"type": "number"},
+        "TUSD": {"type": "number"},
+        "bandeira": {"type": "string"}
+      }
+    },
+    "limites_mmgd": {
+      "type": "object",
+      "properties": {
+        "min": {"type": "number"},
+        "max": {"type": "number"}
+      }
+    },
+    "csv_mmgd": {"type": "string"}
+  }
+}
+
