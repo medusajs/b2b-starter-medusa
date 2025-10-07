@@ -9,9 +9,9 @@
     "medusa-b2b-storefront"
   ],
   "scripts": {
-    "dev": "next dev -p 8000",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start -p 8000",
+    "start": "next start -p 3000",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
     "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1"
