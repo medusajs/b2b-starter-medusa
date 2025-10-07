@@ -7,10 +7,11 @@
     "price": "R$ 6,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Cabo Lafeber 6mm² - Vermelho 1",
     "pricing": {
-      "price": 6.0,
+      "price": 6,
+      "price_brl": 6,
       "currency": "BRL"
     },
     "metadata": {
@@ -25,7 +26,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092835",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686944"
+      "normalized_at": "2025-10-07T05:03:13.686944",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -33,12 +35,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20078.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20078.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20078.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20078.webp"
-    }
+    "price_brl": 6
   },
   {
     "id": "neosolar_cables_20077",
@@ -48,10 +45,11 @@
     "price": "R$ 6,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Cabo Lafeber 6mm² - Preto 1",
     "pricing": {
-      "price": 6.0,
+      "price": 6,
+      "price_brl": 6,
       "currency": "BRL"
     },
     "metadata": {
@@ -66,7 +64,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092840",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686954"
+      "normalized_at": "2025-10-07T05:03:13.686954",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -74,12 +73,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20077.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20077.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20077.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20077.webp"
-    }
+    "price_brl": 6
   },
   {
     "id": "neosolar_cables_20121",
@@ -89,10 +83,11 @@
     "price": "R$ 9,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Conector MC4 (par) - Proauto",
     "pricing": {
-      "price": 9.0,
+      "price": 9,
+      "price_brl": 9,
       "currency": "BRL"
     },
     "metadata": {
@@ -107,7 +102,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092845",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686956"
+      "normalized_at": "2025-10-07T05:03:13.686956",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -115,12 +111,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20121.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20121.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20121.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20121.webp"
-    }
+    "price_brl": 9
   },
   {
     "id": "neosolar_cables_20369",
@@ -130,10 +121,11 @@
     "price": "R$ 15,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Sensor de Temperatura Epever RTS300R47K3.81A",
     "pricing": {
-      "price": 15.0,
+      "price": 15,
+      "price_brl": 15,
       "currency": "BRL"
     },
     "metadata": {
@@ -148,7 +140,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092850",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686958"
+      "normalized_at": "2025-10-07T05:03:13.686958",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -156,12 +149,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20369.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20369.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20369.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20369.webp"
-    }
+    "price_brl": 15
   },
   {
     "id": "neosolar_cables_20122",
@@ -171,7 +159,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Conector MC4 - Multibranch Proauto (par)",
     "metadata": {
       "source": "consolidated",
@@ -185,20 +173,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092857",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686959"
+      "normalized_at": "2025-10-07T05:03:13.686959",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
     "original_category": "cables",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20122.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20122.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20122.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20122.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_20286",
@@ -208,10 +191,11 @@
     "price": "R$ 199,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Medidor Remoto Epever MT-75 para Controlador de Carga e Inversor Solar",
     "pricing": {
-      "price": 199.0,
+      "price": 199,
+      "price_brl": 199,
       "currency": "BRL"
     },
     "metadata": {
@@ -226,7 +210,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092863",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686961"
+      "normalized_at": "2025-10-07T05:03:13.686961",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -234,12 +219,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20286.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20286.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20286.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20286.webp"
-    }
+    "price_brl": 199
   },
   {
     "id": "neosolar_cables_23780",
@@ -249,7 +229,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System",
     "metadata": {
       "source": "consolidated",
@@ -263,20 +243,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092871",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686963"
+      "normalized_at": "2025-10-07T05:03:13.686963",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
     "original_category": "cables",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_23780.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_23780.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23780.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23780.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_20925",
@@ -286,10 +261,11 @@
     "price": "R$ 101,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20925.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Módulo Epever Wi-Fi 2.4G RJ45 D - Energia Solar",
     "pricing": {
-      "price": 101.0,
+      "price": 101,
+      "price_brl": 101,
       "currency": "BRL"
     },
     "metadata": {
@@ -304,7 +280,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092878",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686964"
+      "normalized_at": "2025-10-07T05:03:13.686964",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -312,12 +289,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20925.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20925.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20925.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20925.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20925.webp"
-    }
+    "price_brl": 101
   },
   {
     "id": "neosolar_cables_23504",
@@ -327,10 +299,11 @@
     "price": "R$ 429,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Solar System",
     "pricing": {
-      "price": 429.0,
+      "price": 429,
+      "price_brl": 429,
       "currency": "BRL"
     },
     "metadata": {
@@ -345,7 +318,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092886",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686966"
+      "normalized_at": "2025-10-07T05:03:13.686966",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -353,12 +327,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_23504.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_23504.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23504.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23504.webp"
-    }
+    "price_brl": 429
   },
   {
     "id": "neosolar_cables_23503",
@@ -368,10 +337,11 @@
     "price": "R$ 458,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Solar System",
     "pricing": {
-      "price": 458.0,
+      "price": 458,
+      "price_brl": 458,
       "currency": "BRL"
     },
     "metadata": {
@@ -386,7 +356,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092894",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686967"
+      "normalized_at": "2025-10-07T05:03:13.686967",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -394,12 +365,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_23503.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_23503.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23503.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23503.webp"
-    }
+    "price_brl": 458
   },
   {
     "id": "neosolar_cables_23505",
@@ -409,10 +375,11 @@
     "price": "R$ 480,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Solar System",
     "pricing": {
-      "price": 480.0,
+      "price": 480,
+      "price_brl": 480,
       "currency": "BRL"
     },
     "metadata": {
@@ -427,7 +394,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092904",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686968"
+      "normalized_at": "2025-10-07T05:03:13.686968",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -435,12 +403,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_23505.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_23505.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23505.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_23505.webp"
-    }
+    "price_brl": 480
   },
   {
     "id": "neosolar_cables_20371",
@@ -450,10 +413,11 @@
     "price": "R$ 670,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Stringbox Neosolar PRO 2x1 1000V 25A IP65",
     "pricing": {
-      "price": 670.0,
+      "price": 670,
+      "price_brl": 670,
       "currency": "BRL"
     },
     "metadata": {
@@ -468,7 +432,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092914",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686969"
+      "normalized_at": "2025-10-07T05:03:13.686969",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -476,12 +441,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20371.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20371.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20371.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20371.webp"
-    }
+    "price_brl": 670
   },
   {
     "id": "neosolar_cables_20789",
@@ -491,10 +451,11 @@
     "price": "R$ 62,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20789.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Conector MC4 - Multibranch (par) - Staubli",
     "pricing": {
-      "price": 62.0,
+      "price": 62,
+      "price_brl": 62,
       "currency": "BRL"
     },
     "metadata": {
@@ -509,7 +470,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092924",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686971"
+      "normalized_at": "2025-10-07T05:03:13.686971",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -517,12 +479,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20789.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_20789.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_20789.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20789.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_20789.webp"
-    }
+    "price_brl": 62
   },
   {
     "id": "neosolar_cables_21771",
@@ -532,10 +489,11 @@
     "price": "R$ 648,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21771.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Perfil Master",
     "pricing": {
-      "price": 648.0,
+      "price": 648,
+      "price_brl": 648,
       "currency": "BRL"
     },
     "metadata": {
@@ -550,7 +508,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092934",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686972"
+      "normalized_at": "2025-10-07T05:03:13.686972",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -558,12 +517,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21771.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_21771.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_21771.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21771.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21771.webp"
-    }
+    "price_brl": 648
   },
   {
     "id": "neosolar_cables_21770",
@@ -573,10 +527,11 @@
     "price": "R$ 648,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Perfil Master",
     "pricing": {
-      "price": 648.0,
+      "price": 648,
+      "price_brl": 648,
       "currency": "BRL"
     },
     "metadata": {
@@ -591,7 +546,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092946",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686973"
+      "normalized_at": "2025-10-07T05:03:13.686973",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -599,12 +555,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_21770.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_21770.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21770.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21770.webp"
-    }
+    "price_brl": 648
   },
   {
     "id": "neosolar_cables_21769",
@@ -614,10 +565,11 @@
     "price": "R$ 901,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Perfil Master",
     "pricing": {
-      "price": 901.0,
+      "price": 901,
+      "price_brl": 901,
       "currency": "BRL"
     },
     "metadata": {
@@ -632,7 +584,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092957",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686975"
+      "normalized_at": "2025-10-07T05:03:13.686975",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -640,12 +593,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_21769.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_21769.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21769.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21769.webp"
-    }
+    "price_brl": 901
   },
   {
     "id": "neosolar_cables_21772",
@@ -655,10 +603,11 @@
     "price": "R$ 994,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
     "pricing": {
-      "price": 994.0,
+      "price": 994,
+      "price_brl": 994,
       "currency": "BRL"
     },
     "metadata": {
@@ -673,7 +622,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092970",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686976"
+      "normalized_at": "2025-10-07T05:03:13.686976",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -681,12 +631,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_21772.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_21772.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21772.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_21772.webp"
-    }
+    "price_brl": 994
   },
   {
     "id": "neosolar_cables_27352",
@@ -696,7 +641,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System",
     "metadata": {
       "source": "consolidated",
@@ -710,20 +655,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092983",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686977"
+      "normalized_at": "2025-10-07T05:03:13.686977",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
     "original_category": "cables",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_27352.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_27352.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_27352.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_27352.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_cables_25205",
@@ -733,10 +673,11 @@
     "price": "R$ 964,00",
     "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_25205.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
     "pricing": {
-      "price": 964.0,
+      "price": 964,
+      "price_brl": 964,
       "currency": "BRL"
     },
     "metadata": {
@@ -751,7 +692,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.092996",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686979"
+      "normalized_at": "2025-10-07T05:03:13.686979",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -759,12 +701,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_25205.jpg",
     "original_category": "cables",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CABLES/thumb/neosolar_cables_25205.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CABLES/medium/neosolar_cables_25205.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CABLES/large/neosolar_cables_25205.webp",
-      "original": "images_processed/NEOSOLAR/CABLES/large/neosolar_cables_25205.webp"
-    }
+    "price_brl": 964
   },
   {
     "id": "solfacil_cables_1",
@@ -774,10 +711,11 @@
     "price": "R$ 21,83",
     "image": "/catalog/images/SOLFACIL-CABLES/image.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
     "pricing": {
       "price": 21.83,
+      "price_brl": 21.83,
       "currency": "BRL"
     },
     "metadata": {
@@ -792,14 +730,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120335",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686981"
+      "normalized_at": "2025-10-07T05:03:13.686981",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 21.83
   },
   {
     "id": "solfacil_cables_2",
@@ -809,10 +749,11 @@
     "price": "R$ 21,83",
     "image": "/catalog/images/SOLFACIL-CABLES/image.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
     "pricing": {
       "price": 21.83,
+      "price_brl": 21.83,
       "currency": "BRL"
     },
     "metadata": {
@@ -827,14 +768,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120351",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686982"
+      "normalized_at": "2025-10-07T05:03:13.686982",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 21.83
   },
   {
     "id": "solfacil_cables_3",
@@ -844,10 +787,11 @@
     "price": "R$ 21,83",
     "image": "/catalog/images/SOLFACIL-CABLES/image.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
     "pricing": {
       "price": 21.83,
+      "price_brl": 21.83,
       "currency": "BRL"
     },
     "metadata": {
@@ -862,14 +806,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120367",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686983"
+      "normalized_at": "2025-10-07T05:03:13.686983",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 21.83
   },
   {
     "id": "solfacil_cables_4",
@@ -879,10 +825,11 @@
     "price": "R$ 44,80",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052129.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 44.8,
+      "price_brl": 44.8,
       "currency": "BRL"
     },
     "metadata": {
@@ -897,14 +844,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120383",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686984"
+      "normalized_at": "2025-10-07T05:03:13.686984",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052129.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 44.8
   },
   {
     "id": "solfacil_cables_5",
@@ -914,10 +863,11 @@
     "price": "R$ 44,80",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 44.8,
+      "price_brl": 44.8,
       "currency": "BRL"
     },
     "metadata": {
@@ -932,14 +882,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120399",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686986"
+      "normalized_at": "2025-10-07T05:03:13.686986",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 44.8
   },
   {
     "id": "solfacil_cables_6",
@@ -949,10 +901,11 @@
     "price": "R$ 134,40",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 134.4,
+      "price_brl": 134.4,
       "currency": "BRL"
     },
     "metadata": {
@@ -967,14 +920,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120416",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686987"
+      "normalized_at": "2025-10-07T05:03:13.686987",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 134.4
   },
   {
     "id": "solfacil_cables_7",
@@ -984,10 +939,11 @@
     "price": "R$ 134,40",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 134.4,
+      "price_brl": 134.4,
       "currency": "BRL"
     },
     "metadata": {
@@ -1002,14 +958,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120433",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686988"
+      "normalized_at": "2025-10-07T05:03:13.686988",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 134.4
   },
   {
     "id": "solfacil_cables_8",
@@ -1019,10 +977,11 @@
     "price": "R$ 185,63",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 185.63,
+      "price_brl": 185.63,
       "currency": "BRL"
     },
     "metadata": {
@@ -1037,14 +996,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120451",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686989"
+      "normalized_at": "2025-10-07T05:03:13.686989",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 185.63
   },
   {
     "id": "solfacil_cables_9",
@@ -1054,10 +1015,11 @@
     "price": "R$ 185,63",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 185.63,
+      "price_brl": 185.63,
       "currency": "BRL"
     },
     "metadata": {
@@ -1072,14 +1034,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120469",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686990"
+      "normalized_at": "2025-10-07T05:03:13.686990",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 185.63
   },
   {
     "id": "solfacil_cables_10",
@@ -1089,10 +1053,11 @@
     "price": "R$ 266,00",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
-      "price": 266.0,
+      "price": 266,
+      "price_brl": 266,
       "currency": "BRL"
     },
     "metadata": {
@@ -1107,14 +1072,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120488",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686991"
+      "normalized_at": "2025-10-07T05:03:13.686991",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 266
   },
   {
     "id": "solfacil_cables_11",
@@ -1124,10 +1091,11 @@
     "price": "R$ 266,00",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
-      "price": 266.0,
+      "price": 266,
+      "price_brl": 266,
       "currency": "BRL"
     },
     "metadata": {
@@ -1142,14 +1110,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120508",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686993"
+      "normalized_at": "2025-10-07T05:03:13.686993",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 266
   },
   {
     "id": "solfacil_cables_12",
@@ -1159,10 +1129,11 @@
     "price": "R$ 366,80",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 366.8,
+      "price_brl": 366.8,
       "currency": "BRL"
     },
     "metadata": {
@@ -1177,14 +1148,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120527",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686994"
+      "normalized_at": "2025-10-07T05:03:13.686994",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 366.8
   },
   {
     "id": "solfacil_cables_13",
@@ -1194,10 +1167,11 @@
     "price": "R$ 366,80",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 366.8,
+      "price_brl": 366.8,
       "currency": "BRL"
     },
     "metadata": {
@@ -1212,14 +1186,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120548",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686995"
+      "normalized_at": "2025-10-07T05:03:13.686995",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 366.8
   },
   {
     "id": "solfacil_cables_14",
@@ -1229,10 +1205,11 @@
     "price": "R$ 392,00",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 75 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
-      "price": 392.0,
+      "price": 392,
+      "price_brl": 392,
       "currency": "BRL"
     },
     "metadata": {
@@ -1247,14 +1224,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120569",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686996"
+      "normalized_at": "2025-10-07T05:03:13.686996",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 392
   },
   {
     "id": "solfacil_cables_15",
@@ -1264,10 +1243,11 @@
     "price": "R$ 392,00",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
-      "price": 392.0,
+      "price": 392,
+      "price_brl": 392,
       "currency": "BRL"
     },
     "metadata": {
@@ -1282,14 +1262,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120590",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686997"
+      "normalized_at": "2025-10-07T05:03:13.686997",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 392
   },
   {
     "id": "solfacil_cables_16",
@@ -1299,10 +1281,11 @@
     "price": "R$ 515,20",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 515.2,
+      "price_brl": 515.2,
       "currency": "BRL"
     },
     "metadata": {
@@ -1317,14 +1300,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120612",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686998"
+      "normalized_at": "2025-10-07T05:03:13.686998",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 515.2
   },
   {
     "id": "solfacil_cables_17",
@@ -1334,10 +1319,11 @@
     "price": "R$ 515,20",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 515.2,
+      "price_brl": 515.2,
       "currency": "BRL"
     },
     "metadata": {
@@ -1352,14 +1338,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120635",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.686999"
+      "normalized_at": "2025-10-07T05:03:13.686999",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 515.2
   },
   {
     "id": "solfacil_cables_18",
@@ -1369,10 +1357,11 @@
     "price": "R$ 551,60",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 75 MT COM PROTECAO UV 1,8KVCC",
     "pricing": {
       "price": 551.6,
+      "price_brl": 551.6,
       "currency": "BRL"
     },
     "metadata": {
@@ -1387,14 +1376,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120658",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687000"
+      "normalized_at": "2025-10-07T05:03:13.687000",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 551.6
   },
   {
     "id": "solfacil_cables_19",
@@ -1404,10 +1395,11 @@
     "price": "R$ 551,60",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 551.6,
+      "price_brl": 551.6,
       "currency": "BRL"
     },
     "metadata": {
@@ -1422,14 +1414,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120681",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687001"
+      "normalized_at": "2025-10-07T05:03:13.687001",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 551.6
   },
   {
     "id": "solfacil_cables_20",
@@ -1439,10 +1433,11 @@
     "price": "R$ 573,13",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 573.13,
+      "price_brl": 573.13,
       "currency": "BRL"
     },
     "metadata": {
@@ -1457,14 +1452,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120707",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687002"
+      "normalized_at": "2025-10-07T05:03:13.687002",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 573.13
   },
   {
     "id": "solfacil_cables_21",
@@ -1474,18 +1471,19 @@
     "price": "R$ 573,13",
     "image": "",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
       "price": 573.13,
+      "price_brl": 573.13,
       "currency": "BRL"
     },
     "metadata": {
@@ -1500,14 +1498,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120733",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687003"
+      "normalized_at": "2025-10-07T05:03:13.687003",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 573.13
   },
   {
     "id": "solfacil_cables_22",
@@ -1517,18 +1517,19 @@
     "price": "R$ 734,47",
     "image": "",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
       "price": 734.47,
+      "price_brl": 734.47,
       "currency": "BRL"
     },
     "metadata": {
@@ -1543,14 +1544,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120760",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687004"
+      "normalized_at": "2025-10-07T05:03:13.687004",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 734.47
   },
   {
     "id": "solfacil_cables_23",
@@ -1560,10 +1563,11 @@
     "price": "R$ 734,47",
     "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 734.47,
+      "price_brl": 734.47,
       "currency": "BRL"
     },
     "metadata": {
@@ -1578,14 +1582,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120786",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687005"
+      "normalized_at": "2025-10-07T05:03:13.687005",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/image.webp",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 734.47
   },
   {
     "id": "solfacil_cables_24",
@@ -1595,10 +1601,11 @@
     "price": "R$ 822,75",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 822.75,
+      "price_brl": 822.75,
       "currency": "BRL"
     },
     "metadata": {
@@ -1613,14 +1620,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120813",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687006"
+      "normalized_at": "2025-10-07T05:03:13.687006",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 822.75
   },
   {
     "id": "solfacil_cables_25",
@@ -1630,10 +1639,11 @@
     "price": "R$ 822,75",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 822.75,
+      "price_brl": 822.75,
       "currency": "BRL"
     },
     "metadata": {
@@ -1648,14 +1658,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120841",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687007"
+      "normalized_at": "2025-10-07T05:03:13.687007",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 822.75
   },
   {
     "id": "solfacil_cables_26",
@@ -1665,10 +1677,11 @@
     "price": "R$ 883,65",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)",
     "pricing": {
       "price": 883.65,
+      "price_brl": 883.65,
       "currency": "BRL"
     },
     "metadata": {
@@ -1683,14 +1696,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120871",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687008"
+      "normalized_at": "2025-10-07T05:03:13.687008",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 883.65
   },
   {
     "id": "solfacil_cables_27",
@@ -1700,18 +1715,19 @@
     "price": "R$ 1.268,06",
     "image": "",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
       "price": 1268.06,
+      "price_brl": 1268.06,
       "currency": "BRL"
     },
     "metadata": {
@@ -1726,14 +1742,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120901",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687009"
+      "normalized_at": "2025-10-07T05:03:13.687009",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1268.06
   },
   {
     "id": "solfacil_cables_28",
@@ -1743,10 +1761,11 @@
     "price": "R$ 1.268,06",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 1268.06,
+      "price_brl": 1268.06,
       "currency": "BRL"
     },
     "metadata": {
@@ -1761,14 +1780,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120931",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687010"
+      "normalized_at": "2025-10-07T05:03:13.687010",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1268.06
   },
   {
     "id": "solfacil_cables_29",
@@ -1778,10 +1799,11 @@
     "price": "R$ 1.283,04",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)",
     "pricing": {
       "price": 1283.04,
+      "price_brl": 1283.04,
       "currency": "BRL"
     },
     "metadata": {
@@ -1796,14 +1818,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120963",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687011"
+      "normalized_at": "2025-10-07T05:03:13.687011",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1283.04
   },
   {
     "id": "solfacil_cables_30",
@@ -1813,10 +1837,11 @@
     "price": "R$ 1.398,60",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)",
     "pricing": {
       "price": 1398.6,
+      "price_brl": 1398.6,
       "currency": "BRL"
     },
     "metadata": {
@@ -1831,14 +1856,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.120994",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687012"
+      "normalized_at": "2025-10-07T05:03:13.687012",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1398.6
   },
   {
     "id": "solfacil_cables_31",
@@ -1848,10 +1875,11 @@
     "price": "R$ 1.502,70",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)",
     "pricing": {
       "price": 1502.7,
+      "price_brl": 1502.7,
       "currency": "BRL"
     },
     "metadata": {
@@ -1866,14 +1894,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121026",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687013"
+      "normalized_at": "2025-10-07T05:03:13.687013",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1502.7
   },
   {
     "id": "solfacil_cables_32",
@@ -1883,10 +1913,11 @@
     "price": "R$ 1.502,70",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
     "pricing": {
       "price": 1502.7,
+      "price_brl": 1502.7,
       "currency": "BRL"
     },
     "metadata": {
@@ -1901,14 +1932,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121059",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687014"
+      "normalized_at": "2025-10-07T05:03:13.687014",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1502.7
   },
   {
     "id": "solfacil_cables_33",
@@ -1918,10 +1951,11 @@
     "price": "R$ 1.957,02",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 1957.02,
+      "price_brl": 1957.02,
       "currency": "BRL"
     },
     "metadata": {
@@ -1936,14 +1970,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121093",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687015"
+      "normalized_at": "2025-10-07T05:03:13.687015",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1957.02
   },
   {
     "id": "solfacil_cables_34",
@@ -1953,10 +1989,11 @@
     "price": "R$ 1.957,02",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)",
     "pricing": {
       "price": 1957.02,
+      "price_brl": 1957.02,
       "currency": "BRL"
     },
     "metadata": {
@@ -1971,14 +2008,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121128",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687016"
+      "normalized_at": "2025-10-07T05:03:13.687016",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1957.02
   },
   {
     "id": "solfacil_cables_35",
@@ -1988,10 +2027,11 @@
     "price": "R$ 2.101,79",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
     "pricing": {
       "price": 2101.79,
+      "price_brl": 2101.79,
       "currency": "BRL"
     },
     "metadata": {
@@ -2006,14 +2046,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121163",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687017"
+      "normalized_at": "2025-10-07T05:03:13.687017",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2101.79
   },
   {
     "id": "solfacil_cables_36",
@@ -2023,10 +2065,11 @@
     "price": "R$ 2.101,79",
     "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)",
     "pricing": {
       "price": 2101.79,
+      "price_brl": 2101.79,
       "currency": "BRL"
     },
     "metadata": {
@@ -2041,13 +2084,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.121198",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.687019"
+      "normalized_at": "2025-10-07T05:03:13.687019",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
     "distributor": "Solfácil",
     "image_url": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
     "original_category": "cables",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2101.79
   }
 ]

@@ -174,10 +174,8 @@ function normalizeCategory(product: ProductSchema): ProductSchema {
     // Salvar categoria original se for diferente
     if (product.original_category && product.original_category !== product.category) {
         if (!product.metadata) product.metadata = {};
-        product.metadata.original_category = product.original_category;
-    }
-
-    return product;
+        (product.metadata as any).original_category = product.original_category;
+    } return product;
 }
 
 function normalizeMetadata(product: ProductSchema): ProductSchema {

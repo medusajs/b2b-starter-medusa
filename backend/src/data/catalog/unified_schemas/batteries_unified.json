@@ -7,10 +7,11 @@
     "price": "R$ 5.322,94",
     "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
     "pricing": {
       "price": 5322.94,
+      "price_brl": 5322.94,
       "currency": "BRL"
     },
     "metadata": {
@@ -24,7 +25,10 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656495"
     },
-    "technical_specs": {}
+    "technical_specs": {},
+    "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
+    "price_brl": 5322.94,
+    "model": ""
   },
   {
     "id": "solfacil_batteries_2",
@@ -34,10 +38,11 @@
     "price": "R$ 5.983,17",
     "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
     "pricing": {
       "price": 5983.17,
+      "price_brl": 5983.17,
       "currency": "BRL"
     },
     "metadata": {
@@ -51,7 +56,10 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656505"
     },
-    "technical_specs": {}
+    "technical_specs": {},
+    "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
+    "price_brl": 5983.17,
+    "model": ""
   },
   {
     "id": "solfacil_batteries_3",
@@ -61,18 +69,19 @@
     "price": "R$ 6.255,94",
     "image": "",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
       "price": 6255.94,
+      "price_brl": 6255.94,
       "currency": "BRL"
     },
     "metadata": {
@@ -86,7 +95,9 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656506"
     },
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6255.94,
+    "model": ""
   },
   {
     "id": "solfacil_batteries_4",
@@ -96,10 +107,11 @@
     "price": "R$ 7.323,74",
     "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
     "pricing": {
       "price": 7323.74,
+      "price_brl": 7323.74,
       "currency": "BRL"
     },
     "metadata": {
@@ -113,22 +125,25 @@
       "normalized": true,
       "normalized_at": "2025-10-07T05:03:13.656508"
     },
-    "technical_specs": {}
+    "technical_specs": {},
+    "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
+    "price_brl": 7323.74,
+    "model": ""
   },
   {
     "id": "FORTLEV-GROWATT-AXE-5.0L",
     "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
     "manufacturer": "Growatt",
     "model": "5.0L",
-    "power": 5.0,
+    "power": 5,
     "distributor": "YSH",
     "price": "6716.83",
     "image_url": "",
     "original_category": "battery",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
@@ -143,9 +158,22 @@
       "source_file": "batteries_unified.json",
       "loaded_at": "2025-10-07T04:51:42.064303",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656516"
+      "normalized_at": "2025-10-07T05:03:13.656516",
+      "original_category": "battery",
+      "distributor": "YSH"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 5
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 671683,
+      "price_brl": 671683,
+      "currency": "BRL"
+    },
+    "price_brl": 671683,
+    "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh"
   },
   {
     "id": "solfacil_batteries_1",
@@ -169,9 +197,20 @@
       "source_file": "batteries_unified.json",
       "loaded_at": "2025-10-07T04:51:42.064303",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656518"
+      "normalized_at": "2025-10-07T05:03:13.656518",
+      "original_category": "batteries",
+      "distributor": "Solfácil"
     },
-    "technical_specs": {}
+    "technical_specs": {},
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 5322.94,
+      "price_brl": 5322.94,
+      "currency": "BRL"
+    },
+    "price_brl": 5322.94,
+    "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20"
   },
   {
     "id": "solfacil_batteries_2",
@@ -193,9 +232,22 @@
       "source_file": "batteries_unified.json",
       "loaded_at": "2025-10-07T04:51:42.064303",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656519"
+      "normalized_at": "2025-10-07T05:03:13.656519",
+      "original_category": "batteries",
+      "distributor": "Solfácil"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 3.2
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 5983.17,
+      "price_brl": 5983.17,
+      "currency": "BRL"
+    },
+    "price_brl": 5983.17,
+    "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE"
   },
   {
     "id": "solfacil_batteries_3",
@@ -208,9 +260,9 @@
     "image_url": "",
     "original_category": "batteries",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
@@ -227,16 +279,29 @@
       "source_file": "batteries_unified.json",
       "loaded_at": "2025-10-07T04:51:42.064303",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656520"
+      "normalized_at": "2025-10-07T05:03:13.656520",
+      "original_category": "batteries",
+      "distributor": "Solfácil"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 5.1
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 6255.94,
+      "price_brl": 6255.94,
+      "currency": "BRL"
+    },
+    "price_brl": 6255.94,
+    "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER"
   },
   {
     "id": "solfacil_batteries_4",
     "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
     "manufacturer": "GoodWe",
     "model": "LYNX",
-    "power": 5.0,
+    "power": 5,
     "distributor": "Solfácil",
     "price": "R$ 7.323,74",
     "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
@@ -251,8 +316,21 @@
       "source_file": "batteries_unified.json",
       "loaded_at": "2025-10-07T04:51:42.064303",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.656521"
+      "normalized_at": "2025-10-07T05:03:13.656521",
+      "original_category": "batteries",
+      "distributor": "Solfácil"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 5
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 7323.74,
+      "price_brl": 7323.74,
+      "currency": "BRL"
+    },
+    "price_brl": 7323.74,
+    "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE"
   }
 ]

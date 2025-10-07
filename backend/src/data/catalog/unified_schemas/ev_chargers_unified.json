@@ -7,10 +7,11 @@
     "price": "R$ 4.726,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23757.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar ZTROON - 3ZTPC3.8-180-96-1500W - até 180m ou 22.800 L/dia (23757)",
     "pricing": {
-      "price": 4726.0,
+      "price": 4726,
+      "price_brl": 4726,
       "currency": "BRL"
     },
     "metadata": {
@@ -25,14 +26,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093270",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666763"
+      "normalized_at": "2025-10-07T05:03:13.666763",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23757.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 4726
   },
   {
     "id": "neosolar_chargers_20863",
@@ -42,10 +45,11 @@
     "price": "R$ 1.927,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20863.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar ZTROON 3\"\" - 180m ou 19m³/dia | 3ZTPC3.8-180-96-1500\"",
     "pricing": {
-      "price": 1927.0,
+      "price": 1927,
+      "price_brl": 1927,
       "currency": "BRL"
     },
     "metadata": {
@@ -60,14 +64,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093276",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666773"
+      "normalized_at": "2025-10-07T05:03:13.666773",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20863.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1927
   },
   {
     "id": "neosolar_chargers_27329",
@@ -77,18 +83,19 @@
     "price": "R$ 1.862,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 1862.0,
+      "price": 1862,
+      "price_brl": 1862,
       "currency": "BRL"
     },
     "metadata": {
@@ -103,14 +110,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093282",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666774"
+      "normalized_at": "2025-10-07T05:03:13.666774",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1862
   },
   {
     "id": "neosolar_chargers_20035",
@@ -120,10 +129,11 @@
     "price": "R$ 1.529,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20035.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Bomba Solar Anauger R100 - até 40m ou 8.600 L/dia",
     "pricing": {
-      "price": 1529.0,
+      "price": 1529,
+      "price_brl": 1529,
       "currency": "BRL"
     },
     "metadata": {
@@ -138,14 +148,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093288",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666775"
+      "normalized_at": "2025-10-07T05:03:13.666775",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20035.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1529
   },
   {
     "id": "neosolar_chargers_20031",
@@ -155,10 +167,11 @@
     "price": "R$ 79,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20031.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bóia de Nível Anauger SensorControl 15A - 3",
     "pricing": {
-      "price": 79.0,
+      "price": 79,
+      "price_brl": 79,
       "currency": "BRL"
     },
     "metadata": {
@@ -173,14 +186,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093294",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666776"
+      "normalized_at": "2025-10-07T05:03:13.666776",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20031.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 79
   },
   {
     "id": "neosolar_chargers_24072",
@@ -190,10 +205,11 @@
     "price": "R$ 5.175,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24072.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC4.8-203-200-1500-A/D - até 203m ou 27.000 L/dia",
     "pricing": {
-      "price": 5175.0,
+      "price": 5175,
+      "price_brl": 5175,
       "currency": "BRL"
     },
     "metadata": {
@@ -208,14 +224,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093300",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666778"
+      "normalized_at": "2025-10-07T05:03:13.666778",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24072.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 5175
   },
   {
     "id": "neosolar_chargers_21295",
@@ -225,10 +243,11 @@
     "price": "R$ 2.816,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21295.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - 203m ou 24m³/dia | 4ZTSC4.8-203-200-1500-A/D\"",
     "pricing": {
-      "price": 2816.0,
+      "price": 2816,
+      "price_brl": 2816,
       "currency": "BRL"
     },
     "metadata": {
@@ -243,14 +262,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093307",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666779"
+      "normalized_at": "2025-10-07T05:03:13.666779",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21295.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2816
   },
   {
     "id": "neosolar_chargers_23758",
@@ -260,10 +281,11 @@
     "price": "R$ 4.794,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23758.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC6-125-96-1500W - até 125m ou 36.000 L/dia (23758)",
     "pricing": {
-      "price": 4794.0,
+      "price": 4794,
+      "price_brl": 4794,
       "currency": "BRL"
     },
     "metadata": {
@@ -278,14 +300,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093315",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666780"
+      "normalized_at": "2025-10-07T05:03:13.666780",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23758.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 4794
   },
   {
     "id": "neosolar_chargers_20864",
@@ -295,10 +319,11 @@
     "price": "R$ 2.008,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20864.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar ZTROON 3\"\" - 125m ou 30m³/dia | 3ZTPC6-125-96-1500W\"",
     "pricing": {
-      "price": 2008.0,
+      "price": 2008,
+      "price_brl": 2008,
       "currency": "BRL"
     },
     "metadata": {
@@ -313,14 +338,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093323",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666781"
+      "normalized_at": "2025-10-07T05:03:13.666781",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20864.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2008
   },
   {
     "id": "neosolar_chargers_20860",
@@ -330,10 +357,11 @@
     "price": "R$ 1.686,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20860.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar ZTROON 3\"\" - 150m ou 10m³/dia | 3ZTS2.0-150-48-750W\"",
     "pricing": {
-      "price": 1686.0,
+      "price": 1686,
+      "price_brl": 1686,
       "currency": "BRL"
     },
     "metadata": {
@@ -348,14 +376,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093331",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666782"
+      "normalized_at": "2025-10-07T05:03:13.666782",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20860.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1686
   },
   {
     "id": "neosolar_chargers_24021",
@@ -365,10 +395,11 @@
     "price": "R$ 3.028,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24021.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS2.0-150-48-750W - até 150m ou 12.000L/dia",
     "pricing": {
-      "price": 3028.0,
+      "price": 3028,
+      "price_brl": 3028,
       "currency": "BRL"
     },
     "metadata": {
@@ -383,14 +414,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093340",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666783"
+      "normalized_at": "2025-10-07T05:03:13.666783",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24021.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 3028
   },
   {
     "id": "neosolar_chargers_23761",
@@ -400,10 +433,11 @@
     "price": "R$ 4.871,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23761.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTLR11.5-100-200-1500-A/D - até 100m ou 69.000 L/dia (23761)",
     "pricing": {
-      "price": 4871.0,
+      "price": 4871,
+      "price_brl": 4871,
       "currency": "BRL"
     },
     "metadata": {
@@ -418,14 +452,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093350",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666784"
+      "normalized_at": "2025-10-07T05:03:13.666784",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23761.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 4871
   },
   {
     "id": "neosolar_chargers_20862",
@@ -435,10 +471,11 @@
     "price": "R$ 1.927,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20862.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar ZTROON 3\"\" - 75m ou 26m³/dia | 3ZTPC5.2-75-96-750W\"",
     "pricing": {
-      "price": 1927.0,
+      "price": 1927,
+      "price_brl": 1927,
       "currency": "BRL"
     },
     "metadata": {
@@ -453,14 +490,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093360",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666786"
+      "normalized_at": "2025-10-07T05:03:13.666786",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20862.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1927
   },
   {
     "id": "neosolar_chargers_23759",
@@ -470,10 +509,11 @@
     "price": "R$ 3.167,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23759.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5.2-75-96-750W - até 75m ou 31.200 L/dia (23759)",
     "pricing": {
-      "price": 3167.0,
+      "price": 3167,
+      "price_brl": 3167,
       "currency": "BRL"
     },
     "metadata": {
@@ -488,14 +528,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093370",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666786"
+      "normalized_at": "2025-10-07T05:03:13.666786",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23759.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 3167
   },
   {
     "id": "neosolar_chargers_20868",
@@ -505,10 +547,11 @@
     "price": "R$ 2.560,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20868.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - 100m ou 57.5m³/dia | 4ZTLR11.5-100-200-1500-A/D\"",
     "pricing": {
-      "price": 2560.0,
+      "price": 2560,
+      "price_brl": 2560,
       "currency": "BRL"
     },
     "metadata": {
@@ -523,14 +566,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093382",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666787"
+      "normalized_at": "2025-10-07T05:03:13.666787",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20868.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2560
   },
   {
     "id": "neosolar_chargers_24607",
@@ -540,10 +585,11 @@
     "price": "R$ 2.246,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24607.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS1.7-109-48-500W - até 900Wp",
     "pricing": {
-      "price": 2246.0,
+      "price": 2246,
+      "price_brl": 2246,
       "currency": "BRL"
     },
     "metadata": {
@@ -558,14 +604,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093393",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666788"
+      "normalized_at": "2025-10-07T05:03:13.666788",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24607.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2246
   },
   {
     "id": "neosolar_chargers_20859",
@@ -575,10 +623,11 @@
     "price": "R$ 1.525,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20859.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar ZTROON 3\"\" - 109 m ou 8.5m³/dia | 3ZTS1.7-109-48-500W\"",
     "pricing": {
-      "price": 1525.0,
+      "price": 1525,
+      "price_brl": 1525,
       "currency": "BRL"
     },
     "metadata": {
@@ -593,14 +642,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093406",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666789"
+      "normalized_at": "2025-10-07T05:03:13.666789",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20859.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1525
   },
   {
     "id": "neosolar_chargers_20870",
@@ -610,10 +661,11 @@
     "price": "R$ 40,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20870.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Eixo Helicoidal (Parafuso) para Reposição – Bomba Solar ZTROON",
     "pricing": {
-      "price": 40.0,
+      "price": 40,
+      "price_brl": 40,
       "currency": "BRL"
     },
     "metadata": {
@@ -628,14 +680,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093419",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666790"
+      "normalized_at": "2025-10-07T05:03:13.666790",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20870.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 40
   },
   {
     "id": "neosolar_chargers_25220",
@@ -645,10 +699,11 @@
     "price": "R$ 1.631,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25220.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
     "pricing": {
-      "price": 1631.0,
+      "price": 1631,
+      "price_brl": 1631,
       "currency": "BRL"
     },
     "metadata": {
@@ -663,14 +718,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093432",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666791"
+      "normalized_at": "2025-10-07T05:03:13.666791",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25220.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1631
   },
   {
     "id": "neosolar_chargers_24795",
@@ -680,10 +737,11 @@
     "price": "R$ 1.266,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24795.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar 12V Shurflo 8000 MAXX - até 42m ou 2.940 L/dia",
     "pricing": {
-      "price": 1266.0,
+      "price": 1266,
+      "price_brl": 1266,
       "currency": "BRL"
     },
     "metadata": {
@@ -698,14 +756,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093446",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666793"
+      "normalized_at": "2025-10-07T05:03:13.666793",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24795.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1266
   },
   {
     "id": "neosolar_chargers_24475",
@@ -715,10 +775,11 @@
     "price": "R$ 2.598,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24475.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Inversor Drive Solar p/ Bomba 7",
     "pricing": {
-      "price": 2598.0,
+      "price": 2598,
+      "price_brl": 2598,
       "currency": "BRL"
     },
     "metadata": {
@@ -733,14 +794,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093460",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666794"
+      "normalized_at": "2025-10-07T05:03:13.666794",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24475.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2598
   },
   {
     "id": "neosolar_chargers_24473",
@@ -750,10 +813,11 @@
     "price": "R$ 3.543,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24473.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Inversor Drive Solar p/ Bomba 10CV Trifásica - APOLLO GS500-11G-4TB",
     "pricing": {
-      "price": 3543.0,
+      "price": 3543,
+      "price_brl": 3543,
       "currency": "BRL"
     },
     "metadata": {
@@ -768,14 +832,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093475",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666795"
+      "normalized_at": "2025-10-07T05:03:13.666795",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24473.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 3543
   },
   {
     "id": "neosolar_chargers_24249",
@@ -785,10 +851,11 @@
     "price": "R$ 1.734,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24249.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
     "pricing": {
-      "price": 1734.0,
+      "price": 1734,
+      "price_brl": 1734,
       "currency": "BRL"
     },
     "metadata": {
@@ -803,14 +870,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093491",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666796"
+      "normalized_at": "2025-10-07T05:03:13.666796",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24249.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1734
   },
   {
     "id": "neosolar_chargers_24802",
@@ -820,10 +889,11 @@
     "price": "R$ 6.989,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24802.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC6-255-200-2200-A/D - até 255m ou 30.000L/dia",
     "pricing": {
-      "price": 6989.0,
+      "price": 6989,
+      "price_brl": 6989,
       "currency": "BRL"
     },
     "metadata": {
@@ -838,14 +908,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093506",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666797"
+      "normalized_at": "2025-10-07T05:03:13.666797",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24802.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6989
   },
   {
     "id": "neosolar_chargers_26904",
@@ -855,10 +927,11 @@
     "price": "R$ 7.250,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26904.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC6-255-200-2200-A/D - até 255m ou 30.000L/dia",
     "pricing": {
-      "price": 7250.0,
+      "price": 7250,
+      "price_brl": 7250,
       "currency": "BRL"
     },
     "metadata": {
@@ -873,14 +946,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093523",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666798"
+      "normalized_at": "2025-10-07T05:03:13.666798",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26904.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 7250
   },
   {
     "id": "neosolar_chargers_25128",
@@ -890,10 +965,11 @@
     "price": "R$ 1.198,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25128.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar 12V Shurflo 8000 STD - até 42m ou 2.940 L/dia",
     "pricing": {
-      "price": 1198.0,
+      "price": 1198,
+      "price_brl": 1198,
       "currency": "BRL"
     },
     "metadata": {
@@ -908,14 +984,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093540",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666799"
+      "normalized_at": "2025-10-07T05:03:13.666799",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25128.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1198
   },
   {
     "id": "neosolar_chargers_22154",
@@ -925,10 +1003,11 @@
     "price": "R$ 332,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_22154.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 24V",
     "pricing": {
-      "price": 332.0,
+      "price": 332,
+      "price_brl": 332,
       "currency": "BRL"
     },
     "metadata": {
@@ -943,14 +1022,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093557",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666800"
+      "normalized_at": "2025-10-07T05:03:13.666800",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_22154.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 332
   },
   {
     "id": "neosolar_chargers_24467",
@@ -960,10 +1041,11 @@
     "price": "R$ 4.778,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24467.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - até 255m ou 30m³/dia | 4ZTSC6-255-200-2200-A/D\"",
     "pricing": {
-      "price": 4778.0,
+      "price": 4778,
+      "price_brl": 4778,
       "currency": "BRL"
     },
     "metadata": {
@@ -978,14 +1060,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093575",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666801"
+      "normalized_at": "2025-10-07T05:03:13.666801",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24467.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 4778
   },
   {
     "id": "neosolar_chargers_20044",
@@ -995,10 +1079,11 @@
     "price": "R$ 1.096,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20044.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Bomba Solar Superfície 12V Shurflo 8000 - até 42m ou 2.940 L/dia",
     "pricing": {
-      "price": 1096.0,
+      "price": 1096,
+      "price_brl": 1096,
       "currency": "BRL"
     },
     "metadata": {
@@ -1013,14 +1098,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093593",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666802"
+      "normalized_at": "2025-10-07T05:03:13.666802",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20044.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1096
   },
   {
     "id": "neosolar_chargers_24019",
@@ -1030,10 +1117,11 @@
     "price": "R$ 4.589,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24019.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Superfície ZTROON - ZTHF50-17-96-1500W - até 17m ou 270m³/dia",
     "pricing": {
-      "price": 4589.0,
+      "price": 4589,
+      "price_brl": 4589,
       "currency": "BRL"
     },
     "metadata": {
@@ -1048,14 +1136,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093612",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666803"
+      "normalized_at": "2025-10-07T05:03:13.666803",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24019.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 4589
   },
   {
     "id": "neosolar_chargers_20871",
@@ -1065,10 +1155,11 @@
     "price": "R$ 84,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20871.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Sensor de Nível de Poço – Reposição Bombas Solares ZTROON",
     "pricing": {
-      "price": 84.0,
+      "price": 84,
+      "price_brl": 84,
       "currency": "BRL"
     },
     "metadata": {
@@ -1083,14 +1174,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093632",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666804"
+      "normalized_at": "2025-10-07T05:03:13.666804",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20871.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 84
   },
   {
     "id": "neosolar_chargers_27327",
@@ -1100,18 +1193,19 @@
     "price": "R$ 1.818,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger P100 STD - até 40m ou 4.600 L/dia",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 1818.0,
+      "price": 1818,
+      "price_brl": 1818,
       "currency": "BRL"
     },
     "metadata": {
@@ -1126,14 +1220,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093652",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666805"
+      "normalized_at": "2025-10-07T05:03:13.666805",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1818
   },
   {
     "id": "neosolar_chargers_24474",
@@ -1143,10 +1239,11 @@
     "price": "R$ 1.487,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24474.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Inversor Drive Solar p/ Bomba 3CV Trifásica - APOLLO GS500-2.2G-2SB",
     "pricing": {
-      "price": 1487.0,
+      "price": 1487,
+      "price_brl": 1487,
       "currency": "BRL"
     },
     "metadata": {
@@ -1161,14 +1258,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093673",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666806"
+      "normalized_at": "2025-10-07T05:03:13.666806",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24474.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1487
   },
   {
     "id": "neosolar_chargers_20034",
@@ -1178,10 +1277,11 @@
     "price": "R$ 1.483,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20034.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Bomba Solar Anauger P100 - até 40m ou 8.600 L/dia",
     "pricing": {
-      "price": 1483.0,
+      "price": 1483,
+      "price_brl": 1483,
       "currency": "BRL"
     },
     "metadata": {
@@ -1196,14 +1296,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093694",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666807"
+      "normalized_at": "2025-10-07T05:03:13.666807",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20034.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1483
   },
   {
     "id": "neosolar_chargers_21294",
@@ -1213,10 +1315,11 @@
     "price": "R$ 1.766,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21294.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Bomba Solar Superfície ZTROON - 17m ou 250m³/dia | ZTHF50-17-96-1500",
     "pricing": {
-      "price": 1766.0,
+      "price": 1766,
+      "price_brl": 1766,
       "currency": "BRL"
     },
     "metadata": {
@@ -1231,14 +1334,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093716",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666809"
+      "normalized_at": "2025-10-07T05:03:13.666809",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21294.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1766
   },
   {
     "id": "neosolar_chargers_24801",
@@ -1248,10 +1353,11 @@
     "price": "R$ 5.715,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24801.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
     "pricing": {
-      "price": 5715.0,
+      "price": 5715,
+      "price_brl": 5715,
       "currency": "BRL"
     },
     "metadata": {
@@ -1266,14 +1372,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093738",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666809"
+      "normalized_at": "2025-10-07T05:03:13.666809",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24801.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 5715
   },
   {
     "id": "neosolar_chargers_26903",
@@ -1283,10 +1391,11 @@
     "price": "R$ 5.974,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26903.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
     "pricing": {
-      "price": 5974.0,
+      "price": 5974,
+      "price_brl": 5974,
       "currency": "BRL"
     },
     "metadata": {
@@ -1301,14 +1410,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093761",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666810"
+      "normalized_at": "2025-10-07T05:03:13.666810",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26903.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 5974
   },
   {
     "id": "neosolar_chargers_25023",
@@ -1318,10 +1429,11 @@
     "price": "R$ 6.809,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25023.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.88kWp",
     "pricing": {
-      "price": 6809.0,
+      "price": 6809,
+      "price_brl": 6809,
       "currency": "BRL"
     },
     "metadata": {
@@ -1336,14 +1448,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093784",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666812"
+      "normalized_at": "2025-10-07T05:03:13.666812",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25023.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6809
   },
   {
     "id": "neosolar_chargers_24716",
@@ -1353,10 +1467,11 @@
     "price": "R$ 6.592,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24716.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.96kWp",
     "pricing": {
-      "price": 6592.0,
+      "price": 6592,
+      "price_brl": 6592,
       "currency": "BRL"
     },
     "metadata": {
@@ -1371,14 +1486,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093807",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666813"
+      "normalized_at": "2025-10-07T05:03:13.666813",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24716.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6592
   },
   {
     "id": "neosolar_chargers_27328",
@@ -1388,18 +1505,19 @@
     "price": "R$ 1.835,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 1835.0,
+      "price": 1835,
+      "price_brl": 1835,
       "currency": "BRL"
     },
     "metadata": {
@@ -1414,14 +1532,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093831",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666814"
+      "normalized_at": "2025-10-07T05:03:13.666814",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1835
   },
   {
     "id": "neosolar_chargers_27330",
@@ -1431,18 +1551,19 @@
     "price": "R$ 1.879,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Anauger R100 MAXX - até 40m ou 8.600 L/dia",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 1879.0,
+      "price": 1879,
+      "price_brl": 1879,
       "currency": "BRL"
     },
     "metadata": {
@@ -1457,14 +1578,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093855",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666815"
+      "normalized_at": "2025-10-07T05:03:13.666815",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1879
   },
   {
     "id": "neosolar_chargers_24718",
@@ -1474,10 +1597,11 @@
     "price": "R$ 17.270,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24718.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 16.12kWp",
     "pricing": {
-      "price": 17270.0,
+      "price": 17270,
+      "price_brl": 17270,
       "currency": "BRL"
     },
     "metadata": {
@@ -1492,14 +1616,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093880",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666816"
+      "normalized_at": "2025-10-07T05:03:13.666816",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24718.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 17270
   },
   {
     "id": "neosolar_chargers_26901",
@@ -1509,18 +1635,19 @@
     "price": "R$ 15.699,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 16.12kWp",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 15699.0,
+      "price": 15699,
+      "price_brl": 15699,
       "currency": "BRL"
     },
     "metadata": {
@@ -1535,14 +1662,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093906",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666817"
+      "normalized_at": "2025-10-07T05:03:13.666817",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 15699
   },
   {
     "id": "neosolar_chargers_26900",
@@ -1552,18 +1681,19 @@
     "price": "R$ 6.870,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.96kWp",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 6870.0,
+      "price": 6870,
+      "price_brl": 6870,
       "currency": "BRL"
     },
     "metadata": {
@@ -1578,14 +1708,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093933",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666818"
+      "normalized_at": "2025-10-07T05:03:13.666818",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6870
   },
   {
     "id": "neosolar_chargers_24606",
@@ -1595,10 +1727,11 @@
     "price": "R$ 2.110,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24606.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS1.7-109-48-500W - até 109 m ou 10.200 L/dia",
     "pricing": {
-      "price": 2110.0,
+      "price": 2110,
+      "price_brl": 2110,
       "currency": "BRL"
     },
     "metadata": {
@@ -1613,14 +1746,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093959",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666819"
+      "normalized_at": "2025-10-07T05:03:13.666819",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24606.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2110
   },
   {
     "id": "neosolar_chargers_24608",
@@ -1630,10 +1765,11 @@
     "price": "R$ 1.905,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24608.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Superfície ZTROON - ZTHF6-24-48-550W - até 24m ou 36m³/dia",
     "pricing": {
-      "price": 1905.0,
+      "price": 1905,
+      "price_brl": 1905,
       "currency": "BRL"
     },
     "metadata": {
@@ -1648,14 +1784,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.093987",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666820"
+      "normalized_at": "2025-10-07T05:03:13.666820",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24608.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1905
   },
   {
     "id": "neosolar_chargers_20872",
@@ -1665,10 +1803,11 @@
     "price": "R$ 690,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20872.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 48V",
     "pricing": {
-      "price": 690.0,
+      "price": 690,
+      "price_brl": 690,
       "currency": "BRL"
     },
     "metadata": {
@@ -1683,14 +1822,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094014",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666821"
+      "normalized_at": "2025-10-07T05:03:13.666821",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20872.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 690
   },
   {
     "id": "neosolar_chargers_26902",
@@ -1700,10 +1841,11 @@
     "price": "R$ 23.171,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26902.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 24.18kWp",
     "pricing": {
-      "price": 23171.0,
+      "price": 23171,
+      "price_brl": 23171,
       "currency": "BRL"
     },
     "metadata": {
@@ -1718,14 +1860,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094043",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666822"
+      "normalized_at": "2025-10-07T05:03:13.666822",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26902.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 23171
   },
   {
     "id": "neosolar_chargers_20045",
@@ -1735,10 +1879,11 @@
     "price": "R$ 2.891,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20045.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Bomba Solar Submersa 24V Shurflo 9325- até 70m",
     "pricing": {
-      "price": 2891.0,
+      "price": 2891,
+      "price_brl": 2891,
       "currency": "BRL"
     },
     "metadata": {
@@ -1753,14 +1898,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094154",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666823"
+      "normalized_at": "2025-10-07T05:03:13.666823",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20045.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 2891
   },
   {
     "id": "neosolar_chargers_24717",
@@ -1770,10 +1917,11 @@
     "price": "R$ 25.936,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24717.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 24.18kWp",
     "pricing": {
-      "price": 25936.0,
+      "price": 25936,
+      "price_brl": 25936,
       "currency": "BRL"
     },
     "metadata": {
@@ -1788,14 +1936,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094185",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666824"
+      "normalized_at": "2025-10-07T05:03:13.666824",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24717.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 25936
   },
   {
     "id": "neosolar_chargers_25025",
@@ -1805,10 +1955,11 @@
     "price": "R$ 26.433,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25025.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.39kWp",
     "pricing": {
-      "price": 26433.0,
+      "price": 26433,
+      "price_brl": 26433,
       "currency": "BRL"
     },
     "metadata": {
@@ -1823,14 +1974,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094216",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666825"
+      "normalized_at": "2025-10-07T05:03:13.666825",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25025.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 26433
   },
   {
     "id": "neosolar_chargers_23760",
@@ -1840,10 +1993,11 @@
     "price": "R$ 1.570,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23760.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "Kit Bomba Solar Helicoidal ZTROON 3ZTS1.2-77-24-210W - até 77m ou 7.200 L/dia (23760)",
     "pricing": {
-      "price": 1570.0,
+      "price": 1570,
+      "price_brl": 1570,
       "currency": "BRL"
     },
     "metadata": {
@@ -1858,14 +2012,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094246",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666826"
+      "normalized_at": "2025-10-07T05:03:13.666826",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23760.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1570
   },
   {
     "id": "neosolar_chargers_27386",
@@ -1875,12 +2031,12 @@
     "price": "",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "*KIT TESTE PORTAL B2B NÃO UTILIZAR*",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
@@ -1897,7 +2053,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094277",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666827"
+      "normalized_at": "2025-10-07T05:03:13.666827",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -1914,10 +2071,11 @@
     "price": "R$ 17.535,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25024.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 15.86kWp",
     "pricing": {
-      "price": 17535.0,
+      "price": 17535,
+      "price_brl": 17535,
       "currency": "BRL"
     },
     "metadata": {
@@ -1932,14 +2090,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094309",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666828"
+      "normalized_at": "2025-10-07T05:03:13.666828",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25024.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 17535
   },
   {
     "id": "neosolar_chargers_25012",
@@ -1949,10 +2109,11 @@
     "price": "R$ 5.663,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25012.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
     "pricing": {
-      "price": 5663.0,
+      "price": 5663,
+      "price_brl": 5663,
       "currency": "BRL"
     },
     "metadata": {
@@ -1967,14 +2128,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094341",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666830"
+      "normalized_at": "2025-10-07T05:03:13.666830",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_25012.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 5663
   },
   {
     "id": "neosolar_chargers_26360",
@@ -1984,10 +2147,11 @@
     "price": "R$ 21.145,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26360.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 18.27kWp",
     "pricing": {
-      "price": 21145.0,
+      "price": 21145,
+      "price_brl": 21145,
       "currency": "BRL"
     },
     "metadata": {
@@ -2002,14 +2166,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094374",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666831"
+      "normalized_at": "2025-10-07T05:03:13.666831",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26360.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 21145
   },
   {
     "id": "neosolar_chargers_20043",
@@ -2019,10 +2185,11 @@
     "price": "R$ 1.000,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20043.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Bomba Solar Superfície 12V Shurflo 2088 - até 35m ou 4.750 L/dia",
     "pricing": {
-      "price": 1000.0,
+      "price": 1000,
+      "price_brl": 1000,
       "currency": "BRL"
     },
     "metadata": {
@@ -2037,14 +2204,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094407",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666832"
+      "normalized_at": "2025-10-07T05:03:13.666832",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20043.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1000
   },
   {
     "id": "neosolar_chargers_20861",
@@ -2054,10 +2223,11 @@
     "price": "R$ 1.445,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20861.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "\"Bomba Solar ZTROON 3\"\" - 45m ou 25m³/dia | 3ZTPC5-45-48-500W\"",
     "pricing": {
-      "price": 1445.0,
+      "price": 1445,
+      "price_brl": 1445,
       "currency": "BRL"
     },
     "metadata": {
@@ -2072,14 +2242,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094440",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666833"
+      "normalized_at": "2025-10-07T05:03:13.666833",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20861.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 1445
   },
   {
     "id": "neosolar_chargers_21757",
@@ -2089,7 +2261,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21757.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2103,7 +2275,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094474",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666834"
+      "normalized_at": "2025-10-07T05:03:13.666834",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2120,10 +2293,11 @@
     "price": "R$ 28.864,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24715.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.49kWp",
     "pricing": {
-      "price": 28864.0,
+      "price": 28864,
+      "price_brl": 28864,
       "currency": "BRL"
     },
     "metadata": {
@@ -2138,14 +2312,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094509",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666835"
+      "normalized_at": "2025-10-07T05:03:13.666835",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24715.jpg",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 28864
   },
   {
     "id": "neosolar_chargers_24714",
@@ -2155,10 +2331,11 @@
     "price": "R$ 22.301,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24714.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 18.27kWp",
     "pricing": {
-      "price": 22301.0,
+      "price": 22301,
+      "price_brl": 22301,
       "currency": "BRL"
     },
     "metadata": {
@@ -2173,7 +2350,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094544",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666837"
+      "normalized_at": "2025-10-07T05:03:13.666837",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2181,12 +2359,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24714.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24714.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24714.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24714.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24714.webp"
-    }
+    "price_brl": 22301
   },
   {
     "id": "neosolar_chargers_24713",
@@ -2196,10 +2369,11 @@
     "price": "R$ 7.599,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24713.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "\"Kit Solar p/ Bomba (CA) até 3CV 240V - Apollo GS500 2.2G-2SB - 5",
     "pricing": {
-      "price": 7599.0,
+      "price": 7599,
+      "price_brl": 7599,
       "currency": "BRL"
     },
     "metadata": {
@@ -2214,7 +2388,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094579",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666839"
+      "normalized_at": "2025-10-07T05:03:13.666839",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2222,12 +2397,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24713.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24713.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24713.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24713.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24713.webp"
-    }
+    "price_brl": 7599
   },
   {
     "id": "neosolar_chargers_21751",
@@ -2237,7 +2407,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21751.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2251,20 +2421,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094616",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666841"
+      "normalized_at": "2025-10-07T05:03:13.666841",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21751.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21751.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21751.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21751.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21751.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_21741",
@@ -2274,7 +2439,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21741.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar 12V Shurflo 2088 MAXX - até 35m ou 4.750 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2288,20 +2453,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094653",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666842"
+      "normalized_at": "2025-10-07T05:03:13.666842",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21741.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21741.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21741.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21741.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21741.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_21743",
@@ -2311,7 +2471,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21743.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar 24V Shurflo 9325 - até 70m ou 2.520 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2325,20 +2485,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094690",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666844"
+      "normalized_at": "2025-10-07T05:03:13.666844",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21743.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21743.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21743.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21743.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21743.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_21756",
@@ -2348,7 +2503,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21756.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Anauger R100 MAXX - até 40m ou 8.600 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2362,20 +2517,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094727",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666845"
+      "normalized_at": "2025-10-07T05:03:13.666845",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21756.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21756.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21756.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21756.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21756.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_21755",
@@ -2385,7 +2535,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21755.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Anauger P100 STD - até 40m ou 4.600 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2399,20 +2549,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094788",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666847"
+      "normalized_at": "2025-10-07T05:03:13.666847",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21755.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21755.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21755.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21755.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21755.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_21742",
@@ -2422,7 +2567,7 @@
     "price": "",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21742.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar 12V Shurflo 2088 STD - até 14m ou 4.750 L/dia",
     "metadata": {
       "source": "consolidated",
@@ -2436,20 +2581,15 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094840",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666848"
+      "normalized_at": "2025-10-07T05:03:13.666848",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_21742.jpg",
     "original_category": "chargers",
-    "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_21742.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_21742.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21742.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_21742.webp"
-    }
+    "technical_specs": {}
   },
   {
     "id": "neosolar_chargers_26526",
@@ -2459,18 +2599,19 @@
     "price": "R$ 8.098,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
-    "description": "",
+    "availability": false,
+    "description": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 8098.0,
+      "price": 8098,
+      "price_brl": 8098,
       "currency": "BRL"
     },
     "metadata": {
@@ -2485,14 +2626,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094880",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666849"
+      "normalized_at": "2025-10-07T05:03:13.666849",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 8098
   },
   {
     "id": "neosolar_chargers_26361",
@@ -2502,18 +2645,19 @@
     "price": "R$ 27.514,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.49kWp",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 27514.0,
+      "price": 27514,
+      "price_brl": 27514,
       "currency": "BRL"
     },
     "metadata": {
@@ -2528,14 +2672,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094920",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666850"
+      "normalized_at": "2025-10-07T05:03:13.666850",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 27514
   },
   {
     "id": "neosolar_chargers_26525",
@@ -2545,18 +2691,19 @@
     "price": "R$ 6.611,00",
     "image": "",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
-    "description": "",
+    "availability": false,
+    "description": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
     "image_processing_priority": 1,
     "pricing": {
-      "price": 6611.0,
+      "price": 6611,
+      "price_brl": 6611,
       "currency": "BRL"
     },
     "metadata": {
@@ -2571,14 +2718,16 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.094961",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666851"
+      "normalized_at": "2025-10-07T05:03:13.666851",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
     "distributor": "YSH",
     "image_url": "",
     "original_category": "chargers",
-    "technical_specs": {}
+    "technical_specs": {},
+    "price_brl": 6611
   },
   {
     "id": "neosolar_chargers_26359",
@@ -2588,10 +2737,11 @@
     "price": "R$ 7.403,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26359.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "\"Kit Solar p/ Bomba (CA) até 3CV 240V - Apollo GS500 2.2G-2SB - 5",
     "pricing": {
-      "price": 7403.0,
+      "price": 7403,
+      "price_brl": 7403,
       "currency": "BRL"
     },
     "metadata": {
@@ -2606,7 +2756,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095002",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666853"
+      "normalized_at": "2025-10-07T05:03:13.666853",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2614,12 +2765,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_26359.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_26359.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_26359.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_26359.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_26359.webp"
-    }
+    "price_brl": 7403
   },
   {
     "id": "neosolar_chargers_20858",
@@ -2629,10 +2775,11 @@
     "price": "R$ 1.365,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20858.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "\"Bomba Solar ZTROON 3\"\" - 77m ou 6m³/dia | 3ZTS1.2-77-24-210W\"",
     "pricing": {
-      "price": 1365.0,
+      "price": 1365,
+      "price_brl": 1365,
       "currency": "BRL"
     },
     "metadata": {
@@ -2647,7 +2794,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095043",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666854"
+      "normalized_at": "2025-10-07T05:03:13.666854",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2655,12 +2803,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20858.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_20858.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_20858.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20858.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20858.webp"
-    }
+    "price_brl": 1365
   },
   {
     "id": "neosolar_chargers_20866",
@@ -2670,10 +2813,11 @@
     "price": "R$ 1.284,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20866.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Bomba Solar Superfície ZTROON - 24m ou 30m³/dia | ZTHF6-24-48-550",
     "pricing": {
-      "price": 1284.0,
+      "price": 1284,
+      "price_brl": 1284,
       "currency": "BRL"
     },
     "metadata": {
@@ -2688,7 +2832,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095085",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666856"
+      "normalized_at": "2025-10-07T05:03:13.666856",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2696,12 +2841,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20866.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_20866.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_20866.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20866.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20866.webp"
-    }
+    "price_brl": 1284
   },
   {
     "id": "neosolar_chargers_20873",
@@ -2711,10 +2851,11 @@
     "price": "R$ 888,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20873.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 96V",
     "pricing": {
-      "price": 888.0,
+      "price": 888,
+      "price_brl": 888,
       "currency": "BRL"
     },
     "metadata": {
@@ -2729,7 +2870,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095128",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666858"
+      "normalized_at": "2025-10-07T05:03:13.666858",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2737,12 +2879,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20873.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_20873.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_20873.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20873.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20873.webp"
-    }
+    "price_brl": 888
   },
   {
     "id": "neosolar_chargers_20865",
@@ -2752,10 +2889,11 @@
     "price": "R$ 1.003,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20865.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Bomba Solar Superfície ZTROON - 25m ou 10m³/dia | ZTQB2-25-24-210",
     "pricing": {
-      "price": 1003.0,
+      "price": 1003,
+      "price_brl": 1003,
       "currency": "BRL"
     },
     "metadata": {
@@ -2770,7 +2908,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095176",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666859"
+      "normalized_at": "2025-10-07T05:03:13.666859",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2778,12 +2917,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_20865.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_20865.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_20865.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20865.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_20865.webp"
-    }
+    "price_brl": 1003
   },
   {
     "id": "neosolar_chargers_24468",
@@ -2793,10 +2927,11 @@
     "price": "R$ 3.220,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24468.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - até 125m ou 70m³/dia | 4ZTPC14-125-200-2200-A/D\"",
     "pricing": {
-      "price": 3220.0,
+      "price": 3220,
+      "price_brl": 3220,
       "currency": "BRL"
     },
     "metadata": {
@@ -2811,7 +2946,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095219",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666860"
+      "normalized_at": "2025-10-07T05:03:13.666860",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2819,12 +2955,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24468.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24468.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24468.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24468.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24468.webp"
-    }
+    "price_brl": 3220
   },
   {
     "id": "neosolar_chargers_24594",
@@ -2834,10 +2965,11 @@
     "price": "R$ 2.177,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24594.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5-45-48-500W - até 900Wp",
     "pricing": {
-      "price": 2177.0,
+      "price": 2177,
+      "price_brl": 2177,
       "currency": "BRL"
     },
     "metadata": {
@@ -2852,7 +2984,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095263",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666862"
+      "normalized_at": "2025-10-07T05:03:13.666862",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2860,12 +2993,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24594.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24594.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24594.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24594.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24594.webp"
-    }
+    "price_brl": 2177
   },
   {
     "id": "neosolar_chargers_24593",
@@ -2875,10 +3003,11 @@
     "price": "R$ 2.042,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24593.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5-45-48-500W - até 45m ou 30.000 L/dia",
     "pricing": {
-      "price": 2042.0,
+      "price": 2042,
+      "price_brl": 2042,
       "currency": "BRL"
     },
     "metadata": {
@@ -2893,7 +3022,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095307",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666863"
+      "normalized_at": "2025-10-07T05:03:13.666863",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2901,12 +3031,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24593.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24593.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24593.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24593.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24593.webp"
-    }
+    "price_brl": 2042
   },
   {
     "id": "neosolar_chargers_24609",
@@ -2916,10 +3041,11 @@
     "price": "R$ 2.041,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24609.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Superfície ZTROON - ZTHF6-24-48-550W - até 900Wp",
     "pricing": {
-      "price": 2041.0,
+      "price": 2041,
+      "price_brl": 2041,
       "currency": "BRL"
     },
     "metadata": {
@@ -2934,7 +3060,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095351",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666865"
+      "normalized_at": "2025-10-07T05:03:13.666865",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2942,12 +3069,7 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_24609.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_24609.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_24609.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24609.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_24609.webp"
-    }
+    "price_brl": 2041
   },
   {
     "id": "neosolar_chargers_23762",
@@ -2957,10 +3079,11 @@
     "price": "R$ 1.262,00",
     "image": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23762.jpg",
     "source": "portalb2b.neosolar.com.br",
-    "availability": "Indisponível",
+    "availability": false,
     "description": "Kit Bomba Solar Superfície ZTROON - ZTQB2-25-24-210W - até 25m ou 12m³/dia",
     "pricing": {
-      "price": 1262.0,
+      "price": 1262,
+      "price_brl": 1262,
       "currency": "BRL"
     },
     "metadata": {
@@ -2975,7 +3098,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.095395",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666866"
+      "normalized_at": "2025-10-07T05:03:13.666866",
+      "distributor": "YSH"
     },
     "model": "",
     "power": null,
@@ -2983,27 +3107,22 @@
     "image_url": "/catalog/images/NEOSOLAR-CHARGERS/neosolar_chargers_23762.jpg",
     "original_category": "chargers",
     "technical_specs": {},
-    "images_processed": {
-      "thumb": "/catalog/images_processed/NEOSOLAR/CHARGERS/thumb/neosolar_chargers_23762.webp",
-      "medium": "/catalog/images_processed/NEOSOLAR/CHARGERS/medium/neosolar_chargers_23762.webp",
-      "large": "/catalog/images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_23762.webp",
-      "original": "images_processed/NEOSOLAR/CHARGERS/large/neosolar_chargers_23762.webp"
-    }
+    "price_brl": 1262
   },
   {
     "id": "FORTLEV-GROWATT-THOR07AS-P",
     "name": "Carregador EV Growatt THOR07AS-P 7kW",
     "manufacturer": "Growatt",
     "model": "",
-    "power": 7.0,
+    "power": 7,
     "distributor": "YSH",
     "price": "3423.66",
     "image_url": "",
     "original_category": "ev_charger",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
@@ -3013,9 +3132,22 @@
       "source_file": "ev_chargers_unified.json",
       "loaded_at": "2025-10-07T04:51:42.066498",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666876"
+      "normalized_at": "2025-10-07T05:03:13.666876",
+      "original_category": "ev_charger",
+      "distributor": "YSH"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 7
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 342366,
+      "price_brl": 342366,
+      "currency": "BRL"
+    },
+    "price_brl": 342366,
+    "description": "Carregador EV Growatt THOR07AS-P 7kW"
   },
   {
     "id": "FORTLEV-FOXESS-A7300P1-E-2",
@@ -3028,9 +3160,9 @@
     "image_url": "",
     "original_category": "ev_charger",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
-      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      "thumb": "catalog/images_processed/FOTUS-KITS/thumb/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
     },
     "image_quality_before": 65.6,
     "image_quality_after": 150,
@@ -3040,8 +3172,21 @@
       "source_file": "ev_chargers_unified.json",
       "loaded_at": "2025-10-07T04:51:42.066498",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.666878"
+      "normalized_at": "2025-10-07T05:03:13.666878",
+      "original_category": "ev_charger",
+      "distributor": "YSH"
     },
-    "technical_specs": {}
+    "technical_specs": {
+      "power_w": 7.3
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 281146,
+      "price_brl": 281146,
+      "currency": "BRL"
+    },
+    "price_brl": 281146,
+    "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW"
   }
 ]

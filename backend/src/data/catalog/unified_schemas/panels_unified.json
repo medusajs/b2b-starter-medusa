@@ -8,19 +8,20 @@
     "price": "R$ 490,00",
     "image": "/catalog/images/ODEX-PANELS/289244.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Odex 585W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_289244_289244_1-17460389447419270.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_289244_289244_1-17460389447419270.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_289244_289244_1-17460389447419270.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_289244_289244_1-17460389447419270.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_289244_289244_1-17460389447419270.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_289244_289244_1-17460389447419270.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 490.0,
+      "price": 490,
+      "price_brl": 490,
       "currency": "BRL"
     },
     "metadata": {
@@ -37,8 +38,10 @@
     "technical_specs": {
       "power_w": 585,
       "technology": "Monocristalino",
-      "efficiency": 585.0
-    }
+      "efficiency": 585
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/289244.jpg",
+    "price_brl": 490
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
@@ -49,10 +52,11 @@
     "price": "R$ 499,00",
     "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-600W.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Odex 600W",
     "pricing": {
-      "price": 499.0,
+      "price": 499,
+      "price_brl": 499,
       "currency": "BRL"
     },
     "metadata": {
@@ -69,8 +73,10 @@
     "technical_specs": {
       "power_w": 600,
       "technology": "Monocristalino",
-      "efficiency": 600.0
-    }
+      "efficiency": 600
+    },
+    "image_url": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-600W.jpg",
+    "price_brl": 499
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
@@ -81,19 +87,20 @@
     "price": "R$ 505,00",
     "image": "/catalog/images/ODEX-PANELS/300585.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Odex 610W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_300585_300585-17476745737964615.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_300585_300585-17476745737964615.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_300585_300585-17476745737964615.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_300585_300585-17476745737964615.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_300585_300585-17476745737964615.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_300585_300585-17476745737964615.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 505.0,
+      "price": 505,
+      "price_brl": 505,
       "currency": "BRL"
     },
     "metadata": {
@@ -110,8 +117,10 @@
     "technical_specs": {
       "power_w": 610,
       "technology": "Monocristalino",
-      "efficiency": 610.0
-    }
+      "efficiency": 610
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/300585.jpg",
+    "price_brl": 505
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
@@ -122,10 +131,11 @@
     "price": "R$ 515,00",
     "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-660W.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Odex 660W",
     "pricing": {
-      "price": 515.0,
+      "price": 515,
+      "price_brl": 515,
       "currency": "BRL"
     },
     "metadata": {
@@ -142,8 +152,10 @@
     "technical_specs": {
       "power_w": 660,
       "technology": "Monocristalino",
-      "efficiency": 660.0
-    }
+      "efficiency": 660
+    },
+    "image_url": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-660W.jpg",
+    "price_brl": 515
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
@@ -154,19 +166,20 @@
     "price": "R$ 519,00",
     "image": "/catalog/images/ODEX-PANELS/304574.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Odex 700W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_304574_304574-17516416575985705.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_304574_304574-17516416575985705.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_304574_304574-17516416575985705.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_304574_304574-17516416575985705.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_304574_304574-17516416575985705.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_304574_304574-17516416575985705.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 519.0,
+      "price": 519,
+      "price_brl": 519,
       "currency": "BRL"
     },
     "metadata": {
@@ -183,8 +196,10 @@
     "technical_specs": {
       "power_w": 700,
       "technology": "Monocristalino",
-      "efficiency": 700.0
-    }
+      "efficiency": 700
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/304574.jpg",
+    "price_brl": 519
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
@@ -195,19 +210,20 @@
     "price": "R$ 512,00",
     "image": "/catalog/images/ODEX-PANELS/291808.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Astronergy 600W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_291808_291808-17458456460969248.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_291808_291808-17458456460969248.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_291808_291808-17458456460969248.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_291808_291808-17458456460969248.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_291808_291808-17458456460969248.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_291808_291808-17458456460969248.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 512.0,
+      "price": 512,
+      "price_brl": 512,
       "currency": "BRL"
     },
     "metadata": {
@@ -224,8 +240,10 @@
     "technical_specs": {
       "power_w": 600,
       "technology": "Monocristalino",
-      "efficiency": 600.0
-    }
+      "efficiency": 600
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/291808.jpg",
+    "price_brl": 512
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
@@ -236,19 +254,20 @@
     "price": "R$ 485,00",
     "image": "/catalog/images/ODEX-PANELS/215563.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Tsun 560W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_215563_215563-17587472203114354.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_215563_215563-17587472203114354.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_215563_215563-17587472203114354.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_215563_215563-17587472203114354.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_215563_215563-17587472203114354.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_215563_215563-17587472203114354.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 485.0,
+      "price": 485,
+      "price_brl": 485,
       "currency": "BRL"
     },
     "metadata": {
@@ -265,8 +284,10 @@
     "technical_specs": {
       "power_w": 560,
       "technology": "Monocristalino",
-      "efficiency": 560.0
-    }
+      "efficiency": 560
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/215563.jpg",
+    "price_brl": 485
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
@@ -277,19 +298,20 @@
     "price": "R$ 508,00",
     "image": "/catalog/images/ODEX-PANELS/299589.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Jinko 610W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_299589_299589-17471414377421707.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_299589_299589-17471414377421707.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_299589_299589-17471414377421707.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_299589_299589-17471414377421707.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_299589_299589-17471414377421707.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_299589_299589-17471414377421707.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 508.0,
+      "price": 508,
+      "price_brl": 508,
       "currency": "BRL"
     },
     "metadata": {
@@ -306,8 +328,10 @@
     "technical_specs": {
       "power_w": 610,
       "technology": "Monocristalino",
-      "efficiency": 610.0
-    }
+      "efficiency": 610
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/299589.jpg",
+    "price_brl": 508
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
@@ -318,19 +342,20 @@
     "price": "R$ 510,00",
     "image": "/catalog/images/ODEX-PANELS/299586.jpg",
     "source": "plataforma.odex.com.br",
-    "availability": "disponivel",
+    "availability": true,
     "description": "Painel Solar Jinko 615W",
     "processed_images": {
-      "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\sku_299586_299586-17471562636241354.webp",
-      "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\sku_299586_299586-17471562636241354.webp",
-      "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\sku_299586_299586-17471562636241354.webp"
+      "thumb": "catalog/images_processed/ODEX/PANELS/thumb/sku_299586_299586-17471562636241354.webp",
+      "medium": "catalog/images_processed/ODEX/PANELS/medium/sku_299586_299586-17471562636241354.webp",
+      "large": "catalog/images_processed/ODEX/PANELS/large/sku_299586_299586-17471562636241354.webp"
     },
     "image_quality_before": 100,
     "image_quality_after": 100,
     "image_upscale_factor": 1,
     "processing_date": "2025-10-07T03:10:52.288225",
     "pricing": {
-      "price": 510.0,
+      "price": 510,
+      "price_brl": 510,
       "currency": "BRL"
     },
     "metadata": {
@@ -347,8 +372,10 @@
     "technical_specs": {
       "power_w": 615,
       "technology": "Monocristalino",
-      "efficiency": 615.0
-    }
+      "efficiency": 615
+    },
+    "image_url": "/catalog/images/ODEX-PANELS/299586.jpg",
+    "price_brl": 510
   },
   {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -450,7 +477,7 @@
             "kwp": {
               "type": "number",
               "minimum": 0.001,
-              "maximum": 1.0
+              "maximum": 1
             },
             "cells": {
               "type": "integer",
@@ -459,8 +486,8 @@
             },
             "efficiency_pct": {
               "type": "number",
-              "minimum": 15.0,
-              "maximum": 25.0
+              "minimum": 15,
+              "maximum": 25
             },
             "dimensions_mm": {
               "type": "object",
@@ -1008,7 +1035,7 @@
         "technology": "Monocristalino",
         "kwp": 0.03,
         "cells": 36,
-        "efficiency_pct": 17.0,
+        "efficiency_pct": 17,
         "dimensions_mm": {
           "length": 510,
           "width": 350,
@@ -1105,13 +1132,13 @@
         "technology": "Monocristalino",
         "kwp": 0.16,
         "cells": 33,
-        "efficiency_pct": 19.0,
+        "efficiency_pct": 19,
         "dimensions_mm": {
           "length": 1480,
           "width": 670,
           "thickness": 30
         },
-        "weight_kg": 11.0,
+        "weight_kg": 11,
         "warranty_years": {
           "product": 15,
           "performance": 15
@@ -1211,7 +1238,7 @@
           "width": 992,
           "thickness": 35
         },
-        "weight_kg": 16.0,
+        "weight_kg": 16,
         "warranty_years": {
           "product": 10,
           "performance": 10
@@ -1269,7 +1296,7 @@
         "technology": "Policristalino",
         "kwp": 0.33,
         "cells": 72,
-        "efficiency_pct": 17.0,
+        "efficiency_pct": 17,
         "dimensions_mm": {
           "length": 1960,
           "width": 992,
@@ -1301,7 +1328,7 @@
         "technology": "Monocristalino",
         "kwp": 0.34,
         "cells": 68,
-        "efficiency_pct": 20.0,
+        "efficiency_pct": 20,
         "dimensions_mm": {
           "length": 1690,
           "width": 1002,
@@ -1333,13 +1360,13 @@
         "technology": "Monocristalino PERC Half-Cell",
         "kwp": 0.435,
         "cells": 108,
-        "efficiency_pct": 21.0,
+        "efficiency_pct": 21,
         "dimensions_mm": {
           "length": 1722,
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 21.0,
+        "weight_kg": 21,
         "warranty_years": {
           "product": 15,
           "performance": 25
@@ -1368,7 +1395,7 @@
         "technology": "Monocristalino PERC Half-Cell (Nacional)",
         "kwp": 0.545,
         "cells": 144,
-        "efficiency_pct": 21.0,
+        "efficiency_pct": 21,
         "dimensions_mm": {
           "length": 2278,
           "width": 1134,
@@ -1408,7 +1435,7 @@
           "width": 1134,
           "thickness": 35
         },
-        "weight_kg": 27.0,
+        "weight_kg": 27,
         "warranty_years": {
           "product": 15,
           "performance": 25
@@ -1503,18 +1530,18 @@
         "technology": "N-Type Monocristalino Full Black",
         "kwp": 0.57,
         "cells": 144,
-        "efficiency_pct": 22.0,
+        "efficiency_pct": 22,
         "dimensions_mm": {
           "length": 2278,
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 28.0,
+        "weight_kg": 28,
         "warranty_years": {
           "product": 15,
           "performance": 30
         },
-        "price_brl": 550.0,
+        "price_brl": 550,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1610,7 +1637,7 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 29.0,
+        "weight_kg": 29,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -1645,12 +1672,12 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 29.0,
+        "weight_kg": 29,
         "warranty_years": {
           "product": 15,
           "performance": 30
         },
-        "price_brl": 490.0,
+        "price_brl": 490,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1679,12 +1706,12 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 29.0,
+        "weight_kg": 29,
         "warranty_years": {
           "product": 15,
           "performance": 30
         },
-        "price_brl": 490.0,
+        "price_brl": 490,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1749,7 +1776,7 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 29.0,
+        "weight_kg": 29,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -1784,7 +1811,7 @@
           "width": 1134,
           "thickness": 35
         },
-        "weight_kg": 31.0,
+        "weight_kg": 31,
         "warranty_years": {
           "product": 12,
           "performance": 25
@@ -1817,12 +1844,12 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 32.0,
+        "weight_kg": 32,
         "warranty_years": {
           "product": 15,
           "performance": 30
         },
-        "price_brl": 519.0,
+        "price_brl": 519,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1858,7 +1885,7 @@
           "product": 15,
           "performance": 30
         },
-        "price_brl": 530.0,
+        "price_brl": 530,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1894,7 +1921,7 @@
           "product": 15,
           "performance": 30
         },
-        "price_brl": 510.0,
+        "price_brl": 510,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1923,7 +1950,7 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 32.0,
+        "weight_kg": 32,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -1952,7 +1979,7 @@
         "technology": "N-Type Tiger Neo Bifacial",
         "kwp": 0.615,
         "cells": 132,
-        "efficiency_pct": 23.0,
+        "efficiency_pct": 23,
         "dimensions_mm": {
           "length": 2382,
           "width": 1134,
@@ -1963,7 +1990,7 @@
           "product": 15,
           "performance": 30
         },
-        "price_brl": 535.0,
+        "price_brl": 535,
         "source": "ODEX",
         "tier_recommendation": [
           "P",
@@ -1994,7 +2021,7 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 33.0,
+        "weight_kg": 33,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -2025,13 +2052,13 @@
         "technology": "N-Type TOPCon Bifacial",
         "kwp": 0.62,
         "cells": 132,
-        "efficiency_pct": 23.0,
+        "efficiency_pct": 23,
         "dimensions_mm": {
           "length": 2382,
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 33.0,
+        "weight_kg": 33,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -2067,7 +2094,7 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 34.0,
+        "weight_kg": 34,
         "warranty_years": {
           "product": 15,
           "performance": 30
@@ -2104,12 +2131,12 @@
           "width": 1134,
           "thickness": 30
         },
-        "weight_kg": 34.0,
+        "weight_kg": 34,
         "warranty_years": {
           "product": 15,
           "performance": 30
         },
-        "price_brl": 580.0,
+        "price_brl": 580,
         "source": "ODEX",
         "tier_recommendation": [
           "M",
@@ -2140,7 +2167,7 @@
     "price": "MODULO FOTOVOLTAICO 585W - HANERSUN - EF. 22.6% - HN18N-72H IMP",
     "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559375.jpeg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "HN18N-72H",
     "metadata": {
       "source": "consolidated",
@@ -2157,7 +2184,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133118",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612088"
+      "normalized_at": "2025-10-07T05:03:13.612088",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2174,8 +2202,14 @@
     "technology": "Monocristalino",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 559375.0
-    }
+      "efficiency": 559375
+    },
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null
   },
   {
     "id": "solfacil_panels_2",
@@ -2185,7 +2219,7 @@
     "price": "MODULO FOTOVOLTAICO 585W - HANERSUN - EF. 22.6% - HN18N-72H D",
     "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559380.jpeg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "HN18N-72H",
     "metadata": {
       "source": "consolidated",
@@ -2200,8 +2234,16 @@
     },
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 18.0
-    }
+      "efficiency": 18
+    },
+    "image_url": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559380.jpeg",
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null,
+    "model": ""
   },
   {
     "id": "solfacil_panels_3",
@@ -2211,7 +2253,7 @@
     "price": "MODULO FOTOVOLTAICO 585W - DAH BIFACIAL - EF. 22.65% - DHN-72X16/DG IMP",
     "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "DHN-72X16/DG",
     "metadata": {
       "source": "consolidated",
@@ -2226,8 +2268,16 @@
     },
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 72.0
-    }
+      "efficiency": 72
+    },
+    "image_url": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null,
+    "model": ""
   },
   {
     "id": "solfacil_panels_4",
@@ -2237,7 +2287,7 @@
     "price": "MODULO FOTOVOLTAICO 610W - OSDA BIFACIAL - EF. 22.60% - 33V-MHDRZ",
     "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559381.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "33V-MHDRZ",
     "metadata": {
       "source": "consolidated",
@@ -2254,7 +2304,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133156",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612105"
+      "normalized_at": "2025-10-07T05:03:13.612105",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2271,8 +2322,14 @@
     "technology": "Monocristalino",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 559381.0
-    }
+      "efficiency": 559381
+    },
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null
   },
   {
     "id": "solfacil_panels_5",
@@ -2282,7 +2339,7 @@
     "price": "MODULO FOTOVOLTAICO 700W - HANERSUN BIFACIAL - EF.22.5% - HJT HN21H-66HT",
     "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_573429.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "HJT HN21H-66HT",
     "metadata": {
       "source": "consolidated",
@@ -2299,7 +2356,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133169",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612114"
+      "normalized_at": "2025-10-07T05:03:13.612114",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2316,8 +2374,14 @@
     "technology": "Monocristalino",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 573429.0
-    }
+      "efficiency": 573429
+    },
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null
   },
   {
     "id": "solfacil_panels_6",
@@ -2327,7 +2391,7 @@
     "price": "MODULO FOTOVOLTAICO 545W - MINASOL NACIONAL - MS-545",
     "image": "/catalog/images/SOLFACIL-PANELS/image.png",
     "source": "loja.solfacil.com.br",
-    "availability": "Disponível",
+    "availability": true,
     "description": "MS-545",
     "metadata": {
       "source": "consolidated",
@@ -2344,7 +2408,8 @@
       ],
       "last_consolidated": "2025-10-07T04:51:42.133182",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612121"
+      "normalized_at": "2025-10-07T05:03:13.612121",
+      "distributor": "Solfácil"
     },
     "model": "",
     "power": null,
@@ -2361,8 +2426,14 @@
     "technology": "Monocristalino",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 550010.0
-    }
+      "efficiency": 550010
+    },
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
@@ -2371,7 +2442,7 @@
     "model": "Odex",
     "power": 0.585,
     "distributor": "ODEX",
-    "price": 490.0,
+    "price": "R$ 490,00",
     "image_url": "/catalog/images/ODEX-PANELS/289244.jpg",
     "original_category": "panels",
     "power_w": 585,
@@ -2389,7 +2460,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612126"
+      "normalized_at": "2025-10-07T05:03:13.612126",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2403,8 +2475,17 @@
     "technical_specs": {
       "power_w": 585,
       "technology": "Monocristalino",
-      "efficiency": 585.0
-    }
+      "efficiency": 585
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 490,
+      "price_brl": 490,
+      "currency": "BRL"
+    },
+    "price_brl": 490,
+    "description": "Painel Solar Odex 585W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
@@ -2413,7 +2494,7 @@
     "model": "Odex",
     "power": 0.6,
     "distributor": "ODEX",
-    "price": 499.0,
+    "price": "R$ 499,00",
     "image_url": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-600W.jpg",
     "original_category": "panels",
     "power_w": 600,
@@ -2431,7 +2512,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612131"
+      "normalized_at": "2025-10-07T05:03:13.612131",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2445,8 +2527,17 @@
     "technical_specs": {
       "power_w": 600,
       "technology": "Monocristalino",
-      "efficiency": 600.0
-    }
+      "efficiency": 600
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 499,
+      "price_brl": 499,
+      "currency": "BRL"
+    },
+    "price_brl": 499,
+    "description": "Painel Solar Odex 600W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
@@ -2455,7 +2546,7 @@
     "model": "Odex",
     "power": 0.61,
     "distributor": "ODEX",
-    "price": 505.0,
+    "price": "R$ 505,00",
     "image_url": "/catalog/images/ODEX-PANELS/300585.jpg",
     "original_category": "panels",
     "power_w": 610,
@@ -2473,7 +2564,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612136"
+      "normalized_at": "2025-10-07T05:03:13.612136",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2487,8 +2579,17 @@
     "technical_specs": {
       "power_w": 610,
       "technology": "Monocristalino",
-      "efficiency": 610.0
-    }
+      "efficiency": 610
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 505,
+      "price_brl": 505,
+      "currency": "BRL"
+    },
+    "price_brl": 505,
+    "description": "Painel Solar Odex 610W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
@@ -2497,7 +2598,7 @@
     "model": "Odex",
     "power": 0.66,
     "distributor": "ODEX",
-    "price": 515.0,
+    "price": "R$ 515,00",
     "image_url": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-660W.jpg",
     "original_category": "panels",
     "power_w": 660,
@@ -2515,7 +2616,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612140"
+      "normalized_at": "2025-10-07T05:03:13.612140",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2529,8 +2631,17 @@
     "technical_specs": {
       "power_w": 660,
       "technology": "Monocristalino",
-      "efficiency": 660.0
-    }
+      "efficiency": 660
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 515,
+      "price_brl": 515,
+      "currency": "BRL"
+    },
+    "price_brl": 515,
+    "description": "Painel Solar Odex 660W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
@@ -2539,7 +2650,7 @@
     "model": "Odex",
     "power": 0.7,
     "distributor": "ODEX",
-    "price": 519.0,
+    "price": "R$ 519,00",
     "image_url": "/catalog/images/ODEX-PANELS/304574.jpg",
     "original_category": "panels",
     "power_w": 700,
@@ -2557,7 +2668,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612144"
+      "normalized_at": "2025-10-07T05:03:13.612144",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2571,8 +2683,17 @@
     "technical_specs": {
       "power_w": 700,
       "technology": "Monocristalino",
-      "efficiency": 700.0
-    }
+      "efficiency": 700
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 519,
+      "price_brl": 519,
+      "currency": "BRL"
+    },
+    "price_brl": 519,
+    "description": "Painel Solar Odex 700W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
@@ -2581,7 +2702,7 @@
     "model": "Astronergy",
     "power": 0.6,
     "distributor": "ODEX",
-    "price": 512.0,
+    "price": "R$ 512,00",
     "image_url": "/catalog/images/ODEX-PANELS/291808.jpg",
     "original_category": "panels",
     "power_w": 600,
@@ -2597,7 +2718,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612149"
+      "normalized_at": "2025-10-07T05:03:13.612149",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2611,8 +2733,17 @@
     "technical_specs": {
       "power_w": 600,
       "technology": "Monocristalino",
-      "efficiency": 600.0
-    }
+      "efficiency": 600
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 512,
+      "price_brl": 512,
+      "currency": "BRL"
+    },
+    "price_brl": 512,
+    "description": "Painel Solar Astronergy 600W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
@@ -2621,7 +2752,7 @@
     "model": "Tsun",
     "power": 0.56,
     "distributor": "ODEX",
-    "price": 485.0,
+    "price": "R$ 485,00",
     "image_url": "/catalog/images/ODEX-PANELS/215563.jpg",
     "original_category": "panels",
     "power_w": 560,
@@ -2637,7 +2768,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612153"
+      "normalized_at": "2025-10-07T05:03:13.612153",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2651,8 +2783,17 @@
     "technical_specs": {
       "power_w": 560,
       "technology": "Monocristalino",
-      "efficiency": 560.0
-    }
+      "efficiency": 560
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 485,
+      "price_brl": 485,
+      "currency": "BRL"
+    },
+    "price_brl": 485,
+    "description": "Painel Solar Tsun 560W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
@@ -2661,7 +2802,7 @@
     "model": "Jinko",
     "power": 0.61,
     "distributor": "ODEX",
-    "price": 508.0,
+    "price": "R$ 508,00",
     "image_url": "/catalog/images/ODEX-PANELS/299589.jpg",
     "original_category": "panels",
     "power_w": 610,
@@ -2677,7 +2818,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612158"
+      "normalized_at": "2025-10-07T05:03:13.612158",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2691,8 +2833,17 @@
     "technical_specs": {
       "power_w": 610,
       "technology": "Monocristalino",
-      "efficiency": 610.0
-    }
+      "efficiency": 610
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 508,
+      "price_brl": 508,
+      "currency": "BRL"
+    },
+    "price_brl": 508,
+    "description": "Painel Solar Jinko 610W"
   },
   {
     "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
@@ -2701,7 +2852,7 @@
     "model": "Jinko",
     "power": 0.615,
     "distributor": "ODEX",
-    "price": 510.0,
+    "price": "R$ 510,00",
     "image_url": "/catalog/images/ODEX-PANELS/299586.jpg",
     "original_category": "panels",
     "power_w": 615,
@@ -2717,7 +2868,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612163"
+      "normalized_at": "2025-10-07T05:03:13.612163",
+      "distributor": "ODEX"
     },
     "certifications": {
       "inmetro": {
@@ -2731,8 +2883,17 @@
     "technical_specs": {
       "power_w": 615,
       "technology": "Monocristalino",
-      "efficiency": 615.0
-    }
+      "efficiency": 615
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": 510,
+      "price_brl": 510,
+      "currency": "BRL"
+    },
+    "price_brl": 510,
+    "description": "Painel Solar Jinko 615W"
   },
   {
     "id": "solfacil_accessories_4",
@@ -2759,7 +2920,9 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612169"
+      "normalized_at": "2025-10-07T05:03:13.612169",
+      "original_category": "accessories",
+      "distributor": "Solfacil"
     },
     "certifications": {
       "inmetro": {
@@ -2772,8 +2935,17 @@
     "series": "SUPORTE",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 2.0
-    }
+      "efficiency": 2
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 80.05,
+      "price_brl": 80.05,
+      "currency": "BRL"
+    },
+    "price_brl": 80.05,
+    "description": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN"
   },
   {
     "id": "solfacil_accessories_6",
@@ -2800,7 +2972,9 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612174"
+      "normalized_at": "2025-10-07T05:03:13.612174",
+      "original_category": "accessories",
+      "distributor": "Solfacil"
     },
     "certifications": {
       "inmetro": {
@@ -2813,8 +2987,17 @@
     "series": "SUPORTE",
     "technical_specs": {
       "technology": "Monocristalino",
-      "efficiency": 2.0
-    }
+      "efficiency": 2
+    },
+    "category": "others",
+    "availability": true,
+    "pricing": {
+      "price": 108.95,
+      "price_brl": 108.95,
+      "currency": "BRL"
+    },
+    "price_brl": 108.95,
+    "description": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN"
   },
   {
     "id": "solfacil_panels_2",
@@ -2838,7 +3021,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612177"
+      "normalized_at": "2025-10-07T05:03:13.612177",
+      "distributor": "Solfácil"
     },
     "certifications": {
       "inmetro": {
@@ -2851,7 +3035,16 @@
     "series": "HANERSUN",
     "technical_specs": {
       "technology": "Monocristalino"
-    }
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null,
+    "description": "HANERSUN"
   },
   {
     "id": "solfacil_panels_3",
@@ -2875,7 +3068,8 @@
       "source_file": "panels_unified.json",
       "loaded_at": "2025-10-07T04:51:42.091314",
       "normalized": true,
-      "normalized_at": "2025-10-07T05:03:13.612180"
+      "normalized_at": "2025-10-07T05:03:13.612180",
+      "distributor": "Solfácil"
     },
     "certifications": {
       "inmetro": {
@@ -2888,6 +3082,15 @@
     "series": "DAH",
     "technical_specs": {
       "technology": "Monocristalino"
-    }
+    },
+    "category": "panels",
+    "availability": true,
+    "pricing": {
+      "price": null,
+      "price_brl": null,
+      "currency": "BRL"
+    },
+    "price_brl": null,
+    "description": "DAH"
   }
 ]
