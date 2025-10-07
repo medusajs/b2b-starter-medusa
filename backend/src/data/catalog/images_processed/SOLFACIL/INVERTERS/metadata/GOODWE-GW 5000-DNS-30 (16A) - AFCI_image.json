@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GOODWE-GW 5000-DNS-30 (16A) - AFCI_image.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:29.099066",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "495x495",
+        "output_size": "990x990"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 75.5,
+    "after": 150,
+    "improvement": 74.5
+  },
+  "stats": {
+    "before": {
+      "width": 495,
+      "height": 495,
+      "mode": "RGB",
+      "megapixels": 0.25,
+      "aspect_ratio": 1.0,
+      "quality_score": 75.5,
+      "mean_rgb": [
+        239.37642281399857,
+        239.37642281399857,
+        239.37638200183656
+      ],
+      "std_rgb": [
+        34.76140139020862,
+        34.76132073181535,
+        34.762114012906146
+      ],
+      "brightness": 239.37640920994457,
+      "contrast": 34.76161204497671
+    },
+    "after": {
+      "width": 990,
+      "height": 990,
+      "mode": "RGB",
+      "megapixels": 0.98,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        225.44069584736252,
+        225.4406387103357,
+        226.41581981430465
+      ],
+      "std_rgb": [
+        53.323343838393804,
+        53.323122734934735,
+        53.40827088924612
+      ],
+      "brightness": 225.76571812400095,
+      "contrast": 53.35157915419155
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GOODWE-GW 5000-DNS-30 (16A) - AFCI_image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GOODWE-GW 5000-DNS-30 (16A) - AFCI_image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GOODWE-GW 5000-DNS-30 (16A) - AFCI_image.webp"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20778.jpg",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:51:05.052273",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "700x700",
+        "output_size": "1400x1400"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 101.0,
+    "after": 150,
+    "improvement": 49.0
+  },
+  "stats": {
+    "before": {
+      "width": 700,
+      "height": 700,
+      "mode": "RGB",
+      "megapixels": 0.49,
+      "aspect_ratio": 1.0,
+      "quality_score": 101.0,
+      "mean_rgb": [
+        219.80208367346938,
+        227.5027918367347,
+        233.4507775510204
+      ],
+      "std_rgb": [
+        73.9132675574225,
+        55.18987614534449,
+        46.90889739376835
+      ],
+      "brightness": 226.91855102040813,
+      "contrast": 58.67068036551178
+    },
+    "after": {
+      "width": 1400,
+      "height": 1400,
+      "mode": "RGB",
+      "megapixels": 1.96,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        220.0009331632653,
+        219.62667704081633,
+        221.28431581632654
+      ],
+      "std_rgb": [
+        74.29431223951624,
+        70.68120061321483,
+        58.15803459056086
+      ],
+      "brightness": 220.30397534013605,
+      "contrast": 67.71118248109731
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\INVERTERS\\thumb\\neosolar_inverters_20778.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\INVERTERS\\medium\\neosolar_inverters_20778.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\INVERTERS\\large\\neosolar_inverters_20778.webp"
+  }
+}

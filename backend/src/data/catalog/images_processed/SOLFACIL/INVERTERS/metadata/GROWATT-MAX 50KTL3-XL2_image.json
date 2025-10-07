@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2_image.webp",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:33.684448",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "300x269",
+        "output_size": "600x538"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 58.4,
+    "after": 83.6,
+    "improvement": 25.199999999999996
+  },
+  "stats": {
+    "before": {
+      "width": 300,
+      "height": 269,
+      "mode": "RGB",
+      "megapixels": 0.08,
+      "aspect_ratio": 1.12,
+      "quality_score": 58.4,
+      "mean_rgb": [
+        223.00847583643122,
+        227.3249318463445,
+        220.07030978934324
+      ],
+      "std_rgb": [
+        58.571803887904146,
+        54.38640693631935,
+        63.53976392216092
+      ],
+      "brightness": 223.46790582403966,
+      "contrast": 58.83265824879481
+    },
+    "after": {
+      "width": 600,
+      "height": 538,
+      "mode": "RGB",
+      "megapixels": 0.32,
+      "aspect_ratio": 1.12,
+      "quality_score": 83.6,
+      "mean_rgb": [
+        212.67276951672864,
+        212.12813197026023,
+        209.9628810408922
+      ],
+      "std_rgb": [
+        77.27154505294682,
+        69.8810552400762,
+        83.97688810710532
+      ],
+      "brightness": 211.58792750929368,
+      "contrast": 77.04316280004277
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GROWATT-MAX 50KTL3-XL2_image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GROWATT-MAX 50KTL3-XL2_image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GROWATT-MAX 50KTL3-XL2_image.webp"
+  }
+}

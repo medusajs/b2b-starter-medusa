@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-MiniTrilho-kits.jpg",
+  "category": "fotus-kits",
+  "processing": {
+    "date": "2025-10-07T02:28:18.674999",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 4,
+        "input_size": "300x500",
+        "output_size": "1200x2000"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 4,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 65.6,
+    "after": 150,
+    "improvement": 84.4
+  },
+  "stats": {
+    "before": {
+      "width": 300,
+      "height": 500,
+      "mode": "RGB",
+      "megapixels": 0.15,
+      "aspect_ratio": 0.6,
+      "quality_score": 65.6,
+      "mean_rgb": [
+        180.60446,
+        180.64608666666666,
+        183.49862
+      ],
+      "std_rgb": [
+        88.74585621181147,
+        87.35945271512242,
+        87.74109693542974
+      ],
+      "brightness": 181.58305555555555,
+      "contrast": 87.94880195412122
+    },
+    "after": {
+      "width": 1200,
+      "height": 2000,
+      "mode": "RGB",
+      "megapixels": 2.4,
+      "aspect_ratio": 0.6,
+      "quality_score": 150,
+      "mean_rgb": [
+        174.634175,
+        175.15660083333333,
+        174.49806458333333
+      ],
+      "std_rgb": [
+        96.41597424957688,
+        93.9160192920133,
+        93.14003998254644
+      ],
+      "brightness": 174.76294680555554,
+      "contrast": 94.49067784137888
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp",
+    "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp",
+    "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp"
+  }
+}

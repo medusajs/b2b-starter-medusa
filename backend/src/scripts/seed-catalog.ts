@@ -1,8 +1,6 @@
 import {
     ExecArgs,
     IProductModuleService,
-    IStoreModuleService,
-    ProductStatus,
 } from "@medusajs/framework/types";
 
 import { createProductCategoriesWorkflow, createProductsWorkflow } from "@medusajs/core-flows";
@@ -15,8 +13,10 @@ interface CatalogItem {
     name?: string;
     manufacturer?: string;
     category?: string;
-    price?: string;
+    price?: number | string;
+    price_brl?: number;
     image?: string;
+    image_url?: string;
     description?: string;
     availability?: string;
     processed_images?: {
@@ -26,29 +26,38 @@ interface CatalogItem {
     };
     model?: string;
     technology?: string;
+    potencia_kwp?: number;
     kwp?: number;
     cells?: number;
     efficiency_pct?: number;
-    dimensions?: {
-        length: number;
-        width: number;
-        thickness: number;
-    };
+    dimensions_mm?: string;
     weight_kg?: number;
     source?: string;
+    distributor?: string;
+    centro_distribuicao?: string;
+    technical_specs?: any;
+    panels?: any[];
+    inverters?: any[];
+    batteries?: any[];
+    structures?: any[];
+    total_panels?: number;
+    total_inverters?: number;
+    total_power_w?: number;
+    estrutura?: string;
 }
 
-const parsePrice = (priceStr: string): number => {
-    if (!priceStr) return 0;
-    const cleaned = priceStr.replace(/[^\d.,]/g, "").replace(",", ".");
+const parsePrice = (price: any): number => {
+    if (typeof price === "number") return price;
+    if (!price) return 0;
+    const cleaned = String(price).replace(/[^\d.,]/g, "").replace(",", ".");
     const parsed = parseFloat(cleaned);
     return isNaN(parsed) ? 0 : parsed;
 };
 
 const readCatalogFile = (fileName: string): CatalogItem[] => {
-    const filePath = path.join(__dirname, "../../../data/catalog", fileName);
+    const filePath = path.join(__dirname, "../data/catalog/unified_schemas", fileName);
     if (!fs.existsSync(filePath)) {
-        console.warn(`Arquivo ${fileName} nao encontrado`);
+        console.warn(`Arquivo ${fileName} nao encontrado em unified_schemas`);
         return [];
     }
 
@@ -56,17 +65,14 @@ const readCatalogFile = (fileName: string): CatalogItem[] => {
         const data = fs.readFileSync(filePath, "utf-8");
         const parsed = JSON.parse(data);
 
-        // Handle different JSON structures
         if (Array.isArray(parsed)) {
             return parsed;
         } else if (parsed && typeof parsed === "object") {
-            // Check for nested arrays in common keys
             for (const key of Object.keys(parsed)) {
                 if (Array.isArray(parsed[key])) {
                     return parsed[key];
                 }
             }
-            // If no array found, wrap in array
             return [parsed];
         }
 
@@ -86,25 +92,18 @@ const categoryMap: Record<string, string> = {
     "structures": "Estruturas",
     "cables": "Cabos",
     "controllers": "Controladores",
-    "chargers": "Carregadores"
-};
-
-const getCategoryId = (categoryName: string): string | undefined => {
-    const mappedName = categoryMap[categoryName] || categoryName;
-    // This would need to be implemented to find category by name
-    // For now, return undefined and handle in calling code
-    return undefined;
+    "chargers": "Carregadores EV",
+    "stringboxes": "String Boxes",
+    "posts": "Postes",
+    "others": "Outros"
 };
 
 export default async function seedCatalog({ container }: ExecArgs) {
     const logger = container.resolve("logger");
-    const productService = container.resolve("productService");
-    const categoryService = container.resolve("categoryService");
-    const storeService = container.resolve("storeService");
 
-    logger.info("Starting catalog seeding...");
+    logger.info("🌱 Starting YSH catalog seeding from unified_schemas...");
 
-    // Create categories
+    // Create product categories
     const categories = [
         { name: "Kits Solares", handle: "kits" },
         { name: "Paineis Fotovoltaicos", handle: "panels" },
@@ -113,120 +112,173 @@ export default async function seedCatalog({ container }: ExecArgs) {
         { name: "Estruturas", handle: "structures" },
         { name: "Cabos", handle: "cables" },
         { name: "Controladores", handle: "controllers" },
-        { name: "Carregadores", handle: "chargers" },
-        { name: "Acessorios", handle: "accessories" }
+        { name: "Carregadores EV", handle: "chargers" },
+        { name: "Acessorios", handle: "accessories" },
+        { name: "String Boxes", handle: "stringboxes" },
+        { name: "Postes", handle: "posts" },
+        { name: "Outros", handle: "others" }
     ];
 
-    const createdCategories: any[] = [];
+    const categoryMap: Record<string, any> = {};
+
     for (const category of categories) {
         try {
             const result = await createProductCategoriesWorkflow(container).run({
                 input: { product_categories: [category] }
             });
-            createdCategories.push(result);
-            logger.info(`Created category: ${category.name}`);
-        } catch (error) {
-            logger.warn(`Category ${category.name} might already exist`);
+            categoryMap[category.handle] = result.result?.[0];
+            logger.info(`✓ Created category: ${category.name}`);
+        } catch (error: any) {
+            logger.warn(`Category ${category.name} might already exist: ${error.message}`);
         }
     }
 
-    // Read all catalog files
+    // Read catalog files from unified_schemas
     const catalogFiles = [
-        { file: "kits.json", category: "kits" },
-        { file: "panels.json", category: "panels" },
-        { file: "inverters.json", category: "inverters" },
-        { file: "batteries.json", category: "batteries" },
-        { file: "structures.json", category: "structures" },
-        { file: "cables.json", category: "cables" },
-        { file: "controllers.json", category: "controllers" },
-        { file: "chargers.json", category: "chargers" },
-        { file: "accessories.json", category: "accessories" }
+        { file: "kits_unified.json", category: "kits" },
+        { file: "panels_unified.json", category: "panels" },
+        { file: "inverters_unified.json", category: "inverters" },
+        { file: "batteries_unified.json", category: "batteries" },
+        { file: "structures_unified.json", category: "structures" },
+        { file: "cables_unified.json", category: "cables" },
+        { file: "controllers_unified.json", category: "controllers" },
+        { file: "ev_chargers_unified.json", category: "chargers" },
+        { file: "accessories_unified.json", category: "accessories" },
+        { file: "string_boxes_unified.json", category: "stringboxes" },
+        { file: "posts_unified.json", category: "posts" },
+        { file: "others_unified.json", category: "others" }
     ];
 
-    const allProducts: any[] = [];
+    let totalProcessed = 0;
+    let totalErrors = 0;
 
     for (const { file, category } of catalogFiles) {
-        logger.info(`Processing ${file}...`);
+        logger.info(`\n📦 Processing ${file}...`);
         const items = readCatalogFile(file);
 
+        if (items.length === 0) {
+            logger.warn(`No items found in ${file}`);
+            continue;
+        }
+
+        logger.info(`Found ${items.length} items in ${file}`);
+
+        const products: any[] = [];
+
         for (const item of items) {
-            const categoryId = getCategoryId(category);
-            if (!categoryId) continue;
+            try {
+                const title = item.name || item.model || `${item.manufacturer || ""} ${item.id || item.sku}`.trim();
+                if (!title) continue;
 
-            // Build product title
-            const title = item.name || item.model || `${item.manufacturer} ${item.id || item.sku}`;
-
-            // Build description
-            let description = item.description || "";
-            if (item.kwp) description += `\nPotencia: ${item.kwp} kWp`;
-            if (item.efficiency_pct) description += `\nEficiencia: ${item.efficiency_pct}%`;
-            if (item.technology) description += `\nTecnologia: ${item.technology}`;
-
-            // Create product object
-            const price = parsePrice(item.price || "");
-
-            const images: { url: string }[] = [];
-            if (item.processed_images?.large) {
-                images.push({ url: item.processed_images.large });
-            } else if (item.image && item.image !== "/catalog/images/NEOSOLAR-KITS/neosolar_kits_27314.jpg") {
-                images.push({ url: item.image });
-            }
-
-            const product = {
-                title,
-                description,
-                category_ids: [categoryId],
-                status: item.availability === "Disponivel" ? "published" : "draft",
-                images,
-                options: [{
-                    title: "Fabricante",
-                    values: [item.manufacturer || "YSH"]
-                }],
-                variants: [{
-                    title: item.sku || item.id || title,
-                    sku: item.sku || item.id || `YSH-${Date.now()}`,
-                    prices: price > 0 ? [{
-                        amount: price,
-                        currency_code: "brl"
-                    }] : [],
-                    options: {
-                        Fabricante: item.manufacturer || "YSH"
-                    },
-                    weight: item.weight_kg || 1,
-                    manage_inventory: false,
-                    metadata: {
-                        source: item.source || "YSH Catalog",
-                        original_id: item.id || item.sku
-                    }
-                }]
-            };
-
-            allProducts.push(product);
-        }
-    }
-
-    logger.info(`Creating ${allProducts.length} products...`);
-
-    // Create products in batches
-    const batchSize = 50;
-    let totalProducts = 0;
-
-    for (let i = 0; i < allProducts.length; i += batchSize) {
-        const batch = allProducts.slice(i, i + batchSize);
-        logger.info(`Creating products batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(allProducts.length / batchSize)}...`);
-
-        try {
-            await createProductsWorkflow(container).run({
-                input: {
-                    products: batch
+                let description = item.description || "";
+                if (category === "kits" && item.potencia_kwp) {
+                    description += `\nPotência: ${item.potencia_kwp} kWp`;
+                    description += `\nEstrutura: ${item.estrutura || "N/A"}`;
+                    description += `\nPainéis: ${item.total_panels || 0}`;
+                    description += `\nInversores: ${item.total_inverters || 0}`;
                 }
-            });
-            totalProducts += batch.length;
-            logger.info(`Created batch of ${batch.length} products`);
-        } catch (error) {
-            logger.error(`Error creating batch ${Math.floor(i / batchSize) + 1}:`, error);
+                if (category === "panels") {
+                    const specs = item.technical_specs || {};
+                    if (specs.power_w) description += `\nPotência: ${specs.power_w}W`;
+                    if (specs.efficiency) description += `\nEficiência: ${specs.efficiency}%`;
+                    if (specs.technology) description += `\nTecnologia: ${specs.technology}`;
+                }
+
+                const price = parsePrice(item.price_brl || item.price || 0);
+
+                const images: { url: string }[] = [];
+                if (item.processed_images?.large) {
+                    images.push({ url: item.processed_images.large });
+                } else if (item.processed_images?.medium) {
+                    images.push({ url: item.processed_images.medium });
+                } else if (item.image_url) {
+                    images.push({ url: item.image_url });
+                } else if (item.image) {
+                    images.push({ url: item.image });
+                }
+
+                const categoryId = categoryMap[category]?.id;
+
+                const product = {
+                    title,
+                    subtitle: item.manufacturer || "",
+                    description: description.trim(),
+                    category_ids: categoryId ? [categoryId] : [],
+                    status: item.availability === "Disponivel" || !item.availability ? "published" : "draft",
+                    images,
+                    options: [{
+                        title: "Modelo",
+                        values: [item.model || item.sku || item.id || "Padrão"]
+                    }],
+                    variants: [{
+                        title: item.model || item.sku || "Padrão",
+                        sku: item.sku || item.id || `YSH-${category.toUpperCase()}-${Date.now()}`,
+                        prices: price > 0 ? [{
+                            amount: Math.round(price * 100), // Convert to cents
+                            currency_code: "brl"
+                        }] : [],
+                        options: {
+                            Modelo: item.model || item.sku || item.id || "Padrão"
+                        },
+                        weight: item.weight_kg || 1,
+                        manage_inventory: false,
+                        metadata: {
+                            source: item.source || "YSH Catalog",
+                            original_id: item.id || item.sku,
+                            distributor: item.distributor || item.centro_distribuicao,
+                            category: category,
+                            price_brl: price,
+                            processed_images: item.processed_images || {},
+                            ...(category === "kits" && {
+                                potencia_kwp: item.potencia_kwp,
+                                estrutura: item.estrutura,
+                                panels: item.panels,
+                                inverters: item.inverters,
+                                batteries: item.batteries,
+                                total_panels: item.total_panels,
+                                total_inverters: item.total_inverters,
+                                total_power_w: item.total_power_w,
+                            }),
+                            ...(category === "panels" && {
+                                technical_specs: item.technical_specs,
+                                cells: item.cells,
+                                dimensions: item.dimensions_mm,
+                            }),
+                        }
+                    }]
+                };
+
+                products.push(product);
+
+            } catch (error: any) {
+                totalErrors++;
+                logger.error(`Error processing item ${item.id}: ${error.message}`);
+            }
+        }
+
+        // Create products in batches
+        const batchSize = 20;
+        for (let i = 0; i < products.length; i += batchSize) {
+            const batch = products.slice(i, i + batchSize);
+            logger.info(`Creating batch ${Math.floor(i / batchSize) + 1}/${Math.ceil(products.length / batchSize)} (${batch.length} products)...`);
+
+            try {
+                await createProductsWorkflow(container).run({
+                    input: {
+                        products: batch
+                    }
+                });
+                totalProcessed += batch.length;
+                logger.info(`✓ Created ${batch.length} products`);
+            } catch (error: any) {
+                totalErrors += batch.length;
+                logger.error(`Error creating batch: ${error.message}`);
+            }
         }
     }
 
-    logger.info(`Finished seeding catalog data. Created ${totalProducts} products.`);
+    logger.info(`\n✅ Catalog seeding completed!`);
+    logger.info(`📊 Summary:`);
+    logger.info(`   Successfully processed: ${totalProcessed} products`);
+    logger.info(`   Errors: ${totalErrors}`);
 }

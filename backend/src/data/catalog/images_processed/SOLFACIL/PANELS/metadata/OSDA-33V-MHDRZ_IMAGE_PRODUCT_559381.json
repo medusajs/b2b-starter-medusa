@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-PANELS\\OSDA-33V-MHDRZ_IMAGE_PRODUCT_559381.png",
+  "category": "panels",
+  "processing": {
+    "date": "2025-10-07T02:52:37.146341",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "348x606",
+        "output_size": "696x1212"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 72.0,
+    "after": 137.9,
+    "improvement": 65.9
+  },
+  "stats": {
+    "before": {
+      "width": 348,
+      "height": 606,
+      "mode": "RGB",
+      "megapixels": 0.21,
+      "aspect_ratio": 0.57,
+      "quality_score": 72.0,
+      "mean_rgb": [
+        17.745931489700695,
+        20.057551875877245,
+        23.80108872956261
+      ],
+      "std_rgb": [
+        42.64899836364698,
+        42.234384912142495,
+        41.88049367536815
+      ],
+      "brightness": 20.53485736504685,
+      "contrast": 42.25462565038587
+    },
+    "after": {
+      "width": 696,
+      "height": 1212,
+      "mode": "RGB",
+      "megapixels": 0.84,
+      "aspect_ratio": 0.57,
+      "quality_score": 137.9,
+      "mean_rgb": [
+        23.563256325632562,
+        24.733761522703993,
+        24.567943647813056
+      ],
+      "std_rgb": [
+        55.12498133521838,
+        52.178941546844165,
+        44.09054545052215
+      ],
+      "brightness": 24.288320498716534,
+      "contrast": 50.464822777528234
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\PANELS\\thumb\\OSDA-33V-MHDRZ_IMAGE_PRODUCT_559381.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\PANELS\\medium\\OSDA-33V-MHDRZ_IMAGE_PRODUCT_559381.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\PANELS\\large\\OSDA-33V-MHDRZ_IMAGE_PRODUCT_559381.webp"
+  }
+}

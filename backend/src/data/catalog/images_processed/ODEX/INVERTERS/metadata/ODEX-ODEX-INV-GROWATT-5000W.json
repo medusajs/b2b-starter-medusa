@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-5000W.jpg",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:42.308590",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1200x1200",
+        "output_size": "2400x2400"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1200,
+      "height": 1200,
+      "mode": "RGB",
+      "megapixels": 1.44,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        233.5325375,
+        237.28798541666666,
+        236.1225472222222
+      ],
+      "std_rgb": [
+        45.36495875678802,
+        45.18443132942868,
+        45.29466542009806
+      ],
+      "brightness": 235.64769004629628,
+      "contrast": 45.28135183543825
+    },
+    "after": {
+      "width": 2400,
+      "height": 2400,
+      "mode": "RGB",
+      "megapixels": 5.76,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        227.5836534722222,
+        228.94426996527778,
+        229.36479409722222
+      ],
+      "std_rgb": [
+        56.99540502765151,
+        57.019166878052275,
+        57.027050528654435
+      ],
+      "brightness": 228.6309058449074,
+      "contrast": 57.013874144786065
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\ODEX-ODEX-INV-GROWATT-5000W.webp",
+    "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\ODEX-ODEX-INV-GROWATT-5000W.webp",
+    "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\ODEX-ODEX-INV-GROWATT-5000W.webp"
+  }
+}

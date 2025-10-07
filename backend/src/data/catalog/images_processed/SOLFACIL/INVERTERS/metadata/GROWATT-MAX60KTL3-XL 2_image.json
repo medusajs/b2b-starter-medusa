@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GROWATT-MAX60KTL3-XL 2_image.webp",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:36.237670",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "2560x1920",
+        "output_size": "5120x3840"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 2560,
+      "height": 1920,
+      "mode": "RGB",
+      "megapixels": 4.92,
+      "aspect_ratio": 1.33,
+      "quality_score": 150,
+      "mean_rgb": [
+        185.69696228027342,
+        192.1739939371745,
+        181.35530598958334
+      ],
+      "std_rgb": [
+        70.86124092087954,
+        66.7798260925251,
+        76.29532566603487
+      ],
+      "brightness": 186.40875406901043,
+      "contrast": 71.3121308931465
+    },
+    "after": {
+      "width": 5120,
+      "height": 3840,
+      "mode": "RGB",
+      "megapixels": 19.66,
+      "aspect_ratio": 1.33,
+      "quality_score": 150,
+      "mean_rgb": [
+        178.9310304260254,
+        178.64665639241537,
+        176.88583002726236
+      ],
+      "std_rgb": [
+        77.61686044132979,
+        69.80552370554098,
+        84.61931871095395
+      ],
+      "brightness": 178.15450561523437,
+      "contrast": 77.34723428594157
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GROWATT-MAX60KTL3-XL 2_image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GROWATT-MAX60KTL3-XL 2_image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GROWATT-MAX60KTL3-XL 2_image.webp"
+  }
+}

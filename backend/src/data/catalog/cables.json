@@ -1,0 +1,275 @@
+[
+  {
+    "id": "neosolar_cables_20078",
+    "name": "https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 6,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Cabo Lafeber 6mm² - Vermelho 1",
+    "pricing": {
+      "price": 6.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20077",
+    "name": "https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 6,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Cabo Lafeber 6mm² - Preto 1",
+    "pricing": {
+      "price": 6.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20121",
+    "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 9,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Conector MC4 (par) - Proauto",
+    "pricing": {
+      "price": 9.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20369",
+    "name": "https://portal.zydon.com.br/api/files/e7e64039-32bd-4a3f-a34b-d0c6b6d948d8/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 15,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Sensor de Temperatura Epever RTS300R47K3.81A",
+    "pricing": {
+      "price": 15.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20122",
+    "name": "https://portal.zydon.com.br/api/files/d05f4589-fd3a-4404-a2e7-398841db4d1c/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Conector MC4 - Multibranch Proauto (par)"
+  },
+  {
+    "id": "neosolar_cables_20286",
+    "name": "https://portal.zydon.com.br/api/files/c697a21f-75fd-4e49-93d6-173ed1bd3712/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 199,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Medidor Remoto Epever MT-75 para Controlador de Carga e Inversor Solar",
+    "pricing": {
+      "price": 199.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_23780",
+    "name": "https://portal.zydon.com.br/api/files/e99a7155-0c24-4be7-b7c8-8a67e6a41d5a/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System"
+  },
+  {
+    "id": "neosolar_cables_20925",
+    "name": "https://portal.zydon.com.br/api/files/806b0b15-17f1-4094-9ef4-83c3205377b9/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 101,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20925.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Módulo Epever Wi-Fi 2.4G RJ45 D - Energia Solar",
+    "pricing": {
+      "price": 101.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_23504",
+    "name": "https://portal.zydon.com.br/api/files/829eb410-e3ba-46a2-a47e-434ab6c50e6a/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 429,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Solar System",
+    "pricing": {
+      "price": 429.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_23503",
+    "name": "https://portal.zydon.com.br/api/files/529f350a-60ed-404f-adaa-53f87b1c63a0/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 458,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Solar System",
+    "pricing": {
+      "price": 458.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_23505",
+    "name": "https://portal.zydon.com.br/api/files/8236b883-9053-481d-84a5-e9d086cb77df/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 480,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Solar System",
+    "pricing": {
+      "price": 480.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20371",
+    "name": "https://portal.zydon.com.br/api/files/655fa0a7-5c1f-4db9-aaaf-dd25191a01d4/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 670,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Stringbox Neosolar PRO 2x1 1000V 25A IP65",
+    "pricing": {
+      "price": 670.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_20789",
+    "name": "https://portal.zydon.com.br/api/files/beaa3689-ce19-4306-8f12-e182f99119fd/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 62,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_20789.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Conector MC4 - Multibranch (par) - Staubli",
+    "pricing": {
+      "price": 62.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_21771",
+    "name": "https://portal.zydon.com.br/api/files/37629352-ec02-455e-944f-22cda2be6052/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 648,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21771.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Perfil Master",
+    "pricing": {
+      "price": 648.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_21770",
+    "name": "https://portal.zydon.com.br/api/files/032dd801-be80-4c08-9668-0875ac54d240/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 648,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Perfil Master",
+    "pricing": {
+      "price": 648.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_21769",
+    "name": "https://portal.zydon.com.br/api/files/387ee6d0-a48c-40dd-9625-3d6e08af335b/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 901,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Perfil Master",
+    "pricing": {
+      "price": 901.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_21772",
+    "name": "https://portal.zydon.com.br/api/files/aee39a32-961d-4725-909b-76dd98b99390/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 994,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
+    "pricing": {
+      "price": 994.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_cables_27352",
+    "name": "https://portal.zydon.com.br/api/files/29ad6f66-a45b-4acc-b652-2a2fc4a0d0e8/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System"
+  },
+  {
+    "id": "neosolar_cables_25205",
+    "name": "https://portal.zydon.com.br/api/files/2c4eaf00-8563-4844-9cd5-deaa954edf05/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "cables",
+    "price": "R$ 964,00",
+    "image": "/catalog/images/NEOSOLAR-CABLES/neosolar_cables_25205.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
+    "pricing": {
+      "price": 964.0,
+      "currency": "BRL"
+    }
+  }
+]

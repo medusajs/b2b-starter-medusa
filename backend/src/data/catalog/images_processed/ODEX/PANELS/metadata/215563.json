@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\ODEX-PANELS\\215563.jpg",
+  "category": "panels",
+  "processing": {
+    "date": "2025-10-07T02:52:49.273077",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1200x1200",
+        "output_size": "2400x2400"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1200,
+      "height": 1200,
+      "mode": "RGB",
+      "megapixels": 1.44,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        163.22336319444443,
+        162.72249444444444,
+        162.69458680555556
+      ],
+      "std_rgb": [
+        115.81115128700955,
+        115.76263775626822,
+        115.02050361263655
+      ],
+      "brightness": 162.88014814814815,
+      "contrast": 115.53143088530477
+    },
+    "after": {
+      "width": 2400,
+      "height": 2400,
+      "mode": "RGB",
+      "megapixels": 5.76,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        161.74978368055557,
+        163.02962586805555,
+        162.40393819444444
+      ],
+      "std_rgb": [
+        115.74309674368251,
+        115.82533510976607,
+        115.61277637555655
+      ],
+      "brightness": 162.39444924768517,
+      "contrast": 115.72706940966839
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\ODEX\\PANELS\\thumb\\215563.webp",
+    "medium": "catalog\\images_processed\\ODEX\\PANELS\\medium\\215563.webp",
+    "large": "catalog\\images_processed\\ODEX\\PANELS\\large\\215563.webp"
+  }
+}

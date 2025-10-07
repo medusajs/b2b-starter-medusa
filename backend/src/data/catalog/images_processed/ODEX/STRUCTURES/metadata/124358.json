@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\ODEX-STRUCTURES\\124358.jpg",
+  "category": "structures",
+  "processing": {
+    "date": "2025-10-07T02:52:52.003946",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1200x1200",
+        "output_size": "2400x2400"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1200,
+      "height": 1200,
+      "mode": "RGB",
+      "megapixels": 1.44,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        87.41487986111112,
+        139.9184402777778,
+        86.58565694444444
+      ],
+      "std_rgb": [
+        60.21562633215731,
+        37.760728526414134,
+        75.6564918112091
+      ],
+      "brightness": 104.63965902777778,
+      "contrast": 57.87761555659352
+    },
+    "after": {
+      "width": 2400,
+      "height": 2400,
+      "mode": "RGB",
+      "megapixels": 5.76,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        93.66360625,
+        92.95403159722223,
+        94.73949496527777
+      ],
+      "std_rgb": [
+        66.09874207697597,
+        69.89257318116495,
+        85.46580035242047
+      ],
+      "brightness": 93.78571093750001,
+      "contrast": 73.8190385368538
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\ODEX\\STRUCTURES\\thumb\\124358.webp",
+    "medium": "catalog\\images_processed\\ODEX\\STRUCTURES\\medium\\124358.webp",
+    "large": "catalog\\images_processed\\ODEX\\STRUCTURES\\large\\124358.webp"
+  }
+}

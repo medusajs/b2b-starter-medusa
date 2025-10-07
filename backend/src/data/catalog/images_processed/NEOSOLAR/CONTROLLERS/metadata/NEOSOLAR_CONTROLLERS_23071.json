@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-CONTROLLERS\\NEOSOLAR_CONTROLLERS_23071.jpg",
+  "category": "controllers",
+  "processing": {
+    "date": "2025-10-07T02:51:01.289875",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "700x700",
+        "output_size": "1400x1400"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 101.0,
+    "after": 150,
+    "improvement": 49.0
+  },
+  "stats": {
+    "before": {
+      "width": 700,
+      "height": 700,
+      "mode": "RGB",
+      "megapixels": 0.49,
+      "aspect_ratio": 1.0,
+      "quality_score": 101.0,
+      "mean_rgb": [
+        196.6358306122449,
+        196.2037163265306,
+        192.16186734693878
+      ],
+      "std_rgb": [
+        63.18674081924458,
+        59.85702188585575,
+        60.49969297437034
+      ],
+      "brightness": 195.0004714285714,
+      "contrast": 61.18115189315689
+    },
+    "after": {
+      "width": 1400,
+      "height": 1400,
+      "mode": "RGB",
+      "megapixels": 1.96,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        183.56304030612245,
+        183.48715969387754,
+        182.46022397959183
+      ],
+      "std_rgb": [
+        71.4012071821601,
+        72.87973624752102,
+        71.40654055676193
+      ],
+      "brightness": 183.17014132653063,
+      "contrast": 71.89582799548101
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\CONTROLLERS\\thumb\\NEOSOLAR_CONTROLLERS_23071.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\CONTROLLERS\\medium\\NEOSOLAR_CONTROLLERS_23071.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\CONTROLLERS\\large\\NEOSOLAR_CONTROLLERS_23071.webp"
+  }
+}

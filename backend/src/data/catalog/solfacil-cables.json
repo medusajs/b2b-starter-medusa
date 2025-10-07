@@ -1,0 +1,566 @@
+[
+  {
+    "id": "solfacil_cables_1",
+    "name": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 21,83",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
+    "pricing": {
+      "price": 21.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_2",
+    "name": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 21,83",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
+    "pricing": {
+      "price": 21.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_3",
+    "name": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 21,83",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
+    "pricing": {
+      "price": 21.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_4",
+    "name": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 44,80",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052129.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 44.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_5",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 44,80",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 44.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_6",
+    "name": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 134,40",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 134.4,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_7",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 134,40",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 134.4,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_8",
+    "name": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 185,63",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 185.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_9",
+    "name": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 185,63",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 185.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_10",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 266,00",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 266.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_11",
+    "name": "CABO SOLAR 4,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 266,00",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 266.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_12",
+    "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 366,80",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 366.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_13",
+    "name": "CABO SOLAR 6,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 366,80",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 366.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_14",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 392,00",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 392.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_15",
+    "name": "CABO SOLAR 4,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 392,00",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 392.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_16",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 515,20",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 515.2,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_17",
+    "name": "CABO SOLAR 4,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 515,20",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 515.2,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_18",
+    "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 75 MT COM PROTECAO UV 1,8KVCC",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 551,60",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 75 MT COM PROTECAO UV 1,8KVCC",
+    "pricing": {
+      "price": 551.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_19",
+    "name": "CABO SOLAR 6,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 551,60",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 551.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_20",
+    "name": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 573,13",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 573.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_21",
+    "name": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 573,13",
+    "image": "",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 573.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_22",
+    "name": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 734,47",
+    "image": "",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 734.47,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_23",
+    "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 734,47",
+    "image": "/catalog/images/SOLFACIL-CABLES/image.webp",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 734.47,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_24",
+    "name": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 822,75",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 822.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_25",
+    "name": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 822,75",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 822.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_26",
+    "name": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 883,65",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 883.65,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_27",
+    "name": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.268,06",
+    "image": "",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1268.06,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_28",
+    "name": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.268,06",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1268.06,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_29",
+    "name": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.283,04",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1283.04,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_30",
+    "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.398,60",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)",
+    "pricing": {
+      "price": 1398.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_31",
+    "name": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.502,70",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1502.7,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_32",
+    "name": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.502,70",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1502.7,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_33",
+    "name": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.957,02",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1957.02,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_34",
+    "name": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 1.957,02",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 1957.02,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_35",
+    "name": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 2.101,79",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 2101.79,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "solfacil_cables_36",
+    "name": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)",
+    "manufacturer": "SOLFACIL",
+    "category": "cables",
+    "price": "R$ 2.101,79",
+    "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)",
+    "pricing": {
+      "price": 2101.79,
+      "currency": "BRL"
+    }
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-Ceramico-kits.jpg",
+  "category": "fotus-kits",
+  "processing": {
+    "date": "2025-10-07T02:28:21.247588",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 4,
+        "input_size": "300x500",
+        "output_size": "1200x2000"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 4,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 65.6,
+    "after": 150,
+    "improvement": 84.4
+  },
+  "stats": {
+    "before": {
+      "width": 300,
+      "height": 500,
+      "mode": "RGB",
+      "megapixels": 0.15,
+      "aspect_ratio": 0.6,
+      "quality_score": 65.6,
+      "mean_rgb": [
+        164.21958,
+        163.64066666666668,
+        166.17680666666666
+      ],
+      "std_rgb": [
+        87.5133591589961,
+        86.90094268507298,
+        87.63301196505994
+      ],
+      "brightness": 164.67901777777777,
+      "contrast": 87.34910460304302
+    },
+    "after": {
+      "width": 1200,
+      "height": 2000,
+      "mode": "RGB",
+      "megapixels": 2.4,
+      "aspect_ratio": 0.6,
+      "quality_score": 150,
+      "mean_rgb": [
+        156.71343875,
+        156.75059833333333,
+        156.45318333333333
+      ],
+      "std_rgb": [
+        95.13978109773618,
+        93.58211016929819,
+        93.62272998962493
+      ],
+      "brightness": 156.6390734722222,
+      "contrast": 94.11487375221976
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-960kWp-Ceramico-kits.webp",
+    "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-960kWp-Ceramico-kits.webp",
+    "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-960kWp-Ceramico-kits.webp"
+  }
+}

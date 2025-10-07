@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\IMAGE_PRODUCT_600358.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:32.899930",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1000x772",
+        "output_size": "2000x1544"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 130.4,
+    "after": 150,
+    "improvement": 19.599999999999994
+  },
+  "stats": {
+    "before": {
+      "width": 1000,
+      "height": 772,
+      "mode": "RGB",
+      "megapixels": 0.77,
+      "aspect_ratio": 1.3,
+      "quality_score": 130.4,
+      "mean_rgb": [
+        230.44228886010362,
+        230.44860621761657,
+        230.43705699481865
+      ],
+      "std_rgb": [
+        32.29684056305729,
+        32.285092224091464,
+        32.322991453809216
+      ],
+      "brightness": 230.4426506908463,
+      "contrast": 32.30164141365265
+    },
+    "after": {
+      "width": 2000,
+      "height": 1544,
+      "mode": "RGB",
+      "megapixels": 3.09,
+      "aspect_ratio": 1.3,
+      "quality_score": 150,
+      "mean_rgb": [
+        211.89698769430052,
+        210.9310097150259,
+        211.89492195595855
+      ],
+      "std_rgb": [
+        55.13158136760781,
+        55.032778186559405,
+        55.141656962810785
+      ],
+      "brightness": 211.57430645509498,
+      "contrast": 55.10200550565933
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\IMAGE_PRODUCT_600358.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\IMAGE_PRODUCT_600358.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\IMAGE_PRODUCT_600358.webp"
+  }
+}

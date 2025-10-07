@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GOODWE-GW10K-MS-G40 - AFCI_IMAGE_PRODUCT_600463.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:29.860051",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "373x311",
+        "output_size": "746x622"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 62.1,
+    "after": 98.3,
+    "improvement": 36.199999999999996
+  },
+  "stats": {
+    "before": {
+      "width": 373,
+      "height": 311,
+      "mode": "RGB",
+      "megapixels": 0.12,
+      "aspect_ratio": 1.2,
+      "quality_score": 62.1,
+      "mean_rgb": [
+        182.29626819996034,
+        182.232657776092,
+        182.0717998672448
+      ],
+      "std_rgb": [
+        93.54571625547788,
+        93.5572171850808,
+        93.60389110657981
+      ],
+      "brightness": 182.2002419477657,
+      "contrast": 93.56894151571282
+    },
+    "after": {
+      "width": 746,
+      "height": 622,
+      "mode": "RGB",
+      "megapixels": 0.46,
+      "aspect_ratio": 1.2,
+      "quality_score": 98.3,
+      "mean_rgb": [
+        184.75287492564848,
+        184.67676266993095,
+        185.31183676284235
+      ],
+      "std_rgb": [
+        94.75256157086132,
+        94.76749077030601,
+        95.13506406386952
+      ],
+      "brightness": 184.9138247861406,
+      "contrast": 94.88503880167896
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GOODWE-GW10K-MS-G40 - AFCI_IMAGE_PRODUCT_600463.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GOODWE-GW10K-MS-G40 - AFCI_IMAGE_PRODUCT_600463.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GOODWE-GW10K-MS-G40 - AFCI_IMAGE_PRODUCT_600463.webp"
+  }
+}

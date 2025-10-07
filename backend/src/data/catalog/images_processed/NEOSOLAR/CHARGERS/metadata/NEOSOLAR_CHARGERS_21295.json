@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21295.jpg",
+  "category": "chargers",
+  "processing": {
+    "date": "2025-10-07T02:50:46.579956",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "700x700",
+        "output_size": "1400x1400"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 101.0,
+    "after": 150,
+    "improvement": 49.0
+  },
+  "stats": {
+    "before": {
+      "width": 700,
+      "height": 700,
+      "mode": "RGB",
+      "megapixels": 0.49,
+      "aspect_ratio": 1.0,
+      "quality_score": 101.0,
+      "mean_rgb": [
+        245.4098387755102,
+        245.4233,
+        245.61626530612244
+      ],
+      "std_rgb": [
+        33.813902429054906,
+        33.897204369162644,
+        33.458347494634886
+      ],
+      "brightness": 245.48313469387753,
+      "contrast": 33.723151430950814
+    },
+    "after": {
+      "width": 1400,
+      "height": 1400,
+      "mode": "RGB",
+      "megapixels": 1.96,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        240.04913112244898,
+        240.22516734693878,
+        238.66927448979592
+      ],
+      "std_rgb": [
+        50.91470284951681,
+        50.47255504696095,
+        49.3059653456069
+      ],
+      "brightness": 239.64785765306124,
+      "contrast": 50.23107441402822
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\CHARGERS\\thumb\\NEOSOLAR_CHARGERS_21295.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\CHARGERS\\medium\\NEOSOLAR_CHARGERS_21295.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\CHARGERS\\large\\NEOSOLAR_CHARGERS_21295.webp"
+  }
+}

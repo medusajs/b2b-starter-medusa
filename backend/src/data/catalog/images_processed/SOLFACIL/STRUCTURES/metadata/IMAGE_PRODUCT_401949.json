@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-STRUCTURES\\IMAGE_PRODUCT_401949.png",
+  "category": "structures",
+  "processing": {
+    "date": "2025-10-07T02:52:37.514674",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "512x512",
+        "output_size": "1024x1024"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 77.3,
+    "after": 150,
+    "improvement": 72.7
+  },
+  "stats": {
+    "before": {
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "megapixels": 0.26,
+      "aspect_ratio": 1.0,
+      "quality_score": 77.3,
+      "mean_rgb": [
+        203.11427307128906,
+        206.5645523071289,
+        207.52869033813477
+      ],
+      "std_rgb": [
+        70.74720270250945,
+        64.78411054073243,
+        62.40453036261589
+      ],
+      "brightness": 205.73583857218424,
+      "contrast": 65.97861453528593
+    },
+    "after": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "megapixels": 1.05,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        179.63728141784668,
+        179.93078899383545,
+        177.9110336303711
+      ],
+      "std_rgb": [
+        93.75152766964094,
+        99.21453645624078,
+        101.57422635769824
+      ],
+      "brightness": 179.15970134735107,
+      "contrast": 98.18009682785998
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\STRUCTURES\\thumb\\IMAGE_PRODUCT_401949.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\STRUCTURES\\medium\\IMAGE_PRODUCT_401949.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\STRUCTURES\\large\\IMAGE_PRODUCT_401949.webp"
+  }
+}

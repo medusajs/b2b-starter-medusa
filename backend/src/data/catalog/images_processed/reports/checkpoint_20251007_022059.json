@@ -1,0 +1,53 @@
+{
+  "timestamp": "2025-10-07T02:20:59.902060",
+  "priority_filter": null,
+  "progress": {
+    "current": 24,
+    "total": 366,
+    "percentage": 6.6
+  },
+  "stats": {
+    "total_images": 366,
+    "processed": 24,
+    "failed": 14,
+    "skipped": 0,
+    "by_priority": {
+      "1": 364,
+      "2": 0,
+      "3": 0,
+      "4": 2
+    },
+    "total_time": 0.0,
+    "avg_time_per_image": 0.0,
+    "quality_improvement": [
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4,
+      84.4
+    ]
+  },
+  "image_links_count": 24,
+  "last_processed": {
+    "success": true,
+    "task": {
+      "path": 

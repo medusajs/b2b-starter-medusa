@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\ODEX-INVERTERS\\289241.jpg",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:35.395243",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1080x1080",
+        "output_size": "2160x2160"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1080,
+      "height": 1080,
+      "mode": "RGB",
+      "megapixels": 1.17,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        232.7087714334705,
+        232.79655606995885,
+        232.63352023319615
+      ],
+      "std_rgb": [
+        51.37637620298817,
+        51.25939299942746,
+        51.584868956373384
+      ],
+      "brightness": 232.71294924554184,
+      "contrast": 51.40687938626301
+    },
+    "after": {
+      "width": 2160,
+      "height": 2160,
+      "mode": "RGB",
+      "megapixels": 4.67,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        229.507356824417,
+        228.58600587277093,
+        229.48379501028808
+      ],
+      "std_rgb": [
+        57.67213038326497,
+        57.580080021620056,
+        57.732254529721196
+      ],
+      "brightness": 229.192385902492,
+      "contrast": 57.66148831153541
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\289241.webp",
+    "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\289241.webp",
+    "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\289241.webp"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\DEYE-SUN-35K-G02-LV_image.jpeg",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:25.652594",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "283x178",
+        "output_size": "566x356"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 54.4,
+    "after": 71.0,
+    "improvement": 16.6
+  },
+  "stats": {
+    "before": {
+      "width": 283,
+      "height": 178,
+      "mode": "RGB",
+      "megapixels": 0.05,
+      "aspect_ratio": 1.59,
+      "quality_score": 54.4,
+      "mean_rgb": [
+        227.50754357406598,
+        227.6727875491325,
+        227.70548298725532
+      ],
+      "std_rgb": [
+        35.537123362547845,
+        35.481163484107945,
+        35.473027779950556
+      ],
+      "brightness": 227.6286047034846,
+      "contrast": 35.49710487553545
+    },
+    "after": {
+      "width": 566,
+      "height": 356,
+      "mode": "RGB",
+      "megapixels": 0.2,
+      "aspect_ratio": 1.59,
+      "quality_score": 71.0,
+      "mean_rgb": [
+        206.80876543454957,
+        206.17972565212213,
+        206.23292770079803
+      ],
+      "std_rgb": [
+        55.383360698940386,
+        55.15718511994037,
+        55.140476936888774
+      ],
+      "brightness": 206.40713959582322,
+      "contrast": 55.22700758525651
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\DEYE-SUN-35K-G02-LV_image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\DEYE-SUN-35K-G02-LV_image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\DEYE-SUN-35K-G02-LV_image.webp"
+  }
+}

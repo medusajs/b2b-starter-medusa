@@ -1,0 +1,99 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-CABLES\\IMAGE_PRODUCT_052129.png",
+  "category": "cables",
+  "processing": {
+    "date": "2025-10-07T02:52:14.959502",
+    "operations": [
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 1,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 77.3,
+    "after": 77.3,
+    "improvement": 0.0
+  },
+  "stats": {
+    "before": {
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "megapixels": 0.26,
+      "aspect_ratio": 1.0,
+      "quality_score": 77.3,
+      "mean_rgb": [
+        229.52223205566406,
+        228.6785430908203,
+        228.67124938964844
+      ],
+      "std_rgb": [
+        69.36107847533671,
+        71.07186329978576,
+        70.69241400312579
+      ],
+      "brightness": 228.95734151204428,
+      "contrast": 70.37511859274942
+    },
+    "after": {
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "megapixels": 0.26,
+      "aspect_ratio": 1.0,
+      "quality_score": 77.3,
+      "mean_rgb": [
+        226.07326889038086,
+        225.97719192504883,
+        225.98069381713867
+      ],
+      "std_rgb": [
+        76.4126523002085,
+        75.94746110385054,
+        75.49520978292884
+      ],
+      "brightness": 226.0103848775228,
+      "contrast": 75.95177439566264
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\CABLES\\thumb\\IMAGE_PRODUCT_052129.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\CABLES\\medium\\IMAGE_PRODUCT_052129.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\CABLES\\large\\IMAGE_PRODUCT_052129.webp"
+  }
+}

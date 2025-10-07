@@ -1,0 +1,46 @@
+[
+  {
+    "id": "solfacil_batteries_1",
+    "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+    "manufacturer": "SOLFACIL",
+    "category": "batteries",
+    "price": "R$ 5.322,94",
+    "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20"
+  },
+  {
+    "id": "solfacil_batteries_2",
+    "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+    "manufacturer": "GOODWE",
+    "category": "batteries",
+    "price": "R$ 5.983,17",
+    "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE"
+  },
+  {
+    "id": "solfacil_batteries_3",
+    "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+    "manufacturer": "SOLFACIL",
+    "category": "batteries",
+    "price": "R$ 6.255,94",
+    "image": "",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER"
+  },
+  {
+    "id": "solfacil_batteries_4",
+    "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+    "manufacturer": "GOODWE",
+    "category": "batteries",
+    "price": "R$ 7.323,74",
+    "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE"
+  }
+]

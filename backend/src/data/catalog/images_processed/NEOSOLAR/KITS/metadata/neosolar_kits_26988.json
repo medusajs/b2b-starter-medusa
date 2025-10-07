@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-KITS\\neosolar_kits_26988.jpg",
+  "category": "kits",
+  "processing": {
+    "date": "2025-10-07T02:51:37.634578",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 4,
+        "input_size": "800x800",
+        "output_size": "3200x3200"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 4,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 116.7,
+    "after": 150,
+    "improvement": 33.3
+  },
+  "stats": {
+    "before": {
+      "width": 800,
+      "height": 800,
+      "mode": "RGB",
+      "megapixels": 0.64,
+      "aspect_ratio": 1.0,
+      "quality_score": 116.7,
+      "mean_rgb": [
+        205.4547046875,
+        205.890778125,
+        205.8871140625
+      ],
+      "std_rgb": [
+        84.51043276000628,
+        84.00126421282093,
+        83.27898068552265
+      ],
+      "brightness": 205.74419895833333,
+      "contrast": 83.93022588611662
+    },
+    "after": {
+      "width": 3200,
+      "height": 3200,
+      "mode": "RGB",
+      "megapixels": 10.24,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        203.06664833984374,
+        203.36252822265624,
+        203.24790400390626
+      ],
+      "std_rgb": [
+        86.54754135232942,
+        86.65659120349703,
+        87.41020681242524
+      ],
+      "brightness": 203.2256935221354,
+      "contrast": 86.8714464560839
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\KITS\\thumb\\neosolar_kits_26988.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\KITS\\medium\\neosolar_kits_26988.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\KITS\\large\\neosolar_kits_26988.webp"
+  }
+}

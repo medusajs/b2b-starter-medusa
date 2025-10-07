@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-Fibrocimento-kits.jpg",
+  "category": "fotus-kits",
+  "processing": {
+    "date": "2025-10-07T02:28:14.950469",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 4,
+        "input_size": "300x500",
+        "output_size": "1200x2000"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 4,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 65.6,
+    "after": 150,
+    "improvement": 84.4
+  },
+  "stats": {
+    "before": {
+      "width": 300,
+      "height": 500,
+      "mode": "RGB",
+      "megapixels": 0.15,
+      "aspect_ratio": 0.6,
+      "quality_score": 65.6,
+      "mean_rgb": [
+        178.77185333333333,
+        179.40028666666666,
+        181.07735333333332
+      ],
+      "std_rgb": [
+        89.66676524274962,
+        89.08730431768758,
+        88.77105599871958
+      ],
+      "brightness": 179.74983111111112,
+      "contrast": 89.17504185305226
+    },
+    "after": {
+      "width": 1200,
+      "height": 2000,
+      "mode": "RGB",
+      "megapixels": 2.4,
+      "aspect_ratio": 0.6,
+      "quality_score": 150,
+      "mean_rgb": [
+        172.95728333333332,
+        173.78352666666666,
+        172.97758708333333
+      ],
+      "std_rgb": [
+        96.7841639699119,
+        95.2887286626406,
+        95.06912138713169
+      ],
+      "brightness": 173.23946569444445,
+      "contrast": 95.71400467322808
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp",
+    "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp",
+    "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp"
+  }
+}

@@ -1,0 +1,176 @@
+[
+  {
+    "id": "neosolar_posts_24170",
+    "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 17.148",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL9-100 - 9 metros - Luminária LED 100W - 170Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119122",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714679"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24170.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24170.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24170.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24170.webp"
+    }
+  },
+  {
+    "id": "neosolar_posts_24171",
+    "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 16.357",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL8-80 - 8 metros - Luminária LED 80W - 175Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119127",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714693"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24171.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24171.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24171.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24171.webp"
+    }
+  },
+  {
+    "id": "neosolar_posts_24173",
+    "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 9.166",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL6-40 - 6 metros - Luminária LED 40W - 170Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119132",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714697"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24173.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24173.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24173.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24173.webp"
+    }
+  },
+  {
+    "id": "neosolar_posts_24175",
+    "name": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 7.901",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL4-30 - 4 metros - Luminária LED 30W - 175Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119138",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714701"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24175.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24175.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24175.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24175.webp"
+    }
+  },
+  {
+    "id": "neosolar_posts_24172",
+    "name": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 15.804",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL7-60 - 7 metros - Luminária LED 60W - 233Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119143",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714704"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24172.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24172.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24172.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24172.webp"
+    }
+  },
+  {
+    "id": "neosolar_posts_24174",
+    "name": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br",
+    "manufacturer": "NEOSOLAR",
+    "category": "posts",
+    "price": "R$ 8.217",
+    "image": "/catalog/images/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Poste Solar ZTROON ZTL5-30 - 5 metros - Luminária LED 30W - 175Im/W",
+    "metadata": {
+      "source": "consolidated",
+      "source_file": "posts.json",
+      "loaded_at": "2025-10-07T04:51:42.119109",
+      "merged_from_sources": [
+        "consolidated"
+      ],
+      "last_consolidated": "2025-10-07T04:51:42.119150",
+      "normalized": true,
+      "normalized_at": "2025-10-07T05:03:13.714707"
+    },
+    "technical_specs": {},
+    "images_processed": {
+      "thumb": "/catalog/images_processed/NEOSOLAR/POSTS/thumb/neosolar_posts_24174.webp",
+      "medium": "/catalog/images_processed/NEOSOLAR/POSTS/medium/neosolar_posts_24174.webp",
+      "large": "/catalog/images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24174.webp",
+      "original": "images_processed/NEOSOLAR/POSTS/large/neosolar_posts_24174.webp"
+    }
+  }
+]

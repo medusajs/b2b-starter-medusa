@@ -1,0 +1,99 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-CABLES\\NEOSOLAR_CABLES_20126.jpg",
+  "category": "cables",
+  "processing": {
+    "date": "2025-10-07T02:50:42.451214",
+    "operations": [
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 1,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 116.7,
+    "after": 116.7,
+    "improvement": 0.0
+  },
+  "stats": {
+    "before": {
+      "width": 800,
+      "height": 800,
+      "mode": "RGB",
+      "megapixels": 0.64,
+      "aspect_ratio": 1.0,
+      "quality_score": 116.7,
+      "mean_rgb": [
+        213.0301765625,
+        215.8228203125,
+        218.0584609375
+      ],
+      "std_rgb": [
+        70.8790353810302,
+        65.31388732649188,
+        62.83633594575626
+      ],
+      "brightness": 215.63715260416666,
+      "contrast": 66.34308621775945
+    },
+    "after": {
+      "width": 800,
+      "height": 800,
+      "mode": "RGB",
+      "megapixels": 0.64,
+      "aspect_ratio": 1.0,
+      "quality_score": 116.7,
+      "mean_rgb": [
+        210.520659375,
+        209.8114015625,
+        210.088328125
+      ],
+      "std_rgb": [
+        76.91812203993263,
+        71.99259812868442,
+        69.77635584935443
+      ],
+      "brightness": 210.1401296875,
+      "contrast": 72.8956920059905
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\CABLES\\thumb\\NEOSOLAR_CABLES_20126.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\CABLES\\medium\\NEOSOLAR_CABLES_20126.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\CABLES\\large\\NEOSOLAR_CABLES_20126.webp"
+  }
+}

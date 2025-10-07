@@ -1,0 +1,99 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-ACCESSORIES\\image.png",
+  "category": "accessories",
+  "processing": {
+    "date": "2025-10-07T02:52:13.781027",
+    "operations": [
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 1,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": false,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 77.3,
+    "after": 77.3,
+    "improvement": 0.0
+  },
+  "stats": {
+    "before": {
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "megapixels": 0.26,
+      "aspect_ratio": 1.0,
+      "quality_score": 77.3,
+      "mean_rgb": [
+        182.84916305541992,
+        188.35736846923828,
+        189.99695205688477
+      ],
+      "std_rgb": [
+        57.19041903226963,
+        49.91381935273774,
+        45.5862515790848
+      ],
+      "brightness": 187.0678278605143,
+      "contrast": 50.896829988030724
+    },
+    "after": {
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "megapixels": 0.26,
+      "aspect_ratio": 1.0,
+      "quality_score": 77.3,
+      "mean_rgb": [
+        151.11630630493164,
+        151.0283088684082,
+        150.93004608154297
+      ],
+      "std_rgb": [
+        81.22953329533952,
+        83.64546067159405,
+        83.18787531682024
+      ],
+      "brightness": 151.02488708496094,
+      "contrast": 82.6876230945846
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\ACCESSORIES\\thumb\\image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\ACCESSORIES\\medium\\image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\ACCESSORIES\\large\\image.webp"
+  }
+}

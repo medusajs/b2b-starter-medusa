@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-BATTERIES\\IMAGE_PRODUCT_850004.png",
+  "category": "batteries",
+  "processing": {
+    "date": "2025-10-07T02:52:14.705948",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "206x262",
+        "output_size": "412x524"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 55.6,
+    "after": 72.5,
+    "improvement": 16.9
+  },
+  "stats": {
+    "before": {
+      "width": 206,
+      "height": 262,
+      "mode": "RGB",
+      "megapixels": 0.05,
+      "aspect_ratio": 0.79,
+      "quality_score": 55.6,
+      "mean_rgb": [
+        185.81421848365818,
+        185.80547320833026,
+        185.69245164159193
+      ],
+      "std_rgb": [
+        98.56186180239989,
+        98.61488203010697,
+        98.63183795097763
+      ],
+      "brightness": 185.7707144445268,
+      "contrast": 98.60286059449483
+    },
+    "after": {
+      "width": 412,
+      "height": 524,
+      "mode": "RGB",
+      "megapixels": 0.22,
+      "aspect_ratio": 0.79,
+      "quality_score": 72.5,
+      "mean_rgb": [
+        185.26007930037798,
+        185.25194082116653,
+        185.94526791669756
+      ],
+      "std_rgb": [
+        98.18016875086117,
+        98.23187255674243,
+        98.58193456889484
+      ],
+      "brightness": 185.48576267941402,
+      "contrast": 98.33132529216614
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\BATTERIES\\thumb\\IMAGE_PRODUCT_850004.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\BATTERIES\\medium\\IMAGE_PRODUCT_850004.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\BATTERIES\\large\\IMAGE_PRODUCT_850004.webp"
+  }
+}

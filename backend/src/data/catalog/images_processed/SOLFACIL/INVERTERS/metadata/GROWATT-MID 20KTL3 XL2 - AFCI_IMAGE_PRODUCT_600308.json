@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:30.947959",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "351x345",
+        "output_size": "702x690"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 62.6,
+    "after": 100.5,
+    "improvement": 37.9
+  },
+  "stats": {
+    "before": {
+      "width": 351,
+      "height": 345,
+      "mode": "RGB",
+      "megapixels": 0.12,
+      "aspect_ratio": 1.02,
+      "quality_score": 62.6,
+      "mean_rgb": [
+        227.8922994343284,
+        229.35266526281018,
+        226.66837606837606
+      ],
+      "std_rgb": [
+        47.78560800812897,
+        44.304789790999415,
+        51.96901243833367
+      ],
+      "brightness": 227.9711135885049,
+      "contrast": 48.019803412487356
+    },
+    "after": {
+      "width": 702,
+      "height": 690,
+      "mode": "RGB",
+      "megapixels": 0.48,
+      "aspect_ratio": 1.02,
+      "quality_score": 100.5,
+      "mean_rgb": [
+        221.5253994797473,
+        220.99026590693256,
+        221.90095379660596
+      ],
+      "std_rgb": [
+        57.6483774948633,
+        52.615570390057,
+        60.43051856917799
+      ],
+      "brightness": 221.47220639442858,
+      "contrast": 56.89815548469943
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.webp"
+  }
+}

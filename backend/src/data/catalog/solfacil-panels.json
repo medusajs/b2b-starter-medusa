@@ -1,0 +1,68 @@
+[
+  {
+    "id": "solfacil_panels_1",
+    "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559375/images/IMAGE_PRODUCT_559375.jpeg HANERSUN",
+    "manufacturer": "HANERSUN",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 585W - HANERSUN - EF. 22.6% - HN18N-72H IMP",
+    "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559375.jpeg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "HN18N-72H"
+  },
+  {
+    "id": "solfacil_panels_2",
+    "name": "HANERSUN",
+    "manufacturer": "HANERSUN",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 585W - HANERSUN - EF. 22.6% - HN18N-72H D",
+    "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559380.jpeg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "HN18N-72H"
+  },
+  {
+    "id": "solfacil_panels_3",
+    "name": "DAH",
+    "manufacturer": "DAH",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 585W - DAH BIFACIAL - EF. 22.65% - DHN-72X16/DG IMP",
+    "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "DHN-72X16/DG"
+  },
+  {
+    "id": "solfacil_panels_4",
+    "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559381/images/IMAGE_PRODUCT_559381.png OSDA",
+    "manufacturer": "OSDA",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 610W - OSDA BIFACIAL - EF. 22.60% - 33V-MHDRZ",
+    "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559381.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "33V-MHDRZ"
+  },
+  {
+    "id": "solfacil_panels_5",
+    "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/573429/images/IMAGE_PRODUCT_573429.png HANERSUN",
+    "manufacturer": "HANERSUN",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 700W - HANERSUN BIFACIAL - EF.22.5% - HJT HN21H-66HT",
+    "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_573429.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "HJT HN21H-66HT"
+  },
+  {
+    "id": "solfacil_panels_6",
+    "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/550010/images/image.png MINASOL",
+    "manufacturer": "MINASOL",
+    "category": "panels",
+    "price": "MODULO FOTOVOLTAICO 545W - MINASOL NACIONAL - MS-545",
+    "image": "/catalog/images/SOLFACIL-PANELS/image.png",
+    "source": "loja.solfacil.com.br",
+    "availability": "Disponível",
+    "description": "MS-545"
+  }
+]

@@ -1,0 +1,2386 @@
+{
+  "timestamp": "2025-10-07T02:28:27.244997",
+  "total_images": 183,
+  "priority_filter": null,
+  "links": {
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1065kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1065kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1065kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1065kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1065kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1065kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1065kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1065kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1065kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-120kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-120kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-120kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-120kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-120kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1136kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-120kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-120kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-120kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-120kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-120kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1278kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1278kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1278kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1278kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1278kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1278kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1278kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1278kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1278kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1278kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-142kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-142kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-142kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1704kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1704kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1704kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1704kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1704kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1704kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-142kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-142kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-142kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-142kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-142kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-142kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-142kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-284kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-284kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-284kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-1704kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1704kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1704kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1704kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-284kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-284kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-284kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-240kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-240kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-240kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-240kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-240kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-284kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-284kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-284kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-284kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-360kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-360kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-360kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-360kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-360kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-360kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-360kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-360kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-360kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-360kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-426kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-426kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-426kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-426kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-426kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-426kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-426kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-426kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-426kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-426kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-480kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-480kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-480kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-480kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-480kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-480kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-568kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-568kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-568kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-480kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-480kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-480kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-480kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-568kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-568kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-568kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-568kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-568kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-568kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-568kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-600kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-600kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-600kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-600kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-600kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-600kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-600kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-600kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-600kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-600kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-710kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-710kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-710kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-720kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-720kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-720kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-710kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-710kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-710kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-710kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-710kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-710kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-710kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-720kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-720kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-720kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-720kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-720kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-720kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-720kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-840kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-840kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-840kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-840kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-840kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-840kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-840kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-840kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-840kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-840kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-852kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-852kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-852kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-852kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-852kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-852kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-852kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-852kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-852kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-852kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-960kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-960kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-960kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-960kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-960kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-960kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-960kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-960kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-960kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-960kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-994kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-994kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-994kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-994kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-994kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-994kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-994kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-994kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-994kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-994kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP02-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-1136kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-1136kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-1136kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-1136kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-1136kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-1136kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-1136kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-1136kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-1136kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-1136kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-142kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-142kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-142kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-142kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-142kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-142kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-142kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-142kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-142kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-142kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-284kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-284kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-284kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-284kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-284kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-284kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-284kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-284kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-284kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-284kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-426kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-426kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-426kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-426kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-426kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-426kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-426kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-426kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-426kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-426kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-568kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-568kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-568kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-568kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-568kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-568kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-568kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-568kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-568kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-568kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-710kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-710kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-710kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-710kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-710kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-710kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-710kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-710kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-710kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-710kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-852kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-852kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-852kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-852kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-852kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-852kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-852kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-852kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-852kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-852kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-994kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-994kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-994kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-994kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-994kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-994kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-994kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-994kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-994kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-994kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP03-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1026kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1026kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1026kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1026kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1026kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1026kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1026kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1026kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1026kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1026kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-114kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-114kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-114kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-114kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-114kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-114kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-114kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-114kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-114kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-114kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-120kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-120kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-120kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-120kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-120kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-120kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-120kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-120kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-120kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-120kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1254kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1254kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1254kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1254kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1254kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1254kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1254kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1254kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1311kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1311kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1311kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1311kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1311kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1311kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1311kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1311kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1311kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1311kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1368kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1368kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1368kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1368kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1368kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1368kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1368kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1368kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1368kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1368kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1482kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1482kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1482kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1482kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1482kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1482kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1482kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1482kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1482kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1482kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1596kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1596kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1596kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1596kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1596kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1596kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-1596kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-1596kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-1596kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-1596kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-228kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-228kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-228kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-228kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-228kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-228kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-228kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-228kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-228kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-228kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-240kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-240kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-240kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-240kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-240kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-240kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-240kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-240kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-240kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-240kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-342kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-342kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-342kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-342kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-342kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-342kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-342kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-342kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-342kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-342kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-360kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-360kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-360kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-360kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-360kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-360kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-360kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-360kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-360kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-360kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-399kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-399kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-399kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-399kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-399kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-399kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-399kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-399kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-399kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-399kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-456kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-456kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-456kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-456kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-456kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-456kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-456kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-456kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-456kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-456kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-480kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-480kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-480kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-480kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-480kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-480kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-480kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-480kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-480kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-480kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-513kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-513kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-513kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-513kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-513kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-513kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-513kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-513kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-570kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-570kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-570kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-570kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-570kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-570kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-570kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-570kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-570kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-570kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-600kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-600kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-600kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-600kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-600kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-600kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-600kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-600kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-600kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-600kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-684kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-684kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-684kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-684kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-684kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-684kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-684kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-684kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-684kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-684kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-720kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-720kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-720kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-720kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-720kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-720kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-720kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-720kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-720kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-720kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-798kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-798kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-798kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-798kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-798kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-798kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-798kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-798kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-798kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-798kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-840kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-840kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-840kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-840kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-840kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-840kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-840kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-840kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-840kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-840kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-855kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-855kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-855kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-855kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-855kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-855kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-855kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-855kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-855kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-855kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-912kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-912kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-912kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-912kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-912kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-912kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-912kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-912kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-912kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-912kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-960kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-960kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-960kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-960kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-960kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-960kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-960kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-960kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-960kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-960kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-Ceramico-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-Ceramico-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-969kWp-Ceramico-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-969kWp-Ceramico-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-969kWp-Ceramico-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-Fibrocimento-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-Fibrocimento-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-969kWp-Fibrocimento-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-969kWp-Fibrocimento-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-969kWp-Fibrocimento-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-MiniTrilho-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-969kWp-MiniTrilho-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-969kWp-MiniTrilho-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-969kWp-MiniTrilho-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-969kWp-MiniTrilho-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-kits.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS\\FOTUS-KP04-kits.jpg",
+      "directory": "FOTUS-KITS",
+      "category": "fotus-kits",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-kits.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-kits.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-kits.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-120kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-120kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-120kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-120kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-120kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-120kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-120kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-120kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-120kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-120kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-240kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-240kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-240kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-240kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-240kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-240kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-240kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-240kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-240kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-240kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-360kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-360kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-360kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-360kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-360kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-360kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-360kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-360kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-360kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-360kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-480kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-480kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-480kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-480kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-480kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-480kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-600kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-600kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-600kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-600kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-600kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-600kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-600kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-600kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-600kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-600kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-720kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-720kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-720kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-720kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-720kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-720kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-720kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-720kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-720kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-720kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-840kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-840kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-840kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-840kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-840kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-840kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-840kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-840kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-840kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-840kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-Ceramico-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-Ceramico-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-960kWp-Ceramico-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-960kWp-Ceramico-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-960kWp-Ceramico-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-Fibrocimento-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-Fibrocimento-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-960kWp-Fibrocimento-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-960kWp-Fibrocimento-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-960kWp-Fibrocimento-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-MiniTrilho-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-960kWp-MiniTrilho-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-960kWp-MiniTrilho-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-960kWp-MiniTrilho-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-960kWp-MiniTrilho-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-kits-hibridos.jpg": {
+      "original": "catalog\\images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-kits-hibridos.jpg",
+      "directory": "FOTUS-KITS-HIBRIDOS",
+      "category": "fotus-kits-hibridos",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-kits-hibridos.webp",
+        "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-kits-hibridos.webp",
+        "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-kits-hibridos.webp"
+      },
+      "quality_before": 65.6,
+      "quality_after": 150,
+      "priority": 1
+    },
+    "catalog\\images\\ODEX-STRINGBOXES\\192068.jpg": {
+      "original": "catalog\\images\\ODEX-STRINGBOXES\\192068.jpg",
+      "directory": "ODEX-STRINGBOXES",
+      "category": "stringboxes",
+      "outputs": {
+        "thumb": "catalog\\images_processed\\ODEX-STRINGBOXES\\thumb\\192068.webp",
+        "medium": "catalog\\images_processed\\ODEX-STRINGBOXES\\medium\\192068.webp",
+        "large": "catalog\\images_processed\\ODEX-STRINGBOXES\\large\\192068.webp"
+      },
+      "quality_before": 150,
+      "quality_after": 150,
+      "priority": 4
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.jpg",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:15.823668",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1024x1024",
+        "output_size": "2048x2048"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "megapixels": 1.05,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        242.27933025360107,
+        242.28972911834717,
+        242.28238582611084
+      ],
+      "std_rgb": [
+        34.87319828738139,
+        34.85411483381105,
+        34.86337124264259
+      ],
+      "brightness": 242.28381506601968,
+      "contrast": 34.86356145461168
+    },
+    "after": {
+      "width": 2048,
+      "height": 2048,
+      "mode": "RGB",
+      "megapixels": 4.19,
+      "aspect_ratio": 1.0,
+      "quality_score": 150,
+      "mean_rgb": [
+        239.12585425376892,
+        238.16155338287354,
+        239.1295690536499
+      ],
+      "std_rgb": [
+        41.32971835163964,
+        41.21789135846226,
+        41.33043745790218
+      ],
+      "brightness": 238.80565889676413,
+      "contrast": 41.29268238933469
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.webp"
+  }
+}

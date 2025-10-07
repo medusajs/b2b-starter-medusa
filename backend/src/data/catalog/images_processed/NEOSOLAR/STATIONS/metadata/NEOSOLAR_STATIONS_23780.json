@@ -1,0 +1,105 @@
+{
+  "original_path": "catalog\\images\\NEOSOLAR-STATIONS\\NEOSOLAR_STATIONS_23780.jpg",
+  "category": "stations",
+  "processing": {
+    "date": "2025-10-07T02:51:50.174822",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "840x600",
+        "output_size": "1680x1200"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 102.5,
+    "after": 150,
+    "improvement": 47.5
+  },
+  "stats": {
+    "before": {
+      "width": 840,
+      "height": 600,
+      "mode": "RGB",
+      "megapixels": 0.5,
+      "aspect_ratio": 1.4,
+      "quality_score": 102.5,
+      "mean_rgb": [
+        91.3952380952381,
+        89.10435515873016,
+        90.4397261904762
+      ],
+      "std_rgb": [
+        63.609294060014136,
+        62.687429792959534,
+        51.4880438618414
+      ],
+      "brightness": 90.31310648148148,
+      "contrast": 59.26158923827169
+    },
+    "after": {
+      "width": 1680,
+      "height": 1200,
+      "mode": "RGB",
+      "megapixels": 2.02,
+      "aspect_ratio": 1.4,
+      "quality_score": 150,
+      "mean_rgb": [
+        95.37994791666667,
+        95.47528670634921,
+        93.81065575396825
+      ],
+      "std_rgb": [
+        67.0462446215767,
+        67.77696349891515,
+        61.8269483205395
+      ],
+      "brightness": 94.88863012566138,
+      "contrast": 65.55005214701045
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\NEOSOLAR\\STATIONS\\thumb\\NEOSOLAR_STATIONS_23780.webp",
+    "medium": "catalog\\images_processed\\NEOSOLAR\\STATIONS\\medium\\NEOSOLAR_STATIONS_23780.webp",
+    "large": "catalog\\images_processed\\NEOSOLAR\\STATIONS\\large\\NEOSOLAR_STATIONS_23780.webp"
+  }
+}

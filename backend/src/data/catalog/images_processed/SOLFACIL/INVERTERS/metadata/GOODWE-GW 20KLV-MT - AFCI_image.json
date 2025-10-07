@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GOODWE-GW 20KLV-MT - AFCI_image.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:28.487833",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "1140x1060",
+        "output_size": "2280x2120"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 150,
+    "after": 150,
+    "improvement": 0
+  },
+  "stats": {
+    "before": {
+      "width": 1140,
+      "height": 1060,
+      "mode": "RGB",
+      "megapixels": 1.21,
+      "aspect_ratio": 1.08,
+      "quality_score": 150,
+      "mean_rgb": [
+        218.1767808672625,
+        139.64651605428665,
+        135.90945051307514
+      ],
+      "std_rgb": [
+        57.61997678191909,
+        95.54421521798203,
+        98.60863112240234
+      ],
+      "brightness": 164.57758247820811,
+      "contrast": 83.92427437410116
+    },
+    "after": {
+      "width": 2280,
+      "height": 2120,
+      "mode": "RGB",
+      "megapixels": 4.83,
+      "aspect_ratio": 1.08,
+      "quality_score": 150,
+      "mean_rgb": [
+        157.937155122476,
+        136.20859711188348,
+        132.27111242138363
+      ],
+      "std_rgb": [
+        45.75334769668146,
+        102.90352681817626,
+        107.1048159354483
+      ],
+      "brightness": 142.13895488524773,
+      "contrast": 85.25389681676867
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GOODWE-GW 20KLV-MT - AFCI_image.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GOODWE-GW 20KLV-MT - AFCI_image.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GOODWE-GW 20KLV-MT - AFCI_image.webp"
+  }
+}

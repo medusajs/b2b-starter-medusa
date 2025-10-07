@@ -1,0 +1,2751 @@
+[
+  {
+    "id": "neosolar_inverters_22916",
+    "name": "Microinversor Deye SUN2250 G4 Monofásico 2250W - 220V - MLPE e Wi-Fi Integrado",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "",
+    "image": "",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Microinversor Deye Sun2250 G4 – Wi-Fi Integrado – Potência Contínua: 2250 W – Tensão: 220 V – Garantia: de 10 anos (já incluídos os 90 dias da garantia legal).",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1
+  },
+  {
+    "id": "neosolar_inverters_21632",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-21 (T) - 2000W 24/120V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.719,00",
+    "image": "",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 127Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1719.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20566",
+    "name": "Inversor Off Grid Senoidal ZTROON ZT1000-11 - 1000W - 12/127V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 703,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20566.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT1000-11 – Senoidal Pura – Potência Contínua: 1000 W – Tensão: 12/127 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 703.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20563",
+    "name": "Inversor Off Grid Senoidal ZTROON ZT600-11 - 600W - 12/ 127V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 497,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20563.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT600-11 – Senoidal Pura – Potência Contínua: 600 W – Tensão: 12/127 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 497.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24973",
+    "name": "Inversor Carregador Must PV29-5048 LHP - 5000W - MPPT 80A - 48/110V",
+    "manufacturer": "MUST",
+    "category": "inverters",
+    "price": "R$ 2.733,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24973.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "P. Surto: 15.000W | Faixa MPPT: 30 ~ 230V | Compatível com Lítio",
+    "pricing": {
+      "price": 2733.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22022",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT2000-11 - 2000W - 12/127V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 1.194,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22022.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT2000-11– Senoidal Pura – Potência Contínua: 2000 W – Tensão: 12/127 Vca – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 1194.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20247",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-41 (T) - 2000W 48/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.784,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20247.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 127Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1784.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24972",
+    "name": "Inversor Carregador Must PV29-5048 HP - 5000W - MPPT 80A - 48/220V",
+    "manufacturer": "MUST",
+    "category": "inverters",
+    "price": "R$ 2.798,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24972.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "P. Surto: 15.000W | Faixa MPPT: 30 ~ 230V | Compatível com Lítio",
+    "pricing": {
+      "price": 2798.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21630",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP1500-11 (T) - 1500W 12/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.459,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21630.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 110Vca com potência contínua de 1500W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1459.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22024",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT2000-21 - 2000W - 24/127V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 1.194,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22024.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT2000-21– Senoidal Pura – Potência Contínua: 2000 W – Tensão: 24/127 Vca – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 1194.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20922",
+    "name": "Inversor Senoidal Epever IPower Plus IP1000-41 (T) - 1000W 48/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.297,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20922.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc (43",
+    "pricing": {
+      "price": 1297.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21631",
+    "name": "Inversor Off Grid  Senoidal Epever IPower Plus IP1500-12 (T) - 1500W 12/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.459,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21631.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 220Vca com potência contínua de 1500W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1459.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20250",
+    "name": "Inversor Senoidal Epever IPower Plus IP3000-41 (T) - 3000W 48/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.050,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20250.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus (T) de 48Vcc para 127Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de lítio solar. Simples e fácil de instalar",
+    "pricing": {
+      "price": 2050.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21634",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-21 (T) - 3000W 24/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.245,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21634.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 127Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2245.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20778",
+    "name": "Inversor Senoidal Epever IPower Plus IP3000-11 (T) - 3000W 12/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.530,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20778.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 110Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2530.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21633",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-22 (T) - 2000W 24/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.557,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21633.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 220Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1557.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21639",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP4000-41 (T) - 4000W 48/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.588,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21639.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 110Vca com potência contínua de 4000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2588.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22095",
+    "name": "Inversor Senoidal Epever IPower Plus IP3000-22 (T) - 3000W 24/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.141,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22095.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2141.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22023",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT2000-12 - 2000W - 12/220V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 1.167,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22023.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT2000-12– Senoidal Pura – Potência Contínua: 2000 W – Tensão: 12/220 Vca – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 1167.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22920",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "",
+    "image": "",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 5000W (US) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1
+  },
+  {
+    "id": "neosolar_inverters_20924",
+    "name": "Inversor Senoidal Epever IPower Plus IP3000-42 (T) - 3000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.946,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20924.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1946.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24874",
+    "name": "\"Inversor On Grid Livoltek 7",
+    "manufacturer": "NEOSOLAR",
+    "category": "inverters",
+    "price": "R$ 2.888,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24874.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "5kW 220V Monofásico - GT1-7K5T2\"",
+    "pricing": {
+      "price": 2888.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22921",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN8K (EU) - 8000W - 48/220-230V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 9.150,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22921.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 8000W (EU) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 9150.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21641",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-12 (T) - 3000W 12/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.336,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21641.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2336.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21640",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP5000-42 (T) - 5000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.522,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21640.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 220Vca com potência contínua de 5000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 2522.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22734",
+    "name": "Inversor Senoidal Epever IPower Plus IP1000-42 (T) - 1000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.297,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22734.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc (43",
+    "pricing": {
+      "price": 1297.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24878",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) - 5000W - 48/230V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 5.442,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24878.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 5.000W (EU) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 5442.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20565",
+    "name": "Inversor Off Grid Senoidal ZTROON ZT1000-12 - 1000W - 12/ 220V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 703,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20565.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Inversor Off Grid ZTROON ZT1000-12 – Senoidal Pura – Potência Contínua: 1000 W – Tensão: 12/220 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 703.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24876",
+    "name": "Inversor On Grid Livoltek 6kW 220V Monofásico - GT1-6KD2",
+    "manufacturer": "NEOSOLAR",
+    "category": "inverters",
+    "price": "R$ 2.444,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24876.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "2 MPPTS (16A + 16A) | PVmax: 9kW | Tensão Máxima: 600V | Com AFCI | Garantia: 10 anos",
+    "pricing": {
+      "price": 2444.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24825",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN12K (EU) - 12000W - 48/220-380V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 15.641,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24825.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 12.000W (EU) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 15641.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20249",
+    "name": "Inversor Senoidal Epever IPower Plus IP2000-42 (T) - 2000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.728,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20249.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 220Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS",
+    "pricing": {
+      "price": 1728.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24877",
+    "name": "Inversor On Grid Livoltek 5kW 220V Monofásico - GT1-5KD2",
+    "manufacturer": "NEOSOLAR",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24877.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"2 MPPTS (16A + 16A) | PVmax: 7"
+  },
+  {
+    "id": "neosolar_inverters_24870",
+    "name": "Inversor On Grid Livoltek 5kW 220V Monofásico - GT1-5KD2",
+    "manufacturer": "NEOSOLAR",
+    "category": "inverters",
+    "price": "R$ 2.073,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24870.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "\"2 MPPTS (16A + 16A) | PVmax: 7",
+    "pricing": {
+      "price": 2073.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22714",
+    "name": "Microinversor Deye SUN2250 G4 Monofásico 2250W - 220V - MLPE e Wi-Fi Integrado",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 1.220,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22714.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Disponível",
+    "description": "Microinversor Deye Sun2250 G4 – Wi-Fi Integrado – Potência Contínua: 2250 W – Tensão: 220 V – Garantia: de 12 anos (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 1220.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_23309",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) SG04 - 5000W - 48/220V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_23309.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 5000W (EU) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)"
+  },
+  {
+    "id": "neosolar_inverters_23783",
+    "name": "Inversor Carregador Off Grid Híbrido Epever HP3542 - 60A MPPT - 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 3.849,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_23783.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Inversor Solar Epever com tripla função (Inversor + Controlador de Carga MPPT + Carregador CA) - Opera com e sem bateria.",
+    "pricing": {
+      "price": 3849.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_23782",
+    "name": "Inversor Carregador Epever HP3522 - 110A MPPT - 24/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 4.248,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_23782.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "P. Surto: 3.500W | Faixa MPPT: 85 ~ 400V | Paralelismo: Máx. 16 un | Compatível c/ Lítio",
+    "pricing": {
+      "price": 4248.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20217",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 8.058,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20217.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "---",
+    "pricing": {
+      "price": 8058.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20252",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP1500-11 (T-BR) - 1500W 12/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.141,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20252.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"O Inversor Epever Ipower Plus de 12Vcc para 110Vca com potência contínua de 1500W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1141.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20253",
+    "name": "Inversor Off Grid  Senoidal Epever IPower Plus IP1500-12 (T-BR) - 1500W 12/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.028,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20253.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 220Vca com potência contínua de 1500W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1028.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20255",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-21 (T-BR) - 2000W 24/120V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.322,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20255.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 120Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1322.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20256",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-22 (T-BR) - 2000W 24/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.102,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20256.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 220Vca com potência contínua de 2000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1102.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20258",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-21 (T-BR) - 3000W 24/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.400,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20258.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 127Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1400.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20259",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-22 (T-BR) - 3000W 24/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.190,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20259.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1190.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20260",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-41 (T-BR) - 3000W 48/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.362,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20260.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 127Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1362.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20261",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-42 (T-BR) - 3000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.102,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20261.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1102.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20262",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP4000-41 (T-BR) - 4000W 48/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.579,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20262.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 110Vca com potência contínua de 4000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1579.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20264",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP5000-42 (T-BR) - 5000W 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.557,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20264.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc para 220Vca com potência contínua de 5000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1557.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20265",
+    "name": "Inversor Off Grid Híbrido Epever UPower-Hi UP2000 - 60A MPPT - 24/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.443,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20265.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Nova série de inversores Epever HI com tripla função (Inversor + Controlador de Carga + Carregador CA)",
+    "pricing": {
+      "price": 2443.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20266",
+    "name": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 50A MPPT - 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.662,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20266.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "---",
+    "pricing": {
+      "price": 2662.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20267",
+    "name": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 50A MPPT - 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.610,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20267.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Nova série de inversores Epever HI com tripla função (Inversor + Controlador de Carga + Carregador CA)",
+    "pricing": {
+      "price": 2610.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20268",
+    "name": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 80A MPPT - 48/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 2.822,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20268.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Nova série de inversores Epever HI com tripla função (Inversor + Controlador de Carga + Carregador CA)",
+    "pricing": {
+      "price": 2822.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20269",
+    "name": "Inversor-Carregador Off Grid (Híbrido) Epever UPower-Hi UP5000 - 80A MPPT - 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 3.152,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20269.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Nova série de inversores Epever HI com tripla função (Inversor + Controlador de Carga + Carregador CA)",
+    "pricing": {
+      "price": 3152.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20525",
+    "name": "Inversor Senoidal Epever IPower Plus IP1000-21 (T) - 1000W 24/110V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20525.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 24Vcc para 110Vca com potência contínua de 1000W e formato de onda do tipo senoidal pura. Compatível com baterias de lítio com proteção Via BMS"
+  },
+  {
+    "id": "neosolar_inverters_20666",
+    "name": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-12 (T-BR) - 3000W 12/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 1.427,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20666.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 12Vcc para 220Vca com potência contínua de 3000W e formato de onda do tipo senoidal pura. Indicado para uso com baterias de chumbo-ácido em geral (incompatível com baterias de lítio com proteção Via BMS). Simples e fácil de instalar",
+    "pricing": {
+      "price": 1427.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20287",
+    "name": "Microinversor Deye SUN2000G3 Monofásico 2000W - 220V - MLPE e Wi-Fi Integrado",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20287.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Microinversor Deye Sun2000G3 – Wi-Fi Integrado – Potência Contínua: 2000 W – Tensão: 220 V – Garantia: de 12 anos (já incluídos os 90 dias da garantia legal)."
+  },
+  {
+    "id": "neosolar_inverters_21442",
+    "name": "Inversor Senoidal Epever IPower Plus IP1500-41 (T) - 1500W 48/127V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21442.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Epever Ipower Plus de 48Vcc (43"
+  },
+  {
+    "id": "neosolar_inverters_21642",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT1000-21 - 1000W - 24/127V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 961,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21642.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Inversor Off Grid ZTROON ZT1000-21 – Senoidal Pura – Potência Contínua: 1000 W – Tensão: 24/127 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 961.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21824",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21824.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "---"
+  },
+  {
+    "id": "neosolar_inverters_22021",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT1000-22 - 1000W - 24/220V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 796,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22021.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Inversor Off Grid ZTROON ZT1000-22 – Senoidal Pura – Potência Contínua: 1000 W – Tensão: 24/220 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 796.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22099",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) SG01 - 5000W - 48/220V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 8.689,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22099.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 5000W para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 8689.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22025",
+    "name": "Inversor Off Grid Senoidal  ZTROON ZT2000-22 - 2000W - 24/220V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 1.232,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22025.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Inversor Off Grid ZTROON ZT2000-22– Senoidal Pura – Potência Contínua: 2000 W – Tensão: 24/220 Vca – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 1232.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22144",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 7.555,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22144.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 3600W (EU) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 7555.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_22159",
+    "name": "Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V",
+    "manufacturer": "DEYE",
+    "category": "inverters",
+    "price": "R$ 11.037,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_22159.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "\"Inversor Solar On Grid Híbrido Deye de 5000W (US) para sistemas conectados à rede e entrada para bateria 48Vcc. Possui função 2 em 1 (Inversor + carregador de bateria)",
+    "pricing": {
+      "price": 11037.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_21306",
+    "name": "Inversor Carregador Epever HP5542 - 5500W - MPPT 100A - 48/220V",
+    "manufacturer": "EPEVER",
+    "category": "inverters",
+    "price": "R$ 4.513,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_21306.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "P. Surto: 8.500W | Faixa MPPT: 85 ~ 400V | Paralelismo: Máx. 16 un | Compatível c/ Lítio",
+    "pricing": {
+      "price": 4513.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_24872",
+    "name": "Inversor On Grid Livoltek 10kW 220V Monofásico - GT1-10KT2",
+    "manufacturer": "NEOSOLAR",
+    "category": "inverters",
+    "price": "R$ 3.555,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_24872.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "3 MPPTS (16A + 16A + 16A) | PVmax: 15kW | Tensão Máxima: 600V | Com AFCI | Garantia: 10 anos",
+    "pricing": {
+      "price": 3555.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "neosolar_inverters_20564",
+    "name": "Inversor Off Grid Senoidal ZTROON ZT600-12 - 600W - 12/ 220V",
+    "manufacturer": "ZTROON",
+    "category": "inverters",
+    "price": "R$ 550,00",
+    "image": "/catalog/images/NEOSOLAR-INVERTERS/neosolar_inverters_20564.jpg",
+    "source": "portalb2b.neosolar.com.br",
+    "availability": "Indisponível",
+    "description": "Inversor Off Grid ZTROON ZT600-12 – Senoidal Pura – Potência Contínua: 600 W – Tensão: 12/220 V – Garantia de 18 meses (já incluídos os 90 dias da garantia legal).",
+    "pricing": {
+      "price": 550.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+    "name": "Painel Solar Odex 585W",
+    "manufacturer": "Odex",
+    "model": "Odex",
+    "category": "inverters",
+    "price": "R$ 490,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-585W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Odex 585W",
+    "pricing": {
+      "price": 490.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+    "name": "Painel Solar Odex 600W",
+    "manufacturer": "Odex",
+    "model": "Odex",
+    "category": "inverters",
+    "price": "R$ 499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-600W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Odex 600W",
+    "pricing": {
+      "price": 499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+    "name": "Painel Solar Odex 610W",
+    "manufacturer": "Odex",
+    "model": "Odex",
+    "category": "inverters",
+    "price": "R$ 505,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-610W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Odex 610W",
+    "pricing": {
+      "price": 505.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+    "name": "Painel Solar Odex 660W",
+    "manufacturer": "Odex",
+    "model": "Odex",
+    "category": "inverters",
+    "price": "R$ 515,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-660W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Odex 660W",
+    "pricing": {
+      "price": 515.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+    "name": "Painel Solar Odex 700W",
+    "manufacturer": "Odex",
+    "model": "Odex",
+    "category": "inverters",
+    "price": "R$ 519,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ODEX-700W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Odex 700W",
+    "pricing": {
+      "price": 519.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+    "name": "Painel Solar Astronergy 600W",
+    "manufacturer": "Astronergy",
+    "model": "Astronergy",
+    "category": "inverters",
+    "price": "R$ 512,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Astronergy 600W",
+    "pricing": {
+      "price": 512.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+    "name": "Painel Solar Tsun 560W",
+    "manufacturer": "Tsun",
+    "model": "Tsun",
+    "category": "inverters",
+    "price": "R$ 485,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Tsun 560W",
+    "pricing": {
+      "price": 485.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+    "name": "Painel Solar Jinko 610W",
+    "manufacturer": "Jinko",
+    "model": "Jinko",
+    "category": "inverters",
+    "price": "R$ 508,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Jinko 610W",
+    "pricing": {
+      "price": 508.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+    "name": "Painel Solar Jinko 615W",
+    "manufacturer": "Jinko",
+    "model": "Jinko",
+    "category": "inverters",
+    "price": "R$ 510,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-615W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Painel Solar Jinko 615W",
+    "pricing": {
+      "price": 510.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-3000W",
+    "name": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.599,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-3000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1599.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-4200W",
+    "name": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-4200W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-5000W",
+    "name": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-6000W",
+    "name": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-6000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-8000W",
+    "name": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
+    "pricing": {
+      "price": 3499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-10000W",
+    "name": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-12000W",
+    "name": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 4899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-15000W",
+    "name": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-15000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 5499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-17000W",
+    "name": "Inversor Grid-Tie SAJ R5-17K-T2 BRL 17kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-17000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-17K-T2 BRL 17kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-20000W",
+    "name": "Inversor Grid-Tie SAJ R5-20K-T2 BRL 20kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 6.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-20000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-20K-T2 BRL 20kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 6899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-25000W",
+    "name": "Inversor Grid-Tie SAJ R5-25K-T2 BRL 25kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 8.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-25000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-25K-T2 BRL 25kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 8499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3000W",
+    "name": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3300W",
+    "name": "Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.699,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3300W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1699.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-6000W",
+    "name": "Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.799,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-6000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-8000W",
+    "name": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 3899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-10000W",
+    "name": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 4499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-15000W",
+    "name": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-15000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-20000W",
+    "name": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-20000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 7299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-25000W",
+    "name": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 8.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-25000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 8899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-50000W",
+    "name": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 16.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-50000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT",
+    "pricing": {
+      "price": 16999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-75000W",
+    "name": "Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 24.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-75000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT",
+    "pricing": {
+      "price": 24999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-100000W",
+    "name": "Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 32.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-100000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT",
+    "pricing": {
+      "price": 32999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-125000W",
+    "name": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 36.667,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-125000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT",
+    "pricing": {
+      "price": 36667.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-3000W",
+    "name": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.449,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1449.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-5000W",
+    "name": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-8000W",
+    "name": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.699,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 3699.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-10000W",
+    "name": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-3300W",
+    "name": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.649,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 1649.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-5000W",
+    "name": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.449,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2449.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-6000W",
+    "name": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.799,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-6000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
+    "pricing": {
+      "price": 2799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-800W",
+    "name": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 986,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-800W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
+    "pricing": {
+      "price": 986.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-1200W",
+    "name": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.399,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-1200W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
+    "pricing": {
+      "price": 1399.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-2400W",
+    "name": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-2400W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
+    "pricing": {
+      "price": 2499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3000W-1",
+    "name": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3000W-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 3299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-4000W",
+    "name": "Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-4000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 3899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-5000W",
+    "name": "Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-6000W-1",
+    "name": "Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-6000W-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-8000W-1",
+    "name": "Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-8000W-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-10000W-1",
+    "name": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-10000W-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT",
+    "pricing": {
+      "price": 7499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-5000W",
+    "name": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-6000W",
+    "name": "Inversor Híbrido Deye SUN-6K-SG05LP1-EU 6kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.799,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-6000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-6K-SG05LP1-EU 6kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-8000W",
+    "name": "Inversor Híbrido Deye SUN-8K-SG05LP1-EU 8kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.799,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-8K-SG05LP1-EU 8kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 5799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-5000W",
+    "name": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.399,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4399.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-8000W",
+    "name": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96V 2 MPPT",
+    "pricing": {
+      "price": 7999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-10000W",
+    "name": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V 96V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 9.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V 96V 2 MPPT",
+    "pricing": {
+      "price": 9499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+    "name": "Estrutura Solar Group Fibrocimento Grande",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 103,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Fibrocimento Grande",
+    "pricing": {
+      "price": 103.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+    "name": "Estrutura Solar Group Fibrocimento Pequeno",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 98,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Fibrocimento Pequeno",
+    "pricing": {
+      "price": 98.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+    "name": "Estrutura Solar Group Colonial Cerâmico",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 145,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Colonial Cerâmico",
+    "pricing": {
+      "price": 145.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
+    "name": "Estrutura Solar Group Metálico Trapezoidal",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 112,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Metálico Trapezoidal",
+    "pricing": {
+      "price": 112.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
+    "name": "Estrutura Solar Group Solo Fixo",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.250,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Solo Fixo",
+    "pricing": {
+      "price": 1250.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+    "name": "Estrutura Solar Group Solo Rastreador 1 Eixo",
+    "manufacturer": "Solar Group",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.890,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Solar Group Solo Rastreador 1 Eixo",
+    "pricing": {
+      "price": 3890.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+    "name": "Estrutura Romagnole Fibrocimento RF-55",
+    "manufacturer": "Romagnole",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 109,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Romagnole Fibrocimento RF-55",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 109.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+    "name": "Estrutura Romagnole Colonial Cerâmico RC-66",
+    "manufacturer": "Romagnole",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 152,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Romagnole Colonial Cerâmico RC-66",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 152.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+    "name": "Estrutura Romagnole Metálico Trapezoidal RM-40",
+    "manufacturer": "Romagnole",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 118,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Romagnole Metálico Trapezoidal RM-40",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 118.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+    "name": "Estrutura Romagnole Laje Inclinada RL-30",
+    "manufacturer": "Romagnole",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 165,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Romagnole Laje Inclinada RL-30",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 165.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
+    "name": "Estrutura Romagnole Solo Fixo RS-1500",
+    "manufacturer": "Romagnole",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.345,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Romagnole Solo Fixo RS-1500",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1345.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
+    "name": "Estrutura Pratyc Fibrocimento Grande PRF-60",
+    "manufacturer": "Pratyc",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 107,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Pratyc Fibrocimento Grande PRF-60",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 107.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
+    "name": "Estrutura Pratyc Colonial Cerâmico PRC-70",
+    "manufacturer": "Pratyc",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 149,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Pratyc Colonial Cerâmico PRC-70",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 149.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
+    "name": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
+    "manufacturer": "Pratyc",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 115,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 115.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
+    "name": "Estrutura Pratyc Laje Plana PRL-25",
+    "manufacturer": "Pratyc",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 158,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Pratyc Laje Plana PRL-25",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 158.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
+    "name": "Estrutura Pratyc Solo Fixo PRS-1600",
+    "manufacturer": "Pratyc",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.399,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura Pratyc Solo Fixo PRS-1600",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1399.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
+    "name": "Estrutura K2 Systems SingleRail Fibrocimento",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 185,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems SingleRail Fibrocimento",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 185.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
+    "name": "Estrutura K2 Systems SingleRail Colonial",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 198,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems SingleRail Colonial",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 198.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
+    "name": "Estrutura K2 Systems SingleRail Metálico",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 175,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems SingleRail Metálico",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 175.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
+    "name": "Estrutura K2 Systems CrossRail Solo Fixo",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.250,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems CrossRail Solo Fixo",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2250.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
+    "name": "Estrutura K2 Systems MiniRail Laje",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 189,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems MiniRail Laje",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 189.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+    "name": "Estrutura K2 Systems BaseRail Plus Universal",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 203,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems BaseRail Plus Universal",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 203.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+    "name": "Estrutura K2 Systems Dome 6° Solo",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.890,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems Dome 6° Solo",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1890.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+    "name": "Estrutura K2 Systems Dome 10° Solo",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.150,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems Dome 10° Solo",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2150.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+    "name": "Estrutura K2 Systems D-Dome 6° Solo",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.450,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems D-Dome 6° Solo",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2450.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+    "name": "Estrutura K2 Systems Solo Rastreador XL",
+    "manufacturer": "K2 Systems",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.250,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Estrutura K2 Systems Solo Rastreador XL",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 4250.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+    "name": "String Box Clamper 2 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 362,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 2 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 362.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+    "name": "String Box Clamper 4 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 489,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 4 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 489.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+    "name": "String Box Clamper 6 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 612,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 6 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 612.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+    "name": "String Box Clamper 8 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 798,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 8 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 798.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+    "name": "String Box Clamper 10 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 943,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 10 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 943.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
+    "name": "String Box Clamper 12 Entradas",
+    "manufacturer": "Clamper",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.089,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Clamper 12 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1089.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+    "name": "String Box Tecbox 4 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 499,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 4 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+    "name": "String Box Tecbox 6 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 625,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 6 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 625.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+    "name": "String Box Tecbox 8 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 812,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 8 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 812.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+    "name": "String Box Tecbox 10 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 956,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 10 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 956.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
+    "name": "String Box Tecbox 12 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.112,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 12 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1112.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
+    "name": "String Box Tecbox 16 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.398,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 16 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1398.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
+    "name": "String Box Tecbox 20 Entradas",
+    "manufacturer": "Tecbox",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.681,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "String Box Tecbox 20 Entradas",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1681.0,
+      "currency": "BRL"
+    }
+  }
+]

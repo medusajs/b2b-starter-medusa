@@ -1,0 +1,109 @@
+{
+  "original_path": "catalog\\images\\SOLFACIL-INVERTERS\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.png",
+  "category": "inverters",
+  "processing": {
+    "date": "2025-10-07T02:52:30.214808",
+    "operations": [
+      {
+        "type": "upscale",
+        "factor": 2,
+        "input_size": "183x167",
+        "output_size": "366x334"
+      },
+      {
+        "type": "remove_background",
+        "model": "u2net"
+      },
+      {
+        "type": "normalize_colors",
+        "auto_contrast": true,
+        "white_balance": true
+      }
+    ],
+    "config": {
+      "upscale_factor": 2,
+      "upscale_model": "RealESRGAN_x4plus",
+      "remove_background": true,
+      "bg_model": "u2net",
+      "normalize_colors": true,
+      "auto_contrast": true,
+      "white_balance": true,
+      "detect_watermarks": false,
+      "remove_watermarks": false,
+      "generate_sizes": true,
+      "sizes": {
+        "thumb": [
+          300,
+          300
+        ],
+        "medium": [
+          600,
+          600
+        ],
+        "large": [
+          1200,
+          1200
+        ]
+      },
+      "output_format": "webp",
+      "quality": {
+        "thumb": 80,
+        "medium": 85,
+        "large": 90
+      },
+      "save_metadata": true
+    }
+  },
+  "quality": {
+    "before": 33.0,
+    "after": 62.7,
+    "improvement": 29.700000000000003
+  },
+  "stats": {
+    "before": {
+      "width": 183,
+      "height": 167,
+      "mode": "RGB",
+      "megapixels": 0.03,
+      "aspect_ratio": 1.1,
+      "quality_score": 33.0,
+      "mean_rgb": [
+        168.56941853996923,
+        168.70537613297995,
+        168.18445077058996
+      ],
+      "std_rgb": [
+        93.34636870034896,
+        93.45214322188264,
+        93.19119333990824
+      ],
+      "brightness": 168.48641514784637,
+      "contrast": 93.32990175404662
+    },
+    "after": {
+      "width": 366,
+      "height": 334,
+      "mode": "RGB",
+      "megapixels": 0.12,
+      "aspect_ratio": 1.1,
+      "quality_score": 62.7,
+      "mean_rgb": [
+        170.08173816301823,
+        170.56453486469684,
+        169.7387029220248
+      ],
+      "std_rgb": [
+        93.93611453196547,
+        94.0083415910687,
+        93.65426757717101
+      ],
+      "brightness": 170.12832531657997,
+      "contrast": 93.86624123340174
+    }
+  },
+  "outputs": {
+    "thumb": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\thumb\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.webp",
+    "medium": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\medium\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.webp",
+    "large": "catalog\\images_processed\\SOLFACIL\\INVERTERS\\large\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.webp"
+  }
+}
