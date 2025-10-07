@@ -1,6 +1,7 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
+import OnboardingCTA from "@/modules/home/components/onboarding-cta"
 import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
 import VideosStrip from "@/modules/home/components/videos-strip"
@@ -48,6 +49,7 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col">
       <Hero />
+      <OnboardingCTA />
       <SolutionsByClass />
       <VideosByClass />
       <ModalidadesGrid />
