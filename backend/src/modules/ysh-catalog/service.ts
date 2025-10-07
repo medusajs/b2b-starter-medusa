@@ -60,8 +60,8 @@ class YshCatalogModuleService extends MedusaService({
 
     constructor() {
         super();
-        // Caminho para os dados do catálogo
-        this.catalogPath = path.join(process.cwd(), "../../../data/catalog");
+        // Caminho para os dados do catálogo - caminho absoluto
+        this.catalogPath = 'c:\\Users\\fjuni\\ysh_medusa\\data\\catalog';
     }
 
     /**

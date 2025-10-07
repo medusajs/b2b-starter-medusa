@@ -29,6 +29,7 @@ async function listCatalog(category: string, searchParams?: { [k: string]: strin
   if (searchParams?.minPrice) qs.set("minPrice", searchParams.minPrice)
   if (searchParams?.maxPrice) qs.set("maxPrice", searchParams.maxPrice)
   if (searchParams?.availability) qs.set("availability", searchParams.availability)
+  if (searchParams?.sort) qs.set("sort", searchParams.sort)
   const res = await fetch(`${backend}/store/catalog/${category}?${qs.toString()}`, { next: { revalidate: 600 } })
   if (!res.ok) return { products: [], total: 0, page: 1, limit: Number(qs.get("limit")) || 24 }
   return res.json()
@@ -50,7 +51,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   const total = data.total
   const currentPage = Number(searchParams?.page || data.page || 1)
   const pageSize = Number(searchParams?.limit || data.limit || 24)
-  const manufacturers = await listManufacturers()
+  const manufacturers = (data.facets?.manufacturers as string[] | undefined) || (await listManufacturers())
 
   const isKits = category === "kits"
   const Title = () => (
@@ -66,7 +67,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
 
       {/* Filtros */}
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6 border">
-        <form className="grid grid-cols-1 md:grid-cols-5 gap-3" action="" method="get">
+        <form className="grid grid-cols-1 md:grid-cols-6 gap-3" action="" method="get">
           <div>
             <label className="block text-xs text-neutral-600 mb-1">Fabricante</label>
             <select name="manufacturer" defaultValue={searchParams?.manufacturer || ""} className="w-full border rounded-md h-9 px-2">
@@ -92,11 +93,20 @@ export default async function CategoryPage({ params, searchParams }: { params: P
               <option value="Indisponivel">Indisponível</option>
             </select>
           </div>
+          <div>
+            <label className="block text-xs text-neutral-600 mb-1">Ordenar por</label>
+            <select name="sort" defaultValue={searchParams?.sort || ""} className="w-full border rounded-md h-9 px-2">
+              <option value="">Padrão</option>
+              <option value="price_asc">Preço: menor → maior</option>
+              <option value="price_desc">Preço: maior → menor</option>
+            </select>
+          </div>
           <div className="flex items-end gap-2">
             <button type="submit" className="ysh-btn-primary h-9 px-4">Filtrar</button>
             <Link href={`/${p.countryCode}/produtos/${category}`} className="ysh-btn-outline h-9 px-4">Limpar</Link>
           </div>
           {searchParams?.limit && <input type="hidden" name="limit" value={searchParams.limit} />}
+          {searchParams?.page && <input type="hidden" name="page" value={searchParams.page} />}
         </form>
       </div>
 
@@ -122,6 +132,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
           if (searchParams?.minPrice) sp.set("minPrice", searchParams.minPrice)
           if (searchParams?.maxPrice) sp.set("maxPrice", searchParams.maxPrice)
           if (searchParams?.availability) sp.set("availability", searchParams.availability)
+          if (searchParams?.sort) sp.set("sort", searchParams.sort)
           sp.set("page", String(pg))
           sp.set("limit", String(pageSize))
           return `?${sp.toString()}`

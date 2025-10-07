@@ -58,8 +58,8 @@ function normalizeProduct(category: string, raw: any) {
 }
 
 export const GET = async (
-  req: MedusaRequest,
-  res: MedusaResponse
+    req: MedusaRequest,
+    res: MedusaResponse
 ) => {
   const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
   const { category } = req.params;
@@ -85,10 +85,27 @@ export const GET = async (
             sort: (sort as string) === 'price_asc' || (sort as string) === 'price_desc' ? (sort as any) : undefined,
         };
 
-    const result = await yshCatalogService.listProductsByCategory(category, options);
-    const normalized = result.products.map((p) => normalizeProduct(category, p))
+        // Compute facets for the category (manufacturers) using full filtered set
+        const facetResult = await yshCatalogService.listProductsByCategory(category, {
+            page: 1,
+            limit: 100000,
+            manufacturer: options.manufacturer,
+            minPrice: options.minPrice,
+            maxPrice: options.maxPrice,
+            availability: options.availability,
+            // sort does not affect facets
+        })
+        const manufacturersSet = new Set<string>()
+        facetResult.products.forEach((p) => {
+            if (p.manufacturer) manufacturersSet.add(p.manufacturer)
+        })
+        const manufacturersFacet = Array.from(manufacturersSet).sort((a, b) => a.localeCompare(b))
 
-    res.json({ ...result, products: normalized });
+        // Fetch paginated data for the response
+        const result = await yshCatalogService.listProductsByCategory(category, options);
+        const normalized = result.products.map((p) => normalizeProduct(category, p))
+
+        res.json({ ...result, products: normalized, facets: { manufacturers: manufacturersFacet } });
   } catch (error) {
     res.status(400).json({
       error: "Erro ao buscar produtos",
