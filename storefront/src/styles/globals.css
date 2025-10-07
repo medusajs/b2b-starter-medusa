@@ -2,6 +2,67 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Yello Solar Hub Design System - Medusa UI Integration */
+@import "./design-system.css";
+
+/* Yello Solar Hub Design System */
+:root {
+  /* Primary Colors - Solar Energy Theme */
+  --ysh-yellow: #FFD700;
+  --ysh-yellow-light: #FFF3CD;
+  --ysh-yellow-dark: #E6C200;
+
+  --ysh-blue: #0066CC;
+  --ysh-blue-light: #E6F3FF;
+  --ysh-blue-dark: #004C99;
+
+  --ysh-green: #00AA44;
+  --ysh-green-light: #E6F9EE;
+  --ysh-green-dark: #008833;
+
+  /* Neutral Colors */
+  --ysh-gray-50: #F8F9FA;
+  --ysh-gray-100: #E9ECEF;
+  --ysh-gray-200: #DEE2E6;
+  --ysh-gray-300: #CED4DA;
+  --ysh-gray-400: #ADB5BD;
+  --ysh-gray-500: #6C757D;
+  --ysh-gray-600: #495057;
+  --ysh-gray-700: #343A40;
+  --ysh-gray-800: #212529;
+  --ysh-gray-900: #000000;
+
+  /* Semantic Colors */
+  --ysh-success: var(--ysh-green);
+  --ysh-warning: var(--ysh-yellow);
+  --ysh-error: #DC3545;
+  --ysh-info: var(--ysh-blue);
+
+  /* Typography */
+  --ysh-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ysh-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --ysh-space-xs: 0.25rem;
+  --ysh-space-sm: 0.5rem;
+  --ysh-space-md: 1rem;
+  --ysh-space-lg: 1.5rem;
+  --ysh-space-xl: 2rem;
+  --ysh-space-2xl: 3rem;
+
+  /* Border Radius */
+  --ysh-radius-sm: 0.25rem;
+  --ysh-radius-md: 0.5rem;
+  --ysh-radius-lg: 0.75rem;
+  --ysh-radius-xl: 1rem;
+
+  /* Shadows */
+  --ysh-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ysh-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ysh-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ysh-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -58,6 +119,68 @@
     @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
   }
 
+  /* YSH Button Variants */
+  .ysh-btn-primary {
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .ysh-btn-secondary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .ysh-btn-outline {
+    @apply border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-400 hover:text-gray-900 font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  /* YSH Card Styles */
+  .ysh-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 border border-gray-100;
+  }
+
+  .ysh-card-solar {
+    @apply bg-gradient-to-br from-yellow-50 to-blue-50 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 border border-yellow-200;
+  }
+
+  /* YSH Product Cards */
+  .ysh-product-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 overflow-hidden;
+  }
+
+  .ysh-product-card:hover {
+    @apply transform scale-[1.02];
+  }
+
+  /* YSH Badge Styles */
+  .ysh-badge-tier-xpp {
+    @apply bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  .ysh-badge-tier-pp {
+    @apply bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  .ysh-badge-tier-p {
+    @apply bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  .ysh-badge-tier-m {
+    @apply bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  .ysh-badge-tier-g {
+    @apply bg-gray-600 text-white px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  /* YSH Price Display */
+  .ysh-price {
+    @apply text-2xl font-bold text-gray-900;
+  }
+
+  .ysh-price-currency {
+    @apply text-sm font-normal text-gray-600;
+  }
+
+  /* YSH Typography */
   .text-xsmall-regular {
     @apply text-[10px] leading-4 font-normal;
   }
@@ -108,5 +231,22 @@
 
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
+  }
+
+  /* YSH Solar Icons */
+  .ysh-icon-solar {
+    @apply text-yellow-500;
+  }
+
+  .ysh-icon-inverter {
+    @apply text-blue-500;
+  }
+
+  .ysh-icon-battery {
+    @apply text-green-500;
+  }
+
+  .ysh-icon-kit {
+    @apply text-purple-500;
   }
 }

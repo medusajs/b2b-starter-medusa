@@ -14,9 +14,9 @@
   ],
   "scripts": {
     "build": "medusa build",
-    "migrate": "medusa migrations run",
+    "migrate": "medusa db:migrate",
     "migrate:create": "medusa migrations create",
-    "db:setup": "medusa db:create && medusa migrations run",
+    "db:setup": "medusa db:create && medusa db:migrate",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
@@ -33,6 +33,7 @@
     "@medusajs/js-sdk": "2.8.4",
     "@medusajs/medusa": "2.8.4",
     "@medusajs/ui": "4.0.14",
+    "@medusajs/workflows-sdk": "^2.10.3",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
     "@mikro-orm/migrations": "6.4.3",
@@ -40,7 +41,7 @@
     "awilix": "^8.0.1",
     "pg": "^8.13.0",
     "posthog-node": "^4.17.1",
-    "zod": "3.22.4"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.8.4",
@@ -63,6 +64,5 @@
   },
   "engines": {
     "node": ">=20"
-  },
-  "packageManager": "yarn@4.4.0"
+  }
 }

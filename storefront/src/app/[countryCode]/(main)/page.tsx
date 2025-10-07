@@ -1,16 +1,24 @@
 import { listRegions } from "@/lib/data/regions"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
-import SkeletonFeaturedProducts from "@/modules/skeletons/templates/skeleton-featured-products"
+// import SolarStats from "@/modules/home/components/solar-stats"
+import Testimonials from "@/modules/home/components/testimonials"
+import DesignSystemTest from "@/components/DesignSystemTest"
 import { Metadata } from "next"
 import { Suspense } from "react"
 
 export const dynamicParams = true
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Yello Solar Hub - Energia Solar sob Medida | Kits Solares Completos",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Transforme sua conta de luz com soluções solares completas. Kits prontos, painéis de alta eficiência, inversores premium e dimensionamento personalizado. 713 produtos de 5 distribuidores certificados.",
+  keywords: "energia solar, kits solares, painéis solares, inversores, dimensionamento solar, Yello Solar Hub, economia energia",
+  openGraph: {
+    title: "Yello Solar Hub - Energia Solar sob Medida",
+    description: "Kits solares completos para máxima economia na sua conta de energia. Dimensionamento personalizado e instalação profissional.",
+    type: "website",
+  },
 }
 
 export async function generateStaticParams() {
@@ -32,11 +40,14 @@ export default async function Home(props: {
   const { countryCode } = params
 
   return (
-    <div className="flex flex-col gap-y-2 m-2">
+    <div className="flex flex-col">
       <Hero />
-      <Suspense fallback={<SkeletonFeaturedProducts />}>
+      {/* <SolarStats /> */}
+      <DesignSystemTest />
+      <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg m-4"></div>}>
         <FeaturedProducts countryCode={countryCode} />
       </Suspense>
+      <Testimonials />
     </div>
   )
 }

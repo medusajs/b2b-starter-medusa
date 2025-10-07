@@ -1,3 +1,5 @@
+const { tailwindYelloColors } = require("./src/lib/design-system/colors");
+
 module.exports = {
   darkMode: "class",
   presets: [require("@medusajs/ui-preset")],
@@ -24,8 +26,10 @@ module.exports = {
         "2xlarge": "1920px",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
+        sans: ["Geist Sans", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        mono: ["Geist Mono", "JetBrains Mono", "Fira Code", "monospace"],
       },
+      colors: tailwindYelloColors,
       keyframes: {
         "accordion-open": {
           from: { height: 0 },

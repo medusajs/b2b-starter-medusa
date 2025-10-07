@@ -1,0 +1,41 @@
+# ==========================================
+# Dockerfile de Desenvolvimento para Backend Medusa
+# Configuração simples para desenvolvimento local
+# ==========================================
+
+FROM node:20-alpine
+
+# Instalar dependências do sistema
+RUN apk add --no-cache libc6-compat dumb-init curl
+
+# Configurar diretório de trabalho
+WORKDIR /app
+
+# Configurações de ambiente para desenvolvimento
+ENV NODE_ENV=development
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+ENV NPM_CONFIG_LOGLEVEL=warn
+
+# Copiar arquivos de dependências
+COPY package*.json ./
+COPY .npmrc* ./
+
+# Instalar dependências
+RUN npm ci --no-audit --no-fund
+
+# Copiar código fonte
+COPY . .
+
+# Criar diretório de uploads
+RUN mkdir -p uploads
+
+# Expor portas (principal + admin + store)
+EXPOSE 9000 9001 9002
+
+# Health check simples
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:9000/health || exit 1
+
+# Comando para desenvolvimento
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["npm", "run", "dev"]
