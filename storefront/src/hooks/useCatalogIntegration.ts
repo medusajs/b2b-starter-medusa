@@ -13,7 +13,9 @@ import {
     viabilityToKitSearch,
     rankKitsByViability,
     kitToFinanceInput,
-} from '@/modules/viability/catalog-integration'export interface UseCatalogIntegrationOptions {
+} from '@/modules/viability/catalog-integration'
+
+export interface UseCatalogIntegrationOptions {
     viability?: ViabilityOutput | null
     oversizingScenario?: 114 | 130 | 145 | 160
     autoSearch?: boolean

@@ -1,5 +1,42 @@
 import '@testing-library/jest-dom'
 
+// Configuração específica para React 19
+import { configure } from '@testing-library/react'
+
+// Configurar React Testing Library para React 19
+configure({
+    reactStrictMode: true,
+})
+
+// Importar TextEncoder/TextDecoder antes do JSDOM
+import { TextEncoder, TextDecoder } from 'util'
+global.TextEncoder = TextEncoder as any
+global.TextDecoder = TextDecoder as any
+
+// Configuração manual do jsdom para React 19
+import { JSDOM } from 'jsdom'
+
+const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>', {
+    url: 'http://localhost',
+    pretendToBeVisual: true,
+    resources: 'usable',
+})
+
+global.window = dom.window as any
+global.document = dom.window.document
+global.navigator = dom.window.navigator
+global.HTMLElement = dom.window.HTMLElement
+global.HTMLInputElement = dom.window.HTMLInputElement
+global.HTMLButtonElement = dom.window.HTMLButtonElement
+global.HTMLDivElement = dom.window.HTMLDivElement
+
+// Copiar propriedades do window para global
+Object.keys(dom.window).forEach(key => {
+    if (!(key in global)) {
+        (global as any)[key] = (dom.window as any)[key]
+    }
+})
+
 // Mock do Next.js router
 jest.mock('next/navigation', () => ({
     useRouter() {
@@ -35,21 +72,4 @@ jest.mock('@medusajs/ui', () => ({
 // Configurações globais de teste
 beforeEach(() => {
     jest.clearAllMocks()
-})
-
-// Teste básico para verificar se o setup está funcionando
-describe('Test Setup', () => {
-    it('should have jest mocked functions available', () => {
-        expect(jest.fn()).toBeDefined()
-        expect(global.fetch).toBeDefined()
-    })
-
-    it('should clear mocks before each test', () => {
-        const mockFn = jest.fn()
-        mockFn()
-        expect(mockFn).toHaveBeenCalledTimes(1)
-
-        // O beforeEach deve limpar os mocks, mas isso é testado indiretamente
-        // pelos outros testes que usam mocks
-    })
 })
