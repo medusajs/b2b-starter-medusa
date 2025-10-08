@@ -88,6 +88,39 @@ export function FinanceProvider({
 
     const [currentCalculation, setCurrentCalculation] = useState<FinanceOutput | null>(null)
     const [savedCalculations, setSavedCalculations] = useState<FinanceOutput[]>(initialCalculations)
+    const [bacenRates, setBacenRates] = useState<InterestRateData | null>(null)
+
+    // ============================================================================
+    // Fetch BACEN rates on mount
+    // ============================================================================
+
+    useEffect(() => {
+        async function loadBACENRates() {
+            try {
+                const rates = await fetchBACENRates()
+                const solarRate = getRecommendedSolarRate(rates)
+
+                setBacenRates({
+                    annual_rate: solarRate.annual_rate,
+                    monthly_rate: solarRate.monthly_rate,
+                    source: 'BACEN_API',
+                    valid_until: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // 1 hour
+                })
+
+                console.log('BACEN rates loaded:', solarRate)
+            } catch (error) {
+                console.error('Error loading BACEN rates:', error)
+            }
+        }
+
+        loadBACENRates()
+
+        // Load saved calculations from storage
+        const stored = getAllCalculations()
+        if (stored.length > 0) {
+            setSavedCalculations(stored)
+        }
+    }, [])
 
     // ============================================================================
     // Main calculation function
@@ -103,8 +136,8 @@ export function FinanceProvider({
                 throw new Error(`Validation failed: ${validation.errors.map(e => e.message).join(', ')}`)
             }
 
-            // Get current interest rate (from BACEN or default)
-            const interestRate = defaultInterestRate || {
+            // Get current interest rate (BACEN, default, or prop)
+            const interestRate = bacenRates || defaultInterestRate || {
                 annual_rate: 0.175, // 17.5% default
                 monthly_rate: 0.0144, // ~1.44% monthly
                 source: 'Default',

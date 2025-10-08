@@ -48,7 +48,7 @@ const mockCreateElement = jest.spyOn(document, 'createElement').mockImplementati
     const element = {
         href: '',
         download: '',
-        click: jest.fn(),
+        click: mockClick,
         style: {},
     } as any
     return element
@@ -361,15 +361,16 @@ describe('SKUQRCodeButton', () => {
         expect(svg).toBeInTheDocument();
     });
 
-    it('opens full SKUQRCode modal when clicked', () => {
+    it('opens full SKUQRCode modal when clicked', async () => {
         render(<SKUQRCodeButton {...defaultProps} />);
 
         const button = screen.getByRole('button', { name: /gerar qr code/i });
         fireEvent.click(button);
 
-        // The SKUQRCodeButton should render a SKUQRCode component when clicked
-        // which should show the modal
-        expect(screen.getByText('QR Code do SKU')).toBeInTheDocument();
+        // Wait for the modal to appear
+        await waitFor(() => {
+            expect(screen.getByText('QR Code do SKU')).toBeInTheDocument();
+        });
         expect(screen.getByText('TEST-SKU-123')).toBeInTheDocument();
     });
 
