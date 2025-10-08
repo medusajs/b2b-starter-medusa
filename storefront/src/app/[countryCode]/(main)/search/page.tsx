@@ -153,7 +153,11 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
           <div className="flex items-center justify-center gap-2 mt-8">
             <Link className={`ysh-btn-outline px-3 py-1 ${current <= 1 ? 'pointer-events-none opacity-50' : ''}`} href={current > 1 ? makeHref(current - 1) : "#"}>Anterior</Link>
             {pages.map((pg) => (
-              <Link key={pg} className={`px-3 py-1 rounded-md border ${pg === current ? 'bg-neutral-900 text-white border-neutral-900' : 'border-neutral-300 hover:bg-neutral-100'}`} href={makeHref(pg)}>
+              <Link
+                key={pg}
+                className={`${pg === current ? 'ysh-btn-primary' : 'ysh-btn-outline'} px-3 py-1`}
+                href={makeHref(pg)}
+              >
                 {pg}
               </Link>
             ))}

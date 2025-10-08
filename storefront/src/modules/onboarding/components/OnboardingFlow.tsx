@@ -106,19 +106,24 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
     return (
         <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-white py-8 px-4">
             <div className="max-w-5xl mx-auto">
-                {/* Header com Logo e Progresso */}
+                {/* Header com Hélio em Destaque */}
                 <div className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">☀️</span>
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-4">
+                            {/* Hélio Video Badge - Sempre visível */}
+                            <div className="flex-shrink-0">
+                                <HelioVideo
+                                    variant={currentStepIndex === 0 ? 'welcome' : currentStepIndex === stepConfig.length - 1 ? 'celebration' : 'compact'}
+                                    autoPlay
+                                    loop
+                                />
                             </div>
                             <div>
                                 <h1 className="text-2xl font-bold text-gray-900">
                                     Dimensionamento Solar
                                 </h1>
                                 <p className="text-sm text-gray-600">
-                                    com Helio, seu assistente solar
+                                    com Hélio, seu assistente solar ☀️
                                 </p>
                             </div>
                         </div>
@@ -129,61 +134,12 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
                         )}
                     </div>
 
-                    {/* Progress Bar */}
-                    <div className="space-y-2">
-                        <div className="flex justify-between text-sm text-gray-600">
-                            <span>Passo {currentStep + 1} de {steps.length}</span>
-                            <span>{Math.round(progress)}% completo</span>
-                        </div>
-                        <Progress value={progress} className="h-2" />
-                    </div>
-                </div>
-
-                {/* Steps Navigation */}
-                <div className="mb-6 hidden md:flex items-center justify-between">
-                    {steps.map((step, index) => (
-                        <React.Fragment key={step.id}>
-                            <button
-                                onClick={() => goToStep(index)}
-                                disabled={index > currentStep && !completedSteps.has(index - 1)}
-                                className={`flex flex-col items-center gap-2 transition-opacity ${index > currentStep && !completedSteps.has(index - 1)
-                                        ? 'opacity-40 cursor-not-allowed'
-                                        : 'cursor-pointer hover:opacity-80'
-                                    }`}
-                            >
-                                <div
-                                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${index === currentStep
-                                            ? 'bg-gradient-to-br from-yellow-400 to-orange-500 text-white scale-110 shadow-lg'
-                                            : completedSteps.has(index)
-                                                ? 'bg-green-500 text-white'
-                                                : 'bg-gray-200 text-gray-500'
-                                        }`}
-                                >
-                                    {completedSteps.has(index) ? (
-                                        <CheckCircle className="w-5 h-5" />
-                                    ) : (
-                                        index + 1
-                                    )}
-                                </div>
-                                <span
-                                    className={`text-xs font-medium ${index === currentStep ? 'text-orange-500' : 'text-gray-600'
-                                        }`}
-                                >
-                                    {step.title}
-                                </span>
-                            </button>
-                            {index < steps.length - 1 && (
-                                <div className="flex-1 h-0.5 bg-gray-200 mx-2">
-                                    <div
-                                        className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-500"
-                                        style={{
-                                            width: completedSteps.has(index) ? '100%' : '0%'
-                                        }}
-                                    />
-                                </div>
-                            )}
-                        </React.Fragment>
-                    ))}
+                    {/* Progress Indicator Component */}
+                    <ProgressIndicator
+                        currentStep={currentStepIndex}
+                        totalSteps={stepConfig.length}
+                        steps={stepConfig.map(s => s.title)}
+                    />
                 </div>
 
                 {/* Step Content */}
@@ -191,10 +147,10 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
                     <CardContent className="p-8">
                         <div className="mb-6">
                             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                                {steps[currentStep].title}
+                                {currentConfig.title}
                             </h2>
                             <p className="text-gray-600">
-                                {steps[currentStep].description}
+                                {currentConfig.description}
                             </p>
                         </div>
 
