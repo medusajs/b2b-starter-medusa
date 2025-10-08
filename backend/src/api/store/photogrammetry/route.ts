@@ -16,6 +16,7 @@ import {
     ErrorHandler,
     RequestValidator
 } from "../../../utils/solar-cv-middleware";
+import { CacheManager } from "../../../utils/cache-manager";
 
 // ============================================================================
 // Local Types

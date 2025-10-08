@@ -14,6 +14,34 @@ import { cache } from 'react'
 import fs from 'fs'
 import path from 'path'
 
+// ==========================================
+// Retry Utility for File Operations
+// ==========================================
+
+const MAX_FILE_RETRIES = 3
+const FILE_RETRY_DELAY_MS = 500
+
+async function sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function retryFileOperation<T>(
+    fn: () => Promise<T>,
+    retries: number = MAX_FILE_RETRIES,
+    delay: number = FILE_RETRY_DELAY_MS
+): Promise<T> {
+    try {
+        return await fn()
+    } catch (error) {
+        if (retries === 0) throw error
+
+        console.warn(`[Catalog] Retrying file operation after ${delay}ms... (${retries} retries left)`)
+        await sleep(delay)
+
+        return retryFileOperation(fn, retries - 1, delay * 2)
+    }
+}
+
 // Tipos
 export interface EnrichedProduct {
     id: string
@@ -85,12 +113,19 @@ export const getUIKit = cache(async (): Promise<UIKit | null> => {
     try {
         const uiKitPath = path.join(UI_ENRICHED_DIR, 'ui_kit_complete.json')
 
-        if (!fs.existsSync(uiKitPath)) {
+        const exists = await retryFileOperation(async () => {
+            return fs.existsSync(uiKitPath)
+        })
+
+        if (!exists) {
             console.warn('UI Kit não encontrado. Execute enrich_ui_components.py')
             return null
         }
 
-        const data = await fs.promises.readFile(uiKitPath, 'utf-8')
+        const data = await retryFileOperation(async () => {
+            return fs.promises.readFile(uiKitPath, 'utf-8')
+        })
+
         return JSON.parse(data)
     } catch (error) {
         console.error('Erro ao carregar UI Kit:', error)
@@ -109,12 +144,16 @@ export const getEnrichedCategory = cache(
                 `${category}_enriched_ui.json`
             )
 
-            if (!fs.existsSync(categoryPath)) {
+            const exists = await retryFileOperation(async () => {
+                return fs.existsSync(categoryPath)
+            })
+
+            if (!exists) {
                 console.warn(`Categoria ${category} não enriquecida ainda`)
                 return null
             }
 
-            const data = await fs.promises.readFile(categoryPath, 'utf-8')
+            const data = await retryFileOperation(() => fs.promises.readFile(categoryPath, 'utf-8'))
             return JSON.parse(data)
         } catch (error) {
             console.error(`Erro ao carregar categoria ${category}:`, error)
@@ -128,11 +167,18 @@ export const getEnrichedCategory = cache(
  */
 export const getManufacturersIndex = cache(async () => {
     try {
-        if (!fs.existsSync(MANUFACTURERS_INDEX_PATH)) {
+        const exists = await retryFileOperation(async () => {
+            return fs.existsSync(MANUFACTURERS_INDEX_PATH)
+        })
+
+        if (!exists) {
             return null
         }
 
-        const data = await fs.promises.readFile(MANUFACTURERS_INDEX_PATH, 'utf-8')
+        const data = await retryFileOperation(async () => {
+            return fs.promises.readFile(MANUFACTURERS_INDEX_PATH, 'utf-8')
+        })
+
         return JSON.parse(data)
     } catch (error) {
         console.error('Erro ao carregar índice de fabricantes:', error)
@@ -209,7 +255,9 @@ export const getManufacturerData = cache(
 export const hasEnrichedData = cache(async (): Promise<boolean> => {
     try {
         const uiKitPath = path.join(UI_ENRICHED_DIR, 'ui_kit_complete.json')
-        return fs.existsSync(uiKitPath)
+        return await retryFileOperation(async () => {
+            return fs.existsSync(uiKitPath)
+        })
     } catch {
         return false
     }

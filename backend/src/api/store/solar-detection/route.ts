@@ -84,7 +84,7 @@ class PanelSegmentationService extends BaseSolarCVService {
 
     constructor() {
         super("panel-segmentation");
-        this.cacheManager = new CacheManager();
+        this.cacheManager = CacheManager.getInstance();
     }
 
     async detectPanelsFromImage(file: FileUpload): Promise<SolarDetectionResponse> {

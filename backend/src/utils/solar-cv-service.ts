@@ -323,20 +323,20 @@ export class FileUtils {
         return formData;
     }
 
-    static createFormDataFromFiles(files: FileUpload[], fieldName: string = 'images'): FormData {
-        const formData = new FormData();
+    static async getFileHash(filePath: string): Promise<string> {
+        const crypto = require('crypto');
+        const fs = require('fs');
 
-        files.forEach((file, index) => {
-            try {
-                const fileBuffer = require('fs').readFileSync(file.path);
-                const blob = new Blob([fileBuffer], { type: file.mimetype });
-                formData.append(fieldName, blob, file.originalname);
-            } catch (error) {
-                throw new Error(`Failed to read file ${file.path}: ${error.message}`);
-            }
-        });
-
-        return formData;
+        try {
+            const fileBuffer = fs.readFileSync(filePath);
+            const hashSum = crypto.createHash('sha256');
+            hashSum.update(fileBuffer);
+            return hashSum.digest('hex');
+        } catch (error) {
+            console.warn(`Failed to hash file ${filePath}:`, error);
+            // Fallback to file path hash
+            return crypto.createHash('md5').update(filePath).digest('hex');
+        }
     }
 }
 
@@ -378,11 +378,11 @@ export class ServiceUnavailableError extends SolarCVError {
 // ============================================================================
 
 export class SolarCVMetrics {
-    private static metrics: Map<string, { count: number; totalDuration: number; errors: number }> = new Map();
+    private static metrics: Map<string, { count: number; totalDuration: number; errors: number; cacheHits: number }> = new Map();
 
     static recordCall(serviceName: string, duration: number, success: boolean) {
         const key = serviceName;
-        const existing = this.metrics.get(key) || { count: 0, totalDuration: 0, errors: 0 };
+        const existing = this.metrics.get(key) || { count: 0, totalDuration: 0, errors: 0, cacheHits: 0 };
 
         existing.count++;
         existing.totalDuration += duration;
@@ -391,9 +391,25 @@ export class SolarCVMetrics {
         this.metrics.set(key, existing);
     }
 
+    static recordCacheHit(serviceName: string) {
+        const key = serviceName;
+        const existing = this.metrics.get(key) || { count: 0, totalDuration: 0, errors: 0, cacheHits: 0 };
+
+        existing.cacheHits++;
+        this.metrics.set(key, existing);
+    }
+
     static getMetrics(serviceName?: string) {
         if (serviceName) {
-            return this.metrics.get(serviceName);
+            const metrics = this.metrics.get(serviceName);
+            if (!metrics) return null;
+
+            return {
+                ...metrics,
+                avgDuration: metrics.count > 0 ? metrics.totalDuration / metrics.count : 0,
+                errorRate: metrics.count > 0 ? metrics.errors / metrics.count : 0,
+                cacheHitRate: metrics.count > 0 ? metrics.cacheHits / (metrics.count + metrics.cacheHits) : 0,
+            };
         }
 
         const result: any = {};
@@ -402,6 +418,7 @@ export class SolarCVMetrics {
                 ...value,
                 avgDuration: value.count > 0 ? value.totalDuration / value.count : 0,
                 errorRate: value.count > 0 ? value.errors / value.count : 0,
+                cacheHitRate: value.count > 0 ? value.cacheHits / (value.count + value.cacheHits) : 0,
             };
         }
         return result;

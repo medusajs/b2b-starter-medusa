@@ -16,6 +16,7 @@ import {
     ErrorHandler,
     RequestValidator
 } from "../../../utils/solar-cv-middleware";
+import { CacheManager } from "../../../utils/cache-manager";
 
 // ============================================================================
 // Local Types
@@ -82,14 +83,27 @@ interface ThermalAnalysisResponse {
 // ============================================================================
 
 class PVHawkService extends BaseSolarCVService {
+    private cacheManager: CacheManager;
+
     constructor() {
         super("pv-hawk");
+        this.cacheManager = CacheManager.getInstance();
     }
 
     async analyzeThermalImage(file: FileUpload): Promise<ThermalAnalysisResponse> {
         const startTime = Date.now();
 
         try {
+            // Generate cache key based on file hash
+            const cacheKey = `thermal-analysis:${await FileUtils.getFileHash(file.path)}`;
+
+            // Check cache first
+            const cachedResult = await this.cacheManager.get<ThermalAnalysisResponse>(cacheKey);
+            if (cachedResult) {
+                SolarCVMetrics.recordCacheHit("pv-hawk");
+                return cachedResult;
+            }
+
             // Create FormData from file
             const formData = FileUtils.createFormDataFromFile(file, "thermalImage");
 
@@ -133,6 +147,9 @@ class PVHawkService extends BaseSolarCVService {
                     model_version: "pv-hawk-v1.2",
                 },
             };
+
+            // Cache the result for 30 minutes (thermal analysis is more dynamic)
+            await this.cacheManager.set(cacheKey, result, 1800);
 
             // Record metrics
             SolarCVMetrics.recordCall("pv-hawk", Date.now() - startTime, true);
