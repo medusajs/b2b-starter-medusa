@@ -51,7 +51,7 @@ export function DimensionamentoCard({ dimensionamento }: DimensionamentoCardProp
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-sm text-gray-600 mb-1">Inversor</div>
+                        <div className="text-sm text-gray-600 mb-1" title={getHelioTooltip('mppt')}>Inversor</div>
                         <div className="text-lg font-bold text-gray-900">{potencia_inversor_kw.toFixed(1)} kW</div>
                     </div>
 
@@ -61,7 +61,7 @@ export function DimensionamentoCard({ dimensionamento }: DimensionamentoCardProp
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-3">
-                        <div className="text-sm text-gray-600 mb-1">Performance Ratio</div>
+                        <div className="text-sm text-gray-600 mb-1" title={getHelioTooltip('pr')}>Performance Ratio</div>
                         <div className="text-lg font-bold text-gray-900">{(performance_ratio * 100).toFixed(0)}%</div>
                     </div>
                 </div>

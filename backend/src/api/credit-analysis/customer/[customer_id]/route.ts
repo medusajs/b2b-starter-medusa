@@ -1,0 +1,35 @@
+/**
+ * GET /api/credit-analysis/customer/:customer_id
+ * Listar análises de crédito de um cliente
+ */
+
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+
+export async function GET(
+    req: MedusaRequest,
+    res: MedusaResponse
+): Promise<void> {
+    try {
+        const { customer_id } = req.params
+        const query = req.scope.resolve("query")
+
+        const { data: analyses } = await query.graph({
+            entity: "credit_analysis",
+            fields: ["*"],
+            filters: { customer_id },
+            order: { submitted_at: "DESC" }
+        })
+
+        res.json({
+            success: true,
+            count: analyses.length,
+            credit_analyses: analyses
+        })
+    } catch (error: any) {
+        console.error("Error listing credit analyses:", error)
+        res.status(500).json({
+            success: false,
+            error: error.message || "Failed to list credit analyses"
+        })
+    }
+}
