@@ -38,5 +38,12 @@
     ],
     "transformIgnorePatterns": [
         "/node_modules/(?!(@medusajs|@headlessui|@radix-ui|@heroicons)/)"
-    ]
+    ],
+    "globals": {
+        "ts-jest": {
+            "tsconfig": {
+                "jsx": "react-jsx"
+            }
+        }
+    }
 }
