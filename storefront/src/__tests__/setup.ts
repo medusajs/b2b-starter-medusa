@@ -17,15 +17,13 @@ jest.mock('next/navigation', () => ({
     },
 }))
 
-// Mock do componente Image do Next.js
-jest.mock('next/image', () => ({
-    __esModule: true,
-    default: () => null, // Return null to avoid rendering issues
-}))
-
 // Mock @medusajs/ui to avoid style injection issues
 jest.mock('@medusajs/ui', () => ({
     clx: (...args: any[]) => args.filter(Boolean).join(' '),
+    Toast: () => null,
+    Button: () => null,
+    Card: () => null,
+    Badge: () => null,
     // Add other commonly used exports as needed
 }))
 
@@ -50,6 +48,15 @@ Object.defineProperty(document, 'createElement', {
 
 // Mock do fetch global
 global.fetch = jest.fn()
+
+// Mock document methods to prevent style injection issues
+Object.defineProperty(document, 'head', {
+    value: {
+        appendChild: jest.fn(),
+        removeChild: jest.fn(),
+    },
+    writable: true
+})
 
 // Configurações globais de teste
 beforeEach(() => {
