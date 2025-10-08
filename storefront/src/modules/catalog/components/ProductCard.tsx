@@ -32,7 +32,7 @@ interface ProductCardProps {
         classe_consumidora?: string[] // residencial-b1, rural-b2, comercial-b3, condominios, industria
         roi_estimado?: number // em anos
     }
-    category?: 'panels' | 'inverters' | 'kits' | 'batteries' | 'structures'
+    category?: ProductCategory
 }
 
 const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
@@ -61,22 +61,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
         }
     }
 
-    const getCategoryIcon = () => {
-        switch (category) {
-            case 'panels':
-                return '☀️'
-            case 'inverters':
-                return '⚡'
-            case 'kits':
-                return '📦'
-            case 'batteries':
-                return '🔋'
-            case 'structures':
-                return '🏗️'
-            default:
-                return '☀️'
-        }
-    }
+    // Remover getCategoryIcon - agora usamos o componente CategoryIcon
 
     const formatPrice = (price: number | undefined) => {
         if (!price) return 'Sob Consulta'
@@ -166,16 +151,18 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                 </div>
 
                 {/* Category Icon / Manufacturer Logo */}
-                <div className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+                <div className="absolute top-2 right-2">
                     {(() => {
                         const logo = custom.logoFor?.(product.manufacturer)
                         if (logo) {
                             return (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img src={logo} alt={product.manufacturer || 'brand'} className="w-full h-full object-contain p-1" />
+                                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src={logo} alt={product.manufacturer || 'brand'} className="w-full h-full object-contain p-1" />
+                                </div>
                             )
                         }
-                        return <span className="text-sm">{getCategoryIcon()}</span>
+                        return <CategoryIcon category={category || 'others'} size="md" />
                     })()}
                 </div>
             </div>
