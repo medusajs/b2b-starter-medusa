@@ -117,16 +117,15 @@ describe('SKUAutocomplete', () => {
             expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
             expect(screen.getByText('Produto Teste 2')).toBeInTheDocument()
         }, { timeout: 10000 })
+
+        // Check SKU codes
+        expect(screen.getByText('SKU: SKU001')).toBeInTheDocument()
+        expect(screen.getByText('SKU: SKU002')).toBeInTheDocument()
+
+        // Check prices
+        expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
+        expect(screen.getByText('R$ 200,00')).toBeInTheDocument()
     }, 15000)
-
-    // Check SKU codes
-    expect(screen.getByText('SKU: SKU001')).toBeInTheDocument()
-    expect(screen.getByText('SKU: SKU002')).toBeInTheDocument()
-
-    // Check prices
-    expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
-    expect(screen.getByText('R$ 200,00')).toBeInTheDocument()
-})
 
 it('navigates to product page when suggestion is clicked', async () => {
     mockFetch.mockResolvedValueOnce({
@@ -302,5 +301,4 @@ it('debounces search requests', () => {
     // Only one API call should be made after debounce
     jest.advanceTimersByTime(300)
     expect(mockFetch).toHaveBeenCalledTimes(1)
-})
 })
