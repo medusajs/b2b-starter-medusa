@@ -104,7 +104,9 @@ export const KitsQuerySchema = z.object({
         return validPrice && validPower
     },
     { message: "Min values must be less than or equal to max values" }
-)export type KitsQuery = z.infer<typeof KitsQuerySchema>
+)
+
+export type KitsQuery = z.infer<typeof KitsQuerySchema>
 
 /**
  * Product ID param schema

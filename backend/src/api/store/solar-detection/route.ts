@@ -1,7 +1,7 @@
 /**
  * 🌞 YSH Solar Detection API - Panel-Segmentation Integration
  * High-Performance Endpoint for Remote Solar Panel Detection
- * 
+ *
  * @swagger
  * /store/solar-detection:
  *   post:
@@ -11,29 +11,29 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { z } from "zod";
-import type { GeoJSON } from "../../../types/solar-cv";
+import {
+    BaseSolarCVService,
+    ServiceResponse,
+    FileUtils,
+    SolarCVError,
+    SolarCVMetrics
+} from "../../../utils/solar-cv-service";
+import {
+    ResponseUtils,
+    ErrorHandler,
+    RequestValidator
+} from "../../../utils/solar-cv-middleware";
+import type {
+    FileUpload
+} from "../../../types/solar-cv";
 
 // ============================================================================
-// DTOs & Validation Schemas
+// Local Types
 // ============================================================================
-
-const SolarDetectionRequestSchema = z.object({
-    latitude: z.number().min(-90).max(90),
-    longitude: z.number().min(-180).max(180),
-    address: z.string().optional(),
-    zoom: z.number().min(18).max(21).default(20),
-    imagery_source: z.enum(["google", "maxar", "nearmap"]).default("google"),
-    detect_orientation: z.boolean().default(false),
-    detect_mounting: z.boolean().default(false),
-    estimate_capacity: z.boolean().default(true),
-});
-
-export type SolarDetectionRequest = z.infer<typeof SolarDetectionRequestSchema>;
 
 interface DetectedPanel {
     id: string;
-    geometry: GeoJSON.Polygon;
+    geometry: any; // GeoJSON.Polygon
     area_m2: number;
     estimated_modules: number;
     confidence: number;
@@ -68,116 +68,68 @@ interface SolarDetectionResponse {
 }
 
 // ============================================================================
-// Core Detection Service
+// Panel Segmentation Service
 // ============================================================================
 
-class PanelSegmentationService {
-    private static instance: PanelSegmentationService;
-    private cache: Map<string, { data: any; timestamp: number }>;
-    private readonly CACHE_TTL = 3600000; // 1 hour
-
-    private constructor() {
-        this.cache = new Map();
+class PanelSegmentationService extends BaseSolarCVService {
+    constructor() {
+        super("panel-segmentation");
     }
 
-    static getInstance(): PanelSegmentationService {
-        if (!PanelSegmentationService.instance) {
-            PanelSegmentationService.instance = new PanelSegmentationService();
-        }
-        return PanelSegmentationService.instance;
-    }
-
-    /**
-     * Execute panel detection with caching
-     */
-    async detectPanels(params: SolarDetectionRequest): Promise<SolarDetectionResponse> {
-        const cacheKey = this.getCacheKey(params);
-        const cached = this.getFromCache(cacheKey);
-        if (cached) return cached;
-
+    async detectPanelsFromImage(file: FileUpload): Promise<SolarDetectionResponse> {
         const startTime = Date.now();
 
         try {
-            // Call Python microservice or direct integration
-            const detectionResult = await this.callPanelSegmentation(params);
+            // Create FormData from file
+            const formData = FileUtils.createFormDataFromFile(file);
 
-            const response: SolarDetectionResponse = {
+            // Call Python service
+            const response: ServiceResponse = await this.callService("/api/v1/detect", {
+                method: "POST",
+                formData,
+            });
+
+            if (!response.success) {
+                throw new SolarCVError(
+                    `Panel detection failed: ${response.error}`,
+                    "DETECTION_FAILED",
+                    500,
+                    response.metadata
+                );
+            }
+
+            // Transform response to expected format
+            const result: SolarDetectionResponse = {
                 success: true,
                 location: {
-                    latitude: params.latitude,
-                    longitude: params.longitude,
-                    address: params.address,
+                    latitude: -23.55, // Would come from image metadata
+                    longitude: -46.63,
                 },
-                detection: detectionResult.summary,
-                panels: detectionResult.panels,
-                imagery: detectionResult.imagery,
+                detection: {
+                    panels_detected: response.data.totalPanels || 0,
+                    total_area_m2: response.data.totalArea || 0,
+                    estimated_capacity_kwp: (response.data.totalArea || 0) * 0.15, // Rough estimate
+                    average_confidence: response.data.panels?.reduce((sum: number, p: any) => sum + p.confidence, 0) / (response.data.panels?.length || 1) || 0,
+                },
+                panels: response.data.panels || [],
+                imagery: {
+                    source: "satellite",
+                    resolution_cm: 50, // Would come from service
+                },
                 processing: {
                     duration_ms: Date.now() - startTime,
                     model_version: "nrel-panel-seg-v2.1",
                 },
             };
 
-            this.setCache(cacheKey, response);
-            return response;
+            // Record metrics
+            SolarCVMetrics.recordCall("panel-segmentation", Date.now() - startTime, true);
+
+            return result;
 
         } catch (error) {
-            throw new Error(`Panel detection failed: ${error.message}`);
-        }
-    }
-
-    /**
-     * Call Python Panel-Segmentation microservice
-     */
-    private async callPanelSegmentation(params: SolarDetectionRequest): Promise<any> {
-        const pythonServiceUrl = process.env.PANEL_SEGMENTATION_SERVICE_URL || "http://localhost:8001";
-
-        const response = await fetch(`${pythonServiceUrl}/api/v1/detect`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-API-Key": process.env.PANEL_SEGMENTATION_API_KEY || "",
-            },
-            body: JSON.stringify({
-                lat: params.latitude,
-                lon: params.longitude,
-                zoom: params.zoom,
-                source: params.imagery_source,
-                detect_orientation: params.detect_orientation,
-                detect_mounting: params.detect_mounting,
-            }),
-            signal: AbortSignal.timeout(30000), // 30s timeout
-        });
-
-        if (!response.ok) {
-            throw new Error(`Service returned ${response.status}`);
-        }
-
-        return await response.json();
-    }
-
-    private getCacheKey(params: SolarDetectionRequest): string {
-        return `panel-det:${params.latitude.toFixed(6)},${params.longitude.toFixed(6)}:${params.zoom}`;
-    }
-
-    private getFromCache(key: string): SolarDetectionResponse | null {
-        const cached = this.cache.get(key);
-        if (!cached) return null;
-
-        if (Date.now() - cached.timestamp > this.CACHE_TTL) {
-            this.cache.delete(key);
-            return null;
-        }
-
-        return cached.data;
-    }
-
-    private setCache(key: string, data: SolarDetectionResponse): void {
-        this.cache.set(key, { data, timestamp: Date.now() });
-
-        // Cleanup old entries
-        if (this.cache.size > 1000) {
-            const oldestKey = this.cache.keys().next().value;
-            this.cache.delete(oldestKey);
+            SolarCVMetrics.recordCall("panel-segmentation", Date.now() - startTime, false);
+            throw error;
         }
     }
 }
@@ -190,45 +142,26 @@ export async function POST(
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    const service = new PanelSegmentationService();
+    let uploadedFiles: FileUpload[] = [];
+
     try {
-        // Check if file was uploaded
-        const file = (req as any).file;
-        if (!file) {
-            res.status(400).json({
-                success: false,
-                error: "No image file provided",
-            });
-            return;
-        }
+        // Validate and get uploaded file
+        const file = RequestValidator.validateFilePresence(req, "image");
+        uploadedFiles = [file];
 
-        // Call Python Panel-Segmentation service
-        const pythonServiceUrl = process.env.PANEL_SEGMENTATION_SERVICE_URL || "http://localhost:8001";
-        const apiKey = process.env.PANEL_SEGMENTATION_API_KEY || "dev-key";
+        // Process detection
+        const result = await service.detectPanelsFromImage(file);
 
-        const formData = new FormData();
-        const fileBuffer = require('fs').readFileSync(file.path);
-        const blob = new Blob([fileBuffer], { type: file.mimetype });
-        formData.append('image', blob, file.originalname);
+        // Cleanup temp files
+        await FileUtils.cleanupTempFiles(uploadedFiles.map(f => f.path));
 
-        const response = await fetch(`${pythonServiceUrl}/api/v1/detect`, {
-            method: 'POST',
-            headers: {
-                'X-API-Key': apiKey,
-            },
-            body: formData,
-        });
+        res.status(200).json(ResponseUtils.createSuccessResponse(result));
 
-        if (!response.ok) {
-            throw new Error(`Panel segmentation service returned ${response.status}`);
-        }
-
-        const result = await response.json();
-        res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message || "Internal server error",
-        });
+        // Cleanup temp files on error
+        await ErrorHandler.cleanupFiles(uploadedFiles);
+        ErrorHandler.handleError(error, res);
     }
 }
 
@@ -236,19 +169,19 @@ export async function GET(
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    const service = new PanelSegmentationService();
+
     res.status(200).json({
         service: "YSH Solar Detection API",
         version: "1.0.0",
         status: "operational",
-        endpoints: {
-            POST: "/store/solar-detection",
-            capabilities: [
-                "satellite_imagery_analysis",
-                "panel_segmentation",
-                "capacity_estimation",
-                "orientation_detection",
-                "mounting_classification",
-            ],
-        },
+        capabilities: [
+            "satellite_imagery_analysis",
+            "panel_segmentation",
+            "capacity_estimation",
+            "orientation_detection",
+            "mounting_classification",
+        ],
+        metrics: SolarCVMetrics.getMetrics("panel-segmentation"),
     });
 }

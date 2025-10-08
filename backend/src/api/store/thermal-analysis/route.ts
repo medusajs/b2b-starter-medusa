@@ -1,35 +1,39 @@
 /**
  * 🔥 YSH Thermal Analysis API - PV-Hawk Integration
  * High-Performance Endpoint for Thermal Anomaly Detection
- * 
- * @swagger
- * /store/thermal-analysis:
- *   post:
- *     tags: [Solar Computer Vision]
- *     summary: Analyze thermal imagery for PV defects
- *     description: Uses PV-Hawk for automated thermal anomaly detection
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { z } from "zod";
+import {
+    BaseSolarCVService,
+    ServiceResponse,
+    FileUtils,
+    SolarCVError,
+    SolarCVMetrics
+} from "../../../utils/solar-cv-service";
+import {
+    ResponseUtils,
+    ErrorHandler,
+    RequestValidator
+} from "../../../utils/solar-cv-middleware";
 
 // ============================================================================
-// DTOs & Validation Schemas
+// Local Types
 // ============================================================================
 
-const ThermalAnalysisRequestSchema = z.object({
-    video_url: z.string().url().optional(),
-    video_file: z.string().optional(), // Base64 or storage path
-    imagery_type: z.enum(["thermal_ir", "rgb", "both"]).default("thermal_ir"),
-    plant_id: z.string().optional(),
-    georeferencing: z.boolean().default(true),
-    detect_hotspots: z.boolean().default(true),
-    detect_shading: z.boolean().default(true),
-    detect_soiling: z.boolean().default(true),
-    temperature_threshold_c: z.number().default(75),
-});
+interface FileUpload {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    size: number;
+    path: string;
+    buffer?: Buffer;
+}
 
-export type ThermalAnalysisRequest = z.infer<typeof ThermalAnalysisRequestSchema>;
+// ============================================================================
+// Local Types
+// ============================================================================
 
 interface DetectedAnomaly {
     id: string;
@@ -74,100 +78,71 @@ interface ThermalAnalysisResponse {
 }
 
 // ============================================================================
-// Core Thermal Analysis Service
+// PV-Hawk Service
 // ============================================================================
 
-class PVHawkService {
-    private static instance: PVHawkService;
-    private processingQueue: Map<string, { status: string; progress: number }>;
-
-    private constructor() {
-        this.processingQueue = new Map();
+class PVHawkService extends BaseSolarCVService {
+    constructor() {
+        super("pv-hawk");
     }
 
-    static getInstance(): PVHawkService {
-        if (!PVHawkService.instance) {
-            PVHawkService.instance = new PVHawkService();
-        }
-        return PVHawkService.instance;
-    }
-
-    /**
-     * Execute thermal analysis with async processing
-     */
-    async analyzeThermalImagery(params: ThermalAnalysisRequest): Promise<ThermalAnalysisResponse> {
-        const jobId = this.generateJobId();
-        this.processingQueue.set(jobId, { status: "processing", progress: 0 });
-
+    async analyzeThermalImage(file: FileUpload): Promise<ThermalAnalysisResponse> {
         const startTime = Date.now();
 
         try {
-            // Call Python PV-Hawk microservice
-            const analysisResult = await this.callPVHawk(params, jobId);
+            // Create FormData from file
+            const formData = FileUtils.createFormDataFromFile(file, "thermalImage");
 
-            const response: ThermalAnalysisResponse = {
+            // Call Python service
+            const response: ServiceResponse = await this.callService("/api/v1/analyze", {
+                method: "POST",
+                formData,
+            });
+
+            if (!response.success) {
+                throw new SolarCVError(
+                    `Thermal analysis failed: ${response.error}`,
+                    "ANALYSIS_FAILED",
+                    500,
+                    response.metadata
+                );
+            }
+
+            // Transform response to expected format
+            const result: ThermalAnalysisResponse = {
                 success: true,
-                plant_id: params.plant_id,
-                analysis: analysisResult.summary,
-                anomalies: analysisResult.anomalies,
-                thermal_map: analysisResult.thermal_map,
+                analysis: {
+                    total_modules: response.data.total_modules || 0,
+                    healthy_modules: response.data.healthy_modules || 0,
+                    modules_with_anomalies: response.data.modules_with_anomalies || 0,
+                    critical_issues: response.data.critical_issues || 0,
+                    major_issues: response.data.major_issues || 0,
+                    minor_issues: response.data.minor_issues || 0,
+                },
+                anomalies: response.data.anomalies || [],
+                thermal_map: response.data.thermal_map || {
+                    url: "",
+                    format: "png",
+                    max_temp_c: 0,
+                    min_temp_c: 0,
+                    avg_temp_c: 0,
+                },
                 processing: {
                     duration_ms: Date.now() - startTime,
-                    frames_processed: analysisResult.frames_processed,
+                    frames_processed: response.data.frames_processed || 1,
                     model_version: "pv-hawk-v1.2",
                 },
             };
 
-            this.processingQueue.delete(jobId);
-            return response;
+            // Record metrics
+            SolarCVMetrics.recordCall("pv-hawk", Date.now() - startTime, true);
+
+            return result;
 
         } catch (error) {
-            this.processingQueue.set(jobId, { status: "failed", progress: 0 });
-            throw new Error(`Thermal analysis failed: ${error.message}`);
+            SolarCVMetrics.recordCall("pv-hawk", Date.now() - startTime, false);
+            throw error;
         }
-    }
-
-    /**
-     * Call Python PV-Hawk microservice
-     */
-    private async callPVHawk(params: ThermalAnalysisRequest, jobId: string): Promise<any> {
-        const pythonServiceUrl = process.env.PV_HAWK_SERVICE_URL || "http://localhost:8002";
-
-        const response = await fetch(`${pythonServiceUrl}/api/v1/analyze`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-API-Key": process.env.PV_HAWK_API_KEY || "",
-                "X-Job-ID": jobId,
-            },
-            body: JSON.stringify({
-                video_url: params.video_url,
-                video_file: params.video_file,
-                imagery_type: params.imagery_type,
-                georeferencing: params.georeferencing,
-                detection_config: {
-                    hotspots: params.detect_hotspots,
-                    shading: params.detect_shading,
-                    soiling: params.detect_soiling,
-                    temperature_threshold: params.temperature_threshold_c,
-                },
-            }),
-            signal: AbortSignal.timeout(120000), // 2 min timeout for video processing
-        });
-
-        if (!response.ok) {
-            throw new Error(`Service returned ${response.status}`);
-        }
-
-        return await response.json();
-    }
-
-    async getJobStatus(jobId: string): Promise<{ status: string; progress: number } | null> {
-        return this.processingQueue.get(jobId) || null;
-    }
-
-    private generateJobId(): string {
-        return `thermal-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     }
 }
 
@@ -179,87 +154,46 @@ export async function POST(
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    const service = new PVHawkService();
+    let uploadedFiles: FileUpload[] = [];
+
     try {
-        // Check if file was uploaded
-        const file = (req as any).file;
-        if (!file) {
-            res.status(400).json({
-                success: false,
-                error: "No thermal image file provided",
-            });
-            return;
-        }
+        // Validate and get uploaded file
+        const file = RequestValidator.validateFilePresence(req, "thermalImage");
+        uploadedFiles = [file];
 
-        // Call Python PV-Hawk service
-        const pythonServiceUrl = process.env.PV_HAWK_SERVICE_URL || "http://localhost:8002";
-        const apiKey = process.env.PV_HAWK_API_KEY || "dev-key";
+        // Process analysis
+        const result = await service.analyzeThermalImage(file);
 
-        const formData = new FormData();
-        const fileBuffer = require('fs').readFileSync(file.path);
-        const blob = new Blob([fileBuffer], { type: file.mimetype });
-        formData.append('thermalImage', blob, file.originalname);
+        // Cleanup temp files
+        await FileUtils.cleanupTempFiles(uploadedFiles.map(f => f.path));
 
-        const response = await fetch(`${pythonServiceUrl}/api/v1/analyze`, {
-            method: 'POST',
-            headers: {
-                'X-API-Key': apiKey,
-            },
-            body: formData,
-        });
+        res.status(200).json(ResponseUtils.createSuccessResponse(result));
 
-        if (!response.ok) {
-            throw new Error(`PV-Hawk service returned ${response.status}`);
-        }
-
-        const result = await response.json();
-        res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message || "Internal server error",
-        });
+        // Cleanup temp files on error
+        await ErrorHandler.cleanupFiles(uploadedFiles);
+        ErrorHandler.handleError(error, res);
     }
 }
 
 export async function GET(
-    req: MedusaRequest<{ job_id?: string }>,
+    req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
-    const jobId = req.query.job_id as string | undefined;
+    const service = new PVHawkService();
 
-    if (jobId) {
-        const service = PVHawkService.getInstance();
-        const status = await service.getJobStatus(jobId);
-
-        if (!status) {
-            res.status(404).json({
-                success: false,
-                error: "Job not found",
-            });
-            return;
-        }
-
-        res.status(200).json({
-            success: true,
-            job_id: jobId,
-            ...status,
-        });
-    } else {
-        res.status(200).json({
-            service: "YSH Thermal Analysis API",
-            version: "1.0.0",
-            status: "operational",
-            endpoints: {
-                POST: "/store/thermal-analysis",
-                GET: "/store/thermal-analysis?job_id=xxx",
-                capabilities: [
-                    "thermal_ir_analysis",
-                    "hotspot_detection",
-                    "shading_analysis",
-                    "soiling_detection",
-                    "georeferenced_mapping",
-                ],
-            },
-        });
-    }
+    res.status(200).json({
+        service: "YSH Thermal Analysis API",
+        version: "1.0.0",
+        status: "operational",
+        capabilities: [
+            "thermal_ir_analysis",
+            "hotspot_detection",
+            "shading_analysis",
+            "soiling_detection",
+            "georeferenced_mapping",
+        ],
+        metrics: SolarCVMetrics.getMetrics("pv-hawk"),
+    });
 }

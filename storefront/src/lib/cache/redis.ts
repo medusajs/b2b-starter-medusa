@@ -160,7 +160,7 @@ export class CacheManager {
     static async get<T>(key: string): Promise<T | null> {
         try {
             const fullKey = this.buildKey(key)
-            const cached = await this.client.get(fullKey)
+            const cached = await this.client.get<string>(fullKey)
 
             if (!cached) return null
 
@@ -183,11 +183,8 @@ export class CacheManager {
             const fullKey = this.buildKey(key)
             const serialized = JSON.stringify(value)
 
-            if (this.client instanceof Redis) {
-                await this.client.setex(fullKey, ttl, serialized)
-            } else {
-                await this.client.set(fullKey, serialized, ttl)
-            }
+            // Always use InMemoryCache interface
+            await this.client.set(fullKey, serialized, ttl)
         } catch (error) {
             console.error('[Cache] Set error:', error)
         }
@@ -270,7 +267,7 @@ export class CacheManager {
     }
 
     /**
-     * Get cache statistics (Redis only)
+     * Get cache statistics
      */
     static async stats(): Promise<{
         type: 'redis' | 'memory'
@@ -278,26 +275,18 @@ export class CacheManager {
         keys?: number
     }> {
         try {
-            const isRedis = this.client instanceof Redis
             const connected = await this.health()
-
-            if (isRedis && connected) {
-                const pattern = this.buildKey('*')
-                const keys = await this.client.keys(pattern)
-                return {
-                    type: 'redis',
-                    connected: true,
-                    keys: keys.length
-                }
-            }
+            const pattern = this.buildKey('*')
+            const keys = await this.client.keys(pattern)
 
             return {
-                type: 'memory',
-                connected: true
+                type: 'memory', // Always memory for now
+                connected,
+                keys: keys.length
             }
         } catch (error) {
             return {
-                type: this.client instanceof Redis ? 'redis' : 'memory',
+                type: 'memory',
                 connected: false
             }
         }
