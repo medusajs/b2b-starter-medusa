@@ -10,9 +10,9 @@ import type { ViabilityOutput } from '@/modules/viability/types'
 import type { CatalogKit } from '@/lib/catalog/integration'
 import type { KitRecommendation, KitSearchCriteria } from '@/modules/viability/catalog-integration'
 import {
-  viabilityToKitSearch,
-  rankKitsByViability,
-  kitToFinanceInput,
+    viabilityToKitSearch,
+    rankKitsByViability,
+    kitToFinanceInput,
 } from '@/modules/viability/catalog-integration'export interface UseCatalogIntegrationOptions {
     viability?: ViabilityOutput | null
     oversizingScenario?: 114 | 130 | 145 | 160
