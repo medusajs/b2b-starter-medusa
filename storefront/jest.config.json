@@ -1,4 +1,5 @@
 {
+    "preset": "ts-jest",
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
         "<rootDir>/src/__tests__/setup.ts"
@@ -21,7 +22,11 @@
         "^@/types/(.*)$": "<rootDir>/src/types/$1"
     },
     "transform": {
-        "^.+\\.(ts|tsx)$": "babel-jest",
+        "^.+\\.(ts|tsx)$": ["ts-jest", {
+            "tsconfig": {
+                "jsx": "react-jsx"
+            }
+        }],
         "^.+\\.(js|jsx)$": "babel-jest"
     },
     "moduleFileExtensions": [
@@ -38,12 +43,5 @@
     ],
     "transformIgnorePatterns": [
         "/node_modules/(?!(@medusajs|@headlessui|@radix-ui|@heroicons)/)"
-    ],
-    "globals": {
-        "ts-jest": {
-            "tsconfig": {
-                "jsx": "react-jsx"
-            }
-        }
-    }
+    ]
 }

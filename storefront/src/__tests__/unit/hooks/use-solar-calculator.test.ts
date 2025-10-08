@@ -374,6 +374,7 @@ describe('useCalculatorInfo', () => {
     const mockInfo = { version: '1.0.0', status: 'healthy' };
 
     beforeEach(() => {
+        jest.clearAllMocks();
         (solarCalculatorClient.getInfo as jest.Mock).mockResolvedValue(mockInfo);
     });
 
@@ -408,6 +409,7 @@ describe('useCalculatorInfo', () => {
 
 describe('useCalculatorHealth', () => {
     beforeEach(() => {
+        jest.clearAllMocks();
         jest.useFakeTimers();
         (solarCalculatorClient.healthCheck as jest.Mock).mockResolvedValue(true);
     });
@@ -448,11 +450,15 @@ describe('useCalculatorHealth', () => {
             expect(result.current.checking).toBe(false);
         });
 
+        // Should have been called once on mount
+        expect(solarCalculatorClient.healthCheck).toHaveBeenCalledTimes(1);
+
         // Advance time by 30 seconds
         act(() => {
             jest.advanceTimersByTime(30000);
         });
 
+        // Should have been called again
         expect(solarCalculatorClient.healthCheck).toHaveBeenCalledTimes(2);
     });
 });
