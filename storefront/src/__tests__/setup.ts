@@ -26,22 +26,6 @@ jest.mock('next/image', () => ({
 // Mock do fetch global
 global.fetch = jest.fn()
 
-// Mock do React.createElement para testes de download
-const mockCreateElement = jest.fn((tag: string) => {
-    const element = {
-        href: '',
-        download: '',
-        click: jest.fn(),
-        style: {},
-    }
-    return element
-})
-
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    createElement: mockCreateElement,
-}))
-
 // Mock do clx do @medusajs/ui para evitar problemas de DOM
 jest.mock('@medusajs/ui', () => ({
     clx: (...classes: any[]) => classes.filter(Boolean).join(' '),
