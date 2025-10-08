@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * Test component to verify Yello Solar Hub design system integration
  */

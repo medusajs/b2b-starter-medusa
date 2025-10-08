@@ -9,7 +9,15 @@ import { SKUQRCode, SKUQRCodeButton } from '@/components/SKUQRCode';
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
     __esModule: true,
-    default: jest.fn().mockImplementation(() => null),
+    default: jest.fn().mockImplementation((props) => (
+        React.createElement('img', {
+            ...props,
+            alt: props.alt || '',
+            src: props.src,
+            width: props.width,
+            height: props.height,
+        })
+    )),
 }));
 
 // Mock window.matchMedia
