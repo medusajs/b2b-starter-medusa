@@ -53,7 +53,7 @@ describe('useTheme', () => {
         const { result } = renderHook(() => useTheme())
 
         expect(result.current.theme).toBe('light')
-        expect(result.current.mounted).toBe(false)
+        expect(result.current.mounted).toBe(true) // mounted becomes true after useEffect runs
     })
 
     it('should load theme from localStorage', () => {
