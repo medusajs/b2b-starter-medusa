@@ -1,46 +1,27 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { DocumentText } from "@medusajs/icons"
-import { useLeadQuote } from "@/modules/lead-quote/context"
-import { useEffect, useState } from "react"
 
-export default function QuoteLink() {
-  const [mounted, setMounted] = useState(false)
-  let items: any[] = []
-  let count = 0
-
-  // Só acessa o contexto após montar no cliente
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  try {
-    if (mounted) {
-      const quote = useLeadQuote()
-      items = quote.items
-      count = items.length
-    }
-  } catch (error) {
-    // Contexto ainda não disponível
-  }
-
-  return (
+// Importar o componente Client de forma dinâmica para evitar SSR
+const QuoteLinkClient = dynamic(() => import("./quote-link-client"), {
+  ssr: false,
+  loading: () => (
     <LocalizedClientLink
       href="/cotacao"
       className="relative flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1"
-      title={count > 0 ? `Lista de cotação com ${count} item(s)` : "Lista de cotação"}
-      aria-label={count > 0 ? `Cotação, ${count} item(s)` : "Cotação"}
+      title="Lista de cotação"
+      aria-label="Cotação"
     >
       <div className="relative">
         <DocumentText />
-        {count > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-amber-400 text-[10px] leading-4 text-neutral-900 text-center">
-            {count}
-          </span>
-        )}
       </div>
-      <span className="hidden small:inline-block">Cotação{count > 0 ? ` (${count})` : ""}</span>
+      <span className="hidden small:inline-block">Cotação</span>
     </LocalizedClientLink>
-  )
+  ),
+})
+
+export default function QuoteLink() {
+  return <QuoteLinkClient />
 }
