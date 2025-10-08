@@ -167,7 +167,7 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
                     <Button
                         variant="outline"
                         onClick={handleBack}
-                        disabled={currentStep === 0}
+                        disabled={currentStepIndex === 0}
                         className="min-w-[120px]"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" />
@@ -175,7 +175,7 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
                     </Button>
 
                     <div className="flex gap-2">
-                        {currentStep < steps.length - 1 && (
+                        {currentStepIndex < stepConfig.length - 1 && (
                             <Button
                                 variant="ghost"
                                 onClick={handleSkip}
