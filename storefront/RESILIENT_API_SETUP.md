@@ -3,6 +3,7 @@
 ## ✅ Arquivos Criados
 
 ### 1. Core APIs
+
 - ✅ `src/lib/api/fallback.ts` (720 linhas)
   - Sistema de fallback com dados do catálogo unificado
   - Health monitoring do backend
@@ -16,18 +17,21 @@
   - Exponential backoff
 
 ### 2. API Routes
+
 - ✅ `src/app/api/health/route.ts`
   - Endpoint de health check
   - Status do backend e fallback
   - Retorna JSON com métricas
 
 ### 3. Componentes UI
+
 - ✅ `src/components/ui/offline-banner.tsx`
   - Banner de aviso quando offline
   - Botão de reconexão
   - Badge "Catálogo Local"
 
 ### 4. Documentação e Exemplos
+
 - ✅ `src/lib/api/README.md` (documentação completa)
 - ✅ `EXAMPLE_RESILIENT_PRODUCTS_PAGE.tsx` (exemplo de uso)
 
@@ -124,6 +128,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
 ### Passo 4: Testar Modo Offline
 
 1. **Desligar o backend Medusa**:
+
 ```bash
 # Parar container Docker
 docker-compose stop backend
@@ -133,22 +138,26 @@ docker-compose stop backend
 ```
 
 2. **Acessar o storefront**:
+
 ```bash
 npm run dev
 ```
 
 3. **Verificar comportamento**:
+
 - ✅ Banner "Modo Offline Ativo" aparece no topo
 - ✅ Produtos carregam do catálogo unificado
 - ✅ Badges "Catálogo Local" aparecem nos produtos
 - ✅ Botão "Reconectar" permite testar reconexão
 
 4. **Religar o backend**:
+
 ```bash
 docker-compose start backend
 ```
 
 5. **Clicar "Reconectar"** no banner
+
 - ✅ Banner desaparece
 - ✅ Produtos voltam a vir do backend
 
@@ -157,18 +166,21 @@ docker-compose start backend
 ## 📋 Checklist de Integração
 
 ### ✅ Obrigatório (Core)
+
 - [ ] Configurar `.env.local` com `NEXT_PUBLIC_MEDUSA_BACKEND_URL`
 - [ ] Adicionar `<OfflineBanner />` no layout principal
 - [ ] Substituir fetch direto por `ResilientAPI` nas páginas de produtos
 - [ ] Testar com backend offline
 
 ### ⚙️ Recomendado (Melhorias)
+
 - [ ] Adicionar `FallbackBadge` em cards de produtos
 - [ ] Desabilitar checkout quando em modo fallback
 - [ ] Implementar sincronização de carrinho local → backend
 - [ ] Adicionar métricas de fallback (DataDog, Sentry)
 
 ### 🎨 Opcional (UX)
+
 - [ ] Customizar cores do banner offline
 - [ ] Adicionar animação de reconexão
 - [ ] Criar página de status do sistema (`/status`)
@@ -278,6 +290,7 @@ trackEvent('api.backend.reconnected', {
 **Causa**: Path do catálogo incorreto
 
 **Solução**:
+
 ```bash
 # Verificar se arquivo existe
 ls ../../../ysh-erp/data/catalog/unified_schemas/inverters_unified.json
@@ -297,6 +310,7 @@ CATALOG_PATH=/caminho/correto/para/unified_schemas
 **Causa**: Estrutura de resposta diferente entre backend e fallback
 
 **Solução**: Use optional chaining:
+
 ```typescript
 const products = response.data?.products || []
 ```
@@ -306,6 +320,7 @@ const products = response.data?.products || []
 **Causa**: Arquivos JSON grandes sendo lidos a cada requisição
 
 **Solução**: O sistema já usa `cache()` do React, mas você pode adicionar Redis:
+
 ```typescript
 // Em fallback.ts
 const redis = new Redis(process.env.REDIS_URL)
