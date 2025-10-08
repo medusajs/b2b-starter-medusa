@@ -3,6 +3,7 @@
 // import { APPROVAL_MODULE } from "./src/modules/approval";
 // import { COMPANY_MODULE } from "./src/modules/company";
 // import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
+import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
@@ -35,6 +36,13 @@ module.exports = defineConfig({
     [Modules.PAYMENT]: true,
     [Modules.TAX]: true,
     [Modules.REGION]: true,
+    // Custom modules
+    [YSH_PRICING_MODULE]: {
+      resolve: "./modules/ysh-pricing",
+      options: {
+        catalogPath: process.env.YSH_CATALOG_PATH || "../../ysh-erp/data/catalog",
+      },
+    },
     // Custom modules - DISABLED for initial setup
     // [COMPANY_MODULE]: {
     //   resolve: "./modules/company",

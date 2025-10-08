@@ -48,6 +48,8 @@ export const getProductsById = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+    revalidate: 3600,
   }
 
   return retryWithBackoff(
@@ -58,6 +60,7 @@ export const getProductsById = async ({
         query: {
           id: ids,
           region_id: regionId,
+          // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
           fields:
             "*variants,*variants.calculated_price,*variants.inventory_quantity",
         },
@@ -77,6 +80,8 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
 
   const next = {
     ...(await getCacheOptions("products")),
+    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+    revalidate: 3600,
   }
 
   return retryWithBackoff(
@@ -87,6 +92,7 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
         query: {
           handle,
           region_id: regionId,
+          // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
           fields:
             "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
         },
@@ -130,6 +136,8 @@ export const listProducts = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+    revalidate: 3600,
   }
 
   return retryWithBackoff(
@@ -143,6 +151,7 @@ export const listProducts = async ({
             limit,
             offset,
             region_id: region.id,
+            // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
             fields: "*variants.calculated_price",
             ...queryParams,
           },

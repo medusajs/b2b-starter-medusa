@@ -86,10 +86,10 @@ services:
     environment:
       NODE_ENV: development
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
-      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_dev_test
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_2786bc8945cacd335e0cd8fb17b19d2516ec4e29ed9a64ca583ebbe4bb9dc40d
       NEXT_PUBLIC_BASE_URL: http://localhost:8000
-      NEXT_PUBLIC_DEFAULT_REGION: us
-      REVALIDATE_SECRET: dev-revalidate-secret
+      NEXT_PUBLIC_DEFAULT_REGION: br
+      REVALIDATE_SECRET: supersecret
       NEXT_TELEMETRY_DISABLED: 1
     ports:
       - "8000:8000"
