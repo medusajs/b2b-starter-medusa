@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import { clx } from "@medusajs/ui"
 import { trackSKUCopy, useSKUHistory } from "@/lib/sku-analytics"

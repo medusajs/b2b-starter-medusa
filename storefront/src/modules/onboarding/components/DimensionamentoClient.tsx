@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Container, Heading, Text } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ChecklistOnboarding from "./ChecklistOnboarding"
@@ -167,7 +168,7 @@ export default function DimensionamentoClient() {
                     window.open(url, '_blank')
                   } catch { }
                 }}>Visualizar/Salvar PDF</button>
-                <a className="contrast-btn" href="/suporte">Falar com especialista</a>
+                <Link className="contrast-btn" href="/suporte">Falar com especialista</Link>
               </div>
               {Array.isArray(res.kWh_month) && res.kWh_month.length === 12 && (
                 <div className="mt-4">
