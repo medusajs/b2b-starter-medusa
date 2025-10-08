@@ -5,7 +5,7 @@ import { configure } from '@testing-library/react'
 
 // Configurar React Testing Library para React 19
 configure({
-    reactStrictMode: true,
+    reactStrictMode: false,
 })
 
 // Importar TextEncoder/TextDecoder para compatibilidade

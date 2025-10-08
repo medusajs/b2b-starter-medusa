@@ -380,9 +380,6 @@ describe('useCalculatorInfo', () => {
     });
 
     it('should fetch info on mount', async () => {
-        (solarCalculatorClient.getInfo as jest.Mock).mockClear();
-        (solarCalculatorClient.getInfo as jest.Mock).mockResolvedValue(mockInfo);
-
         const { result } = renderHook(() => useCalculatorInfo());
 
         expect(result.current.loading).toBe(true);
@@ -424,9 +421,6 @@ describe('useCalculatorHealth', () => {
     });
 
     it('should check health on mount', async () => {
-        (solarCalculatorClient.healthCheck as jest.Mock).mockClear();
-        (solarCalculatorClient.healthCheck as jest.Mock).mockResolvedValue(true);
-
         const { result } = renderHook(() => useCalculatorHealth());
 
         expect(result.current.checking).toBe(true);
@@ -452,9 +446,6 @@ describe('useCalculatorHealth', () => {
     });
 
     it('should check health periodically', async () => {
-        (solarCalculatorClient.healthCheck as jest.Mock).mockClear();
-        (solarCalculatorClient.healthCheck as jest.Mock).mockResolvedValue(true);
-
         const { result } = renderHook(() => useCalculatorHealth());
 
         await waitFor(() => {
