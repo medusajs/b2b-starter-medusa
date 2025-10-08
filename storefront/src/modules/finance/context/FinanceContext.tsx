@@ -180,7 +180,7 @@ export function FinanceProvider({
             }))
             throw error
         }
-    }, [defaultInterestRate])
+    }, [defaultInterestRate, bacenRates, validateInput])
 
     // ============================================================================
     // Selection actions
@@ -203,6 +203,10 @@ export function FinanceProvider({
     // ============================================================================
 
     const saveCalculation = useCallback((calculation: FinanceOutput) => {
+        // Persist to storage
+        persistCalculation(calculation)
+
+        // Update state
         setSavedCalculations(prev => {
             const existing = prev.findIndex(c => c.id === calculation.id)
             if (existing >= 0) {
@@ -213,13 +217,7 @@ export function FinanceProvider({
             return [calculation, ...prev]
         })
 
-        // Persist to localStorage
-        if (typeof window !== 'undefined') {
-            localStorage.setItem(
-                `finance_calculation_${calculation.id}`,
-                JSON.stringify(calculation)
-            )
-        }
+        console.log(`Calculation ${calculation.id} saved`)
     }, [])
 
     const loadCalculation = useCallback((id: string): FinanceOutput | null => {
@@ -230,15 +228,12 @@ export function FinanceProvider({
             return fromMemory
         }
 
-        // Try localStorage
-        if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem(`finance_calculation_${id}`)
-            if (stored) {
-                const calculation = JSON.parse(stored) as FinanceOutput
-                setCurrentCalculation(calculation)
-                setSavedCalculations(prev => [calculation, ...prev])
-                return calculation
-            }
+        // Try storage
+        const calculation = loadCalculationFromStorage(id)
+        if (calculation) {
+            setCurrentCalculation(calculation)
+            setSavedCalculations(prev => [calculation, ...prev])
+            return calculation
         }
 
         return null

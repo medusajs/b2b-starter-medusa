@@ -6,6 +6,46 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { SKUQRCode, SKUQRCodeButton } from '@/components/SKUQRCode';
 
+// Mock do @medusajs/ui completamente
+jest.mock('@medusajs/ui', () => ({
+    clx: (...classes: any[]) => classes.filter(Boolean).join(' '),
+}));
+
+// Mock do sonner para evitar problemas de toast
+jest.mock('sonner', () => ({
+    toast: jest.fn(),
+}));
+
+// Mock do document methods that might cause issues
+Object.defineProperty(document, 'createElement', {
+    writable: true,
+    value: jest.fn().mockImplementation((tag: string) => {
+        const element = {
+            href: '',
+            download: '',
+            click: jest.fn(),
+            style: {},
+            className: '',
+            textContent: '',
+            appendChild: jest.fn(),
+            removeChild: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+        } as any
+        return element
+    })
+})
+
+Object.defineProperty(document.body, 'appendChild', {
+    writable: true,
+    value: jest.fn()
+})
+
+Object.defineProperty(document.body, 'removeChild', {
+    writable: true,
+    value: jest.fn()
+})
+
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
     __esModule: true,
@@ -44,6 +84,7 @@ Object.defineProperty(window.navigator, 'share', {
 });
 
 // Mock document.createElement and related methods for download
+const mockClick = jest.fn()
 const mockCreateElement = jest.spyOn(document, 'createElement').mockImplementation((tag: string) => {
     const element = {
         href: '',
@@ -192,7 +233,6 @@ describe('SKUQRCode', () => {
 
     describe('Download Functionality', () => {
         it('downloads QR code when download button is clicked', async () => {
-            const mockCreateElement = (global as any).mockCreateElement;
             render(<SKUQRCode {...defaultProps} />);
 
             // Open modal

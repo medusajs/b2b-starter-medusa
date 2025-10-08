@@ -26,9 +26,10 @@ jest.mock('next/image', () => ({
 // Mock do fetch global
 global.fetch = jest.fn()
 
-// Mock do clx do @medusajs/ui para evitar problemas de DOM
+// Mock do @medusajs/ui completamente para evitar problemas de DOM
 jest.mock('@medusajs/ui', () => ({
     clx: (...classes: any[]) => classes.filter(Boolean).join(' '),
+    // Mock other components if needed
 }))
 
 // Configurações globais de teste
