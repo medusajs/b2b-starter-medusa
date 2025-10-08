@@ -49,7 +49,21 @@ export default function CotacaoPage() {
           <p className="text-neutral-600">{total} itens</p>
         </div>
         {total > 0 && (
-          <button className="ysh-btn-outline" onClick={clear}>Limpar lista</button>
+          <div className="flex items-center gap-2">
+            <button className="ysh-btn-outline" onClick={clear}>Limpar lista</button>
+            {(() => {
+              const dataParam = search?.get('data')
+              if (!dataParam) return null
+              return (
+                <LocalizedClientLink
+                  href={`/proposta/printable?data=${encodeURIComponent(dataParam)}`}
+                  className="ysh-btn-secondary"
+                >
+                  Baixar PDF
+                </LocalizedClientLink>
+              )
+            })()}
+          </div>
         )}
       </div>
 

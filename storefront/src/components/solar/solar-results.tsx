@@ -68,7 +68,7 @@ export function SolarResults({
                     <div className="flex items-center gap-2 mr-2">
                         <LocalizedClientLink
                             href={`/tarifas?uf=${encodeURIComponent(dados_localizacao.estado || '')}&hsp=${encodeURIComponent(String(dados_localizacao.hsp || ''))}&tarifa=${encodeURIComponent(String(dados_localizacao.tarifa_kwh || ''))}`}
-                            className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="ysh-btn-outline"
                             title={getHelioTooltip('nasa_power')}
                             onClick={() => sendEvent('cta_validate_tariff_clicked', { from: 'solar_results' })}
                         >
@@ -86,7 +86,7 @@ export function SolarResults({
                                 location: { estado: dados_localizacao.estado, hsp: dados_localizacao.hsp, tarifa_kwh: dados_localizacao.tarifa_kwh },
                                 finance: financeiro ? { capex_total_brl: financeiro.capex.total_brl, economy_month_brl: financeiro.economia.mensal_brl, payback_anos: financeiro.retorno.payback_simples_anos } : undefined,
                             }))}`}
-                            className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors"
+                            className="ysh-btn-primary"
                             onClick={() => sendEvent('cta_generate_proposal_clicked', { from: 'solar_results' })}
                         >
                             Gerar proposta
@@ -103,7 +103,7 @@ export function SolarResults({
                                 location: { estado: dados_localizacao.estado, hsp: dados_localizacao.hsp, tarifa_kwh: dados_localizacao.tarifa_kwh },
                                 finance: financeiro ? { capex_total_brl: financeiro.capex.total_brl, economy_month_brl: financeiro.economia.mensal_brl, payback_anos: financeiro.retorno.payback_simples_anos } : undefined,
                             }))}`}
-                            className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="ysh-btn-outline"
                             onClick={() => sendEvent('cta_download_pdf_clicked', { from: 'solar_results' })}
                         >
                             Baixar PDF
@@ -112,7 +112,7 @@ export function SolarResults({
                     {onRecalculate && (
                         <button
                             onClick={onRecalculate}
-                            className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="ysh-btn-outline"
                         >
                             🔄 Recalcular
                         </button>
@@ -157,4 +157,7 @@ export function SolarResults({
         </div>
     );
 }
+
+
+
 

@@ -170,7 +170,7 @@ export default function TariffClassifier() {
                 <button
                     type="submit"
                     disabled={isClassifying}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="ysh-btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isClassifying ? (
                         <>
@@ -193,3 +193,4 @@ export default function TariffClassifier() {
         </div>
     )
 }
+

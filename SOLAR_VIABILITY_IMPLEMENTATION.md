@@ -357,14 +357,15 @@ Invoke-RestMethod -Uri "http://localhost:9000/api/financing/simulate" -Method PO
 
 ```powershell
 # Buscar tarifa SP
+```powershell
 Invoke-RestMethod -Uri "http://localhost:9000/api/aneel/tariffs?uf=SP&grupo=B1" -Method GET
 
 # Calcular economia
 $body = @{
-    monthly_consumption_kwh = 500
-    system_generation_kwh = 450
-    uf = "SP"
-    grupo = "B1"
+  monthly_consumption_kwh = 500
+  system_generation_kwh = 450
+  uf = "SP"
+  grupo = "B1"
 } | ConvertTo-Json
 
 Invoke-RestMethod -Uri "http://localhost:9000/api/aneel/calculate-savings" -Method POST -Body $body -ContentType "application/json"
@@ -396,7 +397,7 @@ Invoke-RestMethod -Uri "http://localhost:9000/api/aneel/calculate-savings" -Meth
 
 ### Fórmulas MPPT Validation
 
-```
+```text
 Vmp_hot = V_mp_ref + (beta_voc × (T_hot - 25))
 Vstring_min = Vmp_hot × modules_per_string
 
@@ -410,7 +411,7 @@ Compatible = (Mppt_low ≤ Vstring_min) AND (Vstring_max ≤ Mppt_high)
 
 **SAC (Sistema de Amortização Constante):**
 
-```
+```text
 Amortização = Principal / Períodos  (constante)
 Juros(t) = Saldo(t-1) × Taxa_mensal  (decrescente)
 Parcela(t) = Amortização + Juros(t)  (decrescente)
@@ -418,7 +419,7 @@ Parcela(t) = Amortização + Juros(t)  (decrescente)
 
 **Price (Sistema Francês):**
 
-```
+```text
 PMT = PV × (i × (1+i)^n) / ((1+i)^n - 1)  (constante)
 Juros(t) = Saldo(t-1) × Taxa_mensal  (decrescente)
 Amortização(t) = PMT - Juros(t)  (crescente)
@@ -426,7 +427,7 @@ Amortização(t) = PMT - Juros(t)  (crescente)
 
 ### Cálculo Economia Solar
 
-```
+```text
 Custo_atual = Consumo_mensal × Tarifa × 12
 Custo_novo = (Consumo_mensal - Geração) × Tarifa × 12
 Economia_anual = Custo_atual - Custo_novo
