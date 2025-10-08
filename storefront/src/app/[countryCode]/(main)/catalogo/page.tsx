@@ -1,6 +1,6 @@
 /**
  * Catalog Page - Kit Selection
- * 
+ *
  * Displays solar kits filtered by viability analysis
  * Integrates with Finance Module for CAPEX calculation
  */
