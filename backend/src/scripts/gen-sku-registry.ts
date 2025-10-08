@@ -86,12 +86,13 @@ const main = async () => {
 
   const outPath = process.env.REGISTRY_OUT || path.join(unifiedPath, 'sku_registry.json')
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2), 'utf-8')
-  console.log(✅ SKU registry generated:  ( entries))
+  console.log(`SKU registry generated: ${outPath} (${items.length} entries)`)
 }
 
 main().catch((e) => {
   console.error('Failed to generate sku registry', e)
   process.exit(1)
 })
+
 
 

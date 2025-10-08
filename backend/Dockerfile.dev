@@ -6,7 +6,7 @@
 FROM node:20-alpine
 
 # Instalar dependências do sistema
-RUN apk add --no-cache libc6-compat dumb-init curl
+RUN apk add --no-cache libc6-compat dumb-init curl python3 make g++
 
 # Configurar diretório de trabalho
 WORKDIR /app
@@ -22,6 +22,9 @@ COPY .npmrc* ./
 
 # Instalar dependências
 RUN npm install --no-audit --no-fund --legacy-peer-deps
+
+# Workaround para problema do Rollup no Alpine Linux
+RUN npm install --force @rollup/rollup-linux-x64-musl || true
 
 # Copiar código fonte
 COPY . .
