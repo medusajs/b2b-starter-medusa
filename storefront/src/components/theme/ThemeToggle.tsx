@@ -51,8 +51,10 @@ export function ThemeToggle() {
         <button
             onClick={toggleTheme}
             className={clx(
-                "relative w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-200",
+                "relative rounded-lg flex items-center justify-center transition-all duration-200",
                 "hover:scale-105 active:scale-95",
+                // Responsive sizing: larger on mobile for better touch, smaller on desktop
+                "w-14 h-14 small:w-12 small:h-12 medium:w-11 medium:h-11",
                 theme === 'light'
                     ? "bg-yellow-100 hover:bg-yellow-200 text-yellow-700"
                     : "bg-zinc-800 hover:bg-zinc-700 text-yellow-400"
@@ -61,9 +63,9 @@ export function ThemeToggle() {
             title={theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
         >
             {theme === 'light' ? (
-                <Sun className="w-5 h-5 transition-transform duration-300 rotate-0" />
+                <Sun className="w-6 h-6 small:w-5 small:h-5 transition-transform duration-300 rotate-0" />
             ) : (
-                <Moon className="w-5 h-5 transition-transform duration-300 rotate-0" />
+                <Moon className="w-6 h-6 small:w-5 small:h-5 transition-transform duration-300 rotate-0" />
             )}
         </button>
     )

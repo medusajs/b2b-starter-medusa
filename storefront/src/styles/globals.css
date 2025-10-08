@@ -246,16 +246,18 @@ body {
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+    @apply max-w-[1440px] w-full mx-auto;
+    @apply px-4 small:px-6 medium:px-8;
   }
 
   .contrast-btn {
     @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
   }
 
-  /* YSH Button Variants - Theme Aware */
+  /* YSH Button Variants - Theme Aware & Responsive */
   .ysh-btn-primary {
-    @apply font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
     background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
     color: #000;
     box-shadow: var(--shadow-md);
@@ -268,7 +270,8 @@ body {
   }
 
   .ysh-btn-secondary {
-    @apply font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
     background-color: var(--info);
     color: #fff;
     box-shadow: var(--shadow-md);
@@ -281,7 +284,8 @@ body {
   }
 
   .ysh-btn-outline {
-    @apply font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
     border: 2px solid var(--brand-primary);
     color: var(--brand-primary);
     background: transparent;
@@ -363,7 +367,7 @@ body {
   }
 
   .openai-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    @apply grid grid-cols-1 small:grid-cols-2 medium:grid-cols-3 gap-4 small:gap-6 medium:gap-8;
   }
 
   .openai-button {

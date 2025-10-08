@@ -8,12 +8,14 @@
 ## 📊 Executive Summary
 
 ### ✅ Pontos Fortes
+
 - **Breakpoints bem definidos** - Sistema Medusa UI com 7 breakpoints
 - **Classes utilitárias** - Tailwind com prefixos `small:`, `md:`, `lg:`
 - **Grid responsivo** - Maioria dos componentes usa grid adaptativo
 - **Header adaptável** - Elementos ocultos/visíveis conforme tela
 
 ### ⚠️ Áreas de Melhoria
+
 - **ThemeToggle fixo** - Sem variação de tamanho para mobile
 - **Touch targets** - Alguns botões podem estar abaixo de 44x44px
 - **Typography scaling** - Texto fixo em algumas telas
@@ -50,11 +52,13 @@ screens: {
 **⚠️ ALERTA:** O breakpoint `small: 1024px` é **MUITO ALTO** para mobile-first!
 
 #### **Problemas:**
+
 - Conteúdo entre 640px-1023px tratado como mobile
 - Tablets portrait (768px) não têm tratamento específico
 - iPads (768px x 1024px) ficam em "limbo"
 
 #### **Recomendação:**
+
 ```javascript
 screens: {
   "xs":    "375px",   // Mobile small (iPhone SE)
@@ -127,6 +131,7 @@ return (
 ```
 
 **Benefícios:**
+
 - ✅ Mobile: 56x56px com ícone 24x24px
 - ✅ Tablet: 48x48px com ícone 20x20px
 - ✅ Desktop: 40x40px com ícone 20x20px
@@ -150,6 +155,7 @@ return (
    - Recomendado: 16px mínimo
 
 2. **Logo + Badge Muito Longos**
+
    ```tsx
    <h1 className="small:text-base text-sm font-medium flex items-center">
      <LogoIcon className="inline mr-2" />
@@ -162,12 +168,14 @@ return (
    ```
 
 3. **Search Hidden Demais**
+
    ```tsx
    <div className="relative mr-2 hidden small:inline-flex">
      // ❌ PROBLEMA: Search só aparece em 1024px+
    ```
 
 4. **Separador Visível Sempre**
+
    ```tsx
    <div className="h-4 w-px bg-neutral-300" />
    // ❌ PROBLEMA: Divisor visível mesmo quando search está oculto
@@ -257,6 +265,7 @@ return (
 ```
 
 **Melhorias:**
+
 - ✅ Padding adequado mobile (12px)
 - ✅ Logo truncada se necessário
 - ✅ Badge oculto em telas pequenas
@@ -301,6 +310,7 @@ return (
    - **Confusão:** `md:` !== `small:`
 
 2. **Botões Sem Variação Mobile**
+
    ```css
    .ysh-btn-primary {
      @apply font-semibold px-6 py-3 rounded-lg;
@@ -310,6 +320,7 @@ return (
    ```
 
 3. **Gap Fixo em Grids**
+
    ```css
    .openai-grid {
      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
@@ -387,6 +398,7 @@ return (
 | **Small** | 12px | 14px | 14px | ✅ OK |
 
 **Implementação Atual:**
+
 ```tsx
 <h1 className="text-sm small:text-base">
   // Mobile: 14px, Desktop: 16px
@@ -395,6 +407,7 @@ return (
 ```
 
 **Recomendação:**
+
 ```tsx
 <h1 className="text-2xl small:text-3xl medium:text-4xl lg:text-5xl">
   // Mobile: 24px, Tablet: 30px, Desktop: 36px, Large: 48px
@@ -424,6 +437,7 @@ return (
 | **Cart Button** | Auto | 44x44px min | ⚠️ Verificar |
 
 **Referência:**
+
 - Apple HIG: 44x44px mínimo
 - Material Design: 48x48px mínimo
 - WCAG 2.1 AAA: 44x44px mínimo
@@ -535,6 +549,7 @@ return (
 ### **Phase 3: Breakpoint Strategy** (3-4 horas)
 
 **Opção A: Adicionar breakpoint `md`**
+
 ```javascript
 // tailwind.config.js
 screens: {
@@ -548,6 +563,7 @@ screens: {
 ```
 
 **Opção B: Migrar para Tailwind defaults**
+
 ```javascript
 screens: {
   "sm":  "640px",
@@ -596,6 +612,7 @@ screens: {
 ### **Test Scenarios**
 
 #### **Mobile (< 640px)**
+
 - [ ] ThemeToggle touch target ≥ 44x44px
 - [ ] All text legible (min 14px body)
 - [ ] No horizontal scroll
@@ -604,6 +621,7 @@ screens: {
 - [ ] Badge marketplace oculto
 
 #### **Tablet (768px - 1023px)**
+
 - [ ] Search input visível
 - [ ] Badge marketplace visível
 - [ ] Grid 2 colunas
@@ -611,6 +629,7 @@ screens: {
 - [ ] Mega menu funcional
 
 #### **Desktop (≥ 1024px)**
+
 - [ ] Todos elementos visíveis
 - [ ] Grid 3-4 colunas
 - [ ] Hover states funcionando
@@ -624,12 +643,14 @@ screens: {
 ### **Overall Responsive Score: 7.5/10**
 
 #### **Strengths:**
+
 - ✅ Sistema de breakpoints definido
 - ✅ Grid responsivo na maioria dos componentes
 - ✅ Classes utilitárias Tailwind bem usadas
 - ✅ Dark mode funciona em todos os tamanhos
 
 #### **Weaknesses:**
+
 - ❌ Breakpoint `small: 1024px` inadequado para tablets
 - ❌ Falta hamburger menu mobile
 - ❌ ThemeToggle tamanho fixo
@@ -637,6 +658,7 @@ screens: {
 - ❌ Botões e cards sem variação mobile
 
 #### **Immediate Actions:**
+
 1. ✅ Tornar ThemeToggle responsivo (15 min)
 2. ✅ Ocultar badge em mobile (5 min)
 3. ✅ Ajustar padding header (10 min)
