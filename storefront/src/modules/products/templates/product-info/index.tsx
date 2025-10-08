@@ -29,7 +29,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
               />
             </div>
           )}
-          
+
           {sku && (
             <div className="identifier-group">
               <label>Código SKU</label>
@@ -40,7 +40,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
               />
             </div>
           )}
-          
+
           {product.id && (
             <div className="identifier-group">
               <label>ID do Produto</label>
