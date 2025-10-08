@@ -57,8 +57,6 @@ export async function generateStaticParams() {
     console.log('Backend not available during build, skipping static params generation')
     return []
   }
-
-  return staticParams
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {

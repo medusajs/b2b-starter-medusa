@@ -5,7 +5,7 @@
  * Fornece analytics e error tracking para a aplicação
  */
 
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import posthog from 'posthog-js'
 import { usePathname, useSearchParams } from 'next/navigation'
 
@@ -13,9 +13,25 @@ interface PostHogProviderProps {
     children: React.ReactNode
 }
 
-export function PostHogProvider({ children }: PostHogProviderProps) {
+function PostHogTracking() {
     const pathname = usePathname()
     const searchParams = useSearchParams()
+
+    // Capturar mudanças de rota
+    useEffect(() => {
+        if (pathname && typeof window !== 'undefined') {
+            const url = `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+
+            posthog.capture('$pageview', {
+                $current_url: url
+            })
+        }
+    }, [pathname, searchParams])
+
+    return null
+}
+
+export function PostHogProvider({ children }: PostHogProviderProps) {
 
     useEffect(() => {
         // Inicializar PostHog apenas no cliente
@@ -50,18 +66,14 @@ export function PostHogProvider({ children }: PostHogProviderProps) {
         }
     }, [])
 
-    // Capturar mudanças de rota
-    useEffect(() => {
-        if (pathname && typeof window !== 'undefined') {
-            const url = `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
-
-            posthog.capture('$pageview', {
-                $current_url: url
-            })
-        }
-    }, [pathname, searchParams])
-
-    return <>{children}</>
+    return (
+        <>
+            <Suspense fallback={null}>
+                <PostHogTracking />
+            </Suspense>
+            {children}
+        </>
+    )
 }
 
 // Hook para usar PostHog em componentes

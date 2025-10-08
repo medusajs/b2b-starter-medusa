@@ -22,7 +22,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 1.234,56');
+            expect(result).toBe('R$\u00A01.234,56');
         });
 
         it('should format integer values with decimal places', () => {
@@ -32,7 +32,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 1.000,00');
+            expect(result).toBe('R$\u00A01.000,00');
         });
 
         it('should format small values correctly', () => {
@@ -42,7 +42,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,99');
+            expect(result).toBe('R$\u00A00,99');
         });
 
         it('should format values with cents', () => {
@@ -52,7 +52,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 25,50');
+            expect(result).toBe('R$\u00A025,50');
         });
     });
 
@@ -64,7 +64,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 50.000,00');
+            expect(result).toBe('R$\u00A050.000,00');
         });
 
         it('should format millions correctly', () => {
@@ -74,7 +74,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 1.500.000,00');
+            expect(result).toBe('R$\u00A01.500.000,00');
         });
 
         it('should format billions correctly', () => {
@@ -84,7 +84,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 2.500.000.000,00');
+            expect(result).toBe('R$\u00A02.500.000.000,00');
         });
 
         it('should handle very large numbers', () => {
@@ -94,7 +94,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 999.999.999.999,99');
+            expect(result).toBe('R$\u00A0999.999.999.999,99');
         });
     });
 
@@ -106,7 +106,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('-R$ 1.234,56');
+            expect(result).toBe('-R$\u00A01.234,56');
         });
 
         it('should format negative cents', () => {
@@ -116,7 +116,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('-R$ 0,99');
+            expect(result).toBe('-R$\u00A00,99');
         });
 
         it('should format large negative values', () => {
@@ -126,7 +126,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('-R$ 50.000,00');
+            expect(result).toBe('-R$\u00A050.000,00');
         });
     });
 
@@ -138,7 +138,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,00');
+            expect(result).toBe('R$\u00A00,00');
         });
 
         it('should format negative zero', () => {
@@ -148,7 +148,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,00');
+            expect(result).toBe('-R$\u00A00,00');
         });
 
         it('should format very small positive values', () => {
@@ -158,7 +158,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,01');
+            expect(result).toBe('R$\u00A00,01');
         });
     });
 
@@ -171,7 +171,7 @@ describe('convertToLocale', () => {
                 minimumFractionDigits: 3,
             });
 
-            expect(result).toBe('R$ 100,000');
+            expect(result).toBe('R$\u00A0100,000');
         });
 
         it('should use maximumFractionDigits parameter', () => {
@@ -182,7 +182,7 @@ describe('convertToLocale', () => {
                 maximumFractionDigits: 1,
             });
 
-            expect(result).toBe('R$ 101,0');
+            expect(result).toBe('R$\u00A0101,0');
         });
 
         it('should handle zero decimal places', () => {
@@ -194,7 +194,7 @@ describe('convertToLocale', () => {
                 maximumFractionDigits: 0,
             });
 
-            expect(result).toBe('R$ 1.235');
+            expect(result).toBe('R$\u00A01.235');
         });
 
         it('should handle many decimal places', () => {
@@ -206,7 +206,7 @@ describe('convertToLocale', () => {
                 maximumFractionDigits: 4,
             });
 
-            expect(result).toBe('R$ 1.234,5679');
+            expect(result).toBe('R$\u00A01.234,5679');
         });
     });
 
@@ -228,7 +228,7 @@ describe('convertToLocale', () => {
                 locale: 'de-DE',
             });
 
-            expect(result).toBe('1.234,56 €');
+            expect(result).toBe('1.234,56\u00A0€');
         });
 
         it('should default to en-US when locale not specified', () => {
@@ -281,7 +281,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,30');
+            expect(result).toBe('R$\u00A00,30');
         });
 
         it('should handle very small fractions', () => {
@@ -291,7 +291,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 0,00');
+            expect(result).toBe('R$\u00A00,00');
         });
 
         it('should round correctly', () => {
@@ -302,7 +302,7 @@ describe('convertToLocale', () => {
             });
 
             // Should round to R$ 2,00
-            expect(result).toBe('R$ 2,00');
+            expect(result).toBe('R$\u00A02,00');
         });
 
         it('should handle Infinity', () => {
@@ -334,7 +334,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 25.000,00');
+            expect(result).toBe('R$\u00A025.000,00');
         });
 
         it('should format monthly savings', () => {
@@ -344,7 +344,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 450,75');
+            expect(result).toBe('R$\u00A0450,75');
         });
 
         it('should format total 25-year savings', () => {
@@ -354,7 +354,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 180.000,00');
+            expect(result).toBe('R$\u00A0180.000,00');
         });
 
         it('should format financing monthly payment', () => {
@@ -364,7 +364,7 @@ describe('convertToLocale', () => {
                 locale: 'pt-BR',
             });
 
-            expect(result).toBe('R$ 680,50');
+            expect(result).toBe('R$\u00A0680,50');
         });
     });
 });
