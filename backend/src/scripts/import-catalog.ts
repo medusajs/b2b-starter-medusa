@@ -1,4 +1,6 @@
 import { MedusaContainer } from "@medusajs/framework/types"
+import { IProductModuleService, IRegionModuleService } from "@medusajs/framework/types"
+import { Modules } from "@medusajs/framework/utils"
 import fs from "fs"
 import path from "path"
 
@@ -30,12 +32,14 @@ interface ImportStats {
     }>
 }
 
-export default async function importCatalog(
+export default async function importCatalog({
+    container,
+}: {
     container: MedusaContainer
-): Promise<ImportStats> {
-    const productModuleService = container.resolve("productModuleService")
-    const productCategoryService = container.resolve("productCategoryService")
-    const regionService = container.resolve("regionService")
+}): Promise<ImportStats> {
+    const productModuleService: IProductModuleService = container.resolve(Modules.PRODUCT)
+    const regionModuleService: IRegionModuleService = container.resolve(Modules.REGION)
+    const query = container.resolve("query")
 
     const stats: ImportStats = {
         total: 0,
@@ -52,12 +56,12 @@ export default async function importCatalog(
     // 1. Verificar/Criar região BR
     let regionBR
     try {
-        const regions = await regionService.list({ currency_code: "brl" })
+        const regions = await regionModuleService.listRegions({ currency_code: "brl" })
         regionBR = regions[0]
 
         if (!regionBR) {
             console.log("🌎 Criando região BR...")
-            regionBR = await regionService.create({
+            regionBR = await regionModuleService.createRegions({
                 name: "Brasil",
                 currency_code: "brl",
                 countries: ["br"],
@@ -76,7 +80,7 @@ export default async function importCatalog(
 
     for (const catConfig of CATEGORIES_CONFIG) {
         try {
-            const categories = await productCategoryService.list({
+            const categories = await productModuleService.listProductCategories({
                 handle: catConfig.category_handle
             })
 
@@ -84,7 +88,7 @@ export default async function importCatalog(
 
             if (!category) {
                 console.log(`📁 Criando categoria: ${catConfig.name}`)
-                category = await productCategoryService.create({
+                category = await productModuleService.createProductCategories({
                     name: catConfig.name.charAt(0).toUpperCase() + catConfig.name.slice(1),
                     handle: catConfig.category_handle,
                     is_active: true,
@@ -126,13 +130,13 @@ export default async function importCatalog(
             for (const product of products) {
                 try {
                     // Verificar se produto já existe pelo handle
-                    const existing = await productModuleService.list({
+                    const existing = await productModuleService.listProducts({
                         handle: product.id
                     })
 
                     if (existing.length > 0) {
                         // Atualizar produto existente
-                        await productModuleService.update(existing[0].id, {
+                        await productModuleService.updateProducts(existing[0].id, {
                             title: product.name,
                             description: product.description || `${product.manufacturer} ${product.model}`,
                             status: product.availability ? "published" : "draft",
@@ -146,8 +150,8 @@ export default async function importCatalog(
                         })
                         stats.updated++
                     } else {
-                        // Criar novo produto
-                        const newProduct = await productModuleService.create({
+                        // Criar novo produto com variante
+                        const newProduct = await productModuleService.createProducts({
                             title: product.name,
                             handle: product.id,
                             description: product.description || `${product.manufacturer} ${product.model}`,
@@ -161,18 +165,19 @@ export default async function importCatalog(
                                 category: catConfig.name,
                                 technical_specs: product.technical_specs,
                                 image_match: product.metadata?.image_match,
+                                price_brl: product.pricing?.price_brl || product.price_brl || 0,
                             },
-                            categories: categoryId ? [{ id: categoryId }] : [],
+                            options: [{
+                                title: "Default Option",
+                            }],
                             variants: [{
                                 title: "Default",
                                 sku: product.id.toUpperCase(),
                                 manage_inventory: false,
                                 allow_backorder: true,
-                                prices: [{
-                                    amount: Math.round((product.pricing?.price_brl || product.price_brl || 0) * 100),
-                                    currency_code: "brl",
-                                    region_id: regionBR.id,
-                                }]
+                                options: {
+                                    "Default Option": "Default"
+                                }
                             }]
                         })
 
