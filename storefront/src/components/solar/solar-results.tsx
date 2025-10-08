@@ -14,6 +14,8 @@ import { ImpactoAmbientalCard } from './impacto-ambiental-card';
 import { ConformidadeCard } from './conformidade-card';
 import { toast } from '@medusajs/ui';
 import { getHelioText, getHelioTooltip } from '@/lib/copy/helio';
+import LocalizedClientLink from "@/modules/common/components/localized-client-link";
+import { sendEvent } from '@/modules/analytics/events';
 
 interface SolarResultsProps {
     calculation: SolarCalculationOutput;
@@ -62,6 +64,23 @@ export function SolarResults({
                             com irradiância média de{' '}
                             <span className="font-semibold">{dados_localizacao.hsp} kWh/m²/dia</span>
                         </p>
+                    </div>
+                    <div className="flex items-center gap-2 mr-2">
+                        <LocalizedClientLink
+                            href={`/tarifas`}
+                            className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            title={getHelioTooltip('nasa_power')}
+                            onClick={() => sendEvent('cta_validate_tariff_clicked', { from: 'solar_results' })}
+                        >
+                            Validar tarifa
+                        </LocalizedClientLink>
+                        <LocalizedClientLink
+                            href={`/cotacao`}
+                            className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors"
+                            onClick={() => sendEvent('cta_generate_proposal_clicked', { from: 'solar_results' })}
+                        >
+                            Gerar proposta
+                        </LocalizedClientLink>
                     </div>
                     {onRecalculate && (
                         <button
