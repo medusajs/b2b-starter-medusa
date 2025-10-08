@@ -21,8 +21,8 @@ interface ConsumptionStepProps {
 
 export default function ConsumptionStep({ data, onComplete, onSkip }: ConsumptionStepProps) {
     const [formData, setFormData] = useState({
-        avgMonthlyConsumption: data.consumption?.avgMonthlyConsumption || '',
-        avgMonthlyBill: data.consumption?.avgMonthlyBill || ''
+        avgMonthlyConsumption: data.consumption?.avgMonthlyKwh?.toString() || data.consumption?.avgMonthlyConsumption?.toString() || '',
+        avgMonthlyBill: data.consumption?.monthlyBill?.toString() || data.consumption?.avgMonthlyBill?.toString() || ''
     })
 
     const [inputMethod, setInputMethod] = useState<'manual' | 'bill'>('manual')
@@ -38,8 +38,11 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
 
         onComplete({
             consumption: {
+                avgMonthlyKwh: monthlyConsumption,
                 avgMonthlyConsumption: monthlyConsumption,
+                monthlyBill: monthlyBill,
                 avgMonthlyBill: monthlyBill,
+                annualKwh: monthlyConsumption * 12,
                 annualConsumption: monthlyConsumption * 12,
                 tariff
             }
@@ -75,8 +78,8 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
                     type="button"
                     onClick={() => setInputMethod('manual')}
                     className={`flex-1 p-4 rounded-lg border-2 transition-all ${inputMethod === 'manual'
-                            ? 'border-orange-500 bg-orange-50'
-                            : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-orange-500 bg-orange-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                 >
                     <Zap className="w-6 h-6 mx-auto mb-2 text-orange-500" />
@@ -87,8 +90,8 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
                     type="button"
                     onClick={() => setInputMethod('bill')}
                     className={`flex-1 p-4 rounded-lg border-2 transition-all ${inputMethod === 'bill'
-                            ? 'border-orange-500 bg-orange-50'
-                            : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-orange-500 bg-orange-50'
+                        : 'border-gray-200 hover:border-gray-300'
                         }`}
                 >
                     <Upload className="w-6 h-6 mx-auto mb-2 text-orange-500" />

@@ -49,12 +49,15 @@ export default function RoofStep({ data, onComplete, onSkip }: RoofStepProps) {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
+        const areaValue = parseFloat(formData.roofArea)
         onComplete({
             roof: {
                 type: formData.roofType as any,
-                availableArea: parseFloat(formData.roofArea),
+                area: areaValue,
+                availableArea: areaValue,
                 orientation: formData.roofOrientation as any,
                 inclination: parseFloat(formData.roofInclination),
+                shading: formData.hasShading ? 'moderate' : 'none',
                 hasShading: formData.hasShading,
                 condition: 'good' // Valor padrão
             }
@@ -97,8 +100,8 @@ export default function RoofStep({ data, onComplete, onSkip }: RoofStepProps) {
                                 type="button"
                                 onClick={() => setFormData({ ...formData, roofType: type.id })}
                                 className={`p-4 rounded-lg border-2 transition-all text-left ${formData.roofType === type.id
-                                        ? 'border-orange-500 bg-orange-50'
-                                        : 'border-gray-200 hover:border-gray-300'
+                                    ? 'border-orange-500 bg-orange-50'
+                                    : 'border-gray-200 hover:border-gray-300'
                                     }`}
                             >
                                 <span className="text-2xl mb-2 block">{type.icon}</span>
@@ -140,8 +143,8 @@ export default function RoofStep({ data, onComplete, onSkip }: RoofStepProps) {
                                 type="button"
                                 onClick={() => setFormData({ ...formData, roofOrientation: orientation.id })}
                                 className={`p-3 rounded-lg border-2 transition-all ${formData.roofOrientation === orientation.id
-                                        ? 'border-orange-500 bg-orange-50'
-                                        : 'border-gray-200 hover:border-gray-300'
+                                    ? 'border-orange-500 bg-orange-50'
+                                    : 'border-gray-200 hover:border-gray-300'
                                     }`}
                             >
                                 <div className="text-2xl mb-1">{orientation.angle}</div>
@@ -203,7 +206,7 @@ export default function RoofStep({ data, onComplete, onSkip }: RoofStepProps) {
                     <Button
                         type="button"
                         variant="outline"
-                        size="sm"
+                        size="small"
                     >
                         Adicionar Fotos
                     </Button>

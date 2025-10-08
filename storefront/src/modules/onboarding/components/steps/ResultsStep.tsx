@@ -42,7 +42,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             await new Promise(resolve => setTimeout(resolve, 2000))
 
             // Cálculo simplificado
-            const monthlyConsumption = data.consumption?.monthlyConsumption || 350
+            const monthlyConsumption = data.consumption?.avgMonthlyKwh || data.consumption?.avgMonthlyConsumption || 350
             const annualConsumption = monthlyConsumption * 12
 
             // Fator de capacidade médio no Brasil: ~17%
@@ -67,7 +67,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             const pricePerWatt = 4.5 // R$/Wp
             const estimatedInvestment = actualCapacity * 1000 * pricePerWatt
 
-            const monthlyBill = data.consumption?.monthlyBill || 280
+            const monthlyBill = data.consumption?.monthlyBill || data.consumption?.avgMonthlyBill || 280
             const coveragePercentage = Math.min(estimatedGeneration / annualConsumption, 0.95)
             const monthlySavings = monthlyBill * coveragePercentage
             const annualSavings = monthlySavings * 12
@@ -111,7 +111,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
     if (isCalculating) {
         return (
             <div className="text-center py-12">
-                <HelioVideo 
+                <HelioVideo
                     variant="compact"
                     autoPlay
                     loop
@@ -137,7 +137,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
         <div className="space-y-6">
             {/* Hélio em modo celebration */}
             <div className="flex justify-center mb-6">
-                <HelioVideo 
+                <HelioVideo
                     variant="celebration"
                     autoPlay
                     loop={false}
@@ -187,7 +187,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             {/* Financial Summary */}
             <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <h4 className="font-bold text-blue-900 mb-4 text-lg">💰 Resumo Financeiro</h4>
-                
+
                 <div className="grid grid-cols-2 gap-6">
                     <div>
                         <div className="text-sm text-blue-700 mb-1">Investimento Estimado</div>
@@ -229,7 +229,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             {/* Environmental Impact */}
             <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                 <h4 className="font-bold text-green-900 mb-3 text-lg">🌱 Impacto Ambiental</h4>
-                
+
                 <div className="flex items-center justify-between">
                     <div>
                         <div className="text-sm text-green-700 mb-1">Redução de CO₂ por ano</div>
@@ -248,7 +248,7 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             {/* Next Steps */}
             <div className="bg-gray-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-900 mb-4">📋 Próximos Passos</h4>
-                
+
                 <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />

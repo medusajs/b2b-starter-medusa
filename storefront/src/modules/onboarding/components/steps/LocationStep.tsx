@@ -109,6 +109,7 @@ export default function LocationStep({ data, onComplete, onSkip }: LocationStepP
                         <Label htmlFor="state">Estado</Label>
                         <select
                             id="state"
+                            aria-label="Estado"
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                             value={formData.state}
                             onChange={(e) => setFormData({ ...formData, state: e.target.value })}
@@ -128,7 +129,7 @@ export default function LocationStep({ data, onComplete, onSkip }: LocationStepP
                         id="zipCode"
                         placeholder="00000-000"
                         value={formData.zipCode}
-                        onChange={(e) => {
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             // Auto-format CEP
                             let value = e.target.value.replace(/\D/g, '')
                             if (value.length > 5) {
