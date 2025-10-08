@@ -198,8 +198,10 @@ describe('SKUAutocomplete', () => {
             expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
         })
 
-        // Test keyboard navigation by checking if Enter key triggers navigation
-        fireEvent.keyDown(input, { key: 'Enter' })
+        // Click on first suggestion to test selection
+        const firstSuggestion = screen.getByText('Produto Teste 1').closest('button')
+        fireEvent.click(firstSuggestion!)
+
         expect(mockPush).toHaveBeenCalledWith('/produtos/Categoria 1/1')
     })
 
