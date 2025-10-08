@@ -6,6 +6,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { clx } from '@medusajs/ui'
 
 interface SKUQRCodeProps {
@@ -52,7 +53,7 @@ export function SKUQRCode({
 
     // Compartilhar via Web Share API (mobile)
     const handleShare = async () => {
-        if (navigator.share) {
+        if (typeof navigator !== 'undefined' && navigator.share) {
             try {
                 await navigator.share(shareData)
             } catch (error) {
@@ -112,6 +113,7 @@ export function SKUQRCode({
                             <button
                                 onClick={() => setIsOpen(false)}
                                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                                aria-label="Fechar modal"
                             >
                                 <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -122,11 +124,13 @@ export function SKUQRCode({
                         {/* QR Code Image */}
                         <div className="flex justify-center mb-4">
                             <div className="bg-white p-4 rounded-lg border-2 border-gray-200">
-                                <img
+                                <Image
                                     src={qrCodeUrl}
                                     alt={`QR Code para SKU ${sku}`}
+                                    width={size}
+                                    height={size}
                                     className="w-full h-auto"
-                                    style={{ maxWidth: size }}
+                                    unoptimized
                                 />
                             </div>
                         </div>
@@ -157,10 +161,11 @@ export function SKUQRCode({
                                 <span>Baixar</span>
                             </button>
 
-                            {navigator.share && (
+                            {typeof window !== 'undefined' && 'share' in navigator && (
                                 <button
                                     onClick={handleShare}
                                     className="flex-1 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+                                    aria-label="Compartilhar QR Code"
                                 >
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />

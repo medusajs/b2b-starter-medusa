@@ -55,7 +55,7 @@ export default function PanelDetection() {
             toast.success("Detecção concluída com sucesso!")
         } catch (error) {
             console.error('Detection error:', error)
-            const message = error instanceof SolarCVError
+            const message = error instanceof Error
                 ? error.message
                 : "Erro ao processar a imagem. Tente novamente."
             toast.error(message)

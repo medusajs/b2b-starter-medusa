@@ -12,6 +12,7 @@ import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-accou
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { ThemeToggle } from "@/components/theme"
+import { SKUHistoryDropdown } from "@/lib/sku-analytics"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
@@ -65,6 +66,8 @@ export async function NavigationHeader() {
             </div>
 
             <div className="h-4 w-px bg-[var(--border)] hidden small:block" />
+
+            <SKUHistoryDropdown />
 
             {/* <QuoteLink /> */}
 

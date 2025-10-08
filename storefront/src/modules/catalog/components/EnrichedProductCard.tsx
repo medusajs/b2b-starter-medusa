@@ -16,7 +16,7 @@ export interface EnrichedProductData {
     price_brl?: number
     badges: Array<{
         text: string
-        variant: "success" | "warning" | "info" | "premium" | "default"
+        variant: "success" | "primary" | "info" | "warning" | "default"
     }>
     microcopy: {
         short_description: string

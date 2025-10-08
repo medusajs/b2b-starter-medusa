@@ -3,7 +3,7 @@
  * GET /api/products/by-sku/:sku
  */
 
-import type { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 
 export async function GET(
     req: MedusaRequest,
@@ -19,7 +19,7 @@ export async function GET(
     }
 
     try {
-        const productModuleService = req.scope.resolve("productModuleService")
+        const productModuleService = req.scope.resolve("productModuleService") as any
 
         // Busca produtos por SKU (exact match)
         const products = await productModuleService.list({
@@ -104,7 +104,7 @@ export async function searchBySKU(
     }
 
     try {
-        const productModuleService = req.scope.resolve("productModuleService")
+        const productModuleService = req.scope.resolve("productModuleService") as any
 
         // Busca parcial de SKU
         const products = await productModuleService.list({}, {
