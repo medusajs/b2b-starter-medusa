@@ -16,6 +16,7 @@ import type {
     UseSolarKitsReturn,
 } from '@/types/solar-calculator';
 import { solarCalculatorClient } from '@/lib/solar-calculator-client';
+import { usePostHog } from '@/providers/posthog-provider';
 
 // ============================================================================
 // useSolarCalculator Hook
@@ -28,6 +29,7 @@ export function useSolarCalculator(
     options: UseSolarCalculatorOptions = {}
 ): UseSolarCalculatorReturn {
     const { autoCalculate = false, onSuccess, onError } = options;
+    const { trackSolarCalculation } = usePostHog();
 
     const [result, setResult] = useState<SolarCalculationOutput | null>(null);
     const [loading, setLoading] = useState(false);
@@ -80,16 +82,22 @@ export function useSolarCalculator(
 
                 setResult(calculation);
                 onSuccess?.(calculation);
+
+                // Track successful calculation
+                trackSolarCalculation(input, true);
             } catch (err) {
                 const error = err instanceof Error ? err : new Error('Erro ao calcular sistema solar');
                 console.error('[useSolarCalculator] Erro:', error);
                 setError(error);
                 onError?.(error);
+
+                // Track failed calculation
+                trackSolarCalculation(input, false, error.message);
             } finally {
                 setLoading(false);
             }
         },
-        [onSuccess, onError]
+        [onSuccess, onError, trackSolarCalculation]
     );
 
     const reset = useCallback(() => {
