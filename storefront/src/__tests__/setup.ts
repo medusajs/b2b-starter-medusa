@@ -1,11 +1,26 @@
-import { expect, afterEach } from 'vitest'
-import { cleanup } from '@testing-library/react'
-import * as matchers from '@testing-library/jest-dom/matchers'
+import '@testing-library/jest-dom'
 
-// Extende os matchers do Jest DOM
-expect.extend(matchers)
+// Mock do Next.js router
+jest.mock('next/navigation', () => ({
+    useRouter() {
+        return {
+            push: jest.fn(),
+            replace: jest.fn(),
+            prefetch: jest.fn(),
+        }
+    },
+    useSearchParams() {
+        return new URLSearchParams()
+    },
+    usePathname() {
+        return '/'
+    },
+}))
 
-// Limpa após cada teste
-afterEach(() => {
-    cleanup()
+// Mock do fetch global
+global.fetch = jest.fn()
+
+// Configurações globais de teste
+beforeEach(() => {
+    jest.clearAllMocks()
 })

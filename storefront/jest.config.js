@@ -1,0 +1,30 @@
+{
+    "preset": "ts-jest",
+        "testEnvironment": "jsdom",
+            "setupFilesAfterEnv": ["<rootDir>/src/__tests__/setup.ts"],
+                "testMatch": [
+                    "<rootDir>/src/**/__tests__/**/*.(ts|tsx)",
+                    "<rootDir>/src/**/*.(test|spec).(ts|tsx)"
+                ],
+                    "collectCoverageFrom": [
+                        "src/**/*.(ts|tsx)",
+                        "!src/**/*.d.ts",
+                        "!src/**/__tests__/**",
+                        "!src/**/*.stories.(ts|tsx)"
+                    ],
+                        "moduleNameMapping": {
+        "^@/(.*)$": "<rootDir>/src/$1",
+            "^@/components/(.*)$": "<rootDir>/src/components/$1",
+                "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
+                    "^@/modules/(.*)$": "<rootDir>/src/modules/$1",
+                        "^@/types/(.*)$": "<rootDir>/src/types/$1"
+    },
+    "transform": {
+        "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+        "testPathIgnorePatterns": ["/node_modules/", "/.next/"],
+            "transformIgnorePatterns": [
+                "/node_modules/(?!(@medusajs|@headlessui|@radix-ui|@heroicons)/)"
+            ]
+}
