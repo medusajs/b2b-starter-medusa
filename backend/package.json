@@ -21,6 +21,8 @@
     "seed:catalog": "medusa exec ./src/scripts/seed-catalog.ts",
     "seed:catalog-integrated": "medusa exec ./src/scripts/seed-catalog-integrated.ts",
     "seed:simple": "medusa exec ./src/scripts/simple-seed.ts",
+    "catalog:sku:gen": "medusa exec ./src/scripts/gen-sku-registry.ts",
+    "catalog:validate": "medusa exec ./src/scripts/validate-catalog.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",

@@ -4,20 +4,25 @@ import { sdk } from "@/lib/config"
 import medusaError from "@/lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
+import { FALLBACK_REGIONS, logFallback } from "./fallbacks"
 
 export const listRegions = async (): Promise<HttpTypes.StoreRegion[]> => {
   const next = {
     ...(await getCacheOptions("regions")),
   }
 
-  return sdk.client
-    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
-      method: "GET",
-      next,
-      cache: "force-cache",
-    })
-    .then(({ regions }: { regions: HttpTypes.StoreRegion[] }) => regions)
-    .catch(medusaError)
+  try {
+    return await sdk.client
+      .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
+        method: "GET",
+        next,
+        cache: "force-cache",
+      })
+      .then(({ regions }: { regions: HttpTypes.StoreRegion[] }) => regions)
+  } catch (error) {
+    logFallback("regions", error instanceof Error ? error.message : "Unknown error")
+    return FALLBACK_REGIONS as HttpTypes.StoreRegion[]
+  }
 }
 
 export const retrieveRegion = async (

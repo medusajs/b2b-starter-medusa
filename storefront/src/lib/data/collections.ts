@@ -3,6 +3,7 @@
 import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
+import { FALLBACK_COLLECTIONS, logFallback } from "./fallbacks"
 
 // ==========================================
 // Retry Utility
@@ -18,17 +19,23 @@ async function sleep(ms: number): Promise<void> {
 async function retryWithBackoff<T>(
   fn: () => Promise<T>,
   retries: number = MAX_RETRIES,
-  delay: number = RETRY_DELAY_MS
+  delay: number = RETRY_DELAY_MS,
+  fallback?: T
 ): Promise<T> {
   try {
     return await fn()
   } catch (error) {
-    if (retries === 0) throw error
+    if (retries === 0) {
+      if (fallback !== undefined) {
+        return fallback
+      }
+      throw error
+    }
 
     console.warn(`[Collections] Retrying after ${delay}ms... (${retries} retries left)`)
     await sleep(delay)
 
-    return retryWithBackoff(fn, retries - 1, delay * 2)
+    return retryWithBackoff(fn, retries - 1, delay * 2, fallback)
   }
 }
 
@@ -61,6 +68,11 @@ export const listCollections = async (
   queryParams.limit = queryParams.limit || "100"
   queryParams.offset = queryParams.offset || "0"
 
+  const fallbackResult = {
+    collections: FALLBACK_COLLECTIONS as HttpTypes.StoreCollection[],
+    count: FALLBACK_COLLECTIONS.length
+  }
+
   return retryWithBackoff(
     () => sdk.client
       .fetch<{ collections: HttpTypes.StoreCollection[]; count: number }>(
@@ -72,8 +84,13 @@ export const listCollections = async (
         }
       )
       .then(({ collections }) => ({ collections, count: collections.length })),
-    MAX_RETRIES
-  )
+    MAX_RETRIES,
+    RETRY_DELAY_MS,
+    fallbackResult
+  ).catch((error) => {
+    logFallback("collections", error.message)
+    return fallbackResult
+  })
 }
 
 export const getCollectionByHandle = async (

@@ -6,6 +6,7 @@ import {
 import { createProductCategoriesWorkflow, createProductsWorkflow } from "@medusajs/core-flows";
 import * as fs from "fs";
 import * as path from "path";
+import * as crypto from "crypto";
 
 interface CatalogItem {
     id?: string;
@@ -44,6 +45,70 @@ interface CatalogItem {
     total_inverters?: number;
     total_power_w?: number;
     estrutura?: string;
+}
+
+// ==========================================================
+// SKU Registry support + deterministic SKU generation
+// ==========================================================
+
+type SkuRegistry = {
+  version?: string
+  generated_at?: string
+  items?: Array<{ category: string; id: string; sku: string }>
+  map?: Record<string, string> // optional: key `${category}:${id}` -> sku
+}
+
+const loadSkuRegistry = (): SkuRegistry | null => {
+  try {
+    const envRegistry = process.env.REGISTRY_PATH
+    const defaultPath = path.join(__dirname, "../data/catalog/unified_schemas/sku_registry.json")
+    const candidate = envRegistry || defaultPath
+    if (fs.existsSync(candidate)) {
+      const raw = fs.readFileSync(candidate, "utf-8")
+      const parsed: SkuRegistry = JSON.parse(raw)
+      // normalize to map
+      if (!parsed.map && parsed.items) {
+        parsed.map = Object.fromEntries(parsed.items.map((x) => [`${x.category}:${x.id}`, x.sku]))
+      }
+      return parsed
+    }
+  } catch {}
+  return null
+}
+
+const toSlug = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .toUpperCase()
+
+const hash8 = (s: string) => crypto.createHash("sha1").update(s).digest("hex").slice(0, 8).toUpperCase()
+
+const cleanSku = (s: string) => s.replace(/[^A-Z0-9\-]/g, "").slice(0, 64)
+
+const stableSku = (item: CatalogItem, category: string, registry: SkuRegistry | null): string => {
+  // Priority 1: explicit sku
+  if (item.sku && /[A-Za-z0-9]/.test(item.sku)) return cleanSku(item.sku.toUpperCase())
+
+  // Priority 2: registry mapping
+  const id = item.id?.toString() || ""
+  const regKey = `${category}:${id}`
+  const regSku = registry?.map?.[regKey]
+  if (regSku) return cleanSku(regSku.toUpperCase())
+
+  // Priority 3: use unified id if exists
+  if (id) return cleanSku(id.toUpperCase())
+
+  // Priority 4: deterministic synthesis from attributes
+  const brand = (item.manufacturer || "YSH").toString()
+  const model = (item.model || item.name || "").toString()
+  const power = (item.potencia_kwp || item.kwp || (item as any).power_w || (item as any).price_brl || "").toString()
+  const base = `${category}-${brand}-${model}-${power}`
+  const slug = toSlug(base)
+  const h = hash8(base)
+  return cleanSku(`${slug}-${h}`)
 }
 
 const parsePrice = (price: any): number => {
@@ -134,6 +199,7 @@ export default async function seedCatalog({ container }: ExecArgs) {
     }
 
     // Read catalog files from unified_schemas
+    const registry = loadSkuRegistry()
     const catalogFiles = [
         { file: "kits_unified.json", category: "kits" },
         { file: "panels_unified.json", category: "panels" },
@@ -163,7 +229,7 @@ export default async function seedCatalog({ container }: ExecArgs) {
 
         logger.info(`Found ${items.length} items in ${file}`);
 
-        const products: any[] = [];
+                const products: any[] = [];
 
         for (const item of items) {
             try {
@@ -212,7 +278,7 @@ export default async function seedCatalog({ container }: ExecArgs) {
                     }],
                     variants: [{
                         title: item.model || item.sku || "Padrão",
-                        sku: item.sku || item.id || `YSH-${category.toUpperCase()}-${Date.now()}`,
+                        sku: stableSku(item, category, registry),
                         prices: price > 0 ? [{
                             amount: Math.round(price * 100), // Convert to cents
                             currency_code: "brl"

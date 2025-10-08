@@ -3,6 +3,7 @@
 import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
+import { FALLBACK_CATEGORIES, logFallback } from "./fallbacks"
 
 // ==========================================
 // Retry Utility
@@ -18,17 +19,23 @@ async function sleep(ms: number): Promise<void> {
 async function retryWithBackoff<T>(
   fn: () => Promise<T>,
   retries: number = MAX_RETRIES,
-  delay: number = RETRY_DELAY_MS
+  delay: number = RETRY_DELAY_MS,
+  fallback?: T
 ): Promise<T> {
   try {
     return await fn()
   } catch (error) {
-    if (retries === 0) throw error
+    if (retries === 0) {
+      if (fallback !== undefined) {
+        return fallback
+      }
+      throw error
+    }
 
     console.warn(`[Categories] Retrying after ${delay}ms... (${retries} retries left)`)
     await sleep(delay)
 
-    return retryWithBackoff(fn, retries - 1, delay * 2)
+    return retryWithBackoff(fn, retries - 1, delay * 2, fallback)
   }
 }
 
@@ -57,8 +64,13 @@ export const listCategories = async (
         }
       )
       .then(({ product_categories }) => product_categories),
-    MAX_RETRIES
-  )
+    MAX_RETRIES,
+    RETRY_DELAY_MS,
+    FALLBACK_CATEGORIES as HttpTypes.StoreProductCategory[]
+  ).catch((error) => {
+    logFallback("categories", error.message)
+    return FALLBACK_CATEGORIES as HttpTypes.StoreProductCategory[]
+  })
 }
 
 export const getCategoryByHandle = async (
