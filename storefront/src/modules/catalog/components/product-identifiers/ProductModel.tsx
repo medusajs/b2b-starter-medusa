@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { clx } from "@medusajs/ui"
+import { trackModelLinkClick } from "@/lib/sku-analytics"
 
 interface ProductModelProps {
     manufacturer: string
@@ -47,6 +48,7 @@ export const ProductModel = ({
             <Link
                 href={`/produtos?manufacturer=${encodeURIComponent(manufacturer)}&model=${encodeURIComponent(model)}`}
                 className="hover:text-blue-600 transition-colors"
+                onClick={() => trackModelLinkClick(manufacturer, model)}
             >
                 {content}
             </Link>

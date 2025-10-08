@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { clx } from "@medusajs/ui"
+import { trackSKUCopy, useSKUHistory } from "@/lib/sku-analytics"
+import { SKUQRCodeButton } from "@/components/SKUQRCode"
 
 interface ProductSKUProps {
     sku: string
@@ -7,6 +9,10 @@ interface ProductSKUProps {
     copyable?: boolean
     size?: "sm" | "md" | "lg"
     className?: string
+    productId?: string
+    productName?: string
+    category?: string
+    showQRCode?: boolean  // Exibe botão QR Code (mobile)
 }
 
 export const ProductSKU = ({
@@ -14,15 +20,34 @@ export const ProductSKU = ({
     internal_sku,
     copyable = true,
     size = "md",
-    className
+    className,
+    productId,
+    productName,
+    category,
+    showQRCode = true,
 }: ProductSKUProps) => {
     const [copied, setCopied] = useState(false)
+    const { addToHistory } = useSKUHistory()
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText(sku)
             setCopied(true)
             setTimeout(() => setCopied(false), 2000)
+
+            // Track analytics
+            trackSKUCopy(sku, productId, category)
+
+            // Add to history
+            addToHistory({
+                sku,
+                timestamp: Date.now(),
+                product: productId ? {
+                    id: productId,
+                    name: productName || '',
+                    category: category || '',
+                } : undefined,
+            })
         } catch (err) {
             console.error("Failed to copy SKU:", err)
         }
@@ -61,6 +86,12 @@ export const ProductSKU = ({
                         </svg>
                     )}
                 </button>
+            )}
+            {showQRCode && (
+                <SKUQRCodeButton
+                    sku={sku}
+                    productName={productName}
+                />
             )}
             {internal_sku && (
                 <span className="text-xs text-gray-400" title="Referência Interna">

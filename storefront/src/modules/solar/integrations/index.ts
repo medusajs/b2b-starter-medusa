@@ -3,7 +3,8 @@
  * Funções de integração com outros módulos
  */
 
-import type { KitRecomendado, SolarCalculationOutput } from '@/types/solar-calculator';
+import type { KitRecomendado, SolarCalculationOutput, SolarCalculationInput } from '@/types/solar-calculator';
+import * as tracking from '@/lib/analytics/solar-tracking';
 
 // ============================================================================
 // Product Integration
@@ -133,55 +134,8 @@ export function cvAnalysisToCalculatorInput(
 }
 
 // ============================================================================
-// Analytics Integration
+// Analytics Integration (Legacy - see tracking re-exports below)
 // ============================================================================
-
-/**
- * Eventos de analytics para rastreamento
- */
-export interface SolarAnalyticsEvent {
-    event: string;
-    properties: Record<string, any>;
-}
-
-export function trackCalculation(calculation: SolarCalculationOutput): SolarAnalyticsEvent {
-    return {
-        event: 'solar_calculation_completed',
-        properties: {
-            kwp_proposto: calculation.dimensionamento.kwp_proposto,
-            investimento_total: calculation.financeiro.capex.total_brl,
-            payback_anos: calculation.financeiro.retorno.payback_simples_anos,
-            estado: calculation.dados_localizacao.estado,
-            numero_kits: calculation.kits_recomendados.length,
-            top_kit_score: calculation.kits_recomendados[0]?.match_score || 0,
-        },
-    };
-}
-
-export function trackKitSelection(kit: KitRecomendado): SolarAnalyticsEvent {
-    return {
-        event: 'solar_kit_selected',
-        properties: {
-            kit_id: kit.kit_id,
-            kit_name: kit.nome,
-            kwp: kit.potencia_kwp,
-            price: kit.preco_brl,
-            match_score: kit.match_score,
-        },
-    };
-}
-
-export function trackQuoteRequest(quoteData: SolarQuoteData): SolarAnalyticsEvent {
-    return {
-        event: 'solar_quote_requested',
-        properties: {
-            kit_id: quoteData.items[0]?.kit_id,
-            kwp: quoteData.calculation_details.kwp_proposto,
-            investimento: quoteData.calculation_details.investimento_total,
-            estado: quoteData.calculation_details.uf,
-        },
-    };
-}
 
 // ============================================================================
 // Lead Quote Integration
@@ -235,3 +189,18 @@ export function getProductsUrl(countryCode: string = 'br', category?: string): s
 export function getQuotesUrl(countryCode: string = 'br'): string {
     return `/${countryCode}/account/quotes`;
 }
+
+// ============================================================================
+// Re-export Analytics Tracking
+// ============================================================================
+
+export {
+    trackCalculation,
+    trackKitSelection,
+    trackQuoteRequest,
+    trackAddKitToCart,
+    trackSaveCalculation,
+    trackCompareCalculations,
+    trackShareCalculation,
+    trackCVIntegration,
+} from '@/lib/analytics/solar-tracking';
