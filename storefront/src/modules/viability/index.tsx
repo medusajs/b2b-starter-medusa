@@ -7,10 +7,18 @@
  * Saídas: kWp proposto, geração anual (MWh), PR, perdas (%), layout
  */
 
+// Components
 export { default as ViabilityCalculator } from './components/ViabilityCalculator'
 export { default as RoofAnalysis } from './components/RoofAnalysis'
 export { default as EnergyEstimator } from './components/EnergyEstimator'
 export { default as SystemSizing } from './components/SystemSizing'
 export { default as ViabilityReport } from './components/ViabilityReport'
+
+// Context
 export { ViabilityProvider, useViability } from './context/ViabilityContext'
+
+// Types
 export * from './types'
+
+// Integrations
+export * from './integrations'

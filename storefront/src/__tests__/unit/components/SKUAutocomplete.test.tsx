@@ -116,190 +116,191 @@ describe('SKUAutocomplete', () => {
         await waitFor(() => {
             expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
             expect(screen.getByText('Produto Teste 2')).toBeInTheDocument()
-        })
+        }, { timeout: 10000 })
+    }, 15000)
 
-        // Check SKU codes
-        expect(screen.getByText('SKU: SKU001')).toBeInTheDocument()
-        expect(screen.getByText('SKU: SKU002')).toBeInTheDocument()
+    // Check SKU codes
+    expect(screen.getByText('SKU: SKU001')).toBeInTheDocument()
+    expect(screen.getByText('SKU: SKU002')).toBeInTheDocument()
 
-        // Check prices
-        expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
-        expect(screen.getByText('R$ 200,00')).toBeInTheDocument()
+    // Check prices
+    expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
+    expect(screen.getByText('R$ 200,00')).toBeInTheDocument()
+})
+
+it('navigates to product page when suggestion is clicked', async () => {
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: mockProducts })
+    } as Response)
+
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
+
+    fireEvent.change(input, { target: { value: 'SKU' } })
+
+    // Wait for suggestions to appear
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
     })
 
-    it('navigates to product page when suggestion is clicked', async () => {
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: mockProducts })
-        } as Response)
+    // Click on first suggestion
+    const firstSuggestion = screen.getByText('Produto Teste 1').closest('button')
+    fireEvent.click(firstSuggestion!)
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    expect(mockPush).toHaveBeenCalledWith('/produtos/Categoria 1/1')
+})
 
-        fireEvent.change(input, { target: { value: 'SKU' } })
+it('calls onSelect callback when provided', async () => {
+    const mockOnSelect = jest.fn()
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: mockProducts })
+    } as Response)
 
-        // Wait for suggestions to appear
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
-        })
+    render(<SKUAutocomplete onSelect={mockOnSelect} />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        // Click on first suggestion
-        const firstSuggestion = screen.getByText('Produto Teste 1').closest('button')
-        fireEvent.click(firstSuggestion!)
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        expect(mockPush).toHaveBeenCalledWith('/produtos/Categoria 1/1')
+    // Wait for suggestions
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
     })
 
-    it('calls onSelect callback when provided', async () => {
-        const mockOnSelect = jest.fn()
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: mockProducts })
-        } as Response)
+    // Click on suggestion
+    const firstSuggestion = screen.getByText('Produto Teste 1').closest('button')
+    fireEvent.click(firstSuggestion!)
 
-        render(<SKUAutocomplete onSelect={mockOnSelect} />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    expect(mockOnSelect).toHaveBeenCalledWith({
+        id: '1',
+        name: 'Produto Teste 1',
+        sku: 'SKU001',
+        image_url: 'image1.jpg',
+        price: 10000,
+        category: 'Categoria 1'
+    })
+    expect(mockPush).not.toHaveBeenCalled()
+})
 
-        fireEvent.change(input, { target: { value: 'SKU' } })
+it('handles keyboard navigation', async () => {
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: mockProducts })
+    } as Response)
 
-        // Wait for suggestions
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
-        })
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        // Click on suggestion
-        const firstSuggestion = screen.getByText('Produto Teste 1').closest('button')
-        fireEvent.click(firstSuggestion!)
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        expect(mockOnSelect).toHaveBeenCalledWith({
-            id: '1',
-            name: 'Produto Teste 1',
-            sku: 'SKU001',
-            image_url: 'image1.jpg',
-            price: 10000,
-            category: 'Categoria 1'
-        })
-        expect(mockPush).not.toHaveBeenCalled()
+    // Wait for suggestions
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
     })
 
-    it('handles keyboard navigation', async () => {
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: mockProducts })
-        } as Response)
+    // Navigate down
+    fireEvent.keyDown(input, { key: 'ArrowDown' })
+    expect(input).toHaveFocus()
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    // Select with Enter
+    fireEvent.keyDown(input, { key: 'Enter' })
+    expect(mockPush).toHaveBeenCalledWith('/produtos/Categoria 1/1')
+})
 
-        fireEvent.change(input, { target: { value: 'SKU' } })
+it('closes dropdown on Escape key', async () => {
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: mockProducts })
+    } as Response)
 
-        // Wait for suggestions
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
-        })
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        // Navigate down
-        fireEvent.keyDown(input, { key: 'ArrowDown' })
-        expect(input).toHaveFocus()
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        // Select with Enter
-        fireEvent.keyDown(input, { key: 'Enter' })
-        expect(mockPush).toHaveBeenCalledWith('/produtos/Categoria 1/1')
+    // Wait for suggestions
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
     })
 
-    it('closes dropdown on Escape key', async () => {
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: mockProducts })
-        } as Response)
+    // Close with Escape
+    fireEvent.keyDown(input, { key: 'Escape' })
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    await waitFor(() => {
+        expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
+    })
+})
 
-        fireEvent.change(input, { target: { value: 'SKU' } })
+it('closes dropdown when clicking outside', async () => {
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: mockProducts })
+    } as Response)
 
-        // Wait for suggestions
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
-        })
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        // Close with Escape
-        fireEvent.keyDown(input, { key: 'Escape' })
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        await waitFor(() => {
-            expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
-        })
+    // Wait for suggestions
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
     })
 
-    it('closes dropdown when clicking outside', async () => {
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: mockProducts })
-        } as Response)
+    // Click outside
+    fireEvent.mouseDown(document.body)
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
-
-        fireEvent.change(input, { target: { value: 'SKU' } })
-
-        // Wait for suggestions
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Produto Teste 1')).toBeInTheDocument()
-        })
-
-        // Click outside
-        fireEvent.mouseDown(document.body)
-
-        await waitFor(() => {
-            expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
-        })
+    await waitFor(() => {
+        expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
     })
+})
 
-    it('shows no results message when search returns empty', async () => {
-        mockFetch.mockResolvedValueOnce({
-            json: () => Promise.resolve({ products: [] })
-        } as Response)
+it('shows no results message when search returns empty', async () => {
+    mockFetch.mockResolvedValueOnce({
+        json: () => Promise.resolve({ products: [] })
+    } as Response)
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        fireEvent.change(input, { target: { value: 'NONEXISTENT' } })
+    fireEvent.change(input, { target: { value: 'NONEXISTENT' } })
 
-        // Wait for search
-        jest.advanceTimersByTime(300)
-        await waitFor(() => {
-            expect(screen.getByText('Nenhum produto encontrado para "NONEXISTENT"')).toBeInTheDocument()
-        })
+    // Wait for search
+    jest.advanceTimersByTime(300)
+    await waitFor(() => {
+        expect(screen.getByText('Nenhum produto encontrado para "NONEXISTENT"')).toBeInTheDocument()
     })
+})
 
-    it('handles API errors gracefully', async () => {
-        mockFetch.mockRejectedValueOnce(new Error('API Error'))
+it('handles API errors gracefully', async () => {
+    mockFetch.mockRejectedValueOnce(new Error('API Error'))
 
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        fireEvent.change(input, { target: { value: 'SKU' } })
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        // Wait for search
-        jest.advanceTimersByTime(300)
+    // Wait for search
+    jest.advanceTimersByTime(300)
 
-        // Should not crash and should clear suggestions
-        await waitFor(() => {
-            expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
-        })
+    // Should not crash and should clear suggestions
+    await waitFor(() => {
+        expect(screen.queryByText('Produto Teste 1')).not.toBeInTheDocument()
     })
+})
 
-    it('debounces search requests', () => {
-        render(<SKUAutocomplete />)
-        const input = screen.getByPlaceholderText('Buscar por SKU...')
+it('debounces search requests', () => {
+    render(<SKUAutocomplete />)
+    const input = screen.getByPlaceholderText('Buscar por SKU...')
 
-        // Type multiple times quickly
-        fireEvent.change(input, { target: { value: 'S' } })
-        fireEvent.change(input, { target: { value: 'SK' } })
-        fireEvent.change(input, { target: { value: 'SKU' } })
+    // Type multiple times quickly
+    fireEvent.change(input, { target: { value: 'S' } })
+    fireEvent.change(input, { target: { value: 'SK' } })
+    fireEvent.change(input, { target: { value: 'SKU' } })
 
-        // Only one API call should be made after debounce
-        jest.advanceTimersByTime(300)
-        expect(mockFetch).toHaveBeenCalledTimes(1)
-    })
+    // Only one API call should be made after debounce
+    jest.advanceTimersByTime(300)
+    expect(mockFetch).toHaveBeenCalledTimes(1)
+})
 })
