@@ -214,21 +214,25 @@ export async function addToCartBulk({
       process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
   }
 
-  await fetch(
-    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
-    {
-      method: "POST",
-      headers,
-      body: JSON.stringify({ line_items: lineItems }),
+  await retryWithBackoff(async () => {
+    return fetch(
+      `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ line_items: lineItems }),
+      }
+    )
+  }).then(async (response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`)
     }
-  )
-    .then(async () => {
-      const fullfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fullfillmentCacheTag)
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-    })
-    .catch(medusaError)
+    const fullfillmentCacheTag = await getCacheTag("fulfillment")
+    revalidateTag(fullfillmentCacheTag)
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+  })
+  .catch(medusaError)
 }
 
 export async function updateLineItem({
@@ -252,15 +256,16 @@ export async function updateLineItem({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
-    .updateLineItem(cartId, lineId, data, {}, headers)
-    .then(async () => {
-      const fullfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fullfillmentCacheTag)
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-    })
-    .catch(medusaError)
+  await retryWithBackoff(async () => {
+    return sdk.store.cart
+      .updateLineItem(cartId, lineId, data, {}, headers)
+  }).then(async () => {
+    const fullfillmentCacheTag = await getCacheTag("fulfillment")
+    revalidateTag(fullfillmentCacheTag)
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+  })
+  .catch(medusaError)
 }
 
 export async function deleteLineItem(lineId: string) {
