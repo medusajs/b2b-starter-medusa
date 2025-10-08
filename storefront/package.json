@@ -69,6 +69,7 @@
     "@babel/preset-typescript": "^7.27.1",
     "@chromatic-com/storybook": "4.1.1",
     "@medusajs/ui-preset": "2.8.4",
+    "@storybook/addon-a11y": "9.1.10",
     "@storybook/addon-docs": "9.1.10",
     "@storybook/addon-onboarding": "9.1.10",
     "@storybook/nextjs": "9.1.10",
