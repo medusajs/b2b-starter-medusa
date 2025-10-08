@@ -18,17 +18,21 @@ Este documento descreve os 12 recursos avançados implementados para gerenciamen
 ## 1. Script de Normalização de SKUs
 
 ### 📍 Localização
+
 ```
 ysh-erp/scripts/normalize_catalog_skus.py
 ```
 
 ### 🎯 Objetivo
+
 Padronizar SKUs de todos os 1,123 produtos no formato:
+
 ```
 [DISTRIBUTOR]-[CATEGORY]-[MANUFACTURER]-[MODEL]
 ```
 
 ### 📋 Exemplo
+
 ```
 NEOSOLAR-PANEL-CANADIAN-CS7L550MS
 TATICO-INVERTER-GROWATT-MIN5000TL
@@ -38,13 +42,17 @@ YSH-BATTERY-BYD-HVMB0320
 ### 🛠️ Funcionalidades
 
 #### `clean_for_sku(text)`
+
 Remove acentos, caracteres especiais e converte para maiúsculas:
+
 ```python
 "Painel Fotovoltaico 550W" → "PAINEL FOTOVOLTAICO 550W"
 ```
 
 #### `extract_distributor(product)`
+
 Mapeia origem para distribuidor:
+
 ```python
 {
     "neosolar": "NEOSOLAR",
@@ -55,25 +63,33 @@ Mapeia origem para distribuidor:
 ```
 
 #### `extract_manufacturer(product)`
+
 Limpa nome do fabricante (máx 15 caracteres):
+
 ```python
 "Canadian Solar Inc." → "CANADIAN"
 ```
 
 #### `extract_model(product)`
+
 Extrai código do modelo (máx 20 caracteres):
+
 ```python
 "CS7L-550MS 550W Mono PERC" → "CS7L550MS"
 ```
 
 #### `generate_sku(product, category)`
+
 Gera SKU padronizado:
+
 ```python
 sku = f"{distributor}-{category}-{manufacturer}-{model}"[:60]
 ```
 
 #### `check_sku_uniqueness(products)`
+
 Detecta e resolve duplicatas adicionando sufixo numérico:
+
 ```python
 # Se SKU duplicado:
 "NEOSOLAR-PANEL-CANADIAN-CS7L550MS"
@@ -92,6 +108,7 @@ python scripts/normalize_catalog_skus.py
 ```
 
 ### 📁 Arquivos Processados
+
 ```
 ysh-erp/data/catalog/
 ├── kits.json
@@ -109,7 +126,9 @@ ysh-erp/data/catalog/
 ```
 
 ### 💾 Backups
+
 O script cria backups automáticos antes de modificar:
+
 ```
 ysh-erp/backups_sku_normalization/
 ├── kits_backup_20240115_143022.json
@@ -118,6 +137,7 @@ ysh-erp/backups_sku_normalization/
 ```
 
 ### ⚠️ Importante
+
 - ✅ Cria backups antes de modificar
 - ✅ Detecta e resolve duplicatas
 - ✅ Valida SKU máximo 60 caracteres
@@ -128,6 +148,7 @@ ysh-erp/backups_sku_normalization/
 ## 2. Endpoint de Busca por SKU
 
 ### 📍 Localização
+
 ```
 backend/src/api/store/products/by-sku/[sku]/route.ts
 ```
@@ -135,6 +156,7 @@ backend/src/api/store/products/by-sku/[sku]/route.ts
 ### 🎯 Endpoints
 
 #### GET `/api/products/by-sku/:sku`
+
 Busca exata por SKU:
 
 ```bash
@@ -142,6 +164,7 @@ curl http://localhost:9000/api/products/by-sku/NEOSOLAR-PANEL-CANADIAN-CS7L550MS
 ```
 
 **Resposta:**
+
 ```json
 {
   "product": {
@@ -159,6 +182,7 @@ curl http://localhost:9000/api/products/by-sku/NEOSOLAR-PANEL-CANADIAN-CS7L550MS
 ```
 
 #### GET `/api/products/search-sku?q=`
+
 Busca fuzzy com resultados parciais:
 
 ```bash
@@ -166,6 +190,7 @@ curl http://localhost:9000/api/products/search-sku?q=CANADIAN
 ```
 
 **Resposta:**
+
 ```json
 {
   "products": [
@@ -206,6 +231,7 @@ const results = await fetch(`/api/products/search-sku?q=${query}`).then(r => r.j
 ## 3. Filtro por Manufacturer
 
 ### 📍 Localização
+
 ```
 storefront/src/modules/catalog/components/ManufacturerFilter.tsx
 ```
@@ -277,6 +303,7 @@ export default function CatalogPage() {
 ## 4. Autocomplete de SKU
 
 ### 📍 Localização
+
 ```
 storefront/src/components/SKUAutocomplete.tsx
 ```
@@ -355,6 +382,7 @@ export default function SearchBar() {
 ## 5. Sistema de Analytics
 
 ### 📍 Localização
+
 ```
 storefront/src/lib/sku-analytics.tsx
 ```
@@ -362,11 +390,14 @@ storefront/src/lib/sku-analytics.tsx
 ### 🎯 Eventos Rastreados
 
 #### 1. Copy SKU
+
 ```typescript
 trackSKUCopy(sku, productId, category)
 ```
+
 **Quando:** Usuário clica no botão copiar SKU  
 **Dados enviados:**
+
 ```json
 {
   "event": "sku_copied",
@@ -378,11 +409,14 @@ trackSKUCopy(sku, productId, category)
 ```
 
 #### 2. Model Link Click
+
 ```typescript
 trackModelLinkClick(manufacturer, model)
 ```
+
 **Quando:** Usuário clica no link de busca por modelo  
 **Dados enviados:**
+
 ```json
 {
   "event": "product_model_clicked",
@@ -393,11 +427,14 @@ trackModelLinkClick(manufacturer, model)
 ```
 
 #### 3. Category View
+
 ```typescript
 trackCategoryView(category)
 ```
+
 **Quando:** Usuário navega para página de categoria  
 **Dados enviados:**
+
 ```json
 {
   "event": "category_viewed",
@@ -409,6 +446,7 @@ trackCategoryView(category)
 ### 🔗 Integrações
 
 #### PostHog
+
 ```typescript
 if (window.posthog) {
   window.posthog.capture('sku_copied', {
@@ -418,6 +456,7 @@ if (window.posthog) {
 ```
 
 #### Google Analytics
+
 ```typescript
 if (window.gtag) {
   window.gtag('event', 'sku_copied', {
@@ -455,6 +494,7 @@ useEffect(() => {
 ## 6. QR Code para SKU
 
 ### 📍 Localização
+
 ```
 storefront/src/components/SKUQRCode.tsx
 ```
@@ -462,6 +502,7 @@ storefront/src/components/SKUQRCode.tsx
 ### 🎯 Components
 
 #### 1. `<SKUQRCode />`
+
 Modal completo com QR code:
 
 ```tsx
@@ -475,6 +516,7 @@ import { SKUQRCode } from '@/components/SKUQRCode'
 ```
 
 #### 2. `<SKUQRCodeButton />`
+
 Botão icon-only compacto:
 
 ```tsx
@@ -541,6 +583,7 @@ Já integrado em `ProductSKU`:
 ## 7. Histórico de SKUs
 
 ### 📍 Localização
+
 ```
 storefront/src/lib/sku-analytics.tsx
 ```
@@ -626,6 +669,7 @@ import { SKUHistoryDropdown } from '@/lib/sku-analytics'
 **Key:** `ysh_sku_history`  
 **Max items:** 10  
 **Format:**
+
 ```json
 [
   {
@@ -653,6 +697,7 @@ import { SKUHistoryDropdown } from '@/lib/sku-analytics'
 ## 8. Comparação de Produtos
 
 ### 📍 Localização
+
 ```
 Component: storefront/src/modules/catalog/components/ProductComparison.tsx
 Page: storefront/src/app/[countryCode]/(main)/produtos/comparar/page.tsx
@@ -665,16 +710,19 @@ Compare até 3 produtos lado a lado por SKU.
 ### 💻 Como Usar
 
 #### Via URL
+
 ```
 /produtos/comparar?skus=SKU1,SKU2,SKU3
 ```
 
 Exemplo:
+
 ```
 /produtos/comparar?skus=NEOSOLAR-PANEL-CANADIAN-CS7L550MS,TATICO-INVERTER-GROWATT-MIN5000TL,YSH-BATTERY-BYD-HVMB0320
 ```
 
 #### Programaticamente
+
 ```tsx
 import { ProductComparison } from '@modules/catalog/components/ProductComparison'
 
@@ -770,12 +818,14 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 ## 🧪 Checklist de Testes
 
 ### Backend
+
 - [ ] `/api/products/by-sku/:sku` retorna produto válido
 - [ ] `/api/products/by-sku/:sku` retorna 404 para SKU inexistente
 - [ ] `/api/products/search-sku?q=` retorna resultados fuzzy
 - [ ] Busca verifica product.sku, variant.sku, metadata.sku
 
 ### Frontend - Autocomplete
+
 - [ ] Sugestões aparecem após 3 caracteres
 - [ ] Debouncing funciona (300ms)
 - [ ] Navegação por teclado (↑/↓/Enter)
@@ -784,6 +834,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Clique fora fecha dropdown
 
 ### Frontend - Filtro Manufacturer
+
 - [ ] Dropdown exibe lista de fabricantes
 - [ ] Busca interna filtra fabricantes
 - [ ] Seleção destaca visualmente
@@ -791,6 +842,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Contador de fabricantes atualiza
 
 ### Analytics
+
 - [ ] Copy SKU envia evento PostHog
 - [ ] Copy SKU envia evento Google Analytics
 - [ ] Click em ProductModel rastreia evento
@@ -798,6 +850,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Eventos incluem timestamp
 
 ### QR Code
+
 - [ ] QR code gerado corretamente
 - [ ] Download salva como PNG
 - [ ] Web Share API funciona em mobile
@@ -805,6 +858,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Exibe apenas em mobile (<768px)
 
 ### Histórico
+
 - [ ] SKU adicionado ao copiar
 - [ ] Máximo 10 itens respeitado
 - [ ] Duplicata move para topo
@@ -813,6 +867,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Persiste em localStorage
 
 ### Comparação
+
 - [ ] URL com SKUs carrega produtos
 - [ ] Adicionar SKU atualiza URL
 - [ ] Remover SKU atualiza URL
@@ -822,6 +877,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 - [ ] Empty state quando vazio
 
 ### Script de Normalização
+
 - [ ] Processa todos 12 arquivos JSON
 - [ ] Cria backups antes de modificar
 - [ ] SKUs seguem formato padronizado
@@ -834,6 +890,7 @@ router.push(`/produtos/comparar?skus=${compareList.join(',')}`)
 ## 📚 Resumo de Arquivos
 
 ### Backend
+
 ```
 backend/src/api/store/products/
 └── by-sku/
@@ -842,6 +899,7 @@ backend/src/api/store/products/
 ```
 
 ### Frontend - Components
+
 ```
 storefront/src/
 ├── components/
@@ -855,6 +913,7 @@ storefront/src/
 ```
 
 ### Frontend - Pages
+
 ```
 storefront/src/app/[countryCode]/(main)/
 └── produtos/
@@ -863,12 +922,14 @@ storefront/src/app/[countryCode]/(main)/
 ```
 
 ### Scripts
+
 ```
 ysh-erp/scripts/
 └── normalize_catalog_skus.py
 ```
 
 ### Data
+
 ```
 ysh-erp/data/catalog/
 ├── kits.json
@@ -890,16 +951,19 @@ ysh-erp/data/catalog/
 ## 🚀 Próximos Passos
 
 ### 1. Executar Normalização
+
 ```powershell
 cd c:\Users\fjuni\ysh_medusa\ysh-erp
 python scripts/normalize_catalog_skus.py
 ```
 
 ### 2. Importar Produtos Atualizados
+
 - Via Medusa Admin: `/admin/products/import`
 - Ou script customizado de importação
 
 ### 3. Integrar SKUHistoryDropdown
+
 Adicionar ao navigation header:
 
 ```tsx
@@ -913,6 +977,7 @@ import { SKUHistoryDropdown } from '@/lib/sku-analytics'
 ```
 
 ### 4. Integrar ManufacturerFilter
+
 Adicionar à página de catálogo:
 
 ```tsx
@@ -929,6 +994,7 @@ import { ManufacturerFilter } from '@modules/catalog/components/ManufacturerFilt
 ```
 
 ### 5. Integrar SKUAutocomplete
+
 Substituir search bar atual:
 
 ```tsx
@@ -939,6 +1005,7 @@ import { SKUAutocomplete } from '@/components/SKUAutocomplete'
 ```
 
 ### 6. Adicionar Links de Comparação
+
 Em ProductCard:
 
 ```tsx
@@ -948,11 +1015,13 @@ Em ProductCard:
 ```
 
 ### 7. Testar Analytics
+
 - Verificar eventos no PostHog Dashboard
 - Verificar eventos no Google Analytics
 - Validar dados de tracking
 
 ### 8. Deploy
+
 - Build frontend: `npm run build`
 - Build backend: `npm run build`
 - Deploy em produção
@@ -963,6 +1032,7 @@ Em ProductCard:
 ## 📞 Suporte
 
 Para dúvidas ou problemas:
+
 1. Verifique este guia completo
 2. Consulte os comentários no código
 3. Execute testes com dados de exemplo
