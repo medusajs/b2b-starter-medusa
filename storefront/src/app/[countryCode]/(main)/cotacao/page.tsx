@@ -3,14 +3,43 @@
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { toast } from "@medusajs/ui"
 
 export default function CotacaoPage() {
-  const { items, remove, clear } = useLeadQuote()
+  const { items, remove, clear, add } = useLeadQuote()
+  const search = useSearchParams()
   const total = useMemo(() => items.length, [items])
   const [submitting, setSubmitting] = useState(false)
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", consent: false })
+
+  // Prefill from query (?data=...)
+  useEffect(() => {
+    try {
+      const dataParam = search?.get('data')
+      if (!dataParam) return
+      const data = JSON.parse(decodeURIComponent(dataParam))
+      const id = `viability-${Date.now()}`
+      const kwp = data.system_kwp || data.kwp_proposto
+      const gen = data.expected_generation_kwh_year || (data.expected_generation_mwh && data.expected_generation_mwh * 1000)
+      const pr = data.performance_ratio
+      const name = `Sistema ${kwp?.toFixed ? kwp.toFixed(2) : kwp} kWp • ${Math.round(gen || 0)} kWh/ano • PR ${(pr * 100).toFixed ? (pr * 100).toFixed(0) : pr}%`
+      add({ id, name, category: 'system', manufacturer: 'YSH Viabilidade' })
+      const parts = [
+        `Estado: ${data?.location?.estado || '-'}`,
+        `HSP: ${data?.location?.hsp || '-'}`,
+        `Tarifa (R$/kWh): ${data?.location?.tarifa_kwh ?? '-'}`,
+        `Inversor (kW): ${data?.inverter_kw ?? '-'}`,
+        `Módulos (un): ${data?.panels_count ?? '-'}`,
+        `Área (m²): ${data?.area_m2 ?? '-'}`,
+        data?.finance ? `CAPEX: R$ ${data.finance.capex_total_brl} • Economia/mês: R$ ${data.finance.economy_month_brl} • Payback: ${data.finance.payback_anos} anos` : undefined,
+      ].filter(Boolean) as string[]
+      setForm((f) => ({ ...f, message: `Detalhes do sistema recomendado:\n- ${parts.join('\n- ')}` }))
+    } catch {}
+    // run once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="content-container py-10">

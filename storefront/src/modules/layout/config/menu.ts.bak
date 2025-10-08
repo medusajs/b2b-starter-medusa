@@ -5,8 +5,7 @@ export type MenuItem = {
 
 export const MAIN_MENU: MenuItem[] = [
   { label: 'CatÃ¡logo', href: '/produtos' },
-  { label: 'Soluções', href: '/solucoes' },
+  { label: 'SoluÃ§Ãµes', href: '/solucoes' },
 ]
-
 
 

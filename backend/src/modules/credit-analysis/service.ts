@@ -100,10 +100,16 @@ export default class CreditAnalysisService extends MedusaService({}) {
         // Validar dados obrigatórios
         this.validateInput(input)
 
-        // Calcular relação dívida/renda
+        // Calcular relação dívida/renda usando renda mensal ou faturamento anual dividido por 12
+        const incomeBase = typeof input.monthly_income === "number" && input.monthly_income > 0
+            ? input.monthly_income
+            : input.annual_revenue
+                ? input.annual_revenue / 12
+                : 0
+
         const debtToIncomeRatio = this.calculateDebtToIncomeRatio(
             input.monthly_debts || 0,
-            input.monthly_income || input.annual_revenue ? (input.annual_revenue! / 12) : 0
+            incomeBase
         )
 
         // Criar análise (retorna dados para persistência externa)
@@ -154,7 +160,7 @@ export default class CreditAnalysisService extends MedusaService({}) {
      */
     async analyzeCreditAutomatically(analysis: any): Promise<CreditAnalysisResult> {
         if (!analysis) {
-            throw new Error(`Credit analysis ${analysisId} not found`)
+            throw new Error("Credit analysis data is required")
         }
 
         // Calcular score interno

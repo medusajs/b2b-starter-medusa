@@ -36,7 +36,7 @@ export function DimensionamentoCard({ dimensionamento }: DimensionamentoCardProp
                 {/* Potência do Sistema */}
                 <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
                     <div className="flex items-center justify-between">
-                        <span className="text-gray-700 font-medium">Potência do Sistema</span>
+                        <span className="text-gray-700 font-medium" title={getHelioTooltip('stc')}>Potência do Sistema</span>
                         <span className="text-3xl font-bold text-yellow-600">
                             {kwp_proposto.toFixed(2)} kWp
                         </span>
@@ -93,3 +93,4 @@ export function DimensionamentoCard({ dimensionamento }: DimensionamentoCardProp
         </div>
     );
 }
+

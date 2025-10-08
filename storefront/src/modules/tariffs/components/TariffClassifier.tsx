@@ -5,12 +5,14 @@
 
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTariff } from '../context/TariffContext'
 import { TariffInput } from '../types'
+import { useSearchParams } from 'next/navigation'
 
 export default function TariffClassifier() {
     const { setInput, classify, isClassifying } = useTariff()
+    const search = useSearchParams()
 
     const [formData, setFormData] = useState<TariffInput>({
         tensao_fornecimento_kv: 0.22,
@@ -19,6 +21,28 @@ export default function TariffClassifier() {
         cep: '',
         consumo_kwh_mes: 0,
     })
+
+    // Prefill from query string (?cep=...&consumo=...&distribuidora=...&tensao=...&tipo=...)
+    useEffect(() => {
+        try {
+            const cep = search?.get('cep') || ''
+            const consumo = search?.get('consumo')
+            const distribuidora = search?.get('distribuidora') || ''
+            const tensao = search?.get('tensao')
+            const tipo = search?.get('tipo') as any
+            const uf = search?.get('uf') || ''
+            const tarifa = search?.get('tarifa')
+            const next: Partial<TariffInput> = { ...formData }
+            if (cep) (next as any).cep = cep
+            if (consumo && !isNaN(Number(consumo))) (next as any).consumo_kwh_mes = Number(consumo)
+            if (distribuidora) (next as any).distribuidora = distribuidora
+            if (tensao && !isNaN(Number(tensao))) (next as any).tensao_fornecimento_kv = Number(tensao)
+            if (tipo && ['monofasico','bifasico','trifasico'].includes(tipo)) (next as any).tipo_conexao = tipo
+            // UF/tarifa não mapeiam 1:1 aqui, mas podem orientar usuário
+            setFormData(next as TariffInput)
+        } catch {}
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()

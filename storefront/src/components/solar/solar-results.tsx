@@ -67,7 +67,7 @@ export function SolarResults({
                     </div>
                     <div className="flex items-center gap-2 mr-2">
                         <LocalizedClientLink
-                            href={`/tarifas`}
+                            href={`/tarifas?uf=${encodeURIComponent(dados_localizacao.estado || '')}&hsp=${encodeURIComponent(String(dados_localizacao.hsp || ''))}&tarifa=${encodeURIComponent(String(dados_localizacao.tarifa_kwh || ''))}`}
                             className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                             title={getHelioTooltip('nasa_power')}
                             onClick={() => sendEvent('cta_validate_tariff_clicked', { from: 'solar_results' })}
@@ -75,11 +75,38 @@ export function SolarResults({
                             Validar tarifa
                         </LocalizedClientLink>
                         <LocalizedClientLink
-                            href={`/cotacao`}
+                            href={`/cotacao?source=solar_results&data=${encodeURIComponent(JSON.stringify({
+                                system_kwp: dimensionamento.kwp_proposto,
+                                expected_generation_kwh_year: dimensionamento.geracao_anual_kwh,
+                                performance_ratio: dimensionamento.performance_ratio,
+                                oversizing_ratio: dimensionamento.oversizing_ratio,
+                                inverter_kw: dimensionamento.potencia_inversor_kw,
+                                panels_count: dimensionamento.numero_paineis,
+                                area_m2: dimensionamento.area_necessaria_m2,
+                                location: { estado: dados_localizacao.estado, hsp: dados_localizacao.hsp, tarifa_kwh: dados_localizacao.tarifa_kwh },
+                                finance: financeiro ? { capex_total_brl: financeiro.capex.total_brl, economy_month_brl: financeiro.economia.mensal_brl, payback_anos: financeiro.retorno.payback_simples_anos } : undefined,
+                            }))}`}
                             className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors"
                             onClick={() => sendEvent('cta_generate_proposal_clicked', { from: 'solar_results' })}
                         >
                             Gerar proposta
+                        </LocalizedClientLink>
+                        <LocalizedClientLink
+                            href={`/proposta/printable?data=${encodeURIComponent(JSON.stringify({
+                                system_kwp: dimensionamento.kwp_proposto,
+                                expected_generation_kwh_year: dimensionamento.geracao_anual_kwh,
+                                performance_ratio: dimensionamento.performance_ratio,
+                                oversizing_ratio: dimensionamento.oversizing_ratio,
+                                inverter_kw: dimensionamento.potencia_inversor_kw,
+                                panels_count: dimensionamento.numero_paineis,
+                                area_m2: dimensionamento.area_necessaria_m2,
+                                location: { estado: dados_localizacao.estado, hsp: dados_localizacao.hsp, tarifa_kwh: dados_localizacao.tarifa_kwh },
+                                finance: financeiro ? { capex_total_brl: financeiro.capex.total_brl, economy_month_brl: financeiro.economia.mensal_brl, payback_anos: financeiro.retorno.payback_simples_anos } : undefined,
+                            }))}`}
+                            className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            onClick={() => sendEvent('cta_download_pdf_clicked', { from: 'solar_results' })}
+                        >
+                            Baixar PDF
                         </LocalizedClientLink>
                     </div>
                     {onRecalculate && (
