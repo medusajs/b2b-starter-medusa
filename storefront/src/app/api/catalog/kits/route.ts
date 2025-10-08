@@ -1,0 +1,218 @@
+/**
+ * API Route: /api/catalog/kits
+ * Retorna kits prontos do catálogo
+ * 
+ * Query params:
+ * - limit: número de kits (default: 50)
+ * - offset: paginação (default: 0)
+ * - distributor: filtrar por distribuidor (FOTUS, NEOSOLAR)
+ * - minPower: potência mínima em kWp
+ * - maxPower: potência máxima em kWp
+ * - type: tipo de kit (grid-tie, hybrid, off-grid)
+ * - search: buscar por nome/SKU
+ */
+
+import { NextRequest, NextResponse } from 'next/server'
+import { promises as fs } from 'fs'
+import path from 'path'
+
+// Cache em memória
+const CACHE_TTL = 3600000 // 1 hora
+let kitsCache: { data: any[]; timestamp: number } | null = null
+
+async function loadKits(): Promise<any[]> {
+    // Verificar cache
+    if (kitsCache && Date.now() - kitsCache.timestamp < CACHE_TTL) {
+        return kitsCache.data
+    }
+
+    try {
+        const catalogPath = path.join(
+            process.cwd(),
+            '..',
+            '..',
+            'ysh-erp',
+            'data',
+            'catalog',
+            'unified_schemas',
+            'kits_unified.json'
+        )
+
+        const fileContent = await fs.readFile(catalogPath, 'utf8')
+        const kits = JSON.parse(fileContent)
+
+        // Validar estrutura
+        const kitsArray = Array.isArray(kits) ? kits : []
+
+        // Atualizar cache
+        kitsCache = { data: kitsArray, timestamp: Date.now() }
+
+        return kitsArray
+    } catch (error) {
+        console.error('Error loading kits:', error)
+        return []
+    }
+}
+
+function extractPowerFromName(name: string): number | null {
+    // Extrair potência do nome (ex: "Kit 10.5kWp" -> 10.5)
+    const match = name.match(/(\d+\.?\d*)\s*kWp/i)
+    return match ? parseFloat(match[1]) : null
+}
+
+function filterKits(
+    kits: any[],
+    filters: {
+        distributor?: string
+        minPower?: number
+        maxPower?: number
+        type?: string
+        search?: string
+        roofType?: string
+    }
+): any[] {
+    let filtered = [...kits]
+
+    // Filtrar por distribuidor
+    if (filters.distributor) {
+        const dist = filters.distributor.toUpperCase()
+        filtered = filtered.filter(
+            (k) =>
+                k.id?.toUpperCase().includes(dist) ||
+                k.distributor?.toUpperCase() === dist
+        )
+    }
+
+    // Filtrar por potência
+    if (filters.minPower !== undefined || filters.maxPower !== undefined) {
+        filtered = filtered.filter((k) => {
+            const power = k.power_kwp || extractPowerFromName(k.name || '')
+            if (!power) return false
+
+            if (filters.minPower !== undefined && power < filters.minPower) return false
+            if (filters.maxPower !== undefined && power > filters.maxPower) return false
+
+            return true
+        })
+    }
+
+    // Filtrar por tipo
+    if (filters.type) {
+        const typeLower = filters.type.toLowerCase()
+        filtered = filtered.filter((k) => {
+            const kitType = (k.type || k.category || '').toLowerCase()
+            return (
+                kitType.includes(typeLower) ||
+                k.id?.toLowerCase().includes('hibrido') ||
+                k.name?.toLowerCase().includes(typeLower)
+            )
+        })
+    }
+
+    // Filtrar por tipo de telhado
+    if (filters.roofType) {
+        const roofLower = filters.roofType.toLowerCase()
+        filtered = filtered.filter((k) => {
+            const roofType = (k.roof_type || '').toLowerCase()
+            return roofType.includes(roofLower) || k.name?.toLowerCase().includes(roofLower)
+        })
+    }
+
+    // Busca por texto
+    if (filters.search) {
+        const searchLower = filters.search.toLowerCase()
+        filtered = filtered.filter((k) => {
+            const searchable = [
+                k.name,
+                k.id,
+                k.sku,
+                k.description,
+                k.manufacturer,
+            ]
+                .filter(Boolean)
+                .join(' ')
+                .toLowerCase()
+
+            return searchable.includes(searchLower)
+        })
+    }
+
+    return filtered
+}
+
+export async function GET(request: NextRequest) {
+    try {
+        const { searchParams } = new URL(request.url)
+
+        // Parse query params
+        const limit = parseInt(searchParams.get('limit') || '50')
+        const offset = parseInt(searchParams.get('offset') || '0')
+        const distributor = searchParams.get('distributor') || undefined
+        const minPower = searchParams.get('minPower')
+            ? parseFloat(searchParams.get('minPower')!)
+            : undefined
+        const maxPower = searchParams.get('maxPower')
+            ? parseFloat(searchParams.get('maxPower')!)
+            : undefined
+        const type = searchParams.get('type') || undefined
+        const roofType = searchParams.get('roofType') || undefined
+        const search = searchParams.get('search') || undefined
+
+        // Carregar kits
+        let kits = await loadKits()
+
+        // Aplicar filtros
+        kits = filterKits(kits, {
+            distributor,
+            minPower,
+            maxPower,
+            type,
+            roofType,
+            search,
+        })
+
+        // Paginação
+        const total = kits.length
+        const paginatedKits = kits.slice(offset, offset + limit)
+
+        // Resposta
+        return NextResponse.json(
+            {
+                success: true,
+                data: {
+                    kits: paginatedKits,
+                    pagination: {
+                        total,
+                        limit,
+                        offset,
+                        hasMore: offset + limit < total,
+                    },
+                    filters: {
+                        distributor,
+                        minPower,
+                        maxPower,
+                        type,
+                        roofType,
+                        search,
+                    },
+                },
+                timestamp: new Date().toISOString(),
+            },
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+                },
+            }
+        )
+    } catch (error: any) {
+        console.error('Error in kits API:', error)
+        return NextResponse.json(
+            {
+                success: false,
+                error: 'Internal server error',
+                message: error.message,
+            },
+            { status: 500 }
+        )
+    }
+}
