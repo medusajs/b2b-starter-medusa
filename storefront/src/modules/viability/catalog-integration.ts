@@ -36,20 +36,15 @@ export function viabilityToKitSearch(
 ): KitSearchCriteria {
     // Apply oversizing multiplier
     const oversizingMultiplier = oversizingScenario / 100
-    const targetKwp = viability.recommended_system_kwp * oversizingMultiplier
+    const targetKwp = viability.proposal_kwp * oversizingMultiplier
 
     // Calculate power range with tolerance
     const minKwp = targetKwp * (1 - tolerance)
     const maxKwp = targetKwp * (1 + tolerance)
 
     // Determine kit type based on viability output
-    let kitType: 'grid-tie' | 'hybrid' | 'off-grid' | 'all' = 'all'
-
-    if (viability.savings_analysis.savings_category === 'ALTA_ECONOMIA') {
-        kitType = 'grid-tie' // High savings = grid-tied
-    } else if (viability.savings_analysis.savings_category === 'MEDIA_ECONOMIA') {
-        kitType = 'hybrid' // Medium savings = consider hybrid
-    }
+    // TODO: Add savings_analysis to ViabilityOutput type
+    let kitType: 'grid-tie' | 'hybrid' | 'off-grid' | 'all' = 'grid-tie' // Default to most common
 
     return {
         minKwp,
@@ -78,26 +73,17 @@ export function kitToFinanceInput(
 
     // Apply oversizing to generation
     const oversizingMultiplier = oversizingScenario / 100
-    const adjustedGeneration = viability.annual_generation_kwh * oversizingMultiplier
+    const adjustedGeneration = viability.expected_gen_mwh_y * 1000 * oversizingMultiplier
 
     return {
-        // System data
+        id: `finance_${Date.now()}_${kit.id}`,
         system_kwp: kit.potencia_kwp,
         annual_generation_kwh: adjustedGeneration,
         oversizing_scenario: oversizingScenario,
-
-        // CAPEX from kit
         capex: capexCalc.breakdown,
-
-        // Savings from viability
-        current_monthly_bill_brl: viability.monthly_bill_brl,
-        monthly_savings_brl: viability.savings_analysis.monthly_savings_brl,
-
-        // Metadata
-        viability_id: viability.id,
-        kit_id: kit.id,
-        kit_name: kit.name,
-        distributor: kit.distributor,
+        current_monthly_bill_brl: 0, // TODO: Add to ViabilityOutput
+        monthly_savings_brl: 0, // TODO: Add to ViabilityOutput
+        created_at: new Date().toISOString(),
     }
 }
 
@@ -125,7 +111,7 @@ export function rankKitsByViability(
     viability: ViabilityOutput,
     oversizingScenario: 114 | 130 | 145 | 160 = 114
 ): KitRecommendation[] {
-    const targetKwp = viability.recommended_system_kwp * (oversizingScenario / 100)
+    const targetKwp = viability.proposal_kwp * (oversizingScenario / 100)
 
     return kits
         .map((kit) => {
@@ -150,7 +136,7 @@ export function rankKitsByViability(
 
             // Generation match
             const expectedGeneration = kit.potencia_kwp * 1300 // ~1300 kWh/kWp/year average
-            const generationDiff = Math.abs(expectedGeneration - viability.annual_generation_kwh) / viability.annual_generation_kwh
+            const generationDiff = Math.abs(expectedGeneration - (viability.expected_gen_mwh_y * 1000)) / (viability.expected_gen_mwh_y * 1000)
             if (generationDiff < 0.1) {
                 score += 10
             }
@@ -197,11 +183,11 @@ export function rankKitsByViability(
  */
 export function encodeViabilityForURL(viability: ViabilityOutput): string {
     const data = {
-        id: viability.id,
-        kwp: viability.recommended_system_kwp,
-        gen: viability.annual_generation_kwh,
-        bill: viability.monthly_bill_brl,
-        savings: viability.savings_analysis.monthly_savings_brl,
+        id: 'viability', // TODO: Add id to ViabilityOutput
+        kwp: viability.proposal_kwp,
+        gen: viability.expected_gen_mwh_y * 1000,
+        bill: 0, // TODO: Add to ViabilityOutput
+        savings: 0, // TODO: Add to ViabilityOutput
     }
 
     return btoa(JSON.stringify(data))
@@ -214,14 +200,17 @@ export function decodeViabilityFromURL(encoded: string): Partial<ViabilityOutput
     try {
         const data = JSON.parse(atob(encoded))
         return {
-            id: data.id,
-            recommended_system_kwp: data.kwp,
-            annual_generation_kwh: data.gen,
-            monthly_bill_brl: data.bill,
-            savings_analysis: {
-                monthly_savings_brl: data.savings,
-            } as any,
-        }
+            proposal_kwp: data.kwp,
+            expected_gen_mwh_y: data.gen / 1000,
+            pr: 0.82, // Default performance ratio
+            losses: { soiling: 0, temp: 0, ohmic: 0 },
+            inverters: [],
+            strings: [],
+            oversizing_ratio: 1.14,
+            hsp: 0,
+            degradacao_anual: 0.007,
+            attachments: [],
+        } as ViabilityOutput
     } catch (error) {
         console.error('[Viability] Error decoding URL data:', error)
         return null

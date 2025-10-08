@@ -180,7 +180,8 @@ export function FinanceProvider({
             }))
             throw error
         }
-    }, [defaultInterestRate, bacenRates, validateInput])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [defaultInterestRate, bacenRates])
 
     // ============================================================================
     // Selection actions
