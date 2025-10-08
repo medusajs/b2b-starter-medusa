@@ -5,10 +5,10 @@
  * Enables seamless flow: Viability → Kit Selection → Finance
  */
 
-import type { ViabilityOutput } from '@modules/viability/types'
-import type { CatalogKit } from '@lib/catalog/integration'
-import type { FinanceInput } from '@modules/finance/types'
-import { calculateKitCAPEX } from '@lib/catalog/integration'
+import type { ViabilityOutput } from '@/modules/viability/types'
+import type { CatalogKit } from '@/lib/catalog/integration'
+import type { FinanceInput } from '@/modules/finance/types'
+import { calculateKitCAPEX } from '@/lib/catalog/integration'
 
 // ============================================================================
 // Viability → Catalog Query

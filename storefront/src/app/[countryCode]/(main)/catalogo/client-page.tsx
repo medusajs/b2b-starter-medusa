@@ -42,7 +42,7 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
         selectedKit,
         financeInput,
     } = useCatalogIntegration({
-        viability: viabilityData || undefined,
+        viability: viabilityData as any || undefined,
         oversizingScenario: (parseInt(searchParams.oversizing as string) || 114) as 114 | 130 | 145 | 160,
         autoSearch: true,
     })
@@ -94,7 +94,7 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
 
                 {viabilityData && (
                     <CardDescription className="text-lg">
-                        Baseado na sua análise: <strong>{viabilityData.recommended_system_kwp} kWp</strong> recomendados
+                        Baseado na sua análise: <strong>{(viabilityData as any).recommended_system_kwp || (viabilityData as any).proposal_kwp || 'N/A'} kWp</strong> recomendados
                         {criteria && (
                             <span className="ml-2">
                                 (buscando {criteria.minKwp.toFixed(1)} - {criteria.maxKwp.toFixed(1)} kWp)
@@ -153,7 +153,7 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
                         <Button
                             onClick={handleAddToCart}
                             variant="outline"
-                            size="lg"
+                            size="large"
                             className="flex-1 max-w-xs"
                         >
                             <ShoppingCart className="w-5 h-5 mr-2" />
@@ -162,7 +162,7 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
 
                         <Button
                             onClick={handleProceedToFinance}
-                            size="lg"
+                            size="large"
                             className="flex-1 max-w-xs"
                         >
                             <Calculator className="w-5 h-5 mr-2" />
