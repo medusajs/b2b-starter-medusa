@@ -66,9 +66,12 @@ export async function NavigationHeader() {
           </div>
         </div>
       </header>
+      <div className="h-px w-full bg-[linear-gradient(90deg,#F59E0B_0%,#F97316_50%,#FDE047_100%)] opacity-70"></div>
     </div>
   )
 }
+
+
 
 
 

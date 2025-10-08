@@ -58,6 +58,16 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </head>
       <body className="font-sans">
+        {/* Brand stroke gradient defs (Yello Solar Hub) */}
+        <svg width="0" height="0" className="absolute pointer-events-none select-none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="ysh-brand-stroke" x1="0" y1="0" x2="1" y2="0">
+              <stop stopColor="#F59E0B" offset="0%" />
+              <stop stopColor="#F97316" offset="50%" />
+              <stop stopColor="#FDE047" offset="100%" />
+            </linearGradient>
+          </defs>
+        </svg>
         <PostHogProvider>
           <AnalyticsProvider>
             <PWAProvider>
