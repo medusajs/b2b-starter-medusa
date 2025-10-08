@@ -15,21 +15,26 @@ Antes de continuar com novos módulos, **integramos completamente** os módulos 
 **Integrações Implementadas:**
 
 #### 🛒 Cart Integration
+
 - `viabilityToCartItems()` - Converte sistema dimensionado em itens de carrinho
 - `AddViabilityToCartButton` - Adiciona inversores + módulos ao carrinho
 - `EmptyCartViabilitySuggestion` - Banner em carrinho vazio
 
 #### 💼 Quote Integration
+
 - `viabilityToQuote()` - Gera dados de cotação formal
 - `RequestQuoteFromViability` - Solicita cotação com especificações técnicas
 
 #### 👤 Account Integration
+
 - `MyViabilityCalculationsWidget` - Dashboard widget mostrando estudos salvos
 
 #### 📦 Product Integration
+
 - `ProductViabilitySuggestion` - Sugere calcular viabilidade em produtos
 
 #### 💰 Finance Integration (preparação)
+
 - `viabilityToFinanceInput()` - Prepara dados para simulação financeira
 - `ViabilityToFinanceLink` - Link direto para financiamento
 
@@ -44,27 +49,34 @@ Antes de continuar com novos módulos, **integramos completamente** os módulos 
 **Integrações Implementadas:**
 
 #### ⚡ Viability Integration
+
 - `tariffToViabilityInput()` - Passa tarifa calculada para viabilidade
 - `TariffToViabilityButton` - Fluxo direto tarifas → viabilidade
 
 #### 💰 Finance Integration
+
 - `tariffToFinanceInput()` - Dados tarifários para simulação
 - `TariffToFinanceButton` - Link para financiamento
 
 #### 👤 Account Integration
+
 - `MyTariffClassificationWidget` - Dashboard mostrando classificação salva
 
 #### 📦 Product Integration
+
 - `ProductTariffSavingsBadge` - Badge de economia em produtos
 - `ProductTariffSuggestion` - Sugere classificar tarifa
 
 #### 🛒 Cart Integration
+
 - `CartTariffSavings` - Calculadora de economia no carrinho
 
 #### 💼 Quote Integration
+
 - `tariffToQuote()` - Adiciona dados tarifários à cotação
 
 #### 📋 Compliance Integration (preparação)
+
 - `mmgdToComplianceInput()` - Dados MMGD para compliance
 - `MMGDToComplianceButton` - Link para documentação
 
@@ -77,6 +89,7 @@ Antes de continuar com novos módulos, **integramos completamente** os módulos 
 **Arquivo Criado:** `INTEGRACAO_MODULOS.md` (540 linhas)
 
 **Conteúdo:**
+
 - Padrões de integração estabelecidos
 - Fluxos end-to-end (3 diagramas mermaid)
 - Exemplos de uso
@@ -88,16 +101,19 @@ Antes de continuar com novos módulos, **integramos completamente** os módulos 
 ## 🔄 Fluxos Integrados
 
 ### Fluxo 1: Jornada Completa
+
 ```
 /tarifas → /viabilidade → /financiamento → /carrinho → /checkout
 ```
 
 ### Fluxo 2: Com Cotação
+
 ```
 /viabilidade → /account/quotes/new → Aprovação → /carrinho
 ```
 
 ### Fluxo 3: Com Compliance
+
 ```
 /tarifas (MMGD) → /compliance → /viabilidade → /carrinho
 ```
@@ -121,6 +137,7 @@ Antes de continuar com novos módulos, **integramos completamente** os módulos 
 ## 🎨 Padrões Estabelecidos
 
 ### 1. Conversores de Dados
+
 Nomenclatura: `[origem]To[destino]()`
 
 ```typescript
@@ -131,6 +148,7 @@ mmgdToComplianceInput(...)       → ComplianceData
 ```
 
 ### 2. Componentes de Navegação
+
 Nomenclatura: `<[Origem]To[Destino]Button />`
 
 ```tsx
@@ -140,6 +158,7 @@ Nomenclatura: `<[Origem]To[Destino]Button />`
 ```
 
 ### 3. Widgets de Dashboard
+
 Nomenclatura: `<My[Modulo]Widget />`
 
 ```tsx
@@ -148,6 +167,7 @@ Nomenclatura: `<My[Modulo]Widget />`
 ```
 
 ### 4. Sugestões Contextuais
+
 Nomenclatura: `<[Contexto][Modulo]Suggestion />`
 
 ```tsx
@@ -161,6 +181,7 @@ Nomenclatura: `<[Contexto][Modulo]Suggestion />`
 ## 🛠️ Como Usar
 
 ### Exemplo 1: Adicionar Sistema ao Carrinho
+
 ```tsx
 import { viabilityToCartItems } from '@/modules/viability'
 
@@ -169,6 +190,7 @@ await addToCart(items) // Integração Medusa
 ```
 
 ### Exemplo 2: Fluxo Tarifas → Viabilidade
+
 ```tsx
 import { TariffToViabilityButton } from '@/modules/tariffs'
 
@@ -180,6 +202,7 @@ import { TariffToViabilityButton } from '@/modules/tariffs'
 ```
 
 ### Exemplo 3: Dashboard Widget
+
 ```tsx
 import { MyViabilityCalculationsWidget } from '@/modules/viability'
 
@@ -223,21 +246,27 @@ Ao criar Finance, Logistics, Compliance, Insurance, O&M, BizOps:
 ## 🎯 Próximos Passos
 
 ### Opção 1: Continuar com Finance Module
+
 Implementar simulador de crédito com:
+
 - Cálculo TIR, VPL, Payback
 - Integração BACEN (taxas Selic/CDI)
 - Cenários 114%, 130%, 145%, 160%
 - Integração completa com Viability + Tariffs
 
 ### Opção 2: Continuar com Logistics Module
+
 Implementar gestão de logística com:
+
 - Cotação de frete (Correios, Jadlog)
 - Rastreamento de pedidos
 - Otimização de rotas
 - Integração com Cart + Checkout
 
 ### Opção 3: Continuar com Compliance Module
+
 Implementar documentação técnica com:
+
 - Validação PRODIST 3.A-3.C
 - Geração ART/TRT
 - Dossiê técnico automatizado
@@ -248,6 +277,7 @@ Implementar documentação técnica com:
 ## 💡 Recomendação
 
 **Continuar com Finance Module** pois:
+
 1. Já tem preparação de dados em Viability + Tariffs
 2. É o próximo passo lógico na jornada do cliente
 3. Alta demanda (B2B precisa simular financiamento)
