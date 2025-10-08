@@ -152,6 +152,32 @@ export function shouldUseFallback(): boolean {
 // Catalog Data Loading (Cached)
 // ==========================================
 
+// SKU Registry loader (optional)
+type SkuRegistry = {
+    map?: Record<string, string>
+    items?: Array<{ category: string; id: string; sku: string }>
+}
+
+const loadSkuRegistry = cache(async (): Promise<Record<string, string>> => {
+    try {
+        // Registry esperado em `${CATALOG_PATH}/sku_registry.json`
+        const registryPath = path.join(CATALOG_PATH, 'sku_registry.json')
+        const raw = await fs.readFile(registryPath, 'utf-8')
+        const parsed: SkuRegistry = JSON.parse(raw)
+        if (parsed?.map) return parsed.map
+        if (parsed?.items && Array.isArray(parsed.items)) {
+            const m: Record<string, string> = {}
+            for (const it of parsed.items) {
+                if (it?.category && it?.id && it?.sku) m[`${it.category}:${it.id}`] = it.sku
+            }
+            return m
+        }
+        return {}
+    } catch {
+        return {}
+    }
+})
+
 /**
  * Carrega dados de uma categoria do catálogo unificado
  */
@@ -189,7 +215,21 @@ const loadCatalogCategory = cache(async (category: string): Promise<any[]> => {
         const fileContent = await fs.readFile(filePath, 'utf-8')
         const data = JSON.parse(fileContent)
 
-        return Array.isArray(data) ? data : []
+        const arr: any[] = Array.isArray(data) ? data : []
+
+        // Enriquecer com SKU canônico do registry (se existir)
+        const registry = await loadSkuRegistry()
+        const withSku = arr.map((it: any) => {
+            const id = (it?.id ?? '').toString()
+            const key = `${mappedCategory}:${id}`
+            const canonical = registry[key]
+            const sku = (it?.sku || canonical || id || '').toString()
+            // garantir category para downstream
+            const cat = it?.category || mappedCategory
+            return { ...it, sku, category: cat }
+        })
+
+        return withSku
     } catch (error) {
         console.warn(`[Fallback] Failed to load category ${category}:`, error)
         return []

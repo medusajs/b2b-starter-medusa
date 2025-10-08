@@ -1,0 +1,78 @@
+# Node.js
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage
+.nyc_output
+test-results
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation (keep README)
+*.md
+!README.md
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.circleci
+
+# Temporary files
+tmp
+temp
+*.tmp
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Uploads (keep directory structure)
+uploads/*
+!uploads/.gitkeep
+
+# Cache
+.cache
+.eslintcache
+.stylelintcache
+

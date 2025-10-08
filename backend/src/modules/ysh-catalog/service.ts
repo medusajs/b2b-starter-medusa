@@ -64,6 +64,24 @@ class YshCatalogModuleService {
         this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
         this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
         this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
+        // Overrides por ambiente e fallbacks
+        try {
+            const envCatalogPath = process.env.CATALOG_PATH;
+            if (envCatalogPath && fs.existsSync(envCatalogPath)) {
+                this.catalogPath = envCatalogPath;
+                this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
+                this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
+                this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
+            } else if (!fs.existsSync(this.catalogPath)) {
+                const localSrcCatalogPath = path.resolve(__dirname, '../../data/catalog');
+                if (fs.existsSync(localSrcCatalogPath)) {
+                    this.catalogPath = localSrcCatalogPath;
+                    this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
+                    this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
+                    this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
+                }
+            }
+        } catch { /* ignore path overrides */ }
     }
 
     /**
@@ -98,6 +116,28 @@ class YshCatalogModuleService {
             }
 
             console.warn(`Arquivo não encontrado: ${filename} (nem unificado nem original)`);
+            // Fallback adicional: tentar dentro do repositório (src/data/catalog)
+            try {
+                const unifiedFilename = filename.replace('.json', '_unified.json');
+                const localUnifiedPath = path.resolve(__dirname, `../../data/catalog/unified_schemas/${unifiedFilename}`);
+                if (fs.existsSync(localUnifiedPath)) {
+                    console.log(`📚 Lendo schema unificado (local src): ${unifiedFilename}`);
+                    const data = fs.readFileSync(localUnifiedPath, 'utf-8');
+                    const parsed = JSON.parse(data);
+                    return Array.isArray(parsed) ? parsed : [];
+                }
+                const localOriginalPath = path.resolve(__dirname, `../../data/catalog/${filename}`);
+                if (fs.existsSync(localOriginalPath)) {
+                    console.log(`📄 Lendo arquivo original (local src): ${filename}`);
+                    const data = fs.readFileSync(localOriginalPath, 'utf-8');
+                    const parsed = JSON.parse(data);
+                    if (filename === 'panels.json' && (parsed as any).panels) {
+                        return (parsed as any).panels;
+                    }
+                    return Array.isArray(parsed) ? parsed : [];
+                }
+            } catch { /* ignore */ }
+
             return [];
         } catch (error) {
             console.error(`Erro ao ler arquivo ${filename}:`, error);
