@@ -183,12 +183,15 @@ export class SolarCalculatorService {
     /**
      * Calcula sistema solar completo
      */
-    async calculate(input: SolarCalculationInput): Promise<SolarCalculationOutput> {
+    async calculate(
+        input: SolarCalculationInput,
+        query?: any
+    ): Promise<SolarCalculationOutput> {
         // 1. Dimensionamento técnico
         const dimensionamento = this.calcularDimensionamento(input);
 
         // 2. Buscar kits compatíveis do catálogo
-        const kits = await this.buscarKitsRecomendados(dimensionamento, input);
+        const kits = await this.buscarKitsRecomendados(dimensionamento, input, query);
 
         // 3. Análise financeira
         const financeiro = this.calcularFinanceiro(dimensionamento, kits[0], input);

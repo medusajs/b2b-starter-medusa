@@ -70,8 +70,11 @@ export async function POST(
         // Validar entrada
         const input = validateCalculatorRequest(req.body);
 
-        // Executar cálculo
-        const resultado = await solarCalculatorService.calculate(input);
+        // Obter query function do Medusa (para buscar produtos)
+        const query = req.scope.resolve("query");
+
+        // Executar cálculo com acesso ao catálogo
+        const resultado = await solarCalculatorService.calculate(input, query);
 
         // Adicionar metadados
         const response = {
