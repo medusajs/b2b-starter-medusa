@@ -4,6 +4,7 @@
  */
 
 import type { RemoteQueryFunction } from "@medusajs/framework/types";
+import PVLibIntegrationService from "../../pvlib-integration/service";
 
 export interface KitMatchCriteria {
     kwp_alvo: number;
@@ -15,6 +16,19 @@ export interface KitMatchCriteria {
     budget_max?: number;
     preferencia_marca_painel?: string[];
     preferencia_marca_inversor?: string[];
+    validate_mppt?: boolean; // Habilitar validação MPPT (default: true)
+}
+
+export interface MPPTValidationResult {
+    compatible: boolean;
+    warnings: string[];
+    voltage_string_min: number;
+    voltage_string_max: number;
+    mppt_range: {
+        min: number;
+        max: number;
+    };
+    safety_margin_percent: number;
 }
 
 export interface KitMatch {
@@ -24,6 +38,7 @@ export interface KitMatch {
     potencia_kwp: number;
     match_score: number;
     match_reasons: string[];
+    mppt_validation?: MPPTValidationResult;
     componentes: {
         paineis: Array<{
             marca: string;
@@ -61,6 +76,12 @@ export interface KitMatch {
 }
 
 export class KitMatcherService {
+    private pvlibService: PVLibIntegrationService;
+
+    constructor() {
+        this.pvlibService = new PVLibIntegrationService();
+    }
+
     /**
      * Busca kits do catálogo que atendem os critérios
      */
@@ -130,6 +151,20 @@ export class KitMatcherService {
                     continue;
                 }
 
+                // Validar MPPT se habilitado (default: true)
+                const validateMPPT = criteria.validate_mppt !== false;
+                let mpptValidation: MPPTValidationResult | undefined;
+
+                if (validateMPPT) {
+                    const componentes = this.extractComponentes(metadata);
+                    mpptValidation = await this.validateKitMPPT(componentes);
+
+                    // Filtrar kits incompatíveis
+                    if (!mpptValidation.compatible) {
+                        continue;
+                    }
+                }
+
                 matches.push({
                     product_id: product.id,
                     kit_id: String(metadata.kit_id || metadata.id || product.handle),
@@ -137,6 +172,7 @@ export class KitMatcherService {
                     potencia_kwp,
                     match_score: matchResult.score,
                     match_reasons: matchResult.reasons,
+                    mppt_validation: mpptValidation,
                     componentes: this.extractComponentes(metadata),
                     preco_brl: preco,
                     disponibilidade: {
@@ -154,6 +190,105 @@ export class KitMatcherService {
 
         // Retornar top N
         return matches.slice(0, limit);
+    }
+
+    /**
+     * Valida compatibilidade MPPT de um kit
+     */
+    private async validateKitMPPT(componentes: KitMatch['componentes']): Promise<MPPTValidationResult> {
+        const result: MPPTValidationResult = {
+            compatible: true,
+            warnings: [],
+            voltage_string_min: 0,
+            voltage_string_max: 0,
+            mppt_range: { min: 0, max: 0 },
+            safety_margin_percent: 0
+        };
+
+        try {
+            // Verificar se há painéis e inversores
+            if (!componentes.paineis?.length || !componentes.inversores?.length) {
+                result.warnings.push('Kit sem informações completas de painéis/inversores');
+                return result;
+            }
+
+            const painel = componentes.paineis[0];
+            const inversor = componentes.inversores[0];
+
+            // Tentar buscar IDs normalizados do PVLib
+            const panelId = this.findPVLibId(painel.marca, painel.modelo);
+            const inverterId = this.findPVLibId(inversor.marca, inversor.modelo);
+
+            if (!panelId || !inverterId) {
+                result.warnings.push('Componentes não encontrados na base PVLib - validação simplificada');
+                return result;
+            }
+
+            // Buscar quantidade de módulos por string (assumir padrão se não especificado)
+            const modulesPerString = (painel as any).modules_per_string || 10;
+
+            // Buscar objetos completos do PVLib
+            const inverterObj = await this.pvlibService.getInverterById(inverterId);
+            const panelObj = await this.pvlibService.getPanelById(panelId);
+
+            if (!inverterObj || !panelObj) {
+                result.warnings.push('Componentes não encontrados na base PVLib');
+                return result;
+            }
+
+            // Validar MPPT usando PVLibIntegrationService
+            const validation = this.pvlibService.validateMPPT(
+                inverterObj,
+                panelObj,
+                modulesPerString
+            );
+
+            result.compatible = validation.compatible;
+            result.voltage_string_min = validation.v_string_min;
+            result.voltage_string_max = validation.v_string_max;
+            result.mppt_range = {
+                min: validation.v_mppt_low,
+                max: validation.v_mppt_high
+            };
+
+            // Calcular margem de segurança
+            const margin_low = ((validation.v_string_min - validation.v_mppt_low) / validation.v_mppt_low) * 100;
+            const margin_high = ((validation.v_mppt_high - validation.v_string_max) / validation.v_mppt_high) * 100;
+            result.safety_margin_percent = Math.min(Math.abs(margin_low), Math.abs(margin_high));
+
+            // Adicionar warnings para margens pequenas (<10%)
+            if (result.safety_margin_percent < 10 && result.compatible) {
+                result.warnings.push(
+                    `⚠️ Tensão MPPT próxima ao limite (margem: ${result.safety_margin_percent.toFixed(1)}%) - ` +
+                    `String: ${validation.v_string_min.toFixed(1)}V-${validation.v_string_max.toFixed(1)}V, ` +
+                    `MPPT: ${validation.v_mppt_low}V-${validation.v_mppt_high}V`
+                );
+            }
+
+            // Adicionar warnings do PVLib
+            if (validation.warnings?.length) {
+                result.warnings.push(...validation.warnings);
+            }
+
+        } catch (error) {
+            result.warnings.push(`Erro na validação MPPT: ${error.message}`);
+        }
+
+        return result;
+    }
+
+    /**
+     * Encontra ID normalizado do PVLib baseado em marca/modelo
+     */
+    private findPVLibId(marca?: string, modelo?: string): string | null {
+        if (!marca || !modelo) return null;
+
+        // Normalizar: remover espaços, converter para snake_case
+        const normalized = `${marca}__${modelo}`
+            .replace(/\s+/g, '_')
+            .replace(/-/g, '_');
+
+        return normalized;
     }
 
     /**
