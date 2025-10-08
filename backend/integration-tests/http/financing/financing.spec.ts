@@ -125,11 +125,11 @@ describe("Financing HTTP handlers", () => {
 
             await simulateFinancing(req, res as any)
 
-            expect(mockGetSolarFinancingRate).toHaveBeenCalledWith(undefined)
+            expect(mockGetSolarFinancingRate).toHaveBeenCalledWith(3.5)
             expect(mockSimulateSAC).toHaveBeenCalledWith(50000, 15.5, 60)
             expect(res.statusCode).toBe(200)
-            expect(res.jsonBody.system).toBe("SAC")
-            expect(res.jsonBody.summary.total_paid).toBe(58250)
+            expect(res.jsonBody.simulation.system).toBe("SAC")
+            expect(res.jsonBody.simulation.summary.total_paid).toBe(58250)
         })
 
         it("simulates PRICE financing with explicit rate", async () => {
@@ -163,9 +163,9 @@ describe("Financing HTTP handlers", () => {
             expect(mockGetSolarFinancingRate).not.toHaveBeenCalled()
             expect(mockSimulatePrice).toHaveBeenCalledWith(48000, 18, 48)
             expect(res.statusCode).toBe(200)
-            expect(res.jsonBody.system).toBe("PRICE")
-            expect(res.jsonBody.summary.first_payment).toBe(
-                res.jsonBody.summary.last_payment,
+            expect(res.jsonBody.simulation.system).toBe("PRICE")
+            expect(res.jsonBody.simulation.summary.first_payment).toBe(
+                res.jsonBody.simulation.summary.last_payment,
             )
         })
 
