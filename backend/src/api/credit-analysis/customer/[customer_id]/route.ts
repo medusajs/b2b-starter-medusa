@@ -11,14 +11,14 @@ export async function GET(
 ): Promise<void> {
     try {
         const { customer_id } = req.params
-        const query = req.scope.resolve("query")
+        const query = req.scope.resolve("query") as any
 
         const { data: analyses } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             filters: { customer_id },
             order: { submitted_at: "DESC" }
-        })
+        } as any)
 
         res.json({
             success: true,

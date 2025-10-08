@@ -5,7 +5,7 @@ import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import QuoteLink from "@/modules/layout/templates/nav/quote-link"
 import LogoIcon from "@/modules/common/icons/logo"
-import { MAIN_MENU } from "@/modules/layout/config/menu"
+import { MAIN_MENU } from "@/modules/layout/config/menu.fixed"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
@@ -69,4 +69,5 @@ export async function NavigationHeader() {
     </div>
   )
 }
+
 

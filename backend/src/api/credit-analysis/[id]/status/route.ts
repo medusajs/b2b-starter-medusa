@@ -11,8 +11,8 @@ export async function PATCH(
 ): Promise<void> {
     try {
         const { id } = req.params
-        const { status, analyst_notes } = req.body
-        const query = req.scope.resolve("query")
+        const { status, analyst_notes } = req.body as { status?: string; analyst_notes?: string }
+        const query = req.scope.resolve("query") as any
 
         // Validar status
         const validStatuses = ["pending", "in_review", "approved", "rejected", "conditional"]
@@ -29,7 +29,7 @@ export async function PATCH(
             entity: "credit_analysis",
             fields: ["*"],
             filters: { id }
-        })
+        } as any)
 
         if (!analysis) {
             res.status(404).json({
@@ -58,14 +58,14 @@ export async function PATCH(
             fields: ["id"],
             filters: { id },
             data: updateData
-        })
+        } as any)
 
         // Buscar análise atualizada
         const { data: [updatedAnalysis] } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             filters: { id }
-        })
+        } as any)
 
         res.json({
             success: true,

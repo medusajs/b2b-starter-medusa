@@ -16,10 +16,10 @@ export async function POST(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        const creditAnalysisService: CreditAnalysisService = req.scope.resolve("creditAnalysisService")
+        const creditAnalysisService = req.scope.resolve("creditAnalysisService") as CreditAnalysisService
 
         // Extrair dados do body
-        const input: CreditAnalysisInput = req.body
+        const input = req.body as CreditAnalysisInput
 
         // Adicionar metadados da requisição
         input.submission_source = "api"
@@ -30,12 +30,12 @@ export async function POST(
         const analysisData = await creditAnalysisService.createCreditAnalysis(input)
 
         // Persistir no banco (usar query direto)
-        const query = req.scope.resolve("query")
+        const query = req.scope.resolve("query") as any
         const { data: [analysis] } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             data: [analysisData]
-        })
+        } as any)
 
         res.status(201).json({
             success: true,
@@ -60,13 +60,13 @@ export async function GET(
 ): Promise<void> {
     try {
         const { id } = req.params
-        const query = req.scope.resolve("query")
+        const query = req.scope.resolve("query") as any
 
         const { data: [analysis] } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             filters: { id }
-        })
+        } as any)
 
         if (!analysis) {
             res.status(404).json({

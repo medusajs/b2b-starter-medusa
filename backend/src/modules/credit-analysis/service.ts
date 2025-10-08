@@ -10,7 +10,6 @@
  * - Integrar com bancos parceiros
  */
 
-import { MedusaService } from "@medusajs/framework/utils"
 
 export interface CreditAnalysisInput {
     // Relacionamentos
@@ -92,7 +91,7 @@ export interface CreditScoreFactors {
     total_score: number            // 0-100 pontos
 }
 
-export default class CreditAnalysisService extends MedusaService({}) {
+export default class CreditAnalysisService {
     /**
      * Cria nova análise de crédito
      */

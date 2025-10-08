@@ -59,7 +59,9 @@ describe("CreditAnalysisService", () => {
             has_negative_credit: true,
             monthly_debts: 3500,
             requested_amount: 40000,
-            requested_term_months: 72
+            requested_term_months: 72,
+            has_down_payment: false,
+            down_payment_amount: undefined
         }
 
         const analysis = await service.createCreditAnalysis(riskyInput)

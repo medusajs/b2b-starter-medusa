@@ -12,15 +12,15 @@ export async function POST(
 ): Promise<void> {
     try {
         const { id } = req.params
-        const creditAnalysisService: CreditAnalysisService = req.scope.resolve("creditAnalysisService")
-        const query = req.scope.resolve("query")
+        const creditAnalysisService = req.scope.resolve("creditAnalysisService") as CreditAnalysisService
+        const query = req.scope.resolve("query") as any
 
         // Buscar análise
         const { data: [analysis] } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             filters: { id }
-        })
+        } as any)
 
         if (!analysis) {
             res.status(404).json({
@@ -54,14 +54,14 @@ export async function POST(
             fields: ["id"],
             filters: { id },
             data: updateData
-        })
+        } as any)
 
         // Buscar análise atualizada
         const { data: [updatedAnalysis] } = await query.graph({
             entity: "credit_analysis",
             fields: ["*"],
             filters: { id }
-        })
+        } as any)
 
         res.json({
             success: true,
