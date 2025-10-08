@@ -190,36 +190,29 @@ export async function POST(
             return;
         }
 
-        // For now, return mock response - will be replaced with real PV-Hawk service
-        const mockResponse = {
-            anomalies: [
-                {
-                    id: "anomaly_001",
-                    type: "hot_spot",
-                    severity: "high",
-                    location: [150, 200],
-                    temperature: 85,
-                    description: "Hot spot detected on module string 3",
-                },
-                {
-                    id: "anomaly_002",
-                    type: "cold_cell",
-                    severity: "medium",
-                    location: [300, 250],
-                    temperature: 15,
-                    description: "Cold cell in module string 5",
-                },
-            ],
-            overallHealth: "fair",
-            recommendations: [
-                "Inspect hot spots on string 3 immediately",
-                "Monitor cold cells for potential bypass diode issues",
-                "Schedule maintenance within 2 weeks",
-            ],
-            processingTime: 2.5,
-        };
+        // Call Python PV-Hawk service
+        const pythonServiceUrl = process.env.PV_HAWK_SERVICE_URL || "http://localhost:8002";
+        const apiKey = process.env.PV_HAWK_API_KEY || "dev-key";
 
-        res.status(200).json(mockResponse);
+        const formData = new FormData();
+        const fileBuffer = require('fs').readFileSync(file.path);
+        const blob = new Blob([fileBuffer], { type: file.mimetype });
+        formData.append('thermalImage', blob, file.originalname);
+
+        const response = await fetch(`${pythonServiceUrl}/api/v1/analyze`, {
+            method: 'POST',
+            headers: {
+                'X-API-Key': apiKey,
+            },
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`PV-Hawk service returned ${response.status}`);
+        }
+
+        const result = await response.json();
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({
             success: false,

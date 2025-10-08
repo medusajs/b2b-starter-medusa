@@ -305,28 +305,31 @@ export async function POST(
             return;
         }
 
-        // For now, return mock response - will be replaced with real OpenDroneMap service
-        const mockResponse = {
-            roofModel: {
-                area: 150.5,
-                perimeter: 52.3,
-                orientation: 180,
-                tilt: 25,
-                geometry: {
-                    type: "Polygon",
-                    coordinates: [[[0, 0], [10, 0], [10, 15], [0, 15], [0, 0]]],
-                },
-            },
-            processingTime: 45.2,
-            quality: "good",
-            recommendations: [
-                "Roof suitable for solar installation",
-                "Optimal orientation for maximum energy production",
-                "Consider tilt angle optimization for local climate",
-            ],
-        };
+        // Call Python OpenDroneMap service
+        const pythonServiceUrl = process.env.ODM_SERVICE_URL || "http://localhost:8003";
+        const apiKey = process.env.ODM_API_KEY || "dev-key";
 
-        res.status(200).json(mockResponse);
+        const formData = new FormData();
+        files.forEach((file: any, index: number) => {
+            const fileBuffer = require('fs').readFileSync(file.path);
+            const blob = new Blob([fileBuffer], { type: file.mimetype });
+            formData.append('images', blob, file.originalname);
+        });
+
+        const response = await fetch(`${pythonServiceUrl}/api/v1/process`, {
+            method: 'POST',
+            headers: {
+                'X-API-Key': apiKey,
+            },
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`ODM service returned ${response.status}`);
+        }
+
+        const result = await response.json();
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({
             success: false,
