@@ -19,6 +19,7 @@
     "db:setup": "medusa db:create && medusa db:migrate",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "seed:catalog": "medusa exec ./src/scripts/seed-catalog.ts",
+    "seed:catalog-integrated": "medusa exec ./src/scripts/seed-catalog-integrated.ts",
     "seed:simple": "medusa exec ./src/scripts/simple-seed.ts",
     "start": "medusa start",
     "dev": "medusa develop",
