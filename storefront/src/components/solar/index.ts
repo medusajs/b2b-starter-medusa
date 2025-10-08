@@ -3,6 +3,7 @@
  */
 
 export { SolarResults } from './solar-results';
+export { SolarCalculatorComplete } from './solar-calculator-complete';
 export { DimensionamentoCard } from './dimensionamento-card';
 export { FinanceiroCard } from './financeiro-card';
 export { KitsRecomendadosCard } from './kits-recomendados-card';
