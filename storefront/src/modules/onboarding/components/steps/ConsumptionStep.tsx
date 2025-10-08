@@ -52,7 +52,7 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
         <div className="space-y-6">
             {/* Hélio em modo thinking */}
             <div className="flex justify-center mb-6">
-                <HelioVideo 
+                <HelioVideo
                     variant="compact"
                     autoPlay
                     loop
@@ -74,11 +74,10 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
                 <button
                     type="button"
                     onClick={() => setInputMethod('manual')}
-                    className={`flex-1 p-4 rounded-lg border-2 transition-all ${
-                        inputMethod === 'manual'
+                    className={`flex-1 p-4 rounded-lg border-2 transition-all ${inputMethod === 'manual'
                             ? 'border-orange-500 bg-orange-50'
                             : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                        }`}
                 >
                     <Zap className="w-6 h-6 mx-auto mb-2 text-orange-500" />
                     <div className="font-medium text-sm">Informar Manualmente</div>
@@ -87,11 +86,10 @@ export default function ConsumptionStep({ data, onComplete, onSkip }: Consumptio
                 <button
                     type="button"
                     onClick={() => setInputMethod('bill')}
-                    className={`flex-1 p-4 rounded-lg border-2 transition-all ${
-                        inputMethod === 'bill'
+                    className={`flex-1 p-4 rounded-lg border-2 transition-all ${inputMethod === 'bill'
                             ? 'border-orange-500 bg-orange-50'
                             : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                        }`}
                 >
                     <Upload className="w-6 h-6 mx-auto mb-2 text-orange-500" />
                     <div className="font-medium text-sm">Upload de Conta</div>
