@@ -43,12 +43,14 @@
 ### Backend APIs (`backend/src/api/`)
 
 #### Store APIs
+
 - `/store/companies` - Gerenciamento de empresas
 - `/store/thermal-analysis` - Análise térmica
 - `/store/solar-detection` - Detecção de painéis
 - `/store/approvals` - Aprovações
 
 #### Admin APIs
+
 - `/admin/quotes` - Cotações
 - `/admin/companies` - Empresas (admin)
 
@@ -63,6 +65,7 @@
 #### ✅ Pontos Fortes
 
 1. **Cache em memória implementado**
+
    ```typescript
    // Pattern usado consistentemente
    const cache = new Map<string, { data: any; timestamp: number }>()
@@ -81,6 +84,7 @@
    - Search: 30 minutos
 
 3. **Cache-Control headers configurados**
+
    ```typescript
    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200'
    ```
@@ -98,6 +102,7 @@
    - Sem notificação de mudanças
 
 3. **Tipos inconsistentes**
+
    ```typescript
    // Catalog APIs
    let cache: Map<string, { data: any; timestamp: number }> = new Map()
@@ -118,6 +123,7 @@
 #### ✅ Pontos Fortes
 
 1. **Try-catch em todas as routes**
+
    ```typescript
    try {
        // Logic
@@ -140,6 +146,7 @@
 #### ⚠️ Problemas Identificados
 
 1. **Formato de erro inconsistente**
+
    ```typescript
    // Catalog APIs
    { success: false, error: string, message: string }
@@ -162,6 +169,7 @@
    - Sem circuit breaker
 
 4. **Mensagens de erro genéricas**
+
    ```typescript
    { error: "Failed to load products" }
    // Não informa: qual categoria? qual distribuidor? qual foi o erro real?
@@ -174,6 +182,7 @@
 #### ✅ Pontos Fortes
 
 1. **Response padronizado em Catalog APIs**
+
    ```typescript
    {
        success: boolean
@@ -183,6 +192,7 @@
    ```
 
 2. **Paginação implementada**
+
    ```typescript
    {
        products: [...],
@@ -198,6 +208,7 @@
 #### ⚠️ Problemas Identificados
 
 1. **Inconsistência entre APIs**
+
    ```typescript
    // Catalog APIs
    { success: true, data: {...}, timestamp: string }
@@ -220,6 +231,7 @@
    - Sem rate limit headers
 
 4. **Timestamp inconsistente**
+
    ```typescript
    // Algumas APIs
    timestamp: new Date().toISOString()
@@ -234,6 +246,7 @@
 #### ✅ Pontos Fortes
 
 1. **Query params validados**
+
    ```typescript
    const category = searchParams.get('category') as ProductCategory
    if (!Object.keys(CATEGORY_FILES).includes(category)) {
@@ -245,6 +258,7 @@
    ```
 
 2. **Type safety com TypeScript**
+
    ```typescript
    type ProductCategory = 'panels' | 'inverters' | ...
    ```
@@ -262,6 +276,7 @@
    - Sem rate limiting
 
 3. **Mensagens de erro não estruturadas**
+
    ```typescript
    { error: "Invalid category" }
    // Melhor seria:
@@ -279,6 +294,7 @@
 #### ✅ Pontos Fortes
 
 1. **Leitura paralela**
+
    ```typescript
    const [panels, kits, inverters] = await Promise.all([
        fetchProducts({ category: 'panels' }),
@@ -288,6 +304,7 @@
    ```
 
 2. **Filesystem cache (Next.js)**
+
    ```typescript
    next: { revalidate: 3600 }
    ```
@@ -299,21 +316,25 @@
 #### ⚠️ Problemas Identificados
 
 1. **Leitura de arquivo completo**
+
    ```typescript
    const data = await fs.readFile(filePath, 'utf-8')
    const products = JSON.parse(data) // 986 produtos carregados sempre
    ```
+
    - Sem streaming
    - Sem index/search engine
    - Memory intensive para grandes datasets
 
 2. **Filtros no JavaScript**
+
    ```typescript
    const filtered = products.filter(p => {
        if (distributor && p.distributor !== distributor) return false
        // ...mais filtros
    })
    ```
+
    - Não aproveita índices
    - O(n) complexity para cada request
 
@@ -339,6 +360,7 @@
 #### ✅ Pontos Fortes
 
 1. **Sem exposição de paths do servidor**
+
    ```typescript
    // Não retorna paths absolutos nos erros
    ```
@@ -365,6 +387,7 @@
    - Mas XSS possível em search queries
 
 5. **API keys expostas**
+
    ```typescript
    // Em onboarding/geocode
    headers: { "User-Agent": "yello-solar-hub/1.0" }
@@ -378,6 +401,7 @@
 #### ✅ Pontos Fortes
 
 1. **Documentação inline**
+
    ```typescript
    /**
     * GET /api/catalog/products
@@ -387,6 +411,7 @@
    ```
 
 2. **Type definitions**
+
    ```typescript
    type ProductCategory = 'panels' | 'inverters' | ...
    ```
@@ -399,6 +424,7 @@
 #### ⚠️ Problemas Identificados
 
 1. **Código duplicado**
+
    ```typescript
    // Mesma lógica de cache em 8 arquivos
    const cached = cache.get(cacheKey)
@@ -423,9 +449,11 @@
    - Dificulta client generation
 
 5. **Acoplamento ao filesystem**
+
    ```typescript
    const catalogPath = path.join(process.cwd(), '../../ysh-erp/...')
    ```
+
    - Hardcoded paths
    - Dificulta deploy em ambientes diferentes
    - Sem abstração de data source
@@ -441,6 +469,7 @@
 **Problema**: Cache em memória não escala em múltiplas instâncias.
 
 **Solução**:
+
 ```typescript
 // lib/cache/redis.ts
 import { Redis } from 'ioredis'
@@ -478,6 +507,7 @@ export class CacheManager {
 ```
 
 **Uso**:
+
 ```typescript
 // api/catalog/products/route.ts
 export async function GET(request: NextRequest) {
@@ -500,6 +530,7 @@ export async function GET(request: NextRequest) {
 ```
 
 **Benefícios**:
+
 - ✅ Cache compartilhado entre instâncias
 - ✅ Invalidação coordenada
 - ✅ Persistência em memória (não perde em restart)
@@ -513,6 +544,7 @@ export async function GET(request: NextRequest) {
 **Problema**: Inconsistência dificulta consumo das APIs.
 
 **Solução**:
+
 ```typescript
 // lib/api/response.ts
 export type APIResponse<T = any> = {
@@ -578,6 +610,7 @@ export class ResponseBuilder {
 ```
 
 **Uso**:
+
 ```typescript
 export async function GET(request: NextRequest) {
     const response = new ResponseBuilder()
@@ -600,6 +633,7 @@ export async function GET(request: NextRequest) {
 ```
 
 **Benefícios**:
+
 - ✅ Response format consistente
 - ✅ Request ID para debugging
 - ✅ Duration tracking
@@ -613,6 +647,7 @@ export async function GET(request: NextRequest) {
 **Problema**: Validação manual e duplicada.
 
 **Solução**:
+
 ```typescript
 // lib/api/validation.ts
 import { z } from 'zod'
@@ -653,6 +688,7 @@ export function validateQuery<T>(
 ```
 
 **Uso**:
+
 ```typescript
 export async function GET(request: NextRequest) {
     const response = new ResponseBuilder()
@@ -677,6 +713,7 @@ export async function GET(request: NextRequest) {
 ```
 
 **Benefícios**:
+
 - ✅ Validação declarativa
 - ✅ Type safety automático
 - ✅ Mensagens de erro estruturadas
@@ -690,6 +727,7 @@ export async function GET(request: NextRequest) {
 **Problema**: Erros apenas logados em console.
 
 **Solução**:
+
 ```typescript
 // lib/monitoring/sentry.ts
 import * as Sentry from '@sentry/nextjs'
@@ -724,6 +762,7 @@ export function startAPITransaction(name: string) {
 ```
 
 **Uso**:
+
 ```typescript
 export async function GET(request: NextRequest) {
     const transaction = startAPITransaction('GET /api/catalog/products')
@@ -746,6 +785,7 @@ export async function GET(request: NextRequest) {
 ```
 
 **Benefícios**:
+
 - ✅ Agregação de erros
 - ✅ Stack traces
 - ✅ Performance monitoring
@@ -761,6 +801,7 @@ export async function GET(request: NextRequest) {
 **Problema**: JSON files não escalam, queries lentas.
 
 **Solução**:
+
 ```typescript
 // prisma/schema.prisma
 model Product {
@@ -784,6 +825,7 @@ model Product {
 ```
 
 **Benefícios**:
+
 - ✅ Full-text search
 - ✅ Índices otimizados
 - ✅ Queries complexas
@@ -798,6 +840,7 @@ model Product {
 **Problema**: APIs vulneráveis a abuse.
 
 **Solução**:
+
 ```typescript
 // lib/api/rate-limit.ts
 import { Ratelimit } from '@upstash/ratelimit'
@@ -827,6 +870,7 @@ export async function checkRateLimit(identifier: string) {
 ```
 
 **Uso**:
+
 ```typescript
 export async function POST(request: NextRequest) {
     const ip = request.ip || 'anonymous'
@@ -857,6 +901,7 @@ export async function POST(request: NextRequest) {
 **Problema**: Mudanças quebram clients antigos.
 
 **Solução**:
+
 ```typescript
 // app/api/v1/catalog/products/route.ts
 export async function GET(request: NextRequest) {
@@ -973,24 +1018,28 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 ## 🚀 Roadmap de Implementação
 
 ### Sprint 1 (1-2 semanas)
+
 - ✅ Implementar ResponseBuilder
 - ✅ Implementar validação Zod
 - ✅ Padronizar error responses
 - ✅ Setup Sentry
 
 ### Sprint 2 (2-3 semanas)
+
 - ✅ Setup Redis cache
 - ✅ Migrar cache para Redis
 - ✅ Implementar invalidação
 - ✅ Implementar rate limiting
 
 ### Sprint 3 (3-4 semanas)
+
 - ✅ Setup PostgreSQL + Prisma
 - ✅ Migrar dados de JSON para DB
 - ✅ Implementar queries otimizadas
 - ✅ Full-text search
 
 ### Sprint 4 (1-2 semanas)
+
 - ✅ Versionamento de API (v1, v2)
 - ✅ OpenAPI/Swagger docs
 - ✅ Testes automatizados
@@ -1044,6 +1093,7 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 ## ✅ Checklist de Implementação
 
 ### Fase 1: Fundação
+
 - [ ] Setup ResponseBuilder
 - [ ] Setup Zod validation
 - [ ] Padronizar error responses
@@ -1051,6 +1101,7 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 - [ ] Setup Sentry
 
 ### Fase 2: Cache & Performance
+
 - [ ] Setup Redis (Upstash)
 - [ ] Criar CacheManager
 - [ ] Migrar cache in-memory para Redis
@@ -1058,6 +1109,7 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 - [ ] Configurar TTL por tipo de dado
 
 ### Fase 3: Database
+
 - [ ] Setup PostgreSQL (Supabase)
 - [ ] Criar schema Prisma
 - [ ] Migrar dados JSON → DB
@@ -1065,6 +1117,7 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 - [ ] Full-text search
 
 ### Fase 4: Security & Reliability
+
 - [ ] Implementar rate limiting
 - [ ] Configurar CORS
 - [ ] Input sanitization
@@ -1072,6 +1125,7 @@ Kong/Tyk para centralizar auth, rate limiting, logging.
 - [ ] Circuit breaker
 
 ### Fase 5: Developer Experience
+
 - [ ] Versionamento (v1, v2)
 - [ ] OpenAPI/Swagger
 - [ ] Testes automatizados
