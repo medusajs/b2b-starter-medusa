@@ -88,7 +88,7 @@ export default function LocationStep({ data, onComplete, onSkip }: LocationStepP
                         id="address"
                         placeholder="Rua, Avenida, número..."
                         value={formData.address}
-                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, address: e.target.value })}
                         required
                     />
                 </div>
@@ -100,7 +100,7 @@ export default function LocationStep({ data, onComplete, onSkip }: LocationStepP
                             id="city"
                             placeholder="São Paulo"
                             value={formData.city}
-                            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, city: e.target.value })}
                             required
                         />
                     </div>

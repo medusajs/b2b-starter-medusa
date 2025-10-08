@@ -94,13 +94,13 @@ export default function ResultsStep({ data, onComplete }: ResultsStepProps) {
             // Salvar resultados
             onComplete({
                 results: {
-                    systemCapacity: actualCapacity,
-                    annualGeneration: estimatedGeneration,
+                    systemCapacityKwp: actualCapacity,
                     panelCount,
-                    inverterCount,
-                    estimatedInvestment,
-                    monthlySavings,
-                    paybackPeriod: paybackYears
+                    estimatedGenerationKwhYear: estimatedGeneration,
+                    estimatedSavingsMonthly: monthlySavings,
+                    estimatedSavingsYearly: annualSavings,
+                    paybackYears,
+                    estimatedCost: estimatedInvestment
                 }
             })
         }
