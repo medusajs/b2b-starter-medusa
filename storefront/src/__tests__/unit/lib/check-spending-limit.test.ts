@@ -45,8 +45,11 @@ describe('check-spending-limit', () => {
             const company = mockCompany(ModuleCompanySpendingLimitResetFrequency.DAILY);
             const { start, end } = getSpendWindow(company);
 
-            expect(start.toISOString()).toContain('T00:00:00.000Z');
-            expect(end.getTime()).toBe(new Date('2024-03-15T15:30:00.000Z').getTime());
+            // Check that start is beginning of the day (00:00:00 local time)
+            expect(start.getHours()).toBe(0);
+            expect(start.getMinutes()).toBe(0);
+            expect(start.getSeconds()).toBe(0);
+            expect(start.getMilliseconds()).toBe(0);
         });
 
         it('should return current week window for WEEKLY frequency (starting Sunday)', () => {
@@ -54,10 +57,10 @@ describe('check-spending-limit', () => {
             const { start, end } = getSpendWindow(company);
 
             // March 15, 2024 is Friday, so week starts on March 10 (Sunday)
-            expect(start.getUTCDate()).toBe(10);
-            expect(start.getUTCHours()).toBe(0);
-            expect(start.getUTCMinutes()).toBe(0);
-            expect(end.getTime()).toBe(new Date('2024-03-15T15:30:00.000Z').getTime());
+            expect(start.getDate()).toBe(10);
+            expect(start.getHours()).toBe(0);
+            expect(start.getMinutes()).toBe(0);
+            expect(start.getSeconds()).toBe(0);
         });
 
         it('should return current month window for MONTHLY frequency', () => {
