@@ -23,13 +23,21 @@ import {
     ErrorHandler,
     RequestValidator
 } from "../../../utils/solar-cv-middleware";
-import type {
-    FileUpload
-} from "../../../types/solar-cv";
+import { CacheManager } from "../../../utils/cache-manager";
 
 // ============================================================================
 // Local Types
 // ============================================================================
+
+interface FileUpload {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    size: number;
+    path: string;
+    buffer?: Buffer;
+}
 
 interface DetectedPanel {
     id: string;
@@ -72,14 +80,27 @@ interface SolarDetectionResponse {
 // ============================================================================
 
 class PanelSegmentationService extends BaseSolarCVService {
+    private cacheManager: CacheManager;
+
     constructor() {
         super("panel-segmentation");
+        this.cacheManager = new CacheManager();
     }
 
     async detectPanelsFromImage(file: FileUpload): Promise<SolarDetectionResponse> {
         const startTime = Date.now();
 
         try {
+            // Generate cache key based on file hash
+            const cacheKey = `solar-detection:${await FileUtils.getFileHash(file.path)}`;
+
+            // Check cache first
+            const cachedResult = await this.cacheManager.get<SolarDetectionResponse>(cacheKey);
+            if (cachedResult) {
+                SolarCVMetrics.recordCacheHit("panel-segmentation");
+                return cachedResult;
+            }
+
             // Create FormData from file
             const formData = FileUtils.createFormDataFromFile(file);
 
@@ -121,6 +142,9 @@ class PanelSegmentationService extends BaseSolarCVService {
                     model_version: "nrel-panel-seg-v2.1",
                 },
             };
+
+            // Cache the result for 1 hour
+            await this.cacheManager.set(cacheKey, result, 3600);
 
             // Record metrics
             SolarCVMetrics.recordCall("panel-segmentation", Date.now() - startTime, true);

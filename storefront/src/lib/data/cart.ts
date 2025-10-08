@@ -291,7 +291,7 @@ export async function deleteLineItem(lineId: string) {
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
   })
-  .catch(medusaError)
+    .catch(medusaError)
 }
 
 export async function emptyCart() {
@@ -319,12 +319,13 @@ export async function setShippingMethod({
     ...(await getAuthHeaders()),
   }
 
-  return sdk.store.cart
-    .addShippingMethod(cartId, { option_id: shippingMethodId }, {}, headers)
-    .then(async () => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-    })
+  return retryWithBackoff(async () => {
+    return sdk.store.cart
+      .addShippingMethod(cartId, { option_id: shippingMethodId }, {}, headers)
+  }).then(async () => {
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+  })
     .catch(medusaError)
 }
 
@@ -339,13 +340,14 @@ export async function initiatePaymentSession(
     ...(await getAuthHeaders()),
   }
 
-  return sdk.store.payment
-    .initiatePaymentSession(cart as StoreCart, data, {}, headers)
-    .then(async (resp) => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-      return resp
-    })
+  return retryWithBackoff(async () => {
+    return sdk.store.payment
+      .initiatePaymentSession(cart as StoreCart, data, {}, headers)
+  }).then(async (resp) => {
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+    return resp
+  })
     .catch(medusaError)
 }
 
@@ -526,9 +528,10 @@ export async function placeOrder(
   const ordersTag = await getCacheTag("orders")
   const approvalsTag = await getCacheTag("approvals")
 
-  const response = await sdk.store.cart
-    .complete(id, {}, headers)
-    .catch(medusaError)
+  const response = await retryWithBackoff(async () => {
+    return sdk.store.cart
+      .complete(id, {}, headers)
+  }).catch(medusaError)
 
   if (response.type === "cart") {
     return response
@@ -584,20 +587,21 @@ export async function createCartApproval(cartId: string, createdBy: string) {
     ...(await getAuthHeaders()),
   }
 
-  const { approval } = await sdk.client
-    .fetch<StoreApprovalResponse>(`/store/carts/${cartId}/approvals`, {
-      method: "POST",
-      headers,
-      credentials: "include",
-    })
-    .catch((err) => {
-      if (err.response?.json) {
-        return err.response.json().then((body: any) => {
-          throw new Error(body.message || err.message)
-        })
-      }
-      throw err
-    })
+  const { approval } = await retryWithBackoff(async () => {
+    return sdk.client
+      .fetch<StoreApprovalResponse>(`/store/carts/${cartId}/approvals`, {
+        method: "POST",
+        headers,
+        credentials: "include",
+      })
+  }).catch((err) => {
+    if (err.response?.json) {
+      return err.response.json().then((body: any) => {
+        throw new Error(body.message || err.message)
+      })
+    }
+    throw err
+  })
 
   const cartCacheTag = await getCacheTag("carts")
   revalidateTag(cartCacheTag)
