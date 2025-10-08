@@ -1,23 +1,37 @@
-import { MedusaContainer } from "@medusajs/framework/types"
-import { IProductModuleService, IRegionModuleService } from "@medusajs/framework/types"
-import { Modules } from "@medusajs/framework/utils"
+import {
+    createProductCategoriesWorkflow,
+    createProductsWorkflow,
+    createRegionsWorkflow,
+} from "@medusajs/core-flows"
+import {
+    ExecArgs,
+    ISalesChannelModuleService,
+} from "@medusajs/framework/types"
+import {
+    ContainerRegistrationKeys,
+    ModuleRegistrationName,
+    ProductStatus,
+} from "@medusajs/framework/utils"
 import fs from "fs"
 import path from "path"
 
-const CATALOG_PATH = path.resolve(__dirname, "../../../../ysh-erp/data/catalog/unified_schemas")
+// Check if running in container
+const CATALOG_PATH = fs.existsSync("/tmp/catalog")
+    ? "/tmp/catalog"
+    : path.resolve(__dirname, "../../../../ysh-erp/data/catalog/unified_schemas")
 
 const CATEGORIES_CONFIG = [
-    { name: "inverters", priority: 1, category_handle: "inversores" },
-    { name: "panels", priority: 1, category_handle: "paineis-solares" },
-    { name: "kits", priority: 1, category_handle: "kits" },
-    { name: "ev_chargers", priority: 2, category_handle: "carregadores-veiculares" },
-    { name: "cables", priority: 2, category_handle: "cabos" },
-    { name: "structures", priority: 3, category_handle: "estruturas" },
-    { name: "controllers", priority: 3, category_handle: "controladores" },
-    { name: "accessories", priority: 3, category_handle: "acessorios" },
-    { name: "stringboxes", priority: 3, category_handle: "string-boxes" },
-    { name: "batteries", priority: 3, category_handle: "baterias" },
-    { name: "posts", priority: 3, category_handle: "postes" },
+    { name: "inverters", priority: 1, category_handle: "inversores", display: "Inversores" },
+    { name: "panels", priority: 1, category_handle: "paineis-solares", display: "Painéis Solares" },
+    { name: "kits", priority: 1, category_handle: "kits", display: "Kits" },
+    { name: "ev_chargers", priority: 2, category_handle: "carregadores-veiculares", display: "Carregadores Veiculares" },
+    { name: "cables", priority: 2, category_handle: "cabos", display: "Cabos" },
+    { name: "structures", priority: 3, category_handle: "estruturas", display: "Estruturas" },
+    { name: "controllers", priority: 3, category_handle: "controladores", display: "Controladores" },
+    { name: "accessories", priority: 3, category_handle: "acessorios", display: "Acessórios" },
+    { name: "stringboxes", priority: 3, category_handle: "string-boxes", display: "String Boxes" },
+    { name: "batteries", priority: 3, category_handle: "baterias", display: "Baterias" },
+    { name: "posts", priority: 3, category_handle: "postes", display: "Postes" },
 ]
 
 interface ImportStats {
@@ -32,14 +46,11 @@ interface ImportStats {
     }>
 }
 
-export default async function importCatalog({
-    container,
-}: {
-    container: MedusaContainer
-}): Promise<ImportStats> {
-    const productModuleService: IProductModuleService = container.resolve(Modules.PRODUCT)
-    const regionModuleService: IRegionModuleService = container.resolve(Modules.REGION)
-    const query = container.resolve("query")
+export default async function importCatalog({ container }: ExecArgs): Promise<void> {
+    const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
+    const salesChannelModuleService: ISalesChannelModuleService = container.resolve(
+        ModuleRegistrationName.SALES_CHANNEL
+    )
 
     const stats: ImportStats = {
         total: 0,
@@ -50,65 +61,79 @@ export default async function importCatalog({
         by_category: {}
     }
 
-    console.log("🚀 Iniciando importação do catálogo YSH ERP...")
-    console.log(`📂 Pasta: ${CATALOG_PATH}\n`)
+    logger.info("🚀 Iniciando importação do catálogo YSH ERP...")
+    logger.info(`📂 Pasta: ${CATALOG_PATH}`)
 
     // 1. Verificar/Criar região BR
     let regionBR
     try {
-        const regions = await regionModuleService.listRegions({ currency_code: "brl" })
+        const { result: regions } = await createRegionsWorkflow(container).run({
+            input: {
+                regions: [
+                    {
+                        name: "Brasil",
+                        currency_code: "brl",
+                        countries: ["br"],
+                        payment_providers: ["pp_system_default"],
+                    },
+                ],
+            },
+        })
         regionBR = regions[0]
-
-        if (!regionBR) {
-            console.log("🌎 Criando região BR...")
-            regionBR = await regionModuleService.createRegions({
-                name: "Brasil",
-                currency_code: "brl",
-                countries: ["br"],
-            })
-            console.log("✅ Região BR criada\n")
+        logger.info("✅ Região BR configurada")
+    } catch (error: any) {
+        if (error.message?.includes("already exists")) {
+            logger.info("✅ Região BR já existe")
+            // Continue mesmo se já existe
         } else {
-            console.log("✅ Região BR já existe\n")
+            logger.error("❌ Erro ao configurar região BR:", error)
+            return
         }
-    } catch (error) {
-        console.error("❌ Erro ao configurar região BR:", error)
-        return stats
     }
 
-    // 2. Criar/Verificar categorias
+    // 2. Buscar sales channel padrão
+    const defaultSalesChannel = await salesChannelModuleService.listSalesChannels({
+        name: "Default Sales Channel",
+    })
+
+    if (!defaultSalesChannel.length) {
+        logger.error("❌ Sales channel padrão não encontrado. Execute o seed primeiro.")
+        return
+    }
+
+    // 3. Criar categorias
     const categoryMap = new Map<string, string>()
 
-    for (const catConfig of CATEGORIES_CONFIG) {
-        try {
-            const categories = await productModuleService.listProductCategories({
-                handle: catConfig.category_handle
-            })
-
-            let category = categories[0]
-
-            if (!category) {
-                console.log(`📁 Criando categoria: ${catConfig.name}`)
-                category = await productModuleService.createProductCategories({
-                    name: catConfig.name.charAt(0).toUpperCase() + catConfig.name.slice(1),
-                    handle: catConfig.category_handle,
+    logger.info("📁 Criando categorias...")
+    try {
+        const { result: categoryResult } = await createProductCategoriesWorkflow(container).run({
+            input: {
+                product_categories: CATEGORIES_CONFIG.map(cat => ({
+                    name: cat.display,
+                    handle: cat.category_handle,
                     is_active: true,
-                })
-            }
+                })),
+            },
+        })
 
-            categoryMap.set(catConfig.name, category.id)
-        } catch (error) {
-            console.error(`❌ Erro ao criar categoria ${catConfig.name}:`, error)
-        }
+        categoryResult.forEach((category, index) => {
+            categoryMap.set(CATEGORIES_CONFIG[index].name, category.id)
+        })
+
+        logger.info(`✅ ${categoryMap.size} categorias criadas`)
+    } catch (error: any) {
+        logger.warn(`⚠️  Algumas categorias podem já existir: ${error.message}`)
+        // Continue mesmo se algumas categorias já existirem
     }
 
-    console.log(`✅ ${categoryMap.size} categorias configuradas\n`)
+    // 4. Importar produtos por categoria (em lotes para melhor performance)
+    const BATCH_SIZE = 10 // Importar 10 produtos por vez
 
-    // 3. Importar produtos por categoria
     for (const catConfig of CATEGORIES_CONFIG) {
         const filePath = path.join(CATALOG_PATH, `${catConfig.name}_unified.json`)
 
         if (!fs.existsSync(filePath)) {
-            console.warn(`⚠️  Arquivo não encontrado: ${catConfig.name}_unified.json`)
+            logger.warn(`⚠️  Arquivo não encontrado: ${catConfig.name}_unified.json`)
             continue
         }
 
@@ -117,107 +142,113 @@ export default async function importCatalog({
         try {
             const rawData = fs.readFileSync(filePath, 'utf-8')
             const data = JSON.parse(rawData)
-
-            // O arquivo pode ser array direto ou objeto com propriedade products
             const products = Array.isArray(data) ? data : (data.products || [])
 
             stats.total += products.length
-
-            console.log(`📦 Importando ${products.length} produtos de ${catConfig.name}...`)
+            logger.info(`📦 Importando ${products.length} produtos de ${catConfig.name}...`)
 
             const categoryId = categoryMap.get(catConfig.name)
 
-            for (const product of products) {
-                try {
-                    // Verificar se produto já existe pelo handle
-                    const existing = await productModuleService.listProducts({
-                        handle: product.id
-                    })
+            // Processar em lotes
+            for (let i = 0; i < products.length; i += BATCH_SIZE) {
+                const batch = products.slice(i, i + BATCH_SIZE)
 
-                    if (existing.length > 0) {
-                        // Atualizar produto existente
-                        await productModuleService.updateProducts(existing[0].id, {
-                            title: product.name,
-                            description: product.description || `${product.manufacturer} ${product.model}`,
-                            status: product.availability ? "published" : "draft",
-                            metadata: {
-                                ...product.metadata,
-                                sku: product.id.toUpperCase(),
-                                manufacturer: product.manufacturer,
-                                model: product.model,
-                                technical_specs: product.technical_specs,
-                            }
-                        })
-                        stats.updated++
-                    } else {
-                        // Criar novo produto com variante
-                        const newProduct = await productModuleService.createProducts({
-                            title: product.name,
-                            handle: product.id,
-                            description: product.description || `${product.manufacturer} ${product.model}`,
-                            status: product.availability ? "published" : "draft",
-                            thumbnail: product.image_url || product.image,
-                            metadata: {
-                                sku: product.id.toUpperCase(),
-                                manufacturer: product.manufacturer,
-                                model: product.model,
-                                source: "ysh-erp",
-                                category: catConfig.name,
-                                technical_specs: product.technical_specs,
-                                image_match: product.metadata?.image_match,
-                                price_brl: product.pricing?.price_brl || product.price_brl || 0,
-                            },
-                            options: [{
-                                title: "Default Option",
-                            }],
-                            variants: [{
+                const productsToCreate = batch.map((product: any) => {
+                    const priceBrl = product.pricing?.price_brl || product.price_brl || 0
+                    // Criar handle URL-safe: remover underscores, converter para lowercase
+                    const safeHandle = (product.id || `product-${Date.now()}`)
+                        .toLowerCase()
+                        .replace(/_/g, '-')
+                        .replace(/[^a-z0-9-]/g, '')
+                        .replace(/-+/g, '-')
+                        .replace(/^-|-$/g, '')
+
+                    return {
+                        title: product.name || "Produto sem nome",
+                        handle: safeHandle,
+                        description: product.description || `${product.manufacturer || ""} ${product.model || ""}`.trim() || "Sem descrição",
+                        status: ProductStatus.PUBLISHED,
+                        thumbnail: product.image_url || product.image,
+                        metadata: {
+                            sku: (product.id || "").toUpperCase(),
+                            manufacturer: product.manufacturer || "",
+                            model: product.model || "",
+                            source: "ysh-erp",
+                            category: catConfig.name,
+                            technical_specs: product.technical_specs,
+                            image_match: product.metadata?.image_match,
+                            price_brl: priceBrl,
+                        },
+                        category_ids: categoryId ? [categoryId] : [],
+                        options: [
+                            {
                                 title: "Default",
-                                sku: product.id.toUpperCase(),
+                                values: ["Default"],
+                            },
+                        ],
+                        variants: [
+                            {
+                                title: "Default",
+                                sku: (product.id || "").toUpperCase(),
                                 manage_inventory: false,
                                 allow_backorder: true,
                                 options: {
-                                    "Default Option": "Default"
-                                }
-                            }]
-                        })
-
-                        stats.imported++
-                        stats.by_category[catConfig.name].imported++
+                                    Default: "Default",
+                                },
+                                prices: [
+                                    {
+                                        amount: Math.round(priceBrl * 100), // Converter para centavos
+                                        currency_code: "brl",
+                                    },
+                                ],
+                            },
+                        ],
+                        sales_channels: [
+                            {
+                                id: defaultSalesChannel[0].id,
+                            },
+                        ],
                     }
+                })                try {
+                    await createProductsWorkflow(container).run({
+                        input: {
+                            products: productsToCreate,
+                        },
+                    })
 
-                } catch (productError: any) {
-                    console.error(`  ❌ Erro ao importar produto ${product.id}:`, productError.message)
-                    stats.errors++
-                    stats.by_category[catConfig.name].errors++
+                    stats.imported += batch.length
+                    stats.by_category[catConfig.name].imported += batch.length
+
+                    logger.info(`  ✅ Lote ${Math.floor(i / BATCH_SIZE) + 1}: ${batch.length} produtos importados`)
+                } catch (batchError: any) {
+                    logger.error(`  ❌ Erro no lote: ${batchError.message}`)
+                    stats.errors += batch.length
+                    stats.by_category[catConfig.name].errors += batch.length
                 }
             }
 
-            console.log(`  ✅ ${stats.by_category[catConfig.name].imported} produtos importados`)
+            logger.info(`  ✅ Total: ${stats.by_category[catConfig.name].imported} produtos importados de ${catConfig.name}`)
             if (stats.by_category[catConfig.name].errors > 0) {
-                console.log(`  ⚠️  ${stats.by_category[catConfig.name].errors} erros`)
+                logger.warn(`  ⚠️  ${stats.by_category[catConfig.name].errors} erros`)
             }
-            console.log()
 
         } catch (error: any) {
-            console.error(`❌ Erro ao processar categoria ${catConfig.name}:`, error.message)
+            logger.error(`❌ Erro ao processar categoria ${catConfig.name}:`, error.message)
         }
     }
 
-    // 4. Resumo final
-    console.log("\n" + "=".repeat(60))
-    console.log("📊 RESUMO DA IMPORTAÇÃO")
-    console.log("=".repeat(60))
-    console.log(`Total de produtos processados: ${stats.total}`)
-    console.log(`✅ Importados com sucesso: ${stats.imported}`)
-    console.log(`🔄 Atualizados: ${stats.updated}`)
-    console.log(`⏭️  Pulados: ${stats.skipped}`)
-    console.log(`❌ Erros: ${stats.errors}`)
-    console.log()
-    console.log("Por categoria:")
+    // 5. Resumo final
+    logger.info("\n" + "=".repeat(60))
+    logger.info("📊 RESUMO DA IMPORTAÇÃO")
+    logger.info("=".repeat(60))
+    logger.info(`Total de produtos processados: ${stats.total}`)
+    logger.info(`✅ Importados com sucesso: ${stats.imported}`)
+    logger.info(`🔄 Atualizados: ${stats.updated}`)
+    logger.info(`⏭️  Pulados: ${stats.skipped}`)
+    logger.info(`❌ Erros: ${stats.errors}`)
+    logger.info("\nPor categoria:")
     for (const [cat, catStats] of Object.entries(stats.by_category)) {
-        console.log(`  ${cat}: ${catStats.imported} importados, ${catStats.errors} erros`)
+        logger.info(`  ${cat}: ${catStats.imported} importados, ${catStats.errors} erros`)
     }
-    console.log("=".repeat(60))
-
-    return stats
+    logger.info("=".repeat(60))
 }

@@ -72,7 +72,7 @@ export async function NavigationHeader() {
 
             <SKUHistoryDropdown />
 
-            {/* <QuoteLink /> */}
+            <QuoteLink />
 
             <ThemeToggle />
 

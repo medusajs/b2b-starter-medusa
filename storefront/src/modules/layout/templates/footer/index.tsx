@@ -154,7 +154,7 @@ export default async function Footer() {
           </Text>
           <div className="flex gap-4">
             <LocalizedClientLink
-              href="/ferramentas/financiamento"
+              href="/financiamento"
               className="txt-compact-small hover:text-ui-fg-base"
             >
               Simular financiamento

@@ -1,30 +1,8 @@
-import { MedusaAppLoader } from "@medusajs/framework"
-import importCatalog from "./import-catalog"
+// Este arquivo não é mais necessário
+// Use: npm run catalog:import (que usa medusa exec)
+// O script import-catalog.ts agora segue o padrão ExecArgs do Medusa v2
 
-async function run() {
-    console.log("🔧 Carregando aplicação Medusa...")
-
-    const app = await MedusaAppLoader.load({
-        directory: process.cwd(),
-    })
-
-    try {
-        const stats = await importCatalog(app.container)
-
-        if (stats.errors > 0) {
-            console.error(`\n⚠️  Importação concluída com ${stats.errors} erros`)
-            process.exit(1)
-        } else {
-            console.log("\n✅ Importação concluída com sucesso!")
-            process.exit(0)
-        }
-    } catch (error: any) {
-        console.error("\n❌ Erro fatal durante importação:", error.message)
-        console.error(error.stack)
-        process.exit(1)
-    } finally {
-        await app.shutdown()
-    }
+export default async function () {
+    console.log("⚠️  Use: npm run catalog:import")
+    console.log("Ou: medusa exec ./src/scripts/import-catalog.ts")
 }
-
-run()
