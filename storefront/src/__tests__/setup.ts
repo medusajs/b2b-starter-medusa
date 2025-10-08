@@ -13,6 +13,26 @@ import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder as any
 global.TextDecoder = TextDecoder as any
 
+// Configurar DOM global para React 19
+import { JSDOM } from 'jsdom'
+
+const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', {
+    url: 'http://localhost:3000',
+    pretendToBeVisual: true,
+    resources: 'usable'
+})
+
+global.window = dom.window as any
+global.document = dom.window.document
+global.navigator = dom.window.navigator
+
+// Copiar propriedades do window para global
+Object.keys(dom.window).forEach(key => {
+    if (!(key in global)) {
+        (global as any)[key] = (dom.window as any)[key]
+    }
+})
+
 // Mock do Next.js router
 jest.mock('next/navigation', () => ({
     useRouter() {
@@ -48,4 +68,8 @@ jest.mock('@medusajs/ui', () => ({
 // Configurações globais de teste
 beforeEach(() => {
     jest.clearAllMocks()
+})
+
+afterEach(() => {
+    // Cleanup after each test
 })
