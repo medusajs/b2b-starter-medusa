@@ -1,0 +1,67 @@
+# Prometheus Configuration (FOSS)
+# Scrape metrics from YSH B2B services
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: "ysh-b2b"
+    environment: "development"
+
+# Alertmanager configuration (optional)
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+# Load rules once and periodically evaluate them
+rule_files:
+  # - "alerts/*.yml"
+
+# Scrape configurations
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Backend Medusa.js metrics
+  - job_name: "backend"
+    static_configs:
+      - targets: ["backend:9091"]
+        labels:
+          service: "medusa-backend"
+          tier: "api"
+
+  # PostgreSQL metrics (via postgres_exporter if installed)
+  - job_name: "postgres"
+    static_configs:
+      - targets: ["postgres-exporter:9187"]
+        labels:
+          service: "postgresql"
+          tier: "database"
+
+  # Redis metrics (via redis_exporter if installed)
+  - job_name: "redis"
+    static_configs:
+      - targets: ["redis-exporter:9121"]
+        labels:
+          service: "redis"
+          tier: "cache"
+
+  # MinIO metrics
+  - job_name: "minio"
+    metrics_path: /minio/v2/metrics/cluster
+    static_configs:
+      - targets: ["minio:9000"]
+        labels:
+          service: "minio"
+          tier: "storage"
+
+  # Node exporter (system metrics - optional)
+  - job_name: "node"
+    static_configs:
+      - targets: ["node-exporter:9100"]
+        labels:
+          service: "node"
+          tier: "infrastructure"
