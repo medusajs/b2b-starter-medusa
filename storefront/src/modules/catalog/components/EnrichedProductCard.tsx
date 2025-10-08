@@ -9,32 +9,30 @@ import { useLeadQuote } from "@/modules/lead-quote/context"
 import { useState } from "react"
 
 export interface EnrichedProductData {
-    id: string
-    name: string
-    manufacturer: string
-    image_url: string
-    price_brl: number
-    badges: Array<{
-        text: string
-        variant: "success" | "warning" | "info" | "premium" | "default"
-    }>
-    microcopy: {
-        short_description: string
-        tooltip: string
-        cta_text: string
-        availability_text: string
-    }
-    seo: {
-        title: string
-        description: string
-        keywords: string[]
-        og_title: string
-        og_description: string
-    }
-    specs?: Record<string, any>
-}
-
-interface EnrichedProductCardProps {
+  id: string
+  name: string
+  manufacturer: string
+  image_url: string
+  price_brl?: number
+  badges: Array<{
+    text: string
+    variant: "success" | "warning" | "info" | "premium" | "default"
+  }>
+  microcopy: {
+    short_description: string
+    tooltip: string
+    cta_text: string
+    availability_text: string
+  }
+  seo: {
+    title: string
+    description: string
+    keywords: string[]
+    og_title: string
+    og_description: string
+  }
+  specs?: Record<string, any>
+}interface EnrichedProductCardProps {
     product: EnrichedProductData
     category: "panels" | "inverters" | "batteries" | "kits" | "structures"
 }
@@ -68,14 +66,13 @@ export default function EnrichedProductCard({
         }
     }
 
-    const formatPrice = (price: number) => {
-        return new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(price)
-    }
-
-    const getCategoryIcon = () => {
+  const formatPrice = (price?: number) => {
+    if (!price) return "Sob Consulta"
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(price)
+  }    const getCategoryIcon = () => {
         switch (category) {
             case "panels":
                 return "☀️"

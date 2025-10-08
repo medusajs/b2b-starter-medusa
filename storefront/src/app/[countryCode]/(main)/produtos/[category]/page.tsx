@@ -4,6 +4,13 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import Link from "next/link"
 import { LeadQuoteProvider } from "@/modules/lead-quote/context"
+import CategoryHero from "@/modules/catalog/components/CategoryHero"
+import EnrichedProductCard from "@/modules/catalog/components/EnrichedProductCard"
+import { 
+  getCategoryHero, 
+  getEnrichedProducts, 
+  hasEnrichedData 
+} from "@/lib/data/catalog-enriched"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
 const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
@@ -68,6 +75,15 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   const manufacturers = (data.facets?.manufacturers as string[] | undefined) || (await listManufacturers())
 
   const isKits = category === "kits"
+  
+  // Check for enriched data
+  const hasEnriched = await hasEnrichedData()
+  const enrichedHero = hasEnriched ? await getCategoryHero(category) : null
+  const enrichedProducts = hasEnriched ? await getEnrichedProducts(category) : []
+  
+  // Create enriched product map for quick lookup
+  const enrichedMap = new Map(enrichedProducts.map(p => [p.id, p]))
+  
   const Title = () => (
     <div className="mb-6">
       <h1 className="text-3xl font-semibold text-neutral-950 capitalize">{category}</h1>
@@ -78,7 +94,18 @@ export default async function CategoryPage({ params, searchParams }: { params: P
   return (
     <LeadQuoteProvider>
     <div className="content-container py-10">
-      <Title />
+      {/* AI-Generated Hero Section */}
+      {enrichedHero && (
+        <CategoryHero
+          title={enrichedHero.title}
+          subtitle={enrichedHero.subtitle}
+          cta_primary={enrichedHero.cta_primary}
+          cta_secondary={enrichedHero.cta_secondary}
+          benefits={enrichedHero.benefits}
+        />
+      )}
+      
+      {!enrichedHero && <Title />}
 
       {/* Filtros */}
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6 border">
@@ -169,15 +196,25 @@ export default async function CategoryPage({ params, searchParams }: { params: P
       })()}
 
       <div className={`grid gap-6 ${isKits ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}` }>
-        {products?.map((item: any) => (
-          <Suspense key={item.id}>
-            {isKits ? (
-              <KitCard kit={item} />
-            ) : (
-              <ProductCard product={item} category={category as any} />
-            )}
-          </Suspense>
-        ))}
+        {products?.map((item: any) => {
+          const enriched = enrichedMap.get(item.id)
+          
+          return (
+            <Suspense key={item.id}>
+              {enriched ? (
+                // Use AI-enriched card with badges, microcopy, SEO
+                <EnrichedProductCard 
+                  product={enriched} 
+                  category={category as any} 
+                />
+              ) : isKits ? (
+                <KitCard kit={item} />
+              ) : (
+                <ProductCard product={item} category={category as any} />
+              )}
+            </Suspense>
+          )
+        })}
       </div>
 
       {/* Paginação */}
