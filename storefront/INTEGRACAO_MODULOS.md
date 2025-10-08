@@ -6,31 +6,37 @@
 
 **Arquivo:** `src/modules/viability/integrations.tsx`
 
-#### Integrações Core:
+#### Integrações Core
 
 **🛒 Cart Integration**
+
 - `viabilityToCartItems()` - Converte output de viabilidade em itens de carrinho
 - `AddViabilityToCartButton` - Botão para adicionar sistema ao carrinho
 - `EmptyCartViabilitySuggestion` - Banner em carrinho vazio
 
 **💼 Quote Integration**
+
 - `viabilityToQuote()` - Converte cálculo em dados de cotação
 - `RequestQuoteFromViability` - Botão para solicitar cotação formal
 
 **👤 Account Integration**
+
 - `MyViabilityCalculationsWidget` - Widget no dashboard do usuário
 - Exibe estudos de viabilidade salvos
 - Link para criar novo estudo
 
 **📦 Product Integration**
+
 - `ProductViabilitySuggestion` - Sugestão em páginas de produto
 - Sugere calcular viabilidade antes de comprar
 
 **💰 Finance Integration** (preparação)
+
 - `viabilityToFinanceInput()` - Dados para simulação financeira
 - `ViabilityToFinanceLink` - Link para módulo de financiamento
 
-#### Fluxo de Uso:
+#### Fluxo de Uso
+
 ```
 Cliente acessa /viabilidade
   ↓
@@ -49,37 +55,45 @@ Sistema calcula dimensionamento
 
 **Arquivo:** `src/modules/tariffs/integrations.tsx`
 
-#### Integrações Core:
+#### Integrações Core
 
 **⚡ Viability Integration**
+
 - `tariffToViabilityInput()` - Dados de tarifa para cálculo de viabilidade
 - `TariffToViabilityButton` - Link direto para viabilidade com tarifa
 
 **💰 Finance Integration**
+
 - `tariffToFinanceInput()` - Dados tarifários para simulação financeira
 - `TariffToFinanceButton` - Link para simulação com tarifa calculada
 
 **👤 Account Integration**
+
 - `MyTariffClassificationWidget` - Widget no dashboard
 - Mostra classificação tarifária salva (Grupo A/B, Subgrupo)
 
 **📦 Product Integration**
+
 - `ProductTariffSavingsBadge` - Badge de economia em produtos
 - `ProductTariffSuggestion` - Sugestão para classificar tarifa
 - Calcula economia baseada na tarifa do usuário
 
 **🛒 Cart Integration**
+
 - `CartTariffSavings` - Calculadora de economia no carrinho
 - Mostra economia mensal/anual baseada no sistema no carrinho
 
 **💼 Quote Integration**
+
 - `tariffToQuote()` - Dados tarifários para cotação
 
 **📋 Compliance Integration** (preparação)
+
 - `mmgdToComplianceInput()` - Dados MMGD para compliance
 - `MMGDToComplianceButton` - Link para documentação de compliance
 
-#### Fluxo de Uso:
+#### Fluxo de Uso
+
 ```
 Cliente acessa /tarifas
   ↓
@@ -99,6 +113,7 @@ Valida elegibilidade MMGD
 ## 🔄 Fluxos Integrados End-to-End
 
 ### Fluxo 1: **Jornada Completa de Venda**
+
 ```mermaid
 graph LR
     A[/tarifas] -->|tarifa classificada| B[/viabilidade]
@@ -109,6 +124,7 @@ graph LR
 ```
 
 ### Fluxo 2: **Jornada com Cotação**
+
 ```mermaid
 graph LR
     A[/viabilidade] -->|sistema calculado| B[/account/quotes/new]
@@ -118,6 +134,7 @@ graph LR
 ```
 
 ### Fluxo 3: **Jornada com Compliance**
+
 ```mermaid
 graph LR
     A[/tarifas] -->|MMGD elegível| B[/compliance]
@@ -130,9 +147,11 @@ graph LR
 ## 📊 Padrões de Integração Estabelecidos
 
 ### 1. **Conversores de Dados**
+
 Todas as integrações seguem o padrão `[origem]To[destino]()`
 
 Exemplos:
+
 ```typescript
 viabilityToCartItems(output: ViabilityOutput): CartItem[]
 tariffToViabilityInput(classification, rates): ViabilityInput
@@ -141,9 +160,11 @@ mmgdToComplianceInput(mmgd): ComplianceData
 ```
 
 ### 2. **Componentes de Navegação**
+
 Botões/Links para navegar entre módulos com dados pré-carregados
 
 Exemplos:
+
 ```tsx
 <TariffToViabilityButton /> // De tarifas → viabilidade
 <ViabilityToFinanceLink /> // De viabilidade → financiamento
@@ -151,18 +172,22 @@ Exemplos:
 ```
 
 ### 3. **Widgets de Dashboard**
+
 Componentes reutilizáveis para `/account` dashboard
 
 Exemplos:
+
 ```tsx
 <MyViabilityCalculationsWidget />
 <MyTariffClassificationWidget />
 ```
 
 ### 4. **Sugestões Contextuais**
+
 Banners/tooltips em outros módulos sugerindo uso
 
 Exemplos:
+
 ```tsx
 <EmptyCartViabilitySuggestion /> // Em cart vazio
 <ProductViabilitySuggestion /> // Em produtos
@@ -174,28 +199,36 @@ Exemplos:
 ## 🎯 Próximos Módulos a Integrar
 
 ### 3. **Finance Module** (`finance.credit`)
+
 **Integrações planejadas:**
+
 - ← Viability: dados de investimento e ROI
 - ← Tariffs: tarifa e economia mensal
 - → Cart: adicionar parcelas ao carrinho
 - → Quote: cotação com opções de financiamento
 
 ### 4. **Logistics Module** (`logistics.fulfillment`)
+
 **Integrações planejadas:**
+
 - ← Cart: itens para cotação de frete
 - ← Viability: endereço de instalação (CEP)
 - → Checkout: opções de entrega
 - → Account: rastreamento de pedidos
 
 ### 5. **Compliance Module** (`legal.compliance`)
+
 **Integrações planejadas:**
+
 - ← Tariffs: dados MMGD
 - ← Viability: especificações técnicas do sistema
 - → Quote: documentos para cotação
 - → Account: dossiê técnico
 
 ### 6. **Insurance Module** (`insurance.risk`)
+
 **Integrações planejadas:**
+
 - ← Viability: valor do sistema
 - ← Finance: valor financiado
 - → Cart: adicionar seguro
@@ -206,6 +239,7 @@ Exemplos:
 ## 🛠️ Ferramentas de Desenvolvimento
 
 ### Helpers de URL
+
 Todos os módulos exportam helpers de URL:
 
 ```typescript
@@ -219,6 +253,7 @@ getTariffResultUrl(id, countryCode) → '/{countryCode}/tarifas/{id}'
 ```
 
 ### TypeScript Types
+
 Todas as integrações são fortemente tipadas:
 
 ```typescript
@@ -248,6 +283,7 @@ ViabilityCartItem, TariffFinanceData, MMGDComplianceData
 | BizOps | ⏳ | ⏳ | ⏳ | ⏳ | ⏳ | 0% |
 
 **Legenda:**
+
 - ✅ Implementado e testado
 - ⏳ Planejado
 - N/A Não aplicável
@@ -257,6 +293,7 @@ ViabilityCartItem, TariffFinanceData, MMGDComplianceData
 ## 🔍 Exemplos de Uso
 
 ### Exemplo 1: Adicionar Sistema ao Carrinho
+
 ```tsx
 import { viabilityToCartItems, AddViabilityToCartButton } from '@/modules/viability'
 
@@ -278,6 +315,7 @@ function ViabilityResults() {
 ```
 
 ### Exemplo 2: Fluxo Tarifas → Viabilidade
+
 ```tsx
 import { TariffToViabilityButton } from '@/modules/tariffs'
 
@@ -296,6 +334,7 @@ function TariffResults() {
 ```
 
 ### Exemplo 3: Widget no Dashboard
+
 ```tsx
 import { MyViabilityCalculationsWidget } from '@/modules/viability'
 import { MyTariffClassificationWidget } from '@/modules/tariffs'
