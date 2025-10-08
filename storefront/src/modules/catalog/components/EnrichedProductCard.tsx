@@ -72,7 +72,9 @@ export default function EnrichedProductCard({
             style: "currency",
             currency: "BRL",
         }).format(price)
-    }    const getCategoryIcon = () => {
+    }
+
+    const getCategoryIcon = () => {
         switch (category) {
             case "panels":
                 return "☀️"

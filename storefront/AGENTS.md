@@ -38,7 +38,9 @@
 | om.monitor            | O&M               | Monitorar KPIs pós-venda                                         | telhado, inversor         | alertas, tickets             | IoT, InfluxDB               | MTTR, uptime                         |
 | ux.copy               | UX Writing        | Microcopy, onboarding                                            | tela, contexto            | textos, tooltips             | Guia de tom                 | CTR, tempo tarefa                    |
 | seo.sem               | SEO/SEM           | Conteúdo e campanhas                                             | rota, keyword             | metas, schema.org            | SERP, ad planner            | CTR, CPC, posição                    |
-| data.pipeline         | Dados & Qualidade | ETL, dedupe, regras                                              | CSVs, APIs                | tabelas validadas            | DuckDB, Prefect/Dagster     | %linhas válidas                      |
+| solar.panel_detection    | Detecção FV         | Detecta painéis solares em imagens de satélite usando IA (NREL Panel-Segmentation) | imagem, bbox_coords | panels[], total_area, confidence | NREL API, caching | %precisão >85%, <2s latência |
+| solar.thermal_analysis   | Análise Térmica     | Detecta anomalias térmicas em sistemas FV usando PV-Hawk | thermal_image, temp_threshold | anomalies[], severity, recommendations | PV-Hawk API, ML models | %detecção >90%, <3s análise |
+| solar.photogrammetry     | Fotogrametria 3D    | Gera modelos 3D de telhados usando OpenDroneMap | images[], gcp_coords | roof_model, area, orientation, tilt | ODM API, SfM algorithms | <5min processamento, ±5cm precisão |
 | analytics.bizops      | BizOps            | KPIs e decisões                                                  | eventos, custos           | dashboards, ações            | DBT, Metabase               | LTV/CAC, margem                      |
 
 > Nota: agentes podem ser instanciados por classe consumidora (B1/B2/B3, A4/A3 etc.) e por região (N/NE/CO/SE/S) para granularidade.
@@ -88,16 +90,17 @@ Saída esperada
 
 ## 4) Especificações essenciais por agente
 
-### 4.1) `viability.pv` — Eng. Fotovoltaica Remota
+### 4.1) `viability.pv` — Eng. Fotovoltaica Remota (com Visão Computacional)
 
-Entradas: consumo (kWh/m), fatura média, CEP, telhado (laje/cerâmica/metálico/solo), orientação/inclinação (auto ou manual), sombreamento (proxy), metas ROI.
-Saídas: kWp proposto, geração anual (MWh), PR, perdas (%), string sizing, inversor(s), estimativa 114–160% (por regra), layout simplificado, PDF/HTML resumo.
-Ferramentas: `pvlib`, `PVGIS`, `NASA POWER`, `NREL NSRDB` (quando aplicável), geocoding IBGE, cálculo azimute/inclinação padrão BR.
+Entradas: consumo (kWh/m), fatura média, CEP, telhado (laje/cerâmica/metálico/solo), orientação/inclinação (auto ou manual), sombreamento (proxy), metas ROI, **imagens de satélite opcionais para validação**.
+Saídas: kWp proposto, geração anual (MWh), PR, perdas (%), string sizing, inversor(s), estimativa 114–160% (por regra), layout simplificado, PDF/HTML resumo, **detecção automática de painéis existentes**.
+Ferramentas: `pvlib`, `PVGIS`, `NASA POWER`, `NREL NSRDB` (quando aplicável), geocoding IBGE, cálculo azimute/inclinação padrão BR, **integração com solar.panel_detection para validação de instalações existentes**.
 Regras:
 
 * Calcular fator HSP regional; validar teto de oversizing (114/130/145/160%).
 * Considerar degradação anual padrão (ex.: 0,5–0,8%).
 * Referenciar coeficientes térmicos por tecnologia (Mono PERC, TOPCon, HJT) quando disponíveis no catálogo.
+* **Quando imagens fornecidas: validar layout proposto vs. detecção automática de painéis existentes.**
   KPI: MAPE(geração) < 8%; tempo < 40s.
 
 Template de saída
@@ -149,18 +152,52 @@ KPI: 100% aceitação primeira submissão.
 
 Define prazos/rotas/fretes por região, restrições de telhado e cronograma de obra.
 
-### 4.7) `om.monitor`
+### 4.7) `om.monitor` — O&M com Visão Computacional
 
-KPIs operacionais, alertas de falha, consumo vs. geração, tickets automáticos.
+KPIs operacionais, alertas de falha, consumo vs. geração, tickets automáticos, **análise térmica automática**, **monitoramento estrutural via fotogrametria**.
+Ferramentas: IoT, InfluxDB, **integração com solar.thermal_analysis e solar.photogrammetry**.
+KPI: MTTR, uptime, **taxa de detecção precoce de falhas >95%**.
 
 ### 4.8) `insurance.risk`
 
 Sugere apólices por porte (residencial → usina), cobre roubo, incêndio, responsabilidade civil, lucros cessantes (quando aplicável).
 
-### 4.9) `ux.copy` & `seo.sem`
+### 4.9) `solar.panel_detection` — Detecção de Painéis Solares
 
-* Tom: claro, direto, técnico-acolhedor; evitar jargão não explicado; sempre com “próximo passo” claro.
-* SEO: schema.org (`Product`, `Offer`, `FAQPage`), meta OG/Twitter, sitemaps; foco long-tail BR.
+Entradas: imagem de satélite (GeoTIFF/JPEG), coordenadas de bounding box opcionais, resolução mínima.
+Saídas: lista de painéis detectados (bbox, confiança, área), área total estimada, mapa de calor de cobertura.
+Ferramentas: NREL Panel-Segmentation via API, caching Redis, validação GeoJSON.
+Regras: mínimo 70% confiança para detecção válida; suporta múltiplas resoluções (0.5m-10m).
+KPI: precisão >85%, latência <2s.
+
+Template de saída
+
+```json
+{
+  "panels": [
+    {"id": "panel_001", "bbox": [100, 200, 150, 250], "confidence": 0.92, "area_m2": 18.5}
+  ],
+  "total_area_m2": 156.8,
+  "processing_time_s": 1.2,
+  "image_resolution_m": 0.5
+}
+```
+
+### 4.10) `solar.thermal_analysis` — Análise Térmica de Sistemas FV
+
+Entradas: imagem térmica (FLIR/TIFF), temperatura ambiente, umbral de anomalia.
+Saídas: anomalias detectadas (hotspots, coldspots), severidade, recomendações de manutenção.
+Ferramentas: PV-Hawk framework, modelos ML treinados, análise de séries temporais.
+Regras: classificação automática por severidade (low/medium/high/critical); integração com dados históricos.
+KPI: taxa de detecção >90%, tempo de análise <3s.
+
+### 4.11) `solar.photogrammetry` — Fotogrametria e Modelagem 3D
+
+Entradas: conjunto de imagens aéreas, coordenadas de pontos de controle (GCPs), parâmetros de câmera.
+Saídas: modelo 3D do telhado (área, orientação, inclinação), ortofoto, pontos de amarração recomendados.
+Ferramentas: OpenDroneMap, algoritmos SfM, processamento distribuído.
+Regras: suporte a até 500 imagens; precisão ±5cm; exportação em formatos padrão (OBJ, PLY).
+KPI: tempo de processamento <5min para 100 imagens, precisão geométrica >95%.
 
 ## 5) RAG & Bases de Conhecimento
 
@@ -181,6 +218,9 @@ kb:
   finance:
     description: Tabelas BACEN, linhas de crédito, custos
     top_k: 4
+  solar_cv:
+    description: Modelos de detecção FV, análise térmica, fotogrametria, casos de uso brasileiros
+    top_k: 7
 ```
 
 ## 6) Schemas (resumo)
@@ -297,11 +337,36 @@ sequenceDiagram
   HC-->>U: Proposta + próximos passos
 ```
 
-### 8.2) Comercial B3 (três cenários)
+### 8.3) Detecção de Painéis Existentes (Validação de Viabilidade)
 
-* Positivo: limites/regra ok, ROI < 4,8 anos, financiamento aprovado.
-* Neutro: ajuste de kWp para 130%, ROI ~6,2 anos.
-* Negativo: sombreamento severo; sugere retrofit/eficiência antes do FV.
+```mermaid
+sequenceDiagram
+  autonumber
+  participant U as Usuário
+  participant HC as helio.core
+  participant PV as viability.pv
+  participant SP as solar.panel_detection
+  U->>HC: CEP + consumo + imagem satélite
+  HC->>PV: Calcular dimensionamento
+  PV->>SP: Validar com detecção automática
+  SP-->>PV: Confirmação de área disponível
+  PV-->>HC: Dimensionamento validado
+  HC-->>U: Proposta com validação visual
+```
+
+### 8.4) Diagnóstico Térmico Remoto (O&M Proativo)
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant IoT as Sensores IoT
+  participant OM as om.monitor
+  participant ST as solar.thermal_analysis
+  IoT->>OM: Dados térmicos + imagens
+  OM->>ST: Análise de anomalias
+  ST-->>OM: Relatório de saúde + recomendações
+  OM-->>IoT: Alertas automáticos
+```
 
 ## 9) Guardrails & Ética
 
@@ -369,6 +434,7 @@ SAÍDA: TIR, VPL, payback, parcelas; recomendação clara; PDF financeiro.
 * v1.1: Catálogo 95% + SEO PDPs.
 * v1.2: Crédito integrado 3 bancos.
 * v1.3: Comercial B3; seguros; O&M IoT.
+* v1.4: **Solar CV integrado - detecção FV, análise térmica, fotogrametria 3D**.
 
 ---
 
@@ -379,4 +445,3 @@ SAÍDA: TIR, VPL, payback, parcelas; recomendação clara; PDF financeiro.
 * Checklists de campo para instalação.
 
 > Hélio é seu copiloto: peça sempre o próximo passo. Quando a incerteza for alta, ele chama um especialista YSH.
-

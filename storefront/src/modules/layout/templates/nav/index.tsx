@@ -11,6 +11,7 @@ import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-pr
 import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
 import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
+import { ThemeToggle } from "@/components/theme"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
@@ -18,8 +19,8 @@ export async function NavigationHeader() {
   const cart = await retrieveCart()
 
   return (
-    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
-      <header className="flex w-full content-container relative small:mx-auto justify-between">
+    <div className="sticky top-0 inset-x-0 group text-sm border-b duration-200 border-ui-border-base z-50 bg-[var(--bg)] text-[var(--fg)]">
+      <header className="flex w-full content-container relative small:mx-auto justify-between small:p-4 p-2">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center small:space-x-4">
             <LocalizedClientLink
@@ -58,7 +59,7 @@ export async function NavigationHeader() {
                   name="q"
                   type="text"
                   placeholder="Buscar produtos"
-                  className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base"
+                  className="px-4 py-2 rounded-full pr-10 shadow-borders-base bg-[var(--surface-elevated)] text-[var(--fg)] border border-[var(--border)] focus:outline-none focus:border-[var(--brand-primary)] placeholder:text-[var(--fg-muted)]"
                 />
               </form>
             </div>
@@ -66,6 +67,8 @@ export async function NavigationHeader() {
             <div className="h-4 w-px bg-neutral-300" />
 
             {/* <QuoteLink /> */}
+
+            <ThemeToggle />
 
             <Suspense fallback={<SkeletonAccountButton />}>
               <AccountButton customer={customer} />
