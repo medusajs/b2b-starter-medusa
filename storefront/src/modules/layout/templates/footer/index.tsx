@@ -4,6 +4,7 @@ import { Text, clx } from "@medusajs/ui"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import MedusaCTA from "@/modules/layout/components/medusa-cta"
+import YelloIcon from "@/modules/common/icons/yello-icon"
 
 export default async function Footer() {
   const { collections } = await listCollections({
@@ -22,9 +23,17 @@ export default async function Footer() {
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="flex items-center gap-3 group"
             >
-              Yello Solar Hub
+              <YelloIcon className="w-12 h-12 flex-shrink-0" />
+              <div className="flex flex-col">
+                <span className="txt-compact-xlarge-plus text-ui-fg-base group-hover:text-ui-fg-interactive font-bold">
+                  yello
+                </span>
+                <span className="txt-compact-small text-ui-fg-subtle">
+                  Solar Hub
+                </span>
+              </div>
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">

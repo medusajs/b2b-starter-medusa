@@ -1,10 +1,11 @@
-import { retrieveCart } from "@/lib/data/cart"
+﻿import { retrieveCart } from "@/lib/data/cart"
 import { retrieveCustomer } from "@/lib/data/customer"
 import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import QuoteLink from "@/modules/layout/templates/nav/quote-link"
 import LogoIcon from "@/modules/common/icons/logo"
+import { MAIN_MENU } from "@/modules/layout/config/menu"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
 import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
 import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
@@ -42,6 +43,11 @@ export async function NavigationHeader() {
                   <Suspense fallback={<SkeletonMegaMenu />}>
                     <MegaMenuWrapper />
                   </Suspense>
+                </li>
+                <li>
+                  <LocalizedClientLink className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2 transition-colors" href="/produtos">
+                    Catálogo
+                  </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
@@ -83,3 +89,5 @@ export async function NavigationHeader() {
     </div>
   )
 }
+
+

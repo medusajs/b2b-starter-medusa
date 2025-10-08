@@ -133,7 +133,7 @@ const CategoryList = ({
         <Text className="text-sm font-medium">Categories</Text>
         {pathname.includes("/categories") && (
           <LocalizedClientLink
-            href="/store"
+            href="/produtos"
             className="text-xs text-neutral-500 hover:text-neutral-700"
           >
             Clear
