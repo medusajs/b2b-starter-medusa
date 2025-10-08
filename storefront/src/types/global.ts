@@ -1,5 +1,5 @@
 import { HttpTypes } from "@medusajs/types"
-import { QueryCompany, QueryEmployee } from "@/types"
+import { QueryCompany, QueryEmployee } from "./company/query"
 import { QueryApproval, QueryApprovalStatus } from "./approval/query"
 
 export enum SpendingLimitResetFrequency {

@@ -6,6 +6,7 @@ import Link from "next/link"
 import { LeadQuoteProvider } from "@/modules/lead-quote/context"
 import CategoryHero from "@/modules/catalog/components/CategoryHero"
 import EnrichedProductCard from "@/modules/catalog/components/EnrichedProductCard"
+import CategoryTracker from "@/modules/catalog/components/CategoryTracker"
 import {
   getCategoryHero,
   getEnrichedProducts,
@@ -93,6 +94,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
 
   return (
     <LeadQuoteProvider>
+      <CategoryTracker category={category} />
       <div className="content-container py-10">
         {/* AI-Generated Hero Section */}
         {enrichedHero && (

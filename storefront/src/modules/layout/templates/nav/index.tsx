@@ -13,6 +13,7 @@ import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-but
 import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
 import { ThemeToggle } from "@/components/theme"
 import { SKUHistoryDropdown } from "@/lib/sku-analytics"
+import { SKUAutocomplete } from "@/components/SKUAutocomplete"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
@@ -55,14 +56,10 @@ export async function NavigationHeader() {
           </div>
           <div className="flex justify-end items-center gap-2 small:gap-3 small:gap-3">
             <div className="relative mr-2 hidden small:inline-flex">
-              <form action="search" method="get">
-                <input
-                  name="q"
-                  type="text"
-                  placeholder="Buscar produtos"
-                  className="px-4 py-2 rounded-full w-40 lg:w-56 shadow-borders-base bg-[var(--surface-elevated)] text-[var(--fg)] border border-[var(--border)] focus:outline-none focus:border-[var(--brand-primary)] placeholder:text-[var(--fg-muted)] transition-all"
-                />
-              </form>
+              <SKUAutocomplete
+                placeholder="Buscar por SKU ou produto..."
+                className="w-40 lg:w-56"
+              />
             </div>
 
             <div className="h-4 w-px bg-[var(--border)] hidden small:block" />
