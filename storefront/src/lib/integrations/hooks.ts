@@ -275,16 +275,16 @@ export function useIntegrations() {
 // ==========================================
 
 const integrationHooks = {
-  useAPI,
-  useProducts,
-  useProduct,
-  useCategories,
-  useKits,
-  useCatalogSearch,
-  useIntegrationStatus,
-  useRouteIntegration,
-  useOnlineStatus,
-  useIntegrations,
+    useAPI,
+    useProducts,
+    useProduct,
+    useCategories,
+    useKits,
+    useCatalogSearch,
+    useIntegrationStatus,
+    useRouteIntegration,
+    useOnlineStatus,
+    useIntegrations,
 }
 
 export default integrationHooks
