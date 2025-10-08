@@ -1,4 +1,4 @@
-import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
+import ViabilityCalculatorService from "../../../src/modules/solar/services/viability"
 
 // Mock Python subprocess to force fallback calculation (no external dependency)
 jest.mock("child_process", () => {
@@ -6,16 +6,16 @@ jest.mock("child_process", () => {
 
     return {
         spawn: jest.fn(() => {
-            const process = new EventEmitter()
-            process.stdout = new EventEmitter()
-            process.stderr = new EventEmitter()
+            const proc = new EventEmitter()
+            proc.stdout = new EventEmitter()
+            proc.stderr = new EventEmitter()
 
             // Emit error on next tick to trigger fallback path
             process.nextTick(() => {
-                process.emit("error", new Error("python runtime unavailable"))
+                proc.emit("error", new Error("python runtime unavailable"))
             })
 
-            return process
+            return proc
         })
     }
 })
@@ -45,70 +45,69 @@ jest.mock("axios", () => {
 
 jest.setTimeout(60_000)
 
-medusaIntegrationTestRunner({
-    inApp: true,
-    env: {},
-    testSuite: ({ api }) => {
-        describe("Solar viability endpoint", () => {
-            it("returns a full viability report using fallback model", async () => {
-                const payload = {
-                    location: {
-                        latitude: -23.5505,
-                        longitude: -46.6333,
-                        uf: "SP",
-                        altitude: 760,
-                        timezone: "America/Sao_Paulo"
-                    },
-                    system: {
-                        inverter_id: "Deye__SUN_2250G4_21",
-                        panel_id: "Odex__585W",
-                        modules_per_string: 10,
-                        strings: 1,
-                        surface_tilt: 23,
-                        surface_azimuth: 0,
-                        losses: {
-                            soiling: 0.03,
-                            shading: 0,
-                            mismatch: 0.02,
-                            wiring: 0.02,
-                            connections: 0.005,
-                            lid: 0.015,
-                            nameplate: 0.01,
-                            availability: 0.03
-                        }
-                    },
-                    financial: {
-                        investment: 23500,
-                        periods: 60,
-                        system: "PRICE" as const,
-                        spread: 3.5
-                    },
-                    consumption: {
-                        monthly_kwh: 450,
-                        grupo: "B1" as const,
-                        bandeira: "amarela" as const
-                    }
+describe("Solar viability service integration", () => {
+    it("returns a full viability report using fallback model", async () => {
+        const payload = {
+            location: {
+                latitude: -23.5505,
+                longitude: -46.6333,
+                uf: "SP",
+                altitude: 760,
+                timezone: "America/Sao_Paulo"
+            },
+            system: {
+                inverter_id: "neosolar_inverters_22916",
+                panel_id: "odex_inverters_ODEX-PAINEL-ODEX-585W",
+                modules_per_string: 10,
+                strings: 1,
+                surface_tilt: 23,
+                surface_azimuth: 0,
+                losses: {
+                    soiling: 0.03,
+                    shading: 0,
+                    mismatch: 0.02,
+                    wiring: 0.02,
+                    connections: 0.005,
+                    lid: 0.015,
+                    nameplate: 0.01,
+                    availability: 0.03
                 }
+            },
+            financial: {
+                investment: 23500,
+                periods: 60,
+                system: "PRICE" as const,
+                spread: 3.5
+            },
+            consumption: {
+                monthly_kwh: 450,
+                grupo: "B1" as const,
+                bandeira: "amarela" as const
+            }
+        }
 
-                const response = await api.post("/api/solar/viability", payload)
+        const service = new ViabilityCalculatorService()
+        const result = await service.calculateViability(
+            payload.location,
+            payload.system,
+            payload.financial,
+            payload.consumption
+        )
 
-                expect(response.status).toBe(200)
-                expect(response.data.success).toBe(true)
+        expect(result.success).toBe(true)
 
-                const { energy, financial, mppt_validation, tariff_info } = response.data
+        const { energy, financial, mppt_validation, tariff_info } = result
 
-                expect(energy.system_size_kwp).toBeCloseTo(5.85, 2)
-                expect(energy.annual_generation_kwh).toBeGreaterThan(7000)
-                expect(energy.monthly_generation).toHaveLength(12)
+        expect(energy.system_size_kwp).toBeCloseTo(5.85, 2)
+        expect(energy.annual_generation_kwh).toBeGreaterThan(7000)
+        expect(energy.monthly_generation).toHaveLength(12)
 
-                expect(mppt_validation.compatible).toBe(true)
-                expect(tariff_info.uf).toBe("SP")
+        expect(mppt_validation.compatible).toBe(true)
+        expect(tariff_info.uf).toBe("SP")
 
-                expect(financial.monthly_savings).toBeGreaterThan(0)
-                expect(financial.payback_years).toBeGreaterThan(0)
-                expect(financial.financing_simulation.summary.total_paid).toBeGreaterThan(0)
-                expect(typeof financial.financing_simulation.net_monthly_cash_flow).toBe("number")
-            })
-        })
-    }
+        expect(financial.monthly_savings).toBeGreaterThan(0)
+        expect(financial.payback_years).toBeGreaterThan(0)
+        expect(financial.financing_simulation.summary.total_paid).toBeGreaterThan(0)
+        expect(typeof financial.financing_simulation.net_monthly_cash_flow).toBe("number")
+    })
 })

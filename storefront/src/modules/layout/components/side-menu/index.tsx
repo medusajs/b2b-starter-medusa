@@ -1,4 +1,4 @@
-"use client"
+ï»¿"use client"
 
 import { Popover, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
@@ -10,10 +10,22 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import CountrySelect from "../country-select"
 import { HttpTypes } from "@medusajs/types"
 
-const SideMenuItems = {\n  Home: "/",\n  Store: "/produtos",\n  Solutions: "/solucoes",\n  Dimensionamento: "/dimensionamento",\n  Tarifas: "/tarifas",\n  SolarCV: "/solar-cv",\n  Compliance: "/compliance",\n  Cotacao: "/cotacao",\n  Search: "/search",\n  Account: "/account",\n  Cart: "/cart",\n}
+const SideMenuItems = {
+  Home: "/",
+  Store: "/produtos",
+  Solutions: "/solucoes",
+  Dimensionamento: "/dimensionamento",
+  Tarifas: "/tarifas",
+  SolarCV: "/solar-cv",
+  Compliance: "/compliance",
+  Cotacao: "/cotacao",
+  Search: "/search",
+  Account: "/account",
+  Cart: "/cart",
+}
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "Início",
+  Home: "Inï¿½cio",
   Store: "Loja",
   Search: "Buscar",
   Account: "Conta",
