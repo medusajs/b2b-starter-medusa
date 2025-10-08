@@ -17,15 +17,15 @@ const Items = ({ items, order }: ItemsProps) => {
         <Table.Body data-testid="products-table" className="border-none">
           {items?.length
             ? items
-                .sort((a, b) => {
-                  return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
-                })
-                .map((item) => {
-                  return <Item key={item.id} item={item} order={order} />
-                })
+              .sort((a, b) => {
+                return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
+              })
+              .map((item) => {
+                return <Item key={item.id} item={item} order={order} />
+              })
             : repeat(5).map((i) => {
-                return <SkeletonLineItem key={i} />
-              })}
+              return <SkeletonLineItem key={i} />
+            })}
         </Table.Body>
       </Table>
     </div>
