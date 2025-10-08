@@ -50,10 +50,10 @@ const CompanyCard = ({
 
   return (
     <div className="h-fit">
-      <Container className="p-0 overflow-hidden">
+      <Container className="p-0 overflow-hidden bg-gradient-to-br from-yello-yellow-50 to-yello-orange-50 border border-yello-yellow-100 rounded-xl shadow-sm">
         <form
           className={clx(
-            "grid grid-cols-2 gap-4 border-b border-neutral-200 overflow-hidden transition-all duration-300 ease-in-out ",
+            "grid grid-cols-2 gap-4 border-b border-yello-yellow-200 overflow-hidden transition-all duration-300 ease-in-out bg-white/90",
             {
               "max-h-[422px] opacity-100 p-4": isEditing,
               "max-h-0 opacity-0": !isEditing,
@@ -67,7 +67,7 @@ const CompanyCard = ({
           }}
         >
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Nome da Empresa</Text>
+            <Text className="font-medium text-yello-gray-900">Nome da Empresa</Text>
             <Input
               label="Nome da Empresa"
               name="name"
@@ -78,7 +78,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Email</Text>
+            <Text className="font-medium text-yello-gray-900">Email</Text>
             <Input
               label="Email"
               name="email"
@@ -89,7 +89,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Telefone</Text>
+            <Text className="font-medium text-yello-gray-900">Telefone</Text>
             <Input
               label="Telefone"
               name="phone"
@@ -100,7 +100,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Endereço</Text>
+            <Text className="font-medium text-yello-gray-900">Endereço</Text>
             <Input
               label="Endereço"
               name="address"
@@ -111,7 +111,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Cidade</Text>
+            <Text className="font-medium text-yello-gray-900">Cidade</Text>
             <Input
               label="Cidade"
               name="city"
@@ -122,7 +122,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Estado</Text>
+            <Text className="font-medium text-yello-gray-900">Estado</Text>
             <Input
               label="Estado"
               name="state"
@@ -133,7 +133,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">CEP</Text>
+            <Text className="font-medium text-yello-gray-900">CEP</Text>
             <Input
               label="CEP"
               name="zip"
@@ -144,7 +144,7 @@ const CompanyCard = ({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">País</Text>
+            <Text className="font-medium text-yello-gray-900">País</Text>
             <Select
               name="country"
               value={companyData.country || ""}
@@ -160,7 +160,7 @@ const CompanyCard = ({
             </Select>
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">Moeda</Text>
+            <Text className="font-medium text-yello-gray-900">Moeda</Text>
             <Select
               name="currency_code"
               value={companyData.currency_code || ""}
@@ -179,7 +179,7 @@ const CompanyCard = ({
             </Select>
           </div>
           <div className="flex flex-col gap-y-2">
-            <Text className="font-medium text-neutral-950">
+            <Text className="font-medium text-yello-gray-900">
               Frequência de redefinição do limite de gastos
             </Text>
             <Select
@@ -205,7 +205,7 @@ const CompanyCard = ({
         </form>
         <div
           className={clx(
-            "grid grid-cols-2 gap-4 border-b border-neutral-200 transition-all duration-300 ease-in-out",
+            "grid grid-cols-2 gap-4 border-b border-yello-yellow-200 transition-all duration-300 ease-in-out bg-white/90",
             {
               "opacity-0 max-h-0": isEditing,
               "opacity-100 max-h-[280px] p-4": !isEditing,
