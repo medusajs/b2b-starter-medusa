@@ -2,7 +2,9 @@
 
 import { useState, useRef } from "react"
 import { Camera, Photo, MapPin } from "@medusajs/icons"
-import { Button, Input, Text, toast } from "@medusajs/ui"
+import { Button, Text, toast } from "@medusajs/ui"
+import { useSolarCVAPI, SolarCVValidators } from "@/lib/api/solar-cv-client"
+import { useSolarCVOperation } from "@/lib/hooks/use-async-operation"
 
 interface DetectionResult {
     panels: Array<{
@@ -23,11 +25,17 @@ export default function PanelDetection() {
     const [preview, setPreview] = useState<string | null>(null)
     const fileInputRef = useRef<HTMLInputElement>(null)
 
+    const { detectPanels } = useSolarCVAPI()
+
     const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0]
         if (selectedFile) {
-            if (!selectedFile.type.startsWith('image/')) {
+            if (!SolarCVValidators.isValidImage(selectedFile)) {
                 toast.error("Por favor, selecione uma imagem válida")
+                return
+            }
+            if (!SolarCVValidators.isValidSize(selectedFile)) {
+                toast.error("Arquivo muito grande (máx. 10MB)")
                 return
             }
             setFile(selectedFile)
@@ -42,25 +50,15 @@ export default function PanelDetection() {
 
         setLoading(true)
         try {
-            const formData = new FormData()
-            formData.append('image', file)
-
-            // Call the backend API
-            const response = await fetch('/api/store/solar-detection', {
-                method: 'POST',
-                body: formData,
-            })
-
-            if (!response.ok) {
-                throw new Error('Erro na detecção')
-            }
-
-            const data = await response.json()
+            const data = await detectPanels(file)
             setResult(data)
             toast.success("Detecção concluída com sucesso!")
         } catch (error) {
             console.error('Detection error:', error)
-            toast.error("Erro ao processar a imagem. Tente novamente.")
+            const message = error instanceof SolarCVError
+                ? error.message
+                : "Erro ao processar a imagem. Tente novamente."
+            toast.error(message)
         } finally {
             setLoading(false)
         }

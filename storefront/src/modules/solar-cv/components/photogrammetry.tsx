@@ -2,7 +2,8 @@
 
 import { useState, useRef } from "react"
 import { MapPin, Photo, Buildings } from "@medusajs/icons"
-import { Button, Input, Text, toast } from "@medusajs/ui"
+import { Button, Text, toast } from "@medusajs/ui"
+import { useSolarCVAPI, SolarCVValidators, SolarCVError } from "@/lib/api/solar-cv-client"
 
 interface PhotogrammetryResult {
     roofModel: {
@@ -27,33 +28,28 @@ export default function Photogrammetry() {
     const [previews, setPreviews] = useState<string[]>([])
     const fileInputRef = useRef<HTMLInputElement>(null)
 
+    const { processPhotogrammetry } = useSolarCVAPI()
+
     const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFiles = Array.from(event.target.files || [])
         if (selectedFiles.length === 0) return
 
         // Validate files
-        const validFiles = selectedFiles.filter(file => {
-            if (!file.type.startsWith('image/')) {
-                toast.error(`Arquivo ${file.name} não é uma imagem válida`)
-                return false
-            }
-            return true
-        })
-
-        if (validFiles.length > 10) {
-            toast.error("Máximo de 10 imagens permitido")
+        const validation = SolarCVValidators.validatePhotogrammetryFiles(selectedFiles)
+        if (!validation.valid) {
+            toast.error(validation.errors[0])
             return
         }
 
-        setFiles(validFiles)
+        setFiles(selectedFiles)
 
         // Create previews
         const newPreviews: string[] = []
-        validFiles.forEach(file => {
+        selectedFiles.forEach(file => {
             const reader = new FileReader()
             reader.onload = (e) => {
                 newPreviews.push(e.target?.result as string)
-                if (newPreviews.length === validFiles.length) {
+                if (newPreviews.length === selectedFiles.length) {
                     setPreviews(newPreviews)
                 }
             }
@@ -66,26 +62,15 @@ export default function Photogrammetry() {
 
         setLoading(true)
         try {
-            const formData = new FormData()
-            files.forEach((file, index) => {
-                formData.append(`images`, file)
-            })
-
-            const response = await fetch('/api/store/photogrammetry', {
-                method: 'POST',
-                body: formData,
-            })
-
-            if (!response.ok) {
-                throw new Error('Erro no processamento fotogramétrico')
-            }
-
-            const data = await response.json()
+            const data = await processPhotogrammetry(files)
             setResult(data)
             toast.success("Processamento fotogramétrico concluído!")
         } catch (error) {
             console.error('Photogrammetry error:', error)
-            toast.error("Erro ao processar imagens. Tente novamente.")
+            const message = error instanceof SolarCVError
+                ? error.message
+                : "Erro ao processar imagens. Tente novamente."
+            toast.error(message)
         } finally {
             setLoading(false)
         }

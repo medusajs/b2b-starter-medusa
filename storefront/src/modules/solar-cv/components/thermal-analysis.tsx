@@ -2,13 +2,15 @@
 
 import { useState, useRef } from "react"
 import { Bolt, Photo } from "@medusajs/icons"
-import { Button, Input, Text, toast } from "@medusajs/ui"
+import { Button, Text, toast } from "@medusajs/ui"
+import { useSolarCVAPI, SolarCVValidators, SolarCVError } from "@/lib/api/solar-cv-client"
 
 interface ThermalResult {
     anomalies: Array<{
         id: string
-        type: 'hot_spot' | 'cold_spot' | 'uniformity_issue'
+        type: 'hotspot' | 'cold_cell' | 'shading' | 'soiling' | 'cracking' | 'delamination'
         severity: 'low' | 'medium' | 'high' | 'critical'
+        confidence: number
         location: [number, number]
         temperature: number
         description: string
@@ -16,6 +18,7 @@ interface ThermalResult {
     overallHealth: 'good' | 'fair' | 'poor' | 'critical'
     recommendations: string[]
     processingTime: number
+    irradiance?: number
 }
 
 export default function ThermalAnalysis() {
@@ -25,11 +28,17 @@ export default function ThermalAnalysis() {
     const [preview, setPreview] = useState<string | null>(null)
     const fileInputRef = useRef<HTMLInputElement>(null)
 
+    const { analyzeThermal } = useSolarCVAPI()
+
     const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = event.target.files?.[0]
         if (selectedFile) {
-            if (!selectedFile.type.startsWith('image/')) {
+            if (!SolarCVValidators.isValidImage(selectedFile)) {
                 toast.error("Por favor, selecione uma imagem térmica válida")
+                return
+            }
+            if (!SolarCVValidators.isValidSize(selectedFile)) {
+                toast.error("Arquivo muito grande (máx. 10MB)")
                 return
             }
             setFile(selectedFile)
@@ -44,24 +53,15 @@ export default function ThermalAnalysis() {
 
         setLoading(true)
         try {
-            const formData = new FormData()
-            formData.append('thermalImage', file)
-
-            const response = await fetch('/api/store/thermal-analysis', {
-                method: 'POST',
-                body: formData,
-            })
-
-            if (!response.ok) {
-                throw new Error('Erro na análise térmica')
-            }
-
-            const data = await response.json()
+            const data = await analyzeThermal(file)
             setResult(data)
             toast.success("Análise térmica concluída!")
         } catch (error) {
             console.error('Thermal analysis error:', error)
-            toast.error("Erro ao analisar imagem térmica. Tente novamente.")
+            const message = error instanceof SolarCVError
+                ? error.message
+                : "Erro ao analisar imagem térmica. Tente novamente."
+            toast.error(message)
         } finally {
             setLoading(false)
         }
