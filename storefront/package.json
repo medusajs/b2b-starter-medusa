@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "analyze": "ANALYZE=true next build",
-    "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1"
+    "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1",
+    "prepare": "husky"
   },
   "resolutions": {
     "webpack": "^5",
@@ -81,12 +82,23 @@
     "babel-loader": "^8.2.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.0.1",
+    "husky": "^9.1.7",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
+    "lint-staged": "^16.2.3",
     "postcss": "^8.4.8",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.4.4",
     "typescript": "^5.5.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   }
 }

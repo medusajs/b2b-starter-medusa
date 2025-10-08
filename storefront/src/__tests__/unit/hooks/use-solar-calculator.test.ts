@@ -525,6 +525,7 @@ describe('usePersistedCalculation', () => {
                 result.current.saveCalculation(mockCalculation);
             });
 
+            expect(localStorageMock.setItem).toHaveBeenCalledTimes(1);
             expect(localStorageMock.setItem).toHaveBeenCalledWith(
                 'ysh_last_solar_calculation',
                 expect.stringContaining('"calculation":')
