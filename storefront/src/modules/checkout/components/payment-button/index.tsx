@@ -49,14 +49,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
 
   const cartApprovalStatus = cart?.approval_status?.status
 
-  // TODO: Add this once gift cards are implemented
-  // const paidByGiftcard =
-  //   cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
-
-  // if (paidByGiftcard) {
-  //   return <GiftCardPaymentButton />
-  // }
-
+  // Check for B2B approval requirement
   if (requiresApproval && cartApprovalStatus !== ApprovalStatusType.APPROVED) {
     return <RequestApprovalButton cart={cart} notReady={notReady} />
   }
@@ -89,7 +82,14 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
         />
       )
     default:
-      return <Button disabled>Selecione um método de pagamento</Button>
+      return (
+        <div className="space-y-2">
+          <Button disabled className="w-full">Selecione um método de pagamento</Button>
+          <p className="text-sm text-ui-fg-subtle text-center">
+            Por favor, escolha uma forma de pagamento acima para continuar
+          </p>
+        </div>
+      )
   }
 }
 
@@ -127,8 +127,8 @@ const RequestApprovalButton = ({
           {requires_admin_approval && requires_sales_manager_approval
             ? "Este pedido precisa de aprovação do administrador e do gerente de vendas."
             : requires_admin_approval
-            ? "Este pedido precisa de aprovação do administrador da empresa."
-            : "Este pedido precisa de aprovação do gerente de vendas."}
+              ? "Este pedido precisa de aprovação do administrador da empresa."
+              : "Este pedido precisa de aprovação do gerente de vendas."}
         </Text>
         <Button
           className="w-full h-10 rounded-full shadow-none"

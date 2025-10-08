@@ -37,11 +37,17 @@ const ItemFull = ({
   try {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     addToQuote = useLeadQuote().add
-  } catch {}
+  } catch { }
 
   const changeQuantity = async (newQuantity: number) => {
     setError(null)
-    // setUpdating(true)
+
+    // Validate stock before updating
+    const inventoryQty = item.variant?.inventory_quantity ?? 0
+    if (newQuantity > inventoryQty) {
+      setError(`Apenas ${inventoryQty} unidades disponíveis em estoque`)
+      return
+    }
 
     startTransition(() => {
       setQuantity(newQuantity.toString())
@@ -193,6 +199,14 @@ const ItemFull = ({
                 Adicionar à cotação
               </Button>
             </div>
+            {error && (
+              <p className="text-red-500 text-xs mt-1">{error}</p>
+            )}
+            {maxQuantity < 10 && maxQuantity > 0 && (
+              <p className="text-amber-600 text-xs mt-1">
+                Apenas {maxQuantity} unidades em estoque
+              </p>
+            )}
             <AddNoteButton
               item={item as HttpTypes.StoreCartLineItem}
               disabled={disabled}

@@ -1,13 +1,19 @@
 import { clx } from "@medusajs/ui"
 import Image from "next/image"
 import React from "react"
+import { HttpTypes } from "@medusajs/types"
 
 import PlaceholderImage from "@/modules/common/icons/placeholder-image"
 
+type ProductImage = {
+  id: string
+  url: string
+  metadata?: Record<string, unknown> | null
+}
+
 type ThumbnailProps = {
   thumbnail?: string | null
-  // TODO: Fix image typings
-  images?: any[] | null
+  images?: ProductImage[] | HttpTypes.StoreProductImage[] | null
   size?: "small" | "medium" | "large" | "full" | "square"
   isFeatured?: boolean
   className?: string

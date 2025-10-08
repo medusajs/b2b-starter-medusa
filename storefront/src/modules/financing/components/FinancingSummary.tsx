@@ -31,16 +31,70 @@ export function FinancingSummary({ data, onStartOver }: FinancingSummaryProps) {
 
     const recommendedScenario = data.recommended_scenario
 
-    const handleDownloadPDF = () => {
-        // TODO: Implement PDF download
-        console.log('Downloading PDF for calculation:', data.id)
-        alert('Funcionalidade de download em breve!')
+    const handleDownloadPDF = async () => {
+        try {
+            const { generateFinancingPDF, downloadPDF } = await import('@/lib/util/pdf-generator')
+
+            // Get installment data for the recommended scenario
+            const installments = recommendedScenario.installments.months_36 ||
+                recommendedScenario.installments.months_24 ||
+                recommendedScenario.installments.months_12
+
+            if (!installments) {
+                throw new Error('No installment data available')
+            }
+
+            const pdfBlob = await generateFinancingPDF({
+                productName: `Sistema Solar ${recommendedScenario.kwp}kWp`,
+                productPrice: recommendedScenario.capex,
+                downPayment: 0, // Adjust if down payment is required
+                financedAmount: recommendedScenario.capex,
+                installments: installments.term_months,
+                installmentValue: installments.monthly_payment,
+                totalAmount: installments.total_paid,
+                interestRate: data.interest_rate.monthly_rate,
+                effectiveRate: data.interest_rate.annual_rate,
+                generatedAt: new Date(data.calculated_at),
+            })
+
+            const filename = `financiamento-${data.id}-${Date.now()}.pdf`
+            downloadPDF(pdfBlob, filename)
+        } catch (error) {
+            console.error('Error generating PDF:', error)
+            alert('Erro ao gerar PDF. Tente novamente.')
+        }
     }
 
-    const handleAddToCart = () => {
-        // TODO: Implement cart integration
-        console.log('Adding to cart:', data.id)
-        alert('Funcionalidade de carrinho em breve!')
+    const handleAddToCart = async () => {
+        try {
+            // Add financing scenario to cart as a product/quote
+            const response = await fetch('/api/cart/line-items', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    variant_id: `financing-${recommendedScenario.scenario}`,
+                    quantity: 1,
+                    metadata: {
+                        financing_id: data.id,
+                        scenario: recommendedScenario.scenario,
+                        kwp: recommendedScenario.kwp,
+                        capex: recommendedScenario.capex,
+                        monthly_savings: recommendedScenario.monthly_savings,
+                        financing_details: recommendedScenario.installments,
+                        is_financing_quote: true,
+                    }
+                }),
+            })
+
+            if (response.ok) {
+                window.location.href = '/br/cart'
+            } else {
+                throw new Error('Failed to add to cart')
+            }
+        } catch (error) {
+            console.error('Error adding to cart:', error)
+            alert('Erro ao adicionar ao carrinho. Tente novamente.')
+        }
     }
 
     return (

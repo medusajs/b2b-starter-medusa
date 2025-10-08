@@ -63,12 +63,37 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
     }
 
     // Handle add to cart
-    const handleAddToCart = () => {
+    const handleAddToCart = async () => {
         if (!selectedKit) return
 
-        // TODO: Implement cart integration
-        console.log('Add to cart:', selectedKit)
-        // router.push('/br/cart')
+        try {
+            // Add kit to cart via Medusa API
+            const response = await fetch('/api/cart/line-items', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    variant_id: selectedKit.id,
+                    quantity: 1,
+                    metadata: {
+                        kit_id: selectedKit.id,
+                        kit_name: selectedKit.name,
+                        viability_data: viabilityData,
+                        oversizing: searchParams.oversizing,
+                    }
+                }),
+            })
+
+            if (response.ok) {
+                router.push('/br/cart')
+            } else {
+                const error = await response.json()
+                console.error('Failed to add to cart:', error)
+                alert('Erro ao adicionar ao carrinho. Tente novamente.')
+            }
+        } catch (error) {
+            console.error('Add to cart error:', error)
+            alert('Erro ao adicionar ao carrinho. Tente novamente.')
+        }
     }
 
     return (

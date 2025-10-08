@@ -266,13 +266,36 @@ export function FinanceProvider({
     }, [currentCalculation])
 
     const exportToPDF = useCallback(async (calculationId: string): Promise<string> => {
-        // TODO: Implement PDF export
-        // This would call a backend API to generate PDF
-        console.log('Exporting to PDF:', calculationId)
-        return `/api/finance/pdf/${calculationId}`
-    }, [])
+        if (!currentCalculation) {
+            throw new Error('No calculation available to export')
+        }
 
-    // ============================================================================
+        const { generateFinancePDF, downloadPDF } = await import('@/lib/util/pdf-generator')
+
+        const recommended = currentCalculation.recommended_scenario
+        if (!recommended) {
+            throw new Error('No recommended scenario found')
+        }
+
+        const pdfBlob = await generateFinancePDF({
+            projectName: `Projeto Solar ${recommended.kwp}kWp`,
+            systemPower: recommended.kwp,
+            totalCost: recommended.capex,
+            capex: recommended.capex,
+            monthlyRevenue: recommended.monthly_savings,
+            monthlyExpense: 0, // Not tracked in current structure
+            netMonthlyCashFlow: recommended.monthly_savings,
+            paybackPeriod: recommended.roi.payback_months,
+            roi: recommended.roi.irr * 100, // Convert IRR to percentage
+            bacenRate: currentCalculation.interest_rate.annual_rate,
+            generatedAt: new Date(currentCalculation.calculated_at),
+        })
+
+        const filename = `analise-financeira-${calculationId}-${Date.now()}.pdf`
+        downloadPDF(pdfBlob, filename)
+
+        return filename
+    }, [currentCalculation])    // ============================================================================
     // Validation
     // ============================================================================
 
