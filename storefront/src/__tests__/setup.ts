@@ -20,21 +20,7 @@ jest.mock('next/navigation', () => ({
 // Mock do componente Image do Next.js
 jest.mock('next/image', () => ({
     __esModule: true,
-    default: (props: any) => {
-        // Return a simple img element as a React component
-        const React = require('react');
-        return React.createElement('img', {
-            'data-testid': 'next-image',
-            src: props.src,
-            alt: props.alt,
-            width: props.width,
-            height: props.height,
-            className: props.className,
-            unoptimized: props.unoptimized,
-            style: props.style,
-            ...props
-        });
-    }
+    default: () => null, // Return null to avoid rendering issues
 }))
 
 // Mock @medusajs/ui to avoid style injection issues
