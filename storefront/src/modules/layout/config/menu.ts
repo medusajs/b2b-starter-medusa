@@ -4,9 +4,15 @@ export type MenuItem = {
 }
 
 export const MAIN_MENU: MenuItem[] = [
-  { label: 'CatÃ¡logo', href: '/produtos' },
-  { label: 'Soluções', href: '/solucoes' },
+  { label: "Catálogo", href: "/produtos" },
+  { label: "Soluções", href: "/solucoes" },
+  { label: "Dimensionamento", href: "/dimensionamento" },
+  { label: "Tarifas", href: "/tarifas" },
+  { label: "Solar CV", href: "/solar-cv" },
+  { label: "Compliance", href: "/compliance" },
+  { label: "Cotação", href: "/cotacao" },
 ]
+
 
 
 

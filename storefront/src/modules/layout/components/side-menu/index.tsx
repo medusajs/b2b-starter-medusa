@@ -10,16 +10,10 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import CountrySelect from "../country-select"
 import { HttpTypes } from "@medusajs/types"
 
-const SideMenuItems = {
-  Home: "/",
-  Store: "/produtos",
-  Search: "/search",
-  Account: "/account",
-  Cart: "/cart",
-}
+const SideMenuItems = {\n  Home: "/",\n  Store: "/produtos",\n  Solutions: "/solucoes",\n  Dimensionamento: "/dimensionamento",\n  Tarifas: "/tarifas",\n  SolarCV: "/solar-cv",\n  Compliance: "/compliance",\n  Cotacao: "/cotacao",\n  Search: "/search",\n  Account: "/account",\n  Cart: "/cart",\n}
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "InÃ­cio",
+  Home: "Início",
   Store: "Loja",
   Search: "Buscar",
   Account: "Conta",
@@ -131,3 +125,5 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
 }
 
 export default SideMenu
+
+
