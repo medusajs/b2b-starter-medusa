@@ -24,7 +24,7 @@ pip install awscli awscli-local
 
 ## 2) Obter Licença LocalStack Pro
 
-1. Cadastre-se em: https://localstack.cloud/pricing
+1. Cadastre-se em: <https://localstack.cloud/pricing>
 2. Escolha plano **Pro** ($35-45/user/month)
 3. Copie `LOCALSTACK_AUTH_TOKEN` do dashboard
 
@@ -33,6 +33,7 @@ pip install awscli awscli-local
 ## 3) Configurar Token
 
 **Windows (PowerShell)**:
+
 ```powershell
 # Adicionar ao perfil ou .env
 $env:LOCALSTACK_AUTH_TOKEN="ls-xxxx-yyyy-zzzz"
@@ -44,6 +45,7 @@ LOCALSTACK_AUTH_TOKEN=ls-xxxx-yyyy-zzzz
 ```
 
 **Linux/Mac**:
+
 ```bash
 # Adicionar ao ~/.bashrc ou ~/.zshrc
 export LOCALSTACK_AUTH_TOKEN="ls-xxxx-yyyy-zzzz"
@@ -68,6 +70,7 @@ docker-compose -f docker-compose.localstack.yml logs -f localstack
 ```
 
 **Esperar ~30 segundos** até ver:
+
 ```
 Ready. ✓
 ```
@@ -323,6 +326,7 @@ docker exec -it ysh-backend-localstack env | grep DATABASE_URL
 ---
 
 **Links Úteis**:
+
 - [LocalStack Docs](https://docs.localstack.cloud)
 - [LocalStack Pro Features](https://localstack.cloud/pricing)
 - [AWS CLI Local (awslocal)](https://github.com/localstack/awscli-local)
