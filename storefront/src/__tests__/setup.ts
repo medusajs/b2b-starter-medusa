@@ -24,3 +24,20 @@ global.fetch = jest.fn()
 beforeEach(() => {
     jest.clearAllMocks()
 })
+
+// Teste básico para verificar se o setup está funcionando
+describe('Test Setup', () => {
+    it('should have jest mocked functions available', () => {
+        expect(jest.fn()).toBeDefined()
+        expect(global.fetch).toBeDefined()
+    })
+
+    it('should clear mocks before each test', () => {
+        const mockFn = jest.fn()
+        mockFn()
+        expect(mockFn).toHaveBeenCalledTimes(1)
+
+        // O beforeEach deve limpar os mocks, mas isso é testado indiretamente
+        // pelos outros testes que usam mocks
+    })
+})

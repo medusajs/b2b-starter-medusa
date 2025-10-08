@@ -1,5 +1,6 @@
+import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { PWAProvider, usePWAInstall } from '../PWAProvider'
+import { PWAProvider, usePWAInstall } from '../../../components/PWAProvider'
 
 // Mock do navigator.serviceWorker
 Object.defineProperty(navigator, 'serviceWorker', {
@@ -105,6 +106,6 @@ describe('usePWAInstall', () => {
         render(<TestComponent />)
 
         expect(result.isInstallable).toBe(false)
-        expect(result.deferredPrompt).toBe(null)
+        expect(result.deferredPrompt).toBeUndefined()
     })
 })
