@@ -6,6 +6,7 @@ import Link from "next/link"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
 import { ProductSKU, ProductModel } from "@/modules/catalog/components/product-identifiers"
+import { CategoryIcon, type ProductCategory } from "@/modules/catalog/components/CategoryIcon"
 
 interface ProductCardProps {
     product: {
