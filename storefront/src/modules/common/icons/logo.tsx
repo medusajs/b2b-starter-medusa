@@ -27,7 +27,7 @@ const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
             y1="0"
             x2={x}
             y2={y}
-            stroke="white"
+            stroke="url(#ysh-brand-stroke)"
             strokeWidth="10"
             strokeLinecap="round"
           />
@@ -51,3 +51,4 @@ const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
 )
 
 export default LogoIcon
+
