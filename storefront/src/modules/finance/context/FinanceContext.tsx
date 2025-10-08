@@ -2,11 +2,12 @@
  * Finance Module - Context Provider
  * 
  * Manages state for credit simulation, ROI calculations, and scenario comparisons
+ * Integrates with BACEN API for real-time interest rates
  */
 
 'use client'
 
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react'
+import React, { createContext, useContext, useState, useCallback, ReactNode, useEffect } from 'react'
 import type {
     FinanceInput,
     FinanceOutput,
@@ -17,6 +18,14 @@ import type {
     FinanceUIState,
     ValidationResult,
 } from '../types'
+import { fetchBACENRates, getRecommendedSolarRate, getRateScenarios } from '@/lib/bacen/api'
+import {
+    saveCalculation as persistCalculation,
+    getAllCalculations,
+    getCalculation as loadCalculationFromStorage,
+    deleteCalculation,
+    saveScenario as persistScenario,
+} from '@/lib/storage/finance-scenarios'
 
 // ============================================================================
 // Context Types

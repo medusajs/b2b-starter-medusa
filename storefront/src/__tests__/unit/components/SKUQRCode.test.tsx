@@ -44,10 +44,17 @@ Object.defineProperty(window.navigator, 'share', {
 });
 
 // Mock document.createElement and related methods for download
-const mockCreateElement = jest.spyOn(document, 'createElement');
-const mockAppendChild = jest.spyOn(document.body, 'appendChild');
-const mockRemoveChild = jest.spyOn(document.body, 'removeChild');
-const mockClick = jest.fn();
+const mockCreateElement = jest.spyOn(document, 'createElement').mockImplementation((tag: string) => {
+    const element = {
+        href: '',
+        download: '',
+        click: jest.fn(),
+        style: {},
+    } as any
+    return element
+})
+const mockAppendChild = jest.spyOn(document.body, 'appendChild')
+const mockRemoveChild = jest.spyOn(document.body, 'removeChild')
 
 describe('SKUQRCode', () => {
     const defaultProps = {
@@ -201,7 +208,6 @@ describe('SKUQRCode', () => {
         });
 
         it('sets correct download attributes', () => {
-            const mockCreateElement = (global as any).mockCreateElement;
             render(<SKUQRCode {...defaultProps} />);
 
             // Open modal
@@ -214,8 +220,9 @@ describe('SKUQRCode', () => {
 
             // Check that the link element was configured correctly
             expect(mockCreateElement).toHaveBeenCalledWith('a');
-            // Since the mock returns an object, we can check if it was configured
-            const mockLink = mockCreateElement.mock.results[mockCreateElement.mock.calls.length - 1].value;
+            // Since the mock returns an object, we can check the last call
+            const lastCall = mockCreateElement.mock.results[mockCreateElement.mock.results.length - 1];
+            const mockLink = lastCall.value;
             expect(mockLink.download).toBe('qrcode-TEST-SKU-123.png');
             expect(mockLink.href).toContain('api.qrserver.com');
         });
