@@ -3,10 +3,28 @@
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { DocumentText } from "@medusajs/icons"
 import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useEffect, useState } from "react"
 
 export default function QuoteLink() {
-  const { items } = useLeadQuote()
-  const count = items.length
+  const [mounted, setMounted] = useState(false)
+  let items: any[] = []
+  let count = 0
+
+  // Só acessa o contexto após montar no cliente
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  try {
+    if (mounted) {
+      const quote = useLeadQuote()
+      items = quote.items
+      count = items.length
+    }
+  } catch (error) {
+    // Contexto ainda não disponível
+  }
+
   return (
     <LocalizedClientLink
       href="/cotacao"
