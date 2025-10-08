@@ -29,7 +29,7 @@ export default function DimensionamentoPage() {
                 </div>
             </div>
 
-            <DimensionamentoClient />
+            <DimensionamentoWrapper />
             <div className="content-container py-12">
                 {/* Input Methods */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
