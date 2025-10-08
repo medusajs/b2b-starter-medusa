@@ -1,45 +1,39 @@
 /**
  * 📸 YSH Photogrammetry API - OpenDroneMap Integration
  * High-Performance Endpoint for 3D Reconstruction & Measurements
- * 
- * @swagger
- * /store/photogrammetry:
- *   post:
- *     tags: [Solar Computer Vision]
- *     summary: Generate 3D models from drone imagery
- *     description: Uses OpenDroneMap for photogrammetric reconstruction
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { z } from "zod";
-import type { GeoJSON } from "../../../types/solar-cv";
+import {
+    BaseSolarCVService,
+    ServiceResponse,
+    FileUtils,
+    SolarCVError,
+    SolarCVMetrics
+} from "../../../utils/solar-cv-service";
+import {
+    ResponseUtils,
+    ErrorHandler,
+    RequestValidator
+} from "../../../utils/solar-cv-middleware";
 
 // ============================================================================
-// DTOs & Validation Schemas
+// Local Types
 // ============================================================================
 
-const PhotogrammetryRequestSchema = z.object({
-    images: z.array(z.string()).min(5).max(500), // Image URLs or storage paths
-    project_name: z.string().min(3).max(100),
-    output_types: z.array(z.enum([
-        "orthophoto",
-        "dsm",
-        "dtm",
-        "point_cloud",
-        "textured_mesh",
-    ])).default(["orthophoto", "dsm", "point_cloud"]),
-    gsd_cm: z.number().positive().default(2.0), // Ground Sample Distance
-    min_num_features: z.number().int().positive().default(10000),
-    use_gps: z.boolean().default(true),
-    georeferencing: z.boolean().default(true),
-    fast_orthophoto: z.boolean().default(false),
-});
-
-export type PhotogrammetryRequest = z.infer<typeof PhotogrammetryRequestSchema>;
+interface FileUpload {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    size: number;
+    path: string;
+    buffer?: Buffer;
+}
 
 interface RoofMeasurement {
     roof_id: string;
-    geometry: GeoJSON.Polygon;
+    geometry: any; // GeoJSON.Polygon
     area_m2: number;
     avg_tilt_degrees: number;
     avg_azimuth_degrees: number;
@@ -90,191 +84,61 @@ interface PhotogrammetryResponse {
 }
 
 // ============================================================================
-// Core Photogrammetry Service
+// OpenDroneMap Service
 // ============================================================================
 
-class OpenDroneMapService {
-    private static instance: OpenDroneMapService;
-    private projectQueue: Map<string, { status: string; progress: number; eta_seconds?: number }>;
-
-    private constructor() {
-        this.projectQueue = new Map();
+class OpenDroneMapService extends BaseSolarCVService {
+    constructor() {
+        super("odm");
     }
 
-    static getInstance(): OpenDroneMapService {
-        if (!OpenDroneMapService.instance) {
-            OpenDroneMapService.instance = new OpenDroneMapService();
-        }
-        return OpenDroneMapService.instance;
-    }
-
-    /**
-     * Execute photogrammetric reconstruction
-     */
-    async processPhotogrammetry(params: PhotogrammetryRequest): Promise<PhotogrammetryResponse> {
-        const projectId = this.sanitizeProjectName(params.project_name);
-        this.projectQueue.set(projectId, { status: "initializing", progress: 0 });
-
+    async processPhotogrammetry(files: FileUpload[]): Promise<PhotogrammetryResponse> {
         const startTime = Date.now();
 
         try {
-            // Call OpenDroneMap service
-            const result = await this.callOpenDroneMap(params, projectId);
+            // Create FormData from files
+            const formData = FileUtils.createFormDataFromFiles(files);
 
-            // Extract roof measurements for solar analysis
-            const roofMeasurements = await this.extractRoofMeasurements(result);
+            // Call Python service
+            const response: ServiceResponse = await this.callService("/api/v1/process", {
+                method: "POST",
+                formData,
+            });
 
-            const response: PhotogrammetryResponse = {
+            if (!response.success) {
+                throw new SolarCVError(
+                    `Photogrammetry processing failed: ${response.error}`,
+                    "PROCESSING_FAILED",
+                    500,
+                    response.metadata
+                );
+            }
+
+            // Transform response to expected format
+            const result: PhotogrammetryResponse = {
                 success: true,
-                project_name: params.project_name,
-                outputs: result.outputs,
+                project_name: "auto-generated", // Would come from request
+                outputs: response.data.outputs || {},
                 measurements: {
-                    total_area_m2: result.total_area_m2,
-                    roofs_detected: roofMeasurements,
+                    total_area_m2: response.data.total_area_m2 || 0,
+                    roofs_detected: response.data.roofs_detected || [],
                 },
                 processing: {
                     duration_ms: Date.now() - startTime,
-                    images_processed: params.images.length,
+                    images_processed: files.length,
                     odm_version: "odm-3.5.2",
                 },
             };
 
-            this.projectQueue.delete(projectId);
-            return response;
+            // Record metrics
+            SolarCVMetrics.recordCall("odm", Date.now() - startTime, true);
+
+            return result;
 
         } catch (error) {
-            this.projectQueue.set(projectId, { status: "failed", progress: 0 });
-            throw new Error(`Photogrammetry processing failed: ${error.message}`);
+            SolarCVMetrics.recordCall("odm", Date.now() - startTime, false);
+            throw error;
         }
-    }
-
-    /**
-     * Call OpenDroneMap processing service
-     */
-    private async callOpenDroneMap(params: PhotogrammetryRequest, projectId: string): Promise<any> {
-        const odmServiceUrl = process.env.ODM_SERVICE_URL || "http://localhost:8003";
-
-        // Update queue status
-        this.projectQueue.set(projectId, { status: "uploading", progress: 5 });
-
-        const response = await fetch(`${odmServiceUrl}/api/v1/process`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-API-Key": process.env.ODM_API_KEY || "",
-                "X-Project-ID": projectId,
-            },
-            body: JSON.stringify({
-                images: params.images,
-                project_name: params.project_name,
-                options: {
-                    gsd: params.gsd_cm / 100, // Convert to meters
-                    min_num_features: params.min_num_features,
-                    use_gps: params.use_gps,
-                    georeferencing: params.georeferencing,
-                    fast_orthophoto: params.fast_orthophoto,
-                    outputs: params.output_types,
-                },
-            }),
-            signal: AbortSignal.timeout(600000), // 10 min timeout
-        });
-
-        if (!response.ok) {
-            throw new Error(`ODM service returned ${response.status}`);
-        }
-
-        // Poll for completion
-        const result = await response.json();
-
-        if (result.status === "processing") {
-            return await this.pollProcessingStatus(projectId, odmServiceUrl);
-        }
-
-        return result;
-    }
-
-    /**
-     * Poll ODM processing status
-     */
-    private async pollProcessingStatus(projectId: string, serviceUrl: string): Promise<any> {
-        const maxAttempts = 120; // 10 minutes with 5s intervals
-        let attempts = 0;
-
-        while (attempts < maxAttempts) {
-            await new Promise(resolve => setTimeout(resolve, 5000));
-
-            const statusResponse = await fetch(`${serviceUrl}/api/v1/status/${projectId}`, {
-                headers: { "X-API-Key": process.env.ODM_API_KEY || "" },
-            });
-
-            if (!statusResponse.ok) {
-                throw new Error(`Status check failed: ${statusResponse.status}`);
-            }
-
-            const status = await statusResponse.json();
-
-            // Update queue
-            this.projectQueue.set(projectId, {
-                status: status.status,
-                progress: status.progress || 0,
-                eta_seconds: status.eta_seconds,
-            });
-
-            if (status.status === "completed") {
-                return status.result;
-            }
-
-            if (status.status === "failed") {
-                throw new Error(status.error || "Processing failed");
-            }
-
-            attempts++;
-        }
-
-        throw new Error("Processing timeout exceeded");
-    }
-
-    /**
-     * Extract roof measurements from 3D model
-     */
-    private async extractRoofMeasurements(odmResult: any): Promise<RoofMeasurement[]> {
-        // This would call a separate service to analyze the DSM/DTM
-        // and extract roof planes suitable for solar installation
-
-        const analysisServiceUrl = process.env.ROOF_ANALYSIS_SERVICE_URL || "http://localhost:8004";
-
-        try {
-            const response = await fetch(`${analysisServiceUrl}/api/v1/analyze-roofs`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    dsm_url: odmResult.outputs.dsm?.url,
-                    dtm_url: odmResult.outputs.dtm?.url,
-                    orthophoto_url: odmResult.outputs.orthophoto?.url,
-                }),
-                signal: AbortSignal.timeout(30000),
-            });
-
-            if (!response.ok) {
-                console.warn("Roof analysis failed, returning empty measurements");
-                return [];
-            }
-
-            const analysis = await response.json();
-            return analysis.roofs || [];
-
-        } catch (error) {
-            console.warn("Roof analysis error:", error.message);
-            return [];
-        }
-    }
-
-    async getProjectStatus(projectId: string): Promise<any> {
-        return this.projectQueue.get(projectId) || null;
-    }
-
-    private sanitizeProjectName(name: string): string {
-        return name.toLowerCase().replace(/[^a-z0-9-]/g, '-');
     }
 }
 
@@ -286,103 +150,52 @@ export async function POST(
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    const service = new OpenDroneMapService();
+    let uploadedFiles: FileUpload[] = [];
+
     try {
-        // Check if files were uploaded
-        const files = (req as any).files;
-        if (!files || files.length === 0) {
-            res.status(400).json({
-                success: false,
-                error: "No image files provided",
-            });
-            return;
-        }
+        // Validate and get uploaded files
+        const files = RequestValidator.validateFilesPresence(req, "images", 5);
+        uploadedFiles = files;
 
-        if (files.length < 5) {
-            res.status(400).json({
-                success: false,
-                error: "At least 5 images required for photogrammetry",
-            });
-            return;
-        }
+        // Process photogrammetry
+        const result = await service.processPhotogrammetry(files);
 
-        // Call Python OpenDroneMap service
-        const pythonServiceUrl = process.env.ODM_SERVICE_URL || "http://localhost:8003";
-        const apiKey = process.env.ODM_API_KEY || "dev-key";
+        // Cleanup temp files
+        await FileUtils.cleanupTempFiles(uploadedFiles.map(f => f.path));
 
-        const formData = new FormData();
-        files.forEach((file: any, index: number) => {
-            const fileBuffer = require('fs').readFileSync(file.path);
-            const blob = new Blob([fileBuffer], { type: file.mimetype });
-            formData.append('images', blob, file.originalname);
-        });
+        res.status(200).json(ResponseUtils.createSuccessResponse(result));
 
-        const response = await fetch(`${pythonServiceUrl}/api/v1/process`, {
-            method: 'POST',
-            headers: {
-                'X-API-Key': apiKey,
-            },
-            body: formData,
-        });
-
-        if (!response.ok) {
-            throw new Error(`ODM service returned ${response.status}`);
-        }
-
-        const result = await response.json();
-        res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message || "Internal server error",
-        });
+        // Cleanup temp files on error
+        await ErrorHandler.cleanupFiles(uploadedFiles);
+        ErrorHandler.handleError(error, res);
     }
 }
 
 export async function GET(
-    req: MedusaRequest<{ project_id?: string }>,
+    req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
-    const projectId = req.query.project_id as string | undefined;
+    const service = new OpenDroneMapService();
 
-    if (projectId) {
-        const service = OpenDroneMapService.getInstance();
-        const status = await service.getProjectStatus(projectId);
-
-        if (!status) {
-            res.status(404).json({
-                success: false,
-                error: "Project not found",
-            });
-            return;
-        }
-
-        res.status(200).json({
-            success: true,
-            project_id: projectId,
-            ...status,
-        });
-    } else {
-        res.status(200).json({
-            service: "YSH Photogrammetry API",
-            version: "1.0.0",
-            status: "operational",
-            endpoints: {
-                POST: "/store/photogrammetry",
-                GET: "/store/photogrammetry?project_id=xxx",
-                capabilities: [
-                    "3d_reconstruction",
-                    "orthophoto_generation",
-                    "elevation_models",
-                    "point_cloud_generation",
-                    "roof_measurement",
-                    "solar_suitability_analysis",
-                ],
-            },
-            processing_limits: {
-                min_images: 5,
-                max_images: 500,
-                max_resolution_mp: 50,
-            },
-        });
-    }
+    res.status(200).json({
+        service: "YSH Photogrammetry API",
+        version: "1.0.0",
+        status: "operational",
+        capabilities: [
+            "3d_reconstruction",
+            "orthophoto_generation",
+            "elevation_models",
+            "point_cloud_generation",
+            "roof_measurement",
+            "solar_suitability_analysis",
+        ],
+        processing_limits: {
+            min_images: 5,
+            max_images: 50,
+            max_resolution_mp: 50,
+        },
+        metrics: SolarCVMetrics.getMetrics("odm"),
+    });
 }
