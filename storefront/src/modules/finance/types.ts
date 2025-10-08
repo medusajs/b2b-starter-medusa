@@ -66,6 +66,9 @@ export interface FinanceInput {
     /** System capacity in kWp */
     system_kwp: number
 
+    /** Potência do sistema em kWp (alias para compatibilidade) */
+    potencia_kwp?: number
+
     /** Annual generation in kWh */
     annual_generation_kwh: number
 

@@ -94,17 +94,17 @@ const loadImageMap = cache(async (): Promise<Record<string, string>> => {
 
 const loadCatalogCategory = cache(async (category: string): Promise<any[]> => {
   const map: Record<string, string> = {
-    'inversores':'inverters','inverters':'inverters',
-    'paineis':'panels','panels':'panels',
-    'baterias':'batteries','batteries':'batteries',
-    'kits':'kits','estruturas':'structures','structures':'structures',
-    'cabos':'cables','cables':'cables','acessorios':'accessories','accessories':'accessories'
+    'inversores': 'inverters', 'inverters': 'inverters',
+    'paineis': 'panels', 'panels': 'panels',
+    'baterias': 'batteries', 'batteries': 'batteries',
+    'kits': 'kits', 'estruturas': 'structures', 'structures': 'structures',
+    'cabos': 'cables', 'cables': 'cables', 'acessorios': 'accessories', 'accessories': 'accessories'
   }
   const cat = map[category.toLowerCase()] || category
   const normalized = path.join(CATALOG_PATH, `${cat}_unified_normalized.json`)
   const fallback = path.join(CATALOG_PATH, `${cat}_unified.json`)
   let chosen = fallback
-  try { await fs.stat(normalized); chosen = normalized } catch {}
+  try { await fs.stat(normalized); chosen = normalized } catch { }
   try {
     const raw = await fs.readFile(chosen, 'utf-8')
     const data = JSON.parse(raw)
@@ -166,7 +166,7 @@ export const FallbackAPI = {
     let all: any[] = []
     if (category) all = await loadCatalogCategory(category)
     else {
-      const cats = ['inverters','panels','batteries','kits','structures','cables','accessories']
+      const cats = ['inverters', 'panels', 'batteries', 'kits', 'structures', 'cables', 'accessories']
       const res = await Promise.all(cats.map((c) => loadCatalogCategory(c)))
       all = res.flat()
     }
@@ -183,14 +183,70 @@ export const FallbackAPI = {
   }),
 
   getProduct: cache(async (id: string): Promise<FallbackProduct | null> => {
-    const cats = ['inverters','panels','batteries','kits','structures','cables','accessories']
+    const cats = ['inverters', 'panels', 'batteries', 'kits', 'structures', 'cables', 'accessories']
     const imageMap = await loadImageMap()
     for (const c of cats) {
       const arr = await loadCatalogCategory(c)
-      const found = arr.find((it) => it.sku === id || it.id === id || String(it.name || '').toLowerCase().replace(/[^a-z0-9]+/g,'-') === id)
+      const found = arr.find((it) => it.sku === id || it.id === id || String(it.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-') === id)
       if (found) return transformCatalogToProduct(found, imageMap)
     }
     return null
+  }),
+
+  getProductsByCategory: cache(async (category: string, limit = 12): Promise<FallbackProduct[]> => {
+    const products = await loadCatalogCategory(category)
+    const imageMap = await loadImageMap()
+    return products.slice(0, limit).map((it) => transformCatalogToProduct(it, imageMap))
+  }),
+
+  getFeaturedProducts: cache(async (limit = 8): Promise<FallbackProduct[]> => {
+    const result = await FallbackAPI.listProducts({ limit: limit * 2 })
+    // Simula produtos em destaque (primeiros N produtos)
+    return result.products.slice(0, limit)
+  }),
+
+  getRelatedProducts: cache(async (productId: string, limit = 4): Promise<FallbackProduct[]> => {
+    const product = await FallbackAPI.getProduct(productId)
+    if (!product) return []
+
+    // Busca produtos da mesma categoria
+    const result = await FallbackAPI.listProducts({ category: product.category, limit: limit + 1 })
+    return result.products.filter((p) => p.id !== productId).slice(0, limit)
+  }),
+
+  // Cart operations - retorna estruturas vazias para fallback gracioso
+  createCart: async () => ({
+    id: 'fallback-cart',
+    items: [],
+    total: 0,
+    subtotal: 0,
+    tax_total: 0,
+    shipping_total: 0
+  }),
+
+  getCart: async (cartId: string) => ({
+    id: cartId || 'fallback-cart',
+    items: [],
+    total: 0,
+    subtotal: 0,
+    tax_total: 0,
+    shipping_total: 0
+  }),
+
+  addToCart: async (cartId: string, item: any) => ({
+    id: cartId || 'fallback-cart',
+    items: [item],
+    total: 0,
+    subtotal: 0,
+    tax_total: 0,
+    shipping_total: 0
+  }),
+
+  getStatus: async () => ({
+    online: false,
+    message: 'Using fallback catalog data',
+    backend: 'offline',
+    catalog: 'local'
   })
 }
 

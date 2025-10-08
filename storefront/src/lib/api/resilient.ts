@@ -429,7 +429,7 @@ export async function getCart(cartId: string, fallback = true): Promise<ApiRespo
     // Se falhou e fallback está habilitado, usa carrinho local
     if (!response.data && fallback) {
         console.log('[Resilient] Using fallback for getCart')
-        const fallbackCart = FallbackAPI.getCart()
+        const fallbackCart = await FallbackAPI.getCart(cartId)
 
         return {
             data: { cart: fallbackCart },

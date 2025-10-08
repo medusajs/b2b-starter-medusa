@@ -49,6 +49,7 @@ export interface SolarCalculationOutput {
     dimensionamento: Dimensionamento;
     kits_recomendados: KitRecomendado[];
     financeiro: AnaliseFinanceira;
+    analise_financeira?: AnaliseFinanceira; // Alias para compatibilidade com testes
     impacto_ambiental: ImpactoAmbiental;
     conformidade: ConformidadeMMGD;
     dados_localizacao: DadosLocalizacao;
@@ -155,6 +156,7 @@ export interface Financiamento {
     total_financiado_brl: number;
     taxa_juros_mensal: number;
     economia_liquida_mensal_brl: number;
+    total_pago_brl: number; // Adicionado para testes
 }
 
 export interface ImpactoAmbiental {
