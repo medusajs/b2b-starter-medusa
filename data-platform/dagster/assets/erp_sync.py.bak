@@ -15,13 +15,11 @@ from datetime import datetime, timedelta
 # ==========================================
 # Asset 1: ERP Products Sync
 # ==========================================
-# DEPRECATED: Pricing logic migrated to Medusa Backend (ysh-pricing module)
-# See: docs/PRICING_DECISION.md
 
-# @asset(
-#     group_name="erp_sync",
-#     description="Sincroniza catálogo de produtos do ERP com Medusa"
-# )
+@asset(
+    group_name="erp_sync",
+    description="Sincroniza catálogo de produtos do ERP com Medusa"
+)
 def erp_products_sync(
     context: AssetExecutionContext,
     postgres: PostgresResource
@@ -157,13 +155,11 @@ def erp_products_sync(
 # ==========================================
 # Asset 2: ERP Orders Sync
 # ==========================================
-# DEPRECATED: Orders handled directly in Medusa Backend
-# See: docs/PRICING_DECISION.md
 
-# @asset(
-#     group_name="erp_sync",
-#     description="Sincroniza ordens pendentes do Medusa para o ERP"
-# )
+@asset(
+    group_name="erp_sync",
+    description="Sincroniza ordens pendentes do Medusa para o ERP"
+)
 def erp_orders_sync(
     context: AssetExecutionContext,
     postgres: PostgresResource
@@ -309,13 +305,11 @@ def erp_orders_sync(
 # ==========================================
 # Asset 3: ERP Homologação Sync
 # ==========================================
-# DEPRECATED: Homologação logic migrated to Medusa Backend (ysh-homologacao module)
-# See: docs/PRICING_DECISION.md
 
-# @asset(
-#     group_name="erp_sync",
-#     description="Sincroniza status de homologação do ERP para Medusa"
-# )
+@asset(
+    group_name="erp_sync",
+    description="Sincroniza status de homologação do ERP para Medusa"
+)
 def erp_homologacao_sync(
     context: AssetExecutionContext,
     postgres: PostgresResource
@@ -405,14 +399,12 @@ def erp_homologacao_sync(
 # ==========================================
 # Asset 4: ERP Pricing KB (para RAG)
 # ==========================================
-# DEPRECATED: Pricing KB will be generated from Medusa pricing module
-# See: docs/PRICING_DECISION.md
 
-# @asset(
-#     group_name="erp_sync",
-#     description="Sincroniza tabelas de preços do ERP para Knowledge Base do Hélio",
-#     deps=["erp_products_sync"]
-# )
+@asset(
+    group_name="erp_sync",
+    description="Sincroniza tabelas de preços do ERP para Knowledge Base do Hélio",
+    deps=["erp_products_sync"]
+)
 def erp_pricing_kb(
     context: AssetExecutionContext,
     postgres: PostgresResource,
