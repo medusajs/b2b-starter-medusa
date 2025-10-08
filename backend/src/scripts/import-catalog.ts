@@ -1,11 +1,11 @@
 import {
     createProductCategoriesWorkflow,
-    createProductsWorkflow,
     createRegionsWorkflow,
 } from "@medusajs/core-flows"
 import {
     ExecArgs,
     ISalesChannelModuleService,
+    IProductModuleService,
 } from "@medusajs/framework/types"
 import {
     ContainerRegistrationKeys,
@@ -51,6 +51,9 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
     const salesChannelModuleService: ISalesChannelModuleService = container.resolve(
         ModuleRegistrationName.SALES_CHANNEL
     )
+    const productModuleService: IProductModuleService = container.resolve(
+        ModuleRegistrationName.PRODUCT
+    )
 
     const stats: ImportStats = {
         total: 0,
@@ -82,12 +85,13 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
         regionBR = regions[0]
         logger.info("✅ Região BR configurada")
     } catch (error: any) {
-        if (error.message?.includes("already exists")) {
-            logger.info("✅ Região BR já existe")
-            // Continue mesmo se já existe
+        if (error.message?.includes("already assigned") || error.message?.includes("already exists")) {
+            logger.info("✅ Região BR já existe (ignorando erro)")
+            // Continue mesmo se já existe - vamos buscar a região depois
         } else {
-            logger.error("❌ Erro ao configurar região BR:", error)
-            return
+            logger.error("❌ Erro inesperado ao configurar região BR:")
+            logger.error(error.message)
+            // Não interrompa - continue com a importação
         }
     }
 
@@ -190,8 +194,6 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
                             {
                                 title: "Default",
                                 sku: (product.id || "").toUpperCase(),
-                                manage_inventory: false,
-                                allow_backorder: true,
                                 options: {
                                     Default: "Default",
                                 },
@@ -212,11 +214,8 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
                 })
 
                 try {
-                    await createProductsWorkflow(container).run({
-                        input: {
-                            products: productsToCreate,
-                        },
-                    })
+                    // Usar Product Module Service diretamente (sem inventory dependency)
+                    await productModuleService.createProducts(productsToCreate)
 
                     stats.imported += batch.length
                     stats.by_category[catConfig.name].imported += batch.length
