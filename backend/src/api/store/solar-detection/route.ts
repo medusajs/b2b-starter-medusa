@@ -201,28 +201,29 @@ export async function POST(
             return;
         }
 
-        // For now, return mock response - will be replaced with real NREL service
-        const mockResponse = {
-            panels: [
-                {
-                    id: "panel_001",
-                    bbox: [100, 200, 300, 400],
-                    confidence: 0.95,
-                    area: 2.5,
-                },
-                {
-                    id: "panel_002",
-                    bbox: [350, 200, 550, 400],
-                    confidence: 0.88,
-                    area: 2.5,
-                },
-            ],
-            totalPanels: 2,
-            totalArea: 5.0,
-            processingTime: 1.2,
-        };
+        // Call Python Panel-Segmentation service
+        const pythonServiceUrl = process.env.PANEL_SEGMENTATION_SERVICE_URL || "http://localhost:8001";
+        const apiKey = process.env.PANEL_SEGMENTATION_API_KEY || "dev-key";
 
-        res.status(200).json(mockResponse);
+        const formData = new FormData();
+        const fileBuffer = require('fs').readFileSync(file.path);
+        const blob = new Blob([fileBuffer], { type: file.mimetype });
+        formData.append('image', blob, file.originalname);
+
+        const response = await fetch(`${pythonServiceUrl}/api/v1/detect`, {
+            method: 'POST',
+            headers: {
+                'X-API-Key': apiKey,
+            },
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error(`Panel segmentation service returned ${response.status}`);
+        }
+
+        const result = await response.json();
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({
             success: false,
