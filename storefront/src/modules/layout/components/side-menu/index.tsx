@@ -1,4 +1,4 @@
-ï»¿"use client"
+"use client"
 
 import { Popover, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
@@ -25,7 +25,7 @@ const SideMenuItems = {
 }
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "Inï¿½cio",
+  Home: "In?cio",
   Store: "Loja",
   Search: "Buscar",
   Account: "Conta",
@@ -97,7 +97,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                           onClick={close}
                           data-testid={`quote-link`}
                         >
-                          CotaÃ§Ã£o {quoteCount > 0 && <span className="text-sm bg-amber-400 text-neutral-900 px-2 py-0.5 rounded-full">{quoteCount}</span>}
+                          Cotação {quoteCount > 0 && <span className="text-sm bg-amber-400 text-neutral-900 px-2 py-0.5 rounded-full">{quoteCount}</span>}
                         </LocalizedClientLink>
                       </li>
                     </ul>
@@ -121,7 +121,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        Â© {new Date().getFullYear()} Medusa Store. Todos os direitos
+                        © {new Date().getFullYear()} Medusa Store. Todos os direitos
                         reservados.
                       </Text>
                     </div>
@@ -137,6 +137,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
 }
 
 export default SideMenu
+
 
 
 

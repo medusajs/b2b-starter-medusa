@@ -13,6 +13,89 @@ export type ModalidadeMMGD =
     | 'multiplas_unidades_consumidoras'
     | 'empreendimento_multiplas_unidades'
 
+// Tipos para validação detalhada PRODIST
+
+export interface DadosEletricos {
+    tensaoNominal: number
+    tensaoOperacao: number
+    frequenciaOperacao: number
+    thdTensao: number
+    fatorPotencia: number
+    potenciaInstalada: number
+    desequilibrioTensao?: number
+    desequilibrioCorrente?: number
+}
+
+export interface Protecao {
+    codigo: string
+    nome: string
+    ajuste: string
+    instalada: boolean
+}
+
+export interface Aterramento {
+    sistema: 'TN-S' | 'TN-C' | 'TT' | 'IT'
+    resistencia: number
+    tensaoNominal: number
+}
+
+export interface TensaoValidation {
+    conforme: boolean
+    categoria: 'baixa_tensao' | 'media_tensao' | 'alta_tensao'
+    tensaoNominal: number
+    tensaoOperacao: number
+    limites: any
+    faixaOperacao: 'adequada' | 'precaria' | 'critica'
+    score: number
+    naoConformidades: string[]
+    recomendacoes: string[]
+}
+
+export interface FrequenciaValidation {
+    conforme: boolean
+    frequenciaOperacao: number
+    limites: any
+    faixaOperacao: 'normal' | 'permitida' | 'critica'
+    tempoDesconexao: string
+    score: number
+    naoConformidades: string[]
+    recomendacoes: string[]
+}
+
+export interface THDValidation {
+    conforme: boolean
+    categoria: 'baixa_tensao' | 'media_tensao' | 'alta_tensao'
+    thdMedido: number
+    thdLimite: number
+    percentualLimite: number
+    score: number
+    naoConformidades: string[]
+    recomendacoes: string[]
+    harmonicasIndividuais: any
+}
+
+export interface FatorPotenciaValidation {
+    conforme: boolean
+    fatorPotenciaMedido: number
+    fatorPotenciaMinimo: number
+    score: number
+    naoConformidades: string[]
+    recomendacoes: string[]
+    penalidades?: any
+}
+
+export interface ProtecoesValidation {
+    conforme: boolean
+    categoria: 'microgeracao_bt' | 'minigeracao_mt' | 'geracao_distribuida'
+    protecoesNecessarias: any[]
+    protecoesInstaladas: Protecao[]
+    protecoesFaltantes: any[]
+    protecoesIncorretas: Protecao[]
+    score: number
+    naoConformidades: string[]
+    recomendacoes: string[]
+}
+
 export interface ComplianceInput {
     // Dados do Sistema
     potencia_instalada_kwp: number
@@ -35,21 +118,42 @@ export interface ComplianceInput {
     nome_cliente?: string
     cpf_cnpj?: string
     endereco_instalacao?: string
+
+    // Dados Elétricos Detalhados (para validação PRODIST)
+    dadosEletricos: DadosEletricos
+
+    // Proteções (para validação PRODIST)
+    protecoes?: Protecao[]
+
+    // Aterramento (para validação PRODIST)
+    aterramento?: Aterramento
 }
 
 export interface ProdistValidation {
-    is_compliant: boolean
-    nivel_tensao_correto: boolean
-    potencia_dentro_limites: boolean
-    oversizing_valido: boolean
-    modalidade_permitida: boolean
+    conforme: boolean
+    scoreGeral: number
+    validacoes: {
+        tensao: TensaoValidation
+        frequencia: FrequenciaValidation
+        thd: THDValidation
+        fatorPotencia: FatorPotenciaValidation
+        protecoes: ProtecoesValidation
+        desequilibrio: any
+        aterramento: any
+    }
+    naoConformidades: string[]
+    recomendacoes: string[]
+    timestamp: string
 
-    // Warnings e Erros
-    warnings: string[]
-    errors: string[]
-
-    // Limites Aplicáveis
-    limites: {
+    // Compatibilidade com versão anterior (deprecated)
+    is_compliant?: boolean
+    nivel_tensao_correto?: boolean
+    potencia_dentro_limites?: boolean
+    oversizing_valido?: boolean
+    modalidade_permitida?: boolean
+    warnings?: string[]
+    errors?: string[]
+    limites?: {
         potencia_maxima_kwp: number
         oversizing_maximo_percent: number
         tensao_minima_kv: number

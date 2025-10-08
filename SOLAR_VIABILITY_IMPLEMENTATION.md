@@ -288,8 +288,10 @@ Integrar os 3 módulos criados para simulação completa de viabilidade usando *
 
 ### Task 8: Testes End-to-End
 
-- Criar suite: `test-viability-flow.ts`
-- Validar fluxo completo: kit → MPPT → tarifa → simulação → ROI → financiamento
+- [x] Estruturar testes unitários (`credit-analysis.unit.spec.ts`)
+- [x] Validar serviço de viabilidade com mocks controlados (`integration-tests/http/solar/viability.spec.ts`)
+- [ ] Criar suite: `test-viability-flow.ts`
+- [ ] Validar fluxo completo: kit → MPPT → tarifa → simulação → ROI → financiamento
 
 ---
 

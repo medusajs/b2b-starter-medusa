@@ -86,6 +86,8 @@ describe("Solar viability service integration", () => {
             }
         }
 
+        const warnSpy = jest.spyOn(console, "warn").mockImplementation(() => { })
+
         const service = new ViabilityCalculatorService()
         const result = await service.calculateViability(
             payload.location,
@@ -109,5 +111,7 @@ describe("Solar viability service integration", () => {
         expect(financial.payback_years).toBeGreaterThan(0)
         expect(financial.financing_simulation.summary.total_paid).toBeGreaterThan(0)
         expect(typeof financial.financing_simulation.net_monthly_cash_flow).toBe("number")
+
+        warnSpy.mockRestore()
     })
 })
