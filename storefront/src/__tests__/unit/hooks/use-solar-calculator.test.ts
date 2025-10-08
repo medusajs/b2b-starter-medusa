@@ -452,6 +452,9 @@ describe('useCalculatorHealth', () => {
     });
 
     it('should check health periodically', async () => {
+        (solarCalculatorClient.healthCheck as jest.Mock).mockClear();
+        (solarCalculatorClient.healthCheck as jest.Mock).mockResolvedValue(true);
+
         const { result } = renderHook(() => useCalculatorHealth());
 
         await waitFor(() => {
