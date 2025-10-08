@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { useLeadQuote } from "@/modules/lead-quote/context"
+import { ProductSKU, ProductModel } from "@/modules/catalog/components/product-identifiers"
 
 interface ProductCardProps {
     product: {
@@ -180,19 +181,17 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
 
             {/* Product Info */}
             <div className="p-4">
-                {/* Manufacturer & Model */}
-                <div className="mb-2">
-                    {product.manufacturer && (
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">
-                            {product.manufacturer}
-                        </p>
-                    )}
-                    {product.model && (
-                        <p className="text-sm text-gray-600 font-medium">
-                            {product.model}
-                        </p>
-                    )}
-                </div>
+                {/* Manufacturer & Model - Componente Padronizado */}
+                {product.manufacturer && product.model && (
+                    <div className="mb-2">
+                        <ProductModel
+                            manufacturer={product.manufacturer}
+                            model={product.model}
+                            size="sm"
+                            link={false}
+                        />
+                    </div>
+                )}
 
                 {/* Product Name */}
                 <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
@@ -200,6 +199,17 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                         {product.name}
                     </LocalizedClientLink>
                 </h3>
+
+                {/* SKU - Componente Padronizado */}
+                {product.sku && (
+                    <div className="mb-3">
+                        <ProductSKU
+                            sku={product.sku}
+                            size="sm"
+                            copyable={true}
+                        />
+                    </div>
+                )}
 
                 {/* Specifications */}
                 <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">

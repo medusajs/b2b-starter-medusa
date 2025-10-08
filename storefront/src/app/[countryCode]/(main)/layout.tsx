@@ -9,6 +9,7 @@ import FreeShippingPriceNudgeClient from "@/components/client/FreeShippingPriceN
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 import { ArrowUpRightMini, ExclamationCircleSolid } from "@medusajs/icons"
 import { Metadata } from "next"
+import "@/styles/product-identifiers.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),

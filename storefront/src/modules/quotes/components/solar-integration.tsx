@@ -34,7 +34,16 @@ export function QuoteCalculationSummary({
     input: Partial<SolarCalculationInput>;
     output: Partial<SolarCalculationOutput>;
 }) {
-    if (!input || !output?.dimensionamento || !output?.financeiro) return null; return (
+    if (!input || !output?.dimensionamento || !output?.financeiro) return null;
+
+    const consumo = input.consumo_kwh_mes || 0;
+    const tarifa = input.tarifa_energia_kwh || 0;
+    const kwp = output.dimensionamento.kwp_proposto || 0;
+    const investimento = output.financeiro.capex?.total_brl || 0;
+    const economiaAnual = output.financeiro.economia?.anual_brl || 0;
+    const payback = output.financeiro.retorno?.payback_simples_anos || 0;
+
+    return (
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 text-2xl">🧮</div>
@@ -44,37 +53,37 @@ export function QuoteCalculationSummary({
                         <div>
                             <div className="text-gray-600 mb-0.5">Consumo Médio</div>
                             <div className="font-semibold text-gray-900">
-                                {input.averageConsumption?.toLocaleString('pt-BR')} kWh/mês
+                                {consumo.toLocaleString('pt-BR')} kWh/mês
                             </div>
                         </div>
                         <div>
                             <div className="text-gray-600 mb-0.5">Tarifa</div>
                             <div className="font-semibold text-gray-900">
-                                R$ {input.tariff?.toFixed(2)}/kWh
+                                R$ {tarifa.toFixed(2)}/kWh
                             </div>
                         </div>
                         <div>
                             <div className="text-gray-600 mb-0.5">Sistema Recomendado</div>
                             <div className="font-semibold text-gray-900">
-                                {results.systemSize?.toFixed(2)} kWp
+                                {kwp.toFixed(2)} kWp
                             </div>
                         </div>
                         <div>
                             <div className="text-gray-600 mb-0.5">Investimento</div>
                             <div className="font-semibold text-yellow-600">
-                                R$ {results.initialInvestment?.toLocaleString('pt-BR')}
+                                R$ {investimento.toLocaleString('pt-BR')}
                             </div>
                         </div>
                         <div>
                             <div className="text-gray-600 mb-0.5">Economia Anual</div>
                             <div className="font-semibold text-green-600">
-                                R$ {results.totalFirstYearSavings?.toLocaleString('pt-BR')}
+                                R$ {economiaAnual.toLocaleString('pt-BR')}
                             </div>
                         </div>
                         <div>
                             <div className="text-gray-600 mb-0.5">Payback</div>
                             <div className="font-semibold text-blue-600">
-                                {results.simplePayback?.toFixed(1)} anos
+                                {payback.toFixed(1)} anos
                             </div>
                         </div>
                     </div>
