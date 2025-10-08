@@ -136,9 +136,9 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
 
                     {/* Progress Indicator Component */}
                     <ProgressIndicator
-                        currentStep={currentStepIndex}
-                        totalSteps={stepConfig.length}
-                        steps={stepConfig.map(s => s.title)}
+                        steps={stepConfig.map(s => s.id)}
+                        currentStep={stepConfig[currentStepIndex].id}
+                        completedSteps={Array.from(completedSteps).map(i => stepConfig[i].id)}
                     />
                 </div>
 

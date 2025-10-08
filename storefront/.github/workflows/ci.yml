@@ -1,179 +1,179 @@
 name: CI
 
 on:
-    push:
-        branches: [main, develop]
-    pull_request:
-        branches: [main, develop]
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
 
 jobs:
-    lint:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-            - name: Enable Corepack
-              run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Cache Yarn dependencies
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      .yarn/cache
-                      .yarn/patches
-                      .yarn/releases
-                      .yarn/plugins
-                      **/.pnp.cjs
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/patches
+            .yarn/releases
+            .yarn/plugins
+            **/.pnp.cjs
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-            - name: Install dependencies
-              run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-            - name: Run ESLint
-              run: yarn lint
+      - name: Run ESLint
+        run: yarn lint
 
-            - name: Run type check
-              run: yarn type-check
+      - name: Run type check
+        run: yarn type-check
 
-            - name: Run format check
-              run: yarn format:check
+      - name: Run format check
+        run: yarn format:check
 
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-            - name: Enable Corepack
-              run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Cache Yarn dependencies
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      .yarn/cache
-                      .yarn/patches
-                      .yarn/releases
-                      .yarn/plugins
-                      **/.pnp.cjs
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/patches
+            .yarn/releases
+            .yarn/plugins
+            **/.pnp.cjs
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-            - name: Install dependencies
-              run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-            - name: Run unit tests
-              run: yarn test:unit
+      - name: Run unit tests
+        run: yarn test:unit
 
-            - name: Run component tests
-              run: yarn ct
+      - name: Run component tests
+        run: yarn ct
 
-            - name: Upload coverage reports
-              uses: codecov/codecov-action@v4
-              if: success()
-              with:
-                  file: ./coverage/lcov.info
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v4
+        if: success()
+        with:
+          file: ./coverage/lcov.info
 
-    build:
-        runs-on: ubuntu-latest
-        needs: [lint, test]
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-            - name: Enable Corepack
-              run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Cache Yarn dependencies
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      .yarn/cache
-                      .yarn/patches
-                      .yarn/releases
-                      .yarn/plugins
-                      **/.pnp.cjs
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/patches
+            .yarn/releases
+            .yarn/plugins
+            **/.pnp.cjs
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-            - name: Install dependencies
-              run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-            - name: Build Next.js application
-              run: yarn build
+      - name: Build Next.js application
+        run: yarn build
 
-            - name: Build Storybook
-              run: yarn sb:build
+      - name: Build Storybook
+        run: yarn sb:build
 
-            - name: Upload build artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                  name: build-files
-                  path: |
-                      .next/
-                      storybook-static/
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: |
+            .next/
+            storybook-static/
 
-    e2e:
-        runs-on: ubuntu-latest
-        needs: [build]
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  e2e:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-            - name: Enable Corepack
-              run: corepack enable
+      - name: Enable Corepack
+        run: corepack enable
 
-            - name: Cache Yarn dependencies
-              uses: actions/cache@v4
-              with:
-                  path: |
-                      .yarn/cache
-                      .yarn/patches
-                      .yarn/releases
-                      .yarn/plugins
-                      **/.pnp.cjs
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/patches
+            .yarn/releases
+            .yarn/plugins
+            **/.pnp.cjs
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-            - name: Install dependencies
-              run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
 
-            - name: Install Playwright browsers
-              run: npx playwright install --with-deps
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
-            - name: Run E2E tests
-              run: yarn test:e2e
+      - name: Run E2E tests
+        run: yarn test:e2e
 
-            - name: Upload Playwright report
-              uses: actions/upload-artifact@v4
-              if: always()
-              with:
-                  name: playwright-report
-                  path: playwright-report/
-                  retention-days: 30
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
