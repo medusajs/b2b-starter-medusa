@@ -180,27 +180,51 @@ export async function POST(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        // Validate request
-        const validatedData = ThermalAnalysisRequestSchema.parse(req.body);
-
-        // Execute analysis
-        const service = PVHawkService.getInstance();
-        const result = await service.analyzeThermalImagery(validatedData);
-
-        res.status(200).json(result);
-    } catch (error) {
-        if (error instanceof z.ZodError) {
+        // Check if file was uploaded
+        const file = (req as any).file;
+        if (!file) {
             res.status(400).json({
                 success: false,
-                error: "Invalid request parameters",
-                details: error.errors,
+                error: "No thermal image file provided",
             });
-        } else {
-            res.status(500).json({
-                success: false,
-                error: error.message || "Internal server error",
-            });
+            return;
         }
+
+        // For now, return mock response - will be replaced with real PV-Hawk service
+        const mockResponse = {
+            anomalies: [
+                {
+                    id: "anomaly_001",
+                    type: "hot_spot",
+                    severity: "high",
+                    location: [150, 200],
+                    temperature: 85,
+                    description: "Hot spot detected on module string 3",
+                },
+                {
+                    id: "anomaly_002",
+                    type: "cold_cell",
+                    severity: "medium",
+                    location: [300, 250],
+                    temperature: 15,
+                    description: "Cold cell in module string 5",
+                },
+            ],
+            overallHealth: "fair",
+            recommendations: [
+                "Inspect hot spots on string 3 immediately",
+                "Monitor cold cells for potential bypass diode issues",
+                "Schedule maintenance within 2 weeks",
+            ],
+            processingTime: 2.5,
+        };
+
+        res.status(200).json(mockResponse);
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message || "Internal server error",
+        });
     }
 }
 

@@ -6,6 +6,8 @@ import { storeFreeShippingMiddlewares } from "./free-shipping/middlewares";
 import { storeQuotesMiddlewares } from "./quotes/middlewares";
 import { storeCatalogMiddlewares } from "./catalog/middlewares";
 import { storeSolarDetectionMiddlewares } from "./solar-detection/middlewares";
+import { storeThermalAnalysisMiddlewares } from "./thermal-analysis/middlewares";
+import { storePhotogrammetryMiddlewares } from "./photogrammetry/middlewares";
 
 export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeCartsMiddlewares,
@@ -15,4 +17,6 @@ export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeApprovalsMiddlewares,
   ...storeCatalogMiddlewares,
   ...storeSolarDetectionMiddlewares,
+  ...storeThermalAnalysisMiddlewares,
+  ...storePhotogrammetryMiddlewares,
 ];

@@ -287,48 +287,51 @@ export async function POST(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        // Validate request
-        const validatedData = PhotogrammetryRequestSchema.parse(req.body);
-
-        // Check if async processing requested
-        const asyncMode = req.query.async === "true";
-
-        if (asyncMode) {
-            // Start async processing
-            const service = OpenDroneMapService.getInstance();
-            const projectId = service["sanitizeProjectName"](validatedData.project_name);
-
-            // Fire and forget
-            service.processPhotogrammetry(validatedData).catch(error => {
-                console.error(`Async photogrammetry failed for ${projectId}:`, error);
-            });
-
-            res.status(202).json({
-                success: true,
-                message: "Processing started",
-                project_id: projectId,
-                status_url: `/store/photogrammetry?project_id=${projectId}`,
-            });
-        } else {
-            // Synchronous processing
-            const service = OpenDroneMapService.getInstance();
-            const result = await service.processPhotogrammetry(validatedData);
-            res.status(200).json(result);
-        }
-
-    } catch (error) {
-        if (error instanceof z.ZodError) {
+        // Check if files were uploaded
+        const files = (req as any).files;
+        if (!files || files.length === 0) {
             res.status(400).json({
                 success: false,
-                error: "Invalid request parameters",
-                details: error.errors,
+                error: "No image files provided",
             });
-        } else {
-            res.status(500).json({
-                success: false,
-                error: error.message || "Internal server error",
-            });
+            return;
         }
+
+        if (files.length < 5) {
+            res.status(400).json({
+                success: false,
+                error: "At least 5 images required for photogrammetry",
+            });
+            return;
+        }
+
+        // For now, return mock response - will be replaced with real OpenDroneMap service
+        const mockResponse = {
+            roofModel: {
+                area: 150.5,
+                perimeter: 52.3,
+                orientation: 180,
+                tilt: 25,
+                geometry: {
+                    type: "Polygon",
+                    coordinates: [[[0, 0], [10, 0], [10, 15], [0, 15], [0, 0]]],
+                },
+            },
+            processingTime: 45.2,
+            quality: "good",
+            recommendations: [
+                "Roof suitable for solar installation",
+                "Optimal orientation for maximum energy production",
+                "Consider tilt angle optimization for local climate",
+            ],
+        };
+
+        res.status(200).json(mockResponse);
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message || "Internal server error",
+        });
     }
 }
 
