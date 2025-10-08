@@ -19,6 +19,34 @@ import {
 import { retrieveCustomer } from "./customer"
 import { getRegion } from "./regions"
 
+// ==========================================
+// Retry Utility
+// ==========================================
+
+const MAX_RETRIES = 3
+const RETRY_DELAY_MS = 1000
+
+async function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  retries: number = MAX_RETRIES,
+  delay: number = RETRY_DELAY_MS
+): Promise<T> {
+  try {
+    return await fn()
+  } catch (error) {
+    if (retries === 0) throw error
+
+    console.warn(`[Cart] Retrying after ${delay}ms... (${retries} retries left)`)
+    await sleep(delay)
+
+    return retryWithBackoff(fn, retries - 1, delay * 2)
+  }
+}
+
 export async function retrieveCart(id?: string) {
   const cartId = id || (await getCartId())
 
@@ -34,24 +62,25 @@ export async function retrieveCart(id?: string) {
     ...(await getCacheOptions("carts")),
   }
 
-  return await sdk.client
-    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
-      credentials: "include",
-      method: "GET",
-      query: {
-        fields:
-          "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approvals, +completed_at, *approval_status",
-      },
-      headers,
-      next,
-      cache: "force-cache",
-    })
-    .then(({ cart }) => {
-      return cart as B2BCart
-    })
-    .catch(() => {
-      return null
-    })
+  return await retryWithBackoff(async () => {
+    return sdk.client
+      .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+        credentials: "include",
+        method: "GET",
+        query: {
+          fields:
+            "*items, *region, *items.product, *items.variant, +items.thumbnail, +items.metadata, *promotions, *company, *company.approval_settings, *customer, *approvals, +completed_at, *approval_status",
+        },
+        headers,
+        next,
+        cache: "force-cache",
+      })
+      .then(({ cart }) => {
+        return cart as B2BCart
+      })
+  }).catch(() => {
+    return null
+  })
 }
 
 export async function getOrSetCart(countryCode: string) {
@@ -75,7 +104,9 @@ export async function getOrSetCart(countryCode: string) {
       },
     }
 
-    const cartResp = await sdk.store.cart.create(body, {}, headers)
+    const cartResp = await retryWithBackoff(async () => {
+      return sdk.store.cart.create(body, {}, headers)
+    })
 
     setCartId(cartResp.cart.id)
 
@@ -105,16 +136,17 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
     ...(await getAuthHeaders()),
   }
 
-  return sdk.store.cart
-    .update(cartId, data, {}, headers)
-    .then(async ({ cart }) => {
-      const fullfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fullfillmentCacheTag)
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-      return cart
-    })
-    .catch(medusaError)
+  return retryWithBackoff(async () => {
+    return sdk.store.cart
+      .update(cartId, data, {}, headers)
+      .then(async ({ cart }) => {
+        const fullfillmentCacheTag = await getCacheTag("fulfillment")
+        revalidateTag(fullfillmentCacheTag)
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
+        return cart
+      })
+  }).catch(medusaError)
 }
 
 export async function addToCart({
@@ -139,23 +171,24 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
-    .createLineItem(
-      cart.id,
-      {
-        variant_id: variantId,
-        quantity,
-      },
-      {},
-      headers
-    )
-    .then(async () => {
-      const fullfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fullfillmentCacheTag)
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
-    })
-    .catch(medusaError)
+  await retryWithBackoff(async () => {
+    return sdk.store.cart
+      .createLineItem(
+        cart.id,
+        {
+          variant_id: variantId,
+          quantity,
+        },
+        {},
+        headers
+      )
+  }).then(async () => {
+    const fullfillmentCacheTag = await getCacheTag("fulfillment")
+    revalidateTag(fullfillmentCacheTag)
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+  })
+  .catch(medusaError)
 }
 
 export async function addToCartBulk({

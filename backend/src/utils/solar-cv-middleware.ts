@@ -8,6 +8,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { FileUpload, FileUtils, ValidationError } from "../utils/solar-cv-service";
+import { rateLimiter, RateLimiter } from "./rate-limiter";
 
 // ============================================================================
 // File Upload Configuration
@@ -265,25 +266,47 @@ export class ErrorHandler {
 // ============================================================================
 
 export const solarDetectionMiddlewares: MiddlewareRoute[] = [
-    SolarCVMulter.createSingleFieldMiddleware("image", {
-        dest: path.join(process.cwd(), "uploads", "solar-detection"),
-        maxFileSize: 100 * 1024 * 1024, // 100MB for satellite imagery
-        allowedTypes: ["image/jpeg", "image/png", "image/tiff", "image/webp"],
-    }),
+    {
+        method: "POST",
+        matcher: "/store/solar-detection",
+        middlewares: [
+            rateLimiter.middleware(RateLimiter.API_HEAVY),
+            SolarCVMulter.getUploader({
+                dest: path.join(process.cwd(), "uploads", "solar-detection"),
+                maxFileSize: 100 * 1024 * 1024, // 100MB for satellite imagery
+                allowedTypes: ["image/jpeg", "image/png", "image/tiff", "image/webp"],
+            }).single("image"),
+        ],
+    },
 ];
 
 export const thermalAnalysisMiddlewares: MiddlewareRoute[] = [
-    SolarCVMulter.createSingleFieldMiddleware("thermalImage", {
-        dest: path.join(process.cwd(), "uploads", "thermal-analysis"),
-        maxFileSize: 200 * 1024 * 1024, // 200MB for thermal videos
-        allowedTypes: ["image/jpeg", "image/png", "image/tiff", "video/mp4"],
-    }),
+    {
+        method: "POST",
+        matcher: "/store/thermal-analysis",
+        middlewares: [
+            rateLimiter.middleware(RateLimiter.API_HEAVY),
+            SolarCVMulter.getUploader({
+                dest: path.join(process.cwd(), "uploads", "thermal-analysis"),
+                maxFileSize: 200 * 1024 * 1024, // 200MB for thermal videos
+                allowedTypes: ["image/jpeg", "image/png", "image/tiff", "video/mp4"],
+            }).single("thermalImage"),
+        ],
+    },
 ];
 
 export const photogrammetryMiddlewares: MiddlewareRoute[] = [
-    SolarCVMulter.createArrayFieldMiddleware("images", 50, {
-        dest: path.join(process.cwd(), "uploads", "photogrammetry"),
-        maxFileSize: 50 * 1024 * 1024, // 50MB per image
-        allowedTypes: ["image/jpeg", "image/png", "image/tiff"],
-    }),
+    {
+        method: "POST",
+        matcher: "/store/photogrammetry",
+        middlewares: [
+            rateLimiter.middleware(RateLimiter.API_HEAVY),
+            SolarCVMulter.getUploader({
+                dest: path.join(process.cwd(), "uploads", "photogrammetry"),
+                maxFileSize: 50 * 1024 * 1024, // 50MB per image
+                allowedTypes: ["image/jpeg", "image/png", "image/tiff"],
+                maxFiles: 50,
+            }).array("images", 50),
+        ],
+    },
 ];
