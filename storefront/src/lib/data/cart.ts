@@ -188,7 +188,7 @@ export async function addToCart({
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
   })
-  .catch(medusaError)
+    .catch(medusaError)
 }
 
 export async function addToCartBulk({
