@@ -9,9 +9,9 @@
     "medusa-b2b-storefront"
   ],
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev -p 8000",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "next start -p 8000",
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -49,7 +49,7 @@
     "lucide-react": "^0.545.0",
     "next": "^15.3.3",
     "pg": "^8.11.3",
-    "posthog-js": "^1.273.0",
+    "posthog-js": "^1.273.1",
     "react": "^19.1.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "^19.1.0",

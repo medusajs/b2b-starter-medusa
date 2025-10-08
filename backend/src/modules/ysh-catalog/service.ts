@@ -1,7 +1,7 @@
-import fs from "fs";
+﻿import fs from "fs";
 import path from "path";
 
-// Tipos para produtos do catálogo
+// Tipos para produtos do catÃ¡logo
 export interface CatalogProduct {
     id?: string;
     sku?: string;
@@ -18,7 +18,7 @@ export interface CatalogProduct {
         medium?: string;
         large?: string;
     };
-    // Campos específicos para painéis
+    // Campos especÃ­ficos para painÃ©is
     model?: string;
     technology?: string;
     kwp?: number;
@@ -34,11 +34,11 @@ export interface CatalogProduct {
         product: number;
         performance: number;
     };
-    // Campos específicos para inversores
+    // Campos especÃ­ficos para inversores
     power_w?: number;
     voltage_v?: number;
     phases?: string;
-    // Campos específicos para estruturas
+    // Campos especÃ­ficos para estruturas
     type?: string;
     material?: string;
     // Metadata adicional
@@ -59,7 +59,7 @@ class YshCatalogModuleService {
     private enrichedSchemasPath: string;
 
     constructor(container: any, options: any = {}) {
-        // Caminhos para os dados do catálogo - caminhos absolutos
+        // Caminhos para os dados do catÃ¡logo - caminhos absolutos
         this.catalogPath = path.resolve(__dirname, '../../../../../data/catalog');
         this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
         this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
@@ -85,16 +85,24 @@ class YshCatalogModuleService {
     }
 
     /**
-     * Lê um arquivo JSON do catálogo (usando schemas unificados quando disponíveis)
+     * LÃª um arquivo JSON do catÃ¡logo (usando schemas unificados quando disponÃ­veis)
      */
     private readCatalogFile(filename: string): CatalogProduct[] {
         try {
             // Primeiro tenta ler do schema unificado
             const unifiedFilename = filename.replace('.json', '_unified.json');
             const unifiedFilePath = path.join(this.unifiedSchemasPath, unifiedFilename);
+            const normalizedUnifiedPath = path.join(this.unifiedSchemasPath, unifiedFilename.replace('.json', '_normalized.json'));
+
+            // Preferir versÃ£o normalizada, se disponÃ­vel
+            if (fs.existsSync(normalizedUnifiedPath)) {
+                const data = fs.readFileSync(normalizedUnifiedPath, 'utf-8');
+                const parsed = JSON.parse(data);
+                return Array.isArray(parsed) ? parsed : [];
+            }
 
             if (fs.existsSync(unifiedFilePath)) {
-                console.log(`📄 Lendo schema unificado: ${unifiedFilename}`);
+                console.log(`ðŸ“„ Lendo schema unificado: ${unifiedFilename}`);
                 const data = fs.readFileSync(unifiedFilePath, 'utf-8');
                 const parsed = JSON.parse(data);
                 return Array.isArray(parsed) ? parsed : [];
@@ -103,11 +111,11 @@ class YshCatalogModuleService {
             // Fallback para arquivo original
             const originalFilePath = path.join(this.catalogPath, filename);
             if (fs.existsSync(originalFilePath)) {
-                console.log(`📄 Lendo arquivo original: ${filename}`);
+                console.log(`ðŸ“„ Lendo arquivo original: ${filename}`);
                 const data = fs.readFileSync(originalFilePath, 'utf-8');
                 const parsed = JSON.parse(data);
 
-                // Alguns arquivos têm estrutura diferente
+                // Alguns arquivos tÃªm estrutura diferente
                 if (filename === 'panels.json' && parsed.panels) {
                     return parsed.panels;
                 }
@@ -115,20 +123,20 @@ class YshCatalogModuleService {
                 return Array.isArray(parsed) ? parsed : [];
             }
 
-            console.warn(`Arquivo não encontrado: ${filename} (nem unificado nem original)`);
-            // Fallback adicional: tentar dentro do repositório (src/data/catalog)
+            console.warn(`Arquivo nÃ£o encontrado: ${filename} (nem unificado nem original)`);
+            // Fallback adicional: tentar dentro do repositÃ³rio (src/data/catalog)
             try {
                 const unifiedFilename = filename.replace('.json', '_unified.json');
                 const localUnifiedPath = path.resolve(__dirname, `../../data/catalog/unified_schemas/${unifiedFilename}`);
                 if (fs.existsSync(localUnifiedPath)) {
-                    console.log(`📚 Lendo schema unificado (local src): ${unifiedFilename}`);
+                    console.log(`ðŸ“š Lendo schema unificado (local src): ${unifiedFilename}`);
                     const data = fs.readFileSync(localUnifiedPath, 'utf-8');
                     const parsed = JSON.parse(data);
                     return Array.isArray(parsed) ? parsed : [];
                 }
                 const localOriginalPath = path.resolve(__dirname, `../../data/catalog/${filename}`);
                 if (fs.existsSync(localOriginalPath)) {
-                    console.log(`📄 Lendo arquivo original (local src): ${filename}`);
+                    console.log(`ðŸ“„ Lendo arquivo original (local src): ${filename}`);
                     const data = fs.readFileSync(localOriginalPath, 'utf-8');
                     const parsed = JSON.parse(data);
                     if (filename === 'panels.json' && (parsed as any).panels) {
@@ -146,7 +154,7 @@ class YshCatalogModuleService {
     }
 
     /**
-     * Normaliza os caminhos das imagens processadas para URLs acessíveis
+     * Normaliza os caminhos das imagens processadas para URLs acessÃ­veis
      */
     private normalizeImagePaths(product: CatalogProduct): CatalogProduct {
         if (!product.processed_images) {
@@ -155,17 +163,17 @@ class YshCatalogModuleService {
 
         const processedImages = product.processed_images;
 
-        // Converte caminhos relativos para caminhos absolutos acessíveis via API
+        // Converte caminhos relativos para caminhos absolutos acessÃ­veis via API
         Object.keys(processedImages).forEach(size => {
             const imagePath = processedImages[size as keyof typeof processedImages];
             if (imagePath && typeof imagePath === 'string') {
-                // Remove 'catalog\' ou 'catalog/' do início se existir
+                // Remove 'catalog\' ou 'catalog/' do inÃ­cio se existir
                 let cleanPath = imagePath.replace(/^catalog[\/\\]/, '');
-                // Remove './' ou '../' do início
+                // Remove './' ou '../' do inÃ­cio
                 cleanPath = cleanPath.replace(/^\.{1,2}[\/\\]/, '');
                 // Converte todas as barras invertidas para barras normais
                 cleanPath = cleanPath.replace(/\\/g, '/');
-                // Garante que começa com /
+                // Garante que comeÃ§a com /
                 if (!cleanPath.startsWith('/')) {
                     cleanPath = '/' + cleanPath;
                 }
@@ -294,7 +302,7 @@ class YshCatalogModuleService {
 
         let products: CatalogProduct[] = [];
 
-        // Mapeamento de categorias para arquivos (usando schemas unificados quando disponíveis)
+        // Mapeamento de categorias para arquivos (usando schemas unificados quando disponÃ­veis)
         const categoryFiles: { [key: string]: string } = {
             kits: 'kits_unified.json',
             panels: 'panels_unified.json',
@@ -312,11 +320,11 @@ class YshCatalogModuleService {
 
         const filename = categoryFiles[category];
         if (!filename) {
-            throw new Error(`Categoria não suportada: ${category}`);
+            throw new Error(`Categoria nÃ£o suportada: ${category}`);
         }
 
         products = this.readCatalogFile(filename);
-        // Enriquecer com SKU canônico (registry) e garantir categoria
+        // Enriquecer com SKU canÃ´nico (registry) e garantir categoria
         try {
             const registryPath = path.join(this.unifiedSchemasPath, 'sku_registry.json');
             let reg: Record<string, string> = {};
@@ -387,7 +395,7 @@ class YshCatalogModuleService {
             })
         }
 
-        // Paginação
+        // PaginaÃ§Ã£o
         const total = products.length;
         const startIndex = (page - 1) * limit;
         const endIndex = startIndex + limit;
@@ -414,7 +422,7 @@ class YshCatalogModuleService {
     }
 
     /**
-     * Lista todos os fabricantes disponíveis
+     * Lista todos os fabricantes disponÃ­veis
      */
     async getManufacturers(): Promise<string[]> {
         const categories = ['kits', 'panels', 'inverters', 'cables', 'chargers', 'controllers', 'accessories', 'structures'];
@@ -429,7 +437,7 @@ class YshCatalogModuleService {
                     }
                 });
             } catch (error) {
-                // Ignora erros de categoria não encontrada
+                // Ignora erros de categoria nÃ£o encontrada
             }
         }
 
@@ -453,7 +461,7 @@ class YshCatalogModuleService {
                 const response = await this.listProductsByCategory(cat, { limit: 1000 });
                 allProducts.push(...response.products);
             } catch (error) {
-                // Ignora erros de categoria não encontrada
+                // Ignora erros de categoria nÃ£o encontrada
             }
         }
 
@@ -471,3 +479,4 @@ class YshCatalogModuleService {
 }
 
 export default YshCatalogModuleService;
+

@@ -24,6 +24,7 @@
     "catalog:sku:gen": "medusa exec ./src/scripts/gen-sku-registry.ts",
     "catalog:validate": "medusa exec ./src/scripts/validate-catalog.ts",
     "catalog:price:report": "medusa exec ./src/scripts/generate-prices-report.ts",
+    "catalog:price:normalize": "medusa exec ./src/scripts/generate-prices-normalized.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",

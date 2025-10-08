@@ -2,25 +2,46 @@ import { SVGProps } from "react"
 
 const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width="24"
-    height="24"
-    viewBox="0 0 31 30"
+    viewBox="0 0 200 200"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M14.8372 0C12.6452 0.0916708 10.5004 0.665273 8.55521 1.68L14.8372 12.56V0ZM14.8372 17.443L8.55721 28.32C10.5017 29.3344 12.6459 29.908 14.8372 30V17.443ZM16.1422 30V17.432L22.4282 28.319C20.4818 29.3343 18.3356 29.9089 16.1422 30ZM16.1422 12.57V0C18.4032 0.096 20.5352 0.693 22.4292 1.682L16.1422 12.57ZM2.82621 23.067L13.7102 16.783L7.42621 27.667C5.57673 26.4863 4.00694 24.9165 2.82621 23.067ZM28.1562 6.935L17.2762 13.216L23.5592 2.336C25.4079 3.51667 26.9759 5.08609 28.1562 6.935ZM2.82521 6.934C4.00596 5.08454 5.57575 3.51475 7.42521 2.334L13.7092 13.218L2.82521 6.934ZM2.17121 8.064C1.15595 10.0104 0.582331 12.1566 0.491211 14.35H13.0582L2.17121 8.064ZM2.17121 21.937C1.15651 19.9918 0.582914 17.847 0.491211 15.655H13.0532L2.17221 21.937H2.17121ZM17.9252 14.35H30.4902C30.3989 12.157 29.8253 10.0111 28.8102 8.065L17.9252 14.35ZM28.8102 21.936L17.9302 15.656H30.4902C30.3982 17.8473 29.8246 19.9915 28.8102 21.936ZM17.2762 16.785L23.5572 27.665C25.4062 26.4844 26.9756 24.915 28.1562 23.066L17.2762 16.785Z"
-      fill="url(#paint0_linear_yello)"
-    />
+    {/* Yello Solar Hub Logo - Sun/Wheel Design */}
+    <circle cx="100" cy="100" r="100" fill="url(#yelloPaint)" />
+    
+    {/* 16 raios do sol */}
+    <g transform="translate(100, 100)">
+      {[...Array(16)].map((_, i) => {
+        const angle = (i * 22.5 * Math.PI) / 180;
+        const x1 = 0;
+        const y1 = 0;
+        const x2 = Math.cos(angle) * 100;
+        const y2 = Math.sin(angle) * 100;
+        return (
+          <line
+            key={i}
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
+            stroke="white"
+            strokeWidth="8"
+            strokeLinecap="round"
+          />
+        );
+      })}
+    </g>
+    
+    {/* Centro branco */}
+    <circle cx="100" cy="100" r="20" fill="white" />
+    
     <defs>
-      <linearGradient id="paint0_linear_yello" x1="15.4907" y1="0" x2="15.4907" y2="30" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#FFCE00" />
-        <stop offset="0.5" stopColor="#FF6600" />
-        <stop offset="1" stopColor="#FF0066" />
-      </linearGradient>
+      <radialGradient id="yelloPaint" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stopColor="#FFC107" />
+        <stop offset="50%" stopColor="#FF9800" />
+        <stop offset="100%" stopColor="#FF5722" />
+      </radialGradient>
     </defs>
   </svg>
 )

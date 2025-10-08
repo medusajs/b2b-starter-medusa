@@ -120,14 +120,19 @@ const parsePrice = (price: any): number => {
 };
 
 const readCatalogFile = (fileName: string): CatalogItem[] => {
-    const filePath = path.join(__dirname, "../data/catalog/unified_schemas", fileName);
-    if (!fs.existsSync(filePath)) {
+    const baseDir = path.join(__dirname, "../data/catalog/unified_schemas");
+    const normalizedName = fileName.replace('.json', '_normalized.json');
+    const normalizedPath = path.join(baseDir, normalizedName);
+    const filePath = path.join(baseDir, fileName);
+
+    const candidate = fs.existsSync(normalizedPath) ? normalizedPath : filePath;
+    if (!fs.existsSync(candidate)) {
         console.warn(`Arquivo ${fileName} nao encontrado em unified_schemas`);
         return [];
     }
 
     try {
-        const data = fs.readFileSync(filePath, "utf-8");
+        const data = fs.readFileSync(candidate, "utf-8");
         const parsed = JSON.parse(data);
 
         if (Array.isArray(parsed)) {

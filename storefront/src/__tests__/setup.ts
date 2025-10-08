@@ -65,6 +65,14 @@ jest.mock('@medusajs/ui', () => ({
     // Mock other components if needed
 }))
 
+// Mock do @vercel/analytics/server
+jest.mock('@vercel/analytics/server', () => ({
+    track: jest.fn(),
+}))
+
+// Mock do server-only
+jest.mock('server-only', () => ({}))
+
 // Configurações globais de teste
 beforeEach(() => {
     jest.clearAllMocks()
