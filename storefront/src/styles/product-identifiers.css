@@ -1,0 +1,91 @@
+/* Product Identifiers Styles */
+
+.product-sku {
+    @apply flex items-center gap-2 font-mono;
+}
+
+.product-sku.product-sku-sm {
+    @apply text-xs;
+}
+
+.product-sku.product-sku-md {
+    @apply text-sm;
+}
+
+.product-sku.product-sku-lg {
+    @apply text-base;
+}
+
+.sku-label {
+    @apply text-gray-500 font-normal;
+}
+
+.sku-value {
+    @apply px-2 py-1 bg-gray-100 rounded text-gray-900 select-all;
+}
+
+.sku-copy-btn {
+    @apply p-1 hover:bg-gray-100 rounded transition-colors cursor-pointer;
+}
+
+.sku-copy-btn:active {
+    @apply scale-95;
+}
+
+.sku-internal {
+    @apply text-xs text-gray-400;
+}
+
+/* Product Model Styles */
+
+.product-model {
+    @apply flex items-center gap-1.5 font-medium;
+}
+
+.product-model .manufacturer {
+    @apply text-gray-700;
+}
+
+.product-model .model-separator {
+    @apply text-gray-400;
+}
+
+.product-model .model-code {
+    @apply text-gray-900 font-semibold;
+}
+
+.product-model .model-series {
+    @apply text-gray-600 text-xs;
+}
+
+/* Product Card Enhancements */
+
+.product-card .product-identifiers {
+    @apply flex flex-col gap-2 mt-2 p-3 bg-gray-50 rounded-lg;
+}
+
+.product-card .product-identifiers .identifier-group {
+    @apply flex items-center gap-2;
+}
+
+.product-card .product-identifiers .identifier-group label {
+    @apply text-xs text-gray-500 font-medium uppercase;
+}
+
+/* Product Detail Page Identifiers */
+
+.product-detail-identifiers {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg;
+}
+
+.product-detail-identifiers .identifier-group {
+    @apply flex flex-col gap-1;
+}
+
+.product-detail-identifiers .identifier-group label {
+    @apply text-xs text-gray-500 font-medium uppercase;
+}
+
+.product-detail-identifiers .identifier-group code {
+    @apply text-sm font-mono px-2 py-1 bg-white rounded border border-gray-200;
+}
