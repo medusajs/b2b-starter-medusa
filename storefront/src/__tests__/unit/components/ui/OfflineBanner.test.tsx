@@ -149,6 +149,8 @@ describe('FallbackBadge', () => {
         render(<FallbackBadge />)
 
         expect(screen.getByText('Catálogo Local')).toBeInTheDocument()
-        expect(screen.getByTestId('AlertCircle')).toBeInTheDocument()
+        // Check for the alert circle icon (Lucide React AlertCircle)
+        const icon = document.querySelector('.lucide-circle-alert')
+        expect(icon).toBeInTheDocument()
     })
 })
