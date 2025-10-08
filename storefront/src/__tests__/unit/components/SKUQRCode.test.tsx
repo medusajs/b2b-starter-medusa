@@ -178,12 +178,16 @@ describe('SKUQRCode', () => {
             fireEvent.click(button);
 
             // Check that the mocked image component is present
-            expect(screen.getByText('mocked-next-image')).toBeInTheDocument();
+            const image = screen.getByTestId('next-image');
+            expect(image).toBeInTheDocument();
+            expect(image).toHaveAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TEST-SKU-123');
+            expect(image).toHaveAttribute('alt', 'QR Code para SKU TEST-SKU-123');
         });
     });
 
     describe('Download Functionality', () => {
-        it('downloads QR code when download button is clicked', () => {
+        it('downloads QR code when download button is clicked', async () => {
+            const mockCreateElement = (global as any).mockCreateElement;
             render(<SKUQRCode {...defaultProps} />);
 
             // Open modal
@@ -199,6 +203,7 @@ describe('SKUQRCode', () => {
         });
 
         it('sets correct download attributes', () => {
+            const mockCreateElement = (global as any).mockCreateElement;
             render(<SKUQRCode {...defaultProps} />);
 
             // Open modal
@@ -325,7 +330,9 @@ describe('SKUQRCode', () => {
             fireEvent.click(button);
 
             // Check that the mocked image is present (size is passed as prop but not visible in mock)
-            expect(screen.getByText('mocked-next-image')).toBeInTheDocument();
+            const image = screen.getByTestId('next-image');
+            expect(image).toBeInTheDocument();
+            expect(image).toHaveAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=TEST-SKU-123');
         });
     });
 });
