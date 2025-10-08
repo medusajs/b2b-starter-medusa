@@ -6,7 +6,7 @@ import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
 import VideosStrip from "@/modules/home/components/videos-strip"
 import VideosByClass from "@/modules/home/components/videos-by-class"
-// import SolarStats from "@/modules/home/components/solar-stats"
+import { SolarCTAHero, SolarStats } from "@/modules/home/components/solar-cta"
 import Testimonials from "@/modules/home/components/testimonials"
 import DesignSystemTest from "@/components/DesignSystemTest"
 import { Metadata } from "next"
@@ -63,11 +63,12 @@ export default async function Home(props: {
         }}
       />
       <Hero />
+      <SolarCTAHero countryCode={countryCode} />
       <OnboardingCTA />
       <SolutionsByClass />
       <VideosByClass />
       <ModalidadesGrid />
-      {/* <SolarStats /> */}
+      <SolarStats />
       <DesignSystemTest />
       <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse rounded-lg m-4"></div>}>
         <FeaturedProducts countryCode={countryCode} />

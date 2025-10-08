@@ -4,6 +4,7 @@ import { useCart } from "@/lib/context/cart-context"
 import { checkSpendingLimit } from "@/lib/util/check-spending-limit"
 import ApprovalStatusBanner from "@/modules/cart/components/approval-status-banner"
 import EmptyCartMessage from "@/modules/cart/components/empty-cart-message"
+import { EmptyCartSolarUpsell } from "@/modules/cart/components/solar-integration"
 import SignInPrompt from "@/modules/cart/components/sign-in-prompt"
 import ItemsTemplate from "@/modules/cart/templates/items"
 import Summary from "@/modules/cart/templates/summary"
@@ -58,7 +59,10 @@ const CartTemplate = ({ customer }: { customer: B2BCustomer | null }) => {
           </div>
         ) : (
           <div>
-            <EmptyCartMessage />
+            <EmptyCartSolarUpsell countryCode="br" />
+            <div className="mt-6">
+              <EmptyCartMessage />
+            </div>
           </div>
         )}
       </div>

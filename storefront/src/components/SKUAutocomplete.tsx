@@ -231,7 +231,7 @@ export function SKUAutocomplete({
             {/* Mensagem de "nenhum resultado" */}
             {query.length >= 3 && !isLoading && suggestions.length === 0 && isOpen && (
                 <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-xl p-4 text-center text-gray-500">
-                    Nenhum produto encontrado para "{query}"
+                    Nenhum produto encontrado para &ldquo;{query}&rdquo;
                 </div>
             )}
         </div>

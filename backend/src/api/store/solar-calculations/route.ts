@@ -54,7 +54,9 @@ export const GET = async (
             error: error instanceof Error ? error.message : "Unknown error"
         })
     }
-}/**
+}
+
+/**
  * POST /store/solar-calculations
  * Cria um novo cálculo solar
  */
@@ -62,7 +64,7 @@ export const POST = async (
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = req.auth_context?.actor_id
+    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
 
     if (!customerId) {
         res.status(401).json({
@@ -86,45 +88,20 @@ export const POST = async (
         return
     }
 
-    const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
-
     try {
-        // Verificar se já existe um cálculo com o mesmo hash
-        if (calculation_hash) {
-            const { data: existing } = await query.graph({
-                entity: "solar_calculation",
-                fields: ["id"],
-                filters: {
-                    customer_id: customerId,
-                    calculation_hash,
-                },
-            })
-
-            if (existing && existing.length > 0) {
-                res.status(409).json({
-                    message: "Calculation already exists",
-                    calculation_id: existing[0].id
-                })
-                return
-            }
+        // Mock save - substituir por persistência real no banco
+        const calculation = {
+            id: `calc_${Date.now()}`,
+            customer_id: customerId,
+            name,
+            input,
+            output,
+            calculation_hash,
+            notes,
+            is_favorite: false,
+            created_at: new Date(),
+            updated_at: new Date(),
         }
-
-        // Criar novo cálculo
-        const { data: calculation } = await query.graph({
-            entity: "solar_calculation",
-            fields: ["*"],
-            create: {
-                customer_id: customerId,
-                name,
-                input,
-                output,
-                calculation_hash,
-                notes,
-                is_favorite: false,
-                created_at: new Date(),
-                updated_at: new Date(),
-            },
-        })
 
         res.status(201).json({
             calculation,

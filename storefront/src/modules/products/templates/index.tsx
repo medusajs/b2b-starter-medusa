@@ -3,6 +3,7 @@ import ImageGallery from "@/modules/products/components/image-gallery"
 import ProductActions from "@/modules/products/components/product-actions"
 import ProductTabs from "@/modules/products/components/product-tabs"
 import RelatedProducts from "@/modules/products/components/related-products"
+import { SolarCalculatorBadge, SolarCalculatorSuggestion } from "@/modules/products/components/solar-integration"
 import ProductInfo from "@/modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@/modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
@@ -25,14 +26,25 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
     return notFound()
   }
 
+  const isSolarProduct = product.tags?.some(tag =>
+    tag.value?.toLowerCase().includes('solar') ||
+    tag.value?.toLowerCase().includes('kit')
+  ) || false
+
   return (
     <div className="flex flex-col gap-y-2 my-2">
+      {isSolarProduct && (
+        <div className="content-container mb-4">
+          <SolarCalculatorSuggestion productName={product.title || ''} countryCode={countryCode} />
+        </div>
+      )}
       <div
         className="content-container grid grid-cols-1 md:grid-cols-2 gap-2 w-full h-fit"
         data-testid="product-container"
       >
         <ImageGallery product={product} />
         <div className="flex flex-col bg-neutral-100 w-full gap-6 items-start justify-center small:p-20 p-6 h-full">
+          {isSolarProduct && <SolarCalculatorBadge countryCode={countryCode} />}
           <ProductInfo product={product} />
           <Suspense
             fallback={<ProductActions product={product} region={region} />}

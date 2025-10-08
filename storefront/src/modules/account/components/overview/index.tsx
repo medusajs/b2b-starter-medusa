@@ -1,5 +1,6 @@
 import OrderCard from "@/modules/account/components/order-card"
 import PreviouslyPurchasedProducts from "@/modules/account/components/previously-purchased"
+import { MyCalculationsDashboardWidget } from "@/modules/account/components/solar-integration"
 import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 import { Heading } from "@medusajs/ui"
@@ -63,6 +64,13 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                   </span>
                 </div>
               </div>
+            </div>
+
+            <div className="mb-6">
+              <MyCalculationsDashboardWidget
+                calculationsCount={0}
+                countryCode="br"
+              />
             </div>
 
             <div className="flex flex-col gap-y-4">
