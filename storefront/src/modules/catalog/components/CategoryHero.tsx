@@ -94,12 +94,12 @@ export default function CategoryHero({
 
                     {/* CTAs */}
                     <div className="flex flex-wrap gap-4">
-                        <button className="ysh-btn-primary bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 font-semibold inline-flex items-center gap-2 shadow-lg transition-all hover:shadow-xl">
+                        <button className="ysh-btn-primary inline-flex items-center gap-2">
                             {cta_primary}
                             <ArrowRight className="w-5 h-5" />
                         </button>
                         <Link href="#comparacao">
-                            <button className="ysh-btn-outline border-white text-white hover:bg-white/10 px-6 py-3 font-semibold">
+                            <button className="ysh-btn-outline">
                                 {cta_secondary}
                             </button>
                         </Link>

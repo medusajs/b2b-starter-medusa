@@ -24,6 +24,7 @@ Esta documentação descreve a migração do projeto de **NPM/PNPM para Yarn Ber
 ### 1.1 Por que Yarn Berry?
 
 **Vantagens**:
+
 - 📦 **Determinístico**: `yarn.lock` garante builds reproduzíveis
 - ⚡ **Performance**: Cache global e instalação paralela
 - 🔧 **Flexibilidade**: `nodeLinker: node-modules` (compatível Playwright/Storybook)
@@ -82,6 +83,7 @@ yarn install
 #### Passo 4: Migrar Scripts
 
 **Antes (NPM/PNPM)**:
+
 ```bash
 pnpm dev
 pnpm build && pnpm start
@@ -91,6 +93,7 @@ pnpm lint
 ```
 
 **Depois (Yarn)**:
+
 ```bash
 yarn dev
 yarn build && yarn start
@@ -199,6 +202,7 @@ jobs:
 ```
 
 **Key Points**:
+
 - ✅ `corepack enable` antes de qualquer comando Yarn
 - ✅ Cache de `.yarn/cache`, `.yarn/releases`, etc.
 - ✅ `yarn install --immutable` (não altera lock file)
@@ -211,6 +215,7 @@ jobs:
 ### 2.1 Arquitetura Medusa v2
 
 **Componentes**:
+
 - 🔹 **Backend**: Medusa.js (Node.js, PostgreSQL)
   - Modules: cart, product, pricing, region, customer, order, etc.
   - APIs: `/store` (público) e `/admin` (privado)
@@ -242,6 +247,7 @@ export const sdk = new Medusa({
 ```
 
 **Arquivo criado**: `storefront/src/lib/medusa-sdk-guide.ts`
+
 - ✅ Exemplos de uso: `getProducts()`, `getProduct(id)`, `createCart()`, etc.
 - ✅ Store API routes: `/store/products`, `/store/cart`, `/store/regions`
 - ✅ Environment variables checklist
@@ -296,6 +302,7 @@ NEXT_PUBLIC_ENABLE_PRODUCT_COMPARISON=true
 ```
 
 **Backend** (`.env`):
+
 ```bash
 DATABASE_URL=postgresql://user:pass@localhost:5432/medusa
 STORE_CORS=http://localhost:8000
@@ -309,6 +316,7 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxx
 ### 2.4 Store API Examples
 
 **Products (PLP/PDP)**:
+
 ```typescript
 // List products
 const products = await sdk.store.product.list({
@@ -326,6 +334,7 @@ const product = await sdk.store.product.retrieve(id, {
 ```
 
 **Cart Management**:
+
 ```typescript
 // Create cart
 const cart = await sdk.store.cart.create({
@@ -344,6 +353,7 @@ const order = await sdk.store.cart.complete(cartId)
 ```
 
 **Regions & Categories**:
+
 ```typescript
 const regions = await sdk.store.region.list()
 const categories = await sdk.store.category.list()
@@ -356,6 +366,7 @@ const categories = await sdk.store.category.list()
 ### 2.5 Conformance Checklist
 
 #### Backend Requirements
+
 - [ ] PostgreSQL database running
 - [ ] At least one **Region** configured (e.g., `BR/BRL`)
 - [ ] **Publishable Key** created (Admin > API Keys)
@@ -364,6 +375,7 @@ const categories = await sdk.store.category.list()
 - [ ] Shipping options created for region
 
 #### Storefront Requirements
+
 - [x] Yarn Berry configured (`.yarnrc.yml`)
 - [x] Medusa SDK configured (`@medusajs/js-sdk`)
 - [x] Environment variables set (`.env.local`)
@@ -375,6 +387,7 @@ const categories = await sdk.store.category.list()
 - [ ] Customer authentication (optional)
 
 #### CI/CD Requirements
+
 - [x] GitHub Actions using Yarn Berry
 - [x] Cache configured for `.yarn/*`
 - [x] `yarn install --immutable` in workflows
@@ -383,6 +396,7 @@ const categories = await sdk.store.category.list()
 - [ ] Deploy workflow (Vercel/AWS)
 
 #### Standards Compliance
+
 - [x] Use `/store` prefix for public API calls
 - [x] Use `/admin` prefix for admin API calls (if needed)
 - [x] Publishable key in SDK config
@@ -397,6 +411,7 @@ const categories = await sdk.store.category.list()
 ## 🔧 Comandos Úteis
 
 ### Development
+
 ```bash
 # Start dev server
 yarn dev
@@ -411,6 +426,7 @@ yarn format:write
 ```
 
 ### Testing
+
 ```bash
 # Unit tests (Jest)
 yarn test:unit
@@ -425,6 +441,7 @@ yarn test:e2e
 ```
 
 ### Build & Deploy
+
 ```bash
 # Next.js build
 yarn build
@@ -439,6 +456,7 @@ yarn analyze
 ```
 
 ### Yarn Berry
+
 ```bash
 # Install dependencies
 yarn install
@@ -460,21 +478,24 @@ yarn cache clean
 ## 📚 Referências Oficiais
 
 ### Yarn Berry
-- **Migration Guide**: https://yarnpkg.com/migration/guide
-- **Configuration**: https://yarnpkg.com/configuration/yarnrc
-- **CLI Commands**: https://yarnpkg.com/cli
+
+- **Migration Guide**: <https://yarnpkg.com/migration/guide>
+- **Configuration**: <https://yarnpkg.com/configuration/yarnrc>
+- **CLI Commands**: <https://yarnpkg.com/cli>
 
 ### Medusa.js v2
-- **Overview**: https://medusajs.com/v2-overview/
-- **Next.js Starter**: https://docs.medusajs.com/resources/nextjs-starter
-- **JS SDK**: https://docs.medusajs.com/resources/js-sdk
-- **Store API**: https://docs.medusajs.com/api/store
-- **Admin API**: https://docs.medusajs.com/api/admin
-- **B2B Starter**: https://medusajs.com/blog/announcing-b2b-starter/
+
+- **Overview**: <https://medusajs.com/v2-overview/>
+- **Next.js Starter**: <https://docs.medusajs.com/resources/nextjs-starter>
+- **JS SDK**: <https://docs.medusajs.com/resources/js-sdk>
+- **Store API**: <https://docs.medusajs.com/api/store>
+- **Admin API**: <https://docs.medusajs.com/api/admin>
+- **B2B Starter**: <https://medusajs.com/blog/announcing-b2b-starter/>
 
 ### GitHub
-- **Next.js Starter**: https://github.com/medusajs/nextjs-starter-medusa
-- **B2B Starter**: https://github.com/medusajs/b2b-starter-medusa
+
+- **Next.js Starter**: <https://github.com/medusajs/nextjs-starter-medusa>
+- **B2B Starter**: <https://github.com/medusajs/b2b-starter-medusa>
 
 ---
 
@@ -483,7 +504,8 @@ yarn cache clean
 ### Yarn Berry Issues
 
 **Problema**: `Cannot find module ...`  
-**Solução**: 
+**Solução**:
+
 ```bash
 yarn install
 yarn dlx @yarnpkg/sdks vscode  # Atualiza VSCode ZipFS
@@ -495,19 +517,22 @@ yarn dlx @yarnpkg/sdks vscode  # Atualiza VSCode ZipFS
 ### Medusa Issues
 
 **Problema**: `401 Unauthorized` ao chamar Store API  
-**Solução**: 
+**Solução**:
+
 - Verificar `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`
 - Verificar `STORE_CORS` no backend
 - Verificar região ativa no backend
 
 **Problema**: Produtos sem preço  
 **Solução**:
+
 - Verificar se região está configurada
 - Passar `region_id` nas queries
 - Verificar price lists no Admin
 
 **Problema**: Checkout falha (Stripe)  
 **Solução**:
+
 - Verificar `NEXT_PUBLIC_STRIPE_KEY` (pk_test_...)
 - Verificar `STRIPE_API_KEY` no backend (sk_test_...)
 - Verificar webhook configurado (se necessário)
@@ -527,6 +552,7 @@ yarn dlx @yarnpkg/sdks vscode  # Atualiza VSCode ZipFS
 | Migration docs | ✅ Completo | Este arquivo |
 
 **Próximos Passos**:
+
 1. Testar migração em ambiente local (`yarn install`, `yarn dev`)
 2. Validar CI/CD no GitHub (criar PR de teste)
 3. Configurar secrets no GitHub (Stripe keys, etc.)
