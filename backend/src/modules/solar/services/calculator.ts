@@ -60,32 +60,34 @@ export interface SolarCalculationOutput {
         componentes: {
             paineis: Array<{
                 marca: string;
-                modelo: string;
+                modelo?: string;
                 potencia_w: number;
                 quantidade: number;
                 eficiencia?: number;
             }>;
             inversores: Array<{
                 marca: string;
-                modelo: string;
+                modelo?: string;
                 potencia_kw: number;
                 quantidade: number;
                 mppt?: number;
+                tipo?: string;
             }>;
             baterias?: Array<{
                 marca: string;
+                modelo?: string;
                 capacidade_kwh: number;
                 quantidade: number;
             }>;
-            estrutura: {
+            estrutura?: {
                 tipo: string;
-                quantidade: number;
+                material?: string;
             };
         };
         preco_brl: number;
         disponibilidade: {
             em_estoque: boolean;
-            centro_distribuicao: string;
+            centro_distribuicao?: string;
             prazo_entrega_dias?: number;
         };
     }[];
@@ -276,7 +278,7 @@ export class SolarCalculatorService {
         // Se query disponível, usar serviço real de busca
         if (query) {
             try {
-                const { kitMatcherService } = await import('./kit-matcher');
+                const { kitMatcherService } = await import('./kit-matcher.js');
 
                 const matches = await kitMatcherService.findMatchingKits({
                     kwp_alvo: dimensionamento.kwp_proposto,
@@ -323,7 +325,7 @@ export class SolarCalculatorService {
                 }],
                 estrutura: {
                     tipo: tipo_estrutura === 'ceramico' ? 'Estrutura Metálica Cerâmico' : 'Estrutura Metálica Laje',
-                    quantidade: dimensionamento.numero_paineis
+                    material: 'Alumínio Anodizado'
                 }
             },
             preco_brl: this.estimarPrecoKit(kwp_alvo),
