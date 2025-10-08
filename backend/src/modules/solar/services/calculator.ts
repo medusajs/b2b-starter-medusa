@@ -267,19 +267,40 @@ export class SolarCalculatorService {
 
     /**
      * Busca kits do catálogo que atendem o dimensionamento
-     * NOTA: Versão simplificada - em produção, buscar do banco de dados
      */
     private async buscarKitsRecomendados(
         dimensionamento: any,
-        input: SolarCalculationInput
+        input: SolarCalculationInput,
+        query?: any
     ): Promise<SolarCalculationOutput['kits_recomendados']> {
-        // TODO: Integrar com query real do Medusa
-        // Por ora, retorna kits mock baseados no catálogo FOTUS
+        // Se query disponível, usar serviço real de busca
+        if (query) {
+            try {
+                const { kitMatcherService } = await import('./kit-matcher');
 
+                const matches = await kitMatcherService.findMatchingKits({
+                    kwp_alvo: dimensionamento.kwp_proposto,
+                    kwp_tolerance: 15, // ±15% de tolerância
+                    tipo_sistema: input.tipo_sistema,
+                    tipo_telhado: input.tipo_telhado,
+                    fase: input.fase,
+                    marca_preferida: input.marca_preferida,
+                    budget_max: input.budget_max
+                }, query, 5);
+
+                if (matches.length > 0) {
+                    return matches;
+                }
+            } catch (error) {
+                console.warn('[Calculator] Erro ao buscar kits reais:', error);
+                // Fallback para mock
+            }
+        }
+
+        // Fallback: retorna kit mock baseado no dimensionamento
         const kwp_alvo = dimensionamento.kwp_proposto;
         const tipo_estrutura = input.tipo_telhado || 'ceramico';
 
-        // Exemplo de kit mock do catálogo
         return [{
             kit_id: 'FOTUS-KP04',
             nome: `Kit Solar ${kwp_alvo.toFixed(1)}kWp - ${tipo_estrutura}`,
@@ -312,9 +333,7 @@ export class SolarCalculatorService {
                 prazo_entrega_dias: 5
             }
         }];
-    }
-
-    /**
+    }    /**
      * Estima preço do kit baseado em kWp
      */
     private estimarPrecoKit(kwp: number): number {

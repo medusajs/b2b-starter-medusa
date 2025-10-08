@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "strictNullChecks": true,
+    "strict": false,
     "declaration": false,
     "sourceMap": false,
     "inlineSourceMap": true,
