@@ -191,27 +191,43 @@ export async function POST(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        // Validate request
-        const validatedData = SolarDetectionRequestSchema.parse(req.body);
-
-        // Execute detection
-        const service = PanelSegmentationService.getInstance();
-        const result = await service.detectPanels(validatedData);
-
-        res.status(200).json(result);
-    } catch (error) {
-        if (error instanceof z.ZodError) {
+        // Check if file was uploaded
+        const file = (req as any).file;
+        if (!file) {
             res.status(400).json({
                 success: false,
-                error: "Invalid request parameters",
-                details: error.errors,
+                error: "No image file provided",
             });
-        } else {
-            res.status(500).json({
-                success: false,
-                error: error.message || "Internal server error",
-            });
+            return;
         }
+
+        // For now, return mock response - will be replaced with real NREL service
+        const mockResponse = {
+            panels: [
+                {
+                    id: "panel_001",
+                    bbox: [100, 200, 300, 400],
+                    confidence: 0.95,
+                    area: 2.5,
+                },
+                {
+                    id: "panel_002",
+                    bbox: [350, 200, 550, 400],
+                    confidence: 0.88,
+                    area: 2.5,
+                },
+            ],
+            totalPanels: 2,
+            totalArea: 5.0,
+            processingTime: 1.2,
+        };
+
+        res.status(200).json(mockResponse);
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message || "Internal server error",
+        });
     }
 }
 
