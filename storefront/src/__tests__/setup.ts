@@ -17,46 +17,35 @@ jest.mock('next/navigation', () => ({
     },
 }))
 
-// Mock @medusajs/ui to avoid style injection issues
-jest.mock('@medusajs/ui', () => ({
-    clx: (...args: any[]) => args.filter(Boolean).join(' '),
-    Toast: () => null,
-    Button: () => null,
-    Card: () => null,
-    Badge: () => null,
-    // Add other commonly used exports as needed
+// Mock do componente Image do Next.js
+jest.mock('next/image', () => ({
+    __esModule: true,
+    default: 'img',
 }))
-
-// Mock document.createElement for download functionality
-const mockCreateElement = jest.fn();
-const mockLink = {
-    href: '',
-    download: '',
-    click: jest.fn(),
-    style: {}
-};
-
-mockCreateElement.mockReturnValue(mockLink);
-
-Object.defineProperty(document, 'createElement', {
-    writable: true,
-    value: mockCreateElement
-});
-
-// Make it available globally for tests
-(global as any).mockCreateElement = mockCreateElement;;
 
 // Mock do fetch global
 global.fetch = jest.fn()
 
-// Mock document methods to prevent style injection issues
-Object.defineProperty(document, 'head', {
-    value: {
-        appendChild: jest.fn(),
-        removeChild: jest.fn(),
-    },
-    writable: true
+// Mock do React.createElement para testes de download
+const mockCreateElement = jest.fn((tag: string) => {
+    const element = {
+        href: '',
+        download: '',
+        click: jest.fn(),
+        style: {},
+    }
+    return element
 })
+
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    createElement: mockCreateElement,
+}))
+
+// Mock do clx do @medusajs/ui para evitar problemas de DOM
+jest.mock('@medusajs/ui', () => ({
+    clx: (...classes: any[]) => classes.filter(Boolean).join(' '),
+}))
 
 // Configurações globais de teste
 beforeEach(() => {
