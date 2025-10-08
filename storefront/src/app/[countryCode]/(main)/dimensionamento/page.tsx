@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import { Calculator, Home, Factory, MapPin } from "lucide-react"
-import dynamic from "next/dynamic"
-const DimensionamentoClient = dynamic(() => import("@/modules/onboarding/components/DimensionamentoClient"), { ssr: false })
+import DimensionamentoWrapper from "./DimensionamentoWrapper"
 
 export const metadata: Metadata = {
     title: "Dimensionamento Solar - Yello Solar Hub",
