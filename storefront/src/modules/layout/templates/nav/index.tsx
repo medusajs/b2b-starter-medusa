@@ -20,7 +20,7 @@ export async function NavigationHeader() {
   await retrieveCart().catch(() => null)
 
   return (
-    <div className="sticky top-0 inset-x-0 group text-sm border-b duration-200 border-ui-border-base z-50 bg-[var(--bg)] text-[var(--fg)]">
+    <div className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass">
       <header className="flex w-full content-container relative small:mx-auto justify-between px-4 py-3 small:p-4">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center gap-3 small:gap-4">
@@ -66,7 +66,7 @@ export async function NavigationHeader() {
           </div>
         </div>
       </header>
-      <div className="h-px w-full bg-[linear-gradient(90deg,#F59E0B_0%,#F97316_50%,#FDE047_100%)] opacity-70"></div>
+      <div className="ysh-divider-gradient"></div>
     </div>
   )
 }
