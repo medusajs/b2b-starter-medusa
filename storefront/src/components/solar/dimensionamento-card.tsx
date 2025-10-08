@@ -5,6 +5,7 @@
 'use client';
 
 import React from 'react';
+import { getHelioTooltip } from '@/lib/copy/helio';
 import type { Dimensionamento } from '@/types/solar-calculator';
 
 interface DimensionamentoCardProps {
