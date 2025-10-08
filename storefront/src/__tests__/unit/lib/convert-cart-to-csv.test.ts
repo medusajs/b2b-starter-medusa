@@ -19,9 +19,7 @@ describe('cartToCsv', () => {
         unit_price: 850.0,
         tax_lines: [{ rate: 0.18, name: 'ICMS', code: 'ICMS' }],
         ...overrides,
-    } as HttpTypes.StoreCartLineItem);
-
-    const createCart = (items: HttpTypes.StoreCartLineItem[]): B2BCart =>
+    } as unknown as HttpTypes.StoreCartLineItem); const createCart = (items: HttpTypes.StoreCartLineItem[]): B2BCart =>
     ({
         id: 'cart-1',
         items,
@@ -192,12 +190,10 @@ describe('cartToCsv', () => {
         const csv = cartToCsv(cart);
 
         // Total price = 7 * 123.45 = 864.15
-        // Tax = 864.15 * 0.175555 = 151.74...
+        // Tax = 864.15 * 0.175555 = 151.7117325
         expect(csv).toContain('0.18'); // Rate formatted to 2 decimals
-        expect(csv).toContain('151.74'); // Tax formatted to 2 decimals
-    });
-
-    it('should handle zero quantity item', () => {
+        expect(csv).toContain('151.71'); // Tax formatted to 2 decimals
+    }); it('should handle zero quantity item', () => {
         const cart = createCart([
             createCartItem({
                 quantity: 0,
