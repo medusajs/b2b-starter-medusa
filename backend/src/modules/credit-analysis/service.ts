@@ -106,55 +106,53 @@ export default class CreditAnalysisService extends MedusaService({}) {
             input.monthly_income || input.annual_revenue ? (input.annual_revenue! / 12) : 0
         )
 
-        // Criar análise
-        const analysis = await this.CreditAnalysis.create({
-            data: {
-                customer_id: input.customer_id,
-                quote_id: input.quote_id,
-                solar_calculation_id: input.solar_calculation_id,
-                customer_type: input.customer_type,
-                full_name: input.full_name,
-                cpf_cnpj: input.cpf_cnpj,
-                birth_date: input.birth_date,
-                company_foundation_date: input.company_foundation_date,
-                email: input.email,
-                phone: input.phone,
-                mobile_phone: input.mobile_phone,
-                address: input.address,
-                monthly_income: input.monthly_income,
-                annual_revenue: input.annual_revenue,
-                occupation: input.occupation,
-                employer: input.employer,
-                employment_time_months: input.employment_time_months,
-                credit_score: input.credit_score,
-                has_negative_credit: input.has_negative_credit || false,
-                has_bankruptcy: input.has_bankruptcy || false,
-                monthly_debts: input.monthly_debts,
-                debt_to_income_ratio: debtToIncomeRatio,
-                requested_amount: input.requested_amount,
-                requested_term_months: input.requested_term_months,
-                financing_modality: input.financing_modality || "CDC",
-                has_down_payment: input.has_down_payment || false,
-                down_payment_amount: input.down_payment_amount,
-                documents: input.documents || {},
-                customer_notes: input.customer_notes,
-                submission_source: input.submission_source || "api",
-                ip_address: input.ip_address,
-                user_agent: input.user_agent,
-                submitted_at: new Date(),
-                status: "pending",
-            }
-        })
+        // Criar análise (retorna dados para persistência externa)
+        const analysisData = {
+            customer_id: input.customer_id,
+            quote_id: input.quote_id,
+            solar_calculation_id: input.solar_calculation_id,
+            customer_type: input.customer_type,
+            full_name: input.full_name,
+            cpf_cnpj: input.cpf_cnpj,
+            birth_date: input.birth_date,
+            company_foundation_date: input.company_foundation_date,
+            email: input.email,
+            phone: input.phone,
+            mobile_phone: input.mobile_phone,
+            address: input.address,
+            monthly_income: input.monthly_income,
+            annual_revenue: input.annual_revenue,
+            occupation: input.occupation,
+            employer: input.employer,
+            employment_time_months: input.employment_time_months,
+            credit_score: input.credit_score,
+            has_negative_credit: input.has_negative_credit || false,
+            has_bankruptcy: input.has_bankruptcy || false,
+            monthly_debts: input.monthly_debts,
+            debt_to_income_ratio: debtToIncomeRatio,
+            requested_amount: input.requested_amount,
+            requested_term_months: input.requested_term_months,
+            financing_modality: input.financing_modality || "CDC",
+            has_down_payment: input.has_down_payment || false,
+            down_payment_amount: input.down_payment_amount,
+            documents: input.documents || {},
+            customer_notes: input.customer_notes,
+            submission_source: input.submission_source || "api",
+            ip_address: input.ip_address,
+            user_agent: input.user_agent,
+            submitted_at: new Date(),
+            status: "pending",
+        }
 
-        return analysis
+        // Nota: A persistência real será feita via API route usando o model diretamente
+        return analysisData
     }
 
     /**
      * Analisa crédito automaticamente
+     * Nota: analysis deve ser passado como parâmetro
      */
-    async analyzeCreditAutomatically(analysisId: string): Promise<CreditAnalysisResult> {
-        const analysis = await this.CreditAnalysis.retrieve(analysisId)
-
+    async analyzeCreditAutomatically(analysis: any): Promise<CreditAnalysisResult> {
         if (!analysis) {
             throw new Error(`Credit analysis ${analysisId} not found`)
         }
@@ -184,24 +182,7 @@ export default class CreditAnalysisService extends MedusaService({}) {
             recommended_actions: approved ? [] : this.getRecommendedActions(analysis, scoreFactors)
         }
 
-        // Atualizar análise no banco
-        await this.CreditAnalysis.update({
-            where: { id: analysisId },
-            data: {
-                status: approved ? "approved" : "rejected",
-                analysis_result: result,
-                approved_amount: result.approved_amount,
-                approved_term_months: result.approved_term_months,
-                approved_interest_rate: result.approved_interest_rate,
-                approval_conditions: result.approval_conditions,
-                rejection_reason: result.rejection_reason,
-                reviewed_at: new Date(),
-                approved_at: approved ? new Date() : null,
-                rejected_at: approved ? null : new Date(),
-                expires_at: approved ? this.getExpirationDate() : null
-            }
-        })
-
+        // Retornar resultado (atualização será feita externamente)
         return result
     }
 
@@ -414,48 +395,4 @@ export default class CreditAnalysisService extends MedusaService({}) {
         return date
     }
 
-    /**
-     * Busca análise por ID
-     */
-    async getCreditAnalysis(analysisId: string): Promise<any> {
-        return await this.CreditAnalysis.retrieve(analysisId)
-    }
-
-    /**
-     * Busca análises por cliente
-     */
-    async listByCustomer(customerId: string): Promise<any[]> {
-        return await this.CreditAnalysis.list({
-            where: { customer_id: customerId },
-            order: { submitted_at: "DESC" }
-        })
-    }
-
-    /**
-     * Busca análises por cotação
-     */
-    async listByQuote(quoteId: string): Promise<any[]> {
-        return await this.CreditAnalysis.list({
-            where: { quote_id: quoteId },
-            order: { submitted_at: "DESC" }
-        })
-    }
-
-    /**
-     * Atualiza status manualmente
-     */
-    async updateStatus(
-        analysisId: string,
-        status: "pending" | "in_review" | "approved" | "rejected" | "conditional",
-        analystNotes?: string
-    ): Promise<any> {
-        return await this.CreditAnalysis.update({
-            where: { id: analysisId },
-            data: {
-                status,
-                analyst_notes: analystNotes,
-                reviewed_at: new Date()
-            }
-        })
-    }
 }
