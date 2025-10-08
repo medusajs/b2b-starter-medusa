@@ -5,7 +5,7 @@
 
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { clx } from '@medusajs/ui'
 import Image from 'next/image'

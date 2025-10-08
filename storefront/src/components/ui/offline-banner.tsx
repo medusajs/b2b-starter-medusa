@@ -5,7 +5,7 @@
  * Exibe aviso quando o backend está offline e o site está em modo fallback
  */
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AlertCircle, Wifi, WifiOff, X } from 'lucide-react'
 
 export function OfflineBanner() {
