@@ -1,5 +1,4 @@
 {
-    "preset": "ts-jest",
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
         "<rootDir>/src/__tests__/setup.ts"
@@ -14,7 +13,7 @@
         "!src/**/__tests__/**",
         "!src/**/*.stories.(ts|tsx)"
     ],
-    "moduleNameMapping": {
+    "moduleNameMapper": {
         "^@/(.*)$": "<rootDir>/src/$1",
         "^@/components/(.*)$": "<rootDir>/src/components/$1",
         "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
@@ -22,7 +21,8 @@
         "^@/types/(.*)$": "<rootDir>/src/types/$1"
     },
     "transform": {
-        "^.+\\.(ts|tsx)$": "ts-jest"
+        "^.+\\.(ts|tsx)$": "babel-jest",
+        "^.+\\.(js|jsx)$": "babel-jest"
     },
     "moduleFileExtensions": [
         "ts",
