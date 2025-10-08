@@ -89,16 +89,40 @@ interface PhotogrammetryResponse {
 // ============================================================================
 
 class OpenDroneMapService extends BaseSolarCVService {
+    private cacheManager: CacheManager;
+
     constructor() {
         super("odm");
+        this.cacheManager = CacheManager.getInstance();
     }
 
     async processPhotogrammetry(files: FileUpload[]): Promise<PhotogrammetryResponse> {
         const startTime = Date.now();
 
         try {
+            // Generate cache key based on combined file hashes
+            const fileHashes = await Promise.all(files.map(f => FileUtils.getFileHash(f.path)));
+            const combinedHash = require('crypto').createHash('sha256').update(fileHashes.sort().join('')).digest('hex');
+            const cacheKey = `photogrammetry:${combinedHash}`;
+
+            // Check cache first
+            const cachedResult = await this.cacheManager.get<PhotogrammetryResponse>(cacheKey);
+            if (cachedResult) {
+                SolarCVMetrics.recordCacheHit("odm");
+                return cachedResult;
+            }
+
             // Create FormData from files
-            const formData = FileUtils.createFormDataFromFiles(files);
+            const formData = new FormData();
+            files.forEach((file, index) => {
+                try {
+                    const fileBuffer = require('fs').readFileSync(file.path);
+                    const blob = new Blob([fileBuffer], { type: file.mimetype });
+                    formData.append('images', blob, file.originalname);
+                } catch (error) {
+                    throw new Error(`Failed to read file ${file.path}: ${error.message}`);
+                }
+            });
 
             // Call Python service
             const response: ServiceResponse = await this.callService("/api/v1/process", {
@@ -130,6 +154,9 @@ class OpenDroneMapService extends BaseSolarCVService {
                     odm_version: "odm-3.5.2",
                 },
             };
+
+            // Cache the result for 2 hours (photogrammetry is expensive)
+            await this.cacheManager.set(cacheKey, result, 7200);
 
             // Record metrics
             SolarCVMetrics.recordCall("odm", Date.now() - startTime, true);
