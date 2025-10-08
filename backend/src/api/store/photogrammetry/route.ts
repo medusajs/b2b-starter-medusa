@@ -17,6 +17,10 @@ import {
     RequestValidator
 } from "../../../utils/solar-cv-middleware";
 import { CacheManager } from "../../../utils/cache-manager";
+import {
+    APIVersionManager,
+    VersionedResponseTransformer
+} from "../../../utils/api-versioning";
 
 // ============================================================================
 // Local Types
@@ -189,10 +193,18 @@ export async function POST(
         // Process photogrammetry
         const result = await service.processPhotogrammetry(files);
 
+        // Apply version transformation if needed
+        const clientVersion = (req as any).apiVersion || APIVersionManager.getVersionFromRequest(req);
+        const transformedResult = APIVersionManager.requiresCompatibilityMode(clientVersion)
+            ? VersionedResponseTransformer.transformResponse(result, clientVersion, {
+                // Add photogrammetry transformers if needed for older versions
+            })
+            : result;
+
         // Cleanup temp files
         await FileUtils.cleanupTempFiles(uploadedFiles.map(f => f.path));
 
-        res.status(200).json(ResponseUtils.createSuccessResponse(result));
+        res.status(200).json(ResponseUtils.createSuccessResponse(transformedResult));
 
     } catch (error) {
         // Cleanup temp files on error
@@ -206,10 +218,11 @@ export async function GET(
     res: MedusaResponse
 ): Promise<void> {
     const service = new OpenDroneMapService();
+    const clientVersion = (req as any).apiVersion || APIVersionManager.getVersionFromRequest(req);
 
     res.status(200).json({
         service: "YSH Photogrammetry API",
-        version: "1.0.0",
+        version: APIVersionManager.formatVersion(clientVersion),
         status: "operational",
         capabilities: [
             "3d_reconstruction",
@@ -225,5 +238,10 @@ export async function GET(
             max_resolution_mp: 50,
         },
         metrics: SolarCVMetrics.getMetrics("odm"),
+        api_info: {
+            current_version: APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION),
+            supported_versions: APIVersionManager.SUPPORTED_VERSIONS.map(v => APIVersionManager.formatVersion(v)),
+            compatibility_mode: APIVersionManager.requiresCompatibilityMode(clientVersion),
+        },
     });
 }

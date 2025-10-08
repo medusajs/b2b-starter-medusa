@@ -93,6 +93,59 @@ async function fetchWithTimeout(
 }
 
 // ==========================================
+// Circuit Breaker
+// ==========================================
+
+class CircuitBreaker {
+    private failures = 0
+    private lastFailureTime = 0
+    private state: 'closed' | 'open' | 'half-open' = 'closed'
+
+    constructor(
+        private failureThreshold = 5,
+        private recoveryTimeout = 60000, // 1 minute
+        private monitoringPeriod = 60000 // 1 minute
+    ) { }
+
+    async execute<T>(fn: () => Promise<T>): Promise<T> {
+        if (this.state === 'open') {
+            if (Date.now() - this.lastFailureTime > this.recoveryTimeout) {
+                this.state = 'half-open'
+                console.log('[CircuitBreaker] Entering half-open state')
+            } else {
+                throw new Error('Circuit breaker is open')
+            }
+        }
+
+        try {
+            const result = await fn()
+            this.onSuccess()
+            return result
+        } catch (error) {
+            this.onFailure()
+            throw error
+        }
+    }
+
+    private onSuccess() {
+        this.failures = 0
+        this.state = 'closed'
+    }
+
+    private onFailure() {
+        this.failures++
+        this.lastFailureTime = Date.now()
+
+        if (this.failures >= this.failureThreshold) {
+            this.state = 'open'
+            console.warn(`[CircuitBreaker] Opening circuit after ${this.failures} failures`)
+        }
+    }
+}
+
+const apiCircuitBreaker = new CircuitBreaker()
+
+// ==========================================
 // Resilient Fetch
 // ==========================================
 
@@ -118,25 +171,27 @@ async function resilientFetch<T>(
         }
     }
 
-    // Tenta buscar do backend
+    // Tenta buscar do backend com circuit breaker
     try {
-        const fetchFn = async () => {
-            const response = await fetchWithTimeout(
-                `${BACKEND_URL}${endpoint}`,
-                { cache },
-                timeout
-            )
+        const data = await apiCircuitBreaker.execute(async () => {
+            const fetchFn = async () => {
+                const response = await fetchWithTimeout(
+                    `${BACKEND_URL}${endpoint}`,
+                    { cache },
+                    timeout
+                )
 
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+                }
+
+                return response.json()
             }
 
-            return response.json()
-        }
-
-        const data = retry
-            ? await retryWithBackoff(fetchFn, retries, RETRY_DELAY_MS)
-            : await fetchFn()
+            return retry
+                ? await retryWithBackoff(fetchFn, retries, RETRY_DELAY_MS)
+                : await fetchFn()
+        })
 
         return {
             data,
