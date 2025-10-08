@@ -209,7 +209,9 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
                             },
                         ],
                     }
-                })                try {
+                })
+
+                try {
                     await createProductsWorkflow(container).run({
                         input: {
                             products: productsToCreate,
