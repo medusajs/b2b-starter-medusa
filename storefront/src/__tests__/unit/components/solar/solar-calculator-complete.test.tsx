@@ -181,13 +181,13 @@ describe('SolarCalculatorComplete', () => {
             render(<SolarCalculatorComplete />);
 
             const submitButton = screen.getByText(/🧮 Calcular Sistema Solar/);
-            
+
             // fireEvent.click on submit button triggers form submission which is handled by onSubmit
             fireEvent.click(submitButton);
 
             // If we reach here without errors, preventDefault worked
             expect(submitButton).toBeInTheDocument();
-        });        it('should call validation before calculate', async () => {
+        }); it('should call validation before calculate', async () => {
             const { validateCalculationInput } = require('@/lib/solar-calculator-client');
             validateCalculationInput.mockReturnValue({ valid: true, errors: [] });
 

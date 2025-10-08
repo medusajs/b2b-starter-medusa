@@ -316,6 +316,43 @@ class YshCatalogModuleService {
         }
 
         products = this.readCatalogFile(filename);
+        // Enriquecer com SKU canônico (registry) e garantir categoria
+        try {
+            const registryPath = path.join(this.unifiedSchemasPath, 'sku_registry.json');
+            let reg: Record<string, string> = {};
+            if (fs.existsSync(registryPath)) {
+                const raw = fs.readFileSync(registryPath, 'utf-8');
+                const parsed = JSON.parse(raw);
+                if (parsed?.map && typeof parsed.map === 'object') {
+                    reg = parsed.map as Record<string, string>;
+                } else if (Array.isArray(parsed?.items)) {
+                    reg = Object.fromEntries(parsed.items.map((x: any) => [`${x.category}:${x.id}`, x.sku]));
+                }
+            }
+            const toSlug = (s: string) => {
+                try { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/(^-|-$)/g, '').toUpperCase(); } catch { return s.toUpperCase(); }
+            };
+            const stableSku = (item: any): string => {
+                if (item.sku) return String(item.sku).toUpperCase();
+                const id = (item.id || '').toString();
+                if (id) return id.toUpperCase();
+                const brand = (item.manufacturer || 'YSH').toString();
+                const model = (item.model || item.name || '').toString();
+                const power = (item.potencia_kwp || item.kwp || item.power_w || item.price_brl || '').toString();
+                const base = `${category}-${brand}-${model}-${power}`;
+                const slug = toSlug(base);
+                const crypto = require('crypto');
+                const h = crypto.createHash('sha1').update(base).digest('hex').slice(0,8).toUpperCase();
+                return `${slug}-${h}`.replace(/[^A-Z0-9\-]/g, '').slice(0,64);
+            };
+            products = products.map((p) => {
+                const id = (p.id || '').toString();
+                const key = `${category}:${id}`;
+                const canonical = reg[key];
+                const finalSku = (p.sku || canonical || stableSku(p)).toString().toUpperCase();
+                return { ...p, sku: finalSku, category: p.category || category } as CatalogProduct;
+            });
+        } catch { /* ignore sku enrichment */ }
 
         // Aplicar filtros
         if (manufacturer) {
