@@ -1,7 +1,6 @@
-﻿import fs from "fs";
-import path from "path";
+﻿import { Pool, PoolClient } from "pg";
 
-// Tipos para produtos do catÃ¡logo
+// Tipos para produtos do catálogo unificado
 export interface CatalogProduct {
     id?: string;
     sku?: string;
@@ -18,7 +17,7 @@ export interface CatalogProduct {
         medium?: string;
         large?: string;
     };
-    // Campos especÃ­ficos para painÃ©is
+    // Campos específicos para painéis
     model?: string;
     technology?: string;
     kwp?: number;
@@ -34,11 +33,11 @@ export interface CatalogProduct {
         product: number;
         performance: number;
     };
-    // Campos especÃ­ficos para inversores
+    // Campos específicos para inversores
     power_w?: number;
     voltage_v?: number;
     phases?: string;
-    // Campos especÃ­ficos para estruturas
+    // Campos específicos para estruturas
     type?: string;
     material?: string;
     // Metadata adicional
@@ -52,36 +51,78 @@ export interface CatalogResponse {
     limit: number;
 }
 
+export interface Manufacturer {
+    id: string;
+    name: string;
+    slug: string;
+    tier?: string;
+    country?: string;
+    created_at: Date;
+    updated_at: Date;
+}
+
+export interface SKU {
+    id: string;
+    sku_code: string;
+    manufacturer_id: string;
+    manufacturer?: Manufacturer;
+    category: string;
+    model_number: string;
+    description?: string;
+    technical_specs: any;
+    lowest_price?: number;
+    highest_price?: number;
+    avg_price?: number;
+    offers_count?: number;
+    created_at: Date;
+    updated_at: Date;
+}
+
+export interface DistributorOffer {
+    id: string;
+    sku_id: string;
+    distributor_name: string;
+    price: number;
+    stock_status: 'in_stock' | 'out_of_stock' | 'limited' | 'on_order';
+    stock_quantity?: number;
+    lead_time_days?: number;
+    shipping_cost?: number;
+    created_at: Date;
+    updated_at: Date;
+}
+
+export interface Kit {
+    id: string;
+    kit_code: string;
+    name: string;
+    category: string;
+    system_capacity_kwp: number;
+    components: any;
+    kit_price: number;
+    suitable_for?: string;
+    created_at: Date;
+    updated_at: Date;
+}
+
 class YshCatalogModuleService {
-    private catalogPath: string;
-    private unifiedSchemasPath: string;
-    private imagesProcessedPath: string;
-    private enrichedSchemasPath: string;
+    private pool: Pool;
 
     constructor(container: any, options: any = {}) {
-        // Caminhos para os dados do catÃ¡logo - caminhos absolutos
-        this.catalogPath = path.resolve(__dirname, '../../../../../data/catalog');
-        this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
-        this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
-        this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
-        // Overrides por ambiente e fallbacks
-        try {
-            const envCatalogPath = process.env.CATALOG_PATH;
-            if (envCatalogPath && fs.existsSync(envCatalogPath)) {
-                this.catalogPath = envCatalogPath;
-                this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
-                this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
-                this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
-            } else if (!fs.existsSync(this.catalogPath)) {
-                const localSrcCatalogPath = path.resolve(__dirname, '../../data/catalog');
-                if (fs.existsSync(localSrcCatalogPath)) {
-                    this.catalogPath = localSrcCatalogPath;
-                    this.unifiedSchemasPath = path.join(this.catalogPath, 'unified_schemas');
-                    this.imagesProcessedPath = path.join(this.catalogPath, 'images_processed');
-                    this.enrichedSchemasPath = path.join(this.catalogPath, 'schemas_enriched');
-                }
-            }
-        } catch { /* ignore path overrides */ }
+        // Conectar ao PostgreSQL usando variáveis de ambiente
+        this.pool = new Pool({
+            host: process.env.POSTGRES_HOST || 'postgres',
+            port: parseInt(process.env.POSTGRES_PORT || '5432'),
+            database: process.env.POSTGRES_DB || 'medusa_db',
+            user: process.env.POSTGRES_USER || 'medusa_user',
+            password: process.env.POSTGRES_PASSWORD || 'medusa_password',
+            max: 20,
+            idleTimeoutMillis: 30000,
+            connectionTimeoutMillis: 2000,
+        });
+    }
+
+    async __onDestroy__() {
+        await this.pool.end();
     }
 
     /**
@@ -350,8 +391,8 @@ class YshCatalogModuleService {
                 const base = `${category}-${brand}-${model}-${power}`;
                 const slug = toSlug(base);
                 const crypto = require('crypto');
-                const h = crypto.createHash('sha1').update(base).digest('hex').slice(0,8).toUpperCase();
-                return `${slug}-${h}`.replace(/[^A-Z0-9\-]/g, '').slice(0,64);
+                const h = crypto.createHash('sha1').update(base).digest('hex').slice(0, 8).toUpperCase();
+                return `${slug}-${h}`.replace(/[^A-Z0-9\-]/g, '').slice(0, 64);
             };
             products = products.map((p) => {
                 const id = (p.id || '').toString();
@@ -422,26 +463,294 @@ class YshCatalogModuleService {
     }
 
     /**
-     * Lista todos os fabricantes disponÃ­veis
+     * Lista todos os fabricantes disponíveis do banco unificado
      */
-    async getManufacturers(): Promise<string[]> {
-        const categories = ['kits', 'panels', 'inverters', 'cables', 'chargers', 'controllers', 'accessories', 'structures'];
-        const manufacturers = new Set<string>();
-
-        for (const category of categories) {
-            try {
-                const response = await this.listProductsByCategory(category, { limit: 1000 });
-                response.products.forEach(product => {
-                    if (product.manufacturer) {
-                        manufacturers.add(product.manufacturer);
-                    }
-                });
-            } catch (error) {
-                // Ignora erros de categoria nÃ£o encontrada
-            }
+    async getManufacturers(): Promise<Manufacturer[]> {
+        const client = await this.pool.connect();
+        try {
+            const result = await client.query<Manufacturer>(`
+                SELECT id, name, slug, tier, country, created_at, updated_at
+                FROM manufacturer
+                ORDER BY name ASC
+            `);
+            return result.rows;
+        } catch (error) {
+            console.error('Erro ao buscar manufacturers:', error);
+            throw error;
+        } finally {
+            client.release();
         }
+    }
 
-        return Array.from(manufacturers).sort();
+    /**
+     * Lista SKUs com filtros opcionais
+     */
+    async getSKUs(filters?: {
+        category?: string;
+        manufacturer_id?: string;
+        min_price?: number;
+        max_price?: number;
+        limit?: number;
+        offset?: number;
+    }): Promise<{ skus: SKU[]; total: number }> {
+        const client = await this.pool.connect();
+        try {
+            let whereConditions: string[] = [];
+            let queryParams: any[] = [];
+            let paramIndex = 1;
+
+            if (filters?.category) {
+                whereConditions.push(`s.category = $${paramIndex++}`);
+                queryParams.push(filters.category);
+            }
+
+            if (filters?.manufacturer_id) {
+                whereConditions.push(`s.manufacturer_id = $${paramIndex++}`);
+                queryParams.push(filters.manufacturer_id);
+            }
+
+            if (filters?.min_price !== undefined) {
+                whereConditions.push(`s.lowest_price >= $${paramIndex++}`);
+                queryParams.push(filters.min_price);
+            }
+
+            if (filters?.max_price !== undefined) {
+                whereConditions.push(`s.lowest_price <= $${paramIndex++}`);
+                queryParams.push(filters.max_price);
+            }
+
+            const whereClause = whereConditions.length > 0
+                ? 'WHERE ' + whereConditions.join(' AND ')
+                : '';
+
+            // Query para contar total
+            const countQuery = `SELECT COUNT(*) as total FROM sku s ${whereClause}`;
+            const countResult = await client.query(countQuery, queryParams);
+            const total = parseInt(countResult.rows[0].total);
+
+            // Query para buscar SKUs com joins
+            const limit = filters?.limit || 50;
+            const offset = filters?.offset || 0;
+
+            queryParams.push(limit, offset);
+            const dataQuery = `
+                SELECT 
+                    s.id, s.sku_code, s.manufacturer_id, s.category, s.model_number,
+                    s.description, s.technical_specs, s.lowest_price, s.highest_price,
+                    s.avg_price, s.offers_count, s.created_at, s.updated_at,
+                    m.id as "manufacturer.id", m.name as "manufacturer.name",
+                    m.slug as "manufacturer.slug", m.tier as "manufacturer.tier"
+                FROM sku s
+                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
+                ${whereClause}
+                ORDER BY s.sku_code ASC
+                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
+            `;
+
+            const dataResult = await client.query(dataQuery, queryParams);
+
+            // Transformar rows flat em objetos nested
+            const skus = dataResult.rows.map((row: any) => ({
+                id: row.id,
+                sku_code: row.sku_code,
+                manufacturer_id: row.manufacturer_id,
+                category: row.category,
+                model_number: row.model_number,
+                description: row.description,
+                technical_specs: row.technical_specs,
+                lowest_price: row.lowest_price,
+                highest_price: row.highest_price,
+                avg_price: row.avg_price,
+                offers_count: row.offers_count,
+                created_at: row.created_at,
+                updated_at: row.updated_at,
+                manufacturer: row['manufacturer.id'] ? {
+                    id: row['manufacturer.id'],
+                    name: row['manufacturer.name'],
+                    slug: row['manufacturer.slug'],
+                    tier: row['manufacturer.tier'],
+                } : undefined,
+            }));
+
+            return { skus, total };
+        } catch (error) {
+            console.error('Erro ao buscar SKUs:', error);
+            throw error;
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Busca um SKU por ID ou SKU code
+     */
+    async getSKUById(id: string): Promise<SKU | null> {
+        const client = await this.pool.connect();
+        try {
+            const result = await client.query<any>(`
+                SELECT 
+                    s.id, s.sku_code, s.manufacturer_id, s.category, s.model_number,
+                    s.description, s.technical_specs, s.lowest_price, s.highest_price,
+                    s.avg_price, s.offers_count, s.created_at, s.updated_at,
+                    m.id as "manufacturer.id", m.name as "manufacturer.name",
+                    m.slug as "manufacturer.slug", m.tier as "manufacturer.tier"
+                FROM sku s
+                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
+                WHERE s.id = $1 OR s.sku_code = $1
+            `, [id]);
+
+            if (result.rows.length === 0) {
+                return null;
+            }
+
+            const row = result.rows[0];
+            return {
+                id: row.id,
+                sku_code: row.sku_code,
+                manufacturer_id: row.manufacturer_id,
+                category: row.category,
+                model_number: row.model_number,
+                description: row.description,
+                technical_specs: row.technical_specs,
+                lowest_price: row.lowest_price,
+                highest_price: row.highest_price,
+                avg_price: row.avg_price,
+                offers_count: row.offers_count,
+                created_at: row.created_at,
+                updated_at: row.updated_at,
+                manufacturer: row['manufacturer.id'] ? {
+                    id: row['manufacturer.id'],
+                    name: row['manufacturer.name'],
+                    slug: row['manufacturer.slug'],
+                    tier: row['manufacturer.tier'],
+                    created_at: undefined as any,
+                    updated_at: undefined as any,
+                    country: undefined,
+                } : undefined,
+            };
+        } catch (error) {
+            console.error('Erro ao buscar SKU:', error);
+            throw error;
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Busca ofertas de distribuidores para um SKU
+     */
+    async getOffersForSKU(skuId: string): Promise<DistributorOffer[]> {
+        const client = await this.pool.connect();
+        try {
+            const result = await client.query<DistributorOffer>(`
+                SELECT id, sku_id, distributor_name, price, stock_status,
+                       stock_quantity, lead_time_days, shipping_cost,
+                       created_at, updated_at
+                FROM distributor_offer
+                WHERE sku_id = $1
+                ORDER BY price ASC
+            `, [skuId]);
+
+            return result.rows;
+        } catch (error) {
+            console.error('Erro ao buscar ofertas:', error);
+            throw error;
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Lista kits com filtros opcionais
+     */
+    async getKits(filters?: {
+        category?: string;
+        min_capacity?: number;
+        max_capacity?: number;
+        suitable_for?: string;
+        limit?: number;
+        offset?: number;
+    }): Promise<{ kits: Kit[]; total: number }> {
+        const client = await this.pool.connect();
+        try {
+            let whereConditions: string[] = [];
+            let queryParams: any[] = [];
+            let paramIndex = 1;
+
+            if (filters?.category) {
+                whereConditions.push(`category = $${paramIndex++}`);
+                queryParams.push(filters.category);
+            }
+
+            if (filters?.min_capacity !== undefined) {
+                whereConditions.push(`system_capacity_kwp >= $${paramIndex++}`);
+                queryParams.push(filters.min_capacity);
+            }
+
+            if (filters?.max_capacity !== undefined) {
+                whereConditions.push(`system_capacity_kwp <= $${paramIndex++}`);
+                queryParams.push(filters.max_capacity);
+            }
+
+            if (filters?.suitable_for) {
+                whereConditions.push(`suitable_for = $${paramIndex++}`);
+                queryParams.push(filters.suitable_for);
+            }
+
+            const whereClause = whereConditions.length > 0
+                ? 'WHERE ' + whereConditions.join(' AND ')
+                : '';
+
+            // Count total
+            const countQuery = `SELECT COUNT(*) as total FROM kit ${whereClause}`;
+            const countResult = await client.query(countQuery, queryParams);
+            const total = parseInt(countResult.rows[0].total);
+
+            // Get kits
+            const limit = filters?.limit || 50;
+            const offset = filters?.offset || 0;
+
+            queryParams.push(limit, offset);
+            const dataQuery = `
+                SELECT id, kit_code, name, category, system_capacity_kwp,
+                       components, kit_price, suitable_for, created_at, updated_at
+                FROM kit
+                ${whereClause}
+                ORDER BY system_capacity_kwp ASC
+                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
+            `;
+
+            const dataResult = await client.query<Kit>(dataQuery, queryParams);
+
+            return { kits: dataResult.rows, total };
+        } catch (error) {
+            console.error('Erro ao buscar kits:', error);
+            throw error;
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Busca um kit por ID ou kit_code
+     */
+    async getKitById(id: string): Promise<Kit | null> {
+        const client = await this.pool.connect();
+        try {
+            const result = await client.query<Kit>(`
+                SELECT id, kit_code, name, category, system_capacity_kwp,
+                       components, kit_price, suitable_for, created_at, updated_at
+                FROM kit
+                WHERE id = $1 OR kit_code = $1
+            `, [id]);
+
+            return result.rows.length > 0 ? result.rows[0] : null;
+        } catch (error) {
+            console.error('Erro ao buscar kit:', error);
+            throw error;
+        } finally {
+            client.release();
+        }
     }
 
     /**
