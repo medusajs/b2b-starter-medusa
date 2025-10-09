@@ -229,7 +229,7 @@ export function CartProvider({
     setIsUpdatingCart(true)
 
     await deleteLineItem(lineItem).catch((e) => {
-      toast.error("Falha ao remover item")
+      // Error toast shown in delete-button component
       setOptimisticCart(prevCart)
     })
   }
@@ -289,8 +289,10 @@ export function CartProvider({
       await updateLineItem({
         lineId: lineItem,
         data: { quantity },
+      }).then(() => {
+        toast.success("Quantidade atualizada", { duration: 2000 })
       }).catch((e) => {
-        toast.error("Failed to update cart quantity")
+        toast.error("Erro ao atualizar quantidade")
         setOptimisticCart(prevCart)
       })
     }
@@ -308,8 +310,10 @@ export function CartProvider({
 
     setIsUpdatingCart(true)
 
-    await emptyCart().catch((e) => {
-      toast.error("Failed to empty cart")
+    await emptyCart().then(() => {
+      toast.success("Carrinho esvaziado", { duration: 2000 })
+    }).catch((e) => {
+      toast.error("Erro ao esvaziar carrinho")
       setOptimisticCart(prevCart)
     })
   }
