@@ -1,12 +1,12 @@
 <h1 align="center">
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="B2B Commerce Starter" width="80" height="80"></a>
+  <a href="https://yellosolarhub.com"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="YSH B2B Solar Commerce" width="80" height="80"></a>
   <br>
   <br>
-  Medusa B2B Commerce Starter
+  Yello Solar Hub - B2B Commerce
   <br>
 </h1>
 
-<p align="center">Customizable B2B ecommerce built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
+<p align="center">🌞 Solar B2B ecommerce platform built with <a href="https://medusajs.com/" target="_blank">Medusa 2.4</a> & Next.js 15</p>
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
@@ -29,16 +29,15 @@
 
 <br>
 
-## Table
+## 📋 Índice
 
-- [Prerequisites](#prerequisites)
-- [Overview](#overview)
-  - [Features](#features)
-  - [Demo](#demo)
-- [Quickstart](#quickstart)
-- [Update](#update)
-- [Resources](#resources)
-- [Contributors](#contributors)
+- [Pré-requisitos](#prerequisites)
+- [Início Rápido](#quickstart)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Funcionalidades](#features)
+- [Documentação](#documentação)
+- [Scripts Úteis](#scripts-úteis)
+- [Recursos](#resources)
 
 &nbsp;
 
@@ -120,7 +119,68 @@ For a full feature overview, please visit [the project wiki](https://github.com/
 
 &nbsp;
 
+## 📁 Estrutura do Projeto
+
+```
+ysh-store/
+├── backend/              # Servidor Medusa 2.4
+│   ├── src/             # Código fonte
+│   │   ├── api/         # Rotas API
+│   │   ├── modules/     # Módulos B2B (company, quote, approval)
+│   │   ├── workflows/   # Workflows Medusa
+│   │   ├── links/       # Links entre módulos
+│   │   └── scripts/     # Scripts utilitários
+│   └── database/        # Migrations e schemas
+│
+├── storefront/          # Next.js 15 App Router
+│   ├── src/
+│   │   ├── app/         # Páginas Next.js
+│   │   ├── modules/     # Módulos de funcionalidade
+│   │   ├── lib/         # Utilitários e data fetching
+│   │   └── components/  # Componentes compartilhados
+│   └── public/          # Assets estáticos
+│
+├── docs/                # Documentação organizada
+│   ├── status/          # Relatórios de status
+│   ├── guides/          # Guias e tutoriais
+│   ├── deployment/      # Documentos de deployment
+│   ├── docker/          # Documentação Docker
+│   └── implementation/  # Relatórios de implementação
+│
+├── scripts/             # Scripts organizados
+│   ├── dev/            # Scripts de desenvolvimento
+│   ├── docker/         # Scripts Docker
+│   └── deployment/     # Scripts de deployment
+│
+├── aws/                # Configurações AWS
+├── infra/              # Infraestrutura e configs
+└── .archive/           # Arquivos históricos
+```
+
 ## Quickstart
+
+### Opção 1: Docker (Recomendado)
+
+```bash
+# Iniciar todos os serviços
+docker-compose up -d
+
+# Executar migrations
+docker-compose exec backend yarn medusa db:migrate
+
+# Seed inicial
+docker-compose exec backend yarn run seed
+
+# Criar usuário admin
+docker-compose exec backend yarn medusa user -e admin@test.com -p supersecret -i admin
+```
+
+Acesse:
+- Backend: http://localhost:9000
+- Admin: http://localhost:9000/app
+- Storefront: http://localhost:8000
+
+### Opção 2: Setup Manual
 
 #### Setup Medusa project
 
@@ -179,19 +239,80 @@ Visit the following links to see the Medusa storefront & admin
 
 &nbsp;
 
-# Update
+## 📚 Documentação
 
-Some general guidelines for when you're updating this Starter to a newer version.
+Toda documentação foi reorganizada em `docs/`:
 
-## Update packages
+- **`docs/status/`** - Relatórios de status do sistema
+- **`docs/guides/`** - Guias rápidos e tutoriais
+- **`docs/deployment/`** - Documentação de deployment (AWS, Docker, etc)
+- **`docs/docker/`** - Configurações e otimizações Docker
+- **`docs/implementation/`** - Relatórios de implementação de features
 
-Run `yarn install` in both projects to update you're packages to the latest versions.
+## 🛠️ Scripts Úteis
 
-## Run migrations
+### Desenvolvimento
 
-To reflect any changes made to data models, make sure to run `npx medusa db:migrate` in the backend project.
+```bash
+# Iniciar ambiente de desenvolvimento
+.\scripts\dev\dev.ps1
 
-> Note: are you updating from a version of this Starter that didn't have the Approval module yet? Run `npx medusa exec src/scripts/create-approval-settings.ts` in the backend project to add approval settings to all existing companies.
+# Verificar status dos serviços
+.\scripts\dev\status.ps1
+
+# Verificar apenas o backend
+.\scripts\dev\check-backend.ps1
+
+# Iniciar apenas o backend
+.\scripts\dev\start-backend.ps1
+```
+
+### Docker
+
+```bash
+# Setup inicial Docker
+.\scripts\docker\setup-docker.ps1
+
+# Dev com docker-compose
+docker-compose -f docker-compose.dev.yml up -d
+
+# Dev otimizado
+docker-compose -f docker-compose.optimized.yml up -d
+```
+
+### Deployment
+
+```bash
+# Build imagens de produção
+.\scripts\deployment\build-production.ps1
+
+# Push para AWS ECR
+.\scripts\deployment\push-to-ecr.ps1
+```
+
+## 🔄 Update
+
+### Atualizar Pacotes
+
+```bash
+# Backend
+cd backend && yarn install
+
+# Storefront
+cd storefront && yarn install
+```
+
+### Executar Migrations
+
+```bash
+cd backend
+npx medusa db:migrate
+```
+
+> **Nota**: Se estiver atualizando de uma versão sem o módulo Approval, execute:
+> ```bash
+> npx medusa exec src/scripts/create-approval-settings.ts
+> ```
 
 # Resources
 
