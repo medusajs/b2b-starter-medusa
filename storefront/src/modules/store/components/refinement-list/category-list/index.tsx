@@ -98,7 +98,8 @@ const CategoryList = ({
               <LocalizedClientLink
                 href={`/categories/${category.handle}${searchParams.size ? `?${searchParams.toString()}` : ""
                   }`}
-                className="flex gap-2 items-center hover:text-neutral-700"
+                className={`flex gap-2 items-center hover:text-neutral-700 ${isCurrentCategory(category.handle) ? "font-semibold text-neutral-800" : ""}`}
+                aria-current={isCurrentCategory(category.handle) ? "page" : undefined}
               >
                 {category.name} ({category.products?.length})
               </LocalizedClientLink>
@@ -107,7 +108,8 @@ const CategoryList = ({
             <LocalizedClientLink
               href={`/categories/${category.handle}${searchParams.size ? `?${searchParams.toString()}` : ""
                 }`}
-              className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
+              className={`flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer ${isCurrentCategory(category.handle) ? "font-semibold text-neutral-800" : ""}`}
+              aria-current={isCurrentCategory(category.handle) ? "page" : undefined}
             >
               <Radio checked={isCurrentCategory(category.handle)} />
               {category.name} ({category.products?.length})

@@ -238,6 +238,57 @@ Em produção, garantir regiões criadas no Admin.
 
 **Tariffs**:
 
+
+---
+
+## 🎨 Melhorias de UI/UX aplicadas
+
+- Filtros e ordenação (RefinementList)
+  - Navegação mais suave: `router.replace` em vez de `push` ao alterar filtros/sort (não polui o histórico).
+  - Sidebar “sticky” em telas grandes para manter filtros visíveis durante a rolagem.
+  - Botão “Limpar filtros” que remove todos os query params e reseta a listagem.
+  - Acessibilidade: rotulagem ARIA no container de filtros.
+  - Arquivo: `storefront/src/modules/store/components/refinement-list/index.tsx`
+
+- Busca em resultados (SearchInResults)
+  - Virou client component funcional com debounce de 350ms e Enter para confirmar.
+  - Atualiza a URL com `q` via `router.replace` e reseta `page` ao buscar.
+  - Mantém o valor sincronizado quando a navegação altera a URL.
+  - Arquivo: `storefront/src/modules/store/components/refinement-list/search-in-results/index.tsx`
+
+- Lista de produtos (PLP)
+  - Cabeçalho com “Mostrando X–Y de Z” e `aria-live` para feedback.
+  - Marcadores `role=list`/`role=listitem` no grid para melhor leitura assistiva.
+  - Suporte a parâmetro `q` integrado à chamada da Store API.
+  - Arquivo: `storefront/src/modules/store/templates/paginated-products.tsx`
+
+- Página inicial (Home)
+  - Imports dinâmicos (`ssr: false`) para seções pesadas (Videos*, Testimonials, DesignSystemTest) com skeletons de carregamento.
+  - Mantém SEO dos blocos críticos (Hero/CTAs) renderizados no server.
+  - Arquivo: `storefront/src/app/[countryCode]/(main)/page.tsx`
+
+- Landing de categorias
+  - `aria-label` nos cartões, foco visível (focus ring) e ícone decorativo marcado como `aria-hidden`.
+  - Arquivo: `storefront/src/app/[countryCode]/(main)/categories/page.tsx`
+
+---
+
+## ✅ Checklists
+
+### UI/UX (pendências recomendadas)
+- [ ] Empty states consistentes em loja/coleções com CTA duplo (“Voltar à loja” e “Falar com especialista”).
+- [ ] Mostrar badge de filtros ativos e atalho “Limpar” no cabeçalho da ordenação.
+- [ ] Avaliar `next/image` em galerias/banners adicionais para placeholders e lazy.
+- [ ] Landmarks HTML5 (`<main>`, `<section aria-label>`), onde ainda faltar, para navegação assistiva.
+- [ ] Telemetria: instrumentar busca (q) e interações de filtro para analytics.
+
+### Integração (seguir sequência após UI)
+- [ ] Corrigir health check no store: `HEALTH_CHECK_ENDPOINT` → `/store/health` em `storefront/src/lib/api/fallback.ts`.
+- [ ] Adicionar header `x-publishable-api-key` em `storefront/src/lib/api/resilient.ts` nas chamadas diretas.
+- [ ] Habilitar `YSH_CATALOG_MODULE` (ou migrar rotas para `UNIFIED_CATALOG_MODULE`).
+- [ ] Gerar/validar Publishable Key no backend e atualizar `.env` do store.
+- [ ] Vincular produtos ao “Default Sales Channel” (scripts já disponíveis).
+
 - Usado em: `storefront/src/modules/tariffs/context/TariffContext.tsx:40`
 - Refs: `/api/tariffs/*` (NÃO EXISTE)
 

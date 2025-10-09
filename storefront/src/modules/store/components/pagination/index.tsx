@@ -24,7 +24,7 @@ export function Pagination({
   const handlePageChange = (newPage: number) => {
     const params = new URLSearchParams(searchParams)
     params.set("page", newPage.toString())
-    router.push(`${pathname}?${params.toString()}`)
+    router.replace(`${pathname}?${params.toString()}`)
   }
 
   // Function to render a page button
@@ -40,6 +40,8 @@ export function Pagination({
       })}
       disabled={isCurrent}
       onClick={() => handlePageChange(p)}
+      aria-current={isCurrent ? "page" : undefined}
+      aria-label={`Página ${label}`}
     >
       {label}
     </button>
@@ -107,8 +109,8 @@ export function Pagination({
 
   // Render the component
   return (
-    <div className="flex justify-center w-full mt-12">
+    <nav className="flex justify-center w-full mt-12" aria-label="Paginação de produtos">
       <div className="flex gap-3 items-end" data-testid={dataTestid}>{renderPageButtons()}</div>
-    </div>
+    </nav>
   )
 }
