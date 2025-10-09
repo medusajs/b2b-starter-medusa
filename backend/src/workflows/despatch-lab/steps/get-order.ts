@@ -1,5 +1,5 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import DespatchLabFulfillmentService from "src/modules/despatch-lab/service";
+import DespatchLabFulfillmentService from "../../../modules/despatch-lab/service";
 import { IDespatchLabFulfillmentService } from "../../../types";
 
 export interface GetOrderInput {
