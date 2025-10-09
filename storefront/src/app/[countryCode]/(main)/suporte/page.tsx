@@ -21,7 +21,8 @@ export default function SuportePage() {
             <li>• Encaminhamento para instalação/homologação</li>
           </ul>
           <div className="flex gap-3">
-            <a className="contrast-btn" href="mailto:contato@yellohub.com.br">contato@yellohub.com.br</a>
+            <a className="contrast-btn" href="mailto:suporte@yellosolarhub.com">suporte@yellosolarhub.com</a>
+            <a className="contrast-btn" href="https://wa.me/5521968882751" target="_blank" rel="noopener noreferrer">WhatsApp: +55 (21) 96888-2751</a>
             <LocalizedClientLink href="/dimensionamento" className="contrast-btn">Iniciar dimensionamento</LocalizedClientLink>
           </div>
         </div>

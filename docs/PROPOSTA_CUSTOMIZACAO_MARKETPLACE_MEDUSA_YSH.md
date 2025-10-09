@@ -497,11 +497,18 @@ const calculateCommission = (sale) => {
 
 ## 📞 Contato e Suporte
 
-**Tech Lead:** [Nome]  
-**Email:** <tech@yellosolarhub.com>  
-**WhatsApp:** +55 11 99999-9999  
+**Responsável Técnico:** Fernando  
+**Email Técnico:** <fernando@yellosolarhub.com>  
+**Email Tecnologia:** <dev@yellosolarhub.com>  
+**Email Suporte:** <suporte@yellosolarhub.com>  
+**Email Contato:** <contato@yellosolarhub.com>  
+**Email Compliance:** <compliance@yellosolarhub.com>  
 
-**Próxima Reunião:** [Data] às [Hora]  
+**Telefone Técnico:** +55 (21) 97920-9021  
+**WhatsApp Contato:** +55 (21) 96888-2751  
+**WhatsApp Hélio:** +55 (21) 99637-1563  
+
+**Domínio:** <https://yellosolarhub.com>  
 **Ambiente Demo:** [URL ambiente desenvolvimento]
 
 ---

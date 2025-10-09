@@ -97,4 +97,4 @@ Transformar o Medusa B2B Starter em uma plataforma especializada para o mercado 
 
 ---
 
-**Contato:** <tech@yellosolarhub.com> | +55 11 99999-9999
+**Contato:** <fernando@yellosolarhub.com> | +55 (21) 97920-9021
