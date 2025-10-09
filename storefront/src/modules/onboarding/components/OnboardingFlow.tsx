@@ -157,6 +157,7 @@ export default function OnboardingFlow({ onComplete, onCancel }: OnboardingFlowP
                         <CurrentStepComponent
                             data={data}
                             onComplete={handleStepComplete}
+                            onContinue={() => handleNext()}
                             onSkip={handleSkip}
                         />
                     </CardContent>
