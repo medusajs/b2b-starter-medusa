@@ -1,14 +1,29 @@
 import { listRegions } from "@/lib/data/regions"
+import dynamic from "next/dynamic"
 import FeaturedProducts from "@/modules/home/components/featured-products"
 import Hero from "@/modules/home/components/hero"
 import OnboardingCTA from "@/modules/home/components/onboarding-cta"
 import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
-import VideosStrip from "@/modules/home/components/videos-strip"
-import VideosByClass from "@/modules/home/components/videos-by-class"
 import { SolarCTAHero, SolarStats } from "@/modules/home/components/solar-cta"
-import Testimonials from "@/modules/home/components/testimonials"
-import DesignSystemTest from "@/components/DesignSystemTest"
+
+// Client-heavy sections (no critical SEO), load dinamicamente no cliente
+const VideosStrip = dynamic(() => import("@/modules/home/components/videos-strip"), {
+  ssr: false,
+  loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
+})
+const VideosByClass = dynamic(
+  () => import("@/modules/home/components/videos-by-class"),
+  { ssr: false, loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" /> }
+)
+const Testimonials = dynamic(() => import("@/modules/home/components/testimonials"), {
+  ssr: false,
+  loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
+})
+const DesignSystemTest = dynamic(() => import("@/components/DesignSystemTest"), {
+  ssr: false,
+  loading: () => <div className="h-24 bg-gray-50 animate-pulse rounded-lg m-4" />,
+})
 import { Metadata } from "next"
 import { Suspense } from "react"
 import React from "react"
