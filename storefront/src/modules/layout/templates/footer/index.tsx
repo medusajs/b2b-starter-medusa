@@ -46,7 +46,7 @@ export default async function Footer() {
                     }
 
                     const children =
-                      c.category_children?.map((child) => ({
+                      c.category_children?.map((child: any) => ({
                         name: child.name,
                         handle: child.handle,
                         id: child.id,
@@ -70,7 +70,7 @@ export default async function Footer() {
                         {children && (
                           <ul className="grid grid-cols-1 ml-3 gap-2">
                             {children &&
-                              children.map((child) => (
+                              children.map((child: any) => (
                                 <li key={child.id}>
                                   <LocalizedClientLink
                                     className="hover:text-ui-fg-base"
