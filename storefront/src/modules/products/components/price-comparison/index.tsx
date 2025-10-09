@@ -1,7 +1,15 @@
 "use client";
 
-import { PriceComparison } from "@/lib/data/catalog";
+// TODO: Criar tipo PriceComparison em @/lib/data/catalog
+// import { PriceComparison } from "@/lib/data/catalog";
 import { formatAmount } from "@/lib/util/prices";
+
+// Tipo temporário até implementação completa da API
+type PriceComparison = {
+    sku: any;
+    offers: any[];
+    comparison: any;
+};
 
 interface PriceComparisonProps {
     comparison: PriceComparison;
@@ -116,8 +124,8 @@ export function PriceComparisonComponent({
                         <div
                             key={offer.id}
                             className={`rounded-lg border p-4 transition-all hover:shadow-md ${isBest
-                                    ? "border-green-400 bg-green-50 ring-2 ring-green-200"
-                                    : "border-gray-200 bg-white"
+                                ? "border-green-400 bg-green-50 ring-2 ring-green-200"
+                                : "border-gray-200 bg-white"
                                 }`}
                         >
                             <div className="flex items-center justify-between">
@@ -228,8 +236,8 @@ export function PriceComparisonComponent({
 
                                     <button
                                         className={`rounded-lg px-6 py-2 font-medium transition-colors ${isBest
-                                                ? "bg-green-600 text-white hover:bg-green-700"
-                                                : "bg-gray-900 text-white hover:bg-gray-800"
+                                            ? "bg-green-600 text-white hover:bg-green-700"
+                                            : "bg-gray-900 text-white hover:bg-gray-800"
                                             }`}
                                         onClick={() => {
                                             // TODO: Adicionar ao carrinho com oferta específica
