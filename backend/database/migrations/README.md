@@ -17,6 +17,7 @@ Este diretório contém os scripts SQL de migração para o banco de dados Postg
 - ✅ **005** - Approval Module (4 tabelas)
 - ✅ **006** - ANEEL Tariff (5 tabelas)
 - ✅ **007** - ANEEL Seed Data (58 registros)
+
 ---
 
 ## 📁 Estrutura de Migrations
