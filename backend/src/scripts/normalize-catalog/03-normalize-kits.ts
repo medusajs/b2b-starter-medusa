@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { normalizeManufacturerName } from "./01-extract-manufacturers";
-import { calculateStringSimilarity } from "./02-generate-skus";
+import { calculateStringSimilarity } from "./utils";
 
 interface KitInput {
     id: string;

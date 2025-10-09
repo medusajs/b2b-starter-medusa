@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { normalizeManufacturerName } from "./01-extract-manufacturers";
+import { calculateStringSimilarity, sanitizeForSKU, calculateMedian } from "./utils";
 
 interface ProductInput {
     id: string;
@@ -108,13 +109,6 @@ function generateSKU(
     return sku.toUpperCase();
 }
 
-function sanitizeForSKU(input: string): string {
-    return input
-        .replace(/[^a-zA-Z0-9]/g, "")
-        .replace(/\s+/g, "-")
-        .substring(0, 20);
-}
-
 /**
  * Extrai número de modelo do nome do produto
  */
@@ -209,49 +203,7 @@ function checkDuplication(
     };
 }
 
-/**
- * Calcula similaridade entre duas strings (Levenshtein simplificado)
- */
-function calculateStringSimilarity(str1: string, str2: string): number {
-    const s1 = str1.toLowerCase();
-    const s2 = str2.toLowerCase();
-
-    if (s1 === s2) return 1.0;
-
-    const maxLen = Math.max(s1.length, s2.length);
-    if (maxLen === 0) return 1.0;
-
-    const distance = levenshteinDistance(s1, s2);
-    return 1 - distance / maxLen;
-}
-
-function levenshteinDistance(s1: string, s2: string): number {
-    const matrix: number[][] = [];
-
-    for (let i = 0; i <= s2.length; i++) {
-        matrix[i] = [i];
-    }
-
-    for (let j = 0; j <= s1.length; j++) {
-        matrix[0][j] = j;
-    }
-
-    for (let i = 1; i <= s2.length; i++) {
-        for (let j = 1; j <= s1.length; j++) {
-            if (s2[i - 1] === s1[j - 1]) {
-                matrix[i][j] = matrix[i - 1][j - 1];
-            } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1,
-                    matrix[i][j - 1] + 1,
-                    matrix[i - 1][j] + 1
-                );
-            }
-        }
-    }
-
-    return matrix[s2.length][s1.length];
-}
+// Removido - agora importado de utils.ts
 
 /**
  * Calcula pricing summary de um SKU

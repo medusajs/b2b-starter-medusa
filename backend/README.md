@@ -59,7 +59,7 @@ yarn dev
 
 ### 🗂️ Categorias de Documentação
 
-```
+```tsx
 docs/
 ├── implementation/  # 3 implementações de features
 ├── database/        # 4 documentos de banco de dados
@@ -91,7 +91,7 @@ docs/
 
 ### Estrutura do Projeto
 
-```
+```tsx
 backend/
 ├── src/
 │   ├── api/                    # Rotas de API
@@ -337,7 +337,7 @@ yarn test
 
 ### Estrutura de Testes
 
-```
+```tsx
 backend/
 ├── src/**/__tests__/*.unit.spec.ts     # Testes unitários
 └── integration-tests/
@@ -383,7 +383,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### Company Module
 
-**Gestão de empresas e configurações B2B**
+#### **Gestão de empresas e configurações B2B**
 
 - Localização: `src/modules/company/`
 - Modelos: `Company`, `Employee`
@@ -392,7 +392,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### Quote Module
 
-**Sistema de cotações (Request for Quote)**
+#### **Sistema de cotações (Request for Quote)**
 
 - Localização: `src/modules/quote/`
 - Modelos: `Quote`, `QuoteMessage`
@@ -401,7 +401,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### Approval Module
 
-**Workflows de aprovação para carrinhos/pedidos**
+#### **Workflows de aprovação para carrinhos/pedidos**
 
 - Localização: `src/modules/approval/`
 - Modelos: `Approval`, `ApprovalSettings`
@@ -410,7 +410,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### Solar Module
 
-**Funcionalidades específicas de energia solar**
+#### **Funcionalidades específicas de energia solar**
 
 - Localização: `src/modules/solar/`, `src/modules/aneel/`
 - APIs: `src/api/solar/`, `src/api/aneel/`, `src/api/pvlib/`
@@ -422,7 +422,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### BACEN (Banco Central)
 
-**Análise de crédito e dados financeiros**
+#### **Análise de crédito e dados financeiros**
 
 - Documentação: [`docs/implementation/BACEN_INTEGRATION_SUMMARY.md`](docs/implementation/BACEN_INTEGRATION_SUMMARY.md)
 - API: `src/api/credit-analysis/`
@@ -430,7 +430,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### PVLib
 
-**Cálculos de geração e performance solar**
+#### **Cálculos de geração e performance solar**
 
 - Documentação: [`docs/implementation/SOLAR_CALCULATOR_IMPLEMENTATION.md`](docs/implementation/SOLAR_CALCULATOR_IMPLEMENTATION.md)
 - API: `src/api/pvlib/`
@@ -439,7 +439,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 
 ### ANEEL
 
-**Tarifas e dados regulatórios**
+#### **Tarifas e dados regulatórios**
 
 - Módulo: `src/modules/aneel/`
 - API: `src/api/aneel/`
@@ -461,10 +461,12 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 ### Adicionando Documentação
 
 #### Documentação de Alto Nível
+
 1. Coloque em `docs/[categoria]/` apropriada
 2. Atualize `DOCUMENTATION_INDEX.md`
 
 #### Documentação Técnica
+
 1. Adicione `README.md` na pasta do código
 2. Documente interfaces e APIs principais
 
@@ -473,6 +475,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 ## 🔗 Links Úteis
 
 ### Documentação Externa
+
 - [Medusa Documentation](https://docs.medusajs.com/)
 - [Medusa Modules](https://docs.medusajs.com/resources/modules)
 - [Medusa Workflows](https://docs.medusajs.com/resources/workflows)
@@ -480,6 +483,7 @@ psql -U user -d medusa -f database/migrations/000_status_report.sql
 - [PostgreSQL](https://www.postgresql.org/docs/)
 
 ### Repositório
+
 - **Storefront**: `../storefront/` - Loja Next.js 15
 - **Docs raiz**: `../docs/` - Documentação do projeto completo
 

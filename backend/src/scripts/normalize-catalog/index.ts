@@ -17,6 +17,7 @@
 import { extractManufacturers } from "./01-extract-manufacturers";
 import { generateSKUs } from "./02-generate-skus";
 import { normalizeKits } from "./03-normalize-kits";
+import { analyzePrices } from "./04-price-comparison";
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
@@ -143,7 +144,17 @@ async function runNormalizationPipeline(stepFilter?: number) {
             console.log("\n");
         }
 
-        // Calcular métricas gerais
+        // Step 4: Análise de Preços
+        if (!stepFilter || stepFilter === 4) {
+            console.log("═══════════════════════════════════════════════════════════");
+            console.log("  STEP 4: ANÁLISE DE COMPETITIVIDADE DE PREÇOS");
+            console.log("═══════════════════════════════════════════════════════════\n");
+
+            await analyzePrices();
+            report.steps_completed!.push("price-analysis");
+
+            console.log("\n");
+        }        // Calcular métricas gerais
         const dataDir = join(__dirname, "../../../data/catalog/unified_schemas");
         const masterIndex = JSON.parse(
             readFileSync(join(dataDir, "MASTER_INDEX.json"), "utf-8")

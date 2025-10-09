@@ -52,7 +52,7 @@ Gera SKUs únicos para produtos, com deduplicação inteligente.
 
 **Algoritmo de Deduplicação**:
 
-```
+```tsx
 Score = Fabricante (30pts) + Modelo (30pts) + Specs (40pts)
 Duplicata se Score >= 85%
 ```

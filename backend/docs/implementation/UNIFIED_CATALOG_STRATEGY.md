@@ -14,7 +14,7 @@ Estratégia para abstrair distribuidores e criar catálogo unificado focado em *
 
 ## 2. Hierarquia de Produtos
 
-```
+```tsx
 FABRICANTE (Manufacturer)
   └── SÉRIE (Product Line/Series)
        └── MODELO (Model)
@@ -27,7 +27,7 @@ FABRICANTE (Manufacturer)
 
 ### 2.1 Exemplo Prático
 
-```
+```tsx
 FABRICANTE: DEYE
   └── SÉRIE: SUN-G4 Microinversores
        └── MODELO: SUN-M2250G4-EU-Q0
@@ -664,7 +664,7 @@ interface KitSubstitution {
 
 ### 7.1 Padrão de SKU
 
-```
+```tsx
 {FABRICANTE}-{SERIE}-{MODELO}-{VARIANTE}
 
 Exemplos:
@@ -750,7 +750,7 @@ function compareSpecs(specs1: TechnicalSpecs, specs2: TechnicalSpecs): number {
 
 ### 8.1 Estrutura de Módulos
 
-```
+```tsx
 backend/src/modules/
   unified-catalog/
     models/
