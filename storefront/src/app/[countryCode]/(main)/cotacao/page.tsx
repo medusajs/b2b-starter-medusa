@@ -24,7 +24,7 @@ export default function CotacaoPage() {
       const kwp = data.system_kwp || data.kwp_proposto
       const gen = data.expected_generation_kwh_year || (data.expected_generation_mwh && data.expected_generation_mwh * 1000)
       const pr = data.performance_ratio
-      const name = `Sistema ${kwp?.toFixed ? kwp.toFixed(2) : kwp} kWp • ${Math.round(gen || 0)} kWh/ano • PR ${(pr * 100).toFixed ? (pr * 100).toFixed(0) : pr}%`
+      const name = `Sistema ${typeof kwp === 'number' ? kwp.toFixed(2) : kwp} kWp • ${Math.round(gen || 0)} kWh/ano • PR ${typeof pr === 'number' ? (pr * 100).toFixed(0) : pr}%`
       add({ id, name, category: 'system', manufacturer: 'YSH Viabilidade' })
       const parts = [
         `Estado: ${data?.location?.estado || '-'}`,
