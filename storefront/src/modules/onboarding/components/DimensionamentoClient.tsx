@@ -92,12 +92,30 @@ export default function DimensionamentoClient() {
           <Heading level="h2" className="text-lg mb-2">Dimensionamento rápido</Heading>
           <Text className="txt-compact-small mb-4">Use lat/lon (ponto no mapa) e consumo médio para estimar seu sistema.</Text>
           <div className="grid grid-cols-3 gap-3 mb-3">
-            <input className="col-span-1 border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="CEP (01311-000)" value={cep} onChange={(e) => setCep(e.target.value)} />
+            <input
+              className="col-span-1 border border-[var(--border)] rounded-md px-3 py-2 bg-transparent"
+              placeholder="CEP (01311-000)"
+              value={cep}
+              onChange={(e) => setCep(e.target.value)}
+              aria-label="CEP"
+            />
             <Button variant="secondary" className="rounded-full" onClick={geocode}>Usar CEP</Button>
           </div>
           <div className="grid grid-cols-2 gap-3 mb-3">
-            <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Latitude (-23.55)" value={lat} onChange={(e) => setLat(e.target.value)} />
-            <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Longitude (-46.63)" value={lon} onChange={(e) => setLon(e.target.value)} />
+            <input
+              className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent"
+              placeholder="Latitude (-23.55)"
+              value={lat}
+              onChange={(e) => setLat(e.target.value)}
+              aria-label="Latitude"
+            />
+            <input
+              className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent"
+              placeholder="Longitude (-46.63)"
+              value={lon}
+              onChange={(e) => setLon(e.target.value)}
+              aria-label="Longitude"
+            />
           </div>
           <MapPicker
             lat={Number(lat) || -23.55}
@@ -108,7 +126,13 @@ export default function DimensionamentoClient() {
             }}
           />
           <div className="grid grid-cols-2 gap-3 mb-4">
-            <input className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent" placeholder="Consumo (kWh/mês)" value={monthly} onChange={(e) => setMonthly(e.target.value)} />
+            <input
+              className="border border-[var(--border)] rounded-md px-3 py-2 bg-transparent"
+              placeholder="Consumo (kWh/mês)"
+              value={monthly}
+              onChange={(e) => setMonthly(e.target.value)}
+              aria-label="Consumo mensal em kWh"
+            />
           </div>
           <div className="grid grid-cols-2 gap-3 mb-2">
             <div className="flex flex-col gap-1">

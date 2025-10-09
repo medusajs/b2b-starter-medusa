@@ -6,7 +6,7 @@ Este diretório contém os dados do catálogo de produtos YSH B2B, incluindo pai
 
 ## 📁 Estrutura
 
-```
+```tsx
 backend/data/catalog/
 ├── unified_schemas/          # Schemas JSON unificados por categoria
 │   ├── kits_unified.json              # Kits solares completos

@@ -9,6 +9,7 @@
 import React, { useState, useEffect } from 'react'
 import { useFinance } from '../context/FinanceContext'
 import type { FinanceInput, CAPEXBreakdown, OversizingScenario } from '../types'
+import { toast } from '@medusajs/ui'
 
 interface CreditSimulatorProps {
     /** Pre-filled data from Viability */
@@ -75,7 +76,10 @@ export default function CreditSimulator({
         // Validate
         const validation = validateInput(formData)
         if (!validation.is_valid) {
-            alert(`Validation errors:\n${validation.errors.map(e => e.message).join('\n')}`)
+            const errorMessage = validation.errors.map(e => e.message).join(', ')
+            toast.error(`Erros de validação: ${errorMessage}`, {
+                duration: 5000,
+            })
             return
         }
 

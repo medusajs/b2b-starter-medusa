@@ -97,6 +97,7 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
               disabled={selectedImageIndex === 0}
               className="rounded-full items-center justify-center"
               onClick={() => handleArrowClick("left")}
+              aria-label="Imagem anterior"
             >
               <ArrowLeftMini />
             </IconButton>
@@ -104,6 +105,7 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
               disabled={selectedImageIndex === images.length - 1}
               className="rounded-full items-center justify-center"
               onClick={() => handleArrowClick("right")}
+              aria-label="Próxima imagem"
             >
               <ArrowRightMini />
             </IconButton>
@@ -111,22 +113,23 @@ const ImageGallery = ({ product }: ImageGalleryProps) => {
         )}
         <ul className="flex flex-row gap-x-4 overflow-x-auto">
           {images.map((image, index) => (
-            <li
-              key={image.id}
-              className="flex aspect-[1/1] w-8 h-8 rounded-rounded"
-              onClick={() => handleImageClick(image)}
-              role="button"
-            >
-              <Image
-                src={image.url}
-                alt={(image.metadata?.alt as string) || ""}
-                height={32}
-                width={32}
-                className={clx(
-                  index === selectedImageIndex ? "opacity-100" : "opacity-40",
-                  "hover:opacity-100 object-contain"
-                )}
-              />
+            <li key={image.id} className="flex aspect-[1/1] w-8 h-8 rounded-rounded">
+              <button
+                onClick={() => handleImageClick(image)}
+                className="w-full h-full"
+                aria-label={`Selecionar imagem ${index + 1} de ${images.length}`}
+              >
+                <Image
+                  src={image.url}
+                  alt={(image.metadata?.alt as string) || ""}
+                  height={32}
+                  width={32}
+                  className={clx(
+                    index === selectedImageIndex ? "opacity-100" : "opacity-40",
+                    "hover:opacity-100 object-contain"
+                  )}
+                />
+              </button>
             </li>
           ))}
         </ul>

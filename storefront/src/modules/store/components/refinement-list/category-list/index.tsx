@@ -85,7 +85,10 @@ const CategoryList = ({
         <div className={`flex items-center gap-2 mb-2 pl-${paddingLeft}`}>
           {hasChildren ? (
             <div className="flex items-center gap-2 hover:text-neutral-700">
-              <button onClick={() => toggleCategory(category.id)}>
+              <button
+                onClick={() => toggleCategory(category.id)}
+                aria-label={isExpanded ? `Recolher categoria ${category.name}` : `Expandir categoria ${category.name}`}
+              >
                 {isExpanded ? (
                   <SquareMinus className="h-3 mx-1" />
                 ) : (

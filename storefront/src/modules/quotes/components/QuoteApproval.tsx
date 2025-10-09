@@ -13,6 +13,7 @@ import { Badge } from '@/components/ui/badge'
 import { CheckCircle, XCircle, Clock } from 'lucide-react'
 import useQuoteApprovals from '../hooks/useQuoteApprovals'
 import type { QuoteApproval as QuoteApprovalType } from '../types'
+import { toast } from '@medusajs/ui'
 
 interface QuoteApprovalProps {
   quoteId: string
@@ -21,11 +22,11 @@ interface QuoteApprovalProps {
   onApprovalChange?: () => void
 }
 
-export default function QuoteApproval({ 
-  quoteId, 
+export default function QuoteApproval({
+  quoteId,
   approvals,
   canApprove = false,
-  onApprovalChange 
+  onApprovalChange
 }: QuoteApprovalProps) {
   const { approveQuote, rejectQuote, isProcessing } = useQuoteApprovals()
   const [showApprovalForm, setShowApprovalForm] = useState(false)
@@ -39,14 +40,14 @@ export default function QuoteApproval({
 
   const handleApprove = async () => {
     if (!pendingApproval) return
-    
+
     const success = await approveQuote(
       quoteId,
       pendingApproval.id,
       comments,
       conditions.filter(c => c.trim())
     )
-    
+
     if (success) {
       setShowApprovalForm(false)
       setComments('')
@@ -57,19 +58,21 @@ export default function QuoteApproval({
 
   const handleReject = async () => {
     if (!pendingApproval) return
-    
+
     if (!comments.trim()) {
-      alert('Por favor, adicione um comentário explicando a rejeição')
+      toast.warning('Por favor, adicione um comentário explicando a rejeição', {
+        duration: 3000,
+      })
       return
     }
-    
+
     const success = await rejectQuote(
       quoteId,
       pendingApproval.id,
       comments,
       requestedChanges.filter(c => c.trim())
     )
-    
+
     if (success) {
       setShowApprovalForm(false)
       setComments('')
@@ -179,14 +182,14 @@ export default function QuoteApproval({
           <CardContent>
             {!showApprovalForm ? (
               <div className="flex gap-2">
-                <Button 
+                <Button
                   onClick={() => setShowApprovalForm(true)}
                   disabled={isProcessing}
                 >
                   <CheckCircle className="h-4 w-4 mr-2" />
                   Aprovar
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   onClick={() => setShowApprovalForm(true)}
                   disabled={isProcessing}
@@ -209,7 +212,7 @@ export default function QuoteApproval({
                     placeholder="Adicione seus comentários sobre esta cotação"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Condições (opcional)
@@ -222,7 +225,7 @@ export default function QuoteApproval({
                     placeholder="Uma condição por linha"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium mb-1">
                     Alterações Solicitadas (opcional)
@@ -235,16 +238,16 @@ export default function QuoteApproval({
                     placeholder="Uma alteração por linha"
                   />
                 </div>
-                
+
                 <div className="flex gap-2">
-                  <Button 
+                  <Button
                     onClick={handleApprove}
                     disabled={isProcessing}
                   >
                     <CheckCircle className="h-4 w-4 mr-2" />
                     Aprovar Cotação
                   </Button>
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={handleReject}
                     disabled={isProcessing}
@@ -252,7 +255,7 @@ export default function QuoteApproval({
                     <XCircle className="h-4 w-4 mr-2" />
                     Rejeitar Cotação
                   </Button>
-                  <Button 
+                  <Button
                     variant="ghost"
                     onClick={() => setShowApprovalForm(false)}
                     disabled={isProcessing}

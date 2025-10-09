@@ -3,7 +3,7 @@
 import { cartToCsv } from "@/lib/util/convert-cart-to-csv"
 import Button from "@/modules/common/components/button"
 import { B2BCart } from "@/types"
-import { Text } from "@medusajs/ui"
+import { toast } from "@medusajs/ui"
 import { useState } from "react"
 
 type CartToCsvButtonProps = {
@@ -12,11 +12,9 @@ type CartToCsvButtonProps = {
 
 const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {
   const [isExportingCart, setIsExportingCart] = useState(false)
-  const [error, setError] = useState<string | null>(null)
 
   const handleExportCart = async () => {
     setIsExportingCart(true)
-    setError(null)
 
     const csv = cartToCsv(cart)
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" })
@@ -42,11 +40,14 @@ const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {
         link.click()
         URL.revokeObjectURL(url)
       }
+      toast.success("Carrinho exportado para CSV", {
+        duration: 2000,
+      })
     } catch (error: any) {
-      setError(error.message)
+      toast.error("Erro ao exportar carrinho: " + error.message)
+    } finally {
+      setIsExportingCart(false)
     }
-
-    setIsExportingCart(false)
   }
 
   return (
@@ -59,7 +60,6 @@ const CartToCsvButton = ({ cart }: CartToCsvButtonProps) => {
       >
         Exportar carrinho (.csv)
       </Button>
-      {error && <Text className="text-red-500">{error}</Text>}
     </div>
   )
 }

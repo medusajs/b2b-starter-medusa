@@ -8,6 +8,7 @@ import "@/styles/globals.css"
 import { LeadQuoteProvider } from "@/modules/lead-quote/context"
 import { AnalyticsProvider } from "@/modules/analytics/AnalyticsProvider"
 import { PostHogProvider } from "@/providers/posthog-provider"
+import SkipLinks from "@/components/common/SkipLinks"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -73,13 +74,22 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             </linearGradient>
           </defs>
         </svg>
+        <SkipLinks />
         <PostHogProvider>
           <AnalyticsProvider>
             <PWAProvider>
               <LeadQuoteProvider>
-                <main className="relative">{props.children}</main>
+                <main id="main-content" className="relative">{props.children}</main>
               </LeadQuoteProvider>
-              <Toaster className="z-[99999]" position="bottom-left" />
+              <Toaster className="z-[99999]" position="bottom-left" aria-live="polite" aria-atomic="true" />
+              {/* Screen reader live region for critical announcements */}
+              <div
+                role="status"
+                aria-live="assertive"
+                aria-atomic="true"
+                className="sr-only"
+                id="sr-announcements"
+              />
               <Analytics />
             </PWAProvider>
           </AnalyticsProvider>

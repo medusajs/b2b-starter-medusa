@@ -5,6 +5,85 @@
 /* Yello Solar Hub Design System - Temporarily disabled to fix build */
 /* @import "./design-system.css"; */
 
+/* ========================================
+   ACCESSIBILITY STYLES (WCAG 2.1 AA)
+   ======================================== */
+
+/* Screen Reader Only - Hides content visually but keeps it accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip Links - WCAG 2.4.1 Bypass Blocks */
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  background: var(--ysh-blue);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--ysh-blue);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+  transition: top 0.2s ease-in-out;
+  z-index: 10001;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--ysh-yellow);
+  outline-offset: 2px;
+}
+
+.skip-link:hover {
+  background: var(--ysh-blue-dark);
+}
+
+/* Focus Indicators - WCAG 2.4.7 Focus Visible */
+:focus-visible {
+  outline: 3px solid var(--ysh-blue);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--ysh-blue);
+  outline-offset: 2px;
+}
+
 /* Yello Solar Hub Design System */
 :root {
   /* Primary Colors - Solar Energy Theme */

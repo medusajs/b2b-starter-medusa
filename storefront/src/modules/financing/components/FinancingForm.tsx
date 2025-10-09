@@ -7,7 +7,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Button } from '@medusajs/ui'
+import { Button, toast } from '@medusajs/ui'
 import { Calculator, TrendingUp } from 'lucide-react'
 import type { FinanceInput, CAPEXBreakdown, OversizingScenario } from '@/modules/finance/types'
 
@@ -65,12 +65,16 @@ export function FinancingForm({ initialData, onCalculate, isLoading }: Financing
 
         // Validate required fields
         if (!formData.capex?.total || formData.capex.total <= 0) {
-            alert('Por favor, informe o investimento total.')
+            toast.warning('Por favor, informe o investimento total.', {
+                duration: 3000,
+            })
             return
         }
 
         if (!formData.monthly_savings_brl || formData.monthly_savings_brl <= 0) {
-            alert('Por favor, informe a economia mensal.')
+            toast.warning('Por favor, informe a economia mensal.', {
+                duration: 3000,
+            })
             return
         }
 

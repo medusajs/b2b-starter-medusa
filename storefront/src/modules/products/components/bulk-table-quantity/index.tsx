@@ -68,6 +68,7 @@ const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
         onClick={() => handleSubtract()}
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
+        aria-label="Diminuir quantidade"
       >
         <MinusMini />
       </IconButton>
@@ -77,11 +78,13 @@ const BulkTableQuantity = ({ variantId, onChange }: BulkTableQuantityProps) => {
         onKeyDown={handleKeyDown}
         type="number"
         className="max-w-10 text-center items-center justify-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        aria-label="Quantidade"
       />
       <IconButton
         onClick={() => handleAdd()}
         className="rounded-full hover:bg-neutral-200"
         variant="transparent"
+        aria-label="Aumentar quantidade"
       >
         <PlusMini />
       </IconButton>

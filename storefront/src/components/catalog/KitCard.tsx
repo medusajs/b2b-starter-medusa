@@ -146,7 +146,7 @@ export function KitCard({
             <CardFooter className={compact ? 'pt-0' : ''}>
                 <Button
                     className="w-full"
-                    variant={selected ? 'default' : 'outline'}
+                    variant={selected ? 'primary' : 'outline'}
                     onClick={() => onSelect?.(kit)}
                 >
                     {selected ? (

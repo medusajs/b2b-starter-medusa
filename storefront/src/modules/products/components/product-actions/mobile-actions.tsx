@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react"
 import useToggleState from "@/lib/hooks/use-toggle-state"
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
-import { clx } from "@medusajs/ui"
+import { clx, toast } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ChevronDown from "@/modules/common/icons/chevron-down"
 import X from "@/modules/common/icons/x"
@@ -120,8 +120,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 {!variant
                   ? "Select variant"
                   : !inStock
-                  ? "Out of stock"
-                  : "Add to cart"}
+                    ? "Out of stock"
+                    : "Add to cart"}
               </Button>
             </div>
           </div>

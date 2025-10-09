@@ -17,6 +17,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, Calculator, ShoppingCart, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from '@medusajs/ui'
 
 interface CatalogPageClientProps {
     searchParams: { [key: string]: string | string[] | undefined }
@@ -84,15 +85,18 @@ export default function CatalogPageClient({ searchParams }: CatalogPageClientPro
             })
 
             if (response.ok) {
-                router.push('/br/cart')
+                toast.success(`Kit ${selectedKit.name} adicionado ao carrinho`, {
+                    duration: 3000,
+                })
+                setTimeout(() => router.push('/br/cart'), 500)
             } else {
                 const error = await response.json()
                 console.error('Failed to add to cart:', error)
-                alert('Erro ao adicionar ao carrinho. Tente novamente.')
+                toast.error('Erro ao adicionar ao carrinho. Tente novamente.')
             }
         } catch (error) {
             console.error('Add to cart error:', error)
-            alert('Erro ao adicionar ao carrinho. Tente novamente.')
+            toast.error('Erro ao adicionar ao carrinho. Tente novamente.')
         }
     }
 

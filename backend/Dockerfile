@@ -1,67 +1,55 @@
 # ==========================================
-# Multi-stage Dockerfile para Backend Medusa
+# Dockerfile de Produção para Backend Medusa
 # Otimizado para performance e segurança
 # ==========================================
 
-# Stage 1: Base com Node.js otimizado
-FROM node:20-alpine AS base
-RUN apk add --no-cache libc6-compat dumb-init
+FROM node:20-alpine
+
+# Instalar dependências do sistema
+RUN apk add --no-cache libc6-compat dumb-init python3 make g++
+
+# Configurar diretório de trabalho
 WORKDIR /app
 
-# Configurações de performance para Node.js
+# Configurações de ambiente para produção
 ENV NODE_ENV=production
-ENV NODE_OPTIONS="--max-old-space-size=2048 --enable-source-maps"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 ENV NPM_CONFIG_LOGLEVEL=warn
-ENV NPM_CONFIG_PROGRESS=false
 
-# Stage 2: Dependency installer
-FROM base AS deps
+# Copiar arquivos de dependências
 COPY package*.json ./
 COPY .npmrc* ./
 
-# Cache bust para otimização de build
-RUN --mount=type=cache,target=/root/.npm \
-      npm ci --only=production --no-audit --no-fund && \
-      npm cache clean --force
+# Instalar dependências (incluindo dev dependencies para build)
+RUN npm install --no-audit --no-fund --legacy-peer-deps
 
-# Stage 3: Build stage
-FROM base AS builder
-COPY package*.json ./
-COPY .npmrc* ./
+# Workaround para problema do Rollup e SWC no Alpine Linux
+RUN npm install --force @rollup/rollup-linux-x64-musl @swc/core-linux-x64-musl || true
 
-# Install all dependencies including devDependencies
-RUN --mount=type=cache,target=/root/.npm \
-      npm ci --no-audit --no-fund
-
+# Copiar código fonte e dados do catálogo
 COPY . .
 
 # Build da aplicação
 RUN npm run build
 
-# Stage 4: Production runner
-FROM base AS runner
+# Criar diretório de uploads
+RUN mkdir -p uploads
 
 # Criar usuário não-root para segurança
 RUN addgroup --system --gid 1001 medusa && \
-      adduser --system --uid 1001 medusa
+      adduser --system --uid 1001 medusa && \
+      chown -R medusa:medusa /app
 
-# Copiar dependências de produção
-COPY --from=deps --chown=medusa:medusa /app/node_modules ./node_modules
-
-# Copiar código compilado e dados do catálogo
-COPY --from=builder --chown=medusa:medusa /app/dist ./dist
-COPY --from=builder --chown=medusa:medusa /app/package.json ./package.json
-COPY --from=builder --chown=medusa:medusa /app/medusa-config.ts ./medusa-config.ts
-COPY --from=builder --chown=medusa:medusa /app/data ./data
-
-# Configurações de runtime
+# Mudar para usuário não-root
 USER medusa
-EXPOSE 9000
+
+# Expor portas (principal + admin + store)
+EXPOSE 9000 9001 9002
 
 # Health check otimizado (sem dependência de curl)
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
       CMD node -e "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
 
-# Usar dumb-init para gerenciamento correto de sinais
+# Comando para produção
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["npm", "start"]

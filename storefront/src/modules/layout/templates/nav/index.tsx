@@ -20,8 +20,8 @@ export async function NavigationHeader() {
   await retrieveCart().catch(() => null)
 
   return (
-    <div className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass">
-      <header className="flex w-full content-container relative small:mx-auto justify-between px-4 py-3 small:p-4">
+    <header className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass">
+      <div className="flex w-full content-container relative small:mx-auto justify-between px-4 py-3 small:p-4">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center gap-3 small:gap-4">
             <LocalizedClientLink className="hover:text-ui-fg-base flex items-center min-w-0" href="/">
@@ -32,7 +32,7 @@ export async function NavigationHeader() {
               </h1>
             </LocalizedClientLink>
 
-            <nav className="hidden small:block">
+            <nav className="hidden small:block" aria-label="Navegação principal">
               <ul className="flex gap-2 small:gap-4 items-center">
                 <li>
                   <Suspense fallback={<SkeletonMegaMenu />}>
@@ -49,7 +49,7 @@ export async function NavigationHeader() {
               </ul>
             </nav>
           </div>
-          <div className="flex justify-end items-center gap-2 small:gap-3">
+          <nav className="flex justify-end items-center gap-2 small:gap-3" aria-label="Utilitários e conta">
             <div className="relative mr-2 hidden small:inline-flex">
               <SKUAutocomplete placeholder="Buscar por SKU ou produto..." className="w-40 lg:w-56" />
             </div>
@@ -63,11 +63,11 @@ export async function NavigationHeader() {
             <Suspense fallback={<SkeletonCartButton />}>
               <CartButton />
             </Suspense>
-          </div>
+          </nav>
         </div>
-      </header>
+      </div>
       <div className="ysh-divider-gradient"></div>
-    </div>
+    </header>
   )
 }
 

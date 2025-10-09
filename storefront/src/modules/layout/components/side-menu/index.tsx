@@ -25,8 +25,14 @@ const SideMenuItems = {
 }
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "In?cio",
+  Home: "Início",
   Store: "Loja",
+  Solutions: "Soluções",
+  Dimensionamento: "Dimensionamento",
+  Tarifas: "Tarifas",
+  SolarCV: "Solar CV",
+  Compliance: "Compliance",
+  Cotacao: "Cotação",
   Search: "Buscar",
   Account: "Conta",
   Cart: "Carrinho",
@@ -38,7 +44,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
   try {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     quoteCount = useLeadQuote().items.length
-  } catch {}
+  } catch { }
 
   return (
     <div className="h-full">
@@ -71,7 +77,11 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                     className="flex flex-col h-full rounded-rounded justify-between p-6 ysh-glass"
                   >
                     <div className="flex justify-end" id="xmark">
-                      <button data-testid="close-menu-button" onClick={close}>
+                      <button
+                        data-testid="close-menu-button"
+                        onClick={close}
+                        aria-label="Fechar menu de navegação"
+                      >
                         <XMark />
                       </button>
                     </div>

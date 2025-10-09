@@ -6,6 +6,7 @@
 'use client'
 
 import React from 'react'
+import { toast } from '@medusajs/ui'
 import { useViability } from '../context/ViabilityContext'
 
 export default function ViabilityReport() {
@@ -39,11 +40,17 @@ export default function ViabilityReport() {
 
     const handleDownloadPDF = async () => {
         // Implementar geração de PDF
+        toast.info('Funcionalidade de PDF em desenvolvimento', {
+            duration: 3000,
+        })
         console.log('Gerando PDF...')
     }
 
     const handleShareReport = async () => {
         // Implementar compartilhamento
+        toast.info('Funcionalidade de compartilhamento em desenvolvimento', {
+            duration: 3000,
+        })
         console.log('Compartilhando relatório...')
     }
 

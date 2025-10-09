@@ -7,7 +7,7 @@
 'use client'
 
 import React from 'react'
-import { Button } from '@medusajs/ui'
+import { Button, toast } from '@medusajs/ui'
 import { Download, ShoppingCart, RotateCcw, CheckCircle } from 'lucide-react'
 import type { FinanceOutput } from '@/modules/finance/types'
 
@@ -59,9 +59,12 @@ export function FinancingSummary({ data, onStartOver }: FinancingSummaryProps) {
 
             const filename = `financiamento-${data.id}-${Date.now()}.pdf`
             downloadPDF(pdfBlob, filename)
+            toast.success('PDF de financiamento gerado com sucesso', {
+                duration: 2000,
+            })
         } catch (error) {
             console.error('Error generating PDF:', error)
-            alert('Erro ao gerar PDF. Tente novamente.')
+            toast.error('Erro ao gerar PDF. Tente novamente.')
         }
     }
 
@@ -87,13 +90,18 @@ export function FinancingSummary({ data, onStartOver }: FinancingSummaryProps) {
             })
 
             if (response.ok) {
-                window.location.href = '/br/cart'
+                toast.success('Kit de financiamento adicionado ao carrinho', {
+                    duration: 3000,
+                })
+                setTimeout(() => {
+                    window.location.href = '/br/cart'
+                }, 500)
             } else {
                 throw new Error('Failed to add to cart')
             }
         } catch (error) {
             console.error('Error adding to cart:', error)
-            alert('Erro ao adicionar ao carrinho. Tente novamente.')
+            toast.error('Erro ao adicionar ao carrinho. Tente novamente.')
         }
     }
 

@@ -1,30 +1,22 @@
-import { clx, Button as MedusaButton } from "@medusajs/ui"
-type ButtonProps = React.ComponentProps<typeof MedusaButton>
+/**
+ * Button Component - RE-EXPORT
+ * This file now re-exports from the unified design system
+ * 
+ * DEPRECATED: Import directly from '@/lib/design-system/components/Button'
+ * This file maintained for backward compatibility during migration
+ */
 
-const Button = ({
-  children,
-  className: classNameProp,
-  ...props
-}: ButtonProps): React.ReactNode => {
-  const variant = props.variant ?? "primary"
+import { Button as DesignSystemButton } from '@/lib/design-system/components/Button'
+import { forwardRef } from 'react'
 
-  const className = clx(classNameProp, {
-    "!shadow-borders-base !border-none":
-      variant === "secondary" || props.disabled,
-    "!shadow-none bg-neutral-900 text-white":
-      variant === "primary" && !props.disabled,
-    "!shadow-none bg-transparent text-neutral-900": variant === "transparent",
-  })
-  console.log(className)
-  return (
-    <MedusaButton
-      className={`!rounded-full text-sm font-normal ${className}`}
-      variant={variant}
-      {...props}
-    >
-      {children}
-    </MedusaButton>
-  )
-}
+// Re-export with default export for backward compatibility
+const Button = forwardRef<HTMLButtonElement, React.ComponentProps<typeof DesignSystemButton>>(
+  (props, ref) => {
+    // Apply rounded-full by default for legacy compatibility
+    return <DesignSystemButton rounded="full" ref={ref} {...props} />
+  }
+)
+
+Button.displayName = 'Button'
 
 export default Button
