@@ -1,7 +1,7 @@
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { getProductPrice } from "@/lib/util/get-product-price"
 import { HttpTypes, StoreProduct, StoreProductVariant } from "@medusajs/types"
-import { clx, Table } from "@medusajs/ui"
+import { clx, Table, toast } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
@@ -68,7 +68,13 @@ const ProductVariantsTable = ({
       regionId: region.id,
     })
 
+    // Success will be shown by cart-context
     setIsAdding(false)
+
+    // Reset selections after successful add
+    setTimeout(() => {
+      setLineItemsMap(new Map())
+    }, 500)
   }
 
   return (

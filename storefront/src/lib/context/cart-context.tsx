@@ -167,6 +167,20 @@ export function CartProvider({
             quantity: lineItem.quantity,
           })),
           countryCode: countryCode as string,
+        }).then(() => {
+          // Success toast
+          const count = payload.lineItems.reduce((sum, item) => sum + item.quantity, 0)
+          const productName = payload.lineItems[0]?.productVariant?.product?.title
+
+          if (payload.lineItems.length === 1 && count === 1) {
+            toast.success(productName ? `${productName} adicionado ao carrinho` : "Produto adicionado ao carrinho", {
+              duration: 3000,
+            })
+          } else {
+            toast.success(`${count} ${count === 1 ? 'item adicionado' : 'itens adicionados'} ao carrinho`, {
+              duration: 3000,
+            })
+          }
         }).catch((e) => {
           if (e.message === "Cart is pending approval") {
             toast.error("Carrinho bloqueado para aprovação.")
