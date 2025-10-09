@@ -3,9 +3,7 @@ import {
     StoreGetCatalogKitsParams,
     StoreGetCatalogKitsParamsType,
 } from "../validators";
-
-// Module key for resolution
-const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
+import { getCatalogService } from "../_catalog-service";
 
 /**
  * GET /store/catalog/kits
@@ -15,7 +13,7 @@ export const GET = async (
     req: MedusaRequest<StoreGetCatalogKitsParamsType>,
     res: MedusaResponse
 ) => {
-    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
+    const catalogService = getCatalogService();
 
     const validatedQuery = StoreGetCatalogKitsParams.parse(req.query);
 

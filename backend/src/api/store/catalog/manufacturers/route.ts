@@ -1,17 +1,11 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import UnifiedCatalogModuleService from "../../../../modules/unified-catalog/service";
-
-// Temporary workaround: instantiate service directly
-let catalogServiceInstance: UnifiedCatalogModuleService | null = null;
+import { getCatalogService } from "../_catalog-service";
 
 export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    if (!catalogServiceInstance) {
-        catalogServiceInstance = new UnifiedCatalogModuleService({}, {});
-    }
-    const catalogService = catalogServiceInstance;
+    const catalogService = getCatalogService();
 
     try {
         const manufacturers = await catalogService.listManufacturers();

@@ -3,9 +3,7 @@ import {
     StoreGetCatalogSKUsParams,
     StoreGetCatalogSKUsParamsType,
 } from "../validators";
-
-// Module key for resolution
-const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
+import { getCatalogService } from "../_catalog-service";
 
 /**
  * GET /store/catalog/skus
@@ -15,7 +13,7 @@ export const GET = async (
     req: MedusaRequest<StoreGetCatalogSKUsParamsType>,
     res: MedusaResponse
 ) => {
-    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
+    const catalogService = getCatalogService();
 
     const validatedQuery = StoreGetCatalogSKUsParams.parse(req.query);
 
