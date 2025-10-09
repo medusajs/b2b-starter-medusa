@@ -1,5 +1,4 @@
 import { listCategoriesCompat } from "@/lib/data/catalog"
-import { listCollections } from "@/lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
@@ -7,10 +6,8 @@ import MedusaCTA from "@/modules/layout/components/medusa-cta"
 import YelloIcon from "@/modules/common/icons/yello-icon"
 
 export default async function Footer() {
-  const { collections } = await listCollections({
-    offset: "0",
-    limit: "6",
-  })
+  // Collections disabled - using catalog system only
+  const collections: any[] = []
   const product_categories = await listCategoriesCompat()
 
   return (
