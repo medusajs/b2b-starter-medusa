@@ -62,8 +62,10 @@ const buttonVariants = cva(
 
 export interface ButtonProps
     extends Omit<React.ComponentProps<typeof MedusaButton>, 'variant' | 'size'>,
-    VariantProps<typeof buttonVariants> {
+    Omit<VariantProps<typeof buttonVariants>, 'size'> {
     asChild?: boolean
+    // Accept both Medusa UI sizes (small, base, large, xlarge) and our sizes (sm, md, lg, xl, icon)
+    size?: 'small' | 'base' | 'large' | 'xlarge' | 'sm' | 'md' | 'lg' | 'xl' | 'icon'
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -75,10 +77,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     variant === 'danger' ? 'danger' :
                         'transparent'
 
+        // Map Medusa UI sizes (small, base, large, xlarge) to our sizes (sm, md, lg, xl)
+        const mappedSize =
+            size === 'small' ? 'sm' :
+                size === 'base' ? 'md' :
+                    size === 'large' ? 'lg' :
+                        size === 'xlarge' ? 'xl' :
+                            size
+
         return (
             <MedusaButton
                 variant={medusaVariant}
-                className={clx(buttonVariants({ variant, size, rounded }), className)}
+                className={clx(buttonVariants({ variant, size: mappedSize as any, rounded }), className)}
                 ref={ref}
                 {...props}
             />
