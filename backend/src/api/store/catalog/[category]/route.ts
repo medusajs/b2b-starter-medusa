@@ -1,6 +1,5 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { YSH_CATALOG_MODULE } from "../../../../modules/ysh-catalog";
-import YshCatalogModuleService from "../../../../modules/ysh-catalog/service";
+import { getCatalogService } from "../_catalog-service";
 
 function parsePriceBRL(price?: string): number | undefined {
   if (!price) return undefined
@@ -20,7 +19,11 @@ function ensureProcessedImages(p: any) {
 
 function normalizeProduct(category: string, raw: any) {
   const price_brl = raw.price_brl ?? parsePriceBRL(raw.price)
-  const distributor = raw.distributor || raw.centro_distribuicao || raw.manufacturer || undefined
+  // Extract manufacturer as string if it's an object
+  const manufacturerStr = typeof raw.manufacturer === 'object'
+    ? raw.manufacturer?.name
+    : raw.manufacturer;
+  const distributor = raw.distributor || raw.centro_distribuicao || manufacturerStr || undefined
   const potencia_kwp = raw.potencia_kwp ?? raw.kwp ?? undefined
   const processed_images = ensureProcessedImages(raw)
 
@@ -28,7 +31,7 @@ function normalizeProduct(category: string, raw: any) {
     id: raw.id || raw.sku,
     sku: raw.sku,
     name: raw.name || raw.model,
-    manufacturer: raw.manufacturer,
+    manufacturer: manufacturerStr,
     model: raw.model,
     category,
     price_brl,
@@ -58,54 +61,85 @@ function normalizeProduct(category: string, raw: any) {
 }
 
 export const GET = async (
-    req: MedusaRequest,
-    res: MedusaResponse
+  req: MedusaRequest,
+  res: MedusaResponse
 ) => {
-  const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
+  const catalogService = getCatalogService();
   const { category } = req.params;
 
   try {
-        const {
-            page = 1,
-            limit = 20,
-            manufacturer,
-            minPrice,
-            maxPrice,
-            availability,
-            sort
-        } = req.query;
+    const {
+      page = 1,
+      limit = 20,
+      manufacturer,
+      minPrice,
+      maxPrice,
+      sort
+    } = req.query;
 
-        const options = {
-            page: parseInt(page as string) || 1,
-            limit: parseInt(limit as string) || 20,
-            manufacturer: manufacturer as string,
-            minPrice: minPrice ? parseFloat(minPrice as string) : undefined,
-            maxPrice: maxPrice ? parseFloat(maxPrice as string) : undefined,
-            availability: availability as string,
-            sort: (sort as string) === 'price_asc' || (sort as string) === 'price_desc' ? (sort as any) : undefined,
-        };
+    const pageNum = parseInt(page as string) || 1;
+    const limitNum = parseInt(limit as string) || 20;
+    const offset = (pageNum - 1) * limitNum;
 
-        // Compute facets for the category (manufacturers) using full filtered set
-        const facetResult = await yshCatalogService.listProductsByCategory(category, {
-            page: 1,
-            limit: 100000,
-            manufacturer: options.manufacturer,
-            minPrice: options.minPrice,
-            maxPrice: options.maxPrice,
-            availability: options.availability,
-            // sort does not affect facets
-        })
-        const manufacturersSet = new Set<string>()
-        facetResult.products.forEach((p) => {
-            if (p.manufacturer) manufacturersSet.add(p.manufacturer)
-        })
-        const manufacturersFacet = Array.from(manufacturersSet).sort((a, b) => a.localeCompare(b))
+    // Determine if we're querying SKUs or Kits based on category
+    const isKitCategory = category === 'kits';
 
-        // Fetch paginated data for the response
-        const result = await yshCatalogService.listProductsByCategory(category, options);
-        res.json({ ...result, facets: { manufacturers: manufacturersFacet } });
+    const where: any = {};
+
+    if (!isKitCategory) {
+      // SKU category filter
+      where.category = category;
+      if (manufacturer) {
+        where.manufacturer_id = manufacturer;
+      }
+    } else {
+      // Kit category
+      if (manufacturer) {
+        where.manufacturer_id = manufacturer;
+      }
+    }
+
+    // Fetch data with unified catalog service
+    const [items, total] = isKitCategory
+      ? await catalogService.listAndCountKits({ where, skip: offset, take: limitNum })
+      : await catalogService.listAndCountSKUs({ where, skip: offset, take: limitNum });
+
+    // Get manufacturers for facets
+    const manufacturers = await catalogService.listManufacturers();
+
+    // Transform to match expected format - normalizeProduct extracts manufacturer string internally
+    const products = items.map((item: any) => {
+      const mfrName = item.manufacturer?.name || item.manufacturer || '';
+      const model = item.model_number || item.kit_code || '';
+      const defaultName = model ? `${mfrName} ${model}`.trim() : mfrName;
+
+      return normalizeProduct(category, {
+        id: item.id,
+        sku: item.sku_code || item.kit_code,
+        name: item.description || item.name || defaultName,
+        manufacturer: item.manufacturer, // normalizeProduct will extract string from object if needed
+        model: model,
+        category: item.category,
+        price_brl: item.lowest_price || item.kit_price,
+        price: (item.lowest_price || item.kit_price)?.toString(),
+        kwp: item.technical_specs?.power_kwp || item.system_capacity_kwp,
+        efficiency_pct: item.technical_specs?.efficiency,
+        image_url: null, // TODO: Add image support
+        source: 'unified_catalog',
+        offers_count: item.offers_count
+      });
+    }); res.json({
+      products,
+      total,
+      page: pageNum,
+      limit: limitNum,
+      facets: {
+        manufacturers: manufacturers.map(m => m.name)
+      }
+    });
   } catch (error) {
-    res.status(400).json({
+    console.error(`[Catalog] Error fetching category ${category}:`, error);
+    res.status(500).json({
       error: "Erro ao buscar produtos",
       message: error.message
     });

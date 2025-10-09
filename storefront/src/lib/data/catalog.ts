@@ -166,7 +166,11 @@ export async function listManufacturers(): Promise<string[]> {
             return []
         }
 
+        const headers = await getAuthHeaders()
+
         const res = await fetch(`${backend}/store/catalog/manufacturers`, {
+            credentials: "include",
+            headers,
             next: {
                 revalidate: 3600, // Cache for 1 hour
                 tags: ["manufacturers"],

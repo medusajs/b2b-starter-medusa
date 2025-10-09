@@ -2,13 +2,13 @@
 
 **Data**: 2025-01-09
 **Status**: ✅ **PRODUÇÃO-READY**
-**Backend URL**: http://localhost:9000
+**Backend URL**: <http://localhost:9000>
 
 ---
 
 ## 📊 Resumo Executivo
 
-O backend Medusa v2.4 está **totalmente funcional** com todos endpoints de catálogo operacionais e retornando dados corretos do PostgreSQL. 
+O backend Medusa v2.4 está **totalmente funcional** com todos endpoints de catálogo operacionais e retornando dados corretos do PostgreSQL.
 
 ### Endpoints Catalog Testados e Validados
 
@@ -26,14 +26,16 @@ O backend Medusa v2.4 está **totalmente funcional** com todos endpoints de cat�
 ## 🎯 Correções Aplicadas
 
 ### 1. **Métodos listAndCountSKUs e listAndCountKits**
+
 - **Problema**: Routes esperavam métodos que retornam tupla `[results[], count]`
 - **Solução**: Adicionados ao `unified-catalog/service.ts` (linhas 184-276, 416-483)
 - **Impacto**: Paginação correta + count total em responses
 
 ### 2. **Imports Relativos de Módulos**
+
 - **Problema**: Routes importavam `"../../../../modules/unified-catalog"` causando erro "Cannot find module"
 - **Solução**: Criado singleton helper `_catalog-service.ts` com `getCatalogService()`
-- **Arquivos corrigidos**: 
+- **Arquivos corrigidos**:
   - `manufacturers/route.ts`
   - `skus/route.ts`
   - `kits/route.ts`
@@ -41,6 +43,7 @@ O backend Medusa v2.4 está **totalmente funcional** com todos endpoints de cat�
   - `kits/[id]/route.ts`
 
 ### 3. **Validator Import Paths**
+
 - **Problema**: `kits/route.ts` e `skus/route.ts` importavam `./validators` (não existe)
 - **Solução**: Mudado para `../validators` (nível catalog root)
 - **Impacto**: Validação Zod funcionando para query params
@@ -50,9 +53,11 @@ O backend Medusa v2.4 está **totalmente funcional** com todos endpoints de cat�
 ## 🏗️ Workaround Temporário - Singleton Service
 
 ### Contexto
+
 O módulo `UNIFIED_CATALOG_MODULE` não estava sendo registrado corretamente no container Awilix do Medusa, gerando erro `AwilixResolutionError: Could not resolve 'unifiedCatalog'`.
 
 ### Solução Implementada
+
 Criado helper `backend/src/api/store/catalog/_catalog-service.ts`:
 
 ```typescript
@@ -69,12 +74,14 @@ export function getCatalogService(): UnifiedCatalogModuleService {
 ```
 
 **Benefícios**:
+
 - ✅ Service instanciado **uma única vez** (singleton)
 - ✅ Conexão PostgreSQL pool reaproveitada entre requests
 - ✅ Zero overhead de resolução DI
 - ✅ 100% funcional em produção
 
 **Próximos Passos** (não-bloqueante):
+
 - [ ] Investigar por que `medusa-config.ts` não registra o módulo
 - [ ] Migrar para registro via DI assim que identificada a causa raiz
 - [ ] Documentar pattern de módulos customizados no Medusa v2.4
@@ -93,6 +100,7 @@ export function getCatalogService(): UnifiedCatalogModuleService {
 | **kit** | 101 | Kits completos 0.6kWp a 100kWp |
 
 **Integridade**:
+
 - ✅ Foreign keys OK (manufacturer_id, sku_id)
 - ✅ Indexes criados (slug, category, tier)
 - ✅ JSONB fields populados (technical_specs, components)
@@ -102,11 +110,13 @@ export function getCatalogService(): UnifiedCatalogModuleService {
 ## 🔐 Autenticação
 
 ### Publishable Key Configurado
+
 ```
 pk_2786bc8945cacd335e0cd8fb17b19d2516ec4e29ed9a64ca583ebbe4bb9dc40d
 ```
 
 **Uso**:
+
 ```bash
 curl -H "x-publishable-api-key: pk_2786bc..." \
      http://localhost:9000/store/catalog/manufacturers
@@ -119,6 +129,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ## 🚀 Exemplos de Responses
 
 ### GET /store/catalog/manufacturers
+
 ```json
 {
   "manufacturers": [
@@ -136,6 +147,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ```
 
 ### GET /store/catalog/skus?category=panels&limit=2
+
 ```json
 {
   "skus": [
@@ -158,6 +170,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ```
 
 ### GET /store/catalog/kits?min_capacity_kwp=5&max_capacity_kwp=10
+
 ```json
 {
   "kits": [
@@ -184,6 +197,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ## ⚡ Performance Metrics
 
 ### Response Times (média de 10 requests)
+
 - **Manufacturers**: 42ms
 - **SKUs list**: 78ms
 - **Kits list**: 71ms
@@ -191,6 +205,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 - **Kit detail**: 63ms
 
 ### Database Queries
+
 - PostgreSQL pool: **20 conexões max**, **30s idle timeout**
 - Queries otimizadas com LEFT JOIN para manufacturers
 - Indexes em `slug`, `category`, `tier` reduzem scans
@@ -200,6 +215,7 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ## 🧪 Validação de Integração
 
 ### Checklist
+
 - [x] Backend inicia sem erros
 - [x] Todos 6 endpoints respondem 200 OK
 - [x] Publishable key valida requests
@@ -214,12 +230,14 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ## 📝 Próximas Ações
 
 ### Imediato
+
 1. ✅ Backend 100% funcional
 2. ⏳ Testar storefront → backend integration
 3. ⏳ Validar publishable key em banco de dados
 4. ⏳ Desabilitar fallback quando storefront confirmar sucesso
 
 ### Médio Prazo
+
 - Migrar search endpoint para UNIFIED_CATALOG
 - Migrar [category] e [category]/[id] routes
 - Resolver registro do módulo no container Awilix
@@ -230,16 +248,19 @@ curl -H "x-publishable-api-key: pk_2786bc..." \
 ## 🐛 Troubleshooting
 
 ### Backend não responde
+
 ```bash
 docker logs ysh-b2b-backend-dev --tail 50
 docker restart ysh-b2b-backend-dev
 ```
 
 ### Publishable key inválido
+
 Verificar em: Admin → Settings → Publishable API Keys
 Deve estar linkado a um sales channel ativo
 
 ### Queries lentas
+
 ```sql
 -- Verificar uso de indexes
 EXPLAIN ANALYZE SELECT * FROM sku WHERE category = 'panels';
