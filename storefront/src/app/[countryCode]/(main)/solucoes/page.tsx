@@ -31,6 +31,9 @@ export default async function SolutionsPage({
           <LocalizedClientLink
             href="/categories"
             className="inline-flex items-center justify-center rounded-md bg-ui-button-inverted px-6 py-3 text-base font-medium text-ui-fg-on-inverted hover:bg-ui-button-inverted-hover"
+          >
+            Explorar Categorias
+          </LocalizedClientLink>
         </div>
       </div>
     </div>

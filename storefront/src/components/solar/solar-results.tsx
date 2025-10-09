@@ -42,7 +42,7 @@ export function SolarResults({
         try {
             const msg = getHelioText('resultados_resumo', 'simulacao_pronta') || 'Simulação pronta.'
             toast.info(msg)
-        } catch {}
+        } catch { }
         // run once on mount
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -103,7 +103,8 @@ export function SolarResults({
                                 location: { estado: dados_localizacao.estado, hsp: dados_localizacao.hsp, tarifa_kwh: dados_localizacao.tarifa_kwh },
                                 finance: financeiro ? { capex_total_brl: financeiro.capex.total_brl, economy_month_brl: financeiro.economia.mensal_brl, payback_anos: financeiro.retorno.payback_simples_anos } : undefined,
                             }))}`}
-                            className="ysh-btn-secondary"\n                            onClick={() => sendEvent('cta_download_pdf_clicked', { from: 'solar_results' })}
+                            className="ysh-btn-secondary"
+                            onClick={() => sendEvent('cta_download_pdf_clicked', { from: 'solar_results' })}
                         >
                             Baixar PDF
                         </LocalizedClientLink>
