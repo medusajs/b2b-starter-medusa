@@ -25,7 +25,8 @@
 
 ### Catálogo & E-commerce
 
-- [`UNIFIED_CATALOG_STRATEGY.md`](docs/implementation/UNIFIED_CATALOG_STRATEGY.md) - Estratégia completa de catálogo unificado com SKUs únicos e precificação multi-distribuidor
+- **[UNIFIED_CATALOG_EXECUTIVE_SUMMARY.md](./docs/implementation/UNIFIED_CATALOG_EXECUTIVE_SUMMARY.md)**: Sumário executivo da estratégia de catálogo unificado com métricas, benefícios e quick start guide.
+- **[UNIFIED_CATALOG_STRATEGY.md](./docs/implementation/UNIFIED_CATALOG_STRATEGY.md)**: Estratégia de unificação do catálogo com deduplicação de produtos, sistema de precificação multi-distribuidor e normalização de kits solares. Inclui algoritmos, schemas de dados, workflows e roadmap de implementação.
 
 ---
 

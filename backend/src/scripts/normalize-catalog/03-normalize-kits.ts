@@ -211,9 +211,9 @@ function determineKitCategory(kit: KitInput): "grid-tie" | "off-grid" | "hybrid"
  * Gera ID único para kit normalizado
  */
 function generateKitId(kit: KitInput): string {
-    const capacity = kit.potencia_kwp.toFixed(1).replace(".", "_");
-    const panelMfg = kit.panels[0]?.brand || "UNKNOWN";
-    const inverterMfg = kit.inverters[0]?.brand || "UNKNOWN";
+    const capacity = (kit.potencia_kwp || 0).toFixed(1).replace(".", "_");
+    const panelMfg = kit.panels?.[0]?.brand || "UNKNOWN";
+    const inverterMfg = kit.inverters?.[0]?.brand || "UNKNOWN";
 
     const panelSlug = normalizeManufacturerName(panelMfg)
         .substring(0, 10)
@@ -385,9 +385,9 @@ async function normalizeKits() {
             // Criar novo kit normalizado
             const normalizedKit: KitNormalized = {
                 id: kitId,
-                name: `Kit ${kitRaw.potencia_kwp.toFixed(1)}kWp - ${components[0]?.manufacturer || "Solar"}`,
+                name: `Kit ${(kitRaw.potencia_kwp || 0).toFixed(1)}kWp - ${components[0]?.manufacturer || "Solar"}`,
                 category,
-                system_capacity_kwp: kitRaw.potencia_kwp,
+                system_capacity_kwp: kitRaw.potencia_kwp || 0,
                 components,
                 pricing: {
                     total_components_price: totalComponentsPrice,

@@ -1,0 +1,259 @@
+{
+  "timestamp": "2025-10-09T17:57:22.267Z",
+  "summary": {
+    "total_skus": 511,
+    "skus_with_multiple_offers": 103,
+    "avg_offers_per_sku": 1.42,
+    "avg_price_variation_pct": 17.78
+  },
+  "distributors": [
+    {
+      "distributor": "UNKNOWN",
+      "total_products": 146,
+      "avg_price_competitiveness": 0.23460482075995642,
+      "times_cheapest": 88,
+      "times_most_expensive": 92,
+      "price_position_score": 100,
+      "categories_covered": [
+        "panels",
+        "inverters"
+      ]
+    },
+    {
+      "distributor": "ODEX",
+      "total_products": 9,
+      "avg_price_competitiveness": 2.4671622769447922e-17,
+      "times_cheapest": 6,
+      "times_most_expensive": 6,
+      "price_position_score": 100,
+      "categories_covered": [
+        "panels"
+      ]
+    },
+    {
+      "distributor": "Solfácil",
+      "total_products": 63,
+      "avg_price_competitiveness": 4.511382449270477e-16,
+      "times_cheapest": 33,
+      "times_most_expensive": 35,
+      "price_position_score": 100,
+      "categories_covered": [
+        "inverters",
+        "cables"
+      ]
+    },
+    {
+      "distributor": "Solfacil",
+      "total_products": 2,
+      "avg_price_competitiveness": 0,
+      "times_cheapest": 1,
+      "times_most_expensive": 1,
+      "price_position_score": 100,
+      "categories_covered": [
+        "panels"
+      ]
+    },
+    {
+      "distributor": "YSH",
+      "total_products": 79,
+      "avg_price_competitiveness": -0.4335734662146021,
+      "times_cheapest": 49,
+      "times_most_expensive": 43,
+      "price_position_score": 100,
+      "categories_covered": [
+        "inverters"
+      ]
+    },
+    {
+      "distributor": "FOTUS",
+      "total_products": 0,
+      "avg_price_competitiveness": 0,
+      "times_cheapest": 0,
+      "times_most_expensive": 0,
+      "price_position_score": 100,
+      "categories_covered": []
+    },
+    {
+      "distributor": "Neosolar",
+      "total_products": 1,
+      "avg_price_competitiveness": 0,
+      "times_cheapest": 1,
+      "times_most_expensive": 1,
+      "price_position_score": 100,
+      "categories_covered": [
+        "inverters"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "category": "accessories",
+      "total_skus": 13,
+      "avg_price": 21579.25,
+      "median_price": 566,
+      "price_range": {
+        "min": 7.48,
+        "max": 91178
+      },
+      "price_std_deviation": 36888.25,
+      "most_competitive_distributor": "UNKNOWN"
+    },
+    {
+      "category": "posts",
+      "total_skus": 6,
+      "avg_price": 12432.17,
+      "median_price": 12485,
+      "price_range": {
+        "min": 7901,
+        "max": 17148
+      },
+      "price_std_deviation": 4041.03,
+      "most_competitive_distributor": "UNKNOWN"
+    },
+    {
+      "category": "inverters",
+      "total_skus": 296,
+      "avg_price": 8860.26,
+      "median_price": 3699,
+      "price_range": {
+        "min": 16,
+        "max": 86184.83
+      },
+      "price_std_deviation": 12741.27,
+      "most_competitive_distributor": "YSH"
+    },
+    {
+      "category": "controllers",
+      "total_skus": 38,
+      "avg_price": 7897.66,
+      "median_price": 2055,
+      "price_range": {
+        "min": 19,
+        "max": 74537
+      },
+      "price_std_deviation": 18393.86,
+      "most_competitive_distributor": "YSH"
+    },
+    {
+      "category": "batteries",
+      "total_skus": 9,
+      "avg_price": 6276.49,
+      "median_price": 6255.94,
+      "price_range": {
+        "min": 5322.94,
+        "max": 7323.74
+      },
+      "price_std_deviation": 697.52,
+      "most_competitive_distributor": "UNKNOWN"
+    },
+    {
+      "category": "ev_chargers",
+      "total_skus": 77,
+      "avg_price": 5773.72,
+      "median_price": 2704.73,
+      "price_range": {
+        "min": 40,
+        "max": 28864
+      },
+      "price_std_deviation": 7332.27,
+      "most_competitive_distributor": "YSH"
+    },
+    {
+      "category": "stringboxes",
+      "total_skus": 8,
+      "avg_price": 1098.63,
+      "median_price": 1022.5,
+      "price_range": {
+        "min": 798,
+        "max": 1681
+      },
+      "price_std_deviation": 284.2,
+      "most_competitive_distributor": "ODEX"
+    },
+    {
+      "category": "structures",
+      "total_skus": 21,
+      "avg_price": 838.25,
+      "median_price": 165,
+      "price_range": {
+        "min": 68.52,
+        "max": 4250
+      },
+      "price_std_deviation": 1157.28,
+      "most_competitive_distributor": "ODEX"
+    },
+    {
+      "category": "cables",
+      "total_skus": 29,
+      "avg_price": 644.71,
+      "median_price": 564,
+      "price_range": {
+        "min": 6,
+        "max": 2101.79
+      },
+      "price_std_deviation": 590.85,
+      "most_competitive_distributor": "YSH"
+    },
+    {
+      "category": "panels",
+      "total_skus": 14,
+      "avg_price": 447.5,
+      "median_price": 509,
+      "price_range": {
+        "min": 94.5,
+        "max": 519
+      },
+      "price_std_deviation": 144.51,
+      "most_competitive_distributor": "UNKNOWN"
+    }
+  ],
+  "competitive_insights": [
+    {
+      "type": "opportunity",
+      "severity": "high",
+      "message": "10 SKUs com variação de preço >20% entre distribuidores",
+      "affected_skus": [
+        "SOLFACIL-CAB-0MM2-2V",
+        "K2SYSTEMS-INV-K2-2V",
+        "K2SYSTEMS-INV-ESTRUTURAK2SYSTEMS-2V",
+        "HUAWEI-INV-SUN2000-2000V",
+        "EPEVER-INV-IP300022-220V-3000W",
+        "EPEVER-INV-IP300042-220V-3W",
+        "DEYE-INV-SUN5K-240V-5000W",
+        "GROWATT-INV-GROWATTMID50KTL3X-50V",
+        "EPEVER-INV-IP300041-127V-3000W",
+        "EPEVER-INV-IP400041-110V-4000W"
+      ],
+      "data": {
+        "avg_variation": "834.6%",
+        "potential_savings": "Compradores podem economizar significativamente escolhendo melhor distribuidor"
+      }
+    },
+    {
+      "type": "trend",
+      "severity": "medium",
+      "message": "UNKNOWN é o mais competitivo, sendo o mais barato em 88 produtos",
+      "data": {
+        "price_position_score": 100,
+        "avg_competitiveness": "0.23%"
+      }
+    },
+    {
+      "type": "opportunity",
+      "severity": "low",
+      "message": "408 SKUs disponíveis em apenas 1 distribuidor (oportunidade de expansão)",
+      "data": {
+        "percentage": "79.8%"
+      }
+    }
+  ],
+  "recommendations": [
+    "✅ Priorizar UNKNOWN para compras gerais (score: 100/100)",
+    "📦 accessories: Melhor preço com UNKNOWN (média: R$ 21.579,25)",
+    "📦 posts: Melhor preço com UNKNOWN (média: R$ 12.432,17)",
+    "📦 inverters: Melhor preço com YSH (média: R$ 8.860,26)",
+    "💡 Implementar comparador de preços para 10 produtos com alta variação",
+    "🔍 Buscar distribuidores alternativos para aumentar competitividade em produtos de oferta única",
+    "⚠️  Apenas 20% dos SKUs têm múltiplas ofertas - expandir base de distribuidores"
+  ]
+}
