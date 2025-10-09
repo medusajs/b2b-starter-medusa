@@ -150,6 +150,7 @@ ysh-store/
 ```
 
 **Problemas**:
+
 - ❌ Root poluído com 70+ arquivos
 - ❌ Difícil encontrar documentação específica
 - ❌ Scripts misturados sem organização
@@ -166,6 +167,7 @@ ysh-store/
 ```
 
 **Benefícios**:
+
 - ✅ Root limpo e profissional
 - ✅ Docs categorizadas logicamente
 - ✅ Scripts organizados por função
@@ -310,4 +312,4 @@ A reorganização transformou um projeto com root poluído em uma estrutura prof
 
 **Reorganização realizada**: 09/10/2025  
 **Por**: Fernando Junio  
-**Email**: fernando@yellosolarhub.com
+**Email**: <fernando@yellosolarhub.com>

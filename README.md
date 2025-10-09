@@ -12,7 +12,7 @@
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
   </a>
-    
+
   <a href="https://discord.gg/xpCwq3Kfn8">
     <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
   </a>
@@ -62,6 +62,7 @@
 &nbsp;
 
 ## Overview
+
 For a full feature overview, please visit [the project wiki](https://github.com/medusajs/b2b-starter-medusa/wiki).
 
 #### Core features
@@ -176,9 +177,10 @@ docker-compose exec backend yarn medusa user -e admin@test.com -p supersecret -i
 ```
 
 Acesse:
-- Backend: http://localhost:9000
-- Admin: http://localhost:9000/app
-- Storefront: http://localhost:8000
+
+- Backend: <http://localhost:9000>
+- Admin: <http://localhost:9000/app>
+- Storefront: <http://localhost:8000>
 
 ### Opção 2: Setup Manual
 
@@ -310,6 +312,7 @@ npx medusa db:migrate
 ```
 
 > **Nota**: Se estiver atualizando de uma versão sem o módulo Approval, execute:
+>
 > ```bash
 > npx medusa exec src/scripts/create-approval-settings.ts
 > ```
