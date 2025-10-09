@@ -256,7 +256,7 @@ export async function getCategoryInfo(category: string): Promise<CategoryInfo> {
 }
 
 /**
- * Get all available categories
+ * List all available catalog categories as strings
  * 
  * @returns Array of category slugs
  * 
@@ -268,4 +268,24 @@ export async function getCategoryInfo(category: string): Promise<CategoryInfo> {
  */
 export async function listCategories(): Promise<string[]> {
     return ['kits', 'panels', 'inverters', 'batteries', 'structures', 'accessories']
+}
+
+/**
+ * List all available catalog categories compatible with Medusa UI components
+ * Returns minimal category objects with id, handle, name
+ * 
+ * @returns Array of category objects compatible with HttpTypes.StoreProductCategory
+ */
+export async function listCategoriesCompat(): Promise<any[]> {
+    const categoryMap: Record<string, { id: string; handle: string; name: string }> = {
+        'kits': { id: 'cat_kits', handle: 'kits', name: 'Kits Completos' },
+        'panels': { id: 'cat_panels', handle: 'panels', name: 'Painéis Solares' },
+        'inverters': { id: 'cat_inverters', handle: 'inverters', name: 'Inversores' },
+        'batteries': { id: 'cat_batteries', handle: 'batteries', name: 'Baterias' },
+        'structures': { id: 'cat_structures', handle: 'structures', name: 'Estruturas' },
+        'accessories': { id: 'cat_accessories', handle: 'accessories', name: 'Acessórios' },
+    }
+
+    const slugs = await listCategories()
+    return slugs.map(slug => categoryMap[slug] || { id: `cat_${slug}`, handle: slug, name: slug })
 }

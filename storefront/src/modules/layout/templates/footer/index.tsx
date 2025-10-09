@@ -1,4 +1,4 @@
-import { listCategories } from "@/lib/data/categories"
+import { listCategoriesCompat } from "@/lib/data/catalog"
 import { listCollections } from "@/lib/data/collections"
 import { Text, clx } from "@medusajs/ui"
 
@@ -11,10 +11,7 @@ export default async function Footer() {
     offset: "0",
     limit: "6",
   })
-  const product_categories = await listCategories({
-    offset: 0,
-    limit: 6,
-  })
+  const product_categories = await listCategoriesCompat()
 
   return (
     <footer className="border-t border-ui-border-base w-full">
