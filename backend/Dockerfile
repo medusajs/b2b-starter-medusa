@@ -21,7 +21,7 @@ COPY .npmrc* ./
 
 # Cache bust para otimização de build
 RUN --mount=type=cache,target=/root/.npm \
-      npm ci --only=production --no-audit --no-fund && \
+      npm ci --only=production --no-audit --no-fund --legacy-peer-deps && \
       npm cache clean --force
 
 # Stage 3: Build stage
@@ -31,7 +31,7 @@ COPY .npmrc* ./
 
 # Install all dependencies including devDependencies
 RUN --mount=type=cache,target=/root/.npm \
-      npm ci --no-audit --no-fund
+      npm ci --no-audit --no-fund --legacy-peer-deps
 
 COPY . .
 
