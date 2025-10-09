@@ -1,5 +1,4 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk";
-import { BroomSparkle } from "@medusajs/icons";
 import { Button, Container, Heading } from "@medusajs/ui";
 import { useState } from "react";
 
@@ -42,7 +41,7 @@ const CustomPage = () => {
     <Container className="flex flex-col p-0 overflow-hidden">
       <div className="p-6 flex flex-col gap-2 justify-between">
         <Heading className="font-sans font-medium h1-core">
-          Reset demo data
+          Truncate database
         </Heading>
 
         <p>This will delete all orders and reset all inventory levels</p>
@@ -51,7 +50,7 @@ const CustomPage = () => {
           onClick={handleClearDatabase}
           isLoading={isLoading}
         >
-          {isLoading ? "Processing..." : "Reset demo data"}
+          {isLoading ? "Processing..." : "Truncate database"}
         </Button>
       </div>
     </Container>
@@ -59,8 +58,7 @@ const CustomPage = () => {
 };
 
 export const config = defineRouteConfig({
-  label: "Reset demo data",
-  icon: BroomSparkle,
+  label: "Clean up",
 });
 
 export default CustomPage;

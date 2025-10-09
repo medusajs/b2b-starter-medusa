@@ -299,6 +299,19 @@ export const seedDatabaseStep = createStep(
       },
     });
 
+    await linkSalesChannelsToStockLocationWorkflow(container).run({
+      input: {
+        id: stockLocationEU.id,
+        add: [defaultSalesChannel[0].id],
+      },
+    });
+    await linkSalesChannelsToStockLocationWorkflow(container).run({
+      input: {
+        id: stockLocationUK.id,
+        add: [defaultSalesChannel[0].id],
+      },
+    });
+
     await createShippingOptionsWorkflow(container).run({
       input: [
         {
@@ -425,18 +438,7 @@ export const seedDatabaseStep = createStep(
     });
     logger.info("Finished seeding fulfillment data.");
 
-    await linkSalesChannelsToStockLocationWorkflow(container).run({
-      input: {
-        id: stockLocationEU.id,
-        add: [defaultSalesChannel[0].id],
-      },
-    });
-    await linkSalesChannelsToStockLocationWorkflow(container).run({
-      input: {
-        id: stockLocationUK.id,
-        add: [defaultSalesChannel[0].id],
-      },
-    });
+    
     logger.info("Finished seeding stock location data.");
 
     logger.info("Seeding publishable API key data...");
