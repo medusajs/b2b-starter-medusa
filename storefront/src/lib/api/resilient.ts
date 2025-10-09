@@ -175,9 +175,18 @@ async function resilientFetch<T>(
     try {
         const data = await apiCircuitBreaker.execute(async () => {
             const fetchFn = async () => {
+                const headers: HeadersInit = {
+                    'Content-Type': 'application/json',
+                }
+
+                // Add publishable key header for Medusa v2
+                if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+                    headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+                }
+
                 const response = await fetchWithTimeout(
                     `${BACKEND_URL}${endpoint}`,
-                    { cache },
+                    { cache, headers },
                     timeout
                 )
 

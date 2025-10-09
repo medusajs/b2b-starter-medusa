@@ -40,11 +40,15 @@ const RefinementList = ({
 
   const setQueryParams = (name: string, value: string) => {
     const query = createQueryString(name, value)
-    router.push(`${pathname}?${query}`)
+    // Avoid polluting history when changing sort/search filters
+    router.replace(`${pathname}?${query}`)
   }
 
   return (
-    <div className="flex flex-col divide-neutral-200 small:w-1/5 w-full gap-3">
+    <div
+      className="flex flex-col divide-neutral-200 small:w-1/5 w-full gap-3"
+      aria-label="Filtros e ordenação"
+    >
       <Container className="flex flex-col divide-y divide-neutral-200 p-0 w-full">
         <SearchInResults listName={listName} />
         <SortProducts

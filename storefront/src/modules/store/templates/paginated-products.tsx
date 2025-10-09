@@ -71,15 +71,21 @@ export default async function PaginatedProducts({
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 
   return (
-    <>
+    <section aria-label="Lista de produtos">
+      <div className="flex items-center justify-between mb-2 text-sm text-neutral-600">
+        <span aria-live="polite">
+          {count} {count === 1 ? "resultado" : "resultados"}
+        </span>
+      </div>
       <ul
         className="grid grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-3"
         data-testid="products-list"
+        role="list"
       >
         {products.length > 0 ? (
           products.map((p) => {
             return (
-              <li key={p.id}>
+              <li key={p.id} role="listitem">
                 <ProductPreview product={p} region={region} />
               </li>
             )
@@ -97,6 +103,6 @@ export default async function PaginatedProducts({
           totalPages={totalPages}
         />
       )}
-    </>
+    </section>
   )
 }

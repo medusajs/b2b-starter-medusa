@@ -40,7 +40,7 @@ const IMAGE_MAP_PATH = process.env.IMAGE_MAP_PATH ||
   path.join(process.cwd(), '../../../ysh-erp/data/catalog/images/IMAGE_MAP.json')
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || 'http://localhost:9000'
-const HEALTH_CHECK_ENDPOINT = '/health'
+const HEALTH_CHECK_ENDPOINT = '/store/health'
 const HEALTH_CHECK_TIMEOUT = 5000
 const HEALTH_CHECK_INTERVAL = 30000
 const MAX_ERROR_COUNT = 3

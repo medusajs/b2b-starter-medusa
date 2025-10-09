@@ -47,7 +47,8 @@ export default async function CategoriesLandingPage({
                         <Link
                             key={slug}
                             href={`/${countryCode}/categories/${slug}`}
-                            className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-200"
+                            aria-label={`Abrir categoria ${info.title}`}
+                            className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                         >
                             <div className="flex items-start gap-4">
                                 {/* Icon placeholder - you can add actual icons here */}
@@ -79,7 +80,7 @@ export default async function CategoriesLandingPage({
                                 </div>
 
                                 {/* Arrow indicator */}
-                                <div className="flex-shrink-0 text-gray-400 group-hover:text-yellow-600 group-hover:translate-x-1 transition-all">
+                                <div className="flex-shrink-0 text-gray-400 group-hover:text-yellow-600 group-hover:translate-x-1 transition-all" aria-hidden>
                                     <svg
                                         className="w-5 h-5"
                                         fill="none"
