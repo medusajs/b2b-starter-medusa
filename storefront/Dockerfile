@@ -67,7 +67,10 @@ RUN addgroup --system --gid 1001 nextjs && \
 COPY --from=deps --chown=nextjs:nextjs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nextjs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nextjs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nextjs /app/public ./public
+
+# Copiar pasta public (Next.js standalone precisa dela copiada explicitamente)
+COPY --from=builder /app/public ./public
+RUN chown -R nextjs:nextjs ./public
 
 # Configurações de runtime
 USER nextjs
