@@ -16,22 +16,32 @@ ENV NPM_CONFIG_PROGRESS=false
 
 # Stage 2: Dependency installer
 FROM base AS deps
+
+# Adicionar dependências necessárias para @swc/core no Alpine
+RUN apk add --no-cache python3 make g++
+
 COPY package*.json ./
 COPY .npmrc* ./
 
 # Cache bust para otimização de build
 RUN --mount=type=cache,target=/root/.npm \
       npm ci --only=production --no-audit --no-fund --legacy-peer-deps && \
+      npm install --force @rollup/rollup-linux-x64-musl @swc/core-linux-x64-musl || true && \
       npm cache clean --force
 
 # Stage 3: Build stage
 FROM base AS builder
+
+# Adicionar dependências necessárias para build
+RUN apk add --no-cache python3 make g++
+
 COPY package*.json ./
 COPY .npmrc* ./
 
 # Install all dependencies including devDependencies
 RUN --mount=type=cache,target=/root/.npm \
-      npm ci --no-audit --no-fund --legacy-peer-deps
+      npm ci --no-audit --no-fund --legacy-peer-deps && \
+      npm install --force @rollup/rollup-linux-x64-musl @swc/core-linux-x64-musl || true
 
 COPY . .
 
