@@ -7,7 +7,8 @@
 ## 📊 Visão Geral da Reorganização
 
 ### Antes da Reorganização
-```
+
+```tsx
 storefront/
 ├── 109 arquivos no root
 ├── Documentação misturada com código
@@ -16,7 +17,8 @@ storefront/
 ```
 
 ### Depois da Reorganização
-```
+
+```tsx
 storefront/
 ├── 2 arquivos de documentação no root (README.md, AGENTS.md)
 ├── docs/ - 74 documentos organizados em 5 categorias
@@ -33,8 +35,10 @@ storefront/
 ### 📁 `docs/` - Documentação Organizada
 
 #### `docs/analysis/` (15 documentos)
+
 Análises técnicas, arquiteturais e de UX:
-```
+
+```tsx
 docs/analysis/
 ├── API_ARCHITECTURE_EVALUATION.md
 ├── COMPONENT_CONSISTENCY_ANALYSIS.md
@@ -56,8 +60,10 @@ docs/analysis/
 **Quando usar**: Estudar arquitetura, identificar problemas, entender decisões técnicas
 
 #### `docs/implementation/` (32 documentos)
+
 Relatórios de features implementadas e fases de desenvolvimento:
-```
+
+```tsx
 docs/implementation/
 ├── Recursos Core
 │   ├── BUTTON_CONSOLIDATION_COMPLETE.md
@@ -102,8 +108,10 @@ docs/implementation/
 **Quando usar**: Entender o que foi implementado, histórico de desenvolvimento, decisões de features
 
 #### `docs/guides/` (11 documentos)
+
 Guias práticos e instruções de desenvolvimento:
-```
+
+```tsx
 docs/guides/
 ├── Desenvolvimento
 │   ├── GUIA_SISTEMA_SKU_AVANCADO.md
@@ -128,8 +136,10 @@ docs/guides/
 **Quando usar**: Implementar novas features, seguir padrões, configurar ambiente
 
 #### `docs/status/` (12 documentos)
+
 Relatórios de status, progresso e inventários:
-```
+
+```tsx
 docs/status/
 ├── Status Atual
 │   ├── STATUS_EXECUTIVO.md
@@ -155,8 +165,10 @@ docs/status/
 **Quando usar**: Verificar progresso, planejar próximos passos, reportar status
 
 #### `docs/testing/` (4 documentos)
+
 Documentação de testes e cobertura:
-```
+
+```tsx
 docs/testing/
 ├── TEST_INSTRUCTIONS.md
 ├── TESTING_FLOW.md
@@ -171,7 +183,8 @@ docs/testing/
 ### 📁 `scripts/` - Scripts Organizados
 
 Scripts de desenvolvimento separados do código-fonte:
-```
+
+```tsx
 scripts/
 ├── dev/         # Scripts de desenvolvimento
 ├── docker/      # Scripts Docker
@@ -183,7 +196,8 @@ scripts/
 ### 📁 `.archive/` - Arquivos Históricos
 
 Exemplos e arquivos de referência histórica:
-```
+
+```tsx
 .archive/
 ├── EXAMPLE_ENRICHED_CATEGORY_PAGE.tsx
 └── EXAMPLE_RESILIENT_PRODUCTS_PAGE.tsx
@@ -194,11 +208,13 @@ Exemplos e arquivos de referência histórica:
 ## 📋 Arquivos que Permaneceram no Root
 
 ### Documentação Essencial
+
 - **`README.md`** - Documentação principal do storefront
 - **`AGENTS.md`** - Instruções para agentes de IA (GitHub Copilot)
 - **`DOCUMENTATION_INDEX.md`** - Este índice de navegação
 
 ### Configuração
+
 - **`package.json`** - Dependências e scripts
 - **`next.config.js`** - Configuração do Next.js
 - **`tailwind.config.js`** - Configuração do Tailwind
@@ -211,16 +227,19 @@ Exemplos e arquivos de referência histórica:
 - **`.prettierrc`** - Configuração do Prettier
 
 ### Docker
+
 - **`Dockerfile`** - Container de produção
 - **`Dockerfile.dev`** - Container de desenvolvimento
 - **`Containerfile.dev`** - Container alternativo
 - **`.dockerignore`** - Exclusões do Docker build
 
 ### Environment
+
 - **`.env`**, **`.env.local`**, **`.env.template`**, **`.env.local.example`**
 - **`check-env-variables.js`** - Validador de variáveis
 
 ### Outros
+
 - **`.yarnrc.yml`** - Configuração do Yarn
 - **`.gitignore`** - Exclusões do Git
 - **`LICENSE`** - Licença do projeto
@@ -231,21 +250,25 @@ Exemplos e arquivos de referência histórica:
 ## 🎯 Benefícios da Reorganização
 
 ### 1. **Navegação Melhorada** (60% mais rápido)
+
 - Documentos categorizados por propósito
 - Estrutura hierárquica clara
 - Índice centralizado para acesso rápido
 
 ### 2. **Manutenibilidade** (75% mais fácil)
+
 - Separação clara entre código e documentação
 - Fácil localização de informações
 - Redução de conflitos em pull requests
 
 ### 3. **Onboarding de Desenvolvedores** (50% mais rápido)
+
 - Guias organizados por categoria
 - Documentação progressiva (análise → implementação → status)
 - Exemplos e referências isolados
 
 ### 4. **Organização do Workspace** (98% redução no root)
+
 - Root limpo e profissional
 - Menos poluição visual no editor
 - Foco nos arquivos essenciais
@@ -280,18 +303,21 @@ Exemplos e arquivos de referência histórica:
 ## 📊 Estatísticas da Reorganização
 
 ### Antes
+
 - **Root**: 109 arquivos (72 documentos .md)
 - **Documentos organizados**: 0
 - **Categorias**: Nenhuma
 - **Tempo médio para encontrar doc**: ~5 minutos
 
 ### Depois
+
 - **Root**: ~35 arquivos (2 documentos .md)
 - **Documentos organizados**: 74 (em 5 categorias)
 - **Categorias bem definidas**: 5
 - **Tempo médio para encontrar doc**: ~30 segundos
 
 ### Melhorias
+
 - ✅ **-98% arquivos .md no root** (72 → 2)
 - ✅ **+100% categorização** (0 → 5 categorias)
 - ✅ **-90% tempo de busca** (5min → 30s)
@@ -344,6 +370,7 @@ Exemplos e arquivos de referência histórica:
 ### Atualização do Índice
 
 Ao adicionar novos documentos:
+
 1. Adicione o link em `DOCUMENTATION_INDEX.md`
 2. Mantenha ordem alfabética na seção apropriada
 3. Inclua descrição breve do conteúdo
@@ -362,6 +389,7 @@ Ao adicionar novos documentos:
 ## ✅ Checklist de Verificação
 
 Após reorganização:
+
 - [x] Todos os documentos categorizados
 - [x] Índice criado e atualizado
 - [x] Root limpo (apenas configs e README)
