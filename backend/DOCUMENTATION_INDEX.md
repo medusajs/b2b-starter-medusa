@@ -23,6 +23,10 @@
 - [`SOLAR_CALCULATOR_IMPLEMENTATION.md`](docs/implementation/SOLAR_CALCULATOR_IMPLEMENTATION.md) - Calculadora solar com PVLib
 - [`SOLAR_VIABILITY_IMPLEMENTATION.md`](docs/implementation/SOLAR_VIABILITY_IMPLEMENTATION.md) - Análise de viabilidade técnica solar
 
+### Catálogo & E-commerce
+
+- [`UNIFIED_CATALOG_STRATEGY.md`](docs/implementation/UNIFIED_CATALOG_STRATEGY.md) - Estratégia completa de catálogo unificado com SKUs únicos e precificação multi-distribuidor
+
 ---
 
 ## 🗄️ Database & Migrações
@@ -218,7 +222,9 @@ backend/
 │   ├── jobs/             # Jobs agendados
 │   ├── subscribers/      # Event subscribers
 │   ├── admin/            # Customizações Admin UI
-│   └── scripts/          # Scripts utilitários
+│   └── scripts/
+│       ├── normalize-catalog/  # Scripts de normalização de catálogo (SKUs únicos)
+│       └── seed.ts             # Seeding de dados iniciais
 ├── database/
 │   └── migrations/       # Migrações SQL
 ├── integration-tests/
@@ -234,11 +240,11 @@ backend/
 
 ## 📊 Estatísticas
 
-- **Total de documentação**: 8 documentos principais
-- **Implementações**: 3 documentos
+- **Total de documentação**: 9 documentos principais
+- **Implementações**: 4 documentos (+ Catálogo Unificado)
 - **Database**: 4 documentos
 - **Integração**: 1 documento
-- **READMEs de código**: 9 arquivos (módulos, APIs, workflows, etc.)
+- **READMEs de código**: 10 arquivos (módulos, APIs, workflows, normalize-catalog, etc.)
 
 ---
 
