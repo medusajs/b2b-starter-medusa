@@ -49,20 +49,20 @@ const config = {
         productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME!,
       },
     },
-    {
-      resolve: "@medusajs/medusa/fulfillment",
-      providers: [
-        {
-          resolve: "./modules/despatch-lab",
-          id: "despatch-lab",
-          options: {
-            apiUrl: process.env.DESPATCH_LAB_API_URL,
-            key: process.env.DESPATCH_LAB_KEY,
-            secret: process.env.DESPATCH_LAB_SECRET,
-          },
-        },
-      ],
-    },
+    // {
+    //   resolve: "@medusajs/medusa/fulfillment",
+    //   providers: [
+    //     {
+    //       resolve: "./modules/despatch-lab",
+    //       id: "despatch-lab",
+    //       options: {
+    //         apiUrl: process.env.DESPATCH_LAB_API_URL,
+    //         key: process.env.DESPATCH_LAB_KEY,
+    //         secret: process.env.DESPATCH_LAB_SECRET,
+    //       },
+    //     },
+    //   ],
+    // },
     {
       resolve: "@medusajs/medusa/notification",
       options: {
