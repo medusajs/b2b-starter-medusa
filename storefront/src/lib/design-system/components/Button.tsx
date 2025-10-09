@@ -69,11 +69,11 @@ export interface ButtonProps
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
         // Map custom variants to Medusa variants for compatibility
-        const medusaVariant = 
+        const medusaVariant =
             variant === 'primary' ? 'primary' :
-            variant === 'secondary' ? 'secondary' :
-            variant === 'danger' ? 'danger' :
-            'transparent'
+                variant === 'secondary' ? 'secondary' :
+                    variant === 'danger' ? 'danger' :
+                        'transparent'
 
         return (
             <MedusaButton

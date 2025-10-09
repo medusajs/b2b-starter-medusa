@@ -1,37 +1,13 @@
 /**
- * Button Component (Simplified for Catalog)
- * Using Medusa UI Button as base
+ * Button Component - RE-EXPORT
+ * This file now re-exports from the unified design system
+ * 
+ * DEPRECATED: Import directly from '@/lib/design-system/components/Button'
+ * This file maintained for backward compatibility during migration
  */
 
-import React from 'react'
-import { Button as MedusaButton } from '@medusajs/ui'
+import { Button as DesignSystemButton, type ButtonProps as DesignSystemButtonProps } from '@/lib/design-system/components/Button'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    children: React.ReactNode
-    variant?: 'default' | 'outline' | 'secondary' | 'ghost' | 'danger'
-    size?: 'small' | 'base' | 'large'
-    isLoading?: boolean
-}
-
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ children, variant = 'default', size = 'base', isLoading = false, ...props }, ref) => {
-        // Map our variants to Medusa variants
-        const medusaVariant = variant === 'default' ? 'primary' :
-            variant === 'outline' ? 'secondary' :
-                variant === 'danger' ? 'danger' :
-                    'transparent'
-
-        return (
-            <MedusaButton
-                ref={ref}
-                variant={medusaVariant}
-                size={size}
-                isLoading={isLoading}
-                {...props}
-            >
-                {children}
-            </MedusaButton>
-        )
-    }
-)
-Button.displayName = 'Button'
+// Re-export with named export for backward compatibility
+export const Button = DesignSystemButton
+export type ButtonProps = DesignSystemButtonProps
