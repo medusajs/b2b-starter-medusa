@@ -44,7 +44,9 @@ const RefinementList = ({
     router.replace(`${pathname}?${query}`)
   }
 
-  const hasActiveFilters = Array.from(searchParams.keys()).length > 0
+  const hasActiveFilters = Array.from(searchParams.keys()).some(
+    (k) => !["page", "sortBy"].includes(k)
+  )
 
   return (
     <div
@@ -64,6 +66,25 @@ const RefinementList = ({
             Limpar filtros
           </button>
         </div>
+        {hasActiveFilters && (
+          <div className="flex flex-wrap gap-2 px-2 pb-2" aria-label="Filtros ativos">
+            {searchParams.get("q") && (
+              <button
+                type="button"
+                onClick={() => {
+                  const p = new URLSearchParams(searchParams.toString())
+                  p.delete("q"); p.delete("page")
+                  router.replace(p.size ? `${pathname}?${p.toString()}` : pathname)
+                }}
+                className="inline-flex items-center gap-1 text-xs bg-neutral-100 text-neutral-700 rounded-full px-2 py-1 hover:bg-neutral-200"
+                aria-label={`Remover filtro de busca: ${searchParams.get("q")}`}
+              >
+                <span>q: {searchParams.get("q")}</span>
+                <span aria-hidden>×</span>
+              </button>
+            )}
+          </div>
+        )}
         <SearchInResults listName={listName} />
         <SortProducts
           sortBy={sortBy}

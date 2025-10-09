@@ -36,11 +36,12 @@ const SortProducts = ({
 
   return (
     <div className="flex items-center gap-2 text-sm p-2 justify-between">
-      <span className="text-neutral-500">Sort by:</span>
+      <label htmlFor="sort-select" className="text-neutral-500">Sort by:</label>
       <div className="relative">
         <select
+          id="sort-select"
           className="w-full pr-8 overflow-hidden focus:outline-none appearance-none"
-          title="Sort by"
+          aria-label="Ordenar resultados"
           value={sortBy}
           onChange={(e) => handleChange(e.target.value as SortOptions)}
           data-testid={dataTestId}

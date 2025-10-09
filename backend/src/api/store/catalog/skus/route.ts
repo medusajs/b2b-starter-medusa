@@ -1,9 +1,11 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 import {
     StoreGetCatalogSKUsParams,
     StoreGetCatalogSKUsParamsType,
-} from "./validators";
+} from "../validators";
+
+// Module key for resolution
+const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
 
 /**
  * GET /store/catalog/skus
@@ -20,7 +22,7 @@ export const GET = async (
     const { limit, offset, ...filters } = validatedQuery;
 
     // Buscar SKUs
-    const [skus, count] = await catalogService.listAndCountSKUs(
+    const [skus, count] = await (catalogService as any).listAndCountSKUs(
         {
             ...(filters.category && { category: filters.category }),
             ...(filters.manufacturer_id && {

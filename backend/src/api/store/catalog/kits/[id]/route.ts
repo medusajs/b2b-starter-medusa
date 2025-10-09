@@ -1,12 +1,14 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { UNIFIED_CATALOG_MODULE } from "../../../../../modules/unified-catalog";
+
+// Module key for resolution
+const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
 
 /**
  * GET /store/catalog/kits/:id
  * Retorna detalhes de um kit com componentes expandidos
  */
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
-    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
+    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;
 
     const { id } = req.params;
 

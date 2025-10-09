@@ -1,6 +1,7 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { YSH_CATALOG_MODULE } from "../../../../modules/ysh-catalog";
-import YshCatalogModuleService from "../../../../modules/ysh-catalog/service";
+
+// Module key for resolution
+const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
 
 function parsePriceBRL(price?: string): number | undefined {
     if (!price) return undefined
@@ -61,7 +62,7 @@ export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
+    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;
 
     try {
         const { q: query, category, limit = 20, page = 1, manufacturer, minPrice, maxPrice, availability, sort } = req.query;

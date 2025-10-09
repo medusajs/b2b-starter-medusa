@@ -1,15 +1,20 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { YSH_CATALOG_MODULE } from "../../../../modules/ysh-catalog";
-import YshCatalogModuleService from "../../../../modules/ysh-catalog/service";
+import UnifiedCatalogModuleService from "../../../../modules/unified-catalog/service";
+
+// Temporary workaround: instantiate service directly
+let catalogServiceInstance: UnifiedCatalogModuleService | null = null;
 
 export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
+    if (!catalogServiceInstance) {
+        catalogServiceInstance = new UnifiedCatalogModuleService({}, {});
+    }
+    const catalogService = catalogServiceInstance;
 
     try {
-        const manufacturers = await yshCatalogService.getManufacturers();
+        const manufacturers = await catalogService.listManufacturers();
 
         res.json({
             manufacturers,

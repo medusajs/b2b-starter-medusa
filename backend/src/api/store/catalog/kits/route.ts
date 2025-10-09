@@ -1,9 +1,11 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 import {
     StoreGetCatalogKitsParams,
     StoreGetCatalogKitsParamsType,
-} from "./validators";
+} from "../validators";
+
+// Module key for resolution
+const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
 
 /**
  * GET /store/catalog/kits
@@ -19,7 +21,7 @@ export const GET = async (
 
     const { limit, offset, ...filters } = validatedQuery;
 
-    const [kits, count] = await catalogService.listAndCountKits(
+    const [kits, count] = await (catalogService as any).listAndCountKits(
         {
             ...(filters.category && { category: filters.category }),
             ...(filters.target_consumer_class && {

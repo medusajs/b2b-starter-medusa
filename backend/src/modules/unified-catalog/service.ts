@@ -87,14 +87,14 @@ class UnifiedCatalogModuleService {
         try {
             let query = 'SELECT * FROM manufacturer';
             const params: any[] = [];
-            
+
             if (filters?.tier) {
                 query += ' WHERE tier = $1';
                 params.push(filters.tier);
             }
-            
+
             query += ' ORDER BY name ASC';
-            
+
             const result = await client.query<Manufacturer>(query, params);
             return result.rows;
         } finally {
@@ -114,24 +114,24 @@ class UnifiedCatalogModuleService {
 
             if (options?.where) {
                 const where = options.where;
-                
+
                 if (where.category) {
                     conditions.push(`s.category = $${paramIndex++}`);
                     params.push(where.category);
                 }
-                
+
                 if (where.manufacturer_id) {
                     conditions.push(`s.manufacturer_id = $${paramIndex++}`);
                     params.push(where.manufacturer_id);
                 }
-                
+
                 if (where.sku_code?.$in) {
                     conditions.push(`s.sku_code = ANY($${paramIndex++})`);
                     params.push(where.sku_code.$in);
                 }
             }
 
-            const whereClause = conditions.length > 0 
+            const whereClause = conditions.length > 0
                 ? 'WHERE ' + conditions.join(' AND ')
                 : '';
 
@@ -149,7 +149,7 @@ class UnifiedCatalogModuleService {
             `;
 
             const result = await client.query(query, params);
-            
+
             return result.rows.map((row: any) => ({
                 id: row.id,
                 sku_code: row.sku_code,
@@ -173,6 +173,102 @@ class UnifiedCatalogModuleService {
                     updated_at: undefined as any,
                 } : undefined,
             }));
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Lista SKUs com contagem (formato Medusa padrão)
+     */
+    async listAndCountSKUs(options?: {
+        where?: any;
+        skip?: number;
+        take?: number;
+    }): Promise<[SKU[], number]> {
+        const client = await this.pool.connect();
+        try {
+            const conditions: string[] = [];
+            const params: any[] = [];
+            let paramIndex = 1;
+
+            if (options?.where) {
+                const where = options.where;
+
+                if (where.category) {
+                    conditions.push(`s.category = $${paramIndex++}`);
+                    params.push(where.category);
+                }
+
+                if (where.manufacturer_id) {
+                    conditions.push(`s.manufacturer_id = $${paramIndex++}`);
+                    params.push(where.manufacturer_id);
+                }
+
+                if (where.sku_code?.$in) {
+                    conditions.push(`s.sku_code = ANY($${paramIndex++})`);
+                    params.push(where.sku_code.$in);
+                }
+            }
+
+            const whereClause = conditions.length > 0
+                ? 'WHERE ' + conditions.join(' AND ')
+                : '';
+
+            // Count query
+            const countQuery = `
+                SELECT COUNT(*) as total
+                FROM sku s
+                ${whereClause}
+            `;
+            const countResult = await client.query(countQuery, params);
+            const total = parseInt(countResult.rows[0].total);
+
+            // Data query with pagination
+            const limit = options?.take || 20;
+            const offset = options?.skip || 0;
+
+            const dataQuery = `
+                SELECT 
+                    s.*, 
+                    m.id as "manufacturer.id",
+                    m.name as "manufacturer.name",
+                    m.slug as "manufacturer.slug",
+                    m.tier as "manufacturer.tier"
+                FROM sku s
+                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
+                ${whereClause}
+                ORDER BY s.sku_code ASC
+                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
+            `;
+
+            const dataResult = await client.query(dataQuery, [...params, limit, offset]);
+
+            const skus = dataResult.rows.map((row: any) => ({
+                id: row.id,
+                sku_code: row.sku_code,
+                manufacturer_id: row.manufacturer_id,
+                category: row.category,
+                model_number: row.model_number,
+                description: row.description,
+                technical_specs: row.technical_specs,
+                lowest_price: row.lowest_price,
+                highest_price: row.highest_price,
+                avg_price: row.avg_price,
+                offers_count: row.offers_count,
+                created_at: row.created_at,
+                updated_at: row.updated_at,
+                manufacturer: row['manufacturer.id'] ? {
+                    id: row['manufacturer.id'],
+                    name: row['manufacturer.name'],
+                    slug: row['manufacturer.slug'],
+                    tier: row['manufacturer.tier'],
+                    created_at: undefined as any,
+                    updated_at: undefined as any,
+                } : undefined,
+            }));
+
+            return [skus, total];
         } finally {
             client.release();
         }
@@ -246,7 +342,7 @@ class UnifiedCatalogModuleService {
                 ? 'WHERE ' + conditions.join(' AND ')
                 : '';
 
-            const orderBy = options?.order?.price === 'ASC' 
+            const orderBy = options?.order?.price === 'ASC'
                 ? 'ORDER BY price ASC'
                 : 'ORDER BY price ASC';
 
@@ -275,22 +371,22 @@ class UnifiedCatalogModuleService {
 
             if (options?.where) {
                 const where = options.where;
-                
+
                 if (where.category) {
                     conditions.push(`category = $${paramIndex++}`);
                     params.push(where.category);
                 }
-                
+
                 if (where.target_consumer_class) {
                     conditions.push(`suitable_for = $${paramIndex++}`);
                     params.push(where.target_consumer_class);
                 }
-                
+
                 if (where.system_capacity_kwp?.$gte) {
                     conditions.push(`system_capacity_kwp >= $${paramIndex++}`);
                     params.push(where.system_capacity_kwp.$gte);
                 }
-                
+
                 if (where.system_capacity_kwp?.$lte) {
                     conditions.push(`system_capacity_kwp <= $${paramIndex++}`);
                     params.push(where.system_capacity_kwp.$lte);
@@ -309,6 +405,76 @@ class UnifiedCatalogModuleService {
 
             const result = await client.query<Kit>(query, params);
             return result.rows;
+        } finally {
+            client.release();
+        }
+    }
+
+    /**
+     * Lista kits com contagem (formato Medusa padrão)
+     */
+    async listAndCountKits(options?: {
+        where?: any;
+        skip?: number;
+        take?: number;
+    }): Promise<[Kit[], number]> {
+        const client = await this.pool.connect();
+        try {
+            const conditions: string[] = [];
+            const params: any[] = [];
+            let paramIndex = 1;
+
+            if (options?.where) {
+                const where = options.where;
+
+                if (where.category) {
+                    conditions.push(`category = $${paramIndex++}`);
+                    params.push(where.category);
+                }
+
+                if (where.target_consumer_class) {
+                    conditions.push(`suitable_for = $${paramIndex++}`);
+                    params.push(where.target_consumer_class);
+                }
+
+                if (where.system_capacity_kwp?.$gte) {
+                    conditions.push(`system_capacity_kwp >= $${paramIndex++}`);
+                    params.push(where.system_capacity_kwp.$gte);
+                }
+
+                if (where.system_capacity_kwp?.$lte) {
+                    conditions.push(`system_capacity_kwp <= $${paramIndex++}`);
+                    params.push(where.system_capacity_kwp.$lte);
+                }
+            }
+
+            const whereClause = conditions.length > 0
+                ? 'WHERE ' + conditions.join(' AND ')
+                : '';
+
+            // Count query
+            const countQuery = `
+                SELECT COUNT(*) as total
+                FROM kit
+                ${whereClause}
+            `;
+            const countResult = await client.query(countQuery, params);
+            const total = parseInt(countResult.rows[0].total);
+
+            // Data query with pagination
+            const limit = options?.take || 20;
+            const offset = options?.skip || 0;
+
+            const dataQuery = `
+                SELECT * FROM kit
+                ${whereClause}
+                ORDER BY system_capacity_kwp ASC
+                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
+            `;
+
+            const dataResult = await client.query<Kit>(dataQuery, [...params, limit, offset]);
+
+            return [dataResult.rows, total];
         } finally {
             client.release();
         }
@@ -365,10 +531,10 @@ class UnifiedCatalogModuleService {
         search?: string;
     }): Promise<SKU[]> {
         const where: any = {};
-        
+
         if (filters.category) where.category = filters.category;
         if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
-        
+
         return await this.listSKUs({ where });
     }
 
@@ -441,7 +607,7 @@ class UnifiedCatalogModuleService {
 
         if (filters.category) where.category = filters.category;
         if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
-        
+
         if (filters.min_capacity_kwp || filters.max_capacity_kwp) {
             where.system_capacity_kwp = {};
             if (filters.min_capacity_kwp) where.system_capacity_kwp.$gte = filters.min_capacity_kwp;
@@ -456,7 +622,7 @@ class UnifiedCatalogModuleService {
      */
     async getKitWithComponents(kitId: string) {
         const kit = await this.retrieveKit(kitId);
-        
+
         if (!kit) return null;
 
         // Components é um JSON array

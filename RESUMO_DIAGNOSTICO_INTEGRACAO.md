@@ -16,7 +16,34 @@
 - ✅ Identificação de 6 gaps críticos
 - ✅ Relatório completo gerado: `DIAGNOSTICO_INTEGRACAO_BACKEND_STORE.md`
 
-### 2. Catálogo Unificado PostgreSQL
+### 2. Implementos de Frontend Aplicados
+
+- PLP (Product Listing Page)
+  - Exibição “Mostrando X–Y de Z” com `aria-live`.
+  - Paginação com `router.replace` e `aria-current`/landmark `<nav>`.
+  - Busca com debounce (350ms) integrada via parâmetro `q` e reset da página.
+  - Arquivos: `store/templates/paginated-products.tsx`, `refinement-list/search-in-results/index.tsx`, `store/page.tsx`.
+
+- Filtros/Ordenação (sidebar)
+  - `router.replace` para alterações sem poluir histórico.
+  - Sidebar “sticky” em telas grandes.
+  - Botão “Limpar filtros” e chips de filtros ativos (q) com remoção.
+  - Acessibilidade: rotulagem ARIA no container.
+  - Arquivo: `refinement-list/index.tsx`.
+
+- Ordenação (Sort)
+  - Label/`aria-label` no `<select>` de ordenação.
+  - Arquivo: `refinement-list/sort-products/index.tsx`.
+
+- Lista de Categorias
+  - `aria-current="page"` e destaque visual na categoria atual.
+  - Arquivo: `refinement-list/category-list/index.tsx`.
+
+- Página Inicial (Home)
+  - Imports dinâmicos (`ssr: false`) para seções pesadas com skeletons.
+  - Arquivo: `app/[countryCode]/(main)/page.tsx`.
+
+### 3. Catálogo Unificado PostgreSQL
 
 - ✅ Tabelas criadas: `manufacturer`, `sku`, `distributor_offer`, `kit`
 - ✅ Seed executado com sucesso:
@@ -27,7 +54,7 @@
 - ✅ Service PostgreSQL implementado em `unified-catalog/service.ts`
 - ✅ Service reescrito em `ysh-catalog/service.ts`
 
-### 3. Correções Críticas Aplicadas
+### 4. Correções Críticas Aplicadas
 
 - ✅ Health check endpoint: `/health` → `/store/health`
 - ✅ Publishable key header adicionado em `resilient.ts`
@@ -238,6 +265,17 @@ docker exec ysh-b2b-backend-dev cat /app/src/modules/unified-catalog/index.ts
 ### Curto Prazo (Esta Semana)
 
 1. **Completar migração UNIFIED_CATALOG** - se opção B for escolhida
+
+---
+
+## 🧭 Próximos Passos (Frontend)
+
+- Empty states consistentes com CTA duplo em loja/coleções.
+- Mostrar badge/contador de filtros ativos no cabeçalho e botão “Limpar”.
+- Avaliar `next/image` em mais vitrines para placeholders/lazy.
+- Landmarks HTML5 (`<main>`, `<section aria-label>`), onde faltar.
+- Telemetria de busca (q) e filtros (eventos analytics). 
+- Revisar acessibilidade dos componentes restantes (tabs, breadcrumbs) com `aria-*`.
 2. **Validar publishable key** - executar script de criação
 3. **Vincular produtos ao sales channel** - garantir visibilidade no store
 
