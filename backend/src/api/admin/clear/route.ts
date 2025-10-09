@@ -1,5 +1,5 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { resetDemoDataWorkflow } from "../../../workflows/reset-demo-data";
+import { clearDataWorkflow } from "../../../workflows/clear-data/workflows/clear-data";
 
 const isDemoResetEnabled = process.env.VITE_ENABLE_DEMO_RESET === "true";
 
@@ -12,7 +12,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   }
 
   try {
-    await resetDemoDataWorkflow(req.scope).run({});
+    await clearDataWorkflow(req.scope).run({});
 
     res.json({ success: true });
   } catch (error) {
