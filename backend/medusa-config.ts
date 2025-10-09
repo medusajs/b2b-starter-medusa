@@ -4,6 +4,7 @@
 // import { COMPANY_MODULE } from "./src/modules/company";
 // import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
 import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
+import { UNIFIED_CATALOG_MODULE } from "./src/modules/unified-catalog";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
@@ -42,6 +43,9 @@ module.exports = defineConfig({
       options: {
         catalogPath: process.env.YSH_CATALOG_PATH || "./data/catalog",
       },
+    },
+    [UNIFIED_CATALOG_MODULE]: {
+      resolve: "./modules/unified-catalog",
     },
     // Custom modules - DISABLED for initial setup
     // [COMPANY_MODULE]: {
