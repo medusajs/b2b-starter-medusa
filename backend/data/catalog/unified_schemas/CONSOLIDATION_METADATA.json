@@ -1,0 +1,406 @@
+{
+  "timestamp": "2025-10-07T04:51:42.051749",
+  "sources_processed": [
+    {
+      "source": "catalog",
+      "file": "accessories.json",
+      "category": "accessories",
+      "added": 7,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "cables.json",
+      "category": "cables",
+      "added": 19,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "chargers.json",
+      "category": "ev_chargers",
+      "added": 81,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "controllers.json",
+      "category": "controllers",
+      "added": 38,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "fotus-kits-hibridos.json",
+      "category": "kits",
+      "added": 1,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "fotus-kits.json",
+      "category": "kits",
+      "added": 3,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "inverters.json",
+      "category": "inverters",
+      "added": 160,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "kits.json",
+      "category": "kits",
+      "added": 83,
+      "merged": 80
+    },
+    {
+      "source": "catalog",
+      "file": "odex-inverters.json",
+      "category": "inverters",
+      "added": 0,
+      "merged": 45
+    },
+    {
+      "source": "catalog",
+      "file": "odex-panels.json",
+      "category": "panels",
+      "added": 9,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "odex-stringboxes.json",
+      "category": "stringboxes",
+      "added": 13,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "odex-structures.json",
+      "category": "structures",
+      "added": 26,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "panel-schema.json",
+      "category": "panels",
+      "added": 1,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "panels.json",
+      "category": "panels",
+      "added": 0,
+      "merged": 1
+    },
+    {
+      "source": "catalog",
+      "file": "posts.json",
+      "category": "posts",
+      "added": 6,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-accessories.json",
+      "category": "accessories",
+      "added": 10,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-batteries.json",
+      "category": "batteries",
+      "added": 4,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-cables.json",
+      "category": "cables",
+      "added": 36,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-inverters.json",
+      "category": "inverters",
+      "added": 82,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-panels.json",
+      "category": "panels",
+      "added": 6,
+      "merged": 0
+    },
+    {
+      "source": "catalog",
+      "file": "solfacil-structures.json",
+      "category": "structures",
+      "added": 4,
+      "merged": 0
+    },
+    {
+      "source": "unified",
+      "file": "batteries_unified.json",
+      "category": "batteries",
+      "added": 5,
+      "merged": 0
+    },
+    {
+      "source": "unified",
+      "file": "cables_unified.json",
+      "category": "cables",
+      "added": 0,
+      "merged": 55
+    },
+    {
+      "source": "unified",
+      "file": "controllers_unified.json",
+      "category": "controllers",
+      "added": 0,
+      "merged": 38
+    },
+    {
+      "source": "unified",
+      "file": "ev_chargers_unified.json",
+      "category": "ev_chargers",
+      "added": 2,
+      "merged": 81
+    },
+    {
+      "source": "unified",
+      "file": "inverters_unified.json",
+      "category": "inverters",
+      "added": 247,
+      "merged": 45
+    },
+    {
+      "source": "unified",
+      "file": "kit_components.json",
+      "category": "kits",
+      "added": 2,
+      "merged": 162
+    },
+    {
+      "source": "unified",
+      "file": "others_unified.json",
+      "category": "others",
+      "added": 45,
+      "merged": 0
+    },
+    {
+      "source": "unified",
+      "file": "panels_unified.json",
+      "category": "panels",
+      "added": 13,
+      "merged": 4
+    },
+    {
+      "source": "unified",
+      "file": "stringboxes_unified.json",
+      "category": "stringboxes",
+      "added": 0,
+      "merged": 13
+    },
+    {
+      "source": "unified",
+      "file": "structures_unified.json",
+      "category": "structures",
+      "added": 10,
+      "merged": 26
+    },
+    {
+      "source": "consolidated",
+      "file": "accessories.json",
+      "category": "accessories",
+      "added": 0,
+      "merged": 7
+    },
+    {
+      "source": "consolidated",
+      "file": "cables.json",
+      "category": "cables",
+      "added": 0,
+      "merged": 19
+    },
+    {
+      "source": "consolidated",
+      "file": "chargers.json",
+      "category": "ev_chargers",
+      "added": 0,
+      "merged": 81
+    },
+    {
+      "source": "consolidated",
+      "file": "controllers.json",
+      "category": "controllers",
+      "added": 0,
+      "merged": 38
+    },
+    {
+      "source": "consolidated",
+      "file": "fotus-kits-hibridos.json",
+      "category": "kits",
+      "added": 0,
+      "merged": 1
+    },
+    {
+      "source": "consolidated",
+      "file": "fotus-kits.json",
+      "category": "kits",
+      "added": 0,
+      "merged": 3
+    },
+    {
+      "source": "consolidated",
+      "file": "inverters.json",
+      "category": "inverters",
+      "added": 0,
+      "merged": 160
+    },
+    {
+      "source": "consolidated",
+      "file": "kits.json",
+      "category": "kits",
+      "added": 0,
+      "merged": 163
+    },
+    {
+      "source": "consolidated",
+      "file": "odex-inverters.json",
+      "category": "inverters",
+      "added": 0,
+      "merged": 45
+    },
+    {
+      "source": "consolidated",
+      "file": "odex-panels.json",
+      "category": "panels",
+      "added": 0,
+      "merged": 9
+    },
+    {
+      "source": "consolidated",
+      "file": "odex-stringboxes.json",
+      "category": "stringboxes",
+      "added": 0,
+      "merged": 13
+    },
+    {
+      "source": "consolidated",
+      "file": "odex-structures.json",
+      "category": "structures",
+      "added": 0,
+      "merged": 26
+    },
+    {
+      "source": "consolidated",
+      "file": "panels.json",
+      "category": "panels",
+      "added": 0,
+      "merged": 1
+    },
+    {
+      "source": "consolidated",
+      "file": "posts.json",
+      "category": "posts",
+      "added": 0,
+      "merged": 6
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-accessories.json",
+      "category": "accessories",
+      "added": 0,
+      "merged": 10
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-batteries.json",
+      "category": "batteries",
+      "added": 0,
+      "merged": 4
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-cables.json",
+      "category": "cables",
+      "added": 0,
+      "merged": 36
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-inverters.json",
+      "category": "inverters",
+      "added": 0,
+      "merged": 82
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-panels.json",
+      "category": "panels",
+      "added": 0,
+      "merged": 6
+    },
+    {
+      "source": "consolidated",
+      "file": "solfacil-structures.json",
+      "category": "structures",
+      "added": 0,
+      "merged": 4
+    },
+    {
+      "source": "schemas",
+      "file": "inverter-schema-v1.json",
+      "category": "inverters",
+      "added": 1,
+      "merged": 0
+    },
+    {
+      "source": "schemas",
+      "file": "panel-schema-v1.json",
+      "category": "panels",
+      "added": 0,
+      "merged": 1
+    },
+    {
+      "source": "schemas_enriched",
+      "file": "fotus-kits-enriched.json",
+      "category": "kits",
+      "added": 223,
+      "merged": 0
+    },
+    {
+      "source": "schemas_enriched",
+      "file": "fotus-kits-hibridos-enriched.json",
+      "category": "kits",
+      "added": 24,
+      "merged": 0
+    }
+  ],
+  "total_products": 1161,
+  "by_category": {
+    "accessories": 17,
+    "cables": 55,
+    "ev_chargers": 83,
+    "controllers": 38,
+    "kits": 336,
+    "inverters": 490,
+    "panels": 29,
+    "stringboxes": 13,
+    "structures": 40,
+    "posts": 6,
+    "batteries": 9,
+    "others": 45
+  },
+  "integrity_check": {}
+}

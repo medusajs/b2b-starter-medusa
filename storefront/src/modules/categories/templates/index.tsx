@@ -55,7 +55,7 @@ export default function CategoryTemplate({
                 </Text>
                 <div className="flex gap-2">
                   <LocalizedClientLink
-                    href="/store"
+                    href="/categories"
                     className="flex gap-2 items-center"
                   >
                     <Button variant="secondary">

@@ -93,9 +93,8 @@ const CategoryList = ({
                 )}
               </button>
               <LocalizedClientLink
-                href={`/categories/${category.handle}${
-                  searchParams.size ? `?${searchParams.toString()}` : ""
-                }`}
+                href={`/categories/${category.handle}${searchParams.size ? `?${searchParams.toString()}` : ""
+                  }`}
                 className="flex gap-2 items-center hover:text-neutral-700"
               >
                 {category.name} ({category.products?.length})
@@ -103,9 +102,8 @@ const CategoryList = ({
             </div>
           ) : (
             <LocalizedClientLink
-              href={`/categories/${category.handle}${
-                searchParams.size ? `?${searchParams.toString()}` : ""
-              }`}
+              href={`/categories/${category.handle}${searchParams.size ? `?${searchParams.toString()}` : ""
+                }`}
               className="flex gap-2 items-center hover:text-neutral-700 text-start hover:cursor-pointer"
             >
               <Radio checked={isCurrentCategory(category.handle)} />
@@ -133,7 +131,7 @@ const CategoryList = ({
         <Text className="text-sm font-medium">Categories</Text>
         {pathname.includes("/categories") && (
           <LocalizedClientLink
-            href="/produtos"
+            href="/categories"
             className="text-xs text-neutral-500 hover:text-neutral-700"
           >
             Clear

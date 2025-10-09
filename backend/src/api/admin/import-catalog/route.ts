@@ -2,7 +2,7 @@ import type { MedusaRequest, MedusaResponse } from "@medusajs/framework"
 import fs from "fs"
 import path from "path"
 
-const CATALOG_PATH = path.resolve(__dirname, "../../../../ysh-erp/data/catalog/unified_schemas")
+const CATALOG_PATH = path.resolve(__dirname, "../../../data/catalog/unified_schemas")
 
 const CATEGORIES_CONFIG = [
     { name: "inverters", priority: 1, category_handle: "inversores" },

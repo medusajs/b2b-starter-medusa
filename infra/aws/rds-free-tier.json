@@ -1,0 +1,38 @@
+{
+    "DBInstanceIdentifier": "ysh-b2b-postgres-free",
+    "DBInstanceClass": "db.t3.micro",
+    "Engine": "postgres",
+    "EngineVersion": "16.1",
+    "MasterUsername": "medusa_user",
+    "MasterUserPassword": "CHANGE_ME_SECURE_PASSWORD",
+    "AllocatedStorage": 20,
+    "StorageType": "gp2",
+    "StorageEncrypted": false,
+    "MultiAZ": false,
+    "PubliclyAccessible": true,
+    "BackupRetentionPeriod": 7,
+    "PreferredBackupWindow": "03:00-04:00",
+    "PreferredMaintenanceWindow": "sun:04:00-sun:05:00",
+    "EnableCloudwatchLogsExports": [
+        "postgresql"
+    ],
+    "DeletionProtection": false,
+    "Tags": [
+        {
+            "Key": "Name",
+            "Value": "ysh-b2b-postgres-free-tier"
+        },
+        {
+            "Key": "Environment",
+            "Value": "production"
+        },
+        {
+            "Key": "FreeTier",
+            "Value": "true"
+        },
+        {
+            "Key": "Project",
+            "Value": "ysh-b2b"
+        }
+    ]
+}

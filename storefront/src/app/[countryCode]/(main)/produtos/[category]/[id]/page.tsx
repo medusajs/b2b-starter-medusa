@@ -85,7 +85,7 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
         <h1 className="text-2xl font-semibold">Produto não encontrado</h1>
         <p className="text-neutral-600 mt-2">Verifique o endereço ou navegue pelo catálogo.</p>
         <div className="mt-6">
-          <Link href="/produtos" className="ysh-btn-outline">Voltar ao catálogo</Link>
+          <Link href="/categories" className="ysh-btn-outline">Voltar ao catálogo</Link>
         </div>
       </div>
     )
@@ -169,7 +169,7 @@ export default async function CatalogProductPage({ params }: { params: Promise<P
 
             <div className="flex gap-3">
               <LocalizedClientLink href="/contato" className="ysh-btn-primary">Solicitar Cotação</LocalizedClientLink>
-              <LocalizedClientLink href="/produtos" className="ysh-btn-outline">Voltar ao Catálogo</LocalizedClientLink>
+              <LocalizedClientLink href="/categories" className="ysh-btn-outline">Voltar ao Catálogo</LocalizedClientLink>
               <AddToQuoteButton product={product} />
             </div>
           </div>

@@ -6,7 +6,7 @@ import path from "path"
 // Check if running in container
 const CATALOG_PATH = fs.existsSync("/tmp/catalog")
     ? "/tmp/catalog"
-    : path.resolve(__dirname, "../../../../ysh-erp/data/catalog/unified_schemas")
+    : path.resolve(__dirname, "../../data/catalog/unified_schemas")
 
 const CATEGORIES_CONFIG = [
     { name: "inverters", file: "inverters_unified.json" },

@@ -4,9 +4,9 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import SolutionsView from "@/modules/analytics/solutions-view"
 
 export const metadata: Metadata = {
-    title: "Soluções por Classe e Modalidade | Yello Solar Hub",
-    description:
-        "Encontre soluções solares por classe consumidora (B1/B2/B3, Condomínios, Indústria) e modalidade (on-grid, híbrido, off-grid, GC, EaaS/PPA).",
+  title: "Soluções por Classe e Modalidade | Yello Solar Hub",
+  description:
+    "Encontre soluções solares por classe consumidora (B1/B2/B3, Condomínios, Indústria) e modalidade (on-grid, híbrido, off-grid, GC, EaaS/PPA).",
 }
 
 export default async function SolutionsPage({
@@ -29,11 +29,8 @@ export default async function SolutionsPage({
         <SolutionsByClass />
         <div className="mt-6 flex">
           <LocalizedClientLink
-            href="/store"
-            className="text-blue-600 font-medium hover:underline"
-          >
-            Ver todos os produtos →
-          </LocalizedClientLink>
+            href="/categories"
+            className="inline-flex items-center justify-center rounded-md bg-ui-button-inverted px-6 py-3 text-base font-medium text-ui-fg-on-inverted hover:bg-ui-button-inverted-hover"
         </div>
       </div>
     </div>

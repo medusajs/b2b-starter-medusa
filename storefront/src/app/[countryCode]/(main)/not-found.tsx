@@ -20,7 +20,7 @@ export default function NotFound() {
       <div className="text-small-regular text-ui-fg-subtle mt-4">
         <p>Sugestões:</p>
         <ul className="list-disc list-inside">
-          <li><InteractiveLink href="/produtos">Explorar produtos</InteractiveLink></li>
+          <li><InteractiveLink href="/categories">Explorar produtos</InteractiveLink></li>
           <li><InteractiveLink href="/dimensionamento">Usar calculadora solar</InteractiveLink></li>
           <li><InteractiveLink href="/suporte">Contato suporte</InteractiveLink></li>
         </ul>

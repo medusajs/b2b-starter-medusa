@@ -48,18 +48,19 @@ RUN addgroup --system --gid 1001 medusa && \
 # Copiar dependências de produção
 COPY --from=deps --chown=medusa:medusa /app/node_modules ./node_modules
 
-# Copiar código compilado
+# Copiar código compilado e dados do catálogo
 COPY --from=builder --chown=medusa:medusa /app/dist ./dist
 COPY --from=builder --chown=medusa:medusa /app/package.json ./package.json
 COPY --from=builder --chown=medusa:medusa /app/medusa-config.ts ./medusa-config.ts
+COPY --from=builder --chown=medusa:medusa /app/data ./data
 
 # Configurações de runtime
 USER medusa
 EXPOSE 9000
 
-# Health check otimizado
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-      CMD curl -f http://localhost:9000/health || exit 1
+# Health check otimizado (sem dependência de curl)
+HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
+      CMD node -e "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
 
 # Usar dumb-init para gerenciamento correto de sinais
 ENTRYPOINT ["dumb-init", "--"]

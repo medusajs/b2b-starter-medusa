@@ -147,6 +147,47 @@ export async function middleware(request: NextRequest) {
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
+  // ==========================================
+  // Route Consolidation Redirects
+  // ==========================================
+  const { pathname } = request.nextUrl
+
+  // Redirect legacy /catalogo → /categories (301 permanent)
+  if (pathname.match(/^\/[a-z]{2}\/catalogo/)) {
+    const newPath = pathname.replace('/catalogo', '/categories')
+    return NextResponse.redirect(
+      new URL(newPath + request.nextUrl.search, request.url),
+      { status: 301 }
+    )
+  }
+
+  // Redirect legacy /store → /categories (301 permanent)
+  if (pathname.match(/^\/[a-z]{2}\/store$/)) {
+    const newPath = pathname.replace('/store', '/categories')
+    return NextResponse.redirect(
+      new URL(newPath + request.nextUrl.search, request.url),
+      { status: 301 }
+    )
+  }
+
+  // Redirect pt-BR /produtos → /categories (308 temporary for SEO transition)
+  if (pathname.match(/^\/[a-z]{2}\/produtos$/)) {
+    const newPath = pathname.replace('/produtos', '/categories')
+    return NextResponse.redirect(
+      new URL(newPath + request.nextUrl.search, request.url),
+      { status: 308 }
+    )
+  }
+
+  // Redirect /produtos/[category] → /categories/[category] (308)
+  if (pathname.match(/^\/[a-z]{2}\/produtos\/([^/]+)$/)) {
+    const newPath = pathname.replace('/produtos/', '/categories/')
+    return NextResponse.redirect(
+      new URL(newPath + request.nextUrl.search, request.url),
+      { status: 308 }
+    )
+  }
+
   // check if one of the country codes is in the url
   if (urlHasCountryCode && (!cartId || cartIdCookie) && cacheIdCookie) {
     return NextResponse.next()

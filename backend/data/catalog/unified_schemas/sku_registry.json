@@ -1,0 +1,4749 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-10-08T15:57:03.500Z",
+  "items": [
+    {
+      "category": "kits",
+      "id": "FOTUS-KP04-kits-hibridos",
+      "sku": "FOTUS-KP04-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP04-kits",
+      "sku": "FOTUS-KP04-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP02-kits",
+      "sku": "FOTUS-KP02-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP03-kits",
+      "sku": "FOTUS-KP03-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27314",
+      "sku": "NEOSOLARKITS27314"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25049",
+      "sku": "NEOSOLARKITS25049"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27475",
+      "sku": "NEOSOLARKITS27475"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25164",
+      "sku": "NEOSOLARKITS25164"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27315",
+      "sku": "NEOSOLARKITS27315"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_23927",
+      "sku": "NEOSOLARKITS23927"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27347",
+      "sku": "NEOSOLARKITS27347"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27349",
+      "sku": "NEOSOLARKITS27349"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25131",
+      "sku": "NEOSOLARKITS25131"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_23928",
+      "sku": "NEOSOLARKITS23928"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27339",
+      "sku": "NEOSOLARKITS27339"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_23929",
+      "sku": "NEOSOLARKITS23929"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27476",
+      "sku": "NEOSOLARKITS27476"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26720",
+      "sku": "NEOSOLARKITS26720"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26721",
+      "sku": "NEOSOLARKITS26721"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25158",
+      "sku": "NEOSOLARKITS25158"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26722",
+      "sku": "NEOSOLARKITS26722"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27348",
+      "sku": "NEOSOLARKITS27348"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27378",
+      "sku": "NEOSOLARKITS27378"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27313",
+      "sku": "NEOSOLARKITS27313"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25130",
+      "sku": "NEOSOLARKITS25130"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25048",
+      "sku": "NEOSOLARKITS25048"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25047",
+      "sku": "NEOSOLARKITS25047"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25163",
+      "sku": "NEOSOLARKITS25163"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25160",
+      "sku": "NEOSOLARKITS25160"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25162",
+      "sku": "NEOSOLARKITS25162"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27267",
+      "sku": "NEOSOLARKITS27267"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27303",
+      "sku": "NEOSOLARKITS27303"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27299",
+      "sku": "NEOSOLARKITS27299"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27263",
+      "sku": "NEOSOLARKITS27263"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27259",
+      "sku": "NEOSOLARKITS27259"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25129",
+      "sku": "NEOSOLARKITS25129"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_23699",
+      "sku": "NEOSOLARKITS23699"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_23703",
+      "sku": "NEOSOLARKITS23703"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27266",
+      "sku": "NEOSOLARKITS27266"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27304",
+      "sku": "NEOSOLARKITS27304"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27298",
+      "sku": "NEOSOLARKITS27298"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27297",
+      "sku": "NEOSOLARKITS27297"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27305",
+      "sku": "NEOSOLARKITS27305"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27306",
+      "sku": "NEOSOLARKITS27306"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27269",
+      "sku": "NEOSOLARKITS27269"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27268",
+      "sku": "NEOSOLARKITS27268"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27300",
+      "sku": "NEOSOLARKITS27300"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27302",
+      "sku": "NEOSOLARKITS27302"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27301",
+      "sku": "NEOSOLARKITS27301"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27296",
+      "sku": "NEOSOLARKITS27296"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27270",
+      "sku": "NEOSOLARKITS27270"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27260",
+      "sku": "NEOSOLARKITS27260"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27261",
+      "sku": "NEOSOLARKITS27261"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27264",
+      "sku": "NEOSOLARKITS27264"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27265",
+      "sku": "NEOSOLARKITS27265"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_27262",
+      "sku": "NEOSOLARKITS27262"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26701",
+      "sku": "NEOSOLARKITS26701"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26723",
+      "sku": "NEOSOLARKITS26723"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25132",
+      "sku": "NEOSOLARKITS25132"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25044",
+      "sku": "NEOSOLARKITS25044"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25045",
+      "sku": "NEOSOLARKITS25045"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25043",
+      "sku": "NEOSOLARKITS25043"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25154",
+      "sku": "NEOSOLARKITS25154"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25156",
+      "sku": "NEOSOLARKITS25156"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26695",
+      "sku": "NEOSOLARKITS26695"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26694",
+      "sku": "NEOSOLARKITS26694"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26698",
+      "sku": "NEOSOLARKITS26698"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26699",
+      "sku": "NEOSOLARKITS26699"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26697",
+      "sku": "NEOSOLARKITS26697"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26696",
+      "sku": "NEOSOLARKITS26696"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26700",
+      "sku": "NEOSOLARKITS26700"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25053",
+      "sku": "NEOSOLARKITS25053"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26968",
+      "sku": "NEOSOLARKITS26968"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26991",
+      "sku": "NEOSOLARKITS26991"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26975",
+      "sku": "NEOSOLARKITS26975"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26984",
+      "sku": "NEOSOLARKITS26984"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26971",
+      "sku": "NEOSOLARKITS26971"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26972",
+      "sku": "NEOSOLARKITS26972"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26969",
+      "sku": "NEOSOLARKITS26969"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26970",
+      "sku": "NEOSOLARKITS26970"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26988",
+      "sku": "NEOSOLARKITS26988"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26987",
+      "sku": "NEOSOLARKITS26987"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26986",
+      "sku": "NEOSOLARKITS26986"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_26985",
+      "sku": "NEOSOLARKITS26985"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_25046",
+      "sku": "NEOSOLARKITS25046"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_22691",
+      "sku": "NEOSOLARKITS22691"
+    },
+    {
+      "category": "kits",
+      "id": "neosolar_kits_22690",
+      "sku": "NEOSOLARKITS22690"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-113KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-113KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-113KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-120KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-120KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-120KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-113KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-113KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-120KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-142KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-113kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-113KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-120KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-142KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-142KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-142KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-142KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-142kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-142KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-227KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-227KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-227KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-227KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-240KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-227KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-227kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-227KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-240KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-240KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-240KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-284KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-284KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-284KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-284KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-284KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-284kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-284KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-342KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-342KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-342KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-342KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-399KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-342KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-399KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-342KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-342KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-360KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-342KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-360KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-342KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-360KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-360KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-399KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-399KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-399KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-399KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-360KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-399KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-455KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-455KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-399KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-399KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-455KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-513kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-513KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-426KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-455KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-455KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-426KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-480KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-426KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-455KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-455KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-480KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-426KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-455KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-426KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-455KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-426KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-426KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-480KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-513kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-513KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-480KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-513kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-513KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-426KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-480KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-480KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-426KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-568KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-568KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-570KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-570KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-568KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-570KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-600KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-570KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-568KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-568KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-568kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-568KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-570KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-600KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-570kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-570KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-600KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-600KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-684KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-600KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-600KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-684KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-684KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-684KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-720KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-684KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-684KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-720KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-684KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-720KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-684KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-720KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-684KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-855kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-855KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-720KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-720KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-710KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-710KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-969KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-855kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-855KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-710KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-855kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-855KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-710KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-710KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1026KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-852KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-710kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-710KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-969KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-969KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-969KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-798KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-840KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-852KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-798KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-852KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-840KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-840KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-911KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1026KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1026KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-852KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-840KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-969KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-840KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-852KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-840KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-911KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-969kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-969KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-852KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-911KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-852KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-960KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-911KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-911KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-852KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-852KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1026KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-960KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-911kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-911KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-960KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-960KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-994KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1254kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1254KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1026KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-960KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-960KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1026KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-994KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-994KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-994KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1026KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1368KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-994KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1026kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1026KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1311kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1311KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1136KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-994kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-994KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1254kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1254KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1254kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1254KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1065kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1065KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1136KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1368KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1368KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1311kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1311KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1136KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1311kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1311KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1136KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1065kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1065KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1482kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1482KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1065kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1065KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1136KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1482kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1482KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1482kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1482KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1136kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1136KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1278kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1278KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1596kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1596KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1368KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1278kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1278KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1278kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1278KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1368KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1596kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1596KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1704kWp-MiniTrilho-kits",
+      "sku": "FOTUS-KP-1704KWP-MINITRILHO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1704kWp-Ceramico-kits",
+      "sku": "FOTUS-KP-1704KWP-CERAMICO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1368kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1368KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1596kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1596KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-1704kWp-Fibrocimento-kits",
+      "sku": "FOTUS-KP-1704KWP-FIBROCIMENTO-KITS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-120KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-120KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-120kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-120KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-240KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-240KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-240kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-240KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-360KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-360KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-480KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-480KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-360kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-360KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-480kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-480KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-600KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-600KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-600kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-600KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-720KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-720KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-840KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-840KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-MiniTrilho-kits-hibridos",
+      "sku": "FOTUS-KP-960KWP-MINITRILHO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-720kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-720KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-840kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-840KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Ceramico-kits-hibridos",
+      "sku": "FOTUS-KP-960KWP-CERAMICO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "kits",
+      "id": "FOTUS-KP-960kWp-Fibrocimento-kits-hibridos",
+      "sku": "FOTUS-KP-960KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22916",
+      "sku": "NEOSOLARINVERTERS22916"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21632",
+      "sku": "NEOSOLARINVERTERS21632"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20566",
+      "sku": "NEOSOLARINVERTERS20566"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20563",
+      "sku": "NEOSOLARINVERTERS20563"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24973",
+      "sku": "NEOSOLARINVERTERS24973"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22022",
+      "sku": "NEOSOLARINVERTERS22022"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20247",
+      "sku": "NEOSOLARINVERTERS20247"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24972",
+      "sku": "NEOSOLARINVERTERS24972"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21630",
+      "sku": "NEOSOLARINVERTERS21630"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22024",
+      "sku": "NEOSOLARINVERTERS22024"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20922",
+      "sku": "NEOSOLARINVERTERS20922"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21631",
+      "sku": "NEOSOLARINVERTERS21631"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20250",
+      "sku": "NEOSOLARINVERTERS20250"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21634",
+      "sku": "NEOSOLARINVERTERS21634"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20778",
+      "sku": "NEOSOLARINVERTERS20778"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21633",
+      "sku": "NEOSOLARINVERTERS21633"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21639",
+      "sku": "NEOSOLARINVERTERS21639"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22095",
+      "sku": "NEOSOLARINVERTERS22095"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22023",
+      "sku": "NEOSOLARINVERTERS22023"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22920",
+      "sku": "NEOSOLARINVERTERS22920"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20924",
+      "sku": "NEOSOLARINVERTERS20924"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24874",
+      "sku": "NEOSOLARINVERTERS24874"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22921",
+      "sku": "NEOSOLARINVERTERS22921"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21641",
+      "sku": "NEOSOLARINVERTERS21641"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21640",
+      "sku": "NEOSOLARINVERTERS21640"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22734",
+      "sku": "NEOSOLARINVERTERS22734"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24878",
+      "sku": "NEOSOLARINVERTERS24878"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20565",
+      "sku": "NEOSOLARINVERTERS20565"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24876",
+      "sku": "NEOSOLARINVERTERS24876"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24825",
+      "sku": "NEOSOLARINVERTERS24825"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20249",
+      "sku": "NEOSOLARINVERTERS20249"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24877",
+      "sku": "NEOSOLARINVERTERS24877"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24870",
+      "sku": "NEOSOLARINVERTERS24870"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22714",
+      "sku": "NEOSOLARINVERTERS22714"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23309",
+      "sku": "NEOSOLARINVERTERS23309"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23783",
+      "sku": "NEOSOLARINVERTERS23783"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23782",
+      "sku": "NEOSOLARINVERTERS23782"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20217",
+      "sku": "NEOSOLARINVERTERS20217"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20252",
+      "sku": "NEOSOLARINVERTERS20252"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20253",
+      "sku": "NEOSOLARINVERTERS20253"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20255",
+      "sku": "NEOSOLARINVERTERS20255"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20256",
+      "sku": "NEOSOLARINVERTERS20256"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20258",
+      "sku": "NEOSOLARINVERTERS20258"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20259",
+      "sku": "NEOSOLARINVERTERS20259"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20260",
+      "sku": "NEOSOLARINVERTERS20260"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20261",
+      "sku": "NEOSOLARINVERTERS20261"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20262",
+      "sku": "NEOSOLARINVERTERS20262"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20264",
+      "sku": "NEOSOLARINVERTERS20264"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20265",
+      "sku": "NEOSOLARINVERTERS20265"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20266",
+      "sku": "NEOSOLARINVERTERS20266"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20267",
+      "sku": "NEOSOLARINVERTERS20267"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20268",
+      "sku": "NEOSOLARINVERTERS20268"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20269",
+      "sku": "NEOSOLARINVERTERS20269"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20525",
+      "sku": "NEOSOLARINVERTERS20525"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20666",
+      "sku": "NEOSOLARINVERTERS20666"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20287",
+      "sku": "NEOSOLARINVERTERS20287"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21442",
+      "sku": "NEOSOLARINVERTERS21442"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21642",
+      "sku": "NEOSOLARINVERTERS21642"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21824",
+      "sku": "NEOSOLARINVERTERS21824"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22021",
+      "sku": "NEOSOLARINVERTERS22021"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22099",
+      "sku": "NEOSOLARINVERTERS22099"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22025",
+      "sku": "NEOSOLARINVERTERS22025"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22144",
+      "sku": "NEOSOLARINVERTERS22144"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22159",
+      "sku": "NEOSOLARINVERTERS22159"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21306",
+      "sku": "NEOSOLARINVERTERS21306"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24872",
+      "sku": "NEOSOLARINVERTERS24872"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20564",
+      "sku": "NEOSOLARINVERTERS20564"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-585W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-600W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-610W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-660W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-700W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-TSUN-560W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-610W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-615W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-4200W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-4200W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-12000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-12000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-15000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-15000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-17000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-17000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-20000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-20000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-25000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-25000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3300W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3300W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-15000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-15000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-20000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-20000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-25000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-25000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-50000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-50000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-75000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-75000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-100000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-100000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-125000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-125000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-3300W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-3300W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-800W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-800W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-1200W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-1200W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-2400W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-2400W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-4000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-4000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-6000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-6000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-8000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-8000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-10000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-10000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-2"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-3"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-4"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-2E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-4E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-6E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-8E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-10E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-12E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-4E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-6E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-8E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-10E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-12E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-16E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-20E"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_1",
+      "sku": "SOLFACILINVERTERS1"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_2",
+      "sku": "SOLFACILINVERTERS2"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_3",
+      "sku": "SOLFACILINVERTERS3"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_4",
+      "sku": "SOLFACILINVERTERS4"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_5",
+      "sku": "SOLFACILINVERTERS5"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_6",
+      "sku": "SOLFACILINVERTERS6"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_7",
+      "sku": "SOLFACILINVERTERS7"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_8",
+      "sku": "SOLFACILINVERTERS8"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_9",
+      "sku": "SOLFACILINVERTERS9"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_10",
+      "sku": "SOLFACILINVERTERS10"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_11",
+      "sku": "SOLFACILINVERTERS11"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_12",
+      "sku": "SOLFACILINVERTERS12"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_13",
+      "sku": "SOLFACILINVERTERS13"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_14",
+      "sku": "SOLFACILINVERTERS14"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_15",
+      "sku": "SOLFACILINVERTERS15"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_16",
+      "sku": "SOLFACILINVERTERS16"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_17",
+      "sku": "SOLFACILINVERTERS17"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_18",
+      "sku": "SOLFACILINVERTERS18"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_19",
+      "sku": "SOLFACILINVERTERS19"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_21",
+      "sku": "SOLFACILINVERTERS21"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_22",
+      "sku": "SOLFACILINVERTERS22"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_23",
+      "sku": "SOLFACILINVERTERS23"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_24",
+      "sku": "SOLFACILINVERTERS24"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_25",
+      "sku": "SOLFACILINVERTERS25"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_26",
+      "sku": "SOLFACILINVERTERS26"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_27",
+      "sku": "SOLFACILINVERTERS27"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_28",
+      "sku": "SOLFACILINVERTERS28"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_29",
+      "sku": "SOLFACILINVERTERS29"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_30",
+      "sku": "SOLFACILINVERTERS30"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_31",
+      "sku": "SOLFACILINVERTERS31"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_32",
+      "sku": "SOLFACILINVERTERS32"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_33",
+      "sku": "SOLFACILINVERTERS33"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_34",
+      "sku": "SOLFACILINVERTERS34"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_35",
+      "sku": "SOLFACILINVERTERS35"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_36",
+      "sku": "SOLFACILINVERTERS36"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_37",
+      "sku": "SOLFACILINVERTERS37"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_38",
+      "sku": "SOLFACILINVERTERS38"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_39",
+      "sku": "SOLFACILINVERTERS39"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_40",
+      "sku": "SOLFACILINVERTERS40"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_41",
+      "sku": "SOLFACILINVERTERS41"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_42",
+      "sku": "SOLFACILINVERTERS42"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_43",
+      "sku": "SOLFACILINVERTERS43"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_44",
+      "sku": "SOLFACILINVERTERS44"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_45",
+      "sku": "SOLFACILINVERTERS45"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_46",
+      "sku": "SOLFACILINVERTERS46"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_47",
+      "sku": "SOLFACILINVERTERS47"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_48",
+      "sku": "SOLFACILINVERTERS48"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_49",
+      "sku": "SOLFACILINVERTERS49"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_50",
+      "sku": "SOLFACILINVERTERS50"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_51",
+      "sku": "SOLFACILINVERTERS51"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_52",
+      "sku": "SOLFACILINVERTERS52"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_53",
+      "sku": "SOLFACILINVERTERS53"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_54",
+      "sku": "SOLFACILINVERTERS54"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_55",
+      "sku": "SOLFACILINVERTERS55"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_56",
+      "sku": "SOLFACILINVERTERS56"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_57",
+      "sku": "SOLFACILINVERTERS57"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_58",
+      "sku": "SOLFACILINVERTERS58"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_59",
+      "sku": "SOLFACILINVERTERS59"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_60",
+      "sku": "SOLFACILINVERTERS60"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_61",
+      "sku": "SOLFACILINVERTERS61"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_62",
+      "sku": "SOLFACILINVERTERS62"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_63",
+      "sku": "SOLFACILINVERTERS63"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_64",
+      "sku": "SOLFACILINVERTERS64"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_65",
+      "sku": "SOLFACILINVERTERS65"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_66",
+      "sku": "SOLFACILINVERTERS66"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_67",
+      "sku": "SOLFACILINVERTERS67"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_68",
+      "sku": "SOLFACILINVERTERS68"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_69",
+      "sku": "SOLFACILINVERTERS69"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_70",
+      "sku": "SOLFACILINVERTERS70"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_71",
+      "sku": "SOLFACILINVERTERS71"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_72",
+      "sku": "SOLFACILINVERTERS72"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_73",
+      "sku": "SOLFACILINVERTERS73"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_74",
+      "sku": "SOLFACILINVERTERS74"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_75",
+      "sku": "SOLFACILINVERTERS75"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_76",
+      "sku": "SOLFACILINVERTERS76"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_77",
+      "sku": "SOLFACILINVERTERS77"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_78",
+      "sku": "SOLFACILINVERTERS78"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_79",
+      "sku": "SOLFACILINVERTERS79"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_80",
+      "sku": "SOLFACILINVERTERS80"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_81",
+      "sku": "SOLFACILINVERTERS81"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_82",
+      "sku": "SOLFACILINVERTERS82"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_83",
+      "sku": "SOLFACILINVERTERS83"
+    },
+    {
+      "category": "inverters",
+      "id": "FOTUS-KP04-kits-hibridos",
+      "sku": "FOTUS-KP04-KITS-HIBRIDOS"
+    },
+    {
+      "category": "inverters",
+      "id": "FOTUS-KP04-kits",
+      "sku": "FOTUS-KP04-KITS"
+    },
+    {
+      "category": "inverters",
+      "id": "FOTUS-KP02-kits",
+      "sku": "FOTUS-KP02-KITS"
+    },
+    {
+      "category": "inverters",
+      "id": "FOTUS-KP03-kits",
+      "sku": "FOTUS-KP03-KITS"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22916",
+      "sku": "NEOSOLARINVERTERS22916"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21632",
+      "sku": "NEOSOLARINVERTERS21632"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20566",
+      "sku": "NEOSOLARINVERTERS20566"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20563",
+      "sku": "NEOSOLARINVERTERS20563"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24973",
+      "sku": "NEOSOLARINVERTERS24973"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22022",
+      "sku": "NEOSOLARINVERTERS22022"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20247",
+      "sku": "NEOSOLARINVERTERS20247"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24972",
+      "sku": "NEOSOLARINVERTERS24972"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21630",
+      "sku": "NEOSOLARINVERTERS21630"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22024",
+      "sku": "NEOSOLARINVERTERS22024"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20922",
+      "sku": "NEOSOLARINVERTERS20922"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21631",
+      "sku": "NEOSOLARINVERTERS21631"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20250",
+      "sku": "NEOSOLARINVERTERS20250"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21634",
+      "sku": "NEOSOLARINVERTERS21634"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20778",
+      "sku": "NEOSOLARINVERTERS20778"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21633",
+      "sku": "NEOSOLARINVERTERS21633"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21639",
+      "sku": "NEOSOLARINVERTERS21639"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22095",
+      "sku": "NEOSOLARINVERTERS22095"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22023",
+      "sku": "NEOSOLARINVERTERS22023"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22920",
+      "sku": "NEOSOLARINVERTERS22920"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20924",
+      "sku": "NEOSOLARINVERTERS20924"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24874",
+      "sku": "NEOSOLARINVERTERS24874"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22921",
+      "sku": "NEOSOLARINVERTERS22921"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21641",
+      "sku": "NEOSOLARINVERTERS21641"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21640",
+      "sku": "NEOSOLARINVERTERS21640"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22734",
+      "sku": "NEOSOLARINVERTERS22734"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24878",
+      "sku": "NEOSOLARINVERTERS24878"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20565",
+      "sku": "NEOSOLARINVERTERS20565"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24876",
+      "sku": "NEOSOLARINVERTERS24876"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24825",
+      "sku": "NEOSOLARINVERTERS24825"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20249",
+      "sku": "NEOSOLARINVERTERS20249"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24877",
+      "sku": "NEOSOLARINVERTERS24877"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24870",
+      "sku": "NEOSOLARINVERTERS24870"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22714",
+      "sku": "NEOSOLARINVERTERS22714"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23309",
+      "sku": "NEOSOLARINVERTERS23309"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23783",
+      "sku": "NEOSOLARINVERTERS23783"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_23782",
+      "sku": "NEOSOLARINVERTERS23782"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20217",
+      "sku": "NEOSOLARINVERTERS20217"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20252",
+      "sku": "NEOSOLARINVERTERS20252"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20253",
+      "sku": "NEOSOLARINVERTERS20253"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20255",
+      "sku": "NEOSOLARINVERTERS20255"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20256",
+      "sku": "NEOSOLARINVERTERS20256"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20258",
+      "sku": "NEOSOLARINVERTERS20258"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20259",
+      "sku": "NEOSOLARINVERTERS20259"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20260",
+      "sku": "NEOSOLARINVERTERS20260"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20261",
+      "sku": "NEOSOLARINVERTERS20261"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20262",
+      "sku": "NEOSOLARINVERTERS20262"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20264",
+      "sku": "NEOSOLARINVERTERS20264"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20265",
+      "sku": "NEOSOLARINVERTERS20265"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20266",
+      "sku": "NEOSOLARINVERTERS20266"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20267",
+      "sku": "NEOSOLARINVERTERS20267"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20268",
+      "sku": "NEOSOLARINVERTERS20268"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20269",
+      "sku": "NEOSOLARINVERTERS20269"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20525",
+      "sku": "NEOSOLARINVERTERS20525"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20666",
+      "sku": "NEOSOLARINVERTERS20666"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20287",
+      "sku": "NEOSOLARINVERTERS20287"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21442",
+      "sku": "NEOSOLARINVERTERS21442"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21642",
+      "sku": "NEOSOLARINVERTERS21642"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21824",
+      "sku": "NEOSOLARINVERTERS21824"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22021",
+      "sku": "NEOSOLARINVERTERS22021"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22099",
+      "sku": "NEOSOLARINVERTERS22099"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22025",
+      "sku": "NEOSOLARINVERTERS22025"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22144",
+      "sku": "NEOSOLARINVERTERS22144"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_22159",
+      "sku": "NEOSOLARINVERTERS22159"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_21306",
+      "sku": "NEOSOLARINVERTERS21306"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_24872",
+      "sku": "NEOSOLARINVERTERS24872"
+    },
+    {
+      "category": "inverters",
+      "id": "neosolar_inverters_20564",
+      "sku": "NEOSOLARINVERTERS20564"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-585W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-600W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-610W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-660W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-700W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-TSUN-560W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-610W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-615W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-4200W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-4200W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-12000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-12000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-15000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-15000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-17000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-17000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-20000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-20000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SAJ-25000W",
+      "sku": "ODEXINVERTERSODEX-INV-SAJ-25000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3300W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3300W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-15000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-15000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-20000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-20000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-25000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-25000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-50000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-50000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-75000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-75000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-100000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-100000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-125000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-125000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-3000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-3000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-CHINT-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-CHINT-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-3300W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-3300W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOFAR-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOFAR-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-800W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-800W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-1200W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-1200W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-2400W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-2400W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-3000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-3000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-4000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-4000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-6000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-6000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-8000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-8000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-GROWATT-10000W-1",
+      "sku": "ODEXINVERTERSODEX-INV-GROWATT-10000W-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-6000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-6000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-DEYE-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-DEYE-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-5000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-5000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-8000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-8000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-INV-SOLAX-10000W",
+      "sku": "ODEXINVERTERSODEX-INV-SOLAX-10000W"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-COLONIAL"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-LAJE"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-1"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-2"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-3"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+      "sku": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-4"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-2E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-4E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-6E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-8E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-10E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-12E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-4E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-6E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-8E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-10E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-12E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-16E"
+    },
+    {
+      "category": "inverters",
+      "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
+      "sku": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-20E"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_accessories_2",
+      "sku": "SOLFACILACCESSORIES2"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_1",
+      "sku": "SOLFACILINVERTERS1"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_2",
+      "sku": "SOLFACILINVERTERS2"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_3",
+      "sku": "SOLFACILINVERTERS3"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_4",
+      "sku": "SOLFACILINVERTERS4"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_5",
+      "sku": "SOLFACILINVERTERS5"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_6",
+      "sku": "SOLFACILINVERTERS6"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_7",
+      "sku": "SOLFACILINVERTERS7"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_8",
+      "sku": "SOLFACILINVERTERS8"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_9",
+      "sku": "SOLFACILINVERTERS9"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_10",
+      "sku": "SOLFACILINVERTERS10"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_11",
+      "sku": "SOLFACILINVERTERS11"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_12",
+      "sku": "SOLFACILINVERTERS12"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_13",
+      "sku": "SOLFACILINVERTERS13"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_14",
+      "sku": "SOLFACILINVERTERS14"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_15",
+      "sku": "SOLFACILINVERTERS15"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_16",
+      "sku": "SOLFACILINVERTERS16"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_17",
+      "sku": "SOLFACILINVERTERS17"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_18",
+      "sku": "SOLFACILINVERTERS18"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_19",
+      "sku": "SOLFACILINVERTERS19"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_21",
+      "sku": "SOLFACILINVERTERS21"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_22",
+      "sku": "SOLFACILINVERTERS22"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_23",
+      "sku": "SOLFACILINVERTERS23"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_24",
+      "sku": "SOLFACILINVERTERS24"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_25",
+      "sku": "SOLFACILINVERTERS25"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_26",
+      "sku": "SOLFACILINVERTERS26"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_27",
+      "sku": "SOLFACILINVERTERS27"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_28",
+      "sku": "SOLFACILINVERTERS28"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_29",
+      "sku": "SOLFACILINVERTERS29"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_30",
+      "sku": "SOLFACILINVERTERS30"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_31",
+      "sku": "SOLFACILINVERTERS31"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_32",
+      "sku": "SOLFACILINVERTERS32"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_33",
+      "sku": "SOLFACILINVERTERS33"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_34",
+      "sku": "SOLFACILINVERTERS34"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_35",
+      "sku": "SOLFACILINVERTERS35"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_36",
+      "sku": "SOLFACILINVERTERS36"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_37",
+      "sku": "SOLFACILINVERTERS37"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_38",
+      "sku": "SOLFACILINVERTERS38"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_39",
+      "sku": "SOLFACILINVERTERS39"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_40",
+      "sku": "SOLFACILINVERTERS40"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_41",
+      "sku": "SOLFACILINVERTERS41"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_42",
+      "sku": "SOLFACILINVERTERS42"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_43",
+      "sku": "SOLFACILINVERTERS43"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_44",
+      "sku": "SOLFACILINVERTERS44"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_45",
+      "sku": "SOLFACILINVERTERS45"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_46",
+      "sku": "SOLFACILINVERTERS46"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_47",
+      "sku": "SOLFACILINVERTERS47"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_48",
+      "sku": "SOLFACILINVERTERS48"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_49",
+      "sku": "SOLFACILINVERTERS49"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_50",
+      "sku": "SOLFACILINVERTERS50"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_51",
+      "sku": "SOLFACILINVERTERS51"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_52",
+      "sku": "SOLFACILINVERTERS52"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_53",
+      "sku": "SOLFACILINVERTERS53"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_54",
+      "sku": "SOLFACILINVERTERS54"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_55",
+      "sku": "SOLFACILINVERTERS55"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_56",
+      "sku": "SOLFACILINVERTERS56"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_57",
+      "sku": "SOLFACILINVERTERS57"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_58",
+      "sku": "SOLFACILINVERTERS58"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_59",
+      "sku": "SOLFACILINVERTERS59"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_60",
+      "sku": "SOLFACILINVERTERS60"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_61",
+      "sku": "SOLFACILINVERTERS61"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_62",
+      "sku": "SOLFACILINVERTERS62"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_63",
+      "sku": "SOLFACILINVERTERS63"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_64",
+      "sku": "SOLFACILINVERTERS64"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_65",
+      "sku": "SOLFACILINVERTERS65"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_66",
+      "sku": "SOLFACILINVERTERS66"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_67",
+      "sku": "SOLFACILINVERTERS67"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_68",
+      "sku": "SOLFACILINVERTERS68"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_69",
+      "sku": "SOLFACILINVERTERS69"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_70",
+      "sku": "SOLFACILINVERTERS70"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_71",
+      "sku": "SOLFACILINVERTERS71"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_72",
+      "sku": "SOLFACILINVERTERS72"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_73",
+      "sku": "SOLFACILINVERTERS73"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_74",
+      "sku": "SOLFACILINVERTERS74"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_75",
+      "sku": "SOLFACILINVERTERS75"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_76",
+      "sku": "SOLFACILINVERTERS76"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_77",
+      "sku": "SOLFACILINVERTERS77"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_78",
+      "sku": "SOLFACILINVERTERS78"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_79",
+      "sku": "SOLFACILINVERTERS79"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_80",
+      "sku": "SOLFACILINVERTERS80"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_81",
+      "sku": "SOLFACILINVERTERS81"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_82",
+      "sku": "SOLFACILINVERTERS82"
+    },
+    {
+      "category": "inverters",
+      "id": "solfacil_inverters_83",
+      "sku": "SOLFACILINVERTERS83"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-585W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-600W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-610W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-660W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-700W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-TSUN-560W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-610W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-615W"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_1",
+      "sku": "SOLFACILPANELS1"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_2",
+      "sku": "SOLFACILPANELS2"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_3",
+      "sku": "SOLFACILPANELS3"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_4",
+      "sku": "SOLFACILPANELS4"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_5",
+      "sku": "SOLFACILPANELS5"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_6",
+      "sku": "SOLFACILPANELS6"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-585W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-600W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-610W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-660W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-660W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ODEX-700W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ODEX-700W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-TSUN-560W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-TSUN-560W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-610W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-610W"
+    },
+    {
+      "category": "panels",
+      "id": "odex_inverters_ODEX-PAINEL-JINKO-615W",
+      "sku": "ODEXINVERTERSODEX-PAINEL-JINKO-615W"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_accessories_4",
+      "sku": "SOLFACILACCESSORIES4"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_accessories_6",
+      "sku": "SOLFACILACCESSORIES6"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_2",
+      "sku": "SOLFACILPANELS2"
+    },
+    {
+      "category": "panels",
+      "id": "solfacil_panels_3",
+      "sku": "SOLFACILPANELS3"
+    }
+  ],
+  "map": {
+    "kits:FOTUS-KP04-kits-hibridos": "FOTUS-KP04-KITS-HIBRIDOS",
+    "kits:FOTUS-KP04-kits": "FOTUS-KP04-KITS",
+    "kits:FOTUS-KP02-kits": "FOTUS-KP02-KITS",
+    "kits:FOTUS-KP03-kits": "FOTUS-KP03-KITS",
+    "kits:neosolar_kits_27314": "NEOSOLARKITS27314",
+    "kits:neosolar_kits_25049": "NEOSOLARKITS25049",
+    "kits:neosolar_kits_27475": "NEOSOLARKITS27475",
+    "kits:neosolar_kits_25164": "NEOSOLARKITS25164",
+    "kits:neosolar_kits_27315": "NEOSOLARKITS27315",
+    "kits:neosolar_kits_23927": "NEOSOLARKITS23927",
+    "kits:neosolar_kits_27347": "NEOSOLARKITS27347",
+    "kits:neosolar_kits_27349": "NEOSOLARKITS27349",
+    "kits:neosolar_kits_25131": "NEOSOLARKITS25131",
+    "kits:neosolar_kits_23928": "NEOSOLARKITS23928",
+    "kits:neosolar_kits_27339": "NEOSOLARKITS27339",
+    "kits:neosolar_kits_23929": "NEOSOLARKITS23929",
+    "kits:neosolar_kits_27476": "NEOSOLARKITS27476",
+    "kits:neosolar_kits_26720": "NEOSOLARKITS26720",
+    "kits:neosolar_kits_26721": "NEOSOLARKITS26721",
+    "kits:neosolar_kits_25158": "NEOSOLARKITS25158",
+    "kits:neosolar_kits_26722": "NEOSOLARKITS26722",
+    "kits:neosolar_kits_27348": "NEOSOLARKITS27348",
+    "kits:neosolar_kits_27378": "NEOSOLARKITS27378",
+    "kits:neosolar_kits_27313": "NEOSOLARKITS27313",
+    "kits:neosolar_kits_25130": "NEOSOLARKITS25130",
+    "kits:neosolar_kits_25048": "NEOSOLARKITS25048",
+    "kits:neosolar_kits_25047": "NEOSOLARKITS25047",
+    "kits:neosolar_kits_25163": "NEOSOLARKITS25163",
+    "kits:neosolar_kits_25160": "NEOSOLARKITS25160",
+    "kits:neosolar_kits_25162": "NEOSOLARKITS25162",
+    "kits:neosolar_kits_27267": "NEOSOLARKITS27267",
+    "kits:neosolar_kits_27303": "NEOSOLARKITS27303",
+    "kits:neosolar_kits_27299": "NEOSOLARKITS27299",
+    "kits:neosolar_kits_27263": "NEOSOLARKITS27263",
+    "kits:neosolar_kits_27259": "NEOSOLARKITS27259",
+    "kits:neosolar_kits_25129": "NEOSOLARKITS25129",
+    "kits:neosolar_kits_23699": "NEOSOLARKITS23699",
+    "kits:neosolar_kits_23703": "NEOSOLARKITS23703",
+    "kits:neosolar_kits_27266": "NEOSOLARKITS27266",
+    "kits:neosolar_kits_27304": "NEOSOLARKITS27304",
+    "kits:neosolar_kits_27298": "NEOSOLARKITS27298",
+    "kits:neosolar_kits_27297": "NEOSOLARKITS27297",
+    "kits:neosolar_kits_27305": "NEOSOLARKITS27305",
+    "kits:neosolar_kits_27306": "NEOSOLARKITS27306",
+    "kits:neosolar_kits_27269": "NEOSOLARKITS27269",
+    "kits:neosolar_kits_27268": "NEOSOLARKITS27268",
+    "kits:neosolar_kits_27300": "NEOSOLARKITS27300",
+    "kits:neosolar_kits_27302": "NEOSOLARKITS27302",
+    "kits:neosolar_kits_27301": "NEOSOLARKITS27301",
+    "kits:neosolar_kits_27296": "NEOSOLARKITS27296",
+    "kits:neosolar_kits_27270": "NEOSOLARKITS27270",
+    "kits:neosolar_kits_27260": "NEOSOLARKITS27260",
+    "kits:neosolar_kits_27261": "NEOSOLARKITS27261",
+    "kits:neosolar_kits_27264": "NEOSOLARKITS27264",
+    "kits:neosolar_kits_27265": "NEOSOLARKITS27265",
+    "kits:neosolar_kits_27262": "NEOSOLARKITS27262",
+    "kits:neosolar_kits_26701": "NEOSOLARKITS26701",
+    "kits:neosolar_kits_26723": "NEOSOLARKITS26723",
+    "kits:neosolar_kits_25132": "NEOSOLARKITS25132",
+    "kits:neosolar_kits_25044": "NEOSOLARKITS25044",
+    "kits:neosolar_kits_25045": "NEOSOLARKITS25045",
+    "kits:neosolar_kits_25043": "NEOSOLARKITS25043",
+    "kits:neosolar_kits_25154": "NEOSOLARKITS25154",
+    "kits:neosolar_kits_25156": "NEOSOLARKITS25156",
+    "kits:neosolar_kits_26695": "NEOSOLARKITS26695",
+    "kits:neosolar_kits_26694": "NEOSOLARKITS26694",
+    "kits:neosolar_kits_26698": "NEOSOLARKITS26698",
+    "kits:neosolar_kits_26699": "NEOSOLARKITS26699",
+    "kits:neosolar_kits_26697": "NEOSOLARKITS26697",
+    "kits:neosolar_kits_26696": "NEOSOLARKITS26696",
+    "kits:neosolar_kits_26700": "NEOSOLARKITS26700",
+    "kits:neosolar_kits_25053": "NEOSOLARKITS25053",
+    "kits:neosolar_kits_26968": "NEOSOLARKITS26968",
+    "kits:neosolar_kits_26991": "NEOSOLARKITS26991",
+    "kits:neosolar_kits_26975": "NEOSOLARKITS26975",
+    "kits:neosolar_kits_26984": "NEOSOLARKITS26984",
+    "kits:neosolar_kits_26971": "NEOSOLARKITS26971",
+    "kits:neosolar_kits_26972": "NEOSOLARKITS26972",
+    "kits:neosolar_kits_26969": "NEOSOLARKITS26969",
+    "kits:neosolar_kits_26970": "NEOSOLARKITS26970",
+    "kits:neosolar_kits_26988": "NEOSOLARKITS26988",
+    "kits:neosolar_kits_26987": "NEOSOLARKITS26987",
+    "kits:neosolar_kits_26986": "NEOSOLARKITS26986",
+    "kits:neosolar_kits_26985": "NEOSOLARKITS26985",
+    "kits:neosolar_kits_25046": "NEOSOLARKITS25046",
+    "kits:neosolar_kits_22691": "NEOSOLARKITS22691",
+    "kits:neosolar_kits_22690": "NEOSOLARKITS22690",
+    "kits:FOTUS-KP-113kWp-Ceramico-kits": "FOTUS-KP-113KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-113kWp-MiniTrilho-kits": "FOTUS-KP-113KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-113kWp-Fibrocimento-kits": "FOTUS-KP-113KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-120kWp-Ceramico-kits": "FOTUS-KP-120KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-120kWp-MiniTrilho-kits": "FOTUS-KP-120KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-120kWp-Fibrocimento-kits": "FOTUS-KP-120KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-142kWp-MiniTrilho-kits": "FOTUS-KP-142KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-142kWp-Ceramico-kits": "FOTUS-KP-142KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-142kWp-Fibrocimento-kits": "FOTUS-KP-142KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-227kWp-MiniTrilho-kits": "FOTUS-KP-227KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-227kWp-Ceramico-kits": "FOTUS-KP-227KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-227kWp-Fibrocimento-kits": "FOTUS-KP-227KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-240kWp-MiniTrilho-kits": "FOTUS-KP-240KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-240kWp-Ceramico-kits": "FOTUS-KP-240KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-240kWp-Fibrocimento-kits": "FOTUS-KP-240KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-284kWp-MiniTrilho-kits": "FOTUS-KP-284KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-284kWp-Ceramico-kits": "FOTUS-KP-284KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-284kWp-Fibrocimento-kits": "FOTUS-KP-284KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-342kWp-MiniTrilho-kits": "FOTUS-KP-342KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-342kWp-Ceramico-kits": "FOTUS-KP-342KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-342kWp-Fibrocimento-kits": "FOTUS-KP-342KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-399kWp-MiniTrilho-kits": "FOTUS-KP-399KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-360kWp-MiniTrilho-kits": "FOTUS-KP-360KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-360kWp-Ceramico-kits": "FOTUS-KP-360KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-360kWp-Fibrocimento-kits": "FOTUS-KP-360KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-399kWp-Ceramico-kits": "FOTUS-KP-399KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-399kWp-Fibrocimento-kits": "FOTUS-KP-399KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-455kWp-MiniTrilho-kits": "FOTUS-KP-455KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-455kWp-Ceramico-kits": "FOTUS-KP-455KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-513kWp-MiniTrilho-kits": "FOTUS-KP-513KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-426kWp-MiniTrilho-kits": "FOTUS-KP-426KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-455kWp-Fibrocimento-kits": "FOTUS-KP-455KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-480kWp-MiniTrilho-kits": "FOTUS-KP-480KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-426kWp-Ceramico-kits": "FOTUS-KP-426KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-426kWp-Fibrocimento-kits": "FOTUS-KP-426KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-480kWp-Ceramico-kits": "FOTUS-KP-480KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-513kWp-Ceramico-kits": "FOTUS-KP-513KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-513kWp-Fibrocimento-kits": "FOTUS-KP-513KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-480kWp-Fibrocimento-kits": "FOTUS-KP-480KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-568kWp-MiniTrilho-kits": "FOTUS-KP-568KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-570kWp-MiniTrilho-kits": "FOTUS-KP-570KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-570kWp-Ceramico-kits": "FOTUS-KP-570KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-568kWp-Ceramico-kits": "FOTUS-KP-568KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-600kWp-MiniTrilho-kits": "FOTUS-KP-600KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-570kWp-Fibrocimento-kits": "FOTUS-KP-570KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-568kWp-Fibrocimento-kits": "FOTUS-KP-568KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-600kWp-Ceramico-kits": "FOTUS-KP-600KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-684kWp-MiniTrilho-kits": "FOTUS-KP-684KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-600kWp-Fibrocimento-kits": "FOTUS-KP-600KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-798kWp-MiniTrilho-kits": "FOTUS-KP-798KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-684kWp-Ceramico-kits": "FOTUS-KP-684KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-684kWp-Fibrocimento-kits": "FOTUS-KP-684KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-720kWp-MiniTrilho-kits": "FOTUS-KP-720KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-720kWp-Ceramico-kits": "FOTUS-KP-720KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-720kWp-Fibrocimento-kits": "FOTUS-KP-720KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-798kWp-Ceramico-kits": "FOTUS-KP-798KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-798kWp-Fibrocimento-kits": "FOTUS-KP-798KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-855kWp-MiniTrilho-kits": "FOTUS-KP-855KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-710kWp-MiniTrilho-kits": "FOTUS-KP-710KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-969kWp-MiniTrilho-kits": "FOTUS-KP-969KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-855kWp-Ceramico-kits": "FOTUS-KP-855KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-710kWp-Ceramico-kits": "FOTUS-KP-710KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-855kWp-Fibrocimento-kits": "FOTUS-KP-855KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-710kWp-Fibrocimento-kits": "FOTUS-KP-710KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1026kWp-MiniTrilho-kits": "FOTUS-KP-1026KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-852kWp-MiniTrilho-kits": "FOTUS-KP-852KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-969kWp-Ceramico-kits": "FOTUS-KP-969KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-969kWp-Fibrocimento-kits": "FOTUS-KP-969KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-840kWp-MiniTrilho-kits": "FOTUS-KP-840KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-840kWp-Ceramico-kits": "FOTUS-KP-840KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-911kWp-MiniTrilho-kits": "FOTUS-KP-911KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1026kWp-Ceramico-kits": "FOTUS-KP-1026KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-852kWp-Ceramico-kits": "FOTUS-KP-852KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-840kWp-Fibrocimento-kits": "FOTUS-KP-840KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-852kWp-Fibrocimento-kits": "FOTUS-KP-852KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-911kWp-Ceramico-kits": "FOTUS-KP-911KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-960kWp-MiniTrilho-kits": "FOTUS-KP-960KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-911kWp-Fibrocimento-kits": "FOTUS-KP-911KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-960kWp-Ceramico-kits": "FOTUS-KP-960KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-994kWp-MiniTrilho-kits": "FOTUS-KP-994KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1254kWp-MiniTrilho-kits": "FOTUS-KP-1254KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1026kWp-Fibrocimento-kits": "FOTUS-KP-1026KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-960kWp-Fibrocimento-kits": "FOTUS-KP-960KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-994kWp-Ceramico-kits": "FOTUS-KP-994KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-994kWp-Fibrocimento-kits": "FOTUS-KP-994KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1368kWp-MiniTrilho-kits": "FOTUS-KP-1368KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1311kWp-MiniTrilho-kits": "FOTUS-KP-1311KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1136kWp-MiniTrilho-kits": "FOTUS-KP-1136KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1254kWp-Ceramico-kits": "FOTUS-KP-1254KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1254kWp-Fibrocimento-kits": "FOTUS-KP-1254KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1065kWp-MiniTrilho-kits": "FOTUS-KP-1065KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1368kWp-Ceramico-kits": "FOTUS-KP-1368KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1368kWp-Fibrocimento-kits": "FOTUS-KP-1368KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1311kWp-Ceramico-kits": "FOTUS-KP-1311KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1136kWp-Ceramico-kits": "FOTUS-KP-1136KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1311kWp-Fibrocimento-kits": "FOTUS-KP-1311KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1136kWp-Fibrocimento-kits": "FOTUS-KP-1136KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1065kWp-Ceramico-kits": "FOTUS-KP-1065KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1482kWp-MiniTrilho-kits": "FOTUS-KP-1482KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1065kWp-Fibrocimento-kits": "FOTUS-KP-1065KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1482kWp-Ceramico-kits": "FOTUS-KP-1482KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1482kWp-Fibrocimento-kits": "FOTUS-KP-1482KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1278kWp-MiniTrilho-kits": "FOTUS-KP-1278KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1596kWp-MiniTrilho-kits": "FOTUS-KP-1596KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1278kWp-Ceramico-kits": "FOTUS-KP-1278KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1278kWp-Fibrocimento-kits": "FOTUS-KP-1278KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1596kWp-Ceramico-kits": "FOTUS-KP-1596KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1704kWp-MiniTrilho-kits": "FOTUS-KP-1704KWP-MINITRILHO-KITS",
+    "kits:FOTUS-KP-1704kWp-Ceramico-kits": "FOTUS-KP-1704KWP-CERAMICO-KITS",
+    "kits:FOTUS-KP-1596kWp-Fibrocimento-kits": "FOTUS-KP-1596KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-1704kWp-Fibrocimento-kits": "FOTUS-KP-1704KWP-FIBROCIMENTO-KITS",
+    "kits:FOTUS-KP-120kWp-Ceramico-kits-hibridos": "FOTUS-KP-120KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-120kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-120KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-120kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-120KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-240kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-240KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-240kWp-Ceramico-kits-hibridos": "FOTUS-KP-240KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-240kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-240KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-360kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-360KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-360kWp-Ceramico-kits-hibridos": "FOTUS-KP-360KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-480kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-480KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-480kWp-Ceramico-kits-hibridos": "FOTUS-KP-480KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-360kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-360KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-480kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-480KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-600kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-600KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-600kWp-Ceramico-kits-hibridos": "FOTUS-KP-600KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-600kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-600KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-720kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-720KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-720kWp-Ceramico-kits-hibridos": "FOTUS-KP-720KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-840kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-840KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-840kWp-Ceramico-kits-hibridos": "FOTUS-KP-840KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-960kWp-MiniTrilho-kits-hibridos": "FOTUS-KP-960KWP-MINITRILHO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-720kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-720KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-840kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-840KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-960kWp-Ceramico-kits-hibridos": "FOTUS-KP-960KWP-CERAMICO-KITS-HIBRIDOS",
+    "kits:FOTUS-KP-960kWp-Fibrocimento-kits-hibridos": "FOTUS-KP-960KWP-FIBROCIMENTO-KITS-HIBRIDOS",
+    "inverters:neosolar_inverters_22916": "NEOSOLARINVERTERS22916",
+    "inverters:neosolar_inverters_21632": "NEOSOLARINVERTERS21632",
+    "inverters:neosolar_inverters_20566": "NEOSOLARINVERTERS20566",
+    "inverters:neosolar_inverters_20563": "NEOSOLARINVERTERS20563",
+    "inverters:neosolar_inverters_24973": "NEOSOLARINVERTERS24973",
+    "inverters:neosolar_inverters_22022": "NEOSOLARINVERTERS22022",
+    "inverters:neosolar_inverters_20247": "NEOSOLARINVERTERS20247",
+    "inverters:neosolar_inverters_24972": "NEOSOLARINVERTERS24972",
+    "inverters:neosolar_inverters_21630": "NEOSOLARINVERTERS21630",
+    "inverters:neosolar_inverters_22024": "NEOSOLARINVERTERS22024",
+    "inverters:neosolar_inverters_20922": "NEOSOLARINVERTERS20922",
+    "inverters:neosolar_inverters_21631": "NEOSOLARINVERTERS21631",
+    "inverters:neosolar_inverters_20250": "NEOSOLARINVERTERS20250",
+    "inverters:neosolar_inverters_21634": "NEOSOLARINVERTERS21634",
+    "inverters:neosolar_inverters_20778": "NEOSOLARINVERTERS20778",
+    "inverters:neosolar_inverters_21633": "NEOSOLARINVERTERS21633",
+    "inverters:neosolar_inverters_21639": "NEOSOLARINVERTERS21639",
+    "inverters:neosolar_inverters_22095": "NEOSOLARINVERTERS22095",
+    "inverters:neosolar_inverters_22023": "NEOSOLARINVERTERS22023",
+    "inverters:neosolar_inverters_22920": "NEOSOLARINVERTERS22920",
+    "inverters:neosolar_inverters_20924": "NEOSOLARINVERTERS20924",
+    "inverters:neosolar_inverters_24874": "NEOSOLARINVERTERS24874",
+    "inverters:neosolar_inverters_22921": "NEOSOLARINVERTERS22921",
+    "inverters:neosolar_inverters_21641": "NEOSOLARINVERTERS21641",
+    "inverters:neosolar_inverters_21640": "NEOSOLARINVERTERS21640",
+    "inverters:neosolar_inverters_22734": "NEOSOLARINVERTERS22734",
+    "inverters:neosolar_inverters_24878": "NEOSOLARINVERTERS24878",
+    "inverters:neosolar_inverters_20565": "NEOSOLARINVERTERS20565",
+    "inverters:neosolar_inverters_24876": "NEOSOLARINVERTERS24876",
+    "inverters:neosolar_inverters_24825": "NEOSOLARINVERTERS24825",
+    "inverters:neosolar_inverters_20249": "NEOSOLARINVERTERS20249",
+    "inverters:neosolar_inverters_24877": "NEOSOLARINVERTERS24877",
+    "inverters:neosolar_inverters_24870": "NEOSOLARINVERTERS24870",
+    "inverters:neosolar_inverters_22714": "NEOSOLARINVERTERS22714",
+    "inverters:neosolar_inverters_23309": "NEOSOLARINVERTERS23309",
+    "inverters:neosolar_inverters_23783": "NEOSOLARINVERTERS23783",
+    "inverters:neosolar_inverters_23782": "NEOSOLARINVERTERS23782",
+    "inverters:neosolar_inverters_20217": "NEOSOLARINVERTERS20217",
+    "inverters:neosolar_inverters_20252": "NEOSOLARINVERTERS20252",
+    "inverters:neosolar_inverters_20253": "NEOSOLARINVERTERS20253",
+    "inverters:neosolar_inverters_20255": "NEOSOLARINVERTERS20255",
+    "inverters:neosolar_inverters_20256": "NEOSOLARINVERTERS20256",
+    "inverters:neosolar_inverters_20258": "NEOSOLARINVERTERS20258",
+    "inverters:neosolar_inverters_20259": "NEOSOLARINVERTERS20259",
+    "inverters:neosolar_inverters_20260": "NEOSOLARINVERTERS20260",
+    "inverters:neosolar_inverters_20261": "NEOSOLARINVERTERS20261",
+    "inverters:neosolar_inverters_20262": "NEOSOLARINVERTERS20262",
+    "inverters:neosolar_inverters_20264": "NEOSOLARINVERTERS20264",
+    "inverters:neosolar_inverters_20265": "NEOSOLARINVERTERS20265",
+    "inverters:neosolar_inverters_20266": "NEOSOLARINVERTERS20266",
+    "inverters:neosolar_inverters_20267": "NEOSOLARINVERTERS20267",
+    "inverters:neosolar_inverters_20268": "NEOSOLARINVERTERS20268",
+    "inverters:neosolar_inverters_20269": "NEOSOLARINVERTERS20269",
+    "inverters:neosolar_inverters_20525": "NEOSOLARINVERTERS20525",
+    "inverters:neosolar_inverters_20666": "NEOSOLARINVERTERS20666",
+    "inverters:neosolar_inverters_20287": "NEOSOLARINVERTERS20287",
+    "inverters:neosolar_inverters_21442": "NEOSOLARINVERTERS21442",
+    "inverters:neosolar_inverters_21642": "NEOSOLARINVERTERS21642",
+    "inverters:neosolar_inverters_21824": "NEOSOLARINVERTERS21824",
+    "inverters:neosolar_inverters_22021": "NEOSOLARINVERTERS22021",
+    "inverters:neosolar_inverters_22099": "NEOSOLARINVERTERS22099",
+    "inverters:neosolar_inverters_22025": "NEOSOLARINVERTERS22025",
+    "inverters:neosolar_inverters_22144": "NEOSOLARINVERTERS22144",
+    "inverters:neosolar_inverters_22159": "NEOSOLARINVERTERS22159",
+    "inverters:neosolar_inverters_21306": "NEOSOLARINVERTERS21306",
+    "inverters:neosolar_inverters_24872": "NEOSOLARINVERTERS24872",
+    "inverters:neosolar_inverters_20564": "NEOSOLARINVERTERS20564",
+    "inverters:odex_inverters_ODEX-PAINEL-ODEX-585W": "ODEXINVERTERSODEX-PAINEL-ODEX-585W",
+    "inverters:odex_inverters_ODEX-PAINEL-ODEX-600W": "ODEXINVERTERSODEX-PAINEL-ODEX-600W",
+    "inverters:odex_inverters_ODEX-PAINEL-ODEX-610W": "ODEXINVERTERSODEX-PAINEL-ODEX-610W",
+    "inverters:odex_inverters_ODEX-PAINEL-ODEX-660W": "ODEXINVERTERSODEX-PAINEL-ODEX-660W",
+    "inverters:odex_inverters_ODEX-PAINEL-ODEX-700W": "ODEXINVERTERSODEX-PAINEL-ODEX-700W",
+    "inverters:odex_inverters_ODEX-PAINEL-ASTRONERGY-600W": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W",
+    "inverters:odex_inverters_ODEX-PAINEL-TSUN-560W": "ODEXINVERTERSODEX-PAINEL-TSUN-560W",
+    "inverters:odex_inverters_ODEX-PAINEL-JINKO-610W": "ODEXINVERTERSODEX-PAINEL-JINKO-610W",
+    "inverters:odex_inverters_ODEX-PAINEL-JINKO-615W": "ODEXINVERTERSODEX-PAINEL-JINKO-615W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-3000W": "ODEXINVERTERSODEX-INV-SAJ-3000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-4200W": "ODEXINVERTERSODEX-INV-SAJ-4200W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-5000W": "ODEXINVERTERSODEX-INV-SAJ-5000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-6000W": "ODEXINVERTERSODEX-INV-SAJ-6000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-8000W": "ODEXINVERTERSODEX-INV-SAJ-8000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-10000W": "ODEXINVERTERSODEX-INV-SAJ-10000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-12000W": "ODEXINVERTERSODEX-INV-SAJ-12000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-15000W": "ODEXINVERTERSODEX-INV-SAJ-15000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-17000W": "ODEXINVERTERSODEX-INV-SAJ-17000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-20000W": "ODEXINVERTERSODEX-INV-SAJ-20000W",
+    "inverters:odex_inverters_ODEX-INV-SAJ-25000W": "ODEXINVERTERSODEX-INV-SAJ-25000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-3000W": "ODEXINVERTERSODEX-INV-GROWATT-3000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-3300W": "ODEXINVERTERSODEX-INV-GROWATT-3300W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-6000W": "ODEXINVERTERSODEX-INV-GROWATT-6000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-8000W": "ODEXINVERTERSODEX-INV-GROWATT-8000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-10000W": "ODEXINVERTERSODEX-INV-GROWATT-10000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-15000W": "ODEXINVERTERSODEX-INV-GROWATT-15000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-20000W": "ODEXINVERTERSODEX-INV-GROWATT-20000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-25000W": "ODEXINVERTERSODEX-INV-GROWATT-25000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-50000W": "ODEXINVERTERSODEX-INV-GROWATT-50000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-75000W": "ODEXINVERTERSODEX-INV-GROWATT-75000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-100000W": "ODEXINVERTERSODEX-INV-GROWATT-100000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-125000W": "ODEXINVERTERSODEX-INV-GROWATT-125000W",
+    "inverters:odex_inverters_ODEX-INV-CHINT-3000W": "ODEXINVERTERSODEX-INV-CHINT-3000W",
+    "inverters:odex_inverters_ODEX-INV-CHINT-5000W": "ODEXINVERTERSODEX-INV-CHINT-5000W",
+    "inverters:odex_inverters_ODEX-INV-CHINT-8000W": "ODEXINVERTERSODEX-INV-CHINT-8000W",
+    "inverters:odex_inverters_ODEX-INV-CHINT-10000W": "ODEXINVERTERSODEX-INV-CHINT-10000W",
+    "inverters:odex_inverters_ODEX-INV-SOFAR-3300W": "ODEXINVERTERSODEX-INV-SOFAR-3300W",
+    "inverters:odex_inverters_ODEX-INV-SOFAR-5000W": "ODEXINVERTERSODEX-INV-SOFAR-5000W",
+    "inverters:odex_inverters_ODEX-INV-SOFAR-6000W": "ODEXINVERTERSODEX-INV-SOFAR-6000W",
+    "inverters:odex_inverters_ODEX-INV-DEYE-800W": "ODEXINVERTERSODEX-INV-DEYE-800W",
+    "inverters:odex_inverters_ODEX-INV-DEYE-1200W": "ODEXINVERTERSODEX-INV-DEYE-1200W",
+    "inverters:odex_inverters_ODEX-INV-DEYE-2400W": "ODEXINVERTERSODEX-INV-DEYE-2400W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-3000W-1": "ODEXINVERTERSODEX-INV-GROWATT-3000W-1",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-4000W": "ODEXINVERTERSODEX-INV-GROWATT-4000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-5000W": "ODEXINVERTERSODEX-INV-GROWATT-5000W",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-6000W-1": "ODEXINVERTERSODEX-INV-GROWATT-6000W-1",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-8000W-1": "ODEXINVERTERSODEX-INV-GROWATT-8000W-1",
+    "inverters:odex_inverters_ODEX-INV-GROWATT-10000W-1": "ODEXINVERTERSODEX-INV-GROWATT-10000W-1",
+    "inverters:odex_inverters_ODEX-INV-DEYE-5000W": "ODEXINVERTERSODEX-INV-DEYE-5000W",
+    "inverters:odex_inverters_ODEX-INV-DEYE-6000W": "ODEXINVERTERSODEX-INV-DEYE-6000W",
+    "inverters:odex_inverters_ODEX-INV-DEYE-8000W": "ODEXINVERTERSODEX-INV-DEYE-8000W",
+    "inverters:odex_inverters_ODEX-INV-SOLAX-5000W": "ODEXINVERTERSODEX-INV-SOLAX-5000W",
+    "inverters:odex_inverters_ODEX-INV-SOLAX-8000W": "ODEXINVERTERSODEX-INV-SOLAX-8000W",
+    "inverters:odex_inverters_ODEX-INV-SOLAX-10000W": "ODEXINVERTERSODEX-INV-SOLAX-10000W",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-METALICO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1": "ODEXINVERTERSODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO": "ODEXINVERTERSODEX-ESTRUTURA-ROMAGNOLE-SOLO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-COLONIAL",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-METALICO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-LAJE",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO": "ODEXINVERTERSODEX-ESTRUTURA-PRATYC-SOLO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-LAJE",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+    "inverters:odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4": "ODEXINVERTERSODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-2E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-2E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-4E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-4E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-6E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-6E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-8E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-8E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-10E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-10E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-CLAMPER-12E": "ODEXINVERTERSODEX-STRINGBOX-CLAMPER-12E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-4E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-4E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-6E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-6E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-8E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-8E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-10E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-10E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-12E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-12E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-16E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-16E",
+    "inverters:odex_inverters_ODEX-STRINGBOX-TECBOX-20E": "ODEXINVERTERSODEX-STRINGBOX-TECBOX-20E",
+    "inverters:solfacil_inverters_1": "SOLFACILINVERTERS1",
+    "inverters:solfacil_inverters_2": "SOLFACILINVERTERS2",
+    "inverters:solfacil_inverters_3": "SOLFACILINVERTERS3",
+    "inverters:solfacil_inverters_4": "SOLFACILINVERTERS4",
+    "inverters:solfacil_inverters_5": "SOLFACILINVERTERS5",
+    "inverters:solfacil_inverters_6": "SOLFACILINVERTERS6",
+    "inverters:solfacil_inverters_7": "SOLFACILINVERTERS7",
+    "inverters:solfacil_inverters_8": "SOLFACILINVERTERS8",
+    "inverters:solfacil_inverters_9": "SOLFACILINVERTERS9",
+    "inverters:solfacil_inverters_10": "SOLFACILINVERTERS10",
+    "inverters:solfacil_inverters_11": "SOLFACILINVERTERS11",
+    "inverters:solfacil_inverters_12": "SOLFACILINVERTERS12",
+    "inverters:solfacil_inverters_13": "SOLFACILINVERTERS13",
+    "inverters:solfacil_inverters_14": "SOLFACILINVERTERS14",
+    "inverters:solfacil_inverters_15": "SOLFACILINVERTERS15",
+    "inverters:solfacil_inverters_16": "SOLFACILINVERTERS16",
+    "inverters:solfacil_inverters_17": "SOLFACILINVERTERS17",
+    "inverters:solfacil_inverters_18": "SOLFACILINVERTERS18",
+    "inverters:solfacil_inverters_19": "SOLFACILINVERTERS19",
+    "inverters:solfacil_inverters_21": "SOLFACILINVERTERS21",
+    "inverters:solfacil_inverters_22": "SOLFACILINVERTERS22",
+    "inverters:solfacil_inverters_23": "SOLFACILINVERTERS23",
+    "inverters:solfacil_inverters_24": "SOLFACILINVERTERS24",
+    "inverters:solfacil_inverters_25": "SOLFACILINVERTERS25",
+    "inverters:solfacil_inverters_26": "SOLFACILINVERTERS26",
+    "inverters:solfacil_inverters_27": "SOLFACILINVERTERS27",
+    "inverters:solfacil_inverters_28": "SOLFACILINVERTERS28",
+    "inverters:solfacil_inverters_29": "SOLFACILINVERTERS29",
+    "inverters:solfacil_inverters_30": "SOLFACILINVERTERS30",
+    "inverters:solfacil_inverters_31": "SOLFACILINVERTERS31",
+    "inverters:solfacil_inverters_32": "SOLFACILINVERTERS32",
+    "inverters:solfacil_inverters_33": "SOLFACILINVERTERS33",
+    "inverters:solfacil_inverters_34": "SOLFACILINVERTERS34",
+    "inverters:solfacil_inverters_35": "SOLFACILINVERTERS35",
+    "inverters:solfacil_inverters_36": "SOLFACILINVERTERS36",
+    "inverters:solfacil_inverters_37": "SOLFACILINVERTERS37",
+    "inverters:solfacil_inverters_38": "SOLFACILINVERTERS38",
+    "inverters:solfacil_inverters_39": "SOLFACILINVERTERS39",
+    "inverters:solfacil_inverters_40": "SOLFACILINVERTERS40",
+    "inverters:solfacil_inverters_41": "SOLFACILINVERTERS41",
+    "inverters:solfacil_inverters_42": "SOLFACILINVERTERS42",
+    "inverters:solfacil_inverters_43": "SOLFACILINVERTERS43",
+    "inverters:solfacil_inverters_44": "SOLFACILINVERTERS44",
+    "inverters:solfacil_inverters_45": "SOLFACILINVERTERS45",
+    "inverters:solfacil_inverters_46": "SOLFACILINVERTERS46",
+    "inverters:solfacil_inverters_47": "SOLFACILINVERTERS47",
+    "inverters:solfacil_inverters_48": "SOLFACILINVERTERS48",
+    "inverters:solfacil_inverters_49": "SOLFACILINVERTERS49",
+    "inverters:solfacil_inverters_50": "SOLFACILINVERTERS50",
+    "inverters:solfacil_inverters_51": "SOLFACILINVERTERS51",
+    "inverters:solfacil_inverters_52": "SOLFACILINVERTERS52",
+    "inverters:solfacil_inverters_53": "SOLFACILINVERTERS53",
+    "inverters:solfacil_inverters_54": "SOLFACILINVERTERS54",
+    "inverters:solfacil_inverters_55": "SOLFACILINVERTERS55",
+    "inverters:solfacil_inverters_56": "SOLFACILINVERTERS56",
+    "inverters:solfacil_inverters_57": "SOLFACILINVERTERS57",
+    "inverters:solfacil_inverters_58": "SOLFACILINVERTERS58",
+    "inverters:solfacil_inverters_59": "SOLFACILINVERTERS59",
+    "inverters:solfacil_inverters_60": "SOLFACILINVERTERS60",
+    "inverters:solfacil_inverters_61": "SOLFACILINVERTERS61",
+    "inverters:solfacil_inverters_62": "SOLFACILINVERTERS62",
+    "inverters:solfacil_inverters_63": "SOLFACILINVERTERS63",
+    "inverters:solfacil_inverters_64": "SOLFACILINVERTERS64",
+    "inverters:solfacil_inverters_65": "SOLFACILINVERTERS65",
+    "inverters:solfacil_inverters_66": "SOLFACILINVERTERS66",
+    "inverters:solfacil_inverters_67": "SOLFACILINVERTERS67",
+    "inverters:solfacil_inverters_68": "SOLFACILINVERTERS68",
+    "inverters:solfacil_inverters_69": "SOLFACILINVERTERS69",
+    "inverters:solfacil_inverters_70": "SOLFACILINVERTERS70",
+    "inverters:solfacil_inverters_71": "SOLFACILINVERTERS71",
+    "inverters:solfacil_inverters_72": "SOLFACILINVERTERS72",
+    "inverters:solfacil_inverters_73": "SOLFACILINVERTERS73",
+    "inverters:solfacil_inverters_74": "SOLFACILINVERTERS74",
+    "inverters:solfacil_inverters_75": "SOLFACILINVERTERS75",
+    "inverters:solfacil_inverters_76": "SOLFACILINVERTERS76",
+    "inverters:solfacil_inverters_77": "SOLFACILINVERTERS77",
+    "inverters:solfacil_inverters_78": "SOLFACILINVERTERS78",
+    "inverters:solfacil_inverters_79": "SOLFACILINVERTERS79",
+    "inverters:solfacil_inverters_80": "SOLFACILINVERTERS80",
+    "inverters:solfacil_inverters_81": "SOLFACILINVERTERS81",
+    "inverters:solfacil_inverters_82": "SOLFACILINVERTERS82",
+    "inverters:solfacil_inverters_83": "SOLFACILINVERTERS83",
+    "inverters:FOTUS-KP04-kits-hibridos": "FOTUS-KP04-KITS-HIBRIDOS",
+    "inverters:FOTUS-KP04-kits": "FOTUS-KP04-KITS",
+    "inverters:FOTUS-KP02-kits": "FOTUS-KP02-KITS",
+    "inverters:FOTUS-KP03-kits": "FOTUS-KP03-KITS",
+    "inverters:solfacil_accessories_2": "SOLFACILACCESSORIES2",
+    "panels:odex_inverters_ODEX-PAINEL-ODEX-585W": "ODEXINVERTERSODEX-PAINEL-ODEX-585W",
+    "panels:odex_inverters_ODEX-PAINEL-ODEX-600W": "ODEXINVERTERSODEX-PAINEL-ODEX-600W",
+    "panels:odex_inverters_ODEX-PAINEL-ODEX-610W": "ODEXINVERTERSODEX-PAINEL-ODEX-610W",
+    "panels:odex_inverters_ODEX-PAINEL-ODEX-660W": "ODEXINVERTERSODEX-PAINEL-ODEX-660W",
+    "panels:odex_inverters_ODEX-PAINEL-ODEX-700W": "ODEXINVERTERSODEX-PAINEL-ODEX-700W",
+    "panels:odex_inverters_ODEX-PAINEL-ASTRONERGY-600W": "ODEXINVERTERSODEX-PAINEL-ASTRONERGY-600W",
+    "panels:odex_inverters_ODEX-PAINEL-TSUN-560W": "ODEXINVERTERSODEX-PAINEL-TSUN-560W",
+    "panels:odex_inverters_ODEX-PAINEL-JINKO-610W": "ODEXINVERTERSODEX-PAINEL-JINKO-610W",
+    "panels:odex_inverters_ODEX-PAINEL-JINKO-615W": "ODEXINVERTERSODEX-PAINEL-JINKO-615W",
+    "panels:solfacil_panels_1": "SOLFACILPANELS1",
+    "panels:solfacil_panels_2": "SOLFACILPANELS2",
+    "panels:solfacil_panels_3": "SOLFACILPANELS3",
+    "panels:solfacil_panels_4": "SOLFACILPANELS4",
+    "panels:solfacil_panels_5": "SOLFACILPANELS5",
+    "panels:solfacil_panels_6": "SOLFACILPANELS6",
+    "panels:solfacil_accessories_4": "SOLFACILACCESSORIES4",
+    "panels:solfacil_accessories_6": "SOLFACILACCESSORIES6"
+  }
+}

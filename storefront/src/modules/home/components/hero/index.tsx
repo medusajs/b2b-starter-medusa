@@ -48,7 +48,7 @@ const Hero = () => {
               {t("home.hero_cta_primary")}
             </Button>
           </LocalizedClientLink>
-          <LocalizedClientLink href="/store" aria-label={t("home.hero_cta_secondary")}
+          <LocalizedClientLink href="/categories" aria-label={t("home.hero_cta_secondary")}
             onClick={() => sendEvent("cta_clicked", { component: "hero_secondary_cta", key: "home.hero_cta_secondary" })}>
             <Button variant="secondary" className="border-2 border-black/20 dark:border-white/10 bg-white/80 dark:bg-zinc-900/60 backdrop-blur-md text-gray-900 dark:text-zinc-50 hover:bg-black hover:text-white px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
               {t("home.hero_cta_secondary")}

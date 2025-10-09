@@ -82,7 +82,7 @@ const MegaMenu = ({
       >
         <LocalizedClientLink
           className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2"
-          href="/produtos"
+          href="/categories"
         >
           Produtos
         </LocalizedClientLink>

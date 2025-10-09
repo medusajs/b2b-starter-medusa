@@ -40,7 +40,7 @@ module.exports = defineConfig({
     [YSH_PRICING_MODULE]: {
       resolve: "./modules/ysh-pricing",
       options: {
-        catalogPath: process.env.YSH_CATALOG_PATH || "../../ysh-erp/data/catalog",
+        catalogPath: process.env.YSH_CATALOG_PATH || "./data/catalog",
       },
     },
     // Custom modules - DISABLED for initial setup

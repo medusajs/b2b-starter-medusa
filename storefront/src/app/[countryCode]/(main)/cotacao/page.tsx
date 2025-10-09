@@ -36,7 +36,7 @@ export default function CotacaoPage() {
         data?.finance ? `CAPEX: R$ ${data.finance.capex_total_brl} • Economia/mês: R$ ${data.finance.economy_month_brl} • Payback: ${data.finance.payback_anos} anos` : undefined,
       ].filter(Boolean) as string[]
       setForm((f) => ({ ...f, message: `Detalhes do sistema recomendado:\n- ${parts.join('\n- ')}` }))
-    } catch {}
+    } catch { }
     // run once
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -71,7 +71,7 @@ export default function CotacaoPage() {
         <div className="bg-white p-8 rounded-lg border text-center">
           <p className="text-neutral-700">Sua lista está vazia.</p>
           <div className="mt-4">
-            <LocalizedClientLink href="/produtos" className="ysh-btn-primary">Explorar produtos</LocalizedClientLink>
+            <LocalizedClientLink href="/categories" className="ysh-btn-primary">Explorar produtos</LocalizedClientLink>
           </div>
         </div>
       ) : (

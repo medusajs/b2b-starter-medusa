@@ -17,8 +17,8 @@ const EmptyCartMessage = () => {
         Você não tem itens no carrinho. Use o link abaixo para explorar nossos produtos.
       </Text>
       <div>
-        <LocalizedClientLink href="/produtos" className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover">
-          Explorar produtos
+        <LocalizedClientLink href="/categories" className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover">
+          Voltar para produtos
         </LocalizedClientLink>
       </div>
     </div>
