@@ -1,9 +1,5 @@
 import type { InputConfig } from "@medusajs/framework/types";
-import { defineConfig, loadEnv, Modules } from "@medusajs/framework/utils";
-import { ALGOLIA_MODULE } from "./src/modules/algolia";
-import { APPROVAL_MODULE } from "./src/modules/approval";
-import { COMPANY_MODULE } from "./src/modules/company";
-import { QUOTE_MODULE } from "./src/modules/quote";
+import { defineConfig, loadEnv } from "@medusajs/framework/utils";
 
 loadEnv(process.env.NODE_ENV!, process.cwd());
 
@@ -19,18 +15,33 @@ const config = {
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
+    ...((!isDevelopment && {
+      workerMode: process.env.MEDUSA_WORKER_MODE as
+        | "shared"
+        | "worker"
+        | "server",
+      redisUrl: process.env.REDIS_URL,
+    }) ||
+      {}),
   },
-  modules: {
-    [COMPANY_MODULE]: {
+  ...((!isDevelopment && {
+    admin: {
+      backendUrl: process.env.MEDUSA_BACKEND_URL,
+      disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
+    },
+  }) ||
+    {}),
+  modules: [
+    {
       resolve: "./modules/company",
     },
-    [QUOTE_MODULE]: {
+    {
       resolve: "./modules/quote",
     },
-    [APPROVAL_MODULE]: {
+    {
       resolve: "./modules/approval",
     },
-    [ALGOLIA_MODULE]: {
+    {
       resolve: "./modules/algolia",
       options: {
         appId: process.env.ALGOLIA_APP_ID!,
@@ -38,7 +49,7 @@ const config = {
         productIndexName: process.env.ALGOLIA_PRODUCT_INDEX_NAME!,
       },
     },
-    [Modules.FULFILLMENT]: {
+    {
       resolve: "@medusajs/medusa/fulfillment",
       providers: [
         {
@@ -46,71 +57,60 @@ const config = {
           id: "despatch-lab",
           options: {
             apiUrl: process.env.DESPATCH_LAB_API_URL,
-            key: process.env.DESPATCH_LAB_KEY!,
-            secret: process.env.DESPATCH_LAB_SECRET!,
+            key: process.env.DESPATCH_LAB_KEY,
+            secret: process.env.DESPATCH_LAB_SECRET,
           },
         },
       ],
     },
-    [Modules.NOTIFICATION]: {
+    {
       resolve: "@medusajs/medusa/notification",
-      providers: [
-        {
-          resolve: "./src/modules/resend",
-          id: "resend",
-          options: {
-            channels: ["email"],
-            api_key: process.env.RESEND_API_KEY,
-            from: process.env.RESEND_FROM_EMAIL,
+      options: {
+        providers: [
+          {
+            resolve: "./src/modules/resend",
+            id: "resend",
+            options: {
+              channels: ["email"],
+              api_key: process.env.RESEND_API_KEY,
+              from: process.env.RESEND_FROM_EMAIL,
+            },
           },
-        },
-      ],
+        ],
+      },
     },
-    [Modules.CACHE]: {
-      resolve: "@medusajs/medusa/cache-inmemory",
-    },
-    [Modules.WORKFLOW_ENGINE]: {
-      resolve: "@medusajs/medusa/workflow-engine-inmemory",
-    },
-  },
-} as InputConfig;
-
-if (!isDevelopment && config.projectConfig) {
-  ((config.projectConfig.workerMode = process.env.MEDUSA_WORKER_MODE as
-    | "shared"
-    | "worker"
-    | "server"),
-    (config.projectConfig.redisUrl = process.env.REDIS_URL));
-  config.admin = {
-    backendUrl: process.env.MEDUSA_BACKEND_URL,
-    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
-  };
-  config.modules
-    ? (config.modules[Modules.CACHE] = {
-        resolve: "@medusajs/medusa/cache-redis",
-        options: {
-          redisUrl: process.env.REDIS_URL,
-        },
-      })
-    : undefined;
-  config.modules
-    ? (config.modules[Modules.WORKFLOW_ENGINE] = {
-        resolve: "@medusajs/medusa/workflow-engine-redis",
-        options: {
-          redis: {
-            url: process.env.REDIS_URL,
+    {
+      resolve: isDevelopment
+        ? "@medusajs/medusa/cache-inmemory"
+        : "@medusajs/medusa/cache-redis",
+      options: isDevelopment
+        ? {}
+        : {
+            redisUrl: process.env.REDIS_URL,
           },
-        },
-      })
-    : undefined;
-  config.modules
-    ? (config.modules[Modules.EVENT_BUS] = {
+    },
+    {
+      resolve: isDevelopment
+        ? "@medusajs/medusa/workflow-engine-inmemory"
+        : "@medusajs/medusa/workflow-engine-redis",
+      options: isDevelopment
+        ? {}
+        : {
+            redis: {
+              url: process.env.REDIS_URL,
+            },
+          },
+    },
+    ...((!isDevelopment && [
+      {
         resolve: "@medusajs/medusa/event-bus-redis",
         options: {
           redisUrl: process.env.REDIS_URL,
         },
-      })
-    : undefined;
-}
+      },
+    ]) ||
+      []),
+  ],
+} as InputConfig;
 
 export default defineConfig(config);

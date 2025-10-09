@@ -200,7 +200,7 @@ function OrderPlacedEmailComponent({
           <Section className="bg-gray-50 p-6 mt-10">
             <Text className="text-center text-gray-500 text-sm">
               If you have any questions, reply to this email or contact our
-              support team at support@medusajs.com.
+              support team at hello@equippy.com.
             </Text>
             <Text className="text-center text-gray-500 text-sm">
               Order Token: {order.id}
@@ -223,7 +223,7 @@ const mockOrder = {
   order: {
     id: "order_01JSNXDH9BPJWWKVW03B9E9KW8",
     display_id: 1,
-    email: "afsaf@gmail.com",
+    email: "hello@equippy.com",
     currency_code: "eur",
     total: 20,
     subtotal: 20,
@@ -418,14 +418,14 @@ const mockOrder = {
       id: "caaddr_01JSNXD6W0TGPH2JQD18K97B25",
       customer_id: null,
       company: "",
-      first_name: "safasf",
-      last_name: "asfaf",
-      address_1: "asfasf",
+      first_name: "Roger",
+      last_name: "",
+      address_1: "",
       address_2: "",
-      city: "asfasf",
-      country_code: "dk",
+      city: "",
+      country_code: "gb",
       province: "",
-      postal_code: "asfasf",
+      postal_code: "",
       phone: "",
       metadata: null,
       created_at: "2025-04-25T07:25:48.801Z",
@@ -436,14 +436,14 @@ const mockOrder = {
       id: "caaddr_01JSNXD6W0V7RNZH63CPG26K5W",
       customer_id: null,
       company: "",
-      first_name: "safasf",
-      last_name: "asfaf",
-      address_1: "asfasf",
+      first_name: "Roger",
+      last_name: "",
+      address_1: "",
       address_2: "",
-      city: "asfasf",
-      country_code: "dk",
+      city: "",
+      country_code: "gb",
       province: "",
-      postal_code: "asfasf",
+      postal_code: "",
       phone: "",
       metadata: null,
       created_at: "2025-04-25T07:25:48.801Z",
@@ -530,7 +530,7 @@ const mockOrder = {
       company_name: null,
       first_name: null,
       last_name: null,
-      email: "afsaf@gmail.com",
+      email: "hello@equippy.com",
       phone: null,
       has_account: false,
       metadata: null,
