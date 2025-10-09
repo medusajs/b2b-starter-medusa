@@ -23,13 +23,15 @@ export default async function autoFulfillOrder({
   container,
 }: SubscriberArgs<{ id: string }>) {
   const orderService = container.resolve(Modules.ORDER);
+  const fulfillmentService = container.resolve(Modules.FULFILLMENT);
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
+  const query = container.resolve(ContainerRegistrationKeys.QUERY);
 
   const orderId = data.id;
 
   const order = await orderService.retrieveOrder(orderId, {
     select: ["*"],
-    relations: ["items", "shipping_address"],
+    relations: ["items", "shipping_address", "shipping_methods"],
   });
 
   if (!order.items) {
@@ -37,12 +39,36 @@ export default async function autoFulfillOrder({
     return;
   }
 
+  if (!order.shipping_methods?.[0].shipping_option_id) {
+    logger.error(`Order does not have shipping methods. OrderId=${order.id}.`);
+    return;
+  }
+
+  const shippingOption = await fulfillmentService.retrieveShippingOption(
+    order.shipping_methods[0].shipping_option_id,
+    {
+      select: ["service_zone.fulfillment_set_id"],
+      relations: ["service_zone"],
+    }
+  );
+
+  const {
+    data: [{ stock_location_id }],
+  } = await query.graph({
+    entity: "location_fulfillment_set",
+    fields: ["stock_location_id"],
+    filters: {
+      fulfillment_set_id: shippingOption.service_zone.fulfillment_set_id,
+    },
+  });
+
   const { result: fulfillment } = await createOrderFulfillmentWorkflow(
     container
   ).run({
     input: {
       order_id: order.id,
       items: order.items,
+      location_id: stock_location_id,
     },
   });
 

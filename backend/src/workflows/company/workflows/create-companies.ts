@@ -9,6 +9,7 @@ import { COMPANY_MODULE } from "../../../modules/company";
 import { ModuleCreateCompany } from "../../../types";
 import { createApprovalSettingsStep } from "../../../workflows/approval/steps/create-approval-settings";
 import { createCompaniesStep } from "../steps";
+import { emitEventsStep } from "../../common/steps";
 
 export const createCompaniesWorkflow = createWorkflow(
   "create-companies",
@@ -29,6 +30,16 @@ export const createCompaniesWorkflow = createWorkflow(
     );
 
     createRemoteLinkStep(linkData);
+
+    // Emit company.created events for each company after all setup is complete
+    const eventData = transform(companies, (companies) =>
+      companies.map((company) => ({
+        name: "company.created",
+        data: { id: company.id, name: company.name }
+      }))
+    );
+
+    emitEventsStep(eventData);
 
     return new WorkflowResponse(companies);
   }

@@ -23,6 +23,7 @@ import {
   IInventoryService,
   IRegionModuleService,
   ISalesChannelModuleService,
+  IStockLocationService,
   IStoreModuleService,
   RegionDTO,
 } from "@medusajs/framework/types";
@@ -58,6 +59,9 @@ export const seedDatabaseStep = createStep(
     );
     const inventoryModuleService: IInventoryService = container.resolve(
       ModuleRegistrationName.INVENTORY
+    );
+    const stockLocationService: IStockLocationService = container.resolve(
+      ModuleRegistrationName.STOCK_LOCATION
     );
     const apiKeyModuleService: IApiKeyModuleService = container.resolve(
       ModuleRegistrationName.API_KEY
@@ -166,19 +170,25 @@ export const seedDatabaseStep = createStep(
       input: {
         locations: [
           {
-            name: "EU Warehouse",
+            name: "EU-ABSTRACT",
+            metadata: {
+              is_abstract: true,
+            },
             address: {
               city: "Amsterdam",
               country_code: "NL",
-              address_1: "",
+              address_1: "Herengracht 182",
             },
           },
           {
-            name: "UK Warehouse",
+            name: "UK-ABSTRACT",
+            metadata: {
+              is_abstract: true,
+            },
             address: {
               city: "London",
               country_code: "GB",
-              address_1: "",
+              address_1: "10 Downing Street",
             },
           },
         ],
@@ -584,7 +594,31 @@ export const seedDatabaseStep = createStep(
       entity_id: "john@example.co.uk",
     });
 
+    link.create({
+      [COMPANY_MODULE]: {
+        company_id: companyDE.id,
+      },
+      [Modules.STOCK_LOCATION]: {
+        stock_location_id: stockLocationEU.id,
+      },
+    });
+
+    link.create({
+      [COMPANY_MODULE]: {
+        company_id: companyUK.id,
+      },
+      [Modules.STOCK_LOCATION]: {
+        stock_location_id: stockLocationUK.id,
+      },
+    });
+
     logger.info("Finished seeding company data.");
+
+    // Wait for virtual warehouses to be created by the event subscriber
+    logger.info(
+      "Waiting for virtual warehouses to be created by event subscriber..."
+    );
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     logger.info("Seeding product data...");
 
@@ -1274,20 +1308,30 @@ export const seedDatabaseStep = createStep(
       { select: ["id"], take: 20 }
     );
 
+    // Get virtual warehouses created by the event subscriber
+    const allLocations = await stockLocationService.listStockLocations(
+      {},
+      { select: ["id", "metadata"] }
+    );
+
+    const virtualWarehouses = allLocations.filter(
+      (location: any) => location.metadata?.is_abstract === false
+    );
+
+    logger.info(
+      `Found ${virtualWarehouses.length} virtual warehouses for inventory allocation`
+    );
+
+    // Create inventory levels in virtual warehouses instead of abstract ones
     await createInventoryLevelsWorkflow(container).run({
       input: {
-        inventory_levels: inventoryItems.flatMap(({ id }) => [
-          {
+        inventory_levels: inventoryItems.flatMap(({ id }) =>
+          virtualWarehouses.map((vw) => ({
             inventory_item_id: id,
-            location_id: stockLocationEU.id,
+            location_id: vw.id,
             stocked_quantity: 10,
-          },
-          {
-            inventory_item_id: id,
-            location_id: stockLocationUK.id,
-            stocked_quantity: 10,
-          },
-        ]),
+          }))
+        ),
       },
     });
 

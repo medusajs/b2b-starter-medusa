@@ -5,9 +5,11 @@ import { COMPANY_MODULE } from "../../modules/company";
 
 createOrderWorkflow.hooks.orderCreated(
   async ({ order }, { container }) => {
-    const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
+    const remoteLink = container.resolve(ContainerRegistrationKeys.LINK);
+    const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
 
     if (!order.metadata?.company_id) {
+      logger.warn(`Order does not have company_id. OrderId=${order.id}`);
       return new StepResponse(undefined, null);
     }
 
@@ -16,7 +18,7 @@ createOrderWorkflow.hooks.orderCreated(
         order_id: order.id,
       },
       [COMPANY_MODULE]: {
-        company_id: order.metadata?.company_id,
+        company_id: order.metadata.company_id,
       },
     });
 

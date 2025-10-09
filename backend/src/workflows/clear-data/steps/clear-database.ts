@@ -22,12 +22,13 @@ export const clearDatabaseStep = createStep("clear-database", async () => {
               SELECT tablename
               FROM pg_tables
               WHERE schemaname = current_schema() AND
-              tablename NOT IN ('user', 'store', 'provider_identity', 'api_key', 'sales_channel', 'publishable_api_key_sales_channel', 'provider_identity', 'auth_identity', 'currency', 'region', 'region_country', 'region_payment_provider', 'tax_provider', 'payment_provider', 'fulfillment_provider', 'notification_provider', 'mikro_orm_migrations', 'script_migrations', 'link_module_migrations', 'workflow_execution')
+              tablename NOT IN ('user', 'store', 'provider_identity', 'api_key', 'sales_channel', 'publishable_api_key_sales_channel', 'provider_identity', 'auth_identity', 'currency', 'region', 'region_country', 'tax_provider', 'payment_provider', 'fulfillment_provider', 'notification_provider', 'mikro_orm_migrations', 'script_migrations', 'link_module_migrations', 'workflow_execution')
           )
           LOOP
               EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' CASCADE;';
           END LOOP;
       END $$;
+      DELETE FROM region;
     `;
 
     await client.query(query);

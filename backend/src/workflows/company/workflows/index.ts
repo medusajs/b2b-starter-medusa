@@ -6,3 +6,4 @@ export * from "./remove-company-from-customer-group";
 export * from "./create-company-addresses";
 export * from "./update-company-addresses";
 export * from "./delete-company-addresses";
+export * from "./create-virtual-warehouses-for-company";
