@@ -8,20 +8,18 @@ import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
 import { SolarCTAHero, SolarStats } from "@/modules/home/components/solar-cta"
 
 // Client-heavy sections (no critical SEO), load dinamicamente no cliente
+// Nota: Next.js 15 não suporta ssr:false em Server Components, então removemos a opção
 const VideosStrip = dynamic(() => import("@/modules/home/components/videos-strip"), {
-  ssr: false,
   loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
 })
 const VideosByClass = dynamic(
   () => import("@/modules/home/components/videos-by-class"),
-  { ssr: false, loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" /> }
+  { loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" /> }
 )
 const Testimonials = dynamic(() => import("@/modules/home/components/testimonials"), {
-  ssr: false,
   loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
 })
 const DesignSystemTest = dynamic(() => import("@/components/DesignSystemTest"), {
-  ssr: false,
   loading: () => <div className="h-24 bg-gray-50 animate-pulse rounded-lg m-4" />,
 })
 import { Metadata } from "next"

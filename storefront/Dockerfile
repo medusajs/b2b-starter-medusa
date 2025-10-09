@@ -18,6 +18,9 @@ FROM base AS deps
 COPY package*.json ./
 COPY .npmrc* ./
 
+# Desabilitar husky git hooks no Docker
+ENV DOCKER=true
+
 # Cache otimizado para dependências
 RUN --mount=type=cache,target=/root/.npm \
       npm ci --only=production --no-audit --no-fund --legacy-peer-deps && \
@@ -28,17 +31,29 @@ FROM base AS dev-deps
 COPY package*.json ./
 COPY .npmrc* ./
 
+# Desabilitar husky git hooks no Docker
+ENV DOCKER=true
+
+# Instalar TODAS as dependências (production + dev)
 RUN --mount=type=cache,target=/root/.npm \
-      npm ci --no-audit --no-fund --legacy-peer-deps
+      npm ci --include=dev --no-audit --no-fund --legacy-peer-deps
 
 # Stage 3: Build stage
 FROM base AS builder
+
+# Desabilitar husky no builder também
+ENV DOCKER=true
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Valores de build necessários para Next.js (serão sobrescritos em runtime)
+ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://backend:9000
+ENV NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_build_placeholder
+
 COPY package*.json ./
 COPY --from=dev-deps /app/node_modules ./node_modules
 COPY . .
 
 # Build otimizado do Next.js
-ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # Stage 4: Production runner

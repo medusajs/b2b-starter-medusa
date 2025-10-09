@@ -24,7 +24,7 @@
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true next build",
     "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1",
-    "prepare": "husky",
+    "prepare": "node -e \"if (process.env.CI !== 'true' && process.env.DOCKER !== 'true') require('child_process').execSync('husky', {stdio: 'inherit'})\"",
     "sb": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "sb:build": "storybook build",
