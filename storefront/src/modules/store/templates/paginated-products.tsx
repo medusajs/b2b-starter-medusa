@@ -69,12 +69,18 @@ export default async function PaginatedProducts({
   })
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
+  const start = count === 0 ? 0 : (page - 1) * PRODUCT_LIMIT + 1
+  const end = Math.min(page * PRODUCT_LIMIT, count)
 
   return (
     <section aria-label="Lista de produtos">
       <div className="flex items-center justify-between mb-2 text-sm text-neutral-600">
         <span aria-live="polite">
-          {count} {count === 1 ? "resultado" : "resultados"}
+          {count === 0 ? (
+            <>0 resultados</>
+          ) : (
+            <>Mostrando {start}–{end} de {count}</>
+          )}
         </span>
       </div>
       <ul
