@@ -26,16 +26,16 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/store/quotes",
     middlewares: [
-      validateAndTransformQuery(GetQuoteParams, listQuotesTransformQueryConfig),
+      validateAndTransformQuery(GetQuoteParams as any, listQuotesTransformQueryConfig),
     ],
   },
   {
     method: ["POST"],
     matcher: "/store/quotes",
     middlewares: [
-      validateAndTransformBody(CreateQuote),
+      validateAndTransformBody(CreateQuote as any),
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],
@@ -45,7 +45,7 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     matcher: "/store/quotes/:id",
     middlewares: [
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],
@@ -54,9 +54,9 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/store/quotes/:id/accept",
     middlewares: [
-      validateAndTransformBody(AcceptQuote),
+      validateAndTransformBody(AcceptQuote as any),
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],
@@ -65,9 +65,9 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/store/quotes/:id/reject",
     middlewares: [
-      validateAndTransformBody(RejectQuote),
+      validateAndTransformBody(RejectQuote as any),
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],
@@ -77,7 +77,7 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     matcher: "/store/quotes/:id/preview",
     middlewares: [
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],
@@ -86,9 +86,9 @@ export const storeQuotesMiddlewares: MiddlewareRoute[] = [
     method: ["POST"],
     matcher: "/store/quotes/:id/messages",
     middlewares: [
-      validateAndTransformBody(StoreCreateQuoteMessage),
+      validateAndTransformBody(StoreCreateQuoteMessage as any),
       validateAndTransformQuery(
-        GetQuoteParams,
+        GetQuoteParams as any,
         retrieveQuoteTransformQueryConfig
       ),
     ],

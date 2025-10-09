@@ -7,7 +7,7 @@ export const storeFreeShippingMiddlewares: MiddlewareRoute[] = [
     method: ["GET"],
     matcher: "/store/free-shipping/prices",
     middlewares: [
-      validateAndTransformQuery(StoreGetFreeShippingPricesParams, {
+      validateAndTransformQuery(StoreGetFreeShippingPricesParams as any, {
         defaultLimit: 20,
         isList: true,
       }),
