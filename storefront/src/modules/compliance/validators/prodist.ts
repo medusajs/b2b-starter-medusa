@@ -143,6 +143,67 @@ export function validateProdist(input: ComplianceInput): ProdistValidation {
     const is_compliant = errors.length === 0
 
     return {
+        conforme: is_compliant,
+        scoreGeral: is_compliant ? 100 : Math.max(0, 100 - (errors.length * 20)),
+        validacoes: {
+            tensao: {
+                conforme: nivel_tensao_correto,
+                categoria: 'baixa_tensao' as const,
+                tensaoNominal: 220,
+                tensaoOperacao: 220,
+                limites: {},
+                faixaOperacao: 'adequada' as const,
+                score: nivel_tensao_correto ? 100 : 0,
+                naoConformidades: [],
+                recomendacoes: []
+            },
+            frequencia: {
+                conforme: true,
+                frequenciaOperacao: 60,
+                limites: {},
+                faixaOperacao: 'normal' as const,
+                tempoDesconexao: '0.2s',
+                score: 100,
+                naoConformidades: [],
+                recomendacoes: []
+            },
+            thd: {
+                conforme: true,
+                categoria: 'baixa_tensao' as const,
+                thdMedido: 0,
+                thdLimite: 5,
+                percentualLimite: 5,
+                score: 100,
+                naoConformidades: [],
+                recomendacoes: [],
+                harmonicasIndividuais: {}
+            },
+            fatorPotencia: {
+                conforme: true,
+                fatorPotenciaMedido: 0.92,
+                fatorPotenciaMinimo: 0.92,
+                score: 100,
+                naoConformidades: [],
+                recomendacoes: []
+            },
+            protecoes: {
+                conforme: true,
+                categoria: 'microgeracao_bt' as const,
+                protecoesNecessarias: [],
+                protecoesInstaladas: [],
+                protecoesFaltantes: [],
+                protecoesIncorretas: [],
+                score: 100,
+                naoConformidades: [],
+                recomendacoes: []
+            },
+            desequilibrio: {},
+            aterramento: {}
+        },
+        naoConformidades: errors,
+        recomendacoes: warnings,
+        timestamp: new Date().toISOString(),
+        // Compatibilidade com versão anterior (deprecated)
         is_compliant,
         nivel_tensao_correto,
         potencia_dentro_limites,

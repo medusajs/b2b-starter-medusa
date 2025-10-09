@@ -527,7 +527,7 @@ CREATE TABLE IF NOT EXISTS price_change_log (
     -- Disponibilidade
     old_availability VARCHAR(50),
     new_availability VARCHAR(50),
-    old_qty INTEGR,
+    old_qty INTEGER,
     new_qty INTEGER,
     
     -- Contexto
