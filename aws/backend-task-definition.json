@@ -6,12 +6,12 @@
       ],
       "cpu": "1024",
       "memory": "2048",
-      "executionRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskExecutionRole",
-      "taskRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskRole",
+      "executionRoleArn": "arn:aws:iam::773235999227:role/ecsTaskExecutionRole",
+      "taskRoleArn": "arn:aws:iam::773235999227:role/ecsTaskRole",
       "containerDefinitions": [
             {
                   "name": "ysh-b2b-backend",
-                  "image": "ACCOUNT-ID.dkr.ecr.REGION.amazonaws.com/ysh-b2b-backend:latest",
+                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/backend:1.0.0",
                   "portMappings": [
                         {
                               "containerPort": 9000,

@@ -1,0 +1,98 @@
+{
+    "BackendTargetGroup": {
+        "Name": "ysh-backend-tg",
+        "Protocol": "HTTP",
+        "Port": 9000,
+        "VpcId": "REPLACE_WITH_VPC_ID",
+        "TargetType": "ip",
+        "HealthCheckProtocol": "HTTP",
+        "HealthCheckPath": "/health",
+        "HealthCheckIntervalSeconds": 30,
+        "HealthCheckTimeoutSeconds": 10,
+        "HealthyThresholdCount": 2,
+        "UnhealthyThresholdCount": 3,
+        "Matcher": {
+            "HttpCode": "200"
+        },
+        "TargetGroupAttributes": [
+            {
+                "Key": "deregistration_delay.timeout_seconds",
+                "Value": "30"
+            },
+            {
+                "Key": "stickiness.enabled",
+                "Value": "false"
+            },
+            {
+                "Key": "load_balancing.algorithm.type",
+                "Value": "least_outstanding_requests"
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "Environment",
+                "Value": "production"
+            },
+            {
+                "Key": "Application",
+                "Value": "ysh-b2b"
+            },
+            {
+                "Key": "Component",
+                "Value": "backend"
+            }
+        ]
+    },
+    "StorefrontTargetGroup": {
+        "Name": "ysh-storefront-tg",
+        "Protocol": "HTTP",
+        "Port": 8000,
+        "VpcId": "REPLACE_WITH_VPC_ID",
+        "TargetType": "ip",
+        "HealthCheckProtocol": "HTTP",
+        "HealthCheckPath": "/",
+        "HealthCheckIntervalSeconds": 30,
+        "HealthCheckTimeoutSeconds": 10,
+        "HealthyThresholdCount": 2,
+        "UnhealthyThresholdCount": 3,
+        "Matcher": {
+            "HttpCode": "200-399"
+        },
+        "TargetGroupAttributes": [
+            {
+                "Key": "deregistration_delay.timeout_seconds",
+                "Value": "30"
+            },
+            {
+                "Key": "stickiness.enabled",
+                "Value": "true"
+            },
+            {
+                "Key": "stickiness.type",
+                "Value": "lb_cookie"
+            },
+            {
+                "Key": "stickiness.lb_cookie.duration_seconds",
+                "Value": "86400"
+            },
+            {
+                "Key": "load_balancing.algorithm.type",
+                "Value": "round_robin"
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "Environment",
+                "Value": "production"
+            },
+            {
+                "Key": "Application",
+                "Value": "ysh-b2b"
+            },
+            {
+                "Key": "Component",
+                "Value": "storefront"
+            }
+        ]
+    }
+}

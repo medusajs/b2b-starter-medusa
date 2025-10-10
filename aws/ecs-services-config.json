@@ -1,0 +1,156 @@
+{
+    "BackendService": {
+        "serviceName": "ysh-b2b-backend",
+        "cluster": "production-ysh-b2b-cluster",
+        "taskDefinition": "ysh-b2b-backend:1",
+        "desiredCount": 2,
+        "launchType": "FARGATE",
+        "platformVersion": "LATEST",
+        "networkConfiguration": {
+            "awsvpcConfiguration": {
+                "subnets": [
+                    "REPLACE_WITH_PRIVATE_SUBNET_1",
+                    "REPLACE_WITH_PRIVATE_SUBNET_2"
+                ],
+                "securityGroups": [
+                    "REPLACE_WITH_ECS_SECURITY_GROUP"
+                ],
+                "assignPublicIp": "DISABLED"
+            }
+        },
+        "loadBalancers": [
+            {
+                "targetGroupArn": "REPLACE_WITH_BACKEND_TARGET_GROUP_ARN",
+                "containerName": "ysh-b2b-backend",
+                "containerPort": 9000
+            }
+        ],
+        "healthCheckGracePeriodSeconds": 60,
+        "deploymentConfiguration": {
+            "deploymentCircuitBreaker": {
+                "enable": true,
+                "rollback": true
+            },
+            "maximumPercent": 200,
+            "minimumHealthyPercent": 100
+        },
+        "schedulingStrategy": "REPLICA",
+        "enableECSManagedTags": true,
+        "propagateTags": "SERVICE",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "production"
+            },
+            {
+                "key": "Application",
+                "value": "ysh-b2b"
+            },
+            {
+                "key": "Component",
+                "value": "backend"
+            }
+        ]
+    },
+    "StorefrontService": {
+        "serviceName": "ysh-b2b-storefront",
+        "cluster": "production-ysh-b2b-cluster",
+        "taskDefinition": "ysh-b2b-storefront:1",
+        "desiredCount": 2,
+        "launchType": "FARGATE",
+        "platformVersion": "LATEST",
+        "networkConfiguration": {
+            "awsvpcConfiguration": {
+                "subnets": [
+                    "REPLACE_WITH_PRIVATE_SUBNET_1",
+                    "REPLACE_WITH_PRIVATE_SUBNET_2"
+                ],
+                "securityGroups": [
+                    "REPLACE_WITH_ECS_SECURITY_GROUP"
+                ],
+                "assignPublicIp": "DISABLED"
+            }
+        },
+        "loadBalancers": [
+            {
+                "targetGroupArn": "REPLACE_WITH_STOREFRONT_TARGET_GROUP_ARN",
+                "containerName": "ysh-b2b-storefront",
+                "containerPort": 8000
+            }
+        ],
+        "healthCheckGracePeriodSeconds": 30,
+        "deploymentConfiguration": {
+            "deploymentCircuitBreaker": {
+                "enable": true,
+                "rollback": true
+            },
+            "maximumPercent": 200,
+            "minimumHealthyPercent": 100
+        },
+        "schedulingStrategy": "REPLICA",
+        "enableECSManagedTags": true,
+        "propagateTags": "SERVICE",
+        "tags": [
+            {
+                "key": "Environment",
+                "value": "production"
+            },
+            {
+                "key": "Application",
+                "value": "ysh-b2b"
+            },
+            {
+                "key": "Component",
+                "value": "storefront"
+            }
+        ]
+    },
+    "AutoScaling": {
+        "Backend": {
+            "resourceId": "service/production-ysh-b2b-cluster/ysh-b2b-backend",
+            "serviceNamespace": "ecs",
+            "scalableDimension": "ecs:service:DesiredCount",
+            "minCapacity": 2,
+            "maxCapacity": 10,
+            "targetTrackingScalingPolicies": [
+                {
+                    "policyName": "backend-cpu-scaling",
+                    "targetValue": 70.0,
+                    "predefinedMetricType": "ECSServiceAverageCPUUtilization",
+                    "scaleOutCooldown": 60,
+                    "scaleInCooldown": 300
+                },
+                {
+                    "policyName": "backend-memory-scaling",
+                    "targetValue": 80.0,
+                    "predefinedMetricType": "ECSServiceAverageMemoryUtilization",
+                    "scaleOutCooldown": 60,
+                    "scaleInCooldown": 300
+                }
+            ]
+        },
+        "Storefront": {
+            "resourceId": "service/production-ysh-b2b-cluster/ysh-b2b-storefront",
+            "serviceNamespace": "ecs",
+            "scalableDimension": "ecs:service:DesiredCount",
+            "minCapacity": 2,
+            "maxCapacity": 6,
+            "targetTrackingScalingPolicies": [
+                {
+                    "policyName": "storefront-cpu-scaling",
+                    "targetValue": 70.0,
+                    "predefinedMetricType": "ECSServiceAverageCPUUtilization",
+                    "scaleOutCooldown": 60,
+                    "scaleInCooldown": 300
+                },
+                {
+                    "policyName": "storefront-memory-scaling",
+                    "targetValue": 80.0,
+                    "predefinedMetricType": "ECSServiceAverageMemoryUtilization",
+                    "scaleOutCooldown": 60,
+                    "scaleInCooldown": 300
+                }
+            ]
+        }
+    }
+}
