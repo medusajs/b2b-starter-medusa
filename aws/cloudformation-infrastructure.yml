@@ -148,7 +148,7 @@ Resources:
       DBInstanceIdentifier: !Sub ${Environment}-ysh-b2b-postgres
       DBInstanceClass: db.t3.medium
       Engine: postgres
-      EngineVersion: "16.1"
+      EngineVersion: "15.14"
       AllocatedStorage: 100
       StorageType: gp3
       StorageEncrypted: true
@@ -195,7 +195,7 @@ Resources:
   RedisCluster:
     Type: AWS::ElastiCache::CacheCluster
     Properties:
-      CacheClusterName: !Sub ${Environment}-ysh-b2b-redis
+      ClusterName: !Sub ${Environment}-ysh-b2b-redis
       Engine: redis
       CacheNodeType: cache.t3.micro
       NumCacheNodes: 1
@@ -287,56 +287,10 @@ Resources:
         - Key: Name
           Value: !Sub ${Environment}-ysh-b2b-alb
 
-  # ECR Repositories
-  BackendECRRepository:
-    Type: AWS::ECR::Repository
-    Properties:
-      RepositoryName: ysh-b2b-backend
-      ImageScanningConfiguration:
-        ScanOnPush: true
-      LifecyclePolicy:
-        LifecyclePolicyText: |
-          {
-            "rules": [
-              {
-                "rulePriority": 1,
-                "description": "Keep last 10 images",
-                "selection": {
-                  "tagStatus": "tagged",
-                  "countType": "imageCountMoreThan",
-                  "countNumber": 10
-                },
-                "action": {
-                  "type": "expire"
-                }
-              }
-            ]
-          }
-
-  StorefrontECRRepository:
-    Type: AWS::ECR::Repository
-    Properties:
-      RepositoryName: ysh-b2b-storefront
-      ImageScanningConfiguration:
-        ScanOnPush: true
-      LifecyclePolicy:
-        LifecyclePolicyText: |
-          {
-            "rules": [
-              {
-                "rulePriority": 1,
-                "description": "Keep last 10 images",
-                "selection": {
-                  "tagStatus": "tagged",
-                  "countType": "imageCountMoreThan",
-                  "countNumber": 10
-                },
-                "action": {
-                  "type": "expire"
-                }
-              }
-            ]
-          }
+  # ECR Repositories (já criados manualmente via CLI)
+  # BackendECRRepository e StorefrontECRRepository foram criados antes
+  # para permitir push das imagens. Removidos do CloudFormation para
+  # evitar conflito "AlreadyExists".
 
 Outputs:
   VPCId:
@@ -369,14 +323,4 @@ Outputs:
     Export:
       Name: !Sub ${Environment}-ysh-b2b-alb-dns
 
-  BackendECRRepository:
-    Description: Backend ECR Repository URI
-    Value: !GetAtt BackendECRRepository.RepositoryUri
-    Export:
-      Name: !Sub ${Environment}-ysh-b2b-backend-ecr
-
-  StorefrontECRRepository:
-    Description: Storefront ECR Repository URI
-    Value: !GetAtt StorefrontECRRepository.RepositoryUri
-    Export:
-      Name: !Sub ${Environment}-ysh-b2b-storefront-ecr
+  # ECR outputs removidos pois repositórios foram criados manualmente
