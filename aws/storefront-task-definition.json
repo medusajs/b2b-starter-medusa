@@ -38,6 +38,10 @@
                         {
                               "name": "HOSTNAME",
                               "value": "0.0.0.0"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_DEFAULT_REGION",
+                              "value": "br"
                         }
                   ],
                   "secrets": [

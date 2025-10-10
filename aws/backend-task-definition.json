@@ -26,6 +26,22 @@
                         {
                               "name": "NODE_OPTIONS",
                               "value": "--max-old-space-size=1536 --enable-source-maps"
+                        },
+                        {
+                              "name": "PORT",
+                              "value": "9000"
+                        },
+                        {
+                              "name": "STORE_CORS",
+                              "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                        },
+                        {
+                              "name": "ADMIN_CORS",
+                              "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                        },
+                        {
+                              "name": "AUTH_CORS",
+                              "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
                         }
                   ],
                   "secrets": [

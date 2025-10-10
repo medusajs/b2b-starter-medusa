@@ -755,20 +755,22 @@
 
 ```
 FASE 1: Desenvolvimento Local    [█████████████░░░] 75% (3/4 tasks) ✅ Task 1.4 COMPLETO
-FASE 2: AWS Infrastructure       [████░░░░░░░░░░░░] 25% (1.25/5 tasks) ⏳ Task 2.1 50%, Task 2.3 COMPLETO
+FASE 2: AWS Infrastructure       [████████████░░░░] 80% (4/5 tasks) ✅ Tasks 2.1, 2.2, 2.3 COMPLETOS
 FASE 3: Deployment & Validação   [░░░░░░░░░░░░░░░░]  0% (0/4 tasks)
 FASE 4: Post-Launch              [░░░░░░░░░░░░░░░░]  0% (0/3 tasks)
 ────────────────────────────────────────────────
-TOTAL:                           [████░░░░░░░░░░░░] 26% (4.25/16 tasks)
+TOTAL:                           [████████░░░░░░░░] 44% (7/16 tasks)
 ```
 
 ### Próximas Actions (Ordem de Execução)
 
-1. ⏰ **AGORA** (5-8 min): Aguardar CloudFormation DELETE completar
-2. 🚀 **PRÓXIMO** (12-15 min): Criar stack com `.\scripts\aws-deploy-create.ps1`
-3. ⚙️ **EM SEGUIDA** (10 min): Configurar secrets com `.\scripts\aws-deploy-post-stack.ps1`
-4. 📝 **DEPOIS** (15 min): Atualizar e registrar task definitions ECS
-5. 🎯 **FINAL** (20 min): Criar services ECS + validação completa
+1. ✅ **COMPLETO**: CloudFormation stack criado com sucesso
+2. 🚀 **PRÓXIMO** (5 min): Obter endpoints e criar secrets database/redis
+3. ⚙️ **EM SEGUIDA** (10 min): Atualizar e registrar task definitions ECS
+4. 📝 **DEPOIS** (20 min): Criar services ECS (backend + storefront)
+5. 🗄️ **DATABASE** (15 min): Executar migrations e seed via ECS tasks
+6. 🎯 **VALIDAÇÃO** (15 min): Smoke tests e health checks completos
+7. 🔍 **GAPS P0** (2-3h): Implementar página de comparação de preços
 
 ### Time Breakdown
 

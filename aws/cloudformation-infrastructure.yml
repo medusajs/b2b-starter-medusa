@@ -323,4 +323,34 @@ Outputs:
     Export:
       Name: !Sub ${Environment}-ysh-b2b-alb-dns
 
+  PrivateSubnet1Id:
+    Description: Private Subnet 1 ID
+    Value: !Ref PrivateSubnet1
+    Export:
+      Name: !Sub ${Environment}-ysh-b2b-private-subnet-1
+
+  PrivateSubnet2Id:
+    Description: Private Subnet 2 ID
+    Value: !Ref PrivateSubnet2
+    Export:
+      Name: !Sub ${Environment}-ysh-b2b-private-subnet-2
+
+  ECSSecurityGroupId:
+    Description: ECS Security Group ID
+    Value: !Ref ECSSecurityGroup
+    Export:
+      Name: !Sub ${Environment}-ysh-b2b-ecs-sg
+
+  BackendTargetGroupArn:
+    Description: Backend Target Group ARN
+    Value: !Ref BackendTargetGroup
+    Export:
+      Name: !Sub ${Environment}-ysh-b2b-backend-tg
+
+  StorefrontTargetGroupArn:
+    Description: Storefront Target Group ARN
+    Value: !Ref StorefrontTargetGroup
+    Export:
+      Name: !Sub ${Environment}-ysh-b2b-storefront-tg
+
   # ECR outputs removidos pois repositórios foram criados manualmente
