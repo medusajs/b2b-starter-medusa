@@ -1,0 +1,13 @@
+{
+    "VPCId": "vpc-096abb11405bb44af",
+    "PrivateSubnet1": "subnet-0a7620fdf057a8824",
+    "PrivateSubnet2": "subnet-09c23e75aed3a5d76",
+    "ECSSecurityGroup": "sg-06563301eba0427b2",
+    "ALBSecurityGroup": "sg-04504f1416350279a",
+    "DBSecurityGroup": "sg-0ed77cd5394f86cad",
+    "DatabaseEndpoint": "production-ysh-b2b-postgres.cmxiy0wqok6l.us-east-1.rds.amazonaws.com",
+    "RedisEndpoint": "production-ysh-b2b-redis.97x7fb.0001.use1.cache.amazonaws.com",
+    "LoadBalancerDNS": "production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com",
+    "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:773235999227:loadbalancer/app/production-ysh-b2b-alb/7343171857909489",
+    "ECSClusterName": "production-ysh-b2b-cluster"
+}
