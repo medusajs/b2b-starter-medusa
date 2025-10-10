@@ -31,19 +31,19 @@
                   "secrets": [
                         {
                               "name": "DATABASE_URL",
-                              "valueFrom": "/ysh-b2b/database-url"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/database-url-BGaeVF"
                         },
                         {
                               "name": "REDIS_URL",
-                              "valueFrom": "/ysh-b2b/redis-url"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/redis-url-Q7ItGs"
                         },
                         {
                               "name": "JWT_SECRET",
-                              "valueFrom": "/ysh-b2b/jwt-secret"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/jwt-secret-005Z9C"
                         },
                         {
                               "name": "COOKIE_SECRET",
-                              "valueFrom": "/ysh-b2b/cookie-secret"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/cookie-secret-bsLKwN"
                         }
                   ],
                   "logConfiguration": {

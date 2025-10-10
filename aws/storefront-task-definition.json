@@ -43,19 +43,19 @@
                   "secrets": [
                         {
                               "name": "NEXT_PUBLIC_MEDUSA_BACKEND_URL",
-                              "valueFrom": "/ysh-b2b/backend-url"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/backend-url-vlAZeu"
                         },
                         {
                               "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
-                              "valueFrom": "/ysh-b2b/publishable-key"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tvnMYo"
                         },
                         {
                               "name": "NEXT_PUBLIC_BASE_URL",
-                              "valueFrom": "/ysh-b2b/storefront-url"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/storefront-url-IV3F65"
                         },
                         {
                               "name": "REVALIDATE_SECRET",
-                              "valueFrom": "/ysh-b2b/revalidate-secret"
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/revalidate-secret-2NMJS9"
                         }
                   ],
                   "logConfiguration": {
