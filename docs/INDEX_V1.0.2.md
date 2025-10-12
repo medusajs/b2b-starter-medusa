@@ -9,7 +9,7 @@
 
 ### 🔴 BLOQUEIO CRÍTICO
 
-**Task v11 falhando com exit code 1**
+#### Task v11 falhando com exit code 1
 
 - ✅ Build completo (0 erros)
 - ✅ Imagem v1.0.2 no ECR
@@ -48,7 +48,7 @@
 
 ## 📁 ESTRUTURA DE DIRETÓRIOS
 
-```
+```tsx
 docs/
 ├── deployment/                      # Deploy & Status
 │   ├── DEPLOYMENT_SUMMARY_V1.0.2.md  # 📊 Resumo Executivo (800+ linhas) ⭐
