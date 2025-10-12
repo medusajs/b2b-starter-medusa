@@ -316,7 +316,7 @@ async function processBatch(
                 () => (productService as any).listProducts({ sku }, { take: 1 }),
                 `Check SKU ${sku}`,
                 logger
-            );
+            ) as any[];
 
             const price = product.price_brl || product.pricing?.price_brl || 0;
             const images = mapProductImages(product, category);
@@ -379,7 +379,7 @@ async function processBatch(
                     () => (productService as any).createProducts(productData),
                     `Create ${sku}`,
                     logger
-                );
+                ) as any;
 
                 // Associar ao sales channel
                 await withRetry(
