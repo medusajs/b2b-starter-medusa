@@ -13,8 +13,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_DB: medusa_db
-      POSTGRES_USER: medusa_user
-      POSTGRES_PASSWORD: medusa_password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
