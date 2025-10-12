@@ -29,7 +29,7 @@
 
 #### TypeScript Errors Resolvidos: 68 → 0
 
-**Validators (15 erros)**
+#### Validators (15 erros)
 
 ```typescript
 // Antes
@@ -39,7 +39,7 @@ const querySchema = createSelectParams();
 const querySchema = z.object({}).passthrough();
 ```
 
-**Type Extensions (12 erros)**
+#### Type Extensions (12 erros)
 
 ```typescript
 // medusa-extensions.d.ts
