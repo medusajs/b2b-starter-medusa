@@ -11,6 +11,7 @@ const path = require('path');
 
 const UNIFIED_SCHEMAS_PATH = path.join(__dirname, '../data/catalog/unified_schemas');
 const IMAGE_MAP_PATH = path.join(__dirname, '../static/images-catálogo_distribuidores/IMAGE_MAP.json');
+const SKU_MAPPING_PATH = path.join(__dirname, '../data/catalog/data/SKU_MAPPING.json');
 
 const CATEGORIES = [
     'accessories',
@@ -31,6 +32,7 @@ class PreloadWorker {
     constructor() {
         this.cache = new Map();
         this.imageMap = null;
+        this.skuMapping = null;
         this.startTime = Date.now();
     }
 
@@ -52,9 +54,26 @@ class PreloadWorker {
         }
     }
 
+    async loadSkuMapping() {
+        this.log('🔗 Loading SKU mapping...');
+        try {
+            const content = await fs.readFile(SKU_MAPPING_PATH, 'utf-8');
+            this.skuMapping = JSON.parse(content);
+            this.log(`✅ Loaded ${this.skuMapping.total_mappings} SKU mappings`);
+            return true;
+        } catch (error) {
+            this.log(`⚠️  SKU mapping not available, using fallback extraction`);
+            return false;
+        }
+    }
+
     extractSku(product) {
-        // 1. Direct sku field
-        if (product.sku) return product.sku;
+        // 1. Try SKU mapping first (most reliable)
+        if (product.id && this.skuMapping && this.skuMapping.mappings[product.id]) {
+            return this.skuMapping.mappings[product.id].sku;
+        }
+
+        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
 
         // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
         if (product.id) {
@@ -73,6 +92,11 @@ class PreloadWorker {
         if (product.image && typeof product.image === 'string') {
             const match = product.image.match(/(\d+)\.(jpg|png|webp|jpeg)$/i);
             if (match) return match[1];
+        }
+
+        // 4. Fallback: try direct sku field (usually not numeric)
+        if (product.sku && /^\d+$/.test(product.sku)) {
+            return product.sku;
         }
 
         return null;
