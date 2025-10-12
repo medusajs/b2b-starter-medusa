@@ -122,15 +122,16 @@ Write-Host "──────────────────────�
 
 Write-Host "Executando migrations..." -ForegroundColor White
 
-$subnets = "subnet-0a7620fdf057a8824,subnet-09c23e75aed3a5d76"
-$sg = "sg-06563301eba0427b2"
+# Network config JSON
+$networkConfig = 'awsvpcConfiguration={subnets=[subnet-0a7620fdf057a8824,subnet-09c23e75aed3a5d76],securityGroups=[sg-06563301eba0427b2],assignPublicIp=DISABLED}'
+$migrationOverrides = '{"containerOverrides":[{"name":"ysh-b2b-backend","command":["yarn","medusa","db:migrate"]}]}'
 
 $migrationTask = aws ecs run-task `
     --cluster $cluster `
     --task-definition ysh-b2b-backend:6 `
     --launch-type FARGATE `
-    --network-configuration "awsvpcConfiguration={subnets=[$subnets],securityGroups=[$sg],assignPublicIp=DISABLED}" `
-    --overrides '{\"containerOverrides\":[{\"name\":\"ysh-b2b-backend\",\"command\":[\"yarn\",\"medusa\",\"db:migrate\"]}]}' `
+    --network-configuration $networkConfig `
+    --overrides $migrationOverrides `
     --profile $awsProfile `
     --region $region 2>&1 | ConvertFrom-Json
 
@@ -171,12 +172,14 @@ Write-Host "──────────────────────�
 
 Write-Host "Executando seed..." -ForegroundColor White
 
+$seedOverrides = '{"containerOverrides":[{"name":"ysh-b2b-backend","command":["yarn","run","seed"]}]}'
+
 $seedTask = aws ecs run-task `
     --cluster $cluster `
     --task-definition ysh-b2b-backend:6 `
     --launch-type FARGATE `
-    --network-configuration "awsvpcConfiguration={subnets=[$subnets],securityGroups=[$sg],assignPublicIp=DISABLED}" `
-    --overrides '{\"containerOverrides\":[{\"name\":\"ysh-b2b-backend\",\"command\":[\"yarn\",\"run\",\"seed\"]}]}' `
+    --network-configuration $networkConfig `
+    --overrides $seedOverrides `
     --profile $awsProfile `
     --region $region 2>&1 | ConvertFrom-Json
 
