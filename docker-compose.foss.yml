@@ -315,6 +315,77 @@ services:
           memory: 256M
 
   # ==========================================
+  # TESTING & QA (100% FOSS)
+  # ==========================================
+
+  # Pact Broker (Contract Testing - FOSS)
+  pact-broker:
+    image: pactfoundation/pact-broker:latest
+    container_name: ysh-pact-broker-foss
+    restart: unless-stopped
+    environment:
+      PACT_BROKER_DATABASE_URL: postgres://medusa_user:${POSTGRES_PASSWORD:-medusa_password}@postgres:5432/pact_broker
+      PACT_BROKER_BASIC_AUTH_USERNAME: ${PACT_BROKER_USER:-pact}
+      PACT_BROKER_BASIC_AUTH_PASSWORD: ${PACT_BROKER_PASSWORD:-pact}
+      PACT_BROKER_BASE_URL: http://localhost:9292
+      PACT_BROKER_ALLOW_DANGEROUS_CONTRACT_MODIFICATION: "true"
+      PACT_BROKER_LOG_LEVEL: INFO
+    ports:
+      - "${PACT_BROKER_PORT:-9292}:9292"
+    networks:
+      - ysh-foss-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "-q",
+          "http://localhost:9292/diagnostic/status/heartbeat",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  # BackstopJS (Visual Regression - FOSS alternative to Chromatic)
+  backstop:
+    image: backstopjs/backstopjs:latest
+    container_name: ysh-backstop-foss
+    networks:
+      - ysh-foss-network
+    volumes:
+      - ./storefront/backstop:/src
+      - backstop_data:/src/backstop_data
+    environment:
+      NODE_ENV: test
+    command: test --config=backstop.json
+    depends_on:
+      storefront:
+        condition: service_healthy
+
+  # Mailhog (Email Testing - FOSS)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: ysh-mailhog-foss
+    restart: unless-stopped
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025" # SMTP
+      - "${MAILHOG_UI_PORT:-8025}:8025" # Web UI
+    networks:
+      - ysh-foss-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  # ==========================================
   # APPLICATION SERVICES
   # ==========================================
 
@@ -443,6 +514,8 @@ volumes:
   loki_data:
     driver: local
   backend_uploads:
+    driver: local
+  backstop_data:
     driver: local
 
 networks:
