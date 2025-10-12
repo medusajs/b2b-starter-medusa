@@ -1,7 +1,7 @@
 import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
 
-export const GetCartLineItemsBulkParams = createSelectParams() as z.ZodType<any>;
+export const GetCartLineItemsBulkParams = createSelectParams();
 export type GetCartLineItemsBulkParamsType = z.infer<
   typeof GetCartLineItemsBulkParams
 >;
