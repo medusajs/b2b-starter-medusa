@@ -31,9 +31,9 @@ module.exports = defineConfig({
     [Modules.SALES_CHANNEL]: true,
     [Modules.CART]: true,
     [Modules.ORDER]: true,
-    [Modules.INVENTORY]: false, // Explicitly disabled
-    [Modules.STOCK_LOCATION]: false, // Explicitly disabled
-    [Modules.FULFILLMENT]: false, // Explicitly disabled
+    [Modules.INVENTORY]: true, // Enabled for basic functionality
+    [Modules.STOCK_LOCATION]: true, // Enabled for seed script
+    [Modules.FULFILLMENT]: true, // Enabled for shipping profiles
     [Modules.PAYMENT]: true,
     [Modules.TAX]: true,
     [Modules.REGION]: true,
