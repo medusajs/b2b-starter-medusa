@@ -23,7 +23,7 @@
 
 ### Melhoria vs. Estado Inicial
 
-```
+```tsx
 ANTES:  ▓░░░░░░░░░  0.4% (5 produtos)
 DEPOIS: ▓▓▓▓▓▓▓▓▓░  91.5% (1,028 produtos)
 
@@ -160,7 +160,7 @@ node scripts/preload-catalog.js
 
 **Output esperado:**
 
-```
+```tsx
 ✅ Loaded 1251 SKU mappings
 ✅ Loaded 16 SKU index entries → 587 products
 ✅ Loaded 861 images from 854 SKUs
@@ -176,7 +176,7 @@ yarn dev
 
 **Aguardar:**
 
-```
+```tsx
 ✔ Server is ready on port: 9000
 info: Admin URL → http://localhost:9000/app
 ```
@@ -204,7 +204,7 @@ Ver arquivo `TEST_APIS.md` para todos os comandos e outputs esperados.
 
 ### Fluxo de Dados Simplificado
 
-```
+```tsx
 Dados Originais (CSV + JSON)
   ↓
 Python Scripts (recovery + indexing)
@@ -234,7 +234,7 @@ REST APIs (retorna JSON)
 
 ### Backend Core
 
-```
+```tsx
 backend/
 ├── src/api/store/internal-catalog/
 │   ├── route.ts                    # Rotas da API
@@ -256,7 +256,7 @@ backend/
 
 ### Scripts Python
 
-```
+```tsx
 backend/scripts/
 ├── recover-sku-mappings.py                    # Recovery inicial
 ├── rebuild-sku-mapping-from-unified.py        # Consolidação
@@ -268,7 +268,7 @@ backend/scripts/
 
 ### Documentação
 
-```
+```tsx
 backend/
 ├── FINAL_DELIVERY_SUMMARY.md        # Este documento ⭐
 ├── INTERNAL_CATALOG_360_COMPLETE.md # Documentação técnica completa
