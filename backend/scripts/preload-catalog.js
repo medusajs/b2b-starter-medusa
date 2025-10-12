@@ -169,8 +169,9 @@ class PreloadWorker {
     async preloadAll() {
         this.log('🚀 Starting catalog preload...');
 
-        // Load SKU mapping and image map first
+        // Load SKU mapping, index and image map first
         await this.loadSkuMapping();
+        await this.loadSkuIndex();
         await this.loadImageMap();
 
         // Load all categories in parallel
