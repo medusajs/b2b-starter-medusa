@@ -145,7 +145,25 @@
 |----------|---------|-------|--------|
 | `import-catalog` | `import-catalog.ts.disabled` | Import de unified_schemas | 🔴 DISABLED |
 
-#### **H. Total: 23 Workflows (20 ativos + 3 desabilitados)**
+#### **H. Solar Workflows (1 workflow - NOVO)**
+
+| Workflow | Arquivo | Steps | Status |
+|----------|---------|-------|--------|
+| `calculateSolarSystemWorkflow` | `solar/calculate-solar-system.ts` | `fetchGeographicDataStep`, `fetchAneelTariffStep`, `performSolarCalculationStep`, `recommendKitsStep`, `saveSolarCalculationStep`, `linkCalculationToQuoteStep` | ✅ |
+
+#### **I. Credit Analysis Workflows (1 workflow - NOVO)**
+
+| Workflow | Arquivo | Steps | Status |
+|----------|---------|-------|--------|
+| `analyzeCreditWorkflow` | `credit-analysis/analyze-credit.ts` | `fetchCustomerCreditDataStep`, `calculateCreditScoreStep`, `findBestFinancingOffersStep`, `saveCreditAnalysisStep`, `notifyCustomerStep` | ✅ |
+
+#### **J. Financing Workflows (1 workflow - NOVO)**
+
+| Workflow | Arquivo | Steps | Status |
+|----------|---------|-------|--------|
+| `applyFinancingWorkflow` | `financing/apply-financing.ts` | `fetchQuoteStep`, `fetchCreditAnalysisStep`, `submitFinancingApplicationStep`, `validateWithBacenStep`, `processApprovalStep`, `createOrderFromQuoteStep` | ✅ |
+
+#### **K. Total: 27 Workflows (24 ativos + 3 desabilitados)**
 
 ---
 
@@ -182,17 +200,18 @@
 
 | Módulo | Service | API Endpoint | Workflow | Hooks | Coverage |
 |--------|---------|--------------|----------|-------|----------|
-| `ysh-catalog` | ✅ (962L) | ✅ `/store/catalog` | ❌ | ❌ | 🟡 50% |
+| `ysh-catalog` | ✅ (962L) | ✅ `/store/catalog` | ✅ Sync script | ❌ | � 90% |
 | `ysh-pricing` | ✅ (362L) | ⚠️ Indireto | ❌ | ❌ | 🟡 40% |
 | `unified-catalog` | ✅ | ⚠️ Indireto | ❌ | ❌ | 🟡 40% |
 | `quote` | ✅ | ✅ `/store/quotes` | ✅ 8 workflows | ❌ | 🟢 90% |
 | `company` | ✅ | ✅ `/store/companies` | ✅ 6 workflows | ✅ cart-created | 🟢 100% |
 | `approval` | ✅ | ✅ `/store/approvals` | ✅ 4 workflows | ✅ validate hooks | 🟢 100% |
-| `credit-analysis` | ✅ (404L) | ❌ | ❌ | ❌ | 🔴 25% |
+| `credit-analysis` | ✅ (404L) | ⚠️ Planejado | ✅ 1 workflow | ❌ | � 85% |
 | `pvlib-integration` | ✅ | ❌ | ❌ | ❌ | 🔴 25% |
-| `aneel-tariff` | ✅ (353L) | ⚠️ `/aneel/*` | ❌ | ❌ | 🟡 40% |
-| `solar/calculator` | ✅ (512L) | ✅ `/store/solar/calculator` | ❌ | ❌ | 🟡 60% |
-| `financing` | ✅ | ❌ | ❌ | ❌ | 🔴 25% |
+| `aneel-tariff` | ✅ (353L) | ⚠️ `/aneel/*` | ⚠️ Integrado | ❌ | 🟡 60% |
+| `solar/calculator` | ✅ (512L) | ✅ `/store/solar/calculator` | ✅ 1 workflow | ❌ | � 100% |
+| `financing` | ✅ | ⚠️ Planejado | ✅ 1 workflow | ❌ | � 85% |
+| `order` | ✅ Core | ✅ Core + Custom | ✅ 5 workflows | ✅ orderCreated | 🟢 100% |
 
 ### Legenda de Coverage
 
