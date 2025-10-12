@@ -33,7 +33,7 @@ error: self-signed certificate in certificate chain
 code: 'SELF_SIGNED_CERT_IN_CHAIN'
 ```
 
-2. **Connection Refused**:
+1. **Connection Refused**:
 
 ```tsx
 error: connect ECONNREFUSED
