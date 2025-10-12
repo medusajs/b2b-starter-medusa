@@ -28,27 +28,27 @@ aws logs get-log-events \
 
 1. **SSL Error** (mesmo com NODE_EXTRA_CA_CERTS):
 
-```
+```tsx
 error: self-signed certificate in certificate chain
 code: 'SELF_SIGNED_CERT_IN_CHAIN'
 ```
 
 2. **Connection Refused**:
 
-```
+```tsx
 error: connect ECONNREFUSED
 ```
 
 3. **Missing Tables** (esperado na primeira execução):
 
-```
+```tsx
 Running migrations...
 ✅ Migration completed: xxx.ts
 ```
 
 4. **Command Not Found**:
 
-```
+```tsx
 /bin/sh: medusa: not found
 ```
 
