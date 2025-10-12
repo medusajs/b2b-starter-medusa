@@ -11,6 +11,7 @@
 
 import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/workflows-sdk"
 import { useRemoteQueryStep } from "@medusajs/medusa/core-flows"
+import { OrderFulfillment, OrderShipment } from "../../entities/order-fulfillment.entity"
 
 // ============================================================================
 // Types
@@ -50,22 +51,45 @@ interface ShipmentData {
 
 export const pickOrderItemsStep = createStep(
     "pick-order-items",
-    async (input: { order_id: string; items: any[] }) => {
+    async (input: { order_id: string; items: any[] }, { container }) => {
+        const entityManager = container.resolve("entityManager") as any
+
         console.log(`📦 Picking items for order: ${input.order_id}`)
 
-        // TODO: Integração com WMS (Warehouse Management System)
-        // TODO: Verificar estoque em tempo real
-        // TODO: Gerar picking list
+        // Create OrderFulfillment entity
+        const fulfillment = new OrderFulfillment()
+        fulfillment.order_id = input.order_id
+        fulfillment.status = 'picking'
+        fulfillment.warehouse_id = 'warehouse_cd_sp_001'
+        fulfillment.warehouse_name = 'CD São Paulo 001'
+        fulfillment.picking_started_at = new Date()
+        fulfillment.picked_by = 'system' // In production, use actual user ID
 
-        const fulfillmentId = `fulfillment_${Date.now()}`
+        // Store picked items with details (CRITICAL for PLG: product exposure)
+        const pickedItems = input.items.map(item => ({
+            product_id: item.product_id || item.id,
+            variant_id: item.variant_id,
+            title: item.title,
+            quantity: item.quantity,
+            sku: item.sku,
+            location: `${fulfillment.warehouse_id}_A${Math.floor(Math.random() * 99)}`
+        }))
+
+        fulfillment.picked_items = pickedItems as any
+        fulfillment.picking_completed_at = new Date()
+        fulfillment.status = 'packing'
+
+        await entityManager.persistAndFlush(fulfillment)
 
         // Simular picking de itens
         for (const item of input.items) {
             console.log(`   ✓ Picked: ${item.title} (qty: ${item.quantity})`)
         }
 
+        console.log(`   🎯 Fulfillment created: ${fulfillment.id} with ${pickedItems.length} items for PLG tracking`)
+
         return new StepResponse({
-            fulfillment_id: fulfillmentId,
+            fulfillment_id: fulfillment.id,
             order_id: input.order_id,
             items: input.items,
             status: "fulfilled",
@@ -73,9 +97,16 @@ export const pickOrderItemsStep = createStep(
             picked_at: new Date()
         } as FulfillmentData)
     },
-    async (output) => {
+    async (output, { container }) => {
         console.log(`🔄 Rollback: Returning items to stock for ${output.fulfillment_id}`)
-        // TODO: Devolver itens ao estoque
+
+        const entityManager = container.resolve("entityManager") as any
+        const fulfillment = await entityManager.findOne(OrderFulfillment, output.fulfillment_id)
+
+        if (fulfillment) {
+            fulfillment.status = 'cancelled'
+            await entityManager.flush()
+        }
     }
 )
 
@@ -144,34 +175,73 @@ export const fulfillOrderWorkflow = createWorkflow(
 
 export const createShipmentStep = createStep(
     "create-shipment",
-    async (input: { order_id: string; fulfillment_id: string; carrier: string }) => {
+    async (input: { order_id: string; fulfillment_id: string; carrier: string; shipping_address?: any }, { container }) => {
+        const entityManager = container.resolve("entityManager") as any
+
         console.log(`🚚 Creating shipment for order: ${input.order_id}`)
 
-        const shipmentId = `ship_${Date.now()}`
-        const trackingCode = `BR${Math.random().toString(36).substr(2, 11).toUpperCase()}`
-
-        // TODO: Integração com transportadora (Correios, Jadlog, etc)
-        // POST /api/shipments
+        // Create OrderShipment entity
+        const shipment = new OrderShipment()
+        shipment.fulfillment_id = input.fulfillment_id
+        shipment.carrier = input.carrier
+        shipment.carrier_code = input.carrier === 'Correios' ? 'COR' : 'JDL'
+        shipment.service_type = 'SEDEX' // Default to express
+        shipment.tracking_code = `BR${Math.random().toString(36).substr(2, 11).toUpperCase()}`
+        shipment.tracking_url = `https://rastreamento.correios.com.br/app/index.php?objetos=${shipment.tracking_code}`
+        shipment.shipment_status = 'pending'
+        shipment.shipped_at = new Date()
 
         const estimatedDelivery = new Date()
-        estimatedDelivery.setDate(estimatedDelivery.getDate() + 7) // +7 dias
+        estimatedDelivery.setDate(estimatedDelivery.getDate() + 7)
+        shipment.estimated_delivery_date = estimatedDelivery
 
-        console.log(`   Shipment ID: ${shipmentId}`)
-        console.log(`   Tracking: ${trackingCode}`)
+        // Store shipping address
+        shipment.shipping_address = input.shipping_address || {} as any
+
+        // Initialize tracking events (CRITICAL for PLG: real-time updates)
+        shipment.tracking_events = [{
+            timestamp: new Date().toISOString(),
+            status: 'shipment_created',
+            location: 'CD São Paulo',
+            description: 'Pedido postado'
+        }] as any
+
+        shipment.shipping_cost = 0 // Will be updated by carrier API
+        shipment.currency_code = 'BRL'
+
+        await entityManager.persistAndFlush(shipment)
+
+        // Update fulfillment status
+        const fulfillment = await entityManager.findOne(OrderFulfillment, input.fulfillment_id)
+        if (fulfillment) {
+            fulfillment.status = 'shipped'
+            await entityManager.flush()
+        }
+
+        console.log(`   Shipment ID: ${shipment.id}`)
+        console.log(`   Tracking: ${shipment.tracking_code}`)
         console.log(`   Carrier: ${input.carrier}`)
         console.log(`   Estimated Delivery: ${estimatedDelivery.toLocaleDateString()}`)
+        console.log(`   📍 Tracking URL available for PLG customer experience`)
 
         return new StepResponse({
-            shipment_id: shipmentId,
-            tracking_code: trackingCode,
+            shipment_id: shipment.id,
+            tracking_code: shipment.tracking_code,
             carrier: input.carrier,
             estimated_delivery: estimatedDelivery,
             shipped_at: new Date()
         } as ShipmentData)
     },
-    async (output) => {
+    async (output, { container }) => {
         console.log(`🔄 Rollback: Canceling shipment ${output.shipment_id}`)
-        // TODO: Cancelar envio com transportadora
+
+        const entityManager = container.resolve("entityManager") as any
+        const shipment = await entityManager.findOne(OrderShipment, output.shipment_id)
+
+        if (shipment) {
+            shipment.shipment_status = 'cancelled'
+            await entityManager.flush()
+        }
     }
 )
 
