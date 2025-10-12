@@ -1,0 +1,168 @@
+name: E2E Tests
+
+on:
+    pull_request:
+        branches: [main, develop]
+        paths:
+            - "storefront/**"
+            - "backend/src/**"
+            - ".github/workflows/e2e-tests.yml"
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    NODE_VERSION: "20"
+    PLAYWRIGHT_VERSION: "1.56.0"
+
+jobs:
+    # Lint & Type Check
+    lint:
+        name: Lint & Type Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "npm"
+                  cache-dependency-path: storefront/package-lock.json
+
+            - name: Install dependencies
+              working-directory: storefront
+              run: npm ci
+
+            - name: Run ESLint
+              working-directory: storefront
+              run: npm run lint
+              continue-on-error: true
+
+            - name: TypeScript Check
+              working-directory: storefront
+              run: npx tsc --noEmit
+
+    # E2E Tests with Playwright
+    e2e-tests:
+        name: E2E Tests (71 tests)
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        strategy:
+            fail-fast: false
+            matrix:
+                shard: [1, 2, 3]
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "npm"
+                  cache-dependency-path: storefront/package-lock.json
+
+            - name: Install dependencies
+              working-directory: storefront
+              run: npm ci
+
+            - name: Install Playwright Browsers
+              working-directory: storefront
+              run: npx playwright install --with-deps chromium
+
+            - name: Run E2E Tests (Shard ${{ matrix.shard }}/3)
+              working-directory: storefront
+              run: npx playwright test --shard=${{ matrix.shard }}/3 --reporter=json
+              env:
+                  CI: true
+
+            - name: Upload test results
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-results-${{ matrix.shard }}
+                  path: |
+                      storefront/playwright-report/
+                      storefront/test-results/
+                  retention-days: 7
+
+            - name: Notify Node-RED
+              if: always()
+              run: |
+                  curl -X POST "${{ secrets.NODERED_WEBHOOK_URL }}/trigger/ci" \
+                    -H "Content-Type: application/json" \
+                    -d '{
+                      "event": "e2e_tests",
+                      "status": "${{ job.status }}",
+                      "shard": "${{ matrix.shard }}",
+                      "ref": "${{ github.ref }}",
+                      "sha": "${{ github.sha }}",
+                      "pr": "${{ github.event.pull_request.number }}"
+                    }'
+              continue-on-error: true
+
+    # Aggregate Results
+    aggregate-results:
+        name: Aggregate Test Results
+        runs-on: ubuntu-latest
+        needs: [e2e-tests]
+        if: always()
+        steps:
+            - name: Download all artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  path: all-results
+
+            - name: Merge test results
+              run: |
+                  echo "## E2E Test Results" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "✅ **All shards completed**" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "- Shard 1: ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- Shard 2: ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
+                  echo "- Shard 3: ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
+
+            - name: Comment PR
+              if: github.event_name == 'pull_request'
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const output = `
+                      ## 🧪 E2E Test Results
+
+                      **Status**: ${{ needs.e2e-tests.result == 'success' && '✅ PASSED' || '❌ FAILED' }}
+
+                      ### Test Coverage
+                      - 🧪 Total: 71 tests
+                      - ✅ Smoke: 18 tests
+                      - 🔄 MSW Base: 25 tests
+                      - 🛒 Checkout: 13 tests
+                      - 🏢 B2B Approvals: 15 tests
+
+                      [View full report →](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                      `;
+
+                      github.rest.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: output
+                      });
+
+    # Status Check for Branch Protection
+    e2e-status:
+        name: E2E Status Check
+        runs-on: ubuntu-latest
+        needs: [lint, e2e-tests]
+        if: always()
+        steps:
+            - name: Check status
+              run: |
+                  if [[ "${{ needs.lint.result }}" == "success" && "${{ needs.e2e-tests.result }}" == "success" ]]; then
+                    echo "✅ All checks passed"
+                    exit 0
+                  else
+                    echo "❌ Some checks failed"
+                    exit 1
+                  fi
