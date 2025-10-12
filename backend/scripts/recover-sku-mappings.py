@@ -227,8 +227,7 @@ def process_root_files():
     
     root_files = [
         'inverters.json',
-        'kits.json',
-        'panels.json'
+        'kits.json'
     ]
     
     for filename in root_files:
@@ -236,10 +235,18 @@ def process_root_files():
         if not filepath.exists():
             continue
             
-        print(f"� Processing {filename}...")
+        print(f"📄 Processing {filename}...")
         
         with open(filepath, 'r', encoding='utf-8') as f:
-            products = json.load(f)
+            data = json.load(f)
+        
+        # Handle different structures
+        if isinstance(data, dict):
+            # Skip schema files
+            print(f"   ⚠️  Skipping {filename} (schema file)")
+            continue
+        
+        products = data
         
         for product in products:
             product_id = product.get('id')
