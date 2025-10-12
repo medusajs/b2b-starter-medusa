@@ -71,11 +71,11 @@
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "1.5.7",
     "@swc/jest": "^0.2.36",
-    "cross-env": "^7.0.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.2.25",
+    "cross-env": "^7.0.3",
     "jest": "^29.7.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -83,7 +83,7 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
-    "vite": "^5.4.20"
+    "vite": "^7.1.9"
   },
   "engines": {
     "node": ">=20"
