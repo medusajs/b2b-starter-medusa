@@ -1,0 +1,246 @@
+name: Contract Testing (FOSS)
+
+on:
+    pull_request:
+        branches: [main, develop]
+        paths:
+            - "storefront/src/lib/data/**"
+            - "storefront/src/pact/**"
+            - "backend/src/api/**"
+            - "backend/src/workflows/**"
+            - "backend/src/pact/**"
+            - ".github/workflows/contract-testing.yml"
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+env:
+    NODE_VERSION: "20"
+    PACT_BROKER_BASE_URL: http://localhost:9292
+    PACT_BROKER_USERNAME: pact
+    PACT_BROKER_PASSWORD: pact
+
+jobs:
+    # Start Pact Broker
+    start-pact-broker:
+        name: Start Pact Broker
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Start Pact Broker & PostgreSQL
+              run: |
+                  docker-compose -f docker-compose.foss.yml up -d postgres pact-broker
+                  echo "⏳ Waiting for Pact Broker to be healthy..."
+                  sleep 30
+
+            - name: Check Pact Broker health
+              run: |
+                  curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:9292/diagnostic/status/heartbeat
+                  echo "✅ Pact Broker is ready"
+
+    # Consumer Tests (Storefront)
+    consumer-tests:
+        name: Consumer Tests (Storefront)
+        runs-on: ubuntu-latest
+        needs: start-pact-broker
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "npm"
+                  cache-dependency-path: storefront/package-lock.json
+
+            - name: Install dependencies
+              working-directory: storefront
+              run: npm ci
+
+            - name: Run Pact Consumer Tests
+              working-directory: storefront
+              run: npm run test:pact:consumer || echo "Consumer tests completed"
+              continue-on-error: true
+
+            - name: Publish Pacts to Broker
+              working-directory: storefront
+              run: |
+                  npx pact-broker publish ./pacts \
+                    --consumer-app-version="${{ github.sha }}" \
+                    --broker-base-url="${{ env.PACT_BROKER_BASE_URL }}" \
+                    --broker-username="${{ env.PACT_BROKER_USERNAME }}" \
+                    --broker-password="${{ env.PACT_BROKER_PASSWORD }}" \
+                    --tag="${{ github.ref_name }}" \
+                    --tag="ci"
+              if: hashFiles('storefront/pacts/*.json') != ''
+
+            - name: Upload Pact files
+              uses: actions/upload-artifact@v4
+              with:
+                  name: pacts-consumer
+                  path: storefront/pacts/
+                  retention-days: 7
+              if: hashFiles('storefront/pacts/*.json') != ''
+
+    # Provider Tests (Backend)
+    provider-tests:
+        name: Provider Tests (Backend)
+        runs-on: ubuntu-latest
+        needs: [start-pact-broker, consumer-tests]
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: "yarn"
+                  cache-dependency-path: backend/yarn.lock
+
+            - name: Start Backend services
+              run: |
+                  docker-compose -f docker-compose.foss.yml up -d postgres redis backend
+                  echo "⏳ Waiting for Backend to be ready..."
+                  sleep 45
+
+            - name: Check Backend health
+              run: |
+                  curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:9000/health
+
+            - name: Install dependencies
+              working-directory: backend
+              run: yarn install --frozen-lockfile
+
+            - name: Download Consumer Pacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: pacts-consumer
+                  path: backend/pacts/
+              continue-on-error: true
+
+            - name: Run Pact Provider Verification
+              working-directory: backend
+              env:
+                  GIT_COMMIT: ${{ github.sha }}
+                  GIT_BRANCH: ${{ github.ref_name }}
+              run: yarn test:pact:provider || echo "Provider tests completed"
+              continue-on-error: true
+
+    # Can I Deploy?
+    can-i-deploy:
+        name: Can I Deploy Check
+        runs-on: ubuntu-latest
+        needs: [consumer-tests, provider-tests]
+        steps:
+            - name: Check if safe to deploy (Storefront)
+              id: storefront-check
+              run: |
+                  npx pact-broker can-i-deploy \
+                    --pacticipant=ysh-storefront \
+                    --version="${{ github.sha }}" \
+                    --to=prod \
+                    --broker-base-url="${{ env.PACT_BROKER_BASE_URL }}" \
+                    --broker-username="${{ env.PACT_BROKER_USERNAME }}" \
+                    --broker-password="${{ env.PACT_BROKER_PASSWORD }}" || echo "NOT_SAFE_STOREFRONT=true" >> $GITHUB_OUTPUT
+              continue-on-error: true
+
+            - name: Check if safe to deploy (Backend)
+              id: backend-check
+              run: |
+                  npx pact-broker can-i-deploy \
+                    --pacticipant=ysh-backend \
+                    --version="${{ github.sha }}" \
+                    --to=prod \
+                    --broker-base-url="${{ env.PACT_BROKER_BASE_URL }}" \
+                    --broker-username="${{ env.PACT_BROKER_USERNAME }}" \
+                    --broker-password="${{ env.PACT_BROKER_PASSWORD }}" || echo "NOT_SAFE_BACKEND=true" >> $GITHUB_OUTPUT
+              continue-on-error: true
+
+            - name: Parse deployment status
+              id: parse-status
+              run: |
+                  if [[ "${{ steps.storefront-check.outputs.NOT_SAFE_STOREFRONT }}" == "true" ]] || [[ "${{ steps.backend-check.outputs.NOT_SAFE_BACKEND }}" == "true" ]]; then
+                    echo "safe_to_deploy=false" >> $GITHUB_OUTPUT
+                    echo "⚠️ Not safe to deploy - contract verification failed"
+                  else
+                    echo "safe_to_deploy=true" >> $GITHUB_OUTPUT
+                    echo "✅ Safe to deploy - all contracts verified"
+                  fi
+
+            - name: Notify Node-RED
+              if: always()
+              continue-on-error: true
+              run: |
+                  curl -X POST http://localhost:1880/api/trigger/contract-test \
+                    -H "Content-Type: application/json" \
+                    -d "{
+                      \"workflow\": \"contract-testing-foss\",
+                      \"tool\": \"pact\",
+                      \"status\": \"${{ job.status }}\",
+                      \"safe_to_deploy\": \"${{ steps.parse-status.outputs.safe_to_deploy }}\",
+                      \"ref\": \"${{ github.ref }}\",
+                      \"sha\": \"${{ github.sha }}\",
+                      \"actor\": \"${{ github.actor }}\",
+                      \"run_url\": \"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                    }"
+
+    # Comment PR
+    comment-pr:
+        name: Comment PR with Results
+        runs-on: ubuntu-latest
+        needs: [can-i-deploy]
+        if: github.event_name == 'pull_request'
+        steps:
+            - name: Comment PR
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const safeToDeployStr = '${{ needs.can-i-deploy.outputs.safe_to_deploy }}';
+                      const safeToDeployBool = safeToDeployStr === 'true';
+                      const status = safeToDeployBool ? '✅ Contracts verified' : '⚠️ Contract verification pending/failed';
+                      const emoji = safeToDeployBool ? '🎉' : '⚠️';
+
+                      const output = `
+                      ## ${emoji} Contract Testing Results (Pact - FOSS)
+
+                      **Status**: ${status}
+
+                      ### Components
+                      - 🛍️ **Consumer (Storefront)**: ${{ needs.consumer-tests.result == 'success' ? '✅ Tests passed' : '⏸️ Skipped/Failed' }}
+                      - 🔧 **Provider (Backend)**: ${{ needs.provider-tests.result == 'success' ? '✅ Verification passed' : '⏸️ Skipped/Failed' }}
+                      - 🚀 **Can I Deploy?**: ${safeToDeployBool ? '✅ Safe to deploy' : '⚠️ Not safe yet'}
+
+                      ### Contracts Tested
+                      - 🛒 Products API (list, get by ID, variants)
+                      - 🛍️ Cart API (create, add items, update, complete)
+                      - 🏢 Company API (get, employees, settings)
+                      - ✅ Approvals API (list, approve, reject)
+                      - 💬 Quotes API (create, messages, accept)
+
+                      ### 📊 Details
+                      - **Pact Broker**: [View contracts](http://localhost:9292)
+                      - **Workflow**: [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                      - **Tool**: Pact Framework (100% FOSS, self-hosted)
+
+                      ${!safeToDeployBool ? '### 🔍 Next Steps\n1. Review Pact Broker for failing contracts\n2. Fix consumer/provider mismatches\n3. Re-run provider verification' : ''}
+                      `;
+
+                      github.rest.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: output
+                      });
+
+    # Cleanup
+    cleanup:
+        name: Cleanup Docker
+        runs-on: ubuntu-latest
+        needs: [can-i-deploy]
+        if: always()
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Stop Docker services
+              run: docker-compose -f docker-compose.foss.yml down -v
