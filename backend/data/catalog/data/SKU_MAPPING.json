@@ -1,550 +1,490 @@
 {
-  "version": "2.0",
+  "version": "3.0-hybrid",
   "generated_at": "2025-01-20T00:00:00Z",
   "total_mappings": 79,
-  "total_products": 1123,
-  "coverage_percent": 7.03,
+  "sources": {
+    "original_datasets": 0,
+    "unified_schemas": 79,
+    "image_map": 854
+  },
   "stats": {
-    "total_products": 1123,
-    "with_sku": 120,
-    "with_image": 120,
-    "by_category": {
-      "accessories": {
-        "total": 17,
-        "with_sku": 5,
-        "with_image": 5
-      },
-      "batteries": {
-        "total": 9,
-        "with_sku": 3,
-        "with_image": 3
-      },
-      "cables": {
-        "total": 55,
-        "with_sku": 15,
-        "with_image": 15
-      },
-      "controllers": {
-        "total": 38,
-        "with_sku": 0,
-        "with_image": 0
-      },
-      "ev_chargers": {
-        "total": 83,
-        "with_sku": 0,
-        "with_image": 0
-      },
-      "inverters": {
-        "total": 489,
-        "with_sku": 83,
-        "with_image": 83
-      },
-      "kits": {
-        "total": 334,
-        "with_sku": 0,
-        "with_image": 0
-      },
-      "others": {
-        "total": 10,
-        "with_sku": 0,
-        "with_image": 0
-      },
-      "panels": {
-        "total": 29,
-        "with_sku": 6,
-        "with_image": 6
-      },
-      "posts": {
-        "total": 6,
-        "with_sku": 0,
-        "with_image": 0
-      },
-      "stringboxes": {
-        "total": 13,
-        "with_sku": 1,
-        "with_image": 1
-      },
-      "structures": {
-        "total": 40,
-        "with_sku": 7,
-        "with_image": 7
-      }
-    }
+    "enhanced_with_images": 0,
+    "unique_skus": 63
   },
   "mappings": {
     "solfacil_accessories_1": {
       "sku": "450083",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450083.png",
-      "name": "KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)"
+      "source": "unified"
     },
     "solfacil_accessories_2": {
       "sku": "450114",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450114.png",
-      "name": "KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)"
+      "source": "unified"
     },
     "solfacil_accessories_8": {
       "sku": "450123",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450123.png",
-      "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM"
+      "source": "unified"
     },
     "solfacil_accessories_9": {
       "sku": "450094",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450094.png",
-      "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN"
+      "source": "unified"
     },
     "solfacil_accessories_10": {
       "sku": "450118",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450118.jpg",
-      "name": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL"
+      "source": "unified"
     },
     "solfacil_batteries_1": {
       "sku": "000612",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
-      "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20"
+      "source": "unified"
     },
     "solfacil_batteries_2": {
       "sku": "000607",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
-      "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE"
+      "source": "unified"
     },
     "solfacil_batteries_4": {
       "sku": "850004",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
-      "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE"
+      "source": "unified"
     },
     "solfacil_cables_4": {
       "sku": "052129",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052129.png",
-      "name": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)"
+      "source": "unified"
     },
     "solfacil_cables_5": {
       "sku": "052130",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
-      "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)"
+      "source": "unified"
     },
     "solfacil_cables_20": {
       "sku": "052115",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
-      "name": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_24": {
       "sku": "052118",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
-      "name": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_25": {
       "sku": "052117",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
-      "name": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_26": {
       "sku": "052127",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
-      "name": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_28": {
       "sku": "052119",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
-      "name": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_29": {
       "sku": "052128",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
-      "name": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_30": {
       "sku": "052113",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
-      "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)"
+      "source": "unified"
     },
     "solfacil_cables_31": {
       "sku": "052123",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
-      "name": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_32": {
       "sku": "052124",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
-      "name": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_33": {
       "sku": "052122",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
-      "name": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_34": {
       "sku": "052121",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
-      "name": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_35": {
       "sku": "052126",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
-      "name": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_cables_36": {
       "sku": "052125",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
-      "name": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)"
+      "source": "unified"
     },
     "solfacil_inverters_1": {
       "sku": "600340",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\ENPHASE-IQ8P-72-2-BR_IMAGE_PRODUCT_600340.jpeg",
-      "name": "ENPHASE IQ8P-72-2-BR"
+      "source": "unified"
     },
     "solfacil_inverters_3": {
       "sku": "600329",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW2000-MIS_IMAGE_PRODUCT_600329.jpg",
-      "name": "GOODWE GW2000-MIS"
+      "source": "unified"
     },
     "solfacil_inverters_6": {
       "sku": "600369",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\SOFAR-5KTLM-G3 - AFCI_IMAGE_PRODUCT_600369.png",
-      "name": "SOFAR 5KTLM-G3 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_7": {
       "sku": "600386",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "name": "HUAWEI SUN2000-3KTL-L1 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_10": {
       "sku": "600386",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "name": "HUAWEI SUN2000-4KTL-L1 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_13": {
       "sku": "600386",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "name": "HUAWEI SUN2000-10K-LC0 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_14": {
       "sku": "600398",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW10K-MS-G40 - AFCI C- RSD_IMAGE_PRODUCT_600398.png",
-      "name": "GOODWE GW10K-MS-G40 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_15": {
       "sku": "600398",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600398.png",
-      "name": "GOODWE GW10K-MS-G40 - AFCI C/ RSD"
+      "source": "unified"
     },
     "solfacil_inverters_16": {
       "sku": "600308",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
-      "name": "GROWATT MID 20KTL3 XL2 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_17": {
       "sku": "600308",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
-      "name": "GROWATT MID 20KTL3 XL2 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_18": {
       "sku": "600386",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "name": "HUAWEI SUN2000-12K-MB0 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_21": {
       "sku": "600386",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "name": "HUAWEI SUN2000-15K-MB0 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_24": {
       "sku": "600453",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600453.png",
-      "name": "GOODWE GW20K-SDT-31 - AFCI C/ RSD"
+      "source": "unified"
     },
     "solfacil_inverters_25": {
       "sku": "600400",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW12KLV-SDT-C31 - AFCI_IMAGE_PRODUCT_600400.png",
-      "name": "GOODWE GW12KLV-SDT-C31 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_26": {
       "sku": "600381",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\SOFAR-25KTLX-G3-LV - AFCI_IMAGE_PRODUCT_600381.png",
-      "name": "SOFAR 25KTLX-G3-LV - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_27": {
       "sku": "600452",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW25K-SDT-P31 - AFCI C- RSD_IMAGE_PRODUCT_600452.png",
-      "name": "GOODWE GW25K-SDT-P31 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_29": {
       "sku": "600452",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600452.png",
-      "name": "GOODWE GW25K-SDT-P31 - AFCI C/ RSD"
+      "source": "unified"
     },
     "solfacil_inverters_33": {
       "sku": "600314",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 50KTL3-X2 - AFCI_IMAGE_PRODUCT_600314.png",
-      "name": "GROWATT MID 50KTL3-X2 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_39": {
       "sku": "600350",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW37K5-SDT-BR30 - AFCI_IMAGE_PRODUCT_600350.jpg",
-      "name": "GOODWE GW37K5-SDT-BR30 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_40": {
       "sku": "600303",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "name": "GROWATT MAC 36KTL3-XL - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_41": {
       "sku": "600303",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "name": "GROWATT MAC 36KTL3-XL"
+      "source": "unified"
     },
     "solfacil_inverters_42": {
       "sku": "600303",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "name": "GROWATT MAC 36KTL3-XL - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_43": {
       "sku": "600275",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW17KLV-SDT-C30 - AFCI_IMAGE_PRODUCT_600275.png",
-      "name": "GOODWE GW17KLV-SDT-C30 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_46": {
       "sku": "600361",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.png",
-      "name": "GOODWE GW3500L-ES-BR20"
+      "source": "unified"
     },
     "solfacil_inverters_49": {
       "sku": "600483",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "name": "GOODWE GW 30KLS-MT"
+      "source": "unified"
     },
     "solfacil_inverters_50": {
       "sku": "600352",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.jpg",
-      "name": "GOODWE GW23KLV-SDT-BR30 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_51": {
       "sku": "600483",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "name": "GOODWE GW 30KLS-MT - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_52": {
       "sku": "600483",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "name": "GOODWE GW 30KLS-MT - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_53": {
       "sku": "600483",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "name": "GOODWE GW 30KLS-MT - AFCI RED"
+      "source": "unified"
     },
     "solfacil_inverters_57": {
       "sku": "600305",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "name": "GROWATT MAX 50KTL3-XL2"
+      "source": "unified"
     },
     "solfacil_inverters_64": {
       "sku": "600305",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "name": "GROWATT MAX 50KTL3-XL2 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_65": {
       "sku": "600305",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "name": "GROWATT MAX 50KTL3-XL2 - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_70": {
       "sku": "600328",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW75K-SMT - AFCI_IMAGE_PRODUCT_600328.png",
-      "name": "GOODWE GW75K-SMT - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_73": {
       "sku": "600149",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW20K-ET - AFCI_IMAGE_PRODUCT_600149.png",
-      "name": "GOODWE GW20K-ET - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_74": {
       "sku": "600363",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW12KL-ET - AFCI_IMAGE_PRODUCT_600363.png",
-      "name": "GOODWE GW12KL-ET - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_75": {
       "sku": "600348",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW15K-ET - AFCI_IMAGE_PRODUCT_600348.png",
-      "name": "GOODWE GW15K-ET - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_76": {
       "sku": "600066",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 100K-HT_IMAGE_PRODUCT_600066.png",
-      "name": "GOODWE GW 100K-HT"
+      "source": "unified"
     },
     "solfacil_inverters_77": {
       "sku": "600066",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 100K-HT_IMAGE_PRODUCT_600066.png",
-      "name": "GOODWE GW100K-HT"
+      "source": "unified"
     },
     "solfacil_inverters_78": {
       "sku": "600342",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW100K-GT - AFCI_IMAGE_PRODUCT_600342.jpg",
-      "name": "GOODWE GW100K-GT - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_79": {
       "sku": "600023",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 110K-HT_IMAGE_PRODUCT_600023.png",
-      "name": "GOODWE GW 110K-HT"
+      "source": "unified"
     },
     "solfacil_inverters_80": {
       "sku": "600150",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW30K-ET - AFCI_IMAGE_PRODUCT_600150.png",
-      "name": "GOODWE GW30K-ET - AFCI"
+      "source": "unified"
     },
     "solfacil_inverters_82": {
       "sku": "600344",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW250KH-UT_IMAGE_PRODUCT_600344.png",
-      "name": "GOODWE GW250KH-UT"
+      "source": "unified"
     },
     "solfacil_inverters_83": {
       "sku": "600142",
       "distributor": "Solfácil",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW250K-HT_IMAGE_PRODUCT_600142.png",
-      "name": "GOODWE GW250K-HT"
+      "source": "unified"
     },
     "solfacil_panels_1": {
       "sku": "559375",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559375.jpeg",
-      "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559375/images/IMAGE_PRODUCT_559375.jpeg HANE"
+      "source": "unified"
     },
     "solfacil_panels_2": {
       "sku": "559375",
       "distributor": "Solfácil",
       "image": "images\\SOLFACIL-PANELS\\HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
-      "name": "HANERSUN"
+      "source": "unified"
     },
     "solfacil_panels_3": {
       "sku": "559376",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
-      "name": "DAH"
+      "source": "unified"
     },
     "solfacil_panels_4": {
       "sku": "559381",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559381.png",
-      "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559381/images/IMAGE_PRODUCT_559381.png OSDA"
+      "source": "unified"
     },
     "solfacil_panels_5": {
       "sku": "573429",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_573429.png",
-      "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/573429/images/IMAGE_PRODUCT_573429.png HANER"
+      "source": "unified"
     },
     "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E": {
       "sku": "192068",
       "distributor": "ODEX",
       "image": "/catalog/images/ODEX-STRINGBOXES/192068.jpg",
-      "name": "String Box Clamper 2 Entradas"
+      "source": "unified"
     },
     "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO": {
       "sku": "313801",
       "distributor": "ODEX",
       "image": "/catalog/images/ODEX-STRUCTURES/313801.jpg",
-      "name": "Estrutura Solar Group Fibrocimento Grande"
+      "source": "unified"
     },
     "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL": {
       "sku": "313834",
       "distributor": "ODEX",
       "image": "/catalog/images/ODEX-STRUCTURES/313834.jpg",
-      "name": "Estrutura Solar Group Colonial Cerâmico"
+      "source": "unified"
     },
     "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO": {
       "sku": "124358",
       "distributor": "ODEX",
       "image": "/catalog/images/ODEX-STRUCTURES/124358.jpg",
-      "name": "Estrutura Pratyc Solo Fixo PRS-1600"
+      "source": "unified"
     },
     "solfacil_structures_1": {
       "sku": "401949",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_401949.png",
-      "name": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P"
+      "source": "unified"
     },
     "solfacil_structures_2": {
       "sku": "400187",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400187.png",
-      "name": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX"
+      "source": "unified"
     },
     "solfacil_structures_3": {
       "sku": "400188",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400188.png",
-      "name": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P"
+      "source": "unified"
     },
     "solfacil_structures_4": {
       "sku": "400190",
       "distributor": "Solfácil",
       "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400190.png",
-      "name": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX"
+      "source": "unified"
     }
   }
 }
