@@ -45,6 +45,7 @@ GET /store/internal-catalog
 ```
 
 **Response:**
+
 ```json
 {
   "version": "1.0.0",
@@ -72,6 +73,7 @@ GET /store/internal-catalog/:category?page=1&limit=100
 ```
 
 **Parameters:**
+
 - `category` (path): Category name
 - `page` (query): Page number (default: 1)
 - `limit` (query): Items per page (max: 200, default: 100)
@@ -81,11 +83,13 @@ GET /store/internal-catalog/:category?page=1&limit=100
 - `hasImage` (query): Filter products with images (boolean)
 
 **Example Request:**
+
 ```bash
 curl "http://localhost:9000/store/internal-catalog/inverters?page=1&limit=100&hasImage=true"
 ```
 
 **Response:**
+
 ```json
 {
   "products": [
@@ -154,6 +158,7 @@ GET /store/internal-catalog/health
 ```
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -197,6 +202,7 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -224,6 +230,7 @@ GET /store/internal-catalog/images/:sku
 ```
 
 **Response:**
+
 ```json
 {
   "sku": "neosolar_inverters_22916",
@@ -255,12 +262,14 @@ GET /store/internal-catalog/cdn/:category/:filename
 ```
 
 **Features:**
+
 - Cache-Control: 1 year (immutable)
 - ETag support
 - 304 Not Modified responses
 - Streaming file delivery
 
 **Example:**
+
 ```bash
 curl "http://localhost:9000/store/internal-catalog/cdn/NEOSOLAR-INVERTERS/22916.jpg"
 ```
@@ -275,6 +284,7 @@ node scripts/preload-catalog.js
 ```
 
 **Output:**
+
 ```
 [0.00s] 🚀 Starting catalog preload...
 [0.15s] 📸 Loading image map...
@@ -301,16 +311,19 @@ node scripts/preload-catalog.js
 ## Performance Benchmarks
 
 ### Cold Start (no cache)
+
 - Category load: ~200ms
 - 100 products: ~250ms
 - Image mapping: ~50ms
 
 ### Warm Cache
+
 - Category load: ~5ms
 - 100 products: ~12ms
 - Image mapping: <1ms
 
 ### CDN Performance
+
 - First request: ~15ms
 - Cached request (304): ~2ms
 - Image streaming: ~8ms
@@ -357,6 +370,7 @@ All endpoints return standard error responses:
 ```
 
 **Status Codes:**
+
 - `200`: Success
 - `304`: Not Modified (cached images)
 - `400`: Bad Request
