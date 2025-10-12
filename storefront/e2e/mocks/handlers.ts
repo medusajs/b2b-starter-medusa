@@ -63,13 +63,16 @@ const mockProducts = [
 /**
  * Mock Cart
  */
-let mockCart = {
+let mockCart: any = {
     id: 'cart_test_123',
     email: 'test@example.com',
     region_id: 'reg_br',
     items: [] as any[],
     subtotal: 0,
     total: 0,
+    shipping_methods: [],
+    payment_sessions: [],
+    payment_session: null,
     metadata: {
         company_id: 'comp_test_123',
         employee_id: 'emp_test_456'
@@ -92,8 +95,52 @@ const mockCompany = {
             spending_limit: 50000, // R$ 500,00
             current_spending: 10000 // R$ 100,00
         }
-    ]
+    ],
+    approval_settings: {
+        id: 'approval_settings_test_1',
+        company_id: 'comp_test_123',
+        requires_approval: true,
+        approval_threshold: 100000, // R$ 1.000,00
+        approvers: ['emp_test_admin_1']
+    }
 }
+
+/**
+ * Mock Approvals
+ */
+let mockApprovals: any[] = []
+
+/**
+ * Mock Addresses
+ */
+const mockAddresses = [
+    {
+        id: 'addr_test_1',
+        first_name: 'Test',
+        last_name: 'User',
+        address_1: 'Rua Teste, 123',
+        address_2: 'Apto 45',
+        city: 'São Paulo',
+        province: 'SP',
+        postal_code: '01310-100',
+        country_code: 'br',
+        phone: '+55 11 98765-4321'
+    }
+]
+
+/**
+ * Mock Payment Methods
+ */
+const mockPaymentProviders = [
+    {
+        id: 'manual',
+        is_installed: true
+    },
+    {
+        id: 'stripe',
+        is_installed: true
+    }
+]
 
 /**
  * Handlers
@@ -181,7 +228,7 @@ export const handlers = [
         }
 
         mockCart.items.push(lineItem)
-        mockCart.subtotal = mockCart.items.reduce((sum, item) => sum + item.subtotal, 0)
+        mockCart.subtotal = mockCart.items.reduce((sum: number, item: any) => sum + item.subtotal, 0)
         mockCart.total = mockCart.subtotal
 
         return HttpResponse.json({ cart: mockCart })
@@ -303,9 +350,211 @@ export const handlers = [
                     id: 'reg_br',
                     name: 'Brasil',
                     currency_code: 'brl',
-                    countries: [{ iso_2: 'br', name: 'Brasil' }]
+                    countries: [{ iso_2: 'br', name: 'Brasil' }],
+                    payment_providers: mockPaymentProviders
                 }
             ]
+        })
+    }),
+
+    // ========================================
+    // APPROVALS (B2B)
+    // ========================================
+
+    // Create approval
+    http.post(`${MEDUSA_BASE_URL}/store/approvals`, async ({ request }) => {
+        const body = await request.json() as any
+
+        const approval = {
+            id: `approval_test_${Date.now()}`,
+            cart_id: body.cart_id,
+            status: 'pending',
+            requested_by: 'emp_test_456',
+            requested_at: new Date().toISOString(),
+            metadata: body.metadata || {}
+        }
+
+        mockApprovals.push(approval)
+
+        return HttpResponse.json({ approval })
+    }),
+
+    // List approvals
+    http.get(`${MEDUSA_BASE_URL}/store/approvals`, () => {
+        return HttpResponse.json({
+            approvals: mockApprovals
+        })
+    }),
+
+    // Get approval
+    http.get(`${MEDUSA_BASE_URL}/store/approvals/:id`, ({ params }) => {
+        const approval = mockApprovals.find(a => a.id === params.id)
+
+        if (!approval) {
+            return new HttpResponse(null, { status: 404 })
+        }
+
+        return HttpResponse.json({ approval })
+    }),
+
+    // Approve approval
+    http.post(`${MEDUSA_BASE_URL}/store/approvals/:id/approve`, ({ params }) => {
+        const approval = mockApprovals.find(a => a.id === params.id)
+
+        if (!approval) {
+            return new HttpResponse(null, { status: 404 })
+        }
+
+        approval.status = 'approved'
+        approval.approved_by = 'emp_test_admin_1'
+        approval.approved_at = new Date().toISOString()
+
+        return HttpResponse.json({ approval })
+    }),
+
+    // Reject approval
+    http.post(`${MEDUSA_BASE_URL}/store/approvals/:id/reject`, async ({ params, request }) => {
+        const body = await request.json() as any
+        const approval = mockApprovals.find(a => a.id === params.id)
+
+        if (!approval) {
+            return new HttpResponse(null, { status: 404 })
+        }
+
+        approval.status = 'rejected'
+        approval.rejected_by = 'emp_test_admin_1'
+        approval.rejected_at = new Date().toISOString()
+        approval.rejection_reason = body.reason
+
+        return HttpResponse.json({ approval })
+    }),
+
+    // Get approval settings
+    http.get(`${MEDUSA_BASE_URL}/store/companies/:id/approval-settings`, ({ params }) => {
+        if (params.id !== mockCompany.id) {
+            return new HttpResponse(null, { status: 404 })
+        }
+
+        return HttpResponse.json({
+            approval_settings: mockCompany.approval_settings
+        })
+    }),
+
+    // ========================================
+    // ADDRESSES
+    // ========================================
+
+    // List addresses
+    http.get(`${MEDUSA_BASE_URL}/store/customers/me/addresses`, () => {
+        return HttpResponse.json({
+            addresses: mockAddresses
+        })
+    }),
+
+    // Add address
+    http.post(`${MEDUSA_BASE_URL}/store/customers/me/addresses`, async ({ request }) => {
+        const body = await request.json() as any
+
+        const address = {
+            id: `addr_test_${Date.now()}`,
+            ...body
+        }
+
+        mockAddresses.push(address)
+
+        return HttpResponse.json({
+            customer: {
+                id: 'cus_test_789',
+                addresses: mockAddresses
+            }
+        })
+    }),
+
+    // ========================================
+    // SHIPPING OPTIONS
+    // ========================================
+
+    // List shipping options
+    http.get(`${MEDUSA_BASE_URL}/store/shipping-options/:cartId`, () => {
+        return HttpResponse.json({
+            shipping_options: [
+                {
+                    id: 'so_test_standard',
+                    name: 'Entrega Padrão',
+                    price_incl_tax: 5000, // R$ 50,00
+                    amount: 5000
+                },
+                {
+                    id: 'so_test_express',
+                    name: 'Entrega Expressa',
+                    price_incl_tax: 15000, // R$ 150,00
+                    amount: 15000
+                }
+            ]
+        })
+    }),
+
+    // Add shipping method to cart
+    http.post(`${MEDUSA_BASE_URL}/store/carts/:id/shipping-methods`, async ({ params, request }) => {
+        const body = await request.json() as any
+
+        mockCart.shipping_methods = [{
+            id: 'sm_test_1',
+            shipping_option_id: body.option_id,
+            price: body.option_id === 'so_test_express' ? 15000 : 5000
+        }]
+
+        const shippingCost = mockCart.shipping_methods[0].price
+        mockCart.total = mockCart.subtotal + shippingCost
+
+        return HttpResponse.json({ cart: mockCart })
+    }),
+
+    // ========================================
+    // PAYMENT
+    // ========================================
+
+    // Create payment sessions
+    http.post(`${MEDUSA_BASE_URL}/store/carts/:id/payment-sessions`, ({ params }) => {
+        mockCart.payment_sessions = [
+            {
+                id: 'ps_test_manual',
+                provider_id: 'manual',
+                status: 'authorized',
+                data: {}
+            }
+        ]
+
+        return HttpResponse.json({ cart: mockCart })
+    }),
+
+    // Select payment session
+    http.post(`${MEDUSA_BASE_URL}/store/carts/:id/payment-session`, async ({ params, request }) => {
+        const body = await request.json() as any
+
+        mockCart.payment_session = mockCart.payment_sessions?.find(
+            (ps: any) => ps.provider_id === body.provider_id
+        )
+
+        return HttpResponse.json({ cart: mockCart })
+    }),
+
+    // ========================================
+    // ORDER
+    // ========================================
+
+    // Get order
+    http.get(`${MEDUSA_BASE_URL}/store/orders/:id`, ({ params }) => {
+        return HttpResponse.json({
+            order: {
+                id: params.id,
+                status: 'pending',
+                items: mockCart.items,
+                total: mockCart.total,
+                email: mockCart.email,
+                shipping_address: mockAddresses[0],
+                metadata: mockCart.metadata
+            }
         })
     })
 ]
@@ -321,9 +570,13 @@ export function resetMockState() {
         items: [],
         subtotal: 0,
         total: 0,
+        shipping_methods: [],
+        payment_sessions: [],
+        payment_session: null,
         metadata: {
             company_id: 'comp_test_123',
             employee_id: 'emp_test_456'
         }
     }
+    mockApprovals = []
 }
