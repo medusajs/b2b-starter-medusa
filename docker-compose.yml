@@ -12,7 +12,7 @@ services:
     container_name: ysh-b2b-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: medusa_db
+      POSTGRES_DB: medusa-backend
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -23,7 +23,7 @@ services:
     networks:
       - ysh-b2b-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d medusa_db"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d medusa-backend"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa_db
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-backend
       REDIS_URL: redis://redis:6379
       JWT_SECRET: your-super-secret-jwt-token
       COOKIE_SECRET: your-super-secret-cookie-token
