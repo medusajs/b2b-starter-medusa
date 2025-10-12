@@ -130,16 +130,73 @@ class InternalCatalogService {
     }
 
     /**
+     * Load SKU Index (reverse mapping: product_id → SKU)
+     * This provides O(1) lookup for 52.3% coverage
+     */
+    async loadSkuIndex(): Promise<SkuIndexData> {
+        if (this.skuIndex) {
+            return this.skuIndex;
+        }
+
+        const cached = this.cache.get<SkuIndexData>('sku_index');
+        if (cached) {
+            this.skuIndex = cached;
+            // Rebuild productToSkuMap
+            this.productToSkuMap.clear();
+            for (const [sku, entry] of Object.entries(cached.index)) {
+                for (const product of entry.matched_products) {
+                    this.productToSkuMap.set(product.id, sku);
+                }
+            }
+            return cached;
+        }
+
+        try {
+            const content = await fs.readFile(SKU_INDEX_PATH, 'utf-8');
+            const data = JSON.parse(content) as SkuIndexData;
+            this.skuIndex = data;
+
+            // Build reverse map: product_id → SKU for O(1) lookup
+            this.productToSkuMap.clear();
+            for (const [sku, entry] of Object.entries(data.index)) {
+                for (const product of entry.matched_products) {
+                    this.productToSkuMap.set(product.id, sku);
+                }
+            }
+
+            this.cache.set('sku_index', data, 7200000); // 2 hours TTL
+            console.log(`✅ SKU Index loaded: ${data.matched_skus} SKUs → ${this.productToSkuMap.size} products (${data.coverage_percent}% coverage)`);
+            return data;
+        } catch (error) {
+            console.error('SKU index not available, will use fallback extraction');
+            return {
+                version: '0.0',
+                total_skus: 0,
+                matched_skus: 0,
+                coverage_percent: 0,
+                index: {}
+            };
+        }
+    }
+
+    /**
      * Extract numeric SKU from various sources
+     * Priority: 1) SKU Index (52.3% coverage) → 2) SKU Mapping → 3) Fallback extraction
      */
     async extractSku(product: any): Promise<string | null> {
-        // 1. Try SKU mapping first (most reliable)
+        // 1. Check reverse product→SKU map (FASTEST - O(1) lookup, 52.3% coverage)
+        await this.loadSkuIndex();
+        if (product.id && this.productToSkuMap.has(product.id)) {
+            return this.productToSkuMap.get(product.id)!;
+        }
+
+        // 2. Try SKU mapping (legacy mappings)
         const skuMapping = await this.loadSkuMapping();
         if (product.id && skuMapping.mappings[product.id]) {
             return skuMapping.mappings[product.id].sku;
         }
 
-        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
+        // 3. Extract from id (format: "neosolar_inverters_22916" -> "22916")
         if (product.id) {
             const parts = product.id.split('_');
             const lastPart = parts[parts.length - 1];
