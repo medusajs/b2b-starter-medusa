@@ -236,18 +236,99 @@ const SolarKitComposition = ({ data }: SolarKitCompositionProps) => {
             {/* System Calculator */}
             {showCalculator && (
                 <div className="p-6 border-t-4 border-blue-500 bg-blue-50">
-                    <Heading level="h3" className="mb-4">🔧 Análise do Sistema</Heading>
+                    <div className="flex items-center justify-between mb-4">
+                        <Heading level="h3">🔧 Análise do Sistema</Heading>
+                        <div className="flex gap-2">
+                            <Button
+                                size="small"
+                                variant="secondary"
+                                onClick={() => setShowDegradation(!showDegradation)}
+                            >
+                                {showDegradation ? '📊 Ocultar Degradação' : '📈 Ver Degradação 25 anos'}
+                            </Button>
+                            <Button
+                                size="small"
+                                variant="secondary"
+                                onClick={() => setShowCompatibility(!showCompatibility)}
+                            >
+                                {showCompatibility ? '⚠️ Ocultar Avisos' : '⚠️ Ver Compatibilidade'}
+                            </Button>
+                            <Button
+                                size="small"
+                                variant="primary"
+                                onClick={() => handleExportPDF(data)}
+                            >
+                                📄 Exportar PDF
+                            </Button>
+                        </div>
+                    </div>
                     <SystemAnalysis
                         totalPowerKWp={totalPowerKWp}
                         totalInverterPowerKW={totalInverterPowerKW}
                         panelToInverterRatio={panelToInverterRatio}
                         totalPanels={totalPanels}
                         totalInverters={totalInverters}
+                        selectedState={selectedState}
+                        onStateChange={setSelectedState}
+                        showDegradation={showDegradation}
+                        showCompatibility={showCompatibility}
+                        solarPanels={solarPanels}
+                        solarInverters={solarInverters}
                     />
                 </div>
             )}
         </Container>
     )
+}
+
+// Helper function for PDF export
+function handleExportPDF(product: AdminProduct) {
+    const printContent = document.querySelector('.solar-kit-analysis')
+    if (!printContent) {
+        alert('Nenhum conteúdo para exportar. Abra a calculadora primeiro.')
+        return
+    }
+
+    // Create a new window for printing
+    const printWindow = window.open('', '_blank')
+    if (!printWindow) return
+
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Análise Solar - ${product.title}</title>
+            <style>
+                body { font-family: Arial, sans-serif; padding: 20px; }
+                .header { text-align: center; margin-bottom: 30px; }
+                .section { margin: 20px 0; page-break-inside: avoid; }
+                .metric { display: inline-block; margin: 10px; padding: 15px; border: 1px solid #ddd; }
+                .chart { margin: 20px 0; }
+                table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+                td, th { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f0f0f0; }
+                @media print { body { print-color-adjust: exact; } }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>Análise de Sistema Solar Fotovoltaico</h1>
+                <h2>${product.title}</h2>
+                <p>Data: ${new Date().toLocaleDateString('pt-BR')}</p>
+            </div>
+            ${printContent.innerHTML}
+            <div class="footer" style="margin-top: 50px; text-align: center; font-size: 12px; color: #666;">
+                <p>Documento gerado por Yellow Solar Hub - Medusa B2B Platform</p>
+            </div>
+        </body>
+        </html>
+    `)
+
+    printWindow.document.close()
+    setTimeout(() => {
+        printWindow.print()
+        printWindow.close()
+    }, 500)
 }
 
 // Helper Components
@@ -338,6 +419,12 @@ interface SystemAnalysisProps {
     panelToInverterRatio: number
     totalPanels: number
     totalInverters: number
+    selectedState: string
+    onStateChange: (state: string) => void
+    showDegradation: boolean
+    showCompatibility: boolean
+    solarPanels: SolarPanel[]
+    solarInverters: SolarInverter[]
 }
 
 const SystemAnalysis = ({
