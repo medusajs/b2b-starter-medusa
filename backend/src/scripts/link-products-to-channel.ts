@@ -1,6 +1,5 @@
 import { ExecArgs } from "@medusajs/framework/types"
 import { ModuleRegistrationName } from "@medusajs/framework/utils"
-import { RemoteLink } from "@medusajs/framework/modules-sdk"
 
 export default async function linkProductsToChannel({ container }: ExecArgs): Promise<void> {
     const logger = container.resolve("logger")
