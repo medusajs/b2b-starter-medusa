@@ -63,7 +63,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-      target: runner
     container_name: ysh-b2b-backend
     restart: unless-stopped
     environment:
