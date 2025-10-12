@@ -543,3 +543,6 @@ networks:
 # 16686 - Jaeger UI
 # 4317  - Jaeger OTLP gRPC
 # 4318  - Jaeger OTLP HTTP
+# 9292  - Pact Broker (Contract Testing)
+# 1025  - Mailhog SMTP
+# 8025  - Mailhog UI
