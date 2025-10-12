@@ -7,7 +7,7 @@
  * - npm run setup-publishable-key --upload (também faz upload para AWS Secrets Manager)
  */
 
-import { MedusaApp } from "@medusajs/framework/medusa-app";
+import { MedusaApp } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import * as fs from "fs";
 import * as path from "path";

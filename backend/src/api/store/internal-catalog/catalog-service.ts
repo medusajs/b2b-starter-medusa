@@ -146,8 +146,10 @@ class InternalCatalogService {
     /**
      * Get image for SKU
      */
-    async getImageForSku(sku: string | null): Promise<ProductImage> {
-        if (!sku) {
+    async getImageForSku(sku: string | null | Promise<string | null>): Promise<ProductImage> {
+        // Handle Promise<string> case
+        const resolvedSku = await Promise.resolve(sku);
+        if (!resolvedSku) {
             return {
                 url: '/images/placeholder.jpg',
                 sizes: {
@@ -162,7 +164,7 @@ class InternalCatalogService {
         }
 
         const imageMap = await this.loadImageMap();
-        const entry = imageMap.mappings[sku];
+        const entry = imageMap.mappings[resolvedSku];
 
         if (!entry) {
             return {
