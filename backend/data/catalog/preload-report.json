@@ -1,27 +1,6 @@
 {
-  "timestamp": "2025-10-12T23:07:23.644Z",
+  "timestamp": "2025-10-12T23:12:17.711Z",
   "categories": [
-    {
-      "category": "batteries",
-      "count": 9,
-      "sample": [
-        {
-          "id": "solfacil_batteries_1",
-          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-          "sku": "solfacil_batteries_1"
-        },
-        {
-          "id": "solfacil_batteries_2",
-          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-          "sku": "solfacil_batteries_2"
-        },
-        {
-          "id": "solfacil_batteries_3",
-          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-          "sku": "solfacil_batteries_3"
-        }
-      ]
-    },
     {
       "category": "accessories",
       "count": 17,
@@ -40,6 +19,27 @@
           "id": "FORTLEV-FOXESS-A7300P1-E-2",
           "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
           "sku": "FORTLEV-FOXESS-A7300P1-E-2"
+        }
+      ]
+    },
+    {
+      "category": "batteries",
+      "count": 9,
+      "sample": [
+        {
+          "id": "solfacil_batteries_1",
+          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+          "sku": "solfacil_batteries_1"
+        },
+        {
+          "id": "solfacil_batteries_2",
+          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+          "sku": "solfacil_batteries_2"
+        },
+        {
+          "id": "solfacil_batteries_3",
+          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+          "sku": "solfacil_batteries_3"
         }
       ]
     },
@@ -107,6 +107,27 @@
       ]
     },
     {
+      "category": "stringboxes",
+      "count": 13,
+      "sample": [
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+          "name": "String Box Clamper 2 Entradas",
+          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+          "name": "String Box Clamper 4 Entradas",
+          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+          "name": "String Box Clamper 6 Entradas",
+          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E"
+        }
+      ]
+    },
+    {
       "category": "ev_chargers",
       "count": 83,
       "sample": [
@@ -124,27 +145,6 @@
           "id": "neosolar_chargers_27329",
           "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
           "sku": "neosolar_chargers_27329"
-        }
-      ]
-    },
-    {
-      "category": "posts",
-      "count": 6,
-      "sample": [
-        {
-          "id": "neosolar_posts_24170",
-          "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24170"
-        },
-        {
-          "id": "neosolar_posts_24171",
-          "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24171"
-        },
-        {
-          "id": "neosolar_posts_24173",
-          "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24173"
         }
       ]
     },
@@ -170,23 +170,23 @@
       ]
     },
     {
-      "category": "stringboxes",
-      "count": 13,
+      "category": "posts",
+      "count": 6,
       "sample": [
         {
-          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
-          "name": "String Box Clamper 2 Entradas",
-          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E"
+          "id": "neosolar_posts_24170",
+          "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24170"
         },
         {
-          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
-          "name": "String Box Clamper 4 Entradas",
-          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E"
+          "id": "neosolar_posts_24171",
+          "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24171"
         },
         {
-          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
-          "name": "String Box Clamper 6 Entradas",
-          "sku": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E"
+          "id": "neosolar_posts_24173",
+          "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24173"
         }
       ]
     },
