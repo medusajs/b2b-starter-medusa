@@ -15,7 +15,7 @@
  */
 
 import { ExecArgs } from "@medusajs/framework/types";
-import { ModuleRegistrationName, Modules } from "@medusajs/framework/utils";
+import { ModuleRegistrationName, Modules, ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
@@ -302,7 +302,7 @@ async function processBatch(
     skuRegistry: Map<string, string>,
     productService: any,
     salesChannelId: string,
-    linkService: any,
+    remoteLink: any,
     logger: any,
     stats: SyncStats
 ): Promise<void> {
@@ -381,18 +381,19 @@ async function processBatch(
                     logger
                 ) as any;
 
-                // Associar ao sales channel
-                await withRetry(
-                    () =>
-                        (linkService as any).create([
+                // Link product → sales_channel via Remote Link
+                if (salesChannelId) {
+                    await withRetry(
+                        () => (remoteLink as any).create([
                             {
                                 [Modules.PRODUCT]: { product_id: created.id },
                                 [Modules.SALES_CHANNEL]: { sales_channel_id: salesChannelId },
                             },
                         ]),
-                    `Link ${sku}`,
-                    logger
-                );
+                        `Link ${sku}`,
+                        logger
+                    );
+                }
 
                 stats.created++;
                 logger.info(`  ➕ Criado: ${sku}`);
@@ -411,10 +412,10 @@ async function processBatch(
  */
 async function syncCategory(
     category: CategoryConfig,
-    skuRegistry: Map<string, string>,
+    skuRegistry: Map<string, any>,
     productService: any,
     salesChannelId: string,
-    linkService: any,
+    remoteLink: any,
     logger: any,
     stats: SyncStats
 ): Promise<void> {
@@ -446,7 +447,7 @@ async function syncCategory(
                     skuRegistry,
                     productService,
                     salesChannelId,
-                    linkService,
+                    remoteLink,
                     logger,
                     stats
                 )
@@ -481,7 +482,7 @@ export default async function syncCatalogOptimized({ container }: ExecArgs): Pro
         // Resolver serviços
         const productService = container.resolve(ModuleRegistrationName.PRODUCT);
         const salesChannelService = container.resolve(ModuleRegistrationName.SALES_CHANNEL);
-        const linkService = container.resolve(Modules.LINK);
+        const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK);
 
         // Garantir sales channel
         logger.info("\n📢 Verificando Sales Channel...");
@@ -514,7 +515,7 @@ export default async function syncCatalogOptimized({ container }: ExecArgs): Pro
                 skuRegistry,
                 productService,
                 salesChannel.id,
-                linkService,
+                remoteLink,
                 logger,
                 stats
             );

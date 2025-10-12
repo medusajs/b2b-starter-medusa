@@ -329,7 +329,7 @@ export const applyFinancingWorkflow = createWorkflow(
 
 **Jornada Atual (Incompleta):**
 
-```
+```tsx
 Customer Input → Calculator API → JSON Response → [PERDIDO]
                                                     ↓
                                     (sem persistência automática)
@@ -337,7 +337,7 @@ Customer Input → Calculator API → JSON Response → [PERDIDO]
 
 **Jornada Ideal:**
 
-```
+```tsx
 Customer Input → calculateSolarSystemWorkflow → Database
                                               ↓
                             Link → Quote → Credit Analysis → Financing
@@ -517,7 +517,7 @@ export const cancelOrderWorkflow = createWorkflow(...)
 
 ### Jornada 1: Catálogo → Cotação → Pedido
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────┐
 │  JORNADA: Catálogo → Quote → Order                                │
 ├─────────────────────────────────────────────────────────────────────┤
