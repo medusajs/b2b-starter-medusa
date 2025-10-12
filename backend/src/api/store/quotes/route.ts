@@ -48,7 +48,7 @@ export const POST = async (
     result: { quote: createdQuote },
   } = await createRequestForQuoteWorkflow(req.scope).run({
     input: {
-      cart_id: req.validatedBody.cart_id || "",
+      cart_id: req.validatedBody.cart_id!,
       customer_id: req.auth_context.actor_id,
     },
   });
