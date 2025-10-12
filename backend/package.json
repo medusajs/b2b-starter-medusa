@@ -63,9 +63,9 @@
     "zod": "4.1.12"
   },
   "devDependencies": {
-    "@medusajs/test-utils": "2.8.0",
-    "@medusajs/ui-preset": "2.8.0",
-    "@mikro-orm/cli": "6.4.3",
+    "@medusajs/test-utils": "2.10.3",
+    "@medusajs/ui-preset": "2.10.3",
+    "@mikro-orm/cli": "6.5.7",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.14",
