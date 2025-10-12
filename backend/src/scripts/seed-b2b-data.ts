@@ -161,8 +161,8 @@ async function seedB2BData(container: MedusaContainer) {
 
     for (const companyData of COMPANIES) {
       // Verificar se empresa já existe
-      const existingCompany = await dbConnection.query(
-        `SELECT id FROM company WHERE cnpj = $1`,
+      const existingCompany = await dbConnection.raw(
+        `SELECT id FROM company WHERE cnpj = ?`,
         [companyData.cnpj]
       )
 
@@ -172,7 +172,7 @@ async function seedB2BData(container: MedusaContainer) {
         companyId = existingCompany.rows[0].id
         logger.info(`  ↻ Empresa já existe: ${companyData.name}`)
       } else {
-        const result = await dbConnection.query(
+        const result = await dbConnection.raw(
           `INSERT INTO company (
             name, cnpj, razao_social, email, phone, 
             spending_limit, industry, size, created_at, updated_at

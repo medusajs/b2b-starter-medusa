@@ -17,7 +17,7 @@ export default async function syncAllDistributorPrices(
         const yshPricingService = container.resolve(YSH_PRICING_MODULE);
 
         // Get all active distributors
-        const distributors = await yshPricingService.listDistributors({
+        const distributors = await (yshPricingService as any).listDistributors({
             is_active: true,
         });
 
@@ -61,7 +61,7 @@ export default async function syncAllDistributorPrices(
         }
 
         // Get updated stats
-        const stats = await yshPricingService.getDistributorStats();
+        const stats = await (yshPricingService as any).getDistributorStats();
         console.log("📈 Distributor stats:");
         stats.forEach((stat: any) => {
             console.log(

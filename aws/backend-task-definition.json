@@ -11,7 +11,7 @@
       "containerDefinitions": [
             {
                   "name": "ysh-b2b-backend",
-                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.1",
+                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.2",
                   "portMappings": [
                         {
                               "containerPort": 9000,
@@ -42,6 +42,10 @@
                         {
                               "name": "AUTH_CORS",
                               "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                        },
+                        {
+                              "name": "NODE_EXTRA_CA_CERTS",
+                              "value": "/tmp/rds-ca-bundle.pem"
                         }
                   ],
                   "secrets": [

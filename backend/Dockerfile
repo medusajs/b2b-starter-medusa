@@ -6,13 +6,15 @@
 FROM node:20-alpine
 
 # Instalar dependências do sistema (inclui CA para TLS)
-RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates
+RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates curl
 
 # Configurar diretório de trabalho
 WORKDIR /app
 
-# Configurações de ambiente para produção
-ENV NODE_ENV=production
+# Baixar certificado AWS RDS CA bundle
+RUN curl -o /tmp/rds-ca-bundle.pem https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+
+# Configurações de ambiente para produção (NODE_ENV definido após build)
 ENV NODE_OPTIONS="--max-old-space-size=2048"
 ENV NPM_CONFIG_LOGLEVEL=warn
 
@@ -20,8 +22,11 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 COPY package*.json ./
 COPY .npmrc* ./
 
-# Instalar dependências (incluindo dev dependencies para build)
+# Instalar todas as dependências (incluindo dev para o Medusa build)
 RUN npm install --no-audit --no-fund --legacy-peer-deps
+
+# Definir NODE_ENV após instalação das dependências
+ENV NODE_ENV=production
 
 # Workaround para problema do Rollup e SWC no Alpine Linux
 RUN npm install --force @rollup/rollup-linux-x64-musl @swc/core-linux-x64-musl || true
@@ -38,7 +43,11 @@ RUN mkdir -p uploads
 # Criar usuário não-root para segurança
 RUN addgroup --system --gid 1001 medusa && \
       adduser --system --uid 1001 medusa && \
-      chown -R medusa:medusa /app
+      chown -R medusa:medusa /app/uploads /app/.medusa && \
+      chown medusa:medusa /tmp/rds-ca-bundle.pem
+
+# Mudar propriedade de arquivos de runtime
+RUN chown medusa:medusa /app/package.json /app/medusa-config.js || true
 
 # Mudar para usuário não-root
 USER medusa

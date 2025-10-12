@@ -41,12 +41,12 @@ export default async function seedCatalog(container: MedusaContainer) {
     try {
         // 1. Verificar/Criar Sales Channel
         console.log("📢 Verificando Sales Channel...");
-        const salesChannels = await salesChannelModuleService.list();
+        const salesChannels = await (salesChannelModuleService as any).list();
         let salesChannel = salesChannels.find((sc: any) => sc.name === "Default Sales Channel");
 
         if (!salesChannel) {
             console.log("  ➕ Criando Sales Channel padrão...");
-            salesChannel = await salesChannelModuleService.create({
+            salesChannel = await (salesChannelModuleService as any).create({
                 name: "Default Sales Channel",
                 description: "Canal de vendas B2B Yello Solar Hub",
             });
@@ -88,7 +88,7 @@ export default async function seedCatalog(container: MedusaContainer) {
             for (const product of products) {
                 try {
                     // Verificar se já existe
-                    const existing = await productModuleService.list({
+                    const existing = await (productModuleService as any).list({
                         filters: { external_id: product.id },
                     });
 
@@ -139,10 +139,10 @@ export default async function seedCatalog(container: MedusaContainer) {
                     };
 
                     // Criar produto
-                    const createdProduct = await productModuleService.create(productData);
+                    const createdProduct = await (productModuleService as any).create(productData);
 
                     // Associar ao Sales Channel
-                    await linkModuleService.create({
+                    await (linkModuleService as any).create({
                         productService: {
                             product_id: createdProduct.id,
                         },

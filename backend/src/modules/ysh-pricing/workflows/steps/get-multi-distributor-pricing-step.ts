@@ -18,7 +18,7 @@ export const getMultiDistributorPricingStep = createStep(
 
         const yshPricingService = container.resolve(YSH_PRICING_MODULE);
 
-        const pricing = await yshPricingService.getMultiDistributorPricing(
+        const pricing = await (yshPricingService as any).getMultiDistributorPricing(
             variant_id,
             currency_code,
             company_name

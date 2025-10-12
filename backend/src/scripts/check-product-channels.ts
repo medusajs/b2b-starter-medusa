@@ -6,7 +6,7 @@ export default async function checkProductChannels({ container }: ExecArgs): Pro
     const remoteLink = container.resolve(Modules.LINK)
 
     // Pegar os primeiros 5 produtos
-    const [products] = await productModuleService.listAndCountProducts({ take: 5 })
+    const [products] = await (productModuleService as any).listAndCountProducts({ take: 5 })
 
     console.log("=".repeat(60))
     console.log("🔍 VERIFICANDO SALES CHANNELS DOS PRODUTOS")
@@ -18,7 +18,7 @@ export default async function checkProductChannels({ container }: ExecArgs): Pro
         console.log(`   Handle: ${product.handle}`)
 
         // Verificar links de sales channel
-        const links = await remoteLink.list({
+        const links = await (remoteLink as any).list({
             product_id: product.id,
         })
 

@@ -98,8 +98,8 @@ export async function GET(
         return res.json({
             collections: collections.collections.map(c => ({
                 name: c.name,
-                vectors_count: c.vectors_count,
-                points_count: c.points_count
+                vectors_count: (c as any).vectors_count,
+                points_count: (c as any).points_count
             }))
         })
 

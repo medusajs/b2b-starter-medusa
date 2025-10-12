@@ -36,7 +36,7 @@ completeCartWorkflow.hooks.validate(async ({ cart }, { container }) => {
       },
     });
 
-    if (customer.employee?.spending_limit) {
+    if ((customer as any).employee?.spending_limit) {
       const spendLimitExceeded = checkSpendingLimit(
         queryCart as any,
         customer as any

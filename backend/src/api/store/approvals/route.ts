@@ -23,7 +23,7 @@ export const GET = async (
     filters: { id: customer_id },
   });
 
-  const companyId = customer?.employee?.company?.id as string;
+  const companyId = (customer as any)?.employee?.company?.id as string;
 
   if (!companyId) {
     return res.json({ approvals: [], count: 0 });

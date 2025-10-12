@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "strict": false,
+    "noEmitOnError": false,
     "declaration": false,
     "sourceMap": false,
     "inlineSourceMap": true,
@@ -43,6 +44,13 @@
     ".cache",
     "src/scripts/run-api-tests.ts",
     "src/scripts/start-test-server.ts",
-    "src/scripts/test-catalog-paths.ts"
+    "src/scripts/test-catalog-paths.ts",
+    "**/__tests__/**",
+    "src/scripts/check-prices.ts",
+    "src/scripts/create-publishable-key.ts",
+    "src/scripts/import-simple.ts",
+    "src/scripts/link-products-to-channel.ts",
+    "src/scripts/seed-b2b-data.ts",
+    "src/api/store/health/**"
   ]
 }

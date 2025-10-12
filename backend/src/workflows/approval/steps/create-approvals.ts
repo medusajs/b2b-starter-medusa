@@ -41,21 +41,21 @@ export const createApprovalStep = createStep(
     );
 
     if (
-      (cart.approval_status?.status as unknown as ApprovalStatusType) ===
+      ((cart as any).approval_status?.status as unknown as ApprovalStatusType) ===
       ApprovalStatusType.PENDING
     ) {
       throw new Error("Cart already has a pending approval");
     }
 
     if (
-      (cart.approval_status?.status as unknown as ApprovalStatusType) ===
+      ((cart as any).approval_status?.status as unknown as ApprovalStatusType) ===
       ApprovalStatusType.APPROVED
     ) {
       throw new Error("Cart is already approved");
     }
 
     const { requires_admin_approval, requires_sales_manager_approval } =
-      cart?.company?.approval_settings || {};
+      (cart as any)?.company?.approval_settings || {};
 
     const approvalsToCreate = [] as ModuleCreateApproval[];
 

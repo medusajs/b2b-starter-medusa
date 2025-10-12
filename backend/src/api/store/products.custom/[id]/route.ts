@@ -38,7 +38,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
         const product = products[0];
         const variant = product.variants?.[0];
-        const price = variant?.prices?.[0]?.amount || 0;
+        const price = (variant as any)?.prices?.[0]?.amount || 0;
 
         const formattedProduct = {
             id: product.id,

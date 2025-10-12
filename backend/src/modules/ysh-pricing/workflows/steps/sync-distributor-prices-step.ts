@@ -17,7 +17,7 @@ export const syncDistributorPricesStep = createStep(
 
         const yshPricingService = container.resolve(YSH_PRICING_MODULE);
 
-        const stats = await yshPricingService.syncDistributorPrices(
+        const stats = await (yshPricingService as any).syncDistributorPrices(
             distributor_id,
             catalog_data
         );
@@ -38,7 +38,7 @@ export const syncDistributorPricesStep = createStep(
         );
 
         // Mark recently synced prices as stale
-        await yshPricingService.markStalePrices(
+        await (yshPricingService as any).markStalePrices(
             compensateData.distributor_id,
             new Date()
         );

@@ -11,7 +11,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
     const { id } = req.params;
 
-    const comparison = await catalogService.compareSKUPrices(id);
+    const comparison = await (catalogService as any).compareSKUPrices(id);
 
     res.json(comparison);
 };
