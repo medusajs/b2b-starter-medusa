@@ -66,7 +66,7 @@ npm run chromatic
 
 ### Padrão de Arquivos
 
-```
+```tsx
 src/
 ├── components/
 │   ├── ConsentBanner.tsx
@@ -352,7 +352,7 @@ export const WithMockMetrics: Story = {
 
 ### Setup Inicial
 
-1. **Criar conta**: https://www.chromatic.com/start
+1. **Criar conta**: <https://www.chromatic.com/start>
 2. **Conectar repo**: Link GitHub repo `own-boldsbrain/ysh-b2b`
 3. **Obter token**: Project Settings → Manage → Reveal project token
 
@@ -453,9 +453,10 @@ pull_request:
 
 ### Chromatic Dashboard
 
-**URL**: https://www.chromatic.com/builds?appId=YOUR_APP_ID
+**URL**: <https://www.chromatic.com/builds?appId=YOUR_APP_ID>
 
 **Métricas disponíveis**:
+
 - 📸 Total snapshots
 - ✅ Accepted changes
 - ⏱️ Build duration
@@ -615,10 +616,10 @@ export const parameters = {
 
 ## 📚 Recursos
 
-- **Storybook Docs**: https://storybook.js.org/docs/react/get-started/introduction
-- **Chromatic Docs**: https://www.chromatic.com/docs/
-- **Next.js + Storybook**: https://storybook.js.org/recipes/@storybook/nextjs
-- **Visual Testing Guide**: https://storybook.js.org/docs/react/writing-tests/visual-testing
+- **Storybook Docs**: <https://storybook.js.org/docs/react/get-started/introduction>
+- **Chromatic Docs**: <https://www.chromatic.com/docs/>
+- **Next.js + Storybook**: <https://storybook.js.org/recipes/@storybook/nextjs>
+- **Visual Testing Guide**: <https://storybook.js.org/docs/react/writing-tests/visual-testing>
 
 ---
 
@@ -638,6 +639,7 @@ export const parameters = {
 **Status**: ✅ Visual Regression Testing pronto para uso!
 
 **Próximos Passos**:
+
 1. Criar stories para mais componentes
 2. Testar dark mode (se aplicável)
 3. Adicionar Interaction tests com `@storybook/test`
