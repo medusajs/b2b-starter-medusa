@@ -1,4 +1,6 @@
 ﻿import { Pool, PoolClient } from "pg";
+import * as fs from "fs";
+import * as path from "path";
 
 // Tipos para produtos do catálogo unificado
 export interface CatalogProduct {
