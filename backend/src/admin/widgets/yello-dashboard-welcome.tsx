@@ -1,6 +1,5 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { Container, Heading } from "@medusajs/ui"
-import { Sun, Zap, TrendingUp } from "lucide-react"
 import { YelloBranding } from "../components/yello-branding"
 
 /**
@@ -29,19 +28,19 @@ const YelloDashboardWidget = () => {
 
             <div className="grid grid-cols-3 gap-4 px-6 py-4">
                 <StatCard
-                    icon={<Sun className="text-orange-500" />}
+                    icon="☀️"
                     label="Catálogo Solar"
                     value="1.123 produtos"
                     description="Equipamentos fotovoltaicos"
                 />
                 <StatCard
-                    icon={<Zap className="text-yellow-500" />}
+                    icon="⚡"
                     label="Cotações B2B"
                     value="Ativas"
                     description="Sistema de cotações habilitado"
                 />
                 <StatCard
-                    icon={<TrendingUp className="text-green-500" />}
+                    icon="📈"
                     label="Modo"
                     value="Produção"
                     description="Backend Medusa 2.10.3"
@@ -57,14 +56,14 @@ const StatCard = ({
     value,
     description,
 }: {
-    icon: React.ReactNode
+    icon: string
     label: string
     value: string
     description: string
 }) => {
     return (
         <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ui-bg-subtle">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ui-bg-subtle text-2xl">
                 {icon}
             </div>
             <div className="flex flex-col">

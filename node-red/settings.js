@@ -68,7 +68,7 @@ module.exports = {
         }
     },
 
-    // Function node settings
+    // Function node settings (100% FOSS Stack)
     functionGlobalContext: {
         // Environment variables
         BACKEND_URL: process.env.BACKEND_URL || 'http://backend:9000',
@@ -80,22 +80,29 @@ module.exports = {
         GITHUB_TOKEN: process.env.GITHUB_TOKEN,
         GITHUB_REPO: process.env.GITHUB_REPO || 'own-boldsbrain/ysh-b2b',
 
-        // Chromatic settings
-        CHROMATIC_PROJECT_TOKEN: process.env.CHROMATIC_PROJECT_TOKEN,
+        // Pact Broker settings (FOSS - self-hosted)
+        PACT_BROKER_URL: process.env.PACT_BROKER_URL || 'http://pact-broker:9292',
+        PACT_BROKER_USERNAME: process.env.PACT_BROKER_USERNAME || 'pact',
+        PACT_BROKER_PASSWORD: process.env.PACT_BROKER_PASSWORD || 'pact',
 
-        // Pact Broker settings
-        PACT_BROKER_URL: process.env.PACT_BROKER_URL || 'http://localhost:9292',
-        PACT_BROKER_TOKEN: process.env.PACT_BROKER_TOKEN,
+        // BackstopJS settings (FOSS - visual regression)
+        BACKSTOP_CONFIG_PATH: process.env.BACKSTOP_CONFIG_PATH || '/workspace/storefront/backstop/backstop.json',
+        BACKSTOP_DOCKER_IMAGE: process.env.BACKSTOP_DOCKER_IMAGE || 'backstopjs/backstopjs:latest',
 
-        // Notification settings
+        // Mailhog settings (FOSS - email testing)
+        MAILHOG_SMTP_HOST: process.env.MAILHOG_SMTP_HOST || 'mailhog',
+        MAILHOG_SMTP_PORT: process.env.MAILHOG_SMTP_PORT || 1025,
+        MAILHOG_UI_URL: process.env.MAILHOG_UI_URL || 'http://mailhog:8025',
+
+        // Notification settings (FOSS alternatives)
         SLACK_WEBHOOK_URL: process.env.SLACK_WEBHOOK_URL,
         EMAIL_CONFIG: {
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT || 587,
+            host: process.env.SMTP_HOST || 'mailhog',
+            port: process.env.SMTP_PORT || 1025,
             secure: false,
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS
+                user: process.env.SMTP_USER || '',
+                pass: process.env.SMTP_PASS || ''
             }
         }
     },
