@@ -12,6 +12,7 @@
 
 import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/workflows-sdk"
 import { CreditAnalysisInput, CreditAnalysisResult } from "../../modules/credit-analysis/service"
+import { CreditAnalysis, FinancingOffer } from "../../entities/credit-analysis.entity"
 
 // ============================================================================
 // Types
@@ -29,11 +30,11 @@ export interface AnalyzeCreditInput {
 export interface AnalyzeCreditOutput {
     analysis_id: string
     result: CreditAnalysisResult
-    best_offers: FinancingOffer[]
+    best_offers: FinancingOfferData[]
     notification_sent: boolean
 }
 
-export interface FinancingOffer {
+export interface FinancingOfferData {
     bank_name: string
     modality: string
     approved_amount: number
@@ -207,7 +208,7 @@ export const findBestFinancingOffersStep = createStep(
         else if (scoreResult.total_score >= 50) baseRate = 1.8 // 1.8% a.m.
         else baseRate = 2.5 // 2.5% a.m.
 
-        const offers: FinancingOffer[] = []
+        const offers: FinancingOfferData[] = []
 
         // Oferta 1: CDC (Crédito Direto ao Consumidor)
         const cdcRate = baseRate
@@ -277,23 +278,90 @@ export const saveCreditAnalysisStep = createStep(
         solar_calculation_id?: string
         scoreResult: CreditScoreResult
         result: CreditAnalysisResult
-        offers: FinancingOffer[]
-    }) => {
-        const analysisId = `credit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        offers: FinancingOfferData[]
+        requestedAmount: number
+        requestedTermMonths: number
+    }, { container }) => {
+        const entityManager = container.resolve("entityManager") as any
 
-        console.log(`💾 Credit analysis saved: ${analysisId}`)
+        // Create CreditAnalysis entity
+        const creditAnalysis = new CreditAnalysis()
+        creditAnalysis.customer_id = input.customer_id
+        creditAnalysis.quote_id = input.quote_id
+        creditAnalysis.solar_calculation_id = input.solar_calculation_id
+
+        // Request data
+        creditAnalysis.requested_amount = input.requestedAmount
+        creditAnalysis.requested_term_months = input.requestedTermMonths
+        creditAnalysis.modality = 'CDC' // Default modality
+
+        // Scoring results
+        creditAnalysis.income_score = input.scoreResult.income_score
+        creditAnalysis.employment_score = input.scoreResult.employment_score
+        creditAnalysis.credit_history_score = input.scoreResult.credit_history_score
+        creditAnalysis.debt_ratio_score = input.scoreResult.debt_ratio_score
+        creditAnalysis.total_score = input.scoreResult.total_score
+
+        // Risk assessment
+        creditAnalysis.risk_level = input.scoreResult.risk_level.toUpperCase() as any
+        creditAnalysis.approval_probability = input.scoreResult.approval_probability
+
+        // Approval decision
+        creditAnalysis.approved = input.result.approved
+        creditAnalysis.rejection_reason = input.result.rejection_reason
+        creditAnalysis.analysis_details = input.scoreResult as any
+
+        await entityManager.persistAndFlush(creditAnalysis)
+
+        // Create FinancingOffer entities (CRITICAL for PLG: expose financing options!)
+        const savedOffers: any[] = []
+
+        for (let i = 0; i < Math.min(input.offers.length, 3); i++) {
+            const offer = input.offers[i]
+            const offerEntity = new FinancingOffer()
+
+            offerEntity.credit_analysis_id = creditAnalysis.id
+            offerEntity.modality = offer.modality as any
+            offerEntity.interest_rate_monthly = offer.interest_rate_annual / 12
+            offerEntity.interest_rate_annual = offer.interest_rate_annual
+            offerEntity.monthly_payment = offer.monthly_payment
+            offerEntity.total_amount = offer.total_cost
+            offerEntity.rank = i + 1
+            offerEntity.is_recommended = i === 0 // First offer is best
+            offerEntity.offer_details = offer as any // Store full offer data
+
+            await entityManager.persist(offerEntity)
+            savedOffers.push({
+                id: offerEntity.id,
+                modality: offerEntity.modality,
+                monthly_payment: offerEntity.monthly_payment,
+                rank: offerEntity.rank
+            })
+        }
+
+        await entityManager.flush()
+
+        console.log(`💾 Credit analysis saved: ${creditAnalysis.id}`)
         console.log(`   Customer: ${input.customer_id}`)
         console.log(`   Score: ${input.scoreResult.total_score}/100`)
         console.log(`   Approved: ${input.result.approved ? 'YES' : 'NO'}`)
         console.log(`   Best Rate: ${input.offers[0]?.interest_rate_annual.toFixed(2)}% a.a.`)
+        console.log(`   💰 Offers saved: ${savedOffers.length} financing options for PLG`)
 
-        // TODO: INSERT INTO credit_analyses (...)
-
-        return new StepResponse({ analysis_id: analysisId })
+        return new StepResponse({
+            analysis_id: creditAnalysis.id,
+            offers_saved: savedOffers
+        })
     },
-    async (output) => {
+    async (output, { container }) => {
         console.log(`🔄 Rollback: Deleting credit analysis ${output.analysis_id}`)
-        // TODO: DELETE FROM credit_analyses WHERE id = ?
+
+        const entityManager = container.resolve("entityManager") as any
+        const analysis = await entityManager.findOne(CreditAnalysis, output.analysis_id)
+
+        if (analysis) {
+            await entityManager.removeAndFlush(analysis) // CASCADE delete offers
+        }
     }
 )
 
@@ -307,7 +375,7 @@ export const notifyCustomerStep = createStep(
         customer_id: string
         customerData: CustomerCreditData
         result: CreditAnalysisResult
-        offers: FinancingOffer[]
+        offers: FinancingOfferData[]
     }) => {
         console.log(`📧 Sending notification to ${input.customerData.email}`)
         console.log(`   Subject: ${input.result.approved ? 'Crédito Aprovado!' : 'Análise de Crédito Finalizada'}`)
@@ -351,8 +419,8 @@ export const analyzeCreditWorkflow = createWorkflow(
             approved: scoreResult.total_score >= 50,
             approved_amount: input.requested_amount,
             approved_term_months: input.requested_term_months,
-            approved_interest_rate: offersResult.offers[0]?.interest_rate_annual,
-            approval_conditions: offersResult.offers[0]?.conditions,
+            approved_interest_rate: (offersResult as any).offers[0]?.interest_rate_annual,
+            approval_conditions: (offersResult as any).offers[0]?.conditions,
             rejection_reason: scoreResult.total_score < 50 ? "Score insuficiente" : undefined
         }
 
@@ -363,7 +431,9 @@ export const analyzeCreditWorkflow = createWorkflow(
             solar_calculation_id: input.solar_calculation_id,
             scoreResult,
             result,
-            offers: offersResult.offers
+            offers: (offersResult as any).offers,
+            requestedAmount: input.requested_amount,
+            requestedTermMonths: input.requested_term_months
         })
 
         // Step 5: Notify
@@ -375,10 +445,10 @@ export const analyzeCreditWorkflow = createWorkflow(
         })
 
         return new WorkflowResponse({
-            analysis_id: saveResult.analysis_id,
+            analysis_id: (saveResult as any).analysis_id,
             result,
-            best_offers: offersResult.offers,
-            notification_sent: notifyResult.notification_sent
+            best_offers: (offersResult as any).offers,
+            notification_sent: (notifyResult as any).notification_sent
         })
     }
 )

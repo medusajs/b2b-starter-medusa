@@ -13,6 +13,7 @@
 
 import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/workflows-sdk"
 import { SolarCalculationInput, SolarCalculationOutput } from "../../modules/solar/services/calculator"
+import { SolarCalculation, SolarCalculationKit } from "../../entities/solar-calculation.entity"
 
 // ============================================================================
 // Types
@@ -169,35 +170,111 @@ export const saveSolarCalculationStep = createStep(
     "save-solar-calculation",
     async (input: {
         calculation: SolarCalculationOutput
+        calculationInput: SolarCalculationInput
         customer_id: string
         quote_id?: string
-    }) => {
-        // TODO: Salvar no banco de dados
-        // INSERT INTO solar_calculations (customer_id, quote_id, calculation_data, created_at)
+    }, { container }) => {
+        const entityManager = container.resolve("entityManager") as any
 
-        const calculationId = `calc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        // Create SolarCalculation entity
+        const solarCalc = new SolarCalculation()
+        solarCalc.customer_id = input.customer_id
+        solarCalc.quote_id = input.quote_id
 
-        console.log(`💾 Solar calculation saved: ${calculationId}`)
+        // Input data (from workflow input, not calculation output)
+        solarCalc.consumo_kwh_mes = input.calculationInput.consumo_kwh_mes
+        solarCalc.uf = input.calculationInput.uf
+        solarCalc.cep = input.calculationInput.cep
+        solarCalc.tipo_telhado = input.calculationInput.tipo_telhado || 'ceramico'
+        solarCalc.oversizing_target = input.calculationInput.oversizing_target || 1.2
+
+        // Geographic data from calculation output
+        solarCalc.latitude = input.calculationInput.latitude
+        solarCalc.longitude = input.calculationInput.longitude
+        solarCalc.irradiacao_media_kwh_m2_dia = input.calculation.dados_localizacao.irradiancia_ghi_kwh_m2_dia
+        solarCalc.concessionaria = input.calculationInput.uf // Use state as fallback
+
+        // Technical dimensioning
+        solarCalc.potencia_instalada_kwp = input.calculation.dimensionamento.kwp_proposto
+        solarCalc.numero_modulos = input.calculation.dimensionamento.numero_paineis
+        solarCalc.numero_inversores = 1 // Estimate from inverter power
+        solarCalc.area_necessaria_m2 = input.calculation.dimensionamento.area_necessaria_m2
+        solarCalc.geracao_anual_kwh = input.calculation.dimensionamento.geracao_anual_kwh
+
+        // Financial analysis
+        solarCalc.investimento_total = input.calculation.financeiro.capex.total_brl
+        solarCalc.economia_mensal = input.calculation.financeiro.economia.mensal_brl
+        solarCalc.economia_anual = input.calculation.financeiro.economia.anual_brl
+        solarCalc.payback_anos = input.calculation.financeiro.retorno.payback_simples_anos
+        solarCalc.economia_25_anos = input.calculation.financeiro.economia.total_25anos_brl
+        solarCalc.tir_percent = input.calculation.financeiro.retorno.tir_percentual
+        solarCalc.vpl = input.calculation.financeiro.retorno.vpl_brl
+
+        // Environmental impact (convert tons to kg)
+        solarCalc.co2_evitado_kg_ano = input.calculation.impacto_ambiental.co2_evitado_ton_ano * 1000
+        solarCalc.arvores_equivalentes = input.calculation.impacto_ambiental.arvores_equivalentes
+
+        // Metadata - store full calculation
+        solarCalc.calculation_metadata = input.calculation as any
+        solarCalc.status = 'completed'
+
+        await entityManager.persistAndFlush(solarCalc)
+
+        // Create SolarCalculationKit entities (CRITICAL for PLG: expose products!)
+        const kits = input.calculation.kits_recomendados || []
+        const savedKits: any[] = []
+
+        for (let i = 0; i < Math.min(kits.length, 5); i++) {
+            const kit = kits[i]
+            const kitEntity = new SolarCalculationKit()
+
+            kitEntity.calculation_id = solarCalc.id
+            kitEntity.product_id = kit.kit_id // Use kit_id as product reference
+            kitEntity.match_score = kit.match_score
+            kitEntity.rank = i + 1
+            kitEntity.price = kit.preco_brl
+            kitEntity.currency_code = 'BRL'
+            kitEntity.kit_details = kit as any // Store full kit data
+
+            await entityManager.persist(kitEntity)
+            savedKits.push({
+                id: kitEntity.id,
+                product_id: kitEntity.product_id,
+                rank: kitEntity.rank,
+                match_score: kitEntity.match_score,
+                price: kitEntity.price
+            })
+        }
+
+        await entityManager.flush()
+
+        console.log(`💾 Solar calculation saved: ${solarCalc.id}`)
         console.log(`   Customer: ${input.customer_id}`)
         console.log(`   Quote: ${input.quote_id || 'N/A'}`)
-        console.log(`   System: ${input.calculation.dimensionamento.kwp_proposto.toFixed(2)} kWp`)
-        console.log(`   Generation: ${input.calculation.dimensionamento.geracao_anual_kwh.toFixed(0)} kWh/year`)
-        console.log(`   Investment: R$ ${input.calculation.financeiro.capex.total_brl.toFixed(2)}`)
-        console.log(`   Payback: ${input.calculation.financeiro.retorno.payback_simples_anos.toFixed(1)} years`)
+        console.log(`   System: ${solarCalc.potencia_instalada_kwp.toFixed(2)} kWp`)
+        console.log(`   Generation: ${solarCalc.geracao_anual_kwh.toFixed(0)} kWh/year`)
+        console.log(`   Investment: R$ ${solarCalc.investimento_total.toFixed(2)}`)
+        console.log(`   Payback: ${solarCalc.payback_anos.toFixed(1)} years`)
+        console.log(`   🎯 Kits saved: ${savedKits.length} (with product_id for PLG exposure)`)
 
         return new StepResponse({
-            calculation_id: calculationId,
-            saved: true
+            calculation_id: solarCalc.id,
+            saved: true,
+            kits_saved: savedKits // RETURN product references for storefront
         })
     },
-    async (output) => {
+    async (output, { container }) => {
         // Compensação: deletar registro se workflow falhar
         console.log(`🔄 Rollback: Deleting solar calculation ${output.calculation_id}`)
-        // TODO: DELETE FROM solar_calculations WHERE id = ?
-    }
-)
 
-// ============================================================================
+        const entityManager = container.resolve("entityManager") as any
+        const calc = await entityManager.findOne(SolarCalculation, output.calculation_id)
+
+        if (calc) {
+            await entityManager.removeAndFlush(calc) // CASCADE delete kits
+        }
+    }
+)// ============================================================================
 // Step 6: Link to Quote (Optional)
 // ============================================================================
 
@@ -252,6 +329,7 @@ export const calculateSolarSystemWorkflow = createWorkflow(
         const saveResult = input.save_to_database !== false
             ? saveSolarCalculationStep({
                 calculation,
+                calculationInput: input,
                 customer_id: input.customer_id,
                 quote_id: input.quote_id
             })

@@ -12,6 +12,7 @@
  */
 
 import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/workflows-sdk"
+import { FinancingApplication } from "../../entities/financing-application.entity"
 
 // ============================================================================
 // Types
@@ -120,7 +121,9 @@ export const submitFinancingApplicationStep = createStep(
         creditAnalysis: CreditAnalysisData
         modality: string
         down_payment_amount?: number
-    }) => {
+        customer_id: string
+    }, { container }) => {
+        const entityManager = container.resolve("entityManager") as any
         const { quote, creditAnalysis, down_payment_amount = 0 } = input
 
         const principal = quote.total_amount - down_payment_amount
@@ -136,22 +139,60 @@ export const submitFinancingApplicationStep = createStep(
         const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) /
             (Math.pow(1 + monthlyRate, termMonths) - 1)
         const totalCost = monthlyPayment * termMonths
+        const totalInterest = totalCost - principal
 
-        const applicationId = `fin_app_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        // Create FinancingApplication entity
+        const application = new FinancingApplication()
+        application.customer_id = input.customer_id
+        application.quote_id = quote.quote_id
+        application.credit_analysis_id = creditAnalysis.analysis_id
+        application.modality = input.modality as any
+        application.financed_amount = principal
+        application.down_payment_amount = down_payment_amount
+        application.term_months = termMonths
+        application.interest_rate_monthly = monthlyRate * 100
+        application.interest_rate_annual = creditAnalysis.approved_interest_rate
+        application.monthly_payment = monthlyPayment
+        application.total_amount = totalCost
+        application.total_interest = totalInterest
+        application.status = 'pending'
+        application.institution_name = 'Banco Solar Partner'
+        application.institution_code = 'BSP001'
 
-        console.log(`📤 Submitting financing application: ${applicationId}`)
+        // Generate payment schedule (CRITICAL for PLG transparency)
+        const paymentSchedule: any[] = []
+        let balance = principal
+
+        for (let i = 1; i <= termMonths; i++) {
+            const interestPayment = balance * monthlyRate
+            const principalPayment = monthlyPayment - interestPayment
+            balance -= principalPayment
+
+            paymentSchedule.push({
+                installment_number: i,
+                due_date: new Date(Date.now() + i * 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                principal: principalPayment,
+                interest: interestPayment,
+                total: monthlyPayment,
+                balance: Math.max(0, balance)
+            })
+        }
+
+        application.payment_schedule = paymentSchedule as any
+
+        await entityManager.persistAndFlush(application)
+
+        console.log(`📤 Financing application created: ${application.id}`)
         console.log(`   Bank: Banco Solar Partner`)
         console.log(`   Modality: ${input.modality}`)
         console.log(`   Principal: R$ ${principal.toFixed(2)}`)
         console.log(`   Term: ${termMonths} months`)
         console.log(`   Rate: ${creditAnalysis.approved_interest_rate}% a.a.`)
         console.log(`   Monthly Payment: R$ ${monthlyPayment.toFixed(2)}`)
-
-        // TODO: Integrar com API do banco parceiro
-        // POST /api/financing/applications
+        console.log(`   📅 Payment schedule: ${paymentSchedule.length} installments for PLG transparency`)
 
         return new StepResponse({
-            application_id: applicationId,
+            application_id: application.id,
             bank_name: "Banco Solar Partner",
             modality: input.modality,
             principal,
@@ -162,9 +203,16 @@ export const submitFinancingApplicationStep = createStep(
             status: "submitted"
         } as FinancingApplicationData)
     },
-    async (output) => {
+    async (output, { container }) => {
         console.log(`🔄 Rollback: Canceling financing application ${output.application_id}`)
-        // TODO: DELETE FROM financing_applications WHERE id = ?
+
+        const entityManager = container.resolve("entityManager") as any
+        const app = await entityManager.findOne(FinancingApplication, output.application_id)
+
+        if (app) {
+            app.status = 'cancelled'
+            await entityManager.flush()
+        }
     }
 )
 
@@ -346,7 +394,8 @@ export const applyFinancingWorkflow = createWorkflow(
             quote,
             creditAnalysis,
             modality: input.modality,
-            down_payment_amount: input.down_payment_amount
+            down_payment_amount: input.down_payment_amount,
+            customer_id: input.customer_id
         })
 
         // Step 4: Validate with BACEN
