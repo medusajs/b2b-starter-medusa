@@ -1,5 +1,9 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 
+// Type narrowing for tipo_telhado parameter
+const ALLOWED_TELHADOS = ['laje', 'ceramico', 'metalico', 'fibrocimento', 'solo'] as const
+type TipoTelhado = typeof ALLOWED_TELHADOS[number]
+
 /**
  * GET /store/solar-calculations
  * Lista todos os cálculos salvos do usuário logado
@@ -103,6 +107,12 @@ export const POST = async (
         // Import workflow
         const { calculateSolarSystemWorkflow } = await import("../../../workflows/solar/calculate-solar-system.js")
 
+        // Narrow tipo_telhado from string to union literal
+        const rawTelhado = (tipo_telhado ?? '').toString().toLowerCase()
+        const tipoTelhadoNarrowed: TipoTelhado = (ALLOWED_TELHADOS as readonly string[]).includes(rawTelhado)
+            ? (rawTelhado as TipoTelhado)
+            : 'ceramico'
+
         // Execute workflow
         const { result } = await calculateSolarSystemWorkflow(req.scope).run({
             input: {
@@ -110,7 +120,7 @@ export const POST = async (
                 consumo_kwh_mes,
                 uf,
                 tipo_instalacao: tipo_instalacao || "residencial",
-                tipo_telhado: tipo_telhado || "ceramico",
+                tipo_telhado: tipoTelhadoNarrowed,
                 orcamento_disponivel,
                 prioridade_cliente: prioridade_cliente || "custo_beneficio"
             }
@@ -130,14 +140,15 @@ export const POST = async (
             filters: { solar_calculation_id: result.calculation_id }
         })
 
+        // Fix: Access properties from result.calculation (not result directly)
         res.status(201).json({
             calculation_id: result.calculation_id,
-            dimensionamento: result.dimensionamento,
-            producao: result.producao,
-            financeiro: result.financeiro,
+            dimensionamento: result.calculation.dimensionamento,
+            producao: result.calculation.dimensionamento.geracao_mensal_kwh, // producao is inside dimensionamento
+            financeiro: result.calculation.financeiro,
             // PLG: Kit recommendations with product exposure
             kits_recomendados: kits || [],
-            notification_sent: result.notification_sent
+            notification_sent: result.saved
         })
     } catch (error) {
         console.error("Solar calculation failed:", error)
