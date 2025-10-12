@@ -11,6 +11,7 @@ import { getImageCache } from './image-cache';
 const UNIFIED_SCHEMAS_PATH = path.join(__dirname, '../../../data/catalog/unified_schemas');
 const IMAGE_MAP_PATH = path.join(__dirname, '../../../static/images-catálogo_distribuidores/IMAGE_MAP.json');
 const SKU_MAPPING_PATH = path.join(__dirname, '../../../data/catalog/data/SKU_MAPPING.json');
+const SKU_INDEX_PATH = path.join(__dirname, '../../../data/catalog/data/SKU_TO_PRODUCTS_INDEX.json');
 
 interface ImageMapEntry {
     sku: string;
@@ -43,9 +44,31 @@ interface SkuMappingData {
     mappings: { [productId: string]: SkuMappingEntry };
 }
 
+interface SkuIndexEntry {
+    sku: string;
+    distributor: string;
+    category: string;
+    image: string;
+    matched_products: Array<{
+        id: string;
+        name: string;
+        category: string;
+    }>;
+}
+
+interface SkuIndexData {
+    version: string;
+    total_skus: number;
+    matched_skus: number;
+    coverage_percent: number;
+    index: { [sku: string]: SkuIndexEntry };
+}
+
 class InternalCatalogService {
     private imageMap: ImageMapData | null = null;
     private skuMapping: SkuMappingData | null = null;
+    private skuIndex: SkuIndexData | null = null;
+    private productToSkuMap = new Map<string, string>();
     private cache = getImageCache();
     private loadedCategories = new Set<string>();
 
