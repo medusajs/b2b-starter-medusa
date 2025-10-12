@@ -61,7 +61,7 @@ services:
   # Backend Medusa
   backend:
     build:
-      context: ./backend
+      context: ../backend
       dockerfile: Dockerfile
     container_name: ysh-b2b-backend
     restart: unless-stopped
@@ -98,7 +98,7 @@ services:
   # Storefront Next.js
   storefront:
     build:
-      context: ./storefront
+      context: ../storefront
       dockerfile: Dockerfile
       target: runner
     container_name: ysh-b2b-storefront
