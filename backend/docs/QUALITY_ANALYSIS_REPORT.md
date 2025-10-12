@@ -19,7 +19,7 @@
 
 ### Resultado Final
 
-**🔴 CRITICAL - Sistema não operacional em produção**
+#### 🔴 CRITICAL - Sistema não operacional em produção
 
 Apesar de 75% dos componentes estarem funcionais, o erro crítico no `sync:catalog` impede a importação de produtos para o banco de dados, tornando o sistema incompleto para uso em produção.
 

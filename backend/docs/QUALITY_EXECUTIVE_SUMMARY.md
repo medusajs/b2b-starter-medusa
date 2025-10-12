@@ -41,11 +41,13 @@
 ```
 
 **Top 3 Distribuidores:**
+
 - 🥇 NEOSOLAR: 442 imagens (51%)
 - 🥈 FOTUS: 182 imagens (21%)  
 - 🥉 SOLFACIL: 151 imagens (18%)
 
 **Top 3 Categorias:**
+
 - 🥇 INVERTERS: 341 imagens (40%)
 - 🥈 KITS: 247 imagens (29%)
 - 🥉 CHARGERS: 81 imagens (9%)
@@ -70,6 +72,7 @@
 ```
 
 **Detalhes Técnicos:**
+
 ```typescript
 // ❌ CÓDIGO PROBLEMÁTICO (linha 484)
 const linkService = container.resolve(Modules.LINK);
@@ -83,6 +86,7 @@ const remoteLink = container.resolve(
 ```
 
 **Consequências:**
+
 - ❌ **0 produtos** sincronizados (esperado: 1.161)
 - ❌ **0% progresso** na importação
 - ❌ Sales Channel **não vinculado**
@@ -94,6 +98,7 @@ const remoteLink = container.resolve(
 ## ⚠️ PONTOS DE ATENÇÃO
 
 ### 1. FORTLEV Sem Imagens
+
 ```
 Distribuidor:  FORTLEV
 Categoria:     ACCESSORIES  
@@ -103,6 +108,7 @@ Ação:          Solicitar ao fornecedor
 ```
 
 ### 2. Performance Abaixo do Esperado
+
 ```
 Componente:    Sync Imagens
 Target:        76 imagens/s
@@ -112,6 +118,7 @@ Motivo:        Overhead de verificação MD5
 ```
 
 ### 3. Alta Taxa de Duplicatas
+
 ```
 Total Imagens:     861
 Duplicatas:        484 (56.2%)
@@ -230,10 +237,12 @@ curl http://localhost:9000/store/catalog/kits/FOTUS-KP02-120KWP
 ### 🟢 MÉDIA PRIORIDADE (próxima semana)
 
 **TAREFA 4: Adicionar Imagens FORTLEV**
+
 - Tempo: Dependente do fornecedor
 - Prioridade: P2
 
 **TAREFA 5: Implementar Telemetria**
+
 - Tempo: 2 horas
 - Prioridade: P2
 
@@ -242,10 +251,12 @@ curl http://localhost:9000/store/catalog/kits/FOTUS-KP02-120KWP
 ### 🔵 BAIXA PRIORIDADE (backlog)
 
 **TAREFA 6: Deduplicação Física**
+
 - Tempo: 2 horas
 - Benefício: ~250 MB
 
 **TAREFA 7: Validação de Formato**
+
 - Tempo: 1 hora
 - Benefício: Prevenir imagens corrompidas
 
@@ -371,15 +382,18 @@ curl http://localhost:9000/store/catalog/kits/FOTUS-KP02-120KWP
 ## 🔗 LINKS ÚTEIS
 
 ### Documentação
+
 - [Guia Completo](./CATALOG_SYNC_OPTIMIZED.md)
 - [Sumário Executivo](./SYNC_OPTIMIZED_EXECUTIVE_SUMMARY.md)
 - [Relatório Detalhado](./QUALITY_ANALYSIS_REPORT.md)
 
 ### Arquivos Gerados
+
 - `IMAGE_MAP.json` - 854 SKUs, 861 imagens
 - `SYNC_REPORT_LATEST.json` - Aguardando fix
 
 ### Scripts
+
 ```bash
 npm run sync:images   # Mapear imagens (✅ funciona)
 npm run sync:catalog  # Importar produtos (❌ bloqueado)
