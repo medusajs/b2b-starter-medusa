@@ -44,6 +44,7 @@ Migração completa de ferramentas SaaS proprietárias para **stack 100% Free an
 **Licença**: MIT
 
 **Features**:
+
 - ✅ Comparação de screenshots pixel-perfect
 - ✅ Múltiplos viewports (mobile, tablet, desktop, 4K)
 - ✅ Relatórios HTML interativos
@@ -51,11 +52,13 @@ Migração completa de ferramentas SaaS proprietárias para **stack 100% Free an
 - ✅ Docker containerizado
 
 **Arquivos criados**:
+
 - `VISUAL_REGRESSION_FOSS_GUIDE.md` (640 LOC) - Guia completo
 - `.github/workflows/visual-regression.yml` (185 LOC) - GitHub Actions workflow
 - `docker-compose.foss.yml` - Service `backstop`
 
 **Comandos**:
+
 ```powershell
 # Criar baseline
 npx backstop reference
@@ -76,6 +79,7 @@ npx backstop approve
 **Licença**: MIT + Apache 2.0
 
 **Features**:
+
 - ✅ Consumer-driven contract testing
 - ✅ Self-hosted Pact Broker (localhost:9292)
 - ✅ Can-i-deploy checks
@@ -83,11 +87,13 @@ npx backstop approve
 - ✅ PostgreSQL backend para persistência
 
 **Arquivos criados**:
+
 - `CONTRACT_TESTING_FOSS_GUIDE.md` (734 LOC) - Guia completo
 - `.github/workflows/contract-testing.yml` (250 LOC) - GitHub Actions workflow
 - `docker-compose.foss.yml` - Service `pact-broker`
 
 **Comandos**:
+
 ```powershell
 # Consumer tests
 npm run test:pact:consumer
@@ -111,6 +117,7 @@ npx pact-broker can-i-deploy --pacticipant=ysh-backend --to=prod
 **Licença**: Apache 2.0 + EPL/EDL
 
 **Features**:
+
 - ✅ Visual flow programming
 - ✅ MQTT pub/sub messaging
 - ✅ Webhooks para GitHub Actions
@@ -118,6 +125,7 @@ npx pact-broker can-i-deploy --pacticipant=ysh-backend --to=prod
 - ✅ Dashboard customizável
 
 **Arquivos criados**:
+
 - `docker-compose.node-red.yml` (70 LOC)
 - `node-red/settings.js` (115 LOC) - Configuração FOSS
 - `node-red/flows/flows.json` (200 LOC) - Initial flows
@@ -135,6 +143,7 @@ npx pact-broker can-i-deploy --pacticipant=ysh-backend --to=prod
 **Licença**: Apache 2.0
 
 **Features**:
+
 - ✅ Prometheus - Métricas time-series
 - ✅ Grafana - Dashboards visuais
 - ✅ Loki - Log aggregation
@@ -144,6 +153,7 @@ npx pact-broker can-i-deploy --pacticipant=ysh-backend --to=prod
 **Configurado em**: `docker-compose.foss.yml`
 
 **Acesso**:
+
 - Grafana: <http://localhost:3001> (admin/admin)
 - Prometheus: <http://localhost:9090>
 - Jaeger: <http://localhost:16686>
@@ -156,14 +166,16 @@ npx pact-broker can-i-deploy --pacticipant=ysh-backend --to=prod
 **Licença**: AGPLv3 + PostgreSQL + BSD + MIT
 
 **Features**:
+
 - ✅ MinIO - S3-compatible object storage
 - ✅ PostgreSQL - Primary database + Pact Broker storage
 - ✅ Redis - Caching + BullMQ job queue
 - ✅ Mailhog - SMTP testing server
 
 **Acesso**:
+
 - MinIO: <http://localhost:9001> (minioadmin/minioadmin)
-- PgAdmin: <http://localhost:5050> (admin@admin.com/admin)
+- PgAdmin: <http://localhost:5050> (<admin@admin.com>/admin)
 - Redis Commander: <http://localhost:8081>
 - Mailhog UI: <http://localhost:8025>
 - BullMQ Board: <http://localhost:3005>
@@ -289,6 +301,7 @@ yarn test:pact:provider
    - Criar dashboard de métricas
 
 4. **Package.json Scripts**
+
    ```json
    {
      "scripts": {
