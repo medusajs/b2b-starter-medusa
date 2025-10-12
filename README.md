@@ -375,45 +375,56 @@ Toda documentação foi reorganizada para facilitar navegação:
 | [API Documentation](./backend/docs/api/API_DOCUMENTATION_GUIDE.md) | `backend/docs/api/` | Guia de APIs |
 | [Database Migration](./backend/docs/database/DATABASE_MIGRATION_GUIDE.md) | `backend/docs/database/` | Guia de migrações |
 
-## 🛠️ Scripts Úteis
+## 🛠️ Comandos Úteis
 
-### Desenvolvimento
+### Desenvolvimento Local
 
-```bash
-# Iniciar ambiente de desenvolvimento
-.\scripts\dev\dev.ps1
+```powershell
+# Backend
+cd backend
+yarn dev              # Inicia backend + admin
 
-# Verificar status dos serviços
-.\scripts\dev\status.ps1
+# Storefront
+cd storefront
+yarn dev              # Inicia storefront
 
-# Verificar apenas o backend
-.\scripts\dev\check-backend.ps1
-
-# Iniciar apenas o backend
-.\scripts\dev\start-backend.ps1
+# Banco de dados
+cd backend
+yarn medusa db:create   # Criar banco
+yarn medusa db:migrate  # Executar migrations
+yarn run seed          # Seed de dados inicial
 ```
 
 ### Docker
 
-```bash
-# Setup inicial Docker
-.\scripts\docker\setup-docker.ps1
+```powershell
+# Desenvolvimento
+docker-compose -f docker/docker-compose.dev.yml up -d
 
-# Dev com docker-compose
-docker-compose -f docker-compose.dev.yml up -d
+# Stack FOSS (Testing)
+docker-compose -f docker/docker-compose.foss.yml up -d
 
-# Dev otimizado
-docker-compose -f docker-compose.optimized.yml up -d
+# Produção
+docker-compose -f docker/docker-compose.yml up -d
+
+# Automation
+docker-compose -f docker/docker-compose.node-red.yml up -d
 ```
 
-### Deployment
+### Testes
 
-```bash
-# Build imagens de produção
-.\scripts\deployment\build-production.ps1
+```powershell
+# Backend
+cd backend
+yarn test:unit                    # Testes unitários
+yarn test:integration:modules     # Testes de módulos
+yarn test:integration:http        # Testes de API
 
-# Push para AWS ECR
-.\scripts\deployment\push-to-ecr.ps1
+# Storefront
+cd storefront
+npx playwright test               # E2E tests (71 tests)
+npx backstop test                 # Visual regression
+npm run test:pact:consumer        # Contract tests
 ```
 
 ## 🔄 Update
@@ -441,24 +452,28 @@ npx medusa db:migrate
 > npx medusa exec src/scripts/create-approval-settings.ts
 > ```
 
-# Resources
+## 📖 Recursos
 
-#### Learn more about Medusa
+### Aprenda mais sobre Medusa
 
 - [Website](https://www.medusajs.com/)
 - [GitHub](https://github.com/medusajs)
-- [2.0 Documentation](https://docs.medusajs.com/v2)
+- [Documentação 2.0](https://docs.medusajs.com/v2)
 
-#### Learn more about Next.js
+### Aprenda mais sobre Next.js
 
 - [Website](https://nextjs.org/)
 - [GitHub](https://github.com/vercel/next.js)
-- [Documentation](https://nextjs.org/docs)
+- [Documentação](https://nextjs.org/docs)
+
+### Documentação Interna
+
+- [📚 Índice Completo de Documentação](./DOCUMENTATION_INDEX.md)
+- [🔧 Backend Architecture](./.github/copilot-instructions.md)
+- [🛍️ Storefront Guide](./storefront/AGENTS.md)
 
 &nbsp;
 
-## Contributors
+## 🤝 Contribuidores
 
-<a href = "https://github.com/medusajs/b2b-starter-medusa/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=medusajs/b2b-starter-medusa"/>
-</a>
+Baseado no [B2B Starter Medusa](https://github.com/medusajs/b2b-starter-medusa) com customizações para Yello Solar Hub.
