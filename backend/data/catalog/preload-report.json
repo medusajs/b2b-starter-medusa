@@ -1,6 +1,27 @@
 {
-  "timestamp": "2025-10-12T22:58:08.367Z",
+  "timestamp": "2025-10-12T23:07:23.644Z",
   "categories": [
+    {
+      "category": "batteries",
+      "count": 9,
+      "sample": [
+        {
+          "id": "solfacil_batteries_1",
+          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+          "sku": "solfacil_batteries_1"
+        },
+        {
+          "id": "solfacil_batteries_2",
+          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+          "sku": "solfacil_batteries_2"
+        },
+        {
+          "id": "solfacil_batteries_3",
+          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+          "sku": "solfacil_batteries_3"
+        }
+      ]
+    },
     {
       "category": "accessories",
       "count": 17,
@@ -23,23 +44,23 @@
       ]
     },
     {
-      "category": "batteries",
-      "count": 9,
+      "category": "controllers",
+      "count": 38,
       "sample": [
         {
-          "id": "solfacil_batteries_1",
-          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-          "sku": "solfacil_batteries_1"
+          "id": "neosolar_controllers_20080",
+          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_20080"
         },
         {
-          "id": "solfacil_batteries_2",
-          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-          "sku": "solfacil_batteries_2"
+          "id": "neosolar_controllers_21709",
+          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21709"
         },
         {
-          "id": "solfacil_batteries_3",
-          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-          "sku": "solfacil_batteries_3"
+          "id": "neosolar_controllers_21708",
+          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21708"
         }
       ]
     },
@@ -65,23 +86,23 @@
       ]
     },
     {
-      "category": "controllers",
-      "count": 38,
+      "category": "others",
+      "count": 10,
       "sample": [
         {
-          "id": "neosolar_controllers_20080",
-          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_20080"
+          "id": "FORTLEV-NEP-PVG-3-20A-L",
+          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+          "sku": "FORTLEV-NEP-PVG-3-20A-L"
         },
         {
-          "id": "neosolar_controllers_21709",
-          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21709"
+          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
+          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+          "sku": "FORTLEV-CONDUFORT-DN40-PEAD"
         },
         {
-          "id": "neosolar_controllers_21708",
-          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21708"
+          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+          "sku": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8"
         }
       ]
     },
@@ -128,23 +149,23 @@
       ]
     },
     {
-      "category": "others",
-      "count": 10,
+      "category": "panels",
+      "count": 29,
       "sample": [
         {
-          "id": "FORTLEV-NEP-PVG-3-20A-L",
-          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
-          "sku": "FORTLEV-NEP-PVG-3-20A-L"
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+          "name": "Painel Solar Odex 585W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-585W"
         },
         {
-          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
-          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
-          "sku": "FORTLEV-CONDUFORT-DN40-PEAD"
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+          "name": "Painel Solar Odex 600W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-600W"
         },
         {
-          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
-          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
-          "sku": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8"
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+          "name": "Painel Solar Odex 610W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-610W"
         }
       ]
     },
@@ -187,27 +208,6 @@
           "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
           "name": "Estrutura Solar Group Colonial Cerâmico",
           "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
-        }
-      ]
-    },
-    {
-      "category": "panels",
-      "count": 29,
-      "sample": [
-        {
-          "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
-          "name": "Painel Solar Odex 585W",
-          "sku": "odex_inverters_ODEX-PAINEL-ODEX-585W"
-        },
-        {
-          "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
-          "name": "Painel Solar Odex 600W",
-          "sku": "odex_inverters_ODEX-PAINEL-ODEX-600W"
-        },
-        {
-          "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
-          "name": "Painel Solar Odex 610W",
-          "sku": "odex_inverters_ODEX-PAINEL-ODEX-610W"
         }
       ]
     },

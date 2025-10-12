@@ -220,8 +220,63 @@ def process_fotus_files():
     
     return mappings, stats
 
+def process_root_files():
+    """Process root inverters.json and kits.json files"""
+    mappings = {}
+    stats = defaultdict(int)
+    
+    root_files = [
+        'inverters.json',
+        'kits.json',
+        'panels.json'
+    ]
+    
+    for filename in root_files:
+        filepath = DATA_DIR / filename
+        if not filepath.exists():
+            continue
+            
+        print(f"� Processing {filename}...")
+        
+        with open(filepath, 'r', encoding='utf-8') as f:
+            products = json.load(f)
+        
+        for product in products:
+            product_id = product.get('id')
+            image = product.get('image', '')
+            
+            if not product_id:
+                continue
+            
+            # Extract SKU from multiple sources
+            sku = None
+            
+            # Try image path first
+            if image:
+                sku = extract_sku_from_image_path(image)
+            
+            # Try extracting from ID
+            if not sku and product_id:
+                parts = product_id.split('_')
+                last_part = parts[-1]
+                if re.match(r'^\d+$', last_part):
+                    sku = last_part
+            
+            if sku:
+                mappings[product_id] = {
+                    'sku': sku,
+                    'distributor': 'ROOT',
+                    'image': image,
+                    'source_file': filename
+                }
+                stats['root'] += 1
+                stats['total'] += 1
+    
+    return mappings, stats
+
+
 def main():
-    print("🚀 Starting SKU Recovery Process...\n")
+    print("�🚀 Starting SKU Recovery Process...\n")
     
     all_mappings = {}
     all_stats = defaultdict(int)
@@ -255,6 +310,13 @@ def main():
         all_stats[k] += v
     print(f"   ✅ Found {fotus_stats.get('fotus', 0)} SKUs\n")
     
+    print("📦 Processing root catalog files...")
+    root_mappings, root_stats = process_root_files()
+    all_mappings.update(root_mappings)
+    for k, v in root_stats.items():
+        all_stats[k] += v
+    print(f"   ✅ Found {root_stats.get('root', 0)} SKUs\n")
+    
     # Save mappings
     output_data = {
         'version': '1.0',
@@ -275,7 +337,8 @@ def main():
     print(f"   - NeoSolar: {all_stats.get('neosolar', 0)}")
     print(f"   - Solfácil: {all_stats.get('solfacil', 0)}")
     print(f"   - FOTUS: {all_stats.get('fotus', 0)}")
-    print(f"\n🎯 Next step: Update catalog-service.ts to use SKU_MAPPING.json")
+    print(f"   - Root files: {all_stats.get('root', 0)}")
+    print(f"\n🎯 SKU mapping updated with {len(all_mappings)} total mappings!")
 
 if __name__ == '__main__':
     main()
