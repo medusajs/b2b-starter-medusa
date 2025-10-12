@@ -31,7 +31,7 @@ Criar APIs internas `.ts` do catálogo com ~100 produtos por categoria, garantin
 
 #### 1. **Endpoints RESTful**
 
-```
+```tsx
 GET /store/internal-catalog/health        - Health check
 GET /store/internal-catalog/categories    - Listar categorias
 GET /store/internal-catalog/categories/:id - Produtos por categoria
@@ -182,7 +182,7 @@ POST /store/internal-catalog/cache/clear  - Limpar cache
 
 ## 📁 Estrutura de Arquivos
 
-```
+```tsx
 backend/
 ├── src/api/store/internal-catalog/
 │   ├── route.ts                    # API routes
