@@ -1,5 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
-import { executeWorkflow } from "@medusajs/workflows-sdk"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { analyzeCreditWorkflow } from "../../../workflows/credit-analysis/analyze-credit"
 
 /**
@@ -29,22 +28,16 @@ export async function POST(
 
     try {
         // Execute workflow
-        const { result } = await executeWorkflow(
-            analyzeCreditWorkflow,
-            {
-                input: {
-                    customer_id,
-                    quote_id,
-                    solar_calculation_id,
-                    requested_amount,
-                    requested_term_months,
-                    financing_modality
-                },
-                context: { container: req.scope }
+        const { result } = await analyzeCreditWorkflow(req.scope).run({
+            input: {
+                customer_id,
+                quote_id,
+                solar_calculation_id,
+                requested_amount,
+                requested_term_months,
+                financing_modality
             }
-        )
-
-        return res.status(201).json({
+        })        return res.status(201).json({
             analysis_id: result.analysis_id,
             result: result.result,
             best_offers: result.best_offers, // PLG: Financing options exposure

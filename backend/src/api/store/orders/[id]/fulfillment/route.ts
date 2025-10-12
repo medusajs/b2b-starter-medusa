@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 
 /**
  * GET /store/orders/:id/fulfillment
@@ -14,14 +14,14 @@ export async function GET(
     const remoteQuery = req.scope.resolve("remoteQuery")
 
     try {
-        const { OrderFulfillment, OrderShipment } = await import("../../../../../entities/order-fulfillment.entity")
+        const query = req.scope.resolve("query")
 
-        // Fetch fulfillment with shipment
-        const fulfillment = await entityManager.findOne(
-            OrderFulfillment,
-            { order_id },
-            { populate: ['shipments'] }
-        )
+        // Fetch fulfillment with shipments
+        const { data: [fulfillment] } = await query.graph({
+            entity: "order_fulfillment",
+            fields: ["*", "shipments.*"],
+            filters: { order_id }
+        })
 
         if (!fulfillment) {
             return res.status(404).json({
@@ -36,21 +36,19 @@ export async function GET(
 
         let itemsWithProducts = pickedItems
 
-        // Fetch product details via RemoteQuery
+        // Fetch product details via Query
         if (productIds.length > 0) {
             try {
-                const products = await remoteQuery({
-                    entryPoint: "product",
+                const { data: products } = await query.graph({
+                    entity: "product",
                     fields: [
                         "id",
                         "title",
                         "thumbnail",
                         "description",
-                        "variants.id",
-                        "variants.sku",
-                        "variants.title"
+                        "variants.*"
                     ],
-                    variables: { id: productIds }
+                    filters: { id: productIds }
                 })
 
                 // Enrich items with product data (PLG: product tracking)
@@ -64,10 +62,7 @@ export async function GET(
         }
 
         // Get shipment details
-        const shipments = fulfillment.shipments?.toArray() || []
-        const shipmentData = shipments.map(s => s.toObject())
-
-        return res.json({
+        const shipmentData = fulfillment.shipments || []        return res.json({
             fulfillment_id: fulfillment.id,
             order_id: fulfillment.order_id,
             status: fulfillment.status,

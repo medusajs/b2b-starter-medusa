@@ -1,5 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
-import { executeWorkflow } from "@medusajs/workflows-sdk"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { applyFinancingWorkflow } from "../../../workflows/financing/apply-financing"
 
 /**
@@ -29,31 +28,24 @@ export async function POST(
 
     try {
         // Execute workflow
-        const { result } = await executeWorkflow(
-            applyFinancingWorkflow,
-            {
-                input: {
-                    customer_id,
-                    quote_id,
-                    credit_analysis_id,
-                    financing_offer_id: financing_offer_id || 'default',
-                    modality,
-                    down_payment_amount
-                },
-                context: { container: req.scope }
+        const { result } = await applyFinancingWorkflow(req.scope).run({
+            input: {
+                customer_id,
+                quote_id,
+                credit_analysis_id,
+                financing_offer_id: financing_offer_id || 'default',
+                modality,
+                down_payment_amount
             }
-        )
+        })
 
         // Fetch full application with payment schedule
-        const entityManager = req.scope.resolve("entityManager")
-        const { FinancingApplication } = await import("../../../entities/financing-application.entity")
-
-        const application = await entityManager.findOne(
-            FinancingApplication,
-            result.application_id
-        )
-
-        return res.status(201).json({
+        const query = req.scope.resolve("query")
+        const { data: [application] } = await query.graph({
+            entity: "financing_application",
+            fields: ["*"],
+            filters: { id: result.application_id }
+        })        return res.status(201).json({
             application_id: result.application_id,
             status: result.status,
             contract_url: result.contract_url,
