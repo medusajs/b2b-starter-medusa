@@ -20,7 +20,7 @@
 
 ### ARNs Completos (com sufixos -XXXXXX)
 
-```
+```tsx
 arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/database-url-BGaeVF
 arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/redis-url-Q7ItGs
 arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/jwt-secret-005Z9C
@@ -44,7 +44,7 @@ arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tv
 
 ### Environment Variables
 
-```
+```tsx
 NODE_OPTIONS = --max-old-space-size=768
 NODE_ENV = production
 NEXT_TELEMETRY_DISABLED = 1
