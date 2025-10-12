@@ -113,8 +113,26 @@ export function useSKUHistory() {
  * Analytics Tracking Functions
  */
 
+// Consent check helper
+function hasAnalyticsConsent(): boolean {
+    if (typeof window === 'undefined') return false
+
+    // Check for consent cookie (adjust to your consent mechanism)
+    try {
+        const consent = localStorage.getItem('analytics_consent')
+        return consent === 'true' || consent === null // Default opt-in for now
+    } catch {
+        return true // Default opt-in if localStorage unavailable
+    }
+}
+
 // Track copy SKU event
-export function trackSKUCopy(sku: string, productId?: string, category?: string) {
+export function trackSKUCopy(sku: string, productId?: string, category?: string): void {
+    if (!hasAnalyticsConsent()) {
+        console.log('[Analytics] Tracking disabled - no consent')
+        return
+    }
+
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
         (window as any).posthog.capture('sku_copied', {
@@ -139,7 +157,9 @@ export function trackSKUCopy(sku: string, productId?: string, category?: string)
 }
 
 // Track ProductModel link click
-export function trackModelLinkClick(manufacturer: string, model: string) {
+export function trackModelLinkClick(manufacturer: string, model: string): void {
+    if (!hasAnalyticsConsent()) return
+
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
         (window as any).posthog.capture('product_model_clicked', {
@@ -163,7 +183,9 @@ export function trackModelLinkClick(manufacturer: string, model: string) {
 }
 
 // Track category view
-export function trackCategoryView(category: string) {
+export function trackCategoryView(category: string): void {
+    if (!hasAnalyticsConsent()) return
+
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
         (window as any).posthog.capture('category_viewed', {

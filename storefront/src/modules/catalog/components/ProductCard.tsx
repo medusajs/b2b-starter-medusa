@@ -100,30 +100,33 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                 />
 
                 {/* Overlay Actions */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100" role="group" aria-label="Ações do produto">
                     <div className="flex gap-2">
                         <button
-                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors"
-                            aria-label="Visualizar produto"
+                            type="button"
+                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                            aria-label={`Visualizar ${product.name}`}
                         >
-                            <Eye className="w-4 h-4 text-gray-700" />
+                            <Eye className="w-4 h-4 text-gray-700" aria-hidden="true" />
                         </button>
                         <button
-                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors"
-                            aria-label="Adicionar aos favoritos"
+                            type="button"
+                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                            aria-label={`Adicionar ${product.name} aos favoritos`}
                         >
-                            <Heart className="w-4 h-4 text-gray-700" />
+                            <Heart className="w-4 h-4 text-gray-700" aria-hidden="true" />
                         </button>
                         <button
-                            className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors"
-                            aria-label="Adicionar à cotação"
+                            type="button"
+                            className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
+                            aria-label={`Adicionar ${product.name} à cotação`}
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
                                 try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                             }}
                         >
-                            <ShoppingCart className="w-4 h-4 text-gray-900" />
+                            <ShoppingCart className="w-4 h-4 text-gray-900" aria-hidden="true" />
                         </button>
                     </div>
                 </div>

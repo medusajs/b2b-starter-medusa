@@ -124,7 +124,7 @@ async function setCacheId(request: NextRequest, response: NextResponse) {
 }
 
 /**
- * Middleware to handle region selection and cache id.
+ * Middleware to handle region selection, cache id, UTM params, and A/B experiments.
  */
 export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
@@ -136,6 +136,42 @@ export async function middleware(request: NextRequest) {
   let redirectUrl = request.nextUrl.href
 
   let response = NextResponse.redirect(redirectUrl, 307)
+
+  // ==========================================
+  // UTM Parameter Preservation
+  // ==========================================
+  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+  const capturedUtms: Record<string, string> = {}
+
+  utmParams.forEach(param => {
+    const value = searchParams.get(param)
+    if (value) {
+      capturedUtms[param] = value
+    }
+  })
+
+  // Store UTM params in cookie for 7 days if present
+  if (Object.keys(capturedUtms).length > 0) {
+    const utmData = JSON.stringify(capturedUtms)
+    response.cookies.set('_ysh_utm', utmData, {
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: '/',
+      sameSite: 'lax',
+    })
+  }
+
+  // ==========================================
+  // A/B Experiment Bucket (50/50 split)
+  // ==========================================
+  const expBucketCookie = request.cookies.get('_ysh_exp_bucket')
+  if (!expBucketCookie) {
+    const bucket = Math.random() < 0.5 ? 'A' : 'B'
+    response.cookies.set('_ysh_exp_bucket', bucket, {
+      maxAge: 60 * 60 * 24 * 30, // 30 days
+      path: '/',
+      sameSite: 'lax',
+    })
+  }
 
   // Set a cache id to invalidate the cache for this instance only
   const cacheId = await setCacheId(request, response)

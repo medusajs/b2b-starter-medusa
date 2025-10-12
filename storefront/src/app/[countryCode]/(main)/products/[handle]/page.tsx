@@ -47,8 +47,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
-  const { handle } = params
-  const region = await getRegion(params.countryCode)
+  const { handle, countryCode } = params
+  const region = await getRegion(countryCode)
 
   if (!region) {
     notFound()
@@ -60,12 +60,34 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yellosolarhub.com'
+  const productUrl = `${baseUrl}/${countryCode}/products/${handle}`
+  const description = product.description || `${product.title} - Energia solar de qualidade`
+
   return {
     title: `${product.title} | Yello Solar Hub`,
-    description: `${product.title}`,
+    description: description.slice(0, 160),
+    alternates: {
+      canonical: productUrl,
+    },
     openGraph: {
       title: `${product.title} | Yello Solar Hub`,
-      description: `${product.title}`,
+      description,
+      url: productUrl,
+      type: 'website',
+      images: product.thumbnail ? [{
+        url: product.thumbnail,
+        width: 1200,
+        height: 630,
+        alt: product.title,
+      }] : [],
+      siteName: 'Yello Solar Hub',
+      locale: 'pt_BR',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.title} | Yello Solar Hub`,
+      description,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
   }
@@ -84,11 +106,47 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
+  // JSON-LD structured data para SEO
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yellosolarhub.com'
+  const productUrl = `${baseUrl}/${params.countryCode}/products/${params.handle}`
+  const price = pricedProduct.variants?.[0]?.calculated_price?.calculated_amount
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: pricedProduct.title,
+    description: pricedProduct.description || pricedProduct.title,
+    image: pricedProduct.thumbnail || '',
+    url: productUrl,
+    sku: pricedProduct.variants?.[0]?.sku || '',
+    brand: {
+      '@type': 'Brand',
+      name: 'Yello Solar Hub',
+    },
+    offers: {
+      '@type': 'Offer',
+      url: productUrl,
+      priceCurrency: region.currency_code?.toUpperCase() || 'BRL',
+      price: price ? (price / 100).toFixed(2) : undefined,
+      availability: pricedProduct.variants?.[0]?.inventory_quantity ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      seller: {
+        '@type': 'Organization',
+        name: 'Yello Solar Hub',
+      },
+    },
+  }
+
   return (
-    <ProductTemplate
-      product={pricedProduct}
-      region={region}
-      countryCode={params.countryCode}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ProductTemplate
+        product={pricedProduct}
+        region={region}
+        countryCode={params.countryCode}
+      />
+    </>
   )
 }
