@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-10-12T18:43:26.543Z",
+  "stats": {
+    "totalProducts": 1123,
+    "created": 703,
+    "updated": 377,
+    "skipped": 42,
+    "errors": 1,
+    "imagesProcessed": 1122,
+    "duration": 5755
+  },
+  "config": {
+    "BATCH_SIZE": 25,
+    "MAX_CONCURRENT": 3,
+    "RETRY_ATTEMPTS": 3,
+    "RETRY_DELAY": 1000,
+    "IMAGE_BASE_PATH": "/static/images-catálogo_distribuidores"
+  }
+}

@@ -368,13 +368,17 @@ async function processBatch(
 
                 // Atualizar apenas se houver mudanças
                 if (existingHash !== productHash) {
+                    // Remover variants do update para evitar conflito de SKU
+                    const updateData = { ...productData };
+                    delete updateData.variants;
+
                     await withRetry(
-                        () => (productService as any).updateProducts(existingProduct.id, productData),
-                        `Update ${sku}`,
+                        () => (productService as any).updateProducts(existingProduct.id, updateData),
+                        `Update ${handle}`,
                         logger
                     );
                     stats.updated++;
-                    logger.info(`  ✏️  Atualizado: ${sku}`);
+                    logger.info(`  ✏️  Atualizado: ${handle}`);
                 } else {
                     stats.skipped++;
                 }
