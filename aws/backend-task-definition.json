@@ -60,6 +60,22 @@
                         {
                               "name": "COOKIE_SECRET",
                               "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/cookie-secret-bsLKwN"
+                        },
+                        {
+                              "name": "BACKEND_URL",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/backend-url-vlAZeu"
+                        },
+                        {
+                              "name": "STOREFRONT_URL",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/storefront-url-IV3F65"
+                        },
+                        {
+                              "name": "MEDUSA_ADMIN_ONBOARDING_TYPE",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/revalidate-secret-2NMJS9"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tvnMYo"
                         }
                   ],
                   "logConfiguration": {

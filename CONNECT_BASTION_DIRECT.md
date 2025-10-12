@@ -22,7 +22,7 @@
 
 **Copie e cole no navegador:**
 
-```
+```tsx
 https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#InstanceDetails:instanceId=i-0a8874f3890bb28c3
 ```
 
@@ -38,7 +38,7 @@ https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#InstanceDetails:inst
 
 **Copie e cole no navegador (conecta direto):**
 
-```
+```tsx
 https://console.aws.amazon.com/systems-manager/session-manager/i-0a8874f3890bb28c3?region=us-east-1
 ```
 
@@ -66,7 +66,7 @@ sudo dnf install -y postgresql15
 
 **Saída esperada:**
 
-```
+```tsx
 Installed:
   postgresql15-15.x
 Complete!
@@ -80,13 +80,13 @@ PGPASSWORD='bJwPx-g-u9?lt!O[[EG2:Kzj[cs~' psql -h production-ysh-b2b-postgres.cm
 
 **Saída esperada:**
 
-```
+```tsx
 CREATE DATABASE
 ```
 
 **Ou (se já existir - OK):**
 
-```
+```tsx
 ERROR: database "medusa_db" already exists
 ```
 
@@ -128,7 +128,7 @@ No PowerShell local, executar:
 
 ## ✅ Checklist
 
-```
+```tsx
 □ Abrir URL da instância no navegador
 □ Verificar que mostra i-0a8874f3890bb28c3 (ysh-bastion-temp)
 □ Clicar Connect → Session Manager → Connect
