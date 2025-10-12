@@ -166,6 +166,7 @@ npm run test:pact:consumer
 📚 **[Complete FOSS Testing Documentation Index](./FOSS_TESTING_DOCUMENTATION_INDEX.md)**
 
 Key guides:
+
 - [FOSS Stack Migration Summary](./FOSS_STACK_MIGRATION_SUMMARY.md) - Executive overview
 - [Visual Regression Guide](./VISUAL_REGRESSION_FOSS_GUIDE.md) - BackstopJS complete guide
 - [Contract Testing Guide](./CONTRACT_TESTING_FOSS_GUIDE.md) - Pact Framework guide
