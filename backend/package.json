@@ -40,7 +40,9 @@
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1",
-    "doctor:db": "medusa exec ./src/scripts/check-database-health.ts"
+    "doctor:db": "medusa exec ./src/scripts/check-database-health.ts",
+    "setup:publishable-key": "node scripts/setup-publishable-key.js",
+    "setup:publishable-key:aws": "node scripts/setup-publishable-key.js --upload"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.10.3",
