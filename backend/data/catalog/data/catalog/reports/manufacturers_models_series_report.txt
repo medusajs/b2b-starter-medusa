@@ -1,0 +1,234 @@
+================================================================================
+RELATÓRIO DE FABRICANTES, MODELOS E SÉRIES ÚNICOS
+================================================================================
+
+Data de geração: 1759953769.526617
+
+================================================================================
+CATEGORIA: INVERSORES
+================================================================================
+
+Total de fabricantes: 27
+
+
+EPEVER
+  Quantidade de produtos: 111
+  Séries (3): HP, I, IP
+  Modelos (22): HP5542, IP1000-21, IP1000-41, IP1000-42, IP1500-11, IP1500-12, IP1500-41, IP2000-21, IP2000-22, IP2000-41... (+12 modelos)
+
+GOODWE
+  Quantidade de produtos: 106
+  Séries (1): GOODWE
+  Modelos (45): GOODWE EZLOGGER PRO, GOODWE GW 100K-HT, GOODWE GW 10K-MS-30, GOODWE GW 110K-HT, GOODWE GW 12KLV-MT, GOODWE GW 12KLV-SDT-, GOODWE GW 15KLV-MT, GOODWE GW 20KLV-MT -, GOODWE GW 30K-SDT-C3, GOODWE GW 30KLS-MT... (+35 modelos)
+
+DEYE
+  Quantidade de produtos: 79
+  Séries (4): DEYE, KP, SG, SUN
+  Modelos (17): 120G4-EU-Q0, 3-EU-Q0, 80G4-EU-Q0, DEYE SUN-25K-G02-LV, DEYE SUN-35K-G02-LV, DEYE SUN-50K-G-LV, DEYE SUN-5K-G, DEYE SUN-75K-G01P3-L, DEYE SUN-8K-G, KP03... (+7 modelos)
+
+GROWATT
+  Quantidade de produtos: 76
+  Séries (4): GROWATT, MIC, MIN, MOD
+  Modelos (24): 100KW, 10KW, 125KW, 3KW, 4KW, 50KW, 5KW, 6KW, 75KW, 8KW... (+14 modelos)
+
+SAJ
+  Quantidade de produtos: 33
+  Séries (1): R5
+  Modelos (11): R5-10K-T2, R5-12K-T2, R5-15K-T2, R5-17K-T2, R5-20K-T2, R5-25K-T2, R5-3K-T2, R5-4.2K-T2, R5-5K-T2, R5-6K-T2... (+1 modelos)
+
+ZTROON
+  Quantidade de produtos: 30
+  Séries (1): ZT
+  Modelos (10): ZT1000-11, ZT1000-12, ZT1000-21, ZT1000-22, ZT2000-11, ZT2000-12, ZT2000-21, ZT2000-22, ZT600-11, ZT600-12
+
+K2 SYSTEMS
+  Quantidade de produtos: 30
+  Séries (1): E
+  Modelos (1): Estrutura K2 Systems
+
+TECBOX
+  Quantidade de produtos: 21
+  Séries (1): S
+  Modelos (7): String Box Tecbox 10, String Box Tecbox 12, String Box Tecbox 16, String Box Tecbox 20, String Box Tecbox 4, String Box Tecbox 6, String Box Tecbox 8
+
+SOLAR GROUP
+  Quantidade de produtos: 18
+  Séries (1): E
+  Modelos (1): Estrutura Solar Grou
+
+CLAMPER
+  Quantidade de produtos: 18
+  Séries (1): S
+  Modelos (5): String Box Clamper 1, String Box Clamper 2, String Box Clamper 4, String Box Clamper 6, String Box Clamper 8
+
+ODEX
+  Quantidade de produtos: 15
+  Séries (1): O
+  Modelos (1): Odex
+
+ROMAGNOLE
+  Quantidade de produtos: 15
+  Séries (1): E
+  Modelos (1): Estrutura Romagnole
+
+PRATYC
+  Quantidade de produtos: 15
+  Séries (1): E
+  Modelos (5): Estrutura Pratyc Col, Estrutura Pratyc Fib, Estrutura Pratyc Laj, Estrutura Pratyc Met, Estrutura Pratyc Sol
+
+SOFAR
+  Quantidade de produtos: 13
+  Séries (1): SOFAR
+  Modelos (5): 3.3K-TL-G4, 5K-TL-G4, 6K-TL-G4, SOFAR 25KTLX-G3-LV -, SOFAR 5KTLM-G3 - AFC
+
+NEOSOLAR
+  Quantidade de produtos: 10
+
+HUAWEI
+  Quantidade de produtos: 10
+  Séries (1): SUN
+  Modelos (1): SUN2000
+
+SOLAX
+  Quantidade de produtos: 9
+  Séries (2): X1, X3
+  Modelos (3): X1-Hybrid-5.0-T, X3-Hybrid-10.0-D, X3-Hybrid-8.0-D
+
+CHINT
+  Quantidade de produtos: 8
+
+MUST
+  Quantidade de produtos: 6
+  Séries (1): PV
+  Modelos (1): PV29-5048
+
+JINKO
+  Quantidade de produtos: 6
+  Séries (1): J
+  Modelos (1): Jinko
+
+LIVOLTEK
+  Quantidade de produtos: 5
+  Séries (1): GT
+  Modelos (4): "Inversor On Grid Li, GT1-10KT2, GT1-5KD2, GT1-6KD2
+
+CHINT POWER
+  Quantidade de produtos: 4
+  Séries (1): NXI
+  Modelos (4): NXI-10K-T3, NXI-3.0K-T2, NXI-5.0K-T2, NXI-8.0K-T3
+
+ASTRONERGY
+  Quantidade de produtos: 3
+  Séries (1): A
+  Modelos (1): Astronergy
+
+TSUN
+  Quantidade de produtos: 3
+  Séries (1): T
+  Modelos (1): Tsun
+
+ENPHASE
+  Quantidade de produtos: 2
+  Séries (1): ENPHASE
+  Modelos (1): ENPHASE IQ8P-72-2-BR
+
+TSUNESS
+  Quantidade de produtos: 2
+  Séries (1): KP
+  Modelos (2): KP02, KP04
+
+SOLFACIL
+  Quantidade de produtos: 1
+  Séries (1): KIT
+  Modelos (1): KIT FIXADOR MICRO IN
+
+================================================================================
+CATEGORIA: PAINEIS
+================================================================================
+
+Total de fabricantes: 14
+
+
+ODEX
+  Quantidade de produtos: 15
+  Séries (4): BLK, O, ODE, ODEHJT
+  Modelos (6): BLK25092024 (Full Black), ODE04122024, ODE06022025, ODE10092024, ODEHJT06032025, Odex
+
+ZTROON
+  Quantidade de produtos: 10
+  Séries (1): ZTP
+  Modelos (10): ZTP-010MI, ZTP-020MI, ZTP-030M, ZTP-060MI, ZTP-100MI, ZTP-160MI, ZTP-210M, ZTP-260M, ZTP-310MI, ZTP-340MI
+
+OSDA
+  Quantidade de produtos: 7
+  Séries (1): ODA
+  Modelos (6): ODA330-36-P, ODA575-36V-MH, ODA580-36V-MH, ODA585-36V-MHD, ODA610-33V-MHDRZ, ODA620-33V-MHDRZ
+
+JINKO
+  Quantidade de produtos: 6
+  Séries (1): J
+  Modelos (3): 66HL4M-BDV (610W), 66HL4M-BDV (615W), Jinko
+
+HANERSUN
+  Quantidade de produtos: 6
+  Séries (3): HANERSUN, HJT, HN
+  Modelos (3): HANERSUN, HJT HN21H-66HT, HN18N-72H
+
+TSUN
+  Quantidade de produtos: 4
+  Séries (2): KIT, T
+  Modelos (2): KIT SUPORTE P/ TELHA, Tsun
+
+ASTRONERGY
+  Quantidade de produtos: 3
+  Séries (2): A, CHSM
+  Modelos (2): Astronergy, CHSM66RN(DG)F-BH
+
+DAH SOLAR
+  Quantidade de produtos: 3
+  Séries (2): DAH, DHN
+  Modelos (3): DAH, DHN-66Z16/DG (620W), DHN-72X16/DG
+
+MINASOL
+  Quantidade de produtos: 2
+  Séries (1): MS
+  Modelos (1): MS-545
+
+LONGI
+  Quantidade de produtos: 2
+  Séries (1): LR
+  Modelos (2): LR5-28HTH-225M, LR5-54HTH-435M
+
+LUXEN
+  Quantidade de produtos: 2
+  Séries (2): LNVH, LNVU
+  Modelos (2): LNVH-595M, LNVU-550M
+
+DAH
+  Quantidade de produtos: 1
+
+SUNOVA
+  Quantidade de produtos: 1
+  Séries (1): SS
+  Modelos (1): SS-550-72MDH
+
+TSUN POWER
+  Quantidade de produtos: 1
+  Séries (1): TS
+  Modelos (1): TS560S8B
+
+================================================================================
+RESUMO GERAL
+================================================================================
+
+INVERSORES:
+  - Fabricantes únicos: 27
+  - Total de produtos: 649
+  - Séries únicas: 34
+  - Modelos únicos: 175
+
+PAINEIS:
+  - Fabricantes únicos: 14
+  - Total de produtos: 63
+  - Séries únicas: 22
+  - Modelos únicos: 42

@@ -1,0 +1,199 @@
+# Catálogo de Produtos YSH — Solar as a Service
+
+**Versão**: 1.0.0  
+**Última atualização**: 2025-10-03  
+**Status**: ✅ Painéis, Inversores e Acessórios consolidados
+
+---
+
+## Visão Geral
+
+Este diretório contém os **catálogos consolidados de produtos comercializados** pela **Yello Solar Hub (YSH)**, estruturados para alimentar os agentes de **dimensionamento (sizing)**, **recomendação** e **cotação**.
+
+### Fontes de dados
+- **NeoSolar**: painéis ZTROON, LONGi, OSDA, Sunova, Luxen, DAH Solar
+- **Solfácil**: Hanersun, DAH Solar, OSDA, Minasol
+- **ODEX**: ODEX (private label), Astronergy, TSUN Power, Jinko, inversores SAJ/Growatt/Chint/SOFAR
+- **Fortlev**: baterias Growatt, carregadores EV (Growatt/FoxESS), RSD, infraestrutura
+
+---
+
+## Estrutura de Arquivos
+
+```
+catalog/
+├── panels.json              # 38 SKUs de painéis (0,01–0,7 kWp)
+├── panel-schema.json        # Schema JSON para validação
+├── inverters.json           # 88 SKUs de inversores (0,6–125 kW AC)
+├── inverter-schema.json     # Schema JSON para validação
+├── accessories.json         # 12 SKUs (baterias, EV chargers, RSD, flex panels, etc.)
+├── accessory-schema.json    # Schema JSON (a criar)
+└── README.md                # Este arquivo
+```
+
+---
+
+## Painéis Solares (`panels.json`)
+
+### Resumo
+- **38 SKUs** consolidados
+- **Potência**: 0,01 kWp (portátil) → 0,7 kWp (HJT bifacial)
+- **Tecnologias**: Monocristalino, PERC, TOPCon, HJT, bifacial
+- **Preço médio/Wp**: R$ 0,75–1,50 (mainstream); até R$ 2,00 (nacional/premium)
+
+### Categorias por TIER
+| TIER | Potência (kWp) | SKUs principais | Uso típico |
+|------|----------------|-----------------|------------|
+| **XPP** | 0,01–0,16 | ZTROON ZTP-010MI…160MI | Portátil, off-grid micro, bombeamento |
+| **PP** | 0,21–0,34 | ZTROON ZTP-210M, LONGi LR5-28HTH-225M, OSDA ODA330-36-P | Residencial micro, comercial pequeno |
+| **P** | 0,435–0,56 | LONGi LR5-54HTH-435M, Minasol MS-545, Sunova SS-550, Luxen, TSUN | Residencial, comercial |
+| **M** | 0,57–0,62 | OSDA ODA575/580/585, Hanersun HN18N-72H, DAH DHN, Jinko 610/615, ODEX | Residencial grande, comercial |
+| **G** | 0,7 | Hanersun HJT HN21H-66HT, ODEX ODEHJT06032025 | Premium, alta eficiência, comercial/industrial |
+
+### Destaques técnicos
+- **Bifaciais**: 10 SKUs (70–85% bifaciality) — ideal para lajes, solo, estruturas elevadas
+- **N-Type TOPCon/HJT**: 12 SKUs — menor degradação, melhor performance em alta temperatura
+- **Nacional**: Minasol MS-545 (conteúdo local para licitações)
+
+---
+
+## Inversores (`inverters.json`)
+
+### Resumo
+- **88 SKUs** consolidados (23 ODEX + 65 NeoSolar)
+- **Potência AC**: 0,6 kW (off-grid micro) → 125 kW (C&I)
+- **Tipos**: microinverter (5), string on-grid (26), off-grid (40), híbrido on+off (8), híbrido off charger (9)
+- **Preço médio**: R$ 450–850/kW (micro/string residencial); R$ 190–240/kW (C&I); R$ 300–600/kW (off-grid)
+
+### Por fabricante
+- **Epever**: 37 SKUs (off-grid IPower Plus, UPower-Hi, HP series)
+- **Chint CPS**: 10 SKUs (string on-grid 3–20 kW)
+- **Deye**: 11 SKUs (microinversor SUN G3/G4, híbridos SUN5K/8K/12K)
+- **SOFAR**: 9 SKUs (string on-grid 3.3–20 kW)
+- **ZTROON**: 10 SKUs (off-grid 600–2000 W, senoidal pura)
+- **Livoltek**: 4 SKUs (string on-grid 5–10 kW, AFCI)
+- **Growatt**: 3 SKUs (microinversor NEO, string MAX 100/125 kW)
+- **SAJ**: 2 SKUs (microinversor M2 2.25, string C6 125 kW)
+- **Must**: 2 SKUs (híbrido PV29-5048)
+
+### Categorias por TIER e tipo
+
+#### String On-Grid (26 SKUs)
+| TIER | Potência AC (kW) | SKUs principais | Tensão | MPPTs |
+|------|------------------|-----------------|--------|-------|
+| **XPP/PP** | 2,25 | SAJ M2-2.25-S4, Growatt NEO 2250 X2, Deye SUN2250 G4 | Mono 220V | 4 |
+| **PP/P** | 3–4 | Chint SCA3KTL-PS2/EU, SOFAR 3.3/4KTL2-G3 | Mono 220V | 1–2 |
+| **P** | 5–8 | SOFAR 5/6/7.5KTLM-G3, Chint SCA5/6/7.5/8KTL-PSM, Livoltek GT1 | Mono 220V | 2 |
+| **M** | 10 | Chint SCA10KTL-PSM, SOFAR 10KTLM-G3, Livoltek GT1-10KT2 | Mono 220V | 2–3 |
+| **M/G** | 15 | SOFAR 15KTLX-G3-LV/G3P, Chint SCA15K-T-SA/EU | Trif 220V/380V | 2–3 |
+| **G** | 20 | SOFAR 20KTLX-G3-LV, Chint SCA20K-T-EU/SA | Trif 220V/380V | 3–4 |
+| **XG** | 100–125 | Growatt MAX 100/125KTL3-X LV, SAJ C6-125K-T12 | Trif 380V | 10–12 |
+
+#### Off-Grid Puro (40 SKUs)
+| TIER | Potência AC (kW) | SKUs principais | Bateria DC | Tipo |
+|------|------------------|-----------------|------------|------|
+| **XPP** | 0,6–1,0 | ZTROON ZT600/1000-11/12/21/22 | 12/24V | Senoidal pura |
+| **PP** | 1,0–2,0 | ZTROON ZT2000, Epever IP1000/1500/2000 | 12/24/48V | Senoidal pura |
+| **P** | 3–5 | Epever IP3000/4000/5000, versões T e T-BR | 12/24/48V | Senoidal, lítio/chumbo |
+
+#### Híbrido On+Off (8 SKUs)
+| TIER | Potência AC (kW) | SKUs principais | Bateria DC | Features |
+|------|------------------|-----------------|------------|----------|
+| **PP/P** | 3,6–5,0 | Deye SUN3K6/SUN5K (EU/US) | 48V | Grid-tie + backup, paralelável |
+| **P/M** | 8–12 | Deye SUN8K/12K (EU) | 48V | Grid-tie + backup trifásico |
+
+#### Híbrido Off Charger (9 SKUs)
+| TIER | Potência AC (kW) | SKUs principais | MPPT | Features |
+|------|------------------|-----------------|------|----------|
+| **P** | 2–5,5 | Epever UP2000/3000/5000-Hi, HP3522/3542/5542, Must PV29-5048 | 50–110 A | Inversor + MPPT + carregador CA, opera com/sem bateria |
+
+### Features destacadas
+- **AFCI**: 30 de 88 SKUs (segurança contra arco elétrico)
+- **Backup (EPS)**: Chint CPS linha PSM (antiapagão sem bateria)
+- **WiFi/4G**: todos os modelos on-grid ≥10 kW
+- **Compatível com lítio**: 42 SKUs (Epever IPower Plus série T, híbridos)
+- **Paralelizável**: Deye SUN (híbridos), Epever HP/UPower-Hi
+- **Eficiência**: 90–98,9% (média 93,5% off-grid; 97,5% on-grid)
+
+---
+
+## Acessórios (`accessories.json`)
+
+### Resumo
+- **12 SKUs** consolidados
+- **Categorias**: baterias (1), EV chargers (2), RSD (1), flex panels (3), infraestrutura (5)
+
+### Destaques
+| SKU | Categoria | Especificação | Preço | Use case |
+|-----|-----------|---------------|-------|----------|
+| **GROWATT-AXE-5.0L** | Bateria | 5,0 kWh LiFePO₄, 6000 ciclos | R$ 6.716,83 | Híbrido, antiapagão, off-grid |
+| **GROWATT-THOR07AS-P** | EV Charger | 7 kW AC, PV-linkage, WiFi | R$ 3.423,66 | Solar + mobilidade elétrica |
+| **FOXESS-A7300P1-E-2** | EV Charger | 7,3 kW AC, OCPP 1.6J/2.0.1 | R$ 2.811,46 | Integração solar inteligente |
+| **NEP-PVG-3-20A-L** | RSD | 20 A, até 3 módulos, NEC 690.12 | R$ 911,78 | Conformidade/segurança |
+| **ZTROON-ZTF-160M** | Flex Panel | 160 W, IP67, 17,24% efic. | R$ 459,51 | Barcos, RVs, telhados curvos |
+
+---
+
+## Próximos Passos (Roadmap)
+
+### ✅ Fase 1: Catálogo consolidado (Concluído)
+- [x] Consolidar 38 painéis (NeoSolar, Solfácil, ODEX)
+- [x] Consolidar 23 inversores (ODEX, Fortlev)
+- [x] Consolidar 12 acessórios (Fortlev, NeoSolar)
+- [x] Criar schemas JSON de validação
+
+### 🚧 Fase 2: Mapeamento e regras (Em andamento)
+- [ ] Criar mapeamento TIER → SKUs disponíveis (`mappings/tier-sku-matrix.json`)
+- [ ] Definir regras de compatibilidade (`rules/compatibility.json`):
+  - Voc@Tmin, Vmp@Tnom, Isc, Imax_MPPT
+  - String sizing, over/under-sizing permitido (±10%)
+  - Validação tensão AC/DC, fase (mono/bi/trif)
+- [ ] Integrar com agente de dimensionamento (`agents/sizing/AGENTS.md`)
+
+### 📋 Fase 3: Tipos e backend (Planejado)
+- [ ] Criar tipos TypeScript (`packages/core/types/src/solar/catalog.ts`)
+- [ ] Validação Zod para painéis, inversores, acessórios
+- [ ] API endpoints para consulta de catálogo
+- [ ] Integração com estoque em tempo real
+
+### 💰 Fase 4: Precificação dinâmica (Planejado)
+- [ ] Documentar estratégia de markup por TIER (AGENTS.md)
+- [ ] Margens mínimas/máximas
+- [ ] Descontos por volume
+- [ ] Fórmula: `Preço = (Custo/Wp × kWp) + Frete + Instalação + Markup`
+
+---
+
+## Regras de Uso
+
+### Para agentes de IA
+1. **Dimensionamento (sizing)**: consultar `panels.json` e `inverters.json` para selecionar SKU baseado em:
+   - `kWp_recomendado` (do cálculo `kWp = (kWh_dia × GC_alvo) / (HSP × PR)`)
+   - `tier_recommendation` (XPP→XGG)
+   - `voltage` e `mppt_count` (inversor)
+   - `bifacial` (se laje/solo)
+
+2. **Recomendação de kit**: cruzar painel + inversor por:
+   - Compatibilidade de tensão DC (Voc@Tmin, Vmp@Tnom)
+   - Limite de corrente MPPT (`max_modules_per_mppt`)
+   - Over/under-sizing inversor (±10%)
+
+3. **Cotação**: usar `price_brl` como base + aplicar markup/desconto conforme política comercial.
+
+### Para desenvolvedores
+- **Validação**: usar schemas JSON (`*-schema.json`) para garantir integridade de dados.
+- **Extensão**: adicionar novos SKUs seguindo estrutura existente.
+- **Sincronização**: atualizar `metadata.last_updated` e `metadata.version` a cada modificação.
+
+---
+
+## Contato & Governança
+
+**Owner**: Yello Solar Hub — Engenharia Solar 360º  
+**Manutenção**: Time de Produto & Engenharia  
+**Frequência de atualização**: Quinzenal (preços); Mensal (novos SKUs)  
+**Política de aprovação**: Novos SKUs requerem validação técnica (datasheet, INMETRO) + comercial (margem, fornecedor).
+
+---
+
+**Próxima etapa sugerida**: Criar `tier-sku-matrix.json` mapeando automaticamente os SKUs mais adequados por TIER, HSP, classe consumidora e região.

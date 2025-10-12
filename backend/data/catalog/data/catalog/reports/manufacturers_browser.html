@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YSH B2B - Catálogo de Fabricantes e Modelos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        .search-section {
+            padding: 30px 40px;
+            background: #fff;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            font-size: 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .content {
+            padding: 0 40px 40px 40px;
+        }
+        
+        .manufacturer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .manufacturer-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .manufacturer-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .manufacturer-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .manufacturer-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .category-tag {
+            padding: 4px 10px;
+            background: #e9ecef;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #495057;
+        }
+        
+        .series-list {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .series-title {
+            font-weight: 600;
+            color: #495057;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .series-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .series-tag {
+            padding: 3px 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .close-btn {
+            font-size: 30px;
+            color: #6c757d;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #667eea;
+        }
+        
+        .models-section, .products-section {
+            margin-top: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .models-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .model-item {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            color: #495057;
+        }
+        
+        .product-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .product-model {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-specs {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: #6c757d;
+        }
+        
+        .no-results svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏭 Catálogo de Fabricantes</h1>
+            <p>YSH B2B Platform - Unified Product Catalog</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value" id="totalManufacturers">-</div>
+                <div class="stat-label">Fabricantes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalCategories">-</div>
+                <div class="stat-label">Categorias</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalProducts">-</div>
+                <div class="stat-label">Produtos</div>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar fabricante, modelo ou série...">
+                <span class="search-icon">⌕</span>
+            </div>
+            
+            <div class="filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">Todas</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div id="manufacturerGrid" class="manufacturer-grid">
+                <div class="loading">Carregando dados...</div>
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3>Nenhum resultado encontrado</h3>
+                <p>Tente ajustar os filtros ou busca</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">-</div>
+                <span class="close-btn" onclick="closeModal()">×</span>
+            </div>
+            
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    
+    <script>
+        let catalogData = null;
+        let filteredData = null;
+        let currentCategory = 'all';
+        
+        // Carregar dados
+        async function loadData() {
+            try {
+                const response = await fetch('manufacturers_models_index.min.json');
+                catalogData = await response.json();
+                filteredData = catalogData.manufacturers;
+                
+                updateStats();
+                renderCategories();
+                renderManufacturers();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('manufacturerGrid').innerHTML = 
+                    '<div class="loading">Erro ao carregar dados. Verifique se o arquivo JSON está disponível.</div>';
+            }
+        }
+        
+        function updateStats() {
+            document.getElementById('totalManufacturers').textContent = catalogData.metadata.total_manufacturers;
+            document.getElementById('totalCategories').textContent = catalogData.metadata.total_categories;
+            
+            let totalProducts = 0;
+            for (const cat in catalogData.categories) {
+                totalProducts += catalogData.categories[cat].total_products;
+            }
+            document.getElementById('totalProducts').textContent = totalProducts;
+        }
+        
+        function renderCategories() {
+            const container = document.getElementById('categoryFilters');
+            const categories = Object.keys(catalogData.categories).sort();
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.dataset.category = cat;
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                btn.onclick = () => filterByCategory(cat);
+                container.appendChild(btn);
+            });
+        }
+        
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter manufacturers
+            if (category === 'all') {
+                filteredData = catalogData.manufacturers;
+            } else {
+                filteredData = {};
+                for (const [name, data] of Object.entries(catalogData.manufacturers)) {
+                    if (data.categories.includes(category)) {
+                        filteredData[name] = data;
+                    }
+                }
+            }
+            
+            renderManufacturers();
+        }
+        
+        function renderManufacturers() {
+            const grid = document.getElementById('manufacturerGrid');
+            const noResults = document.getElementById('noResults');
+            
+            const manufacturers = Object.entries(filteredData);
+            
+            if (manufacturers.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            
+            grid.innerHTML = manufacturers.map(([name, data]) => `
+                <div class="manufacturer-card" onclick="showDetails('${name}')">
+                    <div class="manufacturer-name">${data.name}</div>
+                    <div class="manufacturer-stats">
+                        <div class="stat-item">
+                            <span>📦</span>
+                            <span>${data.models_count} modelos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>🏷️</span>
+                            <span>${data.series_count} séries</span>
+                        </div>
+                    </div>
+                    <div class="categories">
+                        ${data.categories.map(cat => 
+                            `<span class="category-tag">${cat}</span>`
+                        ).join('')}
+                    </div>
+                    ${data.series.length > 0 ? `
+                        <div class="series-list">
+                            <div class="series-title">SÉRIES:</div>
+                            <div class="series-tags">
+                                ${data.series.map(s => 
+                                    `<span class="series-tag">${s}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+        
+        function showDetails(manufacturerName) {
+            const data = catalogData.manufacturers[manufacturerName];
+            const modal = document.getElementById('detailModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+            
+            title.textContent = data.name;
+            
+            body.innerHTML = `
+                <div class="manufacturer-stats" style="justify-content: center; margin-bottom: 20px;">
+                    <div class="stat-item">
+                        <span>📦</span>
+                        <span><strong>${data.models_count}</strong> modelos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>🏷️</span>
+                        <span><strong>${data.series_count}</strong> séries</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>📂</span>
+                        <span><strong>${data.categories.length}</strong> categorias</span>
+                    </div>
+                </div>
+                
+                <div class="categories" style="justify-content: center; margin-bottom: 20px;">
+                    ${data.categories.map(cat => 
+                        `<span class="category-tag">${cat}</span>`
+                    ).join('')}
+                </div>
+                
+                ${data.series.length > 0 ? `
+                    <div class="series-section" style="margin-bottom: 20px;">
+                        <div class="section-title">Séries Disponíveis</div>
+                        <div class="series-tags">
+                            ${data.series.map(s => 
+                                `<span class="series-tag">${s}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <div class="models-section">
+                    <div class="section-title">Modelos (Top 10)</div>
+                    <div class="models-list">
+                        ${data.sample_models.map(model => 
+                            `<div class="model-item">${model}</div>`
+                        ).join('')}
+                    </div>
+                </div>
+                
+                ${data.sample_products.length > 0 ? `
+                    <div class="products-section">
+                        <div class="section-title">Exemplos de Produtos</div>
+                        ${data.sample_products.map(product => `
+                            <div class="product-card">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-model">Modelo: ${product.model}</div>
+                                <div class="category-tag">${product.category}</div>
+                                ${Object.keys(product.specs).length > 0 ? `
+                                    <div class="product-specs">
+                                        ${Object.entries(product.specs)
+                                            .filter(([k, v]) => v)
+                                            .map(([key, value]) => 
+                                                `<span>${key}: ${value}</span>`
+                                            ).join('')}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            `;
+            
+            modal.classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('detailModal').classList.remove('active');
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            if (query === '') {
+                filterByCategory(currentCategory);
+                return;
+            }
+            
+            filteredData = {};
+            for (const [name, data] of Object.entries(catalogData.manufacturers)) {
+                // Search in name, models, and series
+                if (name.toLowerCase().includes(query) ||
+                    data.sample_models.some(m => m.toLowerCase().includes(query)) ||
+                    data.series.some(s => s.toLowerCase().includes(query))) {
+                    
+                    // Apply category filter if active
+                    if (currentCategory === 'all' || data.categories.includes(currentCategory)) {
+                        filteredData[name] = data;
+                    }
+                }
+            }
+            
+            renderManufacturers();
+        });
+        
+        // Close modal on outside click
+        document.getElementById('detailModal').addEventListener('click', (e) => {
+            if (e.target.id === 'detailModal') {
+                closeModal();
+            }
+        });
+        
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

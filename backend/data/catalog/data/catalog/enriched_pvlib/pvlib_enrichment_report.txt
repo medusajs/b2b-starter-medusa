@@ -1,0 +1,91 @@
+================================================================================
+RELATÓRIO DE ENRIQUECIMENTO PVLIB/NREL
+================================================================================
+
+Data: 2025-10-08 17:38:57
+
+
+================================================================================
+CATEGORIA: INVERTERS
+================================================================================
+
+Total processado: 489
+Total enriquecido: 489
+Taxa de sucesso: 100.0%
+
+📊 Parâmetros Adicionados:
+  • vdc_nom: 489 produtos
+  • european_efficiency: 489 produtos
+  • pdc0: 476 produtos
+  • ps0: 476 produtos
+  • mppt_low: 476 produtos
+  • mppt_high: 476 produtos
+  • mppt_channels: 476 produtos
+  • vac_nom: 218 produtos
+
+⚠️  Produtos com Parâmetros Obrigatórios Faltantes: 271
+  • Inversor Off Grid Senoidal Epever IPower Plus IP20
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal ZTROON ZT1000-11 - 1000
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal ZTROON ZT600-11 - 600W 
+    Faltando: vac_nom
+  • Inversor Carregador Must PV29-5048 LHP - 5000W - M
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal  ZTROON ZT2000-11 - 200
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal Epever IPower Plus IP20
+    Faltando: vac_nom
+  • Inversor Carregador Must PV29-5048 HP - 5000W - MP
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal Epever IPower Plus IP15
+    Faltando: vac_nom
+  • Inversor Off Grid Senoidal  ZTROON ZT2000-21 - 200
+    Faltando: vac_nom
+  • Inversor Senoidal Epever IPower Plus IP1000-41 (T)
+    Faltando: vac_nom
+
+================================================================================
+CATEGORIA: PANELS
+================================================================================
+
+Total processado: 29
+Total enriquecido: 29
+Taxa de sucesso: 100.0%
+
+📊 Parâmetros Adicionados:
+  • technology: 29 produtos
+  • pmax: 18 produtos
+  • vmp: 18 produtos
+  • imp: 18 produtos
+  • voc: 18 produtos
+  • isc: 18 produtos
+  • cells_in_series: 18 produtos
+  • module_efficiency: 18 produtos
+  • area: 18 produtos
+  • temp_coeff_pmax: 18 produtos
+  • temp_coeff_voc: 18 produtos
+  • temp_coeff_isc: 18 produtos
+  • noct: 18 produtos
+
+⚠️  Produtos com Parâmetros Obrigatórios Faltantes: 11
+  • 
+    Faltando: pmax, vmp, imp, voc, isc
+  • https://cdn-ecommerce.solfacil.com.br/contents/pro
+    Faltando: pmax, vmp, imp, voc, isc
+  • HANERSUN
+    Faltando: pmax, vmp, imp, voc, isc
+  • DAH
+    Faltando: pmax, vmp, imp, voc, isc
+  • https://cdn-ecommerce.solfacil.com.br/contents/pro
+    Faltando: pmax, vmp, imp, voc, isc
+  • https://cdn-ecommerce.solfacil.com.br/contents/pro
+    Faltando: pmax, vmp, imp, voc, isc
+  • https://cdn-ecommerce.solfacil.com.br/contents/pro
+    Faltando: pmax, vmp, imp, voc, isc
+  • KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO E
+    Faltando: pmax, vmp, imp, voc, isc
+  • KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRU
+    Faltando: pmax, vmp, imp, voc, isc
+  • HANERSUN
+    Faltando: pmax, vmp, imp, voc, isc

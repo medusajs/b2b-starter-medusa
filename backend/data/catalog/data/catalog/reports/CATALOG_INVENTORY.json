@@ -1,0 +1,444 @@
+{
+  "generated_at": "2025-10-07T04:47:51.622657",
+  "root": "catalog",
+  "entries": [
+    {
+      "path": "accessories.json",
+      "type": "file",
+      "size_bytes": 10374,
+      "extension": ".json"
+    },
+    {
+      "path": "accessories.json.backup",
+      "type": "file",
+      "size_bytes": 6650,
+      "extension": ".backup"
+    },
+    {
+      "path": "cables.json",
+      "type": "file",
+      "size_bytes": 10852,
+      "extension": ".json"
+    },
+    {
+      "path": "cables.json.backup",
+      "type": "file",
+      "size_bytes": 10852,
+      "extension": ".backup"
+    },
+    {
+      "path": "chargers.json",
+      "type": "file",
+      "size_bytes": 51016,
+      "extension": ".json"
+    },
+    {
+      "path": "chargers.json.backup",
+      "type": "file",
+      "size_bytes": 40894,
+      "extension": ".backup"
+    },
+    {
+      "path": "CONSOLIDATION_ANALYSIS.md",
+      "type": "file",
+      "size_bytes": 10436,
+      "extension": ".md"
+    },
+    {
+      "path": "CONSOLIDATION_REPORT.json",
+      "type": "file",
+      "size_bytes": 8959,
+      "extension": ".json"
+    },
+    {
+      "path": "controllers.json",
+      "type": "file",
+      "size_bytes": 22592,
+      "extension": ".json"
+    },
+    {
+      "path": "controllers.json.backup",
+      "type": "file",
+      "size_bytes": 22592,
+      "extension": ".backup"
+    },
+    {
+      "path": "extracted",
+      "type": "directory",
+      "file_counts": {
+        "json": 3,
+        "csv": 0,
+        "md": 0,
+        "images": 0,
+        "other": 0
+      },
+      "total_size_bytes": 509868
+    },
+    {
+      "path": "fotus-kits-hibridos.csv",
+      "type": "file",
+      "size_bytes": 24917,
+      "extension": ".csv"
+    },
+    {
+      "path": "fotus-kits-hibridos.json",
+      "type": "file",
+      "size_bytes": 1538,
+      "extension": ".json"
+    },
+    {
+      "path": "fotus-kits-hibridos.json.backup",
+      "type": "file",
+      "size_bytes": 1349,
+      "extension": ".backup"
+    },
+    {
+      "path": "FOTUS-KITS-HIBRIDOS.MD",
+      "type": "file",
+      "size_bytes": 24890,
+      "extension": ".md"
+    },
+    {
+      "path": "fotus-kits.csv",
+      "type": "file",
+      "size_bytes": 212812,
+      "extension": ".csv"
+    },
+    {
+      "path": "fotus-kits.json",
+      "type": "file",
+      "size_bytes": 4377,
+      "extension": ".json"
+    },
+    {
+      "path": "fotus-kits.json.backup",
+      "type": "file",
+      "size_bytes": 4210,
+      "extension": ".backup"
+    },
+    {
+      "path": "fotus-kits.md",
+      "type": "file",
+      "size_bytes": 224986,
+      "extension": ".md"
+    },
+    {
+      "path": "https___plataforma.odex.com.br (1).csv",
+      "type": "file",
+      "size_bytes": 2689,
+      "extension": ".csv"
+    },
+    {
+      "path": "https___plataforma.odex.com.br.csv",
+      "type": "file",
+      "size_bytes": 2365,
+      "extension": ".csv"
+    },
+    {
+      "path": "image_paths.txt",
+      "type": "file",
+      "size_bytes": 53392,
+      "extension": ".txt"
+    },
+    {
+      "path": "images",
+      "type": "directory",
+      "file_counts": {
+        "json": 0,
+        "csv": 0,
+        "md": 0,
+        "images": 861,
+        "other": 0
+      },
+      "total_size_bytes": 48806976
+    },
+    {
+      "path": "images_odex_source",
+      "type": "directory",
+      "file_counts": {
+        "json": 0,
+        "csv": 0,
+        "md": 0,
+        "images": 75,
+        "other": 0
+      },
+      "total_size_bytes": 7817441
+    },
+    {
+      "path": "images_processed",
+      "type": "directory",
+      "file_counts": {
+        "json": 955,
+        "csv": 0,
+        "md": 2,
+        "images": 2745,
+        "other": 0
+      },
+      "total_size_bytes": 89197595
+    },
+    {
+      "path": "INVENTORY_REVIEW_REPORT.md",
+      "type": "file",
+      "size_bytes": 5536,
+      "extension": ".md"
+    },
+    {
+      "path": "inverter-schema.json",
+      "type": "file",
+      "size_bytes": 2858,
+      "extension": ".json"
+    },
+    {
+      "path": "inverters.json",
+      "type": "file",
+      "size_bytes": 106934,
+      "extension": ".json"
+    },
+    {
+      "path": "inverters.json.backup",
+      "type": "file",
+      "size_bytes": 78638,
+      "extension": ".backup"
+    },
+    {
+      "path": "kits.json",
+      "type": "file",
+      "size_bytes": 84410,
+      "extension": ".json"
+    },
+    {
+      "path": "kits.json.backup",
+      "type": "file",
+      "size_bytes": 78110,
+      "extension": ".backup"
+    },
+    {
+      "path": "MIGRATION_REPORT.md",
+      "type": "file",
+      "size_bytes": 8798,
+      "extension": ".md"
+    },
+    {
+      "path": "neosolar_catalog.csv",
+      "type": "file",
+      "size_bytes": 53398,
+      "extension": ".csv"
+    },
+    {
+      "path": "odex-inverters.json",
+      "type": "file",
+      "size_bytes": 40134,
+      "extension": ".json"
+    },
+    {
+      "path": "odex-inverters.json.backup",
+      "type": "file",
+      "size_bytes": 20528,
+      "extension": ".backup"
+    },
+    {
+      "path": "odex-panels.json",
+      "type": "file",
+      "size_bytes": 7799,
+      "extension": ".json"
+    },
+    {
+      "path": "odex-panels.json.backup",
+      "type": "file",
+      "size_bytes": 7799,
+      "extension": ".backup"
+    },
+    {
+      "path": "odex-stringboxes.json",
+      "type": "file",
+      "size_bytes": 11746,
+      "extension": ".json"
+    },
+    {
+      "path": "odex-stringboxes.json.backup",
+      "type": "file",
+      "size_bytes": 4733,
+      "extension": ".backup"
+    },
+    {
+      "path": "odex-structures.json",
+      "type": "file",
+      "size_bytes": 24411,
+      "extension": ".json"
+    },
+    {
+      "path": "odex-structures.json.backup",
+      "type": "file",
+      "size_bytes": 10299,
+      "extension": ".backup"
+    },
+    {
+      "path": "panel-schema.json",
+      "type": "file",
+      "size_bytes": 3065,
+      "extension": ".json"
+    },
+    {
+      "path": "panels.json",
+      "type": "file",
+      "size_bytes": 27485,
+      "extension": ".json"
+    },
+    {
+      "path": "Plataforma Solar Estruturas.md",
+      "type": "file",
+      "size_bytes": 5661,
+      "extension": ".md"
+    },
+    {
+      "path": "Plataforma Solar Panels.md",
+      "type": "file",
+      "size_bytes": 3213,
+      "extension": ".md"
+    },
+    {
+      "path": "Plataforma Solar Strings.md",
+      "type": "file",
+      "size_bytes": 3673,
+      "extension": ".md"
+    },
+    {
+      "path": "Plataforma Solar1.md",
+      "type": "file",
+      "size_bytes": 5522,
+      "extension": ".md"
+    },
+    {
+      "path": "Plataforma Solar2.md",
+      "type": "file",
+      "size_bytes": 5522,
+      "extension": ".md"
+    },
+    {
+      "path": "Plataforma Solar3.md",
+      "type": "file",
+      "size_bytes": 3492,
+      "extension": ".md"
+    },
+    {
+      "path": "posts.json",
+      "type": "file",
+      "size_bytes": 3062,
+      "extension": ".json"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "size_bytes": 9583,
+      "extension": ".md"
+    },
+    {
+      "path": "README_CONSOLIDATION.md",
+      "type": "file",
+      "size_bytes": 4619,
+      "extension": ".md"
+    },
+    {
+      "path": "READY_FOR_UX_UI.md",
+      "type": "file",
+      "size_bytes": 9605,
+      "extension": ".md"
+    },
+    {
+      "path": "schemas",
+      "type": "directory",
+      "file_counts": {
+        "json": 3,
+        "csv": 0,
+        "md": 0,
+        "images": 0,
+        "other": 0
+      },
+      "total_size_bytes": 612431
+    },
+    {
+      "path": "schemas_enriched",
+      "type": "directory",
+      "file_counts": {
+        "json": 2,
+        "csv": 0,
+        "md": 0,
+        "images": 0,
+        "other": 0
+      },
+      "total_size_bytes": 949622
+    },
+    {
+      "path": "solfacil-accessories.json",
+      "type": "file",
+      "size_bytes": 5554,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-accessories.json.backup",
+      "type": "file",
+      "size_bytes": 5554,
+      "extension": ".backup"
+    },
+    {
+      "path": "solfacil-batteries.json",
+      "type": "file",
+      "size_bytes": 2468,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-batteries.json.backup",
+      "type": "file",
+      "size_bytes": 1718,
+      "extension": ".backup"
+    },
+    {
+      "path": "solfacil-cables.json",
+      "type": "file",
+      "size_bytes": 18890,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-cables.json.backup",
+      "type": "file",
+      "size_bytes": 14888,
+      "extension": ".backup"
+    },
+    {
+      "path": "solfacil-inverters.json",
+      "type": "file",
+      "size_bytes": 43749,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-inverters.json.backup",
+      "type": "file",
+      "size_bytes": 33510,
+      "extension": ".backup"
+    },
+    {
+      "path": "solfacil-panels.json",
+      "type": "file",
+      "size_bytes": 2688,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-structures.json",
+      "type": "file",
+      "size_bytes": 2093,
+      "extension": ".json"
+    },
+    {
+      "path": "solfacil-structures.json.backup",
+      "type": "file",
+      "size_bytes": 2093,
+      "extension": ".backup"
+    },
+    {
+      "path": "SUMMARY.md",
+      "type": "file",
+      "size_bytes": 5838,
+      "extension": ".md"
+    }
+  ]
+}

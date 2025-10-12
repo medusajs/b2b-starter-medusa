@@ -1,0 +1,40 @@
+[
+  {
+    "id": "FOTUS-KP04-kits-hibridos",
+    "name": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
+    "type": "kits-hibridos",
+    "potencia_kwp": 1.2,
+    "price_brl": 2706.07,
+    "estrutura": "Cerâmico",
+    "centro_distribuicao": "CD ESPÍRITO SANTO",
+    "panels": [],
+    "inverters": [
+      {
+        "brand": "TSUNESS",
+        "power_kw": 2.25,
+        "quantity": 1,
+        "description": "MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)"
+      }
+    ],
+    "batteries": [],
+    "structures": [],
+    "total_panels": 0,
+    "total_inverters": 1,
+    "total_power_w": 0,
+    "distributor": "FOTUS",
+    "image_url": "/images/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-kits-hibridos.jpg",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-kits-hibridos.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-kits-hibridos.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-kits-hibridos.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2706.07,
+      "currency": "BRL"
+    },
+    "price": "R$ 2.706,07"
+  }
+]

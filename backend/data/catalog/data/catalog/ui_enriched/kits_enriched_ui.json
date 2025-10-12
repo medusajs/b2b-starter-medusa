@@ -1,0 +1,382 @@
+{
+  "category": "kits",
+  "total_products": 334,
+  "generated_at": "2025-10-07T21:06:54.708778",
+  "hero": {
+    "title": "Catálogo de Kits",
+    "subtitle": "Explore nossa seleção de 334 produtos certificados",
+    "cta_primary": "Ver Produtos",
+    "cta_secondary": "Solicitar Cotação",
+    "benefits": [
+      "Produtos Certificados",
+      "Entrega Rápida",
+      "Suporte Técnico Especializado"
+    ]
+  },
+  "featured_products": [
+    {
+      "id": "FOTUS-KP04-kits-hibridos",
+      "name": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
+      "manufacturer": "",
+      "image_url": "images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-kits-hibridos.jpg",
+      "price_brl": 2706.07,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": " - KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TS",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W -  | Yello Solar Hub",
+        "description": "Compre KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W de . Entrega rápida e suporte técnico.",
+        "keywords": [
+          "",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
+        "og_description": " - kits"
+      }
+    },
+    {
+      "id": "FOTUS-KP04-kits",
+      "name": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW",
+      "manufacturer": "",
+      "image_url": "images\\FOTUS-KITS\\FOTUS-KP04-kits.jpg",
+      "price_brl": 2507.99,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": " - KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VI",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW -  | Yello Solar Hub",
+        "description": "Compre KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW de . Entrega rápida e suporte técnico.",
+        "keywords": [
+          "",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW",
+        "og_description": " - kits"
+      }
+    },
+    {
+      "id": "FOTUS-KP02-kits",
+      "name": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
+      "manufacturer": "",
+      "image_url": "images\\FOTUS-KITS\\FOTUS-KP02-kits.jpg",
+      "price_brl": 2679.49,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": " - KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W -  | Yello Solar Hub",
+        "description": "Compre KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W de . Entrega rápida e suporte técnico.",
+        "keywords": [
+          "",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
+        "og_description": " - kits"
+      }
+    },
+    {
+      "id": "FOTUS-KP03-kits",
+      "name": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
+      "manufacturer": "",
+      "image_url": "images\\FOTUS-KITS\\FOTUS-KP03-kits.jpg",
+      "price_brl": 2896.41,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": " - KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW -  | Yello Solar Hub",
+        "description": "Compre KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW de . Entrega rápida e suporte técnico.",
+        "keywords": [
+          "",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
+        "og_description": " - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_27314",
+      "name": "https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_27314.jpg",
+      "price_brl": 6807,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/cfdc6dad-4082-4bb5-878a-d9b7456395f5/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_25049",
+      "name": "https://portal.zydon.com.br/api/files/2090556f-04e2-4644-bcfb-70480e65e3af/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_25049.jpg",
+      "price_brl": 5897,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/2090556f-04e2-4644-bcfb-70480e65e3af/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/2090556f-04e2-4644-bcfb-70480e65e3af/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/2090556f-04e2-4644-bcfb-70480e65e3af/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/2090556f-04e2-4644-bcfb-70480e65e3af/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_27475",
+      "name": "https://portal.zydon.com.br/api/files/af8a3c8c-1ced-4340-9ee3-950705043f59/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_27475.jpg",
+      "price_brl": 4653,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/af8a3c8c-1ced-4340-9ee3-950705043f59/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/af8a3c8c-1ced-4340-9ee3-950705043f59/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/af8a3c8c-1ced-4340-9ee3-950705043f59/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/af8a3c8c-1ced-4340-9ee3-950705043f59/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_25164",
+      "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_25164.jpg",
+      "price_brl": 6812,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portalb2b.neosolar.com.br/b2b-noimage-white.svg de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_27315",
+      "name": "https://portal.zydon.com.br/api/files/b8854855-516a-437d-80be-3d7b80099cd0/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_27315.jpg",
+      "price_brl": 12731,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/b8854855-516a-437d-80be-3d7b80099cd0/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/b8854855-516a-437d-80be-3d7b80099cd0/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/b8854855-516a-437d-80be-3d7b80099cd0/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/b8854855-516a-437d-80be-3d7b80099cd0/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_23927",
+      "name": "https://portal.zydon.com.br/api/files/83064596-0d87-4e31-9a51-3567bef61e6c/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_23927.jpg",
+      "price_brl": 1256,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/83064596-0d87-4e31-9a51-3567bef61e6c/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/83064596-0d87-4e31-9a51-3567bef61e6c/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/83064596-0d87-4e31-9a51-3567bef61e6c/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/83064596-0d87-4e31-9a51-3567bef61e6c/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_27347",
+      "name": "https://portal.zydon.com.br/api/files/2e6540f2-a35f-407e-b7e4-289e7b750caf/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_27347.jpg",
+      "price_brl": null,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/2e6540f2-a35f-407e-b7e4-289e7b750caf/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Sob Consulta"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/2e6540f2-a35f-407e-b7e4-289e7b750caf/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/2e6540f2-a35f-407e-b7e4-289e7b750caf/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/2e6540f2-a35f-407e-b7e4-289e7b750caf/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    },
+    {
+      "id": "neosolar_kits_27349",
+      "name": "https://portal.zydon.com.br/api/files/068f88cc-b9e3-40c6-8445-804d8973a3ec/content?ingress=portalb2b.neosolar.com.br",
+      "manufacturer": "NEOSOLAR",
+      "image_url": "images\\NEOSOLAR-KITS\\neosolar_kits_27349.jpg",
+      "price_brl": null,
+      "badges": [
+        {
+          "text": "Kit Completo",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "NEOSOLAR - https://portal.zydon.com.br/api/files/068f88cc-b9e3-40c6-8445-804d8973a3ec/conte",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Sob Consulta"
+      },
+      "seo": {
+        "title": "https://portal.zydon.com.br/api/files/068f88cc-b9e3-40c6-8445-804d8973a3ec/content?ingress=portalb2b.neosolar.com.br - NEOSOLAR | Yello Solar Hub",
+        "description": "Compre https://portal.zydon.com.br/api/files/068f88cc-b9e3-40c6-8445-804d8973a3ec/content?ingress=portalb2b.neosolar.com.br de NEOSOLAR. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "NEOSOLAR",
+          "kits",
+          "energia solar"
+        ],
+        "og_title": "https://portal.zydon.com.br/api/files/068f88cc-b9e3-40c6-8445-804d8973a3ec/content?ingress=portalb2b.neosolar.com.br",
+        "og_description": "NEOSOLAR - kits"
+      }
+    }
+  ],
+  "manufacturer_spotlight": {
+    "name": "UNKNOWN",
+    "product_count": 251
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2025-10-07T04:51:42.183615",
+  "total_products": 1161,
+  "categories": {
+    "accessories": 17,
+    "cables": 55,
+    "ev_chargers": 83,
+    "controllers": 38,
+    "kits": 336,
+    "inverters": 490,
+    "panels": 29,
+    "stringboxes": 13,
+    "structures": 40,
+    "posts": 6,
+    "batteries": 9,
+    "others": 45
+  },
+  "files": [
+    "accessories_unified.json",
+    "cables_unified.json",
+    "ev_chargers_unified.json",
+    "controllers_unified.json",
+    "kits_unified.json",
+    "inverters_unified.json",
+    "panels_unified.json",
+    "stringboxes_unified.json",
+    "structures_unified.json",
+    "posts_unified.json",
+    "batteries_unified.json",
+    "others_unified.json"
+  ],
+  "sources": [
+    "catalog",
+    "unified",
+    "consolidated",
+    "schemas",
+    "schemas_enriched"
+  ]
+}

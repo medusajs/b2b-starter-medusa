@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "YSH Inverters Catalog Schema",
+  "description": "Schema para validação do catálogo de inversores comercializados pela Yello Solar Hub",
+  "type": "object",
+  "required": [
+    "metadata",
+    "inverters"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "version",
+        "last_updated",
+        "sources",
+        "currency"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "BRL",
+            "USD"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "inverters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sku",
+          "manufacturer",
+          "model",
+          "type",
+          "kw_ac_nominal",
+          "max_dc_power_kw",
+          "voltage",
+          "mppt_count",
+          "efficiency_pct",
+          "warranty_years",
+          "price_brl",
+          "source",
+          "tier_recommendation"
+        ],
+        "properties": {
+          "sku": {
+            "type": "string",
+            "pattern": "^[A-Z0-9\\-]+$"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "microinverter",
+              "string",
+              "hybrid",
+              "off-grid"
+            ]
+          },
+          "kw_ac_nominal": {
+            "type": "number",
+            "minimum": 0.3,
+            "maximum": 500
+          },
+          "max_dc_power_kw": {
+            "type": "number",
+            "minimum": 0.4,
+            "maximum": 750
+          },
+          "voltage": {
+            "type": "string",
+            "enum": [
+              "monofasico_127v",
+              "monofasico_220v",
+              "bifasico_220v",
+              "trifasico_220v",
+              "trifasico_380v"
+            ]
+          },
+          "mppt_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "max_modules_per_mppt": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "efficiency_pct": {
+            "type": "number",
+            "minimum": 90.0,
+            "maximum": 99.5"},"features": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "dimensions_mm": {
+              "type": "object",
+              "properties": {
+                "length": {
+                  "type": "integer"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                }
+              }
+            },
+            "weight_kg": {
+              "type": "number",
+              "minimum": 1.0
+            },
+            "warranty_years": {
+              "type": "integer",
+              "minimum": 5,
+              "maximum": 25
+            },
+            "price_brl": {
+              "type": "number",
+              "minimum": 0
+            },
+            "image": {
+              "type": "string"
+            },
+            "processed_images": {
+              "type": "object",
+              "properties": {
+                "thumb": {
+                  "type": "string"
+                },
+                "medium": {
+                  "type": "string"
+                },
+                "large": {
+                  "type": "string"
+                }
+              }
+            },
+            "source": {
+              "type": "string",
+              "enum": [
+                "NeoSolar",
+                "Solfácil",
+                "ODEX",
+                "Fortlev"
+              ]
+            },
+            "tier_recommendation": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "XPP",
+                  "PP",
+                  "P",
+                  "M",
+                  "G",
+                  "GG",
+                  "XG",
+                  "XGG"
+                ]
+              }
+            },
+            "use_cases": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

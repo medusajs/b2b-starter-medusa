@@ -1,0 +1,245 @@
+================================================================================
+FABRICANTES - URLS CORRIGIDAS E VERIFICADAS
+================================================================================
+
+⚠️  NOTA IMPORTANTE:
+Alguns fabricantes não fornecem links diretos para PDFs individuais.
+Nesses casos, fornecemos a URL da página de downloads/produtos.
+================================================================================
+
+
+================================================================================
+CATEGORIA: INVERSORES
+================================================================================
+
+
+EPEVER
+--------------------------------------------------------------------------------
+Produtos: 111 | Modelos: 22
+🌐 Site Global: https://www.epever.com
+📁 Downloads: https://www.epever.com/products/
+ℹ️  Site oficial: epever.com - Downloads disponíveis na seção Support
+
+📄 Datasheets por Série:
+  • HP: https://www.epever.com/products/
+  • IP: https://www.epever.com/products/off-grid-inverter-ipower/
+    Manual: https://www.epever.com/support/download/
+
+
+GOODWE
+--------------------------------------------------------------------------------
+Produtos: 106 | Modelos: 45
+🇧🇷 Site BR: https://www.goodwe.com.br
+🌐 Site Global: https://www.goodwe.com
+📁 Downloads: https://www.goodwe.com/download
+ℹ️  Site oficial verificado - Downloads por modelo no site
+
+
+DEYE
+--------------------------------------------------------------------------------
+Produtos: 79 | Modelos: 17
+🇧🇷 Site BR: https://www.deyeinverter.com.br
+🌐 Site Global: https://www.deyesolar.com
+📁 Downloads: https://www.deyesolar.com/index.php/download
+ℹ️  URL CORRIGIDA: deyesolar.com (não .com.br) - Site oficial chinês
+
+📄 Datasheets por Série:
+  • KP: https://www.deyesolar.com/index.php/download/for-inverter
+  • SG: https://www.deyesolar.com/index.php/download/for-inverter
+  • SUN: https://www.deyesolar.com/index.php/download/for-inverter
+    Manual: https://www.deyesolar.com/index.php/download/for-inverter
+
+
+GROWATT
+--------------------------------------------------------------------------------
+Produtos: 76 | Modelos: 24
+🇧🇷 Site BR: https://www.ginverter.com
+🌐 Site Global: https://www.growatt.com
+📁 Downloads: https://www.growatt.com/show-29-539.html
+ℹ️  Site BR alternativo: ginverter.com - Downloads centralizados no site global
+
+📄 Datasheets por Série:
+  • MIC: https://www.growatt.com/show-29-539.html
+  • MIN: https://www.growatt.com/show-29-539.html
+    Manual: https://www.growatt.com/show-29-539.html
+  • MOD: https://www.growatt.com/show-29-539.html
+
+
+SAJ
+--------------------------------------------------------------------------------
+Produtos: 33 | Modelos: 11
+🌐 Site Global: https://www.saj-electric.com
+📁 Downloads: https://www.saj-electric.com/product/solar-inverter
+ℹ️  Site oficial - Downloads por modelo
+
+📄 Datasheets por Série:
+  • R5: https://www.saj-electric.com/product/solar-inverter/residential-hybrid-inverter/r5-series
+
+
+ZTROON
+--------------------------------------------------------------------------------
+Produtos: 30 | Modelos: 10
+🇧🇷 Site BR: https://www.ztroon.com.br
+🌐 Site Global: https://www.ztroon.com.br
+📁 Downloads: https://www.ztroon.com.br/produtos/
+ℹ️  Fabricante nacional - Site verificado
+
+📄 Datasheets por Série:
+  • ZT: https://www.ztroon.com.br/produtos/inversores/
+    Manual: https://www.ztroon.com.br/suporte/
+
+
+SOFAR
+--------------------------------------------------------------------------------
+Produtos: 13 | Modelos: 5
+🇧🇷 Site BR: https://br.sofarsolar.com
+🌐 Site Global: https://www.sofarsolar.com
+📁 Downloads: https://www.sofarsolar.com/download-center/
+ℹ️  Site oficial verificado - Centro de downloads unificado
+
+📄 Datasheets por Série:
+  • SOFAR: https://www.sofarsolar.com/download-center/
+
+
+HUAWEI
+--------------------------------------------------------------------------------
+Produtos: 10 | Modelos: 1
+🇧🇷 Site BR: https://solar.huawei.com/br
+🌐 Site Global: https://solar.huawei.com
+📁 Downloads: https://solar.huawei.com/download
+ℹ️  Site oficial Huawei Solar - Centro de downloads
+
+
+SOLAX
+--------------------------------------------------------------------------------
+Produtos: 9 | Modelos: 3
+🌐 Site Global: https://www.solaxpower.com
+📁 Downloads: https://www.solaxpower.com/support/
+ℹ️  Site oficial - Seção Support para downloads
+
+
+MUST
+--------------------------------------------------------------------------------
+Produtos: 6 | Modelos: 1
+🌐 Site Global: https://www.must-power.com
+📁 Downloads: https://www.must-power.com/download/
+ℹ️  Site oficial - Downloads disponíveis
+
+📄 Datasheets por Série:
+  • PV: https://www.must-power.com/download/
+
+
+ENPHASE
+--------------------------------------------------------------------------------
+Produtos: 2 | Modelos: 1
+🇧🇷 Site BR: https://enphase.com/pt-br
+🌐 Site Global: https://enphase.com
+📁 Downloads: https://enphase.com/download
+ℹ️  Site oficial verificado - Downloads por série IQ
+
+
+================================================================================
+CATEGORIA: PAINEIS
+================================================================================
+
+
+ODEX
+--------------------------------------------------------------------------------
+Produtos: 15 | Modelos: 6
+🇧🇷 Site BR: https://www.odex.com.br
+🌐 Site Global: https://www.odex.com.br
+📁 Downloads: https://www.odex.com.br/paineis-solares/
+ℹ️  Distribuidor nacional - Catálogo online
+
+
+ZTROON
+--------------------------------------------------------------------------------
+Produtos: 10 | Modelos: 10
+🇧🇷 Site BR: https://www.ztroon.com.br
+🌐 Site Global: https://www.ztroon.com.br
+📁 Downloads: https://www.ztroon.com.br/produtos/
+ℹ️  Fabricante nacional - Site verificado
+
+📄 Datasheets por Série:
+  • ZTP: https://www.ztroon.com.br/produtos/modulos-fotovoltaicos/
+    Manual: https://www.ztroon.com.br/suporte/
+
+
+OSDA
+--------------------------------------------------------------------------------
+Produtos: 7 | Modelos: 6
+🌐 Site Global: https://www.osda-solar.com
+📁 Downloads: https://www.osda-solar.com/
+ℹ️  Site oficial - Catálogo de produtos
+
+
+HANERSUN
+--------------------------------------------------------------------------------
+Produtos: 6 | Modelos: 3
+🌐 Site Global: https://www.hanersun.com
+📁 Downloads: https://www.hanersun.com/products/
+ℹ️  Site oficial - Seção de produtos
+
+
+JINKO
+--------------------------------------------------------------------------------
+Produtos: 6 | Modelos: 3
+🇧🇷 Site BR: https://www.jinkosolar.com/pt
+🌐 Site Global: https://www.jinkosolar.com
+📁 Downloads: https://www.jinkosolar.com/en/site/downloadcenter
+ℹ️  Site oficial verificado - Download Center
+
+
+ASTRONERGY
+--------------------------------------------------------------------------------
+Produtos: 3 | Modelos: 2
+🌐 Site Global: https://www.astronergy.com
+📁 Downloads: https://www.astronergy.com/product
+ℹ️  Site oficial Astronergy - Produtos
+
+📄 Datasheets por Série:
+  • CHSM: https://www.astronergy.com/product/module
+
+
+DAH SOLAR
+--------------------------------------------------------------------------------
+Produtos: 3 | Modelos: 3
+🌐 Site Global: https://www.dahsolarpv.com
+📁 Downloads: https://www.dahsolarpv.com/download.html
+ℹ️  Site oficial DAH Solar - Centro de downloads
+
+📄 Datasheets por Série:
+  • DHN: https://www.dahsolarpv.com/download.html
+
+
+LONGI
+--------------------------------------------------------------------------------
+Produtos: 2 | Modelos: 2
+🇧🇷 Site BR: https://www.longi.com/br
+🌐 Site Global: https://www.longi.com
+📁 Downloads: https://www.longi.com/en/download/
+ℹ️  Site oficial LONGi - Downloads por modelo
+
+
+MINASOL
+--------------------------------------------------------------------------------
+Produtos: 2 | Modelos: 1
+🇧🇷 Site BR: https://minasol.com.br
+🌐 Site Global: https://minasol.com.br
+📁 Downloads: https://minasol.com.br/produtos/
+ℹ️  Fabricante nacional - Catálogo online
+
+
+================================================================================
+RESUMO
+================================================================================
+
+INVERSORES:
+  Total de fabricantes: 27
+  Com datasheets/downloads: 11
+  Sem informações: 16
+
+PAINEIS:
+  Total de fabricantes: 14
+  Com datasheets/downloads: 9
+  Sem informações: 5

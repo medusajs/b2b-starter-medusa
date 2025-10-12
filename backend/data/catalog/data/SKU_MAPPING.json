@@ -1,0 +1,1082 @@
+{
+  "version": "1.0",
+  "generated_at": "2025-10-12T20:30:00.000Z",
+  "total_mappings": 167,
+  "stats": {
+    "odex": 26,
+    "total": 167,
+    "neosolar": 67,
+    "solfacil": 74
+  },
+  "mappings": {
+    "odex_inverters_ODEX-INV-SAJ-3000W": {
+      "sku": "276954",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/276954.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-SAJ-10000W": {
+      "sku": "152147",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/152147.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-SAJ-15000W": {
+      "sku": "267277",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/267277.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-GROWATT-3000W": {
+      "sku": "145763",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/145763.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-GROWATT-50000W": {
+      "sku": "192575",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/192575.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-GROWATT-125000W": {
+      "sku": "192576",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/192576.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-CHINT-3000W": {
+      "sku": "289241",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/289241.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-CHINT-5000W": {
+      "sku": "246761",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/246761.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-CHINT-8000W": {
+      "sku": "246763",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/246763.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-CHINT-10000W": {
+      "sku": "246764",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/246764.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-SOFAR-3300W": {
+      "sku": "292421",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/292421.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-SOFAR-5000W": {
+      "sku": "299591",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/299591.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-SOFAR-6000W": {
+      "sku": "135720",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/135720.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-GROWATT-3000W-1": {
+      "sku": "315148",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/315148.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-INV-DEYE-5000W": {
+      "sku": "112369",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-INVERTERS/112369.jpg",
+      "source_file": "odex-inverters.json"
+    },
+    "odex_inverters_ODEX-PAINEL-ODEX-585W": {
+      "sku": "289244",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/289244.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-ODEX-610W": {
+      "sku": "300585",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/300585.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-ODEX-700W": {
+      "sku": "304574",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/304574.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-ASTRONERGY-600W": {
+      "sku": "291808",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/291808.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-TSUN-560W": {
+      "sku": "215563",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/215563.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-JINKO-610W": {
+      "sku": "299589",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/299589.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-PAINEL-JINKO-615W": {
+      "sku": "299586",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-PANELS/299586.jpg",
+      "source_file": "odex-panels.json"
+    },
+    "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E": {
+      "sku": "192068",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-STRINGBOXES/192068.jpg",
+      "source_file": "odex-stringboxes.json"
+    },
+    "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO": {
+      "sku": "313801",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-STRUCTURES/313801.jpg",
+      "source_file": "odex-structures.json"
+    },
+    "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL": {
+      "sku": "313834",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-STRUCTURES/313834.jpg",
+      "source_file": "odex-structures.json"
+    },
+    "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO": {
+      "sku": "124358",
+      "distributor": "ODEX",
+      "image": "/catalog/images/ODEX-STRUCTURES/124358.jpg",
+      "source_file": "odex-structures.json"
+    },
+    "neosolar_inverters_22916": {
+      "sku": "22916",
+      "distributor": "NEOSOLAR",
+      "image_url": "",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22916",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21632": {
+      "sku": "21632",
+      "distributor": "NEOSOLAR",
+      "image_url": "",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21632",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20566": {
+      "sku": "20566",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/2f1e099e-b128-426a-bec9-d1a23e0fa5e7/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20566",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20563": {
+      "sku": "20563",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/f57b881d-643c-4112-b939-1e96d2dc2e61/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20563",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24973": {
+      "sku": "24973",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/07ed7649-9d69-44cf-acaa-5a8121ae2a31/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24973",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22022": {
+      "sku": "22022",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/c05d9e06-c246-4b3f-9c0c-2816c3faebca/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22022",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20247": {
+      "sku": "20247",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/9222be99-2486-4018-bdb6-bb647763e100/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20247",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24972": {
+      "sku": "24972",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/690c8937-54b5-4b31-b6f2-63c95c09e653/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24972",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21630": {
+      "sku": "21630",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/928de452-69eb-4e76-b2ae-25c9deda5453/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21630",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22024": {
+      "sku": "22024",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/444e4a3a-e1c9-4fda-a5a3-cf6be65895bd/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22024",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20922": {
+      "sku": "20922",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/b28c4098-b6f6-4738-a0a8-162f60e632ed/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20922",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21631": {
+      "sku": "21631",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/1e66c0fa-4fcc-4def-b0c0-e4eaa6f6018b/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21631",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20250": {
+      "sku": "20250",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/7c98c541-5c5f-4b2d-9457-89f66f50db58/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20250",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21634": {
+      "sku": "21634",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ecedd78a-6bf2-404e-84a6-d74c30d3e063/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21634",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20778": {
+      "sku": "20778",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/a6cbb7f2-1583-4592-a15f-b17a62e3c079/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20778",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21633": {
+      "sku": "21633",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/bc3ce850-8a27-474d-bc1e-99ae2ed8dcda/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21633",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21639": {
+      "sku": "21639",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/80a664dc-24f7-4e04-a23a-fbfc95ea18c5/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21639",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22095": {
+      "sku": "22095",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/31f69bfe-cac5-4020-8b4f-b85d48127385/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22095",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22023": {
+      "sku": "22023",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/dd13bf37-e8d8-4ae5-82fc-d90bc90b3dfe/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22023",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22920": {
+      "sku": "22920",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/2bfc7d9e-a497-4a07-b9c4-872e0a43846b/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22920",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20924": {
+      "sku": "20924",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/76125e2f-542b-4fdf-93dc-6386bccb2eea/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20924",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24874": {
+      "sku": "24874",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/a840b7c3-fd5a-457a-89dc-d847dff4a098/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24874",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22921": {
+      "sku": "22921",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/27c60e01-7ec9-46dc-b1a6-a793b43d0b3e/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22921",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21641": {
+      "sku": "21641",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/1a30e003-a302-4879-a469-b8d502d033ae/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21641",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21640": {
+      "sku": "21640",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/2c2d37bd-0e9c-4aaa-b9c4-1daaab9dc7d8/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21640",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22734": {
+      "sku": "22734",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/27950f28-da8d-4fa4-8ead-56b2cab841aa/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22734",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24878": {
+      "sku": "24878",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/205c695c-e31a-4084-837b-c380cdbb10fa/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24878",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20565": {
+      "sku": "20565",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/65cb9a19-8051-46a6-bbd3-4c5b008317f0/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20565",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24876": {
+      "sku": "24876",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/4e00159c-79d1-49f2-93ff-6d82643a20bf/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24876",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24825": {
+      "sku": "24825",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/4d586fa3-2c38-433b-9543-071448c3ab01/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24825",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20249": {
+      "sku": "20249",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ce4ae779-a42f-471c-95cd-721129523d7f/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20249",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24877": {
+      "sku": "24877",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/91ee485d-eaac-4003-a016-b435fa96f592/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24877",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24870": {
+      "sku": "24870",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/8e15f2a9-5543-4fea-9ed8-d5296aab90d9/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24870",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22714": {
+      "sku": "22714",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ef40f042-42c1-4422-8da2-02add0ed2f70/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22714",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_23309": {
+      "sku": "23309",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/570d4def-d812-4096-ae56-ba85bbabce74/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/23309",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_23783": {
+      "sku": "23783",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/892d28e3-e641-4944-a9f5-fd5feda881b4/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/23783",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_23782": {
+      "sku": "23782",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/fd73afef-306e-4f6a-998c-ba29a4e37dc2/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/23782",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20217": {
+      "sku": "20217",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/8d72155b-f675-49d9-8cb2-769f5556464c/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20217",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20252": {
+      "sku": "20252",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/20f3c8d5-e087-4b42-96b5-51f57496562d/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20252",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20253": {
+      "sku": "20253",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/b40a503d-6cf6-4ef0-9f20-c1b34db80bc2/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20253",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20255": {
+      "sku": "20255",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/fc35bd57-6243-4b80-851a-1dd35288b904/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20255",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20256": {
+      "sku": "20256",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/34ddc664-12b8-471a-b171-84aec724b1d6/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20256",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20258": {
+      "sku": "20258",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/0f08862f-63dd-45b3-8999-44a619d3f7a0/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20258",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20259": {
+      "sku": "20259",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/f3c22fb8-b867-4f0a-bc76-5d07e3a2fb23/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20259",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20260": {
+      "sku": "20260",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/9423dda0-f312-4174-b3cd-3e113acd61a5/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20260",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20261": {
+      "sku": "20261",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/3f5b6b25-0a5a-4ffe-9d58-bd2018408f60/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20261",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20262": {
+      "sku": "20262",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/fea18edc-c579-49cd-af02-ace6cc385194/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20262",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20264": {
+      "sku": "20264",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/0c726e07-ef7f-4bbd-a34b-f3f62b5e4a21/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20264",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20265": {
+      "sku": "20265",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/c6b05663-30fa-4e61-bb8c-839e406cb59e/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20265",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20266": {
+      "sku": "20266",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/cb9aa8cb-68ee-4cd3-a926-f409a8838c1e/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20266",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20267": {
+      "sku": "20267",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ca292c44-59b7-4bed-85d7-28ab90918868/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20267",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20268": {
+      "sku": "20268",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/09474e7c-1d05-456c-8be1-cf225223d0e2/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20268",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20269": {
+      "sku": "20269",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/2f34b502-d660-4d11-9435-2da192fa46b0/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20269",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20525": {
+      "sku": "20525",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/61861d78-37bd-4376-8e97-01f438d9c092/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20525",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20666": {
+      "sku": "20666",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ab1186e3-fcdd-452a-9a81-ebea9dc73bc4/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20666",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20287": {
+      "sku": "20287",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/e2a01227-9f28-4891-b5d5-decbe6b304a7/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20287",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21442": {
+      "sku": "21442",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/0b80133f-ce6c-4647-98aa-5cb36f26b9f5/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21442",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21642": {
+      "sku": "21642",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/655d16b8-4dc8-46cb-b3bc-f55bb61593f4/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21642",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21824": {
+      "sku": "21824",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ebc1e6b4-215e-412e-8164-094dc9c16c72/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21824",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22021": {
+      "sku": "22021",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/328c047f-24c9-42c9-a5df-f8748901d8c2/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22021",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22099": {
+      "sku": "22099",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/e35a9ded-e99a-4ae1-9506-61bdbf885783/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22099",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22025": {
+      "sku": "22025",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/cc653ee3-63c4-41f1-8ab3-06b30d0e38b2/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22025",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22144": {
+      "sku": "22144",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/ef758297-a7f2-42c3-94b1-11ec68bd0162/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22144",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_22159": {
+      "sku": "22159",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/e61fdefc-4870-4a84-a247-e3b25e6529e1/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22159",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_21306": {
+      "sku": "21306",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/49e9d1d2-344c-405f-91b5-b29b80b826c1/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/21306",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_24872": {
+      "sku": "24872",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/82213e2a-f17d-4779-8267-c2d0a1f41ded/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/24872",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "neosolar_inverters_20564": {
+      "sku": "20564",
+      "distributor": "NEOSOLAR",
+      "image_url": "https://portal.zydon.com.br/api/files/af18f01d-87cf-4b65-8f93-b897d935445e/content?ingress=portalb2b.neosolar.com.br",
+      "source_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/20564",
+      "source_file": "neosolar_catalog.csv"
+    },
+    "solfacil_inverters_1": {
+      "sku": "600340",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600340.jpeg",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_3": {
+      "sku": "600329",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600329.jpg",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_6": {
+      "sku": "600369",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600369.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_7": {
+      "sku": "600382",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600382.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_10": {
+      "sku": "600423",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600423.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_13": {
+      "sku": "600386",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600386.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_14": {
+      "sku": "600463",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600463.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_15": {
+      "sku": "600398",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600398.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_16": {
+      "sku": "600308",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600308.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_17": {
+      "sku": "600307",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600307.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_18": {
+      "sku": "600387",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600387.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_21": {
+      "sku": "600388",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600388.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_24": {
+      "sku": "600453",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600453.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_25": {
+      "sku": "600400",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600400.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_26": {
+      "sku": "600381",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600381.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_27": {
+      "sku": "600404",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600404.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_29": {
+      "sku": "600452",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600452.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_33": {
+      "sku": "600314",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600314.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_39": {
+      "sku": "600350",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600350.jpg",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_40": {
+      "sku": "600303",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600303.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_42": {
+      "sku": "600311",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600311.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_43": {
+      "sku": "600275",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600275.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_45": {
+      "sku": "600358",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600358.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_46": {
+      "sku": "600361",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600361.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_50": {
+      "sku": "600352",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600352.jpg",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_51": {
+      "sku": "600268",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600268.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_52": {
+      "sku": "600243",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600243.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_53": {
+      "sku": "600483",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600483.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_56": {
+      "sku": "600109",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600109.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_64": {
+      "sku": "600305",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600305.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_65": {
+      "sku": "600304",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600304.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_70": {
+      "sku": "600328",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600328.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_73": {
+      "sku": "600149",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600149.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_74": {
+      "sku": "600363",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600363.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_75": {
+      "sku": "600348",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600348.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_76": {
+      "sku": "600066",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600066.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_77": {
+      "sku": "600126",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600126.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_78": {
+      "sku": "600342",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600342.jpg",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_79": {
+      "sku": "600023",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600023.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_80": {
+      "sku": "600150",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600150.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_82": {
+      "sku": "600344",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600344.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_inverters_83": {
+      "sku": "600142",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-INVERTERS/IMAGE_PRODUCT_600142.png",
+      "source_file": "solfacil-inverters.json"
+    },
+    "solfacil_batteries_1": {
+      "sku": "000612",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
+      "source_file": "solfacil-batteries.json"
+    },
+    "solfacil_batteries_2": {
+      "sku": "000607",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
+      "source_file": "solfacil-batteries.json"
+    },
+    "solfacil_batteries_4": {
+      "sku": "850004",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
+      "source_file": "solfacil-batteries.json"
+    },
+    "solfacil_cables_4": {
+      "sku": "052129",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052129.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_5": {
+      "sku": "052130",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052130.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_20": {
+      "sku": "052115",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_24": {
+      "sku": "052118",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_25": {
+      "sku": "052117",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_26": {
+      "sku": "052127",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_28": {
+      "sku": "052119",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_29": {
+      "sku": "052128",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_30": {
+      "sku": "052113",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052113.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_31": {
+      "sku": "052123",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_32": {
+      "sku": "052124",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_33": {
+      "sku": "052122",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_34": {
+      "sku": "052121",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_35": {
+      "sku": "052126",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_cables_36": {
+      "sku": "052125",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
+      "source_file": "solfacil-cables.json"
+    },
+    "solfacil_accessories_1": {
+      "sku": "450083",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450083.png",
+      "source_file": "solfacil-accessories.json"
+    },
+    "solfacil_accessories_2": {
+      "sku": "450114",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450114.png",
+      "source_file": "solfacil-accessories.json"
+    },
+    "solfacil_accessories_8": {
+      "sku": "450123",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450123.png",
+      "source_file": "solfacil-accessories.json"
+    },
+    "solfacil_accessories_9": {
+      "sku": "450094",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450094.png",
+      "source_file": "solfacil-accessories.json"
+    },
+    "solfacil_accessories_10": {
+      "sku": "450118",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450118.jpg",
+      "source_file": "solfacil-accessories.json"
+    },
+    "solfacil_structures_1": {
+      "sku": "401949",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_401949.png",
+      "source_file": "solfacil-structures.json"
+    },
+    "solfacil_structures_2": {
+      "sku": "400187",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400187.png",
+      "source_file": "solfacil-structures.json"
+    },
+    "solfacil_structures_3": {
+      "sku": "400188",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400188.png",
+      "source_file": "solfacil-structures.json"
+    },
+    "solfacil_structures_4": {
+      "sku": "400190",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400190.png",
+      "source_file": "solfacil-structures.json"
+    },
+    "solfacil_panels_1": {
+      "sku": "559375",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559375.jpeg",
+      "source_file": "solfacil-panels.json"
+    },
+    "solfacil_panels_2": {
+      "sku": "559380",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559380.jpeg",
+      "source_file": "solfacil-panels.json"
+    },
+    "solfacil_panels_3": {
+      "sku": "559376",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
+      "source_file": "solfacil-panels.json"
+    },
+    "solfacil_panels_4": {
+      "sku": "559381",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559381.png",
+      "source_file": "solfacil-panels.json"
+    },
+    "solfacil_panels_5": {
+      "sku": "573429",
+      "distributor": "SOLFACIL",
+      "image": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_573429.png",
+      "source_file": "solfacil-panels.json"
+    }
+  }
+}

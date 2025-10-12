@@ -33,10 +33,6 @@ export default defineConfig({
         safe: true,
         snapshot: true,
         emit: 'ts',
-        generator: {
-            // Use custom generator for Medusa compatibility
-            type: 'postgresql',
-        },
     },
 
     // Debug & Logging
@@ -66,12 +62,6 @@ export default defineConfig({
         max: 10,
         idleTimeoutMillis: 30000,
         acquireTimeoutMillis: 60000,
-    },
-
-    // Cache
-    cache: {
-        enabled: true,
-        pretty: true,
     },
 
     // Metadata

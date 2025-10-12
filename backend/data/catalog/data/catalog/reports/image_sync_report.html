@@ -1,0 +1,1277 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Sync Report - YSH B2B Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: #999;
+            margin-top: 0.5rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tier-high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .tier-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .tier-low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .match-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .match-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .match-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #f9f9f9;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .match-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .match-meta {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .confidence-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #667eea;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 Image Sync Report</h1>
+        <p>YSH B2B Platform - AI-Powered Image Matching</p>
+        <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+            Generated: 2025-10-07 20:26:53
+        </p>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Cards -->
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-title">Total Matches</div>
+                <div class="card-value">1099</div>
+                <div class="card-subtitle">Products matched with images</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">High Confidence</div>
+                <div class="card-value">418</div>
+                <div class="card-subtitle">Auto-assigned (≥0.80)</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Review Queue</div>
+                <div class="card-value">214</div>
+                <div class="card-subtitle">Medium confidence (0.60-0.79)</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Manual Assignment</div>
+                <div class="card-value">467</div>
+                <div class="card-subtitle">Low confidence (<0.60)</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Valid Images</div>
+                <div class="card-value">1099</div>
+                <div class="card-subtitle">Files exist on disk</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Missing Images</div>
+                <div class="card-value">0</div>
+                <div class="card-subtitle">Files not found</div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="section">
+            <h2 class="section-title">📊 Detailed Statistics</h2>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Average Confidence</div>
+                    <div class="stat-value">0.67</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Max Confidence</div>
+                    <div class="stat-value">1.00</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Products Updated</div>
+                    <div class="stat-value">421</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Files Processed</div>
+                    <div class="stat-value">12</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs for different tiers -->
+        <div class="section tab-container">
+            <h2 class="section-title">🖼️ Matched Products</h2>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('high')">
+                    High Confidence (418)
+                </button>
+                <button class="tab" onclick="showTab('medium')">
+                    Review Queue (214)
+                </button>
+                <button class="tab" onclick="showTab('low')">
+                    Low Confidence (467)
+                </button>
+            </div>
+
+            <div id="high" class="tab-content active">
+                <div class="match-grid">
+                    
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg" alt="https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg" alt="https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg" alt="https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg" alt="https://portal.zydon.com.br/api/files/e7e64039-32bd-4a3f-a34b-d0c6b6d948d8/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/e7e64039-32bd-4a3f-a34b-d0c6b6d948d8/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg" alt="https://portal.zydon.com.br/api/files/d05f4589-fd3a-4404-a2e7-398841db4d1c/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/d05f4589-fd3a-4404-a2e7-398841db4d1c/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg" alt="https://portal.zydon.com.br/api/files/c697a21f-75fd-4e49-93d6-173ed1bd3712/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/c697a21f-75fd-4e49-93d6-173ed1bd3712/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg" alt="https://portal.zydon.com.br/api/files/e99a7155-0c24-4be7-b7c8-8a67e6a41d5a/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/e99a7155-0c24-4be7-b7c8-8a67e6a41d5a/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20925.jpg" alt="https://portal.zydon.com.br/api/files/806b0b15-17f1-4094-9ef4-83c3205377b9/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/806b0b15-17f1-4094-9ef4-83c3205377b9/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg" alt="https://portal.zydon.com.br/api/files/829eb410-e3ba-46a2-a47e-434ab6c50e6a/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/829eb410-e3ba-46a2-a47e-434ab6c50e6a/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg" alt="https://portal.zydon.com.br/api/files/529f350a-60ed-404f-adaa-53f87b1c63a0/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/529f350a-60ed-404f-adaa-53f87b1c63a0/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg" alt="https://portal.zydon.com.br/api/files/8236b883-9053-481d-84a5-e9d086cb77df/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/8236b883-9053-481d-84a5-e9d086cb77df/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg" alt="https://portal.zydon.com.br/api/files/655fa0a7-5c1f-4db9-aaaf-dd25191a01d4/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/655fa0a7-5c1f-4db9-aaaf-dd25191a01d4/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_20789.jpg" alt="https://portal.zydon.com.br/api/files/beaa3689-ce19-4306-8f12-e182f99119fd/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/beaa3689-ce19-4306-8f12-e182f99119fd/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_21771.jpg" alt="https://portal.zydon.com.br/api/files/37629352-ec02-455e-944f-22cda2be6052/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/37629352-ec02-455e-944f-22cda2be6052/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg" alt="https://portal.zydon.com.br/api/files/032dd801-be80-4c08-9668-0875ac54d240/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/032dd801-be80-4c08-9668-0875ac54d240/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg" alt="https://portal.zydon.com.br/api/files/387ee6d0-a48c-40dd-9625-3d6e08af335b/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/387ee6d0-a48c-40dd-9625-3d6e08af335b/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg" alt="https://portal.zydon.com.br/api/files/aee39a32-961d-4725-909b-76dd98b99390/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/aee39a32-961d-4725-909b-76dd98b99390/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg" alt="https://portal.zydon.com.br/api/files/29ad6f66-a45b-4acc-b652-2a2fc4a0d0e8/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/29ad6f66-a45b-4acc-b652-2a2fc4a0d0e8/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CABLES/neosolar_cables_25205.jpg" alt="https://portal.zydon.com.br/api/files/2c4eaf00-8563-4844-9cd5-deaa954edf05/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/2c4eaf00-8563-4844-9cd5-deaa954edf05/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CONTROLLERS/NEOSOLAR_CONTROLLERS_20080.jpg" alt="https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-high">HIGH</span>
+                <span style="margin-left: 0.5rem;">Method: exact</span>
+            </div>
+            <div class="match-meta">Confidence: 1.00</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 100.0%;"></div>
+            </div>
+        </div>
+          <!-- Limit to 20 -->
+                </div>
+                <p style='margin-top: 1rem; color: #666;'>Showing first 20 of 418 high confidence matches</p>
+            </div>
+
+            <div id="medium" class="tab-content">
+                <div class="match-grid">
+                    
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-5000W.jpg" alt="Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.61</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60.54051771777307%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3000W.jpg" alt="Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.65</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 65.06425376556999%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.63</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 63.08189659871468%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.63</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 62.97937985085136%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.60</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60.37060361920605%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.60</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60.249787968662496%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png" alt="Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.65</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 64.97065147810885%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.63</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 63.408832722043094%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png" alt="Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.62</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 62.492322190777294%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GROWATT-MAX60KTL3-XL 2_image.webp" alt="Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.63</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 62.85100405766414%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-1200W.jpg" alt="Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.61</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 60.78485147479098%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-2400W.jpg" alt="Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.66</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 65.52205614569705%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3000W.jpg" alt="Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.67</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 67.0784239514498%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-4000W.jpg" alt="Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.66</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 66.13313584230536%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-5000W.jpg" alt="Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.66</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 65.84177939794654%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-6000W-1.jpg" alt="Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.67</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 66.65863439876121%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-8000W-1.jpg" alt="Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.64</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 63.78866479236167%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-10000W-1.jpg" alt="Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.63</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 63.119339622770035%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO.jpg" alt="Estrutura Solar Group Fibrocimento Grande" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Estrutura Solar Group Fibrocimento Grande</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.70</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 69.68379847758442%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO.jpg" alt="Estrutura Solar Group Fibrocimento Pequeno" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Estrutura Solar Group Fibrocimento Pequeno</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-medium">MEDIUM</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.69</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 69.07840404272709%;"></div>
+            </div>
+        </div>
+        
+                </div>
+                <p style='margin-top: 1rem; color: #666;'>Showing first 20 of 214 medium confidence matches</p>
+            </div>
+
+            <div id="low" class="tab-content">
+                <div class="match-grid">
+                    
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-5000W.jpg" alt="Bateria Growatt AXE 5.0L LiFePO4 5kWh" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Bateria Growatt AXE 5.0L LiFePO4 5kWh</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.55</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 54.80822938224305%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-5000W.jpg" alt="Carregador EV Growatt THOR07AS-P 7kW" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Carregador EV Growatt THOR07AS-P 7kW</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.54</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 53.9084854762914%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3000W-1.jpg" alt="Carregador EV FoxESS A7300P1-E-2 7.3kW" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Carregador EV FoxESS A7300P1-E-2 7.3kW</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.30</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 29.671934247016907%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP04-840kWp-MiniTrilho-kits.jpg" alt="RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.25</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 25.44826865196228%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-480kWp-Fibrocimento-kits.jpg" alt="Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.29</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 28.963065147399902%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-568kWp-MiniTrilho-kits.jpg" alt="Caixa de Passagem PRFV D 0.8m × H 0.8m" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Caixa de Passagem PRFV D 0.8m × H 0.8m</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.33</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 32.97560513019562%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-480kWp-MiniTrilho-kits.jpg" alt="Cerca de Arame Galvanizado 1.8m × 20m" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">Cerca de Arame Galvanizado 1.8m × 20m</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.30</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 29.71877157688141%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-1065kWp-MiniTrilho-kits.jpg" alt="KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.35</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 35.03108620643616%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-kits.jpg" alt="KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.29</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 29.041361808776855%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP04-120kWp-Fibrocimento-kits.jpg" alt="SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.33</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 33.35287570953369%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-kits.jpg" alt="KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.32</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 31.696587800979614%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg" alt="SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.33</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 33.05811285972595%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-360kWp-Fibrocimento-kits.jpg" alt="KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.36</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 36.11289858818054%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-480kWp-MiniTrilho-kits-hibridos.jpg" alt="KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.34</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 34.48532521724701%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-852kWp-Ceramico-kits.jpg" alt="KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.38</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 37.97989785671234%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg" alt="KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.38</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 38.41427564620972%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/FOTUS-KITS/FOTUS-KP02-kits.jpg" alt="KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.33</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 32.87422060966492%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20860.jpg" alt="UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.28</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 27.944427728652954%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/SOLFACIL-INVERTERS/GOODWE-GW 30KLS-MT - AFCI_IMAGE_PRODUCT_600268.png" alt="BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.45</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 44.87136526308772%;"></div>
+            </div>
+        </div>
+        
+
+        <div class="match-card">
+            <img src="/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20868.jpg" alt="BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER" class="match-image"
+                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23f0f0f0\' width=\'200\' height=\'200\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23999\' font-size=\'14\'%3EImage Not Found%3C/text%3E%3C/svg%3E'">
+            <div class="match-name">BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER</div>
+            <div class="match-meta">
+                <span class="tier-badge tier-low">LOW</span>
+                <span style="margin-left: 0.5rem;">Method: semantic</span>
+            </div>
+            <div class="match-meta">Confidence: 0.31</div>
+            <div class="confidence-bar">
+                <div class="confidence-fill" style="width: 30.86596429347992%;"></div>
+            </div>
+        </div>
+        
+                </div>
+                <p style='margin-top: 1rem; color: #666;'>Showing first 20 of 467 low confidence matches</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>YSH B2B Platform - Orchestrated Image Sync v1.0</p>
+        <p>Powered by Semantic (BERT) + Fuzzy (Levenshtein) + Exact Matching</p>
+    </div>
+
+    <script>
+        function showTab(tier) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tier).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+    

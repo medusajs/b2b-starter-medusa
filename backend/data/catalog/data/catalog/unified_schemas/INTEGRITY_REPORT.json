@@ -1,0 +1,140 @@
+{
+  "total_products": 1161,
+  "by_category": {
+    "accessories": 17,
+    "cables": 55,
+    "ev_chargers": 83,
+    "controllers": 38,
+    "kits": 336,
+    "inverters": 490,
+    "panels": 29,
+    "stringboxes": 13,
+    "structures": 40,
+    "posts": 6,
+    "batteries": 9,
+    "others": 45
+  },
+  "sources_processed": 55,
+  "data_quality": {
+    "accessories": {
+      "total": 17,
+      "with_id": 17,
+      "with_name": 17,
+      "with_manufacturer": 17,
+      "with_price": 17,
+      "with_image": 0,
+      "with_metadata": 17,
+      "completeness_pct": 100.0
+    },
+    "cables": {
+      "total": 55,
+      "with_id": 55,
+      "with_name": 55,
+      "with_manufacturer": 55,
+      "with_price": 52,
+      "with_image": 52,
+      "with_metadata": 55,
+      "completeness_pct": 100.0
+    },
+    "ev_chargers": {
+      "total": 83,
+      "with_id": 83,
+      "with_name": 83,
+      "with_manufacturer": 83,
+      "with_price": 75,
+      "with_image": 71,
+      "with_metadata": 83,
+      "completeness_pct": 100.0
+    },
+    "controllers": {
+      "total": 38,
+      "with_id": 38,
+      "with_name": 38,
+      "with_manufacturer": 38,
+      "with_price": 35,
+      "with_image": 38,
+      "with_metadata": 38,
+      "completeness_pct": 100.0
+    },
+    "kits": {
+      "total": 336,
+      "with_id": 334,
+      "with_name": 334,
+      "with_manufacturer": 83,
+      "with_price": 307,
+      "with_image": 251,
+      "with_metadata": 336,
+      "completeness_pct": 74.5
+    },
+    "inverters": {
+      "total": 490,
+      "with_id": 489,
+      "with_name": 489,
+      "with_manufacturer": 489,
+      "with_price": 473,
+      "with_image": 202,
+      "with_metadata": 490,
+      "completeness_pct": 99.8
+    },
+    "panels": {
+      "total": 29,
+      "with_id": 28,
+      "with_name": 28,
+      "with_manufacturer": 28,
+      "with_price": 28,
+      "with_image": 17,
+      "with_metadata": 29,
+      "completeness_pct": 96.6
+    },
+    "stringboxes": {
+      "total": 13,
+      "with_id": 13,
+      "with_name": 13,
+      "with_manufacturer": 13,
+      "with_price": 13,
+      "with_image": 1,
+      "with_metadata": 13,
+      "completeness_pct": 100.0
+    },
+    "structures": {
+      "total": 40,
+      "with_id": 40,
+      "with_name": 40,
+      "with_manufacturer": 40,
+      "with_price": 40,
+      "with_image": 13,
+      "with_metadata": 40,
+      "completeness_pct": 100.0
+    },
+    "posts": {
+      "total": 6,
+      "with_id": 6,
+      "with_name": 6,
+      "with_manufacturer": 6,
+      "with_price": 6,
+      "with_image": 0,
+      "with_metadata": 6,
+      "completeness_pct": 100.0
+    },
+    "batteries": {
+      "total": 9,
+      "with_id": 9,
+      "with_name": 9,
+      "with_manufacturer": 9,
+      "with_price": 9,
+      "with_image": 3,
+      "with_metadata": 9,
+      "completeness_pct": 100.0
+    },
+    "others": {
+      "total": 45,
+      "with_id": 10,
+      "with_name": 10,
+      "with_manufacturer": 45,
+      "with_price": 45,
+      "with_image": 6,
+      "with_metadata": 45,
+      "completeness_pct": 48.1
+    }
+  }
+}

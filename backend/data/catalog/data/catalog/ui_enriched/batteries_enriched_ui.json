@@ -1,0 +1,292 @@
+{
+  "category": "batteries",
+  "total_products": 9,
+  "generated_at": "2025-10-07T21:06:54.696590",
+  "hero": {
+    "title": "Catálogo de Batteries",
+    "subtitle": "Explore nossa seleção de 9 produtos certificados",
+    "cta_primary": "Ver Produtos",
+    "cta_secondary": "Solicitar Cotação",
+    "benefits": [
+      "Produtos Certificados",
+      "Entrega Rápida",
+      "Suporte Técnico Especializado"
+    ]
+  },
+  "featured_products": [
+    {
+      "id": "solfacil_batteries_1",
+      "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+      "manufacturer": "SOLFACIL",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
+      "price_brl": 5322.94,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "SOLFACIL - UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20 - SOLFACIL | Yello Solar Hub",
+        "description": "Compre UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20 de SOLFACIL. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "SOLFACIL",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+        "og_description": "SOLFACIL - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_2",
+      "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+      "manufacturer": "GOODWE",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
+      "price_brl": 5983.17,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "GOODWE - BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE - GOODWE | Yello Solar Hub",
+        "description": "Compre BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE de GOODWE. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "GOODWE",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+        "og_description": "GOODWE - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_3",
+      "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+      "manufacturer": "SOLFACIL",
+      "image_url": "",
+      "price_brl": 6255.94,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "SOLFACIL - BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER - SOLFACIL | Yello Solar Hub",
+        "description": "Compre BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER de SOLFACIL. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "SOLFACIL",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+        "og_description": "SOLFACIL - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_4",
+      "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+      "manufacturer": "GOODWE",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
+      "price_brl": 7323.74,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "GOODWE - BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE - GOODWE | Yello Solar Hub",
+        "description": "Compre BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE de GOODWE. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "GOODWE",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+        "og_description": "GOODWE - batteries"
+      }
+    },
+    {
+      "id": "FORTLEV-GROWATT-AXE-5.0L",
+      "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+      "manufacturer": "Growatt",
+      "image_url": "",
+      "price_brl": 6716.83,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "Growatt - Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "Bateria Growatt AXE 5.0L LiFePO4 5kWh - Growatt | Yello Solar Hub",
+        "description": "Compre Bateria Growatt AXE 5.0L LiFePO4 5kWh de Growatt. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "Growatt",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+        "og_description": "Growatt - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_1",
+      "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+      "manufacturer": "Solfacil",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
+      "price_brl": 5322.94,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "Solfacil - UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20 - Solfacil | Yello Solar Hub",
+        "description": "Compre UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20 de Solfacil. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "Solfacil",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+        "og_description": "Solfacil - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_2",
+      "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+      "manufacturer": "GoodWe",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000607.jpg",
+      "price_brl": 5983.17,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "GoodWe - BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE - GoodWe | Yello Solar Hub",
+        "description": "Compre BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE de GoodWe. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "GoodWe",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+        "og_description": "GoodWe - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_3",
+      "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+      "manufacturer": "Solfacil",
+      "image_url": "",
+      "price_brl": 6255.94,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "Solfacil - BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER - Solfacil | Yello Solar Hub",
+        "description": "Compre BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER de Solfacil. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "Solfacil",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+        "og_description": "Solfacil - batteries"
+      }
+    },
+    {
+      "id": "solfacil_batteries_4",
+      "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+      "manufacturer": "GoodWe",
+      "image_url": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_850004.png",
+      "price_brl": 7323.74,
+      "badges": [
+        {
+          "text": "Bateria",
+          "variant": "default"
+        }
+      ],
+      "microcopy": {
+        "short_description": "GoodWe - BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+        "tooltip": "Clique para ver detalhes técnicos completos",
+        "cta_text": "Ver Detalhes",
+        "availability_text": "Disponível"
+      },
+      "seo": {
+        "title": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE - GoodWe | Yello Solar Hub",
+        "description": "Compre BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE de GoodWe. Entrega rápida e suporte técnico.",
+        "keywords": [
+          "GoodWe",
+          "batteries",
+          "energia solar"
+        ],
+        "og_title": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+        "og_description": "GoodWe - batteries"
+      }
+    }
+  ],
+  "manufacturer_spotlight": {
+    "name": "SOLFACIL",
+    "product_count": 2
+  }
+}

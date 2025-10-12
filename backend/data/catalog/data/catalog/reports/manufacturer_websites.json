@@ -1,0 +1,510 @@
+{
+  "inversores": [
+    {
+      "global": "https://www.astronergy.com",
+      "br": null,
+      "description": "Astronergy Co., Ltd.",
+      "manufacturer": "ASTRONERGY",
+      "status": "verified",
+      "product_count": 3,
+      "series": [
+        "A"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.chint.com",
+      "br": "https://www.chint.com.br",
+      "description": "CHINT Group",
+      "manufacturer": "CHINT",
+      "status": "verified",
+      "product_count": 8,
+      "series": [],
+      "model_count": 0
+    },
+    {
+      "manufacturer": "CHINT POWER",
+      "global": null,
+      "br": null,
+      "description": "Site não encontrado",
+      "status": "not_found",
+      "product_count": 4,
+      "series": [
+        "NXI"
+      ],
+      "model_count": 4
+    },
+    {
+      "global": "https://www.clamper.com.br",
+      "br": "https://www.clamper.com.br",
+      "description": "Clamper - Fabricante Nacional",
+      "manufacturer": "CLAMPER",
+      "status": "verified",
+      "product_count": 18,
+      "series": [
+        "S"
+      ],
+      "model_count": 5
+    },
+    {
+      "global": "https://www.deyeinverter.com",
+      "br": "https://www.deyeinverter.com.br",
+      "description": "Ningbo Deye Inverter Technology Co., Ltd.",
+      "manufacturer": "DEYE",
+      "status": "verified",
+      "product_count": 79,
+      "series": [
+        "DEYE",
+        "KP",
+        "SG",
+        "SUN"
+      ],
+      "model_count": 17
+    },
+    {
+      "global": "https://enphase.com",
+      "br": "https://enphase.com/pt-br",
+      "description": "Enphase Energy",
+      "manufacturer": "ENPHASE",
+      "status": "verified",
+      "product_count": 2,
+      "series": [
+        "ENPHASE"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.epever.com",
+      "br": null,
+      "description": "EPEVER Technology Co., Ltd.",
+      "manufacturer": "EPEVER",
+      "status": "verified",
+      "product_count": 111,
+      "series": [
+        "HP",
+        "I",
+        "IP"
+      ],
+      "model_count": 22
+    },
+    {
+      "global": "https://www.goodwe.com",
+      "br": "https://www.goodwe.com.br",
+      "description": "GoodWe Technologies Co., Ltd.",
+      "manufacturer": "GOODWE",
+      "status": "verified",
+      "product_count": 106,
+      "series": [
+        "GOODWE"
+      ],
+      "model_count": 45
+    },
+    {
+      "global": "https://www.growatt.com",
+      "br": "https://brasil.growatt.com",
+      "description": "Growatt New Energy Technology Co., Ltd.",
+      "manufacturer": "GROWATT",
+      "status": "verified",
+      "product_count": 76,
+      "series": [
+        "GROWATT",
+        "MIC",
+        "MIN",
+        "MOD"
+      ],
+      "model_count": 24
+    },
+    {
+      "global": "https://solar.huawei.com",
+      "br": "https://solar.huawei.com/br",
+      "description": "Huawei Technologies Co., Ltd.",
+      "manufacturer": "HUAWEI",
+      "status": "verified",
+      "product_count": 10,
+      "series": [
+        "SUN"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.jinkosolar.com",
+      "br": "https://www.jinkosolar.com/pt",
+      "description": "JinkoSolar Holding Co., Ltd.",
+      "manufacturer": "JINKO",
+      "status": "verified",
+      "product_count": 6,
+      "series": [
+        "J"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.k2-systems.com",
+      "br": "https://www.k2-systems.com/br",
+      "description": "K2 Systems GmbH",
+      "manufacturer": "K2 SYSTEMS",
+      "status": "verified",
+      "product_count": 30,
+      "series": [
+        "E"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.livoltek.com",
+      "br": "https://www.livoltek.com.br",
+      "description": "Livoltek Solar Energy",
+      "manufacturer": "LIVOLTEK",
+      "status": "verified",
+      "product_count": 5,
+      "series": [
+        "GT"
+      ],
+      "model_count": 4
+    },
+    {
+      "global": "https://www.must-power.com",
+      "br": null,
+      "description": "MUST Power Limited",
+      "manufacturer": "MUST",
+      "status": "verified",
+      "product_count": 6,
+      "series": [
+        "PV"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.neosolar.com.br",
+      "br": "https://www.neosolar.com.br",
+      "description": "NeoSolar - Distribuidor Nacional",
+      "manufacturer": "NEOSOLAR",
+      "status": "verified",
+      "product_count": 10,
+      "series": [],
+      "model_count": 0
+    },
+    {
+      "global": "https://www.odex.com.br",
+      "br": "https://www.odex.com.br",
+      "description": "ODEX - Distribuidor Nacional",
+      "manufacturer": "ODEX",
+      "status": "verified",
+      "product_count": 15,
+      "series": [
+        "O"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.pratyc.com.br",
+      "br": "https://www.pratyc.com.br",
+      "description": "Pratyc Solar - Fabricante Nacional",
+      "manufacturer": "PRATYC",
+      "status": "verified",
+      "product_count": 15,
+      "series": [
+        "E"
+      ],
+      "model_count": 5
+    },
+    {
+      "global": "https://www.romagnole.com.br",
+      "br": "https://www.romagnole.com.br",
+      "description": "Romagnole - Fabricante Nacional",
+      "manufacturer": "ROMAGNOLE",
+      "status": "verified",
+      "product_count": 15,
+      "series": [
+        "E"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.saj-electric.com",
+      "br": null,
+      "description": "SAJ Electric Co., Ltd.",
+      "manufacturer": "SAJ",
+      "status": "verified",
+      "product_count": 33,
+      "series": [
+        "R5"
+      ],
+      "model_count": 11
+    },
+    {
+      "global": "https://www.sofarsolar.com",
+      "br": "https://br.sofarsolar.com",
+      "description": "Sofar Solar Co., Ltd.",
+      "manufacturer": "SOFAR",
+      "status": "verified",
+      "product_count": 13,
+      "series": [
+        "SOFAR"
+      ],
+      "model_count": 5
+    },
+    {
+      "global": "https://www.solargroup.com.br",
+      "br": "https://www.solargroup.com.br",
+      "description": "Solar Group - Fabricante Nacional",
+      "manufacturer": "SOLAR GROUP",
+      "status": "verified",
+      "product_count": 18,
+      "series": [
+        "E"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.solaxpower.com",
+      "br": null,
+      "description": "SolaX Power Co., Ltd.",
+      "manufacturer": "SOLAX",
+      "status": "verified",
+      "product_count": 9,
+      "series": [
+        "X1",
+        "X3"
+      ],
+      "model_count": 3
+    },
+    {
+      "global": "https://www.solfacil.com.br",
+      "br": "https://www.solfacil.com.br",
+      "description": "Solfácil - Plataforma de Financiamento",
+      "manufacturer": "SOLFACIL",
+      "status": "verified",
+      "product_count": 1,
+      "series": [
+        "KIT"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.tecbox.com.br",
+      "br": "https://www.tecbox.com.br",
+      "description": "Tecbox - Fabricante Nacional",
+      "manufacturer": "TECBOX",
+      "status": "verified",
+      "product_count": 21,
+      "series": [
+        "S"
+      ],
+      "model_count": 7
+    },
+    {
+      "global": "https://www.tsun-ess.com",
+      "br": null,
+      "description": "Tsun New Energy Technology Co., Ltd.",
+      "manufacturer": "TSUN",
+      "status": "verified",
+      "product_count": 3,
+      "series": [
+        "T"
+      ],
+      "model_count": 1
+    },
+    {
+      "manufacturer": "TSUNESS",
+      "global": null,
+      "br": null,
+      "description": "Site não encontrado",
+      "status": "not_found",
+      "product_count": 2,
+      "series": [
+        "KP"
+      ],
+      "model_count": 2
+    },
+    {
+      "global": "https://www.ztroon.com.br",
+      "br": "https://www.ztroon.com.br",
+      "description": "Ztroon Solar - Fabricante Nacional",
+      "manufacturer": "ZTROON",
+      "status": "verified",
+      "product_count": 30,
+      "series": [
+        "ZT"
+      ],
+      "model_count": 10
+    }
+  ],
+  "paineis": [
+    {
+      "global": "https://www.astronergy.com",
+      "br": null,
+      "description": "Astronergy Co., Ltd.",
+      "manufacturer": "ASTRONERGY",
+      "status": "verified",
+      "product_count": 3,
+      "series": [
+        "A",
+        "CHSM"
+      ],
+      "model_count": 2
+    },
+    {
+      "manufacturer": "DAH",
+      "global": null,
+      "br": null,
+      "description": "Site não encontrado",
+      "status": "not_found",
+      "product_count": 1,
+      "series": [],
+      "model_count": 0
+    },
+    {
+      "global": "https://www.dahsolarpv.com",
+      "br": null,
+      "description": "DAH Solar Co., Ltd.",
+      "manufacturer": "DAH SOLAR",
+      "status": "verified",
+      "product_count": 3,
+      "series": [
+        "DAH",
+        "DHN"
+      ],
+      "model_count": 3
+    },
+    {
+      "global": "https://www.hanersun.com",
+      "br": null,
+      "description": "Hanersun Solar Technology Co., Ltd.",
+      "manufacturer": "HANERSUN",
+      "status": "verified",
+      "product_count": 6,
+      "series": [
+        "HANERSUN",
+        "HJT",
+        "HN"
+      ],
+      "model_count": 3
+    },
+    {
+      "global": "https://www.jinkosolar.com",
+      "br": "https://www.jinkosolar.com/pt",
+      "description": "JinkoSolar Holding Co., Ltd.",
+      "manufacturer": "JINKO",
+      "status": "verified",
+      "product_count": 6,
+      "series": [
+        "J"
+      ],
+      "model_count": 3
+    },
+    {
+      "global": "https://www.longi.com",
+      "br": "https://www.longi.com/br",
+      "description": "LONGi Green Energy Technology Co., Ltd.",
+      "manufacturer": "LONGI",
+      "status": "verified",
+      "product_count": 2,
+      "series": [
+        "LR"
+      ],
+      "model_count": 2
+    },
+    {
+      "global": "https://www.luxensolar.com",
+      "br": null,
+      "description": "Luxen Solar Energy",
+      "manufacturer": "LUXEN",
+      "status": "verified",
+      "product_count": 2,
+      "series": [
+        "LNVH",
+        "LNVU"
+      ],
+      "model_count": 2
+    },
+    {
+      "global": "https://www.minasol.com.br",
+      "br": "https://www.minasol.com.br",
+      "description": "Minasol - Fabricante Nacional",
+      "manufacturer": "MINASOL",
+      "status": "verified",
+      "product_count": 2,
+      "series": [
+        "MS"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.odex.com.br",
+      "br": "https://www.odex.com.br",
+      "description": "ODEX - Distribuidor Nacional",
+      "manufacturer": "ODEX",
+      "status": "verified",
+      "product_count": 15,
+      "series": [
+        "BLK",
+        "O",
+        "ODE",
+        "ODEHJT"
+      ],
+      "model_count": 6
+    },
+    {
+      "global": "https://www.osda-solar.com",
+      "br": null,
+      "description": "OSDA Solar Technology Co., Ltd.",
+      "manufacturer": "OSDA",
+      "status": "verified",
+      "product_count": 7,
+      "series": [
+        "ODA"
+      ],
+      "model_count": 6
+    },
+    {
+      "global": "https://www.sunova-solar.com",
+      "br": null,
+      "description": "Sunova Solar Technology Co., Ltd.",
+      "manufacturer": "SUNOVA",
+      "status": "verified",
+      "product_count": 1,
+      "series": [
+        "SS"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.tsun-ess.com",
+      "br": null,
+      "description": "Tsun New Energy Technology Co., Ltd.",
+      "manufacturer": "TSUN",
+      "status": "verified",
+      "product_count": 4,
+      "series": [
+        "KIT",
+        "T"
+      ],
+      "model_count": 2
+    },
+    {
+      "global": "https://www.tsun-ess.com",
+      "br": null,
+      "description": "Tsun New Energy Technology Co., Ltd.",
+      "manufacturer": "TSUN POWER",
+      "status": "verified",
+      "product_count": 1,
+      "series": [
+        "TS"
+      ],
+      "model_count": 1
+    },
+    {
+      "global": "https://www.ztroon.com.br",
+      "br": "https://www.ztroon.com.br",
+      "description": "Ztroon Solar - Fabricante Nacional",
+      "manufacturer": "ZTROON",
+      "status": "verified",
+      "product_count": 10,
+      "series": [
+        "ZTP"
+      ],
+      "model_count": 10
+    }
+  ]
+}

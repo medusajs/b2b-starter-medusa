@@ -101,7 +101,7 @@ export const POST = async (
 
     try {
         // Import workflow
-        const { calculateSolarSystemWorkflow } = await import("../../../workflows/solar/calculate-solar-system")
+        const { calculateSolarSystemWorkflow } = await import("../../../workflows/solar/calculate-solar-system.js")
 
         // Execute workflow
         const { result } = await calculateSolarSystemWorkflow(req.scope).run({
