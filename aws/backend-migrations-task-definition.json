@@ -13,9 +13,9 @@
             "name": "migrations",
             "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.2",
             "command": [
-                "npx",
-                "medusa",
-                "db:migrate"
+                "npm",
+                "run",
+                "migrate"
             ],
             "environment": [
                 {
