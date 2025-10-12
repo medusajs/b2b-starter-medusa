@@ -6,7 +6,7 @@
 
 **Publishable Key no AWS Secrets Manager é PLACEHOLDER inválido**:
 
-```
+```tsx
 Secret: /ysh-b2b/publishable-key
 Valor atual: pk_PLACEHOLDER_WILL_BE_UPDATED_AFTER_ADMIN_SETUP
 Status: ❌ INVÁLIDO (não é uma key real)
