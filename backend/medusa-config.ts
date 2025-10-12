@@ -1,7 +1,7 @@
-// Módulos B2B customizados
-import { QUOTE_MODULE } from "./src/modules/quote";
-import { APPROVAL_MODULE } from "./src/modules/approval";
-import { COMPANY_MODULE } from "./src/modules/company";
+// Módulos B2B customizados - usando strings diretas para evitar problemas de build
+// import { QUOTE_MODULE } from "./src/modules/quote";
+// import { APPROVAL_MODULE } from "./src/modules/approval";
+// import { COMPANY_MODULE } from "./src/modules/company";
 import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
 import { UNIFIED_CATALOG_MODULE } from "./src/modules/unified-catalog";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
@@ -46,14 +46,14 @@ export default defineConfig({
     [UNIFIED_CATALOG_MODULE]: {
       resolve: "./modules/unified-catalog",
     },
-    // Módulos B2B
-    [COMPANY_MODULE]: {
+    // Módulos B2B - registrados por string direta
+    "company": {
       resolve: "./modules/company",
     },
-    [QUOTE_MODULE]: {
+    "quote": {
       resolve: "./modules/quote",
     },
-    [APPROVAL_MODULE]: {
+    "approval": {
       resolve: "./modules/approval",
     },
     // ==========================================
