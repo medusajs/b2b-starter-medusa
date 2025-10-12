@@ -10,6 +10,7 @@ import { getImageCache } from './image-cache';
 
 const UNIFIED_SCHEMAS_PATH = path.join(__dirname, '../../../data/catalog/unified_schemas');
 const IMAGE_MAP_PATH = path.join(__dirname, '../../../static/images-catálogo_distribuidores/IMAGE_MAP.json');
+const SKU_MAPPING_PATH = path.join(__dirname, '../../../data/catalog/data/SKU_MAPPING.json');
 
 interface ImageMapEntry {
     sku: string;
@@ -28,8 +29,23 @@ interface ImageMapData {
     mappings: { [sku: string]: ImageMapEntry };
 }
 
+interface SkuMappingEntry {
+    sku: string;
+    distributor: string;
+    image?: string;
+    image_url?: string;
+    source_file: string;
+}
+
+interface SkuMappingData {
+    version: string;
+    total_mappings: number;
+    mappings: { [productId: string]: SkuMappingEntry };
+}
+
 class InternalCatalogService {
     private imageMap: ImageMapData | null = null;
+    private skuMapping: SkuMappingData | null = null;
     private cache = getImageCache();
     private loadedCategories = new Set<string>();
 
@@ -60,11 +76,45 @@ class InternalCatalogService {
     }
 
     /**
+     * Load SKU mapping from recovered data
+     */
+    async loadSkuMapping(): Promise<SkuMappingData> {
+        if (this.skuMapping) {
+            return this.skuMapping;
+        }
+
+        const cached = this.cache.get<SkuMappingData>('sku_mapping');
+        if (cached) {
+            this.skuMapping = cached;
+            return cached;
+        }
+
+        try {
+            const content = await fs.readFile(SKU_MAPPING_PATH, 'utf-8');
+            const data = JSON.parse(content) as SkuMappingData;
+            this.skuMapping = data;
+            this.cache.set('sku_mapping', data, 7200000); // 2 hours TTL
+            return data;
+        } catch (error) {
+            console.error('SKU mapping not available, will use fallback extraction');
+            // Return empty mapping if file doesn't exist
+            return {
+                version: '0.0',
+                total_mappings: 0,
+                mappings: {}
+            };
+        }
+    }
+
+    /**
      * Extract numeric SKU from various sources
      */
-    extractSku(product: any): string | null {
-        // 1. Direct sku field
-        if (product.sku) return product.sku;
+    async extractSku(product: any): Promise<string | null> {
+        // 1. Try SKU mapping first (most reliable)
+        const skuMapping = await this.loadSkuMapping();
+        if (product.id && skuMapping.mappings[product.id]) {
+            return skuMapping.mappings[product.id].sku;
+        }
 
         // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
         if (product.id) {
@@ -83,6 +133,11 @@ class InternalCatalogService {
         if (product.image && typeof product.image === 'string') {
             const match = product.image.match(/(\d+)\.(jpg|png|webp|jpeg)$/i);
             if (match) return match[1];
+        }
+
+        // 4. Fallback: try direct sku field (usually not numeric)
+        if (product.sku && /^\d+$/.test(product.sku)) {
+            return product.sku;
         }
 
         return null;
@@ -150,8 +205,8 @@ class InternalCatalogService {
             // Transform to internal format with images
             const products: InternalProduct[] = await Promise.all(
                 rawProducts.map(async (p: any) => {
-                    // Extract SKU from multiple sources
-                    const sku = this.extractSku(p);
+                    // Extract SKU from multiple sources (now async)
+                    const sku = await this.extractSku(p);
                     const image = await this.getImageForSku(sku);
 
                     return {
