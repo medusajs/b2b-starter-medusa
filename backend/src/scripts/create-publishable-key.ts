@@ -13,7 +13,7 @@ export default async function createPublishableKey({ container }: ExecArgs) {
 
     try {
         // Check if a publishable key already exists
-        const existingKeys = await manager.query(
+        const existingKeys = await (manager as any).query(
             `SELECT id, token FROM publishable_api_key LIMIT 1`
         );
 
@@ -37,7 +37,7 @@ export default async function createPublishableKey({ container }: ExecArgs) {
         const now = new Date().toISOString();
 
         // Insert the new key
-        await manager.query(
+        await (manager as any).query(
             `INSERT INTO publishable_api_key (id, created_at, updated_at, created_by, revoked_by, revoked_at, title) 
        VALUES ($1, $2, $3, $4, NULL, NULL, $5)`,
             [keyId, now, now, "seed-script", title]
