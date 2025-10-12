@@ -439,7 +439,7 @@ POST   /admin/order-fulfillments/:id/ship
 
 **Structure:**
 
-```
+```tsx
 storefront/
 ├── app/
 │   ├── (auth)/
