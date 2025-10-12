@@ -438,7 +438,9 @@ export const analyzeCreditWorkflow = createWorkflow(
         // Step 5: Notify
         notifyCustomerStep({
             customer_id: input.customer_id,
-            result: saveResult.result
+            customerData,
+            result: saveResult.result,
+            offers: saveResult.best_offers
         })
 
         return new WorkflowResponse(saveResult)

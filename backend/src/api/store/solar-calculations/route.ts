@@ -119,10 +119,8 @@ export const POST = async (
                 customer_id: customer_id || customerId,
                 consumo_kwh_mes,
                 uf,
-                tipo_instalacao: tipo_instalacao || "residencial",
                 tipo_telhado: tipoTelhadoNarrowed,
-                orcamento_disponivel,
-                prioridade_cliente: prioridade_cliente || "custo_beneficio"
+                budget_max: orcamento_disponivel
             }
         })
 
