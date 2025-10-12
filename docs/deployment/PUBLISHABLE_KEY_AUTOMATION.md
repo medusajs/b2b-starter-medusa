@@ -51,7 +51,7 @@ npm run medusa exec ./src/scripts/create-publishable-key.ts
 
 **Saída esperada**:
 
-```
+```tsx
 ✅ Publishable API key created successfully!
 Key ID: xxxxx
 Token: pk_xxxxxxxxxx
@@ -226,7 +226,7 @@ aws logs get-log-events \
 
 **Procure no log por**:
 
-```
+```tsx
 ✅ Publishable API key created successfully!
 Key ID: xxxxx
 Token: pk_xxxxxxxxxx
