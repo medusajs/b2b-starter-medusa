@@ -60,9 +60,49 @@ class InternalCatalogService {
     }
 
     /**
+     * Extract numeric SKU from various sources
+     */
+    extractSku(product: any): string | null {
+        // 1. Direct sku field
+        if (product.sku) return product.sku;
+
+        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
+        if (product.id) {
+            const parts = product.id.split('_');
+            const lastPart = parts[parts.length - 1];
+            // Check if it's numeric
+            if (/^\d+$/.test(lastPart)) {
+                return lastPart;
+            }
+        }
+
+        // 3. Extract from image path (format: "images/ODEX-INVERTERS/112369.jpg")
+        if (product.image && typeof product.image === 'string') {
+            const match = product.image.match(/\/(\d+)\.(jpg|png|webp|jpeg)/i);
+            if (match) return match[1];
+        }
+
+        return null;
+    }
+
+    /**
      * Get image for SKU
      */
-    async getImageForSku(sku: string): Promise<ProductImage> {
+    async getImageForSku(sku: string | null): Promise<ProductImage> {
+        if (!sku) {
+            return {
+                url: '/images/placeholder.jpg',
+                sizes: {
+                    original: '/images/placeholder.jpg',
+                    thumb: '/images/placeholder.jpg',
+                    medium: '/images/placeholder.jpg',
+                    large: '/images/placeholder.jpg'
+                },
+                preloaded: false,
+                cached: false
+            };
+        }
+
         const imageMap = await this.loadImageMap();
         const entry = imageMap.mappings[sku];
 
@@ -107,12 +147,13 @@ class InternalCatalogService {
             // Transform to internal format with images
             const products: InternalProduct[] = await Promise.all(
                 rawProducts.map(async (p: any) => {
-                    const sku = p.sku || p.id;
+                    // Extract SKU from multiple sources
+                    const sku = this.extractSku(p);
                     const image = await this.getImageForSku(sku);
 
                     return {
                         id: p.id,
-                        sku,
+                        sku: sku || p.id,
                         name: p.name,
                         manufacturer: typeof p.manufacturer === 'object' ? p.manufacturer?.name : p.manufacturer,
                         model: p.model,

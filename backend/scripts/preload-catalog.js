@@ -52,6 +52,29 @@ class PreloadWorker {
         }
     }
 
+    extractSku(product) {
+        // 1. Direct sku field
+        if (product.sku) return product.sku;
+
+        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
+        if (product.id) {
+            const parts = product.id.split('_');
+            const lastPart = parts[parts.length - 1];
+            // Check if it's numeric
+            if (/^\d+$/.test(lastPart)) {
+                return lastPart;
+            }
+        }
+
+        // 3. Extract from image path (format: "images/ODEX-INVERTERS/112369.jpg")
+        if (product.image && typeof product.image === 'string') {
+            const match = product.image.match(/\/(\d+)\.(jpg|png|webp|jpeg)/i);
+            if (match) return match[1];
+        }
+
+        return null;
+    }
+
     async loadCategory(category) {
         try {
             const filePath = path.join(UNIFIED_SCHEMAS_PATH, `${category}_unified.json`);
@@ -62,8 +85,8 @@ class PreloadWorker {
             let withImages = 0;
             if (this.imageMap) {
                 products.forEach(p => {
-                    const sku = p.sku || p.id;
-                    if (this.imageMap.mappings[sku]) {
+                    const sku = this.extractSku(p);
+                    if (sku && this.imageMap.mappings[sku]) {
                         withImages++;
                     }
                 });
