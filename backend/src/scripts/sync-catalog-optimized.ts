@@ -330,13 +330,17 @@ async function processBatch(
                 is_giftcard: false,
                 discountable: true,
                 status: "published",
-                options: [{ title: "Padrão", values: ["Padrão"] }],
+                options: [{
+                    title: "Padrão",
+                    values: ["Padrão"]
+                }],
                 variants: [
                     {
                         title: "Padrão",
                         sku,
                         manage_inventory: false,
                         allow_backorder: true,
+                        options: { "Padrão": "Padrão" },
                         prices: [
                             {
                                 amount: Math.round(price * 100),

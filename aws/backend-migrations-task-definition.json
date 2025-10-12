@@ -29,6 +29,18 @@
                 {
                     "name": "NODE_EXTRA_CA_CERTS",
                     "value": "/tmp/rds-ca-bundle.pem"
+                },
+                {
+                    "name": "DATABASE_SSL",
+                    "value": "true"
+                },
+                {
+                    "name": "DATABASE_SSL_REJECT_UNAUTHORIZED",
+                    "value": "true"
+                },
+                {
+                    "name": "DATABASE_SSL_CA_FILE",
+                    "value": "/tmp/rds-ca-bundle.pem"
                 }
             ],
             "secrets": [
