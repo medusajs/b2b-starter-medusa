@@ -147,10 +147,8 @@ export class SolarCalculationKit {
     @PrimaryKey({ type: 'uuid' })
     id: string = v4();
 
-    @ManyToOne(() => SolarCalculation, { onDelete: 'cascade' })
-    calculation!: SolarCalculation;
-
-    @Property({ type: 'uuid' })
+    @ManyToOne(() => SolarCalculation, { deleteRule: 'cascade' })
+    calculation!: SolarCalculation; @Property({ type: 'uuid' })
     calculation_id!: string;
 
     // Kit Reference (RemoteLink to Product)

@@ -1,6 +1,6 @@
 import { defineConfig } from '@mikro-orm/postgresql';
 import { Migrator } from '@mikro-orm/migrations';
-import { SeedManager } from '@mikro-orm/seeder';
+import { AbstractNamingStrategy } from '@mikro-orm/core';
 import path from 'path';
 
 /**
@@ -39,16 +39,14 @@ export default defineConfig({
         },
     },
 
-    // Seeding
-    seeder: {
-        path: './src/seeders',
-        pathTs: './src/seeders',
-        defaultSeeder: 'DatabaseSeeder',
-        glob: '!(*.d).{js,ts}',
-        emit: 'ts',
-    },
-
-    // Debug & Logging
+    // Seeding (requires @mikro-orm/seeder package)
+    // seeder: {
+    //   path: './src/seeders',
+    //   pathTs: './src/seeders',
+    //   defaultSeeder: 'DatabaseSeeder',
+    //   glob: '!(*.d).{js,ts}',
+    //   emit: 'ts',
+    // },    // Debug & Logging
     debug: process.env.NODE_ENV === 'development',
     logger: console.log.bind(console),
 
@@ -67,9 +65,7 @@ export default defineConfig({
     },
 
     // Extensions
-    extensions: [Migrator, SeedManager],
-
-    // Connection Pool
+    extensions: [Migrator],    // Connection Pool
     pool: {
         min: 2,
         max: 10,

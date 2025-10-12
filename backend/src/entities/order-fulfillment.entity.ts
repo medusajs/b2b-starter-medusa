@@ -114,10 +114,11 @@ export class OrderShipment {
     @PrimaryKey({ type: 'uuid' })
     id: string = v4();
 
-    @Property({ type: 'uuid' })
-    fulfillment_id!: string;
+    @ManyToOne(() => OrderFulfillment)
+    fulfillment!: OrderFulfillment;
 
-    // Carrier
+    @Property({ type: 'uuid' })
+    fulfillment_id!: string;    // Carrier
     @Property({ type: 'string', length: 100 })
     carrier!: string; // Correios, Jadlog, etc.
 

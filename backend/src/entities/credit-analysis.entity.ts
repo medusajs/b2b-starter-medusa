@@ -135,10 +135,11 @@ export class FinancingOffer {
     @PrimaryKey({ type: 'uuid' })
     id: string = v4();
 
-    @Property({ type: 'uuid' })
-    credit_analysis_id!: string;
+    @ManyToOne(() => CreditAnalysis)
+    credit_analysis!: CreditAnalysis;
 
-    // Offer Details
+    @Property({ type: 'uuid' })
+    credit_analysis_id!: string;    // Offer Details
     @Property({ type: 'string', length: 50 })
     modality!: string; // CDC, LEASING, EAAS
 
