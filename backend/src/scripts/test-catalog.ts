@@ -20,7 +20,7 @@ async function testCatalogService() {
             }
         };
 
-        const catalogService = new YshCatalogModuleService(mockContainer, {});
+        const catalogService = new YshCatalogModuleService(mockContainer as any, {});
 
         // Test 1: List manufacturers
         console.log("\n=== Test 1: List Manufacturers ===");

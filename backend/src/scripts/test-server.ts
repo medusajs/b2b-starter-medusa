@@ -11,7 +11,8 @@ app.use(express.json());
 const mockContainer = {
     resolve: (serviceName: string) => {
         if (serviceName === 'yshCatalog') {
-            return new YshCatalogModuleService(mockContainer, {});
+            const mockContainer = { resolve: () => null };
+            return new YshCatalogModuleService(mockContainer as any, {});
         }
         return null;
     }
