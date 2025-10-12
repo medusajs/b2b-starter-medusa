@@ -414,24 +414,13 @@ export const analyzeCreditWorkflow = createWorkflow(
             modality: input.financing_modality
         })
 
-        // Create result
-        const result: CreditAnalysisResult = {
-            approved: scoreResult.total_score >= 50,
-            approved_amount: input.requested_amount,
-            approved_term_months: input.requested_term_months,
-            approved_interest_rate: (offersResult as any).offers[0]?.interest_rate_annual,
-            approval_conditions: (offersResult as any).offers[0]?.conditions,
-            rejection_reason: scoreResult.total_score < 50 ? "Score insuficiente" : undefined
-        }
-
         // Step 4: Save Analysis
         const saveResult = saveCreditAnalysisStep({
             customer_id: input.customer_id,
             quote_id: input.quote_id,
             solar_calculation_id: input.solar_calculation_id,
             scoreResult,
-            result,
-            offers: (offersResult as any).offers,
+            offersResult,
             requestedAmount: input.requested_amount,
             requestedTermMonths: input.requested_term_months
         })
