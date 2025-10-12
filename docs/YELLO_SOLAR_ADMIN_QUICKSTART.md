@@ -15,7 +15,7 @@ yarn build
 
 **Expected output**:
 
-```
+```tsx
 ✔ Building admin...
 ✔ Admin built successfully in /backend/.medusa/admin
 ```
@@ -28,7 +28,7 @@ yarn dev
 
 **Wait for**:
 
-```
+```tsx
 [medusa] Server is ready on http://localhost:9000
 ```
 

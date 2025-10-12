@@ -18,7 +18,7 @@ describe('YshCatalogModuleService SKU enrichment', () => {
   const unified = path.join(catalogPath, 'unified_schemas')
 
   afterAll(() => {
-    try { fs.rmSync(tmpRoot, { recursive: true, force: true }) } catch {}
+    try { fs.rmSync(tmpRoot, { recursive: true, force: true }) } catch { }
   })
 
   test('applies canonical SKU from registry when present', async () => {
@@ -31,9 +31,9 @@ describe('YshCatalogModuleService SKU enrichment', () => {
     })
 
     // Pass catalogPath as option to constructor
-    const svc = new YshCatalogModuleService(null, { 
+    const svc = new YshCatalogModuleService(null, {
       catalogPath,
-      unifiedSchemasPath: unified 
+      unifiedSchemasPath: unified
     })
     const res = await svc.listProductsByCategory('kits', { limit: 10 })
     expect(res.products.length).toBeGreaterThan(0)
@@ -51,9 +51,9 @@ describe('YshCatalogModuleService SKU enrichment', () => {
     // Ensure no registry for inverters
     writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
 
-    const svc = new YshCatalogModuleService(null, { 
+    const svc = new YshCatalogModuleService(null, {
       catalogPath,
-      unifiedSchemasPath: unified 
+      unifiedSchemasPath: unified
     })
     const res = await svc.listProductsByCategory('inverters', { limit: 10 })
     expect(res.products.length).toBeGreaterThan(0)
@@ -68,9 +68,9 @@ describe('YshCatalogModuleService SKU enrichment', () => {
     // Empty registry to force fallback
     writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
 
-    const svc = new YshCatalogModuleService(null, { 
+    const svc = new YshCatalogModuleService(null, {
       catalogPath,
-      unifiedSchemasPath: unified 
+      unifiedSchemasPath: unified
     })
     const res1 = await svc.listProductsByCategory('panels', { limit: 10 })
     const res2 = await svc.listProductsByCategory('panels', { limit: 10 })

@@ -105,7 +105,7 @@ Personalize the Medusa admin dashboard to handle Yellow Solar Hub's solar equipm
 
 ## 📁 File Structure
 
-```
+```tsx
 backend/src/admin/
 ├── widgets/
 │   ├── solar-inventory-dashboard.tsx    ✅ 440 lines
@@ -260,7 +260,7 @@ export const config = defineWidgetConfig({
 
 3. **Access admin dashboard**:
 
-   ```
+   ```tsx
    http://localhost:9000/app
    ```
 

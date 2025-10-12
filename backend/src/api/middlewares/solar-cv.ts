@@ -23,7 +23,7 @@ export function rateLimitMiddleware(
         try {
             const identifier = (req.ip || req.headers["x-forwarded-for"] || "anonymous") as string;
             const rateLimiter = RateLimiter.getInstance();
-            
+
             const result = await rateLimiter.checkLimit(identifier, {
                 maxRequests,
                 windowMs,
@@ -38,7 +38,7 @@ export function rateLimitMiddleware(
             if (!result.success) {
                 const retryAfter = Math.ceil((result.resetTime - Date.now()) / 1000);
                 res.setHeader("Retry-After", retryAfter.toString());
-                
+
                 res.status(429).json({
                     success: false,
                     error: "Rate limit exceeded",
@@ -104,7 +104,7 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
             });
             return;
         }
-        
+
         if (req.method === "POST" || req.method === "PUT" || req.method === "DELETE") {
             res.status(403).json({
                 success: false,
@@ -117,16 +117,16 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
 
     // Parse allowed origins
     const allowedOrigins = allowedOriginsEnv?.split(",") || (isProd ? [] : ["*"]);
-    
+
     // Validate origin
-    const isAllowed = allowedOrigins.includes("*") || 
-                      allowedOrigins.includes(origin) ||
-                      (!isProd && !origin); // Allow no-origin in dev
+    const isAllowed = allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin) ||
+        (!isProd && !origin); // Allow no-origin in dev
 
     if (isAllowed) {
         // In production, set specific origin; in dev, allow wildcard if configured
         const allowOrigin = origin || (allowedOrigins.includes("*") && !isProd ? "*" : allowedOrigins[0]);
-        
+
         res.setHeader("Access-Control-Allow-Origin", allowOrigin);
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, X-API-Key, Authorization");
