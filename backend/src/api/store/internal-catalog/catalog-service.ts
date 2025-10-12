@@ -184,7 +184,7 @@ class InternalCatalogService {
             url: entry.images.original,
             sizes: entry.images,
             preloaded: true,
-            cached: this.cache.has(`image_${sku}`)
+            cached: this.cache.has(`image_${resolvedSku}`)
         };
     }
 
