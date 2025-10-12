@@ -76,9 +76,12 @@ class InternalCatalogService {
             }
         }
 
-        // 3. Extract from image path (format: "images/ODEX-INVERTERS/112369.jpg")
+        // 3. Extract from image path
+        // Match any digits immediately before extension
+        // Format 1: "images/ODEX-INVERTERS/112369.jpg" -> "112369"
+        // Format 2: "images\NEOSOLAR-INVERTERS\neosolar_inverters_20566.jpg" -> "20566"
         if (product.image && typeof product.image === 'string') {
-            const match = product.image.match(/\/(\d+)\.(jpg|png|webp|jpeg)/i);
+            const match = product.image.match(/(\d+)\.(jpg|png|webp|jpeg)$/i);
             if (match) return match[1];
         }
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-12T22:54:48.391Z",
+  "timestamp": "2025-10-12T22:58:08.367Z",
   "categories": [
     {
       "category": "accessories",
@@ -44,27 +44,6 @@
       ]
     },
     {
-      "category": "controllers",
-      "count": 38,
-      "sample": [
-        {
-          "id": "neosolar_controllers_20080",
-          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_20080"
-        },
-        {
-          "id": "neosolar_controllers_21709",
-          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21709"
-        },
-        {
-          "id": "neosolar_controllers_21708",
-          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21708"
-        }
-      ]
-    },
-    {
       "category": "cables",
       "count": 55,
       "sample": [
@@ -82,6 +61,27 @@
           "id": "neosolar_cables_20121",
           "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
           "sku": "neosolar_cables_20121"
+        }
+      ]
+    },
+    {
+      "category": "controllers",
+      "count": 38,
+      "sample": [
+        {
+          "id": "neosolar_controllers_20080",
+          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_20080"
+        },
+        {
+          "id": "neosolar_controllers_21709",
+          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21709"
+        },
+        {
+          "id": "neosolar_controllers_21708",
+          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21708"
         }
       ]
     },
@@ -107,27 +107,6 @@
       ]
     },
     {
-      "category": "others",
-      "count": 10,
-      "sample": [
-        {
-          "id": "FORTLEV-NEP-PVG-3-20A-L",
-          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
-          "sku": "FORTLEV-NEP-PVG-3-20A-L"
-        },
-        {
-          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
-          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
-          "sku": "FORTLEV-CONDUFORT-DN40-PEAD"
-        },
-        {
-          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
-          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
-          "sku": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8"
-        }
-      ]
-    },
-    {
       "category": "posts",
       "count": 6,
       "sample": [
@@ -145,6 +124,27 @@
           "id": "neosolar_posts_24173",
           "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
           "sku": "neosolar_posts_24173"
+        }
+      ]
+    },
+    {
+      "category": "others",
+      "count": 10,
+      "sample": [
+        {
+          "id": "FORTLEV-NEP-PVG-3-20A-L",
+          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+          "sku": "FORTLEV-NEP-PVG-3-20A-L"
+        },
+        {
+          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
+          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+          "sku": "FORTLEV-CONDUFORT-DN40-PEAD"
+        },
+        {
+          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+          "sku": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8"
         }
       ]
     },
@@ -187,6 +187,27 @@
           "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
           "name": "Estrutura Solar Group Colonial Cerâmico",
           "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
+        }
+      ]
+    },
+    {
+      "category": "panels",
+      "count": 29,
+      "sample": [
+        {
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
+          "name": "Painel Solar Odex 585W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-585W"
+        },
+        {
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-600W",
+          "name": "Painel Solar Odex 600W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-600W"
+        },
+        {
+          "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
+          "name": "Painel Solar Odex 610W",
+          "sku": "odex_inverters_ODEX-PAINEL-ODEX-610W"
         }
       ]
     },
