@@ -261,7 +261,7 @@ const compatibilityResult = validateSystemCompatibility({
 
 **Well-Designed System (Score: 95/100)**:
 
-```
+```tsx
 ✅ Sistema totalmente compatível! Nenhum problema detectado.
 
 Detalhes do Ratio:
@@ -271,7 +271,7 @@ Status: excellent | Ratio: 1.20x
 
 **Problem System (Score: 45/100)**:
 
-```
+```tsx
 🚨 Problemas Críticos:
 POWER_OVERLOAD: Potência total dos painéis (7.2kW) excede entrada máxima do inversor (5.0kW)
 (Severidade: high)

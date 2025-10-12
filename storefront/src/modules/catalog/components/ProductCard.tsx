@@ -7,6 +7,7 @@ import LocalizedClientLink from "@/modules/common/components/localized-client-li
 import { useLeadQuote } from "@/modules/lead-quote/context"
 import { ProductSKU, ProductModel } from "@/modules/catalog/components/product-identifiers"
 import { CategoryIcon, type ProductCategory } from "@/modules/catalog/components/CategoryIcon"
+import { useVariant, trackExperimentEvent } from "@/lib/experiments"
 
 interface ProductCardProps {
     product: {
@@ -44,6 +45,16 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
         addToQuote = useLeadQuote().add
     } catch { }
     const custom = useCatalogCustomization()
+
+    // A/B Test: CTA Copy Variants
+    const ctaText = useVariant({
+        A: 'Ver Detalhes',
+        B: 'Explorar Produto'
+    })
+    const addToQuoteText = useVariant({
+        A: 'Adicionar à cotação',
+        B: '+ Adicionar ao orçamento'
+    })
     const getTierBadge = (tier?: string) => {
         switch (tier) {
             case 'XPP':
@@ -267,9 +278,10 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                     e.preventDefault()
                                     addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
                                     try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
+                                    trackExperimentEvent('product_card_cta', 'add_to_quote_click', { product_id: product.id, category })
                                 }}
                             >
-                                Adicionar à cotação
+                                {addToQuoteText}
                             </button>
                         )}
                         {primaryCta ? (
@@ -292,7 +304,12 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             )
                         ) : (
                             <LocalizedClientLink href={`/produtos/${category}/${product.id}`}>
-                                <button className="ysh-btn-primary text-sm px-3 py-1">Ver Detalhes</button>
+                                <button
+                                    className="ysh-btn-primary text-sm px-3 py-1"
+                                    onClick={() => trackExperimentEvent('product_card_cta', 'view_details_click', { product_id: product.id, category })}
+                                >
+                                    {ctaText}
+                                </button>
                             </LocalizedClientLink>
                         )}
                     </div>

@@ -60,11 +60,44 @@ module.exports = defineConfig({
     // [YSH_CATALOG_MODULE]: {
     //   resolve: "./modules/ysh-catalog",
     // },
-    [Modules.CACHE]: {
-      resolve: "@medusajs/medusa/cache-inmemory",
-    },
-    [Modules.WORKFLOW_ENGINE]: {
-      resolve: "@medusajs/medusa/workflow-engine-inmemory",
-    },
+    // ==========================================
+    // MEDUSA 2.10.3 PRODUCTION BEST PRACTICES
+    // ==========================================
+    // Cache: Use Redis for production (multi-instance support)
+    // Dev: Use in-memory for local development
+    [Modules.CACHE]: process.env.NODE_ENV === "production"
+      ? {
+        resolve: "@medusajs/medusa/cache-redis",
+        options: {
+          redisUrl: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
+          ttl: 30, // 30 seconds default TTL
+          namespace: "medusa",
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/cache-inmemory",
+        options: {
+          ttl: 30,
+          max: 500, // Max 500 items in memory
+        },
+      },
+    // Workflow Engine: Use Redis for production (distributed task execution)
+    [Modules.WORKFLOW_ENGINE]: process.env.NODE_ENV === "production"
+      ? {
+        resolve: "@medusajs/medusa/workflow-engine-redis",
+        options: {
+          redis: {
+            url: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
+            // Job queue configuration
+            connection: {
+              maxRetriesPerRequest: null,
+              enableReadyCheck: false,
+            },
+          },
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/workflow-engine-inmemory",
+      },
   },
 });
