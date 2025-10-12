@@ -13,7 +13,10 @@ export const StoreAddLineItemsBulk = z
       z.object({
         variant_id: z.string(),
         quantity: z.number(),
-      })
+      }).transform((item) => ({
+        variant_id: item.variant_id,
+        quantity: item.quantity,
+      }))
     ),
   })
   .strict();
