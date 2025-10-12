@@ -236,7 +236,7 @@
 
 **Jornada Quebrada:**
 
-```
+```tsx
 Unified Schemas (JSON) ──X──> Database ──X──> Admin API ──X──> Storefront
 ```
 
@@ -587,7 +587,7 @@ export const cancelOrderWorkflow = createWorkflow(...)
 
 ### Jornada 2: Solar Calculator → Financing → Order
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────┐
 │  JORNADA: Solar Calculator → Credit Analysis → Financing → Order  │
 ├─────────────────────────────────────────────────────────────────────┤
@@ -632,7 +632,7 @@ export const cancelOrderWorkflow = createWorkflow(...)
 
 ### Jornada 3: B2B Company Onboarding
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────┐
 │  JORNADA: Company Onboarding → Employee Setup → Approvals         │
 ├─────────────────────────────────────────────────────────────────────┤
