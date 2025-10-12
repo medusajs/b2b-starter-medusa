@@ -31,6 +31,7 @@
 **Propósito:** Armazenar cálculos de dimensionamento solar
 
 **Campos Principais:**
+
 - **Input:** consumo_kwh_mes, uf, cep, tipo_telhado, oversizing_target
 - **Geographic:** latitude, longitude, irradiacao_media_kwh_m2_dia
 - **Dimensioning:** potencia_instalada_kwp, numero_modulos, area_necessaria_m2
@@ -38,11 +39,13 @@
 - **Environmental:** co2_evitado_kg_ano, arvores_equivalentes
 
 **Relacionamentos (RemoteLink):**
+
 - `customer_id` → Customer (Medusa Core)
 - `quote_id` → Quote (Quote Module)
 - `kits_recomendados` → SolarCalculationKit (OneToMany)
 
 **Índices:**
+
 - `idx_solar_calculation_customer_id`
 - `idx_solar_calculation_quote_id`
 - `idx_solar_calculation_uf`
@@ -55,16 +58,19 @@
 **Propósito:** Kits recomendados para um cálculo
 
 **Campos Principais:**
+
 - **Kit Reference:** product_id, kit_sku, kit_name
 - **Scoring:** match_score (0-100), rank
 - **Pricing:** price, currency_code
 - **Details:** kit_details (JSONB com módulos, inversores, acessórios)
 
 **Relacionamentos:**
+
 - `calculation_id` → SolarCalculation (ManyToOne, CASCADE)
 - `product_id` → Product (RemoteLink, Medusa Core)
 
 **Índices:**
+
 - `idx_solar_calculation_kit_calculation_id`
 - `idx_solar_calculation_kit_product_id`
 - `idx_solar_calculation_kit_rank`
@@ -76,23 +82,27 @@
 **Propósito:** Análise de crédito multi-fator (100 pontos)
 
 **Algoritmo de Scoring:**
+
 - **Income Score:** 0-30 pontos (loan-to-income ratio)
 - **Employment Score:** 0-15 pontos (estabilidade)
 - **Credit History Score:** 0-35 pontos (score + registros negativos)
 - **Debt Ratio Score:** 0-20 pontos (dívidas vs renda)
 
 **Risk Levels:**
+
 - ≥75 pontos: **LOW** (95% aprovação)
 - ≥50 pontos: **MEDIUM** (70% aprovação)
 - <50 pontos: **HIGH** (30% aprovação)
 
 **Relacionamentos (RemoteLink):**
+
 - `customer_id` → Customer
 - `quote_id` → Quote
 - `solar_calculation_id` → SolarCalculation
 - `financing_offers` → FinancingOffer (OneToMany)
 
 **Índices:**
+
 - `idx_credit_analysis_customer_id`
 - `idx_credit_analysis_quote_id`
 - `idx_credit_analysis_solar_calculation_id`
@@ -107,20 +117,24 @@
 **Propósito:** Ofertas de financiamento geradas pela análise
 
 **Modalidades:**
+
 - **CDC:** Crédito Direto ao Consumidor
 - **LEASING:** Arrendamento Mercantil
 - **EaaS:** Energy as a Service
 
 **Campos Principais:**
+
 - **Offer:** modality, institution, max_amount, term_months
 - **Rates:** interest_rate_monthly, interest_rate_annual, cet
 - **Payment:** monthly_payment, total_amount, down_payment_required
 - **Ranking:** rank, is_recommended
 
 **Relacionamentos:**
+
 - `credit_analysis_id` → CreditAnalysis (ManyToOne, CASCADE)
 
 **Índices:**
+
 - `idx_financing_offer_credit_analysis_id`
 - `idx_financing_offer_modality`
 - `idx_financing_offer_rank`
@@ -132,6 +146,7 @@
 **Propósito:** Aplicação de financiamento com validação BACEN
 
 **Campos Principais:**
+
 - **Application:** financed_amount, down_payment_amount, term_months
 - **Rates:** interest_rate_monthly, cet (validados por BACEN)
 - **BACEN:** selic_rate, cdi_rate, bacen_validated, bacen_validation_data
@@ -140,16 +155,19 @@
 - **Payment:** payment_schedule (JSONB com 12-360 parcelas)
 
 **Sistema de Cálculo:**
+
 - **PRICE System:** Parcelas fixas com juros compostos
 - **CET:** Custo Efetivo Total incluindo IOF, TAC, etc.
 
 **Relacionamentos (RemoteLink):**
+
 - `customer_id` → Customer
 - `quote_id` → Quote
 - `credit_analysis_id` → CreditAnalysis
 - `order_id` → Order (após aprovação)
 
 **Índices:**
+
 - `idx_financing_application_customer_id`
 - `idx_financing_application_quote_id`
 - `idx_financing_application_credit_analysis_id`
@@ -165,18 +183,22 @@
 **Propósito:** Ciclo completo de fulfillment
 
 **Fases:**
+
 1. **Picking:** picking_started_at, picked_by, picked_items (JSONB)
 2. **Packing:** packing_completed_at, number_of_packages, package_dimensions (JSONB)
 3. **Warehouse:** warehouse_id, warehouse_name, warehouse_notes (JSONB)
 
 **Status Lifecycle:**
+
 - pending → picking → packing → ready_to_ship → shipped → in_transit → delivered → cancelled
 
 **Relacionamentos:**
+
 - `order_id` → Order (RemoteLink)
 - `shipments` → OrderShipment (OneToMany)
 
 **Índices:**
+
 - `idx_order_fulfillment_order_id`
 - `idx_order_fulfillment_status`
 - `idx_order_fulfillment_created_at`
@@ -188,12 +210,14 @@
 **Propósito:** Dados de envio e tracking
 
 **Carriers Suportados:**
+
 - Correios (PAC, SEDEX)
 - Jadlog
 - Total Express
 - Etc.
 
 **Campos Principais:**
+
 - **Carrier:** carrier, carrier_code, service_type
 - **Tracking:** tracking_code (UNIQUE), tracking_url, tracking_events (JSONB)
 - **Delivery:** delivered_to, signature_required, signature_url
@@ -201,9 +225,11 @@
 - **Address:** shipping_address (JSONB completo)
 
 **Relacionamentos:**
+
 - `fulfillment_id` → OrderFulfillment (ManyToOne, CASCADE)
 
 **Índices:**
+
 - `idx_order_shipment_fulfillment_id`
 - `idx_order_shipment_tracking_code` (UNIQUE)
 - `idx_order_shipment_shipment_status`
@@ -303,14 +329,17 @@ const { data: [order] } = await query.graph({
 **Índices Totais:** 28
 
 **Foreign Keys:** 4
+
 - `solar_calculation_kit.calculation_id` → `solar_calculation.id` (CASCADE)
 - `financing_offer.credit_analysis_id` → `credit_analysis.id` (CASCADE)
 - `order_shipment.fulfillment_id` → `order_fulfillment.id` (CASCADE)
 
 **Triggers:** 5
+
 - Auto-update `updated_at` em todas as tabelas
 
 **Features:**
+
 - ✅ JSONB para dados dinâmicos
 - ✅ Decimal para valores monetários (precisão financeira)
 - ✅ Timestamps automáticos
@@ -345,6 +374,7 @@ docker exec ysh_medusa_db psql -U postgres -d ysh_medusa -c "SELECT COUNT(*) FRO
 ### 2. Atualizar Workflows para Usar Entities
 
 **Workflows a Atualizar:**
+
 - ✅ `calculateSolarSystemWorkflow` → usar SolarCalculation entity
 - ✅ `analyzeCreditWorkflow` → usar CreditAnalysis entity
 - ✅ `applyFinancingWorkflow` → usar FinancingApplication entity
@@ -408,6 +438,7 @@ POST   /admin/order-fulfillments/:id/ship
 **Framework:** Next.js 14 App Router
 
 **Structure:**
+
 ```
 storefront/
 ├── app/
@@ -474,30 +505,35 @@ storefront/
 ## 🎯 Roadmap
 
 ### Sprint 1: Backend Integration (Semana 1)
+
 - ⏳ Executar migrations
 - ⏳ Atualizar workflows para usar entities
 - ⏳ Criar API endpoints
 - ⏳ Testes de integração
 
 ### Sprint 2: Storefront Foundation (Semana 2)
+
 - ⏳ Setup Next.js 14
 - ⏳ Configurar Medusa JS SDK
 - ⏳ Implementar autenticação
 - ⏳ Criar layout base
 
 ### Sprint 3: Solar Journey UI (Semana 3)
+
 - ⏳ Calculator interface
 - ⏳ Kit selection
 - ⏳ Credit analysis form
 - ⏳ Financing application
 
 ### Sprint 4: B2B Portal UI (Semana 4)
+
 - ⏳ Company dashboard
 - ⏳ Employee management
 - ⏳ Approval system
 - ⏳ Quote management
 
 ### Sprint 5: E2E Testing (Semana 5)
+
 - ⏳ Playwright setup
 - ⏳ Journey tests
 - ⏳ Performance testing
