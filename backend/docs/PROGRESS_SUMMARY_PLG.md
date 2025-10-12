@@ -285,8 +285,8 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 
 ### Entities (831 linhas)
 
-```
-src/entities/solar-calculation.entity.ts (198 linhas)
+```tsx
+srctsxlation.entity.ts (198 linhas)
 src/entities/solar-calculation-kit.entity.ts (104 linhas)
 src/entities/credit-analysis.entity.ts (180 linhas)
 src/entities/financing-offer.entity.ts (95 linhas)
@@ -297,7 +297,7 @@ src/entities/order-shipment.entity.ts (123 linhas)
 
 ### Workflows (1,403 linhas)
 
-```
+```tsx
 src/workflows/solar/calculate-solar-system.ts (347 linhas)
 src/workflows/credit-analysis/analyze-credit.ts (348 linhas)
 src/workflows/financing/apply-financing.ts (421 linhas)
@@ -306,7 +306,7 @@ src/workflows/order/fulfill-order.ts (287 linhas)
 
 ### API Endpoints (438 linhas)
 
-```
+```tsx
 src/api/store/solar-calculations/route.ts (117 linhas)
 src/api/store/credit-analyses/route.ts (95 linhas)
 src/api/store/financing-applications/route.ts (114 linhas)
@@ -315,7 +315,7 @@ src/api/store/orders/[id]/fulfillment/route.ts (112 linhas)
 
 ### HTTP Tests (1,200+ linhas)
 
-```
+```tsx
 integration-tests/http/solar/calculations.http (220 linhas)
 integration-tests/http/credit-analysis/analyses.http (240 linhas)
 integration-tests/http/financing/applications.http (250 linhas)
