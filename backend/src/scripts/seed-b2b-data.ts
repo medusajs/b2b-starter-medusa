@@ -194,10 +194,10 @@ async function seedB2BData(container: MedusaContainer) {
         logger.info(`  ✓ Criada: ${companyData.name} (ID: ${companyId})`)
 
         // Criar ApprovalSettings
-        await dbConnection.query(
+        await dbConnection.raw(
           `INSERT INTO approval_settings (
             company_id, approval_required_above, created_at, updated_at
-          ) VALUES ($1, $2, NOW(), NOW())`,
+          ) VALUES (?, ?, NOW(), NOW())`,
           [companyId, companyData.approval_required_above]
         )
       }
@@ -218,7 +218,7 @@ async function seedB2BData(container: MedusaContainer) {
 
       for (const empData of employees) {
         // Verificar se customer já existe
-        let customerResult = await dbConnection.query(
+        let customerResult = await dbConnection.raw(
           `SELECT id FROM customer WHERE email = $1`,
           [empData.customer_email]
         )
@@ -230,7 +230,7 @@ async function seedB2BData(container: MedusaContainer) {
           logger.info(`  ↻ Cliente já existe: ${empData.customer_email}`)
         } else {
           // Criar customer
-          const insertCustomer = await dbConnection.query(
+          const insertCustomer = await dbConnection.raw(
             `INSERT INTO customer (
               email, first_name, last_name, has_account, created_at, updated_at
             ) VALUES ($1, $2, $3, true, NOW(), NOW())
@@ -247,7 +247,7 @@ async function seedB2BData(container: MedusaContainer) {
         }
 
         // Verificar se employee já existe
-        const existingEmployee = await dbConnection.query(
+        const existingEmployee = await dbConnection.raw(
           `SELECT id FROM employee WHERE customer_id = $1 AND company_id = $2`,
           [customerId, companyId]
         )

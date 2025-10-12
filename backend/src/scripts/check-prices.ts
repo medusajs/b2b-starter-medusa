@@ -26,9 +26,9 @@ export default async function checkPrices({ container }: ExecArgs): Promise<void
             logger.info(`   \n   🔹 Variante: ${variant.sku}`)
             logger.info(`      ID: ${variant.id}`)
             logger.info(`      Preços: ${(variant as any).prices?.length || 0}`)
-            (variant as any).prices?.forEach(price => {
-                logger.info(`         - ${price.currency_code?.toUpperCase()}: R$ ${(price.amount || 0) / 100}`)
-            })
+                (variant as any).prices?.forEach(price => {
+                    logger.info(`         - ${price.currency_code?.toUpperCase()}: R$ ${(price.amount || 0) / 100}`)
+                })
         })
     }
 
