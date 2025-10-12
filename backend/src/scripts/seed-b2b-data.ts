@@ -254,7 +254,7 @@ async function seedB2BData(container: MedusaContainer) {
 
         if (existingEmployee.rows.length === 0) {
           // Criar Employee
-          await dbConnection.query(
+          await dbConnection.raw(
             `INSERT INTO employee (
               customer_id, company_id, role, spending_limit, created_at, updated_at
             ) VALUES ($1, $2, $3, $4, NOW(), NOW())`,
