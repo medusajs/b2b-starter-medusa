@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-12T23:12:17.711Z",
+  "timestamp": "2025-10-12T23:15:43.384Z",
   "categories": [
     {
       "category": "accessories",
@@ -86,6 +86,27 @@
       ]
     },
     {
+      "category": "ev_chargers",
+      "count": 83,
+      "sample": [
+        {
+          "id": "neosolar_chargers_23757",
+          "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_chargers_23757"
+        },
+        {
+          "id": "neosolar_chargers_20863",
+          "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_chargers_20863"
+        },
+        {
+          "id": "neosolar_chargers_27329",
+          "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+          "sku": "neosolar_chargers_27329"
+        }
+      ]
+    },
+    {
       "category": "others",
       "count": 10,
       "sample": [
@@ -128,23 +149,23 @@
       ]
     },
     {
-      "category": "ev_chargers",
-      "count": 83,
+      "category": "posts",
+      "count": 6,
       "sample": [
         {
-          "id": "neosolar_chargers_23757",
-          "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_chargers_23757"
+          "id": "neosolar_posts_24170",
+          "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24170"
         },
         {
-          "id": "neosolar_chargers_20863",
-          "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_chargers_20863"
+          "id": "neosolar_posts_24171",
+          "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24171"
         },
         {
-          "id": "neosolar_chargers_27329",
-          "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
-          "sku": "neosolar_chargers_27329"
+          "id": "neosolar_posts_24173",
+          "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_posts_24173"
         }
       ]
     },
@@ -166,27 +187,6 @@
           "id": "odex_inverters_ODEX-PAINEL-ODEX-610W",
           "name": "Painel Solar Odex 610W",
           "sku": "odex_inverters_ODEX-PAINEL-ODEX-610W"
-        }
-      ]
-    },
-    {
-      "category": "posts",
-      "count": 6,
-      "sample": [
-        {
-          "id": "neosolar_posts_24170",
-          "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24170"
-        },
-        {
-          "id": "neosolar_posts_24171",
-          "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24171"
-        },
-        {
-          "id": "neosolar_posts_24173",
-          "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_posts_24173"
         }
       ]
     },
