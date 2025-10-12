@@ -186,7 +186,7 @@ export const validateWithBacenStep = createStep(
         console.log(`🏦 Validating with BACEN...`)
 
         // Importar serviço BACEN
-        const { default: BACENFinancingService } = await import("../../modules/financing/bacen-service")
+        const { default: BACENFinancingService } = await import("../../modules/financing/bacen-service.js")
         const bacenService = new (BACENFinancingService as any)()
 
         try {

@@ -133,7 +133,7 @@ export const performSolarCalculationStep = createStep(
         }
 
         // Importar e executar o service
-        const { SolarCalculatorService } = await import("../../modules/solar/services/calculator")
+        const { SolarCalculatorService } = await import("../../modules/solar/services/calculator.js")
         const calculatorService = new SolarCalculatorService()
 
         const calculation = await calculatorService.calculate(enrichedInput)
@@ -266,7 +266,7 @@ export const calculateSolarSystemWorkflow = createWorkflow(
         return new WorkflowResponse({
             calculation,
             calculation_id: saveResult.calculation_id,
-            quote_id: linkResult.quote_id,
+            quote_id: (linkResult as any).quote_id || input.quote_id,
             saved: saveResult.saved
         })
     }
