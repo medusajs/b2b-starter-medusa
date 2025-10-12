@@ -58,7 +58,7 @@ export const AdminRemoveCompanyFromCustomerGroup = z.object({
 
 /* Employee Validators */
 
-export const AdminGetEmployeeParams = createSelectParams();
+export const AdminGetEmployeeParams = z.object({}).passthrough();
 export type AdminGetEmployeeParamsType = z.infer<typeof AdminGetEmployeeParams>;
 
 export type AdminCreateEmployeeType = z.infer<typeof AdminCreateEmployee>;
@@ -92,7 +92,7 @@ export const AdminUpdateEmployee = z
   .strict();
 
 /* Approval Settings Validators */
-export const AdminGetApprovalSettingsParams = createSelectParams();
+export const AdminGetApprovalSettingsParams = z.object({}).passthrough();
 export type AdminGetApprovalSettingsParamsType = z.infer<
   typeof AdminGetApprovalSettingsParams
 >;
