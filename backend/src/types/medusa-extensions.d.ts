@@ -14,7 +14,7 @@ declare module "@medusajs/types" {
             employee?: QueryEmployee;
         }
 
-        // Extend Customer interface
+        // Extend Customer interface (for all customer types)
         interface Customer {
             employee?: QueryEmployee;
         }
@@ -26,7 +26,7 @@ declare module "@medusajs/types" {
             company?: QueryCompany;
         }
 
-        // Extend Cart interface
+        // Extend Cart interface (for all cart types)
         interface Cart {
             approval_status?: QueryApprovalStatus;
             approvals?: QueryApproval[];
@@ -49,6 +49,30 @@ declare module "@medusajs/types" {
         }
 
         // Extend ProductVariantDTO with prices
+        interface ProductVariantDTO {
+            prices?: Array<{
+                id: string;
+                amount: number;
+                currency_code: string;
+                [key: string]: any;
+            }>;
+        }
+    }
+}
+
+// Extend global types outside of HttpTypes namespace
+declare global {
+    namespace Medusa {
+        interface Customer {
+            employee?: QueryEmployee;
+        }
+
+        interface Cart {
+            approval_status?: QueryApprovalStatus;
+            approvals?: QueryApproval[];
+            company?: QueryCompany;
+        }
+
         interface ProductVariantDTO {
             prices?: Array<{
                 id: string;

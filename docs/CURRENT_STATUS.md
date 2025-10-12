@@ -1,50 +1,90 @@
 # 🎯 Status Atual - YSH B2B Deployment
 
-**Data:** 12 de outubro de 2025, 16:05 BRT  
-**Sessão:** Backend ECS Troubleshooting
+**Data:** 12 de outubro de 2025, 17:20 BRT  
+**Sessão:** Backend ECS Deployment v1.0.1 - Task Definition v9
 
 ---
 
 ## 📊 Situação Atual
 
-### ❌ Backend ECS - FALHA IDENTIFICADA
+### 🔄 Backend ECS - DEPLOYMENT v9 TESTANDO
 
-**Erro:** `self-signed certificate in certificate chain`
+**Status do Serviço:**
 
-```tsx
-{"level":"error","message":"Could not resolve module: Product. Error: Loaders for module Product failed: self-signed certificate in certificate chain\n","timestamp":"2025-10-12 15:26:04"}
-```
+- Deployment PRIMARY: Task Definition v9 (imagem v1.0.1 com ca-certificates)
+- Running/Desired: 0/2 tasks
+- Rollout State: IN_PROGRESS
 
-**Causa Raiz:**
+**Task v9 Identificada:**
 
-- Container Alpine Linux sem pacote `ca-certificates`
-- Node.js não consegue validar certificados TLS ao carregar módulos Medusa
+- Task ID: `9a2162ef9a9645faa68e8fa1fbbf51e0`
+- Status: STOPPED (exit code 1)
+- StopCode: EssentialContainerExited
+- Criada: 2025-10-12 14:19:03
 
-**Impacto:**
-
-- Backend não inicia (exit code 1)
-- Tasks param após ~322 segundos
-- Serviço 0/2 tasks healthy
+**Problema Atual:** Task v9 com ca-certificates ainda está falhando. Logs CloudWatch inacessíveis via PowerShell (encoding).
 
 ---
 
-## ✅ Correção Aplicada
+## ✅ Ações Completadas Nesta Sessão
 
-### Arquivo: `backend/Dockerfile`
+### 1. Correção do Dockerfile ✅
 
-**Mudança:**
+**Arquivo:** `backend/Dockerfile`
 
 ```diff
 - RUN apk add --no-cache libc6-compat dumb-init python3 make g++
 + RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates
 ```
 
-**Próximos Passos:**
+### 2. Build & Push da Imagem v1.0.1 ✅
 
-1. Rebuild da imagem Docker backend
-2. Push para ECR
-3. Registrar nova task definition (v9)
-4. Forçar redesploy do serviço ECS
+- Build local completo (161.2s)
+- Push para ECR: `773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.1`
+- Digest: `sha256:1fb1a1c0777bb603d809e2d46a8d7b7da7dd47299d9353b1133cdaccec1a919b`
+
+### 3. Task Definition v9 Registrada ✅
+
+- Arquivo: `aws/backend-task-definition.json` atualizado
+- Imagem alterada de `ysh-b2b/backend:1.0.0` → `ysh-b2b-backend:v1.0.1`
+- Revisão ECS: 9
+
+### 4. Serviço Atualizado para v9 ✅
+
+- Serviço `ysh-b2b-backend` explicitamente atualizado para task definition v9
+- Force new deployment executado
+- Deployment PRIMARY agora aponta para v9
+
+---
+
+## ⚠️ AÇÃO NECESSÁRIA - Obter Logs da Task v9
+
+**PowerShell tem problemas de encoding com CloudWatch logs.**
+
+**Execute no AWS CloudShell:**
+
+```bash
+# Copiar script para CloudShell e executar
+aws logs get-log-events \
+  --log-group-name "/ecs/ysh-b2b-backend" \
+  --log-stream-name "ecs/ysh-b2b-backend/9a2162ef9a9645faa68e8fa1fbbf51e0" \
+  --limit 100 \
+  --region us-east-1 \
+  --query 'events[*].message' \
+  --output text
+```
+
+**Script criado:** `docs/logs/get-v9-logs.sh`
+
+---
+
+## 🔄 Próximos Passos Após Logs
+
+1. Analisar erro nos logs da task v9
+2. Corrigir problema identificado
+3. Rebuild/push v1.0.2 se necessário
+4. Registrar task definition v10
+5. Redesploy e monitorar até 2/2 tasks healthy
 
 ---
 

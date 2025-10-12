@@ -79,7 +79,7 @@ export const GET = async (
             limit: 10000,
         };
 
-        let products = await yshCatalogService.searchProducts(query, options);
+        let products = await catalogService.searchProducts(query, options);
 
         // Additional filters
         if (manufacturer) {
