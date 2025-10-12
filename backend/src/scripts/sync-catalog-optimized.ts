@@ -310,11 +310,12 @@ async function processBatch(
         try {
             const sku = normalizeSKU(product, category, skuRegistry);
             const productHash = generateProductHash(product);
+            const handle = sku.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
-            // Verificar se produto já existe
+            // Verificar se produto já existe (buscar por handle)
             const existing = await withRetry(
-                () => (productService as any).listProducts({ sku }, { take: 1 }),
-                `Check SKU ${sku}`,
+                () => (productService as any).listProducts({ handle }, { take: 1 }),
+                `Check handle ${handle}`,
                 logger
             ) as any[];
 
@@ -325,7 +326,7 @@ async function processBatch(
                 title: product.name,
                 subtitle: product.manufacturer || category,
                 description: product.description || `${product.name} - ${category}`,
-                handle: sku.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+                handle,
                 is_giftcard: false,
                 discountable: true,
                 status: "published",
