@@ -98,11 +98,13 @@ npm run test:visual:report
 **Contratos implementados** (18 interações):
 
 **Products API (3)**:
+
 - ✅ GET /store/products - List with pagination
 - ✅ GET /store/products/:id - Get single product
 - ✅ GET /store/products/:id - 404 not found
 
 **Cart API (5)**:
+
 - ✅ POST /store/carts - Create cart
 - ✅ POST /store/carts/:id/line-items - Add item
 - ✅ PATCH /store/carts/:id/line-items/:line_id - Update quantity
@@ -110,12 +112,14 @@ npm run test:visual:report
 - ✅ POST /store/carts/:id/complete - Complete checkout
 
 **Approvals API (4)**:
+
 - ✅ GET /store/approvals - List approvals
 - ✅ GET /store/approvals/:id - Get approval details
 - ✅ POST /store/approvals/:id/approve - Approve
 - ✅ POST /store/approvals/:id/reject - Reject
 
 **Quotes API (6)**:
+
 - ✅ POST /store/quotes - Create quote
 - ✅ GET /store/quotes - List quotes
 - ✅ GET /store/quotes/:id - Get quote details
