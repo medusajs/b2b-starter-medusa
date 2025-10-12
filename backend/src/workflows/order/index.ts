@@ -4,4 +4,4 @@
  */
 
 export * from "./fulfill-order"
-export * from "./update-order"
+export * from "./workflows/update-order"
