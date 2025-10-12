@@ -277,8 +277,7 @@ export const saveCreditAnalysisStep = createStep(
         quote_id?: string
         solar_calculation_id?: string
         scoreResult: CreditScoreResult
-        result: CreditAnalysisResult
-        offers: FinancingOfferData[]
+        offersResult: { offers: FinancingOfferData[] }
         requestedAmount: number
         requestedTermMonths: number
     }, { container }) => {
