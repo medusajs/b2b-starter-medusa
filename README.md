@@ -35,6 +35,7 @@
 - [Início Rápido](#quickstart)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Funcionalidades](#features)
+- [🆕 FOSS Testing Stack](#foss-testing-stack)
 - [Documentação](#documentação)
 - [Scripts Úteis](#scripts-úteis)
 - [Recursos](#resources)
