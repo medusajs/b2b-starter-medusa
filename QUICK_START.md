@@ -41,6 +41,7 @@ cd scripts
 ```
 
 **Atualiza**:
+
 - `/ysh-b2b/database-url` → credenciais corretas (postgres/postgres)
 - `/ysh-b2b/jwt-secret` → gerado automaticamente
 - `/ysh-b2b/cookie-secret` → gerado automaticamente
