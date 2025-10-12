@@ -33,12 +33,12 @@
 
 - [Pré-requisitos](#prerequisites)
 - [Início Rápido](#quickstart)
-- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Funcionalidades](#features)
-- [🆕 FOSS Testing Stack](#foss-testing-stack)
-- [Documentação](#documentação)
-- [Scripts Úteis](#scripts-úteis)
-- [Recursos](#resources)
+- [🆕 FOSS Testing Stack](#-foss-testing-stack)
+- [Documentação](#-documentação)
+- [Comandos Úteis](#%EF%B8%8F-comandos-úteis)
+- [Recursos](#-recursos)
 
 &nbsp;
 
