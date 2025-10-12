@@ -426,7 +426,7 @@ export const analyzeCreditWorkflow = createWorkflow(
         })
 
         // Step 5: Notify
-        const notifyResult = notifyCustomerStep({
+        notifyCustomerStep({
             customer_id: input.customer_id,
             customerData,
             result,
