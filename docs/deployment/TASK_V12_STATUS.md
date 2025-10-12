@@ -88,7 +88,7 @@ bash docs/logs/get-v12-logs.sh
 
 ### Se Logs Mostrarem Mesmo Erro SSL
 
-**Hipótese A:** `resolveDatabaseSslConfig()` não está sendo aplicado
+#### Hipótese A: `resolveDatabaseSslConfig()` não está sendo aplicado
 
 - **Causa Possível:** Medusa não usa `databaseDriverOptions.ssl`
 - **Solução:** Adicionar SSL diretamente na DATABASE_URL
