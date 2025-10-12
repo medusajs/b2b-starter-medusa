@@ -78,6 +78,9 @@ export default defineConfig({
 
         // Geolocation (São Paulo)
         geolocation: { latitude: -23.5505, longitude: -46.6333 },
+
+        // Enable service workers for MSW
+        serviceWorkers: 'allow',
     },
 
     // Configure projects for major browsers

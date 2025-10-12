@@ -1,33 +1,24 @@
 /**
  * Blur Placeholder Generator
- * Creates optimized data URIs for next/image blurDataURL
- * AWS Lambda free tier optimized: 1M requests/month, 400K GB-seconds compute
+ * Creates optimized SVG data URIs for next/image blurDataURL
+ * Lightweight implementation without external dependencies
  */
-
-import { getPlaiceholder } from 'plaiceholder'
 
 /**
  * Generate blur placeholder from image URL
- * Uses plaiceholder for server-side generation
+ * Returns SVG-based placeholder (no image processing required)
  * @param src Image URL (remote or local)
  * @returns base64 data URI for blurDataURL prop
  */
 export async function getBlurPlaceholder(src: string): Promise<string> {
     try {
-        // For remote images, use plaiceholder's buffer method
-        const buffer = await fetch(src).then(async (res) =>
-            Buffer.from(await res.arrayBuffer())
-        )
-
-        const { base64 } = await getPlaiceholder(buffer, {
-            size: 10, // Very small for blur effect (reduces Lambda compute)
-        })
-
-        return base64
+        // Extract dominant color from URL or use default
+        // In production, could use image analysis API or pre-computed values
+        const color = extractColorFromUrl(src) || '#f3f4f6'
+        return colorPlaceholder(color)
     } catch (error) {
         console.error('[BlurPlaceholder] Failed to generate:', src, error)
-        // Fallback: return minimal gray placeholder
-        return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4='
+        return STATIC_BLUR_PLACEHOLDER
     }
 }
 
@@ -38,16 +29,10 @@ export async function getBlurPlaceholder(src: string): Promise<string> {
 export async function getBlurPlaceholderFromBuffer(
     buffer: Buffer
 ): Promise<string> {
-    try {
-        const { base64 } = await getPlaiceholder(buffer, { size: 10 })
-        return base64
-    } catch (error) {
-        console.error('[BlurPlaceholder] Failed from buffer:', error)
-        return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4='
-    }
-}
-
-/**
+    // Simplified version - returns static placeholder
+    // For advanced processing, integrate sharp or plaiceholder at API route level
+    return STATIC_BLUR_PLACEHOLDER
+}/**
  * Batch generate blur placeholders with concurrency limit
  * Prevents AWS Lambda throttling
  * @param urls Array of image URLs

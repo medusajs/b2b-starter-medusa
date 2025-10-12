@@ -23,7 +23,7 @@ services:
     networks:
       - ysh-b2b-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d medusa_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgres://medusa_user:medusa_password@postgres:5432/medusa_db
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa_db
       REDIS_URL: redis://redis:6379
       JWT_SECRET: your-super-secret-jwt-token
       COOKIE_SECRET: your-super-secret-cookie-token
