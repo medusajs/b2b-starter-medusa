@@ -10,8 +10,6 @@ export async function GET(
     res: MedusaResponse
 ) {
     const { id: order_id } = req.params
-    const entityManager = req.scope.resolve("entityManager")
-    const remoteQuery = req.scope.resolve("remoteQuery")
 
     try {
         const query = req.scope.resolve("query")
@@ -62,7 +60,9 @@ export async function GET(
         }
 
         // Get shipment details
-        const shipmentData = fulfillment.shipments || []        return res.json({
+        const shipmentData = fulfillment.shipments || []
+
+        return res.json({
             fulfillment_id: fulfillment.id,
             order_id: fulfillment.order_id,
             status: fulfillment.status,

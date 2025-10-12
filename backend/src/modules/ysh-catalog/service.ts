@@ -140,8 +140,9 @@ class YshCatalogModuleService {
      */
     private readCatalogFile(filename: string): CatalogProduct[] {
         try {
-            // Primeiro tenta ler do schema unificado
-            const unifiedFilename = filename.replace('.json', '_unified.json');
+            // Se o filename já tem _unified, usar diretamente, senão adicionar
+            const isAlreadyUnified = filename.includes('_unified.json');
+            const unifiedFilename = isAlreadyUnified ? filename : filename.replace('.json', '_unified.json');
             const unifiedFilePath = path.join(this.unifiedSchemasPath, unifiedFilename);
             const normalizedUnifiedPath = path.join(this.unifiedSchemasPath, unifiedFilename.replace('.json', '_normalized.json'));
 

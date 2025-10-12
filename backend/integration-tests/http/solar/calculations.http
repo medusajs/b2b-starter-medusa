@@ -1,0 +1,182 @@
+### ========================================
+### Solar Calculations API - PLG Kit Exposure Tests
+### ========================================
+
+@baseUrl = http://localhost:9000
+@adminToken = YOUR_ADMIN_TOKEN_HERE
+@customerToken = YOUR_CUSTOMER_TOKEN_HERE
+
+### ========================================
+### 1. POST /store/solar-calculations
+### Execute workflow: dimensionamento + kits recommendations (PLG: product_id exposure)
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "consumo_kwh_mes": 450,
+  "uf": "SP",
+  "tipo_instalacao": "residencial",
+  "tipo_telhado": "ceramico",
+  "orcamento_disponivel": 30000,
+  "prioridade_cliente": "custo_beneficio"
+}
+
+### Expected Response (201):
+# {
+#   "calculation_id": "calc_01JKA...",
+#   "dimensionamento": {
+#     "kwp_proposto": 5.4,
+#     "kwp_necessario": 5.2,
+#     "numero_paineis": 12,
+#     ...
+#   },
+#   "producao": {
+#     "geracao_mensal_kwh": 750,
+#     "geracao_anual_kwh": 9000,
+#     ...
+#   },
+#   "financeiro": {
+#     "investimento_total": 27000,
+#     "payback_anos": 4.5,
+#     "roi_25_anos": 287.5,
+#     ...
+#   },
+#   "kits_recomendados": [
+#     {
+#       "id": "kit_01JKA...",
+#       "solar_calculation_id": "calc_01JKA...",
+#       "product_id": "prod_01HJKS...", // ✅ PLG: Product exposure
+#       "match_score": 95,
+#       "rank": 1,
+#       "price": 27000,
+#       "kit_details": {
+#         "nome": "Kit Solar 5.4 kWp - Deye",
+#         "paineis": { "modelo": "Deye 450W", "quantidade": 12 },
+#         "inversor": { "modelo": "Deye SUN-5K-SG03LP1", "potencia": 5000 }
+#       },
+#       "product": {
+#         "id": "prod_01HJKS...",
+#         "title": "Kit Solar Completo 5.4 kWp - Deye Premium",
+#         "thumbnail": "https://...",
+#         "variants": [...]
+#       }
+#     },
+#     // ... mais 4 kits (rank 2-5)
+#   ],
+#   "notification_sent": true
+# }
+
+### ========================================
+### 2. POST /store/solar-calculations - Commercial (higher consumption)
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "consumo_kwh_mes": 1500,
+  "uf": "RJ",
+  "tipo_instalacao": "comercial",
+  "tipo_telhado": "metalico",
+  "orcamento_disponivel": 80000,
+  "prioridade_cliente": "qualidade"
+}
+
+### ========================================
+### 3. POST /store/solar-calculations - Industrial (very high consumption)
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "consumo_kwh_mes": 5000,
+  "uf": "MG",
+  "tipo_instalacao": "industrial",
+  "tipo_telhado": "laje",
+  "orcamento_disponivel": 250000,
+  "prioridade_cliente": "producao"
+}
+
+### ========================================
+### 4. POST /store/solar-calculations - Edge case: Low consumption
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "consumo_kwh_mes": 150,
+  "uf": "SC",
+  "tipo_instalacao": "residencial",
+  "tipo_telhado": "fibrocimento"
+}
+
+### ========================================
+### 5. POST /store/solar-calculations - Edge case: High budget, low consumption
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "consumo_kwh_mes": 300,
+  "uf": "SP",
+  "tipo_instalacao": "residencial",
+  "tipo_telhado": "ceramico",
+  "orcamento_disponivel": 100000,
+  "prioridade_cliente": "tecnologia"
+}
+
+### ========================================
+### 6. POST /store/solar-calculations - Error: Missing required fields
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T"
+}
+
+### Expected Response (400):
+# {
+#   "message": "Missing required fields: consumo_kwh_mes, uf"
+# }
+
+### ========================================
+### 7. POST /store/solar-calculations - Error: Unauthorized
+### ========================================
+POST {{baseUrl}}/store/solar-calculations
+Content-Type: application/json
+
+{
+  "consumo_kwh_mes": 450,
+  "uf": "SP"
+}
+
+### Expected Response (401):
+# {
+#   "message": "Unauthorized - login required"
+# }
+
+### ========================================
+### Validation Checklist (PLG Strategy 360°):
+### ========================================
+# ✅ Workflow executed (calculateSolarSystemWorkflow)
+# ✅ SolarCalculation entity persisted (calculation_id returned)
+# ✅ SolarCalculationKit entities persisted (up to 5 kits)
+# ✅ product_id present in each kit (links to Medusa Product catalog)
+# ✅ match_score present (guides customer selection)
+# ✅ rank present (1-5 ordering)
+# ✅ price present (transparent pricing)
+# ✅ kit_details present (full specifications in JSONB)
+# ✅ Product enrichment via query.graph() (title, thumbnail, variants)
+# ✅ 360° PLG Coverage: Stage 1 complete (calculator → kits with products)

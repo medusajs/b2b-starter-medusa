@@ -147,9 +147,34 @@ export class CacheManager {
                 ? CacheKeyGenerator.withPrefix(pattern)
                 : CacheKeyGenerator.withPrefix('*');
 
-            const keys = await this.redis.keys(fullPattern);
-            if (keys.length > 0) {
-                await this.redis.del(...keys);
+            // Use SCAN instead of KEYS to avoid blocking Redis in production
+            const keysToDelete: string[] = [];
+            let cursor = '0';
+            const batchSize = 100;
+
+            do {
+                const [nextCursor, keys] = await this.redis.scan(
+                    cursor,
+                    'MATCH',
+                    fullPattern,
+                    'COUNT',
+                    batchSize
+                );
+                cursor = nextCursor;
+                keysToDelete.push(...keys);
+
+                // Delete in batches to avoid memory issues
+                if (keysToDelete.length >= batchSize) {
+                    const batch = keysToDelete.splice(0, batchSize);
+                    if (batch.length > 0) {
+                        await this.redis.del(...batch);
+                    }
+                }
+            } while (cursor !== '0');
+
+            // Delete remaining keys
+            if (keysToDelete.length > 0) {
+                await this.redis.del(...keysToDelete);
             }
         } catch (error) {
             console.warn('[Cache] Clear error:', error);

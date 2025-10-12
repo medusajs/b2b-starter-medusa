@@ -58,7 +58,7 @@ export const GET = async (
 
 /**
  * POST /store/solar-calculations
- * Cria um novo cálculo solar
+ * Executa workflow de cálculo solar com recomendações de kits (PLG: kit exposure)
  */
 export const POST = async (
     req: MedusaRequest,
@@ -73,43 +73,76 @@ export const POST = async (
         return
     }
 
-    const { name, input, output, calculation_hash, notes } = req.body as {
-        name?: string
-        input: any
-        output: any
-        calculation_hash?: string
-        notes?: string
+    const {
+        customer_id,
+        consumo_kwh_mes,
+        uf,
+        tipo_instalacao,
+        tipo_telhado,
+        orcamento_disponivel,
+        prioridade_cliente
+    } = req.body as {
+        customer_id?: string
+        consumo_kwh_mes: number
+        uf: string
+        tipo_instalacao?: string
+        tipo_telhado?: string
+        orcamento_disponivel?: number
+        prioridade_cliente?: string
     }
 
-    if (!input || !output) {
+    // Validação
+    if (!consumo_kwh_mes || !uf) {
         res.status(400).json({
-            message: "Missing required fields: input and output"
+            message: "Missing required fields: consumo_kwh_mes, uf"
         })
         return
     }
 
     try {
-        // Mock save - substituir por persistência real no banco
-        const calculation = {
-            id: `calc_${Date.now()}`,
-            customer_id: customerId,
-            name,
-            input,
-            output,
-            calculation_hash,
-            notes,
-            is_favorite: false,
-            created_at: new Date(),
-            updated_at: new Date(),
-        }
+        // Import workflow
+        const { calculateSolarSystemWorkflow } = await import("../../../workflows/solar/calculate-solar-system")
+
+        // Execute workflow
+        const { result } = await calculateSolarSystemWorkflow(req.scope).run({
+            input: {
+                customer_id: customer_id || customerId,
+                consumo_kwh_mes,
+                uf,
+                tipo_instalacao: tipo_instalacao || "residencial",
+                tipo_telhado: tipo_telhado || "ceramico",
+                orcamento_disponivel,
+                prioridade_cliente: prioridade_cliente || "custo_beneficio"
+            }
+        })
+
+        // Enrich kits with product details via RemoteQuery
+        const query = req.scope.resolve("query")
+        const { data: kits } = await query.graph({
+            entity: "solar_calculation_kit",
+            fields: [
+                "*",
+                "product.id",
+                "product.title",
+                "product.thumbnail",
+                "product.variants.*"
+            ],
+            filters: { solar_calculation_id: result.calculation_id }
+        })
 
         res.status(201).json({
-            calculation,
+            calculation_id: result.calculation_id,
+            dimensionamento: result.dimensionamento,
+            producao: result.producao,
+            financeiro: result.financeiro,
+            // PLG: Kit recommendations with product exposure
+            kits_recomendados: kits || [],
+            notification_sent: result.notification_sent
         })
     } catch (error) {
-        console.error("Error creating solar calculation:", error)
+        console.error("Solar calculation failed:", error)
         res.status(500).json({
-            message: "Failed to create calculation",
+            message: "Failed to calculate solar system",
             error: error instanceof Error ? error.message : "Unknown error"
         })
     }

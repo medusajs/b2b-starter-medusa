@@ -15,7 +15,7 @@ module.exports = {
   },
   testEnvironment: "node",
   moduleFileExtensions: ["js", "ts", "json"],
-  modulePathIgnorePatterns: ["dist/"],
+  modulePathIgnorePatterns: ["dist/", ".medusa/server", ".medusa/admin"],
   setupFiles: ["./integration-tests/setup.js"],
 };
 

@@ -14,16 +14,11 @@ function writeJson(p: string, data: any) {
 
 describe('YshCatalogModuleService SKU enrichment', () => {
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ysh-catalog-test-'))
-  const catalogPath = path.join(tmpRoot, 'data', 'catalog')
+  const catalogPath = tmpRoot
   const unified = path.join(catalogPath, 'unified_schemas')
-
-  beforeAll(() => {
-    process.env.CATALOG_PATH = catalogPath
-  })
 
   afterAll(() => {
     try { fs.rmSync(tmpRoot, { recursive: true, force: true }) } catch {}
-    delete process.env.CATALOG_PATH
   })
 
   test('applies canonical SKU from registry when present', async () => {
@@ -35,7 +30,11 @@ describe('YshCatalogModuleService SKU enrichment', () => {
       items: [{ category: 'kits', id: 'ITEM1', sku: 'CANONICAL-1' }]
     })
 
-    const svc = new YshCatalogModuleService(null)
+    // Pass catalogPath as option to constructor
+    const svc = new YshCatalogModuleService(null, { 
+      catalogPath,
+      unifiedSchemasPath: unified 
+    })
     const res = await svc.listProductsByCategory('kits', { limit: 10 })
     expect(res.products.length).toBeGreaterThan(0)
     const p = res.products[0]
@@ -52,8 +51,12 @@ describe('YshCatalogModuleService SKU enrichment', () => {
     // Ensure no registry for inverters
     writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
 
-    const svc = new YshCatalogModuleService(null)
+    const svc = new YshCatalogModuleService(null, { 
+      catalogPath,
+      unifiedSchemasPath: unified 
+    })
     const res = await svc.listProductsByCategory('inverters', { limit: 10 })
+    expect(res.products.length).toBeGreaterThan(0)
     const p = res.products[0]
     expect(p.sku).toBe('INV-001')
   })
@@ -65,9 +68,14 @@ describe('YshCatalogModuleService SKU enrichment', () => {
     // Empty registry to force fallback
     writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
 
-    const svc = new YshCatalogModuleService(null)
+    const svc = new YshCatalogModuleService(null, { 
+      catalogPath,
+      unifiedSchemasPath: unified 
+    })
     const res1 = await svc.listProductsByCategory('panels', { limit: 10 })
     const res2 = await svc.listProductsByCategory('panels', { limit: 10 })
+    expect(res1.products.length).toBeGreaterThan(0)
+    expect(res2.products.length).toBeGreaterThan(0)
     expect(res1.products[0].sku).toEqual(res2.products[0].sku)
     expect(res1.products[0].sku).toMatch(/^[A-Z0-9-]{6,64}$/)
   })

@@ -1,0 +1,230 @@
+### ========================================
+### Order Fulfillment API - PLG Product Tracking & Real-Time Transparency Tests
+### ========================================
+
+@baseUrl = http://localhost:9000
+@adminToken = YOUR_ADMIN_TOKEN_HERE
+@customerToken = YOUR_CUSTOMER_TOKEN_HERE
+@orderId = order_01JKA3M8FQWX2HPZY7V5NRTBK1
+
+### ========================================
+### 1. GET /store/orders/:id/fulfillment
+### Fetch fulfillment with product tracking + real-time events (PLG: 360° transparency)
+### ========================================
+GET {{baseUrl}}/store/orders/{{orderId}}/fulfillment
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (200):
+# {
+#   "fulfillment_id": "fulfill_01JKA...",
+#   "order_id": "order_01JKA...",
+#   "status": "shipped",
+#   "warehouse": {
+#     "id": "wh_01JKA...",
+#     "name": "YSH Store - Centro de Distribuição SP"
+#   },
+#   "picking": {
+#     "started_at": "2025-10-12T08:00:00Z",
+#     "completed_at": "2025-10-12T09:30:00Z",
+#     "picked_by": "João Silva"
+#   },
+#   "packing": {
+#     "started_at": "2025-10-12T09:30:00Z",
+#     "completed_at": "2025-10-12T10:15:00Z",
+#     "packed_by": "Maria Santos",
+#     "number_of_packages": 2,
+#     "package_dimensions": [
+#       {
+#         "width": 120,
+#         "height": 80,
+#         "depth": 20,
+#         "weight": 35.5
+#       },
+#       {
+#         "width": 60,
+#         "height": 40,
+#         "depth": 30,
+#         "weight": 18.2
+#       }
+#     ]
+#   },
+#   "picked_items": [ // ✅ PLG: Product tracking with enrichment
+#     {
+#       "product_id": "prod_01HJKS...",
+#       "variant_id": "variant_01HJKS...",
+#       "title": "Kit Solar Completo 5.4 kWp - Deye Premium",
+#       "quantity": 1,
+#       "sku": "KIT-SOLAR-5.4-DEYE-001",
+#       "location": "A-12-3",
+#       "product": { // ✅ PLG: Product enrichment via query.graph()
+#         "id": "prod_01HJKS...",
+#         "title": "Kit Solar Completo 5.4 kWp - Deye Premium",
+#         "thumbnail": "https://ysh-store.s3.amazonaws.com/products/kit-solar-5.4-deye.jpg",
+#         "description": "Kit completo com 12 painéis Deye 450W...",
+#         "variants": [
+#           {
+#             "id": "variant_01HJKS...",
+#             "sku": "KIT-SOLAR-5.4-DEYE-001",
+#             "title": "Kit Solar 5.4 kWp - Deye - Com Instalação",
+#             "prices": [...]
+#           }
+#         ]
+#       }
+#     },
+#     {
+#       "product_id": "prod_01HJKS...",
+#       "variant_id": "variant_01HJKS...",
+#       "title": "Estrutura de Fixação para Telhado Cerâmico",
+#       "quantity": 1,
+#       "sku": "EST-CERAMICO-5.4KW",
+#       "location": "B-08-1",
+#       "product": {
+#         "id": "prod_01HJKS...",
+#         "title": "Estrutura de Fixação para Telhado Cerâmico",
+#         "thumbnail": "https://...",
+#         "variants": [...]
+#       }
+#     }
+#   ],
+#   "shipments": [ // ✅ PLG: Real-time shipping transparency
+#     {
+#       "shipment_id": "ship_01JKA...",
+#       "tracking_code": "YSH-2025-0001234",
+#       "tracking_url": "https://ysh-store.com.br/rastreio/YSH-2025-0001234",
+#       "carrier": "Transportadora Total Express",
+#       "service_type": "Entrega Agendada",
+#       "status": "in_transit",
+#       "shipped_at": "2025-10-12T11:00:00Z",
+#       "estimated_delivery_date": "2025-10-15",
+#       "actual_delivery_date": null,
+#       "tracking_events": [ // ✅ PLG: Real-time event timeline
+#         {
+#           "timestamp": "2025-10-12T11:00:00Z",
+#           "status": "picked_up",
+#           "location": "São Paulo - SP",
+#           "description": "Objeto coletado no centro de distribuição"
+#         },
+#         {
+#           "timestamp": "2025-10-12T14:30:00Z",
+#           "status": "in_transit",
+#           "location": "São Paulo - SP",
+#           "description": "Objeto em trânsito - saiu para entrega"
+#         },
+#         {
+#           "timestamp": "2025-10-13T08:45:00Z",
+#           "status": "in_transit",
+#           "location": "Campinas - SP",
+#           "description": "Objeto em trânsito - próxima parada"
+#         },
+#         {
+#           "timestamp": "2025-10-14T10:20:00Z",
+#           "status": "out_for_delivery",
+#           "location": "Campinas - SP",
+#           "description": "Objeto saiu para entrega ao destinatário"
+#         }
+#       ],
+#       "shipping_address": {
+#         "street": "Rua das Flores, 123",
+#         "neighborhood": "Centro",
+#         "city": "Campinas",
+#         "state": "SP",
+#         "postal_code": "13010-000"
+#       }
+#     }
+#   ]
+# }
+
+### ========================================
+### 2. GET /store/orders/:id/fulfillment - Order with multiple shipments
+### ========================================
+@multiShipmentOrderId = order_01JKA3M8FQWX2HPZY7V5NRTBK2
+
+GET {{baseUrl}}/store/orders/{{multiShipmentOrderId}}/fulfillment
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Note: Should return fulfillment with 2+ shipments (split delivery)
+
+### ========================================
+### 3. GET /store/orders/:id/fulfillment - Order in picking status
+### ========================================
+@pickingOrderId = order_01JKA3M8FQWX2HPZY7V5NRTBK3
+
+GET {{baseUrl}}/store/orders/{{pickingOrderId}}/fulfillment
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Note: Should return fulfillment with status="picking", no shipments yet
+
+### ========================================
+### 4. GET /store/orders/:id/fulfillment - Order delivered
+### ========================================
+@deliveredOrderId = order_01JKA3M8FQWX2HPZY7V5NRTBK4
+
+GET {{baseUrl}}/store/orders/{{deliveredOrderId}}/fulfillment
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Note: Should return fulfillment with status="delivered", shipment has actual_delivery_date and final tracking_event
+
+### ========================================
+### 5. GET /store/orders/:id/fulfillment - Error: Fulfillment not found
+### ========================================
+GET {{baseUrl}}/store/orders/invalid_order_id/fulfillment
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (404):
+# {
+#   "error": "Fulfillment not found for this order",
+#   "order_id": "invalid_order_id"
+# }
+
+### ========================================
+### 6. GET /store/orders/:id/fulfillment - Error: Unauthorized
+### ========================================
+GET {{baseUrl}}/store/orders/{{orderId}}/fulfillment
+Content-Type: application/json
+
+### Expected Response (401):
+# {
+#   "error": "Unauthorized"
+# }
+
+### ========================================
+### Validation Checklist (PLG Strategy 360°):
+### ========================================
+# ✅ OrderFulfillment entity queried via query.graph()
+# ✅ OrderShipment entities fetched with fulfillment
+# ✅ picked_items present (JSONB with product_id, variant_id, title, quantity, sku, location)
+# ✅ Product enrichment via query.graph() (title, thumbnail, description, variants)
+# ✅ tracking_code present (public identifier: YSH-2025-XXXXXXX)
+# ✅ tracking_url present (customer-facing tracking page)
+# ✅ tracking_events present (JSONB array with timestamp, status, location, description)
+# ✅ Real-time status updates (picked_up, in_transit, out_for_delivery, delivered)
+# ✅ Warehouse details (id, name)
+# ✅ Picking details (started_at, completed_at, picked_by)
+# ✅ Packing details (started_at, completed_at, packed_by, number_of_packages, package_dimensions)
+# ✅ Carrier details (carrier, service_type)
+# ✅ Delivery timeline (shipped_at, estimated_delivery_date, actual_delivery_date)
+# ✅ Shipping address (full address details)
+# ✅ 360° PLG Coverage: Stage 4 complete (fulfillment → product tracking + real-time transparency)
+
+### ========================================
+### PLG Strategy 360° - Complete Journey Coverage:
+### ========================================
+# ✅ Stage 1: Solar Calculations → Kits with product_id (integration-tests/http/solar/calculations.http)
+# ✅ Stage 2: Credit Analysis → 3 financing offers with modality/rates (integration-tests/http/credit-analysis/analyses.http)
+# ✅ Stage 3: Financing Application → Payment schedule with 360 installments (integration-tests/http/financing/applications.http)
+# ✅ Stage 4: Order Fulfillment → Product tracking + real-time events (THIS FILE)
+#
+# 🎉 COMPLETE 360° PLG COVERAGE ACHIEVED! 🎉
+#
+# Customer can now:
+# 1. Calculate solar system → See 5 kit recommendations with products
+# 2. Analyze credit → Compare 3 financing options with transparent rates
+# 3. Apply for financing → View complete payment schedule (up to 30 years)
+# 4. Track order → See products being fulfilled with real-time shipping events
+#
+# All touchpoints expose products, options, prices, and status for complete transparency!

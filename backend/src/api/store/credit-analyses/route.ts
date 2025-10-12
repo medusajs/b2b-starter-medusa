@@ -17,7 +17,14 @@ export async function POST(
         requested_amount,
         requested_term_months,
         financing_modality
-    } = req.body
+    } = req.body as {
+        customer_id: string
+        quote_id?: string
+        solar_calculation_id?: string
+        requested_amount: number
+        requested_term_months: number
+        financing_modality?: "CDC" | "LEASING" | "EAAS" | "CASH"
+    }
 
     // Validação
     if (!customer_id || !requested_amount || !requested_term_months) {
@@ -37,7 +44,9 @@ export async function POST(
                 requested_term_months,
                 financing_modality
             }
-        })        return res.status(201).json({
+        })
+
+        return res.status(201).json({
             analysis_id: result.analysis_id,
             result: result.result,
             best_offers: result.best_offers, // PLG: Financing options exposure
@@ -62,25 +71,27 @@ export async function GET(
     res: MedusaResponse
 ) {
     const { id } = req.params
-    const entityManager = req.scope.resolve("entityManager")
+    const query = req.scope.resolve("query")
 
     try {
-        const { CreditAnalysis, FinancingOffer } = await import("../../../entities/credit-analysis.entity")
-
-        // Fetch analysis with offers
-        const analysis = await entityManager.findOne(CreditAnalysis, id, {
-            populate: ['offers']
+        // Fetch analysis with offers using RemoteQuery
+        const { data: [analysis] } = await query.graph({
+            entity: "credit_analysis",
+            fields: [
+                "*",
+                "offers.*"
+            ],
+            filters: { id }
         })
 
         if (!analysis) {
             return res.status(404).json({ error: "Credit analysis not found" })
         }
 
-        const offers = analysis.offers?.toArray() || []
-
         return res.json({
-            ...analysis.toObject(),
-            offers: offers.map(o => o.toObject())
+            ...analysis,
+            // PLG: Financing options exposure
+            offers: analysis.offers || []
         })
     } catch (error) {
         console.error("Failed to fetch credit analysis:", error)

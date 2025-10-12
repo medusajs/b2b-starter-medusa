@@ -5,72 +5,60 @@
 
 import type { MedusaRequest, MedusaResponse, MedusaNextFunction } from "@medusajs/framework/http";
 import { FEATURE_FLAGS, ERROR_CODES } from "../../utils/solar-cv-config";
+import { RateLimiter } from "../../utils/rate-limiter";
 
 // ============================================================================
-// Rate Limiting Middleware
+// Rate Limiting Middleware (Distributed Redis-backed)
 // ============================================================================
-
-interface RateLimitStore {
-    requests: Map<string, { count: number; resetAt: number }>;
-}
-
-const rateLimitStore: RateLimitStore = {
-    requests: new Map(),
-};
 
 export function rateLimitMiddleware(
     maxRequests: number = 100,
     windowMs: number = 60000 // 1 minute
 ) {
-    return (req: MedusaRequest, res: MedusaResponse, next: MedusaNextFunction) => {
+    return async (req: MedusaRequest, res: MedusaResponse, next: MedusaNextFunction) => {
         if (!FEATURE_FLAGS.ENABLE_RATE_LIMITING) {
             return next();
         }
 
-        const identifier = req.ip || req.headers["x-forwarded-for"] || "anonymous";
-        const key = `cv:${identifier}`;
-        const now = Date.now();
-
-        let record = rateLimitStore.requests.get(key);
-
-        if (!record || now > record.resetAt) {
-            record = {
-                count: 0,
-                resetAt: now + windowMs,
-            };
-            rateLimitStore.requests.set(key, record);
-        }
-
-        record.count++;
-
-        // Set rate limit headers
-        res.setHeader("X-RateLimit-Limit", maxRequests);
-        res.setHeader("X-RateLimit-Remaining", Math.max(0, maxRequests - record.count));
-        res.setHeader("X-RateLimit-Reset", new Date(record.resetAt).toISOString());
-
-        if (record.count > maxRequests) {
-            res.status(429).json({
-                success: false,
-                error: "Rate limit exceeded",
-                error_code: ERROR_CODES.RATE_LIMIT_EXCEEDED,
-                retry_after: Math.ceil((record.resetAt - now) / 1000),
+        try {
+            const identifier = (req.ip || req.headers["x-forwarded-for"] || "anonymous") as string;
+            const rateLimiter = RateLimiter.getInstance();
+            
+            const result = await rateLimiter.checkLimit(identifier, {
+                maxRequests,
+                windowMs,
             });
-            return;
-        }
 
-        next();
+            // Set rate limit headers
+            res.setHeader("X-RateLimit-Limit", result.limit);
+            res.setHeader("X-RateLimit-Remaining", result.remaining);
+            res.setHeader("X-RateLimit-Reset", new Date(result.resetTime).toISOString());
+            res.setHeader("X-RateLimit-Window", `${result.windowMs}ms`);
+
+            if (!result.success) {
+                const retryAfter = Math.ceil((result.resetTime - Date.now()) / 1000);
+                res.setHeader("Retry-After", retryAfter.toString());
+                
+                res.status(429).json({
+                    success: false,
+                    error: "Rate limit exceeded",
+                    error_code: ERROR_CODES.RATE_LIMIT_EXCEEDED,
+                    retry_after: retryAfter,
+                    limit: result.limit,
+                    remaining: result.remaining,
+                    reset_time: new Date(result.resetTime).toISOString(),
+                });
+                return;
+            }
+
+            next();
+        } catch (error) {
+            console.error("[Rate Limiter] Error:", error);
+            // On error, allow request to pass (fail-open)
+            next();
+        }
     };
 }
-
-// Cleanup old rate limit entries every 5 minutes
-setInterval(() => {
-    const now = Date.now();
-    for (const [key, record] of rateLimitStore.requests.entries()) {
-        if (now > record.resetAt + 300000) {
-            rateLimitStore.requests.delete(key);
-        }
-    }
-}, 300000);
 
 // ============================================================================
 // API Key Authentication Middleware
@@ -98,22 +86,65 @@ export function apiKeyAuthMiddleware(req: MedusaRequest, res: MedusaResponse, ne
 }
 
 // ============================================================================
-// CORS Middleware for CV APIs
+// CORS Middleware for CV APIs (Production-hardened)
 // ============================================================================
 
 export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: MedusaNextFunction) {
-    const allowedOrigins = process.env.CV_CORS_ORIGINS?.split(",") || ["*"];
     const origin = req.headers.origin as string;
+    const isProd = process.env.NODE_ENV === "production";
+    const allowedOriginsEnv = process.env.CV_CORS_ORIGINS;
 
-    if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
-        res.setHeader("Access-Control-Allow-Origin", origin || "*");
+    // Production: require explicit origins, deny wildcard
+    if (isProd && !allowedOriginsEnv) {
+        if (req.method === "OPTIONS") {
+            res.status(403).json({
+                success: false,
+                error: "CORS not configured for production",
+                error_code: "E403_CORS",
+            });
+            return;
+        }
+        
+        if (req.method === "POST" || req.method === "PUT" || req.method === "DELETE") {
+            res.status(403).json({
+                success: false,
+                error: "Origin not allowed",
+                error_code: "E403_ORIGIN",
+            });
+            return;
+        }
+    }
+
+    // Parse allowed origins
+    const allowedOrigins = allowedOriginsEnv?.split(",") || (isProd ? [] : ["*"]);
+    
+    // Validate origin
+    const isAllowed = allowedOrigins.includes("*") || 
+                      allowedOrigins.includes(origin) ||
+                      (!isProd && !origin); // Allow no-origin in dev
+
+    if (isAllowed) {
+        // In production, set specific origin; in dev, allow wildcard if configured
+        const allowOrigin = origin || (allowedOrigins.includes("*") && !isProd ? "*" : allowedOrigins[0]);
+        
+        res.setHeader("Access-Control-Allow-Origin", allowOrigin);
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, X-API-Key, Authorization");
         res.setHeader("Access-Control-Max-Age", "86400");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
     }
 
     if (req.method === "OPTIONS") {
-        res.status(204).end();
+        res.status(isAllowed ? 204 : 403).end();
+        return;
+    }
+
+    if (!isAllowed && isProd) {
+        res.status(403).json({
+            success: false,
+            error: "Origin not allowed",
+            error_code: "E403_ORIGIN",
+        });
         return;
     }
 
