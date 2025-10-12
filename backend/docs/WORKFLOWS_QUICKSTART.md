@@ -247,7 +247,7 @@ Workflows para gestão de empresas B2B:
 
 ### Fluxo Completo de Venda Solar
 
-```
+```tsx
 1. Cliente solicita orçamento
    → createRequestForQuoteWorkflow
 
@@ -407,7 +407,7 @@ Todos os steps críticos implementam compensação:
 
 ### Workflow não encontrado
 
-```
+```tsx
 Error: Workflow "my-workflow" not found
 ```
 
@@ -415,7 +415,7 @@ Error: Workflow "my-workflow" not found
 
 ### Step falhou
 
-```
+```tsx
 Error: Step "my-step" failed
 ```
 
@@ -423,7 +423,7 @@ Error: Step "my-step" failed
 
 ### BACEN API timeout
 
-```
+```tsx
 Warning: BACEN API unavailable - using offline validation
 ```
 

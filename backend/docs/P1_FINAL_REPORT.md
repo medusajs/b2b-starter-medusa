@@ -66,7 +66,7 @@
 
 ### Scorecard Final
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────┐
 │  🟢 COMPLETO (100%)  │  Quote Management             │
 │  🟢 COMPLETO (100%)  │  Company Management           │
@@ -86,7 +86,7 @@ Cobertura Global: 🟢 90% (antes: 🟡 65%)
 
 ### Jornada Solar End-to-End
 
-```
+```tsx
 ┌────────────────────────────────────────────────────────────┐
 │  1. Cliente solicita orçamento                             │
 │     ✅ createRequestForQuoteWorkflow                       │
@@ -165,8 +165,8 @@ Status: ✅ JORNADA 100% AUTOMATIZADA
 
 ### Workflows
 
-```
-src/workflows/
+```tsx
+src/workflowtsxs/
 ├── solar/
 │   ├── calculate-solar-system.ts      [341 linhas] ✅
 │   └── index.ts                        [Exports]    ✅
@@ -183,7 +183,7 @@ src/workflows/
 
 ### Testes HTTP
 
-```
+```tsx
 integration-tests/http/
 ├── solar/
 │   ├── calculate-solar-system.http     [3 tests]    ✅
@@ -195,7 +195,7 @@ integration-tests/http/
 
 ### Documentação
 
-```
+```tsx
 docs/
 ├── MODULE_WORKFLOW_ARCHITECTURE_360.md [Updated]    ✅
 ├── WORKFLOWS_P1_REPORT.md              [New]        ✅
@@ -246,7 +246,7 @@ docs/
 
 ### ROI Estimado
 
-```
+```tsx
 Redução de tempo: 7-14 dias → 2-3 dias
   = 10x mais vendas/mês com mesmo time
 
