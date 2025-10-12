@@ -17,6 +17,7 @@
 ## 🎯 Estratégia PLG Implementada
 
 ### Princípios PLG
+
 1. **Product Discovery:** Kits recomendados expostos desde o cálculo inicial
 2. **Transparent Pricing:** Preços e financiamento visíveis antes da compra
 3. **Self-Service:** Cliente pode explorar opções sem intervenção de vendas
@@ -25,7 +26,7 @@
 
 ### Cobertura 360° da Jornada
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────┐
 │                    JORNADA SOLAR PLG 360°                       │
 ├─────────────────────────────────────────────────────────────────┤
@@ -82,6 +83,7 @@
 **Arquivo:** `src/workflows/solar/calculate-solar-system.ts`
 
 **Integração com Entities:**
+
 ```typescript
 export const saveSolarCalculationStep = createStep(
     "save-solar-calculation",
@@ -117,6 +119,7 @@ export const saveSolarCalculationStep = createStep(
 ```
 
 **Product Exposure:**
+
 - ✅ `product_id` (UUID) vincula kit ao catálogo Medusa
 - ✅ `match_score` (0-100) orienta seleção do cliente
 - ✅ `rank` (1-5) ordena por relevância
@@ -124,6 +127,7 @@ export const saveSolarCalculationStep = createStep(
 - ✅ `kit_details` (JSONB) expõe módulos, inversores, acessórios
 
 **Database Impact:**
+
 ```sql
 -- solar_calculation: 28 colunas
 -- solar_calculation_kit: 10 colunas
@@ -138,6 +142,7 @@ export const saveSolarCalculationStep = createStep(
 **Arquivo:** `src/workflows/credit-analysis/analyze-credit.ts`
 
 **Integração com Entities:**
+
 ```typescript
 export const saveCreditAnalysisStep = createStep(
     "save-credit-analysis",
@@ -172,6 +177,7 @@ export const saveCreditAnalysisStep = createStep(
 ```
 
 **Financing Exposure:**
+
 - ✅ `modality` (CDC/LEASING/EAAS) modalidades disponíveis
 - ✅ `interest_rate_monthly` + `interest_rate_annual` taxas transparentes
 - ✅ `monthly_payment` (BRL) valor da parcela
@@ -179,6 +185,7 @@ export const saveCreditAnalysisStep = createStep(
 - ✅ `is_recommended` flag para destaque visual
 
 **Database Impact:**
+
 ```sql
 -- credit_analysis: 24 colunas
 -- financing_offer: 15 colunas
@@ -193,6 +200,7 @@ export const saveCreditAnalysisStep = createStep(
 **Arquivo:** `src/workflows/financing/apply-financing.ts`
 
 **Integração com Entities:**
+
 ```typescript
 export const submitFinancingApplicationStep = createStep(
     "submit-financing-application",
@@ -238,6 +246,7 @@ export const submitFinancingApplicationStep = createStep(
 ```
 
 **Payment Transparency:**
+
 - ✅ `payment_schedule` (JSONB) até 360 parcelas detalhadas
 - ✅ Cada parcela mostra: `principal`, `interest`, `balance`
 - ✅ `due_date` para planejamento financeiro
@@ -245,6 +254,7 @@ export const submitFinancingApplicationStep = createStep(
 - ✅ BACEN validation: `selic_rate`, `cdi_rate`, `cet`
 
 **Database Impact:**
+
 ```sql
 -- financing_application: 29 colunas
 -- JSONB: payment_schedule (array de 12-360 objetos)
@@ -259,6 +269,7 @@ export const submitFinancingApplicationStep = createStep(
 **Arquivo:** `src/workflows/order/fulfill-order.ts`
 
 **Integração com Entities:**
+
 ```typescript
 export const pickOrderItemsStep = createStep(
     "pick-order-items",
@@ -314,6 +325,7 @@ export const createShipmentStep = createStep(
 ```
 
 **Tracking Transparency:**
+
 - ✅ `picked_items` (JSONB) expõe products no fulfillment
 - ✅ `product_id` vincula ao catálogo para detalhes
 - ✅ `tracking_code` (UNIQUE) para consulta pública
@@ -321,6 +333,7 @@ export const createShipmentStep = createStep(
 - ✅ `tracking_url` para rastreamento externo
 
 **Database Impact:**
+
 ```sql
 -- order_fulfillment: 17 colunas
 -- order_shipment: 18 colunas
@@ -480,6 +493,7 @@ MedusaModule.setCustomLink(
 ### 1. POST /store/solar-calculations
 
 **Request:**
+
 ```json
 {
   "customer_id": "cust_123",
@@ -490,6 +504,7 @@ MedusaModule.setCustomLink(
 ```
 
 **Response (PLG-Enabled):**
+
 ```json
 {
   "calculation_id": "calc_abc123",
@@ -525,6 +540,7 @@ MedusaModule.setCustomLink(
 ### 2. POST /store/credit-analyses
 
 **Request:**
+
 ```json
 {
   "customer_id": "cust_123",
@@ -535,6 +551,7 @@ MedusaModule.setCustomLink(
 ```
 
 **Response (PLG-Enabled):**
+
 ```json
 {
   "analysis_id": "credit_xyz789",
@@ -567,6 +584,7 @@ MedusaModule.setCustomLink(
 ### 3. POST /store/financing-applications
 
 **Request:**
+
 ```json
 {
   "customer_id": "cust_123",
@@ -578,6 +596,7 @@ MedusaModule.setCustomLink(
 ```
 
 **Response (PLG-Enabled):**
+
 ```json
 {
   "application_id": "app_fin_001",
@@ -609,6 +628,7 @@ MedusaModule.setCustomLink(
 ### 4. GET /store/orders/:id/fulfillment
 
 **Response (PLG-Enabled):**
+
 ```json
 {
   "fulfillment_id": "fulfill_001",
@@ -656,7 +676,7 @@ MedusaModule.setCustomLink(
 
 ### User Journey with Product Exposure
 
-```
+```tsx
 ┌────────────────────────────────────────────────────────────────┐
 │                     STOREFRONT PLG FLOW                        │
 ├────────────────────────────────────────────────────────────────┤
