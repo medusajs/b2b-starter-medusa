@@ -18,6 +18,7 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ### 1. Backend Entities & Workflows (100% ✅)
 
 **7 Entidades Mikro-ORM Criadas (831 linhas):**
+
 - `SolarCalculation` (28 colunas + JSONB)
 - `SolarCalculationKit` (13 colunas + **product_id exposure**)
 - `CreditAnalysis` (24 colunas)
@@ -27,12 +28,14 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 - `OrderShipment` (16 colunas + **tracking_events JSONB**)
 
 **Migration Executada:**
+
 - 7 tabelas criadas
 - 28 índices para performance
 - 4 foreign keys
 - Exit code: 0 ✅
 
 **4 Workflows Integrados com EntityManager:**
+
 1. `calculateSolarSystemWorkflow` → Persiste `SolarCalculation` + até 5 `SolarCalculationKit` com `product_id`
 2. `analyzeCreditWorkflow` → Persiste `CreditAnalysis` + até 3 `FinancingOffer` com modality/rates
 3. `applyFinancingWorkflow` → Persiste `FinancingApplication` com `payment_schedule` (360 installments)
@@ -45,24 +48,28 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 **4 Endpoints REST Criados (0 erros TypeScript):**
 
 #### `/store/solar-calculations` (POST)
+
 - **Workflow:** `calculateSolarSystemWorkflow`
 - **PLG Exposure:** Retorna 5 kits com `product_id`, `match_score`, `rank`, `price`
 - **Enrichment:** `query.graph()` enriquece kits com Product (title, thumbnail, variants)
 - **Status:** ✅ Código correto, sem erros
 
 #### `/store/credit-analyses` (POST + GET)
+
 - **Workflow:** `analyzeCreditWorkflow`
 - **PLG Exposure:** Retorna até 3 `FinancingOffer` com modality (CDC/LEASING/EAAS), rates, `monthly_payment`
 - **GET:** `query.graph()` retorna analysis + offers
 - **Status:** ✅ Código correto, sem erros
 
 #### `/store/financing-applications` (POST + GET)
+
 - **Workflow:** `applyFinancingWorkflow`
 - **PLG Exposure:** Retorna `payment_schedule` completo (até 360 installments) + `bacen_validation`
 - **GET:** `query.graph()` retorna application com full payment schedule
 - **Status:** ✅ Código correto, sem erros
 
 #### `/store/orders/:id/fulfillment` (GET)
+
 - **PLG Exposure:** Retorna `picked_items` enriquecidos com Products + `tracking_events` com real-time status
 - **Enrichment:** `query.graph()` para Product details
 - **Status:** ✅ Código correto, sem erros (erro LSP é cache)
@@ -96,12 +103,14 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ### 4. RemoteLink Configuration & Documentation (100% ✅)
 
 **Documentação Completa:**
+
 - `src/links/CROSS_MODULE_QUERIES.md` (500+ linhas)
 - 8 relacionamentos documentados
 - 4 query examples com código completo
 - Abordagem: **EntityManager + query.graph()** (Mikro-ORM entities não suportam RemoteLink nativo)
 
 **Relacionamentos Disponíveis:**
+
 1. SolarCalculationKit → Product (via `product_id`)
 2. SolarCalculationKit → SolarCalculation (via `solar_calculation_id`)
 3. CreditAnalysis → SolarCalculation (via `solar_calculation_id`)
@@ -112,6 +121,7 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 8. OrderShipment → OrderFulfillment (via `fulfillment_id`)
 
 **Query Strategy:**
+
 - EntityManager com `populate` para relacionamentos internos
 - `query.graph()` para Product/Order (Medusa core)
 - Manual join usando UUIDs como foreign keys
@@ -121,8 +131,10 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ## 🚀 Estratégia PLG 360° - Cobertura Completa
 
 ### Stage 1: Solar Calculator → Kit Recommendations ✅
+
 **Endpoint:** `POST /store/solar-calculations`
 **PLG Exposure:**
+
 - 5 kits recomendados com `product_id` (UUID)
 - `match_score` (0-100) guia seleção
 - `rank` (1-5) ordena por relevância
@@ -136,8 +148,10 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ---
 
 ### Stage 2: Credit Analysis → Financing Options ✅
+
 **Endpoint:** `POST /store/credit-analyses`
 **PLG Exposure:**
+
 - 3 ofertas de financiamento com modality (CDC/LEASING/EAAS)
 - `interest_rate_monthly` + `interest_rate_annual` (taxas transparentes)
 - `monthly_payment` (valor da parcela)
@@ -150,8 +164,10 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ---
 
 ### Stage 3: Financing Application → Payment Schedule ✅
+
 **Endpoint:** `POST /store/financing-applications`
 **PLG Exposure:**
+
 - `payment_schedule` completo (JSONB array de 12-360 installments)
 - Cada parcela: `installment_number`, `due_date`, `principal`, `interest`, `total`, `balance`
 - Sistema PRICE (parcelas fixas)
@@ -164,8 +180,10 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ---
 
 ### Stage 4: Order Fulfillment → Product Tracking ✅
+
 **Endpoint:** `GET /store/orders/:id/fulfillment`
 **PLG Exposure:**
+
 - `picked_items` (JSONB) com `product_id`, `variant_id`, `title`, `quantity`, `sku`, `location`
 - **Enrichment:** Product details (title, thumbnail, variants)
 - `tracking_code` público (YSH-2025-XXXXXXX)
@@ -203,12 +221,14 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ### 5. API Testing & Validation (In Progress ⏳)
 
 **Tarefas:**
+
 1. ✅ Preparar ambiente de testes
    - Docker containers (ysh_medusa, ysh_medusa_db)
    - Medusa dev server na porta 9000
    - Seeds de dados de teste
 
 2. ⏳ Executar HTTP tests sequenciais:
+
    ```bash
    # Stage 1: Solar Calculations
    POST /store/solar-calculations → Verificar kits com product_id
@@ -247,6 +267,7 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ### 6. Storefront Implementation (Pending ❌)
 
 **Next Sprint:**
+
 - Next.js 14 App Router setup
 - React components:
   - `SolarCalculatorForm` (input: consumo, UF, tipo instalação)
@@ -263,6 +284,7 @@ Implementação completa da estratégia Product-Led Growth (PLG) com **exposiç�
 ## 🔍 Arquivos Chave para Revisão
 
 ### Entities (831 linhas)
+
 ```
 src/entities/solar-calculation.entity.ts (198 linhas)
 src/entities/solar-calculation-kit.entity.ts (104 linhas)
@@ -274,6 +296,7 @@ src/entities/order-shipment.entity.ts (123 linhas)
 ```
 
 ### Workflows (1,403 linhas)
+
 ```
 src/workflows/solar/calculate-solar-system.ts (347 linhas)
 src/workflows/credit-analysis/analyze-credit.ts (348 linhas)
@@ -282,6 +305,7 @@ src/workflows/order/fulfill-order.ts (287 linhas)
 ```
 
 ### API Endpoints (438 linhas)
+
 ```
 src/api/store/solar-calculations/route.ts (117 linhas)
 src/api/store/credit-analyses/route.ts (95 linhas)
@@ -290,6 +314,7 @@ src/api/store/orders/[id]/fulfillment/route.ts (112 linhas)
 ```
 
 ### HTTP Tests (1,200+ linhas)
+
 ```
 integration-tests/http/solar/calculations.http (220 linhas)
 integration-tests/http/credit-analysis/analyses.http (240 linhas)
@@ -298,6 +323,7 @@ integration-tests/http/orders/fulfillment.http (490 linhas)
 ```
 
 ### Documentation
+
 ```
 docs/PLG_STRATEGY_360_IMPLEMENTATION.md (841 linhas)
 src/links/CROSS_MODULE_QUERIES.md (500 linhas)
@@ -308,27 +334,32 @@ src/links/CROSS_MODULE_QUERIES.md (500 linhas)
 ## 💡 Destaques Técnicos
 
 ### 1. JSONB para Flexibilidade
+
 - `payment_schedule`: Array com 360 objetos (installment details)
 - `picked_items`: Array com products + variants + location
 - `tracking_events`: Timeline de eventos com timestamp + status
 - `kit_details`: Especificações completas de painéis + inversores
 
 ### 2. Query.graph() para Cross-Module
+
 - Product enrichment em kits e fulfillment
 - Order details em financing applications
 - Evita N+1 queries com fields selection
 
 ### 3. EntityManager com Populate
+
 - Relacionamentos OneToMany: kits, offers, shipments
 - Lazy loading com populate: ['kits', 'offers']
 - Performance otimizada com índices
 
 ### 4. Sistema PRICE para Parcelas Fixas
+
 - Cálculo: PMT = P * [ i(1+i)^n ] / [ (1+i)^n - 1 ]
 - Juros decrescem, principal cresce
 - Total fixo por parcela
 
 ### 5. BACEN Integration
+
 - Validação de taxa SELIC em aplicações
 - Comparação com CDC/LEASING rates
 - Compliance regulatório
