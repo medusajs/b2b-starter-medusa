@@ -47,25 +47,25 @@
     "@medusajs/medusa": "2.10.3",
     "@medusajs/ui": "4.0.23",
     "@medusajs/workflows-sdk": "2.10.3",
-    "@mikro-orm/core": "6.5.7",
-    "@mikro-orm/knex": "6.5.7",
-    "@mikro-orm/migrations": "6.5.7",
-    "@mikro-orm/postgresql": "6.5.7",
+    "@mikro-orm/core": "6.4.3",
+    "@mikro-orm/knex": "6.4.3",
+    "@mikro-orm/migrations": "6.4.3",
+    "@mikro-orm/postgresql": "6.4.3",
     "@qdrant/js-client-rest": "^1.15.1",
     "@rollup/rollup-linux-x64-musl": "^4.52.4",
     "@swc/core-linux-x64-musl": "^1.13.20",
     "@types/multer": "^2.0.0",
-    "awilix": "^12.0.5",
+    "awilix": "^8.0.1",
     "multer": "^2.0.2",
     "node-fetch": "^2.7.0",
     "pg": "^8.13.0",
     "posthog-node": "^5.9.5",
-    "zod": "4.1.12"
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.10.3",
     "@medusajs/ui-preset": "2.10.3",
-    "@mikro-orm/cli": "6.5.7",
+    "@mikro-orm/cli": "6.4.3",
     "@swc/core": "^1.13.5",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^30.0.0",
@@ -79,7 +79,7 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
-    "vite": "^5.2.11"
+    "vite": "^5.4.20"
   },
   "engines": {
     "node": ">=20"
