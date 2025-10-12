@@ -179,38 +179,83 @@ Key guides:
 
 ```
 ysh-store/
-├── backend/              # Servidor Medusa 2.4
-│   ├── src/             # Código fonte
-│   │   ├── api/         # Rotas API
-│   │   ├── modules/     # Módulos B2B (company, quote, approval)
-│   │   ├── workflows/   # Workflows Medusa
-│   │   ├── links/       # Links entre módulos
-│   │   └── scripts/     # Scripts utilitários
-│   └── database/        # Migrations e schemas
-│
-├── storefront/          # Next.js 15 App Router
+├── backend/                    # Servidor Medusa 2.4
 │   ├── src/
-│   │   ├── app/         # Páginas Next.js
-│   │   ├── modules/     # Módulos de funcionalidade
-│   │   ├── lib/         # Utilitários e data fetching
-│   │   └── components/  # Componentes compartilhados
-│   └── public/          # Assets estáticos
+│   │   ├── api/               # Rotas API (store/ e admin/)
+│   │   ├── modules/           # Módulos B2B customizados
+│   │   │   ├── company/      # Gerenciamento de empresas
+│   │   │   ├── quote/        # Sistema de cotações
+│   │   │   └── approval/     # Workflows de aprovação
+│   │   ├── workflows/         # Orquestração de lógica de negócio
+│   │   ├── links/            # Links entre módulos
+│   │   └── types/            # DTOs e tipos compartilhados
+│   ├── scripts/
+│   │   ├── seed/             # Scripts de seed de dados
+│   │   └── database/         # Scripts de banco de dados
+│   ├── docs/
+│   │   ├── api/              # Documentação de API
+│   │   ├── database/         # Guias de migração DB
+│   │   ├── security/         # Auditorias de segurança
+│   │   └── testing/          # Relatórios de testes
+│   └── integration-tests/     # Testes de integração
 │
-├── docs/                # Documentação organizada
-│   ├── status/          # Relatórios de status
-│   ├── guides/          # Guias e tutoriais
-│   ├── deployment/      # Documentos de deployment
-│   ├── docker/          # Documentação Docker
-│   └── implementation/  # Relatórios de implementação
+├── storefront/                 # Next.js 15 App Router
+│   ├── src/
+│   │   ├── app/[countryCode]/ # Rotas multi-região
+│   │   │   ├── (main)/       # Páginas principais
+│   │   │   └── (checkout)/   # Fluxo de checkout
+│   │   ├── modules/           # Módulos por funcionalidade
+│   │   │   ├── account/      # Gerenciamento de conta
+│   │   │   ├── cart/         # Carrinho de compras
+│   │   │   ├── products/     # Catálogo de produtos
+│   │   │   └── quotes/       # Interface de cotações
+│   │   └── lib/
+│   │       ├── data/         # Server actions (busca de dados)
+│   │       ├── config/       # Configuração do SDK
+│   │       └── hooks/        # Hooks customizados
+│   ├── docs/
+│   │   ├── testing/          # Relatórios de testes E2E
+│   │   └── implementation/   # Documentação de features
+│   └── e2e/                   # Testes Playwright (71 tests)
 │
-├── scripts/             # Scripts organizados
-│   ├── dev/            # Scripts de desenvolvimento
-│   ├── docker/         # Scripts Docker
-│   └── deployment/     # Scripts de deployment
+├── docs/                       # 📚 Documentação central
+│   ├── deployment/            # Guias de deployment
+│   │   ├── AWS_DEPLOYMENT_STATUS.md
+│   │   ├── AWS_FREE_TIER_DEPLOYMENT_GUIDE.md
+│   │   ├── LOCAL_DEPLOYMENT_SUCCESS.md
+│   │   └── QUICK_START.md
+│   ├── testing/               # Stack de testes FOSS
+│   │   ├── BACKEND_360_COVERAGE_REPORT.md
+│   │   ├── CONTRACT_TESTING_FOSS_GUIDE.md
+│   │   ├── VISUAL_REGRESSION_FOSS_GUIDE.md
+│   │   └── PACT_SETUP_GUIDE.md
+│   └── infrastructure/        # Infraestrutura FOSS
+│       ├── FOSS_IMPLEMENTATION_COMPLETE.md
+│       ├── FOSS_STACK_MIGRATION_SUMMARY.md
+│       └── NODE_RED_AUTOMATION_GUIDE.md
 │
-├── aws/                # Configurações AWS
-├── infra/              # Infraestrutura e configs
-└── .archive/           # Arquivos históricos
+├── docker/                     # 🐳 Configurações Docker
+│   ├── docker-compose.yml     # Produção
+│   ├── docker-compose.dev.yml # Desenvolvimento
+│   ├── docker-compose.foss.yml # Stack FOSS (15+ services)
+│   └── nginx.conf             # Configuração Nginx
+│
+├── aws/                        # ☁️ Infraestrutura AWS
+│   ├── cloudformation-infrastructure.yml
+│   ├── backend-task-definition.json
+│   └── aws-outputs.json
+│
+├── infra/                      # Scripts de infraestrutura
+│   ├── scripts/
+│   │   └── windows/          # Setup para Windows
+│   └── docs/
+│       └── windows-dev-checklist.md
+│
+├── scripts/                    # Scripts utilitários
+│   └── seed.ts               # Seed inicial do banco
+│
+└── .github/                    # GitHub configs
+    └── copilot-instructions.md # Instruções para Copilot
 ```
 
 ## Quickstart
@@ -298,13 +343,37 @@ Visit the following links to see the Medusa storefront & admin
 
 ## 📚 Documentação
 
-Toda documentação foi reorganizada em `docs/`:
+Toda documentação foi reorganizada para facilitar navegação:
 
-- **`docs/status/`** - Relatórios de status do sistema
-- **`docs/guides/`** - Guias rápidos e tutoriais
-- **`docs/deployment/`** - Documentação de deployment (AWS, Docker, etc)
-- **`docs/docker/`** - Configurações e otimizações Docker
-- **`docs/implementation/`** - Relatórios de implementação de features
+### 📂 Estrutura de Documentação
+
+#### Root (`docs/`)
+
+- **`deployment/`** - Guias de deployment (AWS, Docker, Local)
+- **`testing/`** - Stack de testes FOSS (Visual, Contract, E2E)
+- **`infrastructure/`** - Implementação FOSS e automação
+
+#### Backend (`backend/docs/`)
+
+- **`api/`** - Documentação de rotas API
+- **`database/`** - Guias de migração e schemas
+- **`security/`** - Auditorias de segurança
+- **`testing/`** - Relatórios de cobertura 360°
+
+#### Storefront (`storefront/docs/`)
+
+- **`testing/`** - Relatórios de testes E2E (71 tests)
+- **`implementation/`** - Documentação de features implementadas
+
+### 📖 Documentos Principais
+
+| Documento | Localização | Descrição |
+|-----------|-------------|-----------|
+| [Quick Start](./docs/deployment/QUICK_START.md) | `docs/deployment/` | Guia de início rápido |
+| [FOSS Stack Guide](./docs/infrastructure/FOSS_IMPLEMENTATION_COMPLETE.md) | `docs/infrastructure/` | Stack FOSS completo |
+| [Testing Guide](./docs/testing/FOSS_TESTING_DOCUMENTATION_INDEX.md) | `docs/testing/` | Índice de testes FOSS |
+| [API Documentation](./backend/docs/api/API_DOCUMENTATION_GUIDE.md) | `backend/docs/api/` | Guia de APIs |
+| [Database Migration](./backend/docs/database/DATABASE_MIGRATION_GUIDE.md) | `backend/docs/database/` | Guia de migrações |
 
 ## 🛠️ Scripts Úteis
 
