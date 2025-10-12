@@ -12,6 +12,7 @@ const path = require('path');
 const UNIFIED_SCHEMAS_PATH = path.join(__dirname, '../data/catalog/unified_schemas');
 const IMAGE_MAP_PATH = path.join(__dirname, '../static/images-catálogo_distribuidores/IMAGE_MAP.json');
 const SKU_MAPPING_PATH = path.join(__dirname, '../data/catalog/data/SKU_MAPPING.json');
+const SKU_INDEX_PATH = path.join(__dirname, '../data/catalog/data/SKU_TO_PRODUCTS_INDEX.json');
 
 const CATEGORIES = [
     'accessories',
@@ -33,6 +34,8 @@ class PreloadWorker {
         this.cache = new Map();
         this.imageMap = null;
         this.skuMapping = null;
+        this.skuIndex = null;
+        this.productToSkuMap = new Map();
         this.startTime = Date.now();
     }
 
@@ -67,15 +70,40 @@ class PreloadWorker {
         }
     }
 
+    async loadSkuIndex() {
+        this.log('🔍 Loading SKU index...');
+        try {
+            const content = await fs.readFile(SKU_INDEX_PATH, 'utf-8');
+            this.skuIndex = JSON.parse(content);
+
+            // Build reverse map: product_id → SKU
+            this.productToSkuMap.clear();
+            for (const [sku, entry] of Object.entries(this.skuIndex.index)) {
+                for (const product of entry.matched_products) {
+                    this.productToSkuMap.set(product.id, sku);
+                }
+            }
+
+            this.log(`✅ Loaded ${this.skuIndex.matched_skus} SKU index entries → ${this.productToSkuMap.size} products (${this.skuIndex.coverage_percent}% coverage)`);
+            return true;
+        } catch (error) {
+            this.log(`⚠️  SKU index not available, using fallback extraction`);
+            return false;
+        }
+    }
+
     extractSku(product) {
-        // 1. Try SKU mapping first (most reliable)
+        // 1. Check reverse product→SKU map (FASTEST - O(1), 52.3% coverage)
+        if (product.id && this.productToSkuMap.has(product.id)) {
+            return this.productToSkuMap.get(product.id);
+        }
+
+        // 2. Try SKU mapping (legacy mappings)
         if (product.id && this.skuMapping && this.skuMapping.mappings[product.id]) {
             return this.skuMapping.mappings[product.id].sku;
         }
 
-        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
-
-        // 2. Extract from id (format: "neosolar_inverters_22916" -> "22916")
+        // 3. Extract from id (format: "neosolar_inverters_22916" -> "22916")
         if (product.id) {
             const parts = product.id.split('_');
             const lastPart = parts[parts.length - 1];
