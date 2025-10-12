@@ -80,6 +80,7 @@
     "@medusajs/test-utils": "2.10.3",
     "@medusajs/ui-preset": "2.10.3",
     "@mikro-orm/cli": "6.4.3",
+    "@pact-foundation/pact": "^16.0.0",
     "@swc/core": "1.5.7",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.14",

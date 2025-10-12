@@ -49,6 +49,8 @@
     "src/scripts/start-test-server.ts",
     "src/scripts/test-catalog-paths.ts",
     "**/__tests__/**",
+    "**/*.pact.test.ts",
+    "src/pact/**",
     "src/scripts/check-prices.ts",
     "src/scripts/create-publishable-key.ts",
     "src/scripts/import-simple.ts",
