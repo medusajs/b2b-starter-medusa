@@ -22,10 +22,21 @@ export const metadata: Metadata = {
   description: "Soluções completas em energia solar: painéis, inversores, kits prontos e dimensionamento personalizado para sua economia de energia.",
   keywords: "energia solar, painéis solares, inversores, kits solares, dimensionamento solar, Yello Solar Hub",
   authors: [{ name: "Yello Solar Hub" }],
+  alternates: {
+    canonical: getBaseURL(),
+  },
   openGraph: {
     title: "Yello Solar Hub - Energia Solar sob Medida",
     description: "Soluções completas em energia solar: painéis, inversores, kits prontos e dimensionamento personalizado.",
     type: "website",
+    url: getBaseURL(),
+    siteName: "Yello Solar Hub",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yello Solar Hub - Energia Solar sob Medida",
+    description: "Soluções completas em energia solar",
   },
 }
 
@@ -34,6 +45,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL && (
+          <link rel="dns-prefetch" href={process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL} />
+        )}
         {/* Theme colors for light/dark (zinc-950) */}
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />

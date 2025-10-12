@@ -2,8 +2,12 @@ import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { AdminProduct } from "@medusajs/framework/types"
 import { Container, Heading, Badge, Button } from "@medusajs/ui"
 import { useState } from "react"
-
-/**
+import {
+    calculatePanelToInverterRatio,
+    estimateEnergyGeneration,
+    type SolarPanel,
+    type SolarInverter
+} from "../../modules/solar-calculator"/**
  * Solar Kit Composition Widget
  * 
  * Displays detailed information about solar kit components:
@@ -57,14 +61,32 @@ const SolarKitComposition = ({ data }: SolarKitCompositionProps) => {
     const batteries: BatteryInfo[] = (data.metadata?.batteries as BatteryInfo[]) || []
     const structures = data.metadata?.structures || []
 
-    // Calculate totals
+    // Convert widget data to solar-calculator types
+    const solarPanels: SolarPanel[] = panels.map((p, idx) => ({
+        id: `panel-${idx}`,
+        name: p.description,
+        power_w: p.power_w,
+        quantity: p.quantity,
+        brand: p.brand
+    }))
+
+    const solarInverters: SolarInverter[] = inverters.map((i, idx) => ({
+        id: `inverter-${idx}`,
+        name: i.description,
+        power_kw: i.power_kw,
+        quantity: i.quantity,
+        brand: i.brand
+    }))
+
+    // Use solar-calculator for ratio analysis
+    const ratioResult = calculatePanelToInverterRatio(solarPanels, solarInverters)
+
+    // Calculate totals (keep compatibility with existing UI)
     const totalPanels = Number(data.metadata?.total_panels || panels.reduce((sum, p) => sum + p.quantity, 0))
     const totalInverters = Number(data.metadata?.total_inverters || inverters.reduce((sum, i) => sum + i.quantity, 0))
-    const totalPowerW = Number(data.metadata?.total_power_w || panels.reduce((sum, p) => sum + (p.power_w * p.quantity), 0))
-    const totalPowerKWp = Number(data.metadata?.potencia_kwp || (totalPowerW / 1000))
-
-    const totalInverterPowerKW = inverters.reduce((sum, i) => sum + (i.power_kw * i.quantity), 0)
-    const panelToInverterRatio = totalInverterPowerKW > 0 ? totalPowerKWp / totalInverterPowerKW : 0
+    const totalPowerKWp = ratioResult.totalPanelPowerKw
+    const totalInverterPowerKW = ratioResult.totalInverterPowerKw
+    const panelToInverterRatio = ratioResult.ratio
 
     // Determine structure type
     const structureType = String(data.metadata?.estrutura || 'Não especificado')
@@ -117,7 +139,7 @@ const SolarKitComposition = ({ data }: SolarKitCompositionProps) => {
                         label="Ratio Painel/Inversor"
                         value={panelToInverterRatio.toFixed(2)}
                         unit="x"
-                        status={getRatioStatus(panelToInverterRatio)}
+                        status={getRatioStatus(ratioResult.status)}
                     />
                 </div>
             </div>
@@ -318,8 +340,37 @@ const SystemAnalysis = ({
     totalPanels,
     totalInverters
 }: SystemAnalysisProps) => {
-    const ratioStatus = getRatioStatus(panelToInverterRatio)
-    const energyProduction = calculateEnergyProduction(totalPowerKWp)
+    // Convert data for solar-calculator
+    const solarPanels: SolarPanel[] = [{
+        id: 'total-panels',
+        name: 'Total System Panels',
+        power_w: (totalPowerKWp * 1000) / totalPanels,
+        quantity: totalPanels
+    }]
+
+    const solarInverters: SolarInverter[] = [{
+        id: 'total-inverters',
+        name: 'Total System Inverters',
+        power_kw: totalInverterPowerKW / totalInverters,
+        quantity: totalInverters
+    }]
+
+    // Use solar-calculator functions
+    const ratioCalculation = calculatePanelToInverterRatio(solarPanels, solarInverters)
+    const ratioStatus = getRatioStatus(ratioCalculation.status)
+
+    // Estimate energy generation (default to SP state)
+    const energyEstimate = estimateEnergyGeneration({
+        panels: solarPanels,
+        inverters: solarInverters,
+        location: { state: 'SP' } // Default to São Paulo
+    })
+
+    const energyProduction = {
+        daily: energyEstimate.dailyKwh,
+        monthly: energyEstimate.monthlyKwh,
+        yearly: energyEstimate.yearlyKwh
+    }
 
     return (
         <div className="space-y-4">
@@ -330,8 +381,8 @@ const SystemAnalysis = ({
                     Ratio atual: <span className="font-semibold text-ui-fg-base">{panelToInverterRatio.toFixed(2)}x</span>
                 </div>
                 <div className={`p-3 rounded ${ratioStatus === 'good' ? 'bg-green-100 text-green-800' :
-                        ratioStatus === 'warning' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-red-100 text-red-800'
+                    ratioStatus === 'warning' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-red-100 text-red-800'
                     }`}>
                     {ratioStatus === 'good' && '✅ Ratio excelente! Sistema bem dimensionado.'}
                     {ratioStatus === 'warning' && '⚠️ Ratio aceitável, mas pode ser otimizado.'}
@@ -396,23 +447,15 @@ const SystemAnalysis = ({
 
 // Helper Functions
 
-function getRatioStatus(ratio: number): 'good' | 'warning' | 'error' {
-    if (ratio >= 1.1 && ratio <= 1.3) return 'good'
-    if (ratio >= 0.8 && ratio <= 1.5) return 'warning'
+/**
+ * Map solar-calculator status to widget status
+ * @param status - Status from calculatePanelToInverterRatio (excellent/good/acceptable/warning/error)
+ * @returns Widget status (good/warning/error)
+ */
+function getRatioStatus(status: string): 'good' | 'warning' | 'error' {
+    if (status === 'excellent' || status === 'good') return 'good'
+    if (status === 'acceptable' || status === 'warning') return 'warning'
     return 'error'
-}
-
-function calculateEnergyProduction(powerKWp: number) {
-    const peakSunHours = 5 // Average for Brazil
-    const systemEfficiency = 0.8 // 80% efficiency accounting for losses
-
-    const dailyKWh = powerKWp * peakSunHours * systemEfficiency
-
-    return {
-        daily: dailyKWh,
-        monthly: dailyKWh * 30,
-        yearly: dailyKWh * 365
-    }
 }
 
 // Widget Configuration - Show on product details pages for kits
