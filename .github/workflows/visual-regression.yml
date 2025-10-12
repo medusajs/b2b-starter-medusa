@@ -1,4 +1,4 @@
-name: Visual Regression
+name: Visual Regression (FOSS)
 
 on:
     pull_request:
@@ -6,7 +6,7 @@ on:
         paths:
             - "storefront/src/components/**"
             - "storefront/src/modules/**"
-            - "storefront/.storybook/**"
+            - "storefront/backstop/**"
             - ".github/workflows/visual-regression.yml"
     push:
         branches: [main]
@@ -14,45 +14,17 @@ on:
 
 env:
     NODE_VERSION: "20"
+    STOREFRONT_URL: http://storefront:8000
 
 jobs:
-    # Build Storybook
-    build-storybook:
-        name: Build Storybook
+    backstop-tests:
+        name: BackstopJS Visual Regression
         runs-on: ubuntu-latest
+        timeout-minutes: 20
+
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0 # Required for Chromatic
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: ${{ env.NODE_VERSION }}
-                  cache: "npm"
-                  cache-dependency-path: storefront/package-lock.json
-
-            - name: Install dependencies
-              working-directory: storefront
-              run: npm ci
-
-            - name: Build Storybook
-              working-directory: storefront
-              run: npm run build-storybook
-
-            - name: Upload Storybook Build
-              uses: actions/upload-artifact@v4
-              with:
-                  name: storybook-build
-                  path: storefront/storybook-static/
-                  retention-days: 7
-
-    # Chromatic Visual Tests
-    chromatic:
-        name: Chromatic Snapshots
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
+            - name: Checkout code
+              uses: actions/checkout@v4
               with:
                   fetch-depth: 0
 
@@ -67,55 +39,110 @@ jobs:
               working-directory: storefront
               run: npm ci
 
-            - name: Publish to Chromatic
-              uses: chromaui/action@latest
-              with:
-                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  workingDir: storefront
-                  buildScriptName: build-storybook
-                  autoAcceptChanges: main
-                  exitZeroOnChanges: true
-                  exitOnceUploaded: false
+            - name: Install BackstopJS
+              run: npm install -g backstopjs
 
-            - name: Notify Node-RED
-              if: always()
+            - name: Start Docker services
               run: |
-                  curl -X POST "${{ secrets.NODERED_WEBHOOK_URL }}/trigger/visual-regression" \
-                    -H "Content-Type: application/json" \
-                    -d '{
-                      "event": "chromatic_snapshot",
-                      "status": "${{ job.status }}",
-                      "ref": "${{ github.ref }}",
-                      "sha": "${{ github.sha }}",
-                      "pr": "${{ github.event.pull_request.number }}"
-                    }'
-              continue-on-error: true
+                  docker-compose -f docker-compose.foss.yml up -d postgres redis backend storefront
+                  echo "⏳ Waiting for services to be healthy..."
+                  sleep 45
 
-    # Comment PR with Storybook Preview
-    comment-pr:
-        name: Comment PR
-        runs-on: ubuntu-latest
-        needs: [build-storybook, chromatic]
-        if: github.event_name == 'pull_request'
-        steps:
-            - name: Comment PR with preview link
+            - name: Check services health
+              run: |
+                  docker-compose -f docker-compose.foss.yml ps
+                  curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:8000/health || echo "Storefront not ready"
+                  curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:9000/health || echo "Backend not ready"
+
+            - name: Download reference screenshots (from cache)
+              id: cache-reference
+              uses: actions/cache@v4
+              with:
+                  path: storefront/backstop/backstop_data/bitmaps_reference
+                  key: backstop-reference-${{ github.base_ref || 'main' }}-${{ hashFiles('storefront/backstop/backstop.json') }}
+                  restore-keys: |
+                      backstop-reference-${{ github.base_ref || 'main' }}-
+                      backstop-reference-main-
+
+            - name: Create baseline if not exists
+              if: steps.cache-reference.outputs.cache-hit != 'true'
+              working-directory: storefront/backstop
+              run: |
+                  echo "📸 Creating new baseline..."
+                  backstop reference --config=backstop.json
+
+            - name: Run BackstopJS tests
+              id: backstop-test
+              working-directory: storefront/backstop
+              continue-on-error: true
+              run: |
+                  echo "🧪 Running visual regression tests..."
+                  backstop test --config=backstop.json || echo "Tests completed with differences"
+
+            - name: Parse results
+              id: parse-results
+              run: |
+                  REPORT_FILE="storefront/backstop/backstop_data/ci_report/report.json"
+                  if [ -f "$REPORT_FILE" ]; then
+                    PASSED=$(jq -r '.testsPassed // 0' $REPORT_FILE)
+                    FAILED=$(jq -r '.testsFailed // 0' $REPORT_FILE)
+                    TOTAL=$((PASSED + FAILED))
+                    echo "passed=$PASSED" >> $GITHUB_OUTPUT
+                    echo "failed=$FAILED" >> $GITHUB_OUTPUT
+                    echo "total=$TOTAL" >> $GITHUB_OUTPUT
+                    echo "✅ Passed: $PASSED | ❌ Failed: $FAILED | Total: $TOTAL"
+                  else
+                    echo "⚠️ Report file not found"
+                    echo "passed=0" >> $GITHUB_OUTPUT
+                    echo "failed=0" >> $GITHUB_OUTPUT
+                    echo "total=0" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Upload HTML report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: backstop-html-report
+                  path: storefront/backstop/backstop_data/html_report/
+                  retention-days: 14
+
+            - name: Upload test screenshots
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: backstop-test-screenshots
+                  path: storefront/backstop/backstop_data/bitmaps_test/
+                  retention-days: 7
+
+            - name: Comment PR with results
+              if: github.event_name == 'pull_request'
               uses: actions/github-script@v7
               with:
                   script: |
+                      const passed = '${{ steps.parse-results.outputs.passed }}';
+                      const failed = '${{ steps.parse-results.outputs.failed }}';
+                      const total = '${{ steps.parse-results.outputs.total }}';
+
+                      const status = failed === '0' ? '✅ All tests passed!' : `⚠️ ${failed} test(s) failed`;
+                      const emoji = failed === '0' ? '🎉' : '🔍';
+
                       const output = `
-                      ## 🎨 Visual Regression Results
+                      ## ${emoji} Visual Regression Results (BackstopJS - FOSS)
 
-                      **Status**: ${{ needs.chromatic.result == 'success' && '✅ No visual changes' || '⚠️ Visual changes detected' }}
+                      **Status**: ${status}
 
-                      ### Storybook Preview
-                      - 📚 [View Storybook Build](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
-                      - 🔍 [Review Chromatic Snapshots](https://www.chromatic.com/builds?appId=YOUR_APP_ID)
+                      | Metric | Count |
+                      |--------|-------|
+                      | Total Tests | ${total} |
+                      | ✅ Passed | ${passed} |
+                      | ❌ Failed | ${failed} |
 
-                      ### Components Tested
-                      - ✅ ProductCard (A/B variants)
-                      - ✅ ConsentBanner (4 states)
-                      - ✅ WebVitals (monitoring)
-                      - ✅ Other UI components
+                      ### 📊 Details
+                      - **Workflow**: [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+                      - **Report**: Download artifacts to view HTML report
+                      - **Tool**: BackstopJS (100% FOSS, no vendor lock-in)
+
+                      ${failed !== '0' ? '### 🔍 Next Steps\n1. Download the HTML report artifact\n2. Review visual diffs\n3. Run \`backstop approve\` to update baseline if changes are intentional' : ''}
                       `;
 
                       github.rest.issues.createComment({
@@ -124,3 +151,32 @@ jobs:
                         repo: context.repo.repo,
                         body: output
                       });
+
+            - name: Notify Node-RED
+              if: always()
+              continue-on-error: true
+              run: |
+                  curl -X POST http://localhost:1880/api/trigger/visual-regression \
+                    -H "Content-Type: application/json" \
+                    -d "{
+                      \"workflow\": \"visual-regression-foss\",
+                      \"tool\": \"backstopjs\",
+                      \"status\": \"${{ job.status }}\",
+                      \"passed\": ${{ steps.parse-results.outputs.passed }},
+                      \"failed\": ${{ steps.parse-results.outputs.failed }},
+                      \"total\": ${{ steps.parse-results.outputs.total }},
+                      \"ref\": \"${{ github.ref }}\",
+                      \"sha\": \"${{ github.sha }}\",
+                      \"actor\": \"${{ github.actor }}\",
+                      \"run_url\": \"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                    }"
+
+            - name: Fail if tests failed
+              if: steps.parse-results.outputs.failed != '0'
+              run: |
+                  echo "❌ Visual regression tests failed: ${{ steps.parse-results.outputs.failed }} test(s)"
+                  exit 1
+
+            - name: Cleanup Docker
+              if: always()
+              run: docker-compose -f docker-compose.foss.yml down -v

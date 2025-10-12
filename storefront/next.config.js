@@ -13,8 +13,8 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: false,
 
-  // Output standalone para Edge Runtime
-  output: 'standalone',
+  // Output standalone para Edge Runtime - REMOVIDO para evitar problemas com eval
+  // output: 'standalone',
 
   // Configurações de imagem ultra-otimizadas
   images: {
