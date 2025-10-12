@@ -121,6 +121,59 @@ For a full feature overview, please visit [the project wiki](https://github.com/
 
 &nbsp;
 
+## 🆕 FOSS Testing Stack
+
+**100% Free and Open Source Software** - Zero vendor lock-in, $20k/year savings
+
+### What's Included
+
+- **✅ Visual Regression** - BackstopJS (replaces Chromatic SaaS)
+- **✅ Contract Testing** - Pact Framework + Pact Broker Docker (replaces Pact SaaS)
+- **✅ Automation** - Node-RED + Mosquitto MQTT
+- **✅ E2E Testing** - 71 Playwright tests (3 shards, 95% coverage)
+- **✅ Observability** - Prometheus + Grafana + Jaeger + Loki
+
+### Quick Start
+
+```powershell
+# Start FOSS stack (15+ services)
+docker-compose -f docker-compose.foss.yml up -d
+
+# Start Node-RED automation
+docker-compose -f docker-compose.node-red.yml up -d
+
+# Run visual regression tests
+cd storefront
+npx backstop test --config=backstop/backstop.json
+
+# Run contract tests
+npm run test:pact:consumer
+```
+
+### Service Endpoints
+
+| Service | URL | Credentials |
+|---------|-----|-------------|
+| **Pact Broker** | <http://localhost:9292> | pact/pact |
+| **Node-RED** | <http://localhost:1880> | admin/admin |
+| **Grafana** | <http://localhost:3001> | admin/admin |
+| **Prometheus** | <http://localhost:9090> | - |
+| **Jaeger** | <http://localhost:16686> | - |
+| **Mailhog** | <http://localhost:8025> | - |
+
+### Documentation
+
+📚 **[Complete FOSS Testing Documentation Index](./FOSS_TESTING_DOCUMENTATION_INDEX.md)**
+
+Key guides:
+- [FOSS Stack Migration Summary](./FOSS_STACK_MIGRATION_SUMMARY.md) - Executive overview
+- [Visual Regression Guide](./VISUAL_REGRESSION_FOSS_GUIDE.md) - BackstopJS complete guide
+- [Contract Testing Guide](./CONTRACT_TESTING_FOSS_GUIDE.md) - Pact Framework guide
+- [Node-RED Automation Guide](./NODE_RED_AUTOMATION_GUIDE.md) - Automation flows
+- [E2E Coverage Expansion](./E2E_COVERAGE_EXPANSION_SUMMARY.md) - 71 tests (18→71, +295%)
+
+&nbsp;
+
 ## 📁 Estrutura do Projeto
 
 ```
