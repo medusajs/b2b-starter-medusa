@@ -9,7 +9,7 @@ import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
-module.exports = defineConfig({
+export default defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     databaseDriverOptions: process.env.DATABASE_URL?.startsWith("sqlite") ? undefined : {
