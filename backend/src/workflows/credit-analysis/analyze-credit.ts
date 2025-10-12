@@ -306,8 +306,9 @@ export const saveCreditAnalysisStep = createStep(
         creditAnalysis.approval_probability = input.scoreResult.approval_probability
 
         // Approval decision
-        creditAnalysis.approved = input.result.approved
-        creditAnalysis.rejection_reason = input.result.rejection_reason
+        const approved = input.scoreResult.total_score >= 50
+        creditAnalysis.approved = approved
+        creditAnalysis.rejection_reason = approved ? undefined : "Score insuficiente"
         creditAnalysis.analysis_details = input.scoreResult as any
 
         await entityManager.persistAndFlush(creditAnalysis)
