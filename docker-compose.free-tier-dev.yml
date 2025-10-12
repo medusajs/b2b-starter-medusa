@@ -19,8 +19,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-medusa_db}
       # Otimizações para 1GB RAM (db.t3.micro)
-      POSTGRES_SHARED_BUFFERS: "256MB"           # 25% de 1GB
-      POSTGRES_EFFECTIVE_CACHE_SIZE: "768MB"     # 75% de 1GB
+      POSTGRES_SHARED_BUFFERS: "256MB" # 25% de 1GB
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "768MB" # 75% de 1GB
       POSTGRES_WORK_MEM: "4MB"
       POSTGRES_MAINTENANCE_WORK_MEM: "64MB"
       POSTGRES_MAX_CONNECTIONS: "100"
@@ -44,7 +44,11 @@ services:
           cpus: "0.5"
           memory: 512M
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-medusa_db}"]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-medusa_db}",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -61,19 +65,19 @@ services:
     command:
       - redis-server
       - --maxmemory
-      - "512mb"                    # Simular cache.t4g.micro (555MB)
+      - "512mb" # Simular cache.t4g.micro (555MB)
       - --maxmemory-policy
-      - allkeys-lru                # Evict keys usando LRU
+      - allkeys-lru # Evict keys usando LRU
       - --appendonly
-      - "yes"                      # Persistence
+      - "yes" # Persistence
       - --appendfsync
-      - everysec                   # Sync a cada segundo
+      - everysec # Sync a cada segundo
       - --save
-      - "900 1"                    # Snapshot: 1 mudança em 15min
+      - "900 1" # Snapshot: 1 mudança em 15min
       - --save
-      - "300 10"                   # Snapshot: 10 mudanças em 5min
+      - "300 10" # Snapshot: 10 mudanças em 5min
       - --save
-      - "60 10000"                 # Snapshot: 10k mudanças em 1min
+      - "60 10000" # Snapshot: 10k mudanças em 1min
       - --tcp-keepalive
       - "300"
       - --timeout
@@ -120,24 +124,24 @@ services:
       # Database
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-medusa_db}
       REDIS_URL: redis://redis:6379
-      
+
       # Node.js optimizations para 1GB RAM
       NODE_ENV: ${NODE_ENV:-development}
-      NODE_OPTIONS: "--max-old-space-size=768"  # 75% de 1GB
-      
+      NODE_OPTIONS: "--max-old-space-size=768" # 75% de 1GB
+
       # Medusa
       PORT: 9000
       JWT_SECRET: ${JWT_SECRET:-supersecret}
       COOKIE_SECRET: ${COOKIE_SECRET:-supersecret}
-      
+
       # CORS
       STORE_CORS: ${STORE_CORS:-http://localhost:8000,http://localhost:7001}
       ADMIN_CORS: ${ADMIN_CORS:-http://localhost:7001,http://localhost:9000}
       AUTH_CORS: ${AUTH_CORS:-http://localhost:9000}
-      
+
       # YSH Modules
       YSH_CATALOG_PATH: ${YSH_CATALOG_PATH:-./data/catalog}
-      
+
       # S3 (opcional em dev, obrigatório em prod)
       AWS_REGION: ${AWS_REGION:-us-east-1}
       S3_BUCKET: ${S3_BUCKET:-}
@@ -162,7 +166,15 @@ services:
           cpus: "0.25"
           memory: 512M
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9000/health"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:9000/health",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -184,7 +196,7 @@ services:
         condition: service_healthy
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      NODE_OPTIONS: "--max-old-space-size=384"  # 75% de 512MB
+      NODE_OPTIONS: "--max-old-space-size=384" # 75% de 512MB
       PORT: 8000
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
       NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-}
@@ -209,7 +221,15 @@ services:
           cpus: "0.125"
           memory: 256M
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8000/",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -242,7 +262,15 @@ services:
           cpus: "0.125"
           memory: 64M
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:80/health",
+        ]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -297,36 +325,35 @@ volumes:
     driver: local
   redis_data:
     driver: local
-
 # ==========================================
 # COMANDOS ÚTEIS
 # ==========================================
-# 
+#
 # Iniciar ambiente de desenvolvimento:
 #   docker-compose -f docker-compose.free-tier-dev.yml up -d
-# 
+#
 # Ver logs:
 #   docker-compose -f docker-compose.free-tier-dev.yml logs -f backend
-# 
+#
 # Executar migrations:
 #   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa db:migrate
-# 
+#
 # Seed inicial:
 #   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn run seed
-# 
+#
 # Criar usuário admin:
 #   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa user -e admin@test.com -p supersecret -i admin
-# 
+#
 # Monitorar recursos (htop-like):
 #   docker stats ysh-postgres-dev ysh-redis-dev ysh-backend-dev ysh-storefront-dev
-# 
+#
 # Teste de carga (k6):
 #   k6 run --vus 50 --duration 5m scripts/load-test.js
-# 
+#
 # Parar ambiente:
 #   docker-compose -f docker-compose.free-tier-dev.yml down
-# 
+#
 # Limpar volumes (CUIDADO: apaga dados):
 #   docker-compose -f docker-compose.free-tier-dev.yml down -v
-# 
+#
 # ==========================================

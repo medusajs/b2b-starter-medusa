@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { X } from 'lucide-react'
+import Link from 'next/link'
 
 const CONSENT_COOKIE_KEY = 'ysh_cookie_consent'
 const ANALYTICS_CONSENT_KEY = 'analytics_consent'
@@ -276,13 +277,13 @@ export function ConsentBanner() {
                         <div className="mt-4 pt-4 border-t border-gray-200">
                             <p className="text-xs text-gray-500">
                                 Você pode alterar suas preferências a qualquer momento acessando as{' '}
-                                <a href="/privacy" className="text-yellow-600 hover:text-yellow-700 underline">
+                                <Link href="/privacy" className="text-yellow-600 hover:text-yellow-700 underline">
                                     configurações de privacidade
-                                </a>.
+                                </Link>.
                                 Leia nossa{' '}
-                                <a href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
+                                <Link href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
                                     Política de Privacidade
-                                </a>
+                                </Link>
                                 {' '}para mais informações.
                             </p>
                         </div>
