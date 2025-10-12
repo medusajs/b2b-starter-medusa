@@ -37,10 +37,10 @@ export const AdminUpdateCompany = z
   })
   .strict();
 
+export const AdminGetCustomerGroupParams = createSelectParams() as z.ZodType<any>;
 export type AdminGetCustomerGroupParamsType = z.infer<
   typeof AdminGetCustomerGroupParams
 >;
-export const AdminGetCustomerGroupParams = createSelectParams();
 
 export type AdminAddCompanyToCustomerGroupType = z.infer<
   typeof AdminAddCompanyToCustomerGroup
