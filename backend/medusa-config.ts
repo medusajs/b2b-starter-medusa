@@ -1,8 +1,7 @@
-// DISABLED: Custom modules temporarily disabled for initial setup
-// import { QUOTE_MODULE } from "./src/modules/quote";
-// import { APPROVAL_MODULE } from "./src/modules/approval";
-// import { COMPANY_MODULE } from "./src/modules/company";
-// import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog";
+// Módulos B2B customizados
+import { QUOTE_MODULE } from "./src/modules/quote";
+import { APPROVAL_MODULE } from "./src/modules/approval";
+import { COMPANY_MODULE } from "./src/modules/company";
 import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
 import { UNIFIED_CATALOG_MODULE } from "./src/modules/unified-catalog";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
@@ -47,19 +46,16 @@ module.exports = defineConfig({
     [UNIFIED_CATALOG_MODULE]: {
       resolve: "./modules/unified-catalog",
     },
-    // Custom modules - DISABLED for initial setup
-    // [COMPANY_MODULE]: {
-    //   resolve: "./modules/company",
-    // },
-    // [QUOTE_MODULE]: {
-    //   resolve: "./modules/quote",
-    // },
-    // [APPROVAL_MODULE]: {
-    //   resolve: "./modules/approval",
-    // },
-    // [YSH_CATALOG_MODULE]: {
-    //   resolve: "./modules/ysh-catalog",
-    // },
+    // Módulos B2B
+    [COMPANY_MODULE]: {
+      resolve: "./modules/company",
+    },
+    [QUOTE_MODULE]: {
+      resolve: "./modules/quote",
+    },
+    [APPROVAL_MODULE]: {
+      resolve: "./modules/approval",
+    },
     // ==========================================
     // MEDUSA 2.10.3 PRODUCTION BEST PRACTICES
     // ==========================================
