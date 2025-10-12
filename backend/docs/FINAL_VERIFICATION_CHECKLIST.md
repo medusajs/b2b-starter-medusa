@@ -8,6 +8,7 @@
 ## ✅ Backend Components Verification
 
 ### Entities (7/7 ✅)
+
 - [x] `src/entities/solar-calculation.entity.ts` - 198 linhas, 28 colunas
 - [x] `src/entities/solar-calculation-kit.entity.ts` - 104 linhas, 13 colunas, **product_id UUID**
 - [x] `src/entities/credit-analysis.entity.ts` - 180 linhas, 24 colunas
@@ -21,6 +22,7 @@
 ---
 
 ### Workflows (4/4 ✅ - 0 Erros)
+
 - [x] `src/workflows/solar/calculate-solar-system.ts` - 347 linhas, 0 erros
   - `saveSolarCalculationStep`: Persiste `SolarCalculation` + até 5 `SolarCalculationKit`
   - PLG: `product_id`, `match_score`, `rank`, `price` em cada kit
@@ -43,6 +45,7 @@
 ---
 
 ### API Endpoints (4/4 ✅ - 0 Erros)
+
 - [x] `src/api/store/solar-calculations/route.ts` - 117 linhas, 0 erros
   - POST: Executa `calculateSolarSystemWorkflow`
   - Retorna: `kits_recomendados` enriquecidos com Products via `query.graph()`
@@ -67,6 +70,7 @@
 ---
 
 ### HTTP Test Files (4/4 ✅ - 27 Test Cases)
+
 - [x] `integration-tests/http/solar/calculations.http` - 220 linhas
   - 7 test cases: residencial, comercial, industrial, low consumption, high budget, missing fields, unauthorized
   - Validação: `kits_recomendados` com `product_id`, `match_score`, `rank`, `price`
@@ -88,6 +92,7 @@
 ---
 
 ### Documentation (2/2 ✅)
+
 - [x] `src/links/CROSS_MODULE_QUERIES.md` - 500+ linhas
   - 8 relacionamentos documentados
   - 4 query examples com código completo
@@ -106,6 +111,7 @@
 ## 🎯 PLG Strategy 360° - Feature Coverage
 
 ### Stage 1: Solar Calculator → Kit Recommendations ✅
+
 - [x] `product_id` UUID em `SolarCalculationKit`
 - [x] `match_score` (0-100) para guiar seleção
 - [x] `rank` (1-5) para ordenação
@@ -120,6 +126,7 @@
 ---
 
 ### Stage 2: Credit Analysis → Financing Options ✅
+
 - [x] Até 3 `FinancingOffer` por análise
 - [x] `modality` (CDC/LEASING/EAAS) para seleção
 - [x] `interest_rate_monthly` + `interest_rate_annual` transparentes
@@ -134,6 +141,7 @@
 ---
 
 ### Stage 3: Financing Application → Payment Schedule ✅
+
 - [x] `payment_schedule` JSONB array (12-360 installments)
 - [x] Cada installment: `installment_number`, `due_date`, `principal`, `interest`, `total`, `balance`
 - [x] Sistema PRICE (parcelas fixas)
@@ -148,6 +156,7 @@
 ---
 
 ### Stage 4: Order Fulfillment → Product Tracking ✅
+
 - [x] `picked_items` JSONB com `product_id`, `variant_id`, `title`, `quantity`, `sku`, `location`
 - [x] Product enrichment via `query.graph()`
 - [x] `tracking_code` público (YSH-2025-XXXXXXX)
@@ -198,6 +207,7 @@
 ## 🚀 Ready for Testing
 
 ### Prerequisites
+
 - [x] Medusa 2.10.3 installed
 - [x] PostgreSQL database running
 - [x] Mikro-ORM 6.4.3 configured
@@ -207,7 +217,9 @@
 - [x] API endpoints available
 
 ### Test Execution Plan
+
 1. **Environment Setup**
+
    ```bash
    cd c:\Users\fjuni\ysh_medusa\ysh-store\backend
    docker-compose up -d  # Start postgres
@@ -240,6 +252,7 @@
 **Status:** ✅ **BACKEND PLG 360° COMPLETE**
 
 **Achievements:**
+
 - ✅ 0 TypeScript errors in 2,672 lines of code
 - ✅ 4 workflows with EntityManager persistence
 - ✅ 4 API endpoints with query.graph() integration
@@ -248,6 +261,7 @@
 - ✅ Complete documentation (1,341 lines)
 
 **Next Actions:**
+
 1. Execute HTTP tests sequentially
 2. Validate PLG exposure at each stage
 3. Measure performance (query.graph < 200ms, workflow < 3s)
