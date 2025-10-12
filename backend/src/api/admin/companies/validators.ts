@@ -2,8 +2,8 @@ import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
 
 /* Company Validators */
+export const AdminGetCompanyParams = createSelectParams() as z.ZodType<any>;
 export type AdminGetCompanyParamsType = z.infer<typeof AdminGetCompanyParams>;
-export const AdminGetCompanyParams = createSelectParams();
 
 export type AdminCreateCompanyType = z.infer<typeof AdminCreateCompany>;
 export const AdminCreateCompany = z
