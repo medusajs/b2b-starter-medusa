@@ -11,7 +11,7 @@
 
 **Erro:** `self-signed certificate in certificate chain`
 
-```
+```tsx
 {"level":"error","message":"Could not resolve module: Product. Error: Loaders for module Product failed: self-signed certificate in certificate chain\n","timestamp":"2025-10-12 15:26:04"}
 ```
 
@@ -52,7 +52,7 @@
 
 ### Estrutura Criada
 
-```
+```tsx
 ysh-store/
 ├── docs/
 │   ├── deployment/          # AWS deployment docs

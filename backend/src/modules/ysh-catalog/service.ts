@@ -108,6 +108,9 @@ export interface Kit {
 
 class YshCatalogModuleService {
     private pool: Pool;
+    private catalogPath: string;
+    private unifiedSchemasPath: string;
+    private enrichedSchemasPath: string;
 
     constructor(container: any, options: any = {}) {
         // Conectar ao PostgreSQL usando variáveis de ambiente
@@ -121,6 +124,11 @@ class YshCatalogModuleService {
             idleTimeoutMillis: 30000,
             connectionTimeoutMillis: 2000,
         });
+
+        // Configurar caminhos dos schemas
+        this.catalogPath = options.catalogPath || path.resolve(__dirname, '../../data/catalog');
+        this.unifiedSchemasPath = options.unifiedSchemasPath || path.resolve(__dirname, '../../data/catalog/unified_schemas');
+        this.enrichedSchemasPath = options.enrichedSchemasPath || path.resolve(__dirname, '../../data/catalog/enriched_schemas');
     }
 
     async __onDestroy__() {
