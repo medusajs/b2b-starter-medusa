@@ -432,32 +432,23 @@ const SystemAnalysis = ({
     totalInverterPowerKW,
     panelToInverterRatio,
     totalPanels,
-    totalInverters
+    totalInverters,
+    selectedState,
+    onStateChange,
+    showDegradation,
+    showCompatibility,
+    solarPanels,
+    solarInverters
 }: SystemAnalysisProps) => {
-    // Convert data for solar-calculator
-    const solarPanels: SolarPanel[] = [{
-        id: 'total-panels',
-        name: 'Total System Panels',
-        power_w: (totalPowerKWp * 1000) / totalPanels,
-        quantity: totalPanels
-    }]
-
-    const solarInverters: SolarInverter[] = [{
-        id: 'total-inverters',
-        name: 'Total System Inverters',
-        power_kw: totalInverterPowerKW / totalInverters,
-        quantity: totalInverters
-    }]
-
     // Use solar-calculator functions
     const ratioCalculation = calculatePanelToInverterRatio(solarPanels, solarInverters)
     const ratioStatus = getRatioStatus(ratioCalculation.status)
 
-    // Estimate energy generation (default to SP state)
+    // Estimate energy generation with selected state
     const energyEstimate = estimateEnergyGeneration({
         panels: solarPanels,
         inverters: solarInverters,
-        location: { state: 'SP' } // Default to São Paulo
+        location: { state: selectedState }
     })
 
     const energyProduction = {
@@ -466,8 +457,47 @@ const SystemAnalysis = ({
         yearly: energyEstimate.yearlyKwh
     }
 
+    // Validate system compatibility
+    const compatibilityResult = validateSystemCompatibility({
+        panels: solarPanels,
+        inverters: solarInverters
+    })
+
+    // Project 25-year energy generation with degradation
+    const degradationProjection = projectEnergyGeneration(energyEstimate.yearlyKwh, 25)
+
+    // State options for dropdown
+    const stateOptions = Object.entries(PEAK_SUN_HOURS_BY_STATE)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([code, hsp]) => ({
+            value: code,
+            label: `${code} - ${hsp.toFixed(1)}h HSP`
+        }))
+
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 solar-kit-analysis">
+            {/* State Selector */}
+            <div className="bg-white rounded-lg p-4 border">
+                <div className="font-semibold mb-2">🗺️ Localização do Sistema</div>
+                <div className="mb-2">
+                    <label className="text-sm text-ui-fg-subtle mb-1 block">Estado (UF):</label>
+                    <select
+                        value={selectedState}
+                        onChange={(e) => onStateChange(e.target.value)}
+                        className="w-full border border-ui-border-base rounded px-3 py-2 text-sm"
+                    >
+                        {stateOptions.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="text-xs text-ui-fg-muted">
+                    HSP (Horas de Sol Pico): {PEAK_SUN_HOURS_BY_STATE[selectedState]?.toFixed(1)}h/dia
+                </div>
+            </div>
+
             {/* Ratio Analysis */}
             <div className="bg-white rounded-lg p-4 border">
                 <div className="font-semibold mb-2">📊 Análise de Ratio Painel/Inversor</div>
@@ -489,7 +519,7 @@ const SystemAnalysis = ({
 
             {/* Energy Production Estimate */}
             <div className="bg-white rounded-lg p-4 border">
-                <div className="font-semibold mb-2">⚡ Estimativa de Geração</div>
+                <div className="font-semibold mb-2">⚡ Estimativa de Geração ({selectedState})</div>
                 <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
                         <div className="text-2xl font-bold text-blue-600">{energyProduction.daily.toFixed(1)}</div>
@@ -505,9 +535,100 @@ const SystemAnalysis = ({
                     </div>
                 </div>
                 <div className="mt-2 text-xs text-ui-fg-muted">
-                    Baseado em 5 horas de sol pico/dia (média Brasil)
+                    Baseado em {PEAK_SUN_HOURS_BY_STATE[selectedState]?.toFixed(1)}h HSP + PR 80% + Efic. Inv. 97.5%
                 </div>
             </div>
+
+            {/* Degradation Projection (25 years) */}
+            {showDegradation && (
+                <div className="bg-white rounded-lg p-4 border">
+                    <div className="font-semibold mb-2">📈 Projeção de Geração (25 anos)</div>
+                    <div className="text-xs text-ui-fg-muted mb-3">
+                        Degradação anual: 0.5% (painéis Tier 1)
+                    </div>
+                    <div className="space-y-1 max-h-64 overflow-y-auto">
+                        <div className="grid grid-cols-12 gap-1 text-xs font-semibold text-ui-fg-subtle mb-2">
+                            <div className="col-span-2">Ano</div>
+                            <div className="col-span-4">Geração (kWh/ano)</div>
+                            <div className="col-span-3">Degradação</div>
+                            <div className="col-span-3">% Original</div>
+                        </div>
+                        {degradationProjection.map((proj) => (
+                            <div key={proj.year} className="grid grid-cols-12 gap-1 text-xs py-1 border-b border-ui-border-base">
+                                <div className="col-span-2 font-medium">{proj.year}</div>
+                                <div className="col-span-4">{proj.kWh.toFixed(0)}</div>
+                                <div className="col-span-3">{((1 - proj.degradationFactor) * 100).toFixed(2)}%</div>
+                                <div className="col-span-3">
+                                    <div className="bg-blue-100 h-2 rounded overflow-hidden">
+                                        <div
+                                            className="bg-blue-500 h-full"
+                                            style={{ width: `${proj.degradationFactor * 100}%` }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-3 p-2 bg-blue-50 rounded text-xs">
+                        <strong>Geração Total 25 anos:</strong> {degradationProjection.reduce((sum, p) => sum + p.kWh, 0).toFixed(0)} kWh
+                        <br />
+                        <strong>Média anual:</strong> {(degradationProjection.reduce((sum, p) => sum + p.kWh, 0) / 25).toFixed(0)} kWh/ano
+                    </div>
+                </div>
+            )}
+
+            {/* Compatibility Warnings */}
+            {showCompatibility && (
+                <div className="bg-white rounded-lg p-4 border">
+                    <div className="font-semibold mb-2">⚠️ Análise de Compatibilidade</div>
+                    <div className="mb-2">
+                        <div className="text-sm font-medium mb-1">
+                            Score de Compatibilidade: <span className={`${compatibilityResult.score >= 80 ? 'text-green-600' : compatibilityResult.score >= 60 ? 'text-yellow-600' : 'text-red-600'}`}>{compatibilityResult.score}/100</span>
+                        </div>
+                    </div>
+
+                    {/* Critical Issues */}
+                    {compatibilityResult.issues.length > 0 && (
+                        <div className="mb-3">
+                            <div className="text-xs font-semibold text-red-700 mb-1">🚨 Problemas Críticos:</div>
+                            {compatibilityResult.issues.map((issue, idx) => (
+                                <div key={idx} className="text-xs bg-red-50 border-l-4 border-red-500 p-2 mb-1">
+                                    <strong>{issue.code}:</strong> {issue.message}
+                                    {issue.severity && <span className="ml-2 text-red-600">(Severidade: {issue.severity})</span>}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Warnings */}
+                    {compatibilityResult.warnings.length > 0 && (
+                        <div className="mb-3">
+                            <div className="text-xs font-semibold text-yellow-700 mb-1">⚠️ Avisos:</div>
+                            {compatibilityResult.warnings.map((warning, idx) => (
+                                <div key={idx} className="text-xs bg-yellow-50 border-l-4 border-yellow-500 p-2 mb-1">
+                                    <strong>{warning.code}:</strong> {warning.message}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* All Good */}
+                    {compatibilityResult.issues.length === 0 && compatibilityResult.warnings.length === 0 && (
+                        <div className="text-xs bg-green-50 border-l-4 border-green-500 p-3">
+                            ✅ Sistema totalmente compatível! Nenhum problema detectado.
+                        </div>
+                    )}
+
+                    {/* Ratio Details */}
+                    <div className="mt-3 pt-3 border-t border-ui-border-base">
+                        <div className="text-xs text-ui-fg-subtle">
+                            <strong>Detalhes do Ratio:</strong><br />
+                            {ratioCalculation.message}<br />
+                            Status: {ratioCalculation.status} | Ratio: {ratioCalculation.ratio.toFixed(2)}x
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* System Details */}
             <div className="bg-white rounded-lg p-4 border">

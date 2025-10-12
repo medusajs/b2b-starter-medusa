@@ -9,6 +9,8 @@ import { LeadQuoteProvider } from "@/modules/lead-quote/context"
 import { AnalyticsProvider } from "@/modules/analytics/AnalyticsProvider"
 import { PostHogProvider } from "@/providers/posthog-provider"
 import SkipLinks from "@/components/common/SkipLinks"
+import { ConsentBanner } from "@/components/ConsentBanner"
+import { WebVitals } from "@/components/WebVitals"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -106,6 +108,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
                 className="sr-only"
                 id="sr-announcements"
               />
+              <ConsentBanner />
+              <WebVitals />
               <Analytics />
             </PWAProvider>
           </AnalyticsProvider>
