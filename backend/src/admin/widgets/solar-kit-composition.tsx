@@ -1,12 +1,16 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { AdminProduct } from "@medusajs/framework/types"
-import { Container, Heading, Badge, Button } from "@medusajs/ui"
+import { Container, Heading, Badge, Button, Select } from "@medusajs/ui"
 import { useState } from "react"
 import {
     calculatePanelToInverterRatio,
     estimateEnergyGeneration,
+    validateSystemCompatibility,
+    projectEnergyGeneration,
+    PEAK_SUN_HOURS_BY_STATE,
     type SolarPanel,
-    type SolarInverter
+    type SolarInverter,
+    type SolarSystem
 } from "../../modules/solar-calculator"/**
  * Solar Kit Composition Widget
  * 
@@ -48,6 +52,9 @@ interface BatteryInfo {
 
 const SolarKitComposition = ({ data }: SolarKitCompositionProps) => {
     const [showCalculator, setShowCalculator] = useState(false)
+    const [selectedState, setSelectedState] = useState('SP')
+    const [showDegradation, setShowDegradation] = useState(false)
+    const [showCompatibility, setShowCompatibility] = useState(false)
 
     // Check if this is a kit product
     const category = String(data.metadata?.category || '')
