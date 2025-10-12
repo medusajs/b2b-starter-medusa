@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-12T23:15:43.384Z",
+  "timestamp": "2025-10-12T23:23:04.083Z",
   "categories": [
     {
       "category": "accessories",
@@ -19,48 +19,6 @@
           "id": "FORTLEV-FOXESS-A7300P1-E-2",
           "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
           "sku": "FORTLEV-FOXESS-A7300P1-E-2"
-        }
-      ]
-    },
-    {
-      "category": "batteries",
-      "count": 9,
-      "sample": [
-        {
-          "id": "solfacil_batteries_1",
-          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-          "sku": "solfacil_batteries_1"
-        },
-        {
-          "id": "solfacil_batteries_2",
-          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-          "sku": "solfacil_batteries_2"
-        },
-        {
-          "id": "solfacil_batteries_3",
-          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-          "sku": "solfacil_batteries_3"
-        }
-      ]
-    },
-    {
-      "category": "controllers",
-      "count": 38,
-      "sample": [
-        {
-          "id": "neosolar_controllers_20080",
-          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_20080"
-        },
-        {
-          "id": "neosolar_controllers_21709",
-          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21709"
-        },
-        {
-          "id": "neosolar_controllers_21708",
-          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_controllers_21708"
         }
       ]
     },
@@ -86,6 +44,27 @@
       ]
     },
     {
+      "category": "batteries",
+      "count": 9,
+      "sample": [
+        {
+          "id": "solfacil_batteries_1",
+          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+          "sku": "solfacil_batteries_1"
+        },
+        {
+          "id": "solfacil_batteries_2",
+          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+          "sku": "solfacil_batteries_2"
+        },
+        {
+          "id": "solfacil_batteries_3",
+          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+          "sku": "solfacil_batteries_3"
+        }
+      ]
+    },
+    {
       "category": "ev_chargers",
       "count": 83,
       "sample": [
@@ -103,6 +82,27 @@
           "id": "neosolar_chargers_27329",
           "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
           "sku": "neosolar_chargers_27329"
+        }
+      ]
+    },
+    {
+      "category": "controllers",
+      "count": 38,
+      "sample": [
+        {
+          "id": "neosolar_controllers_20080",
+          "name": "https://portal.zydon.com.br/api/files/1e827928-2371-42d5-95c3-d75a14e2b393/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_20080"
+        },
+        {
+          "id": "neosolar_controllers_21709",
+          "name": "https://portal.zydon.com.br/api/files/60966bed-8252-49ec-b331-d7fb6dd0d318/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21709"
+        },
+        {
+          "id": "neosolar_controllers_21708",
+          "name": "https://portal.zydon.com.br/api/files/05906428-f064-4940-ac7d-73741f8822fe/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_controllers_21708"
         }
       ]
     },
