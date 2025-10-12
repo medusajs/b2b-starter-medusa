@@ -1,280 +1,265 @@
-# 🚀 Status do Deployment AWS - YSH B2B
+# AWS Deployment Status & Action Plan
 
-**Data**: 09/10/2025 21:11  
-**Sessão**: AWS Infrastructure Deployment
-
----
-
-## ✅ COMPLETADO COM SUCESSO
-
-### 1. Docker Images Build & Push
-
-- ✅ Backend image: `773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/backend:1.0.0`
-  - Size: 568.86 MB (comprimido)
-  - Build time: 1.0 minuto
-  - Push time: 1.0 minuto
-  - Tags: 1.0.0, latest
-
-- ✅ Storefront image: `773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/storefront:1.0.0`
-  - Size: 339.67 MB (comprimido)
-  - Build time: 0.6 minuto
-  - Push time: 0.6 minuto
-  - Tags: 1.0.0, latest
-
-**Performance**: 🚀 1.6 minutos total (estimativa era 15-20 min!)
-
-### 2. AWS Authentication & Configuration
-
-- ✅ AWS SSO configurado e autenticado
-- ✅ Account ID: 773235999227
-- ✅ User: ysh-dev (AdministratorAccess)
-- ✅ Region: us-east-1
-
-### 3. ECR Repositories
-
-- ✅ ysh-b2b/backend (scanOnPush: true)
-- ✅ ysh-b2b/storefront (scanOnPush: true)
-- ⏳ Security scans: EM PROGRESSO
-
-### 4. AWS Secrets Manager
-
-- ✅ `/ysh-b2b/jwt-secret` - 64 chars random
-- ✅ `/ysh-b2b/cookie-secret` - 64 chars random  
-- ✅ `/ysh-b2b/revalidate-secret` - 32 chars random
+**Data**: October 12, 2025  
+**Status**: 🟡 Parcialmente Configurado - Requer Atualização
 
 ---
 
-## ⚠️ EM PROGRESSO
+## 📊 Infraestrutura AWS Atual
 
-### CloudFormation Stack: ysh-b2b-infrastructure
+### ✅ Recursos Ativos
 
-**Status Atual**: DELETE_IN_PROGRESS (cleanup de tentativas anteriores)
+| Recurso | ID/Endpoint | Status | Região |
+|---------|-------------|--------|--------|
+| **VPC** | `vpc-096abb11405bb44af` | ✅ Ativo | us-east-1 |
+| **RDS PostgreSQL** | `production-ysh-b2b-postgres.cmxiy0wqok6l.us-east-1.rds.amazonaws.com` | ✅ Ativo | us-east-1 |
+| **ElastiCache Redis** | `production-ysh-b2b-redis.97x7fb.0001.use1.cache.amazonaws.com` | ✅ Ativo | us-east-1 |
+| **Application Load Balancer** | `production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com` | ✅ Ativo | us-east-1 |
+| **ECS Cluster** | `production-ysh-b2b-cluster` | ✅ Ativo | us-east-1 |
+| **Subnets Privadas** | `subnet-0a7620fdf057a8824`, `subnet-09c23e75aed3a5d76` | ✅ Ativo | us-east-1 |
+| **Subnets Públicas** | `subnet-0f561c79c40d11c6f`, `subnet-03634efd78a887b0b` | ✅ Ativo | us-east-1 |
 
-**Problema**: RDS instance tem `DeletionProtection: true`, fazendo a deleção demorar ~10-15 minutos.
+### 🔐 Security Groups
 
-**Tentativas realizadas**:
+| Nome | ID | Portas | Propósito |
+|------|----|-|----------|
+| **production-ysh-b2b-alb-sg** | `sg-04504f1416350279a` | 80, 443 | Load Balancer |
+| **production-ysh-b2b-ecs-sg** | `sg-06563301eba0427b2` | 9000, 8000 | ECS Tasks |
+| **production-ysh-b2b-db-sg** | `sg-0ed77cd5394f86cad` | 5432 | PostgreSQL |
+| **production-ysh-b2b-redis-sg** | `sg-02bcea8a95dd593ff` | 6379 | Redis |
 
-1. ❌ Tentativa #1: Repositórios ECR duplicados (AlreadyExists)
-2. ❌ Tentativa #2: Redis `CacheClusterName` property não suportada
-3. ❌ Tentativa #3: PostgreSQL 16.1 não disponível (versões: 16.3+)
-4. ⏳ Tentativa #4: Aguardando deleção completar
+### 🎯 Target Groups
 
-**Correções aplicadas**:
-
-- ✅ Removidos repositórios ECR do CloudFormation (já existem)
-- ✅ Redis: `CacheClusterName` → `ClusterName`
-- ✅ PostgreSQL: `16.1` → `15.14` (versão disponível e compatível com Medusa)
+| Nome | ARN | Porta | Health Check |
+|------|-----|-------|--------------|
+| **ysh-backend-tg** | `...5d057ad67b1e08c0` | 9000 | `/health` |
+| **ysh-storefront-tg** | `...de48968877cc252d` | 8000 | `/api/health` |
 
 ---
 
-## 📋 PRÓXIMAS AÇÕES
+## 🔴 Problemas Identificados
 
-### Passo 1: Aguardar Deleção Completar (5-10 min)
+### 1. **ECS Services Status**
+
+```tsx
+Service: ysh-b2b-backend
+- Status: ACTIVE
+- Running: 0/2 (❌ Nenhuma task rodando)
+- Task Definition: ysh-b2b-backend:5 (desatualizada)
+- Última atualização tentada: v6 (falhou)
+
+Service: ysh-b2b-storefront
+- Status: ACTIVE
+- Running: 2/2 (✅ OK)
+- Task Definition: ysh-b2b-storefront:7
+- Última atualização: v8 (sucesso)
+```
+
+### 2. **Secrets Manager - Credenciais Desatualizadas**
+
+```yaml
+Secrets Existentes:
+  - /ysh-b2b/database-url: 
+      Valor: postgresql://medusa_user:MedusaSecurePassword2024!@...
+      ⚠️ Problema: Usuário "medusa_user" não existe mais (agora é "postgres")
+      
+  - /ysh-b2b/redis-url: ✅ OK
+      Valor: redis://production-ysh-b2b-redis.97x7fb...
+      
+  - /ysh-b2b/backend-url: ✅ OK
+      Valor: http://production-ysh-b2b-alb-...
+```
+
+### 3. **Arquivos Locais Desatualizados**
+
+- ❌ `backend/secrets/` contém chaves antigas (pk-APKA*, rsa-APKA*)
+- ❌ `backend/.env` tem `DB_NAME=medusa-backend` (conflito)
+- ❌ Task definitions desatualizadas (v5 vs v6 registrada)
+
+### 4. **CloudFormation Stack**
+
+```tsx
+Error: Unresolved resource dependencies [BackendTargetGroup] 
+in the Outputs block of the template
+```
+
+---
+
+## ✅ Plano de Ação: Redeployment Completo
+
+### Fase 1: Limpeza Local (10 min)
 
 ```powershell
-# Monitorar status
-aws cloudformation describe-stacks \
-  --stack-name ysh-b2b-infrastructure \
+# 1. Remover secrets obsoletos
+Remove-Item backend/secrets/*.pem -Force
+Remove-Item backend/secrets/txt-wip* -Force
+
+# 2. Corrigir .env local
+# Remover linha conflitante: DB_NAME=medusa-backend
+
+# 3. Validar docker-compose.yml
+# DATABASE_URL deve usar credenciais corretas: postgres/postgres
+```
+
+### Fase 2: Atualizar AWS Secrets Manager (5 min)
+
+```bash
+# 1. Atualizar DATABASE_URL com credenciais corretas
+aws secretsmanager update-secret \
+  --secret-id /ysh-b2b/database-url \
+  --secret-string "postgresql://postgres:postgres@production-ysh-b2b-postgres.cmxiy0wqok6l.us-east-1.rds.amazonaws.com:5432/medusa_db" \
   --profile ysh-production \
   --region us-east-1
-```
 
-### Passo 2: Criar Stack Final
-
-```powershell
-aws cloudformation create-stack \
-  --stack-name ysh-b2b-infrastructure \
-  --template-body file://aws/cloudformation-infrastructure.yml \
-  --parameters ParameterKey=Environment,ParameterValue=production \
-  --capabilities CAPABILITY_IAM \
-  --profile ysh-production \
-  --region us-east-1
-```
-
-### Passo 3: Monitorar Criação (12-15 min)
-
-```powershell
-# Loop de monitoramento
-for ($i = 1; $i -le 20; $i++) {
-  $stack = (aws cloudformation describe-stacks --stack-name ysh-b2b-infrastructure --profile ysh-production --region us-east-1 | ConvertFrom-Json).Stacks[0]
-  Write-Host "Status: $($stack.StackStatus)"
-  if ($stack.StackStatus -eq "CREATE_COMPLETE") { break }
-  Start-Sleep -Seconds 60
-}
-```
-
-### Passo 4: Após Stack Criado - Configurar Secrets
-
-Obter endpoints do RDS e Redis dos outputs do CloudFormation:
-
-```powershell
-# Get outputs
-$outputs = (aws cloudformation describe-stacks --stack-name ysh-b2b-infrastructure --profile ysh-production --region us-east-1 | ConvertFrom-Json).Stacks[0].Outputs
-
-# Extrair valores
-$dbEndpoint = ($outputs | Where-Object { $_.OutputKey -eq "DatabaseEndpoint" }).OutputValue
-$redisEndpoint = ($outputs | Where-Object { $_.OutputKey -eq "RedisEndpoint" }).OutputValue
-
-# Criar secrets para database URL
+# 2. Adicionar JWT_SECRET
 aws secretsmanager create-secret \
-  --name /ysh-b2b/database-url \
-  --secret-string "postgresql://medusa_user:PASSWORD@$dbEndpoint:5432/medusa_db" \
+  --name /ysh-b2b/jwt-secret \
+  --secret-string "supersecret_ysh_2025_production" \
   --profile ysh-production \
   --region us-east-1
 
-# Criar secret para Redis URL
+# 3. Adicionar COOKIE_SECRET
 aws secretsmanager create-secret \
-  --name /ysh-b2b/redis-url \
-  --secret-string "redis://$redisEndpoint:6379" \
+  --name /ysh-b2b/cookie-secret \
+  --secret-string "supersecret_ysh_2025_production" \
   --profile ysh-production \
   --region us-east-1
 ```
 
-### Passo 5: Atualizar Task Definitions
+### Fase 3: Atualizar Task Definitions (10 min)
 
-Atualizar ARNs nos arquivos:
+```bash
+cd aws
 
-- `aws/backend-task-definition.json`
-- `aws/storefront-task-definition.json`
+# 1. Atualizar backend-task-definition.json
+#    - Adicionar secrets do Secrets Manager
+#    - Atualizar variáveis de ambiente
+#    - Bumpar versão para 1.0.1
 
-Substituir:
-
-- `ACCOUNT-ID` → `773235999227`
-- `REGION` → `us-east-1`
-
-### Passo 6: Registrar Task Definitions
-
-```powershell
+# 2. Registrar nova task definition
 aws ecs register-task-definition \
-  --cli-input-json file://aws/backend-task-definition.json \
+  --cli-input-json file://backend-task-definition.json \
   --profile ysh-production \
   --region us-east-1
 
+# 3. Atualizar storefront-task-definition.json
+#    - Adicionar NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+#    - Bumpar versão para 1.0.1
+
+# 4. Registrar nova task definition
 aws ecs register-task-definition \
-  --cli-input-json file://aws/storefront-task-definition.json \
+  --cli-input-json file://storefront-task-definition.json \
   --profile ysh-production \
   --region us-east-1
 ```
 
-### Passo 7: Criar ECS Services
+### Fase 4: Deploy Backend (15 min)
 
-```powershell
-# Backend service
-aws ecs create-service \
+```bash
+# 1. Build e push nova imagem
+cd backend
+docker build -t 773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/backend:1.0.1 .
+docker push 773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/backend:1.0.1
+
+# 2. Atualizar serviço ECS
+aws ecs update-service \
   --cluster production-ysh-b2b-cluster \
-  --service-name backend \
-  --task-definition ysh-b2b-backend:1 \
+  --service ysh-b2b-backend \
+  --task-definition ysh-b2b-backend:7 \
   --desired-count 2 \
-  --launch-type FARGATE \
-  --network-configuration "awsvpcConfiguration={subnets=[PRIVATE_SUBNET_IDS],securityGroups=[ECS_SG_ID],assignPublicIp=DISABLED}" \
-  --load-balancers "targetGroupArn=BACKEND_TG_ARN,containerName=ysh-b2b-backend,containerPort=9000" \
+  --force-new-deployment \
+  --profile ysh-production \
+  --region us-east-1
+
+# 3. Monitorar deployment
+aws ecs describe-services \
+  --cluster production-ysh-b2b-cluster \
+  --services ysh-b2b-backend \
+  --query "services[0].events[0:5]" \
+  --output table \
   --profile ysh-production \
   --region us-east-1
 ```
 
-### Passo 8: Configurar Target Groups & Listeners
+### Fase 5: Logs & Monitoramento (5 min)
 
-Criar Target Groups no ALB:
-
-- `ysh-backend-tg`: port 9000, health `/health`
-- `ysh-storefront-tg`: port 8000, health `/`
-
-Configurar Listeners:
-
-- HTTP:80 → redirect HTTPS:443
-- HTTPS:443 → route based on path:
-  - `/store/*` → backend
-  - `/admin/*` → backend
-  - `/*` → storefront
-
-### Passo 9: Database Initialization
-
-```powershell
-# Run migration task
-aws ecs run-task \
-  --cluster production-ysh-b2b-cluster \
-  --task-definition ysh-b2b-backend:1 \
-  --launch-type FARGATE \
-  --override '{
-    "containerOverrides": [{
-      "name": "ysh-b2b-backend",
-      "command": ["yarn", "medusa", "db:migrate"]
-    }]
-  }' \
+```bash
+# 1. Verificar logs do backend
+aws logs tail /ecs/ysh-b2b-backend \
+  --follow \
   --profile ysh-production \
   --region us-east-1
 
-# Run seed task
-aws ecs run-task \
-  --cluster production-ysh-b2b-cluster \
-  --task-definition ysh-b2b-backend:1 \
-  --launch-type FARGATE \
-  --override '{
-    "containerOverrides": [{
-      "name": "ysh-b2b-backend",
-      "command": ["yarn", "run", "seed"]
-    }]
-  }' \
+# 2. Verificar health checks
+aws elbv2 describe-target-health \
+  --target-group-arn arn:aws:elasticloadbalancing:us-east-1:773235999227:targetgroup/ysh-backend-tg/5d057ad67b1e08c0 \
   --profile ysh-production \
   --region us-east-1
 ```
 
 ---
 
-## 📊 TEMPO ESTIMADO RESTANTE
+## 🔒 Segurança: SSO & Autenticação
 
-- ⏰ Deleção atual: **5-10 minutos**
-- ⏰ Criação stack: **12-15 minutos**
-- ⏰ Configuração ECS: **20-30 minutos**
-- ⏰ Database init: **5-10 minutos**
+### Status Atual
 
-**Total restante**: ~40-65 minutos (~1 hora)
+- ❌ Sem SSO configurado
+- ❌ Sem Cognito
+- ✅ JWT básico implementado
+- ✅ Cookie-based session management
 
----
+### Recomendações Futuras
 
-## 🐛 LIÇÕES APRENDIDAS
+1. **AWS Cognito** (não urgente)
+   - User pools para B2B
+   - Identity pools para acesso AWS
+   - MFA obrigatório para admins
 
-1. **ECR Repositories**: Criar via CLI antes do CloudFormation para permitir push early
-2. **RDS Version**: Verificar versões disponíveis com `describe-db-engine-versions`
-3. **Redis Properties**: CloudFormation usa `ClusterName`, não `CacheClusterName`
-4. **Deletion Protection**: RDS com `DeletionProtection: true` demora ~15 min para deletar
-5. **Docker Layer Cache**: Images pushed em 1.6 min vs 15-20 min estimado (cache inteligente!)
+2. **OAuth 2.0 / OIDC** (backlog)
+   - Integração com provedores externos
+   - Google Workspace
+   - Microsoft Azure AD
 
----
-
-## 📁 ARQUIVOS MODIFICADOS
-
-- ✅ `aws/cloudformation-infrastructure.yml` - Corrigido (3 iterações)
-- ✅ `aws/backend-task-definition.json` - Pendente update ARNs
-- ✅ `aws/storefront-task-definition.json` - Pendente update ARNs
+3. **API Keys** (já implementado)
+   - Publishable keys para storefront
+   - Secret keys para integrações
 
 ---
 
-## 🔗 RECURSOS CRIADOS
+## 📝 Checklist de Execução
 
-### ECR
+### Desenvolvimento Local
 
-- `773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/backend`
-- `773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/storefront`
+- [x] PostgreSQL rodando (medusa_db)
+- [x] Redis rodando
+- [ ] Backend rodando (aguardando correção de workflows)
+- [ ] Storefront rodando
+- [ ] Migrations aplicadas
 
-### Secrets Manager
+### AWS Production
 
-- `/ysh-b2b/jwt-secret`
-- `/ysh-b2b/cookie-secret`
-- `/ysh-b2b/revalidate-secret`
-- ⏳ `/ysh-b2b/database-url` (pendente)
-- ⏳ `/ysh-b2b/redis-url` (pendente)
-
-### CloudFormation (quando completar)
-
-- VPC + Subnets (2 AZs)
-- Security Groups (ALB, ECS, RDS, Redis)
-- RDS PostgreSQL 15.14 (db.t3.medium, 100GB gp3)
-- ElastiCache Redis (cache.t3.micro)
-- ECS Cluster (Fargate + Fargate Spot)
-- Application Load Balancer
+- [x] Infraestrutura provisionada
+- [ ] Secrets Manager atualizado
+- [ ] Task definitions atualizadas (v7+)
+- [ ] Backend deployment (0/2 → 2/2)
+- [x] Storefront deployment (2/2)
+- [ ] CloudWatch logs configurados
+- [ ] Health checks passando
 
 ---
 
-**Última Atualização**: 09/10/2025 21:11  
-**Status**: 🟡 Aguardando deleção do stack anterior completar
+## 🎯 Próximos Passos Imediatos
+
+1. **Limpar arquivos locais** (secrets obsoletos)
+2. **Atualizar Secrets Manager** (DATABASE_URL com postgres/postgres)
+3. **Corrigir workflows customizados** (conflitos com Medusa core)
+4. **Executar migrações locais**
+5. **Build e deploy backend atualizado**
+6. **Validar health checks**
+7. **Monitorar CloudWatch logs**
+
+---
+
+**Tempo Estimado Total**: 45-60 minutos  
+**Risco**: 🟡 Médio (requer acesso AWS, downtime backend ~5min)  
+**Prioridade**: 🔴 Alta (backend em produção não está rodando)
