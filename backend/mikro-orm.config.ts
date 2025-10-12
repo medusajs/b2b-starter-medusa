@@ -39,14 +39,7 @@ export default defineConfig({
         },
     },
 
-    // Seeding (requires @mikro-orm/seeder package)
-    // seeder: {
-    //   path: './src/seeders',
-    //   pathTs: './src/seeders',
-    //   defaultSeeder: 'DatabaseSeeder',
-    //   glob: '!(*.d).{js,ts}',
-    //   emit: 'ts',
-    // },    // Debug & Logging
+    // Debug & Logging
     debug: process.env.NODE_ENV === 'development',
     logger: console.log.bind(console),
 
@@ -65,7 +58,9 @@ export default defineConfig({
     },
 
     // Extensions
-    extensions: [Migrator],    // Connection Pool
+    extensions: [Migrator],
+
+    // Connection Pool
     pool: {
         min: 2,
         max: 10,
@@ -94,18 +89,6 @@ export default defineConfig({
     strict: true,
     validate: true,
 
-    // Naming Strategy (snake_case for DB, camelCase for TS)
-    namingStrategy: class extends (class { }) {
-        classToTableName(entityName: string): string {
-            return entityName.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
-        }
-
-        propertyToColumnName(propertyName: string): string {
-            return propertyName.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
-        }
-
-        joinKeyColumnName(entityName: string, referencedColumnName?: string): string {
-            return `${entityName.toLowerCase()}_${referencedColumnName || 'id'}`;
-        }
-    },
+    // Naming Strategy: Use UnderscoreNamingStrategy (snake_case)
+    // This is compatible with Medusa's existing naming
 });
