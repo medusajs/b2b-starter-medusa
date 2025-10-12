@@ -134,7 +134,7 @@ aws logs get-log-events \
 
 **Migrations bem-sucedidas devem mostrar**:
 
-```
+```tsx
 ✅ Migration completed: create-tax-provider.ts
 ✅ Migration completed: create-payment-provider.ts
 ✅ Migration completed: create-currency.ts
