@@ -25,6 +25,7 @@ Implementação de **branding personalizado** para Yello Solar Hub no painel adm
 ## 🚨 Limitação Oficial do Medusa
 
 **Impossível Alterar:**
+
 - Logo principal do dashboard (header Medusa)
 - Página de login
 - Fluxo de autenticação
@@ -39,6 +40,7 @@ Implementação de **branding personalizado** para Yello Solar Hub no painel adm
 ## 📦 Arquivos Criados/Modificados
 
 ### 1. Assets (Logos)
+
 ```
 backend/src/admin/assets/
 ├── yello-black_logomark.svg  ✅ Copiado de storefront/public/
@@ -46,20 +48,24 @@ backend/src/admin/assets/
 ```
 
 ### 2. Componente de Branding
+
 ```
 backend/src/admin/components/yello-branding.tsx  ✅ Criado
 ```
 
 **Exportações:**
+
 - `YelloBranding`: Componente completo com logo + texto
 - `YelloBrandingBadge`: Badge compacto para headers
 
 ### 3. Widget Dashboard
+
 ```
 backend/src/admin/widgets/yello-dashboard-welcome.tsx  ✅ Criado
 ```
 
 **Funcionalidades:**
+
 - Logo Yello Solar Hub
 - 3 cards de estatísticas:
   - ☀️ Catálogo: 1.123 produtos
@@ -68,6 +74,7 @@ backend/src/admin/widgets/yello-dashboard-welcome.tsx  ✅ Criado
 - Injetado na zona `order.list.before` (dashboard principal)
 
 ### 4. Declarações TypeScript
+
 ```
 backend/src/admin/types/assets.d.ts  ✅ Criado
 ```
@@ -75,11 +82,13 @@ backend/src/admin/types/assets.d.ts  ✅ Criado
 Suporte para imports de `.svg`, `.png`, `.jpg`, `.jpeg`
 
 ### 5. Documentação
+
 ```
 backend/src/admin/YELLO_BRANDING_GUIDE.md  ✅ Criado (220 linhas)
 ```
 
 **Conteúdo:**
+
 - Limitações oficiais do Medusa
 - Guia de uso dos componentes
 - Exemplos de código
@@ -187,16 +196,19 @@ Todos os padrões seguem a documentação oficial:
 ## 🚀 Próximos Passos (Sugeridos)
 
 ### Curto Prazo
+
 - [ ] Testar widget no dashboard local (`http://localhost:9000/app`)
 - [ ] Adicionar branding em widgets existentes (solar-inventory-dashboard, etc)
 - [ ] Criar página custom de relatórios com logo Yello
 
 ### Médio Prazo
+
 - [ ] Widgets em páginas de cotações (quando rotas B2B forem ativadas)
 - [ ] Badge Yello em detalhes de produtos solares
 - [ ] Widget de métricas de performance solar
 
 ### Longo Prazo
+
 - [ ] Considerar admin custom completo se branding total for necessário
 - [ ] Aguardar Medusa suportar logo customizável nativamente
 

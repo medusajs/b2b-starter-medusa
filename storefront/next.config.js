@@ -14,7 +14,7 @@ const nextConfig = {
   generateEtags: false,
 
   // Output standalone para Edge Runtime - REMOVIDO para evitar problemas com eval
-  // output: 'standalone',
+  output: 'standalone',
 
   // Configurações de imagem ultra-otimizadas
   images: {
