@@ -89,8 +89,8 @@ export const StoreUpdateApprovalSettings = z
   .strict();
 
 /* Approval Validators */
+export const StoreGetApprovalParams = createSelectParams() as z.ZodType<any>;
 export type StoreGetApprovalParamsType = z.infer<typeof StoreGetApprovalParams>;
-export const StoreGetApprovalParams = createSelectParams();
 
 export type StoreUpdateApprovalType = z.infer<typeof StoreUpdateApproval>;
 export const StoreUpdateApproval = z.object({
