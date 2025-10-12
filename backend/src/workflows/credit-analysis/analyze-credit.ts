@@ -315,9 +315,10 @@ export const saveCreditAnalysisStep = createStep(
 
         // Create FinancingOffer entities (CRITICAL for PLG: expose financing options!)
         const savedOffers: any[] = []
+        const offers = input.offersResult.offers || []
 
-        for (let i = 0; i < Math.min(input.offers.length, 3); i++) {
-            const offer = input.offers[i]
+        for (let i = 0; i < Math.min(offers.length, 3); i++) {
+            const offer = offers[i]
             const offerEntity = new FinancingOffer()
 
             offerEntity.credit_analysis_id = creditAnalysis.id
