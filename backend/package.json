@@ -59,6 +59,10 @@
     "@medusajs/framework": "2.10.3",
     "@medusajs/js-sdk": "2.10.3",
     "@medusajs/medusa": "2.10.3",
+    "@medusajs/types": "2.10.3",
+    "@medusajs/fulfillment": "2.10.3",
+    "@medusajs/inventory": "2.10.3",
+    "@medusajs/stock-location": "2.10.3",
     "@medusajs/ui": "4.0.23",
     "@medusajs/workflows-sdk": "2.10.3",
     "@mikro-orm/core": "6.4.3",
@@ -74,8 +78,11 @@
     "pino": "^10.0.0",
     "pino-pretty": "^13.1.2",
     "posthog-node": "^4.18.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
+    "uuid": "^10.0.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
@@ -99,10 +106,11 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
     "tailwindcss": "^3.4.1",
     "vite": "^5.4.20"
+  },
+  "overrides": {
+    "zod": "3.23.8"
   },
   "engines": {
     "node": ">=20"
