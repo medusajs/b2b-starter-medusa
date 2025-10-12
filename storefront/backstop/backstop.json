@@ -1,0 +1,228 @@
+{
+    "id": "ysh_b2b_visual_regression",
+    "viewports": [
+        {
+            "label": "phone",
+            "width": 375,
+            "height": 667
+        },
+        {
+            "label": "tablet",
+            "width": 768,
+            "height": 1024
+        },
+        {
+            "label": "desktop",
+            "width": 1920,
+            "height": 1080
+        },
+        {
+            "label": "4k",
+            "width": 3840,
+            "height": 2160
+        }
+    ],
+    "scenarios": [
+        {
+            "label": "Home Page - Full",
+            "url": "http://storefront:8000/br",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "ProductCard - Default State",
+            "url": "http://storefront:8000/br/produtos",
+            "selectors": [
+                "[data-testid='product-card']"
+            ],
+            "delay": 1500,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "ProductCard - Hover State",
+            "url": "http://storefront:8000/br/produtos",
+            "selectors": [
+                "[data-testid='product-card']"
+            ],
+            "hoverSelector": "[data-testid='product-card']",
+            "delay": 1500,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "ConsentBanner - Collapsed",
+            "url": "http://storefront:8000/br",
+            "selectors": [
+                "[data-testid='consent-banner']"
+            ],
+            "delay": 500,
+            "misMatchThreshold": 0.1,
+            "onBeforeScript": "engine_scripts/clear-cookies.js"
+        },
+        {
+            "label": "ConsentBanner - Expanded",
+            "url": "http://storefront:8000/br",
+            "selectors": [
+                "[data-testid='consent-banner']"
+            ],
+            "clickSelector": "[data-testid='manage-cookies-btn']",
+            "delay": 1000,
+            "misMatchThreshold": 0.1,
+            "onBeforeScript": "engine_scripts/clear-cookies.js"
+        },
+        {
+            "label": "Product Page - Default",
+            "url": "http://storefront:8000/br/produtos/painel-solar-550w",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2
+        },
+        {
+            "label": "Product Page - Images Gallery",
+            "url": "http://storefront:8000/br/produtos/painel-solar-550w",
+            "selectors": [
+                "[data-testid='product-images']"
+            ],
+            "delay": 1500,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "Cart - Empty State",
+            "url": "http://storefront:8000/br/carrinho",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 1000,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "Cart - With Items",
+            "url": "http://storefront:8000/br/carrinho",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2,
+            "onBeforeScript": "engine_scripts/add-to-cart.js"
+        },
+        {
+            "label": "Checkout - Login Required",
+            "url": "http://storefront:8000/br/checkout",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 1000,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "Checkout - Shipping Form",
+            "url": "http://storefront:8000/br/checkout",
+            "selectors": [
+                "#shipping-address-form"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.1,
+            "onBeforeScript": "engine_scripts/login.js"
+        },
+        {
+            "label": "Account - Login Page",
+            "url": "http://storefront:8000/br/conta/login",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 1000,
+            "misMatchThreshold": 0.1
+        },
+        {
+            "label": "Account - Dashboard",
+            "url": "http://storefront:8000/br/conta",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2,
+            "onBeforeScript": "engine_scripts/login.js"
+        },
+        {
+            "label": "Company - Management Page",
+            "url": "http://storefront:8000/br/conta/empresa",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2,
+            "onBeforeScript": "engine_scripts/login-admin.js"
+        },
+        {
+            "label": "Approvals - List Page",
+            "url": "http://storefront:8000/br/conta/aprovacoes",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2,
+            "onBeforeScript": "engine_scripts/login-admin.js"
+        },
+        {
+            "label": "Quotes - List Page",
+            "url": "http://storefront:8000/br/conta/cotacoes",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2,
+            "onBeforeScript": "engine_scripts/login.js"
+        },
+        {
+            "label": "Collections - Grid View",
+            "url": "http://storefront:8000/br/colecoes/paineis-solares",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2
+        },
+        {
+            "label": "Search - Results Page",
+            "url": "http://storefront:8000/br/busca?q=painel",
+            "selectors": [
+                "viewport"
+            ],
+            "delay": 2000,
+            "misMatchThreshold": 0.2
+        }
+    ],
+    "paths": {
+        "bitmaps_reference": "backstop_data/bitmaps_reference",
+        "bitmaps_test": "backstop_data/bitmaps_test",
+        "engine_scripts": "engine_scripts",
+        "html_report": "backstop_data/html_report",
+        "ci_report": "backstop_data/ci_report"
+    },
+    "report": [
+        "browser",
+        "json",
+        "CI"
+    ],
+    "engine": "puppeteer",
+    "engineOptions": {
+        "args": [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage"
+        ]
+    },
+    "asyncCaptureLimit": 5,
+    "asyncCompareLimit": 50,
+    "debug": false,
+    "debugWindow": false,
+    "removeSelectors": [
+        "[data-testid='timestamp']",
+        "[data-testid='live-chat']",
+        ".grecaptcha-badge"
+    ]
+}

@@ -1,0 +1,13 @@
+# BackstopJS data
+backstop_data/bitmaps_test/
+backstop_data/html_report/
+backstop_data/ci_report/
+
+# Keep reference bitmaps in git (optional - remove if too large)
+# backstop_data/bitmaps_reference/
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
