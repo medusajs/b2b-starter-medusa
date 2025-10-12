@@ -39,7 +39,7 @@ curl http://localhost:9000/store/internal-catalog/health
 
 ## 📁 Estrutura Criada
 
-```
+```tsx
 backend/
 ├── src/api/store/internal-catalog/
 │   ├── types.ts                      # TypeScript interfaces
