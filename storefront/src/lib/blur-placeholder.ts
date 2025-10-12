@@ -71,17 +71,41 @@ export const STATIC_BLUR_PLACEHOLDER =
     'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4='
 
 /**
- * Generate placeholder from RGB color
+ * Generate placeholder from color string or RGB
  * Useful for brand-colored placeholders
  */
-export function colorPlaceholder(r: number, g: number, b: number): string {
-    const color = `rgb(${r},${g},${b})`
-    return `data:image/svg+xml;base64,${Buffer.from(
-        `<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10" fill="${color}"/></svg>`
-    ).toString('base64')}`
+export function colorPlaceholder(color: string | { r: number; g: number; b: number }): string {
+    const colorStr = typeof color === 'string'
+        ? color
+        : `rgb(${color.r},${color.g},${color.b})`
+
+    const svg = `<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10" fill="${colorStr}"/></svg>`
+    return `data:image/svg+xml;base64,${btoa(svg)}`
 }
 
 /**
+ * Extract potential color from image URL
+ * Simple heuristic - could be replaced with actual image analysis
+ */
+function extractColorFromUrl(url: string): string | null {
+    const urlLower = url.toLowerCase()
+
+    // Map common product categories to colors
+    if (urlLower.includes('panel') || urlLower.includes('painel')) {
+        return '#1e3a8a' // Blue for solar panels
+    }
+    if (urlLower.includes('inverter') || urlLower.includes('inversor')) {
+        return '#ea580c' // Orange for inverters
+    }
+    if (urlLower.includes('battery') || urlLower.includes('bateria')) {
+        return '#16a34a' // Green for batteries
+    }
+    if (urlLower.includes('cable') || urlLower.includes('cabo')) {
+        return '#6b7280' // Gray for cables
+    }
+
+    return null
+}/**
  * Cache blur placeholders in production
  * Use with Next.js unstable_cache or Redis
  */
