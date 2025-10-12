@@ -313,7 +313,7 @@ if ((customer as any).employee?.spending_limit) {
 
 ### Análise do npm audit
 
-```
+```tsx
 60 vulnerabilities (4 low, 4 moderate, 52 high)
 ```
 
@@ -350,7 +350,7 @@ npm run build
 
 **Resultado:**
 
-```
+```tsx
 ✅ Backend build completed successfully (4.09s)
 ✅ Frontend build completed successfully (12.79s)
 ```
@@ -365,7 +365,7 @@ npm run build
 
 ### Estrutura de Testes
 
-```
+```tsx
 integration-tests/
 ├── http/
 │   ├── admin/quotes/quotes.spec.ts
