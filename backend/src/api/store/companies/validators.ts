@@ -3,8 +3,8 @@ import { z } from "zod";
 import { ApprovalStatusType } from "../../../types/approval";
 
 /* Company Validators */
+export const StoreGetCompanyParams = createSelectParams() as z.ZodType<any>;
 export type StoreGetCompanyParamsType = z.infer<typeof StoreGetCompanyParams>;
-export const StoreGetCompanyParams = createSelectParams();
 
 export type StoreCreateCompanyType = z.infer<typeof StoreCreateCompany>;
 export const StoreCreateCompany = z
@@ -47,8 +47,8 @@ export const StoreUpdateCompany = z
   .strict();
 
 /* Employee Validators */
+export const StoreGetEmployeeParams = createSelectParams() as z.ZodType<any>;
 export type StoreGetEmployeeParamsType = z.infer<typeof StoreGetEmployeeParams>;
-export const StoreGetEmployeeParams = createSelectParams();
 
 export type StoreCreateEmployeeType = z.infer<typeof StoreCreateEmployee>;
 export const StoreCreateEmployee = z
@@ -74,10 +74,10 @@ export const StoreUpdateEmployee = z
   .strict();
 
 /* Approval Settings Validators */
+export const StoreGetApprovalSettingsParams = createSelectParams() as z.ZodType<any>;
 export type StoreGetApprovalSettingsParamsType = z.infer<
   typeof StoreGetApprovalSettingsParams
 >;
-export const StoreGetApprovalSettingsParams = createSelectParams();
 
 export type StoreUpdateApprovalSettingsType = z.infer<
   typeof StoreUpdateApprovalSettings
