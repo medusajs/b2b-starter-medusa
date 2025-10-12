@@ -189,44 +189,68 @@ npm run test:visual:report
 
 ---
 
-## 📋 Next Steps (5% Remaining)
+## 📋 Next Steps (Setup & Validation Only)
 
-### Pact Contract Tests Pendentes
+### 1. Instalar Dependências Pact
 
-**1. Cart API Contracts** (storefront/src/pact/cart-api.pact.test.ts):
+**Storefront**:
 
-```typescript
-- POST /store/carts - Create cart
-- POST /store/carts/:id/line-items - Add item
-- PATCH /store/carts/:id/line-items/:line_id - Update quantity
-- DELETE /store/carts/:id/line-items/:line_id - Remove item
-- POST /store/carts/:id/complete - Complete checkout
+```powershell
+cd storefront
+npm install --save-dev @pact-foundation/pact jest-pact
 ```
 
-**2. Approvals API Contracts** (storefront/src/pact/approvals-api.pact.test.ts):
+**Backend**:
 
-```typescript
-- GET /store/approvals - List approvals
-- POST /store/approvals/:id/approve - Approve
-- POST /store/approvals/:id/reject - Reject
+```powershell
+cd backend
+npm install --save-dev @pact-foundation/pact
 ```
 
-**3. Quotes API Contracts** (storefront/src/pact/quotes-api.pact.test.ts):
+### 2. Validar Contract Testing
 
-```typescript
-- POST /store/quotes - Create quote
-- GET /store/quotes/:id - Get quote
-- POST /store/quotes/:id/messages - Send message
-- POST /store/quotes/:id/accept - Accept quote
+**Consumer Tests (Storefront)**:
+
+```powershell
+cd storefront
+
+# Gerar contratos
+npm run test:pact:consumer
+
+# Publicar no broker
+npm run test:pact:publish
+
+# Verificar em http://localhost:9292
 ```
 
-**4. Provider Verification** (backend/src/pact/):
+**Provider Tests (Backend)**:
 
-```typescript
-- products-provider.pact.test.ts
-- cart-provider.pact.test.ts
-- approvals-provider.pact.test.ts
-- quotes-provider.pact.test.ts
+```powershell
+cd backend
+
+# Ensure backend is running
+npm run dev
+
+# Verificar contratos
+npm run test:pact:provider
+
+# Check deployment safety
+npm run test:pact:can-i-deploy
+```
+
+### 3. Validar Visual Regression
+
+```powershell
+cd storefront
+
+# Criar baseline
+npm run test:visual:reference
+
+# Rodar testes
+npm run test:visual
+
+# Ver relatório
+npm run test:visual:report
 ```
 
 ---
