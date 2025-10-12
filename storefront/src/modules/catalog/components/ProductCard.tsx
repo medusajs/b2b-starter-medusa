@@ -8,6 +8,7 @@ import { useLeadQuote } from "@/modules/lead-quote/context"
 import { ProductSKU, ProductModel } from "@/modules/catalog/components/product-identifiers"
 import { CategoryIcon, type ProductCategory } from "@/modules/catalog/components/CategoryIcon"
 import { useVariant, trackExperimentEvent } from "@/lib/experiments"
+import { STATIC_BLUR_PLACEHOLDER } from "@/lib/blur-placeholder"
 
 interface ProductCardProps {
     product: {
@@ -32,6 +33,7 @@ interface ProductCardProps {
         modalidade?: string // on-grid, hibrido, off-grid, eaas, ppa
         classe_consumidora?: string[] // residencial-b1, rural-b2, comercial-b3, condominios, industria
         roi_estimado?: number // em anos
+        blurDataURL?: string // Blur placeholder for smooth image loading
     }
     category?: ProductCategory
 }
@@ -108,6 +110,8 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     loading="lazy"
                     quality={85}
+                    placeholder={product.blurDataURL ? "blur" : undefined}
+                    blurDataURL={product.blurDataURL || STATIC_BLUR_PLACEHOLDER}
                 />
 
                 {/* Overlay Actions */}
