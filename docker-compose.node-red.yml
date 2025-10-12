@@ -1,0 +1,79 @@
+# ==========================================
+# Node-RED Docker Compose
+# Automações locais para CI/CD, Testes, e Monitoramento
+# ==========================================
+
+version: "3.8"
+
+services:
+  # Node-RED - Automation Engine
+  nodered:
+    image: nodered/node-red:latest
+    container_name: ysh-b2b-nodered
+    restart: unless-stopped
+    environment:
+      - TZ=America/Sao_Paulo
+      - NODE_RED_ENABLE_PROJECTS=true
+      - NODE_RED_ENABLE_SAFE_MODE=false
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered_data:/data
+      - ./node-red/flows:/data/flows
+      - ./node-red/settings.js:/data/settings.js
+      # Mount workspaces for file access
+      - ./backend:/workspace/backend:ro
+      - ./storefront:/workspace/storefront:ro
+      - ./storefront/e2e:/workspace/e2e:ro
+      # Mount for Playwright results
+      - ./test-results:/workspace/test-results
+      - ./playwright-report:/workspace/playwright-report
+    networks:
+      - ysh-b2b-network
+    depends_on:
+      - postgres
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1880"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  # Mosquitto MQTT Broker (para comunicação entre flows)
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: ysh-b2b-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./node-red/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_logs:/mosquitto/log
+    networks:
+      - ysh-b2b-network
+    healthcheck:
+      test: ["CMD", "mosquitto_sub", "-t", "$$SYS/#", "-C", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ysh-b2b-network:
+    name: ysh-b2b-network
+    external: true
+
+volumes:
+  nodered_data:
+    name: ysh-b2b-nodered-data
+  mosquitto_data:
+    name: ysh-b2b-mosquitto-data
+  mosquitto_logs:
+    name: ysh-b2b-mosquitto-logs

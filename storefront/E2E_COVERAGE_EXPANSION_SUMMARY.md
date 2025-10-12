@@ -65,7 +65,7 @@
 
 **Diagrama de Fluxo**:
 
-```
+```tsx
 [Cart R$850] → [Add Address] → [Select Standard Shipping +R$50] → [Select Manual Payment] → [Complete Order]
      ↓              ↓                      ↓                              ↓                    ↓
   Validate     Fill fields           Update total                   Create session      Order #order_123
@@ -105,7 +105,7 @@
 
 **Diagrama de Fluxo**:
 
-```
+```tsx
 [Cart R$1200 > Threshold R$1000] → [Block Checkout] → [Request Approval] → [Admin Review] → [Approve/Reject]
          ↓                                ↓                    ↓                   ↓              ↓
    Threshold check              Show warning            POST /approvals      Approve with     Notify employee
