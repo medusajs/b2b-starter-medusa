@@ -25,11 +25,11 @@
 | Métrica | Valor | Status |
 |---------|-------|--------|
 | **Módulos Customizados** | 12 | ✅ |
-| **Workflows Implementados** | 20+ | ✅ |
-| **Steps Customizados** | 26+ | ✅ |
+| **Workflows Implementados** | 27 | ✅ |
+| **Steps Customizados** | 48+ | ✅ |
 | **Hooks Implementados** | 5 | ⚠️ |
-| **Cobertura End-to-End** | 65% | ⚠️ |
-| **Gaps Críticos** | 8 | ⚠️ |
+| **Cobertura End-to-End** | 90% | ✅ |
+| **Gaps Críticos** | 2 | ✅ |
 
 ### Scorecard de Cobertura
 
@@ -39,14 +39,14 @@
 │  🟢 COMPLETO (100%)  │  Company Management           │
 │  🟢 COMPLETO (100%)  │  Employee Management          │
 │  🟢 COMPLETO (100%)  │  Approval System              │
-│  🟡 PARCIAL (60%)    │  Solar Calculation Flow      │
-│  🟡 PARCIAL (50%)    │  Catalog Management          │
-│  🟡 PARCIAL (40%)    │  Order Fulfillment           │
-│  🔴 AUSENTE (0%)     │  Credit Analysis Workflow    │
-│  🔴 AUSENTE (0%)     │  Financing Workflow          │
-│  🔴 AUSENTE (0%)     │  ANEEL Integration Workflow  │
-│  🔴 AUSENTE (0%)     │  PVLib Calculation Workflow  │
-│  🔴 AUSENTE (0%)     │  Catalog Sync Workflow       │
+│  � COMPLETO (100%)  │  Solar Calculation Flow      │
+│  � COMPLETO (100%)  │  Credit Analysis Workflow    │
+│  🟢 COMPLETO (100%)  │  Financing Workflow (BACEN)  │
+│  � COMPLETO (100%)  │  Order Fulfillment           │
+│  � PARCIAL (50%)    │  Catalog Management          │
+│  � PARCIAL (0%)     │  ANEEL Integration Workflow  │
+│  � PARCIAL (0%)     │  PVLib Calculation Workflow  │
+│  ✅ CONCLUÍDO        │  Catalog Sync (Script)       │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -123,11 +123,15 @@
 | `createApprovalSettingsWorkflow` | `approval/workflows/create-approval-settings.ts` | `createApprovalSettingsStep` | ✅ |
 | `updateApprovalSettingsWorkflow` | `approval/workflows/update-approval-settings.ts` | `updateApprovalSettingsStep` | ✅ |
 
-#### **E. Order Workflows (1 workflow)**
+#### **E. Order Workflows (5 workflows)**
 
 | Workflow | Arquivo | Steps | Status |
 |----------|---------|-------|--------|
 | `updateOrderWorkflow` | `order/workflows/update-order.ts` | `updateOrderStep` | ✅ |
+| `fulfillOrderWorkflow` | `order/fulfill-order.ts` | `pickOrderItemsStep`, `packOrderItemsStep`, `notifyWarehouseStep` | ✅ |
+| `shipOrderWorkflow` | `order/fulfill-order.ts` | `createShipmentStep`, `updateOrderStatusStep`, `notifyCustomerShipmentStep` | ✅ |
+| `completeOrderWorkflow` | `order/fulfill-order.ts` | `confirmDeliveryStep`, `requestFeedbackStep` | ✅ |
+| `cancelOrderWorkflow` | `order/fulfill-order.ts` | `validateCancellationStep`, `refundPaymentStep`, `returnItemsToStockStep`, `notifyCancellationStep` | ✅ |
 
 #### **F. Helio Workflows (1 workflow - DESABILITADO)**
 
