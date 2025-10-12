@@ -10,7 +10,7 @@
 
 ### Performance Global
 
-```
+```tsx
 ┌────────────────────────────────────────────────────┐
 │  ✅ Total Processado      1,123 produtos           │
 │  ➕ Criados               703 produtos (62.6%)     │
