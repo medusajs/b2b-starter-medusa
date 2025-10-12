@@ -159,7 +159,7 @@ Se DATABASE_SSL config falhar, próxima tentativa:
 
 **Modificar DATABASE_URL no Secrets Manager:**
 
-```
+```tsx
 postgresql://user:pass@host:5432/db?sslmode=require&sslrootcert=/tmp/rds-ca-bundle.pem
 ```
 
