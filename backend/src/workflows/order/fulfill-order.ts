@@ -450,7 +450,7 @@ export const notifyCancellationStep = createStep(
 )
 
 export const cancelOrderWorkflow = createWorkflow(
-    "cancel-order",
+    "ysh-cancel-order",
     function (input: {
         order_id: string
         reason: string

@@ -345,13 +345,22 @@ export const saveCreditAnalysisStep = createStep(
         console.log(`💾 Credit analysis saved: ${creditAnalysis.id}`)
         console.log(`   Customer: ${input.customer_id}`)
         console.log(`   Score: ${input.scoreResult.total_score}/100`)
-        console.log(`   Approved: ${input.result.approved ? 'YES' : 'NO'}`)
-        console.log(`   Best Rate: ${input.offers[0]?.interest_rate_annual.toFixed(2)}% a.a.`)
+        console.log(`   Approved: ${approved ? 'YES' : 'NO'}`)
+        console.log(`   Best Rate: ${offers[0]?.interest_rate_annual.toFixed(2)}% a.a.`)
         console.log(`   💰 Offers saved: ${savedOffers.length} financing options for PLG`)
 
         return new StepResponse({
             analysis_id: creditAnalysis.id,
-            offers_saved: savedOffers
+            result: {
+                approved,
+                approved_amount: input.requestedAmount,
+                approved_term_months: input.requestedTermMonths,
+                approved_interest_rate: offers[0]?.interest_rate_annual,
+                approval_conditions: offers[0]?.conditions,
+                rejection_reason: approved ? undefined : "Score insuficiente"
+            },
+            best_offers: offers,
+            notification_sent: false
         })
     },
     async (output, { container }) => {
