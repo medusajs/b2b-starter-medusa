@@ -114,14 +114,18 @@ function productToCsvRow(product) {
  * Convert product to JSON-LD
  */
 function productToJsonLd(product, baseUrl = 'https://ysh-solar.com') {
-    const imageUrl = product.image_url ?
-        `${baseUrl}/images/${product.image_url.replace(/\\/g, '/')}` :
+    const imagePath = resolveImagePath(product);
+    const imageUrl = imagePath ?
+        `${baseUrl}${imagePath}` :
         `${baseUrl}/images/placeholder.jpg`;
+
+    const sku = extractSku(product);
 
     return {
         '@context': 'https://schema.org',
         '@type': 'Product',
         '@id': `${baseUrl}/products/${product.id}`,
+        'sku': sku,
         'name': product.name,
         'manufacturer': {
             '@type': 'Organization',
@@ -157,8 +161,8 @@ function productToJsonLd(product, baseUrl = 'https://ysh-solar.com') {
 function generateCategoryCsv(category, products) {
     const csvPath = path.join(OUTPUT_PATH, `${category}.csv`);
     const headers = [
-        'id', 'name', 'manufacturer', 'model', 'category', 'price_brl',
-        'power_w', 'efficiency', 'voltage_v', 'current_a', 'image', 'image_url',
+        'id', 'sku', 'name', 'manufacturer', 'model', 'category', 'price_brl',
+        'power_w', 'efficiency', 'voltage_v', 'current_a', 'image_path',
         'source', 'availability', 'description', 'image_tier', 'specs_count'
     ];
 
