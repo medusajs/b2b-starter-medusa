@@ -1,6 +1,6 @@
 /**
  * 🌐 Global API Middlewares
- * Request ID, API Version, and Error Handling
+ * Request ID, API versioning, error handling
  */
 
 import type { MedusaRequest, MedusaResponse, MedusaNextFunction } from "@medusajs/framework/http";
@@ -35,38 +35,25 @@ export function apiVersionMiddleware(
   res: MedusaResponse,
   next: MedusaNextFunction
 ) {
-  // Read version from header or query
   const requestedVersion =
     (req.headers["x-api-version"] as string) ||
     (req.query?.api_version as string);
 
-  // Set current version in response
   const currentVersion = APIVersionManager.formatVersion(
     APIVersionManager.CURRENT_API_VERSION
   );
+
   res.setHeader("X-API-Version", currentVersion);
 
-  // Validate requested version if provided
-  if (requestedVersion) {
-    try {
-      const parsedVersion = APIVersionManager.parseVersion(requestedVersion);
-      if (!APIVersionManager.isVersionSupported(parsedVersion)) {
-        APIResponse.error(
-          res,
-          "E400_UNSUPPORTED_VERSION",
-          `API version ${requestedVersion} is not supported. Current version: ${currentVersion}`,
-          400
-        );
-        return;
-      }
-      (req as any).apiVersion = parsedVersion;
-    } catch (error) {
-      APIResponse.validationError(
-        res,
-        `Invalid API version format: ${requestedVersion}`
-      );
-      return;
-    }
+  if (requestedVersion && !APIVersionManager.isSupported(requestedVersion)) {
+    APIResponse.error(
+      res,
+      "E400_INVALID_INPUT",
+      `API version ${requestedVersion} is not supported`,
+      400,
+      { supported_versions: APIVersionManager.getSupportedVersions() }
+    );
+    return;
   }
 
   next();
@@ -90,24 +77,9 @@ export function globalErrorHandler(
     requestId: (req as any).requestId,
   });
 
-  // Check if response already sent
   if (res.headersSent) {
     return next(error);
   }
 
-  APIResponse.internalError(res, "An unexpected error occurred");
-}
-
-// ============================================================================
-// Combined Global Middleware Stack
-// ============================================================================
-
-export function applyGlobalMiddleware(
-  req: MedusaRequest,
-  res: MedusaResponse,
-  next: MedusaNextFunction
-) {
-  requestIdMiddleware(req, res, () => {
-    apiVersionMiddleware(req, res, next);
-  });
+  APIResponse.internalError(res, "Internal server error");
 }

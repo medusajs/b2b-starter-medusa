@@ -33,6 +33,9 @@
       ],
       "@medusajs/medusa/api/utils/define-query-config": [
         "./src/shims/define-query-config.ts"
+      ],
+      "zod": [
+        "./node_modules/@medusajs/utils/node_modules/zod"
       ]
     }
   },
