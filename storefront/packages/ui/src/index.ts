@@ -1,6 +1,15 @@
 // Public surface for @ysh/ui
 
-// Components
+// Core brand components
+export { default as Badge } from './components/Badge';
+export * from './components/Badge';
+
+export { default as Button } from './components/Button';
+export * from './components/Button';
+
+export { default as Card } from './components/Card';
+export * from './components/Card';
+
 export { default as GradientDefs } from './components/GradientDefs';
 export * from './components/GradientDefs';
 
@@ -12,6 +21,9 @@ export * from './components/Label';
 
 export { default as Spinner } from './components/Spinner';
 export * from './components/Spinner';
+
+export { default as YelloSolarButton } from './components/YelloSolarButton';
+export * from './components/YelloSolarButton';
 
 // New components following Medusa design system
 export * from './components';
