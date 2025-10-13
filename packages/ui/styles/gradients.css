@@ -1,0 +1,13 @@
+.ysh-border-gradient {
+  border: 1px solid transparent;
+  border-image: linear-gradient(var(--ysh-angle), var(--ysh-start), var(--ysh-end)) 1;
+  border-radius: 0.75rem;
+}
+
+.ysh-text-gradient {
+  background: linear-gradient(var(--ysh-angle), var(--ysh-start), var(--ysh-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+

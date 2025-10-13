@@ -7,6 +7,7 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["@ysh/ui", "@medusajs/ui", "@medusajs/icons"],
 
   // Configurações de performance otimizadas para nível Vercel
   compress: true,

@@ -13,6 +13,7 @@
         "lint": "next lint"
     },
   "dependencies": {
+    "@ysh/ui": "file:../packages/ui",
     "@medusajs/icons": "^2.8.4",
     "@medusajs/ui": "^4.0.14",
         "next": "^15.0.0",
