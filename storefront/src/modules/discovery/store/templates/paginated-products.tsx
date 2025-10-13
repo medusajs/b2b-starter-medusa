@@ -57,7 +57,7 @@ export default async function PaginatedProducts({
 
   if (searchQuery && searchQuery.trim().length > 0) {
     // Medusa Store API supports `q` for free text search
-    ;(queryParams as any).q = searchQuery.trim()
+    ; (queryParams as any).q = searchQuery.trim()
   }
 
   const region = await getRegion(countryCode)
