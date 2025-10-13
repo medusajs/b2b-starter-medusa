@@ -1,84 +1,58 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "esModuleInterop": true,
-    "module": "ES2020",
+    "target": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "strict": false,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictPropertyInitialization": false,
-    "noEmitOnError": false,
-    "declaration": false,
-    "sourceMap": false,
-    "inlineSourceMap": true,
-    "outDir": "./.medusa/server",
-    "rootDir": "./",
-    "baseUrl": ".",
-    "jsx": "react-jsx",
-    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "checkJs": false,
-    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src",
+    "baseUrl": "src",
     "paths": {
-      "@starter/types": [
-        "./src/types"
-      ],
-      "@starter/types/*": [
-        "./src/types/*"
-      ],
-      "@modules/*": [
-        "./src/modules/*"
+      "@admin/*": [
+        "admin/*"
       ],
       "@api/*": [
-        "./src/api/*"
+        "api/*"
+      ],
+      "@jobs/*": [
+        "jobs/*"
+      ],
+      "@links/*": [
+        "links/*"
+      ],
+      "@modules/*": [
+        "modules/*"
+      ],
+      "@scripts/*": [
+        "scripts/*"
+      ],
+      "@subscribers/*": [
+        "subscribers/*"
       ],
       "@workflows/*": [
-        "./src/workflows/*"
+        "workflows/*"
       ],
       "@types/*": [
-        "./src/types/*"
+        "types/*"
       ],
       "@utils/*": [
-        "./src/utils/*"
+        "utils/*"
       ],
       "@medusajs/medusa/api/utils/define-query-config": [
         "./src/shims/define-query-config.ts"
-      ],
-      "zod": [
-        "./node_modules/@medusajs/utils/node_modules/zod"
       ]
-    }
-  },
-  "ts-node": {
-    "swc": true
+    },
+    "outDir": "dist"
   },
   "include": [
-    "**/*",
-    ".medusa/types/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    ".medusa/server",
-    ".medusa/admin",
-    ".cache",
-    "src/scripts/run-api-tests.ts",
-    "src/scripts/start-test-server.ts",
-    "src/scripts/test-catalog-paths.ts",
-    "**/__tests__/**",
-    "**/*.pact.test.ts",
-    "src/pact/**",
-    "src/scripts/check-prices.ts",
-    "src/scripts/create-publishable-key.ts",
-    "src/scripts/import-simple.ts",
-    "src/scripts/link-products-to-channel.ts",
-    "src/scripts/seed-b2b-data.ts",
-    "src/api/store/health/**",
-    "scripts/setup-publishable-key.ts",
-    "data/catalog/data/medusa_integration/**"
+    ".medusa",
+    "dist"
   ]
 }

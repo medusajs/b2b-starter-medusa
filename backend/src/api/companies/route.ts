@@ -134,5 +134,4 @@ export const POST = async (
     );
 
     res.json({ companies });
-}; </content>
-    < parameter name = "filePath" > c: \Users\fjuni\ysh_medusa\ysh - store\backend\src\api\companies\route.ts
+};

@@ -206,5 +206,4 @@ export const GET = async (
             error instanceof Error ? error.message : "Failed to fetch products"
         );
     }
-}; </content>
-    < parameter name = "filePath" > c: \Users\fjuni\ysh_medusa\ysh - store\backend\src\api\store\products\route.ts
+};
