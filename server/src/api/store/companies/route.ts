@@ -4,6 +4,7 @@ import { requirePublishableKey } from "@compat/http/publishable";
 import { listCompanies } from "@compat/services/company";
 import { getRequestId, logRequest } from "@compat/logging/logger";
 import { ok, err } from "@compat/http/response";
+import { rateLimit } from "@compat/http/rate-limit";
 
 const Query = z.object({
   limit: z.coerce.number().min(1).max(100).default(20),
@@ -14,6 +15,7 @@ const Query = z.object({
 // GET /store/companies
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
+  if (!rateLimit(req, res, `store:companies:list:${req.ip || "ip"}`)) return;
   const request_id = getRequestId(req.headers as any);
   try {
     const parsed = Query.parse(req.query);

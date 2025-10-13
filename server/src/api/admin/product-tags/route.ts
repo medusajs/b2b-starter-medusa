@@ -10,7 +10,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const { limit, offset } = Query.parse(req.query)
     const tags: any[] = []
     const count = 0
-    return ok(req, res, { tags, count, limit, offset })
+    return ok(req, res, { tags }, { limit, offset, count })
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message)
   }
@@ -25,4 +25,3 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
     return err(req, res, 400, "BAD_REQUEST", e.message)
   }
 }
-

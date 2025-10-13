@@ -4,6 +4,7 @@ import { requirePublishableKey } from "@compat/http/publishable";
 import { createQuote, listQuotes } from "@compat/services/quote";
 import { getRequestId, logRequest } from "@compat/logging/logger";
 import { ok, err } from "@compat/http/response";
+import { rateLimit } from "@compat/http/rate-limit";
 
 const CreateBody = z.object({
   company_id: z.string().min(1),
@@ -25,6 +26,7 @@ const Query = z.object({ limit: z.coerce.number().min(1).max(100).default(20), o
 // POST /store/quotes
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
+  if (!rateLimit(req, res, `store:quotes:create:${req.ip || "ip"}`)) return;
   try {
     const body = CreateBody.parse(req.body || {});
     const request_id = getRequestId(req.headers as any);
@@ -39,6 +41,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 // GET /store/quotes
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
+  if (!rateLimit(req, res, `store:quotes:list:${req.ip || "ip"}`)) return;
   try {
     const { limit, offset } = Query.parse(req.query);
     const request_id = getRequestId(req.headers as any);
