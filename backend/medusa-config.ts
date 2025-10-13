@@ -43,12 +43,13 @@ export default defineConfig({
         catalogPath: process.env.YSH_CATALOG_PATH || "./data/catalog",
       },
     },
-    [UNIFIED_CATALOG_MODULE]: {
-      resolve: "./modules/unified-catalog",
-      definition: {
-        isQueryable: true,
-      },
-    },
+    // Temporariamente desabilitado para permitir importação básica
+    // [UNIFIED_CATALOG_MODULE]: {
+    //   resolve: "./modules/unified-catalog",
+    //   definition: {
+    //     isQueryable: true,
+    //   },
+    // },
     // Módulos B2B - registrados por string direta
     "company": {
       resolve: "./modules/company",
