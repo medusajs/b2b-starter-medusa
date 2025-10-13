@@ -1,6 +1,6 @@
 "use client"
 
-import { setContactDetails } from "@/lib/data/cart"
+import { setContactDetails } from "@/lib/data/cart-resilient"
 import Divider from "@/modules/common/components/divider"
 import { ApprovalStatusType, B2BCart, B2BCustomer } from "@/types"
 import { CheckCircleSolid } from "@medusajs/icons"

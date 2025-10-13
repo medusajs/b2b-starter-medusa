@@ -1,4 +1,4 @@
-import { retrieveCart } from "@/lib/data/cart"
+import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/cart/components/cart-button"

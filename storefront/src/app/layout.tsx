@@ -10,6 +10,7 @@ import "@ysh/ui/styles/gradients.css"
 import { LeadQuoteProvider } from "@/modules/lead-quote/context"
 import { AnalyticsProvider } from "@/modules/analytics/AnalyticsProvider"
 import { PostHogProvider } from "@/providers/posthog-provider"
+import { ToastProvider } from "@/components/toasts/toast-provider"
 import SkipLinks from "@/components/common/SkipLinks"
 import { ConsentBanner } from "@/components/ConsentBanner"
 import { WebVitals } from "@/components/WebVitals"
@@ -170,9 +171,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <PostHogProvider>
           <AnalyticsProvider>
             <PWAProvider>
-              <LeadQuoteProvider>
-                <main id="main-content" className="relative">{props.children}</main>
-              </LeadQuoteProvider>
+              <ToastProvider>
+                <LeadQuoteProvider>
+                  <main id="main-content" className="relative">{props.children}</main>
+                </LeadQuoteProvider>
+              </ToastProvider>
               <Toaster className="z-[99999]" position="bottom-left" aria-live="polite" aria-atomic="true" />
               {/* Screen reader live region for critical announcements */}
               <div

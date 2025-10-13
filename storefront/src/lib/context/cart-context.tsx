@@ -5,7 +5,7 @@ import {
   deleteLineItem,
   emptyCart,
   updateLineItem,
-} from "@/lib/data/cart"
+} from "@/lib/data/cart-resilient"
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { ApprovalStatusType } from "@/types/approval/module"
 import { B2BCart } from "@/types/global"

@@ -1,4 +1,4 @@
-import { retrieveCart } from "@/lib/data/cart"
+import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import Wrapper from "@/modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@/modules/checkout/templates/checkout-form"

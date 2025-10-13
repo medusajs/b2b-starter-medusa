@@ -1,6 +1,6 @@
 "use client"
 
-import { setBillingAddress, updateCart } from "@/lib/data/cart"
+import { setBillingAddress, updateCart } from "@/lib/data/cart-resilient"
 import compareAddresses from "@/lib/util/compare-addresses"
 import BillingAddressForm from "@/modules/checkout/components/billing-address-form"
 import ErrorMessage from "@/modules/checkout/components/error-message"

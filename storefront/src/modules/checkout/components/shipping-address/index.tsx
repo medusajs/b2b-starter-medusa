@@ -1,6 +1,6 @@
 "use client"
 
-import { setShippingAddress } from "@/lib/data/cart"
+import { setShippingAddress } from "@/lib/data/cart-resilient"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import ShippingAddressForm from "@/modules/checkout/components/shipping-address-form"
 import { SubmitButton } from "@/modules/checkout/components/submit-button"

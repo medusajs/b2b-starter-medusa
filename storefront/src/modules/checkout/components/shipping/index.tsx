@@ -1,6 +1,6 @@
 "use client"
 
-import { setShippingMethod } from "@/lib/data/cart"
+import { setShippingMethod } from "@/lib/data/cart-resilient"
 import { convertToLocale } from "@/lib/util/money"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import Button from "@/modules/common/components/button"

@@ -62,6 +62,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "toast-progress": {
+          from: { width: "100%" },
+          to: { width: "0%" },
+        },
       },
       // Map UI package spacing tokens under `ui-*` keys to avoid clashing with Tailwind defaults
       ...(uiTokens.spacing
@@ -78,6 +82,7 @@ module.exports = {
       animation: {
         "accordion-open": "accordion-open 0.3s ease-out",
         "accordion-close": "accordion-close 0.3s ease-out",
+        "toast-progress": "toast-progress linear forwards",
       },
     },
   },

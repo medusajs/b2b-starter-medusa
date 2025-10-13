@@ -713,3 +713,6 @@ export async function triggerCartSync(): Promise<void> {
 export function clearCartQueue(): void {
     globalQueue.clear()
 }
+
+// Export classes for internal use
+export { CartLocalStorage, CartOperationQueue }

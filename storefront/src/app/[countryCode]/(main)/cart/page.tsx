@@ -1,5 +1,5 @@
 import { CartProvider } from "@/lib/context/cart-context"
-import { retrieveCart } from "@/lib/data/cart"
+import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import CartTemplate from "@/modules/cart/templates"
 import { Metadata } from "next"

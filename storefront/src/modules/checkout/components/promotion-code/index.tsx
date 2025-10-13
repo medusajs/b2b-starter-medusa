@@ -1,6 +1,6 @@
 "use client"
 
-import { applyPromotions, submitPromotionForm } from "@/lib/data/cart"
+import { applyPromotions, submitPromotionForm } from "@/lib/data/cart-resilient"
 import { getCartApprovalStatus } from "@/lib/util/get-cart-approval-status"
 import { convertToLocale } from "@/lib/util/money"
 import Trash from "@/modules/common/icons/trash"
