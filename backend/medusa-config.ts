@@ -58,9 +58,9 @@ export default defineConfig({
     // [QUOTE_MODULE]: {
     //   resolve: "./modules/quote",
     // },
-    [APPROVAL_MODULE]: {
-      resolve: "./modules/approval",
-    },
+    // [APPROVAL_MODULE]: {
+    //   resolve: "./modules/approval",
+    // },
     // ==========================================
     // INFRASTRUCTURE MODULES CONFIGURATION
     // ==========================================
