@@ -35,6 +35,18 @@ Falhas:
 
 ---
 
+## 🧭 Autoridade de Migrações & Ordem no CI
+
+- **Fonte de verdade**: módulos custom construídos com `model.define()` permanecem sincronizados via `medusa db:migrate` (MikroORM). Já scripts em `database/migrations/` preservam o legado SQL (seeds, views, funções) e só mudam quando houver alteração explícita nessas peças.
+- **Pipeline recomendado**:
+  1. Rodar `npm run migrate` para aplicar migrations geradas pelo MikroORM.
+  2. Executar, se houver novidades, os scripts SQL legados (`psql -f database/migrations/<arquivo>.sql`), mantendo idempotência garantida pelo próprio script.
+  3. Finalizar com os seeds necessários (`npm run seed` ou variantes por catálogo) para alinhar dados referenciais.
+- **Documentação viva**: alterações na estratégia precisam atualizar este bloco e os playbooks de DevOps, evitando divergências entre ambientes locais e o pipeline de produção.
+- **Fallback operacional**: em incidentes, restaurar o backup mais recente (`backup_pre_approval_*.sql`) antes de reaplicar migrations na ordem cronológica registrada.
+
+---
+
 ## 🔍 Diagnóstico Detalhado
 
 ### 1. Jest Configuration ✅

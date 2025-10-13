@@ -120,21 +120,21 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                     <div className="flex gap-2">
                         <button
                             type="button"
-                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:ring-offset-2"
                             aria-label={`Visualizar ${product.name}`}
                         >
-                            <Eye className="w-4 h-4 text-gray-700" aria-hidden="true" />
+                            <Eye className="w-4 h-4 text-gray-900" aria-hidden="true" />
                         </button>
                         <button
                             type="button"
-                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+                            className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:ring-offset-2"
                             aria-label={`Adicionar ${product.name} aos favoritos`}
                         >
-                            <Heart className="w-4 h-4 text-gray-700" aria-hidden="true" />
+                            <Heart className="w-4 h-4 text-gray-900" aria-hidden="true" />
                         </button>
                         <button
                             type="button"
-                            className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
+                            className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-4 focus:ring-yellow-600 focus:ring-offset-2"
                             aria-label={`Adicionar ${product.name} à cotação`}
                             data-tracking-event="add_to_quote_hover"
                             data-product-id={product.id}
@@ -146,7 +146,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                 try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                             }}
                         >
-                            <ShoppingCart className="w-4 h-4 text-gray-900" aria-hidden="true" />
+                            <ShoppingCart className="w-5 h-5 text-gray-900" aria-hidden="true" />
                         </button>
                     </div>
                 </div>

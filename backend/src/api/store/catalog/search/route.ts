@@ -1,7 +1,5 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-
-// Module key for resolution
-const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
+import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 
 function parsePriceBRL(price?: string): number | undefined {
     if (!price) return undefined

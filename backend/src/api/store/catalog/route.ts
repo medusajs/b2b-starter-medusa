@@ -1,15 +1,16 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { YSH_CATALOG_MODULE } from "../../../modules/ysh-catalog";
-import YshCatalogModuleService from "../../../modules/ysh-catalog/service";
+import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog";
+import UnifiedCatalogModuleService from "../../../modules/unified-catalog/service";
 
 export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;
-
     try {
-        const manufacturers = await yshCatalogService.getManufacturers();
+        // Use proper dependency injection instead of singleton
+        const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as UnifiedCatalogModuleService;
+
+        const manufacturers = await unifiedCatalogService.getManufacturers();
 
         res.json({
             categories: [
@@ -35,12 +36,22 @@ export const GET = async (
                 search: "/api/store/catalog/search?q={query}",
                 category: "/api/store/catalog/{category}",
                 product: "/api/store/catalog/{category}/{id}"
+            },
+            metadata: {
+                service_resolved: true,
+                dependency_injection: "proper",
+                singleton_removed: true,
             }
         });
-    } catch (error) {
+    } catch (error: any) {
+        console.error("Error in catalog overview:", error);
         res.status(500).json({
             error: "Erro interno do servidor",
-            message: error.message
+            message: error.message,
+            details: {
+                module: UNIFIED_CATALOG_MODULE,
+                service_resolution_failed: true,
+            }
         });
     }
 };

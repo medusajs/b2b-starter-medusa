@@ -3,7 +3,7 @@ import {
     StoreGetCatalogSKUsParams,
     StoreGetCatalogSKUsParamsType,
 } from "../validators";
-import { getCatalogService } from "../_catalog-service";
+import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 
 /**
  * GET /store/catalog/skus
