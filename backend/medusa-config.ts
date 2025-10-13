@@ -16,6 +16,11 @@ export default defineConfig({
     cookieSecret: process.env.COOKIE_SECRET || "supersecret",
   },
 
+  // Feature Flags - Experimental features
+  featureFlags: {
+    view_configurations: true, // Dashboards solares personalizados
+  },
+
   // Admin app embutido
   admin: {
     path: "/app",
