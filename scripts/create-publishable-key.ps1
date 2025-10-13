@@ -24,16 +24,16 @@ if (-not $containerRunning) {
 Write-Host "[OK] Container PostgreSQL encontrado" -ForegroundColor Green
 Write-Host ""
 
-# SQL para criar publishable key
+# SQL para criar publishable key (usando arquivo temporario para evitar problemas de escape)
 $SQL_CREATE_KEY = @"
-DO \$\$
+DO `$`$
 DECLARE
     v_key_id TEXT;
     v_token TEXT;
     v_sales_channel_id TEXT;
     v_store_id TEXT;
 BEGIN
-    -- Gerar ID único para a key
+    -- Gerar ID unico para a key
     v_key_id := 'apk_' || REPLACE(gen_random_uuid()::TEXT, '-', '');
     
     -- Gerar token (64 caracteres hexadecimais)
@@ -52,7 +52,7 @@ BEGIN
     
     -- Verificar se sales channel existe
     IF v_sales_channel_id IS NULL THEN
-        RAISE EXCEPTION 'Sales Channel não encontrado';
+        RAISE EXCEPTION 'Sales Channel nao encontrado';
     END IF;
     
     -- Inserir API Key
@@ -106,13 +106,23 @@ BEGIN
     RAISE NOTICE '   docker compose restart storefront';
     RAISE NOTICE '';
     
-END \$\$;
+END `$`$;
 "@
 
 Write-Host "[EXECUTANDO] SQL para criar publishable key..." -ForegroundColor Yellow
 
-# Executar SQL
-$output = docker exec $CONTAINER_NAME psql -U $DB_USER -d $DB_NAME -c $SQL_CREATE_KEY 2>&1
+# Criar arquivo SQL temporario (evita problemas de escape no PowerShell)
+$tempSqlFile = [System.IO.Path]::GetTempFileName() + ".sql"
+Set-Content -Path $tempSqlFile -Value $SQL_CREATE_KEY -Encoding UTF8
+
+# Copiar arquivo para dentro do container
+docker cp $tempSqlFile ${CONTAINER_NAME}:/tmp/create_key.sql | Out-Null
+
+# Executar SQL do arquivo
+$output = docker exec $CONTAINER_NAME psql -U $DB_USER -d $DB_NAME -f /tmp/create_key.sql 2>&1
+
+# Limpar arquivo temporario local
+Remove-Item $tempSqlFile -ErrorAction SilentlyContinue
 
 # Verificar se houve erro
 if ($LASTEXITCODE -ne 0) {
