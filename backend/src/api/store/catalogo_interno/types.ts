@@ -19,6 +19,7 @@ export interface ProductImage {
     cached: boolean;
     format?: string;
     optimized?: boolean;
+    responsive?: boolean;
     load_time_ms?: number;
 }
 

@@ -352,7 +352,28 @@ class InternalCatalogService {
             return placeholderImage;
         }
 
-        // Try to use optimized WebP version if available
+        // Check if responsive versions exist (v4.0 format)
+        const hasResponsive = entry.images.original?.includes('/images-responsive/');
+
+        if (hasResponsive) {
+            // Use responsive versions directly from IMAGE_MAP v4.0
+            return {
+                url: entry.images.large || entry.images.original,
+                sizes: {
+                    original: entry.images.original || placeholderImage.url,
+                    large: entry.images.large || entry.images.original || placeholderImage.url,
+                    medium: entry.images.medium || entry.images.original || placeholderImage.url,
+                    thumb: entry.images.thumb || entry.images.original || placeholderImage.url
+                },
+                format: 'webp',
+                optimized: true,
+                responsive: true,
+                preloaded: true,
+                cached: this.cache.has(`image_${resolvedSku}`)
+            };
+        }
+
+        // Fallback: Try to use old optimized WebP version if available
         const webpPath = await this.getOptimizedWebPPath(entry.images.original);
         const imagePath = webpPath || entry.images.original;
 
@@ -366,6 +387,7 @@ class InternalCatalogService {
             },
             format: webpPath ? 'webp' : path.extname(entry.images.original).substring(1),
             optimized: !!webpPath,
+            responsive: false,
             preloaded: true,
             cached: this.cache.has(`image_${resolvedSku}`)
         };
