@@ -1,6 +1,39 @@
 /**
  * 🏥 YSH Store Health Check API
  * Comprehensive health monitoring for all 22+ store modules and services
+ *
+ * @swagger
+ * /store/health:
+ *   get:
+ *     tags:
+ *       - Health
+ *     summary: System health check
+ *     description: Returns health status of all store modules and infrastructure services
+ *     parameters:
+ *       - in: query
+ *         name: module
+ *         schema:
+ *           type: string
+ *         description: Filter by specific module name
+ *       - in: query
+ *         name: infrastructure
+ *         schema:
+ *           type: boolean
+ *           default: true
+ *         description: Include infrastructure health checks
+ *     responses:
+ *       200:
+ *         description: System is healthy or degraded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/HealthCheck'
+ *       503:
+ *         description: System is unavailable
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";

@@ -54,6 +54,7 @@
 ## 📋 Checklist de Validação
 
 ### ✅ Documentação
+
 - [x] API_KEYS_GUIDE.md criado (152 linhas)
 - [x] API_KEYS_LOCATION.md criado (213 linhas)
 - [x] API_KEYS_SETUP_SUMMARY.md criado (100 linhas)
@@ -62,6 +63,7 @@
 - [x] Troubleshooting documentado
 
 ### ✅ Configuração
+
 - [x] .env.template atualizado com seção RAG
 - [x] .env local atualizado (variáveis vazias)
 - [x] Comentários explicativos adicionados
@@ -69,6 +71,7 @@
 - [x] .gitignore verificado (.env não vai pro Git)
 
 ### ✅ Código
+
 - [x] Script validate-api-keys.js criado (133 linhas)
 - [x] Comando yarn validate:api-keys adicionado
 - [x] Validação de formato implementada
@@ -76,6 +79,7 @@
 - [x] Exit codes apropriados (0=OK, 1=Error)
 
 ### ✅ Segurança dos Endpoints RAG
+
 - [x] API key validation em /store/rag/ask-helio
 - [x] API key validation em /store/rag/recommend-products
 - [x] API key validation em /store/rag/search (POST + GET)
@@ -85,8 +89,9 @@
 - [x] MedusaError types corrigidos (UNEXPECTED_STATE)
 
 ### ⚠️ Pendente (Ação do Usuário)
-- [ ] Obter OPENAI_API_KEY em https://platform.openai.com/api-keys
-- [ ] Obter QDRANT_API_KEY em https://cloud.qdrant.io/
+
+- [ ] Obter OPENAI_API_KEY em <https://platform.openai.com/api-keys>
+- [ ] Obter QDRANT_API_KEY em <https://cloud.qdrant.io/>
 - [ ] Configurar chaves no .env
 - [ ] Executar yarn validate:api-keys (deve passar)
 - [ ] Popular collections Qdrant
@@ -97,6 +102,7 @@
 ## 🧪 Resultados dos Testes
 
 ### ✅ Script de Validação
+
 ```bash
 $ yarn validate:api-keys
 
@@ -122,6 +128,7 @@ $ yarn validate:api-keys
 **Total de Erros**: ~454 erros identificados
 
 **Categorias**:
+
 1. **Zod Validators** (~36 erros) - Conflito de versões, não-crítico
 2. **Financing Module** (~20 erros) - Módulo separado, não afeta RAG
 3. **Approval Module** (~15 erros) - Módulo separado, não afeta RAG
@@ -131,6 +138,7 @@ $ yarn validate:api-keys
 **Impacto nos Endpoints RAG**: ✅ **ZERO** - Endpoints RAG compilam e funcionam corretamente
 
 **Status dos Endpoints RAG**:
+
 - ✅ `/store/rag/ask-helio/route.ts` - Sem erros TS
 - ✅ `/store/rag/recommend-products/route.ts` - Sem erros TS
 - ✅ `/store/rag/search/route.ts` - Sem erros TS
@@ -140,6 +148,7 @@ $ yarn validate:api-keys
 ## 📊 Métricas de Implementação
 
 ### Linhas de Código Adicionadas
+
 - Documentação: **465 linhas** (3 arquivos MD)
 - Script de validação: **133 linhas** (1 arquivo JS)
 - Configuração: **18 linhas** (.env.template + .env)
@@ -148,6 +157,7 @@ $ yarn validate:api-keys
 **Total**: ~628 linhas de código/documentação
 
 ### Arquivos Modificados/Criados
+
 - ✅ 3 arquivos de documentação criados
 - ✅ 1 script de validação criado
 - ✅ 2 arquivos de config atualizados (.env*)
@@ -158,6 +168,7 @@ $ yarn validate:api-keys
 **Total**: 11 arquivos modificados/criados
 
 ### Proteções de Segurança Implementadas
+
 - ✅ 4 endpoints com API key validation
 - ✅ 4 endpoints com rate limiting
 - ✅ 4 endpoints com request validation
@@ -173,6 +184,7 @@ $ yarn validate:api-keys
 ### Endpoints RAG - Status Individual
 
 #### 1. POST /store/rag/ask-helio ✅
+
 - ✅ API key validation (OPENAI_API_KEY, QDRANT_API_KEY)
 - ✅ Rate limiting (10 req/min per IP)
 - ✅ Request validation (question, context, collections)
@@ -181,6 +193,7 @@ $ yarn validate:api-keys
 - ⚠️ **Aguardando**: Chaves reais para teste
 
 #### 2. POST /store/rag/recommend-products ✅
+
 - ✅ API key validation (OPENAI_API_KEY, QDRANT_API_KEY)
 - ✅ Rate limiting (10 req/min per IP)
 - ✅ Request validation (kwp_target, tipo_sistema, fase, etc.)
@@ -189,6 +202,7 @@ $ yarn validate:api-keys
 - ⚠️ **Aguardando**: Chaves reais para teste
 
 #### 3. POST /store/rag/search ✅
+
 - ✅ API key validation (OPENAI_API_KEY, QDRANT_API_KEY)
 - ✅ Rate limiting (10 req/min per IP)
 - ✅ Request validation (collection, query, top_k)
@@ -197,6 +211,7 @@ $ yarn validate:api-keys
 - ⚠️ **Aguardando**: Chaves reais para teste
 
 #### 4. GET /store/rag/search ✅
+
 - ✅ API key validation (QDRANT_API_KEY)
 - ✅ Rate limiting (10 req/min per IP)
 - ✅ Error handling (MedusaError.Types.UNEXPECTED_STATE)
@@ -205,6 +220,7 @@ $ yarn validate:api-keys
 ### Validação de Configuração
 
 #### Arquivo .env
+
 ```properties
 # Configuração atual:
 OPENAI_API_KEY=           # ⚠️ VAZIO - Precisa ser preenchido
@@ -215,6 +231,7 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 **Status**: Estrutura correta, aguardando valores
 
 #### Script de Validação
+
 ```bash
 # Resultado do teste:
 - Detecta chaves ausentes: ✅ OK
@@ -231,8 +248,10 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 ## 📚 Documentação Criada
 
 ### 1. API_KEYS_GUIDE.md
+
 **Tamanho**: 152 linhas  
 **Conteúdo**:
+
 - Chaves necessárias (OpenAI, Qdrant)
 - Como obter as chaves
 - Passos de configuração
@@ -244,8 +263,10 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 **Status**: ✅ Completo e revisado
 
 ### 2. API_KEYS_LOCATION.md
+
 **Tamanho**: 213 linhas  
 **Conteúdo**:
+
 - Mapa de arquivos de configuração
 - Endpoints que usam as chaves
 - Tabela de localização
@@ -257,8 +278,10 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 **Status**: ✅ Completo e revisado
 
 ### 3. API_KEYS_SETUP_SUMMARY.md
+
 **Tamanho**: 100 linhas  
 **Conteúdo**:
+
 - Resumo executivo
 - O que foi entregue
 - Localização dos arquivos
@@ -276,7 +299,8 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 ### Passo 1: Obter Chaves de API (10-15 minutos)
 
 #### OpenAI API
-1. Acessar https://platform.openai.com/signup
+
+1. Acessar <https://platform.openai.com/signup>
 2. Criar conta ou fazer login
 3. Navegar para API Keys
 4. Clicar em "Create new secret key"
@@ -284,7 +308,8 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 6. Colar no .env: `OPENAI_API_KEY=sk-...`
 
 #### Qdrant Cloud
-1. Acessar https://cloud.qdrant.io/
+
+1. Acessar <https://cloud.qdrant.io/>
 2. Criar conta ou fazer login
 3. Criar um cluster (Free tier disponível)
 4. Obter API key nas configurações
@@ -294,17 +319,20 @@ QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
    - `QDRANT_URL=https://your-cluster.qdrant.io`
 
 ### Passo 2: Validar Configuração (1 minuto)
+
 ```bash
 cd backend
 yarn validate:api-keys
 ```
 
 **Resultado esperado**:
+
 ```
 ✅ Validação OK - Todas as chaves estão configuradas corretamente
 ```
 
 ### Passo 3: Popular Collections Qdrant (30-60 minutos)
+
 ```bash
 # Criar script (a ser implementado):
 cd backend
@@ -315,6 +343,7 @@ yarn seed:qdrant
 ```
 
 **Collections a popular**:
+
 - `ysh-catalog`: Produtos (painéis, inversores, baterias)
 - `ysh-regulations`: Regulamentações ANEEL
 - `ysh-tariffs`: Tarifas e classes de consumo
@@ -323,6 +352,7 @@ yarn seed:qdrant
 ### Passo 4: Testar Endpoints (5 minutos)
 
 #### Teste 1: Chat Hélio
+
 ```bash
 curl -X POST http://localhost:9000/store/rag/ask-helio \
   -H "Content-Type: application/json" \
@@ -335,6 +365,7 @@ curl -X POST http://localhost:9000/store/rag/ask-helio \
 ```
 
 #### Teste 2: Recomendações
+
 ```bash
 curl -X POST http://localhost:9000/store/rag/recommend-products \
   -H "Content-Type: application/json" \
@@ -346,6 +377,7 @@ curl -X POST http://localhost:9000/store/rag/recommend-products \
 ```
 
 #### Teste 3: Busca Semântica
+
 ```bash
 curl -X POST http://localhost:9000/store/rag/search \
   -H "Content-Type: application/json" \
@@ -361,6 +393,7 @@ curl -X POST http://localhost:9000/store/rag/search \
 ## 🎯 Conclusão
 
 ### Status Atual
+
 - ✅ **Documentação**: Completa e revisada
 - ✅ **Configuração**: Templates prontos
 - ✅ **Validação**: Script funcional
@@ -370,6 +403,7 @@ curl -X POST http://localhost:9000/store/rag/search \
 - ⚠️ **Testes E2E**: Aguardando chaves reais
 
 ### Tempo Estimado para Conclusão Completa
+
 - Obter chaves: ~15 minutos
 - Configurar .env: ~2 minutos
 - Validar: ~1 minuto
@@ -379,6 +413,7 @@ curl -X POST http://localhost:9000/store/rag/search \
 **Total**: ~83 minutos (~1h23min)
 
 ### Critérios de Sucesso
+
 - [x] Documentação completa criada
 - [x] Templates de configuração atualizados
 - [x] Script de validação funcional
@@ -394,15 +429,18 @@ curl -X POST http://localhost:9000/store/rag/search \
 ## 📞 Suporte
 
 ### Para Problemas com Configuração
+
 - Consultar: `backend/API_KEYS_GUIDE.md`
 - Executar: `yarn validate:api-keys`
 - Verificar: Logs do backend
 
 ### Para Problemas com APIs Externas
-- OpenAI: https://platform.openai.com/docs
-- Qdrant: https://qdrant.tech/documentation/
+
+- OpenAI: <https://platform.openai.com/docs>
+- Qdrant: <https://qdrant.tech/documentation/>
 
 ### Para Problemas com o Backend
+
 - Verificar logs: `yarn dev`
 - Executar testes: `yarn test:unit`
 - Verificar tipos: `yarn typecheck`
