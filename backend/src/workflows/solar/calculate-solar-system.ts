@@ -26,7 +26,7 @@ const saveSolarCalculationStep = createStep(
         // Generate IDs
         const calculation_id = randomUUID()
         const kit_ids = [randomUUID(), randomUUID(), randomUUID()]
-        
+
         // Calculate kit data
         const basePrice = consumo_kwh_mes * 6.5 // R$ 6.50 por kWh/mês
 
@@ -74,10 +74,10 @@ const saveSolarCalculationStep = createStep(
                     budget_max, status, created_at, updated_at
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
             `, [
-                calculation_id, 
-                customer_id, 
-                consumo_kwh_mes, 
-                uf, 
+                calculation_id,
+                customer_id,
+                consumo_kwh_mes,
+                uf,
                 tipo_telhado || "ceramico",
                 budget_max || null,
                 "completed"
