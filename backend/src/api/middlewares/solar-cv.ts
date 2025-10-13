@@ -6,6 +6,7 @@
 import type { MedusaRequest, MedusaResponse, MedusaNextFunction } from "@medusajs/framework/http";
 import { FEATURE_FLAGS, ERROR_CODES } from "../../utils/solar-cv-config";
 import { RateLimiter } from "../../utils/rate-limiter";
+import { APIResponse } from "../../utils/api-response";
 
 // ============================================================================
 // Rate Limiting Middleware (Distributed Redis-backed)
@@ -36,17 +37,12 @@ export function rateLimitMiddleware(
 
             if (!result.success) {
                 const retryAfter = Math.ceil((result.resetTime - Date.now()) / 1000);
-                res.setHeader("Retry-After", String(retryAfter));
-
-                res.status(429).json({
-                    success: false,
-                    error: "Rate limit exceeded",
-                    error_code: ERROR_CODES.RATE_LIMIT_EXCEEDED,
-                    retry_after: retryAfter,
-                    limit: result.limit,
-                    remaining: result.remaining,
-                    reset_time: new Date(result.resetTime).toISOString(),
-                });
+                APIResponse.rateLimit(
+                    res,
+                    retryAfter,
+                    result.limit,
+                    new Date(result.resetTime).toISOString()
+                );
                 return;
             }
 
@@ -73,11 +69,7 @@ export function apiKeyAuthMiddleware(req: MedusaRequest, res: MedusaResponse, ne
     }
 
     if (!apiKey || !validApiKeys.includes(apiKey)) {
-        res.status(401).json({
-            success: false,
-            error: "Invalid or missing API key",
-            error_code: "E401",
-        });
+        APIResponse.unauthorized(res, "Invalid or missing API key");
         return;
     }
 
@@ -97,19 +89,11 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
     if (isProd && !allowedOriginsEnv) {
         res.setHeader("Vary", "Origin");
         if (req.method === "OPTIONS") {
-            res.status(403).json({
-                success: false,
-                error: "CORS not configured for production",
-                error_code: "E403_CORS",
-            });
+            APIResponse.forbidden(res, "CORS not configured for production");
             return;
         }
 
-        res.status(403).json({
-            success: false,
-            error: "Origin not allowed - CORS not configured",
-            error_code: "E403_ORIGIN",
-        });
+        APIResponse.forbidden(res, "Origin not allowed - CORS not configured");
         return;
     }
 
@@ -145,11 +129,7 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
     }
 
     if (!isAllowed && isProd) {
-        res.status(403).json({
-            success: false,
-            error: "Origin not allowed",
-            error_code: "E403_ORIGIN",
-        });
+        APIResponse.forbidden(res, "Origin not allowed");
         return;
     }
 
@@ -206,12 +186,7 @@ export function cvErrorHandler(
         method: req.method,
     });
 
-    res.status(500).json({
-        success: false,
-        error: "Internal server error",
-        error_code: "E500",
-        request_id: res.getHeader("X-Request-ID"),
-    });
+    APIResponse.internalError(res, "Internal server error");
 }
 
 // ============================================================================
@@ -224,11 +199,12 @@ export function validateRequestSize(maxSizeMB: number = 10) {
         const maxBytes = maxSizeMB * 1024 * 1024;
 
         if (contentLength > maxBytes) {
-            res.status(413).json({
-                success: false,
-                error: `Request body too large (max ${maxSizeMB}MB)`,
-                error_code: ERROR_CODES.IMAGE_TOO_LARGE,
-            });
+            APIResponse.error(
+                res,
+                "E413_PAYLOAD_TOO_LARGE",
+                `Request body too large (max ${maxSizeMB}MB)`,
+                413
+            );
             return;
         }
 
