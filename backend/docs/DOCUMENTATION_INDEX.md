@@ -32,6 +32,13 @@
 
 ## 🗄️ Database & Migrações
 
+### Database 360° Implementation
+
+- **[DATABASE_360_FINAL_SUMMARY.md](./DATABASE_360_FINAL_SUMMARY.md)**: 🎯 **START HERE** - Resumo executivo completo da implementação 360° com 8 modelos críticos, impacto de negócio (R$ 414k-738k/ano) e próximos passos.
+- **[DATABASE_360_IMPLEMENTATION_STATUS.md](./DATABASE_360_IMPLEMENTATION_STATUS.md)**: Status detalhado da implementação com specs completas de cada modelo, relationships, compliance, e analytics queries.
+- **[API_DATABASE_AUDIT_360.md](./API_DATABASE_AUDIT_360.md)**: Análise técnica completa de todas as 39 APIs vs persistência, identificação de gaps (95% APIs sem persistence) e roadmap de implementação.
+- **[API_DATABASE_AUDIT_EXECUTIVE_SUMMARY.md](./API_DATABASE_AUDIT_EXECUTIVE_SUMMARY.md)**: Sumário executivo do audit com top 5 problemas críticos, ROI analysis (20-37x) e plano de 3 fases (13 dias, 104 horas).
+
 ### Relatórios & Análises
 
 - [`MIGRATION_REPORT.md`](docs/database/MIGRATION_REPORT.md) - Relatório completo de migrações executadas
