@@ -1,7 +1,7 @@
 "use client"
 
 import { t, getCopyNamespace } from "@/lib/i18n/copy"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "@/modules/common/analytics/events"
 
 export default function VideosStrip() {
   const videos = getCopyNamespace("videos") as Record<string, { src: string; alt: string; caption: string; poster?: string }>

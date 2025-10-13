@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import SolutionsByClass from "@/modules/home/components/solutions-by-class"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import SolutionsView from "@/modules/analytics/solutions-view"
+import SolutionsView from "@/modules/common/analytics/solutions-view"
 
 export const metadata: Metadata = {
   title: "Soluções por Classe e Modalidade | Yello Solar Hub",

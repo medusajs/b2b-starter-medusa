@@ -2,7 +2,7 @@
 
 import { setShippingMethod } from "@/lib/data/cart-resilient"
 import { convertToLocale } from "@/lib/util/money"
-import ErrorMessage from "@/modules/checkout/components/error-message"
+import ErrorMessage from "../error-message"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
 import Radio from "@/modules/common/components/radio"

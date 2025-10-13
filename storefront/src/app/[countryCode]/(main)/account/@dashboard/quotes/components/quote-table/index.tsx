@@ -1,5 +1,5 @@
 import { AmountCell } from "@/modules/common/components/amount-cell"
-import Thumbnail from "@/modules/products/components/thumbnail"
+import Thumbnail from "@/modules/discovery/products/components/thumbnail"
 import { AdminOrderLineItem, AdminOrderPreview } from "@medusajs/types"
 import { Badge, Text } from "@medusajs/ui"
 import { useMemo } from "react"

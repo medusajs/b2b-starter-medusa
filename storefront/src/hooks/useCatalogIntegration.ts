@@ -8,12 +8,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { ViabilityOutput } from '@/modules/viability/types'
 import type { CatalogKit } from '@/lib/catalog/integration'
-import type { KitRecommendation, KitSearchCriteria } from '@/modules/viability/catalog-integration'
+import type { KitRecommendation, KitSearchCriteria } from '@/modules/education/viability/catalog-integration'
 import {
     viabilityToKitSearch,
     rankKitsByViability,
     kitToFinanceInput,
-} from '@/modules/viability/catalog-integration'
+} from '@/modules/education/viability/catalog-integration'
 
 export interface UseCatalogIntegrationOptions {
     viability?: ViabilityOutput | null

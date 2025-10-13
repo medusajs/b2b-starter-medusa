@@ -2,7 +2,7 @@
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { DocumentText } from "@medusajs/icons"
-import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
 
 export default function QuoteLinkClient() {
     const { items } = useLeadQuote()

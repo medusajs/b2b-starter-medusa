@@ -2,7 +2,7 @@
 
 import { isManual, isPaypal, isStripe } from "@/lib/constants"
 import { createCartApproval, placeOrder } from "@/lib/data/cart-resilient"
-import ErrorMessage from "@/modules/checkout/components/error-message"
+import ErrorMessage from "../error-message"
 import Button from "@/modules/common/components/button"
 import Spinner from "@/modules/common/icons/spinner"
 import { B2BCart } from "@/types"

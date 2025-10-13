@@ -1,7 +1,7 @@
 "use client"
 
 import QuoteCard from "@/modules/account/components/quote-card"
-import { EmptyQuotesWithCalculator, CreateQuoteFromCalculatorCTA } from "@/modules/quotes/components/solar-integration"
+import { EmptyQuotesWithCalculator, CreateQuoteFromCalculatorCTA } from "@/modules/quotation/quotes/components/solar-integration"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { StoreQuoteResponse } from "@/types/quote"
 import { Button } from "@medusajs/ui"

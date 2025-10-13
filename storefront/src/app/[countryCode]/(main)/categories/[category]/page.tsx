@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { getRegion } from "@/lib/data/regions"
 import { listCatalog, listManufacturers, getCategoryInfo } from "@/lib/data/catalog"
 import CategoryTemplate from "@/modules/catalog/templates/category-template"
-import { LeadQuoteProvider } from "@/modules/lead-quote/context"
+import { LeadQuoteProvider } from "@/modules/quotation/lead-quote/context"
 import CategoryTracker from "@/modules/catalog/components/CategoryTracker"
 
 type Props = {

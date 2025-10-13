@@ -1,6 +1,6 @@
 "use client"
 
-import OrderCard from "@/modules/account/components/order-card"
+import OrderCard from "../order-card"
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"

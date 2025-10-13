@@ -5,7 +5,7 @@ import { Heading } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { t } from "@/lib/i18n/copy"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "@/modules/common/analytics/events"
 
 const Hero = () => {
   return (

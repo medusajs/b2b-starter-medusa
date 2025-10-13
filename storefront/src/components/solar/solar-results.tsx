@@ -15,7 +15,7 @@ import { ConformidadeCard } from './conformidade-card';
 import { toast } from '@medusajs/ui';
 import { getHelioText, getHelioTooltip } from '@/lib/copy/helio';
 import LocalizedClientLink from "@/modules/common/components/localized-client-link";
-import { sendEvent } from '@/modules/analytics/events';
+import { sendEvent } from '@/modules/common/analytics/events';
 
 interface SolarResultsProps {
     calculation: SolarCalculationOutput;

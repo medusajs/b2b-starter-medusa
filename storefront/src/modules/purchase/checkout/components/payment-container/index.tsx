@@ -1,5 +1,5 @@
 import { isManual } from "@/lib/constants"
-import PaymentTest from "@/modules/checkout/components/payment-test"
+import PaymentTest from "../payment-test"
 import Divider from "@/modules/common/components/divider"
 import Radio from "@/modules/common/components/radio"
 import { RadioGroup } from "@headlessui/react"

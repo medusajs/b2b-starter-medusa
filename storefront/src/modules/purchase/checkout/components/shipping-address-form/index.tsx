@@ -1,5 +1,5 @@
-import AddressSelect from "@/modules/checkout/components/address-select"
-import CountrySelect from "@/modules/checkout/components/country-select"
+import AddressSelect from "../address-select"
+import CountrySelect from "../country-select"
 import Input from "@/modules/common/components/input"
 import { B2BCart, B2BCustomer } from "@/types"
 import { HttpTypes } from "@medusajs/types"

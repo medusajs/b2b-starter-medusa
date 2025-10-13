@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Heading, Text } from "@medusajs/ui"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "@/modules/common/analytics/events"
 
 interface VideoContent {
     id: string

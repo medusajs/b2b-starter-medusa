@@ -1,7 +1,7 @@
 "use client"
 
-import Login from "@/modules/account/components/login"
-import Register from "@/modules/account/components/register"
+import Login from "../components/login"
+import Register from "../components/register"
 import { HttpTypes } from "@medusajs/types"
 import { clx } from "@medusajs/ui"
 import Image from "next/image"

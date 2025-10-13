@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Container, Heading, Text } from "@medusajs/ui"
 import Button from "@/modules/common/components/button"
 import ChecklistOnboarding from "./ChecklistOnboarding"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "@/modules/common/analytics/events"
 import { t } from "@/lib/i18n/copy"
 import dynamic from "next/dynamic"
 const MapPicker = dynamic(() => import("./MapPicker"), { ssr: false })

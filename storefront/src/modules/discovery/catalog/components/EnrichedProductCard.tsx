@@ -5,7 +5,7 @@ import { Heart, ShoppingCart, Eye, Info } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
 import { useState } from "react"
 
 export interface EnrichedProductData {

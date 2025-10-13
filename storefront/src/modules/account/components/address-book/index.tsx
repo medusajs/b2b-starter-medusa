@@ -1,5 +1,5 @@
-import AddAddress from "@/modules/account/components/address-card/add-address"
-import EditAddress from "@/modules/account/components/address-card/edit-address-modal"
+import AddAddress from "../address-card/add-address"
+import EditAddress from "../address-card/edit-address-modal"
 import { B2BCustomer } from "@/types/global"
 import { HttpTypes } from "@medusajs/types"
 

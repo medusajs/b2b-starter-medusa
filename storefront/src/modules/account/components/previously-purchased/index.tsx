@@ -1,4 +1,4 @@
-import PreviouslyPurchasedProduct from "@/modules/account/components/previously-purchased/product"
+import PreviouslyPurchasedProduct from "./product"
 import { HttpTypes } from "@medusajs/types"
 
 type PreviouslyPurchasedProps = {

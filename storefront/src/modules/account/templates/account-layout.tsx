@@ -1,5 +1,5 @@
 import { listApprovals } from "@/lib/data/approvals"
-import AccountNav from "@/modules/account/components/account-nav"
+import AccountNav from "../components/account-nav"
 import { B2BCustomer } from "@/types"
 import { ApprovalStatusType, ApprovalType } from "@/types/approval"
 import React from "react"

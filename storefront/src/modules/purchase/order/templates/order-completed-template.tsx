@@ -1,5 +1,5 @@
 import { Heading } from "@medusajs/ui"
-import CheckoutTotals from "@/modules/checkout/components/checkout-totals"
+import CheckoutTotals from "@/modules/purchase/checkout/components/checkout-totals"
 import Help from "@/modules/order/components/help"
 import Items from "@/modules/order/components/items"
 import OrderDetails from "@/modules/order/components/order-details"

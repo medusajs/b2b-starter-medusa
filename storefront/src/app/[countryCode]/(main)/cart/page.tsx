@@ -1,7 +1,7 @@
 import { CartProvider } from "@/lib/context/cart-context"
 import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
-import CartTemplate from "@/modules/cart/templates"
+import CartTemplate from "@/modules/purchase/cart/templates"
 import { CartStatusDisplay } from "@/components/cart/cart-status-display"
 import { Metadata } from "next"
 

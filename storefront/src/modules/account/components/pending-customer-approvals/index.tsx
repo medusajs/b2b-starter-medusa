@@ -1,4 +1,4 @@
-import ApprovalCard from "@/modules/account/components/approval-card"
+import ApprovalCard from "../approval-card"
 import { Text } from "@medusajs/ui"
 
 const PendingCustomerApprovals = ({

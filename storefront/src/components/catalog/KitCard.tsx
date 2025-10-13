@@ -10,7 +10,7 @@ import React from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { CatalogKit } from '@/lib/catalog/integration'
-import type { KitRecommendation } from '@/modules/viability/catalog-integration'
+import type { KitRecommendation } from '@/modules/education/viability/catalog-integration'
 import { formatPriceBRL } from '@/lib/catalog/integration'
 import { Zap, Battery, Box, TrendingUp } from 'lucide-react'
 

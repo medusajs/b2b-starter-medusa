@@ -4,7 +4,7 @@ import { Popover, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
-import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
 
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
@@ -25,14 +25,14 @@ const SideMenuItems = {
 }
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "Início",
+  Home: "Inï¿½cio",
   Store: "Loja",
-  Solutions: "Soluções",
+  Solutions: "Soluï¿½ï¿½es",
   Dimensionamento: "Dimensionamento",
   Tarifas: "Tarifas",
   SolarCV: "Solar CV",
   Compliance: "Compliance",
-  Cotacao: "Cotação",
+  Cotacao: "Cotaï¿½ï¿½o",
   Search: "Buscar",
   Account: "Conta",
   Cart: "Carrinho",
@@ -80,7 +80,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                       <button
                         data-testid="close-menu-button"
                         onClick={close}
-                        aria-label="Fechar menu de navegação"
+                        aria-label="Fechar menu de navegaï¿½ï¿½o"
                       >
                         <XMark />
                       </button>

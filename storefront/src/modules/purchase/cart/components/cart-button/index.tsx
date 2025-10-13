@@ -2,7 +2,7 @@ import { CartProvider } from "@/lib/context/cart-context"
 import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { listCartFreeShippingPrices } from "@/lib/data/fulfillment"
-import CartDrawer from "@/modules/cart/components/cart-drawer"
+import CartDrawer from "../cart-drawer"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
 
 export default async function CartButton() {

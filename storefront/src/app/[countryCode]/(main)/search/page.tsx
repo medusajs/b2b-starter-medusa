@@ -3,7 +3,7 @@ import { getBaseURL } from "@/lib/util/env"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Suspense } from "react"
-import ViewSearch from "@/modules/analytics/view-search"
+import ViewSearch from "@/modules/common/analytics/view-search"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
 const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))

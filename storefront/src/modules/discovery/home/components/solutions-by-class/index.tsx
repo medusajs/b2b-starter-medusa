@@ -3,7 +3,7 @@
 import { Buildings, Bolt, Sun, Users } from "@medusajs/icons"
 import { Heading, Text } from "@medusajs/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "@/modules/common/analytics/events"
 import { t } from "@/lib/i18n/copy"
 
 const CLASSES = [

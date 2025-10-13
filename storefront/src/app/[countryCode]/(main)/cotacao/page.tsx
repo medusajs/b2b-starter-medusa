@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
 import { useEffect, useMemo, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import { toast } from "@medusajs/ui"

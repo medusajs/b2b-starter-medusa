@@ -1,4 +1,4 @@
-import CountrySelect from "@/modules/checkout/components/country-select"
+import CountrySelect from "../country-select"
 import Input from "@/modules/common/components/input"
 import { B2BCart } from "@/types"
 import React, { useEffect, useState } from "react"

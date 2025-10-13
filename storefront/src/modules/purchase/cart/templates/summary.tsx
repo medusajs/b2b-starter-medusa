@@ -2,8 +2,8 @@
 
 import { useCart } from "@/lib/context/cart-context"
 import { getCheckoutStep } from "@/lib/util/get-checkout-step"
-import CartToCsvButton from "@/modules/cart/components/cart-to-csv-button"
-import CartTotals from "@/modules/cart/components/cart-totals"
+import CartToCsvButton from "../components/cart-to-csv-button"
+import CartTotals from "../components/cart-totals"
 import PromotionCode from "@/modules/checkout/components/promotion-code"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
@@ -14,8 +14,8 @@ import { B2BCustomer } from "@/types"
 import { ApprovalStatusType } from "@/types/approval"
 import { ExclamationCircle } from "@medusajs/icons"
 import { Container } from "@medusajs/ui"
-import { useLeadQuote } from "@/modules/lead-quote/context"
-import { sendEvent } from "@/modules/analytics/events"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
+import { sendEvent } from "@/modules/common/analytics/events"
 
 type SummaryProps = {
   customer: B2BCustomer | null

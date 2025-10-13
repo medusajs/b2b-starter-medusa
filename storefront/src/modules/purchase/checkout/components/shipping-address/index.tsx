@@ -1,9 +1,9 @@
 "use client"
 
 import { setShippingAddress } from "@/lib/data/cart-resilient"
-import ErrorMessage from "@/modules/checkout/components/error-message"
-import ShippingAddressForm from "@/modules/checkout/components/shipping-address-form"
-import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import ErrorMessage from "../error-message"
+import ShippingAddressForm from "../shipping-address-form"
+import { SubmitButton } from "../submit-button"
 import Divider from "@/modules/common/components/divider"
 import Spinner from "@/modules/common/icons/spinner"
 import { B2BCart, B2BCustomer } from "@/types"

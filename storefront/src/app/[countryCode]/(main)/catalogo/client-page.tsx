@@ -10,7 +10,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCatalogIntegration } from '@/hooks/useCatalogIntegration'
-import { decodeViabilityFromURL } from '@/modules/viability/catalog-integration'
+import { decodeViabilityFromURL } from '@/modules/education/viability/catalog-integration'
 import { KitList } from '@/components/catalog/KitCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'

@@ -20,7 +20,7 @@ import type { CatalogKit } from '@/lib/catalog/integration';
 global.fetch = jest.fn();
 
 // Mock the integration utilities
-jest.mock('@/modules/viability/catalog-integration', () => ({
+jest.mock('@/modules/education/viability/catalog-integration', () => ({
     viabilityToKitSearch: jest.fn((viability, oversizing) => ({
         minKwp: viability.proposal_kwp * 0.95,
         maxKwp: viability.proposal_kwp * 1.60,

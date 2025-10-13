@@ -3,7 +3,7 @@ import { useCatalogCustomization } from "@/modules/catalog/context/customization
 import { Package, Sun, Battery, Zap } from "lucide-react"
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import { useLeadQuote } from "@/modules/lead-quote/context"
+import { useLeadQuote } from "@/modules/quotation/lead-quote/context"
 
 interface KitCardProps {
     kit: {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { sendEvent } from "@/modules/analytics/events"
+import { sendEvent } from "./events"
 
 export default function SolutionsView({ classe }: { classe?: string }) {
   useEffect(() => {
