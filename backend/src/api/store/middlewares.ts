@@ -13,7 +13,7 @@ import { storeProductsEnhancedMiddlewares } from "./products_enhanced/middleware
 import { storeKitsMiddlewares } from "./kits/middlewares";
 import { storeProductsBySkuMiddlewares } from "./products/by-sku/middlewares";
 import { storeSolarCalculationsMiddlewares } from "./solar_calculations/middlewares";
-import { storeCreditAnalysesMiddlewares } from "./credit-analyses/middlewares";
+import { storeCreditAnalysesMiddlewares } from "./credit_analyses/middlewares";
 import { storeFinancingApplicationsMiddlewares } from "./financing_applications/middlewares";
 import { storeOrdersMiddlewares } from "./orders/middlewares";
 
