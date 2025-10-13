@@ -2,13 +2,13 @@ import {
   AdminOrderPreview,
   FindParams,
   PaginatedResponse,
-} from "@medusajs/types";
+} from "@medusajs/framework/types";
 import { QueryQuote } from "./query";
 import { ModuleQuoteFilters } from "./service";
 
 /* Filters */
 
-export interface QuoteFilterParams extends FindParams, ModuleQuoteFilters {}
+export interface QuoteFilterParams extends FindParams, ModuleQuoteFilters { }
 
 /* Admin */
 export type AdminQuoteResponse = {
