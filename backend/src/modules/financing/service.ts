@@ -449,12 +449,14 @@ class FinancingModuleService extends MedusaService({
     });
 
     return stats;
-  async getCompanyFinancingHistory(companyId: string): Promise < FinancingProposalDTO[] > {
-      const companyService = this.container.resolve(COMPANY_MODULE);
-      const employees = await companyService.getActiveEmployeesByCompany(companyId);
-      const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
+  }
 
-      if(customerIds.length === 0) {
+  async getCompanyFinancingHistory(companyId: string): Promise<FinancingProposalDTO[]> {
+    const companyService = this.container.resolve(COMPANY_MODULE);
+    const employees = await companyService.getActiveEmployeesByCompany(companyId);
+    const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
+
+    if (customerIds.length === 0) {
       return [];
     }
 
