@@ -89,7 +89,7 @@ docker tag ysh-backend:test ysh-backend:latest
 
 ### ⚠️ Problema Identificado
 
-```
+```tsx
 Error: You cannot use different slug names for the same dynamic path ('id' !== 'handle').
 ```
 
@@ -110,14 +110,14 @@ Get-ChildItem -Recurse -Filter "*.tsx" -Path "src/app" | Select-String "\[handle
 
 **ERRADO** (causa erro):
 
-```
+```tsx
 src/app/products/[id]/page.tsx
 src/app/products/[handle]/reviews.tsx
 ```
 
 **CORRETO** (padronizado):
 
-```
+```tsx
 src/app/products/[handle]/page.tsx
 src/app/products/[handle]/reviews.tsx
 ```

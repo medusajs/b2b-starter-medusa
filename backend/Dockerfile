@@ -6,7 +6,7 @@
 FROM node:20-alpine
 
 # Instalar dependências do sistema (inclui CA para TLS)
-RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates curl dos2unix
+RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates curl dos2unix bash
 
 # Configurar diretório de trabalho
 WORKDIR /app

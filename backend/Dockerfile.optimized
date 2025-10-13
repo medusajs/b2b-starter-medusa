@@ -16,7 +16,8 @@ RUN apk add --no-cache \
     g++ \
     curl \
     ca-certificates \
-    dos2unix
+    dos2unix \
+    bash
 
 WORKDIR /app
 
@@ -60,7 +61,8 @@ RUN apk add --no-cache \
     dumb-init \
     ca-certificates \
     curl \
-    dos2unix
+    dos2unix \
+    bash
 
 WORKDIR /app
 
