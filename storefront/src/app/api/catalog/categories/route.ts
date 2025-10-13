@@ -10,6 +10,57 @@ import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || 'http://localhost:9000'
+const REQUEST_TIMEOUT_MS = 10000
+
+async function fetchWithTimeout(
+    url: string,
+    options: RequestInit = {},
+    timeout: number = REQUEST_TIMEOUT_MS
+): Promise<Response> {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal
+        })
+
+        clearTimeout(timeoutId)
+        return response
+    } catch (error) {
+        clearTimeout(timeoutId)
+        throw error
+    }
+}
+
+async function tryBackendFetch(endpoint: string, params: URLSearchParams): Promise<any | null> {
+    try {
+        const url = `${BACKEND_URL}${endpoint}?${params.toString()}`
+        const headers: HeadersInit = {
+            'Content-Type': 'application/json',
+        }
+
+        // Add publishable key header for Medusa v2
+        if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+            headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+        }
+
+        const response = await fetchWithTimeout(url, { headers }, REQUEST_TIMEOUT_MS)
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.warn(`Backend fetch failed for ${endpoint}:`, error)
+        return null
+    }
+}
+
 type CategoryInfo = {
     id: string
     name: string
