@@ -1,5 +1,5 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { UNIFIED_CATALOG_MODULE } from "../../../../../modules/unified-catalog";
+import { UNIFIED_CATALOG_MODULE, UnifiedCatalogModuleServiceType } from "../../../../../modules/unified-catalog";
 
 /**
  * GET /store/catalog/skus/:id

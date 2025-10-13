@@ -253,4 +253,133 @@ export interface IUnifiedCatalogModuleService extends IModuleService {
         config?: RestoreReturn<TReturnableLinkableKeys>,
         sharedContext?: Context
     ): Promise<Record<TReturnableLinkableKeys, string[]> | void>;
+
+    /* Custom methods */
+    listManufacturersWithFilters(
+        filters?: { tier?: string; country?: string; is_active?: boolean },
+        config?: { relations?: string[]; skip?: number; take?: number },
+        sharedContext?: Context
+    ): Promise<ModuleManufacturer[]>;
+
+    listAndCountManufacturersWithFilters(
+        filters?: { tier?: string; country?: string },
+        config?: { skip?: number; take?: number },
+        sharedContext?: Context
+    ): Promise<[ModuleManufacturer[], number]>;
+
+    listSKUsWithFilters(
+        filters?: {
+            category?: string;
+            manufacturer_id?: string;
+            sku_code?: string | string[];
+            is_active?: boolean;
+        },
+        config?: { relations?: string[]; skip?: number; take?: number },
+        sharedContext?: Context
+    ): Promise<ModuleSKU[]>;
+
+    listAndCountSKUsWithFilters(
+        filters?: {
+            category?: string;
+            manufacturer_id?: string;
+            min_price?: number;
+            max_price?: number;
+            is_active?: boolean;
+        },
+        config?: { skip?: number; take?: number; relations?: string[] },
+        sharedContext?: Context
+    ): Promise<[ModuleSKU[], number]>;
+
+    retrieveSKUByIdOrCode(
+        skuId: string,
+        config?: { relations?: string[] },
+        sharedContext?: Context
+    ): Promise<ModuleSKU | null>;
+
+    listDistributorOffersWithFilters(
+        filters?: {
+            sku_id?: string;
+            distributor_slug?: string;
+            stock_status?: string;
+        },
+        config?: { orderBy?: Record<string, "ASC" | "DESC"> },
+        sharedContext?: Context
+    ): Promise<ModuleDistributorOffer[]>;
+
+    listKitsWithFilters(
+        filters?: {
+            category?: string;
+            target_consumer_class?: string;
+            min_capacity?: number;
+            max_capacity?: number;
+        },
+        config?: { skip?: number; take?: number },
+        sharedContext?: Context
+    ): Promise<ModuleKit[]>;
+
+    listAndCountKitsWithFilters(
+        filters?: {
+            category?: string;
+            target_consumer_class?: string;
+            min_capacity?: number;
+            max_capacity?: number;
+        },
+        config?: { skip?: number; take?: number },
+        sharedContext?: Context
+    ): Promise<[ModuleKit[], number]>;
+
+    retrieveKitByIdOrCode(
+        kitId: string,
+        sharedContext?: Context
+    ): Promise<ModuleKit | null>;
+
+    updateSKUPricingStats(
+        skuId: string,
+        sharedContext?: Context
+    ): Promise<void>;
+
+    searchSKUs(
+        filters: {
+            category?: string;
+            manufacturer_id?: string;
+            min_price?: number;
+            max_price?: number;
+            search?: string;
+        },
+        sharedContext?: Context
+    ): Promise<ModuleSKU[]>;
+
+    getSKUWithOffers(
+        skuId: string,
+        sharedContext?: Context
+    ): Promise<{ sku: ModuleSKU | null; offers: ModuleDistributorOffer[] }>;
+
+    compareSKUPrices(
+        skuId: string,
+        sharedContext?: Context
+    ): Promise<{
+        sku: ModuleSKU | null;
+        offers: unknown[];
+        comparison: unknown | null;
+    }>;
+
+    searchKits(
+        filters: {
+            category?: string;
+            min_capacity?: number;
+            max_capacity?: number;
+            target_consumer_class?: string;
+        },
+        sharedContext?: Context
+    ): Promise<ModuleKit[]>;
+
+    getKitWithComponents(
+        kitId: string,
+        sharedContext?: Context
+    ): Promise<unknown | null>;
+
+    recommendKitsByConsumption(
+        monthlyConsumptionKwh: number,
+        sharedContext?: Context
+    ): Promise<ModuleKit[]>;
 }

@@ -65,7 +65,7 @@ export const GET = async (
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) => {
-  const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
+  const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as UnifiedCatalogModuleServiceType;
   const { category } = req.params;
 
   try {
