@@ -47,7 +47,7 @@ Documentação de infraestrutura AWS:
 ### Início Rápido
 
 - [README Principal](../README.md) - Setup inicial e visão geral
-- [Backend 100% Funcional](../BACKEND_100_FUNCIONAL.md) - Status do backend local
+- [Backend 100% Funcional](./status-reports/BACKEND_100_FUNCIONAL.md) - Status do backend local
 - [Documentation Index](../DOCUMENTATION_INDEX.md) - Índice completo
 
 ### Deployment AWS

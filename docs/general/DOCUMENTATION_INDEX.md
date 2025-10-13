@@ -103,7 +103,7 @@ ysh-store/
 
 ### Documentação Adicional
 
-- [Backend 100 Funcional](./BACKEND_100_FUNCIONAL.md) - Backend funcionando 100%
+- [Backend 100 Funcional](./status-reports/BACKEND_100_FUNCIONAL.md) - Backend funcionando 100%
 - [Commit Summary](./COMMIT_SUMMARY.md) - Resumo de commits importantes
 - [Documentation Index](./backend/DOCUMENTATION_INDEX.md) - Índice backend
 

@@ -10,32 +10,36 @@ ysh-medusa/
 ├── .gitignore                         # Arquivos ignorados pelo Git
 ├── .mypy_cache/                       # Cache do MyPy
 ├── .vscode/                           # Configurações VS Code
-├── ADMIN_REVIEW_2025-10-13.md         # Relatório de revisão admin
-├── agents_api.md                      # Documentação APIs agentes
-├── agents_commerce-modules.md         # Documentação módulos commerce
-├── agents_infra_modules.md            # Documentação módulos infraestrutura
-├── ANALISE_APIS_PRODUTOS_IMAGENS_360.md # Análise APIs produtos/imagens
-├── APIS_V4_COMPLETE_GUIDE.md          # Guia completo APIs v4
-├── APIS_V4_IMPLEMENTATION_SUMMARY.md  # Resumo implementação APIs v4
 ├── aws/                               # Configurações AWS
 ├── backend/                           # Código backend
-├── BACKEND_100_FUNCIONAL.md           # Relatório funcional backend
-├── backup_pre_approval_2025-10-12_22-07.sql # Backup banco de dados
-├── BOOKMARKS.md                       # Bookmarks
-├── COBERTURA_360_COMPLETA.md          # Cobertura 360 completa
-├── COMMIT_ORGANIZATION.md             # Organização de commits
-├── COMMIT_SUMMARY.md                  # Resumo de commits
-├── COMPLETION_REPORT_100_PERCENT.md   # Relatório conclusão 100%
+├── client/                            # Cliente adicional
 ├── data-platform/                     # Plataforma de dados
-├── DEPLOYMENT_CHECKLIST.md            # Checklist deployment
 ├── docker/                            # Configurações Docker
-├── docs/                              # Documentação
-├── DOCUMENTATION_INDEX.md             # Índice documentação
-├── DOCUMENTATION_INDEX_360.md         # Índice documentação 360
-├── DOCUMENTATION_INDEX_APIS.md        # Índice documentação APIs
+├── docs/                              # Documentação organizada
+│   ├── apis/                          # Documentação APIs
+│   ├── agents/                        # Documentação agentes
+│   ├── general/                       # Documentação geral
+│   ├── migrations/                    # Documentação migrações
+│   ├── status-reports/                # Relatórios de status
+│   └── ...                            # Outros documentos
 ├── execute-migrations.sql             # Script migrações
-├── EXECUTIVE_SUMMARY_360.md           # Resumo executivo 360
-├── FINAL_DELIVERY_EXECUTIVE_SUMMARY.md # Resumo executivo entrega final
+├── backup_pre_approval_2025-10-12_22-07.sql # Backup banco de dados
+├── export-tree.ps1                    # Script utilitário
+├── infra/                             # Infraestrutura
+├── LICENSE                            # Licença
+├── nginx.conf/                        # Configuração Nginx
+├── node-red/                          # Node-RED
+├── package.json                       # Configuração projeto raiz
+├── packages/                          # Pacotes compartilhados
+├── README.md                          # Documentação principal
+├── scripts/                           # Scripts de automação
+├── server/                            # Servidor adicional
+├── ssl/                               # Certificados SSL
+├── storefront/                        # Código storefront
+├── tools/                             # Ferramentas utilitárias
+├── tsconfig.base.json                 # Configuração TypeScript base
+├── validate-v6.ps1                    # Script validação
+└── yarn.lock                          # Lock file Yarn
 ├── FINAL_IMPLEMENTATION_SUMMARY.md    # Resumo implementação final
 ├── FIX_ADMIN_BLANK_SCREEN.md          # Correção tela admin em branco
 ├── infra/                             # Infraestrutura
