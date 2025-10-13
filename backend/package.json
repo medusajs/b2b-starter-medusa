@@ -10,6 +10,7 @@
     "dev": "medusa develop",
     "build": "medusa build",
     "start": "medusa start -H 0.0.0.0 -p ${PORT:-9000}",
+    "start:migrate": "npm run migrate && npm start",
     "migrate": "medusa db:migrate",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "db:setup": "medusa db:create && medusa db:migrate",

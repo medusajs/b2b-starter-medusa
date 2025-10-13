@@ -49,6 +49,10 @@ RUN addgroup --system --gid 1001 medusa && \
 # Mudar propriedade de arquivos de runtime
 RUN chown medusa:medusa /app/package.json /app/medusa-config.js || true
 
+# Copiar script de entrypoint e tornar executável
+COPY --chown=medusa:medusa entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Mudar para usuário não-root
 USER medusa
 
@@ -59,6 +63,6 @@ EXPOSE 9000 9001 9002
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
       CMD node -e "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
 
-# Comando para produção
-ENTRYPOINT ["dumb-init", "--"]
+# Comando para produção com migrações automáticas
+ENTRYPOINT ["dumb-init", "--", "/app/entrypoint.sh"]
 CMD ["npm", "start"]

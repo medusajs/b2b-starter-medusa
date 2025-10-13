@@ -32,6 +32,10 @@ COPY . .
 # Criar diretório de uploads
 RUN mkdir -p uploads
 
+# Copiar script de entrypoint e tornar executável
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Expor portas (principal + admin + store)
 EXPOSE 9000 9001 9002
 
@@ -39,6 +43,6 @@ EXPOSE 9000 9001 9002
 # HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
 #     CMD curl -f http://localhost:9000/health || exit 1
 
-# Comando para desenvolvimento
-ENTRYPOINT ["dumb-init", "--"]
+# Comando para desenvolvimento com migrações automáticas
+ENTRYPOINT ["dumb-init", "--", "/app/entrypoint.sh"]
 CMD ["npm", "run", "dev"]
