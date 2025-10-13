@@ -2,29 +2,69 @@ import InteractiveLink from "@/modules/common/components/interactive-link"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "404 - Yello Solar Hub",
-  description: "Página não encontrada no Marketplace Solar Yello Solar Hub",
+  title: "404 - Página Não Encontrada | Yello Solar Hub",
+  description: "Esta rota não existe no catálogo YSH. Explore produtos, dimensionamento ou fale com especialista.",
 }
 
+/**
+ * NotFound - Página 404 com microcopy Hélio (cordial, prestativo, oferece soluções)
+ * UX Strategy: sempre oferecer caminho alternativo, não deixar usuário preso
+ */
 export default function NotFound() {
   return (
-    <div className="flex flex-col gap-4 items-center justify-center min-h-[calc(100vh-64px)]">
-      <h1 className="text-2xl-semi text-ui-fg-base">Página não encontrada</h1>
-      <p className="text-small-regular text-ui-fg-base">
-        A página que você tentou acessar não existe.
-      </p>
-      <div className="flex gap-4">
-        <InteractiveLink href="/">Voltar para a loja</InteractiveLink>
-        <InteractiveLink href="/suporte">Falar com especialista</InteractiveLink>
+    <div className="flex flex-col gap-6 items-center justify-center min-h-[calc(100vh-64px)] px-4">
+      {/* Heading com número HTTP para SEO/acessibilidade */}
+      <div className="text-center space-y-2">
+        <h1 className="text-3xl font-bold text-ui-fg-base">
+          404 — Rota Não Encontrada
+        </h1>
+        <p className="text-base text-ui-fg-subtle max-w-md">
+          Comandante, esta página não existe no nosso sistema. Vamos redirecionar você para onde precisa.
+        </p>
       </div>
-      <div className="text-small-regular text-ui-fg-subtle mt-4">
-        <p>Sugestões:</p>
-        <ul className="list-disc list-inside">
-          <li><InteractiveLink href="/categories">Explorar produtos</InteractiveLink></li>
-          <li><InteractiveLink href="/dimensionamento">Usar calculadora solar</InteractiveLink></li>
-          <li><InteractiveLink href="/suporte">Contato suporte</InteractiveLink></li>
+
+      {/* CTAs primários */}
+      <div className="flex flex-wrap gap-3 justify-center">
+        <InteractiveLink
+          href="/"
+          className="px-6 py-2.5 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors"
+        >
+          Início
+        </InteractiveLink>
+        <InteractiveLink
+          href="/suporte"
+          className="px-6 py-2.5 border border-brand-500 text-brand-600 rounded-md hover:bg-brand-50 transition-colors"
+        >
+          Falar com Especialista
+        </InteractiveLink>
+      </div>
+
+      {/* Sugestões contextuais */}
+      <nav className="text-sm text-ui-fg-subtle mt-4" aria-label="Sugestões de navegação">
+        <p className="font-semibold mb-2 text-ui-fg-base">Atalhos Úteis:</p>
+        <ul className="space-y-1.5">
+          <li>
+            <InteractiveLink href="/categories" className="hover:text-brand-600 underline-offset-2 hover:underline">
+              📦 Catálogo de Produtos
+            </InteractiveLink>
+          </li>
+          <li>
+            <InteractiveLink href="/dimensionamento" className="hover:text-brand-600 underline-offset-2 hover:underline">
+              ⚙️ Calculadora de Dimensionamento
+            </InteractiveLink>
+          </li>
+          <li>
+            <InteractiveLink href="/cotacao" className="hover:text-brand-600 underline-offset-2 hover:underline">
+              📊 Solicitar Cotação
+            </InteractiveLink>
+          </li>
+          <li>
+            <InteractiveLink href="/suporte" className="hover:text-brand-600 underline-offset-2 hover:underline">
+              📞 Suporte Técnico
+            </InteractiveLink>
+          </li>
         </ul>
-      </div>
+      </nav>
     </div>
   )
 }
