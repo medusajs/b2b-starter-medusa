@@ -6,12 +6,14 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 import fs from 'fs/promises';
 import path from 'path';
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
+    req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const catalogService = getInternalCatalogService();
 
     try {
@@ -26,28 +28,28 @@ export const GET = async (
         switch (action) {
             case "stats":
                 return await getImageStats(req, res, catalogService);
-            
+
             case "optimize":
                 return await optimizeImages(req, res, catalogService);
-            
+
             case "sync":
                 return await syncImages(req, res, catalogService);
-            
+
             case "serve":
                 if (!sku) {
                     return res.status(400).json({ error: "SKU required for serve action" });
                 }
                 return await serveImage(req, res, catalogService, sku as string, size as string);
-            
+
             default:
-                return res.status(400).json({ 
+                return res.status(400).json({
                     error: "Invalid action",
                     available_actions: ["stats", "optimize", "sync", "serve"]
                 });
         }
     } catch (error: any) {
         console.error("Error in image management API:", error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to manage images");
     }
 };
 
@@ -57,7 +59,7 @@ export const GET = async (
 async function getImageStats(req: MedusaRequest, res: MedusaResponse, catalogService: any) {
     const imageMap = await catalogService.loadImageMap();
     const skuIndex = await catalogService.loadSkuIndex();
-    
+
     const stats = {
         total_skus: Object.keys(imageMap.mappings).length,
         total_images: imageMap.total_images,
@@ -97,13 +99,13 @@ async function getImageStats(req: MedusaRequest, res: MedusaResponse, catalogSer
  */
 async function optimizeImages(req: MedusaRequest, res: MedusaResponse, catalogService: any) {
     const { preload_categories } = req.query;
-    
-    const categories = preload_categories ? 
-        (preload_categories as string).split(',') : 
+
+    const categories = preload_categories ?
+        (preload_categories as string).split(',') :
         ['inverters', 'panels', 'batteries', 'structures'];
 
     const startTime = Date.now();
-    
+
     try {
         await catalogService.preloadAll(categories);
         const loadTime = Date.now() - startTime;
@@ -120,7 +122,7 @@ async function optimizeImages(req: MedusaRequest, res: MedusaResponse, catalogSe
             }
         });
     } catch (error: any) {
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to optimize images");
     }
 }
 
@@ -130,7 +132,7 @@ async function optimizeImages(req: MedusaRequest, res: MedusaResponse, catalogSe
 async function syncImages(req: MedusaRequest, res: MedusaResponse, catalogService: any) {
     const imageMap = await catalogService.loadImageMap();
     const imageDir = path.join(__dirname, '../../../static/images-catálogo_distribuidores');
-    
+
     const syncResults = {
         total_checked: 0,
         found: 0,
@@ -141,10 +143,10 @@ async function syncImages(req: MedusaRequest, res: MedusaResponse, catalogServic
 
     // Check a sample of images (first 100 for performance)
     const sampleMappings = Object.entries(imageMap.mappings).slice(0, 100);
-    
+
     for (const [sku, entry] of sampleMappings) {
         syncResults.total_checked++;
-        
+
         try {
             const imagePath = path.join(imageDir, entry.images.original.replace('/static/images-catálogo_distribuidores/', ''));
             await fs.access(imagePath);
@@ -174,7 +176,7 @@ async function syncImages(req: MedusaRequest, res: MedusaResponse, catalogServic
  */
 async function serveImage(req: MedusaRequest, res: MedusaResponse, catalogService: any, sku: string, size: string) {
     const image = await catalogService.getImageForSku(sku);
-    
+
     if (!image.preloaded) {
         return res.status(404).json({
             error: "Image not found",
@@ -184,12 +186,12 @@ async function serveImage(req: MedusaRequest, res: MedusaResponse, catalogServic
     }
 
     const imageUrl = image.sizes[size] || image.sizes.medium || image.url;
-    
+
     // For now, return the URL. In production, you might want to:
     // 1. Stream the actual file
     // 2. Apply image transformations
     // 3. Add CDN headers
-    
+
     res.json({
         sku,
         size,
