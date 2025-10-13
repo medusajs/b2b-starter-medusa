@@ -214,13 +214,40 @@ export default async function importCatalog({ container }: ExecArgs): Promise<vo
                 })
 
                 try {
-                    // Usar Product Module Service diretamente (sem inventory dependency)
-                    await productModuleService.createProducts(productsToCreate)
+                    // Usar upsert para evitar duplicatas
+                    for (const productData of productsToCreate) {
+                        try {
+                            // Tentar buscar produto existente pelo handle
+                            const existingProducts = await productModuleService.listProducts({
+                                handle: productData.handle
+                            })
 
-                    stats.imported += batch.length
-                    stats.by_category[catConfig.name].imported += batch.length
+                            if (existingProducts.length > 0) {
+                                // Produto existe - atualizar
+                                await productModuleService.updateProducts(existingProducts[0].id, {
+                                    title: productData.title,
+                                    description: productData.description,
+                                    metadata: productData.metadata,
+                                    thumbnail: productData.thumbnail
+                                })
+                                stats.updated++
+                            } else {
+                                // Produto não existe - criar
+                                await productModuleService.createProducts([productData])
+                                stats.imported++
+                                stats.by_category[catConfig.name].imported++
+                            }
+                        } catch (productError: any) {
+                            if (productError.message?.includes('already exists')) {
+                                stats.skipped++
+                            } else {
+                                stats.errors++
+                                stats.by_category[catConfig.name].errors++
+                            }
+                        }
+                    }
 
-                    logger.info(`  ✅ Lote ${Math.floor(i / BATCH_SIZE) + 1}: ${batch.length} produtos importados`)
+                    logger.info(`  ✅ Lote ${Math.floor(i / BATCH_SIZE) + 1}: processado`)
                 } catch (batchError: any) {
                     logger.error(`  ❌ Erro no lote: ${batchError.message}`)
                     stats.errors += batch.length
