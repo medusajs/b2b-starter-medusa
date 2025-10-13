@@ -12,7 +12,7 @@ import { storeInternalCatalogMiddlewares } from "./catalogo_interno/middlewares"
 import { storeProductsEnhancedMiddlewares } from "./produtos_melhorados/middlewares";
 import { storeKitsMiddlewares } from "./kits/middlewares";
 import { storeProductsBySkuMiddlewares } from "./products/by-sku/middlewares";
-import { storeSolarCalculationsMiddlewares } from "./solar_calculations/middlewares";
+import { storeSolarCalculationsMiddlewares } from "./calculos_solares/middlewares";
 import { storeCreditAnalysesMiddlewares } from "./analises_credito/middlewares";
 import { storeFinancingApplicationsMiddlewares } from "./aplicacoes_financiamento/middlewares";
 import { storeOrdersMiddlewares } from "./orders/middlewares";
