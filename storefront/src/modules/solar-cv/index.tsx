@@ -2,7 +2,8 @@
 
 import React, { useState } from "react"
 import { Camera, Buildings, MapPin, Eye, ExclamationCircleSolid } from "@medusajs/icons"
-import { Button, Heading, Text, Input, toast } from "@medusajs/ui"
+import { YshButton as Button } from "@ysh/ui"
+import { Heading, Text, Input, toast } from "@medusajs/ui"
 import PanelDetection from "./components/panel-detection"
 import ThermalAnalysis from "./components/thermal-analysis"
 import Photogrammetry from "./components/photogrammetry"

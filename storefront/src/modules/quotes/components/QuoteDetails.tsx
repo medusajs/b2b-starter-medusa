@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
-import { Button } from '@ysh/ui'
+import { YshButton as Button } from '@ysh/ui'
 import { Badge } from '@ysh/ui'
 import { Download, ShoppingCart, Copy, Edit } from 'lucide-react'
 import { useQuotes } from '../context/QuotesContext'

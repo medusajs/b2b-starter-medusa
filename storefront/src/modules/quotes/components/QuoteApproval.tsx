@@ -8,8 +8,8 @@
 
 import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { YshButton as Button } from '@ysh/ui'
+import { Badge } from '@ysh/ui'
 import { CheckCircle, XCircle, Clock } from 'lucide-react'
 import useQuoteApprovals from '../hooks/useQuoteApprovals'
 import type { QuoteApproval as QuoteApprovalType } from '../types'

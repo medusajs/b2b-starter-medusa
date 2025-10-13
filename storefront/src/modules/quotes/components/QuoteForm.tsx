@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
-import { Button } from '@ysh/ui'
+import { YshButton as Button } from '@ysh/ui'
 import { Plus, Trash2, Save } from 'lucide-react'
 import useQuoteOperations from '../hooks/useQuoteOperations'
 import type { QuoteInput } from '../types'
