@@ -165,6 +165,6 @@ export async function POST(
 
     } catch (error: any) {
         console.error("[Recommend Products Error]", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }

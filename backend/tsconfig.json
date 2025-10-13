@@ -30,6 +30,9 @@
       ],
       "@starter/types/*": [
         "./src/types/*"
+      ],
+      "@medusajs/medusa/api/utils/define-query-config": [
+        "./src/shims/define-query-config.ts"
       ]
     }
   },

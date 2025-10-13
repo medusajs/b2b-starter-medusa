@@ -1,13 +1,11 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
-
-export const defaultStore[id]Fields = [
+export const defaultStoreProductsCustomIdFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const list[id]QueryConfig = defineQueryConfig({
-  defaults: defaultStore[id]Fields,
-  allowed: defaultStore[id]Fields,
+export const retrieveProductsCustomQueryConfig = {
+  defaults: defaultStoreProductsCustomIdFields,
+  allowed: defaultStoreProductsCustomIdFields,
   defaultLimit: 50,
-});
+};
