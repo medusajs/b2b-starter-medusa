@@ -1,27 +1,27 @@
 # ====================================================================
 # Script: Criar Publishable API Key para Medusa
-# Descrição: Cria uma publishable key e associa ao Default Sales Channel
+# Descricao: Cria uma publishable key e associa ao Default Sales Channel
 # Uso: .\scripts\create-publishable-key.ps1
 # ====================================================================
 
-Write-Host "🔑 Criando Publishable API Key para Medusa Store..." -ForegroundColor Cyan
+Write-Host "[INFO] Criando Publishable API Key para Medusa Store..." -ForegroundColor Cyan
 Write-Host ""
 
-# Configurações
+# Configuracoes
 $CONTAINER_NAME = "ysh-b2b-postgres"
 $DB_USER = "postgres"
 $DB_NAME = "medusa-backend"
 
-# Verificar se container está rodando
-Write-Host "📦 Verificando container PostgreSQL..." -ForegroundColor Yellow
+# Verificar se container esta rodando
+Write-Host "[VERIFICANDO] Container PostgreSQL..." -ForegroundColor Yellow
 $containerRunning = docker ps --filter "name=$CONTAINER_NAME" --format "{{.Names}}" | Select-String -Pattern $CONTAINER_NAME
 
 if (-not $containerRunning) {
-    Write-Host "❌ Container $CONTAINER_NAME não está rodando!" -ForegroundColor Red
-    Write-Host "   Execute: docker compose -f docker/docker-compose.yml up -d postgres" -ForegroundColor Yellow
+    Write-Host "[ERRO] Container $CONTAINER_NAME nao esta rodando!" -ForegroundColor Red
+    Write-Host "Execute: docker compose -f docker/docker-compose.yml up -d postgres" -ForegroundColor Yellow
     exit 1
 }
-Write-Host "✅ Container PostgreSQL encontrado" -ForegroundColor Green
+Write-Host "[OK] Container PostgreSQL encontrado" -ForegroundColor Green
 Write-Host ""
 
 # SQL para criar publishable key
