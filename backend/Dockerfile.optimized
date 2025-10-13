@@ -66,14 +66,12 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# Copiar package.json para production install
+# Copiar package.json para manter compatibilidade
 COPY package*.json ./
 COPY .npmrc* ./
 
-# Instalar TODAS as dependências (runtime precisa de algumas dev deps como tsx, esbuild)
-ENV NODE_ENV=production
-RUN npm ci --legacy-peer-deps && \
-    npm cache clean --force
+# Copiar node_modules do builder (evita conflitos de versão)
+COPY --from=builder /app/node_modules ./node_modules
 
 # Copiar built artifacts do builder
 COPY --from=builder /app/dist ./dist
