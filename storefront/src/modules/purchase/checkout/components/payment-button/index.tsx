@@ -3,7 +3,7 @@
 import { isManual, isPaypal, isStripe } from "@/lib/constants"
 import { createCartApproval, placeOrder } from "@/lib/data/cart-resilient"
 import ErrorMessage from "../error-message"
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import Spinner from "@/modules/common/icons/spinner"
 import { B2BCart } from "@/types"
 import { ApprovalStatusType } from "@/types/approval/module"
@@ -84,7 +84,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
     default:
       return (
         <div className="space-y-2">
-          <Button disabled className="w-full">Selecione um método de pagamento</Button>
+          <YelloSolarButton disabled className="w-full">Selecione um método de pagamento</YelloSolarButton>
           <p className="text-sm text-ui-fg-subtle text-center">
             Por favor, escolha uma forma de pagamento acima para continuar
           </p>
@@ -130,14 +130,14 @@ const RequestApprovalButton = ({
               ? "Este pedido precisa de aprovação do administrador da empresa."
               : "Este pedido precisa de aprovação do gerente de vendas."}
         </Text>
-        <Button
+        <YelloSolarButton
           className="w-full h-10 rounded-full shadow-none"
           disabled={notReady || isPendingAdminApproval}
           onClick={createApproval}
           isLoading={submitting}
         >
           {isPendingAdminApproval ? "Aprovação solicitada" : "Solicitar aprovação"}
-        </Button>
+        </YelloSolarButton>
       </Container>
     </>
   )
@@ -152,13 +152,13 @@ const GiftCardPaymentButton = ({ cart }: { cart: B2BCart }) => {
   }
 
   return (
-    <Button
+    <YelloSolarButton
       onClick={handleOrder}
       isLoading={submitting}
       data-testid="submit-order-button"
     >
       Finalizar pedido
-    </Button>
+    </YelloSolarButton>
   )
 }
 
@@ -252,7 +252,7 @@ const StripePaymentButton = ({
 
   return (
     <>
-      <Button
+      <YelloSolarButton
         className="w-full"
         disabled={disabled || notReady}
         onClick={handlePayment}
@@ -261,7 +261,7 @@ const StripePaymentButton = ({
         data-testid={dataTestId}
       >
         Finalizar pedido
-      </Button>
+      </YelloSolarButton>
       <ErrorMessage
         error={errorMessage}
         data-testid="stripe-payment-error-message"
@@ -368,7 +368,7 @@ const ManualTestPaymentButton = ({
 
   return (
     <>
-      <Button
+      <YelloSolarButton
         className="w-full"
         disabled={notReady}
         isLoading={submitting}
@@ -377,7 +377,7 @@ const ManualTestPaymentButton = ({
         data-testid="submit-order-button"
       >
         Finalizar pedido
-      </Button>
+      </YelloSolarButton>
       <ErrorMessage
         error={errorMessage}
         data-testid="manual-payment-error-message"

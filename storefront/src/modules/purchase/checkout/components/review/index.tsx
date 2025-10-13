@@ -4,7 +4,7 @@ import { Text } from "@medusajs/ui"
 
 import { checkSpendingLimit } from "@/lib/util/check-spending-limit"
 import PaymentButton from "../payment-button"
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { B2BCart, B2BCustomer } from "@/types"
 import { ExclamationCircle } from "@medusajs/icons"
@@ -52,9 +52,9 @@ const Review = ({
               Entre em contato com seu gerente para aprovação.
             </p>
           </div>
-          <Button className="w-full h-10 rounded-full shadow-none" disabled>
+          <YelloSolarButton className="w-full h-10 rounded-full shadow-none" disabled>
             Finalizar pedido
-          </Button>
+          </YelloSolarButton>
         </>
       ) : (
         <PaymentButton cart={cart} data-testid="submit-order-button" />
