@@ -30,7 +30,8 @@ Write-Host "1. Verificando AWS CLI..." -ForegroundColor Yellow
 try {
     $awsVersion = aws --version 2>&1
     Write-Host "   ✅ AWS CLI: $awsVersion" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ AWS CLI não encontrado!" -ForegroundColor Red
     Write-Host "   Instale: https://aws.amazon.com/cli/" -ForegroundColor Yellow
     exit 1
@@ -42,7 +43,8 @@ try {
     $identity = aws sts get-caller-identity --profile $Profile 2>&1 | ConvertFrom-Json
     Write-Host "   ✅ Account: $($identity.Account)" -ForegroundColor Green
     Write-Host "   ✅ User: $($identity.Arn)" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ Profile '$Profile' não encontrado ou expirado!" -ForegroundColor Red
     Write-Host "   Configure com: aws configure sso --profile $Profile" -ForegroundColor Yellow
     exit 1
@@ -64,7 +66,8 @@ try {
     Write-Host "   Host: $($secret.host)" -ForegroundColor Gray
     Write-Host "   Database: $($secret.database)" -ForegroundColor Gray
     Write-Host "   User: $($secret.username)" -ForegroundColor Gray
-} catch {
+}
+catch {
     Write-Host "   ❌ Erro ao obter secret!" -ForegroundColor Red
     Write-Host "   Erro: $_" -ForegroundColor Red
     exit 1
@@ -91,15 +94,18 @@ try {
         $result = psql -h $secret.host -p $secret.port -U $secret.username -d $secret.database -c $testQuery 2>&1
         if ($LASTEXITCODE -eq 0) {
             Write-Host "   ✅ Conexão bem-sucedida!" -ForegroundColor Green
-        } else {
+        }
+        else {
             Write-Host "   ⚠️  Não foi possível verificar conexão" -ForegroundColor Yellow
             Write-Host "   Continuando mesmo assim..." -ForegroundColor Gray
         }
         Remove-Item Env:\PGPASSWORD -ErrorAction SilentlyContinue
-    } else {
+    }
+    else {
         Write-Host "   ℹ️  psql não disponível, pulando teste de conexão" -ForegroundColor Gray
     }
-} catch {
+}
+catch {
     Write-Host "   ⚠️  Erro no teste de conexão: $_" -ForegroundColor Yellow
     Write-Host "   Continuando mesmo assim..." -ForegroundColor Gray
 }
@@ -112,7 +118,8 @@ Write-Host "   ℹ️  Medusa executará automaticamente migrations pendentes" -
 if ($DryRun) {
     Write-Host "`n7. DRY RUN - Migrations NÃO serão executadas" -ForegroundColor Yellow
     Write-Host "   Para executar de verdade, rode sem -DryRun" -ForegroundColor Gray
-} else {
+}
+else {
     Write-Host "`n7. Executando migrations..." -ForegroundColor Yellow
     Write-Host "   ⏳ npm run migrate" -ForegroundColor Gray
     
@@ -121,12 +128,14 @@ if ($DryRun) {
         
         if ($LASTEXITCODE -eq 0) {
             Write-Host "`n   ✅ MIGRATIONS EXECUTADAS COM SUCESSO!" -ForegroundColor Green
-        } else {
+        }
+        else {
             Write-Host "`n   ❌ ERRO ao executar migrations!" -ForegroundColor Red
             Write-Host "   Exit code: $LASTEXITCODE" -ForegroundColor Red
             exit $LASTEXITCODE
         }
-    } catch {
+    }
+    catch {
         Write-Host "`n   ❌ ERRO ao executar migrations!" -ForegroundColor Red
         Write-Host "   Erro: $_" -ForegroundColor Red
         exit 1
@@ -149,11 +158,13 @@ ORDER BY table_name;
     if ($LASTEXITCODE -eq 0) {
         Write-Host "   ✅ Tabelas verificadas:" -ForegroundColor Green
         Write-Host $result -ForegroundColor Gray
-    } else {
+    }
+    else {
         Write-Host "   ⚠️  Não foi possível verificar tabelas" -ForegroundColor Yellow
     }
     Remove-Item Env:\PGPASSWORD -ErrorAction SilentlyContinue
-} else {
+}
+else {
     Write-Host "   ℹ️  Verificação de tabelas pulada (psql não disponível ou dry-run)" -ForegroundColor Gray
 }
 
@@ -174,7 +185,8 @@ Write-Host "Host: $($secret.host)" -ForegroundColor White
 
 if ($DryRun) {
     Write-Host "`nStatus: DRY RUN (nenhuma alteração feita)" -ForegroundColor Yellow
-} else {
+}
+else {
     Write-Host "`nStatus: ✅ MIGRATIONS EXECUTADAS" -ForegroundColor Green
 }
 
