@@ -199,7 +199,7 @@ export function CartProvider({
   }, [handleOptimisticAddToCart])
 
   const handleDeleteItem = async (lineItem: string) => {
-    const item = (optimisticCart as any)?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find((item: any) => item.id === lineItem)
 
     if (!item) return
 
@@ -238,7 +238,7 @@ export function CartProvider({
     lineItem: string,
     quantity: number
   ) => {
-    const item = (optimisticCart as any)?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find((item: any) => item.id === lineItem)
 
     if (!item) return
 
