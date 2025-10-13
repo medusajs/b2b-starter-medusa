@@ -57,4 +57,8 @@ if (process.env.TEST_TYPE === "integration:http") {
   module.exports.testMatch = ["**/src/**/__tests__/**/*.unit.spec.[jt]s"];
   // Unit tests don't need database setup
   module.exports.setupFilesAfterEnv = [];
+} else if (process.env.TEST_TYPE === "pact") {
+  module.exports.testMatch = ["**/pact/**/*.pact.test.[jt]s"];
+  module.exports.testTimeout = 60000;
+  module.exports.setupFilesAfterEnv = [];
 }
