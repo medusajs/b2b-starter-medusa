@@ -15,42 +15,63 @@ except ImportError:
     OLLAMA_AVAILABLE = False
     print("⚠️  Ollama não instalado. Instale com: pip install ollama")
 
+# Prefer a local helper when available - works both when running the script
+# from the project root or when running directly inside the scripts/ folder.
+try:
+    from ollama_model_selector import (
+        pick_image_model,
+        pick_text_model,
+        list_models,
+    )
+except Exception:
+    try:
+        # Fallback import path when running from project root
+        from scripts.ollama_model_selector import (
+            pick_image_model,
+            pick_text_model,
+            list_models,
+        )
+    except Exception:
+        # Minimal fallbacks so the rest of the script can still run.
+        def pick_image_model():
+            return None
+
+        def pick_text_model():
+            return None
+
+        def list_models():
+            return []
+
 
 def check_ollama_setup():
     """Verifica se Ollama está configurado corretamente"""
-    
     if not OLLAMA_AVAILABLE:
         return False, None
-    
+
     try:
-        # Testar conexão
-        models = ollama.list()
-        model_list = models.get('models', [])
-        print(f"✅ Ollama conectado. Modelos disponíveis: {len(model_list)}")
-        
-        # Listar modelos
-        for m in model_list:
-            model_name = m.get('name', m.get('model', 'unknown'))
-            print(f"   • {model_name}")
-        
-        # Verificar modelos de visão disponíveis
-        vision_models = [
-            m.get('name', m.get('model', ''))
-            for m in model_list
-            if 'llava' in str(m.get('name', m.get('model', ''))).lower()
-        ]
-        
-        if vision_models:
-            print(f"✅ Modelos de visão detectados: {', '.join(vision_models)}")
-            return True, vision_models[0]
-        else:
-            print("⚠️  Nenhum modelo de visão encontrado.")
-            print("   Modelos recomendados:")
-            print("   • ollama pull llava:13b  (7.4 GB - RECOMENDADO)")
-            print("   • ollama pull llava:34b  (19 GB - máxima qualidade)")
-            print("   • ollama pull llava:7b   (4.7 GB - mais rápido)")
-            return False, None
-        
+        # Testar conexão e listar modelos
+        models_payload = ollama.list()
+        model_list = models_payload.get('models', [])
+        names = [m.get('name', m.get('model', '')) for m in model_list]
+        print(f"✅ Ollama conectado. Modelos disponíveis: {len(names)}")
+
+        for n in names:
+            print(f"   • {n}")
+
+        # Use selector helper to pick an image-capable model
+        chosen = pick_image_model()
+        if chosen:
+            print(f"✅ Modelo para visão selecionado: {chosen}")
+            return True, chosen
+
+        print("⚠️  Nenhum modelo de visão detectado automaticamente.")
+        print("   Recomendado: ollama pull llava:13b  (equilíbrio)")
+        print(
+            "   Alternativas: llava:34b (alta qualidade) ou gemma3:4b se"
+            " disponível"
+        )
+        return False, None
+
     except Exception as e:
         print(f"❌ Erro ao conectar com Ollama: {e}")
         print("   Certifique-se de que o Ollama está rodando:")
