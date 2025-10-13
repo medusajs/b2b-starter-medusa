@@ -13,6 +13,7 @@ Todas as APIs foram atualizadas para utilizar as imagens reais garantidas atrav�
 **Melhorias Implementadas:**
 
 #### A. `extractSku()` - Extração Multi-Padrão
+
 ```typescript
 // Antes: 2-3 fontes, 1 padrão regex
 // Depois: 6+ fontes, 3 padrões regex
@@ -33,6 +34,7 @@ Prioridade:
 **Resultado:** 92.34% coverage (antes: ~52.3%)
 
 #### B. `getImageForSku()` - Busca Aprimorada
+
 ```typescript
 // Antes: Apenas exact match
 // Depois: 4 níveis de busca
@@ -49,6 +51,7 @@ Prioridade:
 **Resultado:** 616 produtos adicionais com imagens reais
 
 #### C. `loadCategoryProducts()` - Context-Aware
+
 ```typescript
 // Passa produto completo para getImageForSku
 const image = await this.getImageForSku(sku, p);
@@ -60,28 +63,33 @@ const image = await this.getImageForSku(sku, p);
 **Arquivo:** `src/api/store/catalog/[category]/route.ts`
 
 ✅ **Já utiliza `getInternalCatalogService()`**
+
 - Herda automaticamente todas as melhorias do Internal Catalog
 - Transformação de produtos mantém image URLs e sizes
 - Performance tracking incluído
 
 **Endpoints Atualizados:**
+
 - `GET /store/catalog` - Overview
 - `GET /store/catalog/:category` - Listagem por categoria
 - `GET /store/catalog/:category/:id` - Produto individual
 
 ### 3. Fallback API (`/store/fallback/products/*`)
 
-**Arquivos:** 
+**Arquivos:**
+
 - `src/api/store/fallback/products/route.ts`
 - `src/api/store/fallback/products/[category]/route.ts`
 - `src/api/store/fallback/products/[category]/[id]/route.ts`
 
 ✅ **Lê dados dos exports JSON regenerados**
+
 - Todos os 39 arquivos foram regenerados com imagens reais
 - 1,037/1,123 produtos com imagens (92.34%)
 - Cache in-memory para performance
 
 **Arquivos de Dados:**
+
 ```
 data/catalog/fallback_exports/
 ├── products_master.json (1,123 produtos)
@@ -100,11 +108,13 @@ data/catalog/fallback_exports/
 **Arquivo:** `fallback_api.py`
 
 ✅ **Lê mesmos exports JSON**
+
 - Endpoints Python paralelos aos TypeScript
 - Mesmos dados, mesmas imagens reais
 - CORS habilitado, Swagger docs em `/docs`
 
 **Endpoints:**
+
 - `GET /api/products` - Todos os produtos
 - `GET /api/products/category/{category}` - Por categoria
 - `GET /api/products/{product_id}` - Produto individual
@@ -138,6 +148,7 @@ As seguintes categorias retornam **apenas imagens reais** (zero placeholders):
 ## 🔍 Exemplos de Requests
 
 ### Internal Catalog
+
 ```bash
 # Inversores com imagens (92.84% coverage)
 curl "http://localhost:9000/store/internal-catalog/inverters?limit=100&hasImage=true"
@@ -150,6 +161,7 @@ curl http://localhost:9000/store/internal-catalog/health
 ```
 
 ### Catalog API
+
 ```bash
 # Inversores
 curl "http://localhost:9000/store/catalog/inverters?limit=100"
@@ -162,6 +174,7 @@ curl http://localhost:9000/store/catalog
 ```
 
 ### Fallback API (TypeScript)
+
 ```bash
 # Todos os produtos
 curl "http://localhost:9000/store/fallback/products?limit=100"
@@ -174,6 +187,7 @@ curl http://localhost:9000/store/fallback/products/inverters/neosolar_inverters_
 ```
 
 ### Fallback API (Python)
+
 ```bash
 # Assumindo FastAPI rodando na porta 8000
 curl "http://localhost:8000/api/products?limit=100"
@@ -188,17 +202,20 @@ curl http://localhost:8000/docs
 ## 🚀 Performance
 
 ### Internal Catalog (In-Memory Service)
+
 - **Cold Start:** <250ms
 - **Warm Cache:** <12ms
 - **Cache Hit Rate:** ~94%
 - **TTL:** 2 hours
 
 ### Fallback API (File-Based)
+
 - **First Load:** ~50-100ms (JSON parse + cache)
 - **Cached:** <5ms
 - **Memory:** ~2-3MB por categoria
 
 ### Image Resolution
+
 - **Exact Match:** <1ms (Map lookup)
 - **Case-Insensitive:** <3ms (linear scan)
 - **Partial Match:** <5ms (full scan)
@@ -207,6 +224,7 @@ curl http://localhost:8000/docs
 ## 📝 Formato de Resposta
 
 ### Produto com Imagem Real
+
 ```json
 {
   "id": "neosolar_inverters_22916",
@@ -235,6 +253,7 @@ curl http://localhost:8000/docs
 ```
 
 ### Headers de Resposta
+
 ```
 X-API-Version: v1.0
 X-Data-Source: internal-catalog | fallback-export
