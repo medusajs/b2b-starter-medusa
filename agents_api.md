@@ -726,3 +726,82 @@ Emitido quando uma tag é atualizada:
 - Workflows emitem logs detalhados para debugging
 - Use `req.scope` para acessar serviços em middlewares customizados
 - Verifique configurações de CORS para chamadas cross-origin
+
+---
+
+## Novidades do Medusa v2.10.3
+
+### View Configurations (Experimental)
+
+**Disponível desde**: v2.10.3
+
+Permite customização de colunas visíveis nas tabelas Orders e Products do Admin.
+
+**Ativação**: Habilite o feature flag em `medusa-config.ts`:
+
+```typescript
+export default defineConfig({
+  featureFlags: {
+    view_configurations: true,
+  },
+})
+```
+
+**Uso**: Com o feature flag ativado, usuários admin podem customizar quais colunas são exibidas nas tabelas do Admin Dashboard.
+
+### Shipping Options Context Hook
+
+**Disponível desde**: v2.10.3
+
+Novo workflow hook `setShippingOptionsContext` permite adicionar contexto customizado para regras de shipping options.
+
+**Workflow**: `listShippingOptionsForCartWithPricingWorkflow`
+
+**Uso**:
+
+```typescript
+listShippingOptionsForCartWithPricingWorkflow.hooks.setShippingOptionsContext(
+  (input, context) => {
+    // Adicione contexto customizado para validação de shipping
+    return {
+      ...context,
+      customValidation: true,
+      customerTier: input.cart.metadata?.tier,
+    }
+  }
+)
+```
+
+**Casos de Uso B2B**:
+
+- Validar regras de shipping baseadas em company tier
+- Aplicar restrições de entrega para empresas específicas
+- Customizar opções de shipping por approval settings
+
+### Melhorias da API v2.10.3
+
+#### Collections API
+
+- **Fix**: Filtragem de collections por ID agora funciona corretamente
+
+#### Cart API
+
+- **Fix**: Tipos opcionais corrigidos para totais de cart items
+- **Fix**: Prevenção de quantidades negativas em line items
+- **Fix**: Melhorias no cálculo de subtotal
+
+#### Promotions API
+
+- **Improvement**: Melhor filtragem de promoções no carrinho
+
+### Documentação Atualizada v2.10.3
+
+Novos guias disponíveis na documentação oficial:
+
+- Como aplicar promoções no carrinho (storefront)
+- Como recuperar totais do carrinho
+- Clarificações sobre autenticação JWT vs Session
+
+---
+
+*Este documento serve como referência rápida para desenvolvimento com as APIs do projeto YSH B2B. Atualizado para Medusa v2.10.3 em Janeiro 2025.*
