@@ -1,9 +1,11 @@
 import { MedusaService } from "@medusajs/framework/utils";
 import { Manufacturer, SKU, DistributorOffer, Kit } from "./models";
+import { CacheManager } from "../../utils/cache-manager";
 
 /**
  * UnifiedCatalogModuleService
  * Serviço para gerenciar catálogo unificado de produtos solares
+ * com otimizações de performance e cache Redis
  */
 class UnifiedCatalogModuleService extends MedusaService({
     Manufacturer,
@@ -11,40 +13,97 @@ class UnifiedCatalogModuleService extends MedusaService({
     DistributorOffer,
     Kit,
 }) {
+    private cacheManager: CacheManager;
+
+    constructor(container: any, config: any) {
+        super(container, config);
+        this.cacheManager = CacheManager.getInstance({
+            keyPrefix: 'ysh:catalog:',
+            defaultTTL: 1800, // 30 minutos para dados de catálogo
+        });
+    }
+
+    // ============================================================================
+    // CACHE KEY GENERATORS
+    // ============================================================================
+
+    private getManufacturersCacheKey(filters: any, config: any): string {
+        return `manufacturers:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
+    }
+
+    private getSKUsCacheKey(filters: any, config: any): string {
+        return `skus:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
+    }
+
+    private getKitsCacheKey(filters: any, config: any): string {
+        return `kits:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
+    }
+
+    private getSKUDetailCacheKey(skuId: string): string {
+        return `sku:detail:${skuId}`;
+    }
+
+    private getKitDetailCacheKey(kitId: string): string {
+        return `kit:detail:${kitId}`;
+    }
+
+    // ============================================================================
+    // MANUFACTURERS WITH CACHE
+    // ============================================================================
 
     /**
-     * Lista manufacturers com filtros
+     * Lista manufacturers com filtros e cache
      */
     async listManufacturersWithFilters(
         filters: { tier?: string; country?: string; is_active?: boolean } = {},
         config: { relations?: string[]; skip?: number; take?: number } = {}
     ) {
-        const where: any = {};
+        const cacheKey = this.getManufacturersCacheKey(filters, config);
 
-        if (filters.tier) where.tier = filters.tier;
-        if (filters.country) where.country = filters.country;
-        if (filters.is_active !== undefined) where.is_active = filters.is_active;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = {};
 
-        return await this.listManufacturers(where, config);
+                if (filters.tier) where.tier = filters.tier;
+                if (filters.country) where.country = filters.country;
+                if (filters.is_active !== undefined) where.is_active = filters.is_active;
+
+                return await this.listManufacturers(where, config);
+            },
+            3600 // 1 hora para manufacturers
+        );
     }
 
     /**
-     * Lista e conta manufacturers
+     * Lista e conta manufacturers com cache
      */
     async listAndCountManufacturersWithFilters(
         filters: { tier?: string; country?: string } = {},
         config: { skip?: number; take?: number } = {}
     ) {
-        const where: any = { is_active: true };
+        const cacheKey = `manufacturers:count:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
 
-        if (filters.tier) where.tier = filters.tier;
-        if (filters.country) where.country = filters.country;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = { is_active: true };
 
-        return await this.listAndCountManufacturers(where, config);
+                if (filters.tier) where.tier = filters.tier;
+                if (filters.country) where.country = filters.country;
+
+                return await this.listAndCountManufacturers(where, config);
+            },
+            1800 // 30 minutos para contagens
+        );
     }
 
+    // ============================================================================
+    // SKUS WITH CACHE AND OPTIMIZATIONS
+    // ============================================================================
+
     /**
-     * Busca SKUs com filtros e relações
+     * Busca SKUs com filtros, relações e cache inteligente
      */
     async listSKUsWithFilters(
         filters: {
@@ -55,25 +114,33 @@ class UnifiedCatalogModuleService extends MedusaService({
         } = {},
         config: { relations?: string[]; skip?: number; take?: number } = {}
     ) {
-        const where: any = {};
+        const cacheKey = this.getSKUsCacheKey(filters, config);
 
-        if (filters.category) where.category = filters.category;
-        if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
-        if (filters.sku_code) {
-            where.sku_code = Array.isArray(filters.sku_code)
-                ? { $in: filters.sku_code }
-                : filters.sku_code;
-        }
-        if (filters.is_active !== undefined) where.is_active = filters.is_active;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = {};
 
-        // Por padrão incluir manufacturer
-        const relations = config.relations || ["manufacturer"];
+                if (filters.category) where.category = filters.category;
+                if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
+                if (filters.sku_code) {
+                    where.sku_code = Array.isArray(filters.sku_code)
+                        ? { $in: filters.sku_code }
+                        : filters.sku_code;
+                }
+                if (filters.is_active !== undefined) where.is_active = filters.is_active;
 
-        return await this.listSKUs(where, { ...config, relations });
+                // Otimizar relações - incluir apenas manufacturer por padrão
+                const relations = config.relations || ["manufacturer"];
+
+                return await this.listSKUs(where, { ...config, relations });
+            },
+            1800 // 30 minutos para listagens de SKUs
+        );
     }
 
     /**
-     * Lista SKUs com contagem (formato Medusa padrão)
+     * Lista SKUs com contagem otimizada
      */
     async listAndCountSKUsWithFilters(
         filters: {
@@ -85,69 +152,67 @@ class UnifiedCatalogModuleService extends MedusaService({
         } = {},
         config: { skip?: number; take?: number; relations?: string[] } = {}
     ) {
-        const where: any = { is_active: true };
+        const cacheKey = `skus:count:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
 
-        if (filters.category) where.category = filters.category;
-        if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
-        if (filters.is_active !== undefined) where.is_active = filters.is_active;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = { is_active: true };
 
-        // Price range filters
-        if (filters.min_price !== undefined || filters.max_price !== undefined) {
-            where.lowest_price = {};
-            if (filters.min_price !== undefined) where.lowest_price.$gte = filters.min_price;
-            if (filters.max_price !== undefined) where.lowest_price.$lte = filters.max_price;
-        }
+                if (filters.category) where.category = filters.category;
+                if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
+                if (filters.is_active !== undefined) where.is_active = filters.is_active;
 
-        const relations = config.relations || ["manufacturer"];
+                // Otimizar filtros de preço
+                if (filters.min_price !== undefined || filters.max_price !== undefined) {
+                    where.lowest_price = {};
+                    if (filters.min_price !== undefined) where.lowest_price.$gte = filters.min_price;
+                    if (filters.max_price !== undefined) where.lowest_price.$lte = filters.max_price;
+                }
 
-        return await this.listAndCountSKUs(where, { ...config, relations });
+                const relations = config.relations || ["manufacturer"];
+
+                return await this.listAndCountSKUs(where, { ...config, relations });
+            },
+            900 // 15 minutos para contagens (dados mais dinâmicos)
+        );
     }
 
     /**
-     * Busca um SKU por ID ou código
+     * Busca um SKU por ID ou código com cache
      */
     async retrieveSKUByIdOrCode(skuId: string, config: { relations?: string[] } = {}) {
-        const relations = config.relations || ["manufacturer", "offers"];
+        const cacheKey = this.getSKUDetailCacheKey(skuId);
 
-        // Try by ID first
-        let sku = await this.retrieveSKU(skuId, { relations }).catch(() => null);
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const relations = config.relations || ["manufacturer", "offers"];
 
-        // If not found, try by sku_code
-        if (!sku) {
-            const skus = await this.listSKUs(
-                { sku_code: skuId },
-                { relations, take: 1 }
-            );
-            sku = skus[0] || null;
-        }
+                // Try by ID first
+                let sku = await this.retrieveSKU(skuId, { relations }).catch(() => null);
 
-        return sku;
+                // If not found, try by sku_code
+                if (!sku) {
+                    const skus = await this.listSKUs(
+                        { sku_code: skuId },
+                        { relations, take: 1 }
+                    );
+                    sku = skus[0] || null;
+                }
+
+                return sku;
+            },
+            3600 // 1 hora para detalhes de SKU
+        );
     }
 
-    /**
-     * Lista ofertas de distribuidores
-     */
-    async listDistributorOffersWithFilters(
-        filters: {
-            sku_id?: string;
-            distributor_slug?: string;
-            stock_status?: string;
-        } = {},
-        config: { orderBy?: Record<string, "ASC" | "DESC"> } = {}
-    ) {
-        const where: any = {};
-
-        if (filters.sku_id) where.sku_id = filters.sku_id;
-        if (filters.distributor_slug) where.distributor_slug = filters.distributor_slug;
-        if (filters.stock_status) where.stock_status = filters.stock_status;
-
-        const orderBy = config.orderBy || { price: "ASC" };
-
-        return await this.listDistributorOffers(where, { order: orderBy });
-    }
+    // ============================================================================
+    // KITS WITH CACHE AND OPTIMIZATIONS
+    // ============================================================================
 
     /**
-     * Lista kits com filtros
+     * Lista kits com filtros e cache
      */
     async listKitsWithFilters(
         filters: {
@@ -158,22 +223,30 @@ class UnifiedCatalogModuleService extends MedusaService({
         } = {},
         config: { skip?: number; take?: number } = {}
     ) {
-        const where: any = { is_active: true };
+        const cacheKey = this.getKitsCacheKey(filters, config);
 
-        if (filters.category) where.category = filters.category;
-        if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = { is_active: true };
 
-        if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
-            where.system_capacity_kwp = {};
-            if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
-            if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
-        }
+                if (filters.category) where.category = filters.category;
+                if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
 
-        return await this.listKits(where, config);
+                if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
+                    where.system_capacity_kwp = {};
+                    if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
+                    if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
+                }
+
+                return await this.listKits(where, config);
+            },
+            1800 // 30 minutos para kits
+        );
     }
 
     /**
-     * Lista kits com contagem (formato Medusa padrão)
+     * Lista kits com contagem otimizada
      */
     async listAndCountKitsWithFilters(
         filters: {
@@ -184,163 +257,90 @@ class UnifiedCatalogModuleService extends MedusaService({
         } = {},
         config: { skip?: number; take?: number } = {}
     ) {
-        const where: any = { is_active: true };
+        const cacheKey = `kits:count:${JSON.stringify(filters)}:${JSON.stringify(config)}`;
 
-        if (filters.category) where.category = filters.category;
-        if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                const where: any = { is_active: true };
 
-        if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
-            where.system_capacity_kwp = {};
-            if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
-            if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
-        }
+                if (filters.category) where.category = filters.category;
+                if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
 
-        return await this.listAndCountKits(where, config);
+                if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
+                    where.system_capacity_kwp = {};
+                    if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
+                    if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
+                }
+
+                return await this.listAndCountKits(where, config);
+            },
+            900 // 15 minutos para contagens de kits
+        );
     }
 
     /**
-     * Busca um kit por ID ou código
+     * Busca um kit por ID ou código com cache
      */
     async retrieveKitByIdOrCode(kitId: string) {
-        // Try by ID first
-        let kit = await this.retrieveKit(kitId).catch(() => null);
+        const cacheKey = this.getKitDetailCacheKey(kitId);
 
-        // If not found, try by kit_code using a different approach
-        if (!kit) {
-            const kits = await this.listKitsWithFilters(
-                {}, // No filters, we'll filter manually
-                { take: 100 } // Reasonable limit
-            );
-            kit = kits.find(k => k.kit_code === kitId) || null;
-        }
+        return await this.cacheManager.getOrSet(
+            cacheKey,
+            async () => {
+                // Try by ID first
+                let kit = await this.retrieveKit(kitId).catch(() => null);
 
-        return kit;
-    }
+                // If not found, try by kit_code using a different approach
+                if (!kit) {
+                    const kits = await this.listKitsWithFilters(
+                        {}, // No filters, we'll filter manually
+                        { take: 100 } // Reasonable limit
+                    );
+                    kit = kits.find(k => k.kit_code === kitId) || null;
+                }
 
-    /**
-     * Atualiza estatísticas de pricing de um SKU
-     */
-    async updateSKUPricingStats(skuId: string) {
-        const offers = await this.listDistributorOffers({ sku_id: skuId });
-
-        if (!offers || offers.length === 0) {
-            return;
-        }
-
-        const prices = offers.map(o => o.price).sort((a, b) => a - b);
-        const lowest = prices[0];
-        const highest = prices[prices.length - 1];
-        const average = prices.reduce((sum, p) => sum + p, 0) / prices.length;
-
-        // Calculate median
-        const mid = Math.floor(prices.length / 2);
-        const median = prices.length % 2 === 0
-            ? (prices[mid - 1] + prices[mid]) / 2
-            : prices[mid];
-
-        await this.updateSKUs([{
-            id: skuId,
-            lowest_price: lowest,
-            highest_price: highest,
-            average_price: average,
-            median_price: median,
-            total_offers: offers.length,
-            price_variation_pct: highest > 0 ? ((highest - lowest) / highest) * 100 : 0,
-        }]);
-    }
-
-    /**
-     * Busca SKUs com filtros avançados
-     */
-    async searchSKUs(filters: {
-        category?: string;
-        manufacturer_id?: string;
-        min_price?: number;
-        max_price?: number;
-        search?: string;
-    }) {
-        return await this.listSKUs(filters, { relations: ["manufacturer"] });
-    }
-
-    /**
-     * Obtém SKU com todas as ofertas de distribuidores
-     */
-    async getSKUWithOffers(skuId: string) {
-        const sku = await this.retrieveSKUByIdOrCode(skuId, { relations: ["manufacturer"] });
-        const offers = await this.listDistributorOffers(
-            { sku_id: sku?.id },
-            { order: { price: "ASC" } }
-        );
-
-        return { sku, offers };
-    }
-
-    /**
-     * Compara preços de um SKU entre distribuidores
-     */
-    async compareSKUPrices(skuId: string) {
-        const { sku, offers } = await this.getSKUWithOffers(skuId);
-
-        if (!offers || offers.length === 0) {
-            return {
-                sku,
-                offers: [],
-                comparison: null,
-            };
-        }
-
-        const prices = offers.map(o => o.price);
-        const lowest = Math.min(...prices);
-        const highest = Math.max(...prices);
-        const average = prices.reduce((sum, p) => sum + p, 0) / prices.length;
-
-        const savings = highest - lowest;
-        const savingsPct = ((savings / highest) * 100).toFixed(2);
-
-        return {
-            sku,
-            offers: offers.map(offer => ({
-                ...offer,
-                is_best_price: offer.price === lowest,
-                savings_vs_highest: (highest - offer.price).toFixed(2),
-                price_difference_pct: (((offer.price - lowest) / lowest) * 100).toFixed(2),
-            })),
-            comparison: {
-                lowest_price: lowest,
-                highest_price: highest,
-                average_price: average.toFixed(2),
-                max_savings: savings.toFixed(2),
-                max_savings_pct: savingsPct,
-                total_offers: offers.length,
+                return kit;
             },
-        };
+            3600 // 1 hora para detalhes de kit
+        );
+    }
+
+    // ============================================================================
+    // CACHE MANAGEMENT METHODS
+    // ============================================================================
+
+    /**
+     * Limpa cache relacionado a manufacturers
+     */
+    async clearManufacturersCache(): Promise<void> {
+        await this.cacheManager.invalidateByPattern('manufacturers:*');
     }
 
     /**
-     * Busca kits por capacidade e categoria
+     * Limpa cache relacionado a SKUs
      */
-    async searchKits(filters: {
-        category?: string;
-        min_capacity?: number;
-        max_capacity?: number;
-        target_consumer_class?: string;
-    }) {
-        return await this.listKitsWithFilters({
-            category: filters.category,
-            target_consumer_class: filters.target_consumer_class,
-            min_capacity: filters.min_capacity,
-            max_capacity: filters.max_capacity,
-        });
+    async clearSKUsCache(): Promise<void> {
+        await this.cacheManager.invalidateByPattern('skus:*');
+        await this.cacheManager.invalidateByPattern('sku:detail:*');
     }
 
     /**
-     * Obtém kit com componentes expandidos
+     * Limpa cache relacionado a kits
      */
-    async getKitWithComponents(kitId: string) {
-        const kit = await this.retrieveKitByIdOrCode(kitId);
+    async clearKitsCache(): Promise<void> {
+        await this.cacheManager.invalidateByPattern('kits:*');
+        await this.cacheManager.invalidateByPattern('kit:detail:*');
+    }
 
-        if (!kit) return null;
+    /**
+     * Limpa todo o cache do catálogo
+     */
+    async clearAllCache(): Promise<void> {
+        await this.cacheManager.invalidateByPattern('ysh:catalog:*');
+    }
 
+    /**
         // Components é um JSON array
         const components = kit.components as any[];
         const skuIds = components.map(c => c.sku_id).filter(Boolean);

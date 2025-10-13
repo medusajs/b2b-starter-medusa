@@ -15,7 +15,6 @@ import { HttpTypes, StoreCart } from "@medusajs/types"
 import { cartToastDispatcher } from "@/lib/toasts/cart-toasts"
 import { B2BCart } from "@/types/global"
 import { track } from "@vercel/analytics/server"
-import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import {
     getAuthHeaders,
@@ -120,7 +119,7 @@ export async function getOrSetCart(countryCode: string) {
             setCartId(cartResp.cart.id)
 
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
 
             cart = await retrieveCart()
         } catch (error) {
@@ -133,7 +132,7 @@ export async function getOrSetCart(countryCode: string) {
         try {
             await sdk.store.cart.update((cart as any).id, { region_id: region.id }, {}, headers)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
         } catch (error) {
             console.warn("[getOrSetCart] Failed to update region, continuing:", error)
         }
@@ -177,9 +176,9 @@ export async function addToCart({
         if (!response.fromQueue) {
             // Success - revalidate cache
             const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+            // revalidateTag(fulfillmentCacheTag)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
 
             // Show success toast
             cartToastDispatcher.addToCartSuccess(
@@ -221,9 +220,9 @@ export async function addToCartBulk({
 
         if (!response.fromQueue) {
             const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+            // revalidateTag(fulfillmentCacheTag)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
 
             // Show success toast
             cartToastDispatcher.addToCartBulkSuccess(lineItems.length)
@@ -265,9 +264,9 @@ export async function updateLineItem({
 
         if (!response.fromQueue) {
             const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+            // revalidateTag(fulfillmentCacheTag)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
         }
 
         return response
@@ -298,9 +297,9 @@ export async function deleteLineItem(lineId: string) {
 
         if (!response.fromQueue) {
             const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+            // revalidateTag(fulfillmentCacheTag)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
 
             // Show success toast
             cartToastDispatcher.removeItemSuccess(
@@ -333,9 +332,9 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
 
         if (!response.fromQueue) {
             const fulfillmentCacheTag = await getCacheTag("fulfillment")
-            revalidateTag(fulfillmentCacheTag)
+            // revalidateTag(fulfillmentCacheTag)
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
         }
 
         return response
@@ -357,9 +356,9 @@ export async function createCartApproval(cartId: string, createdBy: string) {
 
         if (!response.fromQueue) {
             const cartCacheTag = await getCacheTag("carts")
-            revalidateTag(cartCacheTag)
+            // revalidateTag(cartCacheTag)
             const approvalsCacheTag = await getCacheTag("approvals")
-            revalidateTag(approvalsCacheTag)
+            // revalidateTag(approvalsCacheTag)
 
             // Show success toast
             cartToastDispatcher.approvalCreated()
@@ -390,7 +389,7 @@ export async function emptyCart() {
     }
 
     const cartCacheTag = await getCacheTag("carts")
-    revalidateTag(cartCacheTag)
+    // revalidateTag(cartCacheTag)
 }
 
 /**
@@ -412,7 +411,7 @@ export async function setShippingMethod({
             .addShippingMethod(cartId, { option_id: shippingMethodId }, {}, headers)
             .then(async () => {
                 const cartCacheTag = await getCacheTag("carts")
-                revalidateTag(cartCacheTag)
+                // revalidateTag(cartCacheTag)
             })
     } catch (error) {
         console.error("[setShippingMethod] Failed:", error)
@@ -439,7 +438,7 @@ export async function initiatePaymentSession(
             .initiatePaymentSession(cart as unknown as StoreCart, data, {}, headers)
             .then(async (resp) => {
                 const cartCacheTag = await getCacheTag("carts")
-                revalidateTag(cartCacheTag)
+                // revalidateTag(cartCacheTag)
                 return resp
             })
     } catch (error) {
@@ -461,9 +460,9 @@ export async function applyPromotions(codes: string[]) {
         await updateCart({ promo_codes: codes })
             .then(async () => {
                 const cartCacheTag = await getCacheTag("carts")
-                revalidateTag(cartCacheTag)
+                // revalidateTag(cartCacheTag)
                 const fulfillmentCacheTag = await getCacheTag("fulfillment")
-                revalidateTag(fulfillmentCacheTag)
+                // revalidateTag(fulfillmentCacheTag)
 
                 // Show success toast for each code
                 codes.forEach(code => {
@@ -508,9 +507,9 @@ export async function placeOrder(
             order_id: response.order.id,
         })
 
-        revalidateTag(cartsTag)
-        revalidateTag(ordersTag)
-        revalidateTag(approvalsTag)
+        // revalidateTag(cartsTag)
+        // revalidateTag(ordersTag)
+        // revalidateTag(approvalsTag)
 
         // Show success toast
         cartToastDispatcher.orderPlaced()

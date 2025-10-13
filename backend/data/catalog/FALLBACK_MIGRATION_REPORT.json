@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-10-13T14:35:22.617Z",
+  "summary": {
+    "total_files_processed": 12,
+    "total_products_processed": 1061,
+    "total_products_migrated": 1061,
+    "migration_success_rate": "100.0%"
+  },
+  "files": [
+    {
+      "processed": 12,
+      "migrated": 12
+    },
+    {
+      "processed": 6,
+      "migrated": 6
+    },
+    {
+      "processed": 53,
+      "migrated": 53
+    },
+    {
+      "processed": 38,
+      "migrated": 38
+    },
+    {
+      "processed": 82,
+      "migrated": 82
+    },
+    {
+      "processed": 454,
+      "migrated": 454
+    },
+    {
+      "processed": 334,
+      "migrated": 334
+    },
+    {
+      "processed": 6,
+      "migrated": 6
+    },
+    {
+      "processed": 29,
+      "migrated": 29
+    },
+    {
+      "processed": 6,
+      "migrated": 6
+    },
+    {
+      "processed": 1,
+      "migrated": 1
+    },
+    {
+      "processed": 40,
+      "migrated": 40
+    }
+  ],
+  "notes": [
+    "Dados migrados dos fallback exports com melhor sincronização de imagens",
+    "Produtos normalizados para schema v2.0.0",
+    "Campos obrigatórios garantidos",
+    "URLs de imagem corrigidas para formato web"
+  ]
+}

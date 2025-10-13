@@ -2,9 +2,9 @@
 
 import { setBillingAddress, updateCart } from "@/lib/data/cart-resilient"
 import compareAddresses from "@/lib/util/compare-addresses"
-import BillingAddressForm from "@/modules/checkout/components/billing-address-form"
-import ErrorMessage from "@/modules/checkout/components/error-message"
-import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import BillingAddressForm from "@/modules/purchase/checkout/components/billing-address-form"
+import ErrorMessage from "@/modules/purchase/checkout/components/error-message"
+import { SubmitButton } from "@/modules/purchase/checkout/components/submit-button"
 import CheckboxWithLabel from "@/modules/common/components/checkbox"
 import Divider from "@/modules/common/components/divider"
 import { B2BCart } from "@/types"

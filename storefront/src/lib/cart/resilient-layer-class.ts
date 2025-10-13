@@ -15,7 +15,7 @@ import { resilientClient, type ResilientResponse } from "@/lib/http"
 import { HttpTypes } from "@medusajs/types"
 import { B2BCart } from "@/types/global"
 import { getCacheTag } from "@/lib/data/cookies"
-import { revalidateTag } from "next/cache"
+// import { // revalidateTag } from "next/cache"
 
 // ==========================================
 // Types
@@ -563,9 +563,9 @@ export class CartResilientLayer {
      */
     private async revalidateCartCache(): Promise<void> {
         const cartCacheTag = await getCacheTag("carts")
-        revalidateTag(cartCacheTag)
+        // revalidateTag(cartCacheTag)
         const fulfillmentCacheTag = await getCacheTag("fulfillment")
-        revalidateTag(fulfillmentCacheTag)
+        // revalidateTag(fulfillmentCacheTag)
     }
 
     /**
@@ -573,6 +573,6 @@ export class CartResilientLayer {
      */
     private async revalidateApprovalsCache(): Promise<void> {
         const approvalsCacheTag = await getCacheTag("approvals")
-        revalidateTag(approvalsCacheTag)
+        // revalidateTag(approvalsCacheTag)
     }
 }

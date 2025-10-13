@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Visual - Otimização Conservadora</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+        .header h1 {
+            font-size: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .header p {
+            color: #888;
+            font-size: 18px;
+        }
+        .summary {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #333;
+        }
+        .summary h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .summary-item {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .summary-item .label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .summary-item .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .comparison-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+        }
+        .comparison-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #333;
+        }
+        .card-header {
+            background: #667eea;
+            padding: 20px;
+        }
+        .card-header h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .card-header .meta {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .images-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: #0a0a0a;
+        }
+        .image-panel {
+            background: #000;
+            position: relative;
+        }
+        .image-panel.old { background: #1a0a0a; }
+        .image-panel.new { background: #0a1a0a; }
+        .image-label {
+            background: rgba(0,0,0,0.8);
+            padding: 12px 20px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+        .image-label.old { background: #8b3a3a; }
+        .image-label.new { background: #3a8b5b; }
+        .image-wrapper {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #333;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        .metrics-panel {
+            padding: 20px;
+            background: #2a2a2a;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .metric {
+            text-align: center;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 8px;
+        }
+        .metric .label {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .metric .value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .metric .value.good { color: #4ade80; }
+        .metric .value.warning { color: #fbbf24; }
+        .metric .value.bad { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Teste Visual de Qualidade</h1>
+        <p>Comparação: Otimização Agressiva × Conservadora</p>
+        <p><small>Gerado em 13/10/2025 às 11:35:03</small></p>
+    </div>
+
+    <div class="summary">
+        <h2>📊 Resumo dos Testes</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="label">Imagens Testadas</div>
+                <div class="value">8</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">SSIM Médio</div>
+                <div class="value">1.0000</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Contraste Preservado</div>
+                <div class="value">0.0%</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Redução Antiga</div>
+                <div class="value">40.6%</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Redução Nova</div>
+                <div class="value">-4.2%</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comparison-grid">
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>112369</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/112369.webp" alt="112369 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/112369-new.webp" alt="112369 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">13.5 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">35.5 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>124358</h3>
+                <div class="meta">STRUCTURES | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/124358.webp" alt="124358 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/124358-new.webp" alt="124358 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">274.9 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">344.1 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>152147</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/152147.webp" alt="152147 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/152147-new.webp" alt="152147 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">9.9 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">30.1 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>192576</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/192576.webp" alt="192576 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/192576-new.webp" alt="192576 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">28.3 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">47.7 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>246764</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/246764.webp" alt="246764 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/246764-new.webp" alt="246764 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">13.5 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">20.9 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>276954</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/276954.webp" alt="276954 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/276954-new.webp" alt="276954 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">20.7 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">54.8 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>289241</h3>
+                <div class="meta">INVERTERS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/289241.webp" alt="289241 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/289241-new.webp" alt="289241 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">17.5 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">23.6 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-card">
+            <div class="card-header">
+                <h3>299586</h3>
+                <div class="meta">PANELS | Quality: 98</div>
+            </div>
+            <div class="images-row">
+                <div class="image-panel old">
+                    <div class="image-label old">Otimização ANTIGA (Agressiva)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-intelligent-optimized/299586.webp" alt="299586 - Antiga">
+                    </div>
+                </div>
+                <div class="image-panel new">
+                    <div class="image-label new">Otimização NOVA (Conservadora)</div>
+                    <div class="image-wrapper">
+                        <img src="/static/images-test-comparison/299586-new.webp" alt="299586 - Nova">
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-panel">
+                <div class="metric">
+                    <div class="label">SSIM</div>
+                    <div class="value good">1.0000</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Contraste</div>
+                    <div class="value good">+0.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Antigo</div>
+                    <div class="value">107.3 KB</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Tamanho Novo</div>
+                    <div class="value">183.8 KB</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 import { isStripe as isStripeFunc, paymentInfoMap } from "@/lib/constants"
 import { initiatePaymentSession } from "@/lib/data/cart-resilient"
 import ErrorMessage from "../error-message"
-import PaymentContainer from "@/modules/checkout/components/payment-container"
+import PaymentContainer from "@/modules/purchase/checkout/components/payment-container"
 import Button from "@/modules/common/components/button"
 import Divider from "@/modules/common/components/divider"
 import { ApprovalStatusType } from "@/types"

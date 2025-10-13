@@ -2,21 +2,15 @@
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
     "name": "Estrutura Solar Group Fibrocimento Grande",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 103,00",
-    "image": "/catalog/images/ODEX-STRUCTURES/313801.jpg",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Fibrocimento Grande",
-    "image_upscale_factor": 1,
-    "processing_date": "2025-10-07T03:10:52.288225",
-    "pricing": {
+    "sku": "FIBROCIMENTO",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 103,
       "price_brl": 103,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -33,32 +27,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "F",
-    "technical_specs": {},
-    "price_brl": 103
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Fibrocimento Grande",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
     "name": "Estrutura Solar Group Fibrocimento Pequeno",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 98,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Fibrocimento Pequeno",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 98,
       "price_brl": 98,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -75,34 +68,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "F",
-    "technical_specs": {},
-    "price_brl": 98
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Fibrocimento Pequeno",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
     "name": "Estrutura Solar Group Colonial Cerâmico",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 145,00",
-    "image": "/catalog/images/ODEX-STRUCTURES/313834.jpg",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Colonial Cerâmico",
-    "image_upscale_factor": 1,
-    "processing_date": "2025-10-07T03:10:52.288225",
-    "pricing": {
+    "sku": "COLONIAL",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 145,
       "price_brl": 145,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -119,32 +109,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "C",
-    "technical_specs": {},
-    "price_brl": 145
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Colonial Cerâmico",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
     "name": "Estrutura Solar Group Metálico Trapezoidal",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 112,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Metálico Trapezoidal",
-    "pricing": {
+    "sku": "METALICO",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 112,
       "price_brl": 112,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -161,32 +150,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "M",
-    "technical_specs": {},
-    "price_brl": 112
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Metálico Trapezoidal",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
     "name": "Estrutura Solar Group Solo Fixo",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 1.250,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Solo Fixo",
-    "pricing": {
+    "sku": "SOLO",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 1250,
       "price_brl": 1250,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -203,32 +191,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 1250
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Solo Fixo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
     "name": "Estrutura Solar Group Solo Rastreador 1 Eixo",
-    "manufacturer": "Solar Group",
-    "model": "",
     "category": "structures",
-    "price": "R$ 3.890,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Solar Group Solo Rastreador 1 Eixo",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+    "manufacturer": "Solar Group",
+    "price_brl": {
       "price": 3890,
       "price_brl": 3890,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -245,32 +232,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 3890
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Solar Group Solo Rastreador 1 Eixo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
     "name": "Estrutura Romagnole Fibrocimento RF-55",
-    "manufacturer": "Romagnole",
-    "model": "",
     "category": "structures",
-    "price": "R$ 109,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Romagnole Fibrocimento RF-55",
-    "pricing": {
+    "sku": "FIBROCIMENTO",
+    "manufacturer": "Romagnole",
+    "price_brl": {
       "price": 109,
       "price_brl": 109,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -287,32 +273,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "F",
-    "technical_specs": {},
-    "price_brl": 109
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Romagnole Fibrocimento RF-55",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
     "name": "Estrutura Romagnole Colonial Cerâmico RC-66",
-    "manufacturer": "Romagnole",
-    "model": "",
     "category": "structures",
-    "price": "R$ 152,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Romagnole Colonial Cerâmico RC-66",
-    "pricing": {
+    "sku": "COLONIAL",
+    "manufacturer": "Romagnole",
+    "price_brl": {
       "price": 152,
       "price_brl": 152,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -329,32 +314,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "C",
-    "technical_specs": {},
-    "price_brl": 152
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Romagnole Colonial Cerâmico RC-66",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
     "name": "Estrutura Romagnole Metálico Trapezoidal RM-40",
-    "manufacturer": "Romagnole",
-    "model": "",
     "category": "structures",
-    "price": "R$ 118,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Romagnole Metálico Trapezoidal RM-40",
-    "pricing": {
+    "sku": "METALICO",
+    "manufacturer": "Romagnole",
+    "price_brl": {
       "price": 118,
       "price_brl": 118,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -371,32 +355,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "M",
-    "technical_specs": {},
-    "price_brl": 118
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Romagnole Metálico Trapezoidal RM-40",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
     "name": "Estrutura Romagnole Laje Inclinada RL-30",
-    "manufacturer": "Romagnole",
-    "model": "",
     "category": "structures",
-    "price": "R$ 165,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Romagnole Laje Inclinada RL-30",
-    "pricing": {
+    "sku": "LAJE",
+    "manufacturer": "Romagnole",
+    "price_brl": {
       "price": 165,
       "price_brl": 165,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -413,32 +396,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "L",
-    "technical_specs": {},
-    "price_brl": 165
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Romagnole Laje Inclinada RL-30",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
     "name": "Estrutura Romagnole Solo Fixo RS-1500",
-    "manufacturer": "Romagnole",
-    "model": "",
     "category": "structures",
-    "price": "R$ 1.345,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Romagnole Solo Fixo RS-1500",
-    "pricing": {
+    "sku": "SOLO",
+    "manufacturer": "Romagnole",
+    "price_brl": {
       "price": 1345,
       "price_brl": 1345,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -455,32 +437,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 1345
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Romagnole Solo Fixo RS-1500",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
     "name": "Estrutura Pratyc Fibrocimento Grande PRF-60",
-    "manufacturer": "Pratyc",
-    "model": "",
     "category": "structures",
-    "price": "R$ 107,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Pratyc Fibrocimento Grande PRF-60",
-    "pricing": {
+    "sku": "FIBROCIMENTO",
+    "manufacturer": "Pratyc",
+    "price_brl": {
       "price": 107,
       "price_brl": 107,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -497,32 +478,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "F",
-    "technical_specs": {},
-    "price_brl": 107
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Pratyc Fibrocimento Grande PRF-60",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
     "name": "Estrutura Pratyc Colonial Cerâmico PRC-70",
-    "manufacturer": "Pratyc",
-    "model": "",
     "category": "structures",
-    "price": "R$ 149,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Pratyc Colonial Cerâmico PRC-70",
-    "pricing": {
+    "sku": "COLONIAL",
+    "manufacturer": "Pratyc",
+    "price_brl": {
       "price": 149,
       "price_brl": 149,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -539,32 +519,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.417Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "C",
-    "technical_specs": {},
-    "price_brl": 149
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Pratyc Colonial Cerâmico PRC-70",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
     "name": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
-    "manufacturer": "Pratyc",
-    "model": "",
     "category": "structures",
-    "price": "R$ 115,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
-    "pricing": {
+    "sku": "METALICO",
+    "manufacturer": "Pratyc",
+    "price_brl": {
       "price": 115,
       "price_brl": 115,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -581,32 +560,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "M",
-    "technical_specs": {},
-    "price_brl": 115
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
     "name": "Estrutura Pratyc Laje Plana PRL-25",
-    "manufacturer": "Pratyc",
-    "model": "",
     "category": "structures",
-    "price": "R$ 158,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Pratyc Laje Plana PRL-25",
-    "pricing": {
+    "sku": "LAJE",
+    "manufacturer": "Pratyc",
+    "price_brl": {
       "price": 158,
       "price_brl": 158,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -623,34 +601,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "L",
-    "technical_specs": {},
-    "price_brl": 158
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Pratyc Laje Plana PRL-25",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
     "name": "Estrutura Pratyc Solo Fixo PRS-1600",
-    "manufacturer": "Pratyc",
-    "model": "",
     "category": "structures",
-    "price": "R$ 1.399,00",
-    "image": "/catalog/images/ODEX-STRUCTURES/124358.jpg",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura Pratyc Solo Fixo PRS-1600",
-    "image_upscale_factor": 1,
-    "processing_date": "2025-10-07T03:10:52.288225",
-    "pricing": {
+    "sku": "SOLO",
+    "manufacturer": "Pratyc",
+    "price_brl": {
       "price": 1399,
       "price_brl": 1399,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -667,32 +642,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 1399
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura Pratyc Solo Fixo PRS-1600",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
     "name": "Estrutura K2 Systems SingleRail Fibrocimento",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 185,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems SingleRail Fibrocimento",
-    "pricing": {
+    "sku": "FIBROCIMENTO",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 185,
       "price_brl": 185,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -709,32 +683,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 185
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems SingleRail Fibrocimento",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
     "name": "Estrutura K2 Systems SingleRail Colonial",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 198,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems SingleRail Colonial",
-    "pricing": {
+    "sku": "COLONIAL",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 198,
       "price_brl": 198,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -751,32 +724,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 198
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems SingleRail Colonial",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
     "name": "Estrutura K2 Systems SingleRail Metálico",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 175,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems SingleRail Metálico",
-    "pricing": {
+    "sku": "METALICO",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 175,
       "price_brl": 175,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -793,32 +765,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 175
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems SingleRail Metálico",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
     "name": "Estrutura K2 Systems CrossRail Solo Fixo",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 2.250,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems CrossRail Solo Fixo",
-    "pricing": {
+    "sku": "SOLO",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 2250,
       "price_brl": 2250,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -835,32 +806,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "C",
-    "technical_specs": {},
-    "price_brl": 2250
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems CrossRail Solo Fixo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
     "name": "Estrutura K2 Systems MiniRail Laje",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 189,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems MiniRail Laje",
-    "pricing": {
+    "sku": "LAJE",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 189,
       "price_brl": 189,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -877,32 +847,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.616Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "M",
-    "technical_specs": {},
-    "price_brl": 189
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems MiniRail Laje",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
     "name": "Estrutura K2 Systems BaseRail Plus Universal",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 203,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems BaseRail Plus Universal",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 203,
       "price_brl": 203,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -919,32 +888,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "B",
-    "technical_specs": {},
-    "price_brl": 203
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems BaseRail Plus Universal",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
     "name": "Estrutura K2 Systems Dome 6° Solo",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 1.890,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems Dome 6° Solo",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 1890,
       "price_brl": 1890,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -961,32 +929,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "D",
-    "technical_specs": {},
-    "price_brl": 1890
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems Dome 6° Solo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
     "name": "Estrutura K2 Systems Dome 10° Solo",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 2.150,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems Dome 10° Solo",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 2150,
       "price_brl": 2150,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -1003,32 +970,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "D",
-    "technical_specs": {},
-    "price_brl": 2150
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems Dome 10° Solo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
     "name": "Estrutura K2 Systems D-Dome 6° Solo",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 2.450,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems D-Dome 6° Solo",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 2450,
       "price_brl": 2450,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -1045,32 +1011,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "D",
-    "technical_specs": {},
-    "price_brl": 2450
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems D-Dome 6° Solo",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
     "name": "Estrutura K2 Systems Solo Rastreador XL",
-    "manufacturer": "K2 Systems",
-    "model": "",
     "category": "structures",
-    "price": "R$ 4.250,00",
-    "image": "",
-    "source": "plataforma.odex.com.br",
-    "availability": true,
-    "description": "Estrutura K2 Systems Solo Rastreador XL",
-    "pricing": {
+    "sku": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
+    "manufacturer": "K2 Systems",
+    "price_brl": {
       "price": 4250,
       "price_brl": 4250,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "odex-structures.json",
@@ -1087,31 +1052,31 @@
       "distributor": "ODEX",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "power": null,
-    "distributor": "ODEX",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "S",
-    "technical_specs": {},
-    "price_brl": 4250
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "Estrutura K2 Systems Solo Rastreador XL",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_1",
     "name": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
-    "manufacturer": "SOLFACIL",
     "category": "structures",
-    "price": "R$ 262,86",
-    "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_401949.png",
-    "source": "loja.solfacil.com.br",
-    "availability": true,
-    "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
-    "pricing": {
+    "sku": "solfacil_structures_1",
+    "manufacturer": "SOLFACIL",
+    "price_brl": {
       "price": 262.86,
       "price_brl": 262.86,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "solfacil-structures.json",
@@ -1124,28 +1089,31 @@
       "normalized_at": "2025-10-07T05:03:13.694687",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "image_url": "/images/placeholder-structure.jpg",
-    "price_brl": 262.86,
-    "model": ""
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_2",
     "name": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
-    "manufacturer": "SOLFACIL",
     "category": "structures",
-    "price": "R$ 684,70",
-    "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400187.png",
-    "source": "loja.solfacil.com.br",
-    "availability": true,
-    "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
-    "pricing": {
+    "sku": "solfacil_structures_2",
+    "manufacturer": "SOLFACIL",
+    "price_brl": {
       "price": 684.7,
       "price_brl": 684.7,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "solfacil-structures.json",
@@ -1158,28 +1126,31 @@
       "normalized_at": "2025-10-07T05:03:13.694688",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "image_url": "/images/placeholder-structure.jpg",
-    "price_brl": 684.7,
-    "model": ""
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_3",
     "name": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
-    "manufacturer": "SOLFACIL",
     "category": "structures",
-    "price": "R$ 732,72",
-    "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400188.png",
-    "source": "loja.solfacil.com.br",
-    "availability": true,
-    "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
-    "pricing": {
+    "sku": "solfacil_structures_3",
+    "manufacturer": "SOLFACIL",
+    "price_brl": {
       "price": 732.72,
       "price_brl": 732.72,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "solfacil-structures.json",
@@ -1192,28 +1163,31 @@
       "normalized_at": "2025-10-07T05:03:13.694689",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "image_url": "/images/placeholder-structure.jpg",
-    "price_brl": 732.72,
-    "model": ""
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_4",
     "name": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
-    "manufacturer": "SOLFACIL",
     "category": "structures",
-    "price": "R$ 1.433,88",
-    "image": "/catalog/images/SOLFACIL-STRUCTURES/IMAGE_PRODUCT_400190.png",
-    "source": "loja.solfacil.com.br",
-    "availability": true,
-    "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
-    "pricing": {
+    "sku": "solfacil_structures_4",
+    "manufacturer": "SOLFACIL",
+    "price_brl": {
       "price": 1433.88,
       "price_brl": 1433.88,
       "currency": "BRL"
     },
+    "technical_specs": {},
     "metadata": {
       "source": "consolidated",
       "source_file": "solfacil-structures.json",
@@ -1226,24 +1200,31 @@
       "normalized_at": "2025-10-07T05:03:13.694690",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "image_url": "/images/placeholder-structure.jpg",
-    "price_brl": 1433.88,
-    "model": ""
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_3",
     "name": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+    "category": "accessories",
+    "sku": "E",
     "manufacturer": "Solfacil",
-    "model": "E",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 68,52",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
-    "series": "FIBROCIMENTO",
+    "price_brl": {
+      "price": 68.52,
+      "price_brl": 68.52,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693114",
@@ -1260,30 +1241,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 68.52,
-      "price_brl": 68.52,
-      "currency": "BRL"
-    },
-    "price_brl": 68.52,
-    "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_5",
     "name": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
+    "category": "accessories",
+    "sku": "P",
     "manufacturer": "Solfacil",
-    "model": "P",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 105,21",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
-    "series": "CERAMICA",
+    "price_brl": {
+      "price": 105.21,
+      "price_brl": 105.21,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693128",
@@ -1300,29 +1282,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 105.21,
-      "price_brl": 105.21,
-      "currency": "BRL"
-    },
-    "price_brl": 105.21,
-    "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_7",
     "name": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
+    "category": "accessories",
+    "sku": "P",
     "manufacturer": "TSUN",
-    "model": "P",
-    "power": null,
-    "distributor": "Solfacil",
-    "price": "R$ 125,58",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
+    "price_brl": {
+      "price": 125.58,
+      "price_brl": 125.58,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "manufacturer_corrected": true,
       "manufacturer_correction_date": "2025-10-07T04:21:23.442384",
@@ -1340,31 +1324,31 @@
       "distributor": "Solfacil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "series": "SUPORTE",
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 125.58,
-      "price_brl": 125.58,
-      "currency": "BRL"
-    },
-    "price_brl": 125.58,
-    "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_8",
     "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
+    "category": "accessories",
+    "sku": "P",
     "manufacturer": "Solfacil",
-    "model": "P",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 129,92",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
-    "series": "SUPORTE",
+    "price_brl": {
+      "price": 129.92,
+      "price_brl": 129.92,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693150",
@@ -1381,29 +1365,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 129.92,
-      "price_brl": 129.92,
-      "currency": "BRL"
-    },
-    "price_brl": 129.92,
-    "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_9",
     "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
+    "category": "accessories",
+    "sku": "P",
     "manufacturer": "TSUN",
-    "model": "P",
-    "power": null,
-    "distributor": "Solfacil",
-    "price": "R$ 146,62",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
+    "price_brl": {
+      "price": 146.62,
+      "price_brl": 146.62,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "manufacturer_corrected": true,
       "manufacturer_correction_date": "2025-10-07T04:21:23.442466",
@@ -1421,31 +1407,31 @@
       "distributor": "Solfacil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "series": "SUPORTE",
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 146.62,
-      "price_brl": 146.62,
-      "currency": "BRL"
-    },
-    "price_brl": 146.62,
-    "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_accessories_10",
     "name": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
+    "category": "accessories",
+    "sku": "P",
     "manufacturer": "Solfacil",
-    "model": "P",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 150,36",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "accessories",
-    "series": "SUPORTE",
+    "price_brl": {
+      "price": 150.36,
+      "price_brl": 150.36,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693172",
@@ -1462,30 +1448,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "accessories",
-    "availability": true,
-    "pricing": {
-      "price": 150.36,
-      "price_brl": 150.36,
-      "currency": "BRL"
-    },
-    "price_brl": 150.36,
-    "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_1",
     "name": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
+    "category": "structures",
+    "sku": "LAJE",
     "manufacturer": "Solfacil",
-    "model": "LAJE",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 262,86",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "DE",
+    "price_brl": {
+      "price": 262.86,
+      "price_brl": 262.86,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693182",
@@ -1502,30 +1489,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "structures",
-    "availability": true,
-    "pricing": {
-      "price": 262.86,
-      "price_brl": 262.86,
-      "currency": "BRL"
-    },
-    "price_brl": 262.86,
-    "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_2",
     "name": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
+    "category": "structures",
+    "sku": "-",
     "manufacturer": "Solfacil",
-    "model": "-",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 684,70",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "METALICA",
+    "price_brl": {
+      "price": 684.7,
+      "price_brl": 684.7,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693193",
@@ -1542,30 +1530,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "structures",
-    "availability": true,
-    "pricing": {
-      "price": 684.7,
-      "price_brl": 684.7,
-      "currency": "BRL"
-    },
-    "price_brl": 684.7,
-    "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_3",
     "name": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
+    "category": "structures",
+    "sku": "LAJE",
     "manufacturer": "Solfacil",
-    "model": "LAJE",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 732,72",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "DE",
+    "price_brl": {
+      "price": 732.72,
+      "price_brl": 732.72,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693202",
@@ -1582,30 +1571,31 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "structures",
-    "availability": true,
-    "pricing": {
-      "price": 732.72,
-      "price_brl": 732.72,
-      "currency": "BRL"
-    },
-    "price_brl": 732.72,
-    "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
+        "type": "primary"
+      }
+    ]
   },
   {
     "id": "solfacil_structures_4",
     "name": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
+    "category": "structures",
+    "sku": "-",
     "manufacturer": "Solfacil",
-    "model": "-",
-    "power": null,
-    "distributor": "Solfácil",
-    "price": "R$ 1.433,88",
-    "image_url": "/images/placeholder-structure.jpg",
-    "original_category": "structures",
-    "series": "METALICA",
+    "price_brl": {
+      "price": 1433.88,
+      "price_brl": 1433.88,
+      "currency": "BRL"
+    },
+    "technical_specs": {},
     "metadata": {
       "series_extracted": true,
       "series_extraction_date": "2025-10-07T04:22:26.693213",
@@ -1622,17 +1612,17 @@
       "distributor": "Solfácil",
       "specs_enriched": true,
       "specs_enriched_at": "2025-10-07T16:05:09.418Z",
-      "specs_count": 0
+      "specs_count": 0,
+      "migrated_from_fallback": true,
+      "migrated_at": "2025-10-13T14:35:22.617Z",
+      "version": "2.0.0"
     },
-    "technical_specs": {},
-    "category": "structures",
-    "availability": true,
-    "pricing": {
-      "price": 1433.88,
-      "price_brl": 1433.88,
-      "currency": "BRL"
-    },
-    "price_brl": 1433.88,
-    "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX"
+    "images": [
+      {
+        "url": "/images/placeholder-structure.jpg",
+        "alt": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
+        "type": "primary"
+      }
+    ]
   }
 ]
