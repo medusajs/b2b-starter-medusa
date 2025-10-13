@@ -207,18 +207,18 @@ export async function GET(request: NextRequest) {
   } catch (error: any) {
         '..',
 
-        console.error('[Products API] Error:', error)            '..',
+            console.error('[Products API] Error:', error)            '..',
 
     return NextResponse.json('ysh-erp',
 
-            {
-                'data',
+                {
+                    'data',
 
-                success: false, 'catalog',
+                    success: false, 'catalog',
 
-                error: 'Internal server error', 'unified_schemas',
+                    error: 'Internal server error', 'unified_schemas',
 
-                message: error.message, CATEGORY_FILES[category]
+                    message: error.message, CATEGORY_FILES[category]
 
         stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,        )
 

@@ -212,9 +212,8 @@ export function CartSyncIndicator() {
                     <ul className="space-y-1">
                         {status.operations.slice(0, 3).map((op) => (
                             <li key={op.id} className="text-xs text-gray-600 flex items-center gap-2">
-                                <span className={`w-1.5 h-1.5 rounded-full ${
-                                    op.attempts > 0 ? 'bg-yellow-400' : 'bg-blue-400'
-                                }`} />
+                                <span className={`w-1.5 h-1.5 rounded-full ${op.attempts > 0 ? 'bg-yellow-400' : 'bg-blue-400'
+                                    }`} />
                                 <span className="capitalize">{op.type}</span>
                                 <span className="text-gray-400">
                                     ({op.attempts}/{op.maxAttempts})

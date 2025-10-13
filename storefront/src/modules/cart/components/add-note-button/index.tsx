@@ -83,11 +83,10 @@ const AddNoteButton = ({
         </span>
       )}
       <div
-        className={`absolute left-0 flex text-neutral-600 text-xs transition-all duration-150 items-center justify-center self-center ${
-          isOpen
+        className={`absolute left-0 flex text-neutral-600 text-xs transition-all duration-150 items-center justify-center self-center ${isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        }`}
+          }`}
       >
         <span className="text-neutral-950">Note:&nbsp;</span>
 

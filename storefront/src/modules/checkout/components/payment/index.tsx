@@ -57,7 +57,7 @@ const Payment = ({
       const styles = getComputedStyle(document.documentElement)
       fg = styles.getPropertyValue("--fg").trim() || fg
       muted = styles.getPropertyValue("--muted").trim() || muted
-    } catch {}
+    } catch { }
     return {
       style: {
         base: {
