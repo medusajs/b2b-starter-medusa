@@ -24,9 +24,11 @@ class FinancingModuleService extends MedusaService({
   PaymentSchedule,
 }) {
   private bacenService: BACENFinancingService;
+  private container: any;
 
   constructor(container: any) {
     super(container);
+    this.container = container;
     this.bacenService = new BACENFinancingService();
   }
 

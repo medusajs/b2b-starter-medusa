@@ -47,10 +47,18 @@ describe("Financing Module Integration", () => {
             customer_id: "cust_123",
           });
 
-          companyService.retrieveCompany.mockResolvedValue({
-            id: "comp_123",
-            customer_group_id: "cg_123",
-            name: "Test Company",
+          companyService.checkSpendingLimit.mockResolvedValue({
+            allowed: true,
+            remaining: 100000,
+          });
+
+          // Mock create method
+          financingService.create = jest.fn().mockResolvedValue({
+            id: "fp_123",
+            customer_id: "cust_123",
+            modality: "CDC",
+            requested_amount: 50000,
+            status: "pending",
           });
 
           const proposal = await financingService.createProposal({
