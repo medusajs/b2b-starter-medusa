@@ -227,6 +227,59 @@ class CompanyModuleService extends MedusaService({
     }
     return domain.toLowerCase();
   }
+
+  // Missing methods for financing integration
+  async retrieveEmployeeByCustomerId(customerId: string): Promise<EmployeeDTO | null> {
+    const employees = await this.list("Employee", {
+      where: { customer_id: customerId, is_active: true },
+      relations: ["company"],
+    });
+    return employees[0] || null;
+  }
+
+  async retrieveCompany(id: string): Promise<CompanyDTO | null> {
+    return await this.retrieve("Company", id);
+  }
+
+  async checkSpendingLimit(employeeId: string, amount: number): Promise<{
+    allowed: boolean;
+    reason?: string;
+    remaining?: number;
+  }> {
+    const employee = await this.retrieve("Employee", employeeId);
+    
+    if (!employee) {
+      return { allowed: false, reason: "Employee not found" };
+    }
+
+    // If no spending limit set, allow
+    if (!employee.spending_limit || employee.spending_limit === 0) {
+      return { allowed: true };
+    }
+
+    // Check if amount exceeds limit
+    if (amount > employee.spending_limit) {
+      return {
+        allowed: false,
+        reason: `Amount ${amount} exceeds limit ${employee.spending_limit}`,
+        remaining: employee.spending_limit,
+      };
+    }
+
+    return {
+      allowed: true,
+      remaining: employee.spending_limit - amount,
+    };
+  }
+
+  async listEmployees(filters: { company_id?: string }): Promise<EmployeeDTO[]> {
+    const where: any = { is_active: true };
+    if (filters.company_id) {
+      where.company_id = filters.company_id;
+    }
+    
+    return await this.list("Employee", { where });
+  }
 }
 
 export default CompanyModuleService;

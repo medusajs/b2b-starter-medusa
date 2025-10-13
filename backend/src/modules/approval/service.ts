@@ -167,6 +167,44 @@ class ApprovalModuleService extends MedusaService({
       .update(`${cartId}:${approvalType}`)
       .digest("hex");
   }
+
+  // Missing methods for financing integration
+  async createApproval(data: {
+    cart_id: string;
+    type: string;
+    status: string;
+    created_by: string;
+    cart_total_snapshot?: number;
+    priority?: number;
+  }): Promise<any> {
+    const idempotencyKey = this.generateIdempotencyKey(data.cart_id, data.type);
+    
+    // Check for existing approval
+    const existing = await this.list("Approval", {
+      where: { idempotency_key: idempotencyKey },
+    });
+
+    if (existing.length > 0) {
+      return existing[0]; // Idempotent
+    }
+
+    return await this.create("Approval", {
+      ...data,
+      idempotency_key: idempotencyKey,
+    });
+  }
+
+  async updateApproval(id: string, data: {
+    status?: string;
+    rejection_reason?: string;
+    handled_by?: string;
+    handled_at?: Date;
+  }): Promise<any> {
+    return await this.update("Approval", id, {
+      ...data,
+      handled_at: data.handled_at || new Date(),
+    });
+  }
 }
 
 export default ApprovalModuleService;

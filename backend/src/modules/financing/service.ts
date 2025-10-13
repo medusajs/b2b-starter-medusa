@@ -32,42 +32,68 @@ class FinancingModuleService extends MedusaService({
 
   // CRUD Operations with Integrations
   async createProposal(data: CreateFinancingProposalDTO): Promise<FinancingProposalDTO> {
-    // Run integration workflow
-    const workflowResult = await createFinancingProposalWorkflow(this.container).run({
-      input: {
-        customer_id: data.customer_id,
-        quote_id: data.quote_id,
-        modality: data.modality,
-        requested_amount: data.requested_amount,
-        requested_term_months: data.requested_term_months,
-        down_payment_amount: data.down_payment_amount,
-        amortization_system: data.amortization_system,
-      },
-    });
+    try {
+      // 1. Check spending limits first
+      const companyService = this.container.resolve(COMPANY_MODULE);
+      const employee = await companyService.retrieveEmployeeByCustomerId(data.customer_id);
+      
+      if (employee) {
+        const spendingCheck = await companyService.checkSpendingLimit(
+          employee.id,
+          data.requested_amount
+        );
+        
+        if (!spendingCheck.allowed) {
+          throw new Error(`Spending limit exceeded: ${spendingCheck.reason}`);
+        }
+      }
 
-    const proposalData = {
-      ...data,
-      down_payment_amount: data.down_payment_amount || 0,
-      amortization_system: data.amortization_system || "PRICE",
-      status: "pending" as const,
-    };
+      // 2. Create proposal
+      const proposalData = {
+        ...data,
+        down_payment_amount: data.down_payment_amount || 0,
+        amortization_system: data.amortization_system || "PRICE",
+        status: "pending" as const,
+      };
 
-    const proposal = await this.create("FinancingProposal", proposalData);
+      const proposal = await this.create("FinancingProposal", proposalData);
 
-    // Log audit trail
-    await this.logAuditEvent({
-      entity_type: "financing_proposal",
-      entity_id: proposal.id,
-      action: "created",
-      user_id: data.customer_id,
-      metadata: {
-        workflow_result: workflowResult.result,
-        requested_amount: data.requested_amount,
-        modality: data.modality,
-      },
-    });
+      // 3. Create approval for high-value proposals
+      if (data.requested_amount > 100000) {
+        try {
+          const approvalService = this.container.resolve(APPROVAL_MODULE);
+          await approvalService.createApproval({
+            cart_id: proposal.id,
+            type: "financing_proposal",
+            status: "pending",
+            created_by: data.customer_id,
+            cart_total_snapshot: data.requested_amount,
+            priority: data.requested_amount > 500000 ? 2 : 1,
+          });
+        } catch (error) {
+          console.warn("Failed to create approval:", error);
+        }
+      }
 
-    return proposal;
+      // 4. Log audit trail
+      await this.logAuditEvent({
+        entity_type: "financing_proposal",
+        entity_id: proposal.id,
+        action: "created",
+        user_id: data.customer_id,
+        metadata: {
+          requested_amount: data.requested_amount,
+          modality: data.modality,
+          employee_id: employee?.id,
+          company_id: employee?.company_id,
+        },
+      });
+
+      return proposal;
+    } catch (error) {
+      console.error("Failed to create financing proposal:", error);
+      throw error;
+    }
   }
 
   async updateProposal(data: UpdateFinancingProposalDTO): Promise<FinancingProposalDTO> {
