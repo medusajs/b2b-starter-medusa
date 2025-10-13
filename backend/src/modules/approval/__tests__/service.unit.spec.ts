@@ -239,9 +239,7 @@ describe("ApprovalModuleService", () => {
         });
 
         it("hasPendingApprovals should return consistent results", async () => {
-            mockRepository.listAndCountApprovals_ = jest
-                .fn()
-                .mockResolvedValue([[], 2]);
+            mockRepository.listAndCountApprovals_.mockResolvedValue([[], 2]);
 
             const result1 = await service.hasPendingApprovals("cart1");
             const result2 = await service.hasPendingApprovals("cart1");
