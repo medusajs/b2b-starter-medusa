@@ -26,8 +26,7 @@ export async function NavigationHeader() {
           <div className="flex items-center gap-3 small:gap-4">
             <LocalizedClientLink className="hover:text-ui-fg-base flex items-center min-w-0" href="/">
               <h1 className="small:text-base text-sm font-medium flex items-center min-w-0">
-                <LogoIcon width={28} height={28} className="inline mr-2 flex-shrink-0" />
-                <span className="truncate">Yello Solar Hub</span>
+                <LogoIcon width={100} height={31} className="inline mr-2 flex-shrink-0" />
                 <span className="hidden md:inline-flex ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full whitespace-nowrap">Marketplace Solar</span>
               </h1>
             </LocalizedClientLink>

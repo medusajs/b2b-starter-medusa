@@ -14,8 +14,7 @@ export default function CheckoutLayout({
         <nav className="flex h-full items-center content-container justify-between">
           <LocalizedClientLink className="hover:text-ui-fg-base" href="/">
             <h1 className="text-base font-medium flex items-center">
-              <LogoIcon width={28} height={28} className="inline mr-2" />
-              Yello Solar Hub
+              <LogoIcon width={100} height={31} className="inline mr-2" />
               <span className="ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full">Marketplace Solar</span>
             </h1>
           </LocalizedClientLink>

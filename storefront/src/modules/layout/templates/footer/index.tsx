@@ -19,15 +19,7 @@ export default async function Footer() {
               href="/"
               className="flex items-center gap-3 group"
             >
-              <YelloIcon width={48} height={48} className="flex-shrink-0" />
-              <div className="flex flex-col">
-                <span className="txt-compact-xlarge-plus text-ui-fg-base group-hover:text-ui-fg-interactive font-bold">
-                  yello
-                </span>
-                <span className="txt-compact-small text-ui-fg-subtle">
-                  Solar Hub
-                </span>
-              </div>
+              <YelloIcon width={120} height={37} className="flex-shrink-0" />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">

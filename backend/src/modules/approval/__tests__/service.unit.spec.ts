@@ -16,10 +16,27 @@ import { ApprovalStatusType, ApprovalType } from "../../../types/approval";
 
 describe("ApprovalModuleService", () => {
     let service: ApprovalModuleService;
+    let mockRepository: any;
 
     beforeEach(() => {
         // Create service instance (will use real Medusa service structure)
         service = new ApprovalModuleService({} as any);
+        
+        // Create mock repository with all needed methods
+        mockRepository = {
+            listApprovalRules: jest.fn(),
+            listAndCountApprovals: jest.fn(),
+            createApprovalHistories: jest.fn(),
+            retrieveApproval: jest.fn(),
+            listApprovalSettings: jest.fn()
+        };
+        
+        // Mock all service methods that interact with repository
+        jest.spyOn(service, 'listApprovalRules').mockImplementation(mockRepository.listApprovalRules);
+        jest.spyOn(service, 'listAndCountApprovals').mockImplementation(mockRepository.listAndCountApprovals);
+        jest.spyOn(service, 'createApprovalHistories').mockImplementation(mockRepository.createApprovalHistories);
+        jest.spyOn(service, 'retrieveApproval').mockImplementation(mockRepository.retrieveApproval);
+        jest.spyOn(service, 'listApprovalSettings').mockImplementation(mockRepository.listApprovalSettings);
     });
 
     describe("Rule Evaluation Matrix", () => {
@@ -39,7 +56,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            jest.spyOn(service, "listApprovalRules").mockResolvedValue(rules as any);
+            mockRepository.listApprovalRules.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 15000,
