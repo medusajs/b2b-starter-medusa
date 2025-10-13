@@ -1,0 +1,82 @@
+# Qdrant Configuration for YSH B2B - FOSS Stack
+# Reference: https://qdrant.tech/documentation/guides/configuration/
+
+service:
+  # API Configuration
+  host: 0.0.0.0
+  http_port: 6333
+  grpc_port: 6334
+
+  # API Key (set via environment variable QDRANT__SERVICE__API_KEY)
+  # For development: qdrant_dev_key_foss_2025
+  # For production: Use strong random key
+
+  # Enable CORS for development
+  enable_cors: true
+
+  # Max request size (10MB)
+  max_request_size_mb: 10
+
+storage:
+  # Storage path (set via environment variable)
+  storage_path: /qdrant/storage
+
+  # Performance settings
+  performance:
+    # Optimize for memory usage
+    max_search_threads: 0 # 0 = auto-detect CPU cores
+
+  # On-disk payload storage (reduces RAM usage)
+  on_disk_payload: true
+
+  # Optimizers
+  optimizers:
+    # Deleted vectors cleanup threshold
+    deleted_threshold: 0.2
+
+    # Vacuum min vector count
+    vacuum_min_vector_number: 1000
+
+    # Default segment size (100k vectors)
+    default_segment_number: 2
+
+    # Max segment size before optimization
+    max_segment_size_kb: 200000
+
+    # Memmap threshold (vectors on disk if collection > 1GB)
+    memmap_threshold_kb: 1000000
+
+    # Indexing threshold
+    indexing_threshold_kb: 20000
+
+    # Flush interval
+    flush_interval_sec: 5
+
+# Collection defaults
+collection:
+  # Replication factor (1 for single node)
+  replication_factor: 1
+
+  # Write consistency factor
+  write_consistency_factor: 1
+
+  # On-disk vectors (reduces RAM for large collections)
+  on_disk: false
+
+# Cluster settings (disabled for single-node)
+cluster:
+  enabled: false
+
+# Telemetry (disabled for FOSS privacy)
+telemetry:
+  enabled: false
+
+# Logging
+log_level: INFO
+
+# TLS (disabled for local dev, enable for production)
+tls:
+  enabled: false
+  # For production:
+  # cert: /qdrant/tls/cert.pem
+  # key: /qdrant/tls/key.pem

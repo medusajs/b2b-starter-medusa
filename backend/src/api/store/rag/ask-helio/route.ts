@@ -130,7 +130,7 @@ export async function POST(
 
             if (!embeddingRes.ok) {
                 throw new MedusaError(
-                    MedusaError.Types.INTERNAL_ERROR,
+                    MedusaError.Types.UNEXPECTED_STATE,
                     `OpenAI embedding API error: ${embeddingRes.status}`
                 )
             }
@@ -206,7 +206,7 @@ ${context.consumo_kwh_mes ? `\nConsumo mensal: ${context.consumo_kwh_mes} kWh/m√
 
             if (!completionRes.ok) {
                 throw new MedusaError(
-                    MedusaError.Types.INTERNAL_ERROR,
+                    MedusaError.Types.UNEXPECTED_STATE,
                     `OpenAI completion API error: ${completionRes.status}`
                 )
             }
@@ -232,7 +232,7 @@ ${context.consumo_kwh_mes ? `\nConsumo mensal: ${context.consumo_kwh_mes} kWh/m√
 
             if (error.name === 'AbortError') {
                 throw new MedusaError(
-                    MedusaError.Types.INTERNAL_ERROR,
+                    MedusaError.Types.UNEXPECTED_STATE,
                     "Request timeout - please try again"
                 )
             }

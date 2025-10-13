@@ -263,7 +263,7 @@ export async function POST(
 
         console.error("[Recommend Products Error]", error)
         return res.status(500).json({
-            error: "INTERNAL_ERROR",
+            error: "UNEXPECTED_STATE",
             message: error?.message ?? "Unexpected error",
         })
     }

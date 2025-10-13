@@ -1,4 +1,5 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import { MedusaError } from "@medusajs/framework/utils"
 import fs from "fs"
 import path from "path"
 
@@ -25,7 +26,7 @@ export const POST = async (
     fs.writeFileSync(file, JSON.stringify(lead, null, 2), "utf-8")
     res.json({ id, created_at: lead.created_at })
   } catch (e: any) {
-    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+    throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, e?.message ?? "Failed to create lead")
   }
 }
 
