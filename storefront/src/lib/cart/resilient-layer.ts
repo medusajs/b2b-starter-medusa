@@ -1,7 +1,4 @@
-﻿"use server"
-import "server-only"
-
-/**
+﻿/**
  * CartResilientLayer - Resilient cart operations with local persistence
  *
  * Features:
