@@ -5,6 +5,7 @@
 import { useSolarCalculator } from 'src/hooks/use-solar-calculator';
 import { DimensionamentoCard } from 'src/components/solar';
 import { useState } from 'react';
+import { Hero } from 'src/components/ui/Hero';
 
 export default function Home() {
     const { calculate, result, loading, error } = useSolarCalculator();
@@ -20,7 +21,8 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">
-            <div className="max-w-4xl mx-auto px-4">
+            <div className="max-w-4xl mx-auto px-4 space-y-6">
+                <Hero />
                 <h1 className="text-4xl font-bold text-center mb-8 text-yellow-600">
                     ☀️ Yello Solar Hub
                 </h1>
