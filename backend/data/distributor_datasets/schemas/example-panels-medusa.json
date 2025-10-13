@@ -1,0 +1,414 @@
+[
+    {
+        "title": "Painel Solar Canadian Solar 550W HiKu6 Monocristalino PERC",
+        "subtitle": "550W Monocristalino PERC - Eficiência 21.3%",
+        "handle": "painel-solar-canadian-solar-550w-hiku6-mono-perc",
+        "description": "Módulo fotovoltaico Canadian Solar HiKu6 CS6W-550MS de alta eficiência (21.3%), com tecnologia PERC e 144 células monocristalinas. Ideal para sistemas residenciais e comerciais de médio e grande porte. Garantia de 12 anos para produto e 25 anos para performance com degradação linear.",
+        "status": "published",
+        "is_giftcard": false,
+        "discountable": true,
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "550W"
+                ]
+            },
+            {
+                "title": "Tecnologia",
+                "values": [
+                    "Monocristalino PERC"
+                ]
+            },
+            {
+                "title": "Cor da Moldura",
+                "values": [
+                    "Preta"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "Canadian Solar 550W - Mono PERC - Moldura Preta",
+                "sku": "CS-HIKU6-550W-PERC-BLACK",
+                "barcode": "7891234567890",
+                "ean": "7891234567890",
+                "inventory_quantity": 500,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "weight": 27500,
+                "length": 2278,
+                "width": 1134,
+                "height": 35,
+                "origin_country": "BR",
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 49000
+                    }
+                ],
+                "options": {
+                    "Potência": "550W",
+                    "Tecnologia": "Monocristalino PERC",
+                    "Cor da Moldura": "Preta"
+                }
+            }
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/canadian-solar-550w-front.jpg"
+            },
+            {
+                "url": "https://example.com/images/canadian-solar-550w-back.jpg"
+            }
+        ],
+        "metadata": {
+            "manufacturer": "Canadian Solar",
+            "model": "HiKu6 CS6W-550MS",
+            "technical_specs": {
+                "power_w": 550,
+                "technology": "Monocristalino PERC",
+                "efficiency": 21.3,
+                "cell_type": "Monocristalino",
+                "number_of_cells": 144,
+                "bifacial": false,
+                "dimensions": {
+                    "length_mm": 2278,
+                    "width_mm": 1134,
+                    "thickness_mm": 35,
+                    "weight_kg": 27.5
+                },
+                "electrical_characteristics": {
+                    "pmax_w": 550,
+                    "vmp_v": 41.7,
+                    "imp_a": 13.19,
+                    "voc_v": 49.8,
+                    "isc_a": 13.95,
+                    "max_system_voltage_v": 1500,
+                    "max_series_fuse_rating_a": 25
+                },
+                "temperature_coefficients": {
+                    "pmax": -0.34,
+                    "voc": -0.25,
+                    "isc": 0.05
+                },
+                "operating_conditions": {
+                    "operating_temperature_range": "-40°C a +85°C",
+                    "noct": 45
+                },
+                "mechanical_specifications": {
+                    "frame_material": "Alumínio Anodizado",
+                    "frame_color": "Preta",
+                    "glass_type": "Vidro Temperado de Alta Transmissão 3.2mm",
+                    "glass_thickness_mm": 3.2,
+                    "junction_box": "IP68",
+                    "cable_length_mm": 1200,
+                    "connector_type": "MC4"
+                },
+                "load_ratings": {
+                    "front_load_pa": 5400,
+                    "back_load_pa": 2400
+                },
+                "warranties": {
+                    "product_warranty_years": 12,
+                    "performance_warranty_years": 25,
+                    "linear_warranty": true,
+                    "performance_at_25_years": 84.8
+                },
+                "certifications": [
+                    "IEC 61215",
+                    "IEC 61730",
+                    "IEC 61701",
+                    "IEC 62716",
+                    "INMETRO"
+                ]
+            }
+        },
+        "tags": [
+            "tag_canadian_solar",
+            "tag_550w",
+            "tag_500w_600w",
+            "tag_monocristalino_perc",
+            "tag_alta_eficiencia",
+            "tag_full_black"
+        ],
+        "categories": [
+            "cat_paineis",
+            "cat_paineis_500w_600w",
+            "cat_paineis_monocristalino_perc"
+        ]
+    },
+    {
+        "title": "Painel Solar Odex 585W Monocristalino Half-Cell",
+        "subtitle": "585W Monocristalino Half-Cell - Eficiência 22.1%",
+        "handle": "painel-solar-odex-585w-mono-half-cell",
+        "description": "Módulo fotovoltaico Odex 585W com tecnologia Half-Cell, oferecendo maior eficiência e melhor desempenho em condições de sombreamento parcial. 144 células monocristalinas divididas em formato half-cell. Excelente custo-benefício para projetos residenciais e comerciais.",
+        "status": "published",
+        "is_giftcard": false,
+        "discountable": true,
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "585W"
+                ]
+            },
+            {
+                "title": "Tecnologia",
+                "values": [
+                    "Monocristalino Half-Cell"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "Odex 585W - Mono Half-Cell",
+                "sku": "ODEX-585W-MONO-HC",
+                "inventory_quantity": 1000,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "weight": 28000,
+                "length": 2278,
+                "width": 1134,
+                "height": 35,
+                "origin_country": "BR",
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 49000
+                    }
+                ],
+                "options": {
+                    "Potência": "585W",
+                    "Tecnologia": "Monocristalino Half-Cell"
+                },
+                "external_id": "odex_inverters_ODEX-PAINEL-ODEX-585W"
+            }
+        ],
+        "images": [
+            {
+                "url": "/catalog/images/ODEX-PANELS/289244.jpg"
+            }
+        ],
+        "metadata": {
+            "source": "odex",
+            "manufacturer": "Odex",
+            "model": "Odex 585W",
+            "technical_specs": {
+                "power_w": 585,
+                "technology": "Monocristalino Half-Cell",
+                "efficiency": 22.1,
+                "cell_type": "Monocristalino",
+                "number_of_cells": 144,
+                "bifacial": false,
+                "dimensions": {
+                    "length_mm": 2278,
+                    "width_mm": 1134,
+                    "thickness_mm": 35,
+                    "weight_kg": 28.0
+                },
+                "electrical_characteristics": {
+                    "pmax_w": 585,
+                    "vmp_v": 42.5,
+                    "imp_a": 13.76,
+                    "voc_v": 50.9,
+                    "isc_a": 14.52,
+                    "max_system_voltage_v": 1500,
+                    "max_series_fuse_rating_a": 25
+                },
+                "temperature_coefficients": {
+                    "pmax": -0.35,
+                    "voc": -0.27,
+                    "isc": 0.05
+                },
+                "operating_conditions": {
+                    "operating_temperature_range": "-40°C a +85°C",
+                    "noct": 45
+                },
+                "mechanical_specifications": {
+                    "frame_material": "Alumínio Anodizado",
+                    "frame_color": "Prata",
+                    "glass_type": "Vidro Temperado de Alta Transmissão",
+                    "glass_thickness_mm": 3.2,
+                    "junction_box": "IP68",
+                    "cable_length_mm": 1200,
+                    "connector_type": "MC4"
+                },
+                "load_ratings": {
+                    "front_load_pa": 5400,
+                    "back_load_pa": 2400
+                },
+                "warranties": {
+                    "product_warranty_years": 12,
+                    "performance_warranty_years": 25,
+                    "linear_warranty": true,
+                    "performance_at_25_years": 84.8
+                },
+                "certifications": [
+                    "IEC 61215",
+                    "IEC 61730",
+                    "INMETRO"
+                ]
+            }
+        },
+        "tags": [
+            "tag_odex",
+            "tag_585w",
+            "tag_500w_600w",
+            "tag_monocristalino",
+            "tag_half_cell",
+            "tag_alta_eficiencia"
+        ],
+        "categories": [
+            "cat_paineis",
+            "cat_paineis_500w_600w",
+            "cat_paineis_monocristalino"
+        ],
+        "external_id": "odex_inverters_ODEX-PAINEL-ODEX-585W"
+    },
+    {
+        "title": "Painel Solar JinkoSolar 700W Tiger Neo N-Type Bifacial",
+        "subtitle": "700W N-Type TOPCon Bifacial - Eficiência 22.8%",
+        "handle": "painel-solar-jinkosolar-700w-tiger-neo-bifacial",
+        "description": "Módulo fotovoltaico premium JinkoSolar Tiger Neo com tecnologia N-Type TOPCon bifacial de última geração. Eficiência líder de mercado (22.8%), fator bifacial de 85%, e coeficiente de temperatura otimizado. Ideal para projetos de alta performance que exigem máxima geração de energia.",
+        "status": "published",
+        "is_giftcard": false,
+        "discountable": true,
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "700W"
+                ]
+            },
+            {
+                "title": "Tecnologia",
+                "values": [
+                    "N-Type TOPCon Bifacial"
+                ]
+            },
+            {
+                "title": "Cor da Moldura",
+                "values": [
+                    "Preta"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "JinkoSolar 700W - N-Type TOPCon - Bifacial - Moldura Preta",
+                "sku": "JINKO-TIGER-700W-TOPCON-BF-BLACK",
+                "inventory_quantity": 300,
+                "allow_backorder": false,
+                "manage_inventory": true,
+                "weight": 33000,
+                "length": 2382,
+                "width": 1134,
+                "height": 35,
+                "origin_country": "BR",
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 78000
+                    }
+                ],
+                "options": {
+                    "Potência": "700W",
+                    "Tecnologia": "N-Type TOPCon Bifacial",
+                    "Cor da Moldura": "Preta"
+                }
+            }
+        ],
+        "images": [
+            {
+                "url": "https://example.com/images/jinkosolar-700w-front.jpg"
+            },
+            {
+                "url": "https://example.com/images/jinkosolar-700w-back.jpg"
+            }
+        ],
+        "metadata": {
+            "manufacturer": "JinkoSolar",
+            "model": "Tiger Neo JKM700N-72HL4-BDV",
+            "technical_specs": {
+                "power_w": 700,
+                "technology": "Monocristalino TOPCon",
+                "efficiency": 22.8,
+                "cell_type": "N-Type",
+                "number_of_cells": 144,
+                "bifacial": true,
+                "bifacial_factor": 85,
+                "dimensions": {
+                    "length_mm": 2382,
+                    "width_mm": 1134,
+                    "thickness_mm": 35,
+                    "weight_kg": 33.0
+                },
+                "electrical_characteristics": {
+                    "pmax_w": 700,
+                    "vmp_v": 44.2,
+                    "imp_a": 15.84,
+                    "voc_v": 53.1,
+                    "isc_a": 16.73,
+                    "max_system_voltage_v": 1500,
+                    "max_series_fuse_rating_a": 30
+                },
+                "temperature_coefficients": {
+                    "pmax": -0.29,
+                    "voc": -0.24,
+                    "isc": 0.048
+                },
+                "operating_conditions": {
+                    "operating_temperature_range": "-40°C a +85°C",
+                    "noct": 44
+                },
+                "mechanical_specifications": {
+                    "frame_material": "Alumínio Anodizado",
+                    "frame_color": "Preta",
+                    "glass_type": "Vidro Temperado Anti-Reflexivo 2.0mm (Frente e Verso)",
+                    "glass_thickness_mm": 2.0,
+                    "junction_box": "IP68",
+                    "cable_length_mm": 1400,
+                    "connector_type": "MC4"
+                },
+                "load_ratings": {
+                    "front_load_pa": 6000,
+                    "back_load_pa": 3600
+                },
+                "warranties": {
+                    "product_warranty_years": 15,
+                    "performance_warranty_years": 30,
+                    "linear_warranty": true,
+                    "performance_at_25_years": 88.75,
+                    "performance_at_30_years": 86.05
+                },
+                "certifications": [
+                    "IEC 61215",
+                    "IEC 61730",
+                    "IEC 61701",
+                    "IEC 62716",
+                    "UL 1703",
+                    "INMETRO"
+                ]
+            }
+        },
+        "tags": [
+            "tag_jinkosolar",
+            "tag_700w",
+            "tag_600w_mais",
+            "tag_monocristalino_topcon",
+            "tag_bifacial",
+            "tag_n_type",
+            "tag_alta_eficiencia",
+            "tag_full_black",
+            "tag_premium"
+        ],
+        "categories": [
+            "cat_paineis",
+            "cat_paineis_600w_mais",
+            "cat_paineis_bifacial",
+            "cat_paineis_topcon",
+            "cat_paineis_premium"
+        ]
+    }
+]
