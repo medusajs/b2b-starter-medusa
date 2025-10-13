@@ -1,5 +1,5 @@
-import { CompanyDTO } from "./common";
-import { EmployeeDTO } from "./common";
+import { CompanyDTO } from "./common.ts";
+import { EmployeeDTO } from "./common.ts";
 
 export interface CreateCompanyDTO {
   name: string;

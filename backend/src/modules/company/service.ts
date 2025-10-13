@@ -8,9 +8,9 @@ import {
   CompanySearchDTO,
   BulkImportCompanyDTO,
   BulkExportCompanyDTO,
-} from "./types/mutations";
-import { CompanyDTO, EmployeeDTO } from "./types/common";
-import { CompanyCSVService } from "./csv-service";
+} from "./types/mutations.ts";
+import { CompanyDTO, EmployeeDTO } from "./types/common.ts";
+import { CompanyCSVService } from "./csv-service.ts";
 
 class CompanyModuleService extends MedusaService({
   Company,

@@ -1,5 +1,5 @@
-import { CompanyDTO } from './types/common';
-import { CreateCompanyDTO } from './types/mutations';
+import { CompanyDTO } from './types/common.ts';
+import { CreateCompanyDTO } from './types/mutations.ts';
 
 export class CompanyCSVService {
   /**
@@ -45,11 +45,11 @@ export class CompanyCSVService {
   static importFromCSV(csvData: string): CreateCompanyDTO[] {
     const lines = csvData.trim().split('\n');
     const headers = lines[0].split(',');
-    
+
     // Validate required headers
     const requiredHeaders = ['name', 'email', 'cnpj'];
     const missingHeaders = requiredHeaders.filter(h => !headers.includes(h));
-    
+
     if (missingHeaders.length > 0) {
       throw new Error(`Missing required headers: ${missingHeaders.join(', ')}`);
     }
@@ -96,7 +96,7 @@ export class CompanyCSVService {
   static generateTemplate(): string {
     const headers = [
       'name',
-      'email', 
+      'email',
       'cnpj',
       'phone',
       'address',
@@ -140,7 +140,7 @@ export class CompanyCSVService {
 
     while (i < line.length) {
       const char = line[i];
-      
+
       if (char === '"') {
         if (inQuotes && line[i + 1] === '"') {
           current += '"';
@@ -158,7 +158,7 @@ export class CompanyCSVService {
         i++;
       }
     }
-    
+
     result.push(current);
     return result;
   }

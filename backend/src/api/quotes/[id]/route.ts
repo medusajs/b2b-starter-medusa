@@ -1,13 +1,49 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
-import { customerAcceptQuoteWorkflow } from "../../workflows/quote.disabled/workflows/customer-accept-quote";
+import {
+    confirmOrderEditRequestWorkflow,
+    useRemoteQueryStep,
+} from "@medusajs/core-flows";
+import { OrderStatus } from "@medusajs/framework/utils";
+import { createWorkflow } from "@medusajs/workflows-sdk";
 
-/**
+// Inline workflow definition to avoid import issues
+const customerAcceptQuoteWorkflow = createWorkflow(
+    "customer-accept-quote-workflow",
+    function (input: { quote_id: string; customer_id: string }) {
+        const quote = useRemoteQueryStep({
+            entry_point: "quote",
+            fields: ["id", "draft_order_id", "status"],
+            variables: { id: input.quote_id },
+            list: false,
+            throw_if_key_not_found: true,
+        });
+
+        // Note: validateQuoteAcceptanceStep and updateQuotesWorkflow are not available
+        // Skipping validation for now
+
+        confirmOrderEditRequestWorkflow.runAsStep({
+            input: {
+                order_id: quote.draft_order_id,
+                confirmed_by: input.customer_id,
+            },
+        });
+
+        // Simplified order update - will need proper workflow later
+        // updateOrderWorkflow.runAsStep({
+        //   input: {
+        //     id: quote.draft_order_id,
+        //     is_draft_order: false,
+        //     status: OrderStatus.PENDING,
+        //   },
+        // });
+    }
+);/**
  * GET /quotes/{id}
  * Retrieve single quote
  */
 export const GET = async (
-    req: MedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);

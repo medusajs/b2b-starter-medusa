@@ -1,5 +1,5 @@
 import { model } from "@medusajs/framework/utils";
-import { Company } from "./company";
+import { Company } from "./company.ts";
 
 export const Employee = model.define("employee", {
   id: model
