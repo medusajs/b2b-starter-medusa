@@ -1,4 +1,4 @@
-﻿import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { err } from "./response"
 
 type Entry = { resetAt: number; count: number }
@@ -36,5 +36,4 @@ function setHeaders(res: MedusaResponse, limit: number, remaining: number, reset
   res.setHeader("X-RateLimit-Remaining", String(Math.max(remaining, 0)))
   res.setHeader("X-RateLimit-Reset", String(resetSec))
 }
-
 
