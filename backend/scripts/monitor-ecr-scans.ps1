@@ -197,13 +197,15 @@ Write-ColorOutput ""
 Write-ColorOutput "Total Vulnerabilities:" $InfoColor
 if ($totalCritical -gt 0) {
     Write-ColorOutput "  🔴 CRITICAL:      $totalCritical" $ErrorColor
-} else {
+}
+else {
     Write-ColorOutput "  ✅ CRITICAL:      0" $SuccessColor
 }
 
 if ($totalHigh -gt 0) {
     Write-ColorOutput "  🟠 HIGH:          $totalHigh" "DarkRed"
-} else {
+}
+else {
     Write-ColorOutput "  ✅ HIGH:          0" $SuccessColor
 }
 else {
