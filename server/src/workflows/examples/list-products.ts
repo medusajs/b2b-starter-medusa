@@ -1,4 +1,4 @@
-import { createWorkflow, StepResponse } from "@medusajs/workflows-sdk";
+import { createWorkflow, StepResponse } from "@medusajs/framework/workflows-sdk";
 import type { MedusaContainer } from "@medusajs/framework";
 
 type Input = { limit?: number; offset?: number };
