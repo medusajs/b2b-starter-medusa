@@ -36,10 +36,12 @@
     "@mikro-orm/migrations": "^6.4.3",
     "@mikro-orm/postgresql": "^6.4.3",
     "@types/multer": "^2.0.0",
+    "@types/ws": "^8.5.13",
     "awilix": "^8.0.1",
     "multer": "^2.0.2",
     "pg": "^8.13.0",
     "uuid": "^10.0.0",
+    "ws": "^8.18.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
