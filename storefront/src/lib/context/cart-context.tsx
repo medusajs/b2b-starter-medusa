@@ -271,8 +271,7 @@ export function CartProvider({
           []
         )
 
-        const optimisticTotal = optimisticItems?.reduce(
-          (acc, item) => acc + item.unit_price * item.quantity,
+        const optimisticTotal = optimisticItems?.reduce((acc: number, item) => acc + item.unit_price * item.quantity,
           0
         )
 
