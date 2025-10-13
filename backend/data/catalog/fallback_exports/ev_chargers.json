@@ -1,7 +1,8 @@
 {
   "category": "ev_chargers",
   "total_products": 83,
-  "generated_at": "2025-10-13T11:08:49.739Z",
+  "with_images": 83,
+  "generated_at": "2025-10-13T11:26:32.033Z",
   "products": [
     {
       "id": "neosolar_chargers_23757",
@@ -54,7 +55,10 @@
         "power_w": 1500,
         "current_a": 59
       },
-      "price_brl": 4726
+      "price_brl": 4726,
+      "sku": "23757",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23757.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20863",
@@ -106,7 +110,10 @@
       "technical_specs": {
         "current_a": 5
       },
-      "price_brl": 1927
+      "price_brl": 1927,
+      "sku": "20863",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20863.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_27329",
@@ -156,7 +163,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27329.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 1862
+      "price_brl": 1862,
+      "sku": "27329",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27329.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20035",
@@ -208,7 +218,10 @@
       "technical_specs": {
         "current_a": 94
       },
-      "price_brl": 1529
+      "price_brl": 1529,
+      "sku": "20035",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20035.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20031",
@@ -260,7 +273,10 @@
       "technical_specs": {
         "current_a": 15
       },
-      "price_brl": 79
+      "price_brl": 79,
+      "sku": "20031",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20031.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24072",
@@ -312,7 +328,10 @@
       "technical_specs": {
         "current_a": 5
       },
-      "price_brl": 5175
+      "price_brl": 5175,
+      "sku": "24072",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24072.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21295",
@@ -362,7 +381,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21295.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 2816
+      "price_brl": 2816,
+      "sku": "21295",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21295.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_23758",
@@ -414,7 +436,10 @@
       "technical_specs": {
         "power_w": 1500
       },
-      "price_brl": 4794
+      "price_brl": 4794,
+      "sku": "23758",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23758.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20864",
@@ -466,7 +491,10 @@
       "technical_specs": {
         "power_w": 1500
       },
-      "price_brl": 2008
+      "price_brl": 2008,
+      "sku": "20864",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20864.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20860",
@@ -519,7 +547,10 @@
         "power_w": 750,
         "current_a": 63781
       },
-      "price_brl": 1686
+      "price_brl": 1686,
+      "sku": "20860",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20860.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24021",
@@ -572,7 +603,10 @@
         "power_w": 750,
         "current_a": 718
       },
-      "price_brl": 3028
+      "price_brl": 3028,
+      "sku": "24021",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24021.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_23761",
@@ -624,7 +658,10 @@
       "technical_specs": {
         "current_a": 81
       },
-      "price_brl": 4871
+      "price_brl": 4871,
+      "sku": "23761",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23761.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20862",
@@ -677,7 +714,10 @@
         "power_w": 750,
         "current_a": 4
       },
-      "price_brl": 1927
+      "price_brl": 1927,
+      "sku": "20862",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20862.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_23759",
@@ -730,7 +770,10 @@
         "power_w": 750,
         "current_a": 5
       },
-      "price_brl": 3167
+      "price_brl": 3167,
+      "sku": "23759",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23759.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20868",
@@ -782,7 +825,10 @@
       "technical_specs": {
         "current_a": 4
       },
-      "price_brl": 2560
+      "price_brl": 2560,
+      "sku": "20868",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20868.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24607",
@@ -835,7 +881,10 @@
         "power_w": 500,
         "current_a": 4449
       },
-      "price_brl": 2246
+      "price_brl": 2246,
+      "sku": "24607",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24607.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20859",
@@ -888,7 +937,10 @@
         "power_w": 500,
         "current_a": 621
       },
-      "price_brl": 1525
+      "price_brl": 1525,
+      "sku": "20859",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20859.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20870",
@@ -940,7 +992,10 @@
       "technical_specs": {
         "current_a": 9
       },
-      "price_brl": 40
+      "price_brl": 40,
+      "sku": "20870",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20870.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25220",
@@ -992,7 +1047,10 @@
       "technical_specs": {
         "current_a": 315
       },
-      "price_brl": 1631
+      "price_brl": 1631,
+      "sku": "25220",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25220.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24795",
@@ -1045,7 +1103,10 @@
         "voltage_v": 12,
         "current_a": 3
       },
-      "price_brl": 1266
+      "price_brl": 1266,
+      "sku": "24795",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24795.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24475",
@@ -1097,7 +1158,10 @@
       "technical_specs": {
         "current_a": 11
       },
-      "price_brl": 2598
+      "price_brl": 2598,
+      "sku": "24475",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24475.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24473",
@@ -1147,7 +1211,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24473.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 3543
+      "price_brl": 3543,
+      "sku": "24473",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24473.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24249",
@@ -1199,7 +1266,10 @@
       "technical_specs": {
         "current_a": 8
       },
-      "price_brl": 1734
+      "price_brl": 1734,
+      "sku": "24249",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24249.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24802",
@@ -1249,7 +1319,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24802.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 6989
+      "price_brl": 6989,
+      "sku": "24802",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24802.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26904",
@@ -1301,7 +1374,10 @@
       "technical_specs": {
         "current_a": 69
       },
-      "price_brl": 7250
+      "price_brl": 7250,
+      "sku": "26904",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26904.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25128",
@@ -1354,7 +1430,10 @@
         "voltage_v": 12,
         "current_a": 490
       },
-      "price_brl": 1198
+      "price_brl": 1198,
+      "sku": "25128",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25128.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_22154",
@@ -1407,7 +1486,10 @@
         "voltage_v": 24,
         "current_a": 55
       },
-      "price_brl": 332
+      "price_brl": 332,
+      "sku": "22154",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_22154.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24467",
@@ -1459,7 +1541,10 @@
       "technical_specs": {
         "current_a": 3
       },
-      "price_brl": 4778
+      "price_brl": 4778,
+      "sku": "24467",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24467.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20044",
@@ -1511,7 +1596,10 @@
       "technical_specs": {
         "voltage_v": 12
       },
-      "price_brl": 1096
+      "price_brl": 1096,
+      "sku": "20044",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20044.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24019",
@@ -1563,7 +1651,10 @@
       "technical_specs": {
         "power_w": 1500
       },
-      "price_brl": 4589
+      "price_brl": 4589,
+      "sku": "24019",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24019.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20871",
@@ -1613,7 +1704,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20871.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 84
+      "price_brl": 84,
+      "sku": "20871",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20871.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_27327",
@@ -1663,7 +1757,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27327.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 1818
+      "price_brl": 1818,
+      "sku": "27327",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27327.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24474",
@@ -1715,7 +1812,10 @@
       "technical_specs": {
         "current_a": 48
       },
-      "price_brl": 1487
+      "price_brl": 1487,
+      "sku": "24474",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24474.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20034",
@@ -1767,7 +1867,10 @@
       "technical_specs": {
         "current_a": 88
       },
-      "price_brl": 1483
+      "price_brl": 1483,
+      "sku": "20034",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20034.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21294",
@@ -1817,7 +1920,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21294.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 1766
+      "price_brl": 1766,
+      "sku": "21294",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21294.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24801",
@@ -1867,7 +1973,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24801.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 5715
+      "price_brl": 5715,
+      "sku": "24801",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24801.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26903",
@@ -1917,7 +2026,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26903.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 5974
+      "price_brl": 5974,
+      "sku": "26903",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26903.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25023",
@@ -1971,7 +2083,10 @@
         "voltage_v": 220,
         "current_a": 7
       },
-      "price_brl": 6809
+      "price_brl": 6809,
+      "sku": "25023",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25023.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24716",
@@ -2025,7 +2140,10 @@
         "voltage_v": 220,
         "current_a": 841
       },
-      "price_brl": 6592
+      "price_brl": 6592,
+      "sku": "24716",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24716.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_27328",
@@ -2075,7 +2193,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27328.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 1835
+      "price_brl": 1835,
+      "sku": "27328",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27328.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_27330",
@@ -2125,7 +2246,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27330.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 1879
+      "price_brl": 1879,
+      "sku": "27330",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27330.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24718",
@@ -2178,7 +2302,10 @@
         "power_w": 16120.000000000002,
         "voltage_v": 380
       },
-      "price_brl": 17270
+      "price_brl": 17270,
+      "sku": "24718",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24718.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26901",
@@ -2231,7 +2358,10 @@
         "power_w": 16120.000000000002,
         "voltage_v": 380
       },
-      "price_brl": 15699
+      "price_brl": 15699,
+      "sku": "26901",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26901.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26900",
@@ -2284,7 +2414,10 @@
         "power_w": 4960,
         "voltage_v": 220
       },
-      "price_brl": 6870
+      "price_brl": 6870,
+      "sku": "26900",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26900.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24606",
@@ -2337,7 +2470,10 @@
         "power_w": 500,
         "current_a": 9
       },
-      "price_brl": 2110
+      "price_brl": 2110,
+      "sku": "24606",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24606.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24608",
@@ -2390,7 +2526,10 @@
         "power_w": 550,
         "current_a": 222
       },
-      "price_brl": 1905
+      "price_brl": 1905,
+      "sku": "24608",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24608.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20872",
@@ -2442,7 +2581,10 @@
       "technical_specs": {
         "voltage_v": 48
       },
-      "price_brl": 690
+      "price_brl": 690,
+      "sku": "20872",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20872.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26902",
@@ -2496,7 +2638,10 @@
         "voltage_v": 380,
         "current_a": 8
       },
-      "price_brl": 23171
+      "price_brl": 23171,
+      "sku": "26902",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26902.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20045",
@@ -2548,7 +2693,10 @@
       "technical_specs": {
         "voltage_v": 24
       },
-      "price_brl": 2891
+      "price_brl": 2891,
+      "sku": "20045",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20045.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24717",
@@ -2602,7 +2750,10 @@
         "voltage_v": 380,
         "current_a": 239
       },
-      "price_brl": 25936
+      "price_brl": 25936,
+      "sku": "24717",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24717.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25025",
@@ -2655,7 +2806,10 @@
         "power_w": 23390,
         "voltage_v": 380
       },
-      "price_brl": 26433
+      "price_brl": 26433,
+      "sku": "25025",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25025.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_23760",
@@ -2707,7 +2861,10 @@
       "technical_specs": {
         "power_w": 210
       },
-      "price_brl": 1570
+      "price_brl": 1570,
+      "sku": "23760",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23760.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_27386",
@@ -2751,7 +2908,10 @@
       "distributor": "YSH",
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27386.jpg",
       "original_category": "chargers",
-      "technical_specs": {}
+      "technical_specs": {},
+      "sku": "27386",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27386.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25024",
@@ -2805,7 +2965,10 @@
         "voltage_v": 380,
         "current_a": 96
       },
-      "price_brl": 17535
+      "price_brl": 17535,
+      "sku": "25024",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25024.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_25012",
@@ -2857,7 +3020,10 @@
       "technical_specs": {
         "current_a": 512
       },
-      "price_brl": 5663
+      "price_brl": 5663,
+      "sku": "25012",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25012.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26360",
@@ -2911,7 +3077,10 @@
         "voltage_v": 380,
         "current_a": 7427
       },
-      "price_brl": 21145
+      "price_brl": 21145,
+      "sku": "26360",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26360.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20043",
@@ -2963,7 +3132,10 @@
       "technical_specs": {
         "voltage_v": 12
       },
-      "price_brl": 1000
+      "price_brl": 1000,
+      "sku": "20043",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20043.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20861",
@@ -3016,7 +3188,10 @@
         "power_w": 500,
         "current_a": 76
       },
-      "price_brl": 1445
+      "price_brl": 1445,
+      "sku": "20861",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20861.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21757",
@@ -3060,7 +3235,10 @@
       "distributor": "YSH",
       "image_url": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21757.jpg",
       "original_category": "chargers",
-      "technical_specs": {}
+      "technical_specs": {},
+      "sku": "21757",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21757.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24715",
@@ -3114,7 +3292,10 @@
         "voltage_v": 380,
         "current_a": 4
       },
-      "price_brl": 28864
+      "price_brl": 28864,
+      "sku": "24715",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24715.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24714",
@@ -3168,7 +3349,10 @@
         "voltage_v": 380,
         "current_a": 9
       },
-      "price_brl": 22301
+      "price_brl": 22301,
+      "sku": "24714",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24714.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24713",
@@ -3221,7 +3405,10 @@
         "voltage_v": 240,
         "current_a": 3
       },
-      "price_brl": 7599
+      "price_brl": 7599,
+      "sku": "24713",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24713.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21751",
@@ -3267,7 +3454,10 @@
       "original_category": "chargers",
       "technical_specs": {
         "current_a": 9
-      }
+      },
+      "sku": "21751",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21751.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21741",
@@ -3314,7 +3504,10 @@
       "technical_specs": {
         "voltage_v": 12,
         "current_a": 0
-      }
+      },
+      "sku": "21741",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21741.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21743",
@@ -3361,7 +3554,10 @@
       "technical_specs": {
         "voltage_v": 24,
         "current_a": 2481
-      }
+      },
+      "sku": "21743",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21743.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21756",
@@ -3407,7 +3603,10 @@
       "original_category": "chargers",
       "technical_specs": {
         "current_a": 568
-      }
+      },
+      "sku": "21756",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21756.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21755",
@@ -3453,7 +3652,10 @@
       "original_category": "chargers",
       "technical_specs": {
         "current_a": 46
-      }
+      },
+      "sku": "21755",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21755.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_21742",
@@ -3500,7 +3702,10 @@
       "technical_specs": {
         "voltage_v": 12,
         "current_a": 42
-      }
+      },
+      "sku": "21742",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21742.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26526",
@@ -3550,7 +3755,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26526.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 8098
+      "price_brl": 8098,
+      "sku": "26526",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26526.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26361",
@@ -3603,7 +3811,10 @@
         "power_w": 23490,
         "voltage_v": 380
       },
-      "price_brl": 27514
+      "price_brl": 27514,
+      "sku": "26361",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26361.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26525",
@@ -3653,7 +3864,10 @@
       "image_url": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26525.jpg",
       "original_category": "chargers",
       "technical_specs": {},
-      "price_brl": 6611
+      "price_brl": 6611,
+      "sku": "26525",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26525.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_26359",
@@ -3706,7 +3920,10 @@
         "voltage_v": 240,
         "current_a": 6092
       },
-      "price_brl": 7403
+      "price_brl": 7403,
+      "sku": "26359",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26359.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20858",
@@ -3759,7 +3976,10 @@
         "power_w": 210,
         "current_a": 5
       },
-      "price_brl": 1365
+      "price_brl": 1365,
+      "sku": "20858",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20858.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20866",
@@ -3811,7 +4031,10 @@
       "technical_specs": {
         "current_a": 4
       },
-      "price_brl": 1284
+      "price_brl": 1284,
+      "sku": "20866",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20866.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20873",
@@ -3864,7 +4087,10 @@
         "voltage_v": 96,
         "current_a": 331
       },
-      "price_brl": 888
+      "price_brl": 888,
+      "sku": "20873",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20873.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_20865",
@@ -3916,7 +4142,10 @@
       "technical_specs": {
         "current_a": 46
       },
-      "price_brl": 1003
+      "price_brl": 1003,
+      "sku": "20865",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20865.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24468",
@@ -3968,7 +4197,10 @@
       "technical_specs": {
         "current_a": 2
       },
-      "price_brl": 3220
+      "price_brl": 3220,
+      "sku": "24468",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24468.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24594",
@@ -4021,7 +4253,10 @@
         "power_w": 500,
         "current_a": 654
       },
-      "price_brl": 2177
+      "price_brl": 2177,
+      "sku": "24594",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24594.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24593",
@@ -4074,7 +4309,10 @@
         "power_w": 500,
         "current_a": 4
       },
-      "price_brl": 2042
+      "price_brl": 2042,
+      "sku": "24593",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24593.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_24609",
@@ -4126,7 +4364,10 @@
       "technical_specs": {
         "power_w": 550
       },
-      "price_brl": 2041
+      "price_brl": 2041,
+      "sku": "24609",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24609.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_chargers_23762",
@@ -4179,7 +4420,10 @@
         "power_w": 210,
         "current_a": 2
       },
-      "price_brl": 1262
+      "price_brl": 1262,
+      "sku": "23762",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_23762.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-GROWATT-THOR07AS-P",
@@ -4215,7 +4459,10 @@
         "currency": "BRL"
       },
       "price_brl": 3423.66,
-      "description": "Carregador EV Growatt THOR07AS-P 7kW"
+      "description": "Carregador EV Growatt THOR07AS-P 7kW",
+      "sku": "P",
+      "image_path": "/placeholder-charger.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-FOXESS-A7300P1-E-2",
@@ -4250,7 +4497,10 @@
         "currency": "BRL"
       },
       "price_brl": 2811.46,
-      "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW"
+      "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
+      "sku": "2",
+      "image_path": "/placeholder-charger.jpg",
+      "image_verified": true
     }
   ]
 }

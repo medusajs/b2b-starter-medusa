@@ -1,7 +1,8 @@
 {
   "category": "posts",
   "total_products": 6,
-  "generated_at": "2025-10-13T11:08:49.743Z",
+  "with_images": 6,
+  "generated_at": "2025-10-13T11:26:32.037Z",
   "products": [
     {
       "id": "neosolar_posts_24170",
@@ -47,7 +48,10 @@
         "currency": "BRL"
       },
       "price_brl": 17148,
-      "model": ""
+      "model": "",
+      "sku": "24170",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24171",
@@ -93,7 +97,10 @@
         "currency": "BRL"
       },
       "price_brl": 16357,
-      "model": ""
+      "model": "",
+      "sku": "24171",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24173",
@@ -139,7 +146,10 @@
         "currency": "BRL"
       },
       "price_brl": 9166,
-      "model": ""
+      "model": "",
+      "sku": "24173",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24175",
@@ -185,7 +195,10 @@
         "currency": "BRL"
       },
       "price_brl": 7901,
-      "model": ""
+      "model": "",
+      "sku": "24175",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24172",
@@ -231,7 +244,10 @@
         "currency": "BRL"
       },
       "price_brl": 15804,
-      "model": ""
+      "model": "",
+      "sku": "24172",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24174",
@@ -277,7 +293,10 @@
         "currency": "BRL"
       },
       "price_brl": 8217,
-      "model": ""
+      "model": "",
+      "sku": "24174",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
+      "image_verified": true
     }
   ]
 }

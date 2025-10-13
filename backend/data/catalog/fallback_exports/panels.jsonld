@@ -12,6 +12,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-585W",
+        "sku": "585W",
         "name": "Painel Solar Odex 585W",
         "manufacturer": {
           "@type": "Organization",
@@ -20,7 +21,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 585W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 490,
@@ -57,6 +58,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-600W",
+        "sku": "600W",
         "name": "Painel Solar Odex 600W",
         "manufacturer": {
           "@type": "Organization",
@@ -65,7 +67,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 600W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 499,
@@ -102,6 +104,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-610W",
+        "sku": "610W",
         "name": "Painel Solar Odex 610W",
         "manufacturer": {
           "@type": "Organization",
@@ -110,7 +113,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 610W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 505,
@@ -147,6 +150,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-660W",
+        "sku": "660W",
         "name": "Painel Solar Odex 660W",
         "manufacturer": {
           "@type": "Organization",
@@ -155,7 +159,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 660W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 515,
@@ -192,6 +196,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-700W",
+        "sku": "700W",
         "name": "Painel Solar Odex 700W",
         "manufacturer": {
           "@type": "Organization",
@@ -200,7 +205,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 700W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 519,
@@ -237,6 +242,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+        "sku": "600W",
         "name": "Painel Solar Astronergy 600W",
         "manufacturer": {
           "@type": "Organization",
@@ -245,7 +251,7 @@
         "model": "Astronergy",
         "category": "panels",
         "description": "Painel Solar Astronergy 600W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 512,
@@ -282,6 +288,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-TSUN-560W",
+        "sku": "560W",
         "name": "Painel Solar Tsun 560W",
         "manufacturer": {
           "@type": "Organization",
@@ -290,7 +297,7 @@
         "model": "Tsun",
         "category": "panels",
         "description": "Painel Solar Tsun 560W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 485,
@@ -327,6 +334,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-JINKO-610W",
+        "sku": "610W",
         "name": "Painel Solar Jinko 610W",
         "manufacturer": {
           "@type": "Organization",
@@ -335,7 +343,7 @@
         "model": "Jinko",
         "category": "panels",
         "description": "Painel Solar Jinko 610W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 508,
@@ -372,6 +380,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-JINKO-615W",
+        "sku": "615W",
         "name": "Painel Solar Jinko 615W",
         "manufacturer": {
           "@type": "Organization",
@@ -380,7 +389,7 @@
         "model": "Jinko",
         "category": "panels",
         "description": "Painel Solar Jinko 615W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 510,
@@ -417,11 +426,12 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/undefined",
+        "sku": null,
         "manufacturer": {
           "@type": "Organization"
         },
         "description": "Schema para validação do catálogo de painéis fotovoltaicos comercializados pela Yello Solar Hub",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -446,6 +456,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_1",
+        "sku": "1",
         "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559375/images/IMAGE_PRODUCT_559375.jpeg HANERSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -454,7 +465,7 @@
         "model": "",
         "category": "panels",
         "description": "HN18N-72H",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -486,6 +497,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_2",
+        "sku": "2",
         "name": "HANERSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -494,7 +506,7 @@
         "model": "",
         "category": "panels",
         "description": "HN18N-72H",
-        "image": "https://ysh-solar.com/images/images/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -526,6 +538,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_3",
+        "sku": "3",
         "name": "DAH",
         "manufacturer": {
           "@type": "Organization",
@@ -534,7 +547,7 @@
         "model": "",
         "category": "panels",
         "description": "DHN-72X16/DG",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -566,6 +579,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_4",
+        "sku": "4",
         "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559381/images/IMAGE_PRODUCT_559381.png OSDA",
         "manufacturer": {
           "@type": "Organization",
@@ -574,7 +588,7 @@
         "model": "",
         "category": "panels",
         "description": "33V-MHDRZ",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -611,6 +625,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_5",
+        "sku": "5",
         "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/573429/images/IMAGE_PRODUCT_573429.png HANERSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -619,7 +634,7 @@
         "model": "",
         "category": "panels",
         "description": "HJT HN21H-66HT",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -651,6 +666,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_6",
+        "sku": "6",
         "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/550010/images/image.png MINASOL",
         "manufacturer": {
           "@type": "Organization",
@@ -659,7 +675,7 @@
         "model": "",
         "category": "panels",
         "description": "MS-545",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -691,6 +707,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-585W",
+        "sku": "585W",
         "name": "Painel Solar Odex 585W",
         "manufacturer": {
           "@type": "Organization",
@@ -699,7 +716,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 585W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 490,
@@ -736,6 +753,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-600W",
+        "sku": "600W",
         "name": "Painel Solar Odex 600W",
         "manufacturer": {
           "@type": "Organization",
@@ -744,7 +762,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 600W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 499,
@@ -781,6 +799,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-610W",
+        "sku": "610W",
         "name": "Painel Solar Odex 610W",
         "manufacturer": {
           "@type": "Organization",
@@ -789,7 +808,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 610W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 505,
@@ -826,6 +845,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-660W",
+        "sku": "660W",
         "name": "Painel Solar Odex 660W",
         "manufacturer": {
           "@type": "Organization",
@@ -834,7 +854,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 660W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 515,
@@ -871,6 +891,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ODEX-700W",
+        "sku": "700W",
         "name": "Painel Solar Odex 700W",
         "manufacturer": {
           "@type": "Organization",
@@ -879,7 +900,7 @@
         "model": "Odex",
         "category": "panels",
         "description": "Painel Solar Odex 700W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 519,
@@ -916,6 +937,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-ASTRONERGY-600W",
+        "sku": "600W",
         "name": "Painel Solar Astronergy 600W",
         "manufacturer": {
           "@type": "Organization",
@@ -924,7 +946,7 @@
         "model": "Astronergy",
         "category": "panels",
         "description": "Painel Solar Astronergy 600W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 512,
@@ -961,6 +983,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-TSUN-560W",
+        "sku": "560W",
         "name": "Painel Solar Tsun 560W",
         "manufacturer": {
           "@type": "Organization",
@@ -969,7 +992,7 @@
         "model": "Tsun",
         "category": "panels",
         "description": "Painel Solar Tsun 560W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 485,
@@ -1006,6 +1029,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-JINKO-610W",
+        "sku": "610W",
         "name": "Painel Solar Jinko 610W",
         "manufacturer": {
           "@type": "Organization",
@@ -1014,7 +1038,7 @@
         "model": "Jinko",
         "category": "panels",
         "description": "Painel Solar Jinko 610W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 508,
@@ -1051,6 +1075,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-PAINEL-JINKO-615W",
+        "sku": "615W",
         "name": "Painel Solar Jinko 615W",
         "manufacturer": {
           "@type": "Organization",
@@ -1059,7 +1084,7 @@
         "model": "Jinko",
         "category": "panels",
         "description": "Painel Solar Jinko 615W",
-        "image": "https://ysh-solar.com/images/images/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
         "offers": {
           "@type": "Offer",
           "price": 510,
@@ -1096,6 +1121,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_4",
+        "sku": "4",
         "name": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -1104,7 +1130,7 @@
         "model": "KIT SUPORTE P/ TELHA",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": 80.05,
@@ -1136,6 +1162,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_6",
+        "sku": "6",
         "name": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -1144,7 +1171,7 @@
         "model": "KIT SUPORTE P/ TELHA",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": 108.95,
@@ -1176,6 +1203,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_2",
+        "sku": "2",
         "name": "HANERSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -1184,7 +1212,7 @@
         "model": "HANERSUN",
         "category": "panels",
         "description": "HANERSUN",
-        "image": "https://ysh-solar.com/images/images/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
         "offers": {
           "@type": "Offer",
           "price": null,
@@ -1211,6 +1239,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_panels_3",
+        "sku": "3",
         "name": "DAH",
         "manufacturer": {
           "@type": "Organization",
@@ -1219,7 +1248,7 @@
         "model": "DAH",
         "category": "panels",
         "description": "DAH",
-        "image": "https://ysh-solar.com/images//images/placeholder-panel.jpg",
+        "image": "https://ysh-solar.com/placeholder-panel.jpg",
         "offers": {
           "@type": "Offer",
           "price": null,

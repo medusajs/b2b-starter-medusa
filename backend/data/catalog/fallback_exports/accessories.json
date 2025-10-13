@@ -1,7 +1,8 @@
 {
   "category": "accessories",
   "total_products": 17,
-  "generated_at": "2025-10-13T11:08:49.734Z",
+  "with_images": 17,
+  "generated_at": "2025-10-13T11:26:32.027Z",
   "products": [
     {
       "id": "FORTLEV-GROWATT-AXE-5.0L",
@@ -55,7 +56,10 @@
       },
       "price_brl": 6716.83,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-GROWATT-THOR07AS-P",
@@ -114,7 +118,10 @@
       },
       "price_brl": 3423.66,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": "P",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-FOXESS-A7300P1-E-2",
@@ -173,7 +180,10 @@
       },
       "price_brl": 2811.46,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": "2",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-NEP-PVG-3-20A-L",
@@ -229,7 +239,10 @@
       },
       "price_brl": 91178,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": "L",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CONDUFORT-DN40-PEAD",
@@ -277,7 +290,10 @@
       },
       "price_brl": 566,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": "PEAD",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
@@ -323,7 +339,10 @@
       },
       "price_brl": 86488,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
@@ -371,7 +390,10 @@
       },
       "price_brl": 88795,
       "model": "",
-      "image_url": "/images/placeholder-accessory.jpg"
+      "image_url": "/images/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_1",
@@ -405,7 +427,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 7.48,
-      "model": ""
+      "model": "",
+      "sku": "1",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_2",
@@ -439,7 +464,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 16,
-      "model": ""
+      "model": "",
+      "sku": "2",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_3",
@@ -473,7 +501,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 68.52,
-      "model": ""
+      "model": "",
+      "sku": "3",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_4",
@@ -507,7 +538,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 80.05,
-      "model": ""
+      "model": "",
+      "sku": "4",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_5",
@@ -541,7 +575,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 105.21,
-      "model": ""
+      "model": "",
+      "sku": "5",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_6",
@@ -575,7 +612,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 108.95,
-      "model": ""
+      "model": "",
+      "sku": "6",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_7",
@@ -609,7 +649,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 125.58,
-      "model": ""
+      "model": "",
+      "sku": "7",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_8",
@@ -643,7 +686,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 129.92,
-      "model": ""
+      "model": "",
+      "sku": "8",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_9",
@@ -677,7 +723,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 146.62,
-      "model": ""
+      "model": "",
+      "sku": "9",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_10",
@@ -711,7 +760,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 150.36,
-      "model": ""
+      "model": "",
+      "sku": "10",
+      "image_path": "/placeholder-accessory.jpg",
+      "image_verified": true
     }
   ]
 }

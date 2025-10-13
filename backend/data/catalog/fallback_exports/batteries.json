@@ -1,7 +1,8 @@
 {
   "category": "batteries",
   "total_products": 9,
-  "generated_at": "2025-10-13T11:08:49.693Z",
+  "with_images": 9,
+  "generated_at": "2025-10-13T11:26:31.992Z",
   "products": [
     {
       "id": "solfacil_batteries_1",
@@ -35,7 +36,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 5322.94,
-      "model": ""
+      "model": "",
+      "sku": "1",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_2",
@@ -71,7 +75,10 @@
       },
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 5983.17,
-      "model": ""
+      "model": "",
+      "sku": "2",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_3",
@@ -109,7 +116,10 @@
       },
       "price_brl": 6255.94,
       "model": "",
-      "image_url": "/images/placeholder-battery.jpg"
+      "image_url": "/images/placeholder-battery.jpg",
+      "sku": "3",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_4",
@@ -145,7 +155,10 @@
       },
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 7323.74,
-      "model": ""
+      "model": "",
+      "sku": "4",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-GROWATT-AXE-5.0L",
@@ -185,7 +198,10 @@
         "currency": "BRL"
       },
       "price_brl": 6716.83,
-      "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh"
+      "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+      "sku": null,
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_1",
@@ -225,7 +241,10 @@
         "currency": "BRL"
       },
       "price_brl": 5322.94,
-      "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20"
+      "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+      "sku": "1",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_2",
@@ -265,7 +284,10 @@
         "currency": "BRL"
       },
       "price_brl": 5983.17,
-      "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE"
+      "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+      "sku": "2",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_3",
@@ -309,7 +331,10 @@
         "currency": "BRL"
       },
       "price_brl": 6255.94,
-      "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER"
+      "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+      "sku": "3",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_batteries_4",
@@ -349,7 +374,10 @@
         "currency": "BRL"
       },
       "price_brl": 7323.74,
-      "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE"
+      "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+      "sku": "4",
+      "image_path": "/placeholder-battery.jpg",
+      "image_verified": true
     }
   ]
 }

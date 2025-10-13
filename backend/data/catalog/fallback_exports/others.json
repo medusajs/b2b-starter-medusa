@@ -1,7 +1,8 @@
 {
   "category": "others",
   "total_products": 10,
-  "generated_at": "2025-10-13T11:08:49.748Z",
+  "with_images": 10,
+  "generated_at": "2025-10-13T11:26:32.041Z",
   "products": [
     {
       "id": "FORTLEV-NEP-PVG-3-20A-L",
@@ -36,7 +37,10 @@
         "currency": "BRL"
       },
       "price_brl": 91178,
-      "description": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown"
+      "description": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+      "sku": "L",
+      "image_path": "/placeholder-other.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CONDUFORT-DN40-PEAD",
@@ -69,7 +73,10 @@
         "currency": "BRL"
       },
       "price_brl": 566,
-      "description": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m"
+      "description": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+      "sku": "PEAD",
+      "image_path": "/placeholder-other.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
@@ -102,7 +109,10 @@
         "currency": "BRL"
       },
       "price_brl": 86488,
-      "description": "Caixa de Passagem PRFV D 0.8m × H 0.8m"
+      "description": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+      "sku": null,
+      "image_path": "/placeholder-other.jpg",
+      "image_verified": true
     },
     {
       "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
@@ -135,7 +145,10 @@
         "currency": "BRL"
       },
       "price_brl": 88795,
-      "description": "Cerca de Arame Galvanizado 1.8m × 20m"
+      "description": "Cerca de Arame Galvanizado 1.8m × 20m",
+      "sku": null,
+      "image_path": "/placeholder-other.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24170",
@@ -180,7 +193,10 @@
       },
       "price_brl": 17148,
       "description": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24170.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24170.jpg",
+      "sku": "24170",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24171",
@@ -225,7 +241,10 @@
       },
       "price_brl": 16357,
       "description": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24171.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24171.jpg",
+      "sku": "24171",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24173",
@@ -270,7 +289,10 @@
       },
       "price_brl": 9166,
       "description": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24173.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24173.jpg",
+      "sku": "24173",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24175",
@@ -315,7 +337,10 @@
       },
       "price_brl": 7901,
       "description": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24175.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24175.jpg",
+      "sku": "24175",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24172",
@@ -360,7 +385,10 @@
       },
       "price_brl": 15804,
       "description": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24172.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24172.jpg",
+      "sku": "24172",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
+      "image_verified": true
     },
     {
       "id": "neosolar_posts_24174",
@@ -405,7 +433,10 @@
       },
       "price_brl": 8217,
       "description": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br",
-      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24174.jpg"
+      "image": "images\\NEOSOLAR-POSTS\\neosolar_posts_24174.jpg",
+      "sku": "24174",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
+      "image_verified": true
     }
   ]
 }

@@ -12,6 +12,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23757",
+        "sku": "23757",
         "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -20,7 +21,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar ZTROON - 3ZTPC3.8-180-96-1500W - até 180m ou 22.800 L/dia (23757)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23757.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23757.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4726,
@@ -52,6 +53,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20863",
+        "sku": "20863",
         "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -60,7 +62,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 180m ou 19m³/dia | 3ZTPC3.8-180-96-1500\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20863.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20863.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1927,
@@ -87,6 +89,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_27329",
+        "sku": "27329",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -95,7 +98,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27329.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27329.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1862,
@@ -116,6 +119,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20035",
+        "sku": "20035",
         "name": "https://portal.zydon.com.br/api/files/f51fe085-0d00-4d6e-94a2-5ffbdca9ee0a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -124,7 +128,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Anauger R100 - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20035.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20035.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1529,
@@ -151,6 +155,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20031",
+        "sku": "20031",
         "name": "https://portal.zydon.com.br/api/files/ae0f43e2-2883-4e96-bc4c-433ba1f83827/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -159,7 +164,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bóia de Nível Anauger SensorControl 15A - 3",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20031.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20031.jpg",
         "offers": {
           "@type": "Offer",
           "price": 79,
@@ -186,6 +191,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24072",
+        "sku": "24072",
         "name": "https://portal.zydon.com.br/api/files/fe848e58-c590-45f6-a8bf-f5d77397f5a9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -194,7 +200,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC4.8-203-200-1500-A/D - até 203m ou 27.000 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24072.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24072.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5175,
@@ -221,6 +227,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21295",
+        "sku": "21295",
         "name": "https://portal.zydon.com.br/api/files/fa844e2e-3f9d-4bae-b677-f72e0eb8776b/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -229,7 +236,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - 203m ou 24m³/dia | 4ZTSC4.8-203-200-1500-A/D\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21295.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21295.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2816,
@@ -250,6 +257,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23758",
+        "sku": "23758",
         "name": "https://portal.zydon.com.br/api/files/3f8e14ff-f8de-48b6-97c5-3508c9657f94/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -258,7 +266,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC6-125-96-1500W - até 125m ou 36.000 L/dia (23758)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23758.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23758.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4794,
@@ -285,6 +293,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20864",
+        "sku": "20864",
         "name": "https://portal.zydon.com.br/api/files/2df9d9d7-c021-47ea-9886-ad5db3dd2228/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -293,7 +302,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 125m ou 30m³/dia | 3ZTPC6-125-96-1500W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20864.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20864.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2008,
@@ -320,6 +329,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20860",
+        "sku": "20860",
         "name": "https://portal.zydon.com.br/api/files/63781a4b-0d21-413a-8e76-fa97645dbbe9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -328,7 +338,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 150m ou 10m³/dia | 3ZTS2.0-150-48-750W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20860.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20860.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1686,
@@ -360,6 +370,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24021",
+        "sku": "24021",
         "name": "https://portal.zydon.com.br/api/files/e3ef3254-b830-4c90-9e71-4cdc365b718a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -368,7 +379,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS2.0-150-48-750W - até 150m ou 12.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24021.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24021.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3028,
@@ -400,6 +411,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23761",
+        "sku": "23761",
         "name": "https://portal.zydon.com.br/api/files/a598cf98-81a3-4099-930d-631b798105d9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -408,7 +420,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTLR11.5-100-200-1500-A/D - até 100m ou 69.000 L/dia (23761)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23761.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23761.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4871,
@@ -435,6 +447,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20862",
+        "sku": "20862",
         "name": "https://portal.zydon.com.br/api/files/e7886184-46e7-4a8c-a041-deef067e84ba/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -443,7 +456,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 75m ou 26m³/dia | 3ZTPC5.2-75-96-750W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20862.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20862.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1927,
@@ -475,6 +488,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23759",
+        "sku": "23759",
         "name": "https://portal.zydon.com.br/api/files/bdae5acc-18e6-451f-bb19-083da80777fa/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -483,7 +497,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5.2-75-96-750W - até 75m ou 31.200 L/dia (23759)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23759.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23759.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3167,
@@ -515,6 +529,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20868",
+        "sku": "20868",
         "name": "https://portal.zydon.com.br/api/files/c3cc4bd2-96ce-412b-aec4-eb08b9db4aa7/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -523,7 +538,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - 100m ou 57.5m³/dia | 4ZTLR11.5-100-200-1500-A/D\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20868.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20868.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2560,
@@ -550,6 +565,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24607",
+        "sku": "24607",
         "name": "https://portal.zydon.com.br/api/files/4449a6bc-4e2c-4b3c-aa81-4272e39780e1/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -558,7 +574,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS1.7-109-48-500W - até 900Wp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24607.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24607.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2246,
@@ -590,6 +606,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20859",
+        "sku": "20859",
         "name": "https://portal.zydon.com.br/api/files/0621ac19-b6a6-4ba6-aedd-228e57e3c5dd/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -598,7 +615,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 109 m ou 8.5m³/dia | 3ZTS1.7-109-48-500W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20859.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20859.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1525,
@@ -630,6 +647,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20870",
+        "sku": "20870",
         "name": "https://portal.zydon.com.br/api/files/d4919d44-29b2-42ce-b9a4-6d68d9b8e2a9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -638,7 +656,7 @@
         "model": "",
         "category": "chargers",
         "description": "Eixo Helicoidal (Parafuso) para Reposição – Bomba Solar ZTROON",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20870.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20870.jpg",
         "offers": {
           "@type": "Offer",
           "price": 40,
@@ -665,6 +683,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25220",
+        "sku": "25220",
         "name": "https://portal.zydon.com.br/api/files/315aa012-f6c2-4ee7-905b-4bd48b531d3a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -673,7 +692,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25220.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25220.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1631,
@@ -700,6 +719,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24795",
+        "sku": "24795",
         "name": "https://portal.zydon.com.br/api/files/e96f9f86-f7da-4bca-aa8d-4e1b3ae2b9d1/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -708,7 +728,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar 12V Shurflo 8000 MAXX - até 42m ou 2.940 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24795.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24795.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1266,
@@ -740,6 +760,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24475",
+        "sku": "24475",
         "name": "https://portal.zydon.com.br/api/files/a2764dab-9208-430f-b8f0-aa11af8b1619/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -748,7 +769,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Inversor Drive Solar p/ Bomba 7",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24475.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24475.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2598,
@@ -775,6 +796,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24473",
+        "sku": "24473",
         "name": "https://portal.zydon.com.br/api/files/6d62d439-8ed4-4d3c-b345-9c47cadac00e/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -783,7 +805,7 @@
         "model": "",
         "category": "chargers",
         "description": "Inversor Drive Solar p/ Bomba 10CV Trifásica - APOLLO GS500-11G-4TB",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24473.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24473.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3543,
@@ -804,6 +826,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24249",
+        "sku": "24249",
         "name": "https://portal.zydon.com.br/api/files/772224e9-9d93-45b5-8a35-233d99f588a0/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -812,7 +835,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24249.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24249.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1734,
@@ -839,6 +862,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24802",
+        "sku": "24802",
         "name": "https://portal.zydon.com.br/api/files/fb1c109d-388c-469f-811d-3ec1de14edd4/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -847,7 +871,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC6-255-200-2200-A/D - até 255m ou 30.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24802.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24802.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6989,
@@ -868,6 +892,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26904",
+        "sku": "26904",
         "name": "https://portal.zydon.com.br/api/files/29523666-a11e-48d4-bac4-bf6845f69af6/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -876,7 +901,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTSC6-255-200-2200-A/D - até 255m ou 30.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26904.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26904.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7250,
@@ -903,6 +928,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25128",
+        "sku": "25128",
         "name": "https://portal.zydon.com.br/api/files/52c465fb-6ce7-490a-a82d-da9a2ce10115/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -911,7 +937,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar 12V Shurflo 8000 STD - até 42m ou 2.940 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25128.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25128.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1198,
@@ -943,6 +969,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_22154",
+        "sku": "22154",
         "name": "https://portal.zydon.com.br/api/files/e94f6fbf-55a8-452c-b3df-3b5f1aa4f1e8/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -951,7 +978,7 @@
         "model": "",
         "category": "chargers",
         "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 24V",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_22154.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_22154.jpg",
         "offers": {
           "@type": "Offer",
           "price": 332,
@@ -983,6 +1010,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24467",
+        "sku": "24467",
         "name": "https://portal.zydon.com.br/api/files/c215e4c1-2dba-43f8-b0e9-46d3a728fa14/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -991,7 +1019,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - até 255m ou 30m³/dia | 4ZTSC6-255-200-2200-A/D\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24467.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24467.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4778,
@@ -1018,6 +1046,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20044",
+        "sku": "20044",
         "name": "https://portal.zydon.com.br/api/files/e424c0e8-a9f6-4061-9ffe-22d4441f7d4d/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1026,7 +1055,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Superfície 12V Shurflo 8000 - até 42m ou 2.940 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20044.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20044.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1096,
@@ -1053,6 +1082,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24019",
+        "sku": "24019",
         "name": "https://portal.zydon.com.br/api/files/d2c63e11-a924-4b82-a994-89254b5507c7/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1061,7 +1091,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Superfície ZTROON - ZTHF50-17-96-1500W - até 17m ou 270m³/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24019.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24019.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4589,
@@ -1088,6 +1118,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20871",
+        "sku": "20871",
         "name": "https://portal.zydon.com.br/api/files/f9dd20b6-2967-4bb1-bc99-14989b1f8dd3/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1096,7 +1127,7 @@
         "model": "",
         "category": "chargers",
         "description": "Sensor de Nível de Poço – Reposição Bombas Solares ZTROON",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20871.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20871.jpg",
         "offers": {
           "@type": "Offer",
           "price": 84,
@@ -1117,6 +1148,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_27327",
+        "sku": "27327",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1125,7 +1157,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger P100 STD - até 40m ou 4.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27327.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27327.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1818,
@@ -1146,6 +1178,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24474",
+        "sku": "24474",
         "name": "https://portal.zydon.com.br/api/files/03fb698b-f298-48a6-8ebd-eafbfd908f06/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1154,7 +1187,7 @@
         "model": "",
         "category": "chargers",
         "description": "Inversor Drive Solar p/ Bomba 3CV Trifásica - APOLLO GS500-2.2G-2SB",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24474.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24474.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1487,
@@ -1181,6 +1214,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20034",
+        "sku": "20034",
         "name": "https://portal.zydon.com.br/api/files/7bd18043-be42-4937-b866-9d817845b88a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1189,7 +1223,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Anauger P100 - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20034.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20034.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1483,
@@ -1216,6 +1250,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21294",
+        "sku": "21294",
         "name": "https://portal.zydon.com.br/api/files/8e54df63-16da-49b8-b88f-8d6378dc5bae/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1224,7 +1259,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Superfície ZTROON - 17m ou 250m³/dia | ZTHF50-17-96-1500",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21294.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21294.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1766,
@@ -1245,6 +1280,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24801",
+        "sku": "24801",
         "name": "https://portal.zydon.com.br/api/files/e5089d6e-af8d-45f3-abdd-7c3853215942/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1253,7 +1289,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24801.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24801.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5715,
@@ -1274,6 +1310,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26903",
+        "sku": "26903",
         "name": "https://portal.zydon.com.br/api/files/f1893dd9-96be-4b81-9189-5c98b4b3ea6f/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1282,7 +1319,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26903.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26903.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5974,
@@ -1303,6 +1340,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25023",
+        "sku": "25023",
         "name": "https://portal.zydon.com.br/api/files/2066062b-d49f-4c8c-873c-183ca7ab1317/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1311,7 +1349,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.88kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25023.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25023.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6809,
@@ -1348,6 +1386,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24716",
+        "sku": "24716",
         "name": "https://portal.zydon.com.br/api/files/3e25e0ef-b64c-4e00-bf78-d841a1c9b644/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1356,7 +1395,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.96kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24716.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24716.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6592,
@@ -1393,6 +1432,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_27328",
+        "sku": "27328",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1401,7 +1441,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27328.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27328.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1835,
@@ -1422,6 +1462,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_27330",
+        "sku": "27330",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1430,7 +1471,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger R100 MAXX - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27330.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27330.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1879,
@@ -1451,6 +1492,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24718",
+        "sku": "24718",
         "name": "https://portal.zydon.com.br/api/files/5ea025f9-bf2e-441c-be33-cb32f31556e4/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1459,7 +1501,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 16.12kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24718.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24718.jpg",
         "offers": {
           "@type": "Offer",
           "price": 17270,
@@ -1491,6 +1533,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26901",
+        "sku": "26901",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1499,7 +1542,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 16.12kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26901.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26901.jpg",
         "offers": {
           "@type": "Offer",
           "price": 15699,
@@ -1531,6 +1574,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26900",
+        "sku": "26900",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1539,7 +1583,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 3CV 220V - Apollo GS500 2.2G-2SB - 4.96kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26900.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26900.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6870,
@@ -1571,6 +1615,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24606",
+        "sku": "24606",
         "name": "https://portal.zydon.com.br/api/files/340000bb-fb69-4221-9280-57e9ac3f7293/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1579,7 +1624,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Helicoidal ZTROON - 3ZTS1.7-109-48-500W - até 109 m ou 10.200 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24606.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24606.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2110,
@@ -1611,6 +1656,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24608",
+        "sku": "24608",
         "name": "https://portal.zydon.com.br/api/files/235b0238-222a-4987-a269-46d142ac1f8b/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1619,7 +1665,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Superfície ZTROON - ZTHF6-24-48-550W - até 24m ou 36m³/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24608.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24608.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1905,
@@ -1651,6 +1697,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20872",
+        "sku": "20872",
         "name": "https://portal.zydon.com.br/api/files/ef1db30e-ed10-4589-a48d-e4b26f1cfbf1/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1659,7 +1706,7 @@
         "model": "",
         "category": "chargers",
         "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 48V",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20872.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20872.jpg",
         "offers": {
           "@type": "Offer",
           "price": 690,
@@ -1686,6 +1733,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26902",
+        "sku": "26902",
         "name": "https://portal.zydon.com.br/api/files/8a3276e9-8a4d-468c-b977-528688d934e2/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1694,7 +1742,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 24.18kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26902.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26902.jpg",
         "offers": {
           "@type": "Offer",
           "price": 23171,
@@ -1731,6 +1779,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20045",
+        "sku": "20045",
         "name": "https://portal.zydon.com.br/api/files/ef249691-d95d-4552-bd1e-410d6146870e/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1739,7 +1788,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Submersa 24V Shurflo 9325- até 70m",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20045.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20045.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2891,
@@ -1766,6 +1815,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24717",
+        "sku": "24717",
         "name": "https://portal.zydon.com.br/api/files/b02062dd-503f-466c-a9f7-239a8f0f36f2/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1774,7 +1824,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 24.18kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24717.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24717.jpg",
         "offers": {
           "@type": "Offer",
           "price": 25936,
@@ -1811,6 +1861,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25025",
+        "sku": "25025",
         "name": "https://portal.zydon.com.br/api/files/e1314e53-fbec-41bf-be88-33f3f5cd8412/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1819,7 +1870,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.39kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25025.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25025.jpg",
         "offers": {
           "@type": "Offer",
           "price": 26433,
@@ -1851,6 +1902,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23760",
+        "sku": "23760",
         "name": "https://portal.zydon.com.br/api/files/c653cc8e-bcdb-4d99-b5c7-4689cb67ddd2/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1859,7 +1911,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Helicoidal ZTROON 3ZTS1.2-77-24-210W - até 77m ou 7.200 L/dia (23760)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23760.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_23760.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1570,
@@ -1886,6 +1938,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_27386",
+        "sku": "27386",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -1894,7 +1947,7 @@
         "model": "",
         "category": "chargers",
         "description": "*KIT TESTE PORTAL B2B NÃO UTILIZAR*",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27386.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_27386.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -1914,6 +1967,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25024",
+        "sku": "25024",
         "name": "https://portal.zydon.com.br/api/files/c4246867-fa3d-406b-96af-325f3e22e2ea/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1922,7 +1976,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 15.86kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25024.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25024.jpg",
         "offers": {
           "@type": "Offer",
           "price": 17535,
@@ -1959,6 +2013,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_25012",
+        "sku": "25012",
         "name": "https://portal.zydon.com.br/api/files/e2b51192-3fa9-44ca-a3cc-1027916c512a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -1967,7 +2022,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Híbrida ZTROON - 4ZTPC14-125-200-2200-A/D - até 125m ou 70.000L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25012.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_25012.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5663,
@@ -1994,6 +2049,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26360",
+        "sku": "26360",
         "name": "https://portal.zydon.com.br/api/files/c20c0bdb-e332-4394-879f-9d7427a99eb6/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2002,7 +2058,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 18.27kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26360.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_26360.jpg",
         "offers": {
           "@type": "Offer",
           "price": 21145,
@@ -2039,6 +2095,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20043",
+        "sku": "20043",
         "name": "https://portal.zydon.com.br/api/files/d926de50-d753-453d-95c8-19ef3baba058/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2047,7 +2104,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Superfície 12V Shurflo 2088 - até 35m ou 4.750 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20043.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20043.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1000,
@@ -2074,6 +2131,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20861",
+        "sku": "20861",
         "name": "https://portal.zydon.com.br/api/files/6d85d17e-76a5-424a-864d-4fdf5a83ce0c/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2082,7 +2140,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 45m ou 25m³/dia | 3ZTPC5-45-48-500W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20861.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_20861.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1445,
@@ -2114,6 +2172,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21757",
+        "sku": "21757",
         "name": "https://portal.zydon.com.br/api/files/ab60c860-b511-4bf3-a282-03cfda4cc71b/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2122,7 +2181,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger R100 STD - até 40m ou 4.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21757.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_21757.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2142,6 +2201,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24715",
+        "sku": "24715",
         "name": "https://portal.zydon.com.br/api/files/5ea4a37d-0760-4da0-9553-7dfa2c64efa7/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2150,7 +2210,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.49kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24715.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/NEOSOLAR_CHARGERS_24715.jpg",
         "offers": {
           "@type": "Offer",
           "price": 28864,
@@ -2187,6 +2247,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24714",
+        "sku": "24714",
         "name": "https://portal.zydon.com.br/api/files/e1e996fb-c9d5-4ff4-8b82-264c320f9ac3/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2195,7 +2256,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 7.5CV 380V - Apollo GS500 7.5G - 18.27kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24714.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24714.jpg",
         "offers": {
           "@type": "Offer",
           "price": 22301,
@@ -2232,6 +2293,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24713",
+        "sku": "24713",
         "name": "https://portal.zydon.com.br/api/files/eaf99130-ac79-4c3a-a0c4-c8a143d6d11b/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2240,7 +2302,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Kit Solar p/ Bomba (CA) até 3CV 240V - Apollo GS500 2.2G-2SB - 5",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24713.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24713.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7599,
@@ -2272,6 +2334,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21751",
+        "sku": "21751",
         "name": "https://portal.zydon.com.br/api/files/b9605151-bb09-4947-9a4f-90e8ff88644a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2280,7 +2343,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger P100 MAXX - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21751.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21751.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2306,6 +2369,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21741",
+        "sku": "21741",
         "name": "https://portal.zydon.com.br/api/files/fc73ba4c-0a8c-4a57-a468-4f7106ed1530/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2314,7 +2378,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar 12V Shurflo 2088 MAXX - até 35m ou 4.750 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21741.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21741.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2345,6 +2409,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21743",
+        "sku": "21743",
         "name": "https://portal.zydon.com.br/api/files/61c45504-b478-43fa-9391-54c2481a3cc9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2353,7 +2418,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar 24V Shurflo 9325 - até 70m ou 2.520 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21743.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21743.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2384,6 +2449,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21756",
+        "sku": "21756",
         "name": "https://portal.zydon.com.br/api/files/568a94ba-44d0-4501-8571-d8a624ea49eb/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2392,7 +2458,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger R100 MAXX - até 40m ou 8.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21756.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21756.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2418,6 +2484,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21755",
+        "sku": "21755",
         "name": "https://portal.zydon.com.br/api/files/ac1b53cb-4987-4b7c-968f-46a9e4d2f0c7/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2426,7 +2493,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Anauger P100 STD - até 40m ou 4.600 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21755.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21755.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2452,6 +2519,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_21742",
+        "sku": "21742",
         "name": "https://portal.zydon.com.br/api/files/a21caffb-f1c0-42ae-ae81-480cc44c54ae/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2460,7 +2528,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar 12V Shurflo 2088 STD - até 14m ou 4.750 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_21742.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_21742.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -2491,6 +2559,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26526",
+        "sku": "26526",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -2499,7 +2568,7 @@
         "model": "",
         "category": "chargers",
         "description": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_26526.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26526.jpg",
         "offers": {
           "@type": "Offer",
           "price": 8098,
@@ -2520,6 +2589,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26361",
+        "sku": "26361",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -2528,7 +2598,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Solar p/ Bomba (CA) até 10CV 380V - Apollo GS500 11G - 23.49kWp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_26361.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26361.jpg",
         "offers": {
           "@type": "Offer",
           "price": 27514,
@@ -2560,6 +2630,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26525",
+        "sku": "26525",
         "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
         "manufacturer": {
           "@type": "Organization",
@@ -2568,7 +2639,7 @@
         "model": "",
         "category": "chargers",
         "description": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_26525.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26525.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6611,
@@ -2589,6 +2660,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_26359",
+        "sku": "26359",
         "name": "https://portal.zydon.com.br/api/files/81e6092a-b1d7-4a42-8486-ba68758fc7d6/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2597,7 +2669,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Kit Solar p/ Bomba (CA) até 3CV 240V - Apollo GS500 2.2G-2SB - 5",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_26359.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_26359.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7403,
@@ -2629,6 +2701,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20858",
+        "sku": "20858",
         "name": "https://portal.zydon.com.br/api/files/2ca2d6db-5ffd-4cc1-8bd9-1bf494ee5acf/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2637,7 +2710,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar ZTROON 3\"\" - 77m ou 6m³/dia | 3ZTS1.2-77-24-210W\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_20858.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20858.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1365,
@@ -2669,6 +2742,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20866",
+        "sku": "20866",
         "name": "https://portal.zydon.com.br/api/files/4d490dce-709d-4a2c-96c1-8ab22506df7d/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2677,7 +2751,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Superfície ZTROON - 24m ou 30m³/dia | ZTHF6-24-48-550",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_20866.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20866.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1284,
@@ -2704,6 +2778,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20873",
+        "sku": "20873",
         "name": "https://portal.zydon.com.br/api/files/331a10ac-c599-4890-bad0-285615bf2b4a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2712,7 +2787,7 @@
         "model": "",
         "category": "chargers",
         "description": "Driver para Bomba Solar ZTROON - Controlador MPPT de 96V",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_20873.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20873.jpg",
         "offers": {
           "@type": "Offer",
           "price": 888,
@@ -2744,6 +2819,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_20865",
+        "sku": "20865",
         "name": "https://portal.zydon.com.br/api/files/455e03c7-4db1-46ac-9eb6-08ae1196e1ef/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2752,7 +2828,7 @@
         "model": "",
         "category": "chargers",
         "description": "Bomba Solar Superfície ZTROON - 25m ou 10m³/dia | ZTQB2-25-24-210",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_20865.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_20865.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1003,
@@ -2779,6 +2855,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24468",
+        "sku": "24468",
         "name": "https://portal.zydon.com.br/api/files/2a1ffd08-5396-4a60-a730-9bcf57310513/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2787,7 +2864,7 @@
         "model": "",
         "category": "chargers",
         "description": "\"Bomba Solar Híbrida ZTROON 4\"\" - até 125m ou 70m³/dia | 4ZTPC14-125-200-2200-A/D\"",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24468.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24468.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3220,
@@ -2814,6 +2891,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24594",
+        "sku": "24594",
         "name": "https://portal.zydon.com.br/api/files/6fd654a3-7fae-4837-9068-0bab56a24ead/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2822,7 +2900,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5-45-48-500W - até 900Wp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24594.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24594.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2177,
@@ -2854,6 +2932,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24593",
+        "sku": "24593",
         "name": "https://portal.zydon.com.br/api/files/0671dd0f-4a06-47d8-965c-29f1b84ec353/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2862,7 +2941,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Centrífuga ZTROON - 3ZTPC5-45-48-500W - até 45m ou 30.000 L/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24593.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24593.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2042,
@@ -2894,6 +2973,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_24609",
+        "sku": "24609",
         "name": "https://portal.zydon.com.br/api/files/39bbe792-30cf-4e00-8374-1dbf86473b1c/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2902,7 +2982,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Superfície ZTROON - ZTHF6-24-48-550W - até 900Wp",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_24609.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_24609.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2041,
@@ -2929,6 +3009,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_chargers_23762",
+        "sku": "23762",
         "name": "https://portal.zydon.com.br/api/files/b7be913e-d2a5-4cd5-9c88-f37c2e7fa9ff/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -2937,7 +3018,7 @@
         "model": "",
         "category": "chargers",
         "description": "Kit Bomba Solar Superfície ZTROON - ZTQB2-25-24-210W - até 25m ou 12m³/dia",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CHARGERS/neosolar_chargers_23762.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CHARGERS/neosolar_chargers_23762.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1262,
@@ -2969,6 +3050,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-GROWATT-THOR07AS-P",
+        "sku": "P",
         "name": "Carregador EV Growatt THOR07AS-P 7kW",
         "manufacturer": {
           "@type": "Organization",
@@ -2977,7 +3059,7 @@
         "model": "",
         "category": "ev_chargers",
         "description": "Carregador EV Growatt THOR07AS-P 7kW",
-        "image": "https://ysh-solar.com/images//images/placeholder-charger.jpg",
+        "image": "https://ysh-solar.com/placeholder-charger.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3423.66,
@@ -3009,6 +3091,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-FOXESS-A7300P1-E-2",
+        "sku": "2",
         "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
         "manufacturer": {
           "@type": "Organization",
@@ -3017,7 +3100,7 @@
         "model": "",
         "category": "ev_chargers",
         "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-        "image": "https://ysh-solar.com/images//images/placeholder-charger.jpg",
+        "image": "https://ysh-solar.com/placeholder-charger.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2811.46,

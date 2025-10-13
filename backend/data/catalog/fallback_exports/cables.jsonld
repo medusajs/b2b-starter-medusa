@@ -12,6 +12,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20078",
+        "sku": "20078",
         "name": "https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -20,7 +21,7 @@
         "model": "",
         "category": "cables",
         "description": "\"Cabo Lafeber 6mm² - Vermelho 1",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20078.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6,
@@ -47,6 +48,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20077",
+        "sku": "20077",
         "name": "https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -55,7 +57,7 @@
         "model": "",
         "category": "cables",
         "description": "\"Cabo Lafeber 6mm² - Preto 1",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6,
@@ -82,6 +84,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20121",
+        "sku": "20121",
         "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -90,7 +93,7 @@
         "model": "",
         "category": "cables",
         "description": "Conector MC4 (par) - Proauto",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20121.jpg",
         "offers": {
           "@type": "Offer",
           "price": 9,
@@ -117,6 +120,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20369",
+        "sku": "20369",
         "name": "https://portal.zydon.com.br/api/files/e7e64039-32bd-4a3f-a34b-d0c6b6d948d8/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -125,7 +129,7 @@
         "model": "",
         "category": "cables",
         "description": "Sensor de Temperatura Epever RTS300R47K3.81A",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20369.jpg",
         "offers": {
           "@type": "Offer",
           "price": 15,
@@ -152,6 +156,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20122",
+        "sku": "20122",
         "name": "https://portal.zydon.com.br/api/files/d05f4589-fd3a-4404-a2e7-398841db4d1c/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -160,7 +165,7 @@
         "model": "",
         "category": "cables",
         "description": "Conector MC4 - Multibranch Proauto (par)",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20122.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -186,6 +191,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20286",
+        "sku": "20286",
         "name": "https://portal.zydon.com.br/api/files/c697a21f-75fd-4e49-93d6-173ed1bd3712/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -194,7 +200,7 @@
         "model": "",
         "category": "cables",
         "description": "Medidor Remoto Epever MT-75 para Controlador de Carga e Inversor Solar",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20286.jpg",
         "offers": {
           "@type": "Offer",
           "price": 199,
@@ -221,6 +227,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_23780",
+        "sku": "23780",
         "name": "https://portal.zydon.com.br/api/files/e99a7155-0c24-4be7-b7c8-8a67e6a41d5a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -229,7 +236,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_23780.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -255,6 +262,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20925",
+        "sku": "20925",
         "name": "https://portal.zydon.com.br/api/files/806b0b15-17f1-4094-9ef4-83c3205377b9/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -263,7 +271,7 @@
         "model": "",
         "category": "cables",
         "description": "Módulo Epever Wi-Fi 2.4G RJ45 D - Energia Solar",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20925.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20925.jpg",
         "offers": {
           "@type": "Offer",
           "price": 101,
@@ -284,6 +292,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_23504",
+        "sku": "23504",
         "name": "https://portal.zydon.com.br/api/files/829eb410-e3ba-46a2-a47e-434ab6c50e6a/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -292,7 +301,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Solar System",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_23504.jpg",
         "offers": {
           "@type": "Offer",
           "price": 429,
@@ -319,6 +328,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_23503",
+        "sku": "23503",
         "name": "https://portal.zydon.com.br/api/files/529f350a-60ed-404f-adaa-53f87b1c63a0/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -327,7 +337,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Solar System",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_23503.jpg",
         "offers": {
           "@type": "Offer",
           "price": 458,
@@ -354,6 +364,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_23505",
+        "sku": "23505",
         "name": "https://portal.zydon.com.br/api/files/8236b883-9053-481d-84a5-e9d086cb77df/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -362,7 +373,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Solar System",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_23505.jpg",
         "offers": {
           "@type": "Offer",
           "price": 480,
@@ -389,6 +400,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20371",
+        "sku": "20371",
         "name": "https://portal.zydon.com.br/api/files/655fa0a7-5c1f-4db9-aaaf-dd25191a01d4/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -397,7 +409,7 @@
         "model": "",
         "category": "cables",
         "description": "Stringbox Neosolar PRO 2x1 1000V 25A IP65",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20371.jpg",
         "offers": {
           "@type": "Offer",
           "price": 670,
@@ -429,6 +441,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_20789",
+        "sku": "20789",
         "name": "https://portal.zydon.com.br/api/files/beaa3689-ce19-4306-8f12-e182f99119fd/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -437,7 +450,7 @@
         "model": "",
         "category": "cables",
         "description": "Conector MC4 - Multibranch (par) - Staubli",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_20789.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20789.jpg",
         "offers": {
           "@type": "Offer",
           "price": 62,
@@ -458,6 +471,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_21771",
+        "sku": "21771",
         "name": "https://portal.zydon.com.br/api/files/37629352-ec02-455e-944f-22cda2be6052/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -466,7 +480,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Metálica - Perfil Master",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_21771.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_21771.jpg",
         "offers": {
           "@type": "Offer",
           "price": 648,
@@ -487,6 +501,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_21770",
+        "sku": "21770",
         "name": "https://portal.zydon.com.br/api/files/032dd801-be80-4c08-9668-0875ac54d240/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -495,7 +510,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Fibrocimento c/ Estrutura de Madeira - Perfil Master",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_21770.jpg",
         "offers": {
           "@type": "Offer",
           "price": 648,
@@ -522,6 +537,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_21769",
+        "sku": "21769",
         "name": "https://portal.zydon.com.br/api/files/387ee6d0-a48c-40dd-9625-3d6e08af335b/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -530,7 +546,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Cerâmica - Perfil Master",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_21769.jpg",
         "offers": {
           "@type": "Offer",
           "price": 901,
@@ -557,6 +573,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_21772",
+        "sku": "21772",
         "name": "https://portal.zydon.com.br/api/files/aee39a32-961d-4725-909b-76dd98b99390/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -565,7 +582,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_21772.jpg",
         "offers": {
           "@type": "Offer",
           "price": 994,
@@ -592,6 +609,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_27352",
+        "sku": "27352",
         "name": "https://portal.zydon.com.br/api/files/29ad6f66-a45b-4acc-b652-2a2fc4a0d0e8/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -600,7 +618,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Telha Mini Trilho - Solar System",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_27352.jpg",
         "offers": {
           "@type": "Offer",
           "priceCurrency": "BRL",
@@ -626,6 +644,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_cables_25205",
+        "sku": "25205",
         "name": "https://portal.zydon.com.br/api/files/2c4eaf00-8563-4844-9cd5-deaa954edf05/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -634,7 +653,7 @@
         "model": "",
         "category": "cables",
         "description": "Kit de Montagem - Estrutura de Fixação para Solo - Perfil Master",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-CABLES/neosolar_cables_25205.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_25205.jpg",
         "offers": {
           "@type": "Offer",
           "price": 964,
@@ -655,6 +674,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_1",
+        "sku": "1",
         "name": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
         "manufacturer": {
           "@type": "Organization",
@@ -663,7 +683,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 21.83,
@@ -684,6 +704,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_2",
+        "sku": "2",
         "name": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
         "manufacturer": {
           "@type": "Organization",
@@ -692,7 +713,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 21.83,
@@ -713,6 +734,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_3",
+        "sku": "3",
         "name": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
         "manufacturer": {
           "@type": "Organization",
@@ -721,7 +743,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 21.83,
@@ -742,6 +764,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_4",
+        "sku": "4",
         "name": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -750,7 +773,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 44.8,
@@ -771,6 +794,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_5",
+        "sku": "5",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -779,7 +803,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 44.8,
@@ -806,6 +830,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_6",
+        "sku": "6",
         "name": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -814,7 +839,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 134.4,
@@ -835,6 +860,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_7",
+        "sku": "7",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -843,7 +869,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 134.4,
@@ -870,6 +896,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_8",
+        "sku": "8",
         "name": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -878,7 +905,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 185.63,
@@ -899,6 +926,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_9",
+        "sku": "9",
         "name": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -907,7 +935,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 185.63,
@@ -934,6 +962,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_10",
+        "sku": "10",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -942,7 +971,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 266,
@@ -969,6 +998,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_11",
+        "sku": "11",
         "name": "CABO SOLAR 4,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -977,7 +1007,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 266,
@@ -998,6 +1028,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_12",
+        "sku": "12",
         "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1006,7 +1037,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 366.8,
@@ -1033,6 +1064,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_13",
+        "sku": "13",
         "name": "CABO SOLAR 6,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1041,7 +1073,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 PRETO C/ 50 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 366.8,
@@ -1062,6 +1094,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_14",
+        "sku": "14",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 75 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1070,7 +1103,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 75 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 392,
@@ -1097,6 +1130,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_15",
+        "sku": "15",
         "name": "CABO SOLAR 4,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1105,7 +1139,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 392,
@@ -1126,6 +1160,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_16",
+        "sku": "16",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1134,7 +1169,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 515.2,
@@ -1161,6 +1196,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_17",
+        "sku": "17",
         "name": "CABO SOLAR 4,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1169,7 +1205,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 515.2,
@@ -1190,6 +1226,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_18",
+        "sku": "18",
         "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 75 MT COM PROTECAO UV 1,8KVCC",
         "manufacturer": {
           "@type": "Organization",
@@ -1198,7 +1235,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 75 MT COM PROTECAO UV 1,8KVCC",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 551.6,
@@ -1225,6 +1262,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_19",
+        "sku": "19",
         "name": "CABO SOLAR 6,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1233,7 +1271,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 PRETO C/ 75 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 551.6,
@@ -1254,6 +1292,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_20",
+        "sku": "20",
         "name": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1262,7 +1301,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 4,0MM PRETO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 573.13,
@@ -1283,6 +1322,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_21",
+        "sku": "21",
         "name": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1291,7 +1331,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 573.13,
@@ -1312,6 +1352,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_22",
+        "sku": "22",
         "name": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1320,7 +1361,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 734.47,
@@ -1341,6 +1382,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_23",
+        "sku": "23",
         "name": "CABO SOLAR 6,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1349,7 +1391,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 6,0MM2 VERMELHO C/ 100 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 734.47,
@@ -1376,6 +1418,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_24",
+        "sku": "24",
         "name": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1384,7 +1427,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 6,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 822.75,
@@ -1405,6 +1448,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_25",
+        "sku": "25",
         "name": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1413,7 +1457,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 6,0MM PRETO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 822.75,
@@ -1434,6 +1478,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_26",
+        "sku": "26",
         "name": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1442,7 +1487,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO PP MULTIVIAS 1KV 3 X 4,0MM PRETO C/ 50M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 883.65,
@@ -1463,6 +1508,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_27",
+        "sku": "27",
         "name": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1471,7 +1517,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1268.06,
@@ -1492,6 +1538,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_28",
+        "sku": "28",
         "name": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1500,7 +1547,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 10,0MM PRETO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1268.06,
@@ -1521,6 +1568,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_29",
+        "sku": "29",
         "name": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1529,7 +1577,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO PP MULTIVIAS 1KV 3 X 6,0MM PRETO C/ 50M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1283.04,
@@ -1550,6 +1598,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_30",
+        "sku": "30",
         "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)",
         "manufacturer": {
           "@type": "Organization",
@@ -1558,7 +1607,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO SOLAR 4,0MM2 VERMELHO C/ 500 MT (PROTECAO UV 1,8KVCC)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1398.6,
@@ -1585,6 +1634,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_31",
+        "sku": "31",
         "name": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1593,7 +1643,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 25,0MM PRETO C/ 50 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1502.7,
@@ -1614,6 +1664,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_32",
+        "sku": "32",
         "name": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1622,7 +1673,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 25,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1502.7,
@@ -1643,6 +1694,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_33",
+        "sku": "33",
         "name": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1651,7 +1703,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 16,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1957.02,
@@ -1672,6 +1724,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_34",
+        "sku": "34",
         "name": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1680,7 +1733,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 16,0MM PRETO C/ 100 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1957.02,
@@ -1701,6 +1754,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_35",
+        "sku": "35",
         "name": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1709,7 +1763,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 35,0MM VERMELHO C/ 50 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2101.79,
@@ -1730,6 +1784,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_cables_36",
+        "sku": "36",
         "name": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)",
         "manufacturer": {
           "@type": "Organization",
@@ -1738,7 +1793,7 @@
         "model": "",
         "category": "cables",
         "description": "CABO CA 1KV 35,0MM PRETO C/ 50 M (CABRNAX 90°C)",
-        "image": "https://ysh-solar.com/images//images/placeholder-cable.jpg",
+        "image": "https://ysh-solar.com/placeholder-cable.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2101.79,

@@ -12,6 +12,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_1",
+        "sku": "1",
         "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
         "manufacturer": {
           "@type": "Organization",
@@ -20,7 +21,7 @@
         "model": "",
         "category": "batteries",
         "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5322.94,
@@ -41,6 +42,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_2",
+        "sku": "2",
         "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
         "manufacturer": {
           "@type": "Organization",
@@ -49,7 +51,7 @@
         "model": "",
         "category": "batteries",
         "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5983.17,
@@ -76,6 +78,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_3",
+        "sku": "3",
         "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
         "manufacturer": {
           "@type": "Organization",
@@ -84,7 +87,7 @@
         "model": "",
         "category": "batteries",
         "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6255.94,
@@ -121,6 +124,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_4",
+        "sku": "4",
         "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
         "manufacturer": {
           "@type": "Organization",
@@ -129,7 +133,7 @@
         "model": "",
         "category": "batteries",
         "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7323.74,
@@ -156,6 +160,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-GROWATT-AXE-5.0L",
+        "sku": null,
         "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
         "manufacturer": {
           "@type": "Organization",
@@ -164,7 +169,7 @@
         "model": "5.0L",
         "category": "batteries",
         "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6716.83,
@@ -191,6 +196,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_1",
+        "sku": "1",
         "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
         "manufacturer": {
           "@type": "Organization",
@@ -199,7 +205,7 @@
         "model": "CONTROLE",
         "category": "batteries",
         "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5322.94,
@@ -220,6 +226,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_2",
+        "sku": "2",
         "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
         "manufacturer": {
           "@type": "Organization",
@@ -228,7 +235,7 @@
         "model": "LYNX",
         "category": "batteries",
         "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 5983.17,
@@ -255,6 +262,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_3",
+        "sku": "3",
         "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
         "manufacturer": {
           "@type": "Organization",
@@ -263,7 +271,7 @@
         "model": "LFP",
         "category": "batteries",
         "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 6255.94,
@@ -300,6 +308,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_batteries_4",
+        "sku": "4",
         "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
         "manufacturer": {
           "@type": "Organization",
@@ -308,7 +317,7 @@
         "model": "LYNX",
         "category": "batteries",
         "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
-        "image": "https://ysh-solar.com/images//images/placeholder-battery.jpg",
+        "image": "https://ysh-solar.com/placeholder-battery.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7323.74,

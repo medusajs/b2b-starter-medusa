@@ -1,7 +1,8 @@
 {
   "category": "structures",
   "total_products": 40,
-  "generated_at": "2025-10-13T11:08:49.731Z",
+  "with_images": 40,
+  "generated_at": "2025-10-13T11:26:32.024Z",
   "products": [
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
@@ -45,7 +46,10 @@
       "original_category": "structures",
       "series": "F",
       "technical_specs": {},
-      "price_brl": 103
+      "price_brl": 103,
+      "sku": "FIBROCIMENTO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
@@ -87,7 +91,10 @@
       "original_category": "structures",
       "series": "F",
       "technical_specs": {},
-      "price_brl": 98
+      "price_brl": 98,
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
@@ -131,7 +138,10 @@
       "original_category": "structures",
       "series": "C",
       "technical_specs": {},
-      "price_brl": 145
+      "price_brl": 145,
+      "sku": "COLONIAL",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
@@ -173,7 +183,10 @@
       "original_category": "structures",
       "series": "M",
       "technical_specs": {},
-      "price_brl": 112
+      "price_brl": 112,
+      "sku": "METALICO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
@@ -215,7 +228,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 1250
+      "price_brl": 1250,
+      "sku": "SOLO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
@@ -257,7 +273,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 3890
+      "price_brl": 3890,
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
@@ -299,7 +318,10 @@
       "original_category": "structures",
       "series": "F",
       "technical_specs": {},
-      "price_brl": 109
+      "price_brl": 109,
+      "sku": "FIBROCIMENTO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
@@ -341,7 +363,10 @@
       "original_category": "structures",
       "series": "C",
       "technical_specs": {},
-      "price_brl": 152
+      "price_brl": 152,
+      "sku": "COLONIAL",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
@@ -383,7 +408,10 @@
       "original_category": "structures",
       "series": "M",
       "technical_specs": {},
-      "price_brl": 118
+      "price_brl": 118,
+      "sku": "METALICO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
@@ -425,7 +453,10 @@
       "original_category": "structures",
       "series": "L",
       "technical_specs": {},
-      "price_brl": 165
+      "price_brl": 165,
+      "sku": "LAJE",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-SOLO",
@@ -467,7 +498,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 1345
+      "price_brl": 1345,
+      "sku": "SOLO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-FIBROCIMENTO",
@@ -509,7 +543,10 @@
       "original_category": "structures",
       "series": "F",
       "technical_specs": {},
-      "price_brl": 107
+      "price_brl": 107,
+      "sku": "FIBROCIMENTO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-COLONIAL",
@@ -551,7 +588,10 @@
       "original_category": "structures",
       "series": "C",
       "technical_specs": {},
-      "price_brl": 149
+      "price_brl": 149,
+      "sku": "COLONIAL",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-METALICO",
@@ -593,7 +633,10 @@
       "original_category": "structures",
       "series": "M",
       "technical_specs": {},
-      "price_brl": 115
+      "price_brl": 115,
+      "sku": "METALICO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-LAJE",
@@ -635,7 +678,10 @@
       "original_category": "structures",
       "series": "L",
       "technical_specs": {},
-      "price_brl": 158
+      "price_brl": 158,
+      "sku": "LAJE",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-PRATYC-SOLO",
@@ -679,7 +725,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 1399
+      "price_brl": 1399,
+      "sku": "SOLO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-FIBROCIMENTO",
@@ -721,7 +770,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 185
+      "price_brl": 185,
+      "sku": "FIBROCIMENTO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-COLONIAL",
@@ -763,7 +815,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 198
+      "price_brl": 198,
+      "sku": "COLONIAL",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO",
@@ -805,7 +860,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 175
+      "price_brl": 175,
+      "sku": "METALICO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO",
@@ -847,7 +905,10 @@
       "original_category": "structures",
       "series": "C",
       "technical_specs": {},
-      "price_brl": 2250
+      "price_brl": 2250,
+      "sku": "SOLO",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-LAJE",
@@ -889,7 +950,10 @@
       "original_category": "structures",
       "series": "M",
       "technical_specs": {},
-      "price_brl": 189
+      "price_brl": 189,
+      "sku": "LAJE",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
@@ -931,7 +995,10 @@
       "original_category": "structures",
       "series": "B",
       "technical_specs": {},
-      "price_brl": 203
+      "price_brl": 203,
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
@@ -973,7 +1040,10 @@
       "original_category": "structures",
       "series": "D",
       "technical_specs": {},
-      "price_brl": 1890
+      "price_brl": 1890,
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
@@ -1015,7 +1085,10 @@
       "original_category": "structures",
       "series": "D",
       "technical_specs": {},
-      "price_brl": 2150
+      "price_brl": 2150,
+      "sku": "2",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
@@ -1057,7 +1130,10 @@
       "original_category": "structures",
       "series": "D",
       "technical_specs": {},
-      "price_brl": 2450
+      "price_brl": 2450,
+      "sku": "3",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
@@ -1099,7 +1175,10 @@
       "original_category": "structures",
       "series": "S",
       "technical_specs": {},
-      "price_brl": 4250
+      "price_brl": 4250,
+      "sku": "4",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_1",
@@ -1133,7 +1212,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 262.86,
-      "model": ""
+      "model": "",
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_2",
@@ -1167,7 +1249,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 684.7,
-      "model": ""
+      "model": "",
+      "sku": "2",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_3",
@@ -1201,7 +1286,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 732.72,
-      "model": ""
+      "model": "",
+      "sku": "3",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_4",
@@ -1235,7 +1323,10 @@
       "technical_specs": {},
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 1433.88,
-      "model": ""
+      "model": "",
+      "sku": "4",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_3",
@@ -1275,7 +1366,10 @@
         "currency": "BRL"
       },
       "price_brl": 68.52,
-      "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV"
+      "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+      "sku": "3",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_5",
@@ -1315,7 +1409,10 @@
         "currency": "BRL"
       },
       "price_brl": 105.21,
-      "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL"
+      "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
+      "sku": "5",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_7",
@@ -1356,7 +1453,10 @@
         "currency": "BRL"
       },
       "price_brl": 125.58,
-      "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN"
+      "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
+      "sku": "7",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_8",
@@ -1396,7 +1496,10 @@
         "currency": "BRL"
       },
       "price_brl": 129.92,
-      "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM"
+      "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
+      "sku": "8",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_9",
@@ -1437,7 +1540,10 @@
         "currency": "BRL"
       },
       "price_brl": 146.62,
-      "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN"
+      "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
+      "sku": "9",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_accessories_10",
@@ -1477,7 +1583,10 @@
         "currency": "BRL"
       },
       "price_brl": 150.36,
-      "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL"
+      "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
+      "sku": "10",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_1",
@@ -1517,7 +1626,10 @@
         "currency": "BRL"
       },
       "price_brl": 262.86,
-      "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P"
+      "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
+      "sku": "1",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_2",
@@ -1557,7 +1669,10 @@
         "currency": "BRL"
       },
       "price_brl": 684.7,
-      "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX"
+      "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
+      "sku": "2",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_3",
@@ -1597,7 +1712,10 @@
         "currency": "BRL"
       },
       "price_brl": 732.72,
-      "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P"
+      "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
+      "sku": "3",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     },
     {
       "id": "solfacil_structures_4",
@@ -1637,7 +1755,10 @@
         "currency": "BRL"
       },
       "price_brl": 1433.88,
-      "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX"
+      "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
+      "sku": "4",
+      "image_path": "/placeholder-structure.jpg",
+      "image_verified": true
     }
   ]
 }

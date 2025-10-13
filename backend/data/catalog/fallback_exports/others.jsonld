@@ -12,6 +12,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-NEP-PVG-3-20A-L",
+        "sku": "L",
         "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
         "manufacturer": {
           "@type": "Organization",
@@ -20,7 +21,7 @@
         "model": "",
         "category": "others",
         "description": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
-        "image": "https://ysh-solar.com/images//images/placeholder-other.jpg",
+        "image": "https://ysh-solar.com/placeholder-other.jpg",
         "offers": {
           "@type": "Offer",
           "price": 91178,
@@ -47,6 +48,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-CONDUFORT-DN40-PEAD",
+        "sku": "PEAD",
         "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
         "manufacturer": {
           "@type": "Organization",
@@ -55,7 +57,7 @@
         "model": "",
         "category": "others",
         "description": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
-        "image": "https://ysh-solar.com/images//images/placeholder-other.jpg",
+        "image": "https://ysh-solar.com/placeholder-other.jpg",
         "offers": {
           "@type": "Offer",
           "price": 566,
@@ -76,6 +78,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+        "sku": null,
         "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
         "manufacturer": {
           "@type": "Organization",
@@ -84,7 +87,7 @@
         "model": "",
         "category": "others",
         "description": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
-        "image": "https://ysh-solar.com/images//images/placeholder-other.jpg",
+        "image": "https://ysh-solar.com/placeholder-other.jpg",
         "offers": {
           "@type": "Offer",
           "price": 86488,
@@ -105,6 +108,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-CERCA-ARAME-1.8MX20M",
+        "sku": null,
         "name": "Cerca de Arame Galvanizado 1.8m × 20m",
         "manufacturer": {
           "@type": "Organization",
@@ -113,7 +117,7 @@
         "model": "",
         "category": "others",
         "description": "Cerca de Arame Galvanizado 1.8m × 20m",
-        "image": "https://ysh-solar.com/images//images/placeholder-other.jpg",
+        "image": "https://ysh-solar.com/placeholder-other.jpg",
         "offers": {
           "@type": "Offer",
           "price": 88795,
@@ -134,6 +138,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24170",
+        "sku": "24170",
         "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -142,7 +147,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24170.jpg",
         "offers": {
           "@type": "Offer",
           "price": 17148,
@@ -169,6 +174,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24171",
+        "sku": "24171",
         "name": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -177,7 +183,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/1339335a-04cf-4569-9f2d-e907c365ebbb/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24171.jpg",
         "offers": {
           "@type": "Offer",
           "price": 16357,
@@ -204,6 +210,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24173",
+        "sku": "24173",
         "name": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -212,7 +219,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/fe9344fd-2d1d-401a-a5cc-28a25da7f9ba/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24173.jpg",
         "offers": {
           "@type": "Offer",
           "price": 9166,
@@ -239,6 +246,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24175",
+        "sku": "24175",
         "name": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -247,7 +255,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/ac4fca83-7e8a-41e8-889a-30a85bd982ee/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24175.jpg",
         "offers": {
           "@type": "Offer",
           "price": 7901,
@@ -274,6 +282,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24172",
+        "sku": "24172",
         "name": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -282,7 +291,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/c4f7b148-006e-438f-89a3-47c176719796/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24172.jpg",
         "offers": {
           "@type": "Offer",
           "price": 15804,
@@ -309,6 +318,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/neosolar_posts_24174",
+        "sku": "24174",
         "name": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br",
         "manufacturer": {
           "@type": "Organization",
@@ -317,7 +327,7 @@
         "model": "",
         "category": "posts",
         "description": "https://portal.zydon.com.br/api/files/fd1bc14b-b5ed-4f4e-a099-ad4a74076913/content?ingress=portalb2b.neosolar.com.br",
-        "image": "https://ysh-solar.com/images/images/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/NEOSOLAR-POSTS/neosolar_posts_24174.jpg",
         "offers": {
           "@type": "Offer",
           "price": 8217,

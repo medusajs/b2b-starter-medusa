@@ -1,0 +1,632 @@
+{
+  "validated_at": "2025-10-13T11:26:40.968Z",
+  "summary": {
+    "total_products": 1123,
+    "valid_images": 421,
+    "missing_images": 702,
+    "no_image_path": 0,
+    "coverage_percent": "37.49"
+  },
+  "categories": [
+    {
+      "category": "controllers",
+      "total": 38,
+      "validImages": 38,
+      "missingImages": 0,
+      "noImagePath": 0,
+      "coverage": "100.00",
+      "missingPaths": []
+    },
+    {
+      "category": "posts",
+      "total": 6,
+      "validImages": 6,
+      "missingImages": 0,
+      "noImagePath": 0,
+      "coverage": "100.00",
+      "missingPaths": []
+    },
+    {
+      "category": "ev_chargers",
+      "total": 83,
+      "validImages": 81,
+      "missingImages": 2,
+      "noImagePath": 0,
+      "coverage": "97.59",
+      "missingPaths": [
+        {
+          "id": "FORTLEV-GROWATT-THOR07AS-P",
+          "sku": "P",
+          "name": "Carregador EV Growatt THOR07AS-P 7kW",
+          "path": "/placeholder-charger.jpg"
+        },
+        {
+          "id": "FORTLEV-FOXESS-A7300P1-E-2",
+          "sku": "2",
+          "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
+          "path": "/placeholder-charger.jpg"
+        }
+      ]
+    },
+    {
+      "category": "panels",
+      "total": 29,
+      "validImages": 20,
+      "missingImages": 9,
+      "noImagePath": 0,
+      "coverage": "68.97",
+      "missingPaths": [
+        {
+          "sku": null,
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_1",
+          "sku": "1",
+          "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559375/images/IMAGE_PRODUCT_559375.jpeg HANERSUN",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_3",
+          "sku": "3",
+          "name": "DAH",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_4",
+          "sku": "4",
+          "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/559381/images/IMAGE_PRODUCT_559381.png OSDA",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_5",
+          "sku": "5",
+          "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/573429/images/IMAGE_PRODUCT_573429.png HANERSUN",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_6",
+          "sku": "6",
+          "name": "https://cdn-ecommerce.solfacil.com.br/contents/products/550010/images/image.png MINASOL",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_accessories_4",
+          "sku": "4",
+          "name": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_accessories_6",
+          "sku": "6",
+          "name": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+          "path": "/placeholder-panel.jpg"
+        },
+        {
+          "id": "solfacil_panels_3",
+          "sku": "3",
+          "name": "DAH",
+          "path": "/placeholder-panel.jpg"
+        }
+      ]
+    },
+    {
+      "category": "others",
+      "total": 10,
+      "validImages": 6,
+      "missingImages": 4,
+      "noImagePath": 0,
+      "coverage": "60.00",
+      "missingPaths": [
+        {
+          "id": "FORTLEV-NEP-PVG-3-20A-L",
+          "sku": "L",
+          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+          "path": "/placeholder-other.jpg"
+        },
+        {
+          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
+          "sku": "PEAD",
+          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+          "path": "/placeholder-other.jpg"
+        },
+        {
+          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+          "sku": null,
+          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+          "path": "/placeholder-other.jpg"
+        },
+        {
+          "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
+          "sku": null,
+          "name": "Cerca de Arame Galvanizado 1.8m × 20m",
+          "path": "/placeholder-other.jpg"
+        }
+      ]
+    },
+    {
+      "category": "cables",
+      "total": 55,
+      "validImages": 19,
+      "missingImages": 36,
+      "noImagePath": 0,
+      "coverage": "34.55",
+      "missingPaths": [
+        {
+          "id": "solfacil_cables_1",
+          "sku": "1",
+          "name": "CABO FLEX 1KV 25MM VM C/RL 2,5MT",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_2",
+          "sku": "2",
+          "name": "CABO FLEX 1KV 16MM VM C/RL 2,5MT",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_3",
+          "sku": "3",
+          "name": "CABO FLEX 1KV 16MM PT C/RL 2,5MT",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_4",
+          "sku": "4",
+          "name": "CABO SOLAR 4,0MM2 PRETO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_5",
+          "sku": "5",
+          "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 8 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_6",
+          "sku": "6",
+          "name": "CABO SOLAR 4,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_7",
+          "sku": "7",
+          "name": "CABO SOLAR 4,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_8",
+          "sku": "8",
+          "name": "CABO SOLAR 6,0MM2 PRETO C/ 25 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_9",
+          "sku": "9",
+          "name": "CABO SOLAR 6,0MM2 VERMELHO C/25 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        },
+        {
+          "id": "solfacil_cables_10",
+          "sku": "10",
+          "name": "CABO SOLAR 4,0MM2 VERMELHO C/ 50 MT (PROTECAO UV 1,8KVCC)",
+          "path": "/placeholder-cable.jpg"
+        }
+      ]
+    },
+    {
+      "category": "inverters",
+      "total": 489,
+      "validImages": 164,
+      "missingImages": 325,
+      "noImagePath": 0,
+      "coverage": "33.54",
+      "missingPaths": [
+        {
+          "id": "neosolar_inverters_22916",
+          "sku": "22916",
+          "name": "Microinversor Deye SUN2250 G4 Monofásico 2250W - 220V - MLPE e Wi-Fi Integrado",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "neosolar_inverters_21632",
+          "sku": "21632",
+          "name": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-21 (T) - 2000W 24/120V",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "neosolar_inverters_22920",
+          "sku": "22920",
+          "name": "Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-3000W",
+          "sku": "3000W",
+          "name": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-4200W",
+          "sku": "4200W",
+          "name": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-5000W",
+          "sku": "5000W",
+          "name": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-6000W",
+          "sku": "6000W",
+          "name": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-8000W",
+          "sku": "8000W",
+          "name": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-10000W",
+          "sku": "10000W",
+          "name": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-INV-SAJ-12000W",
+          "sku": "12000W",
+          "name": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
+          "path": "/placeholder-inverter.jpg"
+        }
+      ]
+    },
+    {
+      "category": "kits",
+      "total": 334,
+      "validImages": 87,
+      "missingImages": 247,
+      "noImagePath": 0,
+      "coverage": "26.05",
+      "missingPaths": [
+        {
+          "id": "FOTUS-KP-113kWp-Ceramico-kits",
+          "sku": null,
+          "name": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW - 1,14 kWp - Cerâmico - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse0)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 570W N-TYPE BIFACIAL DG (22,1% EF.) \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| CCM \\| 2.40M|2|\n|KIT TELHADO CERAMICO \\| CCM \\| 4 MÓDULOS (4.8M)|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/9f6cef59-2607-4ac9-8f24-dd32b2a12c7f.webp?t=1758219158)\n\n### KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW - 1,14 kWp - Mini Trilho - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-113kWp-Fibrocimento-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse1)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 570W N-TYPE BIFACIAL DG (22,1% EF.) \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|KIT TELHADO MINITRILHO ALTO 10cm \\| CCM \\| 4 MÓDULOS|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/db0b1b5b-4d51-41e5-98f2-390e283ba4eb.webp?t=1758219161)\n\n### KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW - 1,14 kWp - Fibrocimento - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-120kWp-Ceramico-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse2)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 570W N-TYPE BIFACIAL DG (22,1% EF.) \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| PERFIL ALUMÍNIO/SOLAR GROUP/PRATYC|1|\n|KIT TELHADO FIBROCIMENTO \\| SOLAR GROUP \\| FIXAÇÃO LATERAL \\| 4 MÓDULOS (4.8M)|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| SOLAR GROUP \\| 2.4M \\| FIXAÇÃO LATERAL|2|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7a1bc10e-ab3a-45e4-becc-6ab015c2777c.webp?t=1759521500)\n\n### KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR DEYE 2.25KW - 1,20 kWp - Cerâmico - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-120kWp-MiniTrilho-kits",
+          "sku": null,
+          "name": "ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse3)\n\n|Produto|Quantidade|\n|---|---|\n|ASTRONERGY \\| TIER 1 \\| 600W N-TYPE BIFACIAL (22,2% EF.)|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| CCM \\| 2.40M|2|\n|KIT TELHADO CERAMICO \\| CCM \\| 4 MÓDULOS (4.8M)|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2b98204b-0b22-4f1d-a7b3-1229ca020a1a.webp?t=1759521498)\n\n### KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR DEYE 2.25KW - 1,20 kWp - Mini Trilho - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-120kWp-Fibrocimento-kits",
+          "sku": null,
+          "name": "ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse4)\n\n|Produto|Quantidade|\n|---|---|\n|ASTRONERGY \\| TIER 1 \\| 600W N-TYPE BIFACIAL (22,2% EF.)|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|KIT TELHADO MINITRILHO ALTO 10cm \\| CCM \\| 4 MÓDULOS|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f5d29fb7-09f6-4a6f-9f2c-4d53a634fa4f.webp?t=1759521502)\n\n### KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR DEYE 2.25KW - 1,20 kWp - Fibrocimento - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-113kWp-Ceramico-kits",
+          "sku": null,
+          "name": "ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)\n\nQuantidade: 2\n\n### MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse5)\n\n|Produto|Quantidade|\n|---|---|\n|ASTRONERGY \\| TIER 1 \\| 600W N-TYPE BIFACIAL (22,2% EF.)|2|\n|MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| PERFIL ALUMÍNIO/SOLAR GROUP/PRATYC|1|\n|KIT TELHADO FIBROCIMENTO \\| SOLAR GROUP \\| FIXAÇÃO LATERAL \\| 4 MÓDULOS (4.8M)|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| SOLAR GROUP \\| 2.4M \\| FIXAÇÃO LATERAL|2|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f61d73c9-95a3-4fd0-b980-aedc511015b6.webp?t=1758216797)\n\n### KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR TSUNESS2250W - 1,14 kWp - Cerâmico - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse6)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 570W N-TYPE BIFACIAL DG (22,1% EF.) \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| CCM \\| 2.40M|2|\n|KIT TELHADO CERAMICO \\| CCM \\| 4 MÓDULOS (4.8M)|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c200cf2e-6609-4fb9-91ed-df349f90aaa9.webp?t=1758216795)\n\n### KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR TSUNESS2250W - 1,14 kWp - Mini Trilho - CD ESPÍRITO SANTO",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-120kWp-Ceramico-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse7)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 570W N-TYPE BIFACIAL DG (22,1% EF.) \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|KIT TELHADO MINITRILHO ALTO 10cm \\| CCM \\| 4 MÓDULOS|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/368ac2e3-af77-4fd3-9535-b6192569fec2.webp?t=1751114850)\n\n### KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W - 1,20 kWp - Cerâmico - CD SUDESTE| PRONTA ENTREGA",
+          "path": "/placeholder-kit.jpg"
+        },
+        {
+          "id": "FOTUS-KP-142kWp-MiniTrilho-kits",
+          "sku": null,
+          "name": "SOLAR N PLUS | 600W N-TYPE BIFACIAL DG (21,9% EF.) | 78 CELLS | FRAME DE FIBRA DE VIDRO\n\nQuantidade: 2\n\n### MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)\n\nQuantidade: 1\n\n[](#collapse8)\n\n|Produto|Quantidade|\n|---|---|\n|SOLAR N PLUS \\| 600W N-TYPE BIFACIAL DG (21,9% EF.) \\| 78 CELLS \\| FRAME DE FIBRA DE VIDRO|2|\n|MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| VERMELHO|1|\n|CABO SOLAR \\| ROLO 25 METROS \\| 4MM \\| PRETO|1|\n|TRILHO ALUMÍNIO P/ TELHADO CERÂMICO/FIBROCIMENTO \\| CCM \\| 2.40M|2|\n|KIT TELHADO CERAMICO \\| CCM \\| 4 MÓDULOS (4.8M)|1|\n|KIT FIXAÇÃO P/ MICROINVERSOR \\| CCM|1|\n|CONECTOR \\| FEMEA/MACHO \\| TIPO MC4|4|\n\n![](https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cde262ec-06a2-415f-88a2-9bf0779a55b6.webp?t=1753131357)\n\n### KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW - 1,42 kWp - Mini Trilho - CD SUDESTE | PRONTA ENTREGA",
+          "path": "/placeholder-kit.jpg"
+        }
+      ]
+    },
+    {
+      "category": "batteries",
+      "total": 9,
+      "validImages": 0,
+      "missingImages": 9,
+      "noImagePath": 0,
+      "coverage": "0.00",
+      "missingPaths": [
+        {
+          "id": "solfacil_batteries_1",
+          "sku": "1",
+          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_2",
+          "sku": "2",
+          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_3",
+          "sku": "3",
+          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_4",
+          "sku": "4",
+          "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "FORTLEV-GROWATT-AXE-5.0L",
+          "sku": null,
+          "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_1",
+          "sku": "1",
+          "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_2",
+          "sku": "2",
+          "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_3",
+          "sku": "3",
+          "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
+          "path": "/placeholder-battery.jpg"
+        },
+        {
+          "id": "solfacil_batteries_4",
+          "sku": "4",
+          "name": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
+          "path": "/placeholder-battery.jpg"
+        }
+      ]
+    },
+    {
+      "category": "structures",
+      "total": 40,
+      "validImages": 0,
+      "missingImages": 40,
+      "noImagePath": 0,
+      "coverage": "0.00",
+      "missingPaths": [
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+          "sku": "FIBROCIMENTO",
+          "name": "Estrutura Solar Group Fibrocimento Grande",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+          "sku": "1",
+          "name": "Estrutura Solar Group Fibrocimento Pequeno",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+          "sku": "COLONIAL",
+          "name": "Estrutura Solar Group Colonial Cerâmico",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-METALICO",
+          "sku": "METALICO",
+          "name": "Estrutura Solar Group Metálico Trapezoidal",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO",
+          "sku": "SOLO",
+          "name": "Estrutura Solar Group Solo Fixo",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
+          "sku": "1",
+          "name": "Estrutura Solar Group Solo Rastreador 1 Eixo",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-FIBROCIMENTO",
+          "sku": "FIBROCIMENTO",
+          "name": "Estrutura Romagnole Fibrocimento RF-55",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-COLONIAL",
+          "sku": "COLONIAL",
+          "name": "Estrutura Romagnole Colonial Cerâmico RC-66",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-METALICO",
+          "sku": "METALICO",
+          "name": "Estrutura Romagnole Metálico Trapezoidal RM-40",
+          "path": "/placeholder-structure.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-ROMAGNOLE-LAJE",
+          "sku": "LAJE",
+          "name": "Estrutura Romagnole Laje Inclinada RL-30",
+          "path": "/placeholder-structure.jpg"
+        }
+      ]
+    },
+    {
+      "category": "accessories",
+      "total": 17,
+      "validImages": 0,
+      "missingImages": 17,
+      "noImagePath": 0,
+      "coverage": "0.00",
+      "missingPaths": [
+        {
+          "id": "FORTLEV-GROWATT-AXE-5.0L",
+          "sku": null,
+          "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-GROWATT-THOR07AS-P",
+          "sku": "P",
+          "name": "Carregador EV Growatt THOR07AS-P 7kW",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-FOXESS-A7300P1-E-2",
+          "sku": "2",
+          "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-NEP-PVG-3-20A-L",
+          "sku": "L",
+          "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-CONDUFORT-DN40-PEAD",
+          "sku": "PEAD",
+          "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+          "sku": null,
+          "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
+          "sku": null,
+          "name": "Cerca de Arame Galvanizado 1.8m × 20m",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "solfacil_accessories_1",
+          "sku": "1",
+          "name": "KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "solfacil_accessories_2",
+          "sku": "2",
+          "name": "KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)",
+          "path": "/placeholder-accessory.jpg"
+        },
+        {
+          "id": "solfacil_accessories_3",
+          "sku": "3",
+          "name": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+          "path": "/placeholder-accessory.jpg"
+        }
+      ]
+    },
+    {
+      "category": "stringboxes",
+      "total": 13,
+      "validImages": 0,
+      "missingImages": 13,
+      "noImagePath": 0,
+      "coverage": "0.00",
+      "missingPaths": [
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+          "sku": "2E",
+          "name": "String Box Clamper 2 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+          "sku": "4E",
+          "name": "String Box Clamper 4 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+          "sku": "6E",
+          "name": "String Box Clamper 6 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+          "sku": "8E",
+          "name": "String Box Clamper 8 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+          "sku": "10E",
+          "name": "String Box Clamper 10 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
+          "sku": "12E",
+          "name": "String Box Clamper 12 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+          "sku": "4E",
+          "name": "String Box Tecbox 4 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+          "sku": "6E",
+          "name": "String Box Tecbox 6 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+          "sku": "8E",
+          "name": "String Box Tecbox 8 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        },
+        {
+          "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+          "sku": "10E",
+          "name": "String Box Tecbox 10 Entradas",
+          "path": "/placeholder-stringbox.jpg"
+        }
+      ]
+    }
+  ]
+}

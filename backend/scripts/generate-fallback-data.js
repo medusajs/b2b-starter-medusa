@@ -67,22 +67,37 @@ function resolveImagePath(product) {
 
     // Fallback to product image fields
     if (product.image_url) {
-        return product.image_url.startsWith('/') ? product.image_url : `${STATIC_IMAGE_BASE}/${product.image_url}`;
+        // Normalize path
+        let normalizedPath = product.image_url.replace(/\\/g, '/');
+        // Remove duplicate 'images/' prefix
+        normalizedPath = normalizedPath.replace(/images\//g, '');
+
+        return normalizedPath.startsWith('/') ? normalizedPath : `${STATIC_IMAGE_BASE}/${normalizedPath}`;
     }
 
     if (product.image) {
         // Normalize Windows paths to URL paths
-        const normalizedPath = product.image.replace(/\\/g, '/');
-        if (normalizedPath.startsWith('images/')) {
-            return `${STATIC_IMAGE_BASE}/${normalizedPath.substring(7)}`;
+        let normalizedPath = product.image.replace(/\\/g, '/');
+
+        // Remove duplicate 'images/' prefix if present
+        normalizedPath = normalizedPath.replace(/^images\//, '');
+
+        // If it starts with distributor name, it's already correctly formatted
+        if (normalizedPath.match(/^[A-Z]+-[A-Z]+\//)) {
+            return `${STATIC_IMAGE_BASE}/${normalizedPath}`;
         }
+
+        // If already has full path, return as is
+        if (normalizedPath.startsWith('/static/')) {
+            return normalizedPath;
+        }
+
+        // Otherwise, add base path
         return normalizedPath.startsWith('/') ? normalizedPath : `${STATIC_IMAGE_BASE}/${normalizedPath}`;
     }
 
     return '';
-}
-
-/**
+}/**
  * Convert product to CSV row
  */
 function productToCsvRow(product) {
@@ -182,11 +197,21 @@ function generateCategoryCsv(category, products) {
  */
 function generateCategoryJson(category, products) {
     const jsonPath = path.join(OUTPUT_PATH, `${category}.json`);
+
+    // Enhance products with resolved image paths
+    const enhancedProducts = products.map(product => ({
+        ...product,
+        sku: extractSku(product),
+        image_path: resolveImagePath(product),
+        image_verified: !!resolveImagePath(product)
+    }));
+
     const data = {
         category,
         total_products: products.length,
+        with_images: enhancedProducts.filter(p => p.image_verified).length,
         generated_at: new Date().toISOString(),
-        products: products
+        products: enhancedProducts
     };
 
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), 'utf8');
@@ -219,11 +244,19 @@ function generateCategoryJsonLd(category, products) {
  * Generate master index files
  */
 function generateMasterFiles(allProducts) {
+    // Enhance all products with resolved image paths
+    const enhancedProducts = allProducts.map(product => ({
+        ...product,
+        sku: extractSku(product),
+        image_path: resolveImagePath(product),
+        image_verified: !!resolveImagePath(product)
+    }));
+
     // Master CSV
     const masterCsvPath = path.join(OUTPUT_PATH, 'products_master.csv');
     const headers = [
-        'id', 'name', 'manufacturer', 'model', 'category', 'price_brl',
-        'power_w', 'efficiency', 'voltage_v', 'current_a', 'image', 'image_url',
+        'id', 'sku', 'name', 'manufacturer', 'model', 'category', 'price_brl',
+        'power_w', 'efficiency', 'voltage_v', 'current_a', 'image_path',
         'source', 'availability', 'description', 'image_tier', 'specs_count'
     ];
 
@@ -239,11 +272,14 @@ function generateMasterFiles(allProducts) {
 
     // Master JSON
     const masterJsonPath = path.join(OUTPUT_PATH, 'products_master.json');
+    const withImages = enhancedProducts.filter(p => p.image_verified).length;
     const masterData = {
         total_products: allProducts.length,
+        with_images: withImages,
+        image_coverage_percent: ((withImages / allProducts.length) * 100).toFixed(2),
         categories: CATEGORIES,
         generated_at: new Date().toISOString(),
-        products: allProducts
+        products: enhancedProducts
     };
     fs.writeFileSync(masterJsonPath, JSON.stringify(masterData, null, 2), 'utf8');
     console.log(`Generated Master JSON: ${masterJsonPath}`);
