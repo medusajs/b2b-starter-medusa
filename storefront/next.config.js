@@ -24,11 +24,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '9000',
-      },
-      {
         protocol: 'https',
         hostname: 'medusa-public-images.s3.eu-west-1.amazonaws.com',
       },
@@ -36,26 +31,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'yellosolarhub.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'api.yellosolarhub.com',
-      },
-      ...(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
-        ? (() => {
-          try {
-            const u = new URL(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
-            return [
-              {
-                protocol: u.protocol.replace(':', ''),
-                hostname: u.hostname,
-                ...(u.port && { port: u.port }),
-              },
-            ]
-          } catch {
-            return []
-          }
-        })()
-        : []),
+      ...(process.env.NODE_ENV === 'development' ? [{
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '9000',
+      }] : []),
     ],
   },
 

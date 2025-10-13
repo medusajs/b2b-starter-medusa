@@ -54,9 +54,10 @@ export default defineConfig({
     [COMPANY_MODULE]: {
       resolve: "./modules/company",
     },
-    [QUOTE_MODULE]: {
-      resolve: "./modules/quote",
-    },
+    // TODO: Fix ESM resolution issue with quote module
+    // [QUOTE_MODULE]: {
+    //   resolve: "./modules/quote",
+    // },
     [APPROVAL_MODULE]: {
       resolve: "./modules/approval",
     },

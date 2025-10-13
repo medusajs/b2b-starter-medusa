@@ -9,23 +9,13 @@ import type {
     KitRecomendado
 } from '@/types/solar-calculator';
 
-// Extend existing Window interface from events.ts
-declare global {
-    interface Window {
-        posthog?: {
-            capture: (event: string, properties?: Record<string, any>) => void;
-            __loaded?: boolean;
-        };
-    }
-}
+// Use existing Window interface from events.ts
 
 /**
  * Verifica se PostHog está disponível
  */
 function isPostHogAvailable(): boolean {
-    return typeof window !== 'undefined' &&
-        window.posthog !== undefined &&
-        (window.posthog as any).__loaded === true;
+    return typeof window !== 'undefined' && window.posthog !== undefined;
 }
 
 /**
