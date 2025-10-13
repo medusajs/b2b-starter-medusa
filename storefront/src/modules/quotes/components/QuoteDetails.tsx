@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from "@medusajs/ui"
 import { Badge } from '@ysh/ui'
 import { Download, ShoppingCart, Copy, Edit } from 'lucide-react'

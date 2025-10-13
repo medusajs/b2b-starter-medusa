@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@medusajs/ui'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { CatalogKit } from '@/lib/catalog/integration'
