@@ -55,6 +55,26 @@ export default defineConfig({
       resolve: "@medusajs/medusa/workflow-engine-inmemory",
     },
 
+    // File Module - S3 Storage (opcional)
+    "@medusajs/file": process.env.FILE_S3_BUCKET
+      ? {
+        resolve: "@medusajs/medusa/file-s3",
+        options: {
+          file_url: process.env.FILE_S3_URL,
+          access_key_id: process.env.FILE_S3_ACCESS_KEY_ID,
+          secret_access_key: process.env.FILE_S3_SECRET_ACCESS_KEY,
+          region: process.env.FILE_S3_REGION,
+          bucket: process.env.FILE_S3_BUCKET,
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/file-local",
+        options: {
+          upload_dir: "uploads",
+          backend_url: process.env.MEDUSA_DEV_URL || "http://localhost:9000",
+        },
+      },
+
     // Módulos B2B customizados
     unifiedCatalog: {
       resolve: "./src/modules/unified-catalog",
