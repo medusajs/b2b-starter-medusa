@@ -96,17 +96,17 @@ const badgeSizeVariants = cva({
   },
 })
 
-interface BadgeProps
+export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
-    VariantProps<typeof badgeSizeVariants>,
-    VariantProps<typeof badgeColorVariants> {
+  VariantProps<typeof badgeSizeVariants>,
+  VariantProps<typeof badgeColorVariants> {
   asChild?: boolean
 }
 
 /**
  * This component is based on the `div` element and supports all of its props
  */
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   (
     {
       className,
@@ -148,4 +148,4 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
 )
 Badge.displayName = "Badge"
 
-export { Badge, badgeColorVariants }
+export { badgeColorVariants }

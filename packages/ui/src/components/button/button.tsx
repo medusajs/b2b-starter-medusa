@@ -53,7 +53,7 @@ const buttonVariants = cva({
   },
 })
 
-interface ButtonProps
+export interface ButtonProps
   extends React.ComponentPropsWithoutRef<"button">,
   VariantProps<typeof buttonVariants> {
   isLoading?: boolean
@@ -63,7 +63,7 @@ interface ButtonProps
 /**
  * This component is based on the `button` element and supports all of its props
  */
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       /**
@@ -131,4 +131,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 Button.displayName = "Button"
 
-export { Button, buttonVariants }
+export { buttonVariants }

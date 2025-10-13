@@ -31,7 +31,7 @@ export interface YelloSolarButtonProps
   size?: "default" | "sm" | "lg" | "icon"
 }
 
-const YelloSolarButton = ({
+export const YelloSolarButton = ({
   className,
   variant,
   size,
@@ -50,4 +50,4 @@ const YelloSolarButton = ({
   )
 }
 
-export { YelloSolarButton, yelloSolarVariants }
+export { yelloSolarVariants }

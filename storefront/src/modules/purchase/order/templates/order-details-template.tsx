@@ -9,7 +9,7 @@ import Item from "@/modules/purchase/order/components/item"
 import OrderDetails from "@/modules/purchase/order/components/order-details"
 import OrderSummary from "@/modules/purchase/order/components/order-summary"
 import ShippingDetails from "@/modules/purchase/order/components/shipping-details"
-import BillingDetails from "@/modules/order/components/billing-details"
+import BillingDetails from "@/modules/purchase/order/components/billing-details"
 
 type OrderDetailsTemplateProps = {
   order: HttpTypes.StoreOrder
