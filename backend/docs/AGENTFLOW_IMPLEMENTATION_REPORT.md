@@ -10,7 +10,7 @@
 
 ### Baseado em AgentFlow
 
-```
+```tsx
 ┌──────────────────────────────────────────────────────────┐
 │                  🧭 PLANNER AGENT                        │
 │  Coordena workflow e decide próximas ações              │
@@ -136,12 +136,14 @@
 ### 🧭 Planner Agent (Gemma 3:4b)
 
 **Responsabilidades**:
+
 - Coordena sequência de ações
 - Decide quando pular etapas
 - Determina necessidade de busca web
 - Finaliza quando pronto
 
 **Decisões**:
+
 1. Tem imagem? → Vision Agent
 2. Não tem imagem? → Skip para Enrichment
 3. Dados incompletos? → Search Agent
@@ -150,6 +152,7 @@
 ### 👁️ Vision Agent (Llama 3.2 Vision:11b)
 
 **Extrai da imagem**:
+
 - ✅ Fabricante (logo/marca)
 - ✅ Modelo exato
 - ✅ Tipo de produto
@@ -159,6 +162,7 @@
 - ✅ Qualidade da imagem
 
 **Performance**:
+
 - Tempo: ~120-340s por imagem
 - Acurácia: ~85% (2/3 com sucesso completo)
 - Issues: Ocasionalmente gera JSON malformado
@@ -166,6 +170,7 @@
 ### 📝 Enrichment Agent (Gemma 3:4b + PVLib)
 
 **Normaliza e enriquece**:
+
 - ✅ Normaliza fabricante
 - ✅ Padroniza SKU
 - ✅ Valida specs com PVLib
@@ -175,6 +180,7 @@
 - ✅ Calcula compatibilidades
 
 **Performance**:
+
 - Tempo: ~25-40s por produto
 - Acurácia: ~95% quando tem dados visuais
 - Fallback: Modo básico se Vision falhar
@@ -182,6 +188,7 @@
 ### ✅ Validator Agent (GPT-OSS:20b)
 
 **Valida qualidade**:
+
 - ✅ Completude dos dados (0-100%)
 - ✅ Consistência entre campos
 - ✅ Qualidade das descrições
@@ -189,17 +196,20 @@
 - ✅ Conformidade com padrões
 
 **Decisões**:
+
 - `approved` - Pronto para catálogo
 - `needs_review` - Requer revisão manual
 - `rejected` - Não usar
 
 **Performance**:
+
 - Tempo: ~55-90s por produto
 - Issues: Ocasionalmente gera JSON malformado
 
 ### 🔍 Search Agent (Stub)
 
 **Busca incremental** (não implementado):
+
 - Datasheet URLs
 - Manufacturer websites
 - Technical specifications
@@ -207,6 +217,7 @@
 - Market data
 
 **Implementação futura**:
+
 - Google Search API
 - Manufacturer databases
 - Web scraping
@@ -273,7 +284,7 @@ python scripts/agentflow_catalog_orchestrator.py \
 
 ### Saídas
 
-```
+```tsx
 output/agentflow-results/
 ├── 112369_agentflow.json          # Resultado individual
 ├── 135720_agentflow.json
@@ -305,7 +316,7 @@ output/agentflow-results/
 
 ## 🔄 Workflow Completo
 
-```
+```tsx
 INÍCIO
   │
   ├─→ 👁️ Vision Agent (120-340s)
@@ -371,7 +382,7 @@ INÍCIO
 
 ### Approach Anterior (Single Agent)
 
-```
+```tsx
 Llama Vision:11b (tudo) → 200s por produto
 ├─ Análise de imagem
 ├─ Normalização
@@ -380,13 +391,14 @@ Llama Vision:11b (tudo) → 200s por produto
 ```
 
 **Issues**:
+
 - Sobrecarga do modelo de visão
 - Qualidade variável em tarefas não-visuais
 - Sem especialização
 
 ### AgentFlow (Multi-Agent)
 
-```
+```tsx
 Vision (120s) → Enrichment (30s) → Validator (75s) = 225s
   ↓              ↓                    ↓
 Especializado  Normaliza com       Valida qualidade
@@ -394,6 +406,7 @@ em visão       contexto PVLib      com GPT-OSS
 ```
 
 **Vantagens**:
+
 - ✅ Especialização por tarefa
 - ✅ Melhor qualidade em cada etapa
 - ✅ Modular e extensível
@@ -404,17 +417,17 @@ em visão       contexto PVLib      com GPT-OSS
 
 ## 📚 Referências
 
-- **AgentFlow**: https://github.com/lupantech/AgentFlow
-- **Paper**: https://arxiv.org/abs/2510.05592
-- **Llama 3.2 Vision**: https://ollama.com/library/llama3.2-vision
-- **Gemma 3**: https://ai.google.dev/gemma
-- **PVLib**: https://pvlib-python.readthedocs.io/
+- **AgentFlow**: <https://github.com/lupantech/AgentFlow>
+- **Paper**: <https://arxiv.org/abs/2510.05592>
+- **Llama 3.2 Vision**: <https://ollama.com/library/llama3.2-vision>
+- **Gemma 3**: <https://ai.google.dev/gemma>
+- **PVLib**: <https://pvlib-python.readthedocs.io/>
 
 ---
 
 ## 📝 Logs de Teste
 
-```
+```tsx
 [1/3] 112369 - INVERTERS
   [1] analyze_image... (342.3s) ✓
   [2] enrich_data... (0.0s) ✓ (fallback)
