@@ -1,0 +1,91 @@
+{
+  "sku": "135720",
+  "image_path": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_135720_135720-17458937387875142.jpeg",
+  "category": "INVERTERS",
+  "vision_data": {
+    "manufacturer": "SOFAR",
+    "model": "SOFAR-1000",
+    "product_type": "inverter",
+    "subtype": "gridtie",
+    "specifications": {
+      "power_w": 1000,
+      "power_kw": 1.0,
+      "voltage": "230-240V",
+      "current_a": 10,
+      "phase": "N/A",
+      "efficiency_percent": 95.0,
+      "mppt_count": 2
+    },
+    "visible_text": "SOFAR-1000 Grid-Tie Inverter",
+    "certifications": [
+      "INMETRO",
+      "IEC",
+      "CE"
+    ],
+    "image_quality_score": 8,
+    "confidence_score": 9,
+    "_processing_time": 116.86520171165466,
+    "_agent": "👁️ Vision"
+  },
+  "enriched_data": {
+    "normalized_sku": "SOFAR-GRIDTIE-1000",
+    "manufacturer": "SOFAR",
+    "manufacturer_normalized": "SOFAR",
+    "model": "SOFAR-1000",
+    "category": "INVERTERS",
+    "subcategory": "Grid-Tie",
+    "specifications": {
+      "power_w": 1000,
+      "power_kw": 1.0,
+      "voltage": "230-240V",
+      "current_a": 10,
+      "phase": "N/A",
+      "efficiency_percent": 95.0,
+      "mppt_count": 2
+    },
+    "seo_title": "SOFAR SOFAR-1000 Grid-Tie Inverter 1000W",
+    "short_description": "SOFAR SOFAR-1000 Grid-Tie Inverter 1000W. 2 MPPT, 95% Efficiency. INMETRO, IEC, CE Certified.",
+    "tags": [
+      "solar inverter",
+      "grid tie inverter",
+      "sofar inverter",
+      "1000w inverter",
+      "230v inverter",
+      "mpct inverter",
+      "renewable energy",
+      "photovoltaic",
+      "solar power",
+      "grid connected"
+    ],
+    "compatibility": {
+      "panel_compatibility": "Compatible with most standard 230-240V solar panels.  Specific panel compatibility depends on the panel's voltage and current ratings.  Consult manufacturer specifications for optimal performance.",
+      "system_type": "Grid-Tie Solar System"
+    },
+    "pvlib_validated": true,
+    "data_completeness_percent": 95,
+    "confidence_score": 9.2,
+    "_processing_time": 41.44623017311096,
+    "_agent": "📝 Enrichment",
+    "_pvlib_match": false
+  },
+  "validation_result": {
+    "error": "Unterminated string starting at: line 16 column 5 (char 872)",
+    "_agent": "✅ Validator"
+  },
+  "search_results": [
+    {
+      "query": "SOFAR SOFAR-1000 datasheet",
+      "type": "datasheet_search",
+      "status": "simulated",
+      "_agent": "🔍 Search"
+    }
+  ],
+  "completed_actions": [
+    "analyze_image",
+    "enrich_data",
+    "validate_quality",
+    "search_web"
+  ],
+  "errors": [],
+  "pvlib_data": null
+}
