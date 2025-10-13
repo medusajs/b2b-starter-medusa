@@ -36,6 +36,15 @@ export const logger = pino({
     serializers: {
         err: pino.stdSerializers.err,
         error: pino.stdSerializers.err,
+        req: (req) => ({
+            id: req.id || req.requestId,
+            method: req.method,
+            url: req.url,
+            headers: req.headers,
+        }),
+        res: (res) => ({
+            statusCode: res.statusCode,
+        }),
     },
 
     // Base fields for all logs
@@ -69,5 +78,36 @@ export function createLogger(context: Record<string, any>) {
  * logger.error({ err, orderId: '456' }, 'Failed to process order');
  * logger.debug({ query, results: data.length }, 'Database query executed');
  */
+
+/**
+ * Logger middleware for request tracking
+ */
+export function loggerMiddleware(req: any, res: any, next: any) {
+    const requestId = req.requestId || req.headers['x-request-id'];
+    const startTime = Date.now();
+    
+    // Attach logger with request context
+    req.log = logger.child({ request_id: requestId });
+    
+    // Log request start
+    req.log.info({
+        method: req.method,
+        url: req.url,
+        ip: req.ip,
+    }, 'Request started');
+    
+    // Log response on finish
+    res.on('finish', () => {
+        const duration = Date.now() - startTime;
+        req.log.info({
+            method: req.method,
+            url: req.url,
+            status: res.statusCode,
+            duration_ms: duration,
+        }, 'Request completed');
+    });
+    
+    next();
+}
 
 export default logger;

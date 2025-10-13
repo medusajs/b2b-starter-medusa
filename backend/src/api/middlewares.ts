@@ -9,6 +9,7 @@ import { storeMiddlewares } from "./store/middlewares";
 import { requestIdMiddleware } from "../utils/api-response";
 import { apiVersionMiddleware } from "../utils/api-versioning";
 import { rateLimiter } from "../utils/rate-limiter";
+import { loggerMiddleware } from "../utils/logger";
 
 // Rate limiter for public routes
 const publicRateLimiter = rateLimiter.middleware({
@@ -21,7 +22,7 @@ export default defineMiddlewares({
   routes: [
     {
       matcher: "*",
-      middlewares: [requestIdMiddleware, apiVersionMiddleware(), publicRateLimiter],
+      middlewares: [requestIdMiddleware, loggerMiddleware, apiVersionMiddleware(), publicRateLimiter],
     },
     ...adminMiddlewares,
     ...storeMiddlewares,
