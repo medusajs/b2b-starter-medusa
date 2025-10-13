@@ -16,20 +16,21 @@ describe("Financing Workflows - Complete Coverage", () => {
 
   describe("✅ Link Customer Group Step", () => {
     it("should link customer to group successfully", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
-          id: "emp_123",
-          company_id: "comp_123",
-          customer_id: "cust_123",
-        }),
-        retrieveCompany: jest.fn().mockResolvedValue({
-          id: "comp_123",
-          customer_group_id: "cg_123",
-          name: "Test Company",
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      // Configure mock container with specific responses
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
+            id: "emp_123",
+            company_id: "comp_123",
+            customer_id: "cust_123",
+          }),
+          retrieveCompany: jest.fn().mockResolvedValue({
+            id: "comp_123",
+            customer_group_id: "cg_123",
+            name: "Test Company",
+          }),
+        },
+      });
 
       const stepFunction = linkCustomerGroupStep.invoke;
       const result = await stepFunction(
@@ -44,14 +45,18 @@ describe("Financing Workflows - Complete Coverage", () => {
         customer_group_id: "cg_123",
         company_id: "comp_123",
       });
+
+      // Verify service was called correctly
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
+      verifyServiceCalls(mockContainer, "company", "retrieveCompany", 1);
     });
 
     it("should handle missing employee", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue(null),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue(null),
+        },
+      });
 
       const stepFunction = linkCustomerGroupStep.invoke;
       const result = await stepFunction(
@@ -63,21 +68,22 @@ describe("Financing Workflows - Complete Coverage", () => {
       );
 
       expect(result.output).toBeNull();
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
     });
 
     it("should handle company without customer group", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
-          id: "emp_123",
-          company_id: "comp_123",
-        }),
-        retrieveCompany: jest.fn().mockResolvedValue({
-          id: "comp_123",
-          customer_group_id: null, // No customer group
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
+            id: "emp_123",
+            company_id: "comp_123",
+          }),
+          retrieveCompany: jest.fn().mockResolvedValue({
+            id: "comp_123",
+            customer_group_id: null, // No customer group
+          }),
+        },
+      });
 
       const stepFunction = linkCustomerGroupStep.invoke;
       const result = await stepFunction(
@@ -89,24 +95,26 @@ describe("Financing Workflows - Complete Coverage", () => {
       );
 
       expect(result.output).toBeNull();
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
+      verifyServiceCalls(mockContainer, "company", "retrieveCompany", 1);
     });
   });
 
   describe("✅ Check Spending Limits Step", () => {
     it("should allow spending within limits", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
-          id: "emp_123",
-          company_id: "comp_123",
-          customer_id: "cust_123",
-        }),
-        checkSpendingLimit: jest.fn().mockResolvedValue({
-          allowed: true,
-          remaining: 50000,
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
+            id: "emp_123",
+            company_id: "comp_123",
+            customer_id: "cust_123",
+          }),
+          checkSpendingLimit: jest.fn().mockResolvedValue({
+            allowed: true,
+            remaining: 50000,
+          }),
+        },
+      });
 
       const stepFunction = checkSpendingLimitsStep.invoke;
       const result = await stepFunction(
@@ -125,24 +133,27 @@ describe("Financing Workflows - Complete Coverage", () => {
           remaining: 50000,
         },
       });
+
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
+      verifyServiceCalls(mockContainer, "company", "checkSpendingLimit", 1);
     });
 
     it("should reject spending over limits", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
-          id: "emp_123",
-          company_id: "comp_123",
-        }),
-        checkSpendingLimit: jest.fn().mockResolvedValue({
-          allowed: false,
-          reason: "Monthly limit exceeded",
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue({
+            id: "emp_123",
+            company_id: "comp_123",
+          }),
+          checkSpendingLimit: jest.fn().mockResolvedValue({
+            allowed: false,
+            reason: "Monthly limit exceeded",
+          }),
+        },
+      });
 
       const stepFunction = checkSpendingLimitsStep.invoke;
-
+      
       await expect(stepFunction(
         {
           customer_id: "cust_123",
@@ -150,14 +161,17 @@ describe("Financing Workflows - Complete Coverage", () => {
         },
         { container: mockContainer }
       )).rejects.toThrow("Spending limit exceeded: Monthly limit exceeded");
+
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
+      verifyServiceCalls(mockContainer, "company", "checkSpendingLimit", 1);
     });
 
     it("should handle missing employee", async () => {
-      const companyService = {
-        retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue(null),
-      };
-
-      mockContainer.resolve.mockReturnValue(companyService);
+      mockContainer = createMockContainer({
+        companyService: {
+          retrieveEmployeeByCustomerId: jest.fn().mockResolvedValue(null),
+        },
+      });
 
       const stepFunction = checkSpendingLimitsStep.invoke;
 
@@ -168,20 +182,22 @@ describe("Financing Workflows - Complete Coverage", () => {
         },
         { container: mockContainer }
       )).rejects.toThrow("Employee not found for customer");
+
+      verifyServiceCalls(mockContainer, "company", "retrieveEmployeeByCustomerId", 1);
     });
   });
 
   describe("✅ Create Approval Step", () => {
     it("should create approval successfully", async () => {
-      const approvalService = {
-        createApproval: jest.fn().mockResolvedValue({
-          id: "appr_123",
-          status: "pending",
-          type: "financing_proposal",
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(approvalService);
+      mockContainer = createMockContainer({
+        approvalService: {
+          createApproval: jest.fn().mockResolvedValue({
+            id: "appr_123",
+            status: "pending",
+            type: "financing_proposal",
+          }),
+        },
+      });
 
       const stepFunction = createApprovalStep.invoke;
       const result = await stepFunction(
@@ -200,25 +216,28 @@ describe("Financing Workflows - Complete Coverage", () => {
         type: "financing_proposal",
       });
 
+      const approvalService = mockContainer.services.approval;
       expect(approvalService.createApproval).toHaveBeenCalledWith({
         cart_id: "fp_123",
-        type: "financing_proposal",
+        type: "admin",
         status: "pending",
         created_by: "cust_123",
         cart_total_snapshot: 150000,
         priority: 1, // High priority for large amounts
       });
+
+      verifyServiceCalls(mockContainer, "approval", "createApproval", 1);
     });
 
     it("should set normal priority for smaller amounts", async () => {
-      const approvalService = {
-        createApproval: jest.fn().mockResolvedValue({
-          id: "appr_124",
-          status: "pending",
-        }),
-      };
-
-      mockContainer.resolve.mockReturnValue(approvalService);
+      mockContainer = createMockContainer({
+        approvalService: {
+          createApproval: jest.fn().mockResolvedValue({
+            id: "appr_124",
+            status: "pending",
+          }),
+        },
+      });
 
       const stepFunction = createApprovalStep.invoke;
       await stepFunction(
