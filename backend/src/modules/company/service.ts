@@ -28,7 +28,7 @@ class CompanyModuleService extends MedusaService({
       currency_code: data.currency_code || "BRL",
     };
 
-    return await this.create("Company", companyData);
+    return await this.createCompanies_(companyData);
   }
 
   async updateCompany(data: UpdateCompanyDTO): Promise<CompanyDTO> {
