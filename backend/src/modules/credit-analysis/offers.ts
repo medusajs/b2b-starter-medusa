@@ -18,7 +18,7 @@ import {
     FinancingOffer,
     CETCalculationInput,
     CETCalculationResult,
-} from "./types/interfaces";
+} from "./types/interfaces.js";
 
 // ============================================================================
 // Constants

@@ -58,7 +58,9 @@ class ImageMapMigrator:
         """
         # Extrair nome base do arquivo original
         # Converter path separators para o sistema operacional
-        original_path_normalized = original_path.lstrip('/').replace('/', os.sep)
+        # Remove /static/ prefix se existir
+        path_cleaned = original_path.lstrip('/').replace('static/', '', 1)
+        original_path_normalized = path_cleaned.replace('/', os.sep)
         original_full_path = self.original_base_dir / original_path_normalized
         if not original_full_path.exists():
             return None, False
@@ -123,11 +125,15 @@ class ImageMapMigrator:
             }
             
             # Adicionar metadados de otimização
+            compression_ratio = 0
+            if original_size > 0:
+                compression_ratio = round((1 - webp_size/original_size) * 100, 2)
+            
             updated_entry['optimization'] = {
                 'format': 'webp',
                 'original_size': original_size,
                 'optimized_size': webp_size,
-                'compression_ratio': round((1 - webp_size/original_size) * 100, 2),
+                'compression_ratio': compression_ratio,
                 'migrated_at': datetime.now().isoformat()
             }
             

@@ -36,7 +36,7 @@ async function runMigration() {
         console.log('Conectado com sucesso!');
 
         // Ler arquivo de migração
-        const migrationPath = path.join(process.cwd(), 'src/migrations/Migration20251013140000.ts');
+        const migrationPath = path.join(process.cwd(), 'src/migrations/Migration20251013150000.ts');
         const migrationContent = fs.readFileSync(migrationPath, 'utf-8');
 
         // Extrair SQL das chamadas addSql
@@ -58,13 +58,13 @@ async function runMigration() {
             }
         }
 
-        console.log('✅ Migração executada com sucesso!');
+        console.log('✅ Migração Phase 2 executada com sucesso!');
         console.log('Tabelas criadas:');
-        console.log('- lead');
-        console.log('- event');
-        console.log('- rag_query');
-        console.log('- helio_conversation');
-        console.log('- photogrammetry_analysis');
+        console.log('- financing_proposal');
+        console.log('- quote');
+        console.log('- solar_calculation');
+        console.log('- approval');
+        console.log('- catalog_access_log');
 
         await client.end();
 
