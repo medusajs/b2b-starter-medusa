@@ -3,10 +3,31 @@
 Teste Rápido de LLaVA - Validação da Instalação
 """
 
-import ollama
+import time
 from pathlib import Path
 import json
-import time
+
+try:
+    import ollama
+except Exception:
+    ollama = None
+
+# Import the selector helper (works both when running from scripts/ and
+# when running from project root)
+try:
+    from ollama_model_selector import pick_image_model, pick_text_model
+except Exception:
+    try:
+        from scripts.ollama_model_selector import (
+            pick_image_model,
+            pick_text_model,
+        )
+    except Exception:
+        def pick_image_model():
+            return None
+
+        def pick_text_model():
+            return None
 
 def test_llava_simple():
     """Teste simples sem imagem"""
@@ -16,8 +37,9 @@ def test_llava_simple():
     
     try:
         start = time.time()
+        model = pick_text_model() or 'llava:7b'
         response = ollama.chat(
-            model='llava:7b',
+            model=model,
             messages=[{
                 'role': 'user',
                 'content': 'Olá! Você está funcionando?'
@@ -56,8 +78,9 @@ def test_llava_with_image():
     
     try:
         start = time.time()
+        model = pick_image_model() or 'llava:7b'
         response = ollama.chat(
-            model='llava:7b',
+            model=model,
             messages=[{
                 'role': 'user',
                 'content': prompt,
@@ -105,8 +128,9 @@ RETORNE APENAS UM OBJETO JSON:
     
     try:
         start = time.time()
+        model = pick_image_model() or 'llava:7b'
         response = ollama.chat(
-            model='llava:7b',
+            model=model,
             messages=[{
                 'role': 'user',
                 'content': prompt,
@@ -169,8 +193,9 @@ def test_performance():
         
         try:
             start = time.time()
+            model = pick_image_model() or 'llava:7b'
             response = ollama.chat(
-                model='llava:7b',
+                model=model,
                 messages=[{
                     'role': 'user',
                     'content': 'Descreva brevemente o que vê nesta imagem.',
@@ -200,7 +225,7 @@ def test_performance():
 
 def main():
     print("\n" + "="*80)
-    print("🚀 VALIDAÇÃO COMPLETA DO LLAVA 7B")
+    print("🚀 VALIDAÇÃO COMPLETA DO MODELO SELECIONADO (LLAVA/GEMMA)")
     print("="*80)
     print()
     
