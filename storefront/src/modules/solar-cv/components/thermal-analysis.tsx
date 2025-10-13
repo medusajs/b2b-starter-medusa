@@ -2,7 +2,8 @@
 
 import { useState, useRef } from "react"
 import { Bolt, Photo } from "@medusajs/icons"
-import { Button, Text, toast } from "@medusajs/ui"
+import { YshButton as Button } from "@ysh/ui"
+import { Text, toast } from "@medusajs/ui"
 import { useSolarCVAPI, SolarCVValidators, SolarCVError } from "@/lib/api/solar-cv-client"
 
 interface ThermalResult {
