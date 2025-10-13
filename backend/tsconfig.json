@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ES2021",
     "esModuleInterop": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ES2021",
+    "moduleResolution": "Bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
@@ -30,6 +30,21 @@
       ],
       "@starter/types/*": [
         "./src/types/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@workflows/*": [
+        "./src/workflows/*"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
       ],
       "@medusajs/medusa/api/utils/define-query-config": [
         "./src/shims/define-query-config.ts"
