@@ -76,7 +76,7 @@ export async function retrieveCart(id?: string) {
         cache: "force-cache",
       })
       .then(({ cart }) => {
-        return cart as B2BCart
+        return cart as unknown as B2BCart
       })
   }).catch(() => {
     return null

@@ -271,7 +271,7 @@ export function CartProvider({
           []
         )
 
-        const optimisticTotal = optimisticItems?.reduce((acc: number, item) => acc + item.unit_price * item.quantity,
+        const optimisticTotal = optimisticItems?.reduce((acc: number, item: any) => acc + item.unit_price * item.quantity,
           0
         )
 
@@ -318,7 +318,7 @@ export function CartProvider({
   }
 
   const sortedItems = useMemo(() => {
-    return (optimisticCart as any)?.items?.sort((a, b) => {
+    return (optimisticCart as any)?.items?.sort((a: any, b: any) => {
       return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
     })
   }, [optimisticCart])
