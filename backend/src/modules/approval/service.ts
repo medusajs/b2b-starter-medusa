@@ -72,8 +72,8 @@ class ApprovalModuleService extends MedusaService({
       if (conditions.item_count_gte && cartContext.itemCount < conditions.item_count_gte) {
         matches = false;
       }
-      if (conditions.day_of_week && cartContext.dayOfWeek) {
-        if (!conditions.day_of_week.includes(cartContext.dayOfWeek)) {
+      if (conditions.day_of_week) {
+        if (!cartContext.dayOfWeek || !conditions.day_of_week.includes(cartContext.dayOfWeek)) {
           matches = false;
         }
       }

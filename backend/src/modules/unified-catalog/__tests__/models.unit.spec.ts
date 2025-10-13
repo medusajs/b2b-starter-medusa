@@ -52,9 +52,9 @@ describe("Unified Catalog Models - Schema Validation", () => {
             expect(ProductCategory.OTHER).toBe("other");
         });
 
-        it("should have exactly 12 categories", () => {
+        it("should have exactly 13 categories", () => {
             const categories = Object.values(ProductCategory);
-            expect(categories).toHaveLength(12);
+            expect(categories).toHaveLength(13); // Updated after adding TOOLS
         });
     });
 

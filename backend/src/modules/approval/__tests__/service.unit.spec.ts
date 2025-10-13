@@ -142,7 +142,8 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules_.mockResolvedValue(rules);
+            // Mock should return empty array since service filters by is_active: true
+            mockRepository.listApprovalRules_.mockResolvedValue([]);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 5000,
