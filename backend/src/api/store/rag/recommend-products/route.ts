@@ -249,5 +249,22 @@ export async function POST(
         } catch (error: any) {
             console.error("[Recommend Products Error]", error)
             return res.status(500).json({ error: error.message })
+        } finally {
+            clearTimeout(timeoutId)
         }
+    } catch (error: any) {
+        if (error instanceof MedusaError) {
+            const statusCode = error.type === MedusaError.Types.INVALID_DATA ? 400 : 500
+            return res.status(statusCode).json({
+                error: error.type,
+                message: error.message,
+            })
+        }
+
+        console.error("[Recommend Products Error]", error)
+        return res.status(500).json({
+            error: "INTERNAL_ERROR",
+            message: error?.message ?? "Unexpected error",
+        })
     }
+}

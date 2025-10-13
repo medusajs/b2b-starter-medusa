@@ -56,6 +56,8 @@ yarn dev
 
 - **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Índice completo de toda documentação
 - **[docs/ESTRUTURA_ORGANIZADA.md](docs/ESTRUTURA_ORGANIZADA.md)** - Guia da estrutura de diretórios
+- **[docs/api/QUICK_REFERENCE.md](docs/api/QUICK_REFERENCE.md)** - Referência rápida de APIs normalizadas
+- **[docs/api/API_NORMALIZATION_COMPLETE.md](docs/api/API_NORMALIZATION_COMPLETE.md)** - Relatório de normalização
 
 ### 🗂️ Categorias de Documentação
 
@@ -176,6 +178,10 @@ backend/
 yarn dev                        # Servidor dev (localhost:9000)
 yarn build                      # Build de produção
 yarn start                      # Servidor de produção
+
+# API Normalization
+yarn validate:apis              # Validar conformidade de APIs
+yarn normalize:apis             # Normalizar APIs (auto-gerar validators/query-configs)
 
 # Database
 yarn medusa db:create           # Criar banco de dados

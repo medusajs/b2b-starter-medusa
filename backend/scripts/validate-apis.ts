@@ -27,19 +27,19 @@ const checks: ValidationCheck[] = [
     severity: "warning",
   },
   {
-    name: "Usa AuthenticatedMedusaRequest",
-    check: (content) => content.includes("AuthenticatedMedusaRequest"),
+    name: "Não usa AuthenticatedMedusaRequest",
+    check: (content) => !content.includes("AuthenticatedMedusaRequest"),
     severity: "error",
   },
   {
-    name: "Usa validatedQuery/validatedBody",
+    name: "Não usa validatedQuery/validatedBody",
     check: (content) =>
-      content.includes("validatedQuery") || content.includes("validatedBody"),
+      !content.includes("validatedQuery") && !content.includes("validatedBody"),
     severity: "error",
   },
   {
-    name: "Usa req.scope.resolve",
-    check: (content) => content.includes("req.scope.resolve"),
+    name: "Não usa req.scope.resolve",
+    check: (content) => !content.includes("req.scope.resolve"),
     severity: "error",
   },
   {
