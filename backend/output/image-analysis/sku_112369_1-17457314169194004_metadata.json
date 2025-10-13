@@ -1,0 +1,34 @@
+{
+  "file": "sku_112369_1-17457314169194004.jpeg",
+  "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_112369_1-17457314169194004.jpeg",
+  "category": "INVERTERS",
+  "processed_at": "2025-10-13T13:49:49.336809",
+  "metadata": {
+    "manufacturer": "Deye",
+    "model": "SMA-10K-3-40",
+    "product_type": "inverter",
+    "subtype": "gridtie",
+    "specifications": {
+      "power_w": 10000,
+      "power_kw": 10.0,
+      "voltage": "220V",
+      "current_a": 40,
+      "phase": "tri",
+      "efficiency_percent": 95.0,
+      "mppt_count": 3,
+      "max_input_voltage": 1000,
+      "max_output_current": 40
+    },
+    "visible_text": "Deye SMA-10K-3-40 10kW 3MPPT 40A 220V 95% 3-Phase Grid Tie Inverter",
+    "certifications": [
+      "CE",
+      "IEC"
+    ],
+    "image_quality": {
+      "score": 8,
+      "usable_for_catalog": true,
+      "issues": []
+    },
+    "_processing_time": 135.45671248435974
+  }
+}
