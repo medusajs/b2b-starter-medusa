@@ -83,29 +83,29 @@ class ImageConfig:
         """Ajusta parâmetros baseado no preset"""
         presets = {
             "low": {
-                "sharpen_amount": 1.0,
-                "denoise_strength": 5,
+                "sharpen_amount": 1.2,  # Aumentado para compensar denoise reduzido
+                "denoise_strength": 2,  # REDUZIDO: preserva detalhes
                 "webp_quality": 75,
                 "jpeg_quality": 80,
             },
             "medium": {
-                "sharpen_amount": 1.3,
-                "denoise_strength": 8,
+                "sharpen_amount": 1.5,  # Aumentado para compensar
+                "denoise_strength": 3,  # REDUZIDO: preserva logos
                 "webp_quality": 80,
                 "jpeg_quality": 85,
             },
             "high": {
-                "sharpen_amount": 1.5,
-                "denoise_strength": 10,
+                "sharpen_amount": 1.8,  # Aumentado para compensar
+                "denoise_strength": 3,  # REDUZIDO: era 10, preserva textos finos
                 "webp_quality": 85,
                 "jpeg_quality": 90,
             },
             "ultra": {
-                "sharpen_amount": 2.0,
-                "denoise_strength": 15,
+                "sharpen_amount": 2.2,  # Aumentado para compensar
+                "denoise_strength": 4,  # REDUZIDO: era 15, mantém qualidade máxima
                 "webp_quality": 95,
                 "jpeg_quality": 95,
-            }
+            },
         }
         
         if self.quality_preset in presets:
@@ -156,32 +156,32 @@ def load_image(image_path: str) -> Optional[np.ndarray]:
 def denoise_image(img: np.ndarray, strength: int = 10) -> np.ndarray:
     """
     Remove ruído da imagem usando Non-local Means Denoising
-    Algoritmo muito eficiente que preserva bordas
+    OTIMIZADO: parâmetros ajustados para preservar logos e textos
     """
     if strength <= 0:
         return img
     
-    # cv2.fastNlMeansDenoisingColored é otimizado com CUDA se disponível
+    # Parâmetros conservadores: searchWindow reduzido para preservar detalhes
     return cv2.fastNlMeansDenoisingColored(
         img,
         None,
-        h=strength,
+        h=strength,  # Agora 2-4 ao invés de 5-15
         hColor=strength,
         templateWindowSize=7,
-        searchWindowSize=21
+        searchWindowSize=15  # Reduzido de 21 para 15 (mais local)
     )
 
 
 def sharpen_image(img: np.ndarray, amount: float = 1.5) -> np.ndarray:
     """
     Aplica sharpening usando Unsharp Mask
-    Algoritmo que preserva melhor detalhes que outros métodos
+    OTIMIZADO: sigma reduzido para sharpening mais preciso (logos, textos)
     """
     if amount <= 0:
         return img
     
-    # Gaussian blur para criar máscara
-    gaussian = cv2.GaussianBlur(img, (0, 0), 2.0)
+    # Gaussian blur com sigma menor = sharpening mais preciso
+    gaussian = cv2.GaussianBlur(img, (0, 0), 1.5)  # Reduzido de 2.0
     
     # Unsharp mask: original + amount * (original - gaussian)
     sharpened = cv2.addWeighted(img, 1.0 + amount, gaussian, -amount, 0)
