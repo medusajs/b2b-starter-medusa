@@ -184,38 +184,63 @@ export async function GET(request: NextRequest) {
         const { searchParams } = new URL(request.url)
         const includeStats = searchParams.get('includeStats') === 'true'
 
-        // Carregar estatísticas de todas as categorias em paralelo
-        const categoriesPromises = CATEGORIES.map(async (cat) => {
-            const stats = await getCategoryStats(cat.file)
+        // Tentar buscar do backend primeiro
+        const backendParams = new URLSearchParams()
+        if (includeStats) backendParams.set('includeStats', 'true')
 
-            const categoryInfo: CategoryInfo = {
-                id: cat.id,
-                name: cat.id,
-                displayName: cat.displayName,
-                totalProducts: stats.total,
+        const backendEndpoint = `/store/internal-catalog/categories`
+        const backendData = await tryBackendFetch(backendEndpoint, backendParams)
+
+        let categories: CategoryInfo[] = []
+        let summary: any = {}
+        let fromBackend = false
+
+        if (backendData && backendData.success && backendData.data) {
+            // Usar dados do backend
+            categories = backendData.data.categories || []
+            summary = backendData.data.summary || {}
+            fromBackend = true
+        } else {
+            // Fallback para dados locais
+            // Carregar estatísticas de todas as categorias em paralelo
+            const categoriesPromises = CATEGORIES.map(async (cat) => {
+                const stats = await getCategoryStats(cat.file)
+
+                const categoryInfo: CategoryInfo = {
+                    id: cat.id,
+                    name: cat.id,
+                    displayName: cat.displayName,
+                    totalProducts: stats.total,
+                }
+
+                if (includeStats) {
+                    categoryInfo.distributors = stats.distributors
+                    categoryInfo.priceRange = stats.priceRange
+                }
+
+                return categoryInfo
+            })
+
+            categories = await Promise.all(categoriesPromises)
+
+            // Estatísticas globais
+            const totalProducts = categories.reduce(
+                (sum, cat) => sum + cat.totalProducts,
+                0
+            )
+
+            const allDistributors = [
+                ...new Set(
+                    categories.flatMap((cat) => cat.distributors || [])
+                ),
+            ]
+
+            summary = {
+                totalCategories: categories.length,
+                totalProducts,
+                distributors: allDistributors,
             }
-
-            if (includeStats) {
-                categoryInfo.distributors = stats.distributors
-                categoryInfo.priceRange = stats.priceRange
-            }
-
-            return categoryInfo
-        })
-
-        const categories = await Promise.all(categoriesPromises)
-
-        // Estatísticas globais
-        const totalProducts = categories.reduce(
-            (sum, cat) => sum + cat.totalProducts,
-            0
-        )
-
-        const allDistributors = [
-            ...new Set(
-                categories.flatMap((cat) => cat.distributors || [])
-            ),
-        ]
+        }
 
         // Resposta
         return NextResponse.json(
@@ -223,12 +248,9 @@ export async function GET(request: NextRequest) {
                 success: true,
                 data: {
                     categories,
-                    summary: {
-                        totalCategories: categories.length,
-                        totalProducts,
-                        distributors: allDistributors,
-                    },
+                    summary,
                 },
+                fromBackend,
                 timestamp: new Date().toISOString(),
             },
             {
