@@ -15,7 +15,8 @@
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "moduleResolution": "bundler",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "types": ["vitest", "node", "@testing-library/jest-dom"]
     },
     "include": [
         "src"
