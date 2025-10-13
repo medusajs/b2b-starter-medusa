@@ -11,6 +11,7 @@ import ShippingAddress from "@/modules/checkout/components/shipping-address"
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import UTurnArrowRight from "@/modules/common/icons/u-turn-arrow-right"
+import { ErrorBoundaryResilient } from "@/components/error-boundary/error-boundary-resilient"
 import { ApprovalStatusType, B2BCart, B2BCustomer } from "@/types"
 
 export default async function CheckoutForm({
@@ -35,41 +36,48 @@ export default async function CheckoutForm({
   }
 
   return (
-    <div>
-      <div className="w-full grid grid-cols-1 gap-y-2">
-        <LocalizedClientLink
-          className="flex items-baseline gap-2 text-sm text-neutral-400 hover:text-neutral-500"
-          href="/cart"
-        >
-          <Button variant="secondary">
-            <UTurnArrowRight />
-            Voltar ao carrinho
-          </Button>
-        </LocalizedClientLink>
+    <ErrorBoundaryResilient
+      context="checkout-form"
+      fallbackMessage="Erro ao carregar o formulário de checkout. Tente recarregar a página."
+      showRetry={true}
+      maxRetries={3}
+    >
+      <div>
+        <div className="w-full grid grid-cols-1 gap-y-2">
+          <LocalizedClientLink
+            className="flex items-baseline gap-2 text-sm text-neutral-400 hover:text-neutral-500"
+            href="/cart"
+          >
+            <Button variant="secondary">
+              <UTurnArrowRight />
+              Voltar ao carrinho
+            </Button>
+          </LocalizedClientLink>
 
-        {!customer ? <SignInPrompt /> : null}
+          {!customer ? <SignInPrompt /> : null}
 
-        {cart.approval_status &&
-          cart.approval_status.status !== ApprovalStatusType.APPROVED && (
-            <ApprovalStatusBanner cart={cart} />
-          )}
+          {cart.approval_status &&
+            cart.approval_status.status !== ApprovalStatusType.APPROVED && (
+              <ApprovalStatusBanner cart={cart} />
+            )}
 
-        {cart?.company && <Company cart={cart} />}
+          {cart?.company && <Company cart={cart} />}
 
-        <ShippingAddress cart={cart} customer={customer} />
+          <ShippingAddress cart={cart} customer={customer} />
 
-        <BillingAddress cart={cart} />
+          <BillingAddress cart={cart} />
 
-        <Shipping cart={cart} availableShippingMethods={shippingMethods} />
+          <Shipping cart={cart} availableShippingMethods={shippingMethods} />
 
-        <ContactDetails cart={cart} customer={customer} />
+          <ContactDetails cart={cart} customer={customer} />
 
-        {(customer?.employee?.is_admin &&
-          cart.approval_status?.status === ApprovalStatusType.APPROVED) ||
-        !requiresApproval ? (
-          <Payment cart={cart} availablePaymentMethods={paymentMethods} />
-        ) : null}
+          {(customer?.employee?.is_admin &&
+            cart.approval_status?.status === ApprovalStatusType.APPROVED) ||
+          !requiresApproval ? (
+            <Payment cart={cart} availablePaymentMethods={paymentMethods} />
+          ) : null}
+        </div>
       </div>
-    </div>
+    </ErrorBoundaryResilient>
   )
 }

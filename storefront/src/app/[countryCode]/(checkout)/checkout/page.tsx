@@ -3,6 +3,7 @@ import { retrieveCustomer } from "@/lib/data/customer"
 import Wrapper from "@/modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@/modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@/modules/checkout/templates/checkout-summary"
+import { CartStatusDisplay } from "@/components/cart/cart-status-display"
 import { B2BCart } from "@/types/global"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -27,6 +28,7 @@ export default async function Checkout({
 
   return (
     <Wrapper cart={cart}>
+      <CartStatusDisplay className="mb-4" />
       <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-2 py-24 h-full">
         <CheckoutForm cart={cart} customer={customer} />
         <div className="relative">
