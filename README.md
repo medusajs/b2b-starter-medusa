@@ -386,6 +386,8 @@ Toda documentação foi reorganizada para facilitar navegação:
 | [FOSS Stack Guide](./docs/infrastructure/FOSS_IMPLEMENTATION_COMPLETE.md) | `docs/infrastructure/` | Stack FOSS completo |
 | [Testing Guide](./docs/testing/FOSS_TESTING_DOCUMENTATION_INDEX.md) | `docs/testing/` | Índice de testes FOSS |
 | [API Documentation](./backend/docs/api/API_DOCUMENTATION_GUIDE.md) | `backend/docs/api/` | Guia de APIs |
+| [API Response Reference](./backend/docs/api/API_RESPONSE_QUICK_REFERENCE.md) | `backend/docs/api/` | Envelopes padronizados |
+| [Pact Provider Guide](./backend/docs/api/PACT_PROVIDER_GUIDE.md) | `backend/docs/api/` | Contract testing |
 | [Database Migration](./backend/docs/database/DATABASE_MIGRATION_GUIDE.md) | `backend/docs/database/` | Guia de migrações |
 
 ## 🛠️ Comandos Úteis
