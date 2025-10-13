@@ -228,6 +228,3 @@ export class RateLimiter {
 // ============================================================================
 
 export const rateLimiter = RateLimiter.getInstance();
-
-// Export the class as well for advanced usage
-export { RateLimiter };
