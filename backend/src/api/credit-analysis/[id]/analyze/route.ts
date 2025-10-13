@@ -70,10 +70,7 @@ export async function POST(
         })
     } catch (error: any) {
         console.error("Error analyzing credit:", error)
-        res.status(500).json({
-            success: false,
-            error: error.message || "Failed to analyze credit"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 

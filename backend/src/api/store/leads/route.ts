@@ -1,8 +1,9 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import fs from "fs"
 import path from "path"
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+export const POST = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
     const { name, email, phone, message, items } = req.body as any
     if (!email || !items || !Array.isArray(items) || items.length === 0) {
@@ -24,7 +25,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
     fs.writeFileSync(file, JSON.stringify(lead, null, 2), "utf-8")
     res.json({ id, created_at: lead.created_at })
   } catch (e: any) {
-    res.status(500).json({ error: "Erro ao salvar lead", message: e.message })
+    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
   }
 }
 

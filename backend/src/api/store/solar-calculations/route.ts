@@ -9,7 +9,7 @@ type TipoTelhado = typeof ALLOWED_TELHADOS[number]
  * Lista todos os cálculos salvos do usuário logado
  */
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
     const customerId = (req as any).auth?.actor_id || (req as any).user?.id
@@ -53,10 +53,7 @@ export const GET = async (
         })
     } catch (error) {
         console.error("Error fetching solar calculations:", error)
-        res.status(500).json({
-            message: "Failed to fetch calculations",
-            error: error instanceof Error ? error.message : "Unknown error"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 
@@ -65,7 +62,7 @@ export const GET = async (
  * Executa workflow de cálculo solar com recomendações de kits (PLG: kit exposure)
  */
 export const POST = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
     const customerId = (req as any).auth?.actor_id || (req as any).user?.id
@@ -150,9 +147,6 @@ export const POST = async (
         })
     } catch (error) {
         console.error("Solar calculation failed:", error)
-        res.status(500).json({
-            message: "Failed to calculate solar system",
-            error: error instanceof Error ? error.message : "Unknown error"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

@@ -1,8 +1,9 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import fs from "fs"
 import path from "path"
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+export const POST = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
     const { name, payload } = req.body as any
     if (!name) {
@@ -16,7 +17,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
     fs.writeFileSync(file, JSON.stringify(event, null, 2), "utf-8")
     res.json({ id, created_at: event.created_at })
   } catch (e: any) {
-    res.status(500).json({ error: "Erro ao registrar evento", message: e.message })
+    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
   }
 }
 

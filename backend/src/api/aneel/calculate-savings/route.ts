@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import ANEELTariffService from "../../../modules/aneel-tariff/service"
 
 /**
@@ -47,9 +47,6 @@ export async function POST(
         res.json(savings)
     } catch (error) {
         console.error("Error calculating savings:", error)
-        res.status(500).json({
-            error: "Failed to calculate savings",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

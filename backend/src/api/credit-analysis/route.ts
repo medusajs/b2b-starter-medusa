@@ -82,9 +82,6 @@ export async function GET(
         })
     } catch (error: any) {
         console.error("Error fetching credit analysis:", error)
-        res.status(500).json({
-            success: false,
-            error: error.message || "Failed to fetch credit analysis"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

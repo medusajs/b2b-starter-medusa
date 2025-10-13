@@ -5,7 +5,7 @@
  * Returns catalog overview and available categories
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "./catalog-service";
 
 const CATEGORIES = [
@@ -24,7 +24,7 @@ const CATEGORIES = [
 ];
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -76,9 +76,6 @@ export const GET = async (
         });
     } catch (error: any) {
         console.error('Error loading catalog overview:', error);
-        res.status(500).json({
-            error: 'Failed to load catalog overview',
-            message: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

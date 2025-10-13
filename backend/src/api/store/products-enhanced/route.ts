@@ -55,7 +55,8 @@ interface EnhancedProduct {
     updated_at: string;
 }
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
     const catalogService = getInternalCatalogService();
 
@@ -231,9 +232,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             });
         }
 
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message,
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

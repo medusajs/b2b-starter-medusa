@@ -51,7 +51,9 @@
     "preflight:windows": "pwsh -File ../infra/scripts/windows/assert-non-admin.ps1",
     "doctor:db": "medusa exec ./src/scripts/check-database-health.ts",
     "setup:publishable-key": "node scripts/setup-publishable-key.js",
-    "setup:publishable-key:aws": "node scripts/setup-publishable-key.js --upload"
+    "setup:publishable-key:aws": "node scripts/setup-publishable-key.js --upload",
+    "normalize:apis": "tsx scripts/normalize-apis.ts",
+    "validate:apis": "tsx scripts/validate-apis.ts"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.10.3",

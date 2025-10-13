@@ -5,7 +5,7 @@
  * Returns catalog health status and metrics
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../catalog-service";
 import { getImageCache } from "../image-cache";
 import { CatalogHealthCheck } from "../types";
@@ -28,7 +28,7 @@ const CATEGORIES = [
 ];
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -106,9 +106,6 @@ export const GET = async (
         res.status(200).json(healthCheck);
     } catch (error: any) {
         console.error('Error in health check:', error);
-        res.status(500).json({
-            status: 'unhealthy',
-            error: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

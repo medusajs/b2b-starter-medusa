@@ -1,8 +1,8 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;
@@ -15,9 +15,6 @@ export const GET = async (
             total: manufacturers.length
         });
     } catch (error) {
-        res.status(500).json({
-            error: "Erro interno do servidor",
-            message: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

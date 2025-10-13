@@ -1,18 +1,20 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { FINANCING_MODULE } from "../../../modules/financing";
 import { validateCreateProposal } from "../../../modules/financing/validators";
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
     const financingModuleService = req.scope.resolve(FINANCING_MODULE);
     const stats = await financingModuleService.getProposalStats();
     res.json({ stats });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
   }
 };
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+export const POST = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
     const errors = validateCreateProposal(req.body);
     if (errors.length > 0) {
@@ -23,6 +25,6 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
     const proposal = await financingModuleService.createProposal(req.body);
     res.status(201).json({ proposal });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
   }
 };

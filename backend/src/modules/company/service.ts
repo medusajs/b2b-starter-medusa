@@ -16,8 +16,17 @@ class CompanyModuleService extends MedusaService({
   Company,
   Employee,
 }) {
-  async createCompany(data: CreateCompanyDTO): Promise<CompanyDTO> {
-    this.validateCNPJ(data.cnpj);
+  // Custom business logic methods - don't override generated methods
+  async createCompanyWithValidation(data: CreateCompanyDTO): Promise<CompanyDTO> {
+    // Validate CNPJ
+    const cleanCNPJ = data.cnpj.replace(/\D/g, "");
+    if (cleanCNPJ.length !== 14) {
+      throw new Error("CNPJ must have 14 digits");
+    }
+    if (this.isInvalidCNPJ(cleanCNPJ)) {
+      throw new Error("Invalid CNPJ");
+    }
+
     const companyPayload = {
       ...data,
       email_domain: this.extractEmailDomain(data.email),
@@ -25,30 +34,24 @@ class CompanyModuleService extends MedusaService({
       currency_code: data.currency_code || "BRL",
     };
 
-    const [company] = await this.createCompanies_([companyPayload]);
+    const [company] = await this.createCompanies([companyPayload]);
     return company;
   }
 
-  async updateCompany(data: UpdateCompanyDTO): Promise<CompanyDTO> {
+  async updateCompanyWithValidation(data: UpdateCompanyDTO): Promise<CompanyDTO> {
     const { id, email, ...rest } = data;
-    const updatePayload: Record<string, unknown> = { id, ...rest };
+    const updatePayload: Record<string, unknown> = { ...rest };
 
     if (email) {
       updatePayload.email = email;
       updatePayload.email_domain = this.extractEmailDomain(email);
     }
 
-    const [company] = await this.updateCompanies_([updatePayload]);
+    const company = await this.updateCompanies(updatePayload, { where: { id } });
     return company;
   }
 
-  async getCompany(id: string): Promise<CompanyDTO | null> {
-    return await this.retrieveCompany_(id, {
-      relations: ["employees"],
-    }).catch(() => null);
-  }
-
-  async searchCompanies(filters: CompanySearchDTO = {}): Promise<CompanyDTO[]> {
+  async searchCompaniesByFilters(filters: CompanySearchDTO = {}): Promise<CompanyDTO[]> {
     const where: Record<string, unknown> = {};
 
     if (filters.cnpj) where.cnpj = filters.cnpj;
@@ -58,63 +61,41 @@ class CompanyModuleService extends MedusaService({
       where.is_active = filters.is_active;
     }
 
-    return await this.listCompanies_(where);
+    return await this.listCompanies(where);
   }
 
-  async deleteCompany(id: string): Promise<void> {
-    await this.updateCompanies_([
-      {
-        id,
-        is_active: false,
-      },
-    ]);
+  async softDeleteCompanyById(id: string): Promise<void> {
+    await this.updateCompanies({ is_active: false }, { where: { id } });
   }
 
-  async createEmployee(data: CreateEmployeeDTO): Promise<EmployeeDTO> {
-    const companyExists = await this.retrieveCompany_(data.company_id).catch(() => null);
+  async createEmployeeWithValidation(data: CreateEmployeeDTO): Promise<EmployeeDTO> {
+    const companyExists = await this.retrieveCompany(data.company_id).catch(() => null);
     if (!companyExists) {
       throw new Error(`Company ${data.company_id} not found`);
     }
 
-    const [employee] = await this.createEmployees_([data]);
+    const employee = await this.createEmployees(data);
     return employee;
   }
 
-  async updateEmployee(data: UpdateEmployeeDTO): Promise<EmployeeDTO> {
-    const [employee] = await this.updateEmployees_([
-      {
-        id: data.id,
-        ...data,
-      },
-    ]);
+  async updateEmployeeWithValidation(data: UpdateEmployeeDTO): Promise<EmployeeDTO> {
+    const employee = await this.updateEmployees(data, { where: { id: data.id } });
     return employee;
   }
 
-  async getEmployee(id: string): Promise<EmployeeDTO | null> {
-    return await this.retrieveEmployee_(id, {
-      relations: ["company"],
-    }).catch(() => null);
+  async getEmployeeByCustomerId(customerId: string): Promise<EmployeeDTO | null> {
+    const employees = await this.listEmployees();
+    const employee = employees.find(emp => emp.customer_id === customerId);
+    return employee || null;
   }
 
-  async getEmployeeByCustomer(customerId: string): Promise<EmployeeDTO | null> {
-    const employees = await this.listEmployees_(
-      { customer_id: customerId },
-      { relations: ["company"], take: 1 }
-    );
-    return employees[0] || null;
+  async getActiveEmployeesByCompany(companyId: string): Promise<EmployeeDTO[]> {
+    const employees = await this.listEmployees();
+    return employees.filter(emp => emp.company_id === companyId && emp.is_active);
   }
 
-  async getCompanyEmployees(companyId: string): Promise<EmployeeDTO[]> {
-    return await this.listEmployees_({ company_id: companyId, is_active: true });
-  }
-
-  async deleteEmployee(id: string): Promise<void> {
-    await this.updateEmployees_([
-      {
-        id,
-        is_active: false,
-      },
-    ]);
+  async softDeleteEmployeeById(id: string): Promise<void> {
+    await this.updateEmployees({ is_active: false }, { where: { id } });
   }
 
   async bulkImportCompanies(data: BulkImportCompanyDTO): Promise<CompanyDTO[]> {
@@ -122,7 +103,7 @@ class CompanyModuleService extends MedusaService({
 
     for (const companyData of data.companies) {
       try {
-        const company = await this.createCompany(companyData);
+        const company = await this.createCompanyWithValidation(companyData);
         results.push(company);
       } catch (error) {
         console.error(`Failed to import company ${companyData.name}:`, error);
@@ -137,11 +118,8 @@ class CompanyModuleService extends MedusaService({
     return await this.bulkImportCompanies({ companies: companiesData });
   }
 
-  async exportToCSV(filters?: CompanySearchDTO): Promise<string> {
-    const companies = filters
-      ? await this.searchCompanies(filters)
-      : await this.listCompanies_({}, { relations: ["employees"] });
-
+  async exportToCSV(_filters?: CompanySearchDTO): Promise<string> {
+    const companies = await this.listCompanies();
     return CompanyCSVService.exportToCSV(companies);
   }
 
@@ -150,47 +128,30 @@ class CompanyModuleService extends MedusaService({
   }
 
   async bulkExportCompanies(data: BulkExportCompanyDTO): Promise<CompanyDTO[]> {
-    if (data.company_ids?.length) {
-      return await this.listCompanies_(
-        { id: { $in: data.company_ids } },
-        { relations: ["employees"] }
-      );
+    if (data.company_ids && data.company_ids.length > 0) {
+      // Filter companies by IDs
+      const allCompanies = await this.listCompanies();
+      return allCompanies.filter(company => data.company_ids.includes(company.id));
     }
 
-    if (data.filters) {
-      return await this.searchCompanies(data.filters);
-    }
-
-    return await this.listCompanies_({}, { relations: ["employees"] });
+    return await this.listCompanies();
   }
 
   async onboardCompany(
     companyData: CreateCompanyDTO,
     adminCustomerId: string
   ): Promise<{ company: CompanyDTO; employee: EmployeeDTO }> {
-    const company = await this.createCompany(companyData);
+    const company = await this.createCompanyWithValidation(companyData);
 
-    const employee = await this.createEmployee({
+    const [employee] = await this.createEmployees([{
       customer_id: adminCustomerId,
       company_id: company.id,
       is_admin: true,
       role: "admin",
       spending_limit: 0,
-    });
+    }]);
 
     return { company, employee };
-  }
-
-  private validateCNPJ(cnpj: string): void {
-    const cleanCNPJ = cnpj.replace(/\D/g, "");
-
-    if (cleanCNPJ.length !== 14) {
-      throw new Error("CNPJ must have 14 digits");
-    }
-
-    if (this.isInvalidCNPJ(cleanCNPJ)) {
-      throw new Error("Invalid CNPJ");
-    }
   }
 
   private isInvalidCNPJ(cnpj: string): boolean {
@@ -232,22 +193,16 @@ class CompanyModuleService extends MedusaService({
   }
 
   async retrieveEmployeeByCustomerId(customerId: string): Promise<EmployeeDTO | null> {
-    const employees = await this.listEmployees_(
-      { customer_id: customerId, is_active: true },
-      { relations: ["company"], take: 1 }
-    );
-    return employees[0] || null;
-  }
-
-  async retrieveCompany(id: string): Promise<CompanyDTO | null> {
-    return await this.retrieveCompany_(id).catch(() => null);
+    const employees = await this.listEmployees();
+    const employee = employees.find(emp => emp.customer_id === customerId && emp.is_active);
+    return employee || null;
   }
 
   async checkSpendingLimit(
     employeeId: string,
     amount: number
   ): Promise<{ allowed: boolean; reason?: string; remaining?: number }> {
-    const employee = await this.retrieveEmployee_(employeeId).catch(() => null);
+    const employee = await this.retrieveEmployee(employeeId);
 
     if (!employee) {
       return { allowed: false, reason: "Employee not found" };
@@ -269,15 +224,6 @@ class CompanyModuleService extends MedusaService({
       allowed: true,
       remaining: employee.spending_limit - amount,
     };
-  }
-
-  async listEmployees(filters: { company_id?: string } = {}): Promise<EmployeeDTO[]> {
-    const where: Record<string, unknown> = { is_active: true };
-    if (filters.company_id) {
-      where.company_id = filters.company_id;
-    }
-
-    return await this.listEmployees_(where);
   }
 }
 

@@ -102,9 +102,6 @@ export async function GET(
         })
     } catch (error) {
         console.error("Failed to fetch order fulfillment:", error)
-        return res.status(500).json({
-            error: "Failed to fetch order fulfillment",
-            message: error.message
-        })
+        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

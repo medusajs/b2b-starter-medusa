@@ -73,10 +73,7 @@ export async function PATCH(
         })
     } catch (error: any) {
         console.error("Error updating credit analysis status:", error)
-        res.status(500).json({
-            success: false,
-            error: error.message || "Failed to update status"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 

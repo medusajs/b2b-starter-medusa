@@ -86,10 +86,7 @@ export async function GET(
 
     } catch (error) {
         console.error("Error searching product by SKU:", error)
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 
@@ -151,9 +148,6 @@ export async function searchBySKU(
 
     } catch (error) {
         console.error("Error searching SKU:", error)
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

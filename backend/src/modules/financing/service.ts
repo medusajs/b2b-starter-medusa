@@ -38,13 +38,13 @@ class FinancingModuleService extends MedusaService({
       // 1. Check spending limits first
       const companyService = this.container.resolve(COMPANY_MODULE);
       const employee = await companyService.retrieveEmployeeByCustomerId(data.customer_id);
-      
+
       if (employee) {
         const spendingCheck = await companyService.checkSpendingLimit(
           employee.id,
           data.requested_amount
         );
-        
+
         if (!spendingCheck.allowed) {
           throw new Error(`Spending limit exceeded: ${spendingCheck.reason}`);
         }
@@ -58,7 +58,7 @@ class FinancingModuleService extends MedusaService({
         status: "pending" as const,
       };
 
-      const proposal = await this.create("FinancingProposal", proposalData);
+      const [proposal] = await this.createFinancingProposals([proposalData]);
 
       // 3. Create approval for high-value proposals
       if (data.requested_amount > 100000) {
@@ -99,27 +99,22 @@ class FinancingModuleService extends MedusaService({
   }
 
   async updateProposal(data: UpdateFinancingProposalDTO): Promise<FinancingProposalDTO> {
-    return await this.update("FinancingProposal", data.id, data);
+    const [updated] = await this.updateFinancingProposals([data]);
+    return updated;
   }
 
   async getProposal(id: string): Promise<FinancingProposalDTO | null> {
-    return await this.retrieve("FinancingProposal", id, {
-      relations: ["payment_schedules"],
-    });
+    return await this.retrieveFinancingProposal(id);
   }
 
   async getProposalsByCustomer(customerId: string): Promise<FinancingProposalDTO[]> {
-    return await this.list("FinancingProposal", {
-      where: { customer_id: customerId },
-      relations: ["payment_schedules"],
-      order: { created_at: "DESC" },
-    });
+    return await this.listFinancingProposals({ customer_id: customerId });
   }
 
   // State Management (Idempotent)
   async approveProposal(data: ApproveFinancingDTO): Promise<FinancingProposalDTO> {
-    const proposal = await this.retrieve("FinancingProposal", data.id);
-    
+    const proposal = await this.retrieveFinancingProposal(data.id);
+
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
     }
@@ -144,6 +139,7 @@ class FinancingModuleService extends MedusaService({
     expiresAt.setDate(expiresAt.getDate() + (data.expires_in_days || 30));
 
     const updateData = {
+      id: data.id,
       approved_amount: data.approved_amount,
       approved_term_months: data.approved_term_months,
       interest_rate_annual: data.interest_rate_annual,
@@ -156,17 +152,15 @@ class FinancingModuleService extends MedusaService({
       expires_at: expiresAt,
     };
 
-    const updatedProposal = await this.update("FinancingProposal", data.id, updateData);
+    const [updatedProposal] = await this.updateFinancingProposals([updateData]);
 
     // Generate payment schedule
     await this.generatePaymentSchedule(updatedProposal);
 
     return updatedProposal;
-  }
-
-  async contractProposal(data: ContractFinancingDTO): Promise<FinancingProposalDTO> {
+  } async contractProposal(data: ContractFinancingDTO): Promise<FinancingProposalDTO> {
     const proposal = await this.retrieve("FinancingProposal", data.id);
-    
+
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
     }
@@ -190,18 +184,20 @@ class FinancingModuleService extends MedusaService({
     const contractUrl = await this.generateContract(proposal, contractNumber);
 
     const updateData = {
+      id: data.id,
       status: "contracted" as const,
       contracted_at: new Date(),
       contract_number: contractNumber,
       contract_url: contractUrl,
     };
 
-    return await this.update("FinancingProposal", data.id, updateData);
+    const [updated] = await this.updateFinancingProposals([updateData]);
+    return updated;
   }
 
   async cancelProposal(data: CancelFinancingDTO): Promise<FinancingProposalDTO> {
     const proposal = await this.retrieve("FinancingProposal", data.id);
-    
+
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
     }
@@ -228,7 +224,7 @@ class FinancingModuleService extends MedusaService({
   async calculateFinancing(data: CalculateFinancingDTO): Promise<FinancingCalculation> {
     const downPayment = data.down_payment || 0;
     const financedAmount = data.amount - downPayment;
-    
+
     if (financedAmount <= 0) {
       throw new Error("Financed amount must be greater than zero");
     }
@@ -262,7 +258,7 @@ class FinancingModuleService extends MedusaService({
     const installments = simulation.payments.map((payment, index) => {
       const dueDate = new Date(startDate);
       dueDate.setMonth(dueDate.getMonth() + index + 1);
-      
+
       return {
         number: payment.period,
         due_date: dueDate,
@@ -351,19 +347,19 @@ class FinancingModuleService extends MedusaService({
 
     // Stub: Generate PDF and upload to S3
     const contractUrl = await this.uploadContractToS3(contractData);
-    
+
     return contractUrl;
   }
 
   private async uploadContractToS3(contractData: ContractData): Promise<string> {
     // Stub implementation
     console.log("Uploading contract to S3:", contractData.contract_number);
-    
+
     // In real implementation:
     // 1. Generate PDF from template
     // 2. Upload to S3
     // 3. Return public URL
-    
+
     return `https://contracts.yellosolarhub.com/${contractData.contract_number}.pdf`;
   }
 
@@ -380,7 +376,7 @@ class FinancingModuleService extends MedusaService({
     const monthlyRate = annualRate / 100 / 12;
     const totalInterest = amount * monthlyRate * termMonths;
     const totalAmount = amount + totalInterest;
-    
+
     // CET as effective annual rate
     return ((totalAmount / amount) ** (12 / termMonths) - 1) * 100;
   }
@@ -392,7 +388,7 @@ class FinancingModuleService extends MedusaService({
   ): Promise<FinancingProposalDTO> {
     // This would integrate with credit-analysis module
     // For now, stub implementation
-    
+
     const proposalData: CreateFinancingProposalDTO = {
       customer_id: "cust_from_analysis",
       credit_analysis_id: creditAnalysisId,
@@ -418,7 +414,7 @@ class FinancingModuleService extends MedusaService({
       ...event,
       timestamp: new Date().toISOString(),
     });
-    
+
     // In real implementation:
     // 1. Store in audit_log table
     // 2. Send to monitoring system
@@ -433,7 +429,7 @@ class FinancingModuleService extends MedusaService({
     total_amount: number;
   }> {
     const proposals = await this.list("FinancingProposal", {});
-    
+
     const stats = {
       total: proposals.length,
       by_status: {} as Record<string, number>,
@@ -444,10 +440,10 @@ class FinancingModuleService extends MedusaService({
     proposals.forEach((proposal) => {
       // Count by status
       stats.by_status[proposal.status] = (stats.by_status[proposal.status] || 0) + 1;
-      
+
       // Count by modality
       stats.by_modality[proposal.modality] = (stats.by_modality[proposal.modality] || 0) + 1;
-      
+
       // Sum amounts
       stats.total_amount += proposal.requested_amount;
     });

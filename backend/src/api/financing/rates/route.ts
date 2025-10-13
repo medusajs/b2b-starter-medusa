@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import BACENFinancingService from "../../../modules/financing/bacen-service"
 
 /**
@@ -16,9 +16,6 @@ export async function GET(
         res.json(rates)
     } catch (error) {
         console.error("Error fetching BACEN rates:", error)
-        res.status(500).json({
-            error: "Failed to fetch financing rates",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

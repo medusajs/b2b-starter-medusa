@@ -5,7 +5,8 @@ import { getInternalCatalogService } from "../../internal-catalog/catalog-servic
  * Public product detail endpoint - NO AUTH REQUIRED
  * Enhanced with internal catalog images
  */
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
     const { id } = req.params;
 
@@ -122,9 +123,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         res.json({ product: formattedProduct });
     } catch (error: any) {
         console.error("Error fetching product:", error);
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message,
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

@@ -45,10 +45,7 @@ export const GET = async (
         res.json({ calculation })
     } catch (error) {
         console.error("Error fetching calculation:", error)
-        res.status(500).json({
-            message: "Failed to fetch calculation",
-            error: error instanceof Error ? error.message : "Unknown error"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 
@@ -74,10 +71,7 @@ export const DELETE = async (
         res.status(204).send()
     } catch (error) {
         console.error("Error deleting calculation:", error)
-        res.status(500).json({
-            message: "Failed to delete calculation",
-            error: error instanceof Error ? error.message : "Unknown error"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 
@@ -117,9 +111,6 @@ export const PATCH = async (
         res.json({ calculation })
     } catch (error) {
         console.error("Error updating calculation:", error)
-        res.status(500).json({
-            message: "Failed to update calculation",
-            error: error instanceof Error ? error.message : "Unknown error"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

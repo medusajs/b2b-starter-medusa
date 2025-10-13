@@ -57,7 +57,8 @@ export const POST = async (
   res.json({ company });
 };
 
-export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
+export const DELETE = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   const { id } = req.params;
 
   await deleteCompaniesWorkflow.run({

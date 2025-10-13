@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import {
     StoreGetCatalogSKUsParams,
     StoreGetCatalogSKUsParamsType,

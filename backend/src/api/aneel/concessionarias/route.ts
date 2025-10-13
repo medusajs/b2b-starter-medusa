@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import ANEELTariffService from "../../../modules/aneel-tariff/service"
 
 /**
@@ -27,9 +27,6 @@ export async function GET(
         })
     } catch (error) {
         console.error("Error fetching concessionarias:", error)
-        res.status(500).json({
-            error: "Failed to fetch concessionarias",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

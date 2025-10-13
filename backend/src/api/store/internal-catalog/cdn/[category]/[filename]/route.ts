@@ -4,7 +4,7 @@
  * GET /store/internal-catalog/cdn/:category/:filename
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import fs from 'fs';
 import path from 'path';
 
@@ -21,7 +21,7 @@ const MIME_TYPES: { [key: string]: string } = {
 };
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const { category, filename } = req.params;
@@ -72,9 +72,6 @@ export const GET = async (
         stream.pipe(res);
     } catch (error: any) {
         console.error(`Error serving image ${category}/${filename}:`, error);
-        res.status(500).json({
-            error: 'Internal Server Error',
-            message: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

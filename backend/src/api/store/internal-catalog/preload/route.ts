@@ -5,7 +5,7 @@
  * Preloads all categories into cache for maximum performance
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../catalog-service";
 
 const CATEGORIES = [
@@ -24,7 +24,7 @@ const CATEGORIES = [
 ];
 
 export const POST = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -76,9 +76,6 @@ export const POST = async (
         });
     } catch (error: any) {
         console.error('Error preloading catalog:', error);
-        res.status(500).json({
-            error: 'Failed to preload catalog',
-            message: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

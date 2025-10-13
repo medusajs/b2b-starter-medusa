@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 
 function parsePriceBRL(price?: string): number | undefined {
@@ -57,7 +57,7 @@ function normalizeProduct(category: string | undefined, raw: any) {
 }
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;

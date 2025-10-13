@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { YSH_CATALOG_MODULE } from "../../../../../modules/ysh-catalog";
 import YshCatalogModuleService from "../../../../../modules/ysh-catalog/service";
 
@@ -67,7 +67,7 @@ function normalizeProduct(category: string, raw: any) {
 }
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const yshCatalogService = req.scope.resolve(YSH_CATALOG_MODULE) as YshCatalogModuleService;

@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import BACENFinancingService from "../../../modules/financing/bacen-service"
 
 /**
@@ -49,9 +49,6 @@ export async function POST(
         })
     } catch (error) {
         console.error("Error simulating financing:", error)
-        res.status(500).json({
-            error: "Failed to simulate financing",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

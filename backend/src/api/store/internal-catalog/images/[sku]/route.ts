@@ -5,13 +5,13 @@
  * Returns image information for a specific SKU
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../../catalog-service";
 import fs from 'fs/promises';
 import path from 'path';
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -48,10 +48,6 @@ export const GET = async (
         });
     } catch (error: any) {
         console.error(`Error loading image for SKU ${sku}:`, error);
-        res.status(500).json({
-            error: 'Failed to load image',
-            message: error.message,
-            sku
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

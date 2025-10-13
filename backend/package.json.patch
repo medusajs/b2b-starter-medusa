@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "normalize:apis": "tsx scripts/normalize-apis.ts",
+    "validate:apis": "tsx scripts/validate-apis.ts"
+  }
+}

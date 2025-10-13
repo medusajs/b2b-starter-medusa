@@ -10,7 +10,8 @@ import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 import fs from 'fs/promises';
 import path from 'path';
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const catalogService = getInternalCatalogService();
 
     try {
@@ -46,10 +47,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         }
     } catch (error: any) {
         console.error("Error in image management API:", error);
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message,
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };
 
@@ -122,10 +120,7 @@ async function optimizeImages(req: MedusaRequest, res: MedusaResponse, catalogSe
             }
         });
     } catch (error: any) {
-        res.status(500).json({
-            error: "Optimization failed",
-            message: error.message
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 }
 

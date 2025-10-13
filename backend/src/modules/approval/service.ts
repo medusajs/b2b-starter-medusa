@@ -20,7 +20,7 @@ class ApprovalModuleService extends MedusaService({
    * Check if cart has pending approvals (idempotent)
    */
   async hasPendingApprovals(cartId: string): Promise<boolean> {
-    const [_, count] = await this.listAndCountApprovals_({
+    const [_, count] = await this.listAndCountApprovals({
       cart_id: cartId,
       status: ApprovalStatusType.PENDING,
     });
@@ -41,13 +41,10 @@ class ApprovalModuleService extends MedusaService({
       timeOfDay?: string;
     }
   ): Promise<{ type: string; count: number }[]> {
-    const rules = await this.listApprovalRules_(
+    const rules = await this.listApprovalRules(
       {
         company_id: companyId,
         is_active: true,
-      },
-      {
-        order: { priority: "DESC" },
       }
     );
 
@@ -128,21 +125,21 @@ class ApprovalModuleService extends MedusaService({
       metadata: data.metadata,
     };
 
-    await this.createApprovalHistories_([historyEntry]);
+    await this.createApprovalHistories([historyEntry]);
   }
 
   /**
    * Check if approval should be auto-escalated (idempotent)
    */
   async checkEscalation(approvalId: string): Promise<boolean> {
-    const approval = await this.retrieveApproval_(approvalId);
+    const approval = await this.retrieveApproval(approvalId);
 
     if (approval.escalated || approval.status !== ApprovalStatusType.PENDING) {
       return false;
     }
 
     // Get company settings
-    const settings = await this.listApprovalSettingses_({
+    const settings = await this.listApprovalSettingses({
       // Need to get company_id from cart - would require graph query in real implementation
     });
 
@@ -180,7 +177,7 @@ class ApprovalModuleService extends MedusaService({
     const idempotencyKey = this.generateIdempotencyKey(data.cart_id, data.type);
 
     // Check for existing approval
-    const existing = await this.listApprovals_({
+    const existing = await this.listApprovals({
       idempotency_key: idempotencyKey,
     });
 
@@ -188,7 +185,7 @@ class ApprovalModuleService extends MedusaService({
       return existing[0]; // Idempotent
     }
 
-    const [created] = await this.createApprovals_([
+    const [created] = await this.createApprovals([
       {
         ...data,
         idempotency_key: idempotencyKey,
@@ -203,7 +200,7 @@ class ApprovalModuleService extends MedusaService({
     handled_by?: string;
     handled_at?: Date;
   }): Promise<any> {
-    const [updated] = await this.updateApprovals_([
+    const [updated] = await this.updateApprovals([
       {
         id,
         ...data,

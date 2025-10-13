@@ -5,7 +5,7 @@
  * Returns ~100 products per category with optimized image loading
  */
 
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../catalog-service";
 import { CatalogResponse } from "../types";
 import { z } from "zod";
@@ -23,7 +23,7 @@ const CategoryQuerySchema = z.object({
 });
 
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const startTime = Date.now();
@@ -99,10 +99,6 @@ export const GET = async (
             });
         }
 
-        res.status(500).json({
-            error: 'Failed to load catalog',
-            message: error.message,
-            category
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

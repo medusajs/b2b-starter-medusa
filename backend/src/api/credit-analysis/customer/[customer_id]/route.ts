@@ -27,9 +27,6 @@ export async function GET(
         })
     } catch (error: any) {
         console.error("Error listing credit analyses:", error)
-        res.status(500).json({
-            success: false,
-            error: error.message || "Failed to list credit analyses"
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

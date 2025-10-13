@@ -1,5 +1,5 @@
 import { listShippingOptionsForCartWorkflow } from "@medusajs/core-flows";
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { StoreFreeShippingPrice } from "../../../../types/shipping-options";

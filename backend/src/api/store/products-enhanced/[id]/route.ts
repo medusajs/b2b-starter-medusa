@@ -16,7 +16,8 @@ const ProductDetailQuerySchema = z.object({
     image_source: z.enum(["auto", "database", "internal"]).default("auto"),
 });
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
     const catalogService = getInternalCatalogService();
     const { id } = req.params;
@@ -176,9 +177,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             });
         }
 
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message,
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

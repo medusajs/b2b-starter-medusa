@@ -84,6 +84,11 @@ async clear(pattern?: string): Promise<void> {
                 const chunk = keys.slice(i, i + delChunkSize);
                 await this.redis.del(...chunk);
             }
+ 
+          - ✅ *(12/10/2025)* `company/service.ts`: Service refatorado para usar `createCompanies_`/`updateCompanies_`; erros de tipo eliminados.
+          - ⚠️ `approval/service.ts`: `Property 'listApprovalSettings' does not exist`
+          - **Causa**: MedusaService gera métodos com sufixo `_` (ex: `create_`, `list_`)
+          - **Solução**: Usar `this.create_()` em vez de `this.create()`
         }
     } while (cursor !== '0');
 }
@@ -377,30 +382,31 @@ npm install --save-dev supertest @types/supertest
 
 **Categorias de Erros**:
 
-1. **Custom Modules Service Methods** (30 erros):
-   - `company/service.ts`: `Property 'create' does not exist on type 'CompanyModuleService'`
-   - `approval/service.ts`: `Property 'listApprovalSettings' does not exist`
-   - **Causa**: MedusaService gera métodos com sufixo `_` (ex: `create_`, `list_`)
-   - **Solução**: Usar `this.create_()` em vez de `this.create()`
+- **Custom Modules Service Methods** (30 erros → em andamento):
 
-2. **API Routes - Invalid 'where' property** (3 erros):
-   - `store/catalog/[category]/route.ts`: `'where' does not exist in type`
-   - **Causa**: Filters do Medusa 2.10.3 não aceitam `where` aninhado
-   - **Solução**: Passar filters no nível root
+- ✅ *(12/10/2025)* `company/service.ts`: Service refatorado para usar `createCompanies_`/`updateCompanies_`; erros de tipo eliminados.
+- ⚠️ `approval/service.ts`: `Property 'listApprovalSettings' does not exist`
+- **Causa**: MedusaService gera métodos com sufixo `_` (ex: `create_`, `list_`)
+- **Solução**: Usar `this.create_()` em vez de `this.create()`
 
-3. **Missing Type Imports** (8 erros):
-   - `integration-tests/http/approval.spec.ts`: `Cannot find module '../../../types/approval'`
-   - **Solução**: Adicionar exports em `types/index.ts` ou corrigir paths
+- **API Routes - Invalid 'where' property** (3 erros):
+  - `store/catalog/[category]/route.ts`: `'where' does not exist in type`
+  - **Causa**: Filters do Medusa 2.10.3 não aceitam `where` aninhado
+  - **Solução**: Passar filters no nível root
 
-4. **Import Extensions (.js)** (1 erro):
-   - `aneel/tariffs/route.ts`: `Relative import paths need explicit file extensions`
-   - **Causa**: NodeNext moduleResolution exige `.js` em imports
-   - **Solução**: Adicionar extensão `.js` (TypeScript compila corretamente)
+- **Missing Type Imports** (8 erros):
+  - `integration-tests/http/approval.spec.ts`: `Cannot find module '../../../types/approval'`
+  - **Solução**: Adicionar exports em `types/index.ts` ou corrigir paths
 
-5. **Financing Module Issues** (4 erros):
-   - `Property 'getProposal' does not exist on type 'unknown'`
-   - **Causa**: Serviço não tipado corretamente
-   - **Solução**: `req.scope.resolve<FinancingModuleService>(FINANCING_MODULE)`
+- **Import Extensions (.js)** (1 erro):
+  - `aneel/tariffs/route.ts`: `Relative import paths need explicit file extensions`
+  - **Causa**: NodeNext moduleResolution exige `.js` em imports
+  - **Solução**: Adicionar extensão `.js` (TypeScript compila corretamente)
+
+- **Financing Module Issues** (4 erros):
+  - `Property 'getProposal' does not exist on type 'unknown'`
+  - **Causa**: Serviço não tipado corretamente
+  - **Solução**: `req.scope.resolve<FinancingModuleService>(FINANCING_MODULE)`
 
 **Ação**: Criar issue/PR separado para correção gradual (não bloqueia deploy)
 

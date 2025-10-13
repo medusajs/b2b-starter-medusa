@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import PVLibIntegrationService from "../../../modules/pvlib-integration/service"
 
 /**
@@ -16,9 +16,6 @@ export async function GET(
         res.json(stats)
     } catch (error) {
         console.error("Error fetching PVLib stats:", error)
-        res.status(500).json({
-            error: "Failed to fetch stats",
-            message: error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

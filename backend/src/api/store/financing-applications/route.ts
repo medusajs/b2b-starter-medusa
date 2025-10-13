@@ -71,10 +71,7 @@ export async function POST(
         })
     } catch (error) {
         console.error("Financing application failed:", error)
-        return res.status(500).json({
-            error: "Failed to apply for financing",
-            message: error.message
-        })
+        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }
 
@@ -114,9 +111,6 @@ export async function GET(
         })
     } catch (error) {
         console.error("Failed to fetch financing application:", error)
-        return res.status(500).json({
-            error: "Failed to fetch financing application",
-            message: error.message
-        })
+        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

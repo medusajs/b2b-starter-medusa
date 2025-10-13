@@ -1,7 +1,8 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { FINANCING_MODULE } from "../../../../modules/financing";
 
-export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+export const GET = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   const financingModuleService = req.scope.resolve(FINANCING_MODULE);
   const { id } = req.params;
 
@@ -14,7 +15,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   res.json({ proposal });
 };
 
-export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
+export const POST = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   const financingModuleService = req.scope.resolve(FINANCING_MODULE);
   const { id } = req.params;
   const { action, ...data } = req.body;

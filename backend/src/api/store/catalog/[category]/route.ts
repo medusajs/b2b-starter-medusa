@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog/index";
 
 function parsePriceBRL(price?: string): number | undefined {
@@ -61,7 +61,7 @@ function normalizeProduct(category: string, raw: any) {
 }
 
 export const GET = async (
-  req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) => {
   const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
@@ -139,9 +139,6 @@ export const GET = async (
     });
   } catch (error) {
     console.error(`[Catalog] Error fetching category ${category}:`, error);
-    res.status(500).json({
-      error: "Erro ao buscar produtos",
-      message: error.message
-    });
+    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
   }
 };

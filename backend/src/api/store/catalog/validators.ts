@@ -1,8 +1,27 @@
 import { z } from "zod";
+import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 
-/**
- * Validators para APIs do catálogo unificado
- */
+export type GetCatalogParamsType = z.infer<typeof GetCatalogParams>;
+export const GetCatalogParams = createSelectParams().extend({
+  category: z.enum([
+    "panels",
+    "inverters",
+    "batteries",
+    "kits",
+    "cables",
+    "chargers",
+    "controllers",
+    "accessories",
+    "structures",
+    "stringboxes",
+    "posts",
+    "others",
+  ]).optional(),
+  manufacturer: z.string().optional(),
+  source: z.enum(["internal", "external"]).optional(),
+  limit: z.coerce.number().default(50),
+  offset: z.coerce.number().default(0),
+});
 
 export const StoreGetCatalogSKUsParams = z.object({
     category: z

@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { GetTariffsQuerySchema } from "../../../modules/aneel-tariff/validators"
 import { GrupoTarifa, ClasseConsumidor } from "../../../modules/aneel-tariff/types/enums"
 
@@ -90,11 +90,6 @@ export async function GET(
             response_time_ms: responseTime,
         })
 
-        res.status(500).json({
-            error: "Failed to fetch tariff",
-            message: process.env.NODE_ENV === "production"
-                ? "Internal server error"
-                : error.message
-        })
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
     }
 }

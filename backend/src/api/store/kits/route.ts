@@ -1,4 +1,4 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { z } from "zod";
@@ -21,7 +21,7 @@ const KitsQuerySchema = z.object({
  * Lista produtos do tipo kit com filtros de segurança obrigatórios
  */
 export const GET = async (
-    req: MedusaRequest,
+  req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     try {
@@ -146,10 +146,6 @@ export const GET = async (
             });
         }
 
-        res.status(500).json({
-            error: "Internal server error",
-            message: error.message,
-            timestamp: new Date().toISOString(),
-        });
+        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
     }
 };

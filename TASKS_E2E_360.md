@@ -264,6 +264,7 @@
 - [ ] **T5.1.12** - `POST /admin/companies/:id/employees` - Adicionar funcionário
 - [ ] **T5.1.13** - `PUT /admin/companies/:id/employees/:emp_id` - Editar funcionário
 - [ ] **T5.1.14** - `DELETE /admin/companies/:id/employees/:emp_id` - Remover funcionário
+- [x] **T5.1.15** - Service ajustado para usar métodos gerados pelo Medusa (`createCompanies_`, `updateCompanies_`) – 12/10/2025
 
 ### 5.2 Quote Module
 
