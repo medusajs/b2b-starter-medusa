@@ -51,6 +51,12 @@ export class PVHttpClient {
             response_times: [],
         };
 
+        // In test env, cap timeouts to speed up specs and avoid long hangs
+        if (process.env.NODE_ENV === 'test') {
+            this.config.timeout.request_timeout_ms = Math.min(this.config.timeout.request_timeout_ms || 10000, 1000);
+            this.config.timeout.total_timeout_ms = Math.min(this.config.timeout.total_timeout_ms || 30000, 2000);
+        }
+
         // Cleanup de cache a cada 1 hora
         // Em ambiente de teste, evitamos criar intervalos para não manter handles abertos no Jest
         if (process.env.NODE_ENV !== 'test') {
