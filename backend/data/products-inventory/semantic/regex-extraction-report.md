@@ -1,15 +1,19 @@
 ﻿# Regex Extraction Report - YSH Distributor Inventory
 
-Generated: 2025-10-13 20:46:46
+**Generated**: 2025-10-13 (Updated with complete patterns and integration guidance)
 
 ## Extraction Patterns
 
-- Product ID: "id":\s*"(?<product_id>[^"]+)"
-- Category: "category":\s*"(?<category>[^"]+)"
-- Price: "price":\s*"?(?<price>[^",]+)"?
-- Image: "image":\s*"(?<image>[^"]+)"
-- Availability: "availability":\s*"(?<availability>[^"]+)"
-- Manufacturer: "manufacturer":\s*"(?<manufacturer>[^"]+)"
+**Core Regex Patterns**:
+
+- Product ID: `"id":\s*"(?<product_id>[^"]+)"`
+- Category: `"category":\s*"(?<category>[^"]+)"`
+- Price: `"price":\s*"?(?<price>[^",]+)"?`
+- Image: `"image":\s*"(?<image>[^"]+)"`
+- Availability: `"availability":\s*"(?<availability>[^"]+)"`
+- Manufacturer: `"manufacturer":\s*"(?<manufacturer>[^"]+)"`
+- Name: `"name":\s*"(?<name>[^"]+)"`
+- Description: `"description":\s*"(?<description>[^"]+)"`
 
 ## ODEX Inventory
 
@@ -19,6 +23,7 @@ Generated: 2025-10-13 20:46:46
 - Panels: 9
 
 **Sample IDs**:
+
 - odex_inverters_ODEX-INV-SAJ-3000W
 - odex_inverters_ODEX-INV-SAJ-4200W
 - odex_inverters_ODEX-INV-SAJ-5000W
@@ -33,6 +38,7 @@ Generated: 2025-10-13 20:46:46
 - Panels: 6
 
 **Sample IDs**:
+
 - solfacil_inverters_1
 - solfacil_inverters_2
 - solfacil_inverters_3
@@ -47,6 +53,7 @@ Generated: 2025-10-13 20:46:46
 - Hybrid Kits: 1
 
 **Sample IDs**:
+
 - FOTUS-KP02-1136kWp-Ceramico
 - FOTUS-KP02-1136kWp-Fibrocimento
 - FOTUS-KP02-1136kWp-Laje
@@ -69,4 +76,3 @@ Generated: 2025-10-13 20:46:46
 - **Odex**: /catalog/images/ODEX-{CATEGORY}/{SKU}.jpg
 - **Solfacil**: /catalog/images/SOLFACIL-{CATEGORY}/{IMAGE_ID}.jpeg
 - **Fotus**: Processed images in catalog\images_processed\FOTUS-KITS\
-
