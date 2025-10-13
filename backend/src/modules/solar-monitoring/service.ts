@@ -1,5 +1,5 @@
 import { MedusaService } from "@medusajs/framework/utils";
-import { MonitoringSubscription } from "./models/index.ts";
+import { MonitoringSubscription } from "./models";
 
 class SolarMonitoringModuleService extends MedusaService({
     MonitoringSubscription,
@@ -46,24 +46,24 @@ class SolarMonitoringModuleService extends MedusaService({
 
     // Suspender assinatura
     async suspendSubscription(subscriptionId: string) {
-        return await this.updateMonitoringSubscriptions(
-            { status: "suspended", updated_at: new Date() },
+        await this.updateMonitoringSubscriptions(
+            { status: "suspended" },
             { where: { id: subscriptionId } }
         );
     }
 
     // Reativar assinatura
     async reactivateSubscription(subscriptionId: string) {
-        return await this.updateMonitoringSubscriptions(
-            { status: "active", updated_at: new Date() },
+        await this.updateMonitoringSubscriptions(
+            { status: "active" },
             { where: { id: subscriptionId } }
         );
     }
 
     // Cancelar assinatura
     async cancelSubscription(subscriptionId: string) {
-        return await this.updateMonitoringSubscriptions(
-            { status: "cancelled", updated_at: new Date() },
+        await this.updateMonitoringSubscriptions(
+            { status: "cancelled" },
             { where: { id: subscriptionId } }
         );
     }
@@ -92,7 +92,8 @@ class SolarMonitoringModuleService extends MedusaService({
             const lastMaintenance = sub.metadata?.last_maintenance;
             if (!lastMaintenance) return true;
 
-            const daysSinceMaintenance = (Date.now() - new Date(lastMaintenance).getTime()) / (1000 * 60 * 60 * 24);
+            const lastMaintenanceDate = new Date(lastMaintenance as string);
+            const daysSinceMaintenance = (Date.now() - lastMaintenanceDate.getTime()) / (1000 * 60 * 60 * 24);
             return daysSinceMaintenance > 180; // 6 meses
         });
     }

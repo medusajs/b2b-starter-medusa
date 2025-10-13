@@ -1,8 +1,8 @@
-import CollectionBreadcrumb from "@/modules/collections/collection-breadcrumb"
+import CollectionBreadcrumb from "@/modules/discovery/collections/collection-breadcrumb"
 import SkeletonProductGrid from "@/modules/common/skeletons/templates/skeleton-product-grid"
-import RefinementList from "@/modules/store/components/refinement-list"
-import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
-import PaginatedProducts from "@/modules/store/templates/paginated-products"
+import RefinementList from "@/modules/discovery/store/components/refinement-list"
+import { SortOptions } from "@/modules/discovery/store/components/refinement-list/sort-products"
+import PaginatedProducts from "@/modules/discovery/store/templates/paginated-products"
 import { HttpTypes } from "@medusajs/types"
 import { Suspense } from "react"
 

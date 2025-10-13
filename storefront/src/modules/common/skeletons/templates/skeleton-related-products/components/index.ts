@@ -1,0 +1,1 @@
+export { default as SkeletonProductPreview } from "./skeleton-product-preview"

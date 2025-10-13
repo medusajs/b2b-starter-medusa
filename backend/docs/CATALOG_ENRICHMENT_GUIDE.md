@@ -20,7 +20,7 @@ Sistema completo de enriquecimento de catálogo que integra:
 
 ## 🔄 Arquitetura do Pipeline
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────┐
 │  ENTRADA                                                │
 │  • Imagem do produto (JPEG/PNG)                         │
@@ -240,7 +240,7 @@ kill <PID>
 
 ### Dados PVLib Carregados
 
-```
+```tsx
 data/catalog/data/catalog/
 ├── normalized_pvlib/
 │   ├── normalized_inverters_sandia_clean.json  ✅ Carregado
@@ -258,7 +258,7 @@ data/catalog/data/catalog/
 
 ### Saída Gerada
 
-```
+```tsx
 output/enriched-catalog-full/
 ├── enrichment_summary.json          # Resumo completo
 ├── ENRICHMENT_REPORT.md             # Relatório markdown

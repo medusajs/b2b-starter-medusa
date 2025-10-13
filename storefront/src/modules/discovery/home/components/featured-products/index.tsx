@@ -1,6 +1,6 @@
 import { listCollections } from "@/lib/data/collections"
 import { getRegion } from "@/lib/data/regions"
-import ProductRail from "@/modules/home/components/featured-products/product-rail"
+import ProductRail from "@/modules/discovery/home/components/featured-products/product-rail"
 
 export default async function FeaturedProducts({
   countryCode,

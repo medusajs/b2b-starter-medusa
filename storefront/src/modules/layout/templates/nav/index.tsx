@@ -1,6 +1,6 @@
 import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
-import AccountButton from "@/modules/account/account/components/account-button"
+import AccountButton from "@/modules/account/components/account-button"
 import CartButton from "@/modules/purchase/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import QuoteLink from "@/modules/layout/templates/nav/quote-link"

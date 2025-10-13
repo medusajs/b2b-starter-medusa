@@ -82,5 +82,11 @@ export default defineConfig({
         isQueryable: true,
       },
     },
+    solarMonitoring: {
+      resolve: "./src/modules/solar-monitoring",
+      definition: {
+        isQueryable: true,
+      },
+    },
   },
 });
