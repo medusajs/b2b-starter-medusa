@@ -211,7 +211,7 @@ export function CartProvider({
 
         prevCart = structuredClone(prev) as B2BCart
 
-        const optimisticItems = prev.items?.filter(({ id }) => id !== lineItem)
+        const optimisticItems = (prev as any).items?.filter((item: any) => item.id !== lineItem)
 
         const optimisticTotal = optimisticItems?.reduce(
           (acc, item) => acc + item.unit_price * item.quantity,
@@ -250,7 +250,7 @@ export function CartProvider({
 
         prevCart = structuredClone(prev) as B2BCart
 
-        const optimisticItems = prev.items?.reduce(
+        const optimisticItems = (prev as any).items?.reduce(
           (acc: StoreCartLineItem[], item) => {
             if (item.id === lineItem) {
               const newQuantity = quantity === 0 ? 0 : quantity

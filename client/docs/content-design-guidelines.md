@@ -1,0 +1,1 @@
+c:\Users\fjuni\ysh_medusa\ysh-store\client\docs\content-design-guidelines.md
