@@ -16,6 +16,7 @@
 **Funcionalidades Implementadas:**
 
 #### Layer 1: Retry com Exponential Backoff ✅
+
 ```typescript
 // Delays: 1s → 2s → 4s → 8s
 for (let i = 0; i <= retries; i++) {
@@ -30,18 +31,21 @@ for (let i = 0; i <= retries; i++) {
 ```
 
 #### Layer 2: Cache em Memória ✅
+
 - TTL configurável por request
 - GET requests automaticamente cacheadas
 - Cache key: `${method}:${url}:${body}`
 - Expiração automática após TTL
 
 #### Layer 3: Queue de Operações ✅
+
 - Queue para POST/PUT/PATCH/DELETE falhados
 - Background sync automático (5s delay inicial)
 - Retry até 10 tentativas em background
 - Tracking via PostHog events
 
 #### Layer 4: Graceful Error Handling ✅
+
 - Timeout detection (10s default)
 - AbortController para cancelamento
 - Fallback responses com metadata
@@ -166,6 +170,7 @@ export interface QueuedOperation {
 ### Events Configurados
 
 **1. fallback_triggered**
+
 ```typescript
 posthog.capture("fallback_triggered", {
   endpoint: string,
@@ -177,6 +182,7 @@ posthog.capture("fallback_triggered", {
 ```
 
 **2. sync_success**
+
 ```typescript
 posthog.capture("sync_success", {
   operation_id: string,
@@ -186,6 +192,7 @@ posthog.capture("sync_success", {
 ```
 
 **3. sync_failed**
+
 ```typescript
 posthog.capture("sync_failed", {
   operation_id: string,
@@ -354,14 +361,17 @@ ResilientHttpClient.clearQueue()
 ## 📚 Referências
 
 **Documentação:**
+
 - [Plano Completo](./FALLBACK_360_END_TO_END_PLAN.md)
 - [Executive Summary](./FALLBACK_360_EXECUTIVE_SUMMARY.md)
 
 **Padrões:**
+
 - [Exponential Backoff](https://en.wikipedia.org/wiki/Exponential_backoff)
 - [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
 
 **APIs:**
+
 - [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 
