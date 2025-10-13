@@ -84,7 +84,7 @@ function Test-ServerComponents {
     }
 
     Get-ChildItem $appDir -Recurse -Filter "page.tsx" | ForEach-Object {
-        $content = Get-Content $_.FullName | Out-String
+        $content = Get-Content -LiteralPath $_.FullName -ErrorAction Stop | Out-String
         $relativePath = $_.FullName.Replace($WorkspacePath, "").TrimStart("\")
 
         # Verificar se usa "use client" desnecessariamente
@@ -131,7 +131,7 @@ function Test-ServerActions {
     else {
         # Verificar Server Actions
         Get-ChildItem $dataDir -Recurse -Filter "*.ts" | ForEach-Object {
-            $content = Get-Content $_.FullName | Out-String
+            $content = Get-Content -LiteralPath $_.FullName -ErrorAction Stop | Out-String
             $relativePath = $_.FullName.Replace($WorkspacePath, "").TrimStart("\")
 
             if ($content -match "use server") {

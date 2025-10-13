@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@medusajs/ui'
+// Using simple divs with Tailwind classes instead of @medusajs/ui Card components
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { CatalogKit } from '@/lib/catalog/integration'
@@ -41,7 +41,7 @@ export function KitCard({
     const hasBatteries = kit.batteries && kit.batteries.length > 0
 
     return (
-        <Card className={`relative ${selected ? 'ring-2 ring-primary' : ''} ${compact ? 'h-auto' : 'h-full'}`}>
+        <div className={`relative bg-white border border-gray-200 rounded-lg shadow-sm p-6 ${selected ? 'ring-2 ring-primary' : ''} ${compact ? 'h-auto' : 'h-full'}`}>
             {/* Match Score Badge */}
             {recommendation && (
                 <div className="absolute top-3 right-3 z-10">
@@ -51,7 +51,7 @@ export function KitCard({
                 </div>
             )}
 
-            <CardHeader className={compact ? 'pb-3' : ''}>
+            <div className={`pb-4 ${compact ? 'pb-3' : ''}`}>
                 {/* Distributor */}
                 <div className="flex items-center gap-2 mb-2">
                     <Badge variant="outline" className="text-xs">
@@ -66,20 +66,20 @@ export function KitCard({
                 </div>
 
                 {/* Kit Name */}
-                <CardTitle className={compact ? 'text-lg' : 'text-xl'}>
+                <h3 className={`font-semibold ${compact ? 'text-lg' : 'text-xl'}`}>
                     {kit.name}
                 </CardTitle>
 
                 {/* Match Reason */}
                 {recommendation?.match_reason && (
-                    <CardDescription className="flex items-center gap-1 mt-1">
+                    <p className="flex items-center gap-1 mt-1 text-muted-foreground">
                         <TrendingUp className="w-4 h-4" />
                         {recommendation.match_reason}
                     </CardDescription>
                 )}
             </CardHeader>
 
-            <CardContent className="space-y-4">
+            <div className="space-y-4">
                 {/* Power */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -143,7 +143,7 @@ export function KitCard({
                 )}
             </CardContent>
 
-            <CardFooter className={compact ? 'pt-0' : ''}>
+            <div className={`pt-4 ${compact ? 'pt-0' : ''}`}>
                 <Button
                     className="w-full"
                     variant={selected ? 'primary' : 'outline'}
@@ -158,8 +158,8 @@ export function KitCard({
                         'Selecionar Kit'
                     )}
                 </Button>
-            </CardFooter>
-        </Card>
+            </div>
+        </div>
     )
 }
 
@@ -189,18 +189,18 @@ export function KitList({
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <Card key={i} className="h-[400px] animate-pulse">
-                        <CardHeader>
+                    <div key={i} className="h-[400px] animate-pulse bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+                        <div className="pb-4">
                             <div className="h-4 bg-muted rounded w-1/3 mb-2" />
                             <div className="h-6 bg-muted rounded w-full" />
                         </CardHeader>
-                        <CardContent>
+                        <div>
                             <div className="space-y-3">
                                 <div className="h-8 bg-muted rounded" />
                                 <div className="h-20 bg-muted rounded" />
                             </div>
-                        </CardContent>
-                    </Card>
+                        </div>
+                    </div>
                 ))}
             </div>
         )
@@ -208,7 +208,7 @@ export function KitList({
 
     if (error) {
         return (
-            <Card className="p-6 text-center">
+            <div className="p-6 text-center bg-white border border-gray-200 rounded-lg shadow-sm">
                 <div className="text-destructive mb-2">Erro ao carregar kits</div>
                 <div className="text-sm text-muted-foreground">{error}</div>
             </Card>
