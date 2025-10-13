@@ -197,7 +197,7 @@ class FinancingModuleService extends MedusaService({
 
   async cancelProposal(data: CancelFinancingDTO): Promise<FinancingProposalDTO> {
     const proposal = await this.retrieveFinancingProposal(data.id);
-    
+
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
     }
@@ -299,27 +299,27 @@ class FinancingModuleService extends MedusaService({
     });
 
     // Delete existing schedules
-    const existingSchedules = await this.list("PaymentSchedule", {
-      where: { financing_proposal_id: proposal.id },
+    const existingSchedules = await this.listPaymentSchedules({
+      financing_proposal_id: proposal.id,
     });
 
     for (const schedule of existingSchedules) {
-      await this.delete("PaymentSchedule", schedule.id);
+      await this.deletePaymentSchedule(schedule.id);
     }
 
     // Create new schedules
-    for (const installment of calculation.installments) {
-      await this.create("PaymentSchedule", {
-        financing_proposal_id: proposal.id,
-        installment_number: installment.number,
-        due_date: installment.due_date,
-        principal_amount: installment.principal,
-        interest_amount: installment.interest,
-        total_amount: installment.total,
-        remaining_balance: installment.balance,
-        status: "pending",
-      });
-    }
+    const scheduleData = calculation.installments.map(installment => ({
+      financing_proposal_id: proposal.id,
+      installment_number: installment.number,
+      due_date: installment.due_date,
+      principal_amount: installment.principal,
+      interest_amount: installment.interest,
+      total_amount: installment.total,
+      remaining_balance: installment.balance,
+      status: "pending" as const,
+    }));
+
+    await this.createPaymentSchedules(scheduleData);
   }
 
   // Contract Generation (Stub)
@@ -428,8 +428,8 @@ class FinancingModuleService extends MedusaService({
     by_modality: Record<string, number>;
     total_amount: number;
   }> {
-    const proposals = await this.list("FinancingProposal", {});
-
+    const proposals = await this.listFinancingProposals({});
+    
     const stats = {
       total: proposals.length,
       by_status: {} as Record<string, number>,
@@ -440,18 +440,16 @@ class FinancingModuleService extends MedusaService({
     proposals.forEach((proposal) => {
       // Count by status
       stats.by_status[proposal.status] = (stats.by_status[proposal.status] || 0) + 1;
-
+      
       // Count by modality
       stats.by_modality[proposal.modality] = (stats.by_modality[proposal.modality] || 0) + 1;
-
+      
       // Sum amounts
       stats.total_amount += proposal.requested_amount;
     });
 
     return stats;
-  }
-
-  async getCompanyFinancingHistory(companyId: string): Promise<FinancingProposalDTO[]> {
+  }  async getCompanyFinancingHistory(companyId: string): Promise<FinancingProposalDTO[]> {
     const companyService = this.container.resolve(COMPANY_MODULE);
     const employees = await companyService.listEmployees({ company_id: companyId });
     const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
