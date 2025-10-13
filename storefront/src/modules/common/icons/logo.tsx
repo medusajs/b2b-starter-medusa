@@ -13,9 +13,9 @@ interface LogoIconProps extends HTMLAttributes<HTMLDivElement> {
 
 const LogoIcon = ({ width = 120, height = 37, variant = "auto", className, ...props }: LogoIconProps) => {
   // Auto detecta o tema via CSS
-  const logoSrc = variant === "auto" 
+  const logoSrc = variant === "auto"
     ? "/yello-black_logomark.png" // Padrão para light mode
-    : variant === "dark" 
+    : variant === "dark"
       ? "/yello-white_logomark.png"
       : "/yello-black_logomark.png"
 
