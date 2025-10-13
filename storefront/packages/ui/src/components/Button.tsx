@@ -1,77 +1,102 @@
 import React from 'react';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger';
-    size?: 'sm' | 'md' | 'lg';
-    fullWidth?: boolean;
-    loading?: boolean;
+    /** Visual style variant following Medusa UI patterns */
+    variant?: 'primary' | 'secondary' | 'transparent' | 'danger';
+    /** Size of the button following Medusa UI scale */
+    size?: 'small' | 'base' | 'large' | 'xlarge';
+    /** Shows loading spinner and disables interaction */
+    isLoading?: boolean;
+    /** 
+     * Change the default rendered element for the one passed as a child.
+     * Follows Radix Primitives Slot pattern used by Medusa UI
+     */
+    asChild?: boolean;
 };
 
 /**
- * Button component
+ * Button Component
  * 
- * Primary interactive element with multiple variants and states
+ * Based on native HTML button element, following Medusa UI design system.
+ * Built with Radix-like patterns for consistency.
  * 
  * @example
  * ```tsx
- * <Button variant="primary" size="md">
- *   Click me
+ * // Primary button
+ * <Button variant="primary" size="base">
+ *   Save Changes
  * </Button>
- * <Button variant="outline" loading>
- *   Loading...
+ * 
+ * // Loading state
+ * <Button isLoading variant="secondary">
+ *   Processing...
+ * </Button>
+ * 
+ * // As link (requires asChild implementation)
+ * <Button asChild>
+ *   <a href="/products">View Products</a>
  * </Button>
  * ```
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({
         variant = 'primary',
-        size = 'md',
-        fullWidth = false,
-        loading = false,
+        size = 'base',
+        isLoading = false,
+        asChild = false,
         children,
         className = '',
         disabled,
+        type = 'button',
         ...props
     }, ref) => {
-        const base = 'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+        // Base styles following Medusa UI principles
+        const base = 'inline-flex items-center justify-center font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 rounded-md';
 
+        // Variants aligned with Medusa UI (primary, secondary, transparent, danger)
         const variants: Record<string, string> = {
-            primary: 'bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500 active:bg-yellow-800',
-            secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-300 active:bg-gray-300',
-            ghost: 'bg-transparent text-gray-900 hover:bg-gray-50 focus:ring-gray-300',
-            outline: 'bg-transparent border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-50 focus:ring-yellow-500',
-            danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 active:bg-red-800'
+            primary: 'bg-yellow-600 text-white hover:bg-yellow-700 focus-visible:ring-yellow-500',
+            secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-400',
+            transparent: 'bg-transparent text-gray-900 hover:bg-gray-100 focus-visible:ring-gray-400',
+            danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500'
         };
 
+        // Size scale matching Medusa UI (small, base, large, xlarge)
         const sizes: Record<string, string> = {
-            sm: 'px-3 py-1.5 text-sm',
-            md: 'px-4 py-2 text-base',
-            lg: 'px-6 py-3 text-lg'
+            small: 'h-8 px-3 text-sm',
+            base: 'h-10 px-4 text-base',
+            large: 'h-12 px-6 text-lg',
+            xlarge: 'h-14 px-8 text-xl'
         };
-
-        const widthClass = fullWidth ? 'w-full' : '';
 
         const classes = [
             base,
             variants[variant],
             sizes[size],
-            widthClass,
             className
         ].filter(Boolean).join(' ');
+
+        // Note: asChild pattern would require Slot from @radix-ui/react-slot
+        // For now, we render as button (can be extended later)
+        if (asChild) {
+            console.warn('Button: asChild prop requires @radix-ui/react-slot implementation');
+        }
 
         return (
             <button
                 ref={ref}
+                type={type}
                 className={classes}
-                disabled={disabled || loading}
+                disabled={disabled || isLoading}
                 {...props}
             >
-                {loading && (
+                {isLoading && (
                     <svg
                         className="animate-spin -ml-1 mr-2 h-4 w-4"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                     >
                         <circle
                             className="opacity-25"

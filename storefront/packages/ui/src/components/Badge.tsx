@@ -1,54 +1,97 @@
 import React from 'react';
 
-export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
-    variant?: 'default' | 'success' | 'warning' | 'error' | 'info';
-    size?: 'sm' | 'md' | 'lg';
-    rounded?: boolean;
+export type BadgeProps = React.HTMLAttributes<HTMLDivElement> & {
+    /** Color variant following Medusa UI palette */
+    color?: 'green' | 'red' | 'blue' | 'orange' | 'grey' | 'purple';
+    /** Size following Medusa UI scale */
+    size?: '2xsmall' | 'xsmall' | 'small' | 'base' | 'large';
+    /** Border radius style */
+    rounded?: 'base' | 'full';
+    /** 
+     * Change the default rendered element for the one passed as a child.
+     * Follows Radix Primitives Slot pattern used by Medusa UI
+     */
+    asChild?: boolean;
 };
 
 /**
- * Badge component
+ * Badge Component
  * 
- * Small status indicator or label
+ * Based on div element, following Medusa UI design system.
+ * Used for labels, tags, and status indicators.
  * 
  * @example
  * ```tsx
- * <Badge variant="success">Active</Badge>
- * <Badge variant="warning" size="sm">Pending</Badge>
+ * // Color variants
+ * <Badge color="green">Active</Badge>
+ * <Badge color="red">Error</Badge>
+ * <Badge color="blue">Info</Badge>
+ * 
+ * // Sizes
+ * <Badge size="small">Small</Badge>
+ * <Badge size="base">Base</Badge>
+ * <Badge size="large">Large</Badge>
+ * 
+ * // Rounded variants
+ * <Badge rounded="base">Base Rounded</Badge>
+ * <Badge rounded="full">Pill Shape</Badge>
  * ```
  */
-export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-    ({ variant = 'default', size = 'md', rounded = false, children, className = '', ...props }, ref) => {
-        const base = 'inline-flex items-center font-medium';
+export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
+    ({
+        color = 'grey',
+        size = 'base',
+        rounded = 'base',
+        asChild = false,
+        children,
+        className = '',
+        ...props
+    }, ref) => {
+        // Base styles following Medusa UI principles
+        const base = 'inline-flex items-center justify-center font-medium';
 
-        const variants: Record<string, string> = {
-            default: 'bg-gray-100 text-gray-800',
-            success: 'bg-green-100 text-green-800',
-            warning: 'bg-yellow-100 text-yellow-800',
-            error: 'bg-red-100 text-red-800',
-            info: 'bg-blue-100 text-blue-800'
+        // Color variants matching Medusa UI palette
+        const colors: Record<string, string> = {
+            green: 'bg-green-100 text-green-800',
+            red: 'bg-red-100 text-red-800',
+            blue: 'bg-blue-100 text-blue-800',
+            orange: 'bg-orange-100 text-orange-800',
+            grey: 'bg-gray-100 text-gray-800',
+            purple: 'bg-purple-100 text-purple-800'
         };
 
+        // Size scale matching Medusa UI (2xsmall through large)
         const sizes: Record<string, string> = {
-            sm: 'px-2 py-0.5 text-xs',
-            md: 'px-2.5 py-1 text-sm',
-            lg: 'px-3 py-1.5 text-base'
+            '2xsmall': 'h-4 px-1.5 text-xs',
+            'xsmall': 'h-5 px-2 text-xs',
+            'small': 'h-6 px-2 text-sm',
+            'base': 'h-7 px-2.5 text-sm',
+            'large': 'h-8 px-3 text-base'
         };
 
-        const roundedClass = rounded ? 'rounded-full' : 'rounded';
+        // Rounded variants
+        const roundedStyles: Record<string, string> = {
+            base: 'rounded-md',
+            full: 'rounded-full'
+        };
 
         const classes = [
             base,
-            variants[variant],
+            colors[color],
             sizes[size],
-            roundedClass,
+            roundedStyles[rounded],
             className
         ].filter(Boolean).join(' ');
 
+        // Note: asChild pattern would require Slot from @radix-ui/react-slot
+        if (asChild) {
+            console.warn('Badge: asChild prop requires @radix-ui/react-slot implementation');
+        }
+
         return (
-            <span ref={ref} className={classes} {...props}>
+            <div ref={ref} className={classes} {...props}>
                 {children}
-            </span>
+            </div>
         );
     }
 );
