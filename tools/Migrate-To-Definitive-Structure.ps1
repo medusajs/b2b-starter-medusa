@@ -423,19 +423,19 @@ $RequiredDirs = @(
 $RequiredDirs | ForEach-Object {
     $DirPath = Join-Path $ProjectRoot $_
     if (-not (Test-Path $DirPath)) {
-        Write-ColoredOutput "[ERROR] Diretório faltando: $_" $Red
+        Write-ColoredOutput "[ERROR] Diretorio faltando: $_" $Red
     }
 }
 
-Write-ColoredOutput "`n✅ Estrutura definitiva criada com sucesso!" $Green
+Write-ColoredOutput "`n[OK] Estrutura definitiva criada com sucesso!" $Green
 if (-not $WhatIf) {
-    Write-ColoredOutput "📁 Backup criado em: $BackupDir" $Yellow
+    Write-ColoredOutput "[BACKUP] Backup criado em: $BackupDir" $Yellow
 }
-Write-ColoredOutput "`n📋 PRÓXIMOS PASSOS:" $White
+Write-ColoredOutput "`n[PROXIMO] PROXIMOS PASSOS:" $White
 Write-ColoredOutput "1. Verificar arquivos migrados" $White
-Write-ColoredOutput "2. Atualizar imports relativos se necessário" $White
+Write-ColoredOutput "2. Atualizar imports relativos se necessario" $White
 Write-ColoredOutput "3. Testar build: cd backend; yarn build" $White
 Write-ColoredOutput "4. Testar storefront: cd storefront; yarn dev" $White
-Write-ColoredOutput "5. Atualizar documentação" $White
+Write-ColoredOutput "5. Atualizar documentacao" $White
 
-Write-ColoredOutput "=== MIGRACAO CONCLUIDA ===" $White
+Write-ColoredOutput "`n=== MIGRACAO CONCLUIDA ===" $White
