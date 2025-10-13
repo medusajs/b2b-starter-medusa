@@ -1,0 +1,511 @@
+/**
+ * 🎨 Medusa UI + Yello Brand Customization
+ * Personalização do Medusa UI com stroke degradê da Yello Solar Hub
+ * 
+ * Gradiente: #FFCE00 (amarelo) → #FF6600 (laranja) → #FF0066 (magenta)
+ */
+
+/* ============================================================================
+   YELLO BRAND GRADIENT TOKENS
+   ============================================================================ */
+
+:root {
+    /* Yello Solar Hub Brand Gradient */
+    --gradient-yello-solar: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+    --gradient-yello-solar-vertical: linear-gradient(180deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+    --gradient-yello-solar-radial: radial-gradient(circle, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+
+    /* Gradient Stroke (for borders) */
+    --gradient-yello-stroke: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+
+    /* Brand Colors */
+    --yello-yellow: #FFCE00;
+    --yello-orange: #FF6600;
+    --yello-magenta: #FF0066;
+
+    /* Lighter variants for backgrounds */
+    --yello-yellow-50: #FFFBF0;
+    --yello-yellow-100: #FFF3CD;
+    --yello-orange-50: #FFF8F5;
+    --yello-orange-100: #FFE8E0;
+    --yello-magenta-50: #FFF0F5;
+    --yello-magenta-100: #FFCCE0;
+}
+
+/* Dark mode gradient adjustments */
+.dark {
+    --gradient-yello-solar: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+    --gradient-yello-stroke: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%);
+}
+
+/* ============================================================================
+   MEDUSA UI BUTTON CUSTOMIZATION
+   ============================================================================ */
+
+/* Primary button with Yello gradient */
+.medusa-button-primary,
+button[data-variant="primary"] {
+    background: var(--gradient-yello-solar);
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.medusa-button-primary::before,
+button[data-variant="primary"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #E6B800 0%, #E65C00 50%, #E6005C 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.medusa-button-primary:hover::before,
+button[data-variant="primary"]:hover::before {
+    opacity: 1;
+}
+
+.medusa-button-primary:active,
+button[data-variant="primary"]:active {
+    transform: scale(0.98);
+}
+
+/* Secondary button with stroke */
+.medusa-button-secondary,
+button[data-variant="secondary"] {
+    background: transparent;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--yello-orange);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.dark .medusa-button-secondary,
+.dark button[data-variant="secondary"] {
+    background-image:
+        linear-gradient(#18181b, #18181b),
+        var(--gradient-yello-stroke);
+}
+
+.medusa-button-secondary:hover,
+button[data-variant="secondary"]:hover {
+    background: var(--gradient-yello-solar);
+    color: white;
+}
+
+/* ============================================================================
+   MEDUSA UI INPUT CUSTOMIZATION
+   ============================================================================ */
+
+/* Input focus with gradient stroke */
+.medusa-input,
+input[class*="ui-input"] {
+    transition: all 0.2s ease;
+}
+
+.medusa-input:focus,
+input[class*="ui-input"]:focus {
+    outline: none;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.dark .medusa-input:focus,
+.dark input[class*="ui-input"]:focus {
+    background-image:
+        linear-gradient(#18181b, #18181b),
+        var(--gradient-yello-stroke);
+}
+
+/* ============================================================================
+   MEDUSA UI BADGE CUSTOMIZATION
+   ============================================================================ */
+
+/* Badge with gradient background */
+.medusa-badge-gradient,
+.badge-gradient {
+    background: var(--gradient-yello-solar);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+}
+
+/* Badge with gradient stroke */
+.medusa-badge-outline,
+.badge-outline {
+    background: transparent;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--yello-orange);
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+}
+
+.dark .medusa-badge-outline,
+.dark .badge-outline {
+    background-image:
+        linear-gradient(#18181b, #18181b),
+        var(--gradient-yello-stroke);
+}
+
+/* ============================================================================
+   MEDUSA UI CARD CUSTOMIZATION
+   ============================================================================ */
+
+/* Card with gradient stroke */
+.medusa-card-gradient-border,
+.card-gradient-border {
+    background: transparent;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.dark .medusa-card-gradient-border,
+.dark .card-gradient-border {
+    background-image:
+        linear-gradient(#18181b, #18181b),
+        var(--gradient-yello-stroke);
+}
+
+/* Card header with gradient */
+.medusa-card-header-gradient,
+.card-header-gradient {
+    background: var(--gradient-yello-solar);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+    font-weight: 600;
+}
+
+/* ============================================================================
+   MEDUSA UI TABS CUSTOMIZATION
+   ============================================================================ */
+
+/* Active tab with gradient underline */
+.medusa-tab-active,
+[role="tab"][aria-selected="true"] {
+    position: relative;
+    color: var(--yello-orange);
+    font-weight: 600;
+}
+
+.medusa-tab-active::after,
+[role="tab"][aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-yello-solar);
+    border-radius: 9999px;
+}
+
+/* ============================================================================
+   MEDUSA UI SWITCH/TOGGLE CUSTOMIZATION
+   ============================================================================ */
+
+/* Switch with gradient when active */
+.medusa-switch[data-state="checked"],
+button[role="switch"][data-state="checked"] {
+    background: var(--gradient-yello-solar);
+}
+
+/* ============================================================================
+   MEDUSA UI PROGRESS CUSTOMIZATION
+   ============================================================================ */
+
+/* Progress bar with gradient */
+.medusa-progress-bar,
+[role="progressbar"]>div {
+    background: var(--gradient-yello-solar);
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* ============================================================================
+   MEDUSA UI ALERT/TOAST CUSTOMIZATION
+   ============================================================================ */
+
+/* Info alert with gradient accent */
+.medusa-alert-info,
+.toast-info {
+    border-left: 4px solid transparent;
+    border-image: var(--gradient-yello-solar) 1;
+    background: var(--yello-yellow-50);
+}
+
+.dark .medusa-alert-info,
+.dark .toast-info {
+    background: rgba(255, 206, 0, 0.1);
+}
+
+/* ============================================================================
+   MEDUSA UI DROPDOWN/SELECT CUSTOMIZATION
+   ============================================================================ */
+
+/* Selected option with gradient background */
+.medusa-dropdown-item-selected,
+[role="option"][aria-selected="true"] {
+    background: linear-gradient(to right, var(--yello-yellow-50), var(--yello-orange-50));
+    color: var(--yello-orange);
+    font-weight: 600;
+}
+
+.dark .medusa-dropdown-item-selected,
+.dark [role="option"][aria-selected="true"] {
+    background: rgba(255, 102, 0, 0.1);
+}
+
+/* ============================================================================
+   MEDUSA UI ICON BUTTON CUSTOMIZATION
+   ============================================================================ */
+
+/* Icon button with gradient on hover */
+.medusa-icon-button,
+button[class*="icon-button"] {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.medusa-icon-button:hover,
+button[class*="icon-button"]:hover {
+    background: var(--gradient-yello-solar);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+/* Gradient text */
+.text-gradient-yello {
+    background: var(--gradient-yello-solar);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Gradient border (general purpose) */
+.border-gradient-yello {
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.dark .border-gradient-yello {
+    background-image:
+        linear-gradient(#18181b, #18181b),
+        var(--gradient-yello-stroke);
+}
+
+/* Gradient background */
+.bg-gradient-yello {
+    background: var(--gradient-yello-solar);
+    color: white;
+}
+
+/* Gradient hover effect */
+.hover-gradient-yello {
+    transition: all 0.2s ease;
+}
+
+.hover-gradient-yello:hover {
+    background: var(--gradient-yello-solar);
+    color: white;
+}
+
+/* ============================================================================
+   ANIMATION UTILITIES
+   ============================================================================ */
+
+/* Gradient shimmer animation */
+@keyframes gradient-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient-shimmer {
+    background: linear-gradient(90deg,
+            #FFCE00 0%,
+            #FF6600 25%,
+            #FF0066 50%,
+            #FF6600 75%,
+            #FFCE00 100%);
+    background-size: 200% 100%;
+    animation: gradient-shimmer 3s ease infinite;
+}
+
+/* Gradient pulse animation */
+@keyframes gradient-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-gradient-pulse {
+    animation: gradient-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ============================================================================ */
+
+/* Focus ring with gradient */
+.focus-visible\:ring-gradient:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--yello-yellow-100);
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        var(--gradient-yello-stroke);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* ============================================================================
+   RESPONSIVE UTILITIES
+   ============================================================================ */
+
+/* Mobile: simplified gradients for performance */
+@media (max-width: 640px) {
+
+    .medusa-button-primary,
+    button[data-variant="primary"] {
+        background: var(--yello-orange);
+    }
+}
+
+/* Print: remove gradients */
+@media print {
+
+    .bg-gradient-yello,
+    .text-gradient-yello,
+    .border-gradient-yello {
+        background: none !important;
+        color: black !important;
+        border-color: black !important;
+    }
+}
+
+/* ============================================================================
+   DARK MODE SPECIFIC ADJUSTMENTS
+   ============================================================================ */
+
+.dark {
+    /* Enhance gradient visibility in dark mode */
+    --gradient-yello-solar: linear-gradient(135deg, #FFD700 0%, #FF7700 50%, #FF1177 100%);
+}
+
+/* ============================================================================
+   COMPONENT SPECIFIC OVERRIDES
+   ============================================================================ */
+
+/* Medusa UI Container with gradient */
+.container-gradient {
+    background: linear-gradient(to bottom right,
+            var(--yello-yellow-50),
+            var(--yello-orange-50),
+            var(--yello-magenta-50));
+}
+
+.dark .container-gradient {
+    background: linear-gradient(to bottom right,
+            rgba(255, 206, 0, 0.05),
+            rgba(255, 102, 0, 0.05),
+            rgba(255, 0, 102, 0.05));
+}
+
+/* Medusa UI Drawer with gradient header */
+.drawer-gradient-header [role="dialog"]>div:first-child {
+    background: var(--gradient-yello-solar);
+    color: white;
+    padding: 1.5rem;
+}
+
+/* Medusa UI Modal with gradient accent */
+.modal-gradient-accent [role="dialog"] {
+    border-top: 4px solid transparent;
+    border-image: var(--gradient-yello-solar) 1;
+}
+
+/* ============================================================================
+   ESTADOS INTERATIVOS
+   ============================================================================ */
+
+/* Loading state with gradient */
+.loading-gradient {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--yello-yellow-100) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: gradient-shimmer 1.5s ease infinite;
+}
+
+/* Success state with gradient */
+.success-gradient {
+    background: linear-gradient(135deg, #00AA44 0%, #00CC55 100%);
+    color: white;
+}
+
+/* Error state with gradient */
+.error-gradient {
+    background: linear-gradient(135deg, #DC3545 0%, #FF4444 100%);
+    color: white;
+}
+
+/* Warning state with gradient */
+.warning-gradient {
+    background: linear-gradient(135deg, #FFAA00 0%, #FFD700 100%);
+    color: #1a1a1a;
+}
