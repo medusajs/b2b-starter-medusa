@@ -98,7 +98,7 @@ export async function POST(
 
     } catch (error) {
         console.error("Error calculating viability:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to calculate viability")
     }
 }
 

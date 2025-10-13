@@ -5,6 +5,7 @@
  */
 
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import fs from 'fs';
 import path from 'path';
 
@@ -21,7 +22,7 @@ const MIME_TYPES: { [key: string]: string } = {
 };
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const { category, filename } = req.params;
@@ -72,6 +73,6 @@ export const GET = async (
         stream.pipe(res);
     } catch (error: any) {
         console.error(`Error serving image ${category}/${filename}:`, error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to serve image");
     }
 };

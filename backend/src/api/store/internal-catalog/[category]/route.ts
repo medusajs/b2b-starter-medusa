@@ -6,6 +6,7 @@
  */
 
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../catalog-service";
 import { CatalogResponse } from "../types";
 import { z } from "zod";
@@ -23,7 +24,7 @@ const CategoryQuerySchema = z.object({
 });
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const startTime = Date.now();
@@ -99,6 +100,6 @@ export const GET = async (
             });
         }
 
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to load category products");
     }
 };

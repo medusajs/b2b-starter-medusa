@@ -1,4 +1,5 @@
-import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { MedusaError } from "@medusajs/framework/utils";
 import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog/index";
 
 function parsePriceBRL(price?: string): number | undefined {
@@ -139,6 +140,6 @@ export const GET = async (
     });
   } catch (error) {
     console.error(`[Catalog] Error fetching category ${category}:`, error);
-    throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+    throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? `Failed to fetch ${category} products`);
   }
 };

@@ -19,6 +19,13 @@ export interface NormalizedError {
   retry_after?: number
 }
 
+export interface FetchResult<T> {
+  data: T
+  stale?: boolean
+  cached?: boolean
+  error?: NormalizedError
+}
+
 const DEFAULT_CONFIG: Required<HttpClientConfig> = {
   timeoutMs: 30000,
   retries: 3,
@@ -64,7 +71,7 @@ function normalizeError(error: any, status?: number): NormalizedError {
 export async function fetchWithRetry<T = any>(
   url: string,
   options: RequestInit & { config?: HttpClientConfig } = {}
-): Promise<T> {
+): Promise<FetchResult<T>> {
   const config = { ...DEFAULT_CONFIG, ...options.config }
   const { timeoutMs, retries, baseDelayMs, jitter, headers: configHeaders } = config
 
@@ -93,6 +100,15 @@ export async function fetchWithRetry<T = any>(
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
 
+        // Check if backend sent stale data with error
+        if (errorData.success === false && errorData.data && errorData.meta?.stale) {
+          return {
+            data: errorData.data as T,
+            stale: true,
+            error: normalizeError(errorData.error, response.status),
+          }
+        }
+
         if (response.status === 429) {
           const retryAfter = parseInt(response.headers.get('Retry-After') || '60', 10)
           lastError = {
@@ -118,7 +134,20 @@ export async function fetchWithRetry<T = any>(
         throw normalizeError(errorData, response.status)
       }
 
-      return await response.json()
+      const jsonData = await response.json()
+      
+      // Check for stale indicator in successful response
+      if (jsonData.meta?.stale === true) {
+        return {
+          data: jsonData.data || jsonData,
+          stale: true,
+        }
+      }
+
+      return {
+        data: jsonData.data || jsonData,
+        stale: false,
+      }
     } catch (error: any) {
       clearTimeout(timeoutId)
 

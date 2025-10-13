@@ -6,12 +6,13 @@
  */
 
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../../catalog-service";
 import fs from 'fs/promises';
 import path from 'path';
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -48,6 +49,6 @@ export const GET = async (
         });
     } catch (error: any) {
         console.error(`Error loading image for SKU ${sku}:`, error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to load image for SKU");
     }
 };

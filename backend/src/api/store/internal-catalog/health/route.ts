@@ -6,6 +6,7 @@
  */
 
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../catalog-service";
 import { getImageCache } from "../image-cache";
 import { CatalogHealthCheck } from "../types";
@@ -28,7 +29,7 @@ const CATEGORIES = [
 ];
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const catalogService = getInternalCatalogService();
@@ -106,6 +107,6 @@ export const GET = async (
         res.status(200).json(healthCheck);
     } catch (error: any) {
         console.error('Error in health check:', error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to perform health check");
     }
 };

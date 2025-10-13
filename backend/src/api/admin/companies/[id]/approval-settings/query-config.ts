@@ -7,7 +7,7 @@ export const defaultStoreApprovalSettingsFields = [
 ];
 
 export const listApprovalSettingsQueryConfig = defineQueryConfig({
-  defaults: defaultStoreApproval-settingsFields,
-  allowed: defaultStoreApproval-settingsFields,
+  defaults: defaultStoreApprovalSettingsFields,
+  allowed: defaultStoreApprovalSettingsFields,
   defaultLimit: 50,
 });
