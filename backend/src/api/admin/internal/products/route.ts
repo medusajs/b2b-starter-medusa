@@ -5,18 +5,24 @@
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { Modules } from "@medusajs/framework/utils"
+import type {
+  ProductListQuery,
+  ProductSearchBody,
+  ProductFilters,
+  ProductImage,
+} from "../types"
 
 /**
  * GET /admin/internal/products
  * Lista produtos com imagens ordenadas por rank, suporte a busca e paginação
  */
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
-    try {
-        const { q, category, limit = 20, offset = 0 } = req.query as any
-        const productModule = req.scope.resolve(Modules.PRODUCT)
+  try {
+    const { q, category, limit = 20, offset = 0 } = req.query as ProductListQuery
+    const productModule = req.scope.resolve(Modules.PRODUCT)
 
-        // Construir filtros
-        const filters: any = {}
+    // Construir filtros
+    const filters: ProductFilters = {}
         if (q) {
             filters.q = q
         }
