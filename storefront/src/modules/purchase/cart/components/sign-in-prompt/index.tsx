@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { clx, Container, Text } from "@medusajs/ui"
 import Image from "next/image"
@@ -44,22 +44,22 @@ const SignInPrompt = () => {
         </Text>
         <div className="flex small:flex-row flex-col small:gap-4 gap-2">
           <LocalizedClientLink href="/account?view=register">
-            <Button
-              variant="secondary"
+            <YelloSolarButton
+              variant="outline"
               className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
               Register
-            </Button>
+            </YelloSolarButton>
           </LocalizedClientLink>
           <LocalizedClientLink href="/account?view=log-in">
-            <Button
-              variant="primary"
+            <YelloSolarButton
+              variant="default"
               className="small:h-10 h-8 small:min-w-36 min-w-24 rounded-full"
               data-testid="sign-in-button"
             >
               Log in
-            </Button>
+            </YelloSolarButton>
           </LocalizedClientLink>
         </div>
       </div>

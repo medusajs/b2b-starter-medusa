@@ -11,5 +11,8 @@ export * from './Select';
 export * from './Dialog';
 export * from './Toast';
 
+// Yello Solar specific components
+export * from './YelloSolarButton';
+
 // Re-export hook separately
 export { useToastState } from './Toast';

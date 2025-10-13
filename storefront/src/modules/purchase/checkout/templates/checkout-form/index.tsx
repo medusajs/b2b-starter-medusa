@@ -8,7 +8,7 @@ import ContactDetails from "../../components/contact-details"
 import Payment from "../../components/payment"
 import Shipping from "../../components/shipping"
 import ShippingAddress from "../../components/shipping-address"
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import UTurnArrowRight from "@/modules/common/icons/u-turn-arrow-right"
 import { ErrorBoundaryResilient } from "@/components/error-boundary/error-boundary-resilient"
@@ -48,10 +48,10 @@ export default async function CheckoutForm({
             className="flex items-baseline gap-2 text-sm text-neutral-400 hover:text-neutral-500"
             href="/cart"
           >
-            <Button variant="secondary">
+            <YelloSolarButton variant="stroke">
               <UTurnArrowRight />
               Voltar ao carrinho
-            </Button>
+            </YelloSolarButton>
           </LocalizedClientLink>
 
           {!customer ? <SignInPrompt /> : null}

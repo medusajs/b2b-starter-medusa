@@ -7,6 +7,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { YelloSolarButton, Card } from '@ysh/ui';
 import { getSolarCalculatorUrl } from '@/modules/solar/integrations';
 
 interface SolarCTAHeroProps {
@@ -56,20 +57,18 @@ export function SolarCTAHero({ countryCode = 'br' }: SolarCTAHeroProps) {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Link
-                            href={getSolarCalculatorUrl(countryCode)}
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 font-bold text-lg rounded-xl shadow-xl hover:bg-gray-50 hover:shadow-2xl transform hover:scale-105 transition-all"
-                        >
-                            <span>🧮</span>
-                            <span>Calcular Meu Sistema</span>
+                        <Link href={getSolarCalculatorUrl(countryCode)}>
+                            <YelloSolarButton size="lg" className="px-8 py-4 text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all">
+                                <span>🧮</span>
+                                <span>Calcular Meu Sistema</span>
+                            </YelloSolarButton>
                         </Link>
 
-                        <Link
-                            href={`/${countryCode}/solar-cv`}
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all"
-                        >
-                            <span>📸</span>
-                            <span>Análise por Imagem</span>
+                        <Link href={`/${countryCode}/solar-cv`}>
+                            <YelloSolarButton variant="stroke" size="lg" className="px-8 py-4 text-lg font-bold rounded-xl transition-all">
+                                <span>📸</span>
+                                <span>Análise por Imagem</span>
+                            </YelloSolarButton>
                         </Link>
                     </div>
 
@@ -140,22 +139,22 @@ export function SolarQuickLink({ countryCode = 'br' }: { countryCode?: string })
 export function SolarStats() {
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white rounded-lg p-4 border border-gray-200 text-center">
+            <Card className="p-4 text-center border border-gray-200">
                 <div className="text-3xl font-bold text-green-600 mb-1">95%</div>
                 <div className="text-sm text-gray-600">Economia na Conta</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200 text-center">
+            </Card>
+            <Card className="p-4 text-center border border-gray-200">
                 <div className="text-3xl font-bold text-blue-600 mb-1">25+</div>
                 <div className="text-sm text-gray-600">Anos de Vida Útil</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200 text-center">
+            </Card>
+            <Card className="p-4 text-center border border-gray-200">
                 <div className="text-3xl font-bold text-orange-600 mb-1">3-5</div>
                 <div className="text-sm text-gray-600">Anos de Payback</div>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200 text-center">
+            </Card>
+            <Card className="p-4 text-center border border-gray-200">
                 <div className="text-3xl font-bold text-purple-600 mb-1">0%</div>
                 <div className="text-sm text-gray-600">Emissões CO₂</div>
-            </div>
+            </Card>
         </div>
     );
 }

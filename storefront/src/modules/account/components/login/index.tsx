@@ -2,7 +2,7 @@ import { login } from "@/lib/data/customer"
 import { LOGIN_VIEW } from "../../templates/login-template"
 import ErrorMessage from "@/modules/purchase/checkout/components/error-message"
 import { SubmitButton } from "@/modules/purchase/checkout/components/submit-button"
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import Input from "@/modules/common/components/input"
 import { Checkbox, Text } from "@medusajs/ui"
 import { useActionState } from "react"
@@ -56,14 +56,14 @@ const Login = ({ setCurrentView }: Props) => {
           <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
             Entrar
           </SubmitButton>
-          <Button
-            variant="secondary"
+          <YelloSolarButton
+            variant="outline"
             onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
             className="w-full h-10"
             data-testid="register-button"
           >
             Registrar
-          </Button>
+          </YelloSolarButton>
         </div>
       </form>
     </div>

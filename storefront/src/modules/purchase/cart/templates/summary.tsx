@@ -5,7 +5,7 @@ import { getCheckoutStep } from "@/lib/util/get-checkout-step"
 import CartToCsvButton from "../components/cart-to-csv-button"
 import CartTotals from "../components/cart-totals"
 import PromotionCode from "@/modules/purchase/checkout/components/promotion-code"
-import Button from "@/modules/common/components/button"
+import { YelloSolarButton } from "@ysh/ui"
 import Divider from "@/modules/common/components/divider"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { RequestQuoteConfirmation } from "@/modules/quotation/quotes/components/request-quote-confirmation"
@@ -58,7 +58,7 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
         href={checkoutButtonLink}
         data-testid="checkout-button"
       >
-        <Button
+        <YelloSolarButton
           className="w-full h-11 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
           disabled={spendLimitExceeded}
         >
@@ -67,39 +67,39 @@ const Summary = ({ customer, spendLimitExceeded }: SummaryProps) => {
               ? "Limite de gastos excedido"
               : "Finalizar compra"
             : "Entrar para finalizar"}
-        </Button>
+        </YelloSolarButton>
       </LocalizedClientLink>
       {!!customer && (
         <RequestQuoteConfirmation>
-          <Button
+          <YelloSolarButton
             className="w-full h-11 rounded-full shadow-borders-base hover:shadow-lg transition-all duration-200"
-            variant="secondary"
+            variant="outline"
             disabled={isPendingApproval}
           >
             Solicitar cotação
-          </Button>
+          </YelloSolarButton>
         </RequestQuoteConfirmation>
       )}
       {!customer && (
         <RequestQuotePrompt>
-          <Button
+          <YelloSolarButton
             className="w-full h-11 rounded-full shadow-borders-base hover:shadow-lg transition-all duration-200"
-            variant="secondary"
+            variant="outline"
             disabled={isPendingApproval}
           >
             Solicitar cotação
-          </Button>
+          </YelloSolarButton>
         </RequestQuotePrompt>
       )}
       <CartToCsvButton cart={cart} />
-      <Button
+      <YelloSolarButton
         onClick={handleEmptyCart}
         className="w-full h-11 rounded-full shadow-borders-base hover:shadow-lg transition-all duration-200"
-        variant="secondary"
+        variant="stroke"
         disabled={isPendingApproval}
       >
         Esvaziar carrinho
-      </Button>
+      </YelloSolarButton>
     </Container>
   )
 }
