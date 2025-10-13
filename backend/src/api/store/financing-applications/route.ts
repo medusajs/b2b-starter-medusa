@@ -69,9 +69,9 @@ export async function POST(
                 cdi_rate: application?.cdi_rate_at_application
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Financing application failed:", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }
 
@@ -109,8 +109,8 @@ export async function GET(
                 cdi_rate: application.cdi_rate_at_application
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Failed to fetch financing application:", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }

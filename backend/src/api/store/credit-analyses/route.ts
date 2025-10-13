@@ -52,9 +52,9 @@ export async function POST(
             best_offers: result.best_offers, // PLG: Financing options exposure
             notification_sent: result.notification_sent
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Credit analysis failed:", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }
 
@@ -90,8 +90,8 @@ export async function GET(
             // PLG: Financing options exposure
             offers: analysis.offers || []
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Failed to fetch credit analysis:", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }

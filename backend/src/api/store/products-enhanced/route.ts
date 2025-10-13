@@ -5,7 +5,7 @@
  * Combines database products with internal catalog images for optimal performance
  */
 
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 import { z } from "zod";
 
@@ -56,7 +56,9 @@ interface EnhancedProduct {
 }
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
+    req: AuthenticatedMedusaRequest,
+    res: MedusaResponse
+) => {
     const productService = req.scope.resolve("product");
     const catalogService = getInternalCatalogService();
 

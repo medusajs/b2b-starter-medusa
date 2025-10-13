@@ -135,6 +135,6 @@ ${context.consumo_kwh_mes ? `\nConsumo mensal: ${context.consumo_kwh_mes} kWh/m√
 
     } catch (error: any) {
         console.error("[Ask H√©lio Error]", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }

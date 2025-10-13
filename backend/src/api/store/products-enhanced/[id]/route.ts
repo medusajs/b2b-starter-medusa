@@ -5,7 +5,7 @@
  * Returns single product with optimized image handling
  */
 
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { getInternalCatalogService } from "../../internal-catalog/catalog-service";
 import { z } from "zod";
 
@@ -17,7 +17,9 @@ const ProductDetailQuerySchema = z.object({
 });
 
 export const GET = async (
-  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
+    req: AuthenticatedMedusaRequest,
+    res: MedusaResponse
+) => {
     const productService = req.scope.resolve("product");
     const catalogService = getInternalCatalogService();
     const { id } = req.params;

@@ -6,7 +6,9 @@ import { getInternalCatalogService } from "../internal-catalog/catalog-service";
  * Enhanced with internal catalog images for better performance
  */
 export const GET = async (
-  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
+    req: MedusaRequest,
+    res: MedusaResponse
+) => {
     const productService = req.scope.resolve("product");
 
     try {
@@ -99,7 +101,7 @@ export const GET = async (
                 // Determine best image source
                 let primaryImage = product.images?.[0]?.url || '/images/placeholder.jpg';
                 let imageSource = 'database';
-                
+
                 if (internalImage.preloaded && (!product.images?.length || req.query.prefer_internal === 'true')) {
                     primaryImage = internalImage.url;
                     imageSource = 'internal';
@@ -115,7 +117,7 @@ export const GET = async (
                     category: product.metadata?.category,
                     price_brl: price / 100,
                     sku: variant?.sku || sku,
-                    
+
                     // Enhanced image handling
                     image: primaryImage,
                     image_source: imageSource,
@@ -130,7 +132,7 @@ export const GET = async (
                             cached: internalImage.cached
                         } : null,
                     },
-                    
+
                     processed_images: product.metadata?.processed_images || {},
                     metadata: {
                         ...product.metadata,

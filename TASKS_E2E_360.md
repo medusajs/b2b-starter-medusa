@@ -1,7 +1,7 @@
 # 🎯 Tasks E2E - Cobertura 360° YSH B2B Store
 
 **Data de Geração:** 13 de Outubro de 2025  
-**Status do Ambiente:** ✅ 100% Operacional  
+**Status do Ambiente:** ⚠️ Em correção (build TS falhando, validação de APIs/testes pendentes)  
 **Versão:** Medusa 2.10.3 | Next.js 15.5.4
 
 ---
@@ -83,10 +83,10 @@
 
 ### 2.3 Build & Transpilação
 
-- [x] **T2.3.1** - Build TypeScript completando sem erros
-- [x] **T2.3.2** - Arquivos `.js` gerados em `/dist`
-- [x] **T2.3.3** - Source maps gerados corretamente
-- [x] **T2.3.4** - Módulos customizados carregando sem erros
+- [ ] **T2.3.1** - Build TypeScript completando sem erros
+- [ ] **T2.3.2** - Arquivos `.js` gerados em `/dist`
+- [ ] **T2.3.3** - Source maps gerados corretamente
+- [ ] **T2.3.4** - Módulos customizados carregando sem erros
 
 ### 2.4 Inicialização
 
