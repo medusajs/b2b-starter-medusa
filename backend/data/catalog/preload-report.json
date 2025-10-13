@@ -1,48 +1,6 @@
 {
-  "timestamp": "2025-10-12T23:23:04.083Z",
+  "timestamp": "2025-10-13T00:09:48.197Z",
   "categories": [
-    {
-      "category": "accessories",
-      "count": 17,
-      "sample": [
-        {
-          "id": "FORTLEV-GROWATT-AXE-5.0L",
-          "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
-          "sku": "FORTLEV-GROWATT-AXE-5.0L"
-        },
-        {
-          "id": "FORTLEV-GROWATT-THOR07AS-P",
-          "name": "Carregador EV Growatt THOR07AS-P 7kW",
-          "sku": "FORTLEV-GROWATT-THOR07AS-P"
-        },
-        {
-          "id": "FORTLEV-FOXESS-A7300P1-E-2",
-          "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-          "sku": "FORTLEV-FOXESS-A7300P1-E-2"
-        }
-      ]
-    },
-    {
-      "category": "cables",
-      "count": 55,
-      "sample": [
-        {
-          "id": "neosolar_cables_20078",
-          "name": "https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_cables_20078"
-        },
-        {
-          "id": "neosolar_cables_20077",
-          "name": "https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_cables_20077"
-        },
-        {
-          "id": "neosolar_cables_20121",
-          "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_cables_20121"
-        }
-      ]
-    },
     {
       "category": "batteries",
       "count": 9,
@@ -61,27 +19,6 @@
           "id": "solfacil_batteries_3",
           "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
           "sku": "solfacil_batteries_3"
-        }
-      ]
-    },
-    {
-      "category": "ev_chargers",
-      "count": 83,
-      "sample": [
-        {
-          "id": "neosolar_chargers_23757",
-          "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_chargers_23757"
-        },
-        {
-          "id": "neosolar_chargers_20863",
-          "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
-          "sku": "neosolar_chargers_20863"
-        },
-        {
-          "id": "neosolar_chargers_27329",
-          "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
-          "sku": "neosolar_chargers_27329"
         }
       ]
     },
@@ -107,6 +44,48 @@
       ]
     },
     {
+      "category": "ev_chargers",
+      "count": 83,
+      "sample": [
+        {
+          "id": "neosolar_chargers_23757",
+          "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_chargers_23757"
+        },
+        {
+          "id": "neosolar_chargers_20863",
+          "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_chargers_20863"
+        },
+        {
+          "id": "neosolar_chargers_27329",
+          "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+          "sku": "neosolar_chargers_27329"
+        }
+      ]
+    },
+    {
+      "category": "accessories",
+      "count": 17,
+      "sample": [
+        {
+          "id": "FORTLEV-GROWATT-AXE-5.0L",
+          "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+          "sku": "FORTLEV-GROWATT-AXE-5.0L"
+        },
+        {
+          "id": "FORTLEV-GROWATT-THOR07AS-P",
+          "name": "Carregador EV Growatt THOR07AS-P 7kW",
+          "sku": "FORTLEV-GROWATT-THOR07AS-P"
+        },
+        {
+          "id": "FORTLEV-FOXESS-A7300P1-E-2",
+          "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
+          "sku": "FORTLEV-FOXESS-A7300P1-E-2"
+        }
+      ]
+    },
+    {
       "category": "others",
       "count": 10,
       "sample": [
@@ -124,6 +103,27 @@
           "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
           "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
           "sku": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8"
+        }
+      ]
+    },
+    {
+      "category": "cables",
+      "count": 55,
+      "sample": [
+        {
+          "id": "neosolar_cables_20078",
+          "name": "https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_cables_20078"
+        },
+        {
+          "id": "neosolar_cables_20077",
+          "name": "https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_cables_20077"
+        },
+        {
+          "id": "neosolar_cables_20121",
+          "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
+          "sku": "neosolar_cables_20121"
         }
       ]
     },
@@ -191,27 +191,6 @@
       ]
     },
     {
-      "category": "structures",
-      "count": 40,
-      "sample": [
-        {
-          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
-          "name": "Estrutura Solar Group Fibrocimento Grande",
-          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO"
-        },
-        {
-          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
-          "name": "Estrutura Solar Group Fibrocimento Pequeno",
-          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1"
-        },
-        {
-          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
-          "name": "Estrutura Solar Group Colonial Cerâmico",
-          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
-        }
-      ]
-    },
-    {
       "category": "inverters",
       "count": 489,
       "sample": [
@@ -229,6 +208,27 @@
           "id": "neosolar_inverters_20566",
           "name": "Inversor Off Grid Senoidal ZTROON ZT1000-11 - 1000W - 12/127V",
           "sku": "neosolar_inverters_20566"
+        }
+      ]
+    },
+    {
+      "category": "structures",
+      "count": 40,
+      "sample": [
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
+          "name": "Estrutura Solar Group Fibrocimento Grande",
+          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
+          "name": "Estrutura Solar Group Fibrocimento Pequeno",
+          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1"
+        },
+        {
+          "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL",
+          "name": "Estrutura Solar Group Colonial Cerâmico",
+          "sku": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-COLONIAL"
         }
       ]
     },
