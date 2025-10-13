@@ -11,7 +11,8 @@
     ],
     "testMatch": [
         "<rootDir>/src/**/__tests__/**/*.(ts|tsx)",
-        "<rootDir>/src/**/*.(test|spec).(ts|tsx)"
+        "<rootDir>/src/**/*.(test|spec).(ts|tsx)",
+        "!<rootDir>/src/**/*.pact.test.ts"
     ],
     "collectCoverageFrom": [
         "src/**/*.(ts|tsx)",

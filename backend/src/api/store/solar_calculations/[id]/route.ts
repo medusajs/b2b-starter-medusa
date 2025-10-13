@@ -1,4 +1,5 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 
 /**
  * GET /store/solar_calculations/:id
@@ -43,9 +44,9 @@ export const GET = async (
         }
 
         res.json({ calculation })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error fetching calculation:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch calculation")
     }
 }
 
@@ -69,9 +70,9 @@ export const DELETE = async (
 
     try {
         res.status(204).send()
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error deleting calculation:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to delete calculation")
     }
 }
 
@@ -109,8 +110,8 @@ export const PATCH = async (
         }
 
         res.json({ calculation })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error updating calculation:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to update calculation")
     }
 }

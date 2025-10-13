@@ -1,4 +1,5 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import { MedusaError } from "@medusajs/framework/utils"
 import PVLibIntegrationService from "../../../modules/pvlib-integration/service"
 
 /**
@@ -61,8 +62,8 @@ export async function POST(
                 }
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error validating MPPT:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to validate MPPT")
     }
 }

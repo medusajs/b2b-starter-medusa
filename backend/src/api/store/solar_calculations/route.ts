@@ -1,4 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { AuthenticatedMedusaRequest } from "@medusajs/framework"
+import { MedusaError } from "@medusajs/framework/utils"
 
 // Type narrowing for tipo_telhado parameter
 const ALLOWED_TELHADOS = ['laje', 'ceramico', 'metalico', 'fibrocimento', 'solo'] as const
@@ -51,9 +53,9 @@ export const GET = async (
         res.json({
             calculations,
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error fetching solar calculations:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch solar calculations")
     }
 }
 
@@ -145,8 +147,8 @@ export const POST = async (
             kits_recomendados: kits || [],
             notification_sent: result.saved
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Solar calculation failed:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Solar calculation failed")
     }
 }

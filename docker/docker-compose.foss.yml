@@ -127,6 +127,42 @@ services:
           memory: 128M
 
   # ==========================================
+  # VECTOR DATABASE (FOSS - RAG & AI)
+  # ==========================================
+
+  # Qdrant (Vector Database for RAG)
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: ysh-qdrant-foss
+    restart: unless-stopped
+    ports:
+      - "${QDRANT_HTTP_PORT:-6333}:6333" # HTTP API
+      - "${QDRANT_GRPC_PORT:-6334}:6334" # gRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+      - ./infra/qdrant/config.yaml:/qdrant/config/production.yaml:ro
+    networks:
+      - ysh-foss-network
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:-qdrant_dev_key_foss_2025}
+      QDRANT__SERVICE__HTTP_PORT: 6333
+      QDRANT__SERVICE__GRPC_PORT: 6334
+      QDRANT__STORAGE__STORAGE_PATH: /qdrant/storage
+      QDRANT__LOG_LEVEL: INFO
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  # ==========================================
   # EVENT BUS & JOBS QUEUE (FOSS替代AWS SNS/SQS)
   # ==========================================
 
@@ -428,6 +464,11 @@ services:
       PROMETHEUS_PORT: 9091
       OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
       OTEL_SERVICE_NAME: ysh-backend
+
+      # AI & RAG (Qdrant Vector Database)
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-qdrant_dev_key_foss_2025}
     ports:
       - "${BACKEND_PORT:-9000}:9000"
       - "${BACKEND_METRICS_PORT:-9091}:9091"
@@ -442,6 +483,8 @@ services:
       redis:
         condition: service_healthy
       minio:
+        condition: service_healthy
+      qdrant:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
@@ -505,6 +548,8 @@ volumes:
     driver: local
   redis_data:
     driver: local
+  qdrant_data:
+    driver: local
   minio_data:
     driver: local
   prometheus_data:
@@ -530,6 +575,8 @@ networks:
 # 5432  - PostgreSQL
 # 5050  - PgAdmin4
 # 6379  - Redis
+# 6333  - Qdrant HTTP API (Vector Database)
+# 6334  - Qdrant gRPC API
 # 8081  - Redis Commander
 # 8082  - BullMQ Board
 # 9000  - Backend Medusa

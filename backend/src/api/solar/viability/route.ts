@@ -1,4 +1,5 @@
-import { AuthenticatedMedusaRequest, MedusaResponse, MedusaError } from "@medusajs/framework"
+import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import { MedusaError } from "@medusajs/framework/utils"
 import ViabilityCalculatorService from "../../../modules/solar/services/viability"
 
 /**
@@ -92,7 +93,7 @@ export async function POST(
         if (result.success) {
             res.json(result)
         } else {
-            throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+            throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, "Viability calculation failed")
         }
 
     } catch (error) {
@@ -172,8 +173,8 @@ export async function GET(
 
         res.json(result)
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error in quick viability calculation:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to calculate quick viability")
     }
 }

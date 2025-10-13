@@ -4,6 +4,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 
 export async function GET(
     req: MedusaRequest,
@@ -84,9 +85,9 @@ export async function GET(
             ]
         })
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error searching product by SKU:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to search product by SKU")
     }
 }
 
@@ -146,8 +147,8 @@ export async function searchBySKU(
             max_results: 50
         })
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error searching SKU:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to search SKU")
     }
 }

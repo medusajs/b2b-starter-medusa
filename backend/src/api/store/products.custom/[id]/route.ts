@@ -1,4 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { AuthenticatedMedusaRequest } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../../internal-catalog/catalog-service";
 
 /**
@@ -6,7 +8,7 @@ import { getInternalCatalogService } from "../../internal-catalog/catalog-servic
  * Enhanced with internal catalog images
  */
 export const GET = async (
-  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
+    req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
     const { id } = req.params;
 
@@ -44,7 +46,7 @@ export const GET = async (
 
         // Enhanced product with internal images
         const catalogService = getInternalCatalogService();
-        
+
         // Extract SKU for internal image lookup
         const sku = await catalogService.extractSku({
             id: product.id,
@@ -58,7 +60,7 @@ export const GET = async (
         // Determine best image source
         let primaryImage = product.images?.[0]?.url || '/images/placeholder.jpg';
         let imageSource = 'database';
-        
+
         if (internalImage.preloaded && (!product.images?.length || req.query.prefer_internal === 'true')) {
             primaryImage = internalImage.url;
             imageSource = 'internal';
@@ -74,7 +76,7 @@ export const GET = async (
             category: product.metadata?.category,
             price_brl: price / 100,
             sku: variant?.sku || sku,
-            
+
             // Enhanced image handling
             image: primaryImage,
             image_source: imageSource,
@@ -90,7 +92,7 @@ export const GET = async (
                     available_sizes: Object.keys(internalImage.sizes)
                 } : null,
             },
-            
+
             processed_images: product.metadata?.processed_images || {},
             variants: product.variants?.map((v: any) => ({
                 id: v.id,
@@ -123,6 +125,6 @@ export const GET = async (
         res.json({ product: formattedProduct });
     } catch (error: any) {
         console.error("Error fetching product:", error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch product");
     }
 };

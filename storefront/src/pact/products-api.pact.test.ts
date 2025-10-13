@@ -14,10 +14,10 @@ pactWith(
         pactfileWriteMode: 'update',
         dir: './pacts',
     },
-    (interaction) => {
+    (provider) => {
         describe('Products API Contract', () => {
             describe('GET /store/products', () => {
-                beforeEach(() => {
+                beforeEach(async () => {
                     const productMatcher = {
                         id: Matchers.string('prod_01JXXX'),
                         title: Matchers.string('Painel Solar 550W'),
@@ -35,10 +35,10 @@ pactWith(
                         }),
                     };
 
-                    interaction
-                        .given('produtos existem no catálogo')
-                        .uponReceiving('uma requisição para listar produtos')
-                        .withRequest({
+                    await provider.addInteraction({
+                        state: 'produtos existem no catálogo',
+                        uponReceiving: 'uma requisição para listar produtos',
+                        withRequest: {
                             method: 'GET',
                             path: '/store/products',
                             query: {
@@ -49,8 +49,8 @@ pactWith(
                             headers: {
                                 'x-publishable-api-key': Matchers.string('pk_test_xxx'),
                             },
-                        })
-                        .willRespondWith({
+                        },
+                        willRespondWith: {
                             status: 200,
                             headers: {
                                 'Content-Type': 'application/json',
@@ -61,7 +61,8 @@ pactWith(
                                 limit: 20,
                                 offset: 0,
                             },
-                        });
+                        },
+                    });
                 });
 
                 it('returns a paginated list of products', async () => {
@@ -105,11 +106,11 @@ pactWith(
             });
 
             describe('GET /store/products/:id', () => {
-                beforeEach(() => {
-                    interaction
-                        .given('produto prod_01JXXX existe')
-                        .uponReceiving('uma requisição para obter produto por ID')
-                        .withRequest({
+                beforeEach(async () => {
+                    await provider.addInteraction({
+                        state: 'produto prod_01JXXX existe',
+                        uponReceiving: 'uma requisição para obter produto por ID',
+                        withRequest: {
                             method: 'GET',
                             path: '/store/products/prod_01JXXX',
                             query: {
@@ -118,8 +119,8 @@ pactWith(
                             headers: {
                                 'x-publishable-api-key': Matchers.string('pk_test_xxx'),
                             },
-                        })
-                        .willRespondWith({
+                        },
+                        willRespondWith: {
                             status: 200,
                             headers: {
                                 'Content-Type': 'application/json',
@@ -146,7 +147,8 @@ pactWith(
                                     }),
                                 },
                             },
-                        });
+                        },
+                    });
                 });
 
                 it('returns a single product with full details', async () => {
@@ -176,18 +178,18 @@ pactWith(
             });
 
             describe('GET /store/products/:id - Not Found', () => {
-                beforeEach(() => {
-                    interaction
-                        .given('produto não existe')
-                        .uponReceiving('uma requisição para produto inexistente')
-                        .withRequest({
+                beforeEach(async () => {
+                    await provider.addInteraction({
+                        state: 'produto não existe',
+                        uponReceiving: 'uma requisição para produto inexistente',
+                        withRequest: {
                             method: 'GET',
                             path: '/store/products/prod_NOTFOUND',
                             headers: {
                                 'x-publishable-api-key': Matchers.string('pk_test_xxx'),
                             },
-                        })
-                        .willRespondWith({
+                        },
+                        willRespondWith: {
                             status: 404,
                             headers: {
                                 'Content-Type': 'application/json',
@@ -196,7 +198,8 @@ pactWith(
                                 message: Matchers.string('Product not found'),
                                 type: 'not_found',
                             },
-                        });
+                        },
+                    });
                 });
 
                 it('returns 404 for non-existent product', async () => {

@@ -1,4 +1,5 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { z } from "zod";
@@ -21,7 +22,7 @@ const KitsQuerySchema = z.object({
  * Lista produtos do tipo kit com filtros de segurança obrigatórios
  */
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     try {
@@ -146,6 +147,6 @@ export const GET = async (
             });
         }
 
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch kits");
     }
 };
