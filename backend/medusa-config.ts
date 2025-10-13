@@ -33,22 +33,6 @@ export default defineConfig({
     [Modules.TAX]: true,
     [Modules.REGION]: true,
 
-    // Módulo unified-catalog
-    [UNIFIED_CATALOG_MODULE]: {
-      resolve: "./src/modules/unified-catalog",
-      definition: {
-        isQueryable: true,
-      },
-    },
-
-    // Módulo company
-    [COMPANY_MODULE]: {
-      resolve: "./src/modules/company",
-      definition: {
-        isQueryable: true,
-      },
-    },
-
     // Infraestrutura - desenvolvimento
     [Modules.CACHE]: {
       resolve: "@medusajs/medusa/cache-inmemory",
