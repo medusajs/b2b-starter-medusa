@@ -15,7 +15,7 @@ interface CategoryTrackerProps {
 export default function CategoryTracker({ category }: CategoryTrackerProps) {
     useEffect(() => {
         // Rastreia visualização da categoria
-        trackCategoryView(category)
+        trackCategoryView({ category, source: 'navigation' })
     }, [category])
 
     // Componente invisível - apenas tracking

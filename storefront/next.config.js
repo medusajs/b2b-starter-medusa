@@ -110,7 +110,7 @@ const nextConfig = {
                 : ["script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
               ),
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: https: blob:",
+              "img-src 'self' data: blob: https://medusa-public-images.s3.eu-west-1.amazonaws.com https://yellosolarhub.com https://api.yellosolarhub.com https://${backendDomain}",
               "font-src 'self' data: https://fonts.gstatic.com",
               `connect-src 'self' https://${backendDomain} https://vitals.vercel-insights.com https://app.posthog.com wss://*.pusher.com`,
               "frame-src 'self' https://vercel.live",

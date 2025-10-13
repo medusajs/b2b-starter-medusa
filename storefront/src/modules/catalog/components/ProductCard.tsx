@@ -136,6 +136,9 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             type="button"
                             className="p-2 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2"
                             aria-label={`Adicionar ${product.name} à cotação`}
+                            data-tracking-event="add_to_quote_hover"
+                            data-product-id={product.id}
+                            data-category={category}
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
@@ -178,9 +181,16 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                         const logo = custom.logoFor?.(product.manufacturer)
                         if (logo) {
                             return (
-                                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={logo} alt={product.manufacturer || 'brand'} className="w-full h-full object-contain p-1" />
+                                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden relative">
+                                    <Image
+                                        src={logo}
+                                        alt={product.manufacturer || 'brand'}
+                                        fill
+                                        className="object-contain p-1"
+                                        sizes="32px"
+                                        loading="lazy"
+                                        quality={90}
+                                    />
                                 </div>
                             )
                         }
@@ -199,12 +209,6 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             model={product.model}
                             size="sm"
                             link={false}
-                            onClick={() => trackModelLinkClick({
-                                manufacturer: product.manufacturer!,
-                                model: product.model!,
-                                product_id: product.id,
-                                source: 'product_card'
-                            })}
                         />
                     </div>
                 )}
@@ -319,6 +323,9 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             <LocalizedClientLink href={`/produtos/${category}/${product.id}`}>
                                 <button
                                     className="ysh-btn-primary text-sm px-3 py-1"
+                                    data-tracking-event="view_product_details"
+                                    data-product-id={product.id}
+                                    data-category={category}
                                     onClick={() => {
                                         trackProductView(product.id, category)
                                         trackExperimentEvent('product_card_cta', 'view_details_click', { product_id: product.id, category })

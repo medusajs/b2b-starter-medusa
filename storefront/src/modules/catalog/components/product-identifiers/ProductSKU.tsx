@@ -38,7 +38,7 @@ export const ProductSKU = ({
             setTimeout(() => setCopied(false), 2000)
 
             // Track analytics
-            trackSKUCopy(sku, productId, category)
+            trackSKUCopy({ sku, product_id: productId, category, source: 'product_page' })
 
             // Add to history
             addToHistory({
