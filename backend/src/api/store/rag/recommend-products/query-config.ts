@@ -1,12 +1,12 @@
 
-export const defaultStoreRecommend-productsFields = [
+export const defaultStoreRecommendProductsFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listRecommend-productsQueryConfig = {
-  defaults: defaultStoreRecommend-productsFields,
-  allowed: defaultStoreRecommend-productsFields,
+export const listRecommendProductsQueryConfig = {
+  defaults: defaultStoreRecommendProductsFields,
+  allowed: defaultStoreRecommendProductsFields,
   defaultLimit: 50,
 };

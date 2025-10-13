@@ -1,12 +1,12 @@
 
-export const defaultStoreInternal-catalogFields = [
+export const defaultStoreInternalCatalogFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listInternal-catalogQueryConfig = {
-  defaults: defaultStoreInternal-catalogFields,
-  allowed: defaultStoreInternal-catalogFields,
+export const listInternalCatalogQueryConfig = {
+  defaults: defaultStoreInternalCatalogFields,
+  allowed: defaultStoreInternalCatalogFields,
   defaultLimit: 50,
 };

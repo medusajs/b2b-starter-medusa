@@ -1,4 +1,4 @@
-import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import { AuthenticatedMedusaRequest, MedusaResponse, MedusaError } from "@medusajs/framework"
 import BACENFinancingService from "../../../modules/financing/bacen-service"
 
 /**
@@ -7,7 +7,7 @@ import BACENFinancingService from "../../../modules/financing/bacen-service"
  * Body: { principal: number, annual_rate?: number, periods: number, system: "SAC" | "PRICE" }
  */
 export async function POST(
-    req: MedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
     try {

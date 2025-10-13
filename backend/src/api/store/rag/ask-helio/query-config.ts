@@ -1,12 +1,12 @@
 
-export const defaultStoreAsk-helioFields = [
+export const defaultStoreAskHelioFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listAsk-helioQueryConfig = {
-  defaults: defaultStoreAsk-helioFields,
-  allowed: defaultStoreAsk-helioFields,
+export const listAskHelioQueryConfig = {
+  defaults: defaultStoreAskHelioFields,
+  allowed: defaultStoreAskHelioFields,
   defaultLimit: 50,
 };

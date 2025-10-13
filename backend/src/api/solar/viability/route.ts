@@ -1,4 +1,4 @@
-import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import { AuthenticatedMedusaRequest, MedusaResponse, MedusaError } from "@medusajs/framework"
 import ViabilityCalculatorService from "../../../modules/solar/services/viability"
 
 /**
@@ -11,7 +11,7 @@ import ViabilityCalculatorService from "../../../modules/solar/services/viabilit
  * - ANEEL (tarifas das concessionárias)
  */
 export async function POST(
-    req: MedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
     try {

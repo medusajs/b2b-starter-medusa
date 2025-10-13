@@ -36,6 +36,8 @@
     "normalize:price-analysis": "ts-node src/scripts/normalize-catalog/04-price-comparison.ts",
     "start": "medusa start",
     "dev": "medusa develop",
+    "test:db:start": "docker-compose -f ../docker/docker-compose.test.yml up -d postgres-test redis-test",
+    "test:db:stop": "docker-compose -f ../docker/docker-compose.test.yml down",
     "test:integration:http": "cross-env TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "cross-env TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "test:e2e:360": "cross-env TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit integration-tests/http/__tests__/e2e/api-360-coverage.spec.ts",

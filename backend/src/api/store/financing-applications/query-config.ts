@@ -1,12 +1,12 @@
 
-export const defaultStoreFinancing-applicationsFields = [
+export const defaultStoreFinancingApplicationsFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listFinancing-applicationsQueryConfig = {
-  defaults: defaultStoreFinancing-applicationsFields,
-  allowed: defaultStoreFinancing-applicationsFields,
+export const listFinancingApplicationsQueryConfig = {
+  defaults: defaultStoreFinancingApplicationsFields,
+  allowed: defaultStoreFinancingApplicationsFields,
   defaultLimit: 50,
 };

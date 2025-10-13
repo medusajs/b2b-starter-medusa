@@ -14,7 +14,7 @@ import {
     createAdminUser,
     generatePublishableKey,
     generateStoreHeaders,
-} from "../../../../integration-tests/helpers";
+} from "../../../../integration-tests/utils";
 import { ApprovalStatusType, ApprovalType } from "../../../types/approval";
 
 jest.setTimeout(100000);
