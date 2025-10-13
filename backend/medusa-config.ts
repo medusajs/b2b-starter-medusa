@@ -11,19 +11,9 @@ export default defineConfig({
     // Redis (opcional)
     redisUrl: process.env.REDIS_URL,
 
-    // HTTP + CORS
-    http: {
-      port: Number(process.env.PORT || 9000),
-
-      // CORS — no dev, aceite o frontend local
-      storeCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
-      adminCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
-      authCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
-
-      // Segredos
-      jwtSecret: process.env.JWT_SECRET || "supersecret",
-      cookieSecret: process.env.COOKIE_SECRET || "supersecret"
-    },
+    // Segredos
+    jwtSecret: process.env.JWT_SECRET || "supersecret",
+    cookieSecret: process.env.COOKIE_SECRET || "supersecret",
   },
 
   // Admin app embutido

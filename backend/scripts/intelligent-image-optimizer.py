@@ -894,6 +894,8 @@ python intelligent-image-optimizer.py --input imagens/ --output otimizadas/ --fo
                        help='Número de workers paralelos (padrão: 4)')
     parser.add_argument('--format', '-f', choices=['webp', 'jpg', 'png'],
                        default='webp', help='Formato de saída (padrão: webp)')
+    parser.add_argument('--min-size', type=int, default=30,
+                       help='Tamanho mínimo em KB para otimizar (padrão: 30)')
     parser.add_argument('--dry-run', action='store_true',
                        help='Apenas analisar, não processar imagens')
 
@@ -913,17 +915,33 @@ python intelligent-image-optimizer.py --input imagens/ --output otimizadas/ --fo
 
     # Encontrar imagens
     image_extensions = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.webp'}
-    image_paths = []
+    all_image_paths = []
 
     for ext in image_extensions:
-        image_paths.extend(input_dir.rglob(f'*{ext}'))
-        image_paths.extend(input_dir.rglob(f'*{ext.upper()}'))
+        all_image_paths.extend(input_dir.rglob(f'*{ext}'))
+        all_image_paths.extend(input_dir.rglob(f'*{ext.upper()}'))
 
-    image_paths = list(set(image_paths))  # Remover duplicatas
+    all_image_paths = list(set(all_image_paths))  # Remover duplicatas
+    
+    # Filtrar por tamanho mínimo
+    min_size_bytes = args.min_size * 1024
+    image_paths = []
+    skipped_small = []
+    
+    for path in all_image_paths:
+        file_size = path.stat().st_size
+        if file_size >= min_size_bytes:
+            image_paths.append(path)
+        else:
+            skipped_small.append((path, file_size))
 
     if not image_paths:
-        print(f"❌ Nenhuma imagem encontrada em {input_dir}")
+        print(f"❌ Nenhuma imagem encontrada em {input_dir} com tamanho >= {args.min_size}KB")
         return
+    
+    if skipped_small:
+        print(f"⚠️  {len(skipped_small)} imagens ignoradas por serem < {args.min_size}KB")
+        print(f"💡 Use --min-size 0 para processar todas as imagens\n")
 
     print(f"🔍 Encontradas {len(image_paths)} imagens em {input_dir}")
     print(f"📊 Modo: {'ANÁLISE (dry-run)' if args.dry_run else 'PROCESSAMENTO COMPLETO'}")
