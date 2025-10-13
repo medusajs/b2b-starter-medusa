@@ -1,54 +1,76 @@
 # 📋 Tasks Remanescentes - YSH B2B Store
 
-**Atualização**: 13/10/2025 - 03:22  
-**Status Geral**: 50% Completo (3/6 tasks)
+**Atualização**: 13/10/2025 - 03:30  
+**Status Geral**: 62.5% Completo (5/8 tasks)
 
 ---
 
-## ✅ COMPLETAS (3/6)
+## ✅ COMPLETAS (5/8)
 
-### 1. ✅ Otimizar getProductByHandle
-
-- **Status**: ✅ COMPLETO
-- Endpoint alterado: `/store/products_enhanced`
-- Parâmetro `image_source: "auto"` adicionado
-- Error handling implementado (try/catch + notFound())
-- Cache tags por produto
-
-### 2. ✅ Criar Endpoint Individual de Produto
-
-- **Status**: ✅ COMPLETO
-- **Arquivo**: `backend/src/api/store/products_enhanced/[handle]/route.ts`
-- Internal Catalog Service integrado
-- Image source selection (auto/database/internal)
-- Cache stats na resposta
-
-### 3. ✅ Criar Publishable Key
+### 1. ✅ Criar Publishable Key
 
 - **Status**: ✅ COMPLETO
 - **Key**: `pk_574e2f71117a1ecc0159005c55e8bf6d561e1741970c6d171b78bc38c5c61bb9`
-- Associada ao Default Sales Channel
-- Configurada em `storefront/.env`
+- **Método**: Script Node.js standalone + SQL para associação
+- Criada via API Key Module do Medusa
+- Associada ao Default Sales Channel via SQL
 - ✅ API `/store/products` respondendo 200 OK
+
+### 2. ✅ Configurar Storefront .env
+
+- **Status**: ✅ COMPLETO
+- `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` configurada
+- Backup criado em `.publishable-key.txt`
+- Storefront carregando variável corretamente
+
+### 3. ✅ Criar Produto de Teste
+
+- **Status**: ✅ COMPLETO
+- **Produto**: Kit Solar 5kW Completo (handle: `kit-solar-5kw`)
+- ID: `prod_test_kit5kw`
+- Status: `published`
+- Associado ao Default Sales Channel
+- ✅ API retornando produto: `GET /store/products?handle=kit-solar-5kw`
+
+### 4. ✅ Corrigir Error.tsx Lint
+
+- **Status**: ✅ COMPLETO
+- **Arquivo**: `storefront/src/app/[countryCode]/(main)/products/[handle]/error.tsx`
+- Substituído `<a href="/">` por `<Link href="/">`
+- Import `next/link` adicionado
+- ✅ Build do Next.js passando lint
+
+### 5. ✅ Iniciar Storefront
+
+- **Status**: ✅ COMPLETO
+- **Modo**: Development (`npm run dev`)
+- **Porta**: 8000
+- **URL**: <http://localhost:8000>
+- ✅ Ready in 2.8s
+- ✅ PDP acessível: <http://localhost:8000/br/products/kit-solar-5kw>
 
 ---
 
-## ⏳ PENDENTES (3/6)
+## ⏳ PENDENTES (3/8)
 
-### 4. ⏳ Testar PDP E2E
-
-- **Blocker**: Aguardando seed de produtos
-- **URL**: `http://localhost:8000/br/products/kit-solar-5kw`
-
-### 5. ⏳ Resolver Unified Catalog Import Error
+### 6. ⏳ Resolver Unified Catalog Import Error
 
 - **Erro**: `Cannot find module '../../../modules/unified-catalog/index'`
 - **Arquivo**: `backend/src/api/store/catalog/[category]/route.ts:3`
+- **Prioridade**: P1 (Alta)
 
-### 6. ⏳ Adicionar Validação de Extração de SKU
+### 7. ⏳ Adicionar Validação de Extração de SKU
 
 - **Arquivo**: `backend/src/api/store/internal-catalog/catalog-service.ts`
 - Enhancement: Logging + fallback 'UNKNOWN-SKU'
+- **Prioridade**: P2 (Média)
+
+### 8. ⏳ Criar Script de Seed Alternativo
+
+- **Arquivo**: `scripts/seed-demo-data.ps1`
+- Seed atual falha em createStockLocations
+- Criar SQL direto: 5 produtos, 1 empresa, 2 funcionários
+- **Prioridade**: P1 (Alta)
 
 ---
 
