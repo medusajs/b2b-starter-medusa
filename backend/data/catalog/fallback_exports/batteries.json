@@ -1,6 +1,6 @@
 {
   "category": "batteries",
-  "total_products": 9,
+  "total_products": 6,
   "with_images": 6,
   "generated_at": "2025-10-13T11:33:32.712Z",
   "products": [
@@ -79,47 +79,6 @@
       "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
-    },
-    {
-      "id": "solfacil_batteries_3",
-      "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-      "manufacturer": "SOLFACIL",
-      "category": "batteries",
-      "price": "R$ 6.255,94",
-      "image": "",
-      "source": "loja.solfacil.com.br",
-      "availability": true,
-      "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-      "pricing": {
-        "price": 6255.94,
-        "price_brl": 6255.94,
-        "currency": "BRL"
-      },
-      "metadata": {
-        "source": "consolidated",
-        "source_file": "solfacil-batteries.json",
-        "loaded_at": "2025-10-07T04:51:42.119978",
-        "merged_from_sources": [
-          "consolidated"
-        ],
-        "last_consolidated": "2025-10-07T04:51:42.119997",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.656506",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-        "specs_count": 3
-      },
-      "technical_specs": {
-        "power_w": 5100,
-        "voltage_v": 48,
-        "current_a": 100
-      },
-      "price_brl": 6255.94,
-      "model": "",
-      "image_url": "/images/placeholder-battery.jpg",
-      "sku": null,
-      "image_path": "",
-      "image_verified": false
     },
     {
       "id": "solfacil_batteries_4",
@@ -204,49 +163,6 @@
       "image_verified": true
     },
     {
-      "id": "solfacil_batteries_1",
-      "name": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-      "manufacturer": "Solfacil",
-      "model": "CONTROLE",
-      "power": null,
-      "distributor": "Solfácil",
-      "price": "R$ 5.322,94",
-      "image_url": "/images/placeholder-battery.jpg",
-      "original_category": "batteries",
-      "series": "DE",
-      "metadata": {
-        "series_extracted": true,
-        "series_extraction_date": "2025-10-07T04:22:26.680196",
-        "model_improved": true,
-        "model_improvement_date": "2025-10-07T04:22:26.680197",
-        "needs_manufacturer_review": true,
-        "review_reason": "distributor_in_manufacturer_field",
-        "source": "unified",
-        "source_file": "batteries_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.064303",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.656518",
-        "original_category": "batteries",
-        "distributor": "Solfácil",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-        "specs_count": 0
-      },
-      "technical_specs": {},
-      "category": "batteries",
-      "availability": true,
-      "pricing": {
-        "price": 5322.94,
-        "price_brl": 5322.94,
-        "currency": "BRL"
-      },
-      "price_brl": 5322.94,
-      "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-      "sku": "CONTROLE",
-      "image_path": "",
-      "image_verified": false
-    },
-    {
       "id": "solfacil_batteries_2",
       "name": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
       "manufacturer": "GoodWe",
@@ -288,53 +204,6 @@
       "sku": "LYNX",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
-    },
-    {
-      "id": "solfacil_batteries_3",
-      "name": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-      "manufacturer": "Solfacil",
-      "model": "LFP",
-      "power": 5.1,
-      "distributor": "Solfácil",
-      "price": "R$ 6.255,94",
-      "image_url": "/images/placeholder-battery.jpg",
-      "original_category": "batteries",
-      "series": "UNIP",
-      "metadata": {
-        "series_extracted": true,
-        "series_extraction_date": "2025-10-07T04:22:26.680209",
-        "model_improved": true,
-        "model_improvement_date": "2025-10-07T04:22:26.680209",
-        "needs_manufacturer_review": true,
-        "review_reason": "distributor_in_manufacturer_field",
-        "source": "unified",
-        "source_file": "batteries_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.064303",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.656520",
-        "original_category": "batteries",
-        "distributor": "Solfácil",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.381Z",
-        "specs_count": 3
-      },
-      "technical_specs": {
-        "power_w": 5.1,
-        "voltage_v": 48,
-        "current_a": 100
-      },
-      "category": "batteries",
-      "availability": true,
-      "pricing": {
-        "price": 6255.94,
-        "price_brl": 6255.94,
-        "currency": "BRL"
-      },
-      "price_brl": 6255.94,
-      "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-      "sku": "LFP",
-      "image_path": "",
-      "image_verified": false
     },
     {
       "id": "solfacil_batteries_4",
@@ -379,5 +248,7 @@
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     }
-  ]
+  ],
+  "cleaned_at": "2025-10-13T11:42:19.273Z",
+  "removed_count": 3
 }

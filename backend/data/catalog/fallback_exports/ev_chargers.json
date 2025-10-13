@@ -1,6 +1,6 @@
 {
   "category": "ev_chargers",
-  "total_products": 83,
+  "total_products": 82,
   "with_images": 82,
   "generated_at": "2025-10-13T11:33:33.867Z",
   "products": [
@@ -4463,44 +4463,8 @@
       "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
-    },
-    {
-      "id": "FORTLEV-FOXESS-A7300P1-E-2",
-      "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-      "manufacturer": "FoxESS",
-      "model": "",
-      "power": 7.3,
-      "distributor": "YSH",
-      "price": "R$ 2811,46",
-      "image_url": "/images/placeholder-charger.jpg",
-      "original_category": "ev_charger",
-      "metadata": {
-        "source": "unified",
-        "source_file": "ev_chargers_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.066498",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.666878",
-        "original_category": "ev_charger",
-        "distributor": "YSH",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.386Z",
-        "specs_count": 1
-      },
-      "technical_specs": {
-        "power_w": 7.3
-      },
-      "category": "ev_chargers",
-      "availability": true,
-      "pricing": {
-        "price": 2811.46,
-        "price_brl": 2811.46,
-        "currency": "BRL"
-      },
-      "price_brl": 2811.46,
-      "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-      "sku": null,
-      "image_path": "",
-      "image_verified": false
     }
-  ]
+  ],
+  "cleaned_at": "2025-10-13T11:42:19.302Z",
+  "removed_count": 1
 }

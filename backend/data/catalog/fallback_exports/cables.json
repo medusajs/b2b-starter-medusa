@@ -1,6 +1,6 @@
 {
   "category": "cables",
-  "total_products": 55,
+  "total_products": 53,
   "with_images": 53,
   "generated_at": "2025-10-13T11:33:33.459Z",
   "products": [
@@ -1921,50 +1921,6 @@
       "image_verified": true
     },
     {
-      "id": "solfacil_cables_21",
-      "name": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-      "manufacturer": "SOLFACIL",
-      "category": "cables",
-      "price": "R$ 573,13",
-      "image": "",
-      "source": "loja.solfacil.com.br",
-      "availability": true,
-      "description": "CABO CA 1KV 4,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-      "pricing": {
-        "price": 573.13,
-        "price_brl": 573.13,
-        "currency": "BRL"
-      },
-      "metadata": {
-        "source": "consolidated",
-        "source_file": "solfacil-cables.json",
-        "loaded_at": "2025-10-07T04:51:42.120315",
-        "needs_manufacturer_review": true,
-        "review_reason": "distributor_in_manufacturer_field",
-        "merged_from_sources": [
-          "unified",
-          "consolidated"
-        ],
-        "last_consolidated": "2025-10-07T04:51:42.120733",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.687003",
-        "distributor": "Solfácil",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-        "specs_count": 0
-      },
-      "model": "",
-      "power": null,
-      "distributor": "Solfácil",
-      "image_url": "/images/placeholder-cable.jpg",
-      "original_category": "cables",
-      "technical_specs": {},
-      "price_brl": 573.13,
-      "sku": null,
-      "image_path": "",
-      "image_verified": false
-    },
-    {
       "id": "solfacil_cables_22",
       "name": "CABO SOLAR 6,0MM2 PRETO C/ 100 MT (PROTECAO UV 1,8KVCC)",
       "manufacturer": "SOLFACIL",
@@ -2185,50 +2141,6 @@
       "sku": null,
       "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
       "image_verified": true
-    },
-    {
-      "id": "solfacil_cables_27",
-      "name": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-      "manufacturer": "SOLFACIL",
-      "category": "cables",
-      "price": "R$ 1.268,06",
-      "image": "",
-      "source": "loja.solfacil.com.br",
-      "availability": true,
-      "description": "CABO CA 1KV 10,0MM VERMELHO C/ 100 M (CABRNAX 90°C)",
-      "pricing": {
-        "price": 1268.06,
-        "price_brl": 1268.06,
-        "currency": "BRL"
-      },
-      "metadata": {
-        "source": "consolidated",
-        "source_file": "solfacil-cables.json",
-        "loaded_at": "2025-10-07T04:51:42.120315",
-        "needs_manufacturer_review": true,
-        "review_reason": "distributor_in_manufacturer_field",
-        "merged_from_sources": [
-          "unified",
-          "consolidated"
-        ],
-        "last_consolidated": "2025-10-07T04:51:42.120901",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.687009",
-        "distributor": "Solfácil",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.382Z",
-        "specs_count": 0
-      },
-      "model": "",
-      "power": null,
-      "distributor": "Solfácil",
-      "image_url": "/images/placeholder-cable.jpg",
-      "original_category": "cables",
-      "technical_specs": {},
-      "price_brl": 1268.06,
-      "sku": null,
-      "image_path": "",
-      "image_verified": false
     },
     {
       "id": "solfacil_cables_28",
@@ -2628,5 +2540,7 @@
       "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
       "image_verified": true
     }
-  ]
+  ],
+  "cleaned_at": "2025-10-13T11:42:19.283Z",
+  "removed_count": 2
 }

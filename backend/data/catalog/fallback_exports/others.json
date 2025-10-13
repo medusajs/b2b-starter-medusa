@@ -1,155 +1,9 @@
 {
   "category": "others",
-  "total_products": 10,
+  "total_products": 6,
   "with_images": 6,
   "generated_at": "2025-10-13T11:33:34.009Z",
   "products": [
-    {
-      "id": "FORTLEV-NEP-PVG-3-20A-L",
-      "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
-      "manufacturer": "Nep",
-      "model": "",
-      "power": null,
-      "distributor": "YSH",
-      "price": "911.78",
-      "image_url": "/images/placeholder-other.jpg",
-      "original_category": "rsd",
-      "metadata": {
-        "source": "unified",
-        "source_file": "others_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.091069",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.716045",
-        "original_category": "rsd",
-        "distributor": "YSH",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-        "specs_count": 1
-      },
-      "technical_specs": {
-        "current_a": 20
-      },
-      "category": "others",
-      "availability": true,
-      "pricing": {
-        "price": 91178,
-        "price_brl": 91178,
-        "currency": "BRL"
-      },
-      "price_brl": 91178,
-      "description": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
-      "sku": null,
-      "image_path": "",
-      "image_verified": false
-    },
-    {
-      "id": "FORTLEV-CONDUFORT-DN40-PEAD",
-      "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
-      "manufacturer": "Condufort",
-      "model": "",
-      "power": null,
-      "distributor": "YSH",
-      "price": "5.66",
-      "image_url": "/images/placeholder-other.jpg",
-      "original_category": "conduit",
-      "metadata": {
-        "source": "unified",
-        "source_file": "others_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.091069",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.716054",
-        "original_category": "conduit",
-        "distributor": "YSH",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-        "specs_count": 0
-      },
-      "technical_specs": {},
-      "category": "others",
-      "availability": true,
-      "pricing": {
-        "price": 566,
-        "price_brl": 566,
-        "currency": "BRL"
-      },
-      "price_brl": 566,
-      "description": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
-      "sku": "PEAD",
-      "image_path": "",
-      "image_verified": false
-    },
-    {
-      "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
-      "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
-      "manufacturer": "Genérico",
-      "model": "",
-      "power": null,
-      "distributor": "YSH",
-      "price": "864.88",
-      "image_url": "/images/placeholder-other.jpg",
-      "original_category": "junction_box",
-      "metadata": {
-        "source": "unified",
-        "source_file": "others_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.091069",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.716057",
-        "original_category": "junction_box",
-        "distributor": "YSH",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-        "specs_count": 0
-      },
-      "technical_specs": {},
-      "category": "others",
-      "availability": true,
-      "pricing": {
-        "price": 86488,
-        "price_brl": 86488,
-        "currency": "BRL"
-      },
-      "price_brl": 86488,
-      "description": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
-      "sku": "H0.8",
-      "image_path": "",
-      "image_verified": false
-    },
-    {
-      "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
-      "name": "Cerca de Arame Galvanizado 1.8m × 20m",
-      "manufacturer": "Genérico",
-      "model": "",
-      "power": null,
-      "distributor": "YSH",
-      "price": "887.95",
-      "image_url": "/images/placeholder-other.jpg",
-      "original_category": "fencing",
-      "metadata": {
-        "source": "unified",
-        "source_file": "others_unified.json",
-        "loaded_at": "2025-10-07T04:51:42.091069",
-        "normalized": true,
-        "normalized_at": "2025-10-07T05:03:13.716059",
-        "original_category": "fencing",
-        "distributor": "YSH",
-        "specs_enriched": true,
-        "specs_enriched_at": "2025-10-07T16:05:09.412Z",
-        "specs_count": 0
-      },
-      "technical_specs": {},
-      "category": "others",
-      "availability": true,
-      "pricing": {
-        "price": 88795,
-        "price_brl": 88795,
-        "currency": "BRL"
-      },
-      "price_brl": 88795,
-      "description": "Cerca de Arame Galvanizado 1.8m × 20m",
-      "sku": "1.8MX20M",
-      "image_path": "",
-      "image_verified": false
-    },
     {
       "id": "neosolar_posts_24170",
       "name": "https://portal.zydon.com.br/api/files/520837c6-2dd9-4b65-9d16-e970fe21abda/content?ingress=portalb2b.neosolar.com.br",
@@ -438,5 +292,7 @@
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-KITS/NEOSOLAR_KITS_24174.jpg",
       "image_verified": true
     }
-  ]
+  ],
+  "cleaned_at": "2025-10-13T11:42:19.424Z",
+  "removed_count": 4
 }
