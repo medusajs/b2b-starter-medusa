@@ -36,7 +36,7 @@ import { useSolarCalculator } from '../../../hooks/use-solar-calculator';
 
 #### File Structure
 
-```
+```text
 client/
 ├── src/
 │   ├── components/     # Reusable UI components
