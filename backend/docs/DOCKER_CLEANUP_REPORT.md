@@ -22,6 +22,7 @@
 ## 🗑️ Detalhes da Limpeza
 
 ### 1. Containers Parados (47 removidos)
+
 ```powershell
 # Parou todos os containers em execução
 docker ps -q | ForEach-Object { docker stop $_ }
@@ -35,11 +36,12 @@ docker container prune -f
 ### 2. Imagens Não Utilizadas (33 removidas)
 
 **Imagens Removidas:**
+
 - `ysh-backend:quick-test` (2.66GB)
 - `ysh-store-backend:latest` (2.62GB)
 - `ysh-b2b-backend:v1.0.1` (2.64GB)
 - `ysh-b2b-backend:1.0.0` (2.69GB)
-- `ysh-store-storefront:debug` 
+- `ysh-store-storefront:debug`
 - `ysh-storefront-builder:latest`
 - `qdrant/qdrant:latest`
 - `minio/minio:latest`
@@ -49,6 +51,7 @@ docker container prune -f
 - E mais 20+ imagens não utilizadas
 
 **Imagens Mantidas:**
+
 - `ysh-b2b-backend:v1.0.2` (2.44GB) ✅
 - `node:20-alpine` (base image)
 - `redis:7-alpine`
@@ -76,6 +79,7 @@ docker builder prune -a -f
 ### 4. Volumes Não Utilizados (21 removidos)
 
 **Volumes Removidos:**
+
 - `ysh-store_postgres_data`
 - `ysh-store_redis_data`
 - `ysh-store_backend_uploads`
@@ -102,6 +106,7 @@ docker volume prune -a -f
 ## 📈 Antes vs. Depois
 
 ### Estado Anterior (Antes da Limpeza)
+
 ```
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          44        11        64.32GB   60.89GB (94%)
@@ -113,6 +118,7 @@ Build Cache     171       0         26.64GB   26.64GB (100%)
 **Total em Disco:** ~92 GB
 
 ### Estado Atual (Depois da Limpeza)
+
 ```
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          11        11        2.854GB   4.322MB (0%)
@@ -124,6 +130,7 @@ Build Cache     0         0         0B        0B
 **Total em Disco:** ~3 GB
 
 ### Ganho Total
+
 - **Antes:** 92 GB
 - **Depois:** 3 GB
 - **Liberado:** 89 GB (96.7% de redução) 🎉
@@ -135,6 +142,7 @@ Build Cache     0         0         0B        0B
 ### Otimização do .dockerignore
 
 **Adicionado ao .dockerignore:**
+
 ```dockerignore
 # Scripts (exceto entrypoint.sh)
 scripts/
@@ -161,6 +169,7 @@ coverage/
 ```
 
 **Resultado:**
+
 - Context size anterior: **226 MB**
 - Context size otimizado: **150 KB**
 - **Redução de 99.93%** no context de build ⚡
@@ -172,12 +181,14 @@ docker build -t ysh-backend:v1.0.4 -t ysh-backend:latest -f Dockerfile .
 ```
 
 **Status:** 🔄 Em progresso
+
 - Base image: `node:20-alpine` (cached)
 - System dependencies: ✅ Cached
 - npm install: 🔄 Em execução
 - Estimativa de conclusão: ~5-10 minutos
 
 **Tags criadas:**
+
 - `ysh-backend:v1.0.4` (nova versão)
 - `ysh-backend:latest` (atualização)
 
@@ -186,24 +197,31 @@ docker build -t ysh-backend:v1.0.4 -t ysh-backend:latest -f Dockerfile .
 ## ✅ Verificações Pós-Limpeza
 
 ### 1. Espaço em Disco
+
 ```powershell
 docker system df
 ```
+
 ✅ **3 GB** em uso (vs 92 GB antes)
 
 ### 2. Imagens Ativas
+
 ```powershell
 docker images
 ```
+
 ✅ **11 imagens** mantidas (apenas essenciais)
 
 ### 3. Containers Ativos
+
 ```powershell
 docker ps
 ```
+
 ✅ **24 containers** em execução (sistemas em produção)
 
 ### 4. Build Cache
+
 ✅ **0 B** em cache (limpo para fresh builds)
 
 ---
@@ -211,6 +229,7 @@ docker ps
 ## 🎯 Próximos Passos
 
 ### 1. Aguardar Build Completar
+
 ```powershell
 # Monitorar build
 docker ps -a | Select-String "build"
@@ -220,6 +239,7 @@ docker images ysh-backend
 ```
 
 ### 2. Testar Imagem
+
 ```powershell
 # Testar container
 docker run -d --name test-backend `
@@ -237,6 +257,7 @@ docker rm -f test-backend
 ```
 
 ### 3. Deploy para AWS ECR
+
 ```powershell
 # Usando script automatizado
 .\scripts\deploy-ecr.ps1 -Version v1.0.4
@@ -254,6 +275,7 @@ docker push 773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-backend:v1.0.4
 ### 4. Limpeza Periódica (Recomendado)
 
 **Semanal:**
+
 ```powershell
 # Remover containers parados
 docker container prune -f
@@ -263,6 +285,7 @@ docker image prune -f
 ```
 
 **Mensal:**
+
 ```powershell
 # Limpeza completa
 docker system prune -a -f
@@ -272,6 +295,7 @@ docker builder prune -a -f
 ```
 
 **Usar Script Automatizado:**
+
 ```powershell
 .\scripts\docker-cleanup.ps1 -DryRun  # Ver o que seria removido
 .\scripts\docker-cleanup.ps1 -Force    # Executar limpeza
@@ -322,6 +346,7 @@ docker build -t ysh-backend:v1.0.4 -t ysh-backend:latest -f Dockerfile .
 ## 🎉 Resultados Finais
 
 ### Limpeza
+
 - ✅ **89 GB liberados** (96.7% de redução)
 - ✅ **47 containers** removidos
 - ✅ **33 imagens** removidas
@@ -329,11 +354,13 @@ docker build -t ysh-backend:v1.0.4 -t ysh-backend:latest -f Dockerfile .
 - ✅ **171 cache entries** removidos
 
 ### Otimizações
+
 - ✅ **.dockerignore** otimizado (context 99.93% menor)
 - ✅ **Build process** melhorado
 - ✅ **Apenas imagens essenciais** mantidas
 
 ### Build em Progresso
+
 - 🔄 **ysh-backend:v1.0.4** sendo buildado
 - ⏱️ Estimativa: 5-10 minutos
 - 📦 Tamanho esperado: ~2.4 GB
