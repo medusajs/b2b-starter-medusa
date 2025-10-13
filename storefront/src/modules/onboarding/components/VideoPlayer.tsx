@@ -10,6 +10,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 interface VideoPlayerProps {
   videoUrl: string
@@ -136,9 +137,11 @@ export default function VideoPlayer({
       {hostName && (
         <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg animate-pulse">
           {hostAvatar && (
-            <img 
+            <Image 
               src={hostAvatar} 
               alt={hostName}
+              width={32}
+              height={32}
               className="w-8 h-8 rounded-full border-2 border-white"
             />
           )}
@@ -164,10 +167,12 @@ export default function VideoPlayer({
           className="absolute inset-0 cursor-pointer group"
           onClick={handleThumbnailClick}
         >
-          <img 
+          <Image 
             src={thumbnail} 
             alt={title || 'Video thumbnail'}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           />
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
             <button className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">

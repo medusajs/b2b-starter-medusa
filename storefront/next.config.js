@@ -16,17 +16,17 @@ const nextConfig = {
   // Output standalone para Edge Runtime - REMOVIDO para evitar problemas com eval
   output: 'standalone',
 
-  // Configurações de imagem ultra-otimizadas
+  // Configurações de imagem otimizadas para performance
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000, // 1 ano
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // dangerouslyAllowSVG removed for security - use <img> or convert SVG to React components
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
+        port: '9000',
       },
       {
         protocol: 'https',
@@ -34,27 +34,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'medusa-server-testing.s3.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'medusa-server-testing.s3.us-east-1.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'github.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-      },
-      {
-        protocol: 'https',
         hostname: 'yellosolarhub.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.yellosolarhub.com',
       },
       ...(process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
         ? (() => {
@@ -64,6 +48,7 @@ const nextConfig = {
               {
                 protocol: u.protocol.replace(':', ''),
                 hostname: u.hostname,
+                ...(u.port && { port: u.port }),
               },
             ]
           } catch {

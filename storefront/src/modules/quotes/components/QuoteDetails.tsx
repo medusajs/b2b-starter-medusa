@@ -14,6 +14,7 @@ import { Download, ShoppingCart, Copy, Edit } from 'lucide-react'
 import { useQuotes } from '../context/QuotesContext'
 import useQuoteOperations from '../hooks/useQuoteOperations'
 import type { QuoteStatus } from '../types'
+import Image from 'next/image'
 
 interface QuoteDetailsProps {
     quoteId: string
@@ -129,9 +130,11 @@ export default function QuoteDetails({ quoteId, onEdit, onConvert }: QuoteDetail
                             <div key={item.id} className="flex justify-between items-start border-b pb-4 last:border-0">
                                 <div className="flex gap-4">
                                     {item.thumbnail && (
-                                        <img
+                                        <Image
                                             src={item.thumbnail}
                                             alt={item.title}
+                                            width={64}
+                                            height={64}
                                             className="w-16 h-16 object-cover rounded"
                                         />
                                     )}

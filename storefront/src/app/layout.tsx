@@ -20,25 +20,66 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
-  title: "Yello Solar Hub - Energia Solar sob Medida",
-  description: "Soluções completas em energia solar: painéis, inversores, kits prontos e dimensionamento personalizado para sua economia de energia.",
-  keywords: "energia solar, painéis solares, inversores, kits solares, dimensionamento solar, Yello Solar Hub",
-  authors: [{ name: "Yello Solar Hub" }],
+  title: {
+    default: "Yello Solar Hub - Energia Solar sob Medida para Empresas",
+    template: "%s | Yello Solar Hub",
+  },
+  description:
+    "Plataforma B2B de energia solar: catálogo completo de painéis, inversores e kits fotovoltaicos. Cotações personalizadas, dimensionamento técnico e suporte especializado para integradores e empresas.",
+  keywords: [
+    "energia solar B2B",
+    "painéis solares atacado",
+    "inversores fotovoltaicos",
+    "kits solares empresas",
+    "dimensionamento solar",
+    "integradores solares",
+    "Yello Solar Hub",
+    "catálogo fotovoltaico",
+  ],
+  authors: [{ name: "Yello Solar Hub", url: getBaseURL() }],
+  creator: "Yello Solar Hub",
+  publisher: "Yello Solar Hub",
   alternates: {
     canonical: getBaseURL(),
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Yello Solar Hub - Energia Solar sob Medida",
-    description: "Soluções completas em energia solar: painéis, inversores, kits prontos e dimensionamento personalizado.",
     type: "website",
     url: getBaseURL(),
     siteName: "Yello Solar Hub",
+    title: "Yello Solar Hub - Energia Solar sob Medida para Empresas",
+    description:
+      "Plataforma B2B de energia solar: catálogo completo, cotações personalizadas e suporte técnico especializado.",
     locale: "pt_BR",
+    images: [
+      {
+        url: `${getBaseURL()}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Yello Solar Hub - Plataforma B2B de Energia Solar",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yello Solar Hub - Energia Solar sob Medida",
-    description: "Soluções completas em energia solar",
+    site: "@YelloSolarHub",
+    creator: "@YelloSolarHub",
+    title: "Yello Solar Hub - Energia Solar B2B",
+    description: "Plataforma completa para integradores: catálogo, cotações e suporte técnico.",
+    images: [`${getBaseURL()}/twitter-image.jpg`],
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 }
 
@@ -46,15 +87,26 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* PWA & Icons */}
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+
+        {/* Performance: Preconnect to critical origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL && (
-          <link rel="dns-prefetch" href={process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL} />
+          <>
+            <link rel="preconnect" href={process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL} />
+            <link rel="dns-prefetch" href={process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL} />
+          </>
         )}
+
         {/* Theme colors for light/dark (zinc-950) */}
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+
         {/* Initialize color scheme early to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{
@@ -71,10 +123,37 @@ export default function RootLayout(props: { children: React.ReactNode }) {
 })();`,
           }}
         />
+
+        {/* PWA meta tags */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Yello Solar Hub" />
-        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+        <meta name="format-detection" content="telephone=no" />
+
+        {/* JSON-LD Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Yello Solar Hub",
+              url: getBaseURL(),
+              logo: `${getBaseURL()}/logo.png`,
+              description:
+                "Plataforma B2B de energia solar para integradores: catálogo completo, cotações personalizadas e suporte técnico.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Sales",
+                availableLanguage: ["Portuguese"],
+              },
+              sameAs: [
+                "https://www.linkedin.com/company/yellosolar",
+                "https://twitter.com/YelloSolarHub",
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="font-sans">
         {/* Brand gradients for stroke/fill (global) */}

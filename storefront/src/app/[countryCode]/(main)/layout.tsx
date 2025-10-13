@@ -13,6 +13,17 @@ import "@/styles/product-identifiers.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
+  title: "Loja - Yello Solar Hub",
+  description:
+    "Explore nosso catálogo completo de produtos para energia solar: painéis fotovoltaicos, inversores, kits prontos e acessórios. Cotações personalizadas e suporte técnico.",
+  alternates: {
+    canonical: `${getBaseURL()}/br/store`,
+  },
+  openGraph: {
+    title: "Loja - Yello Solar Hub",
+    description: "Catálogo completo de produtos para energia solar B2B",
+    url: `${getBaseURL()}/br/store`,
+  },
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
