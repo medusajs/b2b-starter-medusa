@@ -1,5 +1,28 @@
 import { model } from "@medusajs/framework/utils";
 
+export enum KitCategory {
+    GRID_TIE = "grid-tie",
+    OFF_GRID = "off-grid",
+    HYBRID = "hybrid",
+    BACKUP = "backup",
+    COMMERCIAL = "commercial",
+    RESIDENTIAL = "residential",
+}
+
+export enum ConsumerClass {
+    RESIDENTIAL = "residential",
+    COMMERCIAL = "commercial",
+    INDUSTRIAL = "industrial",
+    RURAL = "rural",
+    PUBLIC = "public",
+}
+
+export enum InstallationComplexity {
+    EASY = "easy",
+    MEDIUM = "medium",
+    HARD = "hard",
+}
+
 /**
  * Kit Model
  * Kits solares pré-configurados com componentes linkados
@@ -8,14 +31,7 @@ export const Kit = model.define("kit", {
     id: model.id({ prefix: "kit" }).primaryKey(),
     kit_code: model.text().unique().searchable(),
     name: model.text().searchable(),
-    category: model.enum([
-        "grid-tie",
-        "off-grid",
-        "hybrid",
-        "backup",
-        "commercial",
-        "residential"
-    ]),
+    category: model.enum(KitCategory),
 
     // System specs
     system_capacity_kwp: model.number(),
@@ -37,17 +53,11 @@ export const Kit = model.define("kit", {
     // Metadata
     description: model.text().nullable(),
     image_url: model.text().nullable(),
-    installation_complexity: model.enum(["easy", "medium", "hard"]).default("medium"),
+    installation_complexity: model.enum(InstallationComplexity).default(InstallationComplexity.MEDIUM),
     estimated_installation_hours: model.number().nullable(),
 
     // Target customer
-    target_consumer_class: model.enum([
-        "residential",
-        "commercial",
-        "industrial",
-        "rural",
-        "public"
-    ]).nullable(),
+    target_consumer_class: model.enum(ConsumerClass).nullable(),
     monthly_consumption_kwh_min: model.number().nullable(),
     monthly_consumption_kwh_max: model.number().nullable(),
 
@@ -56,4 +66,26 @@ export const Kit = model.define("kit", {
     is_active: model.boolean().default(true),
 
     metadata: model.json().nullable(),
-});
+}).indexes([
+    {
+        name: "IDX_kit_code",
+        on: ["kit_code"],
+        unique: true,
+    },
+    {
+        name: "IDX_kit_category",
+        on: ["category"],
+    },
+    {
+        name: "IDX_kit_capacity",
+        on: ["system_capacity_kwp"],
+    },
+    {
+        name: "IDX_kit_target_class",
+        on: ["target_consumer_class"],
+    },
+    {
+        name: "IDX_kit_consumption_range",
+        on: ["monthly_consumption_kwh_min", "monthly_consumption_kwh_max"],
+    },
+]);

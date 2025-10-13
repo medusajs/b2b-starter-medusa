@@ -1,4 +1,21 @@
 import { model } from "@medusajs/framework/utils";
+import { Manufacturer } from "./manufacturer";
+import { DistributorOffer } from "./distributor-offer";
+
+export enum ProductCategory {
+    PANELS = "panels",
+    INVERTERS = "inverters",
+    BATTERIES = "batteries",
+    CHARGE_CONTROLLERS = "charge_controllers",
+    CABLES = "cables",
+    CONNECTORS = "connectors",
+    STRUCTURES = "structures",
+    ACCESSORIES = "accessories",
+    KITS = "kits",
+    MONITORING = "monitoring",
+    PROTECTION = "protection",
+    OTHER = "other",
+}
 
 /**
  * SKU Model
@@ -8,20 +25,7 @@ export const SKU = model.define("sku", {
     id: model.id({ prefix: "sku" }).primaryKey(),
     sku_code: model.text().unique().searchable(),
     manufacturer_id: model.text(),
-    category: model.enum([
-        "panels",
-        "inverters",
-        "batteries",
-        "charge_controllers",
-        "cables",
-        "connectors",
-        "structures",
-        "accessories",
-        "kits",
-        "monitoring",
-        "protection",
-        "other"
-    ]),
+    category: model.enum(ProductCategory),
     model_number: model.text().searchable(),
     name: model.text().searchable(),
     description: model.text().searchable().nullable(),
@@ -52,5 +56,36 @@ export const SKU = model.define("sku", {
     total_offers: model.number().default(0),
     is_active: model.boolean().default(true),
 
+    // Relations
+    manufacturer: model.belongsTo(() => Manufacturer, {
+        mappedBy: "skus",
+    }),
+
+    offers: model.hasMany(() => DistributorOffer, {
+        mappedBy: "sku",
+    }),
+
     metadata: model.json().nullable(),
-});
+}).indexes([
+    {
+        name: "IDX_sku_code",
+        on: ["sku_code"],
+        unique: true,
+    },
+    {
+        name: "IDX_sku_category",
+        on: ["category"],
+    },
+    {
+        name: "IDX_sku_manufacturer",
+        on: ["manufacturer_id"],
+    },
+    {
+        name: "IDX_sku_category_manufacturer",
+        on: ["category", "manufacturer_id"],
+    },
+    {
+        name: "IDX_sku_price_range",
+        on: ["lowest_price", "highest_price"],
+    },
+]);
