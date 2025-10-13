@@ -41,13 +41,21 @@ RUN --mount=type=cache,target=/root/.npm \
 # Stage 3: Build stage
 FROM base AS builder
 
+# Aceitar build args para variáveis NEXT_PUBLIC_*
+ARG NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://backend:9000
+ARG NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_build_placeholder
+ARG NEXT_PUBLIC_BASE_URL=http://localhost:8000
+ARG NEXT_PUBLIC_DEFAULT_REGION=br
+
 # Desabilitar husky no builder também
 ENV DOCKER=true
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Valores de build necessários para Next.js (serão sobrescritos em runtime)
-ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://backend:9000
-ENV NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_build_placeholder
+# Definir as variáveis de ambiente para o build (Next.js precisa delas em build time)
+ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=${NEXT_PUBLIC_MEDUSA_BACKEND_URL}
+ENV NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
+ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
+ENV NEXT_PUBLIC_DEFAULT_REGION=${NEXT_PUBLIC_DEFAULT_REGION}
 
 COPY package*.json ./
 COPY --from=dev-deps /app/node_modules ./node_modules
