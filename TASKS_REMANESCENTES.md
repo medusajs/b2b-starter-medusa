@@ -1,4 +1,81 @@
-# 📋 Tasks Remanescentes
+# 📋 Tasks Remanescentes - YSH B2B Store
+
+**Atualização**: 13/10/2025 - 03:22  
+**Status Geral**: 50% Completo (3/6 tasks)
+
+---
+
+## ✅ COMPLETAS (3/6)
+
+### 1. ✅ Otimizar getProductByHandle
+
+- **Status**: ✅ COMPLETO
+- Endpoint alterado: `/store/products_enhanced`
+- Parâmetro `image_source: "auto"` adicionado
+- Error handling implementado (try/catch + notFound())
+- Cache tags por produto
+
+### 2. ✅ Criar Endpoint Individual de Produto
+
+- **Status**: ✅ COMPLETO
+- **Arquivo**: `backend/src/api/store/products_enhanced/[handle]/route.ts`
+- Internal Catalog Service integrado
+- Image source selection (auto/database/internal)
+- Cache stats na resposta
+
+### 3. ✅ Criar Publishable Key
+
+- **Status**: ✅ COMPLETO
+- **Key**: `pk_574e2f71117a1ecc0159005c55e8bf6d561e1741970c6d171b78bc38c5c61bb9`
+- Associada ao Default Sales Channel
+- Configurada em `storefront/.env`
+- ✅ API `/store/products` respondendo 200 OK
+
+---
+
+## ⏳ PENDENTES (3/6)
+
+### 4. ⏳ Testar PDP E2E
+
+- **Blocker**: Aguardando seed de produtos
+- **URL**: `http://localhost:8000/br/products/kit-solar-5kw`
+
+### 5. ⏳ Resolver Unified Catalog Import Error
+
+- **Erro**: `Cannot find module '../../../modules/unified-catalog/index'`
+- **Arquivo**: `backend/src/api/store/catalog/[category]/route.ts:3`
+
+### 6. ⏳ Adicionar Validação de Extração de SKU
+
+- **Arquivo**: `backend/src/api/store/internal-catalog/catalog-service.ts`
+- Enhancement: Logging + fallback 'UNKNOWN-SKU'
+
+---
+
+## 🔧 BLOQUEADOS (Sprint 2)
+
+- 🔴 **Quote Module** - ESM Resolution Error (5 tentativas, desabilitado)
+- 🟡 **Approval Module** - ESM Resolution Error (comentado temporariamente)
+- 🟡 **Seed Script** - Workflow createStockLocations undefined
+
+---
+
+## 🎯 Próxima Ação Imediata
+
+**Criar produto de teste para validar PDP**:
+
+```bash
+docker exec ysh-b2b-postgres psql -U postgres -d medusa-backend -c "
+INSERT INTO product (id, title, handle, status, created_at, updated_at)
+VALUES ('prod_test_kit5kw', 'Kit Solar 5kW', 'kit-solar-5kw', 'published', NOW(), NOW());
+"
+```
+
+**Então testar**: `http://localhost:8000/br/products/kit-solar-5kw`
+
+---
+
+**Relatório**: 13/10/2025 - 03:22 | **Por**: GitHub Copilot Agent
 
 **Data:** 2025-01-XX  
 **Status Geral:** 88% Completo (28/32 critérios)
