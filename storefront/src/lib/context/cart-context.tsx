@@ -119,8 +119,8 @@ export function CartProvider({
               lineItem.productVariant.calculated_price?.calculated_amount || 0
 
             const newItem: StoreCartLineItem = {
-              cart: prev as StoreCart,
-              cart_id: prev?.id || "",
+              cart: prev as any,
+              cart_id: (prev as any)?.id || "",
               discount_tax_total: 0,
               discount_total: 0,
               id: generateOptimisticItemId(lineItem.productVariant.id),
@@ -199,7 +199,7 @@ export function CartProvider({
   }, [handleOptimisticAddToCart])
 
   const handleDeleteItem = async (lineItem: string) => {
-    const item = optimisticCart?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find(({ id }) => id === lineItem)
 
     if (!item) return
 
