@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 export default async function SolarMonitoringPage() {
-  const customer = await retrieveCustomer();
+    const customer = await retrieveCustomer();
 
-  if (!customer?.id) {
-    notFound();
-  }
+    if (!customer?.id) {
+        notFound();
+    }
 
-  const subscriptions = await getCustomerSubscriptions(customer.id);    if (subscriptions.length === 0) {
+    const subscriptions = await getCustomerSubscriptions(customer.id); if (subscriptions.length === 0) {
         return (
             <div className="flex flex-col gap-y-8 w-full">
                 <div className="flex items-center justify-between">
