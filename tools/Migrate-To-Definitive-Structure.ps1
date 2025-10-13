@@ -437,5 +437,3 @@ Write-ColoredOutput "2. Atualizar imports relativos se necessário" $White
 Write-ColoredOutput "3. Testar build: cd backend; yarn build" $White
 Write-ColoredOutput "4. Testar storefront: cd storefront; yarn dev" $White
 Write-ColoredOutput "5. Atualizar documentação" $White
-
-Write-ColoredOutput "`n=== MIGRAÇÃO CONCLUÍDA ===" $White
