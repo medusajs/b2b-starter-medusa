@@ -1,0 +1,21 @@
+# 🖼️ Product Image Optimization - Requirements
+
+# Core image processing (use SIMD-optimized version if available)
+Pillow>=10.0.0
+# Pillow-SIMD>=10.0.0  # Uncomment for 4-5x faster processing (requires compilation)
+
+# Advanced image processing
+opencv-python>=4.8.0
+scikit-image>=0.21.0
+
+# Numerical operations
+numpy>=1.24.0
+
+# Parallel processing
+joblib>=1.3.0
+
+# Optional: AVIF support (better compression than WebP)
+# pillow-avif-plugin>=1.3.0
+
+# Optional: GPU acceleration (if CUDA available)
+# opencv-contrib-python>=4.8.0
