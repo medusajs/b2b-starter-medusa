@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import Link from "next/link"
 
 export default function ProductError({
   error,
@@ -23,7 +24,7 @@ export default function ProductError({
           Erro ao carregar produto
         </h2>
         <p className="mt-2 text-gray-600">
-          Não foi possível carregar as informações deste produto. 
+          Não foi possível carregar as informações deste produto.
           Por favor, tente novamente.
         </p>
         <div className="mt-6 flex gap-4 justify-center">
@@ -33,12 +34,12 @@ export default function ProductError({
           >
             Tentar novamente
           </button>
-          <a
+          <Link
             href="/"
             className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Voltar para home
-          </a>
+          </Link>
         </div>
       </div>
     </div>
