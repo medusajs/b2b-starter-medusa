@@ -78,7 +78,7 @@ export async function POST(
 
     } catch (error: any) {
         console.error("[RAG Search Error]", error)
-        return res.status(500).json({ error: error.message })
+        return APIResponse.internalError(res, error.message);
     }
 }
 
@@ -92,13 +92,13 @@ export async function GET(
     try {
         const collections = await client.getCollections()
 
-        return res.json({
+        return APIResponse.success(res, {
             collections: collections.collections.map(c => ({
                 name: c.name,
                 vectors_count: (c as any).vectors_count,
                 points_count: (c as any).points_count
             }))
-        })
+        });
 
     } catch (error: any) {
         console.error("[RAG Collections Error]", error)
