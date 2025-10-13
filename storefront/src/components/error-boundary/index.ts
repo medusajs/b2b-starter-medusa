@@ -6,5 +6,4 @@ export {
   ErrorBoundaryResilient,
   withErrorBoundary,
   useErrorBoundary,
-  type Props as ErrorBoundaryResilientProps,
 } from "./error-boundary-resilient"
