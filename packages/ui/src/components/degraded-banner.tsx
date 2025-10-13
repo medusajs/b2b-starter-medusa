@@ -3,19 +3,19 @@
  * Shows when API returns stale/estimated data
  */
 
-interface DegradedBannerProps {
-    message?: string
-    onRetry?: () => void
-    className?: string
-}
+import * as React from "react"
 
-export function DegradedBanner({
+interface DegradedBannerProps {
+  message?: string
+  onRetry?: () => void
+  className?: string
+}export function DegradedBanner({
     message = "Exibindo dados em cache. Alguns preços podem estar desatualizados.",
     onRetry,
     className = ""
 }: DegradedBannerProps) {
     return (
-        <div className={ g-yellow-50 border-l-4 border-yellow-400 p-4 } role = "alert" >
+        <div className={`bg-yellow-50 border-l-4 border-yellow-400 p-4 ${className}`} role="alert">
             <div className="flex">
                 <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -35,6 +35,6 @@ export function DegradedBanner({
                     )}
                 </div>
             </div>
-    </div >
-  )
+        </div >
+    )
 }
