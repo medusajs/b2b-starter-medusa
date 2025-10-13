@@ -1,6 +1,6 @@
 import { getCollectionByHandle, listCollections } from "@/lib/data/collections"
 import { listRegions } from "@/lib/data/regions"
-import CollectionTemplate from "@/modules/collections/templates"
+import CollectionTemplate from "@/modules/discovery/collections/templates"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { StoreCollection, StoreRegion } from "@medusajs/types"
 import { Metadata } from "next"

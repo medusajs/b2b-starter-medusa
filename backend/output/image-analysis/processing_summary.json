@@ -1,0 +1,156 @@
+{
+  "processed_at": "2025-10-13T13:56:51.391208",
+  "model_used": "llama3.2-vision:11b",
+  "total_images": 5,
+  "successful": 4,
+  "failed": 1,
+  "total_time_seconds": 427.63450288772583,
+  "results": [
+    {
+      "file": "sku_112369_1-17457314169194004.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_112369_1-17457314169194004.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T13:49:49.336809",
+      "metadata": {
+        "manufacturer": "Deye",
+        "model": "SMA-10K-3-40",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 10000,
+          "power_kw": 10.0,
+          "voltage": "220V",
+          "current_a": 40,
+          "phase": "tri",
+          "efficiency_percent": 95.0,
+          "mppt_count": 3,
+          "max_input_voltage": 1000,
+          "max_output_current": 40
+        },
+        "visible_text": "Deye SMA-10K-3-40 10kW 3MPPT 40A 220V 95% 3-Phase Grid Tie Inverter",
+        "certifications": [
+          "CE",
+          "IEC"
+        ],
+        "image_quality": {
+          "score": 8,
+          "usable_for_catalog": true,
+          "issues": []
+        },
+        "_processing_time": 135.45671248435974
+      }
+    },
+    {
+      "file": "sku_145763_145763-17456925994814488.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_145763_145763-17456925994814488.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T13:54:06.341413",
+      "metadata": {
+        "manufacturer": "Growatt",
+        "model": "SPF 10000-5G",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 10000,
+          "power_kw": 10.0,
+          "voltage": "220V/380V",
+          "current_a": 0,
+          "phase": "mono",
+          "efficiency_percent": 98.0,
+          "mppt_count": 1,
+          "max_input_voltage": 1000,
+          "max_output_current": 100
+        },
+        "visible_text": "Growatt SPF 10000-5G 10kW 3-Phase 1-Phase Inverter",
+        "certifications": [
+          "CE",
+          "IEC"
+        ],
+        "image_quality": {
+          "score": 8,
+          "usable_for_catalog": true,
+          "issues": []
+        },
+        "_processing_time": 127.13120079040527
+      }
+    },
+    {
+      "file": "sku_152147_152147-1-17507708324918071.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_152147_152147-1-17507708324918071.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T13:56:11.972962",
+      "metadata": {
+        "manufacturer": "SAJ",
+        "model": "SAJ-1.5-48V-120W",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 120,
+          "power_kw": 0.12,
+          "voltage": "48V",
+          "current_a": 2.4,
+          "phase": "mono",
+          "efficiency_percent": 90.0,
+          "mppt_count": 1,
+          "max_input_voltage": 100,
+          "max_output_current": 2.4
+        },
+        "visible_text": "SAJ-1.5-48V-120W",
+        "certifications": [
+          "CE"
+        ],
+        "image_quality": {
+          "score": 8,
+          "usable_for_catalog": true,
+          "issues": []
+        },
+        "_processing_time": 125.63058948516846
+      }
+    },
+    {
+      "file": "sku_165471_165471-1-17460424443329247.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_165471_165471-1-17460424443329247.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T13:56:51.389775",
+      "metadata": {
+        "manufacturer": "SAJ",
+        "model": "SAJ-1.5-48V-120W",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 120,
+          "power_kw": 0.12,
+          "voltage": "48V",
+          "current_a": 2.4,
+          "phase": "mono",
+          "efficiency_percent": 90.0,
+          "mppt_count": 1,
+          "max_input_voltage": 100,
+          "max_output_current": 10
+        },
+        "visible_text": "SAJ-1.5-48V-120W",
+        "certifications": [
+          "CE"
+        ],
+        "image_quality": {
+          "score": 8,
+          "usable_for_catalog": true,
+          "issues": []
+        },
+        "_processing_time": 39.41600012779236
+      }
+    }
+  ],
+  "errors": [
+    {
+      "file": "sku_135720_135720-17458937387875142.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_135720_135720-17458937387875142.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T13:51:59.208503",
+      "metadata": {
+        "error": "json_decode_error",
+        "raw_response": "\"manufacturer\": \"SOFAR\",\n\"model\": \"SOFAR-SP-10K-5-2\",\n\"product_type\": \"inverter\",\n\"subtype\": \"gridtie\",\n\"specifications\": {\n    \"power_w\": 10000,\n    \"power_kw\": 10.0,\n    \"voltage\": \"220V\",\n    \"current_a\": 0,\n    \"phase\": \"mono\",\n    \"efficiency_percent\": 95.0,\n    \"mppt_count\": 2,\n    \"max_input_voltage\": 1000,\n    \"max_output_current\": 0\n},\n\"visible_text\": \"SOFAR SP-10K-5-2 10kW 220V 95% 2MPPT 1000V\",\n\"certifications\": [\"CE\", \"IEC\"],\n\"image_quality\": {\n    \"score\": 8,\n    \"usable_for_catalog"
+      }
+    }
+  ]
+}

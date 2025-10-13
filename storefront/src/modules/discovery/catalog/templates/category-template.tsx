@@ -15,8 +15,8 @@ import Link from "next/link"
 import { SkeletonProductPreview } from "@/modules/common/skeletons"
 import type { CategoryInfo } from "@/lib/data/catalog"
 
-const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
-const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
+const ProductCard = dynamic(() => import("@/modules/discovery/catalog/components/ProductCard"))
+const KitCard = dynamic(() => import("@/modules/discovery/catalog/components/KitCard"))
 
 // Simple skeleton for product cards
 function ProductCardSkeleton() {
