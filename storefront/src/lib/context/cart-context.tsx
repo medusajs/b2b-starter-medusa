@@ -238,7 +238,7 @@ export function CartProvider({
     lineItem: string,
     quantity: number
   ) => {
-    const item = optimisticCart?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find(({ id }) => id === lineItem)
 
     if (!item) return
 
@@ -319,7 +319,7 @@ export function CartProvider({
   }
 
   const sortedItems = useMemo(() => {
-    return optimisticCart?.items?.sort((a, b) => {
+    return (optimisticCart as any)?.items?.sort((a, b) => {
       return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
     })
   }, [optimisticCart])
