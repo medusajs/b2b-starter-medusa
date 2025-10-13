@@ -45,6 +45,9 @@ export default defineConfig({
     },
     [UNIFIED_CATALOG_MODULE]: {
       resolve: "./modules/unified-catalog",
+      definition: {
+        isQueryable: true,
+      },
     },
     // Módulos B2B - registrados por string direta
     "company": {

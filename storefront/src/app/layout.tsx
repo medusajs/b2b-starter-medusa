@@ -93,6 +93,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
 
+        {/* Preload critical logo assets */}
+        <link rel="preload" href="/yello-black_logomark.png" as="image" type="image/png" fetchpriority="high" />
+        <link rel="preload" href="/yello-white_logomark.png" as="image" type="image/png" />
+
         {/* Performance: Preconnect to critical origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
