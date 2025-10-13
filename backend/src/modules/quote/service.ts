@@ -1,6 +1,9 @@
 import { MedusaService } from "@medusajs/framework/utils";
-import { Message, Quote } from "./models";
+import { Quote, Message } from "./models";
 
-class QuoteModuleService extends MedusaService({ Quote, Message }) { }
+class QuoteModuleService extends MedusaService({
+    Quote,
+    Message,
+}) { }
 
 export default QuoteModuleService;
