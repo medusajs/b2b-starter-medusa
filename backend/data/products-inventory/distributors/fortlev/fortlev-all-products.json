@@ -1,5 +1,20 @@
 [
   {
+    "id": "fortlev_hybrid_inverters_IIN00386",
+    "name": "HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI (SUN2000-4KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.467,91",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fab/IIN00386.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI (SUN2000-4KTL-L1)",
+    "pricing": {
+      "price": 4467.91,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00384",
     "name": "HUAWEI ON-GRID 75KW - 220V - 7 MPPT - AFCI (SUN2000-75K-MGL0-BR)",
     "manufacturer": "Huawei",
@@ -75,6 +90,21 @@
     }
   },
   {
+    "id": "fortlev_hybrid_inverters_IIN00379",
+    "name": "HUAWEI HIBRIDO 25KW - 380V - 2 MPPT - AFCI (SUN2000-25K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 13.737,41",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa5/IIN00379.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 25KW - 380V - 2 MPPT - AFCI (SUN2000-25K-MB0)",
+    "pricing": {
+      "price": 13737.41,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00378",
     "name": "HUAWEI ON-GRID 20KW - 220V - 4 MPPT - AFCI (SUN2000-20KTL-BRM3)",
     "manufacturer": "Huawei",
@@ -86,6 +116,36 @@
     "description": "HUAWEI ON-GRID 20KW - 220V - 4 MPPT - AFCI (SUN2000-20KTL-BRM3)",
     "pricing": {
       "price": 16421.86,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00377",
+    "name": "HUAWEI HIBRIDO 20KW - 380V - 2 MPPT - AFCI (SUN2000-20K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 12.125,60",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa3/IIN00377.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 20KW - 380V - 2 MPPT - AFCI (SUN2000-20K-MB0)",
+    "pricing": {
+      "price": 12125.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00376",
+    "name": "HUAWEI HIBRIDO 15KW - 380V - 2 MPPT - AFCI (SUN2000-15K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 9.618,72",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa2/IIN00376_v2.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 15KW - 380V - 2 MPPT - AFCI (SUN2000-15K-MB0)",
+    "pricing": {
+      "price": 9618.72,
       "currency": "BRL"
     }
   },
@@ -195,6 +255,96 @@
     }
   },
   {
+    "id": "fortlev_hybrid_inverters_IIN00370",
+    "name": "HUAWEI  HIBRIDO 8KW - 220V - 3 MPPT - AFCI (SUN2000-8KTL-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 6.858,42",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6f0/IIN00370.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 8KW - 220V - 3 MPPT - AFCI (SUN2000-8KTL-LC0)",
+    "pricing": {
+      "price": 6858.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00368",
+    "name": "HUAWEI  HIBRIDO 7.5KW - 220V - 3 MPPT - AFCI (SUN2000-7.5K-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 6.750,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6ee/IIN00368.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 7.5KW - 220V - 3 MPPT - AFCI (SUN2000-7.5K-LC0)",
+    "pricing": {
+      "price": 6750.5,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00367",
+    "name": "HUAWEI  HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SUN2000-10K-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 7.381,60",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985e/IIN00367.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SUN2000-10K-LC0)",
+    "pricing": {
+      "price": 7381.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00366",
+    "name": "HUAWEI  HIBRIDO 6KW - 220V - 2 MPPT - AFCI (SUN2000-6KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.608,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985d/IIN00366.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 6KW - 220V - 2 MPPT - AFCI (SUN2000-6KTL-L1)",
+    "pricing": {
+      "price": 4608.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00365",
+    "name": "HUAWEI  HIBRIDO 5KW - 220V - 2 MPPT - AFCI (SUN2000-5KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.414,16",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985c/IIN00365.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 5KW - 220V - 2 MPPT - AFCI (SUN2000-5KTL-L1)",
+    "pricing": {
+      "price": 4414.16,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00364",
+    "name": "HUAWEI  HIBRIDO 3KW - 220V - 2 MPPT - AFCI (SUN2000-3KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 3.294,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985b/IIN00364.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 3KW - 220V - 2 MPPT - AFCI (SUN2000-3KTL-L1)",
+    "pricing": {
+      "price": 3294.26,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00350",
     "name": "SOLIS ON-GRID 9KW - 220V - 3 MPPT - AFCI (S6-GR1P9K03-NV-ND)",
     "manufacturer": "Solis",
@@ -221,6 +371,36 @@
     "description": "SUNGROW ON-GRID 7.5KW - 220V - 2 MPPT - AFCI (SG7.5RS-L)",
     "pricing": {
       "price": 7016.01,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00352",
+    "name": "MICROINVERSOR FOXESS Q1-2400-E - 2400W - 220V",
+    "manufacturer": "Foxess",
+    "category": "microinverters",
+    "price": "R$ 2.149,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/682e22bca14a42eee678f83a/IIN00352.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR FOXESS Q1-2400-E - 2400W - 220V",
+    "pricing": {
+      "price": 2149.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00349",
+    "name": "MICROINVERSOR NEP BDM-2250 COM WIFI E CABO TRONCO",
+    "manufacturer": "Nep",
+    "category": "microinverters",
+    "price": "R$ 2.241,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68275a028d3cd4ac4215d6cf/IIN00349.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR NEP BDM-2250 COM WIFI E CABO TRONCO",
+    "pricing": {
+      "price": 2241.12,
       "currency": "BRL"
     }
   },
@@ -615,6 +795,21 @@
     }
   },
   {
+    "id": "fortlev_hybrid_inverters_IIN00224",
+    "name": "GROWATT HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SPH10000TL-HU)",
+    "manufacturer": "Growatt",
+    "category": "hybrid_inverters",
+    "price": "R$ 22.812,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/679a4072b7bda88112c6c7c3/IIN00224.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GROWATT HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SPH10000TL-HU)",
+    "pricing": {
+      "price": 22812.5,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00319",
     "name": "FOXESS ON-GRID 7.5KW - 220V - 3 MPPT - AFCI (G7.5)",
     "manufacturer": "Foxess",
@@ -731,6 +926,21 @@
     "description": "SUNGROW ON-GRID 75KW - 220V - 7 MPPT - AFCI (SG75CX-LV)",
     "pricing": {
       "price": 51625.84,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00299",
+    "name": "ENPHASE MICROINVERSOR 0,475KW - 220V - AFCI (IQ8P-72-2-BR)",
+    "manufacturer": "Enphase",
+    "category": "microinverters",
+    "price": "R$ 1.474,61",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/674e1fe18b02c0d00962193e/Enphase-IQB.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ENPHASE MICROINVERSOR 0,475KW - 220V - AFCI (IQ8P-72-2-BR)",
+    "pricing": {
+      "price": 1474.61,
       "currency": "BRL"
     }
   },
@@ -1275,6 +1485,21 @@
     }
   },
   {
+    "id": "fortlev_microinverters_IIN00126",
+    "name": "ENPHASE MICROINVERSOR 0,335KW - 220V - AFCI (IQ7AM-72-2-US)",
+    "manufacturer": "Enphase",
+    "category": "microinverters",
+    "price": "R$ 979,82",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8c7/IIN00126.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ENPHASE MICROINVERSOR 0,335KW - 220V - AFCI (IQ7AM-72-2-US)",
+    "pricing": {
+      "price": 979.82,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00148",
     "name": "SOLAREDGE SE100K SYNERGY - 380V",
     "manufacturer": "Unknown",
@@ -1361,6 +1586,21 @@
     "description": "GROWATT ON-GRID 50KW - 220V - 8 MPPT - AFCI (MAX50KTL3-XL2)",
     "pricing": {
       "price": 34583.33,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00225",
+    "name": "MICROINVERSOR FOXESS M1 - 1000W - 220V",
+    "manufacturer": "Foxess",
+    "category": "microinverters",
+    "price": "R$ 1.353,45",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a6/IIN00225.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR FOXESS M1 - 1000W - 220V",
+    "pricing": {
+      "price": 1353.45,
       "currency": "BRL"
     }
   },
@@ -1845,6 +2085,1026 @@
     }
   },
   {
+    "id": "fortlev_structures_IEF00243",
+    "name": "PERFIL SUPORTE SMART 2,70M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 80,07",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,70M",
+    "pricing": {
+      "price": 80.07,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00302",
+    "name": "PERF ACAB US75X51X225 1,70MM S400GD ZM310 - ST1 -",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 12,87",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERF ACAB US75X51X225 1,70MM S400GD ZM310 - ST1 -",
+    "pricing": {
+      "price": 12.87,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00221",
+    "name": "TESOURA 3300MM ESP 1,95 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 273,20",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TESOURA 3300MM ESP 1,95 - FLS",
+    "pricing": {
+      "price": 273.2,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00220",
+    "name": "PILAR 2425MM ESP 1,95 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 182,81",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PILAR 2425MM ESP 1,95 - FLS",
+    "pricing": {
+      "price": 182.81,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00242",
+    "name": "TESOURA 3700MM ESP 1,25 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 171,62",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TESOURA 3700MM ESP 1,25 - FLS",
+    "pricing": {
+      "price": 171.62,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00026",
+    "name": "PERFIL Z - TERCA 4580MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 157,86",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/678a707b43420463fe47040b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 4580MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 157.86,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00238",
+    "name": "GRAMPO DE ATERRAMENTO FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 8,55",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6776d42cb9c09ac542e3c577/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO DE ATERRAMENTO FLS",
+    "pricing": {
+      "price": 8.55,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00025",
+    "name": "PERFIL Z - TERCA 2290MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 77,27",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/67589dcea8c9296f8520a301/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 2290MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 77.27,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00024",
+    "name": "PERFIL Z - TERCA 3430MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 127,40",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/675350c6345ed96c35daa5cd/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 3430MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 127.4,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00216",
+    "name": "TERCA 3100MM ESP 1,25 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 131,25",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/674a012f1db1856141bd4ddd/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TERCA 3100MM ESP 1,25 - FLS",
+    "pricing": {
+      "price": 131.25,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00207",
+    "name": "PERFIL PLANO SMART 2,40",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 117,75",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/67476c3f43ccb8eece3afa30/IEF00129.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL PLANO SMART 2,40",
+    "pricing": {
+      "price": 117.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00208",
+    "name": "PERFIL REFORCADO SMART 2,40",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 135,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6734f73da95edd542d6b34eb/Perfil-refor%C3%A7ado-smart-2,40.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL REFORCADO SMART 2,40",
+    "pricing": {
+      "price": 135.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00019",
+    "name": "LASTRO SOLAR PE V2 (FIXO 15 GRAUS)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 509,10",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66bb66e80ea330bc9d038f66/ILS00019.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "LASTRO SOLAR PE V2 (FIXO 15 GRAUS)",
+    "pricing": {
+      "price": 509.1,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00017",
+    "name": "PERFIL Z - TERCA 4580MM ESP 1,2",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 116,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62a51d7cf33a7085c19/ILS00012.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 4580MM ESP 1,2",
+    "pricing": {
+      "price": 116.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00177",
+    "name": "MAO FRANCESA 1750 MM 1,95 ESP 38,10 D",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 93,35",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c13/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1750 MM 1,95 ESP 38,10 D",
+    "pricing": {
+      "price": 93.35,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00204",
+    "name": "PERFIL SUPORTE SMART 4,8M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 148,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5aee/IEF00127.webp",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 4,8M",
+    "pricing": {
+      "price": 148.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00203",
+    "name": "PERFIL SUPORTE SMART 2,40M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 72,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5aed/IEF00203.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,40M",
+    "pricing": {
+      "price": 72.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_accessories_ITR00085",
+    "name": "PARAFUSO HEX M61,0 X 45MM",
+    "manufacturer": "Unknown",
+    "category": "accessories",
+    "price": "R$ 0,63",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c976/ITR00085.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO HEX M61,0 X 45MM",
+    "pricing": {
+      "price": 0.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_accessories_ITR00056",
+    "name": "PARAFUSO HEX M61,0 X 12MM",
+    "manufacturer": "Unknown",
+    "category": "accessories",
+    "price": "R$ 0,30",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c966/ITR00056.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO HEX M61,0 X 12MM",
+    "pricing": {
+      "price": 0.3,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00010",
+    "name": "GRAMPO INTERMEDIÁRIO GALVANIZADO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 9,42",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ee/ILS00010.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO INTERMEDIÁRIO GALVANIZADO",
+    "pricing": {
+      "price": 9.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00008",
+    "name": "PARAFUSO SEXTAVADO M6X12 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,49",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ed/ILS00008.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X12 INOX",
+    "pricing": {
+      "price": 0.49,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00007",
+    "name": "PORCA SX  M6 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ec/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SX  M6 INOX",
+    "pricing": {
+      "price": 0.26,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00006",
+    "name": "PARAFUSO SEXTAVADO M6X45 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8eb/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X45 INOX",
+    "pricing": {
+      "price": 0.95,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00004",
+    "name": "TUBETE PERFIL 29X9DX1P",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 1,04",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ea/ILS00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TUBETE PERFIL 29X9DX1P",
+    "pricing": {
+      "price": 1.04,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00003",
+    "name": "LUVA P/ PERFIL Z 340MM ESP 1,2",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 13,35",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8e9/ILS00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "LUVA P/ PERFIL Z 340MM ESP 1,2",
+    "pricing": {
+      "price": 13.35,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00009",
+    "name": "JUNCAO U DO PERFIL",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 16,43",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84d/IEF00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "JUNCAO U DO PERFIL",
+    "pricing": {
+      "price": 16.43,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00073",
+    "name": "PARAFUSO SEXTAVADO M6X50",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,85",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c849/IEF00073.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X50",
+    "pricing": {
+      "price": 0.85,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00023",
+    "name": "ESPUMA EPDM ADESIVA 30X2 MM 2,5M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 7,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c844/IEF00023.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ESPUMA EPDM ADESIVA 30X2 MM 2,5M",
+    "pricing": {
+      "price": 7.26,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00040",
+    "name": "PARAFUSO MARTELO M10X30",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 2,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c842/IEF00040.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO MARTELO M10X30",
+    "pricing": {
+      "price": 2.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00076",
+    "name": "ACESSORIO PROLONGADOR DO GANCHO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 5,92",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c840/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ACESSORIO PROLONGADOR DO GANCHO",
+    "pricing": {
+      "price": 5.92,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00173",
+    "name": "PARAFUSO PRISIONEIRO M10X250 P. BROCA (FIBROMETAL)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 22,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c83d/IEF00173.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X250 P. BROCA (FIBROMETAL)",
+    "pricing": {
+      "price": 22.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00046",
+    "name": "PARAFUSO PRISIONEIRO M10X300 (FIBROMADEIRA)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 29,92",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c83a/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X300 (FIBROMADEIRA)",
+    "pricing": {
+      "price": 29.92,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00045",
+    "name": "PARAFUSO PRISIONEIRO M10X200 (FIBROMADEIRA)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 21,91",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c839/IEF00045.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X200 (FIBROMADEIRA)",
+    "pricing": {
+      "price": 21.91,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00044",
+    "name": "PARAFUSO AUTOBROCANTE M5,5X25MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,36",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c838/IEF00044.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO AUTOBROCANTE M5,5X25MM",
+    "pricing": {
+      "price": 0.36,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00016",
+    "name": "GANCHO TELHA CERAMICA",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 44,64",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c836/IEF00016.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GANCHO TELHA CERAMICA",
+    "pricing": {
+      "price": 44.64,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00154",
+    "name": "SUPORTE ZIPADO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 21,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c834/IEF00154.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "SUPORTE ZIPADO",
+    "pricing": {
+      "price": 21.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00144",
+    "name": "SUPORTE SHINGLE",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 24,39",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c833/IEF00144.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "SUPORTE SHINGLE",
+    "pricing": {
+      "price": 24.39,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00133",
+    "name": "TRIANGULO SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 135,75",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c831/IEF00133.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRIANGULO SMART",
+    "pricing": {
+      "price": 135.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00132",
+    "name": "GRAMPO TERMINAL SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 9,11",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c830/IEF00132.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO TERMINAL SMART",
+    "pricing": {
+      "price": 9.11,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00131",
+    "name": "GRAMPO INTERMEDIARIO SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 6,13",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c82f/IEF00131.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO INTERMEDIARIO SMART",
+    "pricing": {
+      "price": 6.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00143",
+    "name": "PERFIL SUPORTE SMART 2,10M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 64,51",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c819/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,10M",
+    "pricing": {
+      "price": 64.51,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00129",
+    "name": "PERFIL PLANO SMART 0,50M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 22,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c815/IEF00129.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL PLANO SMART 0,50M",
+    "pricing": {
+      "price": 22.12,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00127",
+    "name": "PERFIL SUPORTE SMART 4,20M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 128,53",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c813/IEF00127.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 4,20M",
+    "pricing": {
+      "price": 128.53,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00163",
+    "name": "MAO FRANCESA 1250 MM 1,95 ESP 44,45 D",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 79,54",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c80c/IEF00163.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1250 MM 1,95 ESP 44,45 D",
+    "pricing": {
+      "price": 79.54,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00162",
+    "name": "REFORCO 3335MM ESP 1,25",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 147,01",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c80b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "REFORCO 3335MM ESP 1,25",
+    "pricing": {
+      "price": 147.01,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00100",
+    "name": "ARRUELA DIN125 M10 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,30",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c806/IEF00100.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ARRUELA DIN125 M10 GEOMET",
+    "pricing": {
+      "price": 0.3,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00099",
+    "name": "PORCA SX DIN934 M10 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,54",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c805/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SX DIN934 M10 GEOMET",
+    "pricing": {
+      "price": 0.54,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00098",
+    "name": "PARAFUSO SEXTAVADO DIN933 M10X25 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 1,41",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c804/IEF00098.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO DIN933 M10X25 GEOMET",
+    "pricing": {
+      "price": 1.41,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00096",
+    "name": "CHAPA CANTONEIRA TERCA",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 10,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c802/IEF00096.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CHAPA CANTONEIRA TERCA",
+    "pricing": {
+      "price": 10.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00091",
+    "name": "REFORCO CONTRAVENTO 2418MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 172,00",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7fe/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "REFORCO CONTRAVENTO 2418MM",
+    "pricing": {
+      "price": 172.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00090",
+    "name": "TERCA 4240MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 285,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7fd/IEF00090.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TERCA 4240MM",
+    "pricing": {
+      "price": 285.95,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00009",
+    "name": "ARRUELA M6 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,28",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f6/ILS00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ARRUELA M6 INOX",
+    "pricing": {
+      "price": 0.28,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00168",
+    "name": "GRAMPO MODULO SOLO - BAIXO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 10,94",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f4/IEF00168.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO MODULO SOLO - BAIXO",
+    "pricing": {
+      "price": 10.94,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00172",
+    "name": "MAO FRANCESA 1750 MM 1,95 ESP",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 80,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f3/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1750 MM 1,95 ESP",
+    "pricing": {
+      "price": 80.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00028",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 16,74",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c4044876fc8cff81c3e9f6/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 100M)",
+    "pricing": {
+      "price": 16.74,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00009",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 16,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c4044876fc8cff81c3e9f5/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 50M)",
+    "pricing": {
+      "price": 16.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00011",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 6,09",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c16f5a854b7b00f456a4b7/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 6.09,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00014",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 18,94",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68acb2cead4b34e67bf2e282/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 18.94,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00033",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 19,23",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68a8e16a2935473cc0199d97/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 19.23,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00030",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 13,36",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68a7034539f8f3cdba522730/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 13.36,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00021",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,63",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f98d8e9d290fe9bda50bc/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 5.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00020",
+    "name": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,73",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f6ea9d447e33526100c74/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 5.73,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00001",
+    "name": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,38",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f6ea9d447e33526100c73/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 5.38,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00036",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 23,13",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc9277a/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 23.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00027",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 14,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92779/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 14.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00024",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 7,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92778/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 7.88,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00017",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 23,27",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92777/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 23.27,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00008",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 14,55",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92776/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 14.55,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00388",
     "name": "TC ENPHASE P/ ENVOY-S 220/380V",
     "manufacturer": "Enphase",
@@ -1950,6 +3210,111 @@
     }
   },
   {
+    "id": "fortlev_batteries_IBT00004",
+    "name": "BATERIA FOXESS EP11",
+    "manufacturer": "Foxess",
+    "category": "batteries",
+    "price": "R$ 16.666,67",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/678950349ecacc7047df66f4/IBT00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BATERIA FOXESS EP11",
+    "pricing": {
+      "price": 16666.67,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_transformers_ITF00003",
+    "name": "TRAFO E-380V S-220V 40KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 13.471,44",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a8/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 40KVA",
+    "pricing": {
+      "price": 13471.44,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_security_IMS00004",
+    "name": "CONCERTINA  FIO 3.0MM - ROLO C/ 10MT",
+    "manufacturer": "Unknown",
+    "category": "security",
+    "price": "R$ 531,03",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a7/IMS00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CONCERTINA  FIO 3.0MM - ROLO C/ 10MT",
+    "pricing": {
+      "price": 531.03,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_security_IMS00003",
+    "name": "CERCA DE ARAME 1,8MX20M (2.1MMX65X65MM)",
+    "manufacturer": "Unknown",
+    "category": "security",
+    "price": "R$ 887,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a6/IMS00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CERCA DE ARAME 1,8MX20M (2.1MMX65X65MM)",
+    "pricing": {
+      "price": 887.95,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00005",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,8 H 0,8",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 864,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d619e/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,8 H 0,8",
+    "pricing": {
+      "price": 864.88,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_transformers_ITF00005",
+    "name": "TRAFO E-380V S-220V 85KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 24.340,04",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c942/ITF00005.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 85KVA",
+    "pricing": {
+      "price": 24340.04,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_transformers_ITF00002",
+    "name": "TRAFO E-380V S-220V 30KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 11.021,52",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c941/ITF00002.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 30KVA",
+    "pricing": {
+      "price": 11021.52,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00045",
     "name": "FRONIUS SMART METER 63A-3",
     "manufacturer": "Fronius",
@@ -1961,6 +3326,291 @@
     "description": "FRONIUS SMART METER 63A-3",
     "pricing": {
       "price": 10.99,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_ev_chargers_ICV00004",
+    "name": "CARREGADOR VEICULAR FOXESS A022KP1-E-2 - 22KW",
+    "manufacturer": "Foxess",
+    "category": "ev_chargers",
+    "price": "R$ 4.760,19",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ee/ICV00004%20CARREGADOR%20VEICULAR%20FOXESS%20A022KP1-E-2-22KW.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR FOXESS A022KP1-E-2 - 22KW",
+    "pricing": {
+      "price": 4760.19,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_ev_chargers_ICV00003",
+    "name": "CARREGADOR VEICULAR FOXESS A7300P1-E-2 - 7,3 KW",
+    "manufacturer": "Foxess",
+    "category": "ev_chargers",
+    "price": "R$ 2.811,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ed/ICV00003%20CARREGADOR%20VEICULAR%20FOXESS%20A7300P1-E-2%20-%207,3%20KW.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR FOXESS A7300P1-E-2 - 7,3 KW",
+    "pricing": {
+      "price": 2811.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_ev_chargers_ICV00002",
+    "name": "CARREGADOR VEICULAR WALLBOX GROWATT THOR07AS-P THO",
+    "manufacturer": "Growatt",
+    "category": "ev_chargers",
+    "price": "R$ 3.423,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ec/ICV00002%20CARREGADOR%20VEICULAR%20WALLBOX%20GROWATT%20THOR07AS-P%20THO.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR WALLBOX GROWATT THOR07AS-P THO",
+    "pricing": {
+      "price": 3423.66,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00004",
+    "name": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,2",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 1.827,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ea/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,2",
+    "pricing": {
+      "price": 1827.5,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00003",
+    "name": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,0",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 1.650,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e9/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,0",
+    "pricing": {
+      "price": 1650.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00002",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,6 H 0,8",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 665,02",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e8/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,6 H 0,8",
+    "pricing": {
+      "price": 665.02,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00001",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,3M H 0,3M",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 239,09",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e7/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,3M H 0,3M",
+    "pricing": {
+      "price": 239.09,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICO00012",
+    "name": "CONECTOR JINKO PV-JK03M  2 PARES",
+    "manufacturer": "Jinko",
+    "category": "miscellaneous",
+    "price": "R$ 45,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e6/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CONECTOR JINKO PV-JK03M  2 PARES",
+    "pricing": {
+      "price": 45.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICO00001",
+    "name": "KIT CONECTOR 2 PARES",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 37,11",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e1/ICO00001.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "KIT CONECTOR 2 PARES",
+    "pricing": {
+      "price": 37.11,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00011",
+    "name": "CABO 1X6MM VERMELHO 1,8KV",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 9,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7de/ICA00011.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO 1X6MM VERMELHO 1,8KV",
+    "pricing": {
+      "price": 9.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00010",
+    "name": "CABO 1X6MM PRETO 1,8KV",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 9,80",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7dd/ICA00010.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO 1X6MM PRETO 1,8KV",
+    "pricing": {
+      "price": 9.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00009",
+    "name": "CABO VERMELHO 4MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 6,97",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7dc/ICA00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO VERMELHO 4MM2",
+    "pricing": {
+      "price": 6.97,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00008",
+    "name": "CABO PRETO 4MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 6,93",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7db/ICA00008.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO PRETO 4MM2",
+    "pricing": {
+      "price": 6.93,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00007",
+    "name": "CABO VERDE 6MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 10,25",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c792/logo.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO VERDE 6MM2",
+    "pricing": {
+      "price": 10.25,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00003",
+    "name": "BASE P/ BATERIA AXE",
+    "manufacturer": "Unknown",
+    "category": "batteries",
+    "price": "R$ 284,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d9/IBT00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BASE P/ BATERIA AXE",
+    "pricing": {
+      "price": 284.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00002",
+    "name": "CABO P/ BATERIA AXE",
+    "manufacturer": "Unknown",
+    "category": "batteries",
+    "price": "R$ 826,24",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d8/IBT00002.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO P/ BATERIA AXE",
+    "pricing": {
+      "price": 826.24,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00001",
+    "name": "BATERIA GROWATT AXE 5.0L",
+    "manufacturer": "Growatt",
+    "category": "batteries",
+    "price": "De:",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d7/IBT00001.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BATERIA GROWATT AXE 5.0L",
+    "pricing": {
+      "price": 0.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00002",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f98d8e9d290fe9bda50bb/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 5.66,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00005",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 7,96",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92775/duto_corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 7.96,
       "currency": "BRL"
     }
   },
@@ -2055,6 +3705,66 @@
     }
   },
   {
+    "id": "fortlev_stringboxes_ISB00018",
+    "name": "STRING BOX CLAMPER 1040V 32A 3E/3S",
+    "manufacturer": "Clamper",
+    "category": "stringboxes",
+    "price": "R$ 1.685,45",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX CLAMPER 1040V 32A 3E/3S",
+    "pricing": {
+      "price": 1685.45,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00016",
+    "name": "STRING BOX 1040VDC 5E/1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 1.666,67",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 5E/1S",
+    "pricing": {
+      "price": 1666.67,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00015",
+    "name": "STRING BOX 1040VDC 3E1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 885,42",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 3E1S",
+    "pricing": {
+      "price": 885.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00017",
+    "name": "STRING BOX 1040VDC 14E/1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 7.952,35",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 14E/1S",
+    "pricing": {
+      "price": 7952.35,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00294",
     "name": "SMART METER GROWATT SPM-E",
     "manufacturer": "Growatt",
@@ -2145,6 +3855,21 @@
     }
   },
   {
+    "id": "fortlev_stringboxes_ISB00014",
+    "name": "STRING BOX 1040 6E/6S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 2.643,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66f16d6de17cfb2151922a1a/ISB00004.webp",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040 6E/6S",
+    "pricing": {
+      "price": 2643.88,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00282",
     "name": "NEP DISPOSITIVO DE RSD 20A P/ 3 MÓDULO – PVG-3-20A-L (MC4)",
     "manufacturer": "Nep",
@@ -2171,6 +3896,96 @@
     "description": "CONJUNTO CONECTOR CA / TAMPA TERMINAL FOXESS",
     "pricing": {
       "price": 81.09,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00012",
+    "name": "COMBINERBOX 12E-12S 1010VDC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 4.340,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c93e/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINERBOX 12E-12S 1010VDC",
+    "pricing": {
+      "price": 4340.66,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00011",
+    "name": "COMBINERBOX 6E-6S 1100DC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 2.356,08",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c93d/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINERBOX 6E-6S 1100DC",
+    "pricing": {
+      "price": 2356.08,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00007",
+    "name": "COMBINER BOX 1500VCC 8 IN DB SUNGROW",
+    "manufacturer": "Sungrow",
+    "category": "stringboxes",
+    "price": "R$ 15.199,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c939/ISB00007.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINER BOX 1500VCC 8 IN DB SUNGROW",
+    "pricing": {
+      "price": 15199.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00006",
+    "name": "STRING BOX CLAMPER SB1040V 32A 2E/2S",
+    "manufacturer": "Clamper",
+    "category": "stringboxes",
+    "price": "R$ 854,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c938/ISB00006.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX CLAMPER SB1040V 32A 2E/2S",
+    "pricing": {
+      "price": 854.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00005",
+    "name": "PVS-16MH - COMBINER BOX - 1500VDC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 15.767,97",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c937/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PVS-16MH - COMBINER BOX - 1500VDC",
+    "pricing": {
+      "price": 15767.97,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00004",
+    "name": "STRING BOX 1000 3-4E/2S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 1.187,90",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c936/ISB00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1000 3-4E/2S",
+    "pricing": {
+      "price": 1187.9,
       "currency": "BRL"
     }
   },
@@ -2280,6 +4095,36 @@
     }
   },
   {
+    "id": "fortlev_structures_IEF00167",
+    "name": "PORCA SEXT FLANG M8",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SEXT FLANG M8",
+    "pricing": {
+      "price": 0.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00166",
+    "name": "PARAFUSO MARTELO M8X20",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 2,00",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84a/IEF00166.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO MARTELO M8X20",
+    "pricing": {
+      "price": 2.0,
+      "currency": "BRL"
+    }
+  },
+  {
     "id": "fortlev_inverters_IIN00093",
     "name": "EV KIT, CABLE 7.6M, TYPE 2, 32A, HOLDER V2",
     "manufacturer": "Unknown",
@@ -2291,6 +4136,66 @@
     "description": "EV KIT, CABLE 7.6M, TYPE 2, 32A, HOLDER V2",
     "pricing": {
       "price": 4895.11,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00135",
+    "name": "PAINEL DMEGC 610 WP DM610G12RT-B66HSW BF",
+    "manufacturer": "Dmegc",
+    "category": "panels",
+    "price": "R$ 567,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL DMEGC 610 WP DM610G12RT-B66HSW BF",
+    "pricing": {
+      "price": 567.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00132",
+    "name": "PAINEL LONGI LR7-72HTH-630M HORIZON",
+    "manufacturer": "Longi",
+    "category": "panels",
+    "price": "R$ 695,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68cbfb5b8434a2f72c363a4f/LONGI-630Wp_v2.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL LONGI LR7-72HTH-630M HORIZON",
+    "pricing": {
+      "price": 695.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00131",
+    "name": "PAINEL BYD BYD-530W-MLK-36 - 530W",
+    "manufacturer": "Byd",
+    "category": "panels",
+    "price": "R$ 728,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68500752d2d60d325a684b96/PAINEL-BYD-BYD-530W-MLK-36---530W.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL BYD BYD-530W-MLK-36 - 530W",
+    "pricing": {
+      "price": 728.12,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00093",
+    "name": "PAINEL BYD BYD575HRP72S - 575W",
+    "manufacturer": "Byd",
+    "category": "panels",
+    "price": "R$ 966,67",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66d778fb02c2dc75cdab12df/IMO00093.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL BYD BYD575HRP72S - 575W",
+    "pricing": {
+      "price": 966.67,
       "currency": "BRL"
     }
   }

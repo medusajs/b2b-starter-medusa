@@ -1,0 +1,167 @@
+[
+  {
+    "id": "fortlev_hybrid_inverters_IIN00386",
+    "name": "HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI (SUN2000-4KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.467,91",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fab/IIN00386.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI (SUN2000-4KTL-L1)",
+    "pricing": {
+      "price": 4467.91,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00379",
+    "name": "HUAWEI HIBRIDO 25KW - 380V - 2 MPPT - AFCI (SUN2000-25K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 13.737,41",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa5/IIN00379.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 25KW - 380V - 2 MPPT - AFCI (SUN2000-25K-MB0)",
+    "pricing": {
+      "price": 13737.41,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00377",
+    "name": "HUAWEI HIBRIDO 20KW - 380V - 2 MPPT - AFCI (SUN2000-20K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 12.125,60",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa3/IIN00377.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 20KW - 380V - 2 MPPT - AFCI (SUN2000-20K-MB0)",
+    "pricing": {
+      "price": 12125.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00376",
+    "name": "HUAWEI HIBRIDO 15KW - 380V - 2 MPPT - AFCI (SUN2000-15K-MB0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 9.618,72",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa2/IIN00376_v2.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI HIBRIDO 15KW - 380V - 2 MPPT - AFCI (SUN2000-15K-MB0)",
+    "pricing": {
+      "price": 9618.72,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00370",
+    "name": "HUAWEI  HIBRIDO 8KW - 220V - 3 MPPT - AFCI (SUN2000-8KTL-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 6.858,42",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6f0/IIN00370.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 8KW - 220V - 3 MPPT - AFCI (SUN2000-8KTL-LC0)",
+    "pricing": {
+      "price": 6858.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00368",
+    "name": "HUAWEI  HIBRIDO 7.5KW - 220V - 3 MPPT - AFCI (SUN2000-7.5K-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 6.750,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6ee/IIN00368.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 7.5KW - 220V - 3 MPPT - AFCI (SUN2000-7.5K-LC0)",
+    "pricing": {
+      "price": 6750.5,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00367",
+    "name": "HUAWEI  HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SUN2000-10K-LC0)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 7.381,60",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985e/IIN00367.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SUN2000-10K-LC0)",
+    "pricing": {
+      "price": 7381.6,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00366",
+    "name": "HUAWEI  HIBRIDO 6KW - 220V - 2 MPPT - AFCI (SUN2000-6KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.608,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985d/IIN00366.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 6KW - 220V - 2 MPPT - AFCI (SUN2000-6KTL-L1)",
+    "pricing": {
+      "price": 4608.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00365",
+    "name": "HUAWEI  HIBRIDO 5KW - 220V - 2 MPPT - AFCI (SUN2000-5KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 4.414,16",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985c/IIN00365.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 5KW - 220V - 2 MPPT - AFCI (SUN2000-5KTL-L1)",
+    "pricing": {
+      "price": 4414.16,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00364",
+    "name": "HUAWEI  HIBRIDO 3KW - 220V - 2 MPPT - AFCI (SUN2000-3KTL-L1)",
+    "manufacturer": "Huawei",
+    "category": "hybrid_inverters",
+    "price": "R$ 3.294,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985b/IIN00364.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "HUAWEI  HIBRIDO 3KW - 220V - 2 MPPT - AFCI (SUN2000-3KTL-L1)",
+    "pricing": {
+      "price": 3294.26,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_hybrid_inverters_IIN00224",
+    "name": "GROWATT HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SPH10000TL-HU)",
+    "manufacturer": "Growatt",
+    "category": "hybrid_inverters",
+    "price": "R$ 22.812,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/679a4072b7bda88112c6c7c3/IIN00224.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GROWATT HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SPH10000TL-HU)",
+    "pricing": {
+      "price": 22812.5,
+      "currency": "BRL"
+    }
+  }
+]

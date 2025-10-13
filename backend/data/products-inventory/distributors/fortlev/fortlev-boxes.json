@@ -1,0 +1,77 @@
+[
+  {
+    "id": "fortlev_boxes_ICP00005",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,8 H 0,8",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 864,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d619e/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,8 H 0,8",
+    "pricing": {
+      "price": 864.88,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00004",
+    "name": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,2",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 1.827,50",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ea/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,2",
+    "pricing": {
+      "price": 1827.5,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00003",
+    "name": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,0",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 1.650,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e9/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 1,2 H 1,0",
+    "pricing": {
+      "price": 1650.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00002",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,6 H 0,8",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 665,02",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e8/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,6 H 0,8",
+    "pricing": {
+      "price": 665.02,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_boxes_ICP00001",
+    "name": "CAIXA DE PASSAGEM PRFV D 0,3M H 0,3M",
+    "manufacturer": "Unknown",
+    "category": "boxes",
+    "price": "R$ 239,09",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e7/caixa%20de%20passagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CAIXA DE PASSAGEM PRFV D 0,3M H 0,3M",
+    "pricing": {
+      "price": 239.09,
+      "currency": "BRL"
+    }
+  }
+]

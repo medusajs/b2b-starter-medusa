@@ -1,0 +1,77 @@
+[
+  {
+    "id": "fortlev_microinverters_IIN00352",
+    "name": "MICROINVERSOR FOXESS Q1-2400-E - 2400W - 220V",
+    "manufacturer": "Foxess",
+    "category": "microinverters",
+    "price": "R$ 2.149,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/682e22bca14a42eee678f83a/IIN00352.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR FOXESS Q1-2400-E - 2400W - 220V",
+    "pricing": {
+      "price": 2149.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00349",
+    "name": "MICROINVERSOR NEP BDM-2250 COM WIFI E CABO TRONCO",
+    "manufacturer": "Nep",
+    "category": "microinverters",
+    "price": "R$ 2.241,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68275a028d3cd4ac4215d6cf/IIN00349.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR NEP BDM-2250 COM WIFI E CABO TRONCO",
+    "pricing": {
+      "price": 2241.12,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00299",
+    "name": "ENPHASE MICROINVERSOR 0,475KW - 220V - AFCI (IQ8P-72-2-BR)",
+    "manufacturer": "Enphase",
+    "category": "microinverters",
+    "price": "R$ 1.474,61",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/674e1fe18b02c0d00962193e/Enphase-IQB.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ENPHASE MICROINVERSOR 0,475KW - 220V - AFCI (IQ8P-72-2-BR)",
+    "pricing": {
+      "price": 1474.61,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00126",
+    "name": "ENPHASE MICROINVERSOR 0,335KW - 220V - AFCI (IQ7AM-72-2-US)",
+    "manufacturer": "Enphase",
+    "category": "microinverters",
+    "price": "R$ 979,82",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8c7/IIN00126.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ENPHASE MICROINVERSOR 0,335KW - 220V - AFCI (IQ7AM-72-2-US)",
+    "pricing": {
+      "price": 979.82,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_microinverters_IIN00225",
+    "name": "MICROINVERSOR FOXESS M1 - 1000W - 220V",
+    "manufacturer": "Foxess",
+    "category": "microinverters",
+    "price": "R$ 1.353,45",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a6/IIN00225.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MICROINVERSOR FOXESS M1 - 1000W - 220V",
+    "pricing": {
+      "price": 1353.45,
+      "currency": "BRL"
+    }
+  }
+]

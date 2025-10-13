@@ -1,0 +1,242 @@
+[
+  {
+    "id": "fortlev_conduits_IDT00028",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 16,74",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c4044876fc8cff81c3e9f6/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 100M)",
+    "pricing": {
+      "price": 16.74,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00009",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 16,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c4044876fc8cff81c3e9f5/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 50M)",
+    "pricing": {
+      "price": 16.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00011",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 6,09",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68c16f5a854b7b00f456a4b7/imagem.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 6.09,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00014",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 18,94",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68acb2cead4b34e67bf2e282/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 18.94,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00033",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 19,23",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68a8e16a2935473cc0199d97/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 90 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 19.23,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00030",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 13,36",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68a7034539f8f3cdba522730/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 75 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 13.36,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00021",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,63",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f98d8e9d290fe9bda50bc/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 5.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00020",
+    "name": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,73",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f6ea9d447e33526100c74/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 5.73,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00001",
+    "name": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,38",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f6ea9d447e33526100c73/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT  PEAD DN 32 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 5.38,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00036",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 23,13",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc9277a/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 23.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00027",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 14,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92779/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 14.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00024",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 100M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 7,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92778/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 100M)",
+    "pricing": {
+      "price": 7.88,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00017",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 23,27",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92777/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 110 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 23.27,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00008",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 14,55",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92776/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 14.55,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00002",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 5,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689f98d8e9d290fe9bda50bb/corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 40 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 5.66,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_conduits_IDT00005",
+    "name": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 50M)",
+    "manufacturer": "Unknown",
+    "category": "conduits",
+    "price": "R$ 7,96",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/689b56fef47155b8ccc92775/duto_corrugado.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "DUTO CORRUGADO CONDUFORT PEAD DN 50 - NBR 450N - (MULT. 50M)",
+    "pricing": {
+      "price": 7.96,
+      "currency": "BRL"
+    }
+  }
+]

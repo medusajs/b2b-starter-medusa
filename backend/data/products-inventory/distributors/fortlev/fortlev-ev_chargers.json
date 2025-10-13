@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fortlev_ev_chargers_ICV00004",
+    "name": "CARREGADOR VEICULAR FOXESS A022KP1-E-2 - 22KW",
+    "manufacturer": "Foxess",
+    "category": "ev_chargers",
+    "price": "R$ 4.760,19",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ee/ICV00004%20CARREGADOR%20VEICULAR%20FOXESS%20A022KP1-E-2-22KW.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR FOXESS A022KP1-E-2 - 22KW",
+    "pricing": {
+      "price": 4760.19,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_ev_chargers_ICV00003",
+    "name": "CARREGADOR VEICULAR FOXESS A7300P1-E-2 - 7,3 KW",
+    "manufacturer": "Foxess",
+    "category": "ev_chargers",
+    "price": "R$ 2.811,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ed/ICV00003%20CARREGADOR%20VEICULAR%20FOXESS%20A7300P1-E-2%20-%207,3%20KW.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR FOXESS A7300P1-E-2 - 7,3 KW",
+    "pricing": {
+      "price": 2811.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_ev_chargers_ICV00002",
+    "name": "CARREGADOR VEICULAR WALLBOX GROWATT THOR07AS-P THO",
+    "manufacturer": "Growatt",
+    "category": "ev_chargers",
+    "price": "R$ 3.423,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7ec/ICV00002%20CARREGADOR%20VEICULAR%20WALLBOX%20GROWATT%20THOR07AS-P%20THO.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CARREGADOR VEICULAR WALLBOX GROWATT THOR07AS-P THO",
+    "pricing": {
+      "price": 3423.66,
+      "currency": "BRL"
+    }
+  }
+]
