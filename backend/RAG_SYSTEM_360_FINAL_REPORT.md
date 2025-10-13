@@ -10,6 +10,7 @@
 Sistema RAG (Retrieval-Augmented Generation) completamente configurado com stack Open Source:
 
 ### ✅ Componentes Operacionais
+
 - **OpenAI API**: Configurado e validado (text-embedding-3-large, 3072 dims)
 - **Qdrant OSS**: Container Docker rodando com 4 collections populadas
 - **PostgreSQL**: Database principal operacional
@@ -17,6 +18,7 @@ Sistema RAG (Retrieval-Augmented Generation) completamente configurado com stack
 - **Backend Medusa**: Healthy no Docker (9000)
 
 ### 📊 Collections Populadas
+
 | Collection | Pontos | Tipo de Dados | Status |
 |-----------|--------|---------------|---------|
 | `ysh-catalog` | 10 | Produtos solares | ✅ |
@@ -26,6 +28,7 @@ Sistema RAG (Retrieval-Augmented Generation) completamente configurado com stack
 | **TOTAL** | **19 pontos** | **4 collections** | **✅** |
 
 ### ⚠️ Pendências
+
 - Publishable API Key não configurada (impede teste de endpoints /store/rag/*)
 - Build local falhando por module resolution em ESM
 - Endpoints RAG criados mas não testados end-to-end
@@ -76,12 +79,14 @@ Sistema RAG (Retrieval-Augmented Generation) completamente configurado com stack
 ### Fase 1: Configuração de API Keys ✅
 
 **Ações Realizadas**:
+
 1. Documentação de API keys (`API_KEYS_GUIDE.md`, `API_KEYS_SETUP_SUMMARY.md`)
 2. Configuração OpenAI em `backend/.env`
 3. Script de validação `scripts/validate-api-keys.js`
 4. Export script PowerShell `export-openai-key.ps1`
 
 **Resultado**:
+
 ```bash
 $ node scripts/validate-api-keys.js
 ✅ 3/3 required keys configured
@@ -92,6 +97,7 @@ $ node scripts/validate-api-keys.js
 ### Fase 2: Setup Qdrant OSS ✅
 
 **Ações Realizadas**:
+
 1. Adicionado serviço Qdrant ao `docker-compose.foss.yml`
 2. Criado `infra/qdrant/config.yaml` com performance settings
 3. Criado `infra/qdrant/README.md` com usage guide
@@ -104,6 +110,7 @@ $ node scripts/validate-api-keys.js
    - `ysh-technical` (3072 dims, Cosine, HNSW)
 
 **Resultado**:
+
 ```powershell
 $ docker ps --filter "name=ysh-qdrant"
 CONTAINER ID   IMAGE                 STATUS
@@ -118,16 +125,19 @@ StatusCode: 200, Content: "healthz check passed"
 ### Fase 3: Database Migrations ✅
 
 **Ações Realizadas**:
+
 1. Executadas migrações no container Docker
 2. Todos os módulos Medusa atualizados
 3. Links sincronizados
 
 **Comando**:
+
 ```bash
 docker exec ysh-b2b-backend yarn medusa db:migrate
 ```
 
 **Resultado**:
+
 - ✅ product, pricing, promotion, customer, sales_channel
 - ✅ cart, region, api_key, store, tax, currency
 - ✅ payment, order, settings, auth, user
@@ -143,12 +153,14 @@ docker exec ysh-b2b-backend yarn medusa db:migrate
 **Solução**: Script standalone Node.js (`seed-qdrant-standalone.js`)
 
 **Ações Realizadas**:
+
 1. Criado `seed-qdrant-standalone.js` com HTTP requests
 2. Gerados embeddings via OpenAI para 10 produtos solares
 3. Populadas 4 collections com dados de exemplo
 4. Rate limiting implementado (600ms entre requests)
 
 **Produtos Inseridos**:
+
 1. Painel Solar 550W Monocristalino
 2. Inversor Híbrido 5kW
 3. Kit Solar Residencial 5.5kWp
@@ -161,21 +173,25 @@ docker exec ysh-b2b-backend yarn medusa db:migrate
 10. Kit Carregador Veículo Elétrico 7.4kW
 
 **Regulamentações Inseridas**:
+
 - REN 482/2012 - Geração Distribuída
 - REN 687/2015 - Atualização da GD
 - Lei 14.300/2022 - Marco Legal da GD
 
 **Tarifas Inseridas**:
+
 - Tarifa Convencional Residencial
 - Tarifa Branca
 - Bandeiras Tarifárias
 
 **Docs Técnicos Inseridos**:
+
 - Dimensionamento de Sistema Fotovoltaico
 - Instalação de Inversores
 - Manutenção Preventiva de Painéis
 
 **Resultado**:
+
 ```bash
 $ node scripts/seed-qdrant-standalone.js
 
@@ -194,6 +210,7 @@ $ node scripts/seed-qdrant-standalone.js
 ### Fase 5: Testes de Endpoints ⚠️
 
 **Endpoints Criados**:
+
 - ✅ `POST /store/rag/ask-helio` - Conversação com Hélio
 - ✅ `POST /store/rag/recommend-products` - Recomendação baseada em filtros
 - ✅ `POST /store/rag/search` - Busca semântica
@@ -204,6 +221,7 @@ $ node scripts/seed-qdrant-standalone.js
 Todos os endpoints `/store/rag/*` requerem `x-publishable-api-key` header, que não está configurado.
 
 **Teste Executado**:
+
 ```bash
 $ node scripts/test-rag-endpoints.js
 
@@ -219,6 +237,7 @@ Response: {
 ```
 
 **Próximo Passo Necessário**:
+
 1. Gerar Publishable API Key no Admin Dashboard (Settings → API Keys)
 2. Adicionar key aos testes: `headers: { 'x-publishable-api-key': 'pk_xxxxx' }`
 3. Re-executar testes end-to-end
@@ -228,6 +247,7 @@ Response: {
 ## 📁 Arquivos Criados
 
 ### Documentação
+
 - `backend/API_KEYS_GUIDE.md` (465 linhas)
 - `backend/API_KEYS_SETUP_SUMMARY.md` (189 linhas)
 - `backend/API_KEYS_STATUS_REPORT.md` (atualizado)
@@ -237,6 +257,7 @@ Response: {
 - `infra/qdrant/README.md` (200 linhas)
 
 ### Configuração
+
 - `backend/.env` (atualizado com API keys)
 - `backend/export-openai-key.ps1` (PowerShell script)
 - `docker/docker-compose.foss.yml` (Qdrant service adicionado)
@@ -246,12 +267,14 @@ Response: {
 - `medusa-config.ts` (fix de imports circulares)
 
 ### Scripts
+
 - `backend/scripts/validate-api-keys.js` (validação)
 - `backend/scripts/seed-qdrant-standalone.js` (seed)
 - `backend/scripts/test-rag-endpoints.js` (testes E2E)
 - `backend/src/scripts/seed-qdrant-collections.ts` (versão Medusa)
 
 ### API Endpoints
+
 - `backend/src/api/admin/rag/seed-collections/route.ts` (seed via HTTP)
 
 ---
@@ -273,6 +296,7 @@ x-publishable-api-key: pk_xxxxx
 ```
 
 **Resposta Esperada**:
+
 ```json
 {
   "results": [
@@ -306,6 +330,7 @@ x-publishable-api-key: pk_xxxxx
 ```
 
 **Resposta Esperada**:
+
 ```json
 {
   "recommendations": [
@@ -340,6 +365,7 @@ x-publishable-api-key: pk_xxxxx
 ```
 
 **Resposta Esperada**:
+
 ```json
 {
   "answer": "Para um consumo de 300 kWh/mês no Rio de Janeiro, recomendo o Kit Solar Residencial de 5.5kWp. Ele gera aproximadamente 660 kWh/mês (considerando irradiação local) e cobre todo seu consumo com margem de segurança...",
@@ -361,6 +387,7 @@ x-publishable-api-key: pk_xxxxx
 ```
 
 **Resposta Esperada**:
+
 ```json
 {
   "collections": [
@@ -377,6 +404,7 @@ x-publishable-api-key: pk_xxxxx
 ## 🔧 Troubleshooting
 
 ### Problema: Qdrant retorna "Unauthorized"
+
 ```powershell
 # Solução: Incluir API key no header
 $headers = @{ "api-key" = "qdrant_dev_key_foss_2025" }
@@ -384,6 +412,7 @@ Invoke-RestMethod -Uri "http://localhost:6333/healthz" -Headers $headers
 ```
 
 ### Problema: Backend não conecta ao Qdrant
+
 ```bash
 # Solução: Verificar env vars no container
 docker exec ysh-b2b-backend env | grep QDRANT
@@ -394,6 +423,7 @@ docker exec ysh-b2b-backend env | grep QDRANT
 ```
 
 ### Problema: Collections vazias após seed
+
 ```bash
 # Solução: Re-executar seed standalone
 node scripts/seed-qdrant-standalone.js
@@ -404,6 +434,7 @@ Invoke-RestMethod -Uri "http://localhost:6333/collections/ysh-catalog" -Headers 
 ```
 
 ### Problema: Build local falha com "Cannot find module './service'"
+
 ```
 ❌ BLOQUEADO: Module resolution ESM issue
 ✅ WORKAROUND: Use container Docker que já tem código compilado
@@ -411,6 +442,7 @@ Invoke-RestMethod -Uri "http://localhost:6333/collections/ysh-catalog" -Headers 
 ```
 
 ### Problema: Endpoints retornam 400 "Publishable API key required"
+
 ```bash
 # Solução:
 # 1. Acessar http://localhost:9000/app
@@ -424,6 +456,7 @@ Invoke-RestMethod -Uri "http://localhost:6333/collections/ysh-catalog" -Headers 
 ## 📊 Métricas do Sistema
 
 ### Qdrant Performance
+
 ```bash
 # Verificar health
 curl http://localhost:6333/healthz -H "api-key: qdrant_dev_key_foss_2025"
@@ -436,6 +469,7 @@ curl http://localhost:6333/collections/ysh-catalog -H "api-key: qdrant_dev_key_f
 ```
 
 ### Docker Containers
+
 ```powershell
 # Status
 docker ps --filter "name=ysh-"
@@ -451,6 +485,7 @@ docker stats ysh-b2b-backend ysh-qdrant-foss
 ```
 
 ### OpenAI API Usage
+
 - **Modelo**: text-embedding-3-large
 - **Custo por 1M tokens**: ~$0.13
 - **Tokens por embedding**: ~500 (média)
@@ -504,18 +539,21 @@ docker stats ysh-b2b-backend ysh-qdrant-foss
 ### 📈 Próximos Passos
 
 **Curto Prazo (< 1 hora)**:
+
 1. Gerar Publishable API Key no Admin
 2. Atualizar `test-rag-endpoints.js` com key
 3. Executar testes E2E
 4. Validar respostas dos 4 endpoints
 
 **Médio Prazo (< 1 dia)**:
+
 1. Popular collections com produtos reais do Medusa
 2. Implementar cache de embeddings
 3. Otimizar prompts do RAG
 4. Adicionar logging e monitoring
 
 **Longo Prazo (< 1 semana)**:
+
 1. Resolver module resolution para build local
 2. Implementar CI/CD para testes RAG
 3. Adicionar métricas de qualidade de recomendações
@@ -526,6 +564,7 @@ docker stats ysh-b2b-backend ysh-qdrant-foss
 ## 🏆 Status Final
 
 ### Infraestrutura: ✅ 100% Operacional
+
 - OpenAI API: ✅
 - Qdrant OSS: ✅
 - Collections: ✅ 4/4 populadas
@@ -533,6 +572,7 @@ docker stats ysh-b2b-backend ysh-qdrant-foss
 - Database: ✅ Migrations completas
 
 ### Funcionalidades: ⚠️ 80% Completo
+
 - Embeddings: ✅ Gerados e armazenados
 - Seed: ✅ Script funcionando
 - Endpoints: ✅ Criados

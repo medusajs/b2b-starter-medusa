@@ -366,6 +366,9 @@ Toda documentação foi reorganizada para facilitar navegação:
 #### Backend (`backend/docs/`)
 
 - **`api/`** - Documentação de rotas API
+  - [API Response Quick Reference](./backend/docs/api/API_RESPONSE_QUICK_REFERENCE.md) - Guia rápido de envelopes
+  - [Pact Provider Guide](./backend/docs/api/PACT_PROVIDER_GUIDE.md) - Verificação de contratos
+  - [Backend APIs v2 Complete](./backend/docs/api/BACKEND_APIS_MEGA_PROMPT_V2_COMPLETE.md) - Implementação completa
 - **`database/`** - Guias de migração e schemas
 - **`security/`** - Auditorias de segurança
 - **`testing/`** - Relatórios de cobertura 360°
