@@ -8,7 +8,7 @@ Todas as configurações para execução automática de migrações estão pront
 
 ## 🚀 Como Testar
 
-### Quando Docker Estiver Funcionando:
+### Quando Docker Estiver Funcionando
 
 ```powershell
 # Execute o script de teste rápido
@@ -16,6 +16,7 @@ Todas as configurações para execução automática de migrações estão pront
 ```
 
 Este script irá:
+
 1. ✅ Verificar se Docker está rodando
 2. ✅ Build da imagem de teste
 3. ✅ Verificar que entrypoint.sh está no container

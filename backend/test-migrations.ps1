@@ -16,7 +16,8 @@ try {
         exit 1
     }
     Write-Host "   ✅ Docker versão: $dockerVersion" -ForegroundColor Green
-} catch {
+}
+catch {
     Write-Host "   ❌ Erro ao verificar Docker: $_" -ForegroundColor Red
     exit 1
 }
@@ -52,7 +53,8 @@ $entrypointTest = docker run --rm `
 
 if ($entrypointTest -match "⏭️.*Skipping migrations") {
     Write-Host "   ✅ Entrypoint executa e respeita SKIP_MIGRATIONS" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "   ⚠️  Entrypoint executou mas output inesperado:" -ForegroundColor Yellow
     Write-Host $entrypointTest
 }
@@ -69,9 +71,11 @@ $dbTest = docker run --rm `
 
 if ($dbTest -match "Database connection timeout") {
     Write-Host "   ✅ Script tenta conectar e falha corretamente (comportamento esperado)" -ForegroundColor Green
-} elseif ($dbTest -match "Waiting for database") {
+}
+elseif ($dbTest -match "Waiting for database") {
     Write-Host "   ✅ Script aguarda database (comportamento esperado)" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "   ⚠️  Output inesperado:" -ForegroundColor Yellow
     Write-Host $dbTest | Select-Object -First 10
 }
