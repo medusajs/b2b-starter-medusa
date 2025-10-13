@@ -273,10 +273,15 @@ export const yshApi = YSHApiClient.getInstance();
 export async function fetcher(path: string, init?: RequestInit): Promise<any> {
     try {
         const url = path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
-        const result = await httpClient.get<any>(url, {
+        const config: HttpClientConfig = {
             ...createAuthenticatedConfig(),
-            ...init,
-        });
+            headers: {
+                ...createAuthenticatedConfig().headers,
+                ...(init?.headers as Record<string, string>),
+            },
+        };
+
+        const result = await httpClient.get<any>(url, config);
         return result.data;
     } catch (error: any) {
         throw new Error(`API ${path} -> ${error.status || 500}: ${error.message}`);
