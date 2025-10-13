@@ -111,3 +111,26 @@ docs/
 Dockerfile*
 docker-compose*
 .dockerignore
+
+# Scripts (mas manter entrypoint.sh)
+scripts/
+*.ps1
+start-*.sh
+test-*.sh
+!entrypoint.sh
+
+# Database
+database/
+*.sql
+
+# Integration tests
+integration-tests/
+pact/
+
+# Large data files
+data/catalog/
+uploads/
+static/
+
+# Coverage
+coverage/
