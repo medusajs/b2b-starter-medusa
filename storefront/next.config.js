@@ -22,8 +22,7 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 ano
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
+    // dangerouslyAllowSVG removed for security - use <img> or convert SVG to React components
     remotePatterns: [
       {
         protocol: 'http',
@@ -120,7 +119,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com",
+              // unsafe-eval only in dev; prod should use nonce-based or strict-dynamic
+              ...(process.env.NODE_ENV === 'production'
+                ? ["script-src 'self' 'unsafe-inline' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
+                : ["script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
+              ),
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: https: blob:",
               "font-src 'self' data: https://fonts.gstatic.com",

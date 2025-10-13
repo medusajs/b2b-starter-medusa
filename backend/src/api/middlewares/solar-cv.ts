@@ -21,7 +21,7 @@ export function rateLimitMiddleware(
         }
 
         try {
-            const identifier = (req.ip || req.headers["x-forwarded-for"] || "anonymous") as string;
+            const identifier = `cv:${(req.ip || req.headers["x-forwarded-for"] || "anonymous") as string}`;
             const rateLimiter = RateLimiter.getInstance();
 
             const result = await rateLimiter.checkLimit(identifier, {
@@ -29,15 +29,14 @@ export function rateLimitMiddleware(
                 windowMs,
             });
 
-            // Set rate limit headers
-            res.setHeader("X-RateLimit-Limit", result.limit);
-            res.setHeader("X-RateLimit-Remaining", result.remaining);
+            // Set rate limit headers (RFC 6585 compliant)
+            res.setHeader("X-RateLimit-Limit", String(result.limit));
+            res.setHeader("X-RateLimit-Remaining", String(result.remaining));
             res.setHeader("X-RateLimit-Reset", new Date(result.resetTime).toISOString());
-            res.setHeader("X-RateLimit-Window", `${result.windowMs}ms`);
 
             if (!result.success) {
                 const retryAfter = Math.ceil((result.resetTime - Date.now()) / 1000);
-                res.setHeader("Retry-After", retryAfter.toString());
+                res.setHeader("Retry-After", String(retryAfter));
 
                 res.status(429).json({
                     success: false,
@@ -96,6 +95,7 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
 
     // Production: require explicit origins, deny wildcard
     if (isProd && !allowedOriginsEnv) {
+        res.setHeader("Vary", "Origin");
         if (req.method === "OPTIONS") {
             res.status(403).json({
                 success: false,
@@ -105,33 +105,38 @@ export function cvCorsMiddleware(req: MedusaRequest, res: MedusaResponse, next: 
             return;
         }
 
-        if (req.method === "POST" || req.method === "PUT" || req.method === "DELETE") {
-            res.status(403).json({
-                success: false,
-                error: "Origin not allowed",
-                error_code: "E403_ORIGIN",
-            });
-            return;
-        }
+        res.status(403).json({
+            success: false,
+            error: "Origin not allowed - CORS not configured",
+            error_code: "E403_ORIGIN",
+        });
+        return;
     }
 
-    // Parse allowed origins
-    const allowedOrigins = allowedOriginsEnv?.split(",") || (isProd ? [] : ["*"]);
+    // Parse allowed origins (no wildcard in production)
+    const allowedOrigins = allowedOriginsEnv?.split(",").map(o => o.trim()) || (isProd ? [] : ["*"]);
 
     // Validate origin
-    const isAllowed = allowedOrigins.includes("*") ||
-        allowedOrigins.includes(origin) ||
-        (!isProd && !origin); // Allow no-origin in dev
+    const allowWildcard = allowedOrigins.includes("*") && !isProd;
+    const isAllowed = allowWildcard ||
+        (origin && allowedOrigins.includes(origin)) ||
+        (!isProd && !origin); // Allow no-origin in dev only
 
     if (isAllowed) {
         // In production, set specific origin; in dev, allow wildcard if configured
-        const allowOrigin = origin || (allowedOrigins.includes("*") && !isProd ? "*" : allowedOrigins[0]);
+        const allowOrigin = origin || (allowWildcard ? "*" : allowedOrigins[0] || "*");
 
         res.setHeader("Access-Control-Allow-Origin", allowOrigin);
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         res.setHeader("Access-Control-Allow-Headers", "Content-Type, X-API-Key, Authorization");
         res.setHeader("Access-Control-Max-Age", "86400");
-        res.setHeader("Access-Control-Allow-Credentials", "true");
+
+        // Vary header for caching proxies
+        if (!allowWildcard) {
+            res.setHeader("Vary", "Origin");
+        }
+    } else {
+        res.setHeader("Vary", "Origin");
     }
 
     if (req.method === "OPTIONS") {
