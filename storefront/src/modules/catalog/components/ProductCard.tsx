@@ -9,6 +9,7 @@ import { ProductSKU, ProductModel } from "@/modules/catalog/components/product-i
 import { CategoryIcon, type ProductCategory } from "@/modules/catalog/components/CategoryIcon"
 import { useVariant, trackExperimentEvent } from "@/lib/experiments"
 import { STATIC_BLUR_PLACEHOLDER } from "@/lib/blur-placeholder"
+import { trackSKUCopy, trackModelLinkClick, trackProductView } from "@/lib/sku-analytics"
 
 interface ProductCardProps {
     product: {
@@ -138,6 +139,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                                trackProductView(product.id, category)
                                 try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                             }}
                         >
@@ -197,6 +199,12 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             model={product.model}
                             size="sm"
                             link={false}
+                            onClick={() => trackModelLinkClick({
+                                manufacturer: product.manufacturer!,
+                                model: product.model!,
+                                product_id: product.id,
+                                source: 'product_card'
+                            })}
                         />
                     </div>
                 )}
@@ -281,6 +289,7 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                                 onClick={(e) => {
                                     e.preventDefault()
                                     addToQuote?.({ id: product.id, category, name: product.name, manufacturer: product.manufacturer, image_url: imageUrl, price_brl: displayPrice })
+                                    trackProductView(product.id, category)
                                     try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: product.id, category }) } catch { }
                                     trackExperimentEvent('product_card_cta', 'add_to_quote_click', { product_id: product.id, category })
                                 }}
@@ -310,7 +319,10 @@ const ProductCard = ({ product, category = 'panels' }: ProductCardProps) => {
                             <LocalizedClientLink href={`/produtos/${category}/${product.id}`}>
                                 <button
                                     className="ysh-btn-primary text-sm px-3 py-1"
-                                    onClick={() => trackExperimentEvent('product_card_cta', 'view_details_click', { product_id: product.id, category })}
+                                    onClick={() => {
+                                        trackProductView(product.id, category)
+                                        trackExperimentEvent('product_card_cta', 'view_details_click', { product_id: product.id, category })
+                                    }}
                                 >
                                     {ctaText}
                                 </button>

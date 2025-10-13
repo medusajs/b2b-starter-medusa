@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/nextjs-vite"
+import "../src/styles/globals.css"
 
 const preview: Preview = {
   parameters: {
@@ -8,12 +9,44 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark', value: '#09090b' },
+      ],
+    },
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: "todo",
+      config: {
+        rules: [
+          {
+            id: 'color-contrast',
+            enabled: true,
+          },
+          {
+            id: 'focus-order-semantics',
+            enabled: true,
+          },
+          {
+            id: 'keyboard-navigation',
+            enabled: true,
+          },
+        ],
+      },
+      element: '#storybook-root',
+      manual: false,
+    },
+  },
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: ['light', 'dark'],
+        dynamicTitle: true,
+      },
     },
   },
 }

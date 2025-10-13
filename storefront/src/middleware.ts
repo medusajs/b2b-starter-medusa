@@ -60,10 +60,18 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // 4. Legacy SEO redirects (prevent loops)
+  // 4. Legacy SEO redirects with UTM preservation
   if (pathname === '/products' || pathname === '/br/products') {
     const url = request.nextUrl.clone()
     url.pathname = '/br/store'
+    // UTM params are automatically preserved in url.searchParams
+    return NextResponse.redirect(url, 301)
+  }
+
+  // 5. Catalog redirects (pt-BR specific)
+  if (pathname === '/catalogo' || pathname === '/br/catalogo') {
+    const url = request.nextUrl.clone()
+    url.pathname = '/br/categories'
     return NextResponse.redirect(url, 301)
   }
 
@@ -78,7 +86,8 @@ export const config = {
      * - static files (_next/static, _next/image)
      * - public assets (favicon, images, etc.)
      * - file extensions
+     * - manifest and service worker
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|.*\\.[a-z]{2,4}).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|images|assets|manifest.json|sw.js|.*\\.[a-z]{2,4}).*)",
   ],
 }

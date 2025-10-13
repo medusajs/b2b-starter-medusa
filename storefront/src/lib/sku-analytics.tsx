@@ -110,100 +110,205 @@ export function useSKUHistory() {
 }
 
 /**
- * Analytics Tracking Functions
+ * PLG Analytics Tracking Functions
+ * Production-grade tracking with consent management
  */
 
-// Consent check helper
+// Enhanced consent check with multiple sources
 function hasAnalyticsConsent(): boolean {
     if (typeof window === 'undefined') return false
 
-    // Check for consent cookie (adjust to your consent mechanism)
     try {
-        const consent = localStorage.getItem('analytics_consent')
-        return consent === 'true' || consent === null // Default opt-in for now
+        // Check multiple consent sources
+        const cookieConsent = document.cookie.includes('analytics_consent=true')
+        const localConsent = localStorage.getItem('analytics_consent') === 'true'
+        const sessionConsent = sessionStorage.getItem('analytics_consent') === 'true'
+        
+        return cookieConsent || localConsent || sessionConsent
     } catch {
-        return true // Default opt-in if localStorage unavailable
+        return false // Default opt-out if checks fail
     }
 }
 
-// Track copy SKU event
-export function trackSKUCopy(sku: string, productId?: string, category?: string): void {
+// Enhanced tracking interfaces
+export interface TrackingEvent {
+    event: string
+    properties: Record<string, any>
+    timestamp?: string
+    user_id?: string
+    session_id?: string
+}
+
+export interface SKUTrackingData {
+    sku: string
+    product_id?: string
+    category?: string
+    manufacturer?: string
+    price?: number
+    source?: 'product_card' | 'product_page' | 'search' | 'comparison'
+}
+
+export interface ModelTrackingData {
+    manufacturer: string
+    model: string
+    product_id?: string
+    url?: string
+    source?: 'product_card' | 'product_page' | 'catalog'
+}
+
+export interface CategoryTrackingData {
+    category: string
+    filters?: Record<string, any>
+    page?: number
+    total_results?: number
+    source?: 'navigation' | 'search' | 'filter'
+}
+
+// Enhanced SKU copy tracking
+export function trackSKUCopy(data: SKUTrackingData): void {
     if (!hasAnalyticsConsent()) {
-        console.log('[Analytics] Tracking disabled - no consent')
+        console.log('[Analytics] SKU copy tracking disabled - no consent')
         return
+    }
+
+    const event: TrackingEvent = {
+        event: 'sku_copied',
+        properties: {
+            ...data,
+            timestamp: new Date().toISOString(),
+            page_url: window.location.href,
+            user_agent: navigator.userAgent,
+        }
     }
 
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
-        (window as any).posthog.capture('sku_copied', {
-            sku,
-            product_id: productId,
-            category,
-            timestamp: new Date().toISOString(),
-        })
+        (window as any).posthog.capture(event.event, event.properties)
     }
 
     // Google Analytics (gtag)
     if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'sku_copy', {
             event_category: 'Product Interaction',
-            event_label: sku,
-            product_id: productId,
-            category,
+            event_label: data.sku,
+            custom_parameters: event.properties,
         })
     }
 
-    console.log('[Analytics] SKU Copied:', { sku, productId, category })
+    // Custom analytics endpoint (if needed)
+    if (process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT) {
+        fetch(process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event),
+        }).catch(console.error)
+    }
+
+    console.log('[Analytics] SKU Copied:', event)
 }
 
-// Track ProductModel link click
-export function trackModelLinkClick(manufacturer: string, model: string): void {
-    if (!hasAnalyticsConsent()) return
+// Enhanced model link tracking
+export function trackModelLinkClick(data: ModelTrackingData): void {
+    if (!hasAnalyticsConsent()) {
+        console.log('[Analytics] Model link tracking disabled - no consent')
+        return
+    }
+
+    const event: TrackingEvent = {
+        event: 'product_model_clicked',
+        properties: {
+            ...data,
+            timestamp: new Date().toISOString(),
+            page_url: window.location.href,
+        }
+    }
 
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
-        (window as any).posthog.capture('product_model_clicked', {
-            manufacturer,
-            model,
-            timestamp: new Date().toISOString(),
-        })
+        (window as any).posthog.capture(event.event, event.properties)
     }
 
     // Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'model_link_click', {
             event_category: 'Product Interaction',
-            event_label: `${manufacturer} - ${model}`,
-            manufacturer,
-            model,
+            event_label: `${data.manufacturer} - ${data.model}`,
+            custom_parameters: event.properties,
         })
     }
 
-    console.log('[Analytics] Model Link Clicked:', { manufacturer, model })
+    console.log('[Analytics] Model Link Clicked:', event)
 }
 
-// Track category view
-export function trackCategoryView(category: string): void {
-    if (!hasAnalyticsConsent()) return
+// Enhanced category view tracking
+export function trackCategoryView(data: CategoryTrackingData): void {
+    if (!hasAnalyticsConsent()) {
+        console.log('[Analytics] Category view tracking disabled - no consent')
+        return
+    }
+
+    const event: TrackingEvent = {
+        event: 'category_viewed',
+        properties: {
+            ...data,
+            timestamp: new Date().toISOString(),
+            page_url: window.location.href,
+            referrer: document.referrer,
+        }
+    }
 
     // PostHog
     if (typeof window !== 'undefined' && (window as any).posthog) {
-        (window as any).posthog.capture('category_viewed', {
-            category,
-            timestamp: new Date().toISOString(),
-        })
+        (window as any).posthog.capture(event.event, event.properties)
     }
 
     // Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'category_view', {
             event_category: 'Navigation',
-            event_label: category,
-            category,
+            event_label: data.category,
+            custom_parameters: event.properties,
         })
     }
 
-    console.log('[Analytics] Category Viewed:', category)
+    console.log('[Analytics] Category Viewed:', event)
+}
+
+// Additional PLG tracking functions
+export function trackProductView(productId: string, category?: string): void {
+    if (!hasAnalyticsConsent()) return
+
+    const event: TrackingEvent = {
+        event: 'product_viewed',
+        properties: {
+            product_id: productId,
+            category,
+            timestamp: new Date().toISOString(),
+            page_url: window.location.href,
+        }
+    }
+
+    if (typeof window !== 'undefined' && (window as any).posthog) {
+        (window as any).posthog.capture(event.event, event.properties)
+    }
+}
+
+export function trackQuoteRequest(productIds: string[], totalValue?: number): void {
+    if (!hasAnalyticsConsent()) return
+
+    const event: TrackingEvent = {
+        event: 'quote_requested',
+        properties: {
+            product_ids: productIds,
+            product_count: productIds.length,
+            total_value: totalValue,
+            timestamp: new Date().toISOString(),
+        }
+    }
+
+    if (typeof window !== 'undefined' && (window as any).posthog) {
+        (window as any).posthog.capture(event.event, event.properties)
+    }
 }
 
 /**
@@ -297,10 +402,32 @@ export function SKUHistoryDropdown() {
     )
 }
 
+// Utility function to set consent
+export function setAnalyticsConsent(consent: boolean): void {
+    try {
+        const value = consent.toString()
+        localStorage.setItem('analytics_consent', value)
+        sessionStorage.setItem('analytics_consent', value)
+        
+        // Set cookie with 1 year expiry
+        const expires = new Date()
+        expires.setFullYear(expires.getFullYear() + 1)
+        document.cookie = `analytics_consent=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`
+        
+        console.log(`[Analytics] Consent ${consent ? 'granted' : 'revoked'}`)
+    } catch (error) {
+        console.error('[Analytics] Failed to set consent:', error)
+    }
+}
+
 export default {
     useSKUHistory,
     trackSKUCopy,
     trackModelLinkClick,
     trackCategoryView,
+    trackProductView,
+    trackQuoteRequest,
+    setAnalyticsConsent,
+    hasAnalyticsConsent,
     SKUHistoryDropdown,
 }
