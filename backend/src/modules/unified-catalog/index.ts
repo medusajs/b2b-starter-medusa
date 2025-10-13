@@ -9,3 +9,4 @@ export default Module(UNIFIED_CATALOG_MODULE, {
 
 // Export models for linkable usage
 export * from "./models";
+export * from "./types";
