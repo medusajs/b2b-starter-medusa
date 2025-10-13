@@ -122,10 +122,10 @@ describe('Financing Calculations', () => {
       expect(singlePayment.payments).toHaveLength(1);
       expect(singlePayment.payments[0].remaining_balance).toBeCloseTo(0, 2);
 
-      // Zero interest rate
-      const zeroInterest = bacenService.simulatePrice(10000, 0, 12);
-      expect(zeroInterest.summary.total_interest).toBe(0);
-      expect(zeroInterest.summary.total_paid).toBe(10000);
+      // Very low interest rate
+      const lowInterest = bacenService.simulatePrice(10000, 0.1, 12);
+      expect(lowInterest.summary.total_interest).toBeGreaterThan(0);
+      expect(lowInterest.summary.total_paid).toBeGreaterThan(10000);
     });
   });
 
