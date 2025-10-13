@@ -79,7 +79,7 @@ export async function POST(
 
     } catch (error: any) {
         console.error("[RAG Search Error]", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }
 
@@ -103,6 +103,6 @@ export async function GET(
 
     } catch (error: any) {
         console.error("[RAG Collections Error]", error)
-        return throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        return res.status(500).json({ error: error.message })
     }
 }

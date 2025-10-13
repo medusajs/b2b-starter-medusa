@@ -1,13 +1,13 @@
 import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
-export const defaultStoreSolar-detectionFields = [
+export const defaultStoreSolarDetectionFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listSolar-detectionQueryConfig = defineQueryConfig({
-  defaults: defaultStoreSolar-detectionFields,
-  allowed: defaultStoreSolar-detectionFields,
+export const listSolarDetectionQueryConfig = defineQueryConfig({
+  defaults: defaultStoreSolarDetectionFields,
+  allowed: defaultStoreSolarDetectionFields,
   defaultLimit: 50,
 });
