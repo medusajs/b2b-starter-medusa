@@ -51,6 +51,7 @@ Implementar um sistema de fallback robusto e recuperável que garanta que **nenh
 | `/store/checkout` | POST | 🔴 Crítica | ❌ Nenhum | Queue + validation |
 
 **Pontos de Falha:**
+
 1. ❌ **Add to Cart** - Sem fallback, falha bloqueia jornada
 2. ❌ **Checkout** - Sem retry, pode perder pedido
 3. ❌ **Cart Sync** - Se backend cai, carrinho some
@@ -70,6 +71,7 @@ Implementar um sistema de fallback robusto e recuperável que garanta que **nenh
 | `/store/products?kits` | GET | 🔴 Alta | ✅ 3 níveis | - |
 
 **Pontos de Falha:**
+
 1. ❌ **Solar Calculator** - Sem fallback, bloqueia dimensionamento
 2. ❌ **Viability API** - Sem fallback, usuário perde análise
 3. ⚠️ **Tariffs** - Dados podem estar desatualizados
@@ -89,6 +91,7 @@ Implementar um sistema de fallback robusto e recuperável que garanta que **nenh
 | `/api/documents/upload` | POST | 🟡 Média | Queue com multipart |
 
 **Pontos de Falha:**
+
 1. ❌ **Lead Creation** - Sem queue, perde leads
 2. ❌ **Customer Registration** - Sem retry, usuário desiste
 3. ❌ **Document Upload** - Sem queue, perde arquivos
@@ -108,6 +111,7 @@ Implementar um sistema de fallback robusto e recuperável que garanta que **nenh
 | `/store/orders` | POST | 🔴 Crítica | Queue + validation |
 
 **Pontos de Falha:**
+
 1. ❌ **Quote Creation** - Sem queue, perde cotações
 2. ❌ **Approval Flow** - Sem retry, bloqueia aprovações
 3. ❌ **Order Placement** - Sem queue, pedidos podem ser perdidos
@@ -124,6 +128,7 @@ Implementar um sistema de fallback robusto e recuperável que garanta que **nenh
 | `/api/solar-cv/thermal` | POST | 🟢 Baixa | Optional feature |
 
 **Pontos de Falha:**
+
 1. ⚠️ **CV Detection** - Pode falhar, mas tem alternativa manual
 
 ---
@@ -1214,4 +1219,3 @@ if (result.isFallback) {
 **Autor:** Equipe YSH Solar Hub  
 **Status:** 🚧 Em Implementação  
 **Próxima revisão:** Após Sprint 1
-
