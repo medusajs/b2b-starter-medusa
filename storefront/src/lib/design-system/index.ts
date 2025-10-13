@@ -3,13 +3,12 @@
  * Unified design system integrating with Medusa UI
  */
 
-// Color System
+// Unified Design Tokens (new consolidated system)
+export * from "./tokens";
+
+// Legacy individual token exports for backward compatibility
 export * from "./colors";
-
-// Typography System
 export * from "./typography";
-
-// Spacing System
 export * from "./spacing";
 
 // Components
