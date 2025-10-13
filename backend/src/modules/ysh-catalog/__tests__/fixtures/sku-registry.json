@@ -1,0 +1,34 @@
+{
+    "items": [
+        {
+            "category": "kits",
+            "id": "KIT-001",
+            "sku": "YSH-KIT-RES-5KW"
+        },
+        {
+            "category": "kits",
+            "id": "KIT-002",
+            "sku": "YSH-KIT-COM-10KW"
+        },
+        {
+            "category": "inverters",
+            "id": "INV-001",
+            "sku": "YSH-INV-GT-5KW"
+        },
+        {
+            "category": "inverters",
+            "id": "INV-002",
+            "sku": "YSH-INV-GT-10KW-3F"
+        },
+        {
+            "category": "panels",
+            "id": "PANEL-001",
+            "sku": "YSH-PNL-550W-MONO"
+        },
+        {
+            "category": "panels",
+            "id": "PANEL-002",
+            "sku": "YSH-PNL-600W-BIF"
+        }
+    ]
+}

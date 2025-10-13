@@ -1,0 +1,80 @@
+{
+    "kits": [
+        {
+            "id": "KIT-001",
+            "name": "Kit Solar 5kW Residencial",
+            "manufacturer": "ACME Solar",
+            "category": "kits",
+            "price": "R$ 15.500,00",
+            "technical_specs": {
+                "power_w": 5000,
+                "panel_count": 10,
+                "inverter_power_w": 5000
+            }
+        },
+        {
+            "id": "KIT-002",
+            "name": "Kit Solar 10kW Comercial",
+            "manufacturer": "ACME Solar",
+            "category": "kits",
+            "price": "R$ 28.900,00",
+            "technical_specs": {
+                "power_w": 10000,
+                "panel_count": 20,
+                "inverter_power_w": 10000
+            }
+        }
+    ],
+    "inverters": [
+        {
+            "id": "INV-001",
+            "name": "Inversor Grid-Tie 5kW",
+            "manufacturer": "PowerTech",
+            "category": "inverters",
+            "price": "R$ 4.200,00",
+            "technical_specs": {
+                "power_w": 5000,
+                "efficiency": 97.5,
+                "phases": 1
+            }
+        },
+        {
+            "id": "INV-002",
+            "name": "Inversor Grid-Tie 10kW Trifásico",
+            "manufacturer": "PowerTech",
+            "category": "inverters",
+            "price": "R$ 7.800,00",
+            "technical_specs": {
+                "power_w": 10000,
+                "efficiency": 98.2,
+                "phases": 3
+            }
+        }
+    ],
+    "panels": [
+        {
+            "id": "PANEL-001",
+            "name": "Painel Solar 550W Mono PERC",
+            "manufacturer": "SolarMax",
+            "category": "panels",
+            "price": "R$ 680,00",
+            "technical_specs": {
+                "power_w": 550,
+                "efficiency": 21.2,
+                "cell_type": "monocrystalline"
+            }
+        },
+        {
+            "id": "PANEL-002",
+            "name": "Painel Solar 600W Bifacial",
+            "manufacturer": "München Solar",
+            "category": "panels",
+            "price": "R$ 820,00",
+            "technical_specs": {
+                "power_w": 600,
+                "efficiency": 22.1,
+                "cell_type": "bifacial"
+            }
+        }
+    ]
+}
