@@ -22,6 +22,7 @@ from skimage import filters, morphology, measure, color
 from skimage.feature import canny
 from skimage.measure import label, regionprops
 import json
+import os
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass, asdict

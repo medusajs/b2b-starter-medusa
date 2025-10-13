@@ -247,7 +247,28 @@ class InternalCatalogService {
     }
 
     /**
+     * Check if WebP optimized version exists and is better than original
+     */
+    private async getOptimizedWebPPath(originalPath: string): Promise<string | null> {
+        try {
+            const filename = path.basename(originalPath, path.extname(originalPath));
+            const webpPath = path.join(__dirname, '../../../static/images-intelligent-optimized', `${filename}.webp`);
+
+            // Check if WebP exists
+            try {
+                await fs.access(webpPath);
+                return `/static/images-intelligent-optimized/${filename}.webp`;
+            } catch {
+                return null;
+            }
+        } catch (error) {
+            return null;
+        }
+    }
+
+    /**
      * Get image for SKU with enhanced matching (case-insensitive + partial)
+     * Prioritizes WebP optimized versions when available
      */
     async getImageForSku(sku: string | null | Promise<string | null>, product?: any): Promise<ProductImage> {
         // Handle Promise<string> case
@@ -331,9 +352,20 @@ class InternalCatalogService {
             return placeholderImage;
         }
 
+        // Try to use optimized WebP version if available
+        const webpPath = await this.getOptimizedWebPPath(entry.images.original);
+        const imagePath = webpPath || entry.images.original;
+
         return {
-            url: entry.images.original,
-            sizes: entry.images,
+            url: imagePath,
+            sizes: {
+                original: imagePath,
+                thumb: imagePath,
+                medium: imagePath,
+                large: imagePath
+            },
+            format: webpPath ? 'webp' : path.extname(entry.images.original).substring(1),
+            optimized: !!webpPath,
             preloaded: true,
             cached: this.cache.has(`image_${resolvedSku}`)
         };
