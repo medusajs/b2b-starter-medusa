@@ -1,0 +1,386 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "stringboxes Products Catalog",
+  "description": "Complete catalog of stringboxes products with specifications and images",
+  "numberOfItems": 13,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
+        "name": "String Box Clamper 2 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 2 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 362,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
+        "name": "String Box Clamper 4 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 4 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 489,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
+        "name": "String Box Clamper 6 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 6 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 612,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
+        "name": "String Box Clamper 8 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 8 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 798,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
+        "name": "String Box Clamper 10 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 10 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 943,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
+        "name": "String Box Clamper 12 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Clamper"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Clamper 12 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 1089,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Clamper"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
+        "name": "String Box Tecbox 4 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 4 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 499,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
+        "name": "String Box Tecbox 6 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 6 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 625,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
+        "name": "String Box Tecbox 8 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 8 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 812,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
+        "name": "String Box Tecbox 10 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 10 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 956,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
+        "name": "String Box Tecbox 12 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 12 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 1112,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
+        "name": "String Box Tecbox 16 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 16 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 1398,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
+        "name": "String Box Tecbox 20 Entradas",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Tecbox"
+        },
+        "model": "",
+        "category": "stringboxes",
+        "description": "String Box Tecbox 20 Entradas",
+        "image": "https://ysh-solar.com/images//images/placeholder-stringbox.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 1681,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "Tecbox"
+        }
+      }
+    }
+  ]
+}

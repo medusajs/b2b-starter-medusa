@@ -1,0 +1,229 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "name": "YSH Solar Products Catalog",
+  "description": "Complete catalog of solar energy products with specifications and images",
+  "provider": {
+    "@type": "Organization",
+    "name": "YSH Solar",
+    "url": "https://ysh-solar.com"
+  },
+  "dataset": [
+    {
+      "@type": "Dataset",
+      "name": "panels Products",
+      "description": "Solar panels product catalog",
+      "url": "https://ysh-solar.com/catalog/panels",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/panels.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/panels.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "inverters Products",
+      "description": "Solar inverters product catalog",
+      "url": "https://ysh-solar.com/catalog/inverters",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/inverters.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/inverters.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "batteries Products",
+      "description": "Solar batteries product catalog",
+      "url": "https://ysh-solar.com/catalog/batteries",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/batteries.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/batteries.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "kits Products",
+      "description": "Solar kits product catalog",
+      "url": "https://ysh-solar.com/catalog/kits",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/kits.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/kits.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "cables Products",
+      "description": "Solar cables product catalog",
+      "url": "https://ysh-solar.com/catalog/cables",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/cables.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/cables.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "controllers Products",
+      "description": "Solar controllers product catalog",
+      "url": "https://ysh-solar.com/catalog/controllers",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/controllers.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/controllers.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "structures Products",
+      "description": "Solar structures product catalog",
+      "url": "https://ysh-solar.com/catalog/structures",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/structures.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/structures.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "accessories Products",
+      "description": "Solar accessories product catalog",
+      "url": "https://ysh-solar.com/catalog/accessories",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/accessories.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/accessories.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "ev_chargers Products",
+      "description": "Solar ev_chargers product catalog",
+      "url": "https://ysh-solar.com/catalog/ev_chargers",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/ev_chargers.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/ev_chargers.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "posts Products",
+      "description": "Solar posts product catalog",
+      "url": "https://ysh-solar.com/catalog/posts",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/posts.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/posts.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "stringboxes Products",
+      "description": "Solar stringboxes product catalog",
+      "url": "https://ysh-solar.com/catalog/stringboxes",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/stringboxes.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/stringboxes.json"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "others Products",
+      "description": "Solar others product catalog",
+      "url": "https://ysh-solar.com/catalog/others",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://ysh-solar.com/data/others.csv"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://ysh-solar.com/data/others.json"
+        }
+      ]
+    }
+  ]
+}

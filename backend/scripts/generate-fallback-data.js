@@ -224,6 +224,10 @@ function generateMasterFiles(allProducts) {
  */
 async function main() {
     console.log('🚀 Starting product data export for fallback coverage...\n');
+    console.log('📁 Input path:', UNIFIED_SCHEMAS_PATH);
+    console.log('📁 Output path:', OUTPUT_PATH);
+    console.log('📂 Categories:', CATEGORIES.join(', '));
+    console.log('');
 
     const allProducts = [];
 
@@ -267,8 +271,6 @@ async function main() {
 }
 
 // Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-    main().catch(console.error);
-}
+main().catch(console.error);
 
 export { main, productToCsvRow, productToJsonLd };

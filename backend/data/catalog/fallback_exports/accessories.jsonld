@@ -1,0 +1,831 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "accessories Products Catalog",
+  "description": "Complete catalog of accessories products with specifications and images",
+  "numberOfItems": 17,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-GROWATT-AXE-5.0L",
+        "name": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Growatt"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Bateria de lítio LiFePO4 5kWh para sistemas híbridos e antiapagão. 6000 ciclos a 80%, DoD 95%, garantia 10 anos. Ideal para aplicações residenciais e comerciais com alta confiabilidade.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 6716.83,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "technology",
+            "value": "LiFePO4"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "capacity_kwh",
+            "value": 5
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "voltage_v",
+            "value": 51.2
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dod_pct",
+            "value": 95
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "cycles_at_80pct",
+            "value": 6000
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "length": 440,
+              "width": 420,
+              "height": 130
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "weight_kg",
+            "value": 48
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "warranty_years",
+            "value": 10
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "certifications",
+            "value": [
+              "INMETRO",
+              "UN38.3"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "power_w",
+            "value": 5000
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "current_a",
+            "value": 10
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Growatt"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-GROWATT-THOR07AS-P",
+        "name": "Carregador EV Growatt THOR07AS-P 7kW",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Growatt"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Carregador veicular 7kW com integração solar (PV-linkage), WiFi e controle por app. Conector Type 2, proteção IP55, ideal para residências com energia solar e veículos elétricos.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 3423.66,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "power_kw",
+            "value": 7
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "voltage_v",
+            "value": 220
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "connector_type",
+            "value": "Type 2 (IEC 62196-2)"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "WiFi",
+              "App control",
+              "PV-linkage (solar charging)",
+              "6 mA DC leakage protection",
+              "IP55"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "length": 350,
+              "width": 200,
+              "height": 100
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "weight_kg",
+            "value": 4.5
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "warranty_years",
+            "value": 5
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "certifications",
+            "value": [
+              "INMETRO",
+              "IEC 61851-1"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "power_w",
+            "value": 7000
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "current_a",
+            "value": 7
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Growatt"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-FOXESS-A7300P1-E-2",
+        "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "FoxESS"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Carregador inteligente 7.3kW com OCPP 1.6J/2.0.1 para gestão de frotas, WiFi/Bluetooth, balanceamento dinâmico de carga. Ideal para aplicações comerciais e residenciais com múltiplos veículos.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 2811.46,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "power_kw",
+            "value": 7.3
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "voltage_v",
+            "value": 220
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "connector_type",
+            "value": "Type 2 (IEC 62196-2)"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "WiFi/Bluetooth",
+              "OCPP 1.6J/2.0.1",
+              "App control",
+              "Dynamic load balancing",
+              "IP55"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "length": 365,
+              "width": 210,
+              "height": 105
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "weight_kg",
+            "value": 4.8
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "warranty_years",
+            "value": 5
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "certifications",
+            "value": [
+              "INMETRO",
+              "IEC 61851-1",
+              "OCPP"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "power_w",
+            "value": 7300
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "FoxESS"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-NEP-PVG-3-20A-L",
+        "name": "RSD NEP PVG-3-20A-L (MC4) Rapid Shutdown",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "NEP"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Dispositivo de desligamento rápido (RSD) para até 3 módulos, 20A, conector MC4. Conformidade NEC 690.12, certificado UL 3741. Essencial para segurança do instalador e conformidade regulatória.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 91178,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "rated_current_a",
+            "value": 20
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "max_modules",
+            "value": 3
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "connector",
+            "value": "MC4"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "Sinal RSD",
+              "Proteção IP elevado",
+              "Conformidade NEC 690.12"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "length": 120,
+              "width": 80,
+              "height": 35
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "weight_kg",
+            "value": 0.3
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "warranty_years",
+            "value": 10
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "certifications",
+            "value": [
+              "UL 3741",
+              "IEC 62109"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "current_a",
+            "value": 20
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "NEP"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-CONDUFORT-DN40-PEAD",
+        "name": "Duto Corrugado Condufort DN 40 PEAD NBR 450N 50m",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Condufort"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Duto corrugado PEAD DN 40 para passagem de cabos DC/AC, resistente a UV, instalação subterrânea ou aérea. NBR 450N, rolo de 50m. Proteção mecânica para sistemas fotovoltaicos.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 566,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "material",
+            "value": "PEAD (Polietileno de Alta Densidade)"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "diameter_mm",
+            "value": 40
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "length_m",
+            "value": 50
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "load_class",
+            "value": "NBR 450N"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "Corrugado",
+              "Resistente a UV",
+              "Instalação subterrânea/aérea"
+            ]
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "certifications",
+            "value": [
+              "NBR 15715"
+            ]
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Condufort"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
+        "name": "Caixa de Passagem PRFV D 0.8m × H 0.8m",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Genérico"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Caixa de passagem em PRFV 0.8m × 0.8m para instalações subterrâneas, alta resistência mecânica e zero corrosão. Ideal para usinas fotovoltaicas e aplicações comerciais/industriais.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 86488,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "material",
+            "value": "PRFV (Plástico Reforçado com Fibra de Vidro)"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "diameter": 800,
+              "height": 800
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "Alta resistência mecânica",
+              "Corrosão zero",
+              "Instalação subterrânea"
+            ]
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Genérico"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/FORTLEV-CERCA-ARAME-1.8MX20M",
+        "name": "Cerca de Arame Galvanizado 1.8m × 20m",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Genérico"
+        },
+        "model": "",
+        "category": "others",
+        "description": "Cerca de arame galvanizado 1.8m × 20m para proteção perimetral de usinas fotovoltaicas. Aço galvanizado resistente, malha 65×65mm, diâmetro 2.1mm. Ideal para segurança de instalações solares.",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 88795,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "material",
+            "value": "Aço galvanizado"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "dimensions_mm",
+            "value": {
+              "height": 1800,
+              "length": 20000,
+              "wire_diameter": 2.1,
+              "mesh": 65
+            }
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "features",
+            "value": [
+              "Galvanizado",
+              "Resistente a intempéries",
+              "Proteção perimetral"
+            ]
+          }
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Genérico"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_1",
+        "name": "KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT FIXACAO FINAL TF-015 P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF 007)",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 7.48,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_2",
+        "name": "KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 16,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_3",
+        "name": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 68.52,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_4",
+        "name": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 80.05,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_5",
+        "name": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 105.21,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_6",
+        "name": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 108.95,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_7",
+        "name": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 125.58,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_8",
+        "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 129.92,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_9",
+        "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 146.62,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": "https://ysh-solar.com/products/solfacil_accessories_10",
+        "name": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "SOLFACIL"
+        },
+        "model": "",
+        "category": "accessories",
+        "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
+        "image": "https://ysh-solar.com/images//images/placeholder-accessory.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": 150.36,
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        "additionalProperty": [],
+        "brand": {
+          "@type": "Brand",
+          "name": "SOLFACIL"
+        }
+      }
+    }
+  ]
+}
