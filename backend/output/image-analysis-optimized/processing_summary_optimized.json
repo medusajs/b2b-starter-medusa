@@ -1,0 +1,86 @@
+{
+  "processed_at": "2025-10-13T14:34:32.965507",
+  "model_used": "llama3.2-vision:11b",
+  "optimizations": [
+    "warmup",
+    "concise_prompt",
+    "optimized_parameters",
+    "cache"
+  ],
+  "total_images": 3,
+  "successful": 3,
+  "failed": 0,
+  "cache_hits": 1,
+  "total_time_seconds": 120.64576864242554,
+  "avg_time_seconds": 60.32288432121277,
+  "throughput_per_hour": 59.67884394967577,
+  "results": [
+    {
+      "file": "sku_112369_1-17457314169194004.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_112369_1-17457314169194004.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T14:32:32.314048",
+      "metadata": {
+        "manufacturer": "Deye",
+        "model": "Dey-Solar-10k-3-1",
+        "product_type": "inverter",
+        "specifications": {
+          "power_kw": 10.0,
+          "voltage": "220V",
+          "phase": "3",
+          "mppt_count": 1,
+          "efficiency_percent": 95.0
+        },
+        "visible_text": "Dey-Solar-10k-3-1",
+        "quality_score": 8,
+        "_processing_time": 107.5533971786499,
+        "_from_cache": true
+      }
+    },
+    {
+      "file": "sku_135720_135720-17458937387875142.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_135720_135720-17458937387875142.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T14:32:52.873243",
+      "metadata": {
+        "manufacturer": "SOFAR",
+        "model": "SOFAR-1000",
+        "product_type": "inverter",
+        "specifications": {
+          "power_kw": 1.0,
+          "voltage": "220V",
+          "phase": "mono",
+          "mppt_count": 1,
+          "efficiency_percent": 95.0
+        },
+        "visible_text": "SOFAR-1000 Inverter",
+        "quality_score": 8,
+        "_processing_time": 20.557246923446655,
+        "_from_cache": false
+      }
+    },
+    {
+      "file": "sku_145763_145763-17456925994814488.jpeg",
+      "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_145763_145763-17456925994814488.jpeg",
+      "category": "INVERTERS",
+      "processed_at": "2025-10-13T14:34:32.963750",
+      "metadata": {
+        "manufacturer": "Growatt",
+        "model": "SOLAR-5000",
+        "product_type": "inverter",
+        "specifications": {
+          "power_kw": 5.0,
+          "voltage": "220V",
+          "phase": "mono",
+          "mppt_count": 1,
+          "efficiency_percent": 95.0
+        },
+        "visible_text": "SOLAR-5000",
+        "quality_score": 8,
+        "_processing_time": 100.08852171897888,
+        "_from_cache": false
+      }
+    }
+  ],
+  "errors": []
+}

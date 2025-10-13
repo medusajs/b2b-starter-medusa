@@ -12,20 +12,22 @@ import { getSolarOrdersWithCompanyWorkflow } from "../../../../workflows/solar/i
  * - status: Status do pedido (pending, completed, etc)
  */
 export const GET = async (
-  req: MedusaRequest,
-  res: MedusaResponse
+    req: MedusaRequest,
+    res: MedusaResponse
 ) => {
-  const { customer_id, status } = req.query;
-  
-  const { result } = await getSolarOrdersWithCompanyWorkflow(req.scope).run({
-    input: {
-      customer_id: customer_id as string,
-      status: status as string,
-    },
-  });
-  
-  res.json({
-    orders: result.orders,
-    count: result.orders.length,
-  });
+    const { customer_id, status } = req.query;
+
+    const { result } = await getSolarOrdersWithCompanyWorkflow(req.scope).run({
+        input: {
+            customer_id: customer_id as string,
+            status: status as string,
+        },
+    });
+
+    const orders = (result as { orders: any[] }).orders;
+
+    res.json({
+        orders,
+        count: orders.length,
+    });
 };
