@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic package-level CSS to allow Storybook to render Tailwind classes */
+:root {
+    --ysh-start: #f59e0b;
+    --ysh-end: #d97706;
+}

@@ -10,12 +10,26 @@
         "src"
     ],
     "scripts": {
-        "build": "tsc -p tsconfig.json",
+        "clean": "rimraf dist",
+        "build": "rimraf dist && tsc -p tsconfig.json && rollup -c",
         "storybook": "storybook dev -p 6006",
         "test": "vitest"
     },
     "peerDependencies": {
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "rollup": "^3.29.0",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-commonjs": "^24.0.0",
+        "rollup-plugin-esbuild": "^4.8.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "rimraf": "^5.0.0",
+        "vitest": "^3.2.4",
+        "@testing-library/react": "^14.0.0",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/user-event": "^14.6.1"
     }
 }
