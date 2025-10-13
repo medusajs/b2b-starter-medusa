@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 
 export default async function OrderConfirmedPage(props: Props) {
   const params = await props.params
-  const order = (await retrieveOrder(params.id).catch(() => null)) as B2BOrder
+  const order = await retrieveOrder(params.id).catch(() => null)
 
-  if (!order) {
+  if (!order || !('company' in order && order.company)) {
     return notFound()
   }
 
-  return <OrderCompletedTemplate order={order} />
+  return <OrderCompletedTemplate order={order as B2BOrder} />
 }

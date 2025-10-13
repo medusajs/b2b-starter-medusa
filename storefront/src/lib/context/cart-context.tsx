@@ -90,7 +90,7 @@ export function CartProvider({
         setOptimisticCart((prev) => {
           prevCart = structuredClone(prev) as B2BCart
 
-          const items = [...(prev?.items || [])]
+          const items = [...((prev as any)?.items || [])]
 
           const lineItems = payload.lineItems
 
