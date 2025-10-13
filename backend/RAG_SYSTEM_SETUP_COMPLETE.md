@@ -24,7 +24,7 @@ Sistema RAG completo configurado com stack OSS (Open Source Self-hosted):
 **Status**: ✅ Configurado e validado
 
 ```env
-OPENAI_API_KEY=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
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 **Uso**:
@@ -159,7 +159,7 @@ de778ee86851   ysh-store-backend     "dumb-init -- npm st…"  Up 2 hours (healt
 
 ```env
 # OpenAI Configuration
-OPENAI_API_KEY=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
+OPENAI_API_KEY=your_openai_api_key_here
 
 # Qdrant Configuration
 QDRANT_URL=http://localhost:6333

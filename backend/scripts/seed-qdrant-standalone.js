@@ -9,10 +9,15 @@ const https = require('https');
 const http = require('http');
 
 // Configurações
-const QDRANT_URL = 'http://localhost:6333';
-const QDRANT_API_KEY = 'qdrant_dev_key_foss_2025';
-const OPENAI_API_KEY = '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';
-const MEDUSA_URL = 'http://localhost:9000';
+const QDRANT_URL = process.env.QDRANT_URL || 'http://localhost:6333';
+const QDRANT_API_KEY = process.env.QDRANT_API_KEY || 'qdrant_dev_key_foss_2025';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const MEDUSA_URL = process.env.MEDUSA_URL || 'http://localhost:9000';
+
+if (!OPENAI_API_KEY) {
+  console.error('❌ OPENAI_API_KEY environment variable is required');
+  process.exit(1);
+}
 
 // Funções auxiliares
 function makeRequest(url, options = {}, postData = null) {
