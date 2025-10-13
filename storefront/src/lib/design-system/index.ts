@@ -15,6 +15,8 @@ export * from "./spacing";
 export * from "./components/Button";
 export * from "./components/Card";
 export * from "./components/Input";
+export * from "./components/Badge";
+export * from "./components/Label";
 
 // Re-export for convenience
 export { yello, medusaYelloTokens, tailwindYelloColors } from "./colors";
