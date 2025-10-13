@@ -5,3 +5,4 @@
 
 export { Button, buttonVariants, type ButtonProps } from './Button'
 export { Card, cardVariants, type CardProps } from './Card'
+export { Input, inputVariants, type InputProps } from './Input'

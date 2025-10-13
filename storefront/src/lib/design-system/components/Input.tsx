@@ -21,7 +21,7 @@ import { inputVariants } from "../tokens"
 
 export interface InputProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof inputVariants> {}
+    VariantProps<typeof inputVariants> { }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
     ({ className, variant, size, type, ...props }, ref) => {
