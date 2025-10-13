@@ -102,11 +102,16 @@ export const GET = async (
  * Accept quote
  */
 export const accept = async (
-    req: MedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ) => {
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
     const { id } = req.params;
+    const customerId = req.auth_context?.actor_id;
+
+    if (!customerId) {
+        return res.status(401).json({ message: "Authentication required" });
+    }
 
     // Verify user can accept this quote
     const { data: [quote] } = await query.graph({
@@ -115,14 +120,14 @@ export const accept = async (
         filters: { id }
     });
 
-    if (quote.customer_id !== req.auth_context?.actor_id) {
+    if (quote.customer_id !== customerId) {
         return res.status(403).json({ message: "Only quote owner can accept it" });
     }
 
     await customerAcceptQuoteWorkflow(req.scope).run({
         input: {
             quote_id: id,
-            customer_id: req.auth_context.actor_id,
+            customer_id: customerId,
         },
     });
 
