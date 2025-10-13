@@ -22,6 +22,7 @@ import { MedusaError } from "@medusajs/framework/utils";
 import { ModuleRegistrationName } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 import { z } from "zod";
+import { APIResponse } from "../../../utils/api-response";
 
 /**
  * Unified Products Query Schema
