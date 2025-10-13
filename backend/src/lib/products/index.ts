@@ -10,5 +10,5 @@ export * from "./utils";
 // Export all image utilities
 export * from "./images";
 
-// Export all schemas
-export * from "./schemas";
+// Note: Schemas are available but not re-exported here to avoid naming conflicts
+// Import directly from "./schemas" when needed
