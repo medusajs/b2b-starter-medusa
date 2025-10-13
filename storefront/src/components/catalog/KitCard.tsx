@@ -193,7 +193,7 @@ export function KitList({
                         <div className="pb-4">
                             <div className="h-4 bg-muted rounded w-1/3 mb-2" />
                             <div className="h-6 bg-muted rounded w-full" />
-                        </CardHeader>
+                        </div>
                         <div>
                             <div className="space-y-3">
                                 <div className="h-8 bg-muted rounded" />
