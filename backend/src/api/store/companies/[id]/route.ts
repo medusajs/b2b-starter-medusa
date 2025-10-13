@@ -1,9 +1,9 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaRequest, MedusaResponse, AuthenticatedMedusaRequest } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/utils";
 import {
   deleteCompaniesWorkflow,
   updateCompaniesWorkflow,
-} from "../../../../workflows/company/workflows/";
+} from "../../../../workflows/company/workflows/index";
 import {
   StoreGetCompanyParamsType,
   StoreUpdateCompanyType,
