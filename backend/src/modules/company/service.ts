@@ -1,5 +1,5 @@
 import { MedusaService } from "@medusajs/framework/utils";
-import { Company, Employee } from "./models";
+import { Company, Employee } from "./models/index.ts";
 import {
   CreateCompanyDTO,
   UpdateCompanyDTO,

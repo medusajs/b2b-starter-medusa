@@ -1,2 +1,2 @@
-export { Company } from "./company";
-export { Employee } from "./employee";
+export { Company } from "./company.ts";
+export { Employee } from "./employee.ts";
