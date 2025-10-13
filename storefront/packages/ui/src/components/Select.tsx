@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../utils/cn';
+import { cn } from '../utils/cn';
 import { getComponentToken } from '../theme/token-utils';
 
 const selectVariants = cva(
@@ -25,21 +25,18 @@ const selectVariants = cva(
 );
 
 export interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement>,
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'>,
     VariantProps<typeof selectVariants> {
   placeholder?: string;
   options?: Array<{ value: string; label: string; disabled?: boolean }>;
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ className, variant, size, placeholder, options, children, ...props }, ref) => {
-    const height = getComponentToken('input', 'height', size || 'md');
-
+  ({ className, variant, size = 'md', placeholder, options, children, ...props }, ref) => {
     return (
       <select
         className={cn(selectVariants({ variant, size, className }))}
         ref={ref}
-        style={{ height }}
         {...props}
       >
         {placeholder && (
