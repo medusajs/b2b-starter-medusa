@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Badge } from '@/components/ui/badge'
 import type { Quote } from '../types'
 
@@ -53,7 +53,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
               </td>
             ))}
           </tr>
-          
+
           <tr className="border-b bg-gray-50">
             <td className="p-4 font-medium">Valor Total</td>
             {quotes.map((quote) => (
@@ -65,7 +65,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
               </td>
             ))}
           </tr>
-          
+
           <tr className="border-b">
             <td className="p-4 font-medium">Número de Itens</td>
             {quotes.map((quote) => (
@@ -74,7 +74,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
               </td>
             ))}
           </tr>
-          
+
           {quotes.some(q => q.system) && (
             <>
               <tr className="border-b bg-gray-50">
@@ -85,7 +85,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
                   </td>
                 ))}
               </tr>
-              
+
               <tr className="border-b">
                 <td className="p-4 font-medium">Geração Mensal (kWh)</td>
                 {quotes.map((quote) => (
@@ -94,7 +94,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
                   </td>
                 ))}
               </tr>
-              
+
               <tr className="border-b bg-gray-50">
                 <td className="p-4 font-medium">Economia Mensal</td>
                 {quotes.map((quote) => (
@@ -106,7 +106,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
                   </td>
                 ))}
               </tr>
-              
+
               <tr className="border-b">
                 <td className="p-4 font-medium">Payback (anos)</td>
                 {quotes.map((quote) => (
@@ -117,7 +117,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
               </tr>
             </>
           )}
-          
+
           <tr className="border-b bg-gray-50">
             <td className="p-4 font-medium">Validade</td>
             {quotes.map((quote) => (
@@ -126,7 +126,7 @@ export default function QuoteComparison({ quotes }: QuoteComparisonProps) {
               </td>
             ))}
           </tr>
-          
+
           <tr className="border-b">
             <td className="p-4 font-medium">Condições de Pagamento</td>
             {quotes.map((quote) => (

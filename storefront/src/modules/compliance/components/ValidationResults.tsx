@@ -8,7 +8,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { CheckCircle2, AlertCircle, AlertTriangle, Download, FileText } from 'lucide-react'

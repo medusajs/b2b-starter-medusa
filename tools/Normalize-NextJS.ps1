@@ -45,7 +45,7 @@ param(
     [string]$WorkspacePath,
     
     [Parameter()]
-    [switch]$DryRun = $true,
+    [switch]$DryRun,
     
     [Parameter()]
     [switch]$Fix,
@@ -233,7 +233,7 @@ function Test-ServerActions {
         $hasUseServer = $content -match '^\s*[''"]use server[''"]'
         
         # Deve importar 'server-only' para segurança
-        $hasServerOnly = $content -match "import\s+[''"]server-only[''"]"
+        $hasServerOnly = $content -match "import\s+['\""]server-only['\""]"
         
         if (-not $hasUseServer) {
             $issue = [NormalizationIssue]@{
