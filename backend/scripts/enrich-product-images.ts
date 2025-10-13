@@ -308,8 +308,8 @@ async function enrichProduct(
     }
 
     const thumbnailUrl = buildImageUrl(thumbnail)
-    const mediumUrl = buildImageUrl(medium)
-    const largeUrl = buildImageUrl(large)
+    const mediumUrl = medium ? buildImageUrl(medium) : thumbnailUrl
+    const largeUrl = large ? buildImageUrl(large) : thumbnailUrl
 
     if (verbose) {
         console.log(`      ✅ Found image: ${imageEntry.sku}`)
@@ -431,7 +431,7 @@ export default async function enrichProductImages({ container }: ExecArgs): Prom
 
     for (let i = 0; i < products.length; i++) {
         const product = products[i]
-        const category = product.metadata?.category || "unknown"
+        const category = String(product.metadata?.category || "unknown")
 
         if (!stats.by_category[category]) {
             stats.by_category[category] = {
@@ -461,12 +461,16 @@ export default async function enrichProductImages({ container }: ExecArgs): Prom
 
         if (result.enriched && result.reason === "success") {
             stats.enriched++
-            stats.by_category[category].enriched++
+            if (stats.by_category[category]) {
+                stats.by_category[category].enriched++
+            }
         } else if (result.reason === "already_has_image") {
             stats.already_had_image++
         } else if (result.reason === "no_match" || result.reason === "no_valid_image") {
             stats.no_match_found++
-            stats.by_category[category].no_match++
+            if (stats.by_category[category]) {
+                stats.by_category[category].no_match++
+            }
         } else if (result.reason === "error") {
             stats.errors++
         }
