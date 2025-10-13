@@ -43,26 +43,26 @@ export const PRODUCT_CATEGORIES = {
 
 export type ProductCategoryKey = typeof PRODUCT_CATEGORIES[keyof typeof PRODUCT_CATEGORIES];// Validate product category
 export const isValidCategory = (category: string): category is ProductCategoryKey => {
-  return Object.values(PRODUCT_CATEGORIES).includes(category as ProductCategoryKey);
+    return Object.values(PRODUCT_CATEGORIES).includes(category as ProductCategoryKey);
 };
 
 // Get category display name
 export const getCategoryDisplayName = (category: ProductCategoryKey): string => {
-  const displayNames: Record<ProductCategoryKey, string> = {
-    accessories: 'Acessórios',
-    batteries: 'Baterias',
-    cables: 'Cabos',
-    controllers: 'Controladores',
-    ev_chargers: 'Carregadores EV',
-    inverters: 'Inversores',
-    kits: 'Kits',
-    others: 'Outros',
-    panels: 'Painéis',
-    posts: 'Postes',
-    stringboxes: 'String Boxes',
-    structures: 'Estruturas'
-  };
-  return displayNames[category] || category;
+    const displayNames: Record<ProductCategoryKey, string> = {
+        accessories: 'Acessórios',
+        batteries: 'Baterias',
+        cables: 'Cabos',
+        controllers: 'Controladores',
+        ev_chargers: 'Carregadores EV',
+        inverters: 'Inversores',
+        kits: 'Kits',
+        others: 'Outros',
+        panels: 'Painéis',
+        posts: 'Postes',
+        stringboxes: 'String Boxes',
+        structures: 'Estruturas'
+    };
+    return displayNames[category] || category;
 };
 
 // Parse price string to number
