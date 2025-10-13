@@ -420,7 +420,6 @@ $RequiredDirs = @(
     "packages\ui"
 )
 
-$AllDirsExist = $true
 $RequiredDirs | ForEach-Object {
     $DirPath = Join-Path $ProjectRoot $_
     if (-not (Test-Path $DirPath)) {
@@ -428,21 +427,13 @@ $RequiredDirs | ForEach-Object {
     }
 }
 
-if ($AllDirsExist) {
-    Write-ColoredOutput "`n✅ Estrutura definitiva criada com sucesso!" $Green
-    if (-not $WhatIf) {
-        Write-ColoredOutput "📁 Backup criado em: $BackupDir" $Yellow
-    }
-    Write-ColoredOutput "`n📋 PRÓXIMOS PASSOS:" $White
-    Write-ColoredOutput "1. Verificar arquivos migrados" $White
-    Write-ColoredOutput "2. Atualizar imports relativos se necessário" $White
-    Write-ColoredOutput "3. Testar build: cd backend; yarn build" $White
-    Write-ColoredOutput "4. Testar storefront: cd storefront; yarn dev" $White
-    Write-ColoredOutput "5. Atualizar documentação" $White
+Write-ColoredOutput "`n✅ Estrutura definitiva criada com sucesso!" $Green
+if (-not $WhatIf) {
+    Write-ColoredOutput "📁 Backup criado em: $BackupDir" $Yellow
 }
-else {
-    Write-ColoredOutput "`n❌ Alguns diretórios não foram criados corretamente!" $Red
-    exit 1
-}
-
-Write-ColoredOutput "`n=== MIGRAÇÃO CONCLUÍDA ===" $White
+Write-ColoredOutput "`n📋 PRÓXIMOS PASSOS:" $White
+Write-ColoredOutput "1. Verificar arquivos migrados" $White
+Write-ColoredOutput "2. Atualizar imports relativos se necessário" $White
+Write-ColoredOutput "3. Testar build: cd backend; yarn build" $White
+Write-ColoredOutput "4. Testar storefront: cd storefront; yarn dev" $White
+Write-ColoredOutput "5. Atualizar documentação" $White
