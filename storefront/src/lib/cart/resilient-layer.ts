@@ -1,50 +1,142 @@
-"use server"
+"use server""use server""use server"
+
 import "server-only"
 
+import "server-only"import "server-only"
+
 /**
+
  * CartResilientLayer - Resilient cart operations with local persistence
- * 
- * Features:
+
+ *
+
+ * Features:/**/**
+
  * - Local storage fallback (IndexedDB/localStorage)
- * - Operation queue for failed requests
+
+ * - Operation queue for failed requests * CartResilientLayer - Resilient cart operations with local persistence * CartResilientLayer - Resilient cart operations with local persistence
+
  * - Automatic background sync (60s interval)
- * - Recovery after failures
+
+ * - Recovery after failures * * 
+
  * - PostHog integration for tracking
- * 
+
+ * * Features: * Features:
+
  * @module lib/cart/resilient-layer
- */
 
-import { resilientClient, type ResilientResponse } from "@/lib/http"
-import { HttpTypes } from "@medusajs/types"
-import { B2BCart } from "@/types/global"
-import { getCacheTag } from "@/lib/data/cookies"
-import { revalidateTag } from "next/cache"
+ */ * - Local storage fallback (IndexedDB/localStorage) * - Local storage fallback (IndexedDB/localStorage)
 
-// ==========================================
-// Types
-// ==========================================
 
-export type CartOperation =
-    | "addItem"
-    | "updateItem"
-    | "removeItem"
-    | "addBulk"
-    | "updateCart"
-    | "placeOrder"
-    | "createApproval"
 
-export interface QueuedCartOperation {
-    id: string
-    type: CartOperation
-    payload: any
-    cartId: string
-    timestamp: number
-    attempts: number
-    maxAttempts: number
+import { CartResilientLayer as CartResilientLayerClass, globalQueue, CartLocalStorage, CartOperationQueue, type CartSyncStatus } from "./resilient-layer-class" * - Operation queue for failed requests * - Operation queue for failed requests
+
+
+
+// ========================================== * - Automatic background sync (60s interval) * - Automatic background sync (60s interval)
+
+// Global instance for easy access
+
+// ========================================== * - Recovery after failures * - Recovery after failures
+
+
+
+export const cartResilience = new CartResilientLayerClass() * - PostHog integration for tracking * - PostHog integration for tracking
+
+
+
+/** * * 
+
+ * Get current sync status
+
+ */ * @module lib/cart/resilient-layer * @module lib/cart/resilient-layer
+
+export async function getCartSyncStatus(): Promise<CartSyncStatus> {
+
+    return CartLocalStorage.loadSyncStatus() */ */
+
 }
 
-export interface CartSyncStatus {
-    hasPendingOperations: boolean
+
+
+/**
+
+ * Trigger manual syncimport { CartResilientLayer as CartResilientLayerClass, globalQueue, CartLocalStorage, CartOperationQueue, type CartSyncStatus } from "./resilient-layer-class"import { resilientClient, type ResilientResponse } from "@/lib/http"
+
+ */
+
+export async function triggerCartSync(): Promise<void> {import { HttpTypes } from "@medusajs/types"
+
+    await globalQueue.processQueue()
+
+}// ==========================================import { B2BCart } from "@/types/global"
+
+
+
+/**// Global instance for easy accessimport { getCacheTag } from "@/lib/data/cookies"
+
+ * Clear cart queue
+
+ */// ==========================================import { revalidateTag } from "next/cache"
+
+export async function clearCartQueue(): Promise<void> {
+
+    globalQueue.clear()
+
+}
+
+export const cartResilience = new CartResilientLayerClass()// ==========================================
+
+// Export classes for internal use
+
+export { CartLocalStorage, CartOperationQueue }// Types
+
+/**// ==========================================
+
+ * Get current sync status
+
+ */export type CartOperation =
+
+export async function getCartSyncStatus(): Promise<CartSyncStatus> {    | "addItem"
+
+    return CartLocalStorage.loadSyncStatus()    | "updateItem"
+
+}    | "removeItem"
+
+    | "addBulk"
+
+/**    | "updateCart"
+
+ * Trigger manual sync    | "placeOrder"
+
+ */    | "createApproval"
+
+export async function triggerCartSync(): Promise<void> {
+
+    await globalQueue.processQueue()export interface QueuedCartOperation {
+
+}    id: string
+
+    type: CartOperation
+
+/**    payload: any
+
+ * Clear cart queue    cartId: string
+
+ */    timestamp: number
+
+export async function clearCartQueue(): Promise<void> {    attempts: number
+
+    globalQueue.clear()    maxAttempts: number
+
+}}
+
+
+
+// Export classes for internal useexport interface CartSyncStatus {
+
+export { CartLocalStorage, CartOperationQueue }    hasPendingOperations: boolean
     queueSize: number
     lastSyncAttempt?: number
     lastSyncSuccess?: number

@@ -1,5 +1,3 @@
-"use server"
-
 /**
  * Cart Integration Layer - Integrates CartResilientLayer with existing cart functions
  *
@@ -7,7 +5,7 @@
  * while maintaining backward compatibility.
  */
 
-import { cartResilience } from "@/lib/cart/resilient-layer"
+import { CartResilientLayer } from "@/lib/cart/resilient-layer-class"
 import { getCartId, setCartId, removeCartId } from "@/lib/data/cookies"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { getRegion } from "@/lib/data/regions"
@@ -24,6 +22,12 @@ import {
     getCacheOptions,
     getCacheTag,
 } from "@/lib/data/cookies"
+
+// ==========================================
+// Global instance
+// ==========================================
+
+const cartResilience = new CartResilientLayer()
 
 // ==========================================
 // Resilient Cart Functions

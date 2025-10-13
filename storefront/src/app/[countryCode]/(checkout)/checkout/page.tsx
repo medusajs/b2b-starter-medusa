@@ -1,6 +1,6 @@
 import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
-import Wrapper from "@/modules/checkout/components/payment-wrapper"
+import Wrapper from "@/modules/purchase/checkout/components/payment-wrapper"
 import CheckoutForm from "@/modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@/modules/checkout/templates/checkout-summary"
 import { CartStatusDisplay } from "@/components/cart/cart-status-display"

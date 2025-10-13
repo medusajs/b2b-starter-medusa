@@ -1,9 +1,9 @@
 [
   {
     "id": "neosolar_chargers_23757",
-    "name": "https://portal.zydon.com.br/api/files/699bb4b0-ff8e-44fc-8977-59a88b5bc923/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 4.726,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_23757.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -33,13 +33,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.447216"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -54,9 +59,9 @@
   },
   {
     "id": "neosolar_chargers_20863",
-    "name": "https://portal.zydon.com.br/api/files/f5057807-4e5a-4e42-84a0-4a1a3adf5f13/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.927,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20863.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -86,13 +91,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.509611"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -106,9 +116,9 @@
   },
   {
     "id": "neosolar_chargers_27329",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Bomba Solar Anauger R100 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.862,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27329.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -138,13 +148,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.569811"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -156,9 +171,9 @@
   },
   {
     "id": "neosolar_chargers_20035",
-    "name": "https://portal.zydon.com.br/api/files/f51fe085-0d00-4d6e-94a2-5ffbdca9ee0a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Anauger R100 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.529,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20035.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -188,13 +203,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.635218"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -208,9 +228,9 @@
   },
   {
     "id": "neosolar_chargers_20031",
-    "name": "https://portal.zydon.com.br/api/files/ae0f43e2-2883-4e96-bc4c-433ba1f83827/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bóia de Nível Anauger SensorControl",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 79,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20031.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -240,13 +260,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.704235"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -260,9 +285,9 @@
   },
   {
     "id": "neosolar_chargers_24072",
-    "name": "https://portal.zydon.com.br/api/files/fe848e58-c590-45f6-a8bf-f5d77397f5a9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 5.175,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24072.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -292,13 +317,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.768045"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -312,9 +342,9 @@
   },
   {
     "id": "neosolar_chargers_21295",
-    "name": "https://portal.zydon.com.br/api/files/fa844e2e-3f9d-4bae-b677-f72e0eb8776b/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Híbrida ZTROON 4",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.816,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21295.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -344,13 +374,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.832119"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -362,9 +397,9 @@
   },
   {
     "id": "neosolar_chargers_23758",
-    "name": "https://portal.zydon.com.br/api/files/3f8e14ff-f8de-48b6-97c5-3508c9657f94/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Centrífuga ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 4.794,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_23758.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -394,13 +429,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.897726"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -414,9 +454,9 @@
   },
   {
     "id": "neosolar_chargers_20864",
-    "name": "https://portal.zydon.com.br/api/files/2df9d9d7-c021-47ea-9886-ad5db3dd2228/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.008,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20864.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -446,13 +486,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:44.968038"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -466,9 +511,9 @@
   },
   {
     "id": "neosolar_chargers_20860",
-    "name": "https://portal.zydon.com.br/api/files/63781a4b-0d21-413a-8e76-fa97645dbbe9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.686,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20860.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -498,13 +543,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.031795"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -519,9 +569,9 @@
   },
   {
     "id": "neosolar_chargers_24021",
-    "name": "https://portal.zydon.com.br/api/files/e3ef3254-b830-4c90-9e71-4cdc365b718a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Helicoidal ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 3.028,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24021.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -551,13 +601,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.097833"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -572,9 +627,9 @@
   },
   {
     "id": "neosolar_chargers_23761",
-    "name": "https://portal.zydon.com.br/api/files/a598cf98-81a3-4099-930d-631b798105d9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 4.871,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_23761.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -604,13 +659,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.163164"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -624,9 +684,9 @@
   },
   {
     "id": "neosolar_chargers_20862",
-    "name": "https://portal.zydon.com.br/api/files/e7886184-46e7-4a8c-a041-deef067e84ba/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.927,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20862.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -656,13 +716,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.228164"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -677,9 +742,9 @@
   },
   {
     "id": "neosolar_chargers_23759",
-    "name": "https://portal.zydon.com.br/api/files/bdae5acc-18e6-451f-bb19-083da80777fa/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Centrífuga ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 3.167,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_23759.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -709,13 +774,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.293267"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -730,9 +800,9 @@
   },
   {
     "id": "neosolar_chargers_20868",
-    "name": "https://portal.zydon.com.br/api/files/c3cc4bd2-96ce-412b-aec4-eb08b9db4aa7/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Híbrida ZTROON 4",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.560,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20868.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -762,13 +832,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.357479"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -782,9 +857,9 @@
   },
   {
     "id": "neosolar_chargers_24607",
-    "name": "https://portal.zydon.com.br/api/files/4449a6bc-4e2c-4b3c-aa81-4272e39780e1/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Helicoidal ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.246,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24607.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -814,13 +889,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.424563"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -835,9 +915,9 @@
   },
   {
     "id": "neosolar_chargers_20859",
-    "name": "https://portal.zydon.com.br/api/files/0621ac19-b6a6-4ba6-aedd-228e57e3c5dd/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.525,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20859.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -867,13 +947,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.491555"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.433Z"
     },
     "model": "",
     "power": null,
@@ -888,9 +973,9 @@
   },
   {
     "id": "neosolar_chargers_20870",
-    "name": "https://portal.zydon.com.br/api/files/d4919d44-29b2-42ce-b9a4-6d68d9b8e2a9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Eixo Helicoidal (Parafuso) para Reposição",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 40,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20870.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -920,13 +1005,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.556386"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -940,9 +1030,9 @@
   },
   {
     "id": "neosolar_chargers_25220",
-    "name": "https://portal.zydon.com.br/api/files/315aa012-f6c2-4ee7-905b-4bd48b531d3a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger P100 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.631,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25220.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -972,13 +1062,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.621370"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -992,9 +1087,9 @@
   },
   {
     "id": "neosolar_chargers_24795",
-    "name": "https://portal.zydon.com.br/api/files/e96f9f86-f7da-4bca-aa8d-4e1b3ae2b9d1/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar 12V Shurflo 8000 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.266,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24795.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1024,13 +1119,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.693951"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1045,9 +1145,9 @@
   },
   {
     "id": "neosolar_chargers_24475",
-    "name": "https://portal.zydon.com.br/api/files/a2764dab-9208-430f-b8f0-aa11af8b1619/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Inversor Drive Solar p/ Bomba",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.598,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24475.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1077,13 +1177,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.759429"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1097,9 +1202,9 @@
   },
   {
     "id": "neosolar_chargers_24473",
-    "name": "https://portal.zydon.com.br/api/files/6d62d439-8ed4-4d3c-b345-9c47cadac00e/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Inversor Drive Solar p/ Bomba",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 3.543,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24473.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1129,13 +1234,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.823949"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1147,9 +1257,9 @@
   },
   {
     "id": "neosolar_chargers_24249",
-    "name": "https://portal.zydon.com.br/api/files/772224e9-9d93-45b5-8a35-233d99f588a0/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger R100 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.734,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24249.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1179,13 +1289,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.889325"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1199,9 +1314,9 @@
   },
   {
     "id": "neosolar_chargers_24802",
-    "name": "https://portal.zydon.com.br/api/files/fb1c109d-388c-469f-811d-3ec1de14edd4/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 6.989,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24802.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1231,13 +1346,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:45.955214"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1249,9 +1369,9 @@
   },
   {
     "id": "neosolar_chargers_26904",
-    "name": "https://portal.zydon.com.br/api/files/29523666-a11e-48d4-bac4-bf6845f69af6/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 7.250,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26904.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1281,13 +1401,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.018934"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1301,9 +1426,9 @@
   },
   {
     "id": "neosolar_chargers_25128",
-    "name": "https://portal.zydon.com.br/api/files/52c465fb-6ce7-490a-a82d-da9a2ce10115/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar 12V Shurflo 8000 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.198,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25128.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1333,13 +1458,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.082354"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1354,9 +1484,9 @@
   },
   {
     "id": "neosolar_chargers_22154",
-    "name": "https://portal.zydon.com.br/api/files/e94f6fbf-55a8-452c-b3df-3b5f1aa4f1e8/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Driver para Bomba Solar ZTROON",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 332,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_22154.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1386,13 +1516,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.146699"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1407,9 +1542,9 @@
   },
   {
     "id": "neosolar_chargers_24467",
-    "name": "https://portal.zydon.com.br/api/files/c215e4c1-2dba-43f8-b0e9-46d3a728fa14/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Híbrida ZTROON 4",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 4.778,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24467.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1439,13 +1574,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.210560"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1459,9 +1599,9 @@
   },
   {
     "id": "neosolar_chargers_20044",
-    "name": "https://portal.zydon.com.br/api/files/e424c0e8-a9f6-4061-9ffe-22d4441f7d4d/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Superfície 12V Shurflo",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.096,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20044.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1491,13 +1631,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.275109"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1511,9 +1656,9 @@
   },
   {
     "id": "neosolar_chargers_24019",
-    "name": "https://portal.zydon.com.br/api/files/d2c63e11-a924-4b82-a994-89254b5507c7/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Superfície ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 4.589,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24019.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1543,13 +1688,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.341199"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1563,9 +1713,9 @@
   },
   {
     "id": "neosolar_chargers_20871",
-    "name": "https://portal.zydon.com.br/api/files/f9dd20b6-2967-4bb1-bc99-14989b1f8dd3/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Sensor de Nível de Poço",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 84,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20871.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1595,13 +1745,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.404784"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1613,9 +1768,9 @@
   },
   {
     "id": "neosolar_chargers_27327",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Bomba Solar Anauger P100 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.818,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27327.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1645,13 +1800,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.468112"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1663,9 +1823,9 @@
   },
   {
     "id": "neosolar_chargers_24474",
-    "name": "https://portal.zydon.com.br/api/files/03fb698b-f298-48a6-8ebd-eafbfd908f06/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Inversor Drive Solar p/ Bomba",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.487,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24474.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1695,13 +1855,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.535532"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1715,9 +1880,9 @@
   },
   {
     "id": "neosolar_chargers_20034",
-    "name": "https://portal.zydon.com.br/api/files/7bd18043-be42-4937-b866-9d817845b88a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Anauger P100 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.483,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20034.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1747,13 +1912,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.601767"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1767,9 +1937,9 @@
   },
   {
     "id": "neosolar_chargers_21294",
-    "name": "https://portal.zydon.com.br/api/files/8e54df63-16da-49b8-b88f-8d6378dc5bae/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Superfície ZTROON -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.766,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21294.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1799,13 +1969,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.667074"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1817,9 +1992,9 @@
   },
   {
     "id": "neosolar_chargers_24801",
-    "name": "https://portal.zydon.com.br/api/files/e5089d6e-af8d-45f3-abdd-7c3853215942/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 5.715,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24801.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1849,13 +2024,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.731828"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1867,9 +2047,9 @@
   },
   {
     "id": "neosolar_chargers_26903",
-    "name": "https://portal.zydon.com.br/api/files/f1893dd9-96be-4b81-9189-5c98b4b3ea6f/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 5.974,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26903.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1899,13 +2079,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.796133"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1917,9 +2102,9 @@
   },
   {
     "id": "neosolar_chargers_25023",
-    "name": "https://portal.zydon.com.br/api/files/2066062b-d49f-4c8c-873c-183ca7ab1317/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 6.809,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25023.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -1949,13 +2134,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.862443"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -1971,9 +2161,9 @@
   },
   {
     "id": "neosolar_chargers_24716",
-    "name": "https://portal.zydon.com.br/api/files/3e25e0ef-b64c-4e00-bf78-d841a1c9b644/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 6.592,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24716.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2003,13 +2193,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.929253"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2025,9 +2220,9 @@
   },
   {
     "id": "neosolar_chargers_27328",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Bomba Solar Anauger P100 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.835,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27328.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2057,13 +2252,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:46.988277"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2075,9 +2275,9 @@
   },
   {
     "id": "neosolar_chargers_27330",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Bomba Solar Anauger R100 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.879,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27330.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2107,13 +2307,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.049465"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2125,9 +2330,9 @@
   },
   {
     "id": "neosolar_chargers_24718",
-    "name": "https://portal.zydon.com.br/api/files/5ea025f9-bf2e-441c-be33-cb32f31556e4/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 17.270,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24718.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2157,13 +2362,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.117904"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2178,9 +2388,9 @@
   },
   {
     "id": "neosolar_chargers_26901",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 15.699,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26901.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2210,13 +2420,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.178500"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2231,9 +2446,9 @@
   },
   {
     "id": "neosolar_chargers_26900",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 6.870,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26900.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2263,13 +2478,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.238803"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2284,9 +2504,9 @@
   },
   {
     "id": "neosolar_chargers_24606",
-    "name": "https://portal.zydon.com.br/api/files/340000bb-fb69-4221-9280-57e9ac3f7293/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Helicoidal ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.110,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24606.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2316,13 +2536,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.305785"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2337,9 +2562,9 @@
   },
   {
     "id": "neosolar_chargers_24608",
-    "name": "https://portal.zydon.com.br/api/files/235b0238-222a-4987-a269-46d142ac1f8b/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Superfície ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.905,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24608.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2369,13 +2594,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.372072"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2390,9 +2620,9 @@
   },
   {
     "id": "neosolar_chargers_20872",
-    "name": "https://portal.zydon.com.br/api/files/ef1db30e-ed10-4589-a48d-e4b26f1cfbf1/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Driver para Bomba Solar ZTROON",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 690,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20872.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2422,13 +2652,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.436589"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2442,9 +2677,9 @@
   },
   {
     "id": "neosolar_chargers_26902",
-    "name": "https://portal.zydon.com.br/api/files/8a3276e9-8a4d-468c-b977-528688d934e2/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 23.171,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26902.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2474,13 +2709,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.502215"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2496,9 +2736,9 @@
   },
   {
     "id": "neosolar_chargers_20045",
-    "name": "https://portal.zydon.com.br/api/files/ef249691-d95d-4552-bd1e-410d6146870e/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Submersa 24V Shurflo",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.891,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20045.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2528,13 +2768,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.565644"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2548,9 +2793,9 @@
   },
   {
     "id": "neosolar_chargers_24717",
-    "name": "https://portal.zydon.com.br/api/files/b02062dd-503f-466c-a9f7-239a8f0f36f2/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 25.936,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24717.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2580,13 +2825,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.630893"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2602,9 +2852,9 @@
   },
   {
     "id": "neosolar_chargers_25025",
-    "name": "https://portal.zydon.com.br/api/files/e1314e53-fbec-41bf-be88-33f3f5cd8412/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 26.433,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25025.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2634,13 +2884,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.701625"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2655,9 +2910,9 @@
   },
   {
     "id": "neosolar_chargers_23760",
-    "name": "https://portal.zydon.com.br/api/files/c653cc8e-bcdb-4d99-b5c7-4689cb67ddd2/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Helicoidal ZTROON 3ZTS1.2-77-24-210W - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.570,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_23760.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2687,13 +2942,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.766414"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2707,9 +2967,9 @@
   },
   {
     "id": "neosolar_chargers_27386",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "*KIT TESTE PORTAL B2B NÃO",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_27386.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2734,13 +2994,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.826742"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2751,9 +3016,9 @@
   },
   {
     "id": "neosolar_chargers_25024",
-    "name": "https://portal.zydon.com.br/api/files/c4246867-fa3d-406b-96af-325f3e22e2ea/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 17.535,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25024.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2783,13 +3048,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.891010"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2805,9 +3075,9 @@
   },
   {
     "id": "neosolar_chargers_25012",
-    "name": "https://portal.zydon.com.br/api/files/e2b51192-3fa9-44ca-a3cc-1027916c512a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Híbrida ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 5.663,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_25012.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2837,13 +3107,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:47.957215"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2857,9 +3132,9 @@
   },
   {
     "id": "neosolar_chargers_26360",
-    "name": "https://portal.zydon.com.br/api/files/c20c0bdb-e332-4394-879f-9d7427a99eb6/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 21.145,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_26360.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2889,13 +3164,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.023243"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2911,9 +3191,9 @@
   },
   {
     "id": "neosolar_chargers_20043",
-    "name": "https://portal.zydon.com.br/api/files/d926de50-d753-453d-95c8-19ef3baba058/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Superfície 12V Shurflo",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.000,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20043.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2943,13 +3223,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.089269"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -2963,9 +3248,9 @@
   },
   {
     "id": "neosolar_chargers_20861",
-    "name": "https://portal.zydon.com.br/api/files/6d85d17e-76a5-424a-864d-4fdf5a83ce0c/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.445,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_20861.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -2995,13 +3280,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.153091"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3016,9 +3306,9 @@
   },
   {
     "id": "neosolar_chargers_21757",
-    "name": "https://portal.zydon.com.br/api/files/ab60c860-b511-4bf3-a282-03cfda4cc71b/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger R100 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_21757.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3043,13 +3333,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.217835"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3060,9 +3355,9 @@
   },
   {
     "id": "neosolar_chargers_24715",
-    "name": "https://portal.zydon.com.br/api/files/5ea4a37d-0760-4da0-9553-7dfa2c64efa7/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 28.864,00",
     "image": "images\\NEOSOLAR-CHARGERS\\NEOSOLAR_CHARGERS_24715.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3092,13 +3387,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.282368"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3114,9 +3414,9 @@
   },
   {
     "id": "neosolar_chargers_24714",
-    "name": "https://portal.zydon.com.br/api/files/e1e996fb-c9d5-4ff4-8b82-264c320f9ac3/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 22.301,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24714.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3146,13 +3446,18 @@
       "specs_count": 3,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.347535"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3168,9 +3473,9 @@
   },
   {
     "id": "neosolar_chargers_24713",
-    "name": "https://portal.zydon.com.br/api/files/eaf99130-ac79-4c3a-a0c4-c8a143d6d11b/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 7.599,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24713.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3200,13 +3505,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.415508"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3221,9 +3531,9 @@
   },
   {
     "id": "neosolar_chargers_21751",
-    "name": "https://portal.zydon.com.br/api/files/b9605151-bb09-4947-9a4f-90e8ff88644a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger P100 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21751.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3248,13 +3558,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.478598"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3267,9 +3582,9 @@
   },
   {
     "id": "neosolar_chargers_21741",
-    "name": "https://portal.zydon.com.br/api/files/fc73ba4c-0a8c-4a57-a468-4f7106ed1530/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar 12V Shurflo 2088 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21741.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3294,13 +3609,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.542770"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3314,9 +3634,9 @@
   },
   {
     "id": "neosolar_chargers_21743",
-    "name": "https://portal.zydon.com.br/api/files/61c45504-b478-43fa-9391-54c2481a3cc9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar 24V Shurflo 9325 - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21743.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3341,13 +3661,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.608896"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3361,9 +3686,9 @@
   },
   {
     "id": "neosolar_chargers_21756",
-    "name": "https://portal.zydon.com.br/api/files/568a94ba-44d0-4501-8571-d8a624ea49eb/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger R100 MAXX - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21756.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3388,13 +3713,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.680238"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3407,9 +3737,9 @@
   },
   {
     "id": "neosolar_chargers_21755",
-    "name": "https://portal.zydon.com.br/api/files/ac1b53cb-4987-4b7c-968f-46a9e4d2f0c7/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Anauger P100 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21755.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3434,13 +3764,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.741970"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3453,9 +3788,9 @@
   },
   {
     "id": "neosolar_chargers_21742",
-    "name": "https://portal.zydon.com.br/api/files/a21caffb-f1c0-42ae-ae81-480cc44c54ae/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar 12V Shurflo 2088 STD - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_21742.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3480,13 +3815,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.804862"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3502,7 +3842,7 @@
     "id": "neosolar_chargers_26526",
     "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 8.098,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26526.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3532,13 +3872,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.861540"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3550,9 +3895,9 @@
   },
   {
     "id": "neosolar_chargers_26361",
-    "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 27.514,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26361.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3582,13 +3927,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.921536"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3605,7 +3955,7 @@
     "id": "neosolar_chargers_26525",
     "name": "https://portalb2b.neosolar.com.br/b2b-noimage-white.svg",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 6.611,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26525.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3635,13 +3985,18 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:48.981585"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3653,9 +4008,9 @@
   },
   {
     "id": "neosolar_chargers_26359",
-    "name": "https://portal.zydon.com.br/api/files/81e6092a-b1d7-4a42-8486-ba68758fc7d6/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Solar p/ Bomba (CA)",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 7.403,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_26359.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3685,13 +4040,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.046274"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3706,9 +4066,9 @@
   },
   {
     "id": "neosolar_chargers_20858",
-    "name": "https://portal.zydon.com.br/api/files/2ca2d6db-5ffd-4cc1-8bd9-1bf494ee5acf/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar ZTROON 3 -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.365,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_20858.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3738,13 +4098,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.109878"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3759,9 +4124,9 @@
   },
   {
     "id": "neosolar_chargers_20866",
-    "name": "https://portal.zydon.com.br/api/files/4d490dce-709d-4a2c-96c1-8ab22506df7d/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Superfície ZTROON -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.284,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_20866.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3791,13 +4156,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.177261"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3811,9 +4181,9 @@
   },
   {
     "id": "neosolar_chargers_20873",
-    "name": "https://portal.zydon.com.br/api/files/331a10ac-c599-4890-bad0-285615bf2b4a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Driver para Bomba Solar ZTROON",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 888,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_20873.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3843,13 +4213,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.241583"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3864,9 +4239,9 @@
   },
   {
     "id": "neosolar_chargers_20865",
-    "name": "https://portal.zydon.com.br/api/files/455e03c7-4db1-46ac-9eb6-08ae1196e1ef/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Superfície ZTROON -",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.003,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_20865.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3896,13 +4271,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.304233"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3916,9 +4296,9 @@
   },
   {
     "id": "neosolar_chargers_24468",
-    "name": "https://portal.zydon.com.br/api/files/2a1ffd08-5396-4a60-a730-9bcf57310513/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Bomba Solar Híbrida ZTROON 4",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 3.220,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24468.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -3948,13 +4328,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.369788"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -3968,9 +4353,9 @@
   },
   {
     "id": "neosolar_chargers_24594",
-    "name": "https://portal.zydon.com.br/api/files/6fd654a3-7fae-4837-9068-0bab56a24ead/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Centrífuga ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.177,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24594.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -4000,13 +4385,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.434394"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -4021,9 +4411,9 @@
   },
   {
     "id": "neosolar_chargers_24593",
-    "name": "https://portal.zydon.com.br/api/files/0671dd0f-4a06-47d8-965c-29f1b84ec353/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Centrífuga ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.042,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24593.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -4053,13 +4443,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.499077"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -4074,9 +4469,9 @@
   },
   {
     "id": "neosolar_chargers_24609",
-    "name": "https://portal.zydon.com.br/api/files/39bbe792-30cf-4e00-8374-1dbf86473b1c/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Superfície ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 2.041,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_24609.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -4106,13 +4501,18 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.568528"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,
@@ -4126,9 +4526,9 @@
   },
   {
     "id": "neosolar_chargers_23762",
-    "name": "https://portal.zydon.com.br/api/files/b7be913e-d2a5-4cd5-9c88-f37c2e7fa9ff/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit Bomba Solar Superfície ZTROON - Bomba Solar",
     "manufacturer": "NEOSOLAR",
-    "category": "chargers",
+    "category": "ev_chargers",
     "price": "R$ 1.262,00",
     "image": "images\\NEOSOLAR-CHARGERS\\neosolar_chargers_23762.jpg",
     "source": "portalb2b.neosolar.com.br",
@@ -4158,13 +4558,18 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:49.632146"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url",
+        "category_standardized"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.434Z"
     },
     "model": "",
     "power": null,

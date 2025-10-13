@@ -1,7 +1,7 @@
 [
   {
     "id": "neosolar_cables_20078",
-    "name": "https://portal.zydon.com.br/api/files/dc632d4a-3c4e-4843-824e-4f5b97b7a782/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Cabo Lafeber 6mm² - Vermelho",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 6,00",
@@ -33,13 +33,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.369260"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -53,7 +57,7 @@
   },
   {
     "id": "neosolar_cables_20077",
-    "name": "https://portal.zydon.com.br/api/files/2303ca4d-8d14-4b77-88ad-99da084c089c/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Cabo Lafeber 6mm² - Preto",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 6,00",
@@ -85,13 +89,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.432991"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -105,7 +113,7 @@
   },
   {
     "id": "neosolar_cables_20121",
-    "name": "https://portal.zydon.com.br/api/files/b132996e-0d4a-4386-bc01-10d24b6d9022/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Conector MC4 (par) - Proauto",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 9,00",
@@ -137,13 +145,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.496683"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -157,7 +169,7 @@
   },
   {
     "id": "neosolar_cables_20369",
-    "name": "https://portal.zydon.com.br/api/files/e7e64039-32bd-4a3f-a34b-d0c6b6d948d8/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Sensor de Temperatura Epever RTS300R47K3.81A",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 15,00",
@@ -189,13 +201,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.560287"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -209,7 +225,7 @@
   },
   {
     "id": "neosolar_cables_20122",
-    "name": "https://portal.zydon.com.br/api/files/d05f4589-fd3a-4404-a2e7-398841db4d1c/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Conector MC4 - Multibranch Proauto",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "",
@@ -236,13 +252,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.625472"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -255,7 +275,7 @@
   },
   {
     "id": "neosolar_cables_20286",
-    "name": "https://portal.zydon.com.br/api/files/c697a21f-75fd-4e49-93d6-173ed1bd3712/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Medidor Remoto Epever MT-75 para",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 199,00",
@@ -287,13 +307,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.690759"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -307,7 +331,7 @@
   },
   {
     "id": "neosolar_cables_23780",
-    "name": "https://portal.zydon.com.br/api/files/e99a7155-0c24-4be7-b7c8-8a67e6a41d5a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "",
@@ -334,13 +358,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.755160"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -353,7 +381,7 @@
   },
   {
     "id": "neosolar_cables_20925",
-    "name": "https://portal.zydon.com.br/api/files/806b0b15-17f1-4094-9ef4-83c3205377b9/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Módulo Epever Wi-Fi 2.4G RJ45",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 101,00",
@@ -385,13 +413,17 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.819467"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -403,7 +435,7 @@
   },
   {
     "id": "neosolar_cables_23504",
-    "name": "https://portal.zydon.com.br/api/files/829eb410-e3ba-46a2-a47e-434ab6c50e6a/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 429,00",
@@ -435,13 +467,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.882069"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -455,7 +491,7 @@
   },
   {
     "id": "neosolar_cables_23503",
-    "name": "https://portal.zydon.com.br/api/files/529f350a-60ed-404f-adaa-53f87b1c63a0/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 458,00",
@@ -487,13 +523,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:38.946931"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -507,7 +547,7 @@
   },
   {
     "id": "neosolar_cables_23505",
-    "name": "https://portal.zydon.com.br/api/files/8236b883-9053-481d-84a5-e9d086cb77df/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 480,00",
@@ -539,13 +579,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.011504"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -559,7 +603,7 @@
   },
   {
     "id": "neosolar_cables_20371",
-    "name": "https://portal.zydon.com.br/api/files/655fa0a7-5c1f-4db9-aaaf-dd25191a01d4/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Stringbox Neosolar PRO 2x1 1000V",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 670,00",
@@ -591,13 +635,17 @@
       "specs_count": 2,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.076138"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -612,7 +660,7 @@
   },
   {
     "id": "neosolar_cables_20789",
-    "name": "https://portal.zydon.com.br/api/files/beaa3689-ce19-4306-8f12-e182f99119fd/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Conector MC4 - Multibranch (par)",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 62,00",
@@ -644,13 +692,17 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.143188"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -662,7 +714,7 @@
   },
   {
     "id": "neosolar_cables_21771",
-    "name": "https://portal.zydon.com.br/api/files/37629352-ec02-455e-944f-22cda2be6052/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 648,00",
@@ -694,13 +746,17 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.210772"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -712,7 +768,7 @@
   },
   {
     "id": "neosolar_cables_21770",
-    "name": "https://portal.zydon.com.br/api/files/032dd801-be80-4c08-9668-0875ac54d240/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 648,00",
@@ -744,13 +800,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.278228"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -764,7 +824,7 @@
   },
   {
     "id": "neosolar_cables_21769",
-    "name": "https://portal.zydon.com.br/api/files/387ee6d0-a48c-40dd-9625-3d6e08af335b/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 901,00",
@@ -796,13 +856,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.343964"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -816,7 +880,7 @@
   },
   {
     "id": "neosolar_cables_21772",
-    "name": "https://portal.zydon.com.br/api/files/aee39a32-961d-4725-909b-76dd98b99390/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 994,00",
@@ -848,13 +912,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.408800"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -868,7 +936,7 @@
   },
   {
     "id": "neosolar_cables_27352",
-    "name": "https://portal.zydon.com.br/api/files/29ad6f66-a45b-4acc-b652-2a2fc4a0d0e8/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "",
@@ -895,13 +963,17 @@
       "specs_count": 1,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.481880"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,
@@ -914,7 +986,7 @@
   },
   {
     "id": "neosolar_cables_25205",
-    "name": "https://portal.zydon.com.br/api/files/2c4eaf00-8563-4844-9cd5-deaa954edf05/content?ingress=portalb2b.neosolar.com.br",
+    "name": "Kit de Montagem - Estrutura",
     "manufacturer": "NEOSOLAR",
     "category": "cables",
     "price": "R$ 964,00",
@@ -946,13 +1018,17 @@
       "specs_count": 0,
       "image_match": {
         "method": "exact",
-        "confidence": 1.0,
-        "semantic_score": 1.0,
-        "fuzzy_score": 100.0,
+        "confidence": 1,
+        "semantic_score": 1,
+        "fuzzy_score": 100,
         "exact_match": true,
         "tier": "high",
         "matched_at": "2025-10-07T20:24:39.545662"
-      }
+      },
+      "fixed_issues": [
+        "name_was_url"
+      ],
+      "fixed_at": "2025-10-13T14:31:23.435Z"
     },
     "model": "",
     "power": null,

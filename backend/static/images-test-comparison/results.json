@@ -1,0 +1,40 @@
+{
+  "generated_at": "2025-10-13T11:31:33.998536",
+  "total_samples": 2,
+  "results": [
+    {
+      "sku": "FOTUS-KP04-228KWP-CERAMICO-KITS",
+      "category": "kits",
+      "profile": "diagrama_tecnico",
+      "quality": 95,
+      "original_size_kb": 44.359375,
+      "old_size_kb": null,
+      "new_size_kb": 33.208984375,
+      "ssim": 0.9795367753983636,
+      "contrast_change": -3.8664938891573373,
+      "sharpness_change": 32.1857717075904,
+      "paths": {
+        "original": "images-test-comparison\\original\\FOTUS-KP04-228KWP-CERAMICO-KITS.jpg",
+        "old": null,
+        "new": "images-test-comparison\\new-optimization\\FOTUS-KP04-228KWP-CERAMICO-KITS.webp"
+      }
+    },
+    {
+      "sku": "300585",
+      "category": "panels",
+      "profile": "logo_simples",
+      "quality": 98,
+      "original_size_kb": 150.4130859375,
+      "old_size_kb": 106.1171875,
+      "new_size_kb": 182.9375,
+      "ssim": 1.0,
+      "contrast_change": 0.0,
+      "sharpness_change": 0.0,
+      "paths": {
+        "original": "images-test-comparison\\original\\300585.jpg",
+        "old": "images-test-comparison\\old-optimization\\300585.webp",
+        "new": "images-test-comparison\\new-optimization\\300585.webp"
+      }
+    }
+  ]
+}

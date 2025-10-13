@@ -1,0 +1,1795 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://ysh.solar/schemas/catalog/product/v2.0.0",
+    "title": "YSH Catalog Product Schema v2.0.0",
+    "description": "Schema padronizado para produtos do catálogo YSH B2B com cobertura 360º",
+    "type": "object",
+    "required": [
+        "id",
+        "sku",
+        "name",
+        "manufacturer",
+        "category",
+        "pricing",
+        "availability",
+        "metadata"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Identificador único global do produto",
+            "pattern": "^[a-z0-9-]+_[a-z0-9-]+_[a-zA-Z0-9-]+$",
+            "examples": [
+                "neosolar_panels_cs6w-550ms",
+                "fotus_kits_kp04-hibrido"
+            ]
+        },
+        "sku": {
+            "type": "string",
+            "description": "SKU canônico único",
+            "pattern": "^[A-Z0-9-]{8,20}$",
+            "examples": [
+                "CS6W-550MS",
+                "KP04-HYB"
+            ]
+        },
+        "name": {
+            "type": "string",
+            "description": "Nome comercial completo do produto",
+            "minLength": 10,
+            "maxLength": 200,
+            "examples": [
+                "Painel Solar Canadian Solar 550W HiKu6 Mono PERC"
+            ]
+        },
+        "manufacturer": {
+            "type": "string",
+            "description": "Fabricante oficial",
+            "minLength": 2,
+            "maxLength": 50,
+            "examples": [
+                "Canadian Solar",
+                "Growatt",
+                "BYD"
+            ]
+        },
+        "category": {
+            "type": "string",
+            "description": "Categoria principal do produto",
+            "enum": [
+                "panels",
+                "inverters",
+                "batteries",
+                "kits",
+                "cables",
+                "structures",
+                "controllers",
+                "ev_chargers",
+                "accessories",
+                "stringboxes",
+                "posts",
+                "others"
+            ]
+        },
+        "subcategory": {
+            "type": "string",
+            "description": "Subcategoria para classificação granular",
+            "examples": [
+                "monocrystalline",
+                "microinverter",
+                "lithium-ion"
+            ]
+        },
+        "model": {
+            "type": "string",
+            "description": "Modelo específico do fabricante",
+            "maxLength": 100,
+            "examples": [
+                "CS6W-550MS",
+                "SUN2000-10KTL-M0"
+            ]
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição técnica completa",
+            "minLength": 50,
+            "maxLength": 2000
+        },
+        "pricing": {
+            "type": "object",
+            "description": "Estrutura de pricing avançada",
+            "required": [
+                "base_price_brl",
+                "currency",
+                "updated_at"
+            ],
+            "properties": {
+                "base_price_brl": {
+                    "type": "number",
+                    "description": "Preço base em BRL",
+                    "minimum": 0.01,
+                    "multipleOf": 0.01
+                },
+                "currency": {
+                    "type": "string",
+                    "enum": [
+                        "BRL"
+                    ],
+                    "default": "BRL"
+                },
+                "list_price_brl": {
+                    "type": "number",
+                    "description": "Preço de lista (sem desconto)",
+                    "minimum": 0
+                },
+                "cost_price_brl": {
+                    "type": "number",
+                    "description": "Preço de custo",
+                    "minimum": 0
+                },
+                "margin_pct": {
+                    "type": "number",
+                    "description": "Margem de lucro percentual",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "bulk_pricing": {
+                    "type": "array",
+                    "description": "Preços por quantidade",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "min_quantity": {
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "max_quantity": {
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "price_brl": {
+                                "type": "number",
+                                "minimum": 0.01
+                            },
+                            "discount_pct": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 100
+                            }
+                        },
+                        "required": [
+                            "min_quantity",
+                            "price_brl"
+                        ]
+                    }
+                },
+                "regional_pricing": {
+                    "type": "object",
+                    "description": "Variações regionais de preço",
+                    "patternProperties": {
+                        "^[A-Z]{2}$": {
+                            "type": "number",
+                            "description": "Preço para estado (UF)",
+                            "minimum": 0.01
+                        }
+                    }
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Última atualização de preço"
+                },
+                "valid_until": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Validade do preço"
+                },
+                "price_source": {
+                    "type": "string",
+                    "description": "Fonte do preço",
+                    "examples": [
+                        "distributor_api",
+                        "manual",
+                        "market_average"
+                    ]
+                }
+            }
+        },
+        "technical_specs": {
+            "type": "object",
+            "description": "Especificações técnicas detalhadas por categoria",
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/panel_specs"
+                },
+                {
+                    "$ref": "#/$defs/inverter_specs"
+                },
+                {
+                    "$ref": "#/$defs/battery_specs"
+                },
+                {
+                    "$ref": "#/$defs/kit_specs"
+                },
+                {
+                    "$ref": "#/$defs/cable_specs"
+                },
+                {
+                    "$ref": "#/$defs/structure_specs"
+                },
+                {
+                    "$ref": "#/$defs/generic_specs"
+                }
+            ]
+        },
+        "certifications": {
+            "type": "array",
+            "description": "Certificações e compliance",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "examples": [
+                            "INMETRO",
+                            "IEC 61215",
+                            "UL 1703"
+                        ]
+                    },
+                    "standard": {
+                        "type": "string",
+                        "examples": [
+                            "IEC 61215:2021"
+                        ]
+                    },
+                    "issued_by": {
+                        "type": "string",
+                        "examples": [
+                            "INMETRO",
+                            "TÜV Rheinland"
+                        ]
+                    },
+                    "valid_until": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "certificate_url": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "warranty": {
+            "type": "object",
+            "description": "Informações de garantia",
+            "properties": {
+                "product_years": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50
+                },
+                "performance_years": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50
+                },
+                "performance_guarantee": {
+                    "type": "object",
+                    "properties": {
+                        "year_10": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "year_25": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "year_30": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100
+                        }
+                    }
+                },
+                "coverage": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "manufacturing_defects",
+                            "performance_degradation"
+                        ]
+                    ]
+                },
+                "exclusions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "physical_damage",
+                            "improper_installation"
+                        ]
+                    ]
+                }
+            }
+        },
+        "dimensions": {
+            "type": "object",
+            "description": "Dimensões físicas",
+            "properties": {
+                "length_mm": {
+                    "type": "number",
+                    "minimum": 1
+                },
+                "width_mm": {
+                    "type": "number",
+                    "minimum": 1
+                },
+                "height_mm": {
+                    "type": "number",
+                    "minimum": 1
+                },
+                "weight_kg": {
+                    "type": "number",
+                    "minimum": 0.1
+                },
+                "packaging": {
+                    "type": "object",
+                    "properties": {
+                        "length_mm": {
+                            "type": "number"
+                        },
+                        "width_mm": {
+                            "type": "number"
+                        },
+                        "height_mm": {
+                            "type": "number"
+                        },
+                        "weight_kg": {
+                            "type": "number"
+                        },
+                        "volume_m3": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "electrical_specs": {
+            "type": "object",
+            "description": "Especificações elétricas",
+            "properties": {
+                "voltage_v": {
+                    "type": "number"
+                },
+                "current_a": {
+                    "type": "number"
+                },
+                "power_w": {
+                    "type": "number"
+                },
+                "power_kw": {
+                    "type": "number"
+                },
+                "efficiency_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "max_voltage_v": {
+                    "type": "number"
+                },
+                "min_voltage_v": {
+                    "type": "number"
+                },
+                "frequency_hz": {
+                    "type": "number",
+                    "enum": [
+                        50,
+                        60
+                    ]
+                },
+                "phases": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        3
+                    ]
+                },
+                "mppt_trackers": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            }
+        },
+        "availability": {
+            "type": "object",
+            "description": "Status de disponibilidade",
+            "required": [
+                "status",
+                "updated_at"
+            ],
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "in_stock",
+                        "limited_stock",
+                        "out_of_stock",
+                        "discontinued",
+                        "on_demand"
+                    ],
+                    "default": "in_stock"
+                },
+                "quantity_available": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "lead_time_days": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{2}$"
+                    }
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "next_available_date": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "distributor": {
+            "type": "object",
+            "description": "Informações do distribuidor",
+            "required": [
+                "id",
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "examples": [
+                        "neosolar",
+                        "fotus",
+                        "odex"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "examples": [
+                        "NeoSolar",
+                        "FOTUS",
+                        "ODEX"
+                    ]
+                },
+                "tier": {
+                    "type": "string",
+                    "enum": [
+                        "tier_1",
+                        "tier_2",
+                        "tier_3"
+                    ]
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[A-Z]{2}$"
+                    }
+                },
+                "contact": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "type": "string",
+                            "format": "email"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "website": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                }
+            }
+        },
+        "images": {
+            "type": "object",
+            "description": "Mídia e imagens do produto",
+            "properties": {
+                "primary": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "gallery": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "processed": {
+                    "type": "object",
+                    "properties": {
+                        "thumbnail": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "medium": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "large": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "zoom": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "diagrams": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "examples": [
+                                    "wiring",
+                                    "dimensions",
+                                    "installation"
+                                ]
+                            },
+                            "url": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            }
+        },
+        "documents": {
+            "type": "object",
+            "description": "Documentação técnica",
+            "properties": {
+                "datasheet": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "manual": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "installation_guide": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "warranty_terms": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "technical_specs": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Metadados do produto",
+            "required": [
+                "version",
+                "created_at",
+                "updated_at"
+            ],
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "pattern": "^\\d+\\.\\d+\\.\\d+$"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "created_by": {
+                    "type": "string"
+                },
+                "updated_by": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string",
+                    "examples": [
+                        "distributor_api",
+                        "manual",
+                        "scraped"
+                    ]
+                },
+                "source_url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "last_verified": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "verification_status": {
+                    "type": "string",
+                    "enum": [
+                        "verified",
+                        "pending",
+                        "failed",
+                        "unknown"
+                    ]
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "search_keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "quality_score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "completeness_score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            }
+        },
+        "compatibility": {
+            "type": "object",
+            "description": "Informações de compatibilidade",
+            "properties": {
+                "compatible_with": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IDs de produtos compatíveis"
+                },
+                "incompatible_with": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IDs de produtos incompatíveis"
+                },
+                "required_accessories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IDs de acessórios obrigatórios"
+                },
+                "recommended_accessories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IDs de acessórios recomendados"
+                },
+                "system_requirements": {
+                    "type": "object",
+                    "description": "Requisitos do sistema",
+                    "properties": {
+                        "min_voltage_v": {
+                            "type": "number"
+                        },
+                        "max_voltage_v": {
+                            "type": "number"
+                        },
+                        "min_current_a": {
+                            "type": "number"
+                        },
+                        "max_current_a": {
+                            "type": "number"
+                        },
+                        "frequency_hz": {
+                            "type": "number"
+                        },
+                        "phases": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "environmental": {
+            "type": "object",
+            "description": "Informações ambientais",
+            "properties": {
+                "co2_reduction_kg_year": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "energy_payback_years": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "recyclability_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "hazardous_materials": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "certifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "ISO 14001",
+                            "RoHS",
+                            "REACH"
+                        ]
+                    ]
+                }
+            }
+        },
+        "performance": {
+            "type": "object",
+            "description": "Dados de performance",
+            "properties": {
+                "temperature_coefficient": {
+                    "type": "object",
+                    "properties": {
+                        "power_pct_per_c": {
+                            "type": "number"
+                        },
+                        "voltage_mv_per_c": {
+                            "type": "number"
+                        },
+                        "current_ma_per_c": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "operating_temperature": {
+                    "type": "object",
+                    "properties": {
+                        "min_c": {
+                            "type": "number"
+                        },
+                        "max_c": {
+                            "type": "number"
+                        },
+                        "nominal_c": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "noct": {
+                    "type": "number",
+                    "description": "Nominal Operating Cell Temperature"
+                },
+                "mppt_efficiency_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "euro_efficiency_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            }
+        }
+    },
+    "$defs": {
+        "panel_specs": {
+            "type": "object",
+            "required": [
+                "power_w",
+                "technology",
+                "efficiency_pct"
+            ],
+            "properties": {
+                "power_w": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 1000
+                },
+                "power_kw": {
+                    "type": "number",
+                    "minimum": 0.001,
+                    "maximum": 1
+                },
+                "technology": {
+                    "type": "string",
+                    "enum": [
+                        "monocrystalline",
+                        "polycrystalline",
+                        "thin_film",
+                        "bifacial"
+                    ]
+                },
+                "efficiency_pct": {
+                    "type": "number",
+                    "minimum": 5,
+                    "maximum": 25
+                },
+                "cells": {
+                    "type": "integer",
+                    "minimum": 36,
+                    "maximum": 200
+                },
+                "cell_type": {
+                    "type": "string",
+                    "enum": [
+                        "PERC",
+                        "TOPCon",
+                        "HJT",
+                        "IBC"
+                    ]
+                },
+                "frame_type": {
+                    "type": "string",
+                    "enum": [
+                        "aluminum",
+                        "frameless",
+                        "fiber_glass"
+                    ]
+                },
+                "back_sheet": {
+                    "type": "string",
+                    "examples": [
+                        "White",
+                        "Black",
+                        "Transparent"
+                    ]
+                },
+                "junction_box": {
+                    "type": "string",
+                    "examples": [
+                        "IP65",
+                        "IP67"
+                    ]
+                },
+                "cable_length_mm": {
+                    "type": "number"
+                },
+                "connector_type": {
+                    "type": "string",
+                    "examples": [
+                        "MC4",
+                        "MC4-EVO",
+                        "H4"
+                    ]
+                },
+                "max_system_voltage_v": {
+                    "type": "number"
+                },
+                "max_series_fuse_a": {
+                    "type": "number"
+                },
+                "bifacial": {
+                    "type": "boolean"
+                },
+                "bifacial_factor": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                }
+            }
+        },
+        "inverter_specs": {
+            "type": "object",
+            "required": [
+                "power_w",
+                "type",
+                "phases"
+            ],
+            "properties": {
+                "power_w": {
+                    "type": "number",
+                    "minimum": 100,
+                    "maximum": 500000
+                },
+                "power_kw": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 500
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "string",
+                        "microinverter",
+                        "hybrid",
+                        "off_grid",
+                        "central"
+                    ]
+                },
+                "phases": {
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        3
+                    ]
+                },
+                "topology": {
+                    "type": "string",
+                    "enum": [
+                        "transformerless",
+                        "with_transformer"
+                    ]
+                },
+                "mppt_trackers": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                },
+                "max_input_voltage_v": {
+                    "type": "number"
+                },
+                "min_input_voltage_v": {
+                    "type": "number"
+                },
+                "max_input_current_a": {
+                    "type": "number"
+                },
+                "nominal_output_voltage_v": {
+                    "type": "number"
+                },
+                "output_voltage_range_v": {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "number"
+                        },
+                        "max": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "nominal_output_frequency_hz": {
+                    "type": "number",
+                    "enum": [
+                        50,
+                        60
+                    ]
+                },
+                "output_frequency_range_hz": {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "number"
+                        },
+                        "max": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "max_output_current_a": {
+                    "type": "number"
+                },
+                "power_factor": {
+                    "type": "number",
+                    "minimum": -1,
+                    "maximum": 1
+                },
+                "total_harmonic_distortion": {
+                    "type": "number",
+                    "maximum": 100
+                },
+                "efficiency_euro_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "efficiency_mppt_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "efficiency_peak_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "standby_power_w": {
+                    "type": "number"
+                },
+                "night_consumption_w": {
+                    "type": "number"
+                },
+                "protection_features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "overvoltage",
+                            "undervoltage",
+                            "overcurrent",
+                            "short_circuit",
+                            "overtemperature",
+                            "anti_islanding"
+                        ]
+                    ]
+                },
+                "communication": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "WiFi",
+                            "Ethernet",
+                            "RS485",
+                            "Bluetooth",
+                            "4G"
+                        ]
+                    ]
+                },
+                "monitoring": {
+                    "type": "boolean"
+                },
+                "display_type": {
+                    "type": "string",
+                    "examples": [
+                        "LCD",
+                        "LED",
+                        "None"
+                    ]
+                },
+                "cooling": {
+                    "type": "string",
+                    "enum": [
+                        "natural",
+                        "forced_air",
+                        "liquid"
+                    ]
+                }
+            }
+        },
+        "battery_specs": {
+            "type": "object",
+            "required": [
+                "capacity_kwh",
+                "voltage_v",
+                "chemistry"
+            ],
+            "properties": {
+                "capacity_kwh": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 1000
+                },
+                "capacity_ah": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 10000
+                },
+                "voltage_v": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 1000
+                },
+                "chemistry": {
+                    "type": "string",
+                    "enum": [
+                        "lithium_ion",
+                        "lithium_iron_phosphate",
+                        "lead_acid",
+                        "nickel_cadmium",
+                        "flow"
+                    ]
+                },
+                "cell_configuration": {
+                    "type": "string",
+                    "examples": [
+                        "18650",
+                        "21700",
+                        "prismatic"
+                    ]
+                },
+                "nominal_voltage_v": {
+                    "type": "number"
+                },
+                "max_charge_voltage_v": {
+                    "type": "number"
+                },
+                "min_discharge_voltage_v": {
+                    "type": "number"
+                },
+                "max_charge_current_a": {
+                    "type": "number"
+                },
+                "max_discharge_current_a": {
+                    "type": "number"
+                },
+                "peak_power_kw": {
+                    "type": "number"
+                },
+                "energy_density_wh_kg": {
+                    "type": "number"
+                },
+                "cycles": {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 10000
+                },
+                "depth_of_discharge_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "efficiency_charge_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "efficiency_discharge_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "self_discharge_rate_pct_month": {
+                    "type": "number"
+                },
+                "operating_temperature_charge": {
+                    "type": "object",
+                    "properties": {
+                        "min_c": {
+                            "type": "number"
+                        },
+                        "max_c": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "operating_temperature_discharge": {
+                    "type": "object",
+                    "properties": {
+                        "min_c": {
+                            "type": "number"
+                        },
+                        "max_c": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "storage_temperature": {
+                    "type": "object",
+                    "properties": {
+                        "min_c": {
+                            "type": "number"
+                        },
+                        "max_c": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "warranty_years": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                },
+                "modular": {
+                    "type": "boolean"
+                },
+                "scalable": {
+                    "type": "boolean"
+                },
+                "max_parallel_units": {
+                    "type": "integer"
+                },
+                "communication_protocol": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "CAN",
+                            "RS485",
+                            "Bluetooth",
+                            "WiFi"
+                        ]
+                    ]
+                },
+                "bms_features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "cell_balancing",
+                            "temperature_monitoring",
+                            "overcurrent_protection",
+                            "short_circuit_protection"
+                        ]
+                    ]
+                }
+            }
+        },
+        "kit_specs": {
+            "type": "object",
+            "required": [
+                "total_power_w",
+                "components"
+            ],
+            "properties": {
+                "total_power_w": {
+                    "type": "number",
+                    "minimum": 100
+                },
+                "total_power_kw": {
+                    "type": "number",
+                    "minimum": 0.1
+                },
+                "configuration": {
+                    "type": "string",
+                    "examples": [
+                        "grid_tie",
+                        "hybrid",
+                        "off_grid"
+                    ]
+                },
+                "components": {
+                    "type": "object",
+                    "properties": {
+                        "panels": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "power_w": {
+                                        "type": "number"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "inverters": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "power_w": {
+                                        "type": "number"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "batteries": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "capacity_kwh": {
+                                        "type": "number"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "structures": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "cables": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "length_m": {
+                                        "type": "number"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "accessories": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "id",
+                                    "quantity"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "total_panels": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "total_inverters": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "total_batteries": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "estimated_generation_kwh_year": {
+                    "type": "number"
+                },
+                "estimated_savings_brl_year": {
+                    "type": "number"
+                },
+                "payback_years": {
+                    "type": "number"
+                },
+                "roi_pct": {
+                    "type": "number"
+                },
+                "co2_reduction_kg_year": {
+                    "type": "number"
+                },
+                "installation_complexity": {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "medium",
+                        "high"
+                    ]
+                },
+                "recommended_roof_area_m2": {
+                    "type": "number"
+                },
+                "system_voltage_v": {
+                    "type": "number"
+                },
+                "max_power_point_tracking": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "cable_specs": {
+            "type": "object",
+            "required": [
+                "conductor_material",
+                "insulation_material"
+            ],
+            "properties": {
+                "conductor_material": {
+                    "type": "string",
+                    "enum": [
+                        "copper",
+                        "aluminum",
+                        "copper_clad_aluminum"
+                    ]
+                },
+                "conductor_gauge_awg": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 50
+                },
+                "conductor_gauge_mm2": {
+                    "type": "number",
+                    "minimum": 0.1
+                },
+                "strands": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "insulation_material": {
+                    "type": "string",
+                    "enum": [
+                        "pvc",
+                        "xlpe",
+                        "rubber",
+                        "teflon",
+                        "silicone"
+                    ]
+                },
+                "insulation_rating_v": {
+                    "type": "number"
+                },
+                "jacket_material": {
+                    "type": "string"
+                },
+                "jacket_rating_v": {
+                    "type": "number"
+                },
+                "temperature_rating_c": {
+                    "type": "number"
+                },
+                "max_current_a": {
+                    "type": "number"
+                },
+                "resistance_ohm_km": {
+                    "type": "number"
+                },
+                "capacitance_pf_m": {
+                    "type": "number"
+                },
+                "inductance_uh_m": {
+                    "type": "number"
+                },
+                "diameter_mm": {
+                    "type": "number"
+                },
+                "weight_kg_km": {
+                    "type": "number"
+                },
+                "uv_resistant": {
+                    "type": "boolean"
+                },
+                "water_resistant": {
+                    "type": "boolean"
+                },
+                "flame_retardant": {
+                    "type": "boolean"
+                },
+                "halogen_free": {
+                    "type": "boolean"
+                },
+                "flexible": {
+                    "type": "boolean"
+                },
+                "shielded": {
+                    "type": "boolean"
+                },
+                "connector_type": {
+                    "type": "string",
+                    "examples": [
+                        "MC4",
+                        "MC4-EVO",
+                        "H4",
+                        "Tyco"
+                    ]
+                },
+                "certifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "UL",
+                            "TÜV",
+                            "IEC"
+                        ]
+                    ]
+                }
+            }
+        },
+        "structure_specs": {
+            "type": "object",
+            "required": [
+                "material",
+                "mounting_type"
+            ],
+            "properties": {
+                "material": {
+                    "type": "string",
+                    "enum": [
+                        "aluminum",
+                        "galvanized_steel",
+                        "stainless_steel",
+                        "concrete"
+                    ]
+                },
+                "mounting_type": {
+                    "type": "string",
+                    "enum": [
+                        "roof_mount",
+                        "ground_mount",
+                        "pole_mount",
+                        "tracking"
+                    ]
+                },
+                "roof_type_compatibility": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "ceramic",
+                            "concrete",
+                            "metal",
+                            "asphalt",
+                            "flat",
+                            "pitched"
+                        ]
+                    }
+                },
+                "max_wind_speed_kmh": {
+                    "type": "number"
+                },
+                "max_snow_load_kg_m2": {
+                    "type": "number"
+                },
+                "tilt_angle_degrees": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 90
+                },
+                "orientation": {
+                    "type": "string",
+                    "enum": [
+                        "fixed",
+                        "adjustable",
+                        "tracking"
+                    ]
+                },
+                "tracking_type": {
+                    "type": "string",
+                    "enum": [
+                        "single_axis",
+                        "dual_axis",
+                        "seasonal_tilt"
+                    ]
+                },
+                "foundation_required": {
+                    "type": "boolean"
+                },
+                "foundation_type": {
+                    "type": "string",
+                    "enum": [
+                        "concrete",
+                        "screw_piles",
+                        "ballast",
+                        "none"
+                    ]
+                },
+                "max_panel_weight_kg": {
+                    "type": "number"
+                },
+                "corrosion_resistance": {
+                    "type": "string",
+                    "enum": [
+                        "low",
+                        "medium",
+                        "high",
+                        "very_high"
+                    ]
+                },
+                "warranty_years": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 30
+                },
+                "installation_time_hours": {
+                    "type": "number"
+                },
+                "tools_required": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "certifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "examples": [
+                        [
+                            "UL 2703",
+                            "IEC 63087",
+                            "ASCE 7"
+                        ]
+                    ]
+                }
+            }
+        },
+        "generic_specs": {
+            "type": "object",
+            "description": "Especificações genéricas para produtos diversos",
+            "properties": {
+                "power_w": {
+                    "type": "number"
+                },
+                "power_kw": {
+                    "type": "number"
+                },
+                "voltage_v": {
+                    "type": "number"
+                },
+                "current_a": {
+                    "type": "number"
+                },
+                "frequency_hz": {
+                    "type": "number"
+                },
+                "efficiency_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "material": {
+                    "type": "string"
+                },
+                "ip_rating": {
+                    "type": "string",
+                    "pattern": "^IP[0-9]{2}$"
+                },
+                "operating_temperature_min_c": {
+                    "type": "number"
+                },
+                "operating_temperature_max_c": {
+                    "type": "number"
+                },
+                "storage_temperature_min_c": {
+                    "type": "number"
+                },
+                "storage_temperature_max_c": {
+                    "type": "number"
+                },
+                "humidity_pct": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "warranty_years": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                },
+                "certifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "specifications": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        }
+    }
+}
