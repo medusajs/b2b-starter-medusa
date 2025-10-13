@@ -1,0 +1,1392 @@
+﻿[
+    {
+        "id":  "fortlev_inverters_IIN00386",
+        "name":  "HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI (SUN2000-4KTL-L1)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 4.467,91",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fab/IIN00386.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00384",
+        "name":  "HUAWEI ON-GRID 75KW - 220V - 7 MPPT - AFCI (SUN2000-75K-MGL0-BR)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 49.856,68",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130faa/IIN00384.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00383",
+        "name":  "HUAWEI ON-GRID 50KW - 380V - 4 MPPT - AFCI (SUN2000-50KTL-BRM3)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 19.989,86",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa9/IIN00383.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00382",
+        "name":  "HUAWEI ON-GRID 50KW - 220V - 7 MPPT - AFCI (SUN2000-50K-MGL0-BR)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 48.965,06",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa8/IIN00382.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00381",
+        "name":  "HUAWEI ON-GRID 40KW - 380V - 4 MPPT - AFCI (SUN2000-40KTL-BRM3)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 18.174,85",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa7/IIN00381.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00380",
+        "name":  "HUAWEI ON-GRID 30KW - 380V - 4 MPPT - AFCI (SUN2000-30KTL-BRM3)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 20.833,33",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa6/IIN00380.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00379",
+        "name":  "HUAWEI HIBRIDO 25KW - 380V - 2 MPPT - AFCI (SUN2000-25K-MB0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 13.737,41",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa5/IIN00379.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00378",
+        "name":  "HUAWEI ON-GRID 20KW - 220V - 4 MPPT - AFCI (SUN2000-20KTL-BRM3)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 16.421,86",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa4/IIN00378.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00377",
+        "name":  "HUAWEI HIBRIDO 20KW - 380V - 2 MPPT - AFCI (SUN2000-20K-MB0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 12.125,60",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa3/IIN00377.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00376",
+        "name":  "HUAWEI HIBRIDO 15KW - 380V - 2 MPPT - AFCI (SUN2000-15K-MB0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 9.618,72",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68c008be7a9dce9e6f130fa2/IIN00376_v2.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00358",
+        "name":  "GROWATT MAC-36KTL3-XL2 - 220V - 3MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 19.427,26",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6899db4ee0816a394c66c168/IIN00358.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00357",
+        "name":  "GROWATT ON-GRID 30KW - 220V - 3 MPPT - AFCI (MAC30KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 17.490,64",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6899db4ee0816a394c66c167/IIN00357.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00373",
+        "name":  "MEDIDOR TRIF. SOLIS DTSD1352-C-3*1(6)A",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 1.277,83",
+        "image":  "https://fortlevsolar.app/produto-avulso?familia=inverter",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00372",
+        "name":  "CONTROLADOR DE EXPORTAÇÃO SOLIS-EPM3-5G-PRO",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 6.351,11",
+        "image":  "https://fortlevsolar.app/produto-avulso?familia=inverter",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00360",
+        "name":  "FOXESS T12-G3 AFCI - 380V - 2MPPT",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 7.843,24",
+        "image":  "https://fortlevsolar.app/produto-avulso?familia=inverter",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00331",
+        "name":  "GROWATT ON-GRID 40KW - 380V - 4 MPPT - AFCI (MID40KTL3-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 14.122,65",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/686f9d3f373d34397bc3e951/GROWATT-MID40KTL3-X2---380V---4MPPT_v2.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00268",
+        "name":  "SUNGROW ON-GRID 12KW - 380V - 2 MPPT - AFCI (SG12RT-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 8.733,03",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/686f9d3f373d34397bc3e950/SUNGROW%20SG12RT%20-%20380V%20-%202MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00370",
+        "name":  "HUAWEI  HIBRIDO 8KW - 220V - 3 MPPT - AFCI (SUN2000-8KTL-LC0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 6.858,42",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6f0/IIN00370.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00368",
+        "name":  "HUAWEI  HIBRIDO 7.5KW - 220V - 3 MPPT - AFCI (SUN2000-7.5K-LC0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 6.750,50",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6865497d9f791c3bb354c6ee/IIN00368.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00367",
+        "name":  "HUAWEI  HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SUN2000-10K-LC0)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 7.381,60",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985e/IIN00367.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00366",
+        "name":  "HUAWEI  HIBRIDO 6KW - 220V - 2 MPPT - AFCI (SUN2000-6KTL-L1)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 4.608,77",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985d/IIN00366.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00365",
+        "name":  "HUAWEI  HIBRIDO 5KW - 220V - 2 MPPT - AFCI (SUN2000-5KTL-L1)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 4.414,16",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985c/IIN00365.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00364",
+        "name":  "HUAWEI  HIBRIDO 3KW - 220V - 2 MPPT - AFCI (SUN2000-3KTL-L1)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 3.294,26",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68654277371780ce1447985b/IIN00364.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00350",
+        "name":  "SOLIS ON-GRID 9KW - 220V - 3 MPPT - AFCI (S6-GR1P9K03-NV-ND)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 7.377,47",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68500752d2d60d325a684b95/IIN00350.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00348",
+        "name":  "SUNGROW ON-GRID 7.5KW - 220V - 2 MPPT - AFCI (SG7.5RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 7.016,01",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68402e4a01caf92f5b9b739d/IIN00348.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00352",
+        "name":  "MICROINVERSOR FOXESS Q1-2400-E - 2400W - 220V",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 2.149,77",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/682e22bca14a42eee678f83a/IIN00352.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00349",
+        "name":  "MICROINVERSOR NEP BDM-2250 COM WIFI E CABO TRONCO",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 2.241,12",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68275a028d3cd4ac4215d6cf/IIN00349.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00327",
+        "name":  "GROWATT ON-GRID 7.5KW - 220V - 2 MPPT - AFCI (MIN7500TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 5.038,21",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/68232d495b841b183f6d54de/GROWATT-MIN7500TL-X2-220V-2MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00310",
+        "name":  "SOLIS - 110K-5G-PRO - 380V - 8MPPT",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 47.172,67",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/681dee4f2e12924e8007651a/IIN00310.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00309",
+        "name":  "SOLIS - 100K-5G-PRO - 380V - 8MPPT",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 45.370,55",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/681dee4f2e12924e80076519/IIN00309.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00347",
+        "name":  "SOLIS ON-GRID 75KW - 380V - 6 MPPT - AFCI (75K-5G-PRO)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 31.609,88",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67ea9ff61f900e79abe3b916/IIN00347.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00312",
+        "name":  "SOLIS ON-GRID 30KW - 220V - 4 MPPT - AFCI (S5-GC30K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 20.969,57",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67e1656fcfccf55357e7942a/IIN00312.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00311",
+        "name":  "SOLIS ON-GRID 25KW - 220V - 4 MPPT - AFCI (S5-GC25K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 18.570,10",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67e1656fcfccf55357e79429/IIN00311.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00308",
+        "name":  "SOLIS ON-GRID 50KW - 380V - 5 MPPT - AFCI (S5-GC50K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 20.659,66",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67e1656fcfccf55357e79428/IIN00308.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00307",
+        "name":  "SOLIS ON-GRID 40KW - 380V - 4 MPPT - AFCI (S5-GC40K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 17.555,49",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67e1656fcfccf55357e79427/IIN00307.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00343",
+        "name":  "SOLIS ON-GRID 250KW - 800V - 12 MPPT - (250K-EHV-5G-PLUS)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 84.391,99",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67ddb73ef3d04489ac0301a0/IIN00343.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00313",
+        "name":  "SOLIS ON-GRID 125KW - 600V - 1 MPPT - (125K1-EHV-5G)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 57.384,56",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67ddb73ef3d04489ac03019f/IIN00313.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00322",
+        "name":  "GROWATT NEO 2250M - X2 - 2250W - 220V",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 1.932,74",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00344",
+        "name":  "SOLIS ON-GRID 110KW - 380V - 10 MPPT - AFCI (S6-GC110K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 48.698,97",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d8358356a5a649cb66cef8/IIN00344.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00345",
+        "name":  "SOLIS ON-GRID 100KW - 380V - 10 MPPT - AFCI (S6-GC100K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 46.138,04",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2ac1/IIN00345.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00342",
+        "name":  "SOLIS ON-GRID 8KW - 220V - 2 MPPT - AFCI (S6-GR1P8K2)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 6.416,77",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2ac0/IIN00342%20(1).png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00341",
+        "name":  "SOLIS ON-GRID 10KW - 220V - 3 MPPT - AFCI (S6-GR1P10K03-NV-ND)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 7.426,40",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2abf/IIN00341.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00340",
+        "name":  "SOLIS ON-GRID 7KW - 220V - 2 MPPT - AFCI (S6-GR1P7K2)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 5.572,59",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2abe/IIN00340.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00339",
+        "name":  "SOLIS ON-GRID 20KW - 220V - 3 MPPT - AFCI (S5-GC20K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 16.507,46",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2abd/IIN00339.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00338",
+        "name":  "SOLIS ON-GRID 15KW - 220V - 3 MPPT - AFCI (S5-GC15K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 14.836,90",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2abc/IIN00338.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00337",
+        "name":  "SOLIS ON-GRID 50KW - 220V - 6 MPPT - AFCI (S6-GC50K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 33.121,28",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2abb/IIN00337.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00336",
+        "name":  "SOLIS ON-GRID 60KW - 220V - 8 MPPT - AFCI (S6-GC60K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 34.856,65",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2aba/IIN00336.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00335",
+        "name":  "SOLIS ON-GRID 75KW - 220V - 8 MPPT - AFCI (S6-GC75K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 40.905,07",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2ab9/IIN00335.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00296",
+        "name":  "SOLIS ON-GRID 37.5KW - 220V - 4 MPPT - AFCI (S5-GC37.5K-LV)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 23.151,90",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2ab8/IIN00296.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00290",
+        "name":  "SOLIS ON-GRID 30KW - 380V - 3 MPPT - AFCI (S5-GC30K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 14.697,43",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d831f583e66579a98c2ab7/IIN00290.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00232",
+        "name":  "GROWATT ON-GRID 75KW - 220V - 8 MPPT - AFCI (MAX75KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 36.041,67",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67d03ae46d8235c7d26a0333/IIN00232-GROWATT-MAX-75KTL3-XL2-220V-8MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00316",
+        "name":  "HUAWEI ON-GRID 100KW - 380V - 10 MPPT - AFCI (SUN2000-100KTL-M2)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 34.303,69",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67cb2d267e905e34fc09a42c/IIN00316-HUAWEI-SUN2000-100KTL-M2-380V-10MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00267",
+        "name":  "SUNGROW ON-GRID 15KW - 380V - 2 MPPT - AFCI (SG15RT-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 9.656,71",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67a367e3cbd28e9ff22dad4f/SUNGROW-SG15RT-P2-(AFCI)---380V---2MPPT%201.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00224",
+        "name":  "GROWATT HIBRIDO 10KW - 220V - 3 MPPT - AFCI (SPH10000TL-HU)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 22.812,50",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/679a4072b7bda88112c6c7c3/IIN00224.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00319",
+        "name":  "FOXESS ON-GRID 7.5KW - 220V - 3 MPPT - AFCI (G7.5)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 5.425,58",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/678950349ecacc7047df66f5/IIN00319.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00318",
+        "name":  "SOLIS ON-GRID 15KW - 380V - 2 MPPT - AFCI (S5-GR3P15K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 9.361,79",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/678191649fe6a400e32b7dab/IIN00318.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00305",
+        "name":  "SOLIS ON-GRID 7.5KW - 220V - 2 MPPT - AFCI (S6-GR1P7.5K2)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 5.638,67",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/678191649fe6a400e32b7da9/IIN00305.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00304",
+        "name":  "SOLIS ON-GRID 6KW - 220V - 2 MPPT - AFCI (S6-GR1P6K-S)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 4.331,84",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67818a5fc57f3b2021da95a2/IIN00304.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00303",
+        "name":  "SOLIS ON-GRID 5KW - 220V - 2 MPPT - AFCI (S6-GR1P5K-S)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 4.242,64",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67818a5fc57f3b2021da95a1/IIN00303.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00302",
+        "name":  "SOLIS ON-GRID 4KW - 220V - 2 MPPT - AFCI (S6-GR1P4K-S)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 4.155,44",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67818a5fc57f3b2021da95a0/IIN00302.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00301",
+        "name":  "SOLIS ON-GRID 3KW - 220V - 1 MPPT - AFCI (S6-GR1P3K-M)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 3.080,34",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67818a5fc57f3b2021da959f/IIN00301_v2.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00286",
+        "name":  "SUNGROW ON-GRID 75KW - 220V - 7 MPPT - AFCI (SG75CX-LV)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 51.625,84",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6769b33d181ccb51be062efe/SUNGROW-SG75CX-LV.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00299",
+        "name":  "ENPHASE MICROINVERSOR 0,475KW - 220V - AFCI (IQ8P-72-2-BR)",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 1.474,61",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/674e1fe18b02c0d00962193e/Enphase-IQB.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00266",
+        "name":  "SUNGROW ON-GRID 20KW - 380V - 2 MPPT - AFCI (SG20RT-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 11.827,04",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6740c6aa9efcab954c86d5d0/SUNGROW-SG20RT-P2-(AFCI)-380V-2MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00292",
+        "name":  "SOLIS ON-GRID 25KW - 380V - 3 MPPT - AFCI (S5-GC25K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 11.909,46",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67180b5173efb62298e53df2/IIN00292.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00291",
+        "name":  "SOLIS ON-GRID 37.5KW - 380V - 4 MPPT - AFCI (S5-GC37.5K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 18.285,74",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67180b5173efb62298e53df1/IIN00291.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00289",
+        "name":  "SOLIS ON-GRID 60KW - 380V - 6 MPPT - AFCI (S5-GC60K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 23.700,74",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67180b5173efb62298e53df0/IIN00289.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00288",
+        "name":  "SOLIS ON-GRID 20KW - 380V - 2 MPPT - AFCI (S5-GR3P20K)",
+        "manufacturer":  "SOLIS",
+        "category":  "inverters",
+        "price":  "R$ 10.272,47",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/67180b5173efb62298e53def/IIN00288.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00284",
+        "name":  "GROWATT MOD15KTL3-X2 - 380V -2 MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 10.273,98",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/670fc6f49a0e5984389e13ea/GROWATT-MOD15KTL3-X2-380V-2-MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00252",
+        "name":  "GROWATT ON-GRID 3KW - 220V - 1 MPPT - AFCI (MIC3000TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 2.802,34",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/670d5c35dac72e01f686b281/GROWATT-MIC-3000TL-X2-220V-1MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00214",
+        "name":  "HUAWEI  ON-GRID 250KW - 800V - 6 MPPT - AFCI (SUN2000-250KTL-H1)",
+        "manufacturer":  "HUAWEI",
+        "category":  "inverters",
+        "price":  "R$ 112.939,09",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66fd43d9af4b1447310ffa6c/IIN00214.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00279",
+        "name":  "NEP CLIP FIXAÇÃO P/ RSD",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 22,71",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c792/logo.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00278",
+        "name":  "NEP CONTROLADOR DE TENSÃO MONIT. A NÍVEL DE MÓD. 1 P/ INVERSOR",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 3.680,61",
+        "image":  "https://fortlevsolar.app/produto-avulso?familia=inverter",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00231",
+        "name":  "GROWATT ON-GRID 20KW - 380V - 2 MPPT - AFCI (MID20KTL3-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 10.544,02",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c18/IIN00231.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00230",
+        "name":  "GROWATT ON-GRID 25KW - 380V - 2 MPPT - AFCI (MID 25KTL3-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 12.161,59",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c17/IIN00230.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00209",
+        "name":  "GROWATT NEO 2000M - X - 2000W - 220V",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 1.737,19",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00241",
+        "name":  "GROWATT ON-GRID 10KW - 220V - 3 MPPT - AFCI (MIN10000TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 6.187,55",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66b0f709cd109c6b7bfd3254/IIN00241.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00271",
+        "name":  "FOXESS  ON-GRID 100KW - 380V - 9 MPPT - AFCI (R100)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 33.594,00",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66aa4a70582ee86e8d985fc8/IIN00271.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00238",
+        "name":  "GROWATT ON-GRID 20KW - 220V - 4 MPPT - AFCI (MID20KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 14.016,63",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691ae707f99e1700d66acbf/IIN00238.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00251",
+        "name":  "GROWATT ON-GRID 5KW - 220V - 2 MPPT - AFCI (MIN5000TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 3.734,96",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691a7697f99e1700d66acbd/IIN00251.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00250",
+        "name":  "GROWATT ON-GRID 6KW - 220V - 2 MPPT - AFCI (MIN6000TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 4.270,83",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691a7697f99e1700d66acbc/IIN00250.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00242",
+        "name":  "GROWATT ON-GRID 8KW - 220V - 3 MPPT - AFCI (MIN8000TL-X2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 6.311,59",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691a7697f99e1700d66acbb/IIN00242.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00239",
+        "name":  "GROWATT ON-GRID 15KW - 220V - 4 MPPT - AFCI (MID15KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 13.178,11",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691a7697f99e1700d66acba/IIN00239.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00237",
+        "name":  "GROWATT ON-GRID 25KW - 220V - 4 MPPT - AFCI (MID 25KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 16.487,09",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6691a7697f99e1700d66acb9/IIN00237.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00235",
+        "name":  "GROWATT ON-GRID 60KW - 220V - 8 MPPT - AFCI (MAX60KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 35.256,97",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/668ec5203185c4c727e4776d/IIN00235.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00265",
+        "name":  "FOXESS  ON-GRID 15KW - 220V - 4 MPPT - AFCI (VL15)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 15.777,87",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5afb/IIN00265.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00264",
+        "name":  "FOXESS  ON-GRID 20KW - 220V - 4 MPPT - AFCI (VL20)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 17.901,25",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5afa/IIN00264.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00263",
+        "name":  "FOXESS  ON-GRID 25KW - 220V - 4 MPPT - AFCI (VL25)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 19.702,08",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af9/IIN00263.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00262",
+        "name":  "FOXESS  ON-GRID 30KW - 220V - 4 MPPT - AFCI (VL30)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 20.954,83",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af8/IIN00262.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00261",
+        "name":  "FOXESS  ON-GRID 37.5KW - 220V - 4 MPPT - AFCI (VL37.5)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 23.326,60",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af7/IIN00261.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00260",
+        "name":  "FOXESS ON-GRID 10KW - 220V - 3 MPPT - AFCI (G10)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 6.938,61",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af6/IIN00260.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00259",
+        "name":  "FOXESS  ON-GRID 9KW - 220V - 3 MPPT - AFCI (G9)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 6.064,60",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af5/IIN00259.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00258",
+        "name":  "FOXESS  ON-GRID 15KW - 380V - 2 MPPT - AFCI (T15-G3)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 8.633,78",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af4/IIN00258.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00257",
+        "name":  "FOXESS  ON-GRID 20KW - 380V - 2 MPPT - AFCI (T20-G3)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 9.375,00",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af3/IIN00257.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00256",
+        "name":  "FOXESS ON-GRID 25KW - 380V - 2 MPPT - AFCI (T25-G3)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 10.880,75",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af2/IIN00256.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00228",
+        "name":  "SUNGROW ON-GRID 4KW - 220V - 2 MPPT - AFCI (SG4RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 3.793,12",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5af0/SUNGROW-SG4.0RS-220V-2MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00219",
+        "name":  "SUNGROW ON-GRID 3KW - 220V - 1 MPPT - AFCI (SG3.0RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 3.054,06",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5aef/SUNGROW-SG3.0RS-220V-1MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00164",
+        "name":  "FERRAMENTA P/ DESCONEXAO TERMINAIS CABO-Q ENPHASE",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 26,92",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8e5/icon-318x647.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00161",
+        "name":  "PAR DE CONECTOR P/ CABO-Q ENPHASE",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 222,06",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8e2/icon-318x647.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00126",
+        "name":  "ENPHASE MICROINVERSOR 0,335KW - 220V - AFCI (IQ7AM-72-2-US)",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 979,82",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8c7/IIN00126.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00148",
+        "name":  "SOLAREDGE SE100K SYNERGY - 380V",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "De:",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8c5/IIN00148.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00071",
+        "name":  "GROWATT SPF3500ES - 230V - 1MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 8.869,11",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8be/IIN00071.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00182",
+        "name":  "GROWATT OFF-GRID 5KW - 220V - 1 MPPT (SPF5000ES)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 6.265,01",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8bc/IIN00182.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00021",
+        "name":  "SUNGROW ON-GRID 125KW - 600V - 1 MPPT (SG125HV)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 63.240,75",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8b9/IIN00021.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00018",
+        "name":  "SUNGROW SG60KTL - 380V - 1MPPT",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 50.675,45",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c792/logo.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00236",
+        "name":  "GROWATT ON-GRID 50KW - 220V - 8 MPPT - AFCI (MAX50KTL3-XL2)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 34.583,33",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a8/IIN00236.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00225",
+        "name":  "MICROINVERSOR FOXESS M1 - 1000W - 220V",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 1.353,45",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a6/IIN00225.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00222",
+        "name":  "SUNGROW ON-GRID 9KW - 220V - 3 MPPT - AFCI (SG9.0RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 8.062,90",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a5/SUNGROW-SG9.0RS-220V-3MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00221",
+        "name":  "SUNGROW ON-GRID 6KW - 220V - 2 MPPT - AFCI (SG6.0RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 4.275,55",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a4/IIN00221.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00220",
+        "name":  "SUNGROW ON-GRID 5KW - 220V - 2 MPPT - AFCI (SG5.0RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 4.408,43",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a3/SUNGROW-SG5.0RS-220V-2MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00218",
+        "name":  "SUNGROW ON-GRID 10KW - 220V - 3 MPPT - AFCI (SG10RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 6.916,17",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a2/IIN00218.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00217",
+        "name":  "SUNGROW ON-GRID 8KW - 220V - 2 MPPT - AFCI (SG8.0RS-L)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 6.562,13",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a1/IIN00217.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00216",
+        "name":  "SUNGROW ON-GRID 110KW - 380V - 12 MPPT - AFCI (SG110CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 49.775,71",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a0/IIN00216.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00215",
+        "name":  "SUNGROW ON-GRID 75KW - 380V - 8 MPPT - AFCI (SG75CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 33.139,05",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c89f/IIN00215.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00212",
+        "name":  "SUNGROW ON-GRID 25KW - 220V - 3 MPPT - AFCI (SG25CX-P2-LV)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 21.399,11",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c89e/IIN00212.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00211",
+        "name":  "SUNGROW ON-GRID 20KW - 220V - 3 MPPT - AFCI (SG20CX-P2-LV)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 19.116,33",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c89d/IIN00211.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00210",
+        "name":  "SUNGROW ON-GRID 15KW - 220V - 2 MPPT - AFCI (SG15CX-P2-LV)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 17.544,75",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c89c/IIN00210.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00196",
+        "name":  "SUNGROW ON-GRID 30KW - 380V - 3 MPPT - AFCI (SG30CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 15.734,71",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c89a/IIN00196.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00195",
+        "name":  "SUNGROW ON-GRID 25KW - 380V - 3 MPPT - AFCI (SG25CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 13.965,66",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c899/IIN00195.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00194",
+        "name":  "SUNGROW ON-GRID 40KW - 380V - 4 MPPT - AFCI (SG40CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 22.590,91",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c898/IIN00194.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00193",
+        "name":  "FOXESS  ON-GRID 3KW - 220V - 1 MPPT - AFCI (S3000-G2)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 2.676,10",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c897/IIN00193.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00190",
+        "name":  "FOXESS T15-G3 - 380V - 2MPPT",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 8.855,82",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c894/IIN00190.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00189",
+        "name":  "FOXESS  ON-GRID 12KW - 380V - 2 MPPT - AFCI (T12-G3)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 7.653,41",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c893/IIN00189.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00188",
+        "name":  "FOXESS  ON-GRID 6KW - 220V - 2 MPPT - AFCI (F6000-G2)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 4.248,71",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c892/IIN00188.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00185",
+        "name":  "FOXESS  ON-GRID 8KW - 220V - 3 MPPT - AFCI (G8)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 5.561,87",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c890/IIN00185.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00184",
+        "name":  "FOXESS  ON-GRID 5KW - 220V - 2 MPPT - AFCI (F5000-G2)",
+        "manufacturer":  "FOXESS",
+        "category":  "inverters",
+        "price":  "R$ 3.917,37",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c88f/IIN00184.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00170",
+        "name":  "GROWATT MAX60KTL3-XL 2 - 220V - 8MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 43.038,95",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c88c/IIN00170.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00169",
+        "name":  "GROWATT MAX 75KTL3-XL 2 - 220V - 8MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "De:",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c88b/IIN00169.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00180",
+        "name":  "SUNGROW ON-GRID 50KW - 380V - 4 MPPT - AFCI (SG50CX-P2)",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 22.343,75",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c888/IIN00180.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00144",
+        "name":  "GROWATT MID36KTL3- X - 380V - 4MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 21.999,72",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c887/IIN00144.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00110",
+        "name":  "GROWATT MAC30KTL3-XL - 220V - 3MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 21.132,28",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c878/IIN00110.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00104",
+        "name":  "GOODWE GW50KN-MT - 380V - 4MPPT",
+        "manufacturer":  "Unknown",
+        "category":  "inverters",
+        "price":  "R$ 45.210,48",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c792/logo.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00083",
+        "name":  "GROWATT MID20KTL3-X - 380V - 2MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 14.574,16",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c862/IIN00083.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00082",
+        "name":  "GROWATT ON-GRID 60KW - 380V - 3 MPPT (MAC60KTL3-X-LV)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 30.441,65",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c861/IIN00082.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00081",
+        "name":  "GROWATT ON-GRID 75KW - 380V - 7 MPPT - AFCI (MAX75KTL3-LV)",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "De:",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c860/IIN00081.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00079",
+        "name":  "GROWATT MID15KTL3-X - 380V - 2MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 12.820,52",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c85e/IIN00079.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00078",
+        "name":  "GROWATT MIC3000TL-X -220V - 1MPPT",
+        "manufacturer":  "GROWATT",
+        "category":  "inverters",
+        "price":  "R$ 3.843,75",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c85d/GROWATT%20MIC3000TL-X%20-220V%20-%201MPPT.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00034",
+        "name":  "SUNGROW SG40CX - 380V - 4MPPT",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 39.237,95",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c85a/IIN00034.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    },
+    {
+        "id":  "fortlev_inverters_IIN00033",
+        "name":  "SUNGROW SG33CX - 380V - 3MPPT",
+        "manufacturer":  "SUNGROW",
+        "category":  "inverters",
+        "price":  "R$ 30.394,26",
+        "image":  "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c859/IIN00033.png",
+        "source":  "fortlevsolar.app",
+        "availability":  "Disponível"
+    }
+]
