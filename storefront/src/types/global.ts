@@ -1,4 +1,4 @@
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes } from "@medusajs/framework/types"
 import { QueryCompany, QueryEmployee } from "./company/query"
 import { QueryApproval, QueryApprovalStatus } from "./approval/query"
 
