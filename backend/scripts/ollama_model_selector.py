@@ -90,11 +90,14 @@ def _pick_model(
 
     # 3) heuristic keywords
     heuristics = [
+        'gpt-oss',     # Installed model
+        'gpt',
+        'gemma3',      # Prefer Gemma 3 over older Gemma
+        'gemma',
         'llava',
         'cogvlm',
         'blip',
         'qwen',
-        'gemma',
         'bakllava',
         'bakl',
     ]
@@ -111,19 +114,21 @@ def _pick_model(
 def pick_image_model() -> Optional[str]:
     """Pick the best available image-capable model.
 
-    Preference order (by default): LLaVA 34B -> LLaVA 13B -> LLaVA 7B
-    -> Gemma family.
+    Preference order (by default): GPT-OSS (20B), LLaVA variants,
+    Gemma 3 family. Gemma 3:4B is text-focused but can be used
+    for basic image captioning.
 
     The environment variable OLLAMA_IMAGE_MODEL can override the
     selection.
     """
     preferences = [
+        'gpt-oss:20b',     # Installed - strong multimodal
         'llava:34b',
         'llava:13b',
         'llava:7b',
         'bakllava',
-        'gemma3:vision',
-        'gemma3:4b',
+        'gemma3:vision',   # Gemma 3 multimodal variant
+        'gemma3:4b',       # Installed - text-optimized
         'gemma:4b',
     ]
     return _pick_model(preferences=preferences, env_var='OLLAMA_IMAGE_MODEL')
@@ -135,9 +140,10 @@ def pick_text_model() -> Optional[str]:
     Environment variable OLLAMA_TEXT_MODEL overrides selection.
     """
     preferences = [
-        'gemma3:4b',
+        'gemma3:4b',       # Installed - excellent for text analysis
+        'gpt-oss:20b',     # Installed - can handle text too
         'gemma3:8b',
-        'gpt',
+        'llama3',
         'llama',
     ]
     return _pick_model(preferences=preferences, env_var='OLLAMA_TEXT_MODEL')
