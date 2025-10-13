@@ -105,5 +105,5 @@ Write-Host ""
 Write-Host '   # Verificar logs' -ForegroundColor Gray
 Write-Host '   docker logs -f ysh-test' -ForegroundColor Gray
 Write-Host ""
-Write-Host "📚 Documentação: docs/MIGRATIONS_IMPLEMENTATION_SUMMARY.md" -ForegroundColor Cyan
+Write-Host "Documentacao: docs/MIGRATIONS_IMPLEMENTATION_SUMMARY.md" -ForegroundColor Cyan
 Write-Host ""

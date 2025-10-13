@@ -1,4 +1,4 @@
-import InteractiveLink from "@/modules/common/components/interactive-link"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -25,18 +25,18 @@ export default function NotFound() {
 
       {/* CTAs primários */}
       <div className="flex flex-wrap gap-3 justify-center">
-        <InteractiveLink
+        <LocalizedClientLink
           href="/"
           className="px-6 py-2.5 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors"
         >
           Início
-        </InteractiveLink>
-        <InteractiveLink
+        </LocalizedClientLink>
+        <LocalizedClientLink
           href="/suporte"
           className="px-6 py-2.5 border border-brand-500 text-brand-600 rounded-md hover:bg-brand-50 transition-colors"
         >
           Falar com Especialista
-        </InteractiveLink>
+        </LocalizedClientLink>
       </div>
 
       {/* Sugestões contextuais */}
@@ -44,24 +44,24 @@ export default function NotFound() {
         <p className="font-semibold mb-2 text-ui-fg-base">Atalhos Úteis:</p>
         <ul className="space-y-1.5">
           <li>
-            <InteractiveLink href="/categories" className="hover:text-brand-600 underline-offset-2 hover:underline">
+            <LocalizedClientLink href="/categories" className="hover:text-brand-600 underline-offset-2 hover:underline">
               📦 Catálogo de Produtos
-            </InteractiveLink>
+            </LocalizedClientLink>
           </li>
           <li>
-            <InteractiveLink href="/dimensionamento" className="hover:text-brand-600 underline-offset-2 hover:underline">
+            <LocalizedClientLink href="/dimensionamento" className="hover:text-brand-600 underline-offset-2 hover:underline">
               ⚙️ Calculadora de Dimensionamento
-            </InteractiveLink>
+            </LocalizedClientLink>
           </li>
           <li>
-            <InteractiveLink href="/cotacao" className="hover:text-brand-600 underline-offset-2 hover:underline">
+            <LocalizedClientLink href="/cotacao" className="hover:text-brand-600 underline-offset-2 hover:underline">
               📊 Solicitar Cotação
-            </InteractiveLink>
+            </LocalizedClientLink>
           </li>
           <li>
-            <InteractiveLink href="/suporte" className="hover:text-brand-600 underline-offset-2 hover:underline">
+            <LocalizedClientLink href="/suporte" className="hover:text-brand-600 underline-offset-2 hover:underline">
               📞 Suporte Técnico
-            </InteractiveLink>
+            </LocalizedClientLink>
           </li>
         </ul>
       </nav>
