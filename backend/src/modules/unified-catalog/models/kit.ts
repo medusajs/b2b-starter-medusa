@@ -1,26 +1,24 @@
 import { model } from "@medusajs/framework/utils";
 
 export enum KitCategory {
-    GRID_TIE = "grid-tie",
-    OFF_GRID = "off-grid",
-    HYBRID = "hybrid",
-    BACKUP = "backup",
-    COMMERCIAL = "commercial",
-    RESIDENTIAL = "residential",
-}
-
-export enum ConsumerClass {
     RESIDENTIAL = "residential",
     COMMERCIAL = "commercial",
     INDUSTRIAL = "industrial",
-    RURAL = "rural",
-    PUBLIC = "public",
+    OFF_GRID = "off_grid",
+    HYBRID = "hybrid",
+}
+
+export enum ConsumerClass {
+    B1_RESIDENTIAL = "B1_RESIDENTIAL",
+    B2_RURAL = "B2_RURAL",
+    B3_COMMERCIAL = "B3_COMMERCIAL",
+    A4_INDUSTRIAL = "A4_INDUSTRIAL",
 }
 
 export enum InstallationComplexity {
     EASY = "easy",
-    MEDIUM = "medium",
-    HARD = "hard",
+    MODERATE = "moderate",
+    COMPLEX = "complex",
 }
 
 /**
@@ -53,7 +51,7 @@ export const Kit = model.define("kit", {
     // Metadata
     description: model.text().nullable(),
     image_url: model.text().nullable(),
-    installation_complexity: model.enum(InstallationComplexity).default(InstallationComplexity.MEDIUM),
+    installation_complexity: model.enum(InstallationComplexity).default(InstallationComplexity.MODERATE),
     estimated_installation_hours: model.number().nullable(),
 
     // Target customer

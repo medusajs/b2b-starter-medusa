@@ -1,8 +1,11 @@
-import { medusaIntegrationTestRunner } from "medusa-test-utils"
+import { medusaIntegrationTestRunner } from "@medusajs/test-utils"
 
 jest.setTimeout(50000)
 
+const env = { MEDUSA_FF_MEDUSA_V2: true }
+
 medusaIntegrationTestRunner({
+  env,
   testSuite: ({ api }) => {
     describe("API 360° E2E Coverage", () => {
       let adminHeaders: Record<string, string>
