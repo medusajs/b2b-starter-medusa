@@ -21,7 +21,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const request_id = getRequestId(req.headers as any);
     logRequest({ route: "/admin/companies", method: "GET", request_id, extra: parsed });
     const { companies, count } = await listCompanies({ limit: parsed.limit, offset: parsed.offset, fields });
-    return ok(req, res, { companies, count, limit: parsed.limit, offset: parsed.offset });
+    return ok(req, res, { companies }, { limit: parsed.limit, offset: parsed.offset, count });
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message);
   }

@@ -17,7 +17,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const request_id = getRequestId(req.headers as any);
     logRequest({ route: "/store/approvals", method: "GET", request_id, extra: { limit, offset } });
     const { approvals, count } = await listApprovals({ limit, offset, userToken: token });
-    return ok(req, res, { approvals, count, limit, offset });
+    return ok(req, res, { approvals }, { limit, offset, count });
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message);
   }

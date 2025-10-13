@@ -20,7 +20,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const fields = parsed.fields?.split(",").filter(Boolean);
     logRequest({ route: "/store/companies", method: "GET", request_id, extra: parsed });
     const { companies, count } = await listCompanies({ limit: parsed.limit, offset: parsed.offset, fields });
-    return ok(req, res, { companies, count, limit: parsed.limit, offset: parsed.offset }, { hit: false, tags: ["company:*"] });
+    return ok(req, res, { companies }, { limit: parsed.limit, offset: parsed.offset, count });
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message);
   }

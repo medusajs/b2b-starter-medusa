@@ -13,7 +13,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const request_id = getRequestId(req.headers as any);
     logRequest({ route: "/admin/quotes", method: "GET", request_id, extra: { limit, offset } });
     const { quotes, count } = await listQuotes({ limit, offset });
-    return ok(req, res, { quotes, count, limit, offset });
+    return ok(req, res, { quotes }, { limit, offset, count });
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message);
   }

@@ -1,15 +1,26 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework"
 
-type CacheMeta = { hit?: boolean; tags?: string[] }
+const API_VERSION = "v2.0"
 
-export function ok(
-  req: MedusaRequest,
-  res: MedusaResponse,
-  data: any,
-  cache?: CacheMeta
-) {
-  const request_id = (req as any).requestId || (req.headers?.["x-request-id"] as string) || `req_${Date.now()}`
-  return res.json({ ok: true, data, request_id, ...(cache ? { cache } : {}) })
+export type Meta = {
+  limit?: number
+  offset?: number
+  page?: number
+  count?: number
+  total?: number
+  stale?: boolean
+}
+
+function setHeaders(req: MedusaRequest, res: MedusaResponse) {
+  const requestId = (req as any).requestId || (req.headers?.["x-request-id"] as string) || `req_${Date.now()}`
+  res.setHeader("X-API-Version", API_VERSION)
+  res.setHeader("X-Request-ID", requestId)
+  return requestId
+}
+
+export function ok(req: MedusaRequest, res: MedusaResponse, data: any, meta?: Meta) {
+  setHeaders(req, res)
+  return res.json({ success: true, data, ...(meta ? { meta } : {}) })
 }
 
 export function err(
@@ -18,9 +29,11 @@ export function err(
   status: number,
   code: string,
   message: string,
-  details?: any
+  details?: any,
+  meta?: Meta
 ) {
-  const request_id = (req as any).requestId || (req.headers?.["x-request-id"] as string) || `req_${Date.now()}`
-  return res.status(status).json({ ok: false, error: { code, message, ...(details ? { details } : {}) }, request_id })
+  setHeaders(req, res)
+  return res
+    .status(status)
+    .json({ success: false, error: { code, message, ...(details ? { details } : {}) }, ...(meta ? { meta } : {}) })
 }
-
