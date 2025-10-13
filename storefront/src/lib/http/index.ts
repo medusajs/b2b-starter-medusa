@@ -9,18 +9,18 @@
  */
 
 export {
-  ResilientHttpClient,
-  resilientClient,
-  type HttpMethod,
-  type ResilientRequestOptions,
-  type ResilientResponse,
-  type CachedResponse,
-  type QueuedOperation,
+    ResilientHttpClient,
+    resilientClient,
+    type HttpMethod,
+    type ResilientRequestOptions,
+    type ResilientResponse,
+    type CachedResponse,
+    type QueuedOperation,
 } from "./resilient-client"
 
 export {
-  DEFAULT_RESILIENT_CONFIG,
-  type ResilientConfig,
-  type FallbackEvent,
-  type SyncEvent,
+    DEFAULT_RESILIENT_CONFIG,
+    type ResilientConfig,
+    type FallbackEvent,
+    type SyncEvent,
 } from "./types"
