@@ -28,7 +28,9 @@
 **Classes Implementadas:**
 
 #### **CartLocalStorage**
+
 Gerenciamento de persistência local:
+
 - `saveCart()` - Salva carrinho em localStorage
 - `loadCart()` - Carrega carrinho do localStorage
 - `saveQueue()` - Persiste queue de operações
@@ -38,7 +40,9 @@ Gerenciamento de persistência local:
 - `clear()` - Limpa todos os dados
 
 #### **CartOperationQueue**
+
 Queue inteligente com auto-sync:
+
 - `add()` - Adiciona operação falhada
 - `processQueue()` - Processa queue com retry
 - `startAutoSync()` - Sync automático a cada 60s
@@ -47,7 +51,9 @@ Queue inteligente com auto-sync:
 - Máximo 10 tentativas por operação
 
 #### **CartResilientLayer**
+
 Camada de resiliência principal:
+
 - `addToCart()` - Adicionar item com retry
 - `addToCartBulk()` - Adicionar múltiplos itens
 - `updateLineItem()` - Atualizar quantidade/metadata
@@ -59,6 +65,7 @@ Camada de resiliência principal:
 - `clearQueue()` - Limpar queue
 
 **Operações Suportadas:**
+
 ```typescript
 type CartOperation =
   | "addItem"       // ✅ Implementado
@@ -79,6 +86,7 @@ type CartOperation =
 **CartSyncIndicator Component:**
 
 Features:
+
 - ✅ Mostra operações pendentes em tempo real
 - ✅ Contador de tentativas por operação
 - ✅ Botão de sync manual
@@ -88,6 +96,7 @@ Features:
 - ✅ Lista de operações na fila
 
 UI States:
+
 - Idle: Nenhuma operação pendente (hidden)
 - Syncing: Mostra spinner + contador
 - Error: Mostra erro + retry button
@@ -169,6 +178,7 @@ ResilientHttpClient.post()
 ### Cart-specific Events
 
 **1. cart_operation_queued**
+
 ```typescript
 {
   operation_type: "addItem" | "updateItem" | "removeItem" | "addBulk" | "updateCart" | "createApproval",
@@ -178,6 +188,7 @@ ResilientHttpClient.post()
 ```
 
 **2. cart_sync_success**
+
 ```typescript
 {
   operation_id: string,
@@ -188,6 +199,7 @@ ResilientHttpClient.post()
 ```
 
 **3. cart_sync_failed**
+
 ```typescript
 {
   operation_id: string,
@@ -220,6 +232,7 @@ storefront/src/components/cart/
 ### Migration Path
 
 **Antes (src/lib/data/cart.ts):**
+
 ```typescript
 export async function addToCart({ variantId, quantity, countryCode }) {
   const cart = await getOrSetCart(countryCode)
@@ -236,6 +249,7 @@ export async function addToCart({ variantId, quantity, countryCode }) {
 ```
 
 **Depois (usando CartResilientLayer):**
+
 ```typescript
 import { cartResilience } from "@/lib/cart"
 
@@ -390,6 +404,7 @@ Overall Sprint 1:          █████████████████�
 **Arquivo:** `src/components/error-boundary-resilient.tsx`
 
 **Features:**
+
 1. ✅ React Error Boundary wrapper
 2. ✅ Fallback UI com retry button
 3. ✅ PostHog error tracking
@@ -397,6 +412,7 @@ Overall Sprint 1:          █████████████████�
 5. ✅ Deploy em rotas críticas
 
 **Deploy Targets:**
+
 - `/[countryCode]/(checkout)/cart`
 - `/[countryCode]/(checkout)/checkout`
 - `/[countryCode]/(main)/cotacao`
@@ -407,12 +423,14 @@ Overall Sprint 1:          █████████████████�
 ### Monitoring Setup (0.5 dias)
 
 **Tasks:**
+
 1. ✅ PostHog dashboard creation
 2. ✅ Metrics visualization
 3. ✅ Alerting rules (fallback rate > 5%)
 4. ✅ Performance tracking
 
 **Metrics to Track:**
+
 - Fallback rate (%)
 - Sync success rate (%)
 - Average time in queue (ms)
@@ -443,10 +461,12 @@ Overall Sprint 1:          █████████████████�
 ## 📚 Referências Day 2
 
 **APIs:**
+
 - [LocalStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 - [React Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 
 **Padrões:**
+
 - [Queue Pattern](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
 - [Saga Pattern](https://microservices.io/patterns/data/saga.html)
 
