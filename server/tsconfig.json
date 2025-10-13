@@ -17,6 +17,9 @@
             "@api/*": [
                 "api/*"
             ],
+            "@compat/*": [
+                "compat/*"
+            ],
             "@jobs/*": [
                 "jobs/*"
             ],

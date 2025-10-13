@@ -80,6 +80,7 @@ server/
 │   ├── jobs/           # Background jobs & scheduled tasks
 │   ├── links/          # Module links (defineLink)
 │   ├── modules/        # Custom Medusa modules
+│   ├── compat/         # Reuse adapters (HTTP, validators, services, logging)
 │   ├── scripts/        # CLI scripts (seed, migrations, etc.)
 │   ├── subscribers/    # Event subscribers
 │   └── workflows/      # Business logic workflows
@@ -217,6 +218,12 @@ yarn medusa user -e admin@test.com -p password -i admin
 ## 🔧 Configuration
 
 ### Database Connection
+
+## ♻️ Compat Layer (Reuse)
+
+- Routes import from `src/compat/services/*` and `src/compat/validators/*` to adapt legacy services to v2 shapes.
+- Publishable key/JWT checks live in `src/compat/http/publishable.ts` (single source of truth).
+- Logging with `request_id` and minimal PII masking is in `src/compat/logging/logger.ts`.
 
 Set `DATABASE_URL` in `.env`:
 
