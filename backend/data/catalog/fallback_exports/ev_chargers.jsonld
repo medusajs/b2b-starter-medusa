@@ -3050,7 +3050,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-GROWATT-THOR07AS-P",
-        "sku": "P",
+        "sku": null,
         "name": "Carregador EV Growatt THOR07AS-P 7kW",
         "manufacturer": {
           "@type": "Organization",
@@ -3059,7 +3059,7 @@
         "model": "",
         "category": "ev_chargers",
         "description": "Carregador EV Growatt THOR07AS-P 7kW",
-        "image": "https://ysh-solar.com/placeholder-charger.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
         "offers": {
           "@type": "Offer",
           "price": 3423.66,
@@ -3091,7 +3091,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/FORTLEV-FOXESS-A7300P1-E-2",
-        "sku": "2",
+        "sku": null,
         "name": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
         "manufacturer": {
           "@type": "Organization",
@@ -3100,7 +3100,7 @@
         "model": "",
         "category": "ev_chargers",
         "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-        "image": "https://ysh-solar.com/placeholder-charger.jpg",
+        "image": "https://ysh-solar.com/images/placeholder.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2811.46,

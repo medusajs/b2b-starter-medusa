@@ -1,8 +1,8 @@
 {
   "category": "batteries",
   "total_products": 9,
-  "with_images": 9,
-  "generated_at": "2025-10-13T11:26:31.992Z",
+  "with_images": 6,
+  "generated_at": "2025-10-13T11:33:32.712Z",
   "products": [
     {
       "id": "solfacil_batteries_1",
@@ -37,8 +37,8 @@
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 5322.94,
       "model": "",
-      "sku": "1",
-      "image_path": "/placeholder-battery.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-BATTERIES/IMAGE_PRODUCT_000612.jpg",
       "image_verified": true
     },
     {
@@ -76,8 +76,8 @@
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 5983.17,
       "model": "",
-      "sku": "2",
-      "image_path": "/placeholder-battery.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -117,9 +117,9 @@
       "price_brl": 6255.94,
       "model": "",
       "image_url": "/images/placeholder-battery.jpg",
-      "sku": "3",
-      "image_path": "/placeholder-battery.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_batteries_4",
@@ -156,8 +156,8 @@
       "image_url": "/images/placeholder-battery.jpg",
       "price_brl": 7323.74,
       "model": "",
-      "sku": "4",
-      "image_path": "/placeholder-battery.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -199,8 +199,8 @@
       },
       "price_brl": 6716.83,
       "description": "Bateria Growatt AXE 5.0L LiFePO4 5kWh",
-      "sku": null,
-      "image_path": "/placeholder-battery.jpg",
+      "sku": "5.0L",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -242,9 +242,9 @@
       },
       "price_brl": 5322.94,
       "description": "UNIDADE DE CONTROLE [PCU-F52] - PARA BATERIA LX F3.2-20",
-      "sku": "1",
-      "image_path": "/placeholder-battery.jpg",
-      "image_verified": true
+      "sku": "CONTROLE",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_batteries_2",
@@ -285,8 +285,8 @@
       },
       "price_brl": 5983.17,
       "description": "BATERIA LFP LYNX F (G2) LX F3.2-20 - 3.2KWH - GOODWE",
-      "sku": "2",
-      "image_path": "/placeholder-battery.jpg",
+      "sku": "LYNX",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -332,9 +332,9 @@
       },
       "price_brl": 6255.94,
       "description": "BATERIA UNIP LFP UPLFP48100 EN - 48V 100AH RACK - LP 5.1KWH - UNIPOWER",
-      "sku": "3",
-      "image_path": "/placeholder-battery.jpg",
-      "image_verified": true
+      "sku": "LFP",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_batteries_4",
@@ -375,8 +375,8 @@
       },
       "price_brl": 7323.74,
       "description": "BATERIA LFP LYNX U (G3) LXU 5.0-30 - 5KWH - GOODWE",
-      "sku": "4",
-      "image_path": "/placeholder-battery.jpg",
+      "sku": "LYNX",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     }
   ]

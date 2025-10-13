@@ -82,26 +82,67 @@ function extractSku(product) {
 function resolveImagePath(product) {
     const sku = extractSku(product);
 
-    // Try IMAGE_MAP first
+    // Priority 1: Try IMAGE_MAP exact match
     if (sku && IMAGE_MAP[sku]) {
         return IMAGE_MAP[sku].images?.original || IMAGE_MAP[sku].images?.large || '';
     }
 
-    // Fallback to product image fields
-    if (product.image_url) {
+    // Priority 2: Try case-insensitive and partial matches in IMAGE_MAP
+    if (sku && Object.keys(IMAGE_MAP).length > 0) {
+        const lowerSku = sku.toLowerCase();
+
+        // Exact case-insensitive
+        for (const [key, value] of Object.entries(IMAGE_MAP)) {
+            if (key.toLowerCase() === lowerSku) {
+                return value.images?.original || value.images?.large || '';
+            }
+        }
+
+        // Partial match (contains)
+        for (const [key, value] of Object.entries(IMAGE_MAP)) {
+            const lowerKey = key.toLowerCase();
+            if (lowerKey.includes(lowerSku) || lowerSku.includes(lowerKey)) {
+                return value.images?.original || value.images?.large || '';
+            }
+        }
+    }
+
+    // Priority 3: Search by model/name in IMAGE_MAP
+    const searchTerms = [
+        product.model,
+        product.name,
+        product.metadata?.original_sku
+    ].filter(Boolean);
+
+    for (const term of searchTerms) {
+        const cleanTerm = String(term).toLowerCase().trim();
+        if (!cleanTerm || cleanTerm === 'undefined' || cleanTerm === 'null') continue;
+
+        // Extract potential SKU patterns from the term
+        const skuMatches = cleanTerm.match(/[A-Z0-9]{4,}/gi);
+        if (skuMatches) {
+            for (const potentialSku of skuMatches) {
+                const lowerPotentialSku = potentialSku.toLowerCase();
+                for (const [key, value] of Object.entries(IMAGE_MAP)) {
+                    if (key.toLowerCase().includes(lowerPotentialSku)) {
+                        return value.images?.original || value.images?.large || '';
+                    }
+                }
+            }
+        }
+    }
+
+    // Priority 4: Use product image fields (only if not placeholder)
+    if (product.image_url && !product.image_url.toLowerCase().includes('placeholder')) {
         // Normalize path
         let normalizedPath = product.image_url.replace(/\\/g, '/');
-        // Remove duplicate 'images/' prefix
         normalizedPath = normalizedPath.replace(/images\//g, '');
-
         return normalizedPath.startsWith('/') ? normalizedPath : `${STATIC_IMAGE_BASE}/${normalizedPath}`;
     }
 
-    if (product.image) {
+    if (product.image && !product.image.toLowerCase().includes('placeholder')) {
         // Normalize Windows paths to URL paths
         let normalizedPath = product.image.replace(/\\/g, '/');
-
-        // Remove duplicate 'images/' prefix if present
         normalizedPath = normalizedPath.replace(/^images\//, '');
 
         // If it starts with distributor name, it's already correctly formatted
@@ -118,6 +159,7 @@ function resolveImagePath(product) {
         return normalizedPath.startsWith('/') ? normalizedPath : `${STATIC_IMAGE_BASE}/${normalizedPath}`;
     }
 
+    // No image found - return empty or placeholder
     return '';
 }/**
  * Convert product to CSV row

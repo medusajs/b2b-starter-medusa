@@ -1,8 +1,8 @@
 {
   "category": "stringboxes",
   "total_products": 13,
-  "with_images": 13,
-  "generated_at": "2025-10-13T11:26:32.039Z",
+  "with_images": 1,
+  "generated_at": "2025-10-13T11:33:33.970Z",
   "products": [
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-2E",
@@ -44,8 +44,8 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 362,
-      "sku": "2E",
-      "image_path": "/placeholder-stringbox.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/ODEX-STRINGBOXES/192068.jpg",
       "image_verified": true
     },
     {
@@ -86,9 +86,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 489,
-      "sku": "4E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
@@ -128,9 +128,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 612,
-      "sku": "6E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
@@ -170,9 +170,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 798,
-      "sku": "8E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
@@ -213,8 +213,8 @@
       "technical_specs": {},
       "price_brl": 943,
       "sku": "10E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
@@ -255,8 +255,8 @@
       "technical_specs": {},
       "price_brl": 1089,
       "sku": "12E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
@@ -296,9 +296,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 499,
-      "sku": "4E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
@@ -338,9 +338,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 625,
-      "sku": "6E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
@@ -380,9 +380,9 @@
       "original_category": "stringboxes",
       "technical_specs": {},
       "price_brl": 812,
-      "sku": "8E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
@@ -423,8 +423,8 @@
       "technical_specs": {},
       "price_brl": 956,
       "sku": "10E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
@@ -465,8 +465,8 @@
       "technical_specs": {},
       "price_brl": 1112,
       "sku": "12E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
@@ -507,8 +507,8 @@
       "technical_specs": {},
       "price_brl": 1398,
       "sku": "16E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
@@ -549,8 +549,8 @@
       "technical_specs": {},
       "price_brl": 1681,
       "sku": "20E",
-      "image_path": "/placeholder-stringbox.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     }
   ]
 }

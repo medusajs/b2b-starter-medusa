@@ -21,7 +21,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Fibrocimento Grande",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
         "offers": {
           "@type": "Offer",
           "price": 103,
@@ -42,7 +42,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO-1",
-        "sku": "1",
+        "sku": null,
         "name": "Estrutura Solar Group Fibrocimento Pequeno",
         "manufacturer": {
           "@type": "Organization",
@@ -51,7 +51,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Fibrocimento Pequeno",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 98,
@@ -81,7 +81,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Colonial Cerâmico",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 145,
@@ -111,7 +111,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Metálico Trapezoidal",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 112,
@@ -141,7 +141,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Solo Fixo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1250,
@@ -162,7 +162,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-SOLO-1",
-        "sku": "1",
+        "sku": null,
         "name": "Estrutura Solar Group Solo Rastreador 1 Eixo",
         "manufacturer": {
           "@type": "Organization",
@@ -171,7 +171,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Solar Group Solo Rastreador 1 Eixo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 3890,
@@ -201,7 +201,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Romagnole Fibrocimento RF-55",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
         "offers": {
           "@type": "Offer",
           "price": 109,
@@ -231,7 +231,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Romagnole Colonial Cerâmico RC-66",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 152,
@@ -261,7 +261,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Romagnole Metálico Trapezoidal RM-40",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 118,
@@ -291,7 +291,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Romagnole Laje Inclinada RL-30",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 165,
@@ -321,7 +321,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Romagnole Solo Fixo RS-1500",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1345,
@@ -351,7 +351,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Pratyc Fibrocimento Grande PRF-60",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
         "offers": {
           "@type": "Offer",
           "price": 107,
@@ -381,7 +381,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Pratyc Colonial Cerâmico PRC-70",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 149,
@@ -411,7 +411,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 115,
@@ -441,7 +441,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Pratyc Laje Plana PRL-25",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 158,
@@ -471,7 +471,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura Pratyc Solo Fixo PRS-1600",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1399,
@@ -501,7 +501,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems SingleRail Fibrocimento",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
         "offers": {
           "@type": "Offer",
           "price": 185,
@@ -531,7 +531,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems SingleRail Colonial",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 198,
@@ -561,7 +561,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems SingleRail Metálico",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 175,
@@ -591,7 +591,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems CrossRail Solo Fixo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2250,
@@ -621,7 +621,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems MiniRail Laje",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 189,
@@ -642,7 +642,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-METALICO-1",
-        "sku": "1",
+        "sku": null,
         "name": "Estrutura K2 Systems BaseRail Plus Universal",
         "manufacturer": {
           "@type": "Organization",
@@ -651,7 +651,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems BaseRail Plus Universal",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 203,
@@ -672,7 +672,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-1",
-        "sku": "1",
+        "sku": null,
         "name": "Estrutura K2 Systems Dome 6° Solo",
         "manufacturer": {
           "@type": "Organization",
@@ -681,7 +681,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems Dome 6° Solo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1890,
@@ -702,7 +702,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-2",
-        "sku": "2",
+        "sku": null,
         "name": "Estrutura K2 Systems Dome 10° Solo",
         "manufacturer": {
           "@type": "Organization",
@@ -711,7 +711,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems Dome 10° Solo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2150,
@@ -732,7 +732,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-3",
-        "sku": "3",
+        "sku": null,
         "name": "Estrutura K2 Systems D-Dome 6° Solo",
         "manufacturer": {
           "@type": "Organization",
@@ -741,7 +741,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems D-Dome 6° Solo",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 2450,
@@ -762,7 +762,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/odex_inverters_ODEX-ESTRUTURA-K2SYSTEMS-SOLO-4",
-        "sku": "4",
+        "sku": null,
         "name": "Estrutura K2 Systems Solo Rastreador XL",
         "manufacturer": {
           "@type": "Organization",
@@ -771,7 +771,7 @@
         "model": "",
         "category": "structures",
         "description": "Estrutura K2 Systems Solo Rastreador XL",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 4250,
@@ -792,7 +792,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_1",
-        "sku": "1",
+        "sku": null,
         "name": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
         "manufacturer": {
           "@type": "Organization",
@@ -801,7 +801,7 @@
         "model": "",
         "category": "structures",
         "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 262.86,
@@ -822,7 +822,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_2",
-        "sku": "2",
+        "sku": null,
         "name": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
         "manufacturer": {
           "@type": "Organization",
@@ -831,7 +831,7 @@
         "model": "",
         "category": "structures",
         "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 684.7,
@@ -852,7 +852,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_3",
-        "sku": "3",
+        "sku": null,
         "name": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
         "manufacturer": {
           "@type": "Organization",
@@ -861,7 +861,7 @@
         "model": "",
         "category": "structures",
         "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 732.72,
@@ -882,7 +882,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_4",
-        "sku": "4",
+        "sku": null,
         "name": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
         "manufacturer": {
           "@type": "Organization",
@@ -891,7 +891,7 @@
         "model": "",
         "category": "structures",
         "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 1433.88,
@@ -912,7 +912,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_3",
-        "sku": "3",
+        "sku": "E",
         "name": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
         "manufacturer": {
           "@type": "Organization",
@@ -921,7 +921,7 @@
         "model": "E",
         "category": "accessories",
         "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 68.52,
@@ -942,7 +942,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_5",
-        "sku": "5",
+        "sku": "P",
         "name": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
         "manufacturer": {
           "@type": "Organization",
@@ -951,7 +951,7 @@
         "model": "P",
         "category": "accessories",
         "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 105.21,
@@ -972,7 +972,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_7",
-        "sku": "7",
+        "sku": "P",
         "name": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -981,7 +981,7 @@
         "model": "P",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 125.58,
@@ -1002,7 +1002,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_8",
-        "sku": "8",
+        "sku": "P",
         "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
         "manufacturer": {
           "@type": "Organization",
@@ -1011,7 +1011,7 @@
         "model": "P",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 129.92,
@@ -1032,7 +1032,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_9",
-        "sku": "9",
+        "sku": "P",
         "name": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
         "manufacturer": {
           "@type": "Organization",
@@ -1041,7 +1041,7 @@
         "model": "P",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 146.62,
@@ -1062,7 +1062,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_accessories_10",
-        "sku": "10",
+        "sku": "P",
         "name": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
         "manufacturer": {
           "@type": "Organization",
@@ -1071,7 +1071,7 @@
         "model": "P",
         "category": "accessories",
         "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 150.36,
@@ -1092,7 +1092,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_1",
-        "sku": "1",
+        "sku": "LAJE",
         "name": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
         "manufacturer": {
           "@type": "Organization",
@@ -1101,7 +1101,7 @@
         "model": "LAJE",
         "category": "structures",
         "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 262.86,
@@ -1122,7 +1122,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_2",
-        "sku": "2",
+        "sku": "-",
         "name": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
         "manufacturer": {
           "@type": "Organization",
@@ -1131,7 +1131,7 @@
         "model": "-",
         "category": "structures",
         "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 684.7,
@@ -1152,7 +1152,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_3",
-        "sku": "3",
+        "sku": "LAJE",
         "name": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
         "manufacturer": {
           "@type": "Organization",
@@ -1161,7 +1161,7 @@
         "model": "LAJE",
         "category": "structures",
         "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
         "offers": {
           "@type": "Offer",
           "price": 732.72,
@@ -1182,7 +1182,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "@id": "https://ysh-solar.com/products/solfacil_structures_4",
-        "sku": "4",
+        "sku": "-",
         "name": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
         "manufacturer": {
           "@type": "Organization",
@@ -1191,7 +1191,7 @@
         "model": "-",
         "category": "structures",
         "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
-        "image": "https://ysh-solar.com/placeholder-structure.jpg",
+        "image": "https://ysh-solar.com/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
         "offers": {
           "@type": "Offer",
           "price": 1433.88,

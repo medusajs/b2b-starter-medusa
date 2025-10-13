@@ -1,8 +1,8 @@
 {
   "category": "inverters",
   "total_products": 489,
-  "with_images": 489,
-  "generated_at": "2025-10-13T11:26:31.979Z",
+  "with_images": 454,
+  "generated_at": "2025-10-13T11:33:32.237Z",
   "products": [
     {
       "id": "neosolar_inverters_22916",
@@ -40,7 +40,7 @@
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "22916",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -83,7 +83,7 @@
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "21632",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -1006,7 +1006,7 @@
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "22920",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -3491,7 +3491,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 490,
-      "sku": "585W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -3543,7 +3543,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 499,
-      "sku": "600W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -3595,7 +3595,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 505,
-      "sku": "610W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -3647,7 +3647,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 515,
-      "sku": "660W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -3699,7 +3699,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 519,
-      "sku": "700W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -3751,7 +3751,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "price_brl": 512,
-      "sku": "600W",
+      "sku": "Astronergy",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
@@ -3803,7 +3803,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "price_brl": 485,
-      "sku": "560W",
+      "sku": "Tsun",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "image_verified": true
     },
@@ -3855,7 +3855,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "price_brl": 508,
-      "sku": "610W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -3907,7 +3907,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "price_brl": 510,
-      "sku": "615W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -3956,7 +3956,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1599,
       "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -4002,7 +4002,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1899,
       "sku": "4200W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-4200W.jpg",
       "image_verified": true
     },
     {
@@ -4048,7 +4048,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2499,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -4094,7 +4094,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2899,
       "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-6000W.jpg",
       "image_verified": true
     },
     {
@@ -4140,7 +4140,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3499,
       "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
       "image_verified": true
     },
     {
@@ -4188,7 +4188,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4299,
       "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -4234,7 +4234,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4899,
       "sku": "12000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -4282,7 +4282,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 5499,
       "sku": "15000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-15000W.jpg",
       "image_verified": true
     },
     {
@@ -4328,7 +4328,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 5999,
       "sku": "17000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-17000W.jpg",
       "image_verified": true
     },
     {
@@ -4374,7 +4374,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 6899,
       "sku": "20000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-20000W.jpg",
       "image_verified": true
     },
     {
@@ -4420,7 +4420,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 8499,
       "sku": "25000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-125000W.jpg",
       "image_verified": true
     },
     {
@@ -4468,7 +4468,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1499,
       "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -4514,7 +4514,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1699,
       "sku": "3300W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3300W.jpg",
       "image_verified": true
     },
     {
@@ -4560,7 +4560,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2799,
       "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-6000W.jpg",
       "image_verified": true
     },
     {
@@ -4606,7 +4606,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3899,
       "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
       "image_verified": true
     },
     {
@@ -4652,7 +4652,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4499,
       "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -4698,7 +4698,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 5999,
       "sku": "15000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-15000W.jpg",
       "image_verified": true
     },
     {
@@ -4744,7 +4744,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 7299,
       "sku": "20000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-20000W.jpg",
       "image_verified": true
     },
     {
@@ -4790,7 +4790,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 8899,
       "sku": "25000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-125000W.jpg",
       "image_verified": true
     },
     {
@@ -4838,7 +4838,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 16999,
       "sku": "50000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-50000W.jpg",
       "image_verified": true
     },
     {
@@ -4884,7 +4884,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 24999,
       "sku": "75000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-75000W.jpg",
       "image_verified": true
     },
     {
@@ -4930,7 +4930,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 32999,
       "sku": "100000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-100000W.jpg",
       "image_verified": true
     },
     {
@@ -4978,7 +4978,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 36667,
       "sku": "125000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-125000W.jpg",
       "image_verified": true
     },
     {
@@ -5026,7 +5026,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1449,
       "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -5074,7 +5074,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2299,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -5122,7 +5122,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3699,
       "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
       "image_verified": true
     },
     {
@@ -5170,7 +5170,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4299,
       "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -5218,7 +5218,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1649,
       "sku": "3300W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-3300W.jpg",
       "image_verified": true
     },
     {
@@ -5266,7 +5266,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2449,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -5314,7 +5314,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2799,
       "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-6000W.jpg",
       "image_verified": true
     },
     {
@@ -5358,7 +5358,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 986,
       "sku": "800W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-800W.jpg",
       "image_verified": true
     },
     {
@@ -5402,7 +5402,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1399,
       "sku": "1200W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-1200W.jpg",
       "image_verified": true
     },
     {
@@ -5446,7 +5446,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2499,
       "sku": "2400W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-2400W.jpg",
       "image_verified": true
     },
     {
@@ -5493,8 +5493,8 @@
       },
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3299,
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -5540,7 +5540,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3899,
       "sku": "4000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-4000W.jpg",
       "image_verified": true
     },
     {
@@ -5586,7 +5586,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4499,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -5631,8 +5631,8 @@
       },
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4999,
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -5677,8 +5677,8 @@
       },
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 5999,
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -5732,8 +5732,8 @@
       },
       "image_url": "images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Ceramico-kits.jpg",
       "price_brl": 7499,
-      "sku": "1",
-      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -5781,7 +5781,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4299,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -5827,7 +5827,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4799,
       "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-6000W.jpg",
       "image_verified": true
     },
     {
@@ -5873,7 +5873,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 5799,
       "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
       "image_verified": true
     },
     {
@@ -5919,7 +5919,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4399,
       "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -5965,7 +5965,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 7999,
       "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-8000W.jpg",
       "image_verified": true
     },
     {
@@ -6011,7 +6011,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 9499,
       "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -6051,7 +6051,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 103,
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -6090,8 +6090,8 @@
       },
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 98,
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6131,7 +6131,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 145,
       "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6171,7 +6171,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 112,
       "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -6211,7 +6211,7 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1250,
       "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -6252,8 +6252,8 @@
       },
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3890,
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6295,7 +6295,7 @@
       "price_brl": 109,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -6337,7 +6337,7 @@
       "price_brl": 152,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6379,7 +6379,7 @@
       "price_brl": 118,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -6421,7 +6421,7 @@
       "price_brl": 165,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6463,7 +6463,7 @@
       "price_brl": 1345,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -6505,7 +6505,7 @@
       "price_brl": 107,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -6547,7 +6547,7 @@
       "price_brl": 149,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6589,7 +6589,7 @@
       "price_brl": 115,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -6631,7 +6631,7 @@
       "price_brl": 158,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6673,7 +6673,7 @@
       "price_brl": 1399,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -6716,7 +6716,7 @@
       "price_brl": 185,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -6759,7 +6759,7 @@
       "price_brl": 198,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6802,7 +6802,7 @@
       "price_brl": 175,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -6844,7 +6844,7 @@
       "price_brl": 2250,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -6886,7 +6886,7 @@
       "price_brl": 189,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6927,8 +6927,8 @@
       },
       "price_brl": 203,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -6969,8 +6969,8 @@
       },
       "price_brl": 1890,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -7011,8 +7011,8 @@
       },
       "price_brl": 2150,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "2",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -7053,8 +7053,8 @@
       },
       "price_brl": 2450,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "3",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -7095,8 +7095,8 @@
       },
       "price_brl": 4250,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "4",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -7138,9 +7138,9 @@
       },
       "price_brl": 362,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "2E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
@@ -7181,9 +7181,9 @@
       },
       "price_brl": 489,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "4E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
@@ -7224,9 +7224,9 @@
       },
       "price_brl": 612,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "6E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
@@ -7267,9 +7267,9 @@
       },
       "price_brl": 798,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "8E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
@@ -7311,8 +7311,8 @@
       "price_brl": 943,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "10E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
@@ -7354,8 +7354,8 @@
       "price_brl": 1089,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "12E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
@@ -7396,9 +7396,9 @@
       },
       "price_brl": 499,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "4E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
@@ -7439,9 +7439,9 @@
       },
       "price_brl": 625,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "6E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
@@ -7482,9 +7482,9 @@
       },
       "price_brl": 812,
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "8E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
@@ -7526,8 +7526,8 @@
       "price_brl": 956,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "10E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
@@ -7569,8 +7569,8 @@
       "price_brl": 1112,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "12E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
@@ -7612,8 +7612,8 @@
       "price_brl": 1398,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "16E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
@@ -7655,8 +7655,8 @@
       "price_brl": 1681,
       "image_url": "/images/placeholder-inverter.jpg",
       "sku": "20E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_inverters_1",
@@ -7703,8 +7703,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1347.65,
       "model": "",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/ENPHASE-IQ8P-72-2-BR_IMAGE_PRODUCT_600340.jpeg",
       "image_verified": true
     },
     {
@@ -7748,8 +7748,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 1856.55,
       "model": "",
-      "sku": "2",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -7797,8 +7797,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 2250.33,
       "model": "",
-      "sku": "3",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -7846,8 +7846,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3531.6,
       "model": "",
-      "sku": "4",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -7895,8 +7895,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3585.88,
       "model": "",
-      "sku": "5",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -7944,8 +7944,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 3644.58,
       "model": "",
-      "sku": "6",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -7997,7 +7997,7 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "price_brl": 3785.08,
       "model": "",
-      "sku": "7",
+      "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -8046,8 +8046,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4197.2,
       "model": "",
-      "sku": "8",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -8096,8 +8096,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 4509.73,
       "model": "",
-      "sku": "9",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8149,7 +8149,7 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "price_brl": 4528.03,
       "model": "",
-      "sku": "10",
+      "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -8193,8 +8193,8 @@
       "price_brl": 7176.03,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "11",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8243,8 +8243,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 7434.75,
       "model": "",
-      "sku": "12",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8296,7 +8296,7 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "price_brl": 7434.75,
       "model": "",
-      "sku": "13",
+      "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -8345,8 +8345,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 7455.48,
       "model": "",
-      "sku": "14",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8389,8 +8389,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 7834.13,
       "model": "",
-      "sku": "15",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8438,8 +8438,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 8335.8,
       "model": "",
-      "sku": "16",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -8487,8 +8487,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 8335.8,
       "model": "",
-      "sku": "17",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -8540,7 +8540,7 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "price_brl": 8513.98,
       "model": "",
-      "sku": "18",
+      "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -8584,8 +8584,8 @@
       "price_brl": 8812.5,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "19",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -8637,7 +8637,7 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "price_brl": 9136.13,
       "model": "",
-      "sku": "21",
+      "sku": null,
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -8686,8 +8686,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 9402.23,
       "model": "",
-      "sku": "22",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -8735,8 +8735,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10004.25,
       "model": "",
-      "sku": "23",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8779,8 +8779,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10036,
       "model": "",
-      "sku": "24",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8828,8 +8828,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10488.65,
       "model": "",
-      "sku": "25",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8877,8 +8877,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10489.73,
       "model": "",
-      "sku": "26",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -8926,8 +8926,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10609.08,
       "model": "",
-      "sku": "27",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -8975,8 +8975,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 10718.45,
       "model": "",
-      "sku": "28",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9019,8 +9019,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 11173.53,
       "model": "",
-      "sku": "29",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9068,8 +9068,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 11560.6,
       "model": "",
-      "sku": "30",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9121,8 +9121,8 @@
       "image_url": "images\\SOLFACIL-INVERTERS\\GOODWE-GW6000-SBP-20_image.webp",
       "price_brl": 12119.53,
       "model": "",
-      "sku": "31",
-      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-GW6000-SBP-20_image.webp",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9170,8 +9170,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 12934.93,
       "model": "",
-      "sku": "32",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9219,8 +9219,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 12969.6,
       "model": "",
-      "sku": "33",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -9268,8 +9268,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 13085.25,
       "model": "",
-      "sku": "34",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9317,8 +9317,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 13228,
       "model": "",
-      "sku": "35",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -9366,8 +9366,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 13228,
       "model": "",
-      "sku": "36",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -9415,8 +9415,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 13379.98,
       "model": "",
-      "sku": "37",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9464,8 +9464,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14500.08,
       "model": "",
-      "sku": "38",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9513,8 +9513,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14539.73,
       "model": "",
-      "sku": "39",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9562,8 +9562,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14654.45,
       "model": "",
-      "sku": "40",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -9611,8 +9611,8 @@
       "price_brl": 14654.45,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "41",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -9660,8 +9660,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14654.45,
       "model": "",
-      "sku": "42",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -9709,8 +9709,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14764.55,
       "model": "",
-      "sku": "43",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9758,8 +9758,8 @@
       "price_brl": 14768.55,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "44",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9807,8 +9807,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 14768.55,
       "model": "",
-      "sku": "45",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9856,8 +9856,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 15745.08,
       "model": "",
-      "sku": "46",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9905,8 +9905,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 16404.88,
       "model": "",
-      "sku": "47",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -9954,8 +9954,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 17483.03,
       "model": "",
-      "sku": "48",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10003,8 +10003,8 @@
       "price_brl": 17482.7,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "49",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10052,8 +10052,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 17628.6,
       "model": "",
-      "sku": "50",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10101,8 +10101,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 18769.08,
       "model": "",
-      "sku": "51",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10150,8 +10150,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 18769.08,
       "model": "",
-      "sku": "52",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10199,8 +10199,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 18769.08,
       "model": "",
-      "sku": "53",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10243,8 +10243,8 @@
       "price_brl": 19451.3,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "54",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10292,8 +10292,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 19451.3,
       "model": "",
-      "sku": "55",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10341,8 +10341,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 20672.13,
       "model": "",
-      "sku": "56",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10390,8 +10390,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 21002.53,
       "model": "",
-      "sku": "57",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -10434,8 +10434,8 @@
       "price_brl": 21002.53,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "58",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -10478,8 +10478,8 @@
       "price_brl": 21002.53,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "59",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -10522,8 +10522,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 21002.53,
       "model": "",
-      "sku": "60",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -10571,8 +10571,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 21142.98,
       "model": "",
-      "sku": "61",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10620,8 +10620,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22010.1,
       "model": "",
-      "sku": "62",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -10669,8 +10669,8 @@
       "price_brl": 22010.1,
       "model": "",
       "image_url": "/images/placeholder-inverter.jpg",
-      "sku": "63",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -10718,8 +10718,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22107.9,
       "model": "",
-      "sku": "64",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -10767,8 +10767,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22107.9,
       "model": "",
-      "sku": "65",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -10816,8 +10816,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22237.93,
       "model": "",
-      "sku": "66",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10865,8 +10865,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22237.93,
       "model": "",
-      "sku": "67",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10914,8 +10914,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 22507.13,
       "model": "",
-      "sku": "68",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -10963,8 +10963,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 25711.6,
       "model": "",
-      "sku": "69",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -11012,8 +11012,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 27325.15,
       "model": "",
-      "sku": "70",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11061,8 +11061,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 34735.65,
       "model": "",
-      "sku": "71",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11110,8 +11110,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 34735.65,
       "model": "",
-      "sku": "72",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11159,8 +11159,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 35072.33,
       "model": "",
-      "sku": "73",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11208,8 +11208,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 36889.9,
       "model": "",
-      "sku": "74",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11257,8 +11257,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 38683,
       "model": "",
-      "sku": "75",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11306,8 +11306,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 41129.4,
       "model": "",
-      "sku": "76",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11355,8 +11355,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 44705.88,
       "model": "",
-      "sku": "77",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11404,8 +11404,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 44705.88,
       "model": "",
-      "sku": "78",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11453,8 +11453,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 46277.45,
       "model": "",
-      "sku": "79",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11502,8 +11502,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 60871.88,
       "model": "",
-      "sku": "80",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11551,8 +11551,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 86184.83,
       "model": "",
-      "sku": "81",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11600,8 +11600,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 86184.83,
       "model": "",
-      "sku": "82",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11649,8 +11649,8 @@
       "image_url": "/images/placeholder-inverter.jpg",
       "price_brl": 86184.83,
       "model": "",
-      "sku": "83",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -11718,8 +11718,8 @@
       "price_brl": 2706.07,
       "description": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
       "image": "images\\FOTUS-KITS-HIBRIDOS\\FOTUS-KP04-kits-hibridos.jpg",
-      "sku": null,
-      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-kits-hibridos.jpg",
+      "sku": "KP04",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP04-1026kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -11787,8 +11787,8 @@
       "price_brl": 2507.99,
       "description": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW",
       "image": "images\\FOTUS-KITS\\FOTUS-KP04-kits.jpg",
-      "sku": null,
-      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP04-kits.jpg",
+      "sku": "KP04",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP04-1026kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -11855,8 +11855,8 @@
       "price_brl": 2679.49,
       "description": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
       "image": "images\\FOTUS-KITS\\FOTUS-KP02-kits.jpg",
-      "sku": null,
-      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-kits.jpg",
+      "sku": "KP02",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -11924,8 +11924,8 @@
       "price_brl": 2896.41,
       "description": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
       "image": "images\\FOTUS-KITS\\FOTUS-KP03-kits.jpg",
-      "sku": null,
-      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP03-kits.jpg",
+      "sku": "KP03",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP03-1136kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -11977,8 +11977,8 @@
       "category": "inverters",
       "availability": true,
       "description": "Microinversor Deye SUN2250 G4 Monofásico 2250W - 220V - MLPE e Wi-Fi Integrado",
-      "sku": "22916",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SUN2250",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -12035,8 +12035,8 @@
       },
       "price_brl": 1719,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-21 (T) - 2000W 24/120V",
-      "sku": "21632",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "IP2000-21",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -12103,7 +12103,7 @@
       "price_brl": 703,
       "description": "Inversor Off Grid Senoidal ZTROON ZT1000-11 - 1000W - 12/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20566.jpg",
-      "sku": "20566",
+      "sku": "ZT1000-11",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20566.jpg",
       "image_verified": true
     },
@@ -12171,8 +12171,8 @@
       "price_brl": 497,
       "description": "Inversor Off Grid Senoidal ZTROON ZT600-11 - 600W - 12/ 127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20563.jpg",
-      "sku": "20563",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20563.jpg",
+      "sku": "ZT600-11",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
     {
@@ -12240,8 +12240,8 @@
       "price_brl": 2733,
       "description": "Inversor Carregador Must PV29-5048 LHP - 5000W - MPPT 80A - 48/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24973.jpg",
-      "sku": "24973",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24973.jpg",
+      "sku": "PV29-5048",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-KITS/neosolar_kits_25048.jpg",
       "image_verified": true
     },
     {
@@ -12308,8 +12308,8 @@
       "price_brl": 1194,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT2000-11 - 2000W - 12/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22022.jpg",
-      "sku": "22022",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22022.jpg",
+      "sku": "ZT2000-11",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -12376,8 +12376,8 @@
       "price_brl": 1784,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-41 (T) - 2000W 48/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20247.jpg",
-      "sku": "20247",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20247.jpg",
+      "sku": "IP2000-41",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -12445,8 +12445,8 @@
       "price_brl": 2798,
       "description": "Inversor Carregador Must PV29-5048 HP - 5000W - MPPT 80A - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24972.jpg",
-      "sku": "24972",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24972.jpg",
+      "sku": "PV29-5048",
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-KITS/neosolar_kits_25048.jpg",
       "image_verified": true
     },
     {
@@ -12513,7 +12513,7 @@
       "price_brl": 1459,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP1500-11 (T) - 1500W 12/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21630.jpg",
-      "sku": "21630",
+      "sku": "IP1500-11",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21630.jpg",
       "image_verified": true
     },
@@ -12581,8 +12581,8 @@
       "price_brl": 1194,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT2000-21 - 2000W - 24/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22024.jpg",
-      "sku": "22024",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22024.jpg",
+      "sku": "ZT2000-21",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -12649,7 +12649,7 @@
       "price_brl": 1297,
       "description": "Inversor Senoidal Epever IPower Plus IP1000-41 (T) - 1000W 48/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20922.jpg",
-      "sku": "20922",
+      "sku": "IP1000-41",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20922.jpg",
       "image_verified": true
     },
@@ -12717,7 +12717,7 @@
       "price_brl": 1459,
       "description": "Inversor Off Grid  Senoidal Epever IPower Plus IP1500-12 (T) - 1500W 12/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21631.jpg",
-      "sku": "21631",
+      "sku": "IP1500-12",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21631.jpg",
       "image_verified": true
     },
@@ -12785,8 +12785,8 @@
       "price_brl": 2050,
       "description": "Inversor Senoidal Epever IPower Plus IP3000-41 (T) - 3000W 48/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20250.jpg",
-      "sku": "20250",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20250.jpg",
+      "sku": "IP3000-41",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -12853,8 +12853,8 @@
       "price_brl": 2245,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-21 (T) - 3000W 24/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21634.jpg",
-      "sku": "21634",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21634.jpg",
+      "sku": "IP3000-21",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -12921,8 +12921,8 @@
       "price_brl": 2530,
       "description": "Inversor Senoidal Epever IPower Plus IP3000-11 (T) - 3000W 12/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20778.jpg",
-      "sku": "20778",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20778.jpg",
+      "sku": "IP3000-11",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -12989,8 +12989,8 @@
       "price_brl": 1557,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-22 (T) - 2000W 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21633.jpg",
-      "sku": "21633",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21633.jpg",
+      "sku": "IP2000-22",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -13057,8 +13057,8 @@
       "price_brl": 2588,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP4000-41 (T) - 4000W 48/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21639.jpg",
-      "sku": "21639",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21639.jpg",
+      "sku": "IP4000-41",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-4000W.jpg",
       "image_verified": true
     },
     {
@@ -13125,8 +13125,8 @@
       "price_brl": 2141,
       "description": "Inversor Senoidal Epever IPower Plus IP3000-22 (T) - 3000W 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22095.jpg",
-      "sku": "22095",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22095.jpg",
+      "sku": "IP3000-22",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -13193,8 +13193,8 @@
       "price_brl": 1167,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT2000-12 - 2000W - 12/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22023.jpg",
-      "sku": "22023",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22023.jpg",
+      "sku": "ZT2000-12",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -13245,8 +13245,8 @@
       "category": "inverters",
       "availability": true,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V",
-      "sku": "22920",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -13313,8 +13313,8 @@
       "price_brl": 1946,
       "description": "Inversor Senoidal Epever IPower Plus IP3000-42 (T) - 3000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20924.jpg",
-      "sku": "20924",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20924.jpg",
+      "sku": "IP3000-42",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -13382,7 +13382,7 @@
       "price_brl": 2888,
       "description": "\"Inversor On Grid Livoltek 7",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24874.jpg",
-      "sku": "24874",
+      "sku": "\"Inversor On Grid Li",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24874.jpg",
       "image_verified": true
     },
@@ -13450,8 +13450,8 @@
       "price_brl": 9150,
       "description": "Inversor Híbrido On + Off Grid Deye SUN8K (EU) - 8000W - 48/220-230V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22921.jpg",
-      "sku": "22921",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22921.jpg",
+      "sku": "SUN8K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -13518,8 +13518,8 @@
       "price_brl": 2336,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-12 (T) - 3000W 12/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21641.jpg",
-      "sku": "21641",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21641.jpg",
+      "sku": "IP3000-12",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -13586,8 +13586,8 @@
       "price_brl": 2522,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP5000-42 (T) - 5000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21640.jpg",
-      "sku": "21640",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21640.jpg",
+      "sku": "IP5000-42",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -13654,7 +13654,7 @@
       "price_brl": 1297,
       "description": "Inversor Senoidal Epever IPower Plus IP1000-42 (T) - 1000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22734.jpg",
-      "sku": "22734",
+      "sku": "IP1000-42",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22734.jpg",
       "image_verified": true
     },
@@ -13722,8 +13722,8 @@
       "price_brl": 5442,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) - 5000W - 48/230V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24878.jpg",
-      "sku": "24878",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24878.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -13790,7 +13790,7 @@
       "price_brl": 703,
       "description": "Inversor Off Grid Senoidal ZTROON ZT1000-12 - 1000W - 12/ 220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20565.jpg",
-      "sku": "20565",
+      "sku": "ZT1000-12",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20565.jpg",
       "image_verified": true
     },
@@ -13862,7 +13862,7 @@
       "price_brl": 2444,
       "description": "Inversor On Grid Livoltek 6kW 220V Monofásico - GT1-6KD2",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24876.jpg",
-      "sku": "24876",
+      "sku": "GT1-6KD2",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24876.jpg",
       "image_verified": true
     },
@@ -13930,8 +13930,8 @@
       "price_brl": 15641,
       "description": "Inversor Híbrido On + Off Grid Deye SUN12K (EU) - 12000W - 48/220-380V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24825.jpg",
-      "sku": "24825",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24825.jpg",
+      "sku": "SUN12K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -13998,8 +13998,8 @@
       "price_brl": 1728,
       "description": "Inversor Senoidal Epever IPower Plus IP2000-42 (T) - 2000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20249.jpg",
-      "sku": "20249",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20249.jpg",
+      "sku": "IP2000-42",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -14064,7 +14064,7 @@
       "availability": true,
       "description": "Inversor On Grid Livoltek 5kW 220V Monofásico - GT1-5KD2",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24877.jpg",
-      "sku": "24877",
+      "sku": "GT1-5KD2",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24877.jpg",
       "image_verified": true
     },
@@ -14136,7 +14136,7 @@
       "price_brl": 2073,
       "description": "Inversor On Grid Livoltek 5kW 220V Monofásico - GT1-5KD2",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24870.jpg",
-      "sku": "24870",
+      "sku": "GT1-5KD2",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24870.jpg",
       "image_verified": true
     },
@@ -14205,8 +14205,8 @@
       "price_brl": 1220,
       "description": "Microinversor Deye SUN2250 G4 Monofásico 2250W - 220V - MLPE e Wi-Fi Integrado",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22714.jpg",
-      "sku": "22714",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22714.jpg",
+      "sku": "SUN2250",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -14267,8 +14267,8 @@
       "availability": true,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) SG04 - 5000W - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_23309.jpg",
-      "sku": "23309",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_23309.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -14334,8 +14334,8 @@
       "price_brl": 3849,
       "description": "Inversor Carregador Off Grid Híbrido Epever HP3542 - 60A MPPT - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_23783.jpg",
-      "sku": "23783",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_23783.jpg",
+      "sku": "Inversor Carregador",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -14401,7 +14401,7 @@
       "price_brl": 4248,
       "description": "Inversor Carregador Epever HP3522 - 110A MPPT - 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_23782.jpg",
-      "sku": "23782",
+      "sku": "Inversor Carregador",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_23782.jpg",
       "image_verified": true
     },
@@ -14469,8 +14469,8 @@
       "price_brl": 8058,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20217.jpg",
-      "sku": "20217",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20217.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -14537,7 +14537,7 @@
       "price_brl": 1141,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP1500-11 (T-BR) - 1500W 12/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20252.jpg",
-      "sku": "20252",
+      "sku": "IP1500-11",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20252.jpg",
       "image_verified": true
     },
@@ -14605,7 +14605,7 @@
       "price_brl": 1028,
       "description": "Inversor Off Grid  Senoidal Epever IPower Plus IP1500-12 (T-BR) - 1500W 12/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20253.jpg",
-      "sku": "20253",
+      "sku": "IP1500-12",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20253.jpg",
       "image_verified": true
     },
@@ -14673,8 +14673,8 @@
       "price_brl": 1322,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-21 (T-BR) - 2000W 24/120V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20255.jpg",
-      "sku": "20255",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20255.jpg",
+      "sku": "IP2000-21",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -14741,8 +14741,8 @@
       "price_brl": 1102,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP2000-22 (T-BR) - 2000W 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20256.jpg",
-      "sku": "20256",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20256.jpg",
+      "sku": "IP2000-22",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -14809,8 +14809,8 @@
       "price_brl": 1400,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-21 (T-BR) - 3000W 24/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20258.jpg",
-      "sku": "20258",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20258.jpg",
+      "sku": "IP3000-21",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -14877,8 +14877,8 @@
       "price_brl": 1190,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-22 (T-BR) - 3000W 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20259.jpg",
-      "sku": "20259",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20259.jpg",
+      "sku": "IP3000-22",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -14945,8 +14945,8 @@
       "price_brl": 1362,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-41 (T-BR) - 3000W 48/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20260.jpg",
-      "sku": "20260",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20260.jpg",
+      "sku": "IP3000-41",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -15013,8 +15013,8 @@
       "price_brl": 1102,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-42 (T-BR) - 3000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20261.jpg",
-      "sku": "20261",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20261.jpg",
+      "sku": "IP3000-42",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -15081,8 +15081,8 @@
       "price_brl": 1579,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP4000-41 (T-BR) - 4000W 48/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20262.jpg",
-      "sku": "20262",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20262.jpg",
+      "sku": "IP4000-41",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-4000W.jpg",
       "image_verified": true
     },
     {
@@ -15149,8 +15149,8 @@
       "price_brl": 1557,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP5000-42 (T-BR) - 5000W 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20264.jpg",
-      "sku": "20264",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20264.jpg",
+      "sku": "IP5000-42",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-5000W.jpg",
       "image_verified": true
     },
     {
@@ -15216,8 +15216,8 @@
       "price_brl": 2443,
       "description": "Inversor Off Grid Híbrido Epever UPower-Hi UP2000 - 60A MPPT - 24/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20265.jpg",
-      "sku": "20265",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20265.jpg",
+      "sku": "Inversor Off Grid Hí",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15283,8 +15283,8 @@
       "price_brl": 2662,
       "description": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 50A MPPT - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20266.jpg",
-      "sku": "20266",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20266.jpg",
+      "sku": "Inversor Off Grid Hí",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15350,8 +15350,8 @@
       "price_brl": 2610,
       "description": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 50A MPPT - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20267.jpg",
-      "sku": "20267",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20267.jpg",
+      "sku": "Inversor Off Grid Hí",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15417,8 +15417,8 @@
       "price_brl": 2822,
       "description": "Inversor Off Grid Híbrido Epever UPower-Hi UP3000 - 80A MPPT - 48/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20268.jpg",
-      "sku": "20268",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20268.jpg",
+      "sku": "Inversor Off Grid Hí",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15484,8 +15484,8 @@
       "price_brl": 3152,
       "description": "Inversor-Carregador Off Grid (Híbrido) Epever UPower-Hi UP5000 - 80A MPPT - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20269.jpg",
-      "sku": "20269",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20269.jpg",
+      "sku": "Inversor-Carregador",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15546,7 +15546,7 @@
       "availability": true,
       "description": "Inversor Senoidal Epever IPower Plus IP1000-21 (T) - 1000W 24/110V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20525.jpg",
-      "sku": "20525",
+      "sku": "IP1000-21",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20525.jpg",
       "image_verified": true
     },
@@ -15614,8 +15614,8 @@
       "price_brl": 1427,
       "description": "Inversor Off Grid Senoidal Epever IPower Plus IP3000-12 (T-BR) - 3000W 12/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20666.jpg",
-      "sku": "20666",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20666.jpg",
+      "sku": "IP3000-12",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-3000W.jpg",
       "image_verified": true
     },
     {
@@ -15677,8 +15677,8 @@
       "availability": true,
       "description": "Microinversor Deye SUN2000G3 Monofásico 2000W - 220V - MLPE e Wi-Fi Integrado",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20287.jpg",
-      "sku": "20287",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20287.jpg",
+      "sku": "SUN2000G3",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -15739,7 +15739,7 @@
       "availability": true,
       "description": "Inversor Senoidal Epever IPower Plus IP1500-41 (T) - 1500W 48/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21442.jpg",
-      "sku": "21442",
+      "sku": "IP1500-41",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21442.jpg",
       "image_verified": true
     },
@@ -15807,7 +15807,7 @@
       "price_brl": 961,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT1000-21 - 1000W - 24/127V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21642.jpg",
-      "sku": "21642",
+      "sku": "ZT1000-21",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21642.jpg",
       "image_verified": true
     },
@@ -15869,8 +15869,8 @@
       "availability": true,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21824.jpg",
-      "sku": "21824",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21824.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -15937,7 +15937,7 @@
       "price_brl": 796,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT1000-22 - 1000W - 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22021.jpg",
-      "sku": "22021",
+      "sku": "ZT1000-22",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22021.jpg",
       "image_verified": true
     },
@@ -16005,8 +16005,8 @@
       "price_brl": 8689,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K (EU) SG01 - 5000W - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22099.jpg",
-      "sku": "22099",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22099.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -16073,8 +16073,8 @@
       "price_brl": 1232,
       "description": "Inversor Off Grid Senoidal  ZTROON ZT2000-22 - 2000W - 24/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22025.jpg",
-      "sku": "22025",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22025.jpg",
+      "sku": "ZT2000-22",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SAJ-12000W.jpg",
       "image_verified": true
     },
     {
@@ -16141,8 +16141,8 @@
       "price_brl": 7555,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K - 5000W - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22144.jpg",
-      "sku": "22144",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22144.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -16209,8 +16209,8 @@
       "price_brl": 11037,
       "description": "Inversor Híbrido On + Off Grid Deye SUN5K (US) - 5000W - 48/120-240V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_22159.jpg",
-      "sku": "22159",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_22159.jpg",
+      "sku": "SUN5K",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -16278,7 +16278,7 @@
       "price_brl": 4513,
       "description": "Inversor Carregador Epever HP5542 - 5500W - MPPT 100A - 48/220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_21306.jpg",
-      "sku": "21306",
+      "sku": "HP5542",
       "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_21306.jpg",
       "image_verified": true
     },
@@ -16350,8 +16350,8 @@
       "price_brl": 3555,
       "description": "Inversor On Grid Livoltek 10kW 220V Monofásico - GT1-10KT2",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_24872.jpg",
-      "sku": "24872",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_24872.jpg",
+      "sku": "GT1-10KT2",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -16418,8 +16418,8 @@
       "price_brl": 550,
       "description": "Inversor Off Grid Senoidal ZTROON ZT600-12 - 600W - 12/ 220V",
       "image": "images\\NEOSOLAR-INVERTERS\\neosolar_inverters_20564.jpg",
-      "sku": "20564",
-      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-INVERTERS/neosolar_inverters_20564.jpg",
+      "sku": "ZT600-12",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
     {
@@ -16489,7 +16489,7 @@
       "price_brl": 490,
       "description": "Painel Solar Odex 585W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "585W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -16560,7 +16560,7 @@
       "price_brl": 499,
       "description": "Painel Solar Odex 600W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "600W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -16631,7 +16631,7 @@
       "price_brl": 505,
       "description": "Painel Solar Odex 610W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "610W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -16702,7 +16702,7 @@
       "price_brl": 515,
       "description": "Painel Solar Odex 660W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "660W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -16773,7 +16773,7 @@
       "price_brl": 519,
       "description": "Painel Solar Odex 700W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "700W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -16842,7 +16842,7 @@
       "price_brl": 512,
       "description": "Painel Solar Astronergy 600W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
-      "sku": "600W",
+      "sku": "Astronergy",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
@@ -16911,7 +16911,7 @@
       "price_brl": 485,
       "description": "Painel Solar Tsun 560W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-TSUN-560W.jpg",
-      "sku": "560W",
+      "sku": "Tsun",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "image_verified": true
     },
@@ -16980,7 +16980,7 @@
       "price_brl": 508,
       "description": "Painel Solar Jinko 610W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
-      "sku": "610W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -17049,7 +17049,7 @@
       "price_brl": 510,
       "description": "Painel Solar Jinko 615W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
-      "sku": "615W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -17115,9 +17115,9 @@
       },
       "price_brl": 1599,
       "description": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
-      "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-3K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-4200W",
@@ -17181,9 +17181,9 @@
       },
       "price_brl": 1899,
       "description": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
-      "sku": "4200W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-4.2K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-5000W",
@@ -17247,9 +17247,9 @@
       },
       "price_brl": 2499,
       "description": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-5K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-6000W",
@@ -17313,9 +17313,9 @@
       },
       "price_brl": 2899,
       "description": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
-      "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-6K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-8000W",
@@ -17379,9 +17379,9 @@
       },
       "price_brl": 3499,
       "description": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
-      "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-8K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-10000W",
@@ -17445,8 +17445,8 @@
       },
       "price_brl": 4299,
       "description": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
-      "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "R5-10K-T2",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -17511,8 +17511,8 @@
       },
       "price_brl": 4899,
       "description": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
-      "sku": "12000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "R5-12K-T2",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP04-912kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -17577,9 +17577,9 @@
       },
       "price_brl": 5499,
       "description": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MPPT",
-      "sku": "15000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-15K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-17000W",
@@ -17643,9 +17643,9 @@
       },
       "price_brl": 5999,
       "description": "Inversor Grid-Tie SAJ R5-17K-T2 BRL 17kW Trifásico 380V 2 MPPT",
-      "sku": "17000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-17K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-SAJ-20000W",
@@ -17709,8 +17709,8 @@
       },
       "price_brl": 6899,
       "description": "Inversor Grid-Tie SAJ R5-20K-T2 BRL 20kW Trifásico 380V 2 MPPT",
-      "sku": "20000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "R5-20K-T2",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-120kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -17775,9 +17775,9 @@
       },
       "price_brl": 8499,
       "description": "Inversor Grid-Tie SAJ R5-25K-T2 BRL 25kW Trifásico 380V 2 MPPT",
-      "sku": "25000W",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "R5-25K-T2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-INV-GROWATT-3000W",
@@ -17839,8 +17839,8 @@
       },
       "price_brl": 1499,
       "description": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT",
-      "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MIN 3000TL-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -17903,8 +17903,8 @@
       },
       "price_brl": 1699,
       "description": "Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT",
-      "sku": "3300W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MIC 3300",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-GW 3300-XS-30 - AFCI_image.png",
       "image_verified": true
     },
     {
@@ -17967,8 +17967,8 @@
       },
       "price_brl": 2799,
       "description": "Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT",
-      "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MIC 6000",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-GW 100K-HT_IMAGE_PRODUCT_600066.png",
       "image_verified": true
     },
     {
@@ -18031,8 +18031,8 @@
       },
       "price_brl": 3899,
       "description": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 MPPT",
-      "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MOD 8KTL3-XH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18095,8 +18095,8 @@
       },
       "price_brl": 4499,
       "description": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V 2 MPPT",
-      "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MOD 10KTL3-XH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18159,8 +18159,8 @@
       },
       "price_brl": 5999,
       "description": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V 2 MPPT",
-      "sku": "15000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MOD 15KTL3-XH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18223,8 +18223,8 @@
       },
       "price_brl": 7299,
       "description": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT",
-      "sku": "20000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MOD 20KTL3-XH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
       "image_verified": true
     },
     {
@@ -18287,8 +18287,8 @@
       },
       "price_brl": 8899,
       "description": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT",
-      "sku": "25000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "MOD 25KTL3-XH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18351,8 +18351,8 @@
       },
       "price_brl": 16999,
       "description": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT",
-      "sku": "50000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "50KW",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18415,8 +18415,8 @@
       },
       "price_brl": 24999,
       "description": "Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT",
-      "sku": "75000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "75KW",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18479,8 +18479,8 @@
       },
       "price_brl": 32999,
       "description": "Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT",
-      "sku": "100000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "100KW",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18543,8 +18543,8 @@
       },
       "price_brl": 36667,
       "description": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT",
-      "sku": "125000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "125KW",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -18609,8 +18609,8 @@
       },
       "price_brl": 1449,
       "description": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MPPT",
-      "sku": "3000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "NXI-3.0K-T2",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -18675,8 +18675,8 @@
       },
       "price_brl": 2299,
       "description": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "NXI-5.0K-T2",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -18741,8 +18741,8 @@
       },
       "price_brl": 3699,
       "description": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPPT",
-      "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "NXI-8.0K-T3",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -18807,8 +18807,8 @@
       },
       "price_brl": 4299,
       "description": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPPT",
-      "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "NXI-10K-T3",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-CHINT-10000W.jpg",
       "image_verified": true
     },
     {
@@ -18873,8 +18873,8 @@
       },
       "price_brl": 1649,
       "description": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 MPPT",
-      "sku": "3300W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "3.3K-TL-G4",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -18939,8 +18939,8 @@
       },
       "price_brl": 2449,
       "description": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "5K-TL-G4",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -19005,8 +19005,8 @@
       },
       "price_brl": 2799,
       "description": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
-      "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "6K-TL-G4",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -19069,8 +19069,8 @@
       },
       "price_brl": 986,
       "description": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
-      "sku": "800W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "80G4-EU-Q0",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -19133,8 +19133,8 @@
       },
       "price_brl": 1399,
       "description": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
-      "sku": "1200W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "120G4-EU-Q0",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -19197,8 +19197,8 @@
       },
       "price_brl": 2499,
       "description": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
-      "sku": "2400W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "3-EU-Q0",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -19261,8 +19261,8 @@
       },
       "price_brl": 3299,
       "description": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "3KW",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP04-513kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -19325,8 +19325,8 @@
       },
       "price_brl": 3899,
       "description": "Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT",
-      "sku": "4000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "4KW",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1704kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -19389,8 +19389,8 @@
       },
       "price_brl": 4499,
       "description": "Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "5KW",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -19453,8 +19453,8 @@
       },
       "price_brl": 4999,
       "description": "Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "6KW",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1136kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -19517,8 +19517,8 @@
       },
       "price_brl": 5999,
       "description": "Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "8KW",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1278kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
     {
@@ -19591,7 +19591,7 @@
       "price_brl": 7499,
       "description": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT",
       "image": "images\\FOTUS-KITS\\FOTUS-KP02-710kWp-Ceramico-kits.jpg",
-      "sku": "1",
+      "sku": "10KW",
       "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-710kWp-Ceramico-kits.jpg",
       "image_verified": true
     },
@@ -19655,8 +19655,8 @@
       },
       "price_brl": 4299,
       "description": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V 48V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SG05LP1-EU",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -19719,8 +19719,8 @@
       },
       "price_brl": 4799,
       "description": "Inversor Híbrido Deye SUN-6K-SG05LP1-EU 6kW Monofásico 220V 48V 2 MPPT",
-      "sku": "6000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SG05LP1-EU",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -19783,8 +19783,8 @@
       },
       "price_brl": 5799,
       "description": "Inversor Híbrido Deye SUN-8K-SG05LP1-EU 8kW Monofásico 220V 48V 2 MPPT",
-      "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SG05LP1-EU",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -19849,8 +19849,8 @@
       },
       "price_brl": 4399,
       "description": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 48V 2 MPPT",
-      "sku": "5000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "X1-Hybrid-5.0-T",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -19915,8 +19915,8 @@
       },
       "price_brl": 7999,
       "description": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96V 2 MPPT",
-      "sku": "8000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "X3-Hybrid-8.0-D",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -19981,8 +19981,8 @@
       },
       "price_brl": 9499,
       "description": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V 96V 2 MPPT",
-      "sku": "10000W",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "X3-Hybrid-10.0-D",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-120kWp-Ceramico-kits-hibridos.jpg",
       "image_verified": true
     },
     {
@@ -20035,8 +20035,8 @@
       },
       "price_brl": 103,
       "description": "Estrutura Solar Group Fibrocimento Grande",
-      "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20089,8 +20089,8 @@
       },
       "price_brl": 98,
       "description": "Estrutura Solar Group Fibrocimento Pequeno",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20143,8 +20143,8 @@
       },
       "price_brl": 145,
       "description": "Estrutura Solar Group Colonial Cerâmico",
-      "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20197,8 +20197,8 @@
       },
       "price_brl": 112,
       "description": "Estrutura Solar Group Metálico Trapezoidal",
-      "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20251,8 +20251,8 @@
       },
       "price_brl": 1250,
       "description": "Estrutura Solar Group Solo Fixo",
-      "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20307,8 +20307,8 @@
       },
       "price_brl": 3890,
       "description": "Estrutura Solar Group Solo Rastreador 1 Eixo",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Solar Grou",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20363,8 +20363,8 @@
       },
       "price_brl": 109,
       "description": "Estrutura Romagnole Fibrocimento RF-55",
-      "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Romagnole",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20419,8 +20419,8 @@
       },
       "price_brl": 152,
       "description": "Estrutura Romagnole Colonial Cerâmico RC-66",
-      "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Romagnole",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20475,8 +20475,8 @@
       },
       "price_brl": 118,
       "description": "Estrutura Romagnole Metálico Trapezoidal RM-40",
-      "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Romagnole",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20531,8 +20531,8 @@
       },
       "price_brl": 165,
       "description": "Estrutura Romagnole Laje Inclinada RL-30",
-      "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Romagnole",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20587,8 +20587,8 @@
       },
       "price_brl": 1345,
       "description": "Estrutura Romagnole Solo Fixo RS-1500",
-      "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Romagnole",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20643,8 +20643,8 @@
       },
       "price_brl": 107,
       "description": "Estrutura Pratyc Fibrocimento Grande PRF-60",
-      "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Pratyc Fib",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20699,8 +20699,8 @@
       },
       "price_brl": 149,
       "description": "Estrutura Pratyc Colonial Cerâmico PRC-70",
-      "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Pratyc Col",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20755,8 +20755,8 @@
       },
       "price_brl": 115,
       "description": "Estrutura Pratyc Metálico Trapezoidal PRM-45",
-      "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Pratyc Met",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20811,8 +20811,8 @@
       },
       "price_brl": 158,
       "description": "Estrutura Pratyc Laje Plana PRL-25",
-      "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Pratyc Laj",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20867,8 +20867,8 @@
       },
       "price_brl": 1399,
       "description": "Estrutura Pratyc Solo Fixo PRS-1600",
-      "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura Pratyc Sol",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20924,8 +20924,8 @@
       },
       "price_brl": 185,
       "description": "Estrutura K2 Systems SingleRail Fibrocimento",
-      "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -20981,8 +20981,8 @@
       },
       "price_brl": 198,
       "description": "Estrutura K2 Systems SingleRail Colonial",
-      "sku": "COLONIAL",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21038,8 +21038,8 @@
       },
       "price_brl": 175,
       "description": "Estrutura K2 Systems SingleRail Metálico",
-      "sku": "METALICO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21094,8 +21094,8 @@
       },
       "price_brl": 2250,
       "description": "Estrutura K2 Systems CrossRail Solo Fixo",
-      "sku": "SOLO",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21150,8 +21150,8 @@
       },
       "price_brl": 189,
       "description": "Estrutura K2 Systems MiniRail Laje",
-      "sku": "LAJE",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21206,8 +21206,8 @@
       },
       "price_brl": 203,
       "description": "Estrutura K2 Systems BaseRail Plus Universal",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21262,8 +21262,8 @@
       },
       "price_brl": 1890,
       "description": "Estrutura K2 Systems Dome 6° Solo",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21318,8 +21318,8 @@
       },
       "price_brl": 2150,
       "description": "Estrutura K2 Systems Dome 10° Solo",
-      "sku": "2",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21371,8 +21371,8 @@
       },
       "price_brl": 2450,
       "description": "Estrutura K2 Systems D-Dome 6° Solo",
-      "sku": "3",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21427,8 +21427,8 @@
       },
       "price_brl": 4250,
       "description": "Estrutura K2 Systems Solo Rastreador XL",
-      "sku": "4",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "Estrutura K2 Systems",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -21484,9 +21484,9 @@
       },
       "price_brl": 362,
       "description": "String Box Clamper 2 Entradas",
-      "sku": "2E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 2",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-4E",
@@ -21541,9 +21541,9 @@
       },
       "price_brl": 489,
       "description": "String Box Clamper 4 Entradas",
-      "sku": "4E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 4",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-6E",
@@ -21598,9 +21598,9 @@
       },
       "price_brl": 612,
       "description": "String Box Clamper 6 Entradas",
-      "sku": "6E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 6",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-8E",
@@ -21655,9 +21655,9 @@
       },
       "price_brl": 798,
       "description": "String Box Clamper 8 Entradas",
-      "sku": "8E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 8",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-10E",
@@ -21712,9 +21712,9 @@
       },
       "price_brl": 943,
       "description": "String Box Clamper 10 Entradas",
-      "sku": "10E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 1",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-CLAMPER-12E",
@@ -21769,9 +21769,9 @@
       },
       "price_brl": 1089,
       "description": "String Box Clamper 12 Entradas",
-      "sku": "12E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Clamper 1",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-4E",
@@ -21826,9 +21826,9 @@
       },
       "price_brl": 499,
       "description": "String Box Tecbox 4 Entradas",
-      "sku": "4E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 4",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-6E",
@@ -21883,9 +21883,9 @@
       },
       "price_brl": 625,
       "description": "String Box Tecbox 6 Entradas",
-      "sku": "6E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 6",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-8E",
@@ -21940,9 +21940,9 @@
       },
       "price_brl": 812,
       "description": "String Box Tecbox 8 Entradas",
-      "sku": "8E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 8",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-10E",
@@ -21997,9 +21997,9 @@
       },
       "price_brl": 956,
       "description": "String Box Tecbox 10 Entradas",
-      "sku": "10E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 10",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-12E",
@@ -22054,9 +22054,9 @@
       },
       "price_brl": 1112,
       "description": "String Box Tecbox 12 Entradas",
-      "sku": "12E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 12",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-16E",
@@ -22111,9 +22111,9 @@
       },
       "price_brl": 1398,
       "description": "String Box Tecbox 16 Entradas",
-      "sku": "16E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 16",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "odex_inverters_ODEX-STRINGBOX-TECBOX-20E",
@@ -22168,9 +22168,9 @@
       },
       "price_brl": 1681,
       "description": "String Box Tecbox 20 Entradas",
-      "sku": "20E",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "String Box Tecbox 20",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_accessories_2",
@@ -22225,9 +22225,9 @@
       },
       "price_brl": 16,
       "description": "KIT FIXADOR MICRO INVERSOR P/ PERFIL LATERAL (C/ SUPORTE L)",
-      "sku": "2",
-      "image_path": "/placeholder-inverter.jpg",
-      "image_verified": true
+      "sku": "KIT FIXADOR MICRO IN",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_inverters_1",
@@ -22287,8 +22287,8 @@
       "price_brl": 1347.65,
       "description": "ENPHASE IQ8P-72-2-BR",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\ENPHASE-IQ8P-72-2-BR_IMAGE_PRODUCT_600340.jpeg",
-      "sku": "1",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "ENPHASE IQ8P-72-2-BR",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/ENPHASE-IQ8P-72-2-BR_IMAGE_PRODUCT_600340.jpeg",
       "image_verified": true
     },
     {
@@ -22347,8 +22347,8 @@
       "price_brl": 1856.55,
       "description": "GOODWE EZLOGGER PRO",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-EZLOGGER PRO_image.png",
-      "sku": "2",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE EZLOGGER PRO",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -22409,8 +22409,8 @@
       "price_brl": 2250.33,
       "description": "GOODWE GW2000-MIS",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW2000-MIS_IMAGE_PRODUCT_600329.jpg",
-      "sku": "3",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW2000-MIS",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -22471,8 +22471,8 @@
       "price_brl": 3531.6,
       "description": "DEYE SUN-5K-G",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-5K-G_image.webp",
-      "sku": "4",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-5K-G",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -22533,8 +22533,8 @@
       "price_brl": 3585.88,
       "description": "GOODWE GW 3300-XS-30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 3300-XS-30 - AFCI_image.png",
-      "sku": "5",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 3300-XS-30",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -22595,8 +22595,8 @@
       "price_brl": 3644.58,
       "description": "SOFAR 5KTLM-G3 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\SOFAR-5KTLM-G3 - AFCI_IMAGE_PRODUCT_600369.png",
-      "sku": "6",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SOFAR 5KTLM-G3 - AFC",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -22661,7 +22661,7 @@
       "price_brl": 3785.08,
       "description": "HUAWEI SUN2000-3KTL-L1 - AFCI",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "sku": "7",
+      "sku": "SUN2000",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -22723,8 +22723,8 @@
       "price_brl": 4197.2,
       "description": "DEYE SUN-8K-G",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-8K-G_image.jpg",
-      "sku": "8",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-8K-G",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -22786,8 +22786,8 @@
       "price_brl": 4509.73,
       "description": "GOODWE GW 5000-DNS-30 (16A) - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 5000-DNS-30 (16A) - AFCI_image.png",
-      "sku": "9",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 5000-DNS-3",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -22852,7 +22852,7 @@
       "price_brl": 4528.03,
       "description": "HUAWEI SUN2000-4KTL-L1 - AFCI",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "sku": "10",
+      "sku": "SUN2000",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -22908,8 +22908,8 @@
       },
       "price_brl": 7176.03,
       "description": "GOODWE GW8000-MS-C30 - AFCI",
-      "sku": "11",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW8000-MS-C30",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -22971,8 +22971,8 @@
       "price_brl": 7434.75,
       "description": "GOODWE GW 10K-MS-30 (20A) - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 10K-MS-30 (20A) - AFCI_image.png",
-      "sku": "12",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 10K-MS-30",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23037,7 +23037,7 @@
       "price_brl": 7434.75,
       "description": "HUAWEI SUN2000-10K-LC0 - AFCI",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "sku": "13",
+      "sku": "SUN2000",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -23099,8 +23099,8 @@
       "price_brl": 7455.48,
       "description": "GOODWE GW10K-MS-G40 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW10K-MS-G40 - AFCI C- RSD_IMAGE_PRODUCT_600398.png",
-      "sku": "14",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW10K-MS-G40",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23155,8 +23155,8 @@
       },
       "price_brl": 7834.13,
       "description": "GOODWE GW10K-MS-G40 - AFCI C/ RSD",
-      "sku": "15",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW10K-MS-G40",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23217,8 +23217,8 @@
       "price_brl": 8335.8,
       "description": "GROWATT MID 20KTL3 XL2 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
-      "sku": "16",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MID 20KTL3 X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -23279,8 +23279,8 @@
       "price_brl": 8335.8,
       "description": "GROWATT MID 20KTL3 XL2 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 20KTL3 XL2 - AFCI_IMAGE_PRODUCT_600308.png",
-      "sku": "17",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MID 20KTL3 X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -23345,7 +23345,7 @@
       "price_brl": 8513.98,
       "description": "HUAWEI SUN2000-12K-MB0 - AFCI",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "sku": "18",
+      "sku": "SUN2000",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -23401,8 +23401,8 @@
       },
       "price_brl": 8812.5,
       "description": "GROWATT MID 25KTL3-X",
-      "sku": "19",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MID 25KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -23467,7 +23467,7 @@
       "price_brl": 9136.13,
       "description": "HUAWEI SUN2000-15K-MB0 - AFCI",
       "image": "images\\SOLFACIL-INVERTERS\\HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
-      "sku": "21",
+      "sku": "SUN2000",
       "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/HUAWEI-SUN2000-10K-LC0 - AFCI_IMAGE_PRODUCT_600386.png",
       "image_verified": true
     },
@@ -23529,8 +23529,8 @@
       "price_brl": 9402.23,
       "description": "DEYE SUN-25K-G02-LV",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-25K-G02-LV_image.png",
-      "sku": "22",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-25K-G02-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -23591,8 +23591,8 @@
       "price_brl": 10004.25,
       "description": "GOODWE GW 12KLV-SDT-C30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 12KLV-SDT-C30 - AFCI_image.png",
-      "sku": "23",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 12KLV-SDT-",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23647,8 +23647,8 @@
       },
       "price_brl": 10036,
       "description": "GOODWE GW20K-SDT-31 - AFCI C/ RSD",
-      "sku": "24",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW20K-SDT-31",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23709,8 +23709,8 @@
       "price_brl": 10488.65,
       "description": "GOODWE GW12KLV-SDT-C31 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW12KLV-SDT-C31 - AFCI_IMAGE_PRODUCT_600400.png",
-      "sku": "25",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW12KLV-SDT-C",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23771,8 +23771,8 @@
       "price_brl": 10489.73,
       "description": "SOFAR 25KTLX-G3-LV - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\SOFAR-25KTLX-G3-LV - AFCI_IMAGE_PRODUCT_600381.png",
-      "sku": "26",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "SOFAR 25KTLX-G3-LV -",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-INV-SOFAR-3300W.jpg",
       "image_verified": true
     },
     {
@@ -23833,8 +23833,8 @@
       "price_brl": 10609.08,
       "description": "GOODWE GW25K-SDT-P31 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW25K-SDT-P31 - AFCI C- RSD_IMAGE_PRODUCT_600452.png",
-      "sku": "27",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW25K-SDT-P31",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23895,8 +23895,8 @@
       "price_brl": 10718.45,
       "description": "GOODWE GW 12KLV-MT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 12KLV-MT_image.jpg",
-      "sku": "28",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 12KLV-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -23951,8 +23951,8 @@
       },
       "price_brl": 11173.53,
       "description": "GOODWE GW25K-SDT-P31 - AFCI C/ RSD",
-      "sku": "29",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW25K-SDT-P31",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24013,8 +24013,8 @@
       "price_brl": 11560.6,
       "description": "GOODWE GW6000-ES-BR20 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW6000-ES-BR20 - AFCI_image.png",
-      "sku": "30",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW6000-ES-BR2",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24079,8 +24079,8 @@
       "price_brl": 12119.53,
       "description": "GOODWE GW6000-SBP-20",
       "image": "images\\SOLFACIL-INVERTERS\\GOODWE-GW6000-SBP-20_image.webp",
-      "sku": "31",
-      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-GW6000-SBP-20_image.webp",
+      "sku": "GOODWE GW6000-SBP-20",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24141,8 +24141,8 @@
       "price_brl": 12934.93,
       "description": "GOODWE GW 15KLV-MT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 15KLV-MT_image.jpeg",
-      "sku": "32",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 15KLV-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24203,8 +24203,8 @@
       "price_brl": 12969.6,
       "description": "GROWATT MID 50KTL3-X2 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MID 50KTL3-X2 - AFCI_IMAGE_PRODUCT_600314.png",
-      "sku": "33",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MID 50KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -24265,8 +24265,8 @@
       "price_brl": 13085.25,
       "description": "GOODWE GW 30K-SDT-C30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30K-SDT-C30 - AFCI_image.png",
-      "sku": "34",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 30K-SDT-C3",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24327,8 +24327,8 @@
       "price_brl": 13228,
       "description": "DEYE SUN-35K-G02-LV",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-35K-G02-LV_image.jpeg",
-      "sku": "35",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-35K-G02-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -24389,8 +24389,8 @@
       "price_brl": 13228,
       "description": "DEYE SUN-35K-G02-LV",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-35K-G02-LV_image.jpeg",
-      "sku": "36",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-35K-G02-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -24451,8 +24451,8 @@
       "price_brl": 13379.98,
       "description": "GOODWE GW3600-ES-BR20 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW3600-ES-BR20 - AFCI_image.png",
-      "sku": "37",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW3600-ES-BR2",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24513,8 +24513,8 @@
       "price_brl": 14500.08,
       "description": "GOODWE GW 36K-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 36K-MT - AFCI_image.jpeg",
-      "sku": "38",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 36K-MT - A",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24575,8 +24575,8 @@
       "price_brl": 14539.73,
       "description": "GOODWE GW37K5-SDT-BR30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW37K5-SDT-BR30 - AFCI_IMAGE_PRODUCT_600350.jpg",
-      "sku": "39",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW37K5-SDT-BR",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24637,8 +24637,8 @@
       "price_brl": 14654.45,
       "description": "GROWATT MAC 36KTL3-XL - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "sku": "40",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAC 36KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -24699,8 +24699,8 @@
       "price_brl": 14654.45,
       "description": "GROWATT MAC 36KTL3-XL",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "sku": "41",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAC 36KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -24761,8 +24761,8 @@
       "price_brl": 14654.45,
       "description": "GROWATT MAC 36KTL3-XL - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
-      "sku": "42",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAC 36KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -24823,8 +24823,8 @@
       "price_brl": 14764.55,
       "description": "GOODWE GW17KLV-SDT-C30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW17KLV-SDT-C30 - AFCI_IMAGE_PRODUCT_600275.png",
-      "sku": "43",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW17KLV-SDT-C",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24885,8 +24885,8 @@
       "price_brl": 14768.55,
       "description": "GOODWE GW6000-ES-BR20 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW6000-ES-BR20 - AFCI_image.png",
-      "sku": "44",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW6000-ES-BR2",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -24947,8 +24947,8 @@
       "price_brl": 14768.55,
       "description": "GOODWE GW6000-ES-BR20 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW6000-ES-BR20 - AFCI_image.png",
-      "sku": "45",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW6000-ES-BR2",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25009,8 +25009,8 @@
       "price_brl": 15745.08,
       "description": "GOODWE GW3500L-ES-BR20",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW3500L-ES-BR20_IMAGE_PRODUCT_600361.png",
-      "sku": "46",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW3500L-ES-BR",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25071,8 +25071,8 @@
       "price_brl": 16404.88,
       "description": "GOODWE GW 20KLV-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 20KLV-MT - AFCI_image.png",
-      "sku": "47",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 20KLV-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25133,8 +25133,8 @@
       "price_brl": 17483.03,
       "description": "GOODWE GW 50KS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 50KS-MT - AFCI_image.png",
-      "sku": "48",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 50KS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25195,8 +25195,8 @@
       "price_brl": 17482.7,
       "description": "GOODWE GW 30KLS-MT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "sku": "49",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 30KLS-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25257,8 +25257,8 @@
       "price_brl": 17628.6,
       "description": "GOODWE GW23KLV-SDT-BR30 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW23KLV-SDT-BR30 - AFCI_IMAGE_PRODUCT_600352.jpg",
-      "sku": "50",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW23KLV-SDT-B",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25319,8 +25319,8 @@
       "price_brl": 18769.08,
       "description": "GOODWE GW 30KLS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "sku": "51",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 30KLS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25381,8 +25381,8 @@
       "price_brl": 18769.08,
       "description": "GOODWE GW 30KLS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "sku": "52",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 30KLS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25443,8 +25443,8 @@
       "price_brl": 18769.08,
       "description": "GOODWE GW 30KLS-MT - AFCI RED",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 30KLS-MT - AFCI RED_IMAGE_PRODUCT_600483.png",
-      "sku": "53",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 30KLS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25499,8 +25499,8 @@
       },
       "price_brl": 19451.3,
       "description": "GOODWE GW 60KBF-MT",
-      "sku": "54",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 60KBF-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25561,8 +25561,8 @@
       "price_brl": 19451.3,
       "description": "GOODWE GW 60KS-MT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 60KS-MT - AFCI_image.png",
-      "sku": "55",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 60KS-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25623,8 +25623,8 @@
       "price_brl": 20672.13,
       "description": "GOODWE GW 35KLS-MT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 35KLS-MT - AFCI_image.png",
-      "sku": "56",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 35KLS-MT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25685,8 +25685,8 @@
       "price_brl": 21002.53,
       "description": "GROWATT MAX 50KTL3-XL2",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "sku": "57",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAX 50KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -25741,8 +25741,8 @@
       },
       "price_brl": 21002.53,
       "description": "DEYE SUN-50K-G-LV",
-      "sku": "58",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-50K-G-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -25797,8 +25797,8 @@
       },
       "price_brl": 21002.53,
       "description": "DEYE SUN-50K-G-LV",
-      "sku": "59",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-50K-G-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -25853,8 +25853,8 @@
       },
       "price_brl": 21002.53,
       "description": "DEYE SUN-50K-G-LV",
-      "sku": "60",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-50K-G-LV",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -25915,8 +25915,8 @@
       "price_brl": 21142.98,
       "description": "GOODWE GW10K-BT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW10K-BT_image.webp",
-      "sku": "61",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW10K-BT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -25977,8 +25977,8 @@
       "price_brl": 22010.1,
       "description": "DEYE SUN-75K-G01P3-LV",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-75K-G01P3-LV_image.png",
-      "sku": "62",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-75K-G01P3-L",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -26039,8 +26039,8 @@
       "price_brl": 22010.1,
       "description": "DEYE SUN-75K-G01P3-LV",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\DEYE-SUN-75K-G01P3-LV_image.png",
-      "sku": "63",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "DEYE SUN-75K-G01P3-L",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/DEYE-SUN-25K-G02-LV_image.png",
       "image_verified": true
     },
     {
@@ -26101,8 +26101,8 @@
       "price_brl": 22107.9,
       "description": "GROWATT MAX 50KTL3-XL2 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "sku": "64",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAX 50KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -26163,8 +26163,8 @@
       "price_brl": 22107.9,
       "description": "GROWATT MAX 50KTL3-XL2 - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX 50KTL3-XL2 - AFCI_IMAGE_PRODUCT_600305.png",
-      "sku": "65",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAX 50KTL3-X",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -26225,8 +26225,8 @@
       "price_brl": 22237.93,
       "description": "GOODWE GW 35KLS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 35KLS-MT - AFCI_image.png",
-      "sku": "66",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 35KLS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26287,8 +26287,8 @@
       "price_brl": 22237.93,
       "description": "GOODWE GW 35KLS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 35KLS-MT - AFCI_image.png",
-      "sku": "67",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 35KLS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26349,8 +26349,8 @@
       "price_brl": 22507.13,
       "description": "GOODWE GW 60KS-MT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 60KS-MT - AFCI_image.png",
-      "sku": "68",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 60KS-MT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26411,8 +26411,8 @@
       "price_brl": 25711.6,
       "description": "GROWATT MAX60KTL3-XL 2",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GROWATT-MAX60KTL3-XL 2_image.webp",
-      "sku": "69",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GROWATT MAX60KTL3-XL",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -26473,8 +26473,8 @@
       "price_brl": 27325.15,
       "description": "GOODWE GW75K-SMT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW75K-SMT - AFCI_IMAGE_PRODUCT_600328.png",
-      "sku": "70",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW75K-SMT - A",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26535,8 +26535,8 @@
       "price_brl": 34735.65,
       "description": "GOODWE GW 73KLV-HT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 73KLV-HT - AFCI_image.png",
-      "sku": "71",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 73KLV-HT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26597,8 +26597,8 @@
       "price_brl": 34735.65,
       "description": "GOODWE GW 73KLV-HT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 73KLV-HT - AFCI_image.png",
-      "sku": "72",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 73KLV-HT -",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26659,8 +26659,8 @@
       "price_brl": 35072.33,
       "description": "GOODWE GW20K-ET - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW20K-ET - AFCI_IMAGE_PRODUCT_600149.png",
-      "sku": "73",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW20K-ET - AF",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26721,8 +26721,8 @@
       "price_brl": 36889.9,
       "description": "GOODWE GW12KL-ET - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW12KL-ET - AFCI_IMAGE_PRODUCT_600363.png",
-      "sku": "74",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW12KL-ET - A",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26783,8 +26783,8 @@
       "price_brl": 38683,
       "description": "GOODWE GW15K-ET - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW15K-ET - AFCI_IMAGE_PRODUCT_600348.png",
-      "sku": "75",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW15K-ET - AF",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26845,8 +26845,8 @@
       "price_brl": 41129.4,
       "description": "GOODWE GW 100K-HT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 100K-HT_IMAGE_PRODUCT_600066.png",
-      "sku": "76",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 100K-HT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26907,8 +26907,8 @@
       "price_brl": 44705.88,
       "description": "GOODWE GW100K-HT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 100K-HT_IMAGE_PRODUCT_600066.png",
-      "sku": "77",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW100K-HT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -26969,8 +26969,8 @@
       "price_brl": 44705.88,
       "description": "GOODWE GW100K-GT - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW100K-GT - AFCI_IMAGE_PRODUCT_600342.jpg",
-      "sku": "78",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW100K-GT - A",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -27031,8 +27031,8 @@
       "price_brl": 46277.45,
       "description": "GOODWE GW 110K-HT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW 110K-HT_IMAGE_PRODUCT_600023.png",
-      "sku": "79",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW 110K-HT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -27093,8 +27093,8 @@
       "price_brl": 60871.88,
       "description": "GOODWE GW30K-ET - AFCI",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW30K-ET - AFCI_IMAGE_PRODUCT_600150.png",
-      "sku": "80",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW30K-ET - AF",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -27155,8 +27155,8 @@
       "price_brl": 86184.83,
       "description": "GOODWE GW250KN-HT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW250KN-HT_image.png",
-      "sku": "81",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW250KN-HT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -27217,8 +27217,8 @@
       "price_brl": 86184.83,
       "description": "GOODWE GW250KH-UT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW250KH-UT_IMAGE_PRODUCT_600344.png",
-      "sku": "82",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW250KH-UT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     },
     {
@@ -27279,8 +27279,8 @@
       "price_brl": 86184.83,
       "description": "GOODWE GW250K-HT",
       "image": "/catalog/images\\SOLFACIL-INVERTERS\\GOODWE-GW250K-HT_IMAGE_PRODUCT_600142.png",
-      "sku": "83",
-      "image_path": "/placeholder-inverter.jpg",
+      "sku": "GOODWE GW250K-HT",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GOODWE-EZLOGGER PRO_image.png",
       "image_verified": true
     }
   ]

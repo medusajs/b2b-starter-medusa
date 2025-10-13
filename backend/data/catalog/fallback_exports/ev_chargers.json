@@ -1,8 +1,8 @@
 {
   "category": "ev_chargers",
   "total_products": 83,
-  "with_images": 83,
-  "generated_at": "2025-10-13T11:26:32.033Z",
+  "with_images": 82,
+  "generated_at": "2025-10-13T11:33:33.867Z",
   "products": [
     {
       "id": "neosolar_chargers_23757",
@@ -4460,8 +4460,8 @@
       },
       "price_brl": 3423.66,
       "description": "Carregador EV Growatt THOR07AS-P 7kW",
-      "sku": "P",
-      "image_path": "/placeholder-charger.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -4498,9 +4498,9 @@
       },
       "price_brl": 2811.46,
       "description": "Carregador EV FoxESS A7300P1-E-2 7.3kW",
-      "sku": "2",
-      "image_path": "/placeholder-charger.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     }
   ]
 }

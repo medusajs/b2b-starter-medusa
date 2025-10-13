@@ -2,7 +2,7 @@
   "category": "structures",
   "total_products": 40,
   "with_images": 40,
-  "generated_at": "2025-10-13T11:26:32.024Z",
+  "generated_at": "2025-10-13T11:33:33.633Z",
   "products": [
     {
       "id": "odex_inverters_ODEX-ESTRUTURA-SOLARGROUP-FIBROCIMENTO",
@@ -48,7 +48,7 @@
       "technical_specs": {},
       "price_brl": 103,
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -92,8 +92,8 @@
       "series": "F",
       "technical_specs": {},
       "price_brl": 98,
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -140,7 +140,7 @@
       "technical_specs": {},
       "price_brl": 145,
       "sku": "COLONIAL",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -185,7 +185,7 @@
       "technical_specs": {},
       "price_brl": 112,
       "sku": "METALICO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -230,7 +230,7 @@
       "technical_specs": {},
       "price_brl": 1250,
       "sku": "SOLO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -274,8 +274,8 @@
       "series": "S",
       "technical_specs": {},
       "price_brl": 3890,
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -320,7 +320,7 @@
       "technical_specs": {},
       "price_brl": 109,
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -365,7 +365,7 @@
       "technical_specs": {},
       "price_brl": 152,
       "sku": "COLONIAL",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -410,7 +410,7 @@
       "technical_specs": {},
       "price_brl": 118,
       "sku": "METALICO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -455,7 +455,7 @@
       "technical_specs": {},
       "price_brl": 165,
       "sku": "LAJE",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -500,7 +500,7 @@
       "technical_specs": {},
       "price_brl": 1345,
       "sku": "SOLO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -545,7 +545,7 @@
       "technical_specs": {},
       "price_brl": 107,
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -590,7 +590,7 @@
       "technical_specs": {},
       "price_brl": 149,
       "sku": "COLONIAL",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -635,7 +635,7 @@
       "technical_specs": {},
       "price_brl": 115,
       "sku": "METALICO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -680,7 +680,7 @@
       "technical_specs": {},
       "price_brl": 158,
       "sku": "LAJE",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -727,7 +727,7 @@
       "technical_specs": {},
       "price_brl": 1399,
       "sku": "SOLO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -772,7 +772,7 @@
       "technical_specs": {},
       "price_brl": 185,
       "sku": "FIBROCIMENTO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -817,7 +817,7 @@
       "technical_specs": {},
       "price_brl": 198,
       "sku": "COLONIAL",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -862,7 +862,7 @@
       "technical_specs": {},
       "price_brl": 175,
       "sku": "METALICO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -907,7 +907,7 @@
       "technical_specs": {},
       "price_brl": 2250,
       "sku": "SOLO",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-SOLO.jpg",
       "image_verified": true
     },
     {
@@ -952,7 +952,7 @@
       "technical_specs": {},
       "price_brl": 189,
       "sku": "LAJE",
-      "image_path": "/placeholder-structure.jpg",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -996,8 +996,8 @@
       "series": "B",
       "technical_specs": {},
       "price_brl": 203,
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1041,8 +1041,8 @@
       "series": "D",
       "technical_specs": {},
       "price_brl": 1890,
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1086,8 +1086,8 @@
       "series": "D",
       "technical_specs": {},
       "price_brl": 2150,
-      "sku": "2",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1131,8 +1131,8 @@
       "series": "D",
       "technical_specs": {},
       "price_brl": 2450,
-      "sku": "3",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1176,8 +1176,8 @@
       "series": "S",
       "technical_specs": {},
       "price_brl": 4250,
-      "sku": "4",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1213,8 +1213,8 @@
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 262.86,
       "model": "",
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1250,8 +1250,8 @@
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 684.7,
       "model": "",
-      "sku": "2",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1287,8 +1287,8 @@
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 732.72,
       "model": "",
-      "sku": "3",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1324,8 +1324,8 @@
       "image_url": "/images/placeholder-structure.jpg",
       "price_brl": 1433.88,
       "model": "",
-      "sku": "4",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1367,8 +1367,8 @@
       },
       "price_brl": 68.52,
       "description": "SUPORTE P/ TELHA FIBROCIMENTO E METALICO ONDULADO - FIXACAO EM METAL- P/ PERFIL TF-007 - NV",
-      "sku": "3",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "E",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1410,8 +1410,8 @@
       },
       "price_brl": 105.21,
       "description": "SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS P/ SISTEMA FOTOVOLTAICO (TF-007 - SUPORTE S) - S/ PERFIL",
-      "sku": "5",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "P",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1454,8 +1454,8 @@
       },
       "price_brl": 125.58,
       "description": "KIT SUPORTE P/ TELHA TRAPEZOIDAL MINI-TRILHO 410MM P/ 2 MODULOS - TSUN",
-      "sku": "7",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "P",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1497,8 +1497,8 @@
       },
       "price_brl": 129.92,
       "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL - CCM",
-      "sku": "8",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "P",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1541,8 +1541,8 @@
       },
       "price_brl": 146.62,
       "description": "KIT SUPORTE P/ TELHA CERAMICA P/ 2 MODULOS - S/ PERFIL (M1) - TSUN",
-      "sku": "9",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "P",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1584,8 +1584,8 @@
       },
       "price_brl": 150.36,
       "description": "KIT SUPORTE P/ TELHA PARAFUSO ESTRUTURAL P/ 2 MODULOS - 2P - S/ PERFIL",
-      "sku": "10",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "P",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1627,8 +1627,8 @@
       },
       "price_brl": 262.86,
       "description": "ESTRUTURA DE LAJE PARA 2 MODULOS - 2P",
-      "sku": "1",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "LAJE",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1670,8 +1670,8 @@
       },
       "price_brl": 684.7,
       "description": "ESTRUTURA METALICA - LAJE 4 MODULOS RETRADO 1134X2278 - PERFIS - POLIMAX",
-      "sku": "2",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "-",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -1713,8 +1713,8 @@
       },
       "price_brl": 732.72,
       "description": "ESTRUTURA DE LAJE PARA 4 MODULOS - GR30/35 \"J\" - 2P",
-      "sku": "3",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "LAJE",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
     {
@@ -1756,8 +1756,8 @@
       },
       "price_brl": 1433.88,
       "description": "ESTRUTURA METALICA - SOLO MONOPOSTE LIGHT 6 MODULOS - PERFIS - POLIMAX",
-      "sku": "4",
-      "image_path": "/placeholder-structure.jpg",
+      "sku": "-",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     }
   ]

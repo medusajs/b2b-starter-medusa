@@ -2,7 +2,7 @@
   "category": "panels",
   "total_products": 29,
   "with_images": 29,
-  "generated_at": "2025-10-13T11:26:31.964Z",
+  "generated_at": "2025-10-13T11:33:30.883Z",
   "products": [
     {
       "id": "odex_inverters_ODEX-PAINEL-ODEX-585W",
@@ -52,7 +52,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 490,
-      "sku": "585W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -102,7 +102,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 499,
-      "sku": "600W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -154,7 +154,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 505,
-      "sku": "610W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -204,7 +204,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 515,
-      "sku": "660W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -256,7 +256,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "price_brl": 519,
-      "sku": "700W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -308,7 +308,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "price_brl": 512,
-      "sku": "600W",
+      "sku": "Astronergy",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
@@ -360,7 +360,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "price_brl": 485,
-      "sku": "560W",
+      "sku": "Tsun",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "image_verified": true
     },
@@ -412,7 +412,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "price_brl": 508,
-      "sku": "610W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -464,7 +464,7 @@
       },
       "image_url": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "price_brl": 510,
-      "sku": "615W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -2260,7 +2260,7 @@
       "image": "/catalog/images\\ODEX-PANELS\\215563.jpg",
       "image_url": "/images/placeholder-panel.jpg",
       "sku": null,
-      "image_path": "/placeholder-panel.jpg",
+      "image_path": "/catalog/images/ODEX-PANELS/215563.jpg",
       "image_verified": true
     },
     {
@@ -2317,8 +2317,8 @@
         "currency": "BRL"
       },
       "price_brl": null,
-      "sku": "1",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
       "image_verified": true
     },
     {
@@ -2366,8 +2366,8 @@
       },
       "price_brl": null,
       "model": "",
-      "sku": "2",
-      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HJT HN21H-66HT_IMAGE_PRODUCT_573429.png",
       "image_verified": true
     },
     {
@@ -2406,8 +2406,8 @@
       },
       "price_brl": null,
       "model": "",
-      "sku": "3",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-PANELS/IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -2465,8 +2465,8 @@
         "currency": "BRL"
       },
       "price_brl": null,
-      "sku": "4",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/OSDA-33V-MHDRZ_IMAGE_PRODUCT_559381.png",
       "image_verified": true
     },
     {
@@ -2523,8 +2523,8 @@
         "currency": "BRL"
       },
       "price_brl": null,
-      "sku": "5",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HJT HN21H-66HT_IMAGE_PRODUCT_573429.png",
       "image_verified": true
     },
     {
@@ -2581,8 +2581,8 @@
         "currency": "BRL"
       },
       "price_brl": null,
-      "sku": "6",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     },
     {
@@ -2649,7 +2649,7 @@
       "price_brl": 490,
       "description": "Painel Solar Odex 585W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "585W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -2717,7 +2717,7 @@
       "price_brl": 499,
       "description": "Painel Solar Odex 600W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "600W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -2785,7 +2785,7 @@
       "price_brl": 505,
       "description": "Painel Solar Odex 610W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "610W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -2853,7 +2853,7 @@
       "price_brl": 515,
       "description": "Painel Solar Odex 660W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "660W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -2921,7 +2921,7 @@
       "price_brl": 519,
       "description": "Painel Solar Odex 700W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
-      "sku": "700W",
+      "sku": "Odex",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-COLONIAL.jpg",
       "image_verified": true
     },
@@ -2987,7 +2987,7 @@
       "price_brl": 512,
       "description": "Painel Solar Astronergy 600W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
-      "sku": "600W",
+      "sku": "Astronergy",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-ASTRONERGY-600W.jpg",
       "image_verified": true
     },
@@ -3053,7 +3053,7 @@
       "price_brl": 485,
       "description": "Painel Solar Tsun 560W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-TSUN-560W.jpg",
-      "sku": "560W",
+      "sku": "Tsun",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "image_verified": true
     },
@@ -3119,7 +3119,7 @@
       "price_brl": 508,
       "description": "Painel Solar Jinko 610W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
-      "sku": "610W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -3185,7 +3185,7 @@
       "price_brl": 510,
       "description": "Painel Solar Jinko 615W",
       "image": "images\\ODEX-INVERTERS\\ODEX-ODEX-PAINEL-JINKO-610W.jpg",
-      "sku": "615W",
+      "sku": "Jinko",
       "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-JINKO-610W.jpg",
       "image_verified": true
     },
@@ -3243,8 +3243,8 @@
       },
       "price_brl": 80.05,
       "description": "KIT SUPORTE P/ TELHA ONDULADO METALICO - FIXACAO EM METAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
-      "sku": "4",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": "KIT SUPORTE P/ TELHA",
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -3301,8 +3301,8 @@
       },
       "price_brl": 108.95,
       "description": "KIT SUPORTE P/ TELHA FIBROCIMENTO - PARAFUSO ESTRUTURAL - P/ 2 MÓDULOS - S/ PERFIL (M1) - TSUN",
-      "sku": "6",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": "KIT SUPORTE P/ TELHA",
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -3364,8 +3364,8 @@
       "price_brl": null,
       "description": "HANERSUN",
       "image": "images\\SOLFACIL-PANELS\\HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
-      "sku": "2",
-      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HN18N-72H_IMAGE_PRODUCT_559375.jpeg",
+      "sku": "HANERSUN",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/HANERSUN-HJT HN21H-66HT_IMAGE_PRODUCT_573429.png",
       "image_verified": true
     },
     {
@@ -3417,8 +3417,8 @@
       },
       "price_brl": null,
       "description": "DAH",
-      "sku": "3",
-      "image_path": "/placeholder-panel.jpg",
+      "sku": "DAH",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-PANELS/DAH-DHN-72X16-DG_IMAGE_PRODUCT_559376.jpeg",
       "image_verified": true
     }
   ]

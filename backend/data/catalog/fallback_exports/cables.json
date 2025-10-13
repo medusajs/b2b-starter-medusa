@@ -1,8 +1,8 @@
 {
   "category": "cables",
   "total_products": 55,
-  "with_images": 55,
-  "generated_at": "2025-10-13T11:26:32.018Z",
+  "with_images": 53,
+  "generated_at": "2025-10-13T11:33:33.459Z",
   "products": [
     {
       "id": "neosolar_cables_20078",
@@ -1064,8 +1064,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 21.83,
-      "sku": "1",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/image.png",
       "image_verified": true
     },
     {
@@ -1108,8 +1108,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 21.83,
-      "sku": "2",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/image.png",
       "image_verified": true
     },
     {
@@ -1152,8 +1152,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 21.83,
-      "sku": "3",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/image.png",
       "image_verified": true
     },
     {
@@ -1196,8 +1196,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 44.8,
-      "sku": "4",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1242,8 +1242,8 @@
         "voltage_v": 2
       },
       "price_brl": 44.8,
-      "sku": "5",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1286,8 +1286,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 134.4,
-      "sku": "6",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1332,8 +1332,8 @@
         "voltage_v": 2
       },
       "price_brl": 134.4,
-      "sku": "7",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1376,8 +1376,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 185.63,
-      "sku": "8",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1422,8 +1422,8 @@
         "voltage_v": 2
       },
       "price_brl": 185.63,
-      "sku": "9",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1468,8 +1468,8 @@
         "voltage_v": 2
       },
       "price_brl": 266,
-      "sku": "10",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1512,8 +1512,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 266,
-      "sku": "11",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1558,8 +1558,8 @@
         "voltage_v": 2
       },
       "price_brl": 366.8,
-      "sku": "12",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1602,8 +1602,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 366.8,
-      "sku": "13",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1648,8 +1648,8 @@
         "voltage_v": 2
       },
       "price_brl": 392,
-      "sku": "14",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1692,8 +1692,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 392,
-      "sku": "15",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1738,8 +1738,8 @@
         "voltage_v": 2
       },
       "price_brl": 515.2,
-      "sku": "16",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1782,8 +1782,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 515.2,
-      "sku": "17",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1828,8 +1828,8 @@
         "voltage_v": 2
       },
       "price_brl": 551.6,
-      "sku": "18",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1872,8 +1872,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 551.6,
-      "sku": "19",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -1916,8 +1916,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 573.13,
-      "sku": "20",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052115.jpg",
       "image_verified": true
     },
     {
@@ -1960,9 +1960,9 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 573.13,
-      "sku": "21",
-      "image_path": "/placeholder-cable.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_cables_22",
@@ -2004,8 +2004,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 734.47,
-      "sku": "22",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -2050,8 +2050,8 @@
         "voltage_v": 2
       },
       "price_brl": 734.47,
-      "sku": "23",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -2094,8 +2094,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 822.75,
-      "sku": "24",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052118.png",
       "image_verified": true
     },
     {
@@ -2138,8 +2138,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 822.75,
-      "sku": "25",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052117.jpg",
       "image_verified": true
     },
     {
@@ -2182,8 +2182,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 883.65,
-      "sku": "26",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052127.png",
       "image_verified": true
     },
     {
@@ -2226,9 +2226,9 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1268.06,
-      "sku": "27",
-      "image_path": "/placeholder-cable.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_cables_28",
@@ -2270,8 +2270,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1268.06,
-      "sku": "28",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052119.jpg",
       "image_verified": true
     },
     {
@@ -2314,8 +2314,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1283.04,
-      "sku": "29",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052128.png",
       "image_verified": true
     },
     {
@@ -2360,8 +2360,8 @@
         "voltage_v": 2
       },
       "price_brl": 1398.6,
-      "sku": "30",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/NEOSOLAR-CABLES/neosolar_cables_20077.jpg",
       "image_verified": true
     },
     {
@@ -2404,8 +2404,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1502.7,
-      "sku": "31",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052123.jpg",
       "image_verified": true
     },
     {
@@ -2448,8 +2448,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1502.7,
-      "sku": "32",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052124.png",
       "image_verified": true
     },
     {
@@ -2492,8 +2492,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1957.02,
-      "sku": "33",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052122.png",
       "image_verified": true
     },
     {
@@ -2536,8 +2536,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 1957.02,
-      "sku": "34",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052121.jpg",
       "image_verified": true
     },
     {
@@ -2580,8 +2580,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 2101.79,
-      "sku": "35",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052126.png",
       "image_verified": true
     },
     {
@@ -2624,8 +2624,8 @@
       "original_category": "cables",
       "technical_specs": {},
       "price_brl": 2101.79,
-      "sku": "36",
-      "image_path": "/placeholder-cable.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-CABLES/IMAGE_PRODUCT_052125.jpg",
       "image_verified": true
     }
   ]

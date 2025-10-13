@@ -1,8 +1,8 @@
 {
   "category": "accessories",
   "total_products": 17,
-  "with_images": 17,
-  "generated_at": "2025-10-13T11:26:32.027Z",
+  "with_images": 12,
+  "generated_at": "2025-10-13T11:33:33.716Z",
   "products": [
     {
       "id": "FORTLEV-GROWATT-AXE-5.0L",
@@ -57,8 +57,8 @@
       "price_brl": 6716.83,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": null,
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": "5.0L",
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -119,8 +119,8 @@
       "price_brl": 3423.66,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": "P",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/SOLFACIL-INVERTERS/GROWATT-MAC 36KTL3-XL - AFCI_IMAGE_PRODUCT_600303.png",
       "image_verified": true
     },
     {
@@ -181,9 +181,9 @@
       "price_brl": 2811.46,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": "2",
-      "image_path": "/placeholder-accessory.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "FORTLEV-NEP-PVG-3-20A-L",
@@ -240,9 +240,9 @@
       "price_brl": 91178,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": "L",
-      "image_path": "/placeholder-accessory.jpg",
-      "image_verified": true
+      "sku": null,
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "FORTLEV-CONDUFORT-DN40-PEAD",
@@ -292,8 +292,8 @@
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
       "sku": "PEAD",
-      "image_path": "/placeholder-accessory.jpg",
-      "image_verified": true
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "FORTLEV-CAIXA-PASSAGEM-PRFV-D0.8-H0.8",
@@ -340,9 +340,9 @@
       "price_brl": 86488,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": null,
-      "image_path": "/placeholder-accessory.jpg",
-      "image_verified": true
+      "sku": "H0.8",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "FORTLEV-CERCA-ARAME-1.8MX20M",
@@ -391,9 +391,9 @@
       "price_brl": 88795,
       "model": "",
       "image_url": "/images/placeholder-accessory.jpg",
-      "sku": null,
-      "image_path": "/placeholder-accessory.jpg",
-      "image_verified": true
+      "sku": "1.8MX20M",
+      "image_path": "",
+      "image_verified": false
     },
     {
       "id": "solfacil_accessories_1",
@@ -428,8 +428,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 7.48,
       "model": "",
-      "sku": "1",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450083.png",
       "image_verified": true
     },
     {
@@ -465,8 +465,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 16,
       "model": "",
-      "sku": "2",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450114.png",
       "image_verified": true
     },
     {
@@ -502,8 +502,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 68.52,
       "model": "",
-      "sku": "3",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -539,8 +539,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 80.05,
       "model": "",
-      "sku": "4",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-ESTRUTURA-SOLARGROUP-METALICO.jpg",
       "image_verified": true
     },
     {
@@ -576,8 +576,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 105.21,
       "model": "",
-      "sku": "5",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-ACCESSORIES/image.png",
       "image_verified": true
     },
     {
@@ -613,8 +613,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 108.95,
       "model": "",
-      "sku": "6",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
       "image_verified": true
     },
     {
@@ -650,8 +650,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 125.58,
       "model": "",
-      "sku": "7",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/FOTUS-KITS/FOTUS-KP02-1065kWp-MiniTrilho-kits.jpg",
       "image_verified": true
     },
     {
@@ -687,8 +687,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 129.92,
       "model": "",
-      "sku": "8",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450123.png",
       "image_verified": true
     },
     {
@@ -724,8 +724,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 146.62,
       "model": "",
-      "sku": "9",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/static/images-catálogo_distribuidores/ODEX-INVERTERS/ODEX-ODEX-PAINEL-TSUN-560W.jpg",
       "image_verified": true
     },
     {
@@ -761,8 +761,8 @@
       "image_url": "/images/placeholder-accessory.jpg",
       "price_brl": 150.36,
       "model": "",
-      "sku": "10",
-      "image_path": "/placeholder-accessory.jpg",
+      "sku": null,
+      "image_path": "/catalog/images/SOLFACIL-ACCESSORIES/IMAGE_PRODUCT_450118.jpg",
       "image_verified": true
     }
   ]
