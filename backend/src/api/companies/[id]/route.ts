@@ -3,7 +3,8 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import {
     deleteCompaniesWorkflow,
     updateCompaniesWorkflow,
-} from "../../workflows/company/workflows/";/**
+} from "../../workflows/company/workflows/";
+import { APIResponse } from "../../utils/api-response";/**
  * GET /companies/{id}
  * Retrieve single company
  */
@@ -16,7 +17,7 @@ export const GET = async (
 
     // Check access
     if (!req.isAdmin && req.companyId !== id) {
-        return res.status(403).json({ message: "Access denied to this company" });
+        return APIResponse.forbidden(res, "Access denied to this company");
     }
 
     const { data } = await query.graph(
@@ -28,7 +29,7 @@ export const GET = async (
         { throwIfKeyNotFound: true }
     );
 
-    res.json({ company: data[0] });
+    APIResponse.success(res, { company: data[0] });
 };
 
 /**
@@ -43,12 +44,12 @@ export const POST = async (
 
     // Check access - only admins or company admins can update
     if (!req.isAdmin && req.companyId !== id) {
-        return res.status(403).json({ message: "Access denied to update this company" });
+        return APIResponse.forbidden(res, "Access denied to update this company");
     }
 
     // Additional check for company members - must be admin of the company
     if (!req.isAdmin && !req.employee?.is_admin) {
-        return res.status(403).json({ message: "Company admin access required" });
+        return APIResponse.forbidden(res, "Company admin access required");
     }
 
     const query = req.scope.resolve(ContainerRegistrationKeys.QUERY);
@@ -72,7 +73,7 @@ export const POST = async (
         { throwIfKeyNotFound: true }
     );
 
-    res.json({ company });
+    APIResponse.success(res, { company });
 };
 
 /**
@@ -87,7 +88,7 @@ export const DELETE = async (
 
     // Only admins can delete companies
     if (!req.isAdmin) {
-        return res.status(403).json({ message: "Admin access required to delete companies" });
+        return APIResponse.forbidden(res, "Admin access required to delete companies");
     }
 
     await deleteCompaniesWorkflow.run({
@@ -96,5 +97,5 @@ export const DELETE = async (
         throwOnError: true,
     });
 
-    res.status(204).send();
+    APIResponse.success(res, null, undefined, 204);
 };

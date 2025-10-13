@@ -5,6 +5,7 @@
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { QdrantClient } from "@qdrant/js-client-rest"
+import { APIResponse } from "../../../../utils/api-response"
 
 const QDRANT_URL = process.env.QDRANT_URL || "http://localhost:6333"
 const QDRANT_API_KEY = process.env.QDRANT_API_KEY
@@ -29,9 +30,7 @@ export async function POST(
         const { collection, query, top_k = 5, filters } = req.body
 
         if (!collection || !query) {
-            return res.status(400).json({
-                error: "Missing required fields: collection, query"
-            })
+            return APIResponse.validationError(res, "Missing required fields: collection, query");
         }
 
         // Gerar embedding da query usando OpenAI
@@ -67,7 +66,7 @@ export async function POST(
             filter: filters
         })
 
-        return res.json({
+        return APIResponse.success(res, {
             query,
             collection,
             matches: searchResult.map(result => ({
@@ -75,7 +74,7 @@ export async function POST(
                 score: result.score,
                 payload: result.payload
             }))
-        })
+        });
 
     } catch (error: any) {
         console.error("[RAG Search Error]", error)
