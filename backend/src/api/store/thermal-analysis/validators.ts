@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
+import { createSelectParams } from "@medusajs/framework/utils";
 
 export type GetThermalAnalysisParamsType = z.infer<typeof GetThermalAnalysisParams>;
 export const GetThermalAnalysisParams = createSelectParams().extend({
