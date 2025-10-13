@@ -77,6 +77,7 @@
 | Documento | Descrição | Prioridade |
 |-----------|-----------|------------|
 | Design System | Ver [../../../docs/DESIGN_SYSTEM_IMPLEMENTATION.md](../../../docs/DESIGN_SYSTEM_IMPLEMENTATION.md) | ⭐⭐⭐ |
+| UX & Strategy | Ver [./ux/README.md](./ux/README.md) — personas, templates e artefatos | ⭐⭐⭐ |
 
 ### 🔄 Flows
 
