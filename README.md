@@ -170,6 +170,7 @@ Key guides:
 - [FOSS Stack Migration Summary](./FOSS_STACK_MIGRATION_SUMMARY.md) - Executive overview
 - [Visual Regression Guide](./VISUAL_REGRESSION_FOSS_GUIDE.md) - BackstopJS complete guide
 - [Contract Testing Guide](./CONTRACT_TESTING_FOSS_GUIDE.md) - Pact Framework guide
+- [Pact Provider Guide](./backend/docs/api/PACT_PROVIDER_GUIDE.md) - Backend contract verification
 - [Node-RED Automation Guide](./NODE_RED_AUTOMATION_GUIDE.md) - Automation flows
 - [E2E Coverage Expansion](./E2E_COVERAGE_EXPANSION_SUMMARY.md) - 71 tests (18→71, +295%)
 
@@ -425,15 +426,16 @@ docker-compose -f docker/docker-compose.node-red.yml up -d
 ```powershell
 # Backend
 cd backend
-yarn test:unit                    # Testes unitários
+yarn test:unit                    # Testes unitários (329 passing)
 yarn test:integration:modules     # Testes de módulos
 yarn test:integration:http        # Testes de API
+yarn test:pact:provider           # Contract tests (Provider)
 
 # Storefront
 cd storefront
 npx playwright test               # E2E tests (71 tests)
 npx backstop test                 # Visual regression
-npm run test:pact:consumer        # Contract tests
+npm run test:pact:consumer        # Contract tests (Consumer)
 ```
 
 ## 🔄 Update
