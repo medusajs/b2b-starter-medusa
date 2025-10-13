@@ -1,12 +1,12 @@
 
-export const defaultStoreCredit-analysesFields = [
+export const defaultStoreCreditAnalysesFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listCredit-analysesQueryConfig = {
-  defaults: defaultStoreCredit-analysesFields,
-  allowed: defaultStoreCredit-analysesFields,
+export const listCreditAnalysesQueryConfig = {
+  defaults: defaultStoreCreditAnalysesFields,
+  allowed: defaultStoreCreditAnalysesFields,
   defaultLimit: 50,
 };
