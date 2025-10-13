@@ -1,6 +1,7 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { AdminGetQuoteParamsType } from "./validators";
+import { APIResponse } from "../../../utils/api-response";
 
 export const GET = async (
   req: MedusaRequest<AdminGetQuoteParamsType>,
@@ -18,10 +19,10 @@ export const GET = async (
     },
   });
 
-  res.json({
-    quotes,
+  APIResponse.paginated(res, quotes, {
     count: metadata!.count,
     offset: metadata!.skip,
     limit: metadata!.take,
+    total: metadata!.count,
   });
 };

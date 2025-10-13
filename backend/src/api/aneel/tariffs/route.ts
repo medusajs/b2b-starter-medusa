@@ -2,6 +2,8 @@ import type { MedusaResponse } from "@medusajs/framework/http"
 import { MedusaError } from "@medusajs/framework/utils"
 import { GetTariffsQuerySchema } from "../../../modules/aneel-tariff/validators"
 import { GrupoTarifa, ClasseConsumidor } from "../../../modules/aneel-tariff/types/enums"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * GET /api/aneel/tariffs
@@ -48,11 +50,7 @@ export async function GET(
                 grupo: validated.grupo,
             })
 
-            res.status(404).json({
-                error: "Tariff not found for specified UF and group",
-                uf: validated.uf,
-                grupo: validated.grupo
-            })
+            APIResponse.notFound(res, `Tariff not found for UF=${validated.uf}, grupo=${validated.grupo}`)
             return
         }
 
@@ -64,12 +62,10 @@ export async function GET(
             response_time_ms: responseTime,
         })
 
-        res.json({
-            tariff,
-            _metadata: {
-                response_time_ms: responseTime,
-                cached: false, // Será true quando usar Redis
-            }
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, tariff, {
+            response_time_ms: responseTime,
+            cached: false,
         })
     } catch (error: any) {
         const responseTime = Date.now() - startTime
@@ -82,10 +78,7 @@ export async function GET(
                 response_time_ms: responseTime,
             })
 
-            res.status(400).json({
-                error: "Invalid query parameters",
-                details: error.errors
-            })
+            APIResponse.validationError(res, "Invalid query parameters", error.errors)
             return
         }
 

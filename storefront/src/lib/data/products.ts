@@ -12,9 +12,13 @@ import { HttpTypes } from "@medusajs/types"
 // ==========================================
 
 const MAX_RETRIES = 3
-const RETRY_DELAY_MS = 1000
+// Use delay near-zero in tests to avoid slowing down unit tests
+const RETRY_DELAY_MS = process.env.NODE_ENV === 'test' ? 1 : 1000
 
 async function sleep(ms: number): Promise<void> {
+  if (process.env.NODE_ENV === 'test') {
+    return Promise.resolve()
+  }
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 

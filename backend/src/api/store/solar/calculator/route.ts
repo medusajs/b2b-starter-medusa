@@ -9,6 +9,7 @@ import {
     type SolarCalculationInput
 } from "../../../../modules/solar/services/calculator";
 import { APIErrorHandler } from "../../../../utils/api-error-handler";
+import { APIResponse } from "../../../../utils/api-response";
 import { APIVersionManager } from "../../../../utils/api-versioning";
 
 // ============================================================================
@@ -76,15 +77,18 @@ export async function POST(
         // Executar cálculo com acesso ao catálogo
         const resultado = await solarCalculatorService.calculate(input, query);
 
-        // Adicionar metadados
-        const response = {
-            success: true,
+        // Versão de API
+        const apiVersion = APIVersionManager.formatVersion(
+            APIVersionManager.CURRENT_API_VERSION
+        );
+        res.setHeader("X-API-Version", apiVersion);
+
+        // Resposta padronizada
+        APIResponse.success(res, {
             calculation: resultado,
             metadata: {
                 calculated_at: new Date().toISOString(),
-                api_version: APIVersionManager.formatVersion(
-                    APIVersionManager.CURRENT_API_VERSION
-                ),
+                api_version: apiVersion,
                 input_parameters: {
                     consumo_kwh_mes: input.consumo_kwh_mes,
                     uf: input.uf,
@@ -92,22 +96,16 @@ export async function POST(
                     tipo_sistema: input.tipo_sistema || 'on-grid'
                 }
             }
-        };
-
-        res.status(200).json(response);
+        });
 
     } catch (error: any) {
         console.error('[Solar Calculator] Error:', error);
-
-        res.status(error.statusCode || 400).json({
-            success: false,
-            error: {
-                code: 'CALCULATION_ERROR',
-                message: error.message || 'Erro ao calcular sistema solar',
-                details: error.details || null,
-                timestamp: new Date().toISOString()
-            }
-        });
+        const message = error?.message || 'Erro ao calcular sistema solar';
+        if (/Valida/iu.test(message)) {
+            APIResponse.validationError(res, message, error?.details);
+        } else {
+            APIResponse.internalError(res, message, error?.details);
+        }
     }
 }
 
@@ -120,10 +118,12 @@ export async function GET(
     res: MedusaResponse
 ): Promise<void> {
     const clientVersion = (req as any).apiVersion || APIVersionManager.getVersionFromRequest(req);
+    const version = APIVersionManager.formatVersion(clientVersion);
+    res.setHeader("X-API-Version", version);
 
-    res.status(200).json({
+    APIResponse.success(res, {
         service: 'YSH Solar Calculator API',
-        version: APIVersionManager.formatVersion(clientVersion),
+        version,
         status: 'operational',
         capabilities: [
             'solar_system_sizing',
