@@ -1,0 +1,335 @@
+{
+  "timestamp": "2025-10-13 10:54:01",
+  "summary": {
+    "total_images": 18,
+    "successful": 18,
+    "failed": 0,
+    "success_rate": 100.0,
+    "total_original_size_mb": 0.7874326705932617,
+    "total_optimized_size_mb": 0.0,
+    "total_savings_mb": 0.7874326705932617,
+    "average_compression_percent": 100.0,
+    "average_processing_time_ms": 0.0
+  },
+  "by_image_type": {
+    "diagrama": {
+      "count": 18,
+      "total_original": 825683,
+      "total_optimized": 0,
+      "avg_quality_before": 0,
+      "avg_quality_after": 0,
+      "common_issues": [
+        "nenhum"
+      ]
+    }
+  },
+  "failed_images": [],
+  "detailed_results": [
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1278kWp-MiniTrilho-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1704kWp-MiniTrilho-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-142kWp-MiniTrilho-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-120kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1065kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\content_ingress=portalb2b.neosolar.com.br.png",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 84.29643625783574,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1065kWp-MiniTrilho-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1278kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1278kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-142kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1704kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1136kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1704kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1065kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.63834999272585,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-120kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1136kWp-MiniTrilho-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-1136kWp-Ceramico-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    },
+    {
+      "input_path": "static\\images-test-input\\FOTUS-KP02-142kWp-Fibrocimento-kits.jpg",
+      "output_path": "",
+      "success": true,
+      "compression_ratio": 0,
+      "processing_time_ms": 0,
+      "image_type": "diagrama",
+      "quality_score": 78.38333109936832,
+      "issues_detected": [
+        "nenhum"
+      ],
+      "optimizations_applied": [],
+      "has_text": true,
+      "has_logos": true,
+      "width": 300,
+      "height": 500
+    }
+  ]
+}
