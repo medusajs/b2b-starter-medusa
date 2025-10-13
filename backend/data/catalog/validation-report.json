@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-10-13T00:15:47.221Z",
+  "tests": [
+    {
+      "name": "Preload",
+      "status": "PASS",
+      "coverage": "91.5%",
+      "time": "0.02s"
+    },
+    {
+      "name": "Global Stats",
+      "status": "PASS",
+      "data": {
+        "total_products": 1123,
+        "products_with_images": 1028,
+        "coverage_percent": 91.5,
+        "categories": 12,
+        "cache_entries": 12,
+        "categories_loaded": [
+          "accessories",
+          "batteries",
+          "cables",
+          "controllers",
+          "ev_chargers",
+          "inverters",
+          "kits",
+          "others",
+          "panels",
+          "posts",
+          "stringboxes",
+          "structures"
+        ]
+      }
+    },
+    {
+      "name": "Categories List",
+      "status": "PASS",
+      "count": 12
+    },
+    {
+      "name": "Inverters Detail",
+      "status": "PASS",
+      "coverage": "100%"
+    },
+    {
+      "name": "Kits Detail",
+      "status": "PASS",
+      "coverage": "100%"
+    },
+    {
+      "name": "Cache Performance",
+      "status": "PASS",
+      "complexity": "O(1)"
+    },
+    {
+      "name": "SKU Index",
+      "status": "PASS",
+      "skus": 854,
+      "mapped": 587
+    },
+    {
+      "name": "Image Resolution",
+      "status": "PASS",
+      "images": 861
+    }
+  ],
+  "summary": {
+    "total_tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "coverage": "91.5%",
+    "performance": "0.02s",
+    "status": "OPERATIONAL"
+  }
+}
