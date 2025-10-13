@@ -16,7 +16,11 @@
         "strict": true,
         "moduleResolution": "bundler",
         "resolveJsonModule": true,
-        "types": ["vitest", "node", "@testing-library/jest-dom"]
+        "types": [
+            "vitest",
+            "node",
+            "@testing-library/jest-dom"
+        ]
     },
     "include": [
         "src"

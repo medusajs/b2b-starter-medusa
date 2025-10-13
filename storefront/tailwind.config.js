@@ -70,10 +70,10 @@ module.exports = {
       // Map UI font tokens into theme fontFamily (if provided)
       ...(uiTokens.font
         ? {
-            fontFamily: {
-              ui: uiTokens.font.body ? uiTokens.font.body.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
-            },
-          }
+          fontFamily: {
+            ui: uiTokens.font.body ? uiTokens.font.body.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
+          },
+        }
         : {}),
       animation: {
         "accordion-open": "accordion-open 0.3s ease-out",
