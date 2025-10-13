@@ -42,7 +42,7 @@ foreach ($route in $routes) {
 }
 
 $percentage = [math]::Round(($completed / $routes.Count) * 100, 0)
-$progressText = "$completed/$($routes.Count) rotas ($percentage%)"
+$progressText = "$completed/$($routes.Count) rotas (" + $percentage + "%)"
 Write-Host "`n   Progresso: $progressText`n" -ForegroundColor Cyan
 
 # Passo 3: Typecheck
@@ -76,7 +76,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "📊 RESUMO" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "✅ Quote Module: COMPLETO" -ForegroundColor Green
-$routesText = "$percentage% ($completed/$($routes.Count))"
+$routesText = $percentage.ToString() + "% (" + $completed + "/" + $routes.Count + ")"
 Write-Host "✅ Rotas Custom: $routesText" -ForegroundColor Green
 Write-Host "⚠️  TypeScript: $totalErrors erros pré-existentes" -ForegroundColor Yellow
 Write-Host "⏳ Testes: Pendente" -ForegroundColor Yellow

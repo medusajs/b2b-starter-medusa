@@ -169,6 +169,3 @@ volumes:
 networks:
   ysh-b2b-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
