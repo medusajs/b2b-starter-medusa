@@ -14,11 +14,12 @@
     "seed": "medusa exec ./src/scripts/seed.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-    "dependencies": {
-        "@medusajs/framework": "^2.10.3"
-    },
-    "devDependencies": {
-        "typescript": "^5.4.0",
-        "@types/node": "^20.11.0"
-    }
+  "dependencies": {
+    "@medusajs/framework": "^2.10.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0",
+    "zod": "^3.23.8"
+  }
 }
