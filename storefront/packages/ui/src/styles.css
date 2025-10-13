@@ -7,3 +7,33 @@
     --ysh-start: #f59e0b;
     --ysh-end: #d97706;
 }
+
+/* Gradient stroke utilities using YSH brand colors */
+@layer utilities {
+    .stroke-gradient-ysh {
+        stroke: url(#ysh-gradient);
+    }
+
+    .stroke-gradient-ysh-radial {
+        stroke: url(#ysh-gradient-radial);
+    }
+}
+
+/* SVG gradient definitions for use with stroke-gradient classes */
+@layer base {
+    svg.ysh-gradient-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+}
+
+/* Alternative: CSS-based gradient for elements that support it */
+@layer utilities {
+    .stroke-gradient-css {
+        background: linear-gradient(135deg, var(--ysh-start) 0%, var(--ysh-end) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke: 2px transparent;
+    }
+}
