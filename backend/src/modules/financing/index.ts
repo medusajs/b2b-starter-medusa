@@ -10,3 +10,4 @@ export default Module(FINANCING_MODULE, {
 export * from "./types/common";
 export * from "./types/mutations";
 export * from "./models";
+export * from "./workflows";

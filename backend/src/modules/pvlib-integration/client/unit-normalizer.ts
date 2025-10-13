@@ -10,150 +10,150 @@ import { Unit } from "../../../types/pvlib";
  * - Eficiência: % (0-100)
  */
 export class UnitNormalizer {
-  /**
-   * Converter irradiância para W/m²
-   */
-  static normalizeIrradiance(value: number, fromUnit: Unit): number {
-    switch (fromUnit) {
-      case Unit.W_PER_M2:
-        return value; // Já está no padrão
+    /**
+     * Converter irradiância para W/m²
+     */
+    static normalizeIrradiance(value: number, fromUnit: Unit): number {
+        switch (fromUnit) {
+            case Unit.W_PER_M2:
+                return value; // Já está no padrão
 
-      case Unit.KW_PER_M2:
-        return value * 1000; // kW/m² → W/m²
+            case Unit.KW_PER_M2:
+                return value * 1000; // kW/m² → W/m²
 
-      case Unit.MJ_PER_M2:
-        // MJ/m²/day → W/m² (assumindo day = 24h)
-        return (value * 1000000) / (24 * 3600); // MJ → W/s (over 24h)
+            case Unit.MJ_PER_M2:
+                // MJ/m²/day → W/m² (assumindo day = 24h)
+                return (value * 1000000) / (24 * 3600); // MJ → W/s (over 24h)
 
-      default:
-        throw new Error(`Unsupported irradiance unit: ${fromUnit}`);
-    }
-  }
-
-  /**
-   * Converter energia para kWh
-   */
-  static normalizeEnergy(value: number, fromUnit: Unit): number {
-    switch (fromUnit) {
-      case Unit.KWH:
-        return value; // Já está no padrão
-
-      case Unit.WH:
-        return value / 1000; // Wh → kWh
-
-      case Unit.MWH:
-        return value * 1000; // MWh → kWh
-
-      default:
-        throw new Error(`Unsupported energy unit: ${fromUnit}`);
-    }
-  }
-
-  /**
-   * Converter temperatura para °C
-   */
-  static normalizeTemperature(value: number, fromUnit: Unit): number {
-    switch (fromUnit) {
-      case Unit.CELSIUS:
-        return value; // Já está no padrão
-
-      case Unit.FAHRENHEIT:
-        return ((value - 32) * 5) / 9; // °F → °C
-
-      case Unit.KELVIN:
-        return value - 273.15; // K → °C
-
-      default:
-        throw new Error(`Unsupported temperature unit: ${fromUnit}`);
-    }
-  }
-
-  /**
-   * Converter eficiência para % (0-100)
-   */
-  static normalizeEfficiency(value: number, fromUnit: Unit): number {
-    switch (fromUnit) {
-      case Unit.PERCENT:
-        return value; // Já está no padrão
-
-      case Unit.DECIMAL:
-        return value * 100; // 0.15 → 15%
-
-      default:
-        throw new Error(`Unsupported efficiency unit: ${fromUnit}`);
-    }
-  }
-
-  /**
-   * Detectar unidade de string (provider-specific)
-   */
-  static detectUnit(unitString: string): Unit {
-    const normalized = unitString.toLowerCase().trim();
-
-    // Irradiância
-    if (normalized.includes("w/m") || normalized === "wm2") {
-      return Unit.W_PER_M2;
-    }
-    if (normalized.includes("kw/m") || normalized === "kwm2") {
-      return Unit.KW_PER_M2;
-    }
-    if (normalized.includes("mj/m") || normalized === "mjm2") {
-      return Unit.MJ_PER_M2;
+            default:
+                throw new Error(`Unsupported irradiance unit: ${fromUnit}`);
+        }
     }
 
-    // Energia
-    if (normalized === "wh" || normalized === "watthour") {
-      return Unit.WH;
-    }
-    if (normalized === "kwh" || normalized === "kilowatthour") {
-      return Unit.KWH;
-    }
-    if (normalized === "mwh" || normalized === "megawatthour") {
-      return Unit.MWH;
+    /**
+     * Converter energia para kWh
+     */
+    static normalizeEnergy(value: number, fromUnit: Unit): number {
+        switch (fromUnit) {
+            case Unit.KWH:
+                return value; // Já está no padrão
+
+            case Unit.WH:
+                return value / 1000; // Wh → kWh
+
+            case Unit.MWH:
+                return value * 1000; // MWh → kWh
+
+            default:
+                throw new Error(`Unsupported energy unit: ${fromUnit}`);
+        }
     }
 
-    // Temperatura
-    if (normalized === "c" || normalized === "celsius" || normalized === "°c") {
-      return Unit.CELSIUS;
+    /**
+     * Converter temperatura para °C
+     */
+    static normalizeTemperature(value: number, fromUnit: Unit): number {
+        switch (fromUnit) {
+            case Unit.CELSIUS:
+                return value; // Já está no padrão
+
+            case Unit.FAHRENHEIT:
+                return ((value - 32) * 5) / 9; // °F → °C
+
+            case Unit.KELVIN:
+                return value - 273.15; // K → °C
+
+            default:
+                throw new Error(`Unsupported temperature unit: ${fromUnit}`);
+        }
     }
-    if (normalized === "f" || normalized === "fahrenheit" || normalized === "°f") {
-      return Unit.FAHRENHEIT;
+
+    /**
+     * Converter eficiência para % (0-100)
+     */
+    static normalizeEfficiency(value: number, fromUnit: Unit): number {
+        switch (fromUnit) {
+            case Unit.PERCENT:
+                return value; // Já está no padrão
+
+            case Unit.DECIMAL:
+                return value * 100; // 0.15 → 15%
+
+            default:
+                throw new Error(`Unsupported efficiency unit: ${fromUnit}`);
+        }
     }
-    if (normalized === "k" || normalized === "kelvin") {
-      return Unit.KELVIN;
+
+    /**
+     * Detectar unidade de string (provider-specific)
+     */
+    static detectUnit(unitString: string): Unit {
+        const normalized = unitString.toLowerCase().trim();
+
+        // Irradiância
+        if (normalized.includes("w/m") || normalized === "wm2") {
+            return Unit.W_PER_M2;
+        }
+        if (normalized.includes("kw/m") || normalized === "kwm2") {
+            return Unit.KW_PER_M2;
+        }
+        if (normalized.includes("mj/m") || normalized === "mjm2") {
+            return Unit.MJ_PER_M2;
+        }
+
+        // Energia
+        if (normalized === "wh" || normalized === "watthour") {
+            return Unit.WH;
+        }
+        if (normalized === "kwh" || normalized === "kilowatthour") {
+            return Unit.KWH;
+        }
+        if (normalized === "mwh" || normalized === "megawatthour") {
+            return Unit.MWH;
+        }
+
+        // Temperatura
+        if (normalized === "c" || normalized === "celsius" || normalized === "°c") {
+            return Unit.CELSIUS;
+        }
+        if (normalized === "f" || normalized === "fahrenheit" || normalized === "°f") {
+            return Unit.FAHRENHEIT;
+        }
+        if (normalized === "k" || normalized === "kelvin") {
+            return Unit.KELVIN;
+        }
+
+        // Eficiência
+        if (normalized === "%" || normalized === "percent" || normalized === "percentage") {
+            return Unit.PERCENT;
+        }
+        if (normalized === "decimal" || normalized === "fraction") {
+            return Unit.DECIMAL;
+        }
+
+        throw new Error(`Cannot detect unit from string: ${unitString}`);
     }
 
-    // Eficiência
-    if (normalized === "%" || normalized === "percent" || normalized === "percentage") {
-      return Unit.PERCENT;
+    /**
+     * Conversão automática detectando unidade
+     */
+    static autoNormalizeIrradiance(value: number, unitString: string): number {
+        const unit = this.detectUnit(unitString);
+        return this.normalizeIrradiance(value, unit);
     }
-    if (normalized === "decimal" || normalized === "fraction") {
-      return Unit.DECIMAL;
+
+    static autoNormalizeEnergy(value: number, unitString: string): number {
+        const unit = this.detectUnit(unitString);
+        return this.normalizeEnergy(value, unit);
     }
 
-    throw new Error(`Cannot detect unit from string: ${unitString}`);
-  }
+    static autoNormalizeTemperature(value: number, unitString: string): number {
+        const unit = this.detectUnit(unitString);
+        return this.normalizeTemperature(value, unit);
+    }
 
-  /**
-   * Conversão automática detectando unidade
-   */
-  static autoNormalizeIrradiance(value: number, unitString: string): number {
-    const unit = this.detectUnit(unitString);
-    return this.normalizeIrradiance(value, unit);
-  }
-
-  static autoNormalizeEnergy(value: number, unitString: string): number {
-    const unit = this.detectUnit(unitString);
-    return this.normalizeEnergy(value, unit);
-  }
-
-  static autoNormalizeTemperature(value: number, unitString: string): number {
-    const unit = this.detectUnit(unitString);
-    return this.normalizeTemperature(value, unit);
-  }
-
-  static autoNormalizeEfficiency(value: number, unitString: string): number {
-    const unit = this.detectUnit(unitString);
-    return this.normalizeEfficiency(value, unit);
-  }
+    static autoNormalizeEfficiency(value: number, unitString: string): number {
+        const unit = this.detectUnit(unitString);
+        return this.normalizeEfficiency(value, unit);
+    }
 }
