@@ -1,0 +1,181 @@
+﻿{
+    "taskDefinition": {
+        "taskDefinitionArn": "arn:aws:ecs:us-east-1:773235999227:task-definition/ysh-b2b-backend:12",
+        "containerDefinitions": [
+            {
+                "name": "ysh-b2b-backend",
+                "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.2",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "containerPort": 9000,
+                        "hostPort": 9000,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "environment": [
+                    {
+                        "name": "DATABASE_SSL",
+                        "value": "true"
+                    },
+                    {
+                        "name": "AUTH_CORS",
+                        "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                    },
+                    {
+                        "name": "DATABASE_SSL_CA_FILE",
+                        "value": "/tmp/rds-ca-bundle.pem"
+                    },
+                    {
+                        "name": "STORE_CORS",
+                        "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                    },
+                    {
+                        "name": "PORT",
+                        "value": "9000"
+                    },
+                    {
+                        "name": "ADMIN_CORS",
+                        "value": "http://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com,https://production-ysh-b2b-alb-1849611639.us-east-1.elb.amazonaws.com"
+                    },
+                    {
+                        "name": "NODE_OPTIONS",
+                        "value": "--max-old-space-size=1536 --enable-source-maps"
+                    },
+                    {
+                        "name": "NODE_EXTRA_CA_CERTS",
+                        "value": "/tmp/rds-ca-bundle.pem"
+                    },
+                    {
+                        "name": "NODE_ENV",
+                        "value": "production"
+                    },
+                    {
+                        "name": "DATABASE_SSL_REJECT_UNAUTHORIZED",
+                        "value": "true"
+                    }
+                ],
+                "mountPoints": [],
+                "volumesFrom": [],
+                "secrets": [
+                    {
+                        "name": "DATABASE_URL",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/database-url-BGaeVF"
+                    },
+                    {
+                        "name": "REDIS_URL",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/redis-url-Q7ItGs"
+                    },
+                    {
+                        "name": "JWT_SECRET",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/jwt-secret-005Z9C"
+                    },
+                    {
+                        "name": "COOKIE_SECRET",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/cookie-secret-bsLKwN"
+                    },
+                    {
+                        "name": "BACKEND_URL",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/backend-url-vlAZeu"
+                    },
+                    {
+                        "name": "STOREFRONT_URL",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/storefront-url-IV3F65"
+                    },
+                    {
+                        "name": "MEDUSA_ADMIN_ONBOARDING_TYPE",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/revalidate-secret-2NMJS9"
+                    },
+                    {
+                        "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
+                        "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tvnMYo"
+                    }
+                ],
+                "ulimits": [
+                    {
+                        "name": "nofile",
+                        "softLimit": 65536,
+                        "hardLimit": 65536
+                    }
+                ],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-group": "/ecs/ysh-b2b-backend",
+                        "awslogs-create-group": "true",
+                        "awslogs-region": "us-east-1",
+                        "awslogs-stream-prefix": "ecs"
+                    }
+                },
+                "healthCheck": {
+                    "command": [
+                        "CMD-SHELL",
+                        "curl -f http://localhost:9000/health || exit 1"
+                    ],
+                    "interval": 30,
+                    "timeout": 10,
+                    "retries": 3,
+                    "startPeriod": 60
+                },
+                "systemControls": []
+            }
+        ],
+        "family": "ysh-b2b-backend",
+        "taskRoleArn": "arn:aws:iam::773235999227:role/ecsTaskRole",
+        "executionRoleArn": "arn:aws:iam::773235999227:role/ecsTaskExecutionRole",
+        "networkMode": "awsvpc",
+        "revision": 12,
+        "volumes": [],
+        "status": "ACTIVE",
+        "requiresAttributes": [
+            {
+                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+            },
+            {
+                "name": "ecs.capability.execution-role-awslogs"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.ecr-auth"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+            },
+            {
+                "name": "ecs.capability.secrets.asm.environment-variables"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.task-iam-role"
+            },
+            {
+                "name": "ecs.capability.container-health-check"
+            },
+            {
+                "name": "ecs.capability.execution-role-ecr-pull"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            },
+            {
+                "name": "ecs.capability.task-eni"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+            }
+        ],
+        "placementConstraints": [],
+        "compatibilities": [
+            "EC2",
+            "FARGATE",
+            "MANAGED_INSTANCES"
+        ],
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "1024",
+        "memory": "2048",
+        "registeredAt": "2025-10-12T15:08:14.380000-03:00",
+        "registeredBy": "arn:aws:sts::773235999227:assumed-role/AWSReservedSSO_AdministratorAccess_c007a985b3eea5a7/ysh-dev"
+    },
+    "tags": []
+}
