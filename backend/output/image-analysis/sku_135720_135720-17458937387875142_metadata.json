@@ -1,0 +1,10 @@
+{
+  "file": "sku_135720_135720-17458937387875142.jpeg",
+  "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_135720_135720-17458937387875142.jpeg",
+  "category": "INVERTERS",
+  "processed_at": "2025-10-13T13:51:59.208503",
+  "metadata": {
+    "error": "json_decode_error",
+    "raw_response": "\"manufacturer\": \"SOFAR\",\n\"model\": \"SOFAR-SP-10K-5-2\",\n\"product_type\": \"inverter\",\n\"subtype\": \"gridtie\",\n\"specifications\": {\n    \"power_w\": 10000,\n    \"power_kw\": 10.0,\n    \"voltage\": \"220V\",\n    \"current_a\": 0,\n    \"phase\": \"mono\",\n    \"efficiency_percent\": 95.0,\n    \"mppt_count\": 2,\n    \"max_input_voltage\": 1000,\n    \"max_output_current\": 0\n},\n\"visible_text\": \"SOFAR SP-10K-5-2 10kW 220V 95% 2MPPT 1000V\",\n\"certifications\": [\"CE\", \"IEC\"],\n\"image_quality\": {\n    \"score\": 8,\n    \"usable_for_catalog"
+  }
+}
