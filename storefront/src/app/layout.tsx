@@ -13,6 +13,7 @@ import { PostHogProvider } from "@/providers/posthog-provider"
 import SkipLinks from "@/components/common/SkipLinks"
 import { ConsentBanner } from "@/components/ConsentBanner"
 import { WebVitals } from "@/components/WebVitals"
+import { GradientDefs } from "@ysh/ui"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -163,21 +164,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         />
       </head>
       <body className="font-sans">
-        {/* Brand gradients for stroke/fill (global) */}
-        <svg width="0" height="0" className="absolute pointer-events-none select-none" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="ysh-brand-stroke" x1="0" y1="0" x2="1" y2="0">
-              <stop stopColor="#F59E0B" offset="0%" />
-              <stop stopColor="#F97316" offset="50%" />
-              <stop stopColor="#FDE047" offset="100%" />
-            </linearGradient>
-            <linearGradient id="ysh-brand-fill" x1="0" y1="0" x2="1" y2="0">
-              <stop stopColor="#F59E0B" offset="0%" />
-              <stop stopColor="#F97316" offset="50%" />
-              <stop stopColor="#FDE047" offset="100%" />
-            </linearGradient>
-          </defs>
-        </svg>
+        {/* YSH Design System - Brand gradients (yellow→orange→magenta) */}
+        <GradientDefs />
         <SkipLinks />
         <PostHogProvider>
           <AnalyticsProvider>
