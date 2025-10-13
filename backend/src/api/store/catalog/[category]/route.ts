@@ -1,6 +1,7 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { MedusaError } from "@medusajs/framework/utils";
-import { UNIFIED_CATALOG_MODULE, UnifiedCatalogModuleServiceType } from "../../../../modules/unified-catalog";
+import { getInternalCatalogService } from "../../internal-catalog/catalog-service";
+// import { UNIFIED_CATALOG_MODULE, UnifiedCatalogModuleServiceType } from "../../../../modules/unified-catalog"; // DEPRECATED: Using Internal Catalog
 
 function parsePriceBRL(price?: string): number | undefined {
   if (!price) return undefined
