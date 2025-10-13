@@ -1,7 +1,7 @@
-import { CustomerDTO } from "@medusajs/types"
+import { CustomerDTO } from "@medusajs/framework/types"
 import { ModuleCompany, ModuleEmployee } from "./module"
 import { QueryApproval, QueryApprovalSettings } from "../approval"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes } from "@medusajs/framework/types"
 
 export type QueryCompany = ModuleCompany & {
   employees: QueryEmployee[]
