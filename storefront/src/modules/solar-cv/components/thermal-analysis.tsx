@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { Bolt, Photo } from "@medusajs/icons"
-import { YshButton as Button } from "@ysh/ui"
+import { Button } from "@medusajs/ui"
 import { Text, toast } from "@medusajs/ui"
 import { useSolarCVAPI, SolarCVValidators, SolarCVError } from "@/lib/api/solar-cv-client"
 

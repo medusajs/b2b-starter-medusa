@@ -2,7 +2,7 @@
 
 import { CheckCircleSolid, XMark } from "@medusajs/icons"
 import { StoreCart, StorePrice } from "@medusajs/types"
-import { YshButton as Button, clx } from "@ysh/ui"
+import { Button } from "@medusajs/ui"
 import { formatAmount } from "@/modules/common/components/amount-cell"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import { StoreFreeShippingPrice } from "@/types/shipping-option/http"
