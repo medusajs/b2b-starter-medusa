@@ -23,7 +23,7 @@ export class SolarROIService {
     const economia_anual = dimensionamento.geracao_anual_kwh * tarifa;
     
     // Payback simples
-    const payback_anos = capex_total / economia_anual;
+    const payback_anos = economia_anual > 0 ? capex_total / economia_anual : Infinity;
     
     // VPL com degradação
     let vpl = -capex_total;
@@ -35,12 +35,12 @@ export class SolarROIService {
     
     // TIR simplificada
     const economia_total = this.calcularEconomiaTotal(dimensionamento.geracao_anual_kwh, tarifa);
-    const tir = ((economia_total / capex_total) ** (1 / this.VIDA_UTIL_ANOS) - 1) * 100;
+    const tir = economia_total > capex_total ? ((economia_total / capex_total) ** (1 / this.VIDA_UTIL_ANOS) - 1) * 100 : 0;
     
     return {
       capex_total_brl: Math.round(capex_total * 100) / 100,
       economia_anual_brl: Math.round(economia_anual * 100) / 100,
-      payback_anos: Math.round(payback_anos * 10) / 10,
+      payback_anos: payback_anos === Infinity ? Infinity : Math.round(payback_anos * 10) / 10,
       tir_percentual: Math.round(tir * 10) / 10,
       vpl_brl: Math.round(vpl * 100) / 100,
     };
