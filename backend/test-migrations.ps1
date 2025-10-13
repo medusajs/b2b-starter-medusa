@@ -25,18 +25,23 @@ catch {
     exit 1
 }
 
-# Build da imagem de teste
+# Verificar se imagem já existe
 Write-Host ""
-Write-Host "2. Building imagem de teste..." -ForegroundColor Yellow
-Write-Host "   [BUILD] docker build -t ysh-backend:quick-test -f Dockerfile ." -ForegroundColor Gray
-
-$buildOutput = docker build -t ysh-backend:quick-test -f Dockerfile . 2>&1
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "   [ERRO] Build falhou!" -ForegroundColor Red
-    Write-Host $buildOutput
-    exit 1
+Write-Host "2. Verificando imagem de teste..." -ForegroundColor Yellow
+$imageExists = docker images ysh-backend:quick-test -q
+if ($imageExists) {
+    Write-Host "   [OK] Imagem ysh-backend:quick-test ja existe" -ForegroundColor Green
 }
-Write-Host "   [OK] Build completado com sucesso" -ForegroundColor Green
+else {
+    Write-Host "   [BUILD] docker build -t ysh-backend:quick-test -f Dockerfile ." -ForegroundColor Gray
+    $buildOutput = docker build -t ysh-backend:quick-test -f Dockerfile . 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "   [ERRO] Build falhou!" -ForegroundColor Red
+        Write-Host $buildOutput
+        exit 1
+    }
+    Write-Host "   [OK] Build completado com sucesso" -ForegroundColor Green
+}
 
 # Teste 1: Verificar que entrypoint esta no container
 Write-Host ""

@@ -1,46 +1,54 @@
 /**
  * Catalog Panels API Route
- * Serves unified panels from catalog
+ * Serves panels with robust fallback system
  */
 
 import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { loadCatalogProducts } from '@/lib/catalog/fallback-loader'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 
 export async function GET() {
     try {
-        const catalogPath = path.join(
-            process.cwd(),
-            '..',
-            '..',
-            'ysh-erp',
-            'data',
-            'catalog',
-            'unified_schemas',
-            'panels_unified.json'
-        )
-
-        const fileContent = await fs.readFile(catalogPath, 'utf-8')
-        const panels = JSON.parse(fileContent)
-
-        const panelsWithAvailability = panels.map((panel: any) => ({
-            ...panel,
-            availability: true,
-        }))
-
-        return NextResponse.json(panelsWithAvailability, {
-            headers: {
-                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
-            },
+        const result = await loadCatalogProducts('panels', {
+            limit: 1000,
+            offset: 0,
+            useCache: true
         })
 
-    } catch (error) {
-        console.error('[API] Error loading panels:', error)
+        const panelsWithAvailability = result.products.map((panel: any) => ({
+            ...panel,
+            availability: panel.availability !== false,
+            in_stock: panel.in_stock !== false,
+        }))
+
         return NextResponse.json(
-            { error: 'Failed to load panels catalog' },
+            {
+                success: true,
+                data: panelsWithAvailability,
+                total: result.total,
+                meta: {
+                    source: result.source,
+                    fromCache: result.fromCache,
+                    timestamp: new Date().toISOString(),
+                },
+            },
+            {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+                    'X-Data-Source': result.source,
+                },
+            }
+        )
+    } catch (error: any) {
+        console.error('[Panels API] Error:', error)
+        return NextResponse.json(
+            {
+                success: false,
+                error: 'Failed to load panels',
+                message: error.message,
+            },
             { status: 500 }
         )
     }
