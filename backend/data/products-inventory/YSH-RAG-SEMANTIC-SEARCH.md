@@ -21,7 +21,7 @@ Sistema completo de **RAG (Retrieval-Augmented Generation)** e **Busca Semântic
 
 ## 🤖 Arquitetura RAG
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────┐
 │                    Frontend (API Request)                │
 │          "Quero um inversor 5kW para residencial"       │
@@ -1387,3 +1387,33 @@ export const RAGMetrics = () => {
 **Desenvolvido por:** YSH AI Team  
 **Stack:** Gemma 3 + Ollama + ChromaDB + LangChain  
 **Status:** 🚀 Ready to Deploy
+
+## dev3000 — Extrato cirúrgico (dev3000)
+
+Comandante A, aqui vai o extrato cirúrgico do **dev3000** — apenas o que importa para operar.
+
+### JTBDs (Jobs To Be Done)
+
+- **Dar “olhos” à IA no dev loop** para que o agente veja **logs do servidor, eventos do navegador, rede e screenshots** em uma única **linha do tempo** e proponha/finalize correções. ([dev3000][1])
+- **Reproduzir e diagnosticar bugs** rapidamente com **contexto completo e ordenado por timestamp** (servidor ↔ cliente ↔ rede ↔ visual). ([dev3000][1])
+- **Orquestrar debugging com MCP**, ativando automaticamente integrações (ex.: **chrome-devtools-mcp** e **nextjs-dev-mcp**) quando disponíveis. ([dev3000][1])
+- **Manter estado de sessão** (login, cookies) por projeto para testes e validações repetíveis. ([dev3000][1])
+- **Minimizar fricção de onboarding**, substituindo o comando `dev` e abrindo um Chrome monitorado/automatizado. ([dev3000][1])
+
+### Users Inputs (entradas do usuário)
+
+- **Execução básica**: `dev3000` (ou alias **`d3k`** na doc do site) em vez de `dev`; exemplos: `d3k -p 5000`, `d3k -s build-start`. ([dev3000][1])
+- **Flags de CLI** (opções): `--port` (porta do app), `--mcp-port` (padrão 3684), `--script` (script do package.json), `--browser <path>` (binário do navegador), `--servers-only` (pula Playwright para usar a extensão), `--profile-dir <dir>` (perfil do Chrome). ([GitHub][2])
+- **Modo de captura**: **Padrão** = Playwright (lança Chrome controlado) • **Alternativo** = **Extensão Chrome** + `--servers-only`. ([GitHub][2])
+- **Integração MCP/Agente**: basta rodar o dev3000; em clientes MCP (ex.: Claude Code) usar prompts como **“fix my app”**; o dev3000 detecta e sugere capacidades extras se os MCPs especializados estiverem ativos. ([GitHub][2])
+
+### System Outputs (saídas do sistema)
+
+- **Linha do tempo unificada** com tudo correlacionado e **viewer** em `http://localhost:3684/logs`. ([GitHub][2])
+- **Capturas automáticas**: server logs, console do navegador, **requisições/respostas HTTP** e **screenshots** em navegação/erros. ([dev3000][1])
+- **MCP HTTP server** em `http://localhost:3684/mcp`, com ferramentas como `read_consolidated_logs`, `search_logs`, `get_browser_errors`, `execute_browser_action`, etc. ([GitHub][2])
+- **Persistência/rotação**: logs timestampados, com retenção/rotação local (mantém os **10** mais recentes por projeto). ([GitHub][2])
+- **Perf/Privacidade**: impacto mínimo (observa via CDP; screenshots assíncronas) e **dados apenas locais** (perfis em `~/.dev3000/profiles`). ([dev3000][1])
+
+[1]: https://dev3000.ai/ "dev3000 - AI-Powered Debugging & Development Monitoring | Vercel Labs"
+[2]: https://github.com/vercel-labs/dev3000 "GitHub - vercel-labs/dev3000: Captures your web app's complete development timeline - server logs, browser events, console messages, network requests, and automatic screenshots - in a unified, timestamped feed for AI debugging."
