@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Shield, Award, TrendingDown, CheckCircle, Star, Phone, Mail, ExternalLink, Download } from 'lucide-react'
 import { SeguroInput, ComparacaoSeguros, TipoCobertura } from '@/modules/seguros/types'
-import { cotarSeguros } from '@/modules/seguros/calculator/cotador'
+import { cotarSeguros } from '@/modules/financing/insurance/calculator/cotador'
 import { CustomerGroup } from '@/lib/context/sales-channel-context'
 
 export default function SegurosWrapper() {

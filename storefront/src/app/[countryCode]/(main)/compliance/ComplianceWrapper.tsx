@@ -3,10 +3,10 @@
 
 import { useState } from 'react'
 import { AlertCircle, CheckCircle, XCircle, FileText, Download, Upload } from 'lucide-react'
-import { ComplianceInput, ComplianceReport, ClasseTarifaria, ModalidadeMMGD } from '@/modules/compliance/types'
-import { validateProdist } from '@/modules/compliance/validators/prodist'
-import { gerarChecklistANEEL } from '@/modules/compliance/generators/checklist'
-import { getDistribuidora, getAllDistribuidoras } from '@/modules/compliance/data/distribuidoras'
+import { ComplianceInput, ComplianceReport, ClasseTarifaria, ModalidadeMMGD } from '@/modules/operations/compliance/types'
+import { validateProdist } from '@/modules/operations/compliance/validators/prodist'
+import { gerarChecklistANEEL } from '@/modules/operations/compliance/generators/checklist'
+import { getDistribuidora, getAllDistribuidoras } from '@/modules/operations/compliance/data/distribuidoras'
 
 export default function ComplianceWrapper() {
     const [step, setStep] = useState<'input' | 'result'>('input')

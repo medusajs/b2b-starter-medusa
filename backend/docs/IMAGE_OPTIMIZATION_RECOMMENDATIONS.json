@@ -1,0 +1,646 @@
+{
+  "generated_at": "2025-10-13",
+  "analysis_summary": {
+    "accessories": {
+      "total_images": 6,
+      "analyzed_samples": 1,
+      "stats": {
+        "dimensions": {
+          "300x300": 1
+        },
+        "formats": {
+          "WEBP": 1
+        },
+        "image_types": {
+          "diagrama_tecnico": 1
+        },
+        "avg_sharpness": 47294.88609613223,
+        "avg_contrast": 103.83540420080983,
+        "avg_brightness": 84.71656666666667,
+        "avg_saturation": 51.51937777777778,
+        "avg_size_kb": 12.296875,
+        "aspect_ratios": {
+          "1.0": 1
+        }
+      },
+      "samples": [
+        {
+          "width": 300,
+          "height": 300,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 12.296875,
+          "sharpness": 47294.88609613223,
+          "contrast": 103.83540420080983,
+          "brightness": 84.71656666666667,
+          "saturation": 51.51937777777778,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "IMAGE"
+        }
+      ]
+    },
+    "inverters": {
+      "total_images": 337,
+      "analyzed_samples": 15,
+      "stats": {
+        "dimensions": {
+          "1200x1200": 13,
+          "1080x1080": 1,
+          "600x600": 1
+        },
+        "formats": {
+          "WEBP": 8,
+          "JPEG": 7
+        },
+        "image_types": {
+          "logo_simples": 15
+        },
+        "avg_sharpness": 366.0779267386831,
+        "avg_contrast": 48.334415869490996,
+        "avg_brightness": 233.11286247885226,
+        "avg_saturation": 4.324302422839506,
+        "avg_size_kb": 31.3748046875,
+        "aspect_ratios": {
+          "1.0": 15
+        }
+      },
+      "samples": [
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 13.537109375,
+          "sharpness": 347.6725222222222,
+          "contrast": 23.043500984948473,
+          "brightness": 251.97920347222222,
+          "saturation": 0.28560277777777776,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "112369"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 63.26171875,
+          "sharpness": 133.36791805555555,
+          "contrast": 46.77227621789167,
+          "brightness": 229.3219951388889,
+          "saturation": 1.907251388888889,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "135720"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 69.4326171875,
+          "sharpness": 191.73545972222223,
+          "contrast": 63.55962073134289,
+          "brightness": 211.80698125,
+          "saturation": 16.050227777777778,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "145763"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 9.88671875,
+          "sharpness": 300.5330069444444,
+          "contrast": 19.841105128797697,
+          "brightness": 252.92384652777778,
+          "saturation": 0.18518055555555554,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "152147"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 45.46875,
+          "sharpness": 86.27428472222222,
+          "contrast": 60.29065622050262,
+          "brightness": 218.53791805555556,
+          "saturation": 18.596497222222222,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "192575"
+        }
+      ]
+    },
+    "kits": {
+      "total_images": 247,
+      "analyzed_samples": 30,
+      "stats": {
+        "dimensions": {
+          "300x500": 30
+        },
+        "formats": {
+          "WEBP": 30
+        },
+        "image_types": {
+          "diagrama_tecnico": 30
+        },
+        "avg_sharpness": 9322.286963999999,
+        "avg_contrast": 92.67013140261774,
+        "avg_brightness": 166.80868666666663,
+        "avg_saturation": 20.389978666666664,
+        "avg_size_kb": 34.323893229166664,
+        "aspect_ratios": {
+          "0.6": 30
+        }
+      },
+      "samples": [
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 27.87109375,
+          "sharpness": 12859.547333333334,
+          "contrast": 92.88146400489892,
+          "brightness": 173.4458,
+          "saturation": 20.450966666666666,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP02-1065KWP-CERAMICO-KITS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 27.87109375,
+          "sharpness": 12859.547333333334,
+          "contrast": 92.88146400489892,
+          "brightness": 173.4458,
+          "saturation": 20.450966666666666,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP02-1065KWP-FIBROCIMENTO-KITS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 27.87109375,
+          "sharpness": 12859.547333333334,
+          "contrast": 92.88146400489892,
+          "brightness": 173.4458,
+          "saturation": 20.450966666666666,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP02-1065KWP-MINITRILHO-KITS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.298828125,
+          "sharpness": 11743.493933333333,
+          "contrast": 93.35080844975164,
+          "brightness": 165.52133333333333,
+          "saturation": 21.912886666666665,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP02-1136KWP-CERAMICO-KITS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.298828125,
+          "sharpness": 11743.493933333333,
+          "contrast": 93.35080844975164,
+          "brightness": 165.52133333333333,
+          "saturation": 21.912886666666665,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP02-1136KWP-FIBROCIMENTO-KITS"
+        }
+      ]
+    },
+    "kits-hibridos": {
+      "total_images": 25,
+      "analyzed_samples": 25,
+      "stats": {
+        "dimensions": {
+          "300x500": 25
+        },
+        "formats": {
+          "WEBP": 25
+        },
+        "image_types": {
+          "diagrama_tecnico": 25
+        },
+        "avg_sharpness": 9801.001491733337,
+        "avg_contrast": 92.98318564377387,
+        "avg_brightness": 164.75544693333325,
+        "avg_saturation": 21.126157066666668,
+        "avg_size_kb": 33.673359375,
+        "aspect_ratios": {
+          "0.6": 25
+        }
+      },
+      "samples": [
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 44.359375,
+          "sharpness": 3649.7754266666666,
+          "contrast": 91.81904675817758,
+          "brightness": 162.33014,
+          "saturation": 18.634846666666668,
+          "image_type": "diagrama_tecnico",
+          "optimized": false,
+          "sku": "FOTUS-KP04-120KWP-CERAMICO-KITS-HIBRIDOS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 44.359375,
+          "sharpness": 3649.7754266666666,
+          "contrast": 91.81904675817758,
+          "brightness": 162.33014,
+          "saturation": 18.634846666666668,
+          "image_type": "diagrama_tecnico",
+          "optimized": false,
+          "sku": "FOTUS-KP04-120KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.298828125,
+          "sharpness": 11743.493933333333,
+          "contrast": 93.35080844975164,
+          "brightness": 165.52133333333333,
+          "saturation": 21.912886666666665,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP04-120KWP-MINITRILHO-KITS-HIBRIDOS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.298828125,
+          "sharpness": 11743.493933333333,
+          "contrast": 93.35080844975164,
+          "brightness": 165.52133333333333,
+          "saturation": 21.912886666666665,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP04-240KWP-CERAMICO-KITS-HIBRIDOS"
+        },
+        {
+          "width": 300,
+          "height": 500,
+          "aspect_ratio": 0.6,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.298828125,
+          "sharpness": 11743.493933333333,
+          "contrast": 93.35080844975164,
+          "brightness": 165.52133333333333,
+          "saturation": 21.912886666666665,
+          "image_type": "diagrama_tecnico",
+          "optimized": true,
+          "sku": "FOTUS-KP04-240KWP-FIBROCIMENTO-KITS-HIBRIDOS"
+        }
+      ]
+    },
+    "panels": {
+      "total_images": 17,
+      "analyzed_samples": 7,
+      "stats": {
+        "dimensions": {
+          "1200x1200": 7
+        },
+        "formats": {
+          "WEBP": 4,
+          "JPEG": 3
+        },
+        "image_types": {
+          "logo_simples": 7
+        },
+        "avg_sharpness": 2384.3739253968256,
+        "avg_contrast": 113.29265277834396,
+        "avg_brightness": 165.68040198412697,
+        "avg_saturation": 37.01163779761905,
+        "avg_size_kb": 126.17438616071429,
+        "aspect_ratios": {
+          "1.0": 7
+        }
+      },
+      "samples": [
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 112.55078125,
+          "sharpness": 3228.6655166666665,
+          "contrast": 113.50591648234288,
+          "brightness": 165.47380833333332,
+          "saturation": 40.425550694444446,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "215563"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 150.453125,
+          "sharpness": 1419.1657861111112,
+          "contrast": 115.11106764563074,
+          "brightness": 163.55888958333333,
+          "saturation": 33.123586805555554,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "289244"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 150.3369140625,
+          "sharpness": 1447.7769138888889,
+          "contrast": 112.9775507041533,
+          "brightness": 166.73889375,
+          "saturation": 32.042031944444446,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "291808"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 107.267578125,
+          "sharpness": 2974.9124333333334,
+          "contrast": 111.60771444013761,
+          "brightness": 167.45993472222221,
+          "saturation": 39.511617361111114,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "299586"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 150.9248046875,
+          "sharpness": 1378.5397930555555,
+          "contrast": 113.793488985399,
+          "brightness": 165.14337916666668,
+          "saturation": 32.128141666666664,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "299589"
+        }
+      ]
+    },
+    "stringboxes": {
+      "total_images": 1,
+      "analyzed_samples": 1,
+      "stats": {
+        "dimensions": {
+          "1200x1200": 1
+        },
+        "formats": {
+          "WEBP": 1
+        },
+        "image_types": {
+          "logo_simples": 1
+        },
+        "avg_sharpness": 729.9097416666667,
+        "avg_contrast": 28.051124323251095,
+        "avg_brightness": 249.67153888888888,
+        "avg_saturation": 4.7494652777777775,
+        "avg_size_kb": 30.951171875,
+        "aspect_ratios": {
+          "1.0": 1
+        }
+      },
+      "samples": [
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 30.951171875,
+          "sharpness": 729.9097416666667,
+          "contrast": 28.051124323251095,
+          "brightness": 249.67153888888888,
+          "saturation": 4.7494652777777775,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "192068"
+        }
+      ]
+    },
+    "structures": {
+      "total_images": 7,
+      "analyzed_samples": 3,
+      "stats": {
+        "dimensions": {
+          "1200x1200": 3
+        },
+        "formats": {
+          "WEBP": 2,
+          "JPEG": 1
+        },
+        "image_types": {
+          "logo_simples": 3
+        },
+        "avg_sharpness": 2647.9947101814173,
+        "avg_contrast": 59.584093569895316,
+        "avg_brightness": 137.30558981481482,
+        "avg_saturation": 80.92685462962963,
+        "avg_size_kb": 275.619140625,
+        "aspect_ratios": {
+          "1.0": 3
+        }
+      },
+      "samples": [
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 274.865234375,
+          "sharpness": 2017.8736203510807,
+          "contrast": 46.462319263727906,
+          "brightness": 197.1537486111111,
+          "saturation": 81.09590972222222,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "124358"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "JPEG",
+          "mode": "RGB",
+          "size_kb": 185.11328125,
+          "sharpness": 358.6822366427658,
+          "contrast": 45.339908047261915,
+          "brightness": 72.46632361111111,
+          "saturation": 40.65524305555556,
+          "image_type": "logo_simples",
+          "optimized": false,
+          "sku": "313801"
+        },
+        {
+          "width": 1200,
+          "height": 1200,
+          "aspect_ratio": 1.0,
+          "format": "WEBP",
+          "mode": "RGB",
+          "size_kb": 366.87890625,
+          "sharpness": 5567.428273550406,
+          "contrast": 86.95005339869613,
+          "brightness": 142.29669722222224,
+          "saturation": 121.02941111111112,
+          "image_type": "logo_simples",
+          "optimized": true,
+          "sku": "313834"
+        }
+      ]
+    }
+  },
+  "recommendations": {
+    "accessories": {
+      "dimensions": "300x300",
+      "format": "WebP",
+      "quality": 95,
+      "processing": {
+        "denoise": 1,
+        "contrast": 1.02,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "inverters": {
+      "dimensions": "1200x1200",
+      "format": "WebP",
+      "quality": 98,
+      "processing": {
+        "denoise": 0,
+        "contrast": 1.0,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "kits": {
+      "dimensions": "300x500",
+      "format": "WebP",
+      "quality": 95,
+      "processing": {
+        "denoise": 1,
+        "contrast": 1.02,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "kits-hibridos": {
+      "dimensions": "300x500",
+      "format": "WebP",
+      "quality": 95,
+      "processing": {
+        "denoise": 1,
+        "contrast": 1.02,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "panels": {
+      "dimensions": "1200x1200",
+      "format": "WebP",
+      "quality": 98,
+      "processing": {
+        "denoise": 0,
+        "contrast": 1.0,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "stringboxes": {
+      "dimensions": "1200x1200",
+      "format": "WebP",
+      "quality": 98,
+      "processing": {
+        "denoise": 0,
+        "contrast": 1.0,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    },
+    "structures": {
+      "dimensions": "1200x1200",
+      "format": "WebP",
+      "quality": 98,
+      "processing": {
+        "denoise": 0,
+        "contrast": 1.0,
+        "sharpen": 0.0,
+        "saturation": 1.0,
+        "maintain_details": true
+      }
+    }
+  }
+}

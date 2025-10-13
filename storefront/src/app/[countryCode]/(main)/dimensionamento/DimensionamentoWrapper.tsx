@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic"
 
 const DimensionamentoClient = dynamic(
-    () => import("@/modules/onboarding/components/DimensionamentoClient"),
+    () => import("@/modules/education/onboarding/components/DimensionamentoClient"),
     {
         ssr: false,
         loading: () => (
