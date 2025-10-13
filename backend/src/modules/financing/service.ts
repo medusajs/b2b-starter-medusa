@@ -16,8 +16,8 @@ import {
 } from "./types/common";
 import BACENFinancingService from "./bacen-service";
 import { createFinancingProposalWorkflow } from "./workflows";
-import { COMPANY_MODULE } from "../company";
-import { APPROVAL_MODULE } from "../approval";
+import { COMPANY_MODULE } from "../empresa";
+import { APPROVAL_MODULE } from "../../modules_disabled/approval";
 
 class FinancingModuleService extends MedusaService({
   FinancingProposal,

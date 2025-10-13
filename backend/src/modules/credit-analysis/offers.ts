@@ -13,7 +13,7 @@
  * @module credit-analysis/offers
  */
 
-import { FinancingModality } from "./types/enums.js";
+import { FinancingModality } from "./types/enums";
 import {
     FinancingOffer,
     CETCalculationInput,
