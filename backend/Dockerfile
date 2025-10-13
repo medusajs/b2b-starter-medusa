@@ -6,7 +6,7 @@
 FROM node:20-alpine
 
 # Instalar dependências do sistema (inclui CA para TLS)
-RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates curl
+RUN apk add --no-cache libc6-compat dumb-init python3 make g++ ca-certificates curl dos2unix
 
 # Configurar diretório de trabalho
 WORKDIR /app
@@ -56,7 +56,7 @@ RUN chown medusa:medusa /app/package.json /app/medusa-config.js || true
 # Copiar script de entrypoint e tornar executável
 COPY --chown=medusa:medusa entrypoint.sh /app/entrypoint.sh
 # Garantir line endings Unix (LF) e tornar executável
-RUN dos2unix /app/entrypoint.sh || sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+RUN dos2unix /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Mudar para usuário não-root
 USER medusa

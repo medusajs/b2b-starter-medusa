@@ -15,7 +15,8 @@ RUN apk add --no-cache \
     make \
     g++ \
     curl \
-    ca-certificates
+    ca-certificates \
+    dos2unix
 
 WORKDIR /app
 
@@ -58,7 +59,8 @@ RUN apk add --no-cache \
     libc6-compat \
     dumb-init \
     ca-certificates \
-    curl
+    curl \
+    dos2unix
 
 WORKDIR /app
 
@@ -84,7 +86,7 @@ COPY --from=builder /app/static ./static
 
 # Copiar entrypoint
 COPY entrypoint.sh /app/entrypoint.sh
-RUN dos2unix /app/entrypoint.sh 2>/dev/null || sed -i 's/\r$//' /app/entrypoint.sh && \
+RUN dos2unix /app/entrypoint.sh && \
     chmod +x /app/entrypoint.sh
 
 # Criar diretórios necessários

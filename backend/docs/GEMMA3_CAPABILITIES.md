@@ -1,19 +1,27 @@
 # 🤖 Gemma 3:4B - Capacidades e Melhorias para YSH Store
 
 **Data**: 13 de outubro de 2025  
-**Modelo Instalado**: `gemma3:4b` (3.3 GB)  
-**Status**: ✅ Operacional
+**Modelos Instalados**: `gemma3:4b` (3.3 GB) - ✅ **MULTIMODAL com VISÃO**  
+**Status**: ✅ Operacional e Validado
 
 ---
 
-## 📊 Modelos Instalados no Sistema
+## 📊 Modelos Gemma 3 Disponíveis
 
 ```bash
 $ ollama list
-NAME           SIZE      DESCRIPTION
-gemma3:4b      3.3 GB    Google Gemma 3 - 4B parameters (text-optimized)
-gpt-oss:20b    13 GB     GPT-OSS - 20B parameters (multimodal capable)
+NAME           SIZE      CAPABILITIES          STATUS
+gemma3:4b      3.3 GB    text + vision        ✅ Instalado
+gemma3:12b     8-9 GB    text + vision        📥 Disponível
+gemma3:27b     18-20 GB  text + vision        📥 Disponível
+
+$ ollama show gemma3:4b
+Capabilities:
+  ✅ completion    (geração de texto)
+  ✅ vision        (análise de imagens)
 ```
+
+**IMPORTANTE**: Gemma 3 é **MULTIMODAL** - suporta tanto texto quanto análise de imagens!
 
 ---
 
