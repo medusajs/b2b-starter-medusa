@@ -179,7 +179,7 @@ export const createApprovalStep = createStep(
     }
 
     return new StepResponse(
-      { approvals, idempotent: false },
+      { autoApproved: false, approvals },
       approvals.map((approval) => approval.id)
     );
   },

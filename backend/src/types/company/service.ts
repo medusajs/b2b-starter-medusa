@@ -108,4 +108,12 @@ export interface ICompanyModuleService extends IModuleService {
     config?: RestoreReturn<TReturnableLinkableKeys>,
     sharedContext?: Context
   ): Promise<Record<TReturnableLinkableKeys, string[]> | void>;
+
+  // Custom business logic methods
+  retrieveEmployeeByCustomerId(customerId: string): Promise<ModuleEmployee | null>;
+
+  checkSpendingLimit(
+    employeeId: string,
+    amount: number
+  ): Promise<{ allowed: boolean; reason?: string; remaining?: number }>;
 }

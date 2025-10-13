@@ -31,6 +31,7 @@ export interface ModuleApprovalFilters
   extends BaseFilterable<ModuleApprovalFilters> {
   id?: string | string[];
   cart_id?: string | string[];
+  idempotency_key?: string | string[];
 }
 
 /**

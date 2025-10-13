@@ -377,6 +377,8 @@ Toda documentação foi reorganizada para facilitar navegação:
 
 - **`testing/`** - Relatórios de testes E2E (71 tests)
 - **`implementation/`** - Documentação de features implementadas
+- **STOREFRONT_MEGA_PROMPT_V5_PLAN.md** - Plano de revisão 360° (SEO, A11y, PLG)
+- **STOREFRONT_MEGA_PROMPT_V5_SUMMARY.md** - Status de implementação
 
 ### 📖 Documentos Principais
 

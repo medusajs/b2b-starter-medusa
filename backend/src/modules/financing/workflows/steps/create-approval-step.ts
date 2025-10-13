@@ -1,5 +1,6 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { APPROVAL_MODULE } from "../../../approval";
+import { IApprovalModuleService } from "../../../../types/approval/service";
 
 export interface CreateApprovalStepInput {
   financing_proposal_id: string;
@@ -11,12 +12,12 @@ export interface CreateApprovalStepInput {
 export const createApprovalStep = createStep(
   "create-approval-step",
   async (data: CreateApprovalStepInput, { container }) => {
-    const approvalModuleService = container.resolve(APPROVAL_MODULE);
-    
+    const approvalModuleService = container.resolve(APPROVAL_MODULE) as IApprovalModuleService;
+
     // Create approval request for financing proposal
     const approval = await approvalModuleService.createApproval({
       cart_id: data.financing_proposal_id, // Using financing_proposal_id as cart_id
-      type: data.type,
+      type: "admin" as any, // ApprovalType.ADMIN
       status: "pending",
       created_by: data.customer_id,
       cart_total_snapshot: data.requested_amount,
@@ -27,10 +28,12 @@ export const createApprovalStep = createStep(
   },
   async (approvalId: string, { container }) => {
     // Compensation: cancel approval if workflow fails
-    const approvalModuleService = container.resolve(APPROVAL_MODULE);
-    await approvalModuleService.updateApproval(approvalId, {
-      status: "cancelled",
+    const approvalModuleService = container.resolve(APPROVAL_MODULE) as IApprovalModuleService;
+    await approvalModuleService.updateApproval({
+      id: approvalId,
+      status: "cancelled" as any,
       rejection_reason: "Workflow compensation",
+      handled_at: new Date().toISOString(),
     });
   }
 );

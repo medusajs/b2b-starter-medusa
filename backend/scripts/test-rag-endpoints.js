@@ -14,6 +14,7 @@ const http = require('http');
 
 const MEDUSA_URL = 'http://localhost:9000';
 const QDRANT_API_KEY = 'qdrant_dev_key_foss_2025';
+const PUBLISHABLE_KEY = 'pk_be4ec92201072d3243703471906c97ccfd910d71abbd8941179b080058cd2eb0';
 
 function makeRequest(url, options = {}, postData = null) {
     return new Promise((resolve, reject) => {
@@ -57,6 +58,7 @@ async function testListCollections() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'x-publishable-api-key': PUBLISHABLE_KEY,
                 },
             }
         );
@@ -89,6 +91,7 @@ async function testSearch() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'x-publishable-api-key': PUBLISHABLE_KEY,
                 },
             },
             {
@@ -126,6 +129,7 @@ async function testRecommendProducts() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'x-publishable-api-key': PUBLISHABLE_KEY,
                 },
             },
             {
@@ -163,6 +167,7 @@ async function testAskHelio() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'x-publishable-api-key': PUBLISHABLE_KEY,
                 },
             },
             {
@@ -193,6 +198,7 @@ async function testAskHelio() {
 async function main() {
     console.log('🧪 Iniciando testes dos RAG endpoints\n');
     console.log(`URL Base: ${MEDUSA_URL}`);
+    console.log(`Publishable Key: ${PUBLISHABLE_KEY.substring(0, 20)}...`);
     console.log(`Qdrant API Key: ${QDRANT_API_KEY}\n`);
 
     const results = {

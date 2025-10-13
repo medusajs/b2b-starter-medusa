@@ -187,7 +187,11 @@ class ApprovalModuleService extends MedusaService({
 
     const [created] = await this.createApprovals([
       {
-        ...data,
+        cart_id: data.cart_id,
+        type: data.type as any, // ApprovalType
+        created_by: data.created_by,
+        cart_total_snapshot: data.cart_total_snapshot,
+        priority: data.priority,
         idempotency_key: idempotencyKey,
       }
     ]);
@@ -203,7 +207,9 @@ class ApprovalModuleService extends MedusaService({
     const [updated] = await this.updateApprovals([
       {
         id,
-        ...data,
+        status: data.status as any, // ApprovalStatusType
+        handled_by: data.handled_by,
+        rejection_reason: data.rejection_reason,
         handled_at: data.handled_at || new Date(),
       }
     ]);
