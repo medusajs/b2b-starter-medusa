@@ -42,6 +42,8 @@
     "test:integration:modules": "cross-env TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "test:e2e:360": "cross-env TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit integration-tests/http/__tests__/e2e/api-360-coverage.spec.ts",
     "test:unit": "cross-env TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "test:360": "node scripts/run-360-tests.js",
+    "test:db:init": "node scripts/init-test-db.js",
     "test:coverage": "cross-env TEST_TYPE=unit jest --coverage --collectCoverageFrom=src/**/*.ts --coveragePathIgnorePatterns=node_modules dist __tests__ scripts --runInBand",
     "test:pact:provider": "cross-env TEST_TYPE=pact jest --testMatch='**/pact/**/*.pact.test.ts' --testTimeout=60000 --runInBand",
     "test:pact:verify": "npm run test:pact:provider",

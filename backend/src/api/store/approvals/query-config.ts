@@ -20,8 +20,8 @@ export const retrieveApprovalQueryConfig = {
     "*cart",
     "*cart.items",
     "*cart.company",
-  ],
-});
+  ]
+};
 
 export const listApprovalsQueryConfig = {
   defaults: defaultStoreApprovalFields,
@@ -29,5 +29,5 @@ export const listApprovalsQueryConfig = {
     ...defaultStoreApprovalFields,
     "*cart",
   ],
-  defaultLimit: 15,
+  defaultLimit: 15
 };
