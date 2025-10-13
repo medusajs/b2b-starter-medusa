@@ -1,26 +1,65 @@
 import { CompanyDTO } from "./common";
 import { EmployeeDTO } from "./common";
 
-export interface CreateCompanyDTO
-  extends Omit<Partial<CompanyDTO>, "id" | "createdAt" | "updatedAt"> {}
-
-export interface UpdateCompanyDTO extends Partial<CompanyDTO> {
-  id: string;
+export interface CreateCompanyDTO {
+  name: string;
+  email: string;
+  cnpj: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
+  country?: string;
+  logo_url?: string;
+  currency_code?: string;
+  spending_limit_reset_frequency?: "never" | "daily" | "weekly" | "monthly" | "yearly";
 }
 
-export interface DeleteCompanyDTO {
+export interface UpdateCompanyDTO {
   id: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
+  country?: string;
+  logo_url?: string;
+  currency_code?: string;
+  spending_limit_reset_frequency?: "never" | "daily" | "weekly" | "monthly" | "yearly";
+  is_active?: boolean;
 }
 
-export interface CreateEmployeeDTO
-  extends Omit<Partial<EmployeeDTO>, "id" | "createdAt" | "updatedAt"> {
+export interface CreateEmployeeDTO {
   customer_id: string;
+  company_id: string;
+  spending_limit?: number;
+  is_admin?: boolean;
+  role?: "admin" | "manager" | "buyer" | "viewer";
 }
 
-export interface UpdateEmployeeDTO extends Partial<EmployeeDTO> {
+export interface UpdateEmployeeDTO {
   id: string;
+  spending_limit?: number;
+  is_admin?: boolean;
+  role?: "admin" | "manager" | "buyer" | "viewer";
+  is_active?: boolean;
 }
 
-export interface DeleteEmployeeDTO {
-  id: string;
+export interface CompanySearchDTO {
+  cnpj?: string;
+  email_domain?: string;
+  name?: string;
+  is_active?: boolean;
+}
+
+export interface BulkImportCompanyDTO {
+  companies: CreateCompanyDTO[];
+}
+
+export interface BulkExportCompanyDTO {
+  company_ids?: string[];
+  filters?: CompanySearchDTO;
 }
