@@ -209,18 +209,41 @@ export async function GET(request: NextRequest) {
         const roofType = searchParams.get('roofType') || undefined
         const search = searchParams.get('search') || undefined
 
-        // Carregar kits
-        let kits = await loadKits()
+        // Tentar buscar do backend primeiro
+        const backendParams = new URLSearchParams()
+        if (limit) backendParams.set('limit', limit.toString())
+        if (offset) backendParams.set('offset', offset.toString())
+        if (distributor) backendParams.set('distributor', distributor)
+        if (minPower !== undefined) backendParams.set('minPower', minPower.toString())
+        if (maxPower !== undefined) backendParams.set('maxPower', maxPower.toString())
+        if (type) backendParams.set('type', type)
+        if (roofType) backendParams.set('roofType', roofType)
+        if (search) backendParams.set('search', search)
 
-        // Aplicar filtros
-        kits = filterKits(kits, {
-            distributor,
-            minPower,
-            maxPower,
-            type,
-            roofType,
-            search,
-        })
+        const backendEndpoint = `/store/internal-catalog/kits`
+        const backendData = await tryBackendFetch(backendEndpoint, backendParams)
+
+        let kits: any[] = []
+        let fromBackend = false
+
+        if (backendData && backendData.success && backendData.data) {
+            // Usar dados do backend
+            kits = backendData.data.kits || backendData.data.items || []
+            fromBackend = true
+        } else {
+            // Fallback para dados locais
+            kits = await loadKits()
+
+            // Aplicar filtros locais
+            kits = filterKits(kits, {
+                distributor,
+                minPower,
+                maxPower,
+                type,
+                roofType,
+                search,
+            })
+        }
 
         // Paginação
         const total = kits.length
@@ -247,6 +270,7 @@ export async function GET(request: NextRequest) {
                         search,
                     },
                 },
+                fromBackend,
                 timestamp: new Date().toISOString(),
             },
             {
