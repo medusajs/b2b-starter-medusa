@@ -1,4 +1,4 @@
-import { retrieveCart } from "@/lib/data/cart"
+import { retrieveCart } from "@/lib/data/cart-resilient"
 import { convertToLocale } from "@/lib/util/money"
 import ApprovalCardActions from "@/modules/account/components/approval-card-actions"
 import CalendarIcon from "@/modules/common/icons/calendar"

@@ -6,7 +6,7 @@ import ReactCountryFlag from "react-country-flag"
 
 import { StateType } from "@/lib/hooks/use-toggle-state"
 import { useParams, usePathname } from "next/navigation"
-import { updateRegion } from "@/lib/data/cart"
+import { updateRegion } from "@/lib/data/cart-resilient"
 import { HttpTypes } from "@medusajs/types"
 
 type CountryOption = {
