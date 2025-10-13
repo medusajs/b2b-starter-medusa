@@ -1,4 +1,10 @@
-const { tailwindYelloColors } = require("./src/lib/design-system/colors");
+const { tailwindYelloColors } = require("./src/lib/design-system/colors")
+const path = require("path")
+const uiPath = path.resolve(
+  require.resolve("@medusajs/ui"),
+  "../..",
+  "**/*.{js,jsx,ts,tsx}"
+)
 
 module.exports = {
   darkMode: "class",
@@ -8,8 +14,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/modules/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
-    "../../node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
+    uiPath,
   ],
   theme: {
     extend: {
@@ -29,7 +34,14 @@ module.exports = {
         sans: ["Geist Sans", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         mono: ["Geist Mono", "JetBrains Mono", "Fira Code", "monospace"],
       },
-      colors: tailwindYelloColors,
+      colors: {
+        ...tailwindYelloColors,
+        ysh: {
+          start: "var(--ysh-start)",
+          end: "var(--ysh-end)",
+        },
+      },
+      strokeWidth: { 1: "1px" },
       keyframes: {
         "accordion-open": {
           from: { height: 0 },
