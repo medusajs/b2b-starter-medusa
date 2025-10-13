@@ -1,7 +1,7 @@
-const { loadEnv } = require("@medusajs/framework/utils");
+import { loadEnv } from "@medusajs/framework/utils";
 loadEnv("test", process.cwd());
 
-module.exports = {
+const config = {
   transform: {
     "^.+\\.[jt]s$": [
       "@swc/jest",
@@ -45,20 +45,22 @@ module.exports = {
 
 // Test type specific configuration
 if (process.env.TEST_TYPE === "integration:http") {
-  module.exports.testMatch = ["**/integration-tests/http/**/*.spec.[jt]s"];
-  module.exports.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
+  config.testMatch = ["**/integration-tests/http/**/*.spec.[jt]s"];
+  config.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
 } else if (process.env.TEST_TYPE === "integration:modules") {
-  module.exports.testMatch = ["**/src/modules/*/__tests__/**/*.[jt]s"];
-  module.exports.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
+  config.testMatch = ["**/src/modules/*/__tests__/**/*.[jt]s"];
+  config.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
 } else if (process.env.TEST_TYPE === "integration:solar") {
-  module.exports.testMatch = ["**/integration-tests/modules/solar/**/*.spec.[jt]s"];
-  module.exports.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
+  config.testMatch = ["**/integration-tests/modules/solar/**/*.spec.[jt]s"];
+  config.setupFilesAfterEnv = ["./integration-tests/setup-enhanced.js"];
 } else if (process.env.TEST_TYPE === "unit") {
-  module.exports.testMatch = ["**/src/**/__tests__/**/*.unit.spec.[jt]s"];
+  config.testMatch = ["**/src/**/__tests__/**/*.unit.spec.[jt]s"];
   // Unit tests don't need database setup
-  module.exports.setupFilesAfterEnv = [];
+  config.setupFilesAfterEnv = [];
 } else if (process.env.TEST_TYPE === "pact") {
-  module.exports.testMatch = ["**/pact/**/*.pact.test.[jt]s"];
-  module.exports.testTimeout = 60000;
-  module.exports.setupFilesAfterEnv = [];
+  config.testMatch = ["**/pact/**/*.pact.test.[jt]s"];
+  config.testTimeout = 60000;
+  config.setupFilesAfterEnv = [];
 }
+
+export default config;

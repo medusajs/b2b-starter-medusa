@@ -1,2 +1,2 @@
-const { MetadataStorage } = require("@mikro-orm/core");
+import { MetadataStorage } from "@mikro-orm/core";
 MetadataStorage.clear();

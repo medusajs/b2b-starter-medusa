@@ -63,6 +63,12 @@ async function getImageStats(req: MedusaRequest, res: MedusaResponse, catalogSer
     const stats = {
         total_skus: Object.keys(imageMap.mappings).length,
         total_images: imageMap.total_images,
+        optimization: imageMap.optimization_stats || {
+            migrated_to_webp: 0,
+            kept_original: 0,
+            space_saved_mb: 0,
+            compression_ratio: 0
+        },
         coverage: {
             sku_index: `${skuIndex.coverage_percent}%`,
             image_map: `${((Object.keys(imageMap.mappings).length / imageMap.total_skus) * 100).toFixed(1)}%`
@@ -172,7 +178,7 @@ async function syncImages(req: MedusaRequest, res: MedusaResponse, catalogServic
 }
 
 /**
- * Serve optimized image
+ * Serve optimized image with metadata
  */
 async function serveImage(req: MedusaRequest, res: MedusaResponse, catalogService: any, sku: string, size: string) {
     const image = await catalogService.getImageForSku(sku);
@@ -186,6 +192,15 @@ async function serveImage(req: MedusaRequest, res: MedusaResponse, catalogServic
     }
 
     const imageUrl = image.sizes[size] || image.sizes.medium || image.url;
+
+    // Include optimization metadata
+    const imageMetadata = {
+        url: imageUrl,
+        format: image.format || 'unknown',
+        optimized: image.optimized || false,
+        size_variant: size,
+        cached: image.cached
+    };
 
     // For now, return the URL. In production, you might want to:
     // 1. Stream the actual file

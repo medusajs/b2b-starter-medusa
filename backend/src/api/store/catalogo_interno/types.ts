@@ -17,6 +17,8 @@ export interface ProductImage {
     sizes: ImageSet;
     preloaded: boolean;
     cached: boolean;
+    format?: string;
+    optimized?: boolean;
     load_time_ms?: number;
 }
 
