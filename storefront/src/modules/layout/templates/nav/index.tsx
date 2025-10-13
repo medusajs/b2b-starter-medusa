@@ -20,14 +20,23 @@ export async function NavigationHeader() {
   await retrieveCart().catch(() => null)
 
   return (
-    <header className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass">
+    <>
+      {/* Skip to main content link for keyboard navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-yellow-500 focus:text-gray-900 focus:rounded-md focus:font-medium"
+      >
+        Pular para o conteúdo principal
+      </a>
+      <header className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass" role="banner">
       <div className="flex w-full content-container relative small:mx-auto justify-between px-4 py-3 small:p-4">
         <div className="small:mx-auto flex justify-between items-center min-w-full">
           <div className="flex items-center gap-3 small:gap-4">
-            <LocalizedClientLink className="hover:text-ui-fg-base flex items-center min-w-0" href="/">
+            <LocalizedClientLink className="hover:text-ui-fg-base flex items-center min-w-0" href="/" aria-label="Ir para página inicial">
               <h1 className="small:text-base text-sm font-medium flex items-center min-w-0">
-                <LogoIcon width={100} height={31} className="inline mr-2 flex-shrink-0" />
-                <span className="hidden md:inline-flex ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full whitespace-nowrap">Marketplace Solar</span>
+                <LogoIcon width={100} height={31} className="inline mr-2 flex-shrink-0" aria-hidden="true" />
+                <span className="sr-only">Yello Solar Hub</span>
+                <span className="hidden md:inline-flex ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full whitespace-nowrap" aria-label="Marketplace Solar">Marketplace Solar</span>
               </h1>
             </LocalizedClientLink>
 
@@ -65,8 +74,9 @@ export async function NavigationHeader() {
           </nav>
         </div>
       </div>
-      <div className="ysh-divider-gradient"></div>
+      <div className="ysh-divider-gradient" aria-hidden="true"></div>
     </header>
+    </>
   )
 }
 
