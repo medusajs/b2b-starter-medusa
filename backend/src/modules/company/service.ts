@@ -16,48 +16,22 @@ class CompanyModuleService extends MedusaService({
   Company,
   Employee,
 }) {
-  // Company CRUD
   async createCompany(data: CreateCompanyDTO): Promise<CompanyDTO> {
     this.validateCNPJ(data.cnpj);
-    const emailDomain = this.extractEmailDomain(data.email);
-
-    const companyData = {
+    const companyPayload = {
       ...data,
-      email_domain: emailDomain,
-      import { MedusaService } from "@medusajs/framework/utils";
-      import { Company, Employee } from "./models";
-      import {
-        CreateCompanyDTO,
-        UpdateCompanyDTO,
-        CreateEmployeeDTO,
-        UpdateEmployeeDTO,
-        CompanySearchDTO,
-        BulkImportCompanyDTO,
-        BulkExportCompanyDTO,
-      } from "./types/mutations";
-      import { CompanyDTO, EmployeeDTO } from "./types/common";
-      import { CompanyCSVService } from "./csv-service";
+      email_domain: this.extractEmailDomain(data.email),
+      country: data.country || "BR",
+      currency_code: data.currency_code || "BRL",
+    };
 
-      class CompanyModuleService extends MedusaService({
-        Company,
-        Employee,
-      }) {
-        async createCompany(data: CreateCompanyDTO): Promise<CompanyDTO> {
-          this.validateCNPJ(data.cnpj);
-          const companyPayload = {
-            ...data,
-            email_domain: this.extractEmailDomain(data.email),
-            country: data.country || "BR",
-            currency_code: data.currency_code || "BRL",
-          };
+    const [company] = await this.createCompanies_([companyPayload]);
+    return company;
+  }
 
-          const [company] = await this.createCompanies_([companyPayload]);
-          return company;
-        }
-
-        async updateCompany(data: UpdateCompanyDTO): Promise < CompanyDTO > {
-      const { id, email, ...rest } = data;
-      const updatePayload: Record<string, unknown> = { id, ...rest };
+  async updateCompany(data: UpdateCompanyDTO): Promise<CompanyDTO> {
+    const { id, email, ...rest } = data;
+    const updatePayload: Record<string, unknown> = { id, ...rest };
 
     if (email) {
       updatePayload.email = email;
@@ -80,7 +54,9 @@ class CompanyModuleService extends MedusaService({
     if (filters.cnpj) where.cnpj = filters.cnpj;
     if (filters.email_domain) where.email_domain = filters.email_domain;
     if (filters.name) where.name = { $ilike: `%${filters.name}%` };
-    if (typeof filters.is_active === "boolean") where.is_active = filters.is_active;
+    if (typeof filters.is_active === "boolean") {
+      where.is_active = filters.is_active;
+    }
 
     return await this.listCompanies_(where);
   }
