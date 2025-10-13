@@ -196,8 +196,8 @@ class FinancingModuleService extends MedusaService({
   }
 
   async cancelProposal(data: CancelFinancingDTO): Promise<FinancingProposalDTO> {
-    const proposal = await this.retrieve("FinancingProposal", data.id);
-
+    const proposal = await this.retrieveFinancingProposal(data.id);
+    
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
     }
@@ -212,15 +212,15 @@ class FinancingModuleService extends MedusaService({
     }
 
     const updateData = {
+      id: data.id,
       status: "cancelled" as const,
       cancelled_at: new Date(),
       rejection_reason: data.cancellation_reason,
     };
 
-    return await this.update("FinancingProposal", data.id, updateData);
-  }
-
-  // Calculations (aligned with credit-analysis)
+    const [updated] = await this.updateFinancingProposals([updateData]);
+    return updated;
+  }  // Calculations (aligned with credit-analysis)
   async calculateFinancing(data: CalculateFinancingDTO): Promise<FinancingCalculation> {
     const downPayment = data.down_payment || 0;
     const financedAmount = data.amount - downPayment;
