@@ -24,12 +24,14 @@
 ### 1. Types (`src/types/pvlib/index.ts`) - ✅ COMPLETO
 
 **Enums**:
+
 - `PVDataProvider`: PVGIS, NREL, SOLCAST, METEONORM
 - `DataType`: IRRADIANCE, EFFICIENCY, TEMPERATURE, WEATHER
 - `Unit`: W/m², kW/m², MJ/m², Wh, kWh, MWh, °C, °F, K, %, decimal
 - `CircuitState`: CLOSED, OPEN, HALF_OPEN
 
 **Interfaces**:
+
 - `CacheConfig`: TTL 24h configurável
 - `RetryConfig`: Exponential backoff com jitter
 - `TimeoutConfig`: Connect, request, total timeouts
@@ -38,6 +40,7 @@
 - `ResilienceMetrics`: Tracking de performance (p95, p99, cache hits)
 
 **Custom Errors**:
+
 - `PVProviderError`: Erros de provider com statusCode
 - `CircuitBreakerOpenError`: Circuito aberto com retry timestamp
 
@@ -48,6 +51,7 @@
 **Features Implementadas**:
 
 #### Retry com Exponential Backoff
+
 ```typescript
 private async fetchWithRetry(request: PVDataRequest): Promise<PVDataResponse> {
   let delay = this.config.retry.initial_delay_ms;
@@ -66,6 +70,7 @@ private async fetchWithRetry(request: PVDataRequest): Promise<PVDataResponse> {
 ```
 
 **Configuração Padrão**:
+
 - `max_attempts: 3`
 - `initial_delay_ms: 100`
 - `max_delay_ms: 1000`
@@ -73,6 +78,7 @@ private async fetchWithRetry(request: PVDataRequest): Promise<PVDataResponse> {
 - `retryable_status_codes: [429, 503, 504]`
 
 #### Circuit Breaker
+
 ```typescript
 // State Machine: CLOSED → OPEN → HALF_OPEN → CLOSED
 private circuitState: CircuitState = CircuitState.CLOSED;
@@ -96,11 +102,13 @@ if (consecutiveSuccesses >= success_threshold) {
 ```
 
 **Configuração Padrão**:
+
 - `failure_threshold: 3` (3 falhas consecutivas → OPEN)
 - `success_threshold: 2` (2 sucessos em HALF_OPEN → CLOSED)
 - `timeout_ms: 60000` (1 min em OPEN antes de tentar HALF_OPEN)
 
 #### Cache de 24h
+
 ```typescript
 private cache: Map<string, { data: PVDataResponse; expires_at: number }>;
 
@@ -116,6 +124,7 @@ const expires_at = Date.now() + ttl_seconds * 1000;
 **Limpeza automática**: `setInterval(() => cleanExpiredCache(), 3600000)` (1 hora)
 
 #### Timeouts Configuráveis
+
 ```typescript
 const controller = new AbortController();
 const timeoutId = setTimeout(
@@ -129,11 +138,13 @@ const response = await fetch(url, {
 ```
 
 **Configuração Padrão**:
+
 - `request_timeout_ms: 10000` (10s por request)
 - `connect_timeout_ms: 5000` (5s para connect)
 - `total_timeout_ms: 30000` (30s incluindo retries)
 
 #### Métricas de Observabilidade
+
 ```typescript
 interface ResilienceMetrics {
   circuit_state: CircuitState;
@@ -151,6 +162,7 @@ const p95Index = Math.floor(sortedTimes.length * 0.95);
 ```
 
 **Provider-Specific URL Building**:
+
 ```typescript
 switch (provider) {
   case "pvgis":
@@ -169,6 +181,7 @@ switch (provider) {
 **Conversões Implementadas**:
 
 #### Irradiância → W/m²
+
 ```typescript
 static normalizeIrradiance(value: number, fromUnit: Unit): number {
   switch (fromUnit) {
@@ -186,6 +199,7 @@ static normalizeIrradiance(value: number, fromUnit: Unit): number {
 **Exemplo**: 20 MJ/m²/day = 231.48 W/m²
 
 #### Energia → kWh
+
 ```typescript
 static normalizeEnergy(value: number, fromUnit: Unit): number {
   switch (fromUnit) {
@@ -200,6 +214,7 @@ static normalizeEnergy(value: number, fromUnit: Unit): number {
 ```
 
 #### Temperatura → °C
+
 ```typescript
 static normalizeTemperature(value: number, fromUnit: Unit): number {
   switch (fromUnit) {
@@ -214,6 +229,7 @@ static normalizeTemperature(value: number, fromUnit: Unit): number {
 ```
 
 #### Eficiência → % (0-100)
+
 ```typescript
 static normalizeEfficiency(value: number, fromUnit: Unit): number {
   switch (fromUnit) {
@@ -226,6 +242,7 @@ static normalizeEfficiency(value: number, fromUnit: Unit): number {
 ```
 
 **Detecção Automática de Unidades**:
+
 ```typescript
 static detectUnit(unitString: string): Unit {
   const normalized = unitString.toLowerCase().trim();
@@ -245,6 +262,7 @@ static detectUnit(unitString: string): Unit {
 ```
 
 **Auto-Normalization Helpers**:
+
 ```typescript
 // Detecta unidade da string e converte
 UnitNormalizer.autoNormalizeIrradiance(1.2, "kW/m²"); // → 1200 W/m²
@@ -259,6 +277,7 @@ UnitNormalizer.autoNormalizeEfficiency(0.22, "decimal"); // → 22%
 **Propósito**: Acesso a schemas **locais** PVLib (Sandia/CEC)
 
 **Features**:
+
 - Carrega `normalized_inverters_sandia_clean.json` (inverters)
 - Carrega `normalized_panels_cec_clean.json` (painéis)
 - Cache de 1 hora
@@ -268,6 +287,7 @@ UnitNormalizer.autoNormalizeEfficiency(0.22, "decimal"); // → 22%
 **NÃO É** para APIs externas (PVGIS, NREL, Solcast).
 
 **Métodos**:
+
 ```typescript
 class PVLibIntegrationService {
   loadInverters(): InverterPVLib[]
@@ -288,6 +308,7 @@ class PVLibIntegrationService {
 ### 1. Testes do HTTP Client (6 erros de tipo)
 
 **Erro**:
+
 ```
 Argument of type '{ ok: true; json: () => Promise<...>; }' is not assignable to parameter of type 'Response'.
 Type is missing properties: headers, redirected, status, statusText, and 10 more.
@@ -296,6 +317,7 @@ Type is missing properties: headers, redirected, status, statusText, and 10 more
 **Causa**: Mock parcial do Response não tem todas propriedades.
 
 **Solução**: Criar helper `createMockResponse()`:
+
 ```typescript
 function createMockResponse(data: any, options: { status?: number; ok?: boolean } = {}): Response {
   return {
@@ -319,6 +341,7 @@ function createMockResponse(data: any, options: { status?: number; ok?: boolean 
 ```
 
 **Uso**:
+
 ```typescript
 fetchMock.mockResolvedValueOnce(
   createMockResponse({ outputs: {} })
@@ -330,6 +353,7 @@ fetchMock.mockResolvedValueOnce(
 ### 2. Arquitetura Dual (Confusão de Propósitos)
 
 **Situação Atual**:
+
 - `service.ts` → Schemas **LOCAIS** (Sandia/CEC de arquivos JSON)
 - `http-client.ts` → APIs **EXTERNAS** (PVGIS, NREL via HTTP)
 
@@ -338,6 +362,7 @@ fetchMock.mockResolvedValueOnce(
 **Soluções Possíveis**:
 
 #### Opção A: Criar ExternalPVDataService
+
 ```typescript
 class ExternalPVDataService extends MedusaService({}) {
   private clients: Map<PVDataProvider, PVHttpClient>;
@@ -353,6 +378,7 @@ class ExternalPVDataService extends MedusaService({}) {
 ```
 
 #### Opção B: Renomear Service Existente
+
 ```typescript
 // Atual: PVLibIntegrationService (schemas locais)
 // Renomear para: PVLibSchemaService
@@ -361,6 +387,7 @@ class ExternalPVDataService extends MedusaService({}) {
 ```
 
 #### Opção C: Unificar em Service Único
+
 ```typescript
 class PVLibIntegrationService {
   // Schemas locais
@@ -392,6 +419,7 @@ class PVLibIntegrationService {
    - **Recomendação**: Opção A (separação de responsabilidades)
 
 3. **Implementar ExternalPVDataService** (45 min)
+
    ```typescript
    class ExternalPVDataService extends MedusaService({}) {
      private httpClient: PVHttpClient;
@@ -409,6 +437,7 @@ class PVLibIntegrationService {
      }
    }
    ```
+
    - Exportar em `index.ts`
    - Registrar em `medusa-config.ts`
 
@@ -462,6 +491,7 @@ class PVLibIntegrationService {
 | `service.ts` (local) | ❓ Não encontrados | - | ❓ |
 
 **Testes do Unit Normalizer** (15 casos):
+
 - ✅ Irradiance: W/m², kW/m², MJ/m², zero values
 - ✅ Energy: kWh, Wh, MWh
 - ✅ Temperature: °C, °F, K, freezing point, negatives
@@ -471,6 +501,7 @@ class PVLibIntegrationService {
 - ✅ Edge cases: large values, whitespace
 
 **Testes do HTTP Client** (11 casos, todos pendentes):
+
 - ⏳ Retry on 503
 - ⏳ NO retry on 400
 - ⏳ Respect max_attempts
@@ -489,6 +520,7 @@ class PVLibIntegrationService {
 ## 🚀 Próximos Passos Recomendados
 
 ### Sprint 1 (2 horas)
+
 1. ✅ Corrigir testes do HTTP client (30 min)
 2. ✅ Decidir arquitetura (15 min)
 3. ✅ Implementar ExternalPVDataService (45 min)
@@ -496,12 +528,14 @@ class PVLibIntegrationService {
 5. ✅ Documentar arquitetura dual (15 min)
 
 ### Sprint 2 (3 horas)
+
 6. Testes de integração com MSW (60 min)
 7. Normalizers específicos por provider (90 min)
 8. Registrar em medusa-config.ts (15 min)
 9. Criar exemplo de uso no README (15 min)
 
 ### Sprint 3 (Futuro)
+
 10. Métricas Prometheus
 11. Admin UI
 12. Scheduled health checks
@@ -547,12 +581,14 @@ pvlib-integration/
 ### Quando Usar Cada Service
 
 **Use `PVLibIntegrationService` (schemas locais)**:
+
 - Buscar parâmetros Sandia de inversor
 - Buscar parâmetros CEC de painel
 - Validar compatibilidade MPPT
 - Dados offline (sem internet)
 
 **Use `ExternalPVDataService` (APIs externas)**:
+
 - Buscar irradiância solar de location
 - Buscar dados meteorológicos em tempo real
 - Simulações com dados atualizados
