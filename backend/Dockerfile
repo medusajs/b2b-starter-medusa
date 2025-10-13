@@ -34,8 +34,8 @@ RUN npm install --force @rollup/rollup-linux-x64-musl @swc/core-linux-x64-musl |
 # Copiar código fonte e dados do catálogo
 COPY . .
 
-# Compilar TypeScript (medusa-config.ts -> medusa-config.js)
-RUN npx tsc medusa-config.ts mikro-orm.config.ts --esModuleInterop --resolveJsonModule --skipLibCheck || true
+# Compilar TypeScript config files (medusa-config.ts -> medusa-config.js)
+RUN npx tsc medusa-config.ts mikro-orm.config.ts --target ES2022 --module ESNext --moduleResolution Bundler --esModuleInterop --resolveJsonModule --skipLibCheck || true
 
 # Build da aplicação
 RUN npm run build
