@@ -1,4 +1,4 @@
-import { Badge } from "@medusajs/ui"
+import { Badge } from "@ysh/ui"
 import { useCatalogCustomization } from "@/modules/catalog/context/customization"
 import { Heart, ShoppingCart, Eye } from "lucide-react"
 import Image from "next/image"
