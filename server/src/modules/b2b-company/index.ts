@@ -1,8 +1,8 @@
-// Scaffold module service registration (to be implemented)
-export const B2B_COMPANY_MODULE = "b2bCompany";
+import { Module } from "@medusajs/framework/utils";
+import CompanyModuleService from "./service.ts";
 
-export default function B2BCompanyModule() {
-  // Return module definition when implementing persistence & services
-  return {} as any;
-}
+export const COMPANY_MODULE = "company";
 
+export default Module(COMPANY_MODULE, {
+  service: CompanyModuleService,
+});
