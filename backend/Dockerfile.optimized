@@ -70,9 +70,9 @@ WORKDIR /app
 COPY package*.json ./
 COPY .npmrc* ./
 
-# Instalar APENAS production dependencies
+# Instalar TODAS as dependências (runtime precisa de algumas dev deps como tsx, esbuild)
 ENV NODE_ENV=production
-RUN npm ci --only=production --legacy-peer-deps && \
+RUN npm ci --legacy-peer-deps && \
     npm cache clean --force
 
 # Copiar built artifacts do builder
