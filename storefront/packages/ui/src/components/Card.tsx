@@ -1,16 +1,45 @@
 import React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../utils/cn';
 
-export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
-    variant?: 'default' | 'outlined' | 'elevated';
-    padding?: 'none' | 'sm' | 'md' | 'lg';
-    hover?: boolean;
-};
+const cardVariants = cva(
+    'rounded-lg transition-all duration-200',
+    {
+        variants: {
+            variant: {
+                default: 'bg-background-primary border border-border-default',
+                outlined: 'bg-transparent border-2 border-border-medium',
+                elevated: 'bg-background-primary shadow-md hover:shadow-lg',
+            },
+            padding: {
+                none: '',
+                sm: 'p-3',
+                md: 'p-4',
+                lg: 'p-6',
+            },
+            hover: {
+                true: 'hover:border-brand-primary-500 hover:shadow-md cursor-pointer',
+                false: '',
+            },
+        },
+        defaultVariants: {
+            variant: 'default',
+            padding: 'md',
+            hover: false,
+        },
+    }
+);
+
+export interface CardProps
+    extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> { }
 
 /**
  * Card component
- * 
+ *
  * Container component for grouping related content
- * 
+ * Now uses design tokens and follows Medusa UI patterns
+ *
  * @example
  * ```tsx
  * <Card variant="elevated" padding="md">
@@ -20,34 +49,13 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
  * ```
  */
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-    ({ variant = 'default', padding = 'md', hover = false, children, className = '', ...props }, ref) => {
-        const base = 'rounded-lg transition-all duration-200';
-
-        const variants: Record<string, string> = {
-            default: 'bg-white border border-gray-200',
-            outlined: 'bg-transparent border-2 border-gray-300',
-            elevated: 'bg-white shadow-md hover:shadow-lg'
-        };
-
-        const paddings: Record<string, string> = {
-            none: '',
-            sm: 'p-3',
-            md: 'p-4',
-            lg: 'p-6'
-        };
-
-        const hoverClass = hover ? 'hover:border-yellow-500 hover:shadow-md cursor-pointer' : '';
-
-        const classes = [
-            base,
-            variants[variant],
-            paddings[padding],
-            hoverClass,
-            className
-        ].filter(Boolean).join(' ');
-
+    ({ variant, padding, hover, children, className, ...props }, ref) => {
         return (
-            <div ref={ref} className={classes} {...props}>
+            <div
+                ref={ref}
+                className={cn(cardVariants({ variant, padding, hover, className }))}
+                {...props}
+            >
                 {children}
             </div>
         );
@@ -56,4 +64,5 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = 'Card';
 
+export { Card, cardVariants };
 export default Card;

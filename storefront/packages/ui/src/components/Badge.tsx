@@ -1,37 +1,68 @@
 import React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../utils/cn';
 
-export type BadgeProps = React.HTMLAttributes<HTMLDivElement> & {
-    /** Color variant following Medusa UI palette */
-    color?: 'green' | 'red' | 'blue' | 'orange' | 'grey' | 'purple';
-    /** Size following Medusa UI scale */
-    size?: '2xsmall' | 'xsmall' | 'small' | 'base' | 'large';
-    /** Border radius style */
-    rounded?: 'base' | 'full';
-    /** 
+const badgeVariants = cva(
+    'inline-flex items-center justify-center font-medium',
+    {
+        variants: {
+            color: {
+                success: 'bg-status-success-100 text-status-success-800',
+                error: 'bg-status-error-100 text-status-error-800',
+                warning: 'bg-status-warning-100 text-status-warning-800',
+                info: 'bg-status-info-100 text-status-info-800',
+                neutral: 'bg-background-secondary text-text-secondary',
+                brand: 'bg-brand-primary-100 text-brand-primary-800',
+            },
+            size: {
+                xs: 'h-4 px-1.5 text-xs',
+                sm: 'h-5 px-2 text-xs',
+                md: 'h-6 px-2 text-sm',
+                lg: 'h-7 px-2.5 text-sm',
+                xl: 'h-8 px-3 text-base',
+            },
+            rounded: {
+                base: 'rounded-md',
+                full: 'rounded-full',
+            },
+        },
+        defaultVariants: {
+            color: 'neutral',
+            size: 'md',
+            rounded: 'base',
+        },
+    }
+);
+
+export interface BadgeProps
+    extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {
+    /**
      * Change the default rendered element for the one passed as a child.
      * Follows Radix Primitives Slot pattern used by Medusa UI
      */
     asChild?: boolean;
-};
+}
 
 /**
  * Badge Component
- * 
+ *
  * Based on div element, following Medusa UI design system.
  * Used for labels, tags, and status indicators.
- * 
+ * Now uses design tokens and follows Medusa UI patterns.
+ *
  * @example
  * ```tsx
  * // Color variants
- * <Badge color="green">Active</Badge>
- * <Badge color="red">Error</Badge>
- * <Badge color="blue">Info</Badge>
- * 
+ * <Badge color="success">Active</Badge>
+ * <Badge color="error">Error</Badge>
+ * <Badge color="warning">Warning</Badge>
+ *
  * // Sizes
- * <Badge size="small">Small</Badge>
- * <Badge size="base">Base</Badge>
- * <Badge size="large">Large</Badge>
- * 
+ * <Badge size="sm">Small</Badge>
+ * <Badge size="md">Medium</Badge>
+ * <Badge size="lg">Large</Badge>
+ *
  * // Rounded variants
  * <Badge rounded="base">Base Rounded</Badge>
  * <Badge rounded="full">Pill Shape</Badge>
@@ -39,57 +70,25 @@ export type BadgeProps = React.HTMLAttributes<HTMLDivElement> & {
  */
 export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     ({
-        color = 'grey',
-        size = 'base',
-        rounded = 'base',
+        color,
+        size,
+        rounded,
         asChild = false,
         children,
-        className = '',
+        className,
         ...props
     }, ref) => {
-        // Base styles following Medusa UI principles
-        const base = 'inline-flex items-center justify-center font-medium';
-
-        // Color variants matching Medusa UI palette
-        const colors: Record<string, string> = {
-            green: 'bg-green-100 text-green-800',
-            red: 'bg-red-100 text-red-800',
-            blue: 'bg-blue-100 text-blue-800',
-            orange: 'bg-orange-100 text-orange-800',
-            grey: 'bg-gray-100 text-gray-800',
-            purple: 'bg-purple-100 text-purple-800'
-        };
-
-        // Size scale matching Medusa UI (2xsmall through large)
-        const sizes: Record<string, string> = {
-            '2xsmall': 'h-4 px-1.5 text-xs',
-            'xsmall': 'h-5 px-2 text-xs',
-            'small': 'h-6 px-2 text-sm',
-            'base': 'h-7 px-2.5 text-sm',
-            'large': 'h-8 px-3 text-base'
-        };
-
-        // Rounded variants
-        const roundedStyles: Record<string, string> = {
-            base: 'rounded-md',
-            full: 'rounded-full'
-        };
-
-        const classes = [
-            base,
-            colors[color],
-            sizes[size],
-            roundedStyles[rounded],
-            className
-        ].filter(Boolean).join(' ');
-
         // Note: asChild pattern would require Slot from @radix-ui/react-slot
         if (asChild) {
             console.warn('Badge: asChild prop requires @radix-ui/react-slot implementation');
         }
 
         return (
-            <div ref={ref} className={classes} {...props}>
+            <div
+                ref={ref}
+                className={cn(badgeVariants({ color, size, rounded, className }))}
+                {...props}
+            >
                 {children}
             </div>
         );
@@ -98,4 +97,5 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
 
 Badge.displayName = 'Badge';
 
+export { Badge, badgeVariants };
 export default Badge;

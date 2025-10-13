@@ -47,10 +47,58 @@ module.exports = {
         ...(uiTokens.color && uiTokens.color.brand ? { brand: uiTokens.color.brand } : {}),
         // Expose semantic text colors from tokens if present
         ...(uiTokens.color && uiTokens.color.text ? { text: uiTokens.color.text } : {}),
+        // Expose background colors from tokens
+        ...(uiTokens.color && uiTokens.color.background ? { bg: uiTokens.color.background } : {}),
+        // Expose border colors from tokens
+        ...(uiTokens.color && uiTokens.color.border ? { border: uiTokens.color.border } : {}),
+        // Expose status colors from tokens
+        ...(uiTokens.color && uiTokens.color.status ? { status: uiTokens.color.status } : {}),
+        // Expose interactive colors from tokens
+        ...(uiTokens.color && uiTokens.color.interactive ? { interactive: uiTokens.color.interactive } : {}),
         ysh: {
           start: "var(--ysh-start)",
           end: "var(--ysh-end)",
         },
+      },
+      spacing: {
+        // Merge UI package spacing tokens
+        ...(uiTokens.spacing || {}),
+      },
+      fontSize: {
+        // Merge UI package font size tokens
+        ...(uiTokens.font && uiTokens.font.size ? uiTokens.font.size : {}),
+      },
+      fontWeight: {
+        // Merge UI package font weight tokens
+        ...(uiTokens.font && uiTokens.font.weight ? uiTokens.font.weight : {}),
+      },
+      lineHeight: {
+        // Merge UI package line height tokens
+        ...(uiTokens.font && uiTokens.font.lineHeight ? uiTokens.font.lineHeight : {}),
+      },
+      letterSpacing: {
+        // Merge UI package letter spacing tokens
+        ...(uiTokens.font && uiTokens.font.letterSpacing ? uiTokens.font.letterSpacing : {}),
+      },
+      borderRadius: {
+        // Merge UI package border radius tokens
+        ...(uiTokens.borderRadius || {}),
+      },
+      borderWidth: {
+        // Merge UI package border width tokens
+        ...(uiTokens.borderWidth || {}),
+      },
+      boxShadow: {
+        // Merge UI package shadow tokens
+        ...(uiTokens.shadow || {}),
+      },
+      opacity: {
+        // Merge UI package opacity tokens
+        ...(uiTokens.opacity || {}),
+      },
+      zIndex: {
+        // Merge UI package z-index tokens
+        ...(uiTokens.zIndex || {}),
       },
       strokeWidth: { 1: "1px" },
       keyframes: {
@@ -67,15 +115,13 @@ module.exports = {
           to: { width: "0%" },
         },
       },
-      // Map UI package spacing tokens under `ui-*` keys to avoid clashing with Tailwind defaults
-      ...(uiTokens.spacing
-        ? Object.fromEntries(Object.entries(uiTokens.spacing).map(([k, v]) => [`ui-${k}`, v]))
-        : {}),
       // Map UI font tokens into theme fontFamily (if provided)
       ...(uiTokens.font
         ? {
           fontFamily: {
-            ui: uiTokens.font.body ? uiTokens.font.body.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
+            ui: uiTokens.font.family?.sans ? uiTokens.font.family.sans.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
+            'ui-mono': uiTokens.font.family?.mono ? uiTokens.font.family.mono.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
+            'ui-display': uiTokens.font.family?.display ? uiTokens.font.family.display.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
           },
         }
         : {}),
@@ -83,6 +129,14 @@ module.exports = {
         "accordion-open": "accordion-open 0.3s ease-out",
         "accordion-close": "accordion-close 0.3s ease-out",
         "toast-progress": "toast-progress linear forwards",
+      },
+      transitionDuration: {
+        // Merge UI package transition duration tokens
+        ...(uiTokens.transition && uiTokens.transition.duration ? uiTokens.transition.duration : {}),
+      },
+      transitionTimingFunction: {
+        // Merge UI package transition timing tokens
+        ...(uiTokens.transition && uiTokens.transition.timing ? uiTokens.transition.timing : {}),
       },
     },
   },
