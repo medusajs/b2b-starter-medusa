@@ -6,9 +6,9 @@
 import * as React from "react"
 
 interface DegradedBannerProps {
-  message?: string
-  onRetry?: () => void
-  className?: string
+    message?: string
+    onRetry?: () => void
+    className?: string
 }export function DegradedBanner({
     message = "Exibindo dados em cache. Alguns preços podem estar desatualizados.",
     onRetry,
