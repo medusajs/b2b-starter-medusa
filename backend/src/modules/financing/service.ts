@@ -15,6 +15,9 @@ import {
   ContractData,
 } from "./types/common";
 import BACENFinancingService from "./bacen-service";
+import { createFinancingProposalWorkflow } from "./workflows";
+import { COMPANY_MODULE } from "../company";
+import { APPROVAL_MODULE } from "../approval";
 
 class FinancingModuleService extends MedusaService({
   FinancingProposal,
@@ -27,8 +30,21 @@ class FinancingModuleService extends MedusaService({
     this.bacenService = new BACENFinancingService();
   }
 
-  // CRUD Operations
+  // CRUD Operations with Integrations
   async createProposal(data: CreateFinancingProposalDTO): Promise<FinancingProposalDTO> {
+    // Run integration workflow
+    const workflowResult = await createFinancingProposalWorkflow(this.container).run({
+      input: {
+        customer_id: data.customer_id,
+        quote_id: data.quote_id,
+        modality: data.modality,
+        requested_amount: data.requested_amount,
+        requested_term_months: data.requested_term_months,
+        down_payment_amount: data.down_payment_amount,
+        amortization_system: data.amortization_system,
+      },
+    });
+
     const proposalData = {
       ...data,
       down_payment_amount: data.down_payment_amount || 0,
@@ -36,7 +52,22 @@ class FinancingModuleService extends MedusaService({
       status: "pending" as const,
     };
 
-    return await this.create("FinancingProposal", proposalData);
+    const proposal = await this.create("FinancingProposal", proposalData);
+
+    // Log audit trail
+    await this.logAuditEvent({
+      entity_type: "financing_proposal",
+      entity_id: proposal.id,
+      action: "created",
+      user_id: data.customer_id,
+      metadata: {
+        workflow_result: workflowResult.result,
+        requested_amount: data.requested_amount,
+        modality: data.modality,
+      },
+    });
+
+    return proposal;
   }
 
   async updateProposal(data: UpdateFinancingProposalDTO): Promise<FinancingProposalDTO> {
@@ -326,7 +357,7 @@ class FinancingModuleService extends MedusaService({
     return ((totalAmount / amount) ** (12 / termMonths) - 1) * 100;
   }
 
-  // Integration with Credit Analysis
+  // Integration Methods
   async createProposalFromCreditAnalysis(
     creditAnalysisId: string,
     modality: "CDC" | "LEASING" | "EAAS"
@@ -344,6 +375,72 @@ class FinancingModuleService extends MedusaService({
     };
 
     return await this.createProposal(proposalData);
+  }
+
+  // Audit Logging
+  private async logAuditEvent(event: {
+    entity_type: string;
+    entity_id: string;
+    action: string;
+    user_id: string;
+    metadata?: any;
+  }): Promise<void> {
+    // Stub implementation for audit logging
+    console.log("Audit Event:", {
+      ...event,
+      timestamp: new Date().toISOString(),
+    });
+    
+    // In real implementation:
+    // 1. Store in audit_log table
+    // 2. Send to monitoring system
+    // 3. Trigger alerts if needed
+  }
+
+  // Admin Dashboard Methods
+  async getProposalStats(): Promise<{
+    total: number;
+    by_status: Record<string, number>;
+    by_modality: Record<string, number>;
+    total_amount: number;
+  }> {
+    const proposals = await this.list("FinancingProposal", {});
+    
+    const stats = {
+      total: proposals.length,
+      by_status: {} as Record<string, number>,
+      by_modality: {} as Record<string, number>,
+      total_amount: 0,
+    };
+
+    proposals.forEach((proposal) => {
+      // Count by status
+      stats.by_status[proposal.status] = (stats.by_status[proposal.status] || 0) + 1;
+      
+      // Count by modality
+      stats.by_modality[proposal.modality] = (stats.by_modality[proposal.modality] || 0) + 1;
+      
+      // Sum amounts
+      stats.total_amount += proposal.requested_amount;
+    });
+
+    return stats;
+  }
+
+  async getCompanyFinancingHistory(companyId: string): Promise<FinancingProposalDTO[]> {
+    const companyService = this.container.resolve(COMPANY_MODULE);
+    const employees = await companyService.listEmployees({ company_id: companyId });
+    const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
+
+    if (customerIds.length === 0) {
+      return [];
+    }
+
+    return await this.list("FinancingProposal", {
+      where: { customer_id: { $in: customerIds } },
+      relations: ["payment_schedules"],
+      order: { created_at: "DESC" },
+    });
   }
 }
 
