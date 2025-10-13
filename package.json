@@ -2,6 +2,7 @@
     "name": "ysh-monorepo",
     "private": true,
     "workspaces": [
+        "packages/*",
         "server",
         "client"
     ],
