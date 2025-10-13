@@ -24,6 +24,21 @@ secrets/*
 *.p12
 /tmp/ysh-secrets-*
 
+# Production environment files
+.env.production
+.env.staging
+*.env.production
+*.env.staging
+
+# AWS credentials and configs
+aws-credentials.json
+aws-config.json
+
+# Backup files with sensitive data
+backup-*.json
+secrets-backup-*.tar.gz
+secrets-backup-*.tar.gz.gpg
+
 !src/**
 
 ./tsconfig.tsbuildinfo
