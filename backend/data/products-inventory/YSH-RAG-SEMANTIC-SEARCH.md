@@ -1,3 +1,58 @@
+## Inventário Fortlev — Extração Detalhada de Produtos (13/10/2025)
+
+### Painéis Solares
+
+| Produto | Modelo/Série | Preço |
+|---------|--------------|-------|
+| PAINEL DMEGC 610 WP DM610G12RT-B66HSW BF | DM610G12RT-B66HSW BF | R$ 567,71 |
+| PAINEL LONGI LR7-72HTH-630M HORIZON | LR7-72HTH-630M | R$ 695,83 |
+| PAINEL BYD BYD-530W-MLK-36 - 530W | BYD-530W-MLK-36 | R$ 728,12 |
+| PAINEL BYD BYD575HRP72S - 575W | BYD575HRP72S | R$ 966,67 |
+
+### Inversores
+
+| Produto | Modelo/Série | Preço |
+|---------|--------------|-------|
+| HUAWEI HIBRIDO 4KW - 220V - 2 MPPT - AFCI | SUN2000-4KTL-L1 | R$ 4.467,91 |
+| HUAWEI ON-GRID 75KW - 220V - 7 MPPT - AFCI | SUN2000-75K-MGL0-BR | R$ 49.856,68 |
+| GROWATT MAC-36KTL3-XL2 - 220V - 3MPPT | MAC-36KTL3-XL2 | R$ 19.427,26 |
+| GROWATT ON-GRID 30KW - 220V - 3 MPPT - AFCI | MAC30KTL3-XL2 | R$ 17.490,64 |
+| ... | ... | ... |
+
+### Estruturas
+
+| Produto | Preço |
+|---------|-------|
+| PERFIL SUPORTE SMART 2,70M | R$ 80,07 |
+| PERF ACAB US75X51X225 1,70MM S400GD ZM310 - ST1 - | R$ 12,87 |
+| TESOURA 3300MM ESP 1,95 - FLS | R$ 273,20 |
+| PILAR 2425MM ESP 1,95 - FLS | R$ 182,81 |
+| ... | ... |
+
+### Dutos e Cabos
+
+| Produto | Preço |
+|---------|-------|
+| DUTO CORRUGADO CONDUFORT PEAD DN 63 - NBR 680N - (MULT. 100M) | R$ 16,74 |
+| CABO 1X6MM VERMELHO 1,8KV | R$ 9,71 |
+| CABO PRETO 4MM2 | R$ 6,93 |
+| ... | ... |
+
+### Acessórios e Outros
+
+| Produto | Preço |
+|---------|-------|
+| TC ENPHASE P/ ENVOY-S 220/380V | R$ 334,31 |
+| SMART METER FOXESS DDSU666 | R$ 686,58 |
+| BASE P/ BATERIA AXE | R$ 284,46 |
+| ... | ... |
+
+**Observações:**
+
+- Nem todos os campos (categoria, fabricante, capacidade, série) estão explicitamente presentes nos CSVs; muitas vezes, essas informações estão embutidas no nome do produto ou modelo.
+- Todos os itens acima são do distribuidor: **Fortlev**.
+- Para lista completa ou outros campos, consultar os arquivos originais ou solicitar detalhamento adicional.
+
 # Sistema RAG e Busca Semântica - YSH
 
 **Versão:** 1.0.0  
