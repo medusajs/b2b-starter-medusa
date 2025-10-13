@@ -211,19 +211,19 @@ export function KitList({
             <div className="p-6 text-center bg-white border border-gray-200 rounded-lg shadow-sm">
                 <div className="text-destructive mb-2">Erro ao carregar kits</div>
                 <div className="text-sm text-muted-foreground">{error}</div>
-            </Card>
+            </div>
         )
     }
 
     if (kits.length === 0) {
         return (
-            <Card className="p-12 text-center">
+            <div className="p-12 text-center bg-white border border-gray-200 rounded-lg shadow-sm">
                 <Box className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
                 <div className="text-lg font-medium mb-2">{emptyMessage}</div>
                 <div className="text-sm text-muted-foreground">
                     Tente ajustar os filtros de busca
                 </div>
-            </Card>
+            </div>
         )
     }
 
