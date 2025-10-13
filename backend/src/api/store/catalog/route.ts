@@ -21,22 +21,29 @@ export const GET = async (
 
         // If specific category requested, redirect to category endpoint
         if (category) {
+            const page = Math.floor((req.validatedQuery.offset || 0) / (req.validatedQuery.limit || 50)) + 1;
             const result = await catalogService.getCategoryProducts(
-                category,
-                1,
+                category as string,
+                page,
                 req.validatedQuery.limit || 50,
                 {
                     manufacturer: manufacturer as string,
                 }
             );
 
+            const stats = await catalogService.getCategoryStats(category as string);
+            const cacheStats = catalogService.getCacheStats();
+
             return res.json({
                 products: result.products,
-                count: result.pagination.total,
+                count: result.total,
                 offset: req.validatedQuery.offset,
                 limit: req.validatedQuery.limit,
-                stats: result.stats,
-                cache: result.cache,
+                stats,
+                cache: {
+                    ...cacheStats,
+                    hit_rate: (cacheStats.hit_rate * 100).toFixed(2) + '%'
+                },
                 source: 'internal_catalog',
             });
         }
