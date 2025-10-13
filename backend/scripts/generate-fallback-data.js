@@ -20,6 +20,18 @@ if (!fs.existsSync(OUTPUT_PATH)) {
     fs.mkdirSync(OUTPUT_PATH, { recursive: true });
 }
 
+// Load IMAGE_MAP for SKU to image resolution
+let IMAGE_MAP = {};
+try {
+    if (fs.existsSync(IMAGE_MAP_PATH)) {
+        const imageMapData = JSON.parse(fs.readFileSync(IMAGE_MAP_PATH, 'utf8'));
+        IMAGE_MAP = imageMapData.mappings || {};
+        console.log(`📷 Loaded IMAGE_MAP: ${Object.keys(IMAGE_MAP).length} SKUs mapped`);
+    }
+} catch (error) {
+    console.warn('⚠️  Could not load IMAGE_MAP:', error.message);
+}
+
 // Categories to process
 const CATEGORIES = [
     'panels', 'inverters', 'batteries', 'kits', 'cables',
@@ -28,11 +40,58 @@ const CATEGORIES = [
 ];
 
 /**
+ * Extract SKU from product ID or metadata
+ */
+function extractSku(product) {
+    // Try various SKU sources
+    if (product.sku) return product.sku;
+    if (product.metadata?.sku) return product.metadata.sku;
+
+    // Extract from ID patterns
+    const idMatch = product.id?.match(/[-_]([A-Z0-9]+)$/);
+    if (idMatch) return idMatch[1];
+
+    return null;
+}
+
+/**
+ * Resolve image path from IMAGE_MAP or product data
+ */
+function resolveImagePath(product) {
+    const sku = extractSku(product);
+
+    // Try IMAGE_MAP first
+    if (sku && IMAGE_MAP[sku]) {
+        return IMAGE_MAP[sku].images?.original || IMAGE_MAP[sku].images?.large || '';
+    }
+
+    // Fallback to product image fields
+    if (product.image_url) {
+        return product.image_url.startsWith('/') ? product.image_url : `${STATIC_IMAGE_BASE}/${product.image_url}`;
+    }
+
+    if (product.image) {
+        // Normalize Windows paths to URL paths
+        const normalizedPath = product.image.replace(/\\/g, '/');
+        if (normalizedPath.startsWith('images/')) {
+            return `${STATIC_IMAGE_BASE}/${normalizedPath.substring(7)}`;
+        }
+        return normalizedPath.startsWith('/') ? normalizedPath : `${STATIC_IMAGE_BASE}/${normalizedPath}`;
+    }
+
+    return '';
+}
+
+/**
  * Convert product to CSV row
  */
 function productToCsvRow(product) {
+    const imagePath = resolveImagePath(product);
+    const sku = extractSku(product);
+
     return [
         product.id,
+        sku || '',
         product.name,
         product.manufacturer,
         product.model || '',
@@ -42,8 +101,7 @@ function productToCsvRow(product) {
         product.technical_specs?.efficiency || '',
         product.technical_specs?.voltage_v || '',
         product.technical_specs?.current_a || '',
-        product.image || '',
-        product.image_url || '',
+        imagePath,
         product.source || '',
         product.availability ? 'true' : 'false',
         product.description || '',
