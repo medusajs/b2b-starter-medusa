@@ -580,6 +580,7 @@ def check_gpu_status():
 ### Fase 1: Quick Wins (Hoje - 2h)
 
 **Implementar**:
+
 - ✅ Warmup do modelo
 - ✅ Prompt minimalista
 - ✅ Parâmetros otimizados
@@ -596,6 +597,7 @@ python scripts/process-images-optimized-v1.py --test 10
 ### Fase 2: Parallelização (Amanhã - 4h)
 
 **Implementar**:
+
 - ✅ ThreadPoolExecutor
 - ✅ Pipeline assíncrono
 - ✅ Processamento em lote
@@ -611,6 +613,7 @@ python scripts/process-images-parallel-v2.py --workers 3 --batch 50
 ### Fase 3: GPU Acceleration (Esta Semana - 1 dia)
 
 **Implementar**:
+
 - ✅ Configuração GPU otimizada
 - ✅ Monitoramento de VRAM
 - ✅ Batch processing na GPU
@@ -624,6 +627,7 @@ OLLAMA_GPU_LAYERS=33 python scripts/process-images-gpu-v3.py --all
 ### Fase 4: Produção (Quando validado)
 
 **Implementar**:
+
 - ✅ Script completo integrado
 - ✅ Monitoramento em tempo real
 - ✅ Recuperação de erros
@@ -664,11 +668,13 @@ python scripts/process-full-catalog.py \
 ## 💡 Conclusão
 
 ### Situação Atual
+
 - ⏱️ 120s/produto
 - 🕐 28.5 horas para catálogo completo
 - 🐌 Gargalo: Llama Vision (85% do tempo)
 
 ### Após Otimizações
+
 - ⏱️ **5-10s/produto** (-95%)
 - 🕐 **1-2 horas para catálogo** (-96%)
 - 🚀 **Throughput: 300-500 produtos/hora**

@@ -1,5 +1,3 @@
-import "server-only"
-
 /**
  * ResilientHttpClient - HTTP client with 4-layer resilience
  * 
