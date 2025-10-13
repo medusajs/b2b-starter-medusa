@@ -1,9 +1,9 @@
-// Módulos B2B customizados - usando strings diretas para evitar problemas de build
-// import { QUOTE_MODULE } from "./src/modules/quote";
-// import { APPROVAL_MODULE } from "./src/modules/approval";
-// import { COMPANY_MODULE } from "./src/modules/company";
+// Módulos B2B customizados - usando constantes exportadas dos módulos
 import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
 import { UNIFIED_CATALOG_MODULE } from "./src/modules/unified-catalog";
+import { COMPANY_MODULE } from "./src/modules/company";
+import { QUOTE_MODULE } from "./src/modules/quote";
+import { APPROVAL_MODULE } from "./src/modules/approval";
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 
@@ -49,19 +49,70 @@ export default defineConfig({
         isQueryable: true,
       },
     },
-    // Módulos B2B - registrados por string direta
-    "company": {
+    // Módulos B2B - registrados usando constantes exportadas
+    [COMPANY_MODULE]: {
       resolve: "./modules/company",
     },
-    "quote": {
+    [QUOTE_MODULE]: {
       resolve: "./modules/quote",
     },
-    "approval": {
+    [APPROVAL_MODULE]: {
       resolve: "./modules/approval",
     },
     // ==========================================
-    // MEDUSA 2.10.3 PRODUCTION BEST PRACTICES
+    // INFRASTRUCTURE MODULES CONFIGURATION
     // ==========================================
+    // Event Bus: Redis for production, in-memory for development
+    [Modules.EVENT_BUS]: process.env.NODE_ENV === "production"
+      ? {
+        resolve: "@medusajs/medusa/event-bus-redis",
+        options: {
+          redisUrl: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/event-bus-local",
+      },
+    // File Service: Local for development, cloud storage for production
+    [Modules.FILE]: process.env.NODE_ENV === "production"
+      ? {
+        resolve: "@medusajs/medusa/file-s3",
+        options: {
+          s3: {
+            access_key_id: process.env.S3_ACCESS_KEY_ID,
+            secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
+            region: process.env.S3_REGION || "us-east-1",
+            bucket: process.env.S3_BUCKET,
+            endpoint: process.env.S3_ENDPOINT,
+          },
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/file-local",
+        options: {
+          upload_dir: "uploads",
+        },
+      },
+    // Notification: Configurable providers
+    [Modules.NOTIFICATION]: {
+      resolve: "@medusajs/medusa/notification-local",
+      options: {
+        // Can be extended with email/SMS providers
+      },
+    },
+    // Locking: Redis for production distributed locking
+    [Modules.LOCKING]: process.env.NODE_ENV === "production"
+      ? {
+        resolve: "@medusajs/medusa/locking-redis",
+        options: {
+          redis: {
+            url: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
+          },
+        },
+      }
+      : {
+        resolve: "@medusajs/medusa/locking-local",
+      },
     // Cache: Use Redis for production (multi-instance support)
     // Dev: Use in-memory for local development
     [Modules.CACHE]: process.env.NODE_ENV === "production"
@@ -69,15 +120,15 @@ export default defineConfig({
         resolve: "@medusajs/medusa/cache-redis",
         options: {
           redisUrl: process.env.REDIS_URL || process.env.MEDUSA_REDIS_URL,
-          ttl: 30, // 30 seconds default TTL
-          namespace: "medusa",
+          ttl: 3600, // 1 hour default TTL for better performance
+          namespace: "medusa-cache",
         },
       }
       : {
         resolve: "@medusajs/medusa/cache-inmemory",
         options: {
-          ttl: 30,
-          max: 500, // Max 500 items in memory
+          ttl: 3600,
+          max: 1000, // Increased max items for development
         },
       },
     // Workflow Engine: Use Redis for production (distributed task execution)
@@ -93,10 +144,21 @@ export default defineConfig({
               enableReadyCheck: false,
             },
           },
+          // Workflow engine specific options
+          jobQueueOptions: {
+            removeOnComplete: 100, // Keep last 100 completed jobs
+            removeOnFail: 50, // Keep last 50 failed jobs
+          },
         },
       }
       : {
         resolve: "@medusajs/medusa/workflow-engine-inmemory",
+        options: {
+          jobQueueOptions: {
+            removeOnComplete: 50,
+            removeOnFail: 20,
+          },
+        },
       },
   },
 });
