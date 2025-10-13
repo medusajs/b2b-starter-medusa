@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
-import { TariffProvider } from '@/modules/tariffs/context/TariffContext'
-import TariffClassifier from '@/modules/tariffs/components/TariffClassifier'
-import TariffDisplay from '@/modules/tariffs/components/TariffDisplay'
-import MMGDValidator from '@/modules/tariffs/components/MMGDValidator'
-import DistributorSelector from '@/modules/tariffs/components/DistributorSelector'
+import { TariffProvider } from '@/modules/operations/tariffs/context/TariffContext'
+import TariffClassifier from '@/modules/operations/tariffs/components/TariffClassifier'
+import TariffDisplay from '@/modules/operations/tariffs/components/TariffDisplay'
+import MMGDValidator from '@/modules/operations/tariffs/components/MMGDValidator'
+import DistributorSelector from '@/modules/operations/tariffs/components/DistributorSelector'
 
 export const metadata: Metadata = {
     title: 'Classificação Tarifária ANEEL | Yello Solar Hub',

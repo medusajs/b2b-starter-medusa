@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import SolutionsByClass from "@/modules/home/components/solutions-by-class"
+import SolutionsByClass from "@/modules/discovery/home/components/solutions-by-class"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
 import SolutionsView from "@/modules/common/analytics/solutions-view"
 
