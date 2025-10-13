@@ -1,5 +1,9 @@
 /dist
 .env
+.env.local
+.env.production
+.env.staging
+.env.*.local
 .DS_Store
 /uploads
 /node_modules
@@ -8,6 +12,17 @@ yarn-error.log
 .idea
 
 coverage
+
+# Secrets and sensitive files
+secrets/*
+!secrets/README.md
+!secrets/.gitignore
+*.key
+*.pem
+*.crt
+*.pfx
+*.p12
+/tmp/ysh-secrets-*
 
 !src/**
 
