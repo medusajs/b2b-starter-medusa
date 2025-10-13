@@ -227,9 +227,7 @@ posthog.capture('api_error', {
 
 ---
 
-## 🚀 Recomendação Final
-
-**✅ DEPLOY EM PRODUÇÃO**
+### ✅ DEPLOY EM PRODUÇÃO
 
 **Motivos:**
 
