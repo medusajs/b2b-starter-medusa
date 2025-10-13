@@ -1,0 +1,33 @@
+{
+  "file": "sku_152147_152147-1-17507708324918071.jpeg",
+  "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_152147_152147-1-17507708324918071.jpeg",
+  "category": "INVERTERS",
+  "processed_at": "2025-10-13T13:56:11.972962",
+  "metadata": {
+    "manufacturer": "SAJ",
+    "model": "SAJ-1.5-48V-120W",
+    "product_type": "inverter",
+    "subtype": "gridtie",
+    "specifications": {
+      "power_w": 120,
+      "power_kw": 0.12,
+      "voltage": "48V",
+      "current_a": 2.4,
+      "phase": "mono",
+      "efficiency_percent": 90.0,
+      "mppt_count": 1,
+      "max_input_voltage": 100,
+      "max_output_current": 2.4
+    },
+    "visible_text": "SAJ-1.5-48V-120W",
+    "certifications": [
+      "CE"
+    ],
+    "image_quality": {
+      "score": 8,
+      "usable_for_catalog": true,
+      "issues": []
+    },
+    "_processing_time": 125.63058948516846
+  }
+}

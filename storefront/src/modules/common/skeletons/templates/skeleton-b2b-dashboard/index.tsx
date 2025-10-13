@@ -1,7 +1,7 @@
 import repeat from "@/lib/util/repeat"
-import SkeletonCompanyProfile from "../components/skeleton-company-profile"
-import SkeletonApprovalCard from "../components/skeleton-approval-card"
-import SkeletonOrderSummary from "../components/skeleton-order-summary"
+import SkeletonCompanyProfile from "./components/skeleton-company-profile"
+import SkeletonApprovalCard from "./components/skeleton-approval-card"
+import SkeletonOrderSummary from "./components/skeleton-order-summary"
 
 const SkeletonB2BDashboard = () => {
     return (
