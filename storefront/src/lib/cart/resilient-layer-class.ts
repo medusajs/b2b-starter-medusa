@@ -11,10 +11,13 @@
  * @module lib/cart/resilient-layer-class
  */
 
-import { resilientClient, type ResilientResponse } from "@/lib/http"
+import { ResilientHttpClient, type ResilientResponse } from "@/lib/http"
 import { HttpTypes } from "@medusajs/types"
 import { B2BCart } from "@/types/global"
 import { getCacheTag } from "@/lib/data/cookies"
+
+// Create a client-side instance for cart operations
+const resilientClient = new ResilientHttpClient()
 // import { // revalidateTag } from "next/cache"
 
 // ==========================================
