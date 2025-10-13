@@ -60,9 +60,6 @@ ENV NEXT_PUBLIC_DEFAULT_REGION=${NEXT_PUBLIC_DEFAULT_REGION}
 COPY package*.json ./
 COPY --from=dev-deps /app/node_modules ./node_modules
 
-# Copiar o workspace packages/ui para que @ysh/ui seja resolvido
-COPY packages ./packages
-
 # Copiar o resto do código
 COPY . .
 
