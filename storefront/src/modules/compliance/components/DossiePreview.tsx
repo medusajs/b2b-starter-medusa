@@ -8,7 +8,7 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from '@/components/ui/button'
 import { Download, Printer, FileText } from 'lucide-react'
 import type { ComplianceInput, ProdistValidation } from '../types'
