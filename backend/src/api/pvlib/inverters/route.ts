@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { MedusaError } from "@medusajs/framework/utils"
 import PVLibIntegrationService from "../../../modules/pvlib-integration/service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * GET /api/pvlib/inverters
@@ -32,12 +34,10 @@ export async function GET(
             inverters = await pvlibService.loadInverters()
         }
 
-        res.json({
-            inverters,
-            count: inverters.length
-        })
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, inverters, { count: inverters.length })
     } catch (error: any) {
         console.error("Error fetching PVLib inverters:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch PVLib inverters")
+        APIResponse.internalError(res, error?.message ?? "Failed to fetch PVLib inverters")
     }
 }

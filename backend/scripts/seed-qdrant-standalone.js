@@ -15,8 +15,8 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const MEDUSA_URL = process.env.MEDUSA_URL || 'http://localhost:9000';
 
 if (!OPENAI_API_KEY) {
-  console.error('❌ OPENAI_API_KEY environment variable is required');
-  process.exit(1);
+    console.error('❌ OPENAI_API_KEY environment variable is required');
+    process.exit(1);
 }
 
 // Funções auxiliares

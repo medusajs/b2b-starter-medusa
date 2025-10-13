@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { MedusaError } from "@medusajs/framework/utils"
 import PVLibIntegrationService from "../../../modules/pvlib-integration/service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * POST /api/pvlib/validate-mppt
@@ -19,8 +21,7 @@ export async function POST(
         }
 
         if (!inverter_id || !panel_id || !modules_per_string) {
-            res.status(400).json({
-                error: "Missing required parameters",
+            APIResponse.validationError(res, "Missing required parameters", {
                 required: ["inverter_id", "panel_id", "modules_per_string"]
             })
             return
@@ -32,18 +33,19 @@ export async function POST(
         const panel = await pvlibService.getPanelById(panel_id)
 
         if (!inverter) {
-            res.status(404).json({ error: "Inverter not found", inverter_id })
+            APIResponse.notFound(res, `Inverter not found: ${inverter_id}`)
             return
         }
 
         if (!panel) {
-            res.status(404).json({ error: "Panel not found", panel_id })
+            APIResponse.notFound(res, `Panel not found: ${panel_id}`)
             return
         }
 
         const validation = pvlibService.validateMPPT(inverter, panel, modules_per_string)
 
-        res.json({
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, {
             validation,
             inverter: {
                 id: inverter.id,
@@ -64,6 +66,6 @@ export async function POST(
         })
     } catch (error: any) {
         console.error("Error validating MPPT:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to validate MPPT")
+        APIResponse.internalError(res, error?.message ?? "Failed to validate MPPT")
     }
 }

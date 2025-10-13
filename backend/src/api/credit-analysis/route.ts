@@ -7,6 +7,8 @@ import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { MedusaError } from "@medusajs/framework/utils"
 import CreditAnalysisService from "../../modules/credit-analysis/service"
 import type { CreditAnalysisInput } from "../../modules/credit-analysis/service"
+import { APIResponse } from "../../utils/api-response"
+import { APIVersionManager } from "../../utils/api-versioning"
 
 /**
  * POST /api/credit-analysis
@@ -38,16 +40,11 @@ export async function POST(
             data: [analysisData]
         } as any)
 
-        res.status(201).json({
-            success: true,
-            credit_analysis: analysis
-        })
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, analysis, undefined, 201)
     } catch (error: any) {
         console.error("Error creating credit analysis:", error)
-        res.status(400).json({
-            success: false,
-            error: error.message || "Failed to create credit analysis"
-        })
+        APIResponse.validationError(res, error.message || "Failed to create credit analysis")
     }
 }
 
@@ -70,19 +67,14 @@ export async function GET(
         } as any)
 
         if (!analysis) {
-            res.status(404).json({
-                success: false,
-                error: "Credit analysis not found"
-            })
+            APIResponse.notFound(res, "Credit analysis not found")
             return
         }
 
-        res.json({
-            success: true,
-            credit_analysis: analysis
-        })
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, analysis)
     } catch (error: any) {
         console.error("Error fetching credit analysis:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch credit analysis")
+        APIResponse.internalError(res, error?.message ?? "Failed to fetch credit analysis")
     }
 }

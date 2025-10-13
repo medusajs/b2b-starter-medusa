@@ -104,12 +104,16 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              // unsafe-eval only in dev; prod should use nonce-based or strict-dynamic
+              // Production: strict CSP without unsafe-inline (use nonce for inline scripts)
               ...(process.env.NODE_ENV === 'production'
-                ? ["script-src 'self' 'unsafe-inline' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
+                ? ["script-src 'self' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
                 : ["script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel-scripts.com https://va.vercel-scripts.com https://app.posthog.com"]
               ),
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              // Production: use nonce for inline styles or extract to CSS files
+              ...(process.env.NODE_ENV === 'production'
+                ? ["style-src 'self' https://fonts.googleapis.com"]
+                : ["style-src 'self' 'unsafe-inline' https://fonts.googleapis.com"]
+              ),
               "img-src 'self' data: blob: https://medusa-public-images.s3.eu-west-1.amazonaws.com https://yellosolarhub.com https://api.yellosolarhub.com https://${backendDomain}",
               "font-src 'self' data: https://fonts.gstatic.com",
               `connect-src 'self' https://${backendDomain} https://vitals.vercel-insights.com https://app.posthog.com wss://*.pusher.com`,

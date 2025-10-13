@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { MedusaError } from "@medusajs/framework/utils"
 import PVLibIntegrationService from "../../../modules/pvlib-integration/service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * GET /api/pvlib/panels
@@ -32,12 +34,10 @@ export async function GET(
             panels = await pvlibService.loadPanels()
         }
 
-        res.json({
-            panels,
-            count: panels.length
-        })
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, panels, { count: panels.length })
     } catch (error: any) {
         console.error("Error fetching PVLib panels:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch PVLib panels")
+        APIResponse.internalError(res, error?.message ?? "Failed to fetch PVLib panels")
     }
 }

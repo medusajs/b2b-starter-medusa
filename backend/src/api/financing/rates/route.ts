@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { MedusaError } from "@medusajs/framework/utils";
 import BACENFinancingService from "../../../modules/financing/bacen-service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * GET /api/financing/rates
@@ -14,9 +16,10 @@ export async function GET(
         const bacenService = new BACENFinancingService()
         const rates = await bacenService.getAllRates()
 
-        res.json(rates)
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, rates)
     } catch (error) {
         console.error("Error fetching BACEN rates:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch BACEN rates")
+        APIResponse.internalError(res, error?.message ?? "Failed to fetch BACEN rates")
     }
 }

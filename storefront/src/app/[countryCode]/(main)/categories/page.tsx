@@ -5,6 +5,22 @@ import { getCategoryInfo, listCategories } from "@/lib/data/catalog"
 export const metadata: Metadata = {
     title: "Catálogo de Produtos Solares - Yello Solar Hub",
     description: "Explore nosso catálogo completo: kits fotovoltaicos, painéis solares, inversores, baterias, estruturas e acessórios.",
+    alternates: {
+        canonical: 'https://yellosolarhub.com/br/categories',
+    },
+    openGraph: {
+        title: "Catálogo de Produtos Solares - Yello Solar Hub",
+        description: "Explore nosso catálogo completo: kits fotovoltaicos, painéis solares, inversores, baterias, estruturas e acessórios.",
+        url: 'https://yellosolarhub.com/br/categories',
+        siteName: 'Yello Solar Hub',
+        locale: 'pt_BR',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: "Catálogo de Produtos Solares - Yello Solar Hub",
+        description: "Explore nosso catálogo completo: kits fotovoltaicos, painéis solares, inversores, baterias, estruturas e acessórios.",
+    },
 }
 
 export default async function CategoriesLandingPage({
