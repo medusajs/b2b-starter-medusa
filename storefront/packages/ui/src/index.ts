@@ -1,15 +1,6 @@
 // Public surface for @ysh/ui
 
 // Components
-export { default as Badge } from './components/Badge';
-export * from './components/Badge';
-
-export { default as Button } from './components/Button';
-export * from './components/Button';
-
-export { default as Card } from './components/Card';
-export * from './components/Card';
-
 export { default as GradientDefs } from './components/GradientDefs';
 export * from './components/GradientDefs';
 
