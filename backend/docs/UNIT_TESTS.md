@@ -25,6 +25,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should complete under 200ms (performance test)
 
 **Coverage**:
+
 - Input validation
 - Filtering logic (category, capacity, status)
 - Aggregation calculations (total, avg)
@@ -40,6 +41,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should complete under 300ms (performance test)
 
 **Coverage**:
+
 - Remote links (Order ↔ Company)
 - Metadata filtering
 - Pagination
@@ -58,6 +60,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should block project with very low capacity (< 1.5 kWp)
 
 **Coverage**:
+
 - Minimum irradiation threshold
 - Area calculation (~7m²/kWp)
 - Minimum capacity validation
@@ -69,6 +72,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should validate viable industrial project
 
 **Coverage**:
+
 - Different building types
 - Capacity ranges (5-100 kWp)
 - Roof types compatibility
@@ -80,6 +84,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should warn about crane requirement (laje + >30kWp)
 
 **Coverage**:
+
 - Non-blocking warnings
 - Marginal conditions
 - Equipment requirements
@@ -92,6 +97,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should calculate very high complexity (industrial + >50kWp)
 
 **Coverage**:
+
 - Complexity levels (low/medium/high/very_high)
 - Crane requirement logic
 - Building type × capacity combinations
@@ -103,6 +109,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should handle extreme values (8.5 kWh/m²/dia, 200kWp)
 
 **Coverage**:
+
 - Product type filtering
 - Error handling for incomplete data
 - Extreme values (desert irradiation, mega systems)
@@ -122,6 +129,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should respect usage limit
 
 **Coverage**:
+
 - Tax-inclusive flag validation
 - Discount types (percentage vs fixed)
 - Target rules (capacity, building_type)
@@ -136,6 +144,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should apply minimum capacity filter
 
 **Coverage**:
+
 - Residential-only filter
 - Complexity targeting (low/medium only)
 - Crane exclusion logic
@@ -148,6 +157,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should respect maximum discount limits
 
 **Coverage**:
+
 - Mathematical correctness (10% × R$ 11.800 = R$ 1.180)
 - Fixed discount (R$ 2.000 off after tax)
 - Boundary conditions (50% off max)
@@ -160,6 +170,7 @@ Cobertura de testes unitários para os **4 workflows prioritários** implementad
 - ✅ Should handle duplicate promotion code gracefully
 
 **Coverage**:
+
 - Input validation errors
 - Business rule validation
 - Duplicate prevention
@@ -290,6 +301,7 @@ expect((result as any).is_feasible).toBe(true); // Type assertion
 Testes atuais são **integration-style** (executam workflows reais).
 
 **TODO**: Adicionar mocks para:
+
 - Database queries
 - External APIs
 - Module services
