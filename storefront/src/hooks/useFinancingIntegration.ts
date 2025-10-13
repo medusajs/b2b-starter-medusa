@@ -4,7 +4,7 @@
  * Integrates with the Finance module for credit simulation
  */
 
-import { useFinance } from '@/modules/financing/financing/context/FinanceContext'
+import { useFinance } from '@/modules/financing/finance/context/FinanceContext'
 import type { FinanceInput, FinanceOutput } from '@/modules/finance/types'
 
 export function useFinancingIntegration() {

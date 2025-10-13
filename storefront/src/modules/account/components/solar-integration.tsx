@@ -7,7 +7,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { getSolarCalculatorUrl } from '@/modules/solar/integrations';
+import { getSolarCalculatorUrl } from '@/modules/configuration/solar/integrations';
 
 /**
  * Widget "Meus Cálculos Solares" no dashboard

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 import React from "react"
 
 const DynamicFreeShippingPriceNudge = dynamic(
-    () => import("@/modules/shipping/components/free-shipping-price-nudge"),
+    () => import("@/modules/purchase/shipping/components/free-shipping-price-nudge"),
     {
         loading: () => null,
         ssr: false,

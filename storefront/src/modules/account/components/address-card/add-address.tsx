@@ -2,8 +2,8 @@
 
 import { addCustomerAddress } from "@/lib/data/customer"
 import useToggleState from "@/lib/hooks/use-toggle-state"
-import CountrySelect from "@/modules/checkout/components/country-select"
-import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import CountrySelect from "@/modules/purchase/checkout/components/country-select"
+import { SubmitButton } from "@/modules/purchase/checkout/components/submit-button"
 import Button from "@/modules/common/components/button"
 import Input from "@/modules/common/components/input"
 import Modal from "@/modules/common/components/modal"

@@ -9,7 +9,7 @@
 import React from 'react'
 import { CheckCircle, TrendingUp, DollarSign, Calendar } from 'lucide-react'
 import type { FinanceOutput, FinancingScenario } from '@/modules/finance/types'
-import ROIDisplay from '@/modules/finance/components/ROIDisplay'
+import ROIDisplay from '@/modules/financing/finance/components/ROIDisplay'
 
 interface FinancingResultsProps {
     data: FinanceOutput
