@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-import { QUOTE_MODULE } from "./src/modules/quote/index.ts";
+// import { QUOTE_MODULE } from "./src/modules/quote/index.ts";
 import { APPROVAL_MODULE } from "./src/modules/approval/index.ts";
 import { COMPANY_MODULE } from "./src/modules/company/index.ts";
 import { YSH_CATALOG_MODULE } from "./src/modules/ysh-catalog/index.ts";
@@ -41,12 +41,12 @@ module.exports = (0, utils_1.defineConfig)({
                 isQueryable: true,
             },
         },
-        [QUOTE_MODULE]: {
-            resolve: "./src/modules/quote",
-            definition: {
-                isQueryable: true,
-            },
-        },
+        // [QUOTE_MODULE]: {
+        //     resolve: "./src/modules/quote",
+        //     definition: {
+        //         isQueryable: true,
+        //     },
+        // },
         [APPROVAL_MODULE]: {
             resolve: "./src/modules/approval",
             definition: {
