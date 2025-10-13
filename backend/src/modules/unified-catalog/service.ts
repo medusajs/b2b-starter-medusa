@@ -86,11 +86,11 @@ class UnifiedCatalogModuleService extends MedusaService({
         config: { skip?: number; take?: number; relations?: string[] } = {}
     ) {
         const where: any = { is_active: true };
-        
+
         if (filters.category) where.category = filters.category;
         if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
         if (filters.is_active !== undefined) where.is_active = filters.is_active;
-        
+
         // Price range filters
         if (filters.min_price !== undefined || filters.max_price !== undefined) {
             where.lowest_price = {};
@@ -104,248 +104,149 @@ class UnifiedCatalogModuleService extends MedusaService({
     }
 
     /**
-     * Busca um SKU por ID
+     * Busca um SKU por ID ou código
      */
-    async retrieveSKU(skuId: string): Promise<SKU | null> {
-        const client = await this.pool.connect();
-        try {
-            const result = await client.query(`
-                SELECT 
-                    s.*, 
-                    m.id as "manufacturer.id",
-                    m.name as "manufacturer.name",
-                    m.slug as "manufacturer.slug",
-                    m.tier as "manufacturer.tier"
-                FROM sku s
-                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
-                WHERE s.id = $1 OR s.sku_code = $1
-            `, [skuId]);
+    async retrieveSKU(skuId: string, config: { relations?: string[] } = {}) {
+        const relations = config.relations || ["manufacturer", "offers"];
 
-            if (result.rows.length === 0) return null;
+        // Try by ID first
+        let sku = await this.retrieveSKU_(skuId, { relations }).catch(() => null);
 
-            const row = result.rows[0];
-            return {
-                id: row.id,
-                sku_code: row.sku_code,
-                manufacturer_id: row.manufacturer_id,
-                category: row.category,
-                model_number: row.model_number,
-                description: row.description,
-                technical_specs: row.technical_specs,
-                lowest_price: row.lowest_price,
-                highest_price: row.highest_price,
-                avg_price: row.avg_price,
-                offers_count: row.offers_count,
-                created_at: row.created_at,
-                updated_at: row.updated_at,
-                manufacturer: row['manufacturer.id'] ? {
-                    id: row['manufacturer.id'],
-                    name: row['manufacturer.name'],
-                    slug: row['manufacturer.slug'],
-                    tier: row['manufacturer.tier'],
-                    created_at: undefined as any,
-                    updated_at: undefined as any,
-                } : undefined,
-            };
-        } finally {
-            client.release();
+        // If not found, try by sku_code
+        if (!sku) {
+            const skus = await this.listSKUs_(
+                { sku_code: skuId },
+                { relations, take: 1 }
+            );
+            sku = skus[0] || null;
         }
+
+        return sku;
     }
 
     /**
      * Lista ofertas de distribuidores
      */
-    async listDistributorOffers(options?: { where?: any; order?: any }): Promise<DistributorOffer[]> {
-        const client = await this.pool.connect();
-        try {
-            const conditions: string[] = [];
-            const params: any[] = [];
-            let paramIndex = 1;
+    async listDistributorOffers(
+        filters: {
+            sku_id?: string;
+            distributor_slug?: string;
+            stock_status?: string;
+        } = {},
+        config: { orderBy?: Record<string, "ASC" | "DESC"> } = {}
+    ) {
+        const where: any = {};
 
-            if (options?.where?.sku_id) {
-                conditions.push(`sku_id = $${paramIndex++}`);
-                params.push(options.where.sku_id);
-            }
+        if (filters.sku_id) where.sku_id = filters.sku_id;
+        if (filters.distributor_slug) where.distributor_slug = filters.distributor_slug;
+        if (filters.stock_status) where.stock_status = filters.stock_status;
 
-            const whereClause = conditions.length > 0
-                ? 'WHERE ' + conditions.join(' AND ')
-                : '';
+        const orderBy = config.orderBy || { price: "ASC" };
 
-            const orderBy = options?.order?.price === 'ASC'
-                ? 'ORDER BY price ASC'
-                : 'ORDER BY price ASC';
-
-            const query = `
-                SELECT * FROM distributor_offer
-                ${whereClause}
-                ${orderBy}
-            `;
-
-            const result = await client.query<DistributorOffer>(query, params);
-            return result.rows;
-        } finally {
-            client.release();
-        }
+        return await this.listDistributorOffers_(where, { orderBy });
     }
 
     /**
-     * Lista kits
+     * Lista kits com filtros
      */
-    async listKits(options?: { where?: any }): Promise<Kit[]> {
-        const client = await this.pool.connect();
-        try {
-            const conditions: string[] = [];
-            const params: any[] = [];
-            let paramIndex = 1;
+    async listKits(
+        filters: {
+            category?: string;
+            target_consumer_class?: string;
+            min_capacity?: number;
+            max_capacity?: number;
+        } = {},
+        config: { skip?: number; take?: number } = {}
+    ) {
+        const where: any = { is_active: true };
 
-            if (options?.where) {
-                const where = options.where;
+        if (filters.category) where.category = filters.category;
+        if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
 
-                if (where.category) {
-                    conditions.push(`category = $${paramIndex++}`);
-                    params.push(where.category);
-                }
-
-                if (where.target_consumer_class) {
-                    conditions.push(`suitable_for = $${paramIndex++}`);
-                    params.push(where.target_consumer_class);
-                }
-
-                if (where.system_capacity_kwp?.$gte) {
-                    conditions.push(`system_capacity_kwp >= $${paramIndex++}`);
-                    params.push(where.system_capacity_kwp.$gte);
-                }
-
-                if (where.system_capacity_kwp?.$lte) {
-                    conditions.push(`system_capacity_kwp <= $${paramIndex++}`);
-                    params.push(where.system_capacity_kwp.$lte);
-                }
-            }
-
-            const whereClause = conditions.length > 0
-                ? 'WHERE ' + conditions.join(' AND ')
-                : '';
-
-            const query = `
-                SELECT * FROM kit
-                ${whereClause}
-                ORDER BY system_capacity_kwp ASC
-            `;
-
-            const result = await client.query<Kit>(query, params);
-            return result.rows;
-        } finally {
-            client.release();
+        if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
+            where.system_capacity_kwp = {};
+            if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
+            if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
         }
+
+        return await this.listKits_(where, config);
     }
 
     /**
      * Lista kits com contagem (formato Medusa padrão)
      */
-    async listAndCountKits(options?: {
-        where?: any;
-        skip?: number;
-        take?: number;
-    }): Promise<[Kit[], number]> {
-        const client = await this.pool.connect();
-        try {
-            const conditions: string[] = [];
-            const params: any[] = [];
-            let paramIndex = 1;
+    async listAndCountKits(
+        filters: {
+            category?: string;
+            target_consumer_class?: string;
+            min_capacity?: number;
+            max_capacity?: number;
+        } = {},
+        config: { skip?: number; take?: number } = {}
+    ) {
+        const where: any = { is_active: true };
 
-            if (options?.where) {
-                const where = options.where;
+        if (filters.category) where.category = filters.category;
+        if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
 
-                if (where.category) {
-                    conditions.push(`category = $${paramIndex++}`);
-                    params.push(where.category);
-                }
-
-                if (where.target_consumer_class) {
-                    conditions.push(`suitable_for = $${paramIndex++}`);
-                    params.push(where.target_consumer_class);
-                }
-
-                if (where.system_capacity_kwp?.$gte) {
-                    conditions.push(`system_capacity_kwp >= $${paramIndex++}`);
-                    params.push(where.system_capacity_kwp.$gte);
-                }
-
-                if (where.system_capacity_kwp?.$lte) {
-                    conditions.push(`system_capacity_kwp <= $${paramIndex++}`);
-                    params.push(where.system_capacity_kwp.$lte);
-                }
-            }
-
-            const whereClause = conditions.length > 0
-                ? 'WHERE ' + conditions.join(' AND ')
-                : '';
-
-            // Count query
-            const countQuery = `
-                SELECT COUNT(*) as total
-                FROM kit
-                ${whereClause}
-            `;
-            const countResult = await client.query(countQuery, params);
-            const total = parseInt(countResult.rows[0].total);
-
-            // Data query with pagination
-            const limit = options?.take || 20;
-            const offset = options?.skip || 0;
-
-            const dataQuery = `
-                SELECT * FROM kit
-                ${whereClause}
-                ORDER BY system_capacity_kwp ASC
-                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
-            `;
-
-            const dataResult = await client.query<Kit>(dataQuery, [...params, limit, offset]);
-
-            return [dataResult.rows, total];
-        } finally {
-            client.release();
+        if (filters.min_capacity !== undefined || filters.max_capacity !== undefined) {
+            where.system_capacity_kwp = {};
+            if (filters.min_capacity) where.system_capacity_kwp.$gte = filters.min_capacity;
+            if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
         }
+
+        return await this.listAndCountKits_(where, config);
     }
 
     /**
-     * Busca um kit por ID
+     * Busca um kit por ID ou código
      */
-    async retrieveKit(kitId: string): Promise<Kit | null> {
-        const client = await this.pool.connect();
-        try {
-            const result = await client.query<Kit>(`
-                SELECT * FROM kit
-                WHERE id = $1 OR kit_code = $1
-            `, [kitId]);
+    async retrieveKit(kitId: string) {
+        // Try by ID first
+        let kit = await this.retrieveKit_(kitId).catch(() => null);
 
-            return result.rows.length > 0 ? result.rows[0] : null;
-        } finally {
-            client.release();
+        // If not found, try by kit_code
+        if (!kit) {
+            const kits = await this.listKits_(
+                { kit_code: kitId },
+                { take: 1 }
+            );
+            kit = kits[0] || null;
         }
+
+        return kit;
     }
 
     /**
-     * Atualiza um SKU
+     * Atualiza estatísticas de pricing de um SKU
      */
-    async updateSKUs(data: any): Promise<void> {
-        const client = await this.pool.connect();
-        try {
-            const fields = Object.keys(data).filter(k => k !== 'id');
-            const values = fields.map((_, i) => `$${i + 2}`);
-            const sets = fields.map((f, i) => `${f} = $${i + 2}`);
+    async updateSKUPricingStats(skuId: string) {
+        const offers = await this.listDistributorOffers({ sku_id: skuId });
 
-            const query = `
-                UPDATE sku
-                SET ${sets.join(', ')}, updated_at = NOW()
-                WHERE id = $1
-            `;
-
-            await client.query(query, [data.id, ...fields.map(f => data[f])]);
-        } finally {
-            client.release();
+        if (!offers || offers.length === 0) {
+            return;
         }
+
+        const prices = offers.map(o => o.price).sort((a, b) => a - b);
+        const lowest = prices[0];
+        const highest = prices[prices.length - 1];
+        const average = prices.reduce((sum, p) => sum + p, 0) / prices.length;
+
+        // Calculate median
+        const mid = Math.floor(prices.length / 2);
+        const median = prices.length % 2 === 0
+            ? (prices[mid - 1] + prices[mid]) / 2
+            : prices[mid];
+
+        await this.updateSKUs_([{
+            id: skuId,
+            lowest_price: lowest,
+            highest_price: highest,
+            average_price: average,
+            median_price: median,
+            total_offers: offers.length,
+            price_variation_pct: highest > 0 ? ((highest - lowest) / highest) * 100 : 0,
+        }]);
     }
 
     /**
