@@ -25,13 +25,18 @@
         "isolatedModules": true
     },
     "include": [
-        "src/**/*"
+        "src/index.ts",
+        "src/components/card.tsx",
+        "src/components/YshGradientIcon.tsx",
+        "src/components/YshLogoMark.tsx",
+        "src/components/degraded-banner.tsx"
     ],
     "exclude": [
         "dist",
         "node_modules",
         "**/*.test.tsx",
         "**/*.spec.tsx",
-        "**/*.stories.tsx"
+        "**/*.stories.tsx",
+        "src/components/**/*"
     ]
 }
