@@ -1,0 +1,52 @@
+{
+    "name": "ysh-monorepo",
+    "private": true,
+    "workspaces": [
+        "server",
+        "client"
+    ],
+    "packageManager": "yarn@4.0.0",
+    "scripts": {
+        "dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
+        "dev:server": "yarn workspace server dev",
+        "dev:client": "yarn workspace client dev",
+        "build": "yarn workspaces foreach -pt run build",
+        "lint": "yarn workspaces foreach -pt run lint",
+        "lint:fix": "yarn workspaces foreach -pt run lint:fix",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "typecheck": "yarn workspaces foreach -pt run typecheck",
+        "test": "yarn workspaces foreach -pt run test",
+        "test:unit": "yarn workspaces foreach -pt run test:unit",
+        "test:integration": "yarn workspaces foreach -pt run test:integration",
+        "test:e2e": "yarn workspaces foreach -pt run test:e2e",
+        "pr-check": "node scripts/pr-check.js",
+        "compatibility-report": "node scripts/compatibility-report.js",
+        "clean": "yarn workspaces foreach -pt run clean && rm -rf node_modules",
+        "postinstall": "husky install"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "concurrently": "^8.0.0",
+        "eslint": "^8.0.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-jsx-a11y": "^6.0.0",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-react-hooks": "^4.0.0",
+        "husky": "^8.0.0",
+        "lint-staged": "^15.0.0",
+        "prettier": "^3.0.0",
+        "typescript": "^5.0.0"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,md}": [
+            "prettier --write"
+        ]
+    }
+}
