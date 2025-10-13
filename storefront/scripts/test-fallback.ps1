@@ -31,13 +31,15 @@ Write-Host "🔍 Verificando saúde do backend..." -ForegroundColor Yellow
 try {
     $healthCheck = Invoke-WebRequest -Uri "$BackendUrl/health" -TimeoutSec 5 -ErrorAction SilentlyContinue
     $backendHealthy = $healthCheck.StatusCode -eq 200
-} catch {
+}
+catch {
     $backendHealthy = $false
 }
 
 if ($backendHealthy) {
     Write-Host "   ✅ Backend: Online`n" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "   ⚠️  Backend: Offline/Degradado" -ForegroundColor Yellow
     Write-Host "   ℹ️  Sistema usará fallback API ou arquivos locais`n" -ForegroundColor Cyan
 }
@@ -64,12 +66,12 @@ foreach ($category in $categories) {
         $productsCount = $response.data.products.Count
         
         $results += [PSCustomObject]@{
-            Category = $category
-            Success = $true
-            Source = $source
+            Category      = $category
+            Success       = $true
+            Source        = $source
             ProductsCount = $productsCount
-            ResponseTime = $responseTime
-            Error = $null
+            ResponseTime  = $responseTime
+            Error         = $null
         }
         
         $sourceEmoji = switch ($source) {
@@ -81,17 +83,18 @@ foreach ($category in $categories) {
         
         Write-Host "✅ $productsCount produtos ($sourceEmoji $source) [$($responseTime)ms]" -ForegroundColor Green
         
-    } catch {
+    }
+    catch {
         $endTime = Get-Date
         $responseTime = [math]::Round(($endTime - $startTime).TotalMilliseconds)
         
         $results += [PSCustomObject]@{
-            Category = $category
-            Success = $false
-            Source = "error"
+            Category      = $category
+            Success       = $false
+            Source        = "error"
             ProductsCount = 0
-            ResponseTime = $responseTime
-            Error = $_.Exception.Message
+            ResponseTime  = $responseTime
+            Error         = $_.Exception.Message
         }
         
         Write-Host "❌ Falhou: $($_.Exception.Message)" -ForegroundColor Red
@@ -108,7 +111,7 @@ $failed = ($results | Where-Object { -not $_.Success }).Count
 $avgResponseTime = [math]::Round(($results | Measure-Object -Property ResponseTime -Average).Average)
 
 Write-Host "✅ Sucesso: $successful/$($categories.Count)" -ForegroundColor Green
-Write-Host "❌ Falhas: $failed/$($categories.Count)" -ForegroundColor $(if($failed -eq 0) {"Green"} else {"Red"})
+Write-Host "❌ Falhas: $failed/$($categories.Count)" -ForegroundColor $(if ($failed -eq 0) { "Green" } else { "Red" })
 Write-Host "⏱️  Tempo médio: $($avgResponseTime)ms`n" -ForegroundColor White
 
 # Fontes de dados
@@ -132,7 +135,8 @@ Write-Host "`n📦 Total de produtos retornados: $totalProducts" -ForegroundColo
 Write-Host "`n═══════════════════════════════════════════════════════" -ForegroundColor Cyan
 if ($failed -eq 0) {
     Write-Host "   ✅ TODOS OS TESTES PASSARAM!" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "   ⚠️  ALGUNS TESTES FALHARAM" -ForegroundColor Yellow
 }
 Write-Host "═══════════════════════════════════════════════════════`n" -ForegroundColor Cyan
@@ -147,4 +151,4 @@ if ($failed -gt 0) {
 }
 
 # Exit code
-exit $(if($failed -eq 0) {0} else {1})
+exit $(if ($failed -eq 0) { 0 } else { 1 })
