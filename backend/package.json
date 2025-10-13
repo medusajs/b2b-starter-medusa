@@ -58,7 +58,8 @@
     "setup:publishable-key": "node scripts/setup-publishable-key.js",
     "setup:publishable-key:aws": "node scripts/setup-publishable-key.js --upload",
     "normalize:apis": "tsx scripts/normalize-apis.ts",
-    "validate:apis": "tsx scripts/validate-apis.ts"
+    "validate:apis": "tsx scripts/validate-apis.ts",
+    "validate:api-keys": "node scripts/validate-api-keys.js"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.10.3",

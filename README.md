@@ -298,6 +298,15 @@ cd ./backend
 # Clone .env.template
 cp .env.template .env
 
+# ⚠️ IMPORTANTE: Configure as chaves de API para RAG (Hélio Copiloto)
+# Edite o arquivo .env e adicione:
+#   OPENAI_API_KEY=sk-your-key-here
+#   QDRANT_API_KEY=your-qdrant-key-here
+#   QDRANT_URL=http://localhost:6333 (ou sua URL do Qdrant Cloud)
+# 
+# 📚 Consulte: backend/API_KEYS_GUIDE.md para instruções detalhadas
+# ✅ Valide com: yarn validate:api-keys
+
 # Install dependencies
 yarn install
 
