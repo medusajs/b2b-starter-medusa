@@ -1,0 +1,23 @@
+{
+    "name": "yello-solar-hub-server",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "dev": "medusa develop",
+        "build": "medusa build",
+        "start": "medusa start -H 0.0.0.0 -p ${PORT:-9000}",
+        "migrate": "medusa db:migrate",
+        "seed": "medusa exec ./src/scripts/seed.ts"
+    },
+    "dependencies": {
+        "@medusajs/framework": "^2.10.3"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.0",
+        "@types/node": "^20.11.0"
+    }
+}
