@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { z } from "zod";
 import { isValidCNPJ } from "@compat/validators/b2b";
 import { createCompany, listCompanies } from "@compat/services/company";

@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { z } from "zod";
 import { requirePublishableKey, requireJWT } from "@compat/http/publishable";
 import { listApprovals } from "@compat/services/approval";
