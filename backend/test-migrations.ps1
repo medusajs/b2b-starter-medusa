@@ -45,7 +45,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "   [OK] entrypoint.sh encontrado e executavel" -ForegroundColor Green
 
 # Teste 2: Executar entrypoint com SKIP_MIGRATIONS (teste rápido sem DB)
-Write-Host "`n4. Testando entrypoint.sh (SKIP_MIGRATIONS=true)..." -ForegroundColor Yellow
+Write-Host "`n4. Testando entrypoint.sh com flag SKIP_MIGRATIONS..." -ForegroundColor Yellow
 $entrypointTest = docker run --rm `
     -e SKIP_MIGRATIONS="true" `
     ysh-backend:quick-test `
@@ -70,10 +70,10 @@ $dbTest = docker run --rm `
     echo "Should not reach here" 2>&1
 
 if ($dbTest -match "Database connection timeout") {
-    Write-Host "   [OK] Script tenta conectar e falha corretamente (comportamento esperado)" -ForegroundColor Green
+    Write-Host "   [OK] Script tenta conectar e falha corretamente - esperado" -ForegroundColor Green
 }
 elseif ($dbTest -match "Waiting for database") {
-    Write-Host "   [OK] Script aguarda database (comportamento esperado)" -ForegroundColor Green
+    Write-Host "   [OK] Script aguarda database - esperado" -ForegroundColor Green
 }
 else {
     Write-Host "   [AVISO] Output inesperado:" -ForegroundColor Yellow
