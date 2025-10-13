@@ -1,7 +1,7 @@
 ﻿"use server";
 import "server-only";
 import { z } from "zod";
-import type { Product, ProductCategory, ProductImage, ProductVariant } from "@/lib/products/types";
+import type { Product, ProductCategory, ProductImage, ProductVariant } from "./types";
 
 // Zod schemas for validation
 export const ProductFilterSchema = z.object({
@@ -41,30 +41,28 @@ export const PRODUCT_CATEGORIES = {
     STRUCTURES: 'structures'
 } as const;
 
-export type ProductCategory = typeof PRODUCT_CATEGORIES[keyof typeof PRODUCT_CATEGORIES];
-
-// Validate product category
-export const isValidCategory = (category: string): category is ProductCategory => {
-    return Object.values(PRODUCT_CATEGORIES).includes(category as ProductCategory);
+export type ProductCategoryKey = typeof PRODUCT_CATEGORIES[keyof typeof PRODUCT_CATEGORIES];// Validate product category
+export const isValidCategory = (category: string): category is ProductCategoryKey => {
+  return Object.values(PRODUCT_CATEGORIES).includes(category as ProductCategoryKey);
 };
 
 // Get category display name
-export const getCategoryDisplayName = (category: ProductCategory): string => {
-    const displayNames: Record<ProductCategory, string> = {
-        accessories: 'Acessórios',
-        batteries: 'Baterias',
-        cables: 'Cabos',
-        controllers: 'Controladores',
-        ev_chargers: 'Carregadores EV',
-        inverters: 'Inversores',
-        kits: 'Kits',
-        others: 'Outros',
-        panels: 'Painéis',
-        posts: 'Postes',
-        stringboxes: 'String Boxes',
-        structures: 'Estruturas'
-    };
-    return displayNames[category] || category;
+export const getCategoryDisplayName = (category: ProductCategoryKey): string => {
+  const displayNames: Record<ProductCategoryKey, string> = {
+    accessories: 'Acessórios',
+    batteries: 'Baterias',
+    cables: 'Cabos',
+    controllers: 'Controladores',
+    ev_chargers: 'Carregadores EV',
+    inverters: 'Inversores',
+    kits: 'Kits',
+    others: 'Outros',
+    panels: 'Painéis',
+    posts: 'Postes',
+    stringboxes: 'String Boxes',
+    structures: 'Estruturas'
+  };
+  return displayNames[category] || category;
 };
 
 // Parse price string to number
@@ -107,12 +105,12 @@ export const extractManufacturer = (product: Record<string, unknown>): string | 
         return product.manufacturer;
     }
 
-    if (typeof product.manufacturer === 'object' && product.manufacturer?.name) {
-        return product.manufacturer.name;
+    if (typeof product.manufacturer === 'object' && product.manufacturer && 'name' in product.manufacturer) {
+        return String(product.manufacturer.name);
     }
 
     // Try to extract from name or model
-    const name = product.name || product.model || '';
+    const name = String(product.name || product.model || '');
     const commonManufacturers = [
         'DEYE', 'Growatt', 'SMA', 'Fronius', 'ABB', 'Huawei',
         'Canadian Solar', 'Jinko', 'Trina', 'JA Solar', 'BYD',
@@ -126,54 +124,58 @@ export const extractManufacturer = (product: Record<string, unknown>): string | 
     }
 
     return undefined;
-};
-
-// Product normalization utilities
-export function normalizeProduct(product: any): Product {
+};// Product normalization utilities
+export function normalizeProduct(product: Record<string, unknown>): Product {
     return {
-        id: product.id || product.product_id,
-        name: product.name || product.product_name,
-        description: product.description || "",
-        price: typeof product.price === "number" ? product.price : parseFloat(product.price) || 0,
-        originalPrice: product.original_price ? parseFloat(product.original_price) : undefined,
-        currency: product.currency || "BRL",
-        category: product.category || product.category_name,
-        manufacturer: product.manufacturer || product.brand,
-        sku: product.sku || product.product_sku,
-        stock: typeof product.stock === "number" ? product.stock : parseInt(product.stock) || 0,
-        images: normalizeProductImages(product.images || []),
-        variants: normalizeProductVariants(product.variants || []),
-        specifications: product.specifications || {},
-        tags: Array.isArray(product.tags) ? product.tags : [],
+        id: String(product.id || product.product_id || ''),
+        name: String(product.name || product.product_name || ''),
+        description: String(product.description || ""),
+        price: typeof product.price === "number" ? product.price : parseFloat(String(product.price)) || 0,
+        originalPrice: product.original_price ? parseFloat(String(product.original_price)) : undefined,
+        currency: String(product.currency || "BRL"),
+        category: String(product.category || product.category_name || ''),
+        manufacturer: String(product.manufacturer || product.brand || ''),
+        sku: String(product.sku || product.product_sku || ''),
+        stock: typeof product.stock === "number" ? product.stock : parseInt(String(product.stock)) || 0,
+        images: normalizeProductImages(Array.isArray(product.images) ? product.images : []),
+        variants: normalizeProductVariants(Array.isArray(product.variants) ? product.variants : []),
+        specifications: (typeof product.specifications === 'object' && product.specifications) ? product.specifications as Record<string, unknown> : {},
+        tags: Array.isArray(product.tags) ? product.tags.map(String) : [],
         isActive: product.is_active !== false,
-        createdAt: product.created_at ? new Date(product.created_at) : new Date(),
-        updatedAt: product.updated_at ? new Date(product.updated_at) : new Date(),
+        createdAt: product.created_at ? new Date(String(product.created_at)) : new Date(),
+        updatedAt: product.updated_at ? new Date(String(product.updated_at)) : new Date(),
     };
 }
 
-export function normalizeProductImages(images: any[]): ProductImage[] {
-    return images.map(img => ({
-        id: img.id || img.image_id,
-        url: img.url || img.image_url,
-        alt: img.alt || img.alt_text || "",
-        width: img.width || 800,
-        height: img.height || 600,
-        size: img.size || "medium",
-        isPrimary: img.is_primary || false,
-        order: img.order || 0,
-    }));
+export function normalizeProductImages(images: unknown[]): ProductImage[] {
+    return images.map(img => {
+        const image = img as Record<string, unknown>;
+        return {
+            id: String(image.id || image.image_id || ''),
+            url: String(image.url || image.image_url || ''),
+            alt: String(image.alt || image.alt_text || ""),
+            width: typeof image.width === "number" ? image.width : 800,
+            height: typeof image.height === "number" ? image.height : 600,
+            size: String(image.size || "medium"),
+            isPrimary: Boolean(image.is_primary || false),
+            order: typeof image.order === "number" ? image.order : 0,
+        };
+    });
 }
 
-export function normalizeProductVariants(variants: any[]): ProductVariant[] {
-    return variants.map(variant => ({
-        id: variant.id || variant.variant_id,
-        name: variant.name || variant.variant_name,
-        sku: variant.sku || variant.variant_sku,
-        price: typeof variant.price === "number" ? variant.price : parseFloat(variant.price) || 0,
-        stock: typeof variant.stock === "number" ? variant.stock : parseInt(variant.stock) || 0,
-        attributes: variant.attributes || {},
-        isActive: variant.is_active !== false,
-    }));
+export function normalizeProductVariants(variants: unknown[]): ProductVariant[] {
+    return variants.map(variant => {
+        const v = variant as Record<string, unknown>;
+        return {
+            id: String(v.id || v.variant_id || ''),
+            name: String(v.name || v.variant_name || ''),
+            sku: String(v.sku || v.variant_sku || ''),
+            price: typeof v.price === "number" ? v.price : parseFloat(String(v.price)) || 0,
+            stock: typeof v.stock === "number" ? v.stock : parseInt(String(v.stock)) || 0,
+            attributes: (typeof v.attributes === 'object' && v.attributes) ? v.attributes as Record<string, unknown> : {},
+            isActive: v.is_active !== false,
+        };
+    });
 }
 
 // Filtering utilities
@@ -303,7 +305,7 @@ export function getImageBySize(product: Product, size: string): ProductImage | u
 }
 
 // Validation utilities
-export function validateProductData(data: any): { success: boolean; errors?: string[] } {
+export function validateProductData(data: Record<string, unknown>): { success: boolean; errors?: string[] } {
     try {
         // Basic validation
         if (!data.name || typeof data.name !== "string") {
@@ -316,7 +318,7 @@ export function validateProductData(data: any): { success: boolean; errors?: str
             return { success: false, errors: ["Product category is required and must be a string"] };
         }
         return { success: true };
-    } catch (error) {
+    } catch {
         return { success: false, errors: ["Invalid product data format"] };
     }
 }
