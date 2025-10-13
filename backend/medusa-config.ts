@@ -2,8 +2,8 @@
 const YSH_PRICING_MODULE = "ysh-pricing";
 const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
 const COMPANY_MODULE = "company";
-const QUOTE_MODULE = "quote";
-const APPROVAL_MODULE = "approval";
+// const QUOTE_MODULE = "quote";
+// const APPROVAL_MODULE = "approval";
 
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
