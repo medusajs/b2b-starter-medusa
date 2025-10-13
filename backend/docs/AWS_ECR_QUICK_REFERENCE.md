@@ -292,10 +292,10 @@ docker system prune -a -f
 
 ## 🔗 Links Úteis
 
-- **AWS Console ECR:** https://console.aws.amazon.com/ecr/repositories?region=us-east-1
-- **SSO Portal:** https://d-9066293405.awsapps.com/start
-- **ECR Pricing:** https://aws.amazon.com/ecr/pricing/
-- **Docker Hub:** https://hub.docker.com/
+- **AWS Console ECR:** <https://console.aws.amazon.com/ecr/repositories?region=us-east-1>
+- **SSO Portal:** <https://d-9066293405.awsapps.com/start>
+- **ECR Pricing:** <https://aws.amazon.com/ecr/pricing/>
+- **Docker Hub:** <https://hub.docker.com/>
 
 ---
 
@@ -318,6 +318,7 @@ docker system prune -a -f
 **Role:** AdministratorAccess
 
 **Em caso de problemas:**
+
 1. Verificar autenticação SSO
 2. Verificar credenciais ECR
 3. Consultar CloudWatch Logs
