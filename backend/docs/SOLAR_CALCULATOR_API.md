@@ -5,6 +5,7 @@
 API backend real para **cálculo de sistemas solares fotovoltaicos**, integrando dados de irradiação solar, tarifas elétricas e dimensionamento técnico.
 
 **Endpoints**:
+
 - `POST /store/solar/calculate` - Calcular dimensionamento completo
 - `GET /store/solar/viability?location={city}` - Verificar viabilidade técnica
 - `GET /store/aneel/tariffs?concessionaire={name}` - Obter tarifas de energia
@@ -299,6 +300,7 @@ recommended_capacity_kwp = daily_consumption_kwh / generation_factor
 ```
 
 **Example**: 450 kWh/mês, 5.2 HSP  
+
 ```
 450 / 30 = 15 kWh/dia
 5.2 * 0.8 = 4.16
@@ -313,6 +315,7 @@ panel_quantity = ceil((recommended_capacity_kwp * 1000) / panel_wattage)
 ```
 
 **Example**: 3.6 kWp  
+
 ```
 (3.6 * 1000) / 550 = 6.5 → 7 painéis
 ```
@@ -324,6 +327,7 @@ inverter_capacity_kw = recommended_capacity_kwp * 0.85  // 85% da potência dos 
 ```
 
 **Example**: 3.6 kWp  
+
 ```
 3.6 * 0.85 = 3.06 kW
 ```
@@ -338,10 +342,12 @@ estimated_cost = recommended_capacity_kwp * base_cost_per_kwp * roof_multiplier 
 ```
 
 **Multipliers**:
+
 - **Roof**: Cerâmica (1.0), Metálico (0.95), Laje (1.1), Fibrocimento (1.05)
 - **Building**: Residencial (1.0), Comercial (1.15), Industrial (1.25), Rural (1.2)
 
 **Example**: 3.6 kWp, Cerâmica, Residencial  
+
 ```
 3.6 * 5000 * 1.0 * 1.0 = R$ 18.000
 ```
@@ -353,6 +359,7 @@ annual_generation_kwh = recommended_capacity_kwp * annual_avg_kwh_m2_day * 365 *
 ```
 
 **Example**: 3.6 kWp, 5.2 kWh/m²/dia  
+
 ```
 3.6 * 5.2 * 365 * 0.8 = 5475 kWh/ano
 ```
@@ -365,6 +372,7 @@ payback_years = estimated_cost / (monthly_savings * 12)
 ```
 
 **Example**: 5475 kWh/ano, R$ 0.91/kWh, R$ 18.000 custo  
+
 ```
 (5475 / 12) * 0.91 = R$ 415/mês
 18000 / (415 * 12) = 3.6 anos
@@ -379,6 +387,7 @@ co2_offset_tons_year = (annual_generation_kwh * 0.5) / 1000
 **0.5 kg CO2/kWh**: Fator de emissão da matriz elétrica brasileira
 
 **Example**: 5475 kWh/ano  
+
 ```
 (5475 * 0.5) / 1000 = 2.74 toneladas CO2/ano
 ```
@@ -455,6 +464,7 @@ await getEnergyTariff(concessionaire);   // GET /store/aneel/tariffs
 ```
 
 **UI Components** em `storefront/src/modules/solar/components/`:
+
 - `solar-calculator.tsx`: Formulário completo
 - `calculator-results.tsx`: Exibição de resultados
 - `financing-options.tsx`: Simulador de financiamento
