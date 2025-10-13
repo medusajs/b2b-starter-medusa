@@ -1,91 +1,155 @@
-import fs from 'fs'
-import path from 'path'
-import os from 'os'
+import YshCatalogModuleService from '../service';
+import * as fs from 'fs';
 
-// Import the service under test
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import YshCatalogModuleService from '../../ysh-catalog/service'
+// Mock fixtures data
+const mockKitsData = [
+  {
+    id: 'KIT-001',
+    name: 'Kit Solar 5kW Residencial',
+    manufacturer: 'ACME Solar',
+    category: 'kits',
+    price: 'R$ 15.500,00',
+    technical_specs: {
+      power_w: 5000,
+      panel_count: 10,
+      inverter_power_w: 5000
+    }
+  }
+];
 
-// Load fixtures
-const fixturesDir = path.join(__dirname, 'fixtures')
-const sampleCatalog = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'sample-catalog.json'), 'utf-8'))
-const skuRegistry = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'sku-registry.json'), 'utf-8'))
+const mockInvertersData = [
+  {
+    id: 'INV-001',
+    name: 'Inversor Grid-Tie 5kW',
+    manufacturer: 'PowerTech',
+    category: 'inverters',
+    price: 'R$ 4.200,00'
+  }
+];
 
-function writeJson(p: string, data: any) {
-  fs.mkdirSync(path.dirname(p), { recursive: true })
-  fs.writeFileSync(p, JSON.stringify(data, null, 2), 'utf-8')
-}
+const mockSkuRegistry = {
+  items: [
+    { category: 'kits', id: 'KIT-001', sku: 'YSH-KIT-RES-5KW' }
+  ]
+};
 
-describe('YshCatalogModuleService SKU enrichment', () => {
-  const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ysh-catalog-test-'))
-  const catalogPath = tmpRoot
-  const unified = path.join(catalogPath, 'unified_schemas')
+// Mock fs module
+jest.mock('fs');
+const mockedFs = fs as jest.Mocked<typeof fs>;
 
-  afterAll(() => {
-    try { fs.rmSync(tmpRoot, { recursive: true, force: true }) } catch { }
-  })
+describe('YSH Catalog Module - SKU Normalization Unit Tests', () => {
+  let service: YshCatalogModuleService;
+  
+  beforeEach(() => {
+    jest.clearAllMocks();
+    
+    // Mock fs.existsSync and fs.readFileSync
+    mockedFs.existsSync.mockImplementation((filePath: any) => {
+      const pathStr = filePath.toString();
+      return pathStr.includes('kits_unified.json') || 
+             pathStr.includes('inverters_unified.json') ||
+             pathStr.includes('sku_registry.json');
+    });
+    
+    mockedFs.readFileSync.mockImplementation((filePath: any) => {
+      const pathStr = filePath.toString();
+      if (pathStr.includes('kits_unified.json')) {
+        return JSON.stringify(mockKitsData);
+      }
+      if (pathStr.includes('inverters_unified.json')) {
+        return JSON.stringify(mockInvertersData);
+      }
+      if (pathStr.includes('sku_registry.json')) {
+        return JSON.stringify(mockSkuRegistry);
+      }
+      throw new Error('File not found');
+    });
+    
+    service = new YshCatalogModuleService(null, {
+      catalogPath: '/mock/catalog',
+      unifiedSchemasPath: '/mock/unified'
+    });
+  });
 
-  test('applies canonical SKU from registry when present', async () => {
-    // Arrange unified + registry with deterministic fixtures
-    writeJson(path.join(unified, 'kits_unified.json'), sampleCatalog.kits)
-    writeJson(path.join(unified, 'sku_registry.json'), skuRegistry)
+  it('should apply canonical SKU from registry when present', async () => {
+    const result = await service.listProductsByCategory('kits', { limit: 10 });
+    
+    expect(result.products.length).toBeGreaterThan(0);
+    const product = result.products[0];
+    expect(product.sku).toBe('YSH-KIT-RES-5KW');
+    expect(product.category).toBe('kits');
+    expect(product.name).toBe('Kit Solar 5kW Residencial');
+  });
 
-    // Pass catalogPath as option to constructor
-    const svc = new YshCatalogModuleService(null, {
-      catalogPath,
-      unifiedSchemasPath: unified
-    })
-    const res = await svc.listProductsByCategory('kits', { limit: 10 })
-    expect(res.products.length).toBeGreaterThan(0)
-    const p = res.products[0]
-    expect(p.sku).toBe('YSH-KIT-RES-5KW')
-    expect(p.category).toBe('kits')
-    expect(p.name).toBe('Kit Solar 5kW Residencial')
-  })
+  it('should fall back to ID uppercased when no registry entry', async () => {
+    // Mock empty registry for this test
+    mockedFs.readFileSync.mockImplementation((filePath: any) => {
+      const pathStr = filePath.toString();
+      if (pathStr.includes('inverters_unified.json')) {
+        return JSON.stringify(mockInvertersData);
+      }
+      if (pathStr.includes('sku_registry.json')) {
+        return JSON.stringify({ items: [] }); // Empty registry
+      }
+      throw new Error('File not found');
+    });
+    
+    const result = await service.listProductsByCategory('inverters', { limit: 10 });
+    
+    expect(result.products.length).toBeGreaterThan(0);
+    const product = result.products[0];
+    expect(product.sku).toBe('INV-001');
+    expect(product.name).toContain('Inversor');
+  });
 
-  test('falls back to ID uppercased when no registry', async () => {
-    // Arrange unified without registry using fixtures
-    writeJson(path.join(unified, 'inverters_unified.json'), sampleCatalog.inverters)
-
-    // Ensure no registry for inverters
-    writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
-
-    const svc = new YshCatalogModuleService(null, {
-      catalogPath,
-      unifiedSchemasPath: unified
-    })
-    const res = await svc.listProductsByCategory('inverters', { limit: 10 })
-    expect(res.products.length).toBeGreaterThan(0)
-    const p = res.products[0]
-    expect(p.sku).toBe('INV-001')
-    expect(p.name).toContain('Inversor')
-  })
-
-  test('generates deterministic SKU when id/sku missing', async () => {
-    // Use item without id from fixtures (manually create)
+  it('should generate deterministic SKU when id/sku missing', async () => {
     const panelWithoutId = {
       name: 'Painel Solar 600W München',
       manufacturer: 'München Solar',
       technical_specs: { power_w: 600 },
       category: 'panels',
       price: 'R$ 820,00'
-    }
-
-    writeJson(path.join(unified, 'panels_unified.json'), [panelWithoutId])
-    // Empty registry to force fallback
-    writeJson(path.join(unified, 'sku_registry.json'), { items: [] })
-
-    const svc = new YshCatalogModuleService(null, {
-      catalogPath,
-      unifiedSchemasPath: unified
-    })
-    const res1 = await svc.listProductsByCategory('panels', { limit: 10 })
-    const res2 = await svc.listProductsByCategory('panels', { limit: 10 })
-    expect(res1.products.length).toBeGreaterThan(0)
-    expect(res2.products.length).toBeGreaterThan(0)
-    expect(res1.products[0].sku).toEqual(res2.products[0].sku)
-    expect(res1.products[0].sku).toMatch(/^[A-Z0-9-]{6,64}$/)
-  })
-})
-
+    };
+    
+    // Mock panel data without ID and empty registry
+    mockedFs.existsSync.mockImplementation((filePath: any) => {
+      const pathStr = filePath.toString();
+      return pathStr.includes('panels_unified.json') || pathStr.includes('sku_registry.json');
+    });
+    
+    mockedFs.readFileSync.mockImplementation((filePath: any) => {
+      const pathStr = filePath.toString();
+      if (pathStr.includes('panels_unified.json')) {
+        return JSON.stringify([panelWithoutId]);
+      }
+      if (pathStr.includes('sku_registry.json')) {
+        return JSON.stringify({ items: [] });
+      }
+      throw new Error('File not found');
+    });
+    
+    const result1 = await service.listProductsByCategory('panels', { limit: 10 });
+    const result2 = await service.listProductsByCategory('panels', { limit: 10 });
+    
+    expect(result1.products.length).toBeGreaterThan(0);
+    expect(result2.products.length).toBeGreaterThan(0);
+    expect(result1.products[0].sku).toEqual(result2.products[0].sku);
+    expect(result1.products[0].sku).toMatch(/^[A-Z0-9-]{6,64}$/);
+  });
+  
+  it('should handle price parsing correctly', async () => {
+    const result = await service.listProductsByCategory('kits', { limit: 10 });
+    
+    expect(result.products.length).toBeGreaterThan(0);
+    const product = result.products[0];
+    expect(product.price_brl).toBe(15500); // R$ 15.500,00 -> 15500
+  });
+  
+  it('should return consistent results for identical inputs', async () => {
+    const result1 = await service.listProductsByCategory('kits', { limit: 10 });
+    const result2 = await service.listProductsByCategory('kits', { limit: 10 });
+    
+    expect(result1).toEqual(result2);
+    expect(result1.products[0].sku).toBe(result2.products[0].sku);
+  });
+});

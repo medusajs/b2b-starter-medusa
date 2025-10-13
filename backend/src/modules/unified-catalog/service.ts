@@ -20,14 +20,14 @@ class UnifiedCatalogModuleService extends MedusaService({
         config: { relations?: string[]; skip?: number; take?: number } = {}
     ) {
         const where: any = {};
-        
+
         if (filters.tier) where.tier = filters.tier;
         if (filters.country) where.country = filters.country;
         if (filters.is_active !== undefined) where.is_active = filters.is_active;
 
         return await this.listManufacturers_(where, config);
     }
-    
+
     /**
      * Lista e conta manufacturers
      */
@@ -36,7 +36,7 @@ class UnifiedCatalogModuleService extends MedusaService({
         config: { skip?: number; take?: number } = {}
     ) {
         const where: any = { is_active: true };
-        
+
         if (filters.tier) where.tier = filters.tier;
         if (filters.country) where.country = filters.country;
 
@@ -44,175 +44,63 @@ class UnifiedCatalogModuleService extends MedusaService({
     }
 
     /**
-     * Busca SKUs com filtros
+     * Busca SKUs com filtros e relações
      */
-    async listSKUs(options?: { where?: any }): Promise<SKU[]> {
-        const client = await this.pool.connect();
-        try {
-            const conditions: string[] = [];
-            const params: any[] = [];
-            let paramIndex = 1;
+    async listSKUs(
+        filters: {
+            category?: string;
+            manufacturer_id?: string;
+            sku_code?: string | string[];
+            is_active?: boolean;
+        } = {},
+        config: { relations?: string[]; skip?: number; take?: number } = {}
+    ) {
+        const where: any = {};
 
-            if (options?.where) {
-                const where = options.where;
-
-                if (where.category) {
-                    conditions.push(`s.category = $${paramIndex++}`);
-                    params.push(where.category);
-                }
-
-                if (where.manufacturer_id) {
-                    conditions.push(`s.manufacturer_id = $${paramIndex++}`);
-                    params.push(where.manufacturer_id);
-                }
-
-                if (where.sku_code?.$in) {
-                    conditions.push(`s.sku_code = ANY($${paramIndex++})`);
-                    params.push(where.sku_code.$in);
-                }
-            }
-
-            const whereClause = conditions.length > 0
-                ? 'WHERE ' + conditions.join(' AND ')
-                : '';
-
-            const query = `
-                SELECT 
-                    s.*, 
-                    m.id as "manufacturer.id",
-                    m.name as "manufacturer.name",
-                    m.slug as "manufacturer.slug",
-                    m.tier as "manufacturer.tier"
-                FROM sku s
-                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
-                ${whereClause}
-                ORDER BY s.sku_code ASC
-            `;
-
-            const result = await client.query(query, params);
-
-            return result.rows.map((row: any) => ({
-                id: row.id,
-                sku_code: row.sku_code,
-                manufacturer_id: row.manufacturer_id,
-                category: row.category,
-                model_number: row.model_number,
-                description: row.description,
-                technical_specs: row.technical_specs,
-                lowest_price: row.lowest_price,
-                highest_price: row.highest_price,
-                avg_price: row.avg_price,
-                offers_count: row.offers_count,
-                created_at: row.created_at,
-                updated_at: row.updated_at,
-                manufacturer: row['manufacturer.id'] ? {
-                    id: row['manufacturer.id'],
-                    name: row['manufacturer.name'],
-                    slug: row['manufacturer.slug'],
-                    tier: row['manufacturer.tier'],
-                    created_at: undefined as any,
-                    updated_at: undefined as any,
-                } : undefined,
-            }));
-        } finally {
-            client.release();
+        if (filters.category) where.category = filters.category;
+        if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
+        if (filters.sku_code) {
+            where.sku_code = Array.isArray(filters.sku_code)
+                ? { $in: filters.sku_code }
+                : filters.sku_code;
         }
+        if (filters.is_active !== undefined) where.is_active = filters.is_active;
+
+        // Por padrão incluir manufacturer
+        const relations = config.relations || ["manufacturer"];
+
+        return await this.listSKUs_(where, { ...config, relations });
     }
 
     /**
      * Lista SKUs com contagem (formato Medusa padrão)
      */
-    async listAndCountSKUs(options?: {
-        where?: any;
-        skip?: number;
-        take?: number;
-    }): Promise<[SKU[], number]> {
-        const client = await this.pool.connect();
-        try {
-            const conditions: string[] = [];
-            const params: any[] = [];
-            let paramIndex = 1;
-
-            if (options?.where) {
-                const where = options.where;
-
-                if (where.category) {
-                    conditions.push(`s.category = $${paramIndex++}`);
-                    params.push(where.category);
-                }
-
-                if (where.manufacturer_id) {
-                    conditions.push(`s.manufacturer_id = $${paramIndex++}`);
-                    params.push(where.manufacturer_id);
-                }
-
-                if (where.sku_code?.$in) {
-                    conditions.push(`s.sku_code = ANY($${paramIndex++})`);
-                    params.push(where.sku_code.$in);
-                }
-            }
-
-            const whereClause = conditions.length > 0
-                ? 'WHERE ' + conditions.join(' AND ')
-                : '';
-
-            // Count query
-            const countQuery = `
-                SELECT COUNT(*) as total
-                FROM sku s
-                ${whereClause}
-            `;
-            const countResult = await client.query(countQuery, params);
-            const total = parseInt(countResult.rows[0].total);
-
-            // Data query with pagination
-            const limit = options?.take || 20;
-            const offset = options?.skip || 0;
-
-            const dataQuery = `
-                SELECT 
-                    s.*, 
-                    m.id as "manufacturer.id",
-                    m.name as "manufacturer.name",
-                    m.slug as "manufacturer.slug",
-                    m.tier as "manufacturer.tier"
-                FROM sku s
-                LEFT JOIN manufacturer m ON s.manufacturer_id = m.id
-                ${whereClause}
-                ORDER BY s.sku_code ASC
-                LIMIT $${paramIndex++} OFFSET $${paramIndex++}
-            `;
-
-            const dataResult = await client.query(dataQuery, [...params, limit, offset]);
-
-            const skus = dataResult.rows.map((row: any) => ({
-                id: row.id,
-                sku_code: row.sku_code,
-                manufacturer_id: row.manufacturer_id,
-                category: row.category,
-                model_number: row.model_number,
-                description: row.description,
-                technical_specs: row.technical_specs,
-                lowest_price: row.lowest_price,
-                highest_price: row.highest_price,
-                avg_price: row.avg_price,
-                offers_count: row.offers_count,
-                created_at: row.created_at,
-                updated_at: row.updated_at,
-                manufacturer: row['manufacturer.id'] ? {
-                    id: row['manufacturer.id'],
-                    name: row['manufacturer.name'],
-                    slug: row['manufacturer.slug'],
-                    tier: row['manufacturer.tier'],
-                    created_at: undefined as any,
-                    updated_at: undefined as any,
-                } : undefined,
-            }));
-
-            return [skus, total];
-        } finally {
-            client.release();
+    async listAndCountSKUs(
+        filters: {
+            category?: string;
+            manufacturer_id?: string;
+            min_price?: number;
+            max_price?: number;
+            is_active?: boolean;
+        } = {},
+        config: { skip?: number; take?: number; relations?: string[] } = {}
+    ) {
+        const where: any = { is_active: true };
+        
+        if (filters.category) where.category = filters.category;
+        if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
+        if (filters.is_active !== undefined) where.is_active = filters.is_active;
+        
+        // Price range filters
+        if (filters.min_price !== undefined || filters.max_price !== undefined) {
+            where.lowest_price = {};
+            if (filters.min_price !== undefined) where.lowest_price.$gte = filters.min_price;
+            if (filters.max_price !== undefined) where.lowest_price.$lte = filters.max_price;
         }
+
+        const relations = config.relations || ["manufacturer"];
+
+        return await this.listAndCountSKUs_(where, { ...config, relations });
     }
 
     /**
