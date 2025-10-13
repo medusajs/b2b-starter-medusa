@@ -12,7 +12,7 @@
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
-import { SkeletonProductPreview } from "@/modules/skeletons"
+import { SkeletonProductPreview } from "@/modules/common/skeletons"
 import type { CategoryInfo } from "@/lib/data/catalog"
 
 const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))

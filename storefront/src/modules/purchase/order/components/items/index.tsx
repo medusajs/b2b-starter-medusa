@@ -3,7 +3,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Table } from "@medusajs/ui"
 
 import Item from "@/modules/order/components/item"
-import SkeletonLineItem from "@/modules/skeletons/components/skeleton-line-item"
+import SkeletonLineItem from "@/modules/common/skeletons/components/skeleton-line-item"
 
 type ItemsProps = {
   items: HttpTypes.StoreOrderLineItem[] | null
