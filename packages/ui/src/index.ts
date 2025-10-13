@@ -8,7 +8,7 @@ export { YelloSolarAlert, SuccessAlert, ErrorAlert, InfoAlert, WarningAlert } fr
 // Icons and branding
 export { YshGradientIcon } from "./components/YshGradientIcon"
 export { YshLogoMark } from "./components/YshLogoMark"
-export { GradientDefs } from "./components/GradientDefs"
+export { GradientDefs } from "./components/GradientDefs.tsx"
 export { DegradedBanner } from "./components/degraded-banner"
 
 // Utility functions

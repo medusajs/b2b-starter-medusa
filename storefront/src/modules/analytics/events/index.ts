@@ -48,7 +48,7 @@ export type AnalyticsEventType = ProductViewEvent | CartEvent | SearchEvent
 export function trackEvent(event: AnalyticsEventType): void {
     // PostHog integration
     if (typeof window !== "undefined" && (window as any).posthog) {
-        ;(window as any).posthog.capture(event.name, {
+        ; (window as any).posthog.capture(event.name, {
             ...event.properties,
             timestamp: event.timestamp || new Date(),
         })
