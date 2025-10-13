@@ -12,7 +12,7 @@ const enhancedProductsRateLimit = rateLimiter.middleware(RateLimiter.MODERATE);
  */
 export const storeProductsEnhancedMiddlewares: MiddlewareRoute[] = [
     {
-        matcher: "/store/products-enhanced/*",
+        matcher: "/store/products_enhanced/*",
         middlewares: [enhancedProductsRateLimit],
     },
 ];

@@ -168,12 +168,12 @@ export class StoreModulesHealthCheck {
         });
 
         // 10. Solar Calculations
-        this.modules.set('solar-calculations', {
+        this.modules.set('solar_calculations', {
             name: 'Solar Calculations',
             status: 'healthy',
             routes: [
-                'GET /store/solar-calculations',
-                'POST /store/solar-calculations'
+                'GET /store/solar_calculations',
+                'POST /store/solar_calculations'
             ],
             dependencies: ['Solar Calculator Service'],
             cached: true,
@@ -217,12 +217,12 @@ export class StoreModulesHealthCheck {
         });
 
         // 14. Credit Analyses (Financiamento)
-        this.modules.set('credit-analyses', {
+        this.modules.set('credit_analyses', {
             name: 'Credit Analyses',
             status: 'healthy',
             routes: [
-                'POST /store/credit-analyses',
-                'GET /store/credit-analyses/:id'
+                'POST /store/credit_analyses',
+                'GET /store/credit_analyses/:id'
             ],
             dependencies: ['Credit Analysis Module'],
             cached: false,
@@ -230,12 +230,12 @@ export class StoreModulesHealthCheck {
         });
 
         // 15. Financing Applications
-        this.modules.set('financing-applications', {
+        this.modules.set('financing_applications', {
             name: 'Financing Applications',
             status: 'healthy',
             routes: [
-                'POST /store/financing-applications',
-                'GET /store/financing-applications/:id'
+                'POST /store/financing_applications',
+                'GET /store/financing_applications/:id'
             ],
             dependencies: ['Financing Module'],
             cached: false,
@@ -422,7 +422,7 @@ export class StoreModulesHealthCheck {
             'internal-catalog',
             'products',
             'kits',
-            'solar-calculations',
+            'solar_calculations',
             'free-shipping'
         ];
 

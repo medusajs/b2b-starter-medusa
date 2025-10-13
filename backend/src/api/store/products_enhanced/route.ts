@@ -1,6 +1,6 @@
 /**
  * Enhanced Products API with Internal Images
- * GET /store/products-enhanced
+ * GET /store/products_enhanced
  * 
  * Combines database products with internal catalog images for optimal performance
  */

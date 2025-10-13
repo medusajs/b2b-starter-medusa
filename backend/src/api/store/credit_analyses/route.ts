@@ -1,4 +1,5 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { analyzeCreditWorkflow } from "../../../workflows/credit-analysis/analyze-credit"
 
 /**
@@ -35,7 +36,7 @@ export async function POST(
 
     try {
         // Execute workflow
-        const { result } = await analyzeCreditWorkflow(req.scope).run({
+        const { result } = await analyzeCreditWorkflow.run({
             input: {
                 customer_id,
                 quote_id,
@@ -43,7 +44,8 @@ export async function POST(
                 requested_amount,
                 requested_term_months,
                 financing_modality
-            }
+            },
+            container: req.scope
         })
 
         return res.status(201).json({
@@ -68,7 +70,7 @@ export async function GET(
     res: MedusaResponse
 ) {
     const { id } = req.params
-    const query = req.scope.resolve("query")
+    const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
 
     try {
         // Fetch analysis with offers using RemoteQuery

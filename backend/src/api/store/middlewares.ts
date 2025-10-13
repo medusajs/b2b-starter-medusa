@@ -9,7 +9,7 @@ import { storeSolarDetectionMiddlewares } from "./solar-detection/middlewares";
 import { storeThermalAnalysisMiddlewares } from "./thermal-analysis/middlewares";
 import { storePhotogrammetryMiddlewares } from "./photogrammetry/middlewares";
 import { storeInternalCatalogMiddlewares } from "./internal-catalog/middlewares";
-import { storeProductsEnhancedMiddlewares } from "./products-enhanced/middlewares";
+import { storeProductsEnhancedMiddlewares } from "./products_enhanced/middlewares";
 import { storeKitsMiddlewares } from "./kits/middlewares";
 import { storeProductsBySkuMiddlewares } from "./products/by-sku/middlewares";
 

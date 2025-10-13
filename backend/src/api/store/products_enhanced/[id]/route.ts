@@ -1,6 +1,6 @@
 /**
  * Enhanced Product Detail API with Internal Images
- * GET /store/products-enhanced/:id
+ * GET /store/products_enhanced/:id
  * 
  * Returns single product with optimized image handling
  */

@@ -1,4 +1,5 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { applyFinancingWorkflow } from "../../../workflows/financing/apply-financing"
 
 /**
@@ -35,7 +36,7 @@ export async function POST(
 
     try {
         // Execute workflow
-        const { result } = await applyFinancingWorkflow(req.scope).run({
+        const { result } = await applyFinancingWorkflow.run({
             input: {
                 customer_id,
                 quote_id,
@@ -43,11 +44,12 @@ export async function POST(
                 financing_offer_id: financing_offer_id || 'default',
                 modality,
                 down_payment_amount
-            }
+            },
+            container: req.scope
         })
 
         // Fetch full application with payment schedule
-        const query = req.scope.resolve("query")
+        const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
         const { data: [application] } = await query.graph({
             entity: "financing_application",
             fields: ["*"],
@@ -85,7 +87,7 @@ export async function GET(
     res: MedusaResponse
 ) {
     const { id } = req.params
-    const query = req.scope.resolve("query")
+    const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
 
     try {
         // Fetch application using RemoteQuery

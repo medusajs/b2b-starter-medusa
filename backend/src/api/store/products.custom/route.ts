@@ -1,4 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { MedusaError } from "@medusajs/framework/utils";
+import { ModuleRegistrationName } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 
 /**
@@ -9,7 +11,7 @@ export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const productService = req.scope.resolve("product");
+    const productService = req.scope.resolve(ModuleRegistrationName.PRODUCT);
 
     try {
         const {
@@ -50,18 +52,32 @@ export const GET = async (
             };
         }
 
-        // Fetch products
-        const products = await productService.listProducts(
-            filters,
-            {
-                skip: parseInt(offset as string),
-                take: parseInt(limit as string),
-                order: {
-                    [sort as string]: order === "asc" ? "ASC" : "DESC",
-                },
-                relations: ["variants", "variants.prices", "images"],
+        // Apply price filtering in the query if needed
+        let priceFilters = {};
+        if (min_price || max_price) {
+            // For price filtering, we'll need to join with variants
+            // This is a simplified approach - in production you'd want more sophisticated filtering
+        }
+
+        // Use query config for field selection and limits
+        const queryConfig = {
+            fields: req.queryConfig?.fields || [
+                "id", "title", "subtitle", "description", "handle", "status",
+                "metadata", "created_at", "updated_at"
+            ],
+            relations: ["variants.prices", "images"],
+            skip: parseInt(offset as string),
+            take: Math.min(parseInt(limit as string), 100), // Cap at 100 items
+            order: {
+                [sort as string]: order === "asc" ? "ASC" : "DESC",
             }
-        );
+        };
+
+        // Fetch products with single query
+        const [products, totalCount] = await Promise.all([
+            productService.listProducts(filters, queryConfig),
+            productService.listProducts(filters, { skip: 0, take: 1 })
+        ]);
 
         // Apply price filtering after fetch (since prices are in variants)
         let filteredProducts = products;
@@ -77,9 +93,6 @@ export const GET = async (
                 return true;
             });
         }
-
-        // Get total count
-        const totalCount = await productService.listProducts(filters, { skip: 0, take: 1 });
 
         // Format response with internal image enhancement
         const catalogService = getInternalCatalogService();

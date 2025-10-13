@@ -1,7 +1,7 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 
 /**
- * GET /store/solar-calculations/:id
+ * GET /store/solar_calculations/:id
  * Obtém detalhes de um cálculo específico
  */
 export const GET = async (
@@ -50,7 +50,7 @@ export const GET = async (
 }
 
 /**
- * DELETE /store/solar-calculations/:id
+ * DELETE /store/solar_calculations/:id
  * Deleta um cálculo
  */
 export const DELETE = async (
@@ -76,7 +76,7 @@ export const DELETE = async (
 }
 
 /**
- * PATCH /store/solar-calculations/:id
+ * PATCH /store/solar_calculations/:id
  * Atualiza um cálculo (nome, notas, favorito)
  */
 export const PATCH = async (

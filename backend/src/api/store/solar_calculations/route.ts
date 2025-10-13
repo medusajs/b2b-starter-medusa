@@ -5,11 +5,11 @@ const ALLOWED_TELHADOS = ['laje', 'ceramico', 'metalico', 'fibrocimento', 'solo'
 type TipoTelhado = typeof ALLOWED_TELHADOS[number]
 
 /**
- * GET /store/solar-calculations
+ * GET /store/solar_calculations
  * Lista todos os cálculos salvos do usuário logado
  */
 export const GET = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
     const customerId = (req as any).auth?.actor_id || (req as any).user?.id
@@ -58,11 +58,11 @@ export const GET = async (
 }
 
 /**
- * POST /store/solar-calculations
+ * POST /store/solar_calculations
  * Executa workflow de cálculo solar com recomendações de kits (PLG: kit exposure)
  */
 export const POST = async (
-  req: AuthenticatedMedusaRequest,
+    req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
     const customerId = (req as any).auth?.actor_id || (req as any).user?.id
