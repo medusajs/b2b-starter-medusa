@@ -141,3 +141,83 @@ export type ModuleUpdateApprovalStatus = {
   id: string;
   status: ApprovalStatusType;
 };
+
+/* Entity: Approval Rule */
+export type ModuleApprovalRule = {
+  id: string;
+  company_id: string;
+  rule_name: string;
+  description: string | null;
+  conditions: Record<string, any>;
+  required_approval_type: ApprovalType;
+  required_approvers_count: number;
+  priority: number;
+  is_active: boolean;
+  effective_from: string | null;
+  effective_until: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ModuleCreateApprovalRule = {
+  company_id: string;
+  rule_name: string;
+  description?: string;
+  conditions: Record<string, any>;
+  required_approval_type: ApprovalType;
+  required_approvers_count?: number;
+  priority?: number;
+  is_active?: boolean;
+  effective_from?: string;
+  effective_until?: string;
+};
+
+export type ModuleUpdateApprovalRule = {
+  id: string;
+  rule_name?: string;
+  description?: string;
+  conditions?: Record<string, any>;
+  required_approval_type?: ApprovalType;
+  required_approvers_count?: number;
+  priority?: number;
+  is_active?: boolean;
+  effective_from?: string;
+  effective_until?: string;
+};
+
+/* Entity: Approval History */
+export type ModuleApprovalHistory = {
+  id: string;
+  approval_id: string;
+  previous_status: ApprovalStatusType | null;
+  new_status: ApprovalStatusType;
+  actor_id: string;
+  actor_role: string;
+  actor_ip_hash: string | null;
+  actor_user_agent_hash: string | null;
+  reason: string | null;
+  comment: string | null;
+  cart_total_at_action: number | null;
+  action_timestamp: string;
+  is_escalation: boolean;
+  is_system_action: boolean;
+  metadata: Record<string, any> | null;
+  created_at: string;
+};
+
+export type ModuleCreateApprovalHistory = {
+  approval_id: string;
+  previous_status: ApprovalStatusType | null;
+  new_status: ApprovalStatusType;
+  actor_id: string;
+  actor_role: string;
+  actor_ip_hash?: string;
+  actor_user_agent_hash?: string;
+  reason?: string;
+  comment?: string;
+  cart_total_at_action?: number;
+  action_timestamp: string;
+  is_escalation?: boolean;
+  is_system_action?: boolean;
+  metadata?: Record<string, any>;
+};

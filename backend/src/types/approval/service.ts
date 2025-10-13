@@ -14,6 +14,11 @@ import {
   ModuleCreateApprovalStatus,
   ModuleApprovalStatus,
   ModuleUpdateApprovalStatus,
+  ModuleApprovalRule,
+  ModuleCreateApprovalRule,
+  ModuleUpdateApprovalRule,
+  ModuleApprovalHistory,
+  ModuleCreateApprovalHistory,
 } from "./module";
 
 export interface ModuleApprovalSettingsFilters
@@ -72,6 +77,36 @@ export interface IApprovalModuleService extends IModuleService {
 
   hasPendingApprovals(cartId: string): Promise<boolean>;
 
+  evaluateApprovalRules(
+    companyId: string,
+    cartContext: {
+      total: number;
+      itemCount: number;
+      dayOfWeek?: string;
+      timeOfDay?: string;
+    }
+  ): Promise<{ type: string; count: number }[]>;
+
+  recordApprovalHistory(data: {
+    approval_id: string;
+    previous_status: any | null;
+    new_status: any;
+    actor_id: string;
+    actor_role: string;
+    actor_ip?: string;
+    actor_user_agent?: string;
+    reason?: string;
+    comment?: string;
+    cart_total_at_action?: number;
+    is_escalation?: boolean;
+    is_system_action?: boolean;
+    metadata?: Record<string, any>;
+  }): Promise<void>;
+
+  checkEscalation(approvalId: string): Promise<boolean>;
+
+  generateIdempotencyKey(cartId: string, approvalType: string): string;
+
   /* Entity: Approval Settings */
   retrieveApprovalSettings(
     id: string,
@@ -128,4 +163,60 @@ export interface IApprovalModuleService extends IModuleService {
   ): Promise<ModuleApprovalStatus[]>;
 
   deleteApprovalStatuses(ids: string[], sharedContext?: Context): Promise<void>;
+
+  /* Entity: Approval Rule */
+  createApprovalRule(
+    data: ModuleCreateApprovalRule,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule>;
+
+  createApprovalRules(
+    data: ModuleCreateApprovalRule[],
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule[]>;
+
+  updateApprovalRule(
+    data: ModuleUpdateApprovalRule,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule>;
+
+  updateApprovalRules(
+    data: ModuleUpdateApprovalRule[],
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule[]>;
+
+  listApprovalRules(
+    filters?: any,
+    config?: FindConfig<ModuleApprovalRule>,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule[]>;
+
+  retrieveApprovalRule(
+    id: string,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalRule>;
+
+  deleteApprovalRules(ids: string[], sharedContext?: Context): Promise<void>;
+
+  /* Entity: Approval History */
+  createApprovalHistory(
+    data: ModuleCreateApprovalHistory,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalHistory>;
+
+  createApprovalHistories(
+    data: ModuleCreateApprovalHistory[],
+    sharedContext?: Context
+  ): Promise<ModuleApprovalHistory[]>;
+
+  listApprovalHistories(
+    filters?: any,
+    config?: FindConfig<ModuleApprovalHistory>,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalHistory[]>;
+
+  retrieveApprovalHistory(
+    id: string,
+    sharedContext?: Context
+  ): Promise<ModuleApprovalHistory>;
 }

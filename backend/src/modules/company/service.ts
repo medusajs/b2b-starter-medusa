@@ -10,6 +10,7 @@ import {
   BulkExportCompanyDTO,
 } from "./types/mutations";
 import { CompanyDTO, EmployeeDTO } from "./types/common";
+import { CompanyCSVService } from "./csv-service";
 
 class CompanyModuleService extends MedusaService({
   Company,
@@ -117,6 +118,24 @@ class CompanyModuleService extends MedusaService({
     }
     
     return results;
+  }
+
+  // CSV Operations
+  async importFromCSV(csvData: string): Promise<CompanyDTO[]> {
+    const companiesData = CompanyCSVService.importFromCSV(csvData);
+    return await this.bulkImportCompanies({ companies: companiesData });
+  }
+
+  async exportToCSV(filters?: CompanySearchDTO): Promise<string> {
+    const companies = filters 
+      ? await this.searchCompanies(filters)
+      : await this.list("Company");
+    
+    return CompanyCSVService.exportToCSV(companies);
+  }
+
+  getCSVTemplate(): string {
+    return CompanyCSVService.generateTemplate();
   }
 
   async bulkExportCompanies(data: BulkExportCompanyDTO): Promise<CompanyDTO[]> {
