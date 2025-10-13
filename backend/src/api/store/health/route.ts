@@ -1,6 +1,6 @@
 /**
- * 🏥 YSH Solar CV Health Check API
- * Comprehensive health monitoring for all services
+ * 🏥 YSH Store Health Check API
+ * Comprehensive health monitoring for all 22+ store modules and services
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
@@ -9,6 +9,7 @@ import { CacheManager } from "../../../utils/cache-manager";
 import { RateLimiter } from "../../../utils/rate-limiter";
 import { JobQueue } from "../../../utils/job-processor";
 import { APIVersionManager } from "../../../utils/api-versioning";
+import { getStoreHealthCheck } from "../../../utils/store-modules-health";
 
 // ============================================================================
 // Health Check Types
@@ -275,21 +276,66 @@ export async function GET(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        const health = await HealthCheckService.checkSystemHealth();
+        const moduleFilter = (req as any).query?.module;
+        const includeInfra = (req as any).query?.infrastructure !== "false";
+
+        // Get comprehensive store modules health
+        const storeHealthCheck = getStoreHealthCheck();
+        const storeHealth = await storeHealthCheck.runHealthCheck();
+
+        // Get infrastructure health
+        let infraHealth = null;
+        if (includeInfra) {
+            infraHealth = await HealthCheckService.checkSystemHealth();
+        }
+
+        // If filtering by specific module
+        if (moduleFilter) {
+            const module = storeHealth.modules.find(m => m.name.toLowerCase() === moduleFilter.toLowerCase());
+            if (!module) {
+                res.status(404).json({
+                    error: "Module not found",
+                    available_modules: storeHealth.modules.map(m => m.name)
+                });
+                return;
+            }
+
+            res.status(200).json({
+                timestamp: storeHealth.timestamp,
+                module: module,
+                infrastructure: infraHealth
+            });
+            return;
+        }
+
+        // Combine both health checks
+        const combinedHealth = {
+            timestamp: storeHealth.timestamp,
+            overall_status: storeHealth.overall_status === "healthy" &&
+                (!infraHealth || infraHealth.status === "healthy") ? "healthy" :
+                storeHealth.overall_status === "unavailable" ||
+                    (infraHealth && infraHealth.status === "unhealthy") ? "unavailable" : "degraded",
+            store: {
+                modules: storeHealth.modules,
+                summary: storeHealth.summary
+            },
+            infrastructure: infraHealth,
+            version: APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION)
+        };
 
         // Return appropriate HTTP status based on health
-        const statusCode = health.status === "healthy" ? 200 :
-            health.status === "degraded" ? 200 : 503; // Service Unavailable
+        const statusCode = combinedHealth.overall_status === "healthy" ? 200 :
+            combinedHealth.overall_status === "degraded" ? 200 : 503; // Service Unavailable
 
-        res.status(statusCode).json(health);
+        res.status(statusCode).json(combinedHealth);
     } catch (error) {
         console.error("[Health Check] Error:", error);
         res.status(503).json({
-            status: "unhealthy",
+            status: "unavailable",
             timestamp: new Date().toISOString(),
             uptime_seconds: Math.floor((Date.now() - (HealthCheckService as any).startTime) / 1000),
             version: APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION),
-            error: "Health check failed",
+            error: "Health check failed: " + error.message,
         });
     }
 }
@@ -303,31 +349,59 @@ export async function POST(
     res: MedusaResponse
 ): Promise<void> {
     try {
-        const health = await HealthCheckService.checkSystemHealth();
         const includeDetails = (req as any).query?.detailed === "true";
+        const preloadModules = (req as any).query?.preload === "true";
 
-        let response = health;
+        // Get comprehensive health
+        const storeHealthCheck = getStoreHealthCheck();
+        const storeHealth = await storeHealthCheck.runHealthCheck();
+        const infraHealth = await HealthCheckService.checkSystemHealth();
+
+        let response: any = {
+            timestamp: storeHealth.timestamp,
+            overall_status: storeHealth.overall_status === "healthy" &&
+                infraHealth.status === "healthy" ? "healthy" :
+                storeHealth.overall_status === "unavailable" ||
+                    infraHealth.status === "unhealthy" ? "unavailable" : "degraded",
+            store: {
+                modules: storeHealth.modules,
+                summary: storeHealth.summary
+            },
+            infrastructure: infraHealth,
+            version: APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION)
+        };
 
         if (includeDetails) {
             // Add detailed metrics for each service
             const detailedMetrics = SolarCVMetrics.getMetrics();
-            response = {
-                ...health,
+            response.detailed_metrics = {
+                solar_cv: detailedMetrics,
                 cache_stats: await (HealthCheckService as any).cacheManager.getStats(),
-                job_queue_stats: (HealthCheckService as any).jobQueue.getStats(),
-            } as any;
+                job_queue_stats: await (HealthCheckService as any).jobQueue.getStats(),
+            };
         }
 
-        const statusCode = health.status === "healthy" ? 200 :
-            health.status === "degraded" ? 200 : 503;
+        // Preload critical modules if requested
+        if (preloadModules) {
+            console.log("[Health Check] Preloading critical modules...");
+            const preloadResults = await storeHealthCheck.preloadCriticalModules();
+            response.preload = {
+                status: "completed",
+                results: preloadResults,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        const statusCode = response.overall_status === "healthy" ? 200 :
+            response.overall_status === "degraded" ? 200 : 503;
 
         res.status(statusCode).json(response);
     } catch (error) {
         console.error("[Detailed Health Check] Error:", error);
         res.status(503).json({
-            status: "unhealthy",
+            status: "unavailable",
             timestamp: new Date().toISOString(),
-            error: "Detailed health check failed",
+            error: "Detailed health check failed: " + error.message,
         });
     }
 }
