@@ -14,7 +14,7 @@ export const GET = async (
     req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
+    const customerId = req.auth_context?.actor_id
 
     if (!customerId) {
         res.status(401).json({
@@ -67,7 +67,7 @@ export const POST = async (
     req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
+    const customerId = req.auth_context?.actor_id
 
     if (!customerId) {
         res.status(401).json({

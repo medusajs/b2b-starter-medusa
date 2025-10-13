@@ -12,6 +12,10 @@ import { storeInternalCatalogMiddlewares } from "./internal-catalog/middlewares"
 import { storeProductsEnhancedMiddlewares } from "./products_enhanced/middlewares";
 import { storeKitsMiddlewares } from "./kits/middlewares";
 import { storeProductsBySkuMiddlewares } from "./products/by-sku/middlewares";
+import { storeSolarCalculationsMiddlewares } from "./solar_calculations/middlewares";
+import { storeCreditAnalysesMiddlewares } from "./credit-analyses/middlewares";
+import { storeFinancingApplicationsMiddlewares } from "./financing_applications/middlewares";
+import { storeOrdersMiddlewares } from "./orders/middlewares";
 
 export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeCartsMiddlewares,
@@ -23,6 +27,11 @@ export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeSolarDetectionMiddlewares,
   ...storeThermalAnalysisMiddlewares,
   ...storePhotogrammetryMiddlewares,
+  // PLG Strategy 360° - Authenticated APIs
+  ...storeSolarCalculationsMiddlewares,
+  ...storeCreditAnalysesMiddlewares,
+  ...storeFinancingApplicationsMiddlewares,
+  ...storeOrdersMiddlewares,
   // Rate-limited APIs
   ...storeInternalCatalogMiddlewares,
   ...storeProductsEnhancedMiddlewares,

@@ -9,7 +9,7 @@ export const GET = async (
     req: MedusaRequest<{ id: string }>,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
+    const customerId = (req as any).auth_context?.actor_id
     const { id } = req.params
 
     if (!customerId) {
@@ -58,7 +58,7 @@ export const DELETE = async (
     req: MedusaRequest<{ id: string }>,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
+    const customerId = (req as any).auth_context?.actor_id
     const { id } = req.params
 
     if (!customerId) {
@@ -84,7 +84,7 @@ export const PATCH = async (
     req: MedusaRequest<{ id: string }>,
     res: MedusaResponse
 ): Promise<void> => {
-    const customerId = (req as any).auth?.actor_id || (req as any).user?.id
+    const customerId = (req as any).auth_context?.actor_id
     const { id } = req.params
     const { name, notes, is_favorite } = req.body as {
         name?: string
