@@ -1,0 +1,917 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Painel Solar (Módulo Fotovoltaico) - Medusa Product Schema",
+    "description": "Schema padronizado para painéis/módulos fotovoltaicos seguindo o padrão Medusa.js Product Module",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome comercial completo do painel solar",
+            "example": "Módulo Fotovoltaico Canadian Solar 550W HiKu6 Mono PERC"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Subtítulo do produto com informações técnicas resumidas",
+            "example": "550W Monocristalino PERC - Eficiência 21.3%"
+        },
+        "handle": {
+            "type": "string",
+            "description": "URL slug único do produto (gerado a partir do título)",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "modulo-canadian-solar-550w-hiku6-mono-perc"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada do painel com especificações técnicas completas"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "default": false,
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Se o produto pode receber descontos"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "draft",
+                "proposed",
+                "published",
+                "rejected"
+            ],
+            "default": "published",
+            "description": "Status do produto no catálogo"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor",
+            "example": "odex_panels_ODEX-PAINEL-CS-550W"
+        },
+        "thumbnail": {
+            "type": "string",
+            "description": "URL da imagem thumbnail principal",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso do painel em kg",
+            "minimum": 0
+        },
+        "length": {
+            "type": "number",
+            "description": "Comprimento em mm",
+            "minimum": 0
+        },
+        "height": {
+            "type": "number",
+            "description": "Altura/espessura em mm",
+            "minimum": 0
+        },
+        "width": {
+            "type": "number",
+            "description": "Largura em mm",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "Código HS (Harmonized System) para classificação fiscal",
+            "example": "8541.40.16"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "País de origem do produto",
+            "example": "CN"
+        },
+        "mid_code": {
+            "type": "string",
+            "description": "Código MID (Manufacturer Identification)"
+        },
+        "material": {
+            "type": "string",
+            "description": "Material das células e moldura",
+            "example": "Células Silício Monocristalino PERC, Moldura Alumínio"
+        },
+        "type_id": {
+            "type": "string",
+            "description": "ID do tipo de produto (ProductType)"
+        },
+        "collection_id": {
+            "type": "string",
+            "description": "ID da coleção (ProductCollection)"
+        },
+        "categories": {
+            "type": "array",
+            "description": "Categorias do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID da categoria"
+                    }
+                }
+            },
+            "example": [
+                {
+                    "id": "cat_paineis"
+                },
+                {
+                    "id": "cat_paineis_monocristalino"
+                },
+                {
+                    "id": "cat_paineis_500w_600w"
+                }
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "description": "Tags para classificação e busca",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "example": [
+                {
+                    "id": "tag_canadian_solar"
+                },
+                {
+                    "id": "tag_550w"
+                },
+                {
+                    "id": "tag_monocristalino"
+                },
+                {
+                    "id": "tag_perc"
+                }
+            ]
+        },
+        "sales_channels": {
+            "type": "array",
+            "description": "Canais de venda onde o produto está disponível",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "images": {
+            "type": "array",
+            "description": "Imagens do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL da imagem"
+                    }
+                }
+            }
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação do produto (ex: Potência, Tecnologia, Cor da Moldura)",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Nome da opção",
+                        "example": "Potência"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "Valores possíveis para esta opção",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "545W",
+                            "550W",
+                            "555W"
+                        ]
+                    }
+                }
+            },
+            "default": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "550W"
+                    ]
+                },
+                {
+                    "title": "Tecnologia",
+                    "values": [
+                        "Monocristalino PERC"
+                    ]
+                }
+            ]
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do produto (diferentes combinações de opções)",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "options"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da variante",
+                        "example": "Canadian Solar 550W - Monocristalino PERC"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU único da variante",
+                        "example": "CS-550W-HIKU6-PERC"
+                    },
+                    "ean": {
+                        "type": "string",
+                        "description": "Código EAN/GTIN"
+                    },
+                    "upc": {
+                        "type": "string",
+                        "description": "Código UPC"
+                    },
+                    "barcode": {
+                        "type": "string",
+                        "description": "Código de barras"
+                    },
+                    "hs_code": {
+                        "type": "string",
+                        "description": "Código HS específico da variante"
+                    },
+                    "origin_country": {
+                        "type": "string",
+                        "description": "País de origem"
+                    },
+                    "mid_code": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "length": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "height": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "width": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "material": {
+                        "type": "string"
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Se o Medusa deve gerenciar o inventário desta variante"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Se permite venda mesmo sem estoque"
+                    },
+                    "inventory_quantity": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "default": 0,
+                        "description": "Quantidade em estoque"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Valores das opções para esta variante",
+                        "example": {
+                            "Potência": "550W",
+                            "Tecnologia": "Monocristalino PERC"
+                        }
+                    },
+                    "prices": {
+                        "type": "array",
+                        "description": "Preços da variante em diferentes moedas/contextos",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "description": "Código da moeda (ISO 4217)",
+                                    "example": "BRL"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "description": "Valor em centavos (ex: 49000 = R$ 490,00)",
+                                    "minimum": 0,
+                                    "example": 49000
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade mínima para este preço (tiered pricing)",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade máxima para este preço",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "description": "Regras de preço (ex: customer_group, region)",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "example": [
+                            {
+                                "currency_code": "BRL",
+                                "amount": 49000
+                            }
+                        ]
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados customizados da variante"
+                    }
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Metadados customizados do produto",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "description": "Fabricante do painel",
+                    "example": "Canadian Solar"
+                },
+                "model": {
+                    "type": "string",
+                    "description": "Modelo do painel",
+                    "example": "HiKu6 CS6W-550MS"
+                },
+                "distributor": {
+                    "type": "string",
+                    "description": "Distribuidor/fonte dos dados",
+                    "example": "ODEX"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "URL ou identificador da fonte original",
+                    "example": "plataforma.odex.com.br"
+                },
+                "technical_specs": {
+                    "type": "object",
+                    "description": "Especificações técnicas detalhadas",
+                    "properties": {
+                        "power_w": {
+                            "type": "number",
+                            "description": "Potência nominal em Watts (Pmax)",
+                            "minimum": 0,
+                            "example": 550
+                        },
+                        "technology": {
+                            "type": "string",
+                            "enum": [
+                                "Monocristalino",
+                                "Monocristalino PERC",
+                                "Monocristalino HJT",
+                                "Monocristalino TOPCon",
+                                "Policristalino",
+                                "Filme Fino",
+                                "Half-Cell",
+                                "Full-Cell"
+                            ],
+                            "description": "Tecnologia das células fotovoltaicas"
+                        },
+                        "efficiency": {
+                            "type": "number",
+                            "description": "Eficiência do módulo (%)",
+                            "minimum": 0,
+                            "maximum": 100,
+                            "example": 21.3
+                        },
+                        "cell_type": {
+                            "type": "string",
+                            "description": "Tipo de célula",
+                            "example": "Monocristalino PERC Half-Cell"
+                        },
+                        "number_of_cells": {
+                            "type": "integer",
+                            "description": "Número de células",
+                            "minimum": 1,
+                            "example": 144
+                        },
+                        "bifacial": {
+                            "type": "boolean",
+                            "description": "Se o painel é bifacial",
+                            "default": false
+                        },
+                        "bifaciality": {
+                            "type": "number",
+                            "description": "Fator de bifacialidade (%)",
+                            "minimum": 0,
+                            "maximum": 100,
+                            "example": 70
+                        },
+                        "dimensions": {
+                            "type": "object",
+                            "description": "Dimensões físicas do painel",
+                            "properties": {
+                                "length_mm": {
+                                    "type": "number",
+                                    "description": "Comprimento em mm",
+                                    "example": 2278
+                                },
+                                "width_mm": {
+                                    "type": "number",
+                                    "description": "Largura em mm",
+                                    "example": 1134
+                                },
+                                "height_mm": {
+                                    "type": "number",
+                                    "description": "Espessura em mm",
+                                    "example": 35
+                                },
+                                "weight_kg": {
+                                    "type": "number",
+                                    "description": "Peso em kg",
+                                    "example": 27.5
+                                }
+                            }
+                        },
+                        "electrical_characteristics": {
+                            "type": "object",
+                            "description": "Características elétricas (STC - Standard Test Conditions)",
+                            "properties": {
+                                "pmax_w": {
+                                    "type": "number",
+                                    "description": "Potência máxima (Pmax) em W",
+                                    "example": 550
+                                },
+                                "vmp_v": {
+                                    "type": "number",
+                                    "description": "Tensão no ponto de máxima potência (Vmp) em V",
+                                    "example": 41.7
+                                },
+                                "imp_a": {
+                                    "type": "number",
+                                    "description": "Corrente no ponto de máxima potência (Imp) em A",
+                                    "example": 13.19
+                                },
+                                "voc_v": {
+                                    "type": "number",
+                                    "description": "Tensão de circuito aberto (Voc) em V",
+                                    "example": 49.8
+                                },
+                                "isc_a": {
+                                    "type": "number",
+                                    "description": "Corrente de curto-circuito (Isc) em A",
+                                    "example": 13.95
+                                },
+                                "max_system_voltage_v": {
+                                    "type": "number",
+                                    "description": "Tensão máxima do sistema em V",
+                                    "example": 1500
+                                },
+                                "max_series_fuse_rating_a": {
+                                    "type": "number",
+                                    "description": "Fusível máximo da série em A",
+                                    "example": 25
+                                }
+                            }
+                        },
+                        "temperature_coefficients": {
+                            "type": "object",
+                            "description": "Coeficientes de temperatura",
+                            "properties": {
+                                "pmax": {
+                                    "type": "number",
+                                    "description": "Coeficiente de temperatura de Pmax (%/°C)",
+                                    "example": -0.34
+                                },
+                                "voc": {
+                                    "type": "number",
+                                    "description": "Coeficiente de temperatura de Voc (%/°C)",
+                                    "example": -0.25
+                                },
+                                "isc": {
+                                    "type": "number",
+                                    "description": "Coeficiente de temperatura de Isc (%/°C)",
+                                    "example": 0.05
+                                }
+                            }
+                        },
+                        "operating_conditions": {
+                            "type": "object",
+                            "description": "Condições de operação",
+                            "properties": {
+                                "operating_temp_min_c": {
+                                    "type": "number",
+                                    "description": "Temperatura mínima de operação em °C",
+                                    "example": -40
+                                },
+                                "operating_temp_max_c": {
+                                    "type": "number",
+                                    "description": "Temperatura máxima de operação em °C",
+                                    "example": 85
+                                },
+                                "noct_c": {
+                                    "type": "number",
+                                    "description": "NOCT - Nominal Operating Cell Temperature em °C",
+                                    "example": 45
+                                }
+                            }
+                        },
+                        "mechanical_specifications": {
+                            "type": "object",
+                            "description": "Especificações mecânicas",
+                            "properties": {
+                                "frame_material": {
+                                    "type": "string",
+                                    "description": "Material da moldura",
+                                    "example": "Alumínio Anodizado"
+                                },
+                                "frame_color": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Preto",
+                                        "Prata",
+                                        "Natural"
+                                    ],
+                                    "description": "Cor da moldura"
+                                },
+                                "glass_type": {
+                                    "type": "string",
+                                    "description": "Tipo de vidro",
+                                    "example": "Vidro temperado texturizado de alta transmissão 3.2mm"
+                                },
+                                "junction_box": {
+                                    "type": "string",
+                                    "description": "Tipo de caixa de junção",
+                                    "example": "IP68, 3 diodos de bypass"
+                                },
+                                "connector_type": {
+                                    "type": "string",
+                                    "description": "Tipo de conector",
+                                    "example": "MC4 ou compatível"
+                                },
+                                "cable_length_mm": {
+                                    "type": "number",
+                                    "description": "Comprimento dos cabos em mm",
+                                    "example": 1200
+                                },
+                                "cable_cross_section_mm2": {
+                                    "type": "number",
+                                    "description": "Seção transversal dos cabos em mm²",
+                                    "example": 4
+                                }
+                            }
+                        },
+                        "load_ratings": {
+                            "type": "object",
+                            "description": "Classificações de carga mecânica",
+                            "properties": {
+                                "max_load_front_pa": {
+                                    "type": "number",
+                                    "description": "Carga máxima frontal em Pa",
+                                    "example": 5400
+                                },
+                                "max_load_rear_pa": {
+                                    "type": "number",
+                                    "description": "Carga máxima traseira em Pa",
+                                    "example": 2400
+                                }
+                            }
+                        },
+                        "warranties": {
+                            "type": "object",
+                            "description": "Garantias do produto",
+                            "properties": {
+                                "product_warranty_years": {
+                                    "type": "integer",
+                                    "description": "Garantia do produto em anos",
+                                    "example": 12
+                                },
+                                "performance_warranty_years": {
+                                    "type": "integer",
+                                    "description": "Garantia de performance em anos",
+                                    "example": 25
+                                },
+                                "performance_warranty_year_1": {
+                                    "type": "number",
+                                    "description": "Performance garantida no 1º ano (%)",
+                                    "example": 98
+                                },
+                                "performance_warranty_year_25": {
+                                    "type": "number",
+                                    "description": "Performance garantida no 25º ano (%)",
+                                    "example": 84.8
+                                },
+                                "linear_warranty": {
+                                    "type": "boolean",
+                                    "description": "Se possui garantia linear de performance",
+                                    "default": true
+                                }
+                            }
+                        },
+                        "certifications": {
+                            "type": "array",
+                            "description": "Certificações do produto",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "IEC 61215",
+                                "IEC 61730",
+                                "UL 61730",
+                                "ISO 9001",
+                                "INMETRO Classe A"
+                            ]
+                        },
+                        "pv_library_compatibility": {
+                            "type": "object",
+                            "description": "Compatibilidade com bibliotecas de simulação",
+                            "properties": {
+                                "cec_module": {
+                                    "type": "string",
+                                    "description": "Nome do módulo na base CEC"
+                                },
+                                "sandia_module": {
+                                    "type": "string",
+                                    "description": "Nome do módulo na base Sandia"
+                                }
+                            }
+                        }
+                    }
+                },
+                "source_data": {
+                    "type": "object",
+                    "description": "Dados originais da fonte para rastreabilidade",
+                    "properties": {
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "source_url": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "imported_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "last_updated": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "seo": {
+                    "type": "object",
+                    "description": "Dados para SEO",
+                    "properties": {
+                        "meta_title": {
+                            "type": "string"
+                        },
+                        "meta_description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "title": "Módulo Fotovoltaico Canadian Solar 550W HiKu6 Mono PERC",
+            "subtitle": "550W Monocristalino PERC - Eficiência 21.3%",
+            "handle": "modulo-canadian-solar-550w-hiku6-mono-perc",
+            "description": "Módulo fotovoltaico de alta eficiência Canadian Solar HiKu6 CS6W-550MS com 550W de potência. Tecnologia monocristalina PERC Half-Cell com 144 células, proporcionando excelente performance e durabilidade. Ideal para sistemas residenciais e comerciais de médio e grande porte. Garantia de produto de 12 anos e garantia linear de performance de 25 anos.",
+            "status": "published",
+            "external_id": "odex_panels_ODEX-PAINEL-CS-550W",
+            "discountable": true,
+            "is_giftcard": false,
+            "thumbnail": "https://storage.example.com/images/canadian-solar-550w.jpg",
+            "weight": 27.5,
+            "length": 2278,
+            "height": 35,
+            "width": 1134,
+            "hs_code": "8541.40.16",
+            "origin_country": "CN",
+            "material": "Células Silício Monocristalino PERC, Moldura Alumínio Anodizado",
+            "categories": [
+                {
+                    "id": "cat_paineis"
+                },
+                {
+                    "id": "cat_paineis_monocristalino"
+                },
+                {
+                    "id": "cat_paineis_500w_600w"
+                }
+            ],
+            "tags": [
+                {
+                    "id": "tag_canadian_solar"
+                },
+                {
+                    "id": "tag_550w"
+                },
+                {
+                    "id": "tag_monocristalino"
+                },
+                {
+                    "id": "tag_perc"
+                },
+                {
+                    "id": "tag_half_cell"
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://storage.example.com/images/canadian-solar-550w-front.jpg"
+                },
+                {
+                    "url": "https://storage.example.com/images/canadian-solar-550w-back.jpg"
+                }
+            ],
+            "options": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "550W"
+                    ]
+                },
+                {
+                    "title": "Tecnologia",
+                    "values": [
+                        "Monocristalino PERC"
+                    ]
+                },
+                {
+                    "title": "Cor da Moldura",
+                    "values": [
+                        "Preta"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "Canadian Solar 550W - Mono PERC - Moldura Preta",
+                    "sku": "CS-HIKU6-550W-PERC-BLACK",
+                    "manage_inventory": true,
+                    "allow_backorder": false,
+                    "inventory_quantity": 500,
+                    "options": {
+                        "Potência": "550W",
+                        "Tecnologia": "Monocristalino PERC",
+                        "Cor da Moldura": "Preta"
+                    },
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 49000
+                        }
+                    ]
+                }
+            ],
+            "metadata": {
+                "manufacturer": "Canadian Solar",
+                "model": "HiKu6 CS6W-550MS",
+                "distributor": "ODEX",
+                "source": "plataforma.odex.com.br",
+                "technical_specs": {
+                    "power_w": 550,
+                    "technology": "Monocristalino PERC",
+                    "efficiency": 21.3,
+                    "cell_type": "Monocristalino PERC Half-Cell",
+                    "number_of_cells": 144,
+                    "bifacial": false,
+                    "dimensions": {
+                        "length_mm": 2278,
+                        "width_mm": 1134,
+                        "height_mm": 35,
+                        "weight_kg": 27.5
+                    },
+                    "electrical_characteristics": {
+                        "pmax_w": 550,
+                        "vmp_v": 41.7,
+                        "imp_a": 13.19,
+                        "voc_v": 49.8,
+                        "isc_a": 13.95,
+                        "max_system_voltage_v": 1500,
+                        "max_series_fuse_rating_a": 25
+                    },
+                    "temperature_coefficients": {
+                        "pmax": -0.34,
+                        "voc": -0.25,
+                        "isc": 0.05
+                    },
+                    "operating_conditions": {
+                        "operating_temp_min_c": -40,
+                        "operating_temp_max_c": 85,
+                        "noct_c": 45
+                    },
+                    "mechanical_specifications": {
+                        "frame_material": "Alumínio Anodizado",
+                        "frame_color": "Preto",
+                        "glass_type": "Vidro temperado texturizado de alta transmissão 3.2mm",
+                        "junction_box": "IP68, 3 diodos de bypass",
+                        "connector_type": "MC4",
+                        "cable_length_mm": 1200,
+                        "cable_cross_section_mm2": 4
+                    },
+                    "load_ratings": {
+                        "max_load_front_pa": 5400,
+                        "max_load_rear_pa": 2400
+                    },
+                    "warranties": {
+                        "product_warranty_years": 12,
+                        "performance_warranty_years": 25,
+                        "performance_warranty_year_1": 98,
+                        "performance_warranty_year_25": 84.8,
+                        "linear_warranty": true
+                    },
+                    "certifications": [
+                        "IEC 61215",
+                        "IEC 61730",
+                        "UL 61730",
+                        "ISO 9001",
+                        "INMETRO Classe A"
+                    ]
+                },
+                "source_data": {
+                    "source_id": "odex_panels_ODEX-PAINEL-CS-550W",
+                    "source_url": "https://plataforma.odex.com.br/produtos/painel-canadian-solar-550w",
+                    "imported_at": "2025-10-13T00:00:00Z",
+                    "last_updated": "2025-10-13T00:00:00Z"
+                },
+                "seo": {
+                    "meta_title": "Painel Solar Canadian Solar 550W | Melhor Preço",
+                    "meta_description": "Módulo Fotovoltaico Canadian Solar HiKu6 550W Monocristalino PERC. Alta eficiência, garantia de 25 anos. Compre agora!",
+                    "keywords": [
+                        "painel solar canadian",
+                        "painel 550w",
+                        "painel monocristalino",
+                        "canadian solar",
+                        "hiku6"
+                    ]
+                }
+            }
+        }
+    ]
+}
