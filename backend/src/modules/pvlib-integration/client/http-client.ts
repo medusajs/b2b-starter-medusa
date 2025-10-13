@@ -417,8 +417,11 @@ export class PVHttpClient {
     /**
      * Utils
      */
-    private async sleep(ms: number): Promise<void> {
-        const { sleep } = await import('../__tests__/test-helpers');
-        return sleep(ms);
+    private sleep(ms: number): Promise<void> {
+        // In test env, use instant sleep if available
+        if (process.env.NODE_ENV === 'test' && (global as any).__testSleep) {
+            return (global as any).__testSleep(ms);
+        }
+        return new Promise((resolve) => setTimeout(resolve, ms));
     }
 }

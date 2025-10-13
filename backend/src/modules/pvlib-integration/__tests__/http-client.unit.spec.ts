@@ -24,12 +24,8 @@ describe("PVHttpClient", () => {
     let fetchMock: jest.MockedFunction<typeof fetch>;
 
     beforeEach(() => {
-        // Inject fake timers for instant test execution
-        const { __setTestSleepFn } = require('../test-helpers');
-        __setTestSleepFn(async (ms: number) => {
-            // Instant sleep for tests
-            return Promise.resolve();
-        });
+        // Inject fake timers via global for instant test execution
+        (global as any).__testSleep = async () => Promise.resolve();
 
         // Mock global fetch
         fetchMock = jest.fn() as jest.MockedFunction<typeof fetch>;
@@ -66,8 +62,7 @@ describe("PVHttpClient", () => {
     });
 
     afterEach(() => {
-        const { __resetSleepFn } = require('../test-helpers');
-        __resetSleepFn();
+        delete (global as any).__testSleep;
         jest.clearAllMocks();
     });
 

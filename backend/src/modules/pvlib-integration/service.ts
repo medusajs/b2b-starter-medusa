@@ -150,15 +150,23 @@ export interface MPPTValidationResult {
     recommendations?: string[]
 }
 
+export interface PVLibServiceOptions {
+    requestTimeout?: number;
+    cacheTTL?: number;
+}
+
 class PVLibIntegrationService {
     private invertersPath: string
     private panelsPath: string
     private invertersCache: InverterPVLib[] | null = null
     private panelsCache: PanelPVLib[] | null = null
     private cacheTimestamp: number = 0
-    private readonly CACHE_TTL = 1000 * 60 * 60 // 1 hour
+    private readonly CACHE_TTL: number
+    private readonly requestTimeout: number
 
-    constructor() {
+    constructor(options?: PVLibServiceOptions) {
+        this.CACHE_TTL = options?.cacheTTL ?? 1000 * 60 * 60; // 1 hour default
+        this.requestTimeout = options?.requestTimeout ?? 30000; // 30s default
         // Paths para os schemas normalizados e limpos
         const baseERP = path.resolve(__dirname, "../../../../../ysh-erp/data/catalog/normalized_pvlib")
 
