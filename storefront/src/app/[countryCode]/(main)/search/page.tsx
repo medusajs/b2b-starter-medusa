@@ -5,8 +5,8 @@ import Link from "next/link"
 import { Suspense } from "react"
 import ViewSearch from "@/modules/common/analytics/view-search"
 
-const ProductCard = dynamic(() => import("@/modules/catalog/components/ProductCard"))
-const KitCard = dynamic(() => import("@/modules/catalog/components/KitCard"))
+const ProductCard = dynamic(() => import("@/modules/discovery/catalog/components/ProductCard"))
+const KitCard = dynamic(() => import("@/modules/discovery/catalog/components/KitCard"))
 
 type SearchParams = { [k: string]: string }
 

@@ -1,22 +1,22 @@
 import { listRegions } from "@/lib/data/regions"
 import dynamic from "next/dynamic"
-import FeaturedProducts from "@/modules/home/components/featured-products"
-import Hero from "@/modules/home/components/hero"
-import OnboardingCTA from "@/modules/home/components/onboarding-cta"
-import SolutionsByClass from "@/modules/home/components/solutions-by-class"
-import ModalidadesGrid from "@/modules/home/components/modalidades-grid"
-import { SolarCTAHero, SolarStats } from "@/modules/home/components/solar-cta"
+import FeaturedProducts from "@/modules/discovery/home/components/featured-products"
+import Hero from "@/modules/discovery/home/components/hero"
+import OnboardingCTA from "@/modules/discovery/home/components/onboarding-cta"
+import SolutionsByClass from "@/modules/discovery/home/components/solutions-by-class"
+import ModalidadesGrid from "@/modules/discovery/home/components/modalidades-grid"
+import { SolarCTAHero, SolarStats } from "@/modules/discovery/home/components/solar-cta"
 
 // Client-heavy sections (no critical SEO), load dinamicamente no cliente
 // Nota: Next.js 15 não suporta ssr:false em Server Components, então removemos a opção
-const VideosStrip = dynamic(() => import("@/modules/home/components/videos-strip"), {
+const VideosStrip = dynamic(() => import("@/modules/discovery/home/components/videos-strip"), {
   loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
 })
 const VideosByClass = dynamic(
-  () => import("@/modules/home/components/videos-by-class"),
+  () => import("@/modules/discovery/home/components/videos-by-class"),
   { loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" /> }
 )
-const Testimonials = dynamic(() => import("@/modules/home/components/testimonials"), {
+const Testimonials = dynamic(() => import("@/modules/discovery/home/components/testimonials"), {
   loading: () => <div className="h-48 bg-gray-50 animate-pulse rounded-lg m-4" />,
 })
 const DesignSystemTest = dynamic(() => import("@/components/DesignSystemTest"), {

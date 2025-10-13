@@ -1,5 +1,5 @@
 import { Badge } from "@medusajs/ui"
-import { useCatalogCustomization } from "@/modules/catalog/context/customization"
+import { useCatalogCustomization } from "@/modules/discovery/catalog/context/customization"
 import { Package, Sun, Battery, Zap } from "lucide-react"
 import Image from "next/image"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"

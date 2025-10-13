@@ -8,7 +8,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { YelloSolarButton, Card } from '@ysh/ui';
-import { getSolarCalculatorUrl } from '@/modules/solar/integrations';
+import { getSolarCalculatorUrl } from '@/modules/configuration/solar/integrations';
 
 interface SolarCTAHeroProps {
     countryCode?: string;
