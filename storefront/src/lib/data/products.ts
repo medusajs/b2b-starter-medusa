@@ -6,6 +6,7 @@ import { getRegion } from "@/lib/data/regions"
 import { sortProducts } from "@/lib/util/sort-products"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { HttpTypes } from "@medusajs/types"
+import { notFound } from "next/navigation"
 
 // ==========================================
 // Retry Utility
@@ -78,35 +79,61 @@ export const getProductsById = async ({
 }
 
 export const getProductByHandle = async (handle: string, regionId: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
+  try {
+    const headers = {
+      ...(await getAuthHeaders()),
+    }
 
-  const next = {
-    ...(await getCacheOptions("products")),
-    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
-    revalidate: 3600,
-  }
+    const next = {
+      ...(await getCacheOptions("products")),
+      // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+      revalidate: 3600,
+      tags: [`product-${handle}`],
+    }
 
-  return retryWithBackoff(
-    () => sdk.client
-      .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products`, {
-        credentials: "include",
-        method: "GET",
-        query: {
-          handle,
-          region_id: regionId,
-          // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
-          fields:
-            "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
-        },
-        headers,
-        next,
-        cache: "force-cache",
-      })
-      .then(({ products }) => products[0]),
-    MAX_RETRIES
-  )
+    const product = await retryWithBackoff(
+      () => sdk.client
+        .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products_enhanced`, {
+          credentials: "include",
+          method: "GET",
+          query: {
+            handle,
+            limit: 1,
+            region_id: regionId,
+            image_source: "auto",
+            // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
+            fields:
+              "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
+          },
+          headers,
+          next,
+          cache: "force-cache",
+        })
+        .then(({ products }) => products?.[0]),
+      MAX_RETRIES
+    )
+
+    if (!product) {
+      console.warn(`[Products] Product not found: handle=${handle}`)
+      notFound()
+    }
+
+    return product
+  } catch (error: any) {
+    console.error(`[Products] Error fetching product by handle:`, {
+      handle,
+      error: error?.message || String(error),
+      statusCode: error?.statusCode,
+    })
+
+    // If it's a 404, trigger Next.js notFound page
+    if (error?.statusCode === 404 || error?.status === 404) {
+      notFound()
+    }
+
+    // Re-throw other errors to be handled by error boundary
+    throw new Error(`Failed to fetch product "${handle}": ${error?.message || String(error)}`)
+  }
 }
 
 export const listProducts = async ({
