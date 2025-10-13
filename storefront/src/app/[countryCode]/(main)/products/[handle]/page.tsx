@@ -74,7 +74,14 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  const pricedProduct = await getProductByHandle(params.handle, region.id)
+  let pricedProduct: any = null
+  try {
+    pricedProduct = await getProductByHandle(params.handle, region.id)
+  } catch (e: any) {
+    // Em erros de rede/timeout/429, não quebrar SSR: trate como notFound para evitar 500
+    // Alternativamente, poderíamos renderizar uma UI amigável com CTA de tentar novamente
+    notFound()
+  }
   if (!pricedProduct) {
     notFound()
   }
