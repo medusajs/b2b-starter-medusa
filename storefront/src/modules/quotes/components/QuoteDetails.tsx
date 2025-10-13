@@ -9,7 +9,7 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from "@medusajs/ui"
-import { Badge } from '@ysh/ui'
+import { Badge } from '@medusajs/ui'
 import { Download, ShoppingCart, Copy, Edit } from 'lucide-react'
 import { useQuotes } from '../context/QuotesContext'
 import useQuoteOperations from '../hooks/useQuoteOperations'

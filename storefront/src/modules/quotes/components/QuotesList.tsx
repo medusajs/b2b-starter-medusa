@@ -7,9 +7,9 @@
  */
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from "@medusajs/ui"
-import { Badge } from '@ysh/ui'
+import { Badge } from '@medusajs/ui'
 import { FileText, Download, Copy, Trash2, Eye, ArrowUpDown } from 'lucide-react'
 import useQuotesList from '../hooks/useQuotesList'
 import useQuoteOperations from '../hooks/useQuoteOperations'

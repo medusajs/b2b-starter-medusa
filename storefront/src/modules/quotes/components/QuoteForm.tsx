@@ -7,7 +7,7 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Card, CardContent, CardHeader, CardTitle } from '@medusajs/ui'
 import { Button } from "@medusajs/ui"
 import { Plus, Trash2, Save } from 'lucide-react'
 import useQuoteOperations from '../hooks/useQuoteOperations'
