@@ -153,7 +153,7 @@ describe("Financing Workflows - Complete Coverage", () => {
       });
 
       const stepFunction = checkSpendingLimitsStep.invoke;
-      
+
       await expect(stepFunction(
         {
           customer_id: "cust_123",

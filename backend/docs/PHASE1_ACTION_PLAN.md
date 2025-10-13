@@ -9,24 +9,28 @@
 ## ✅ O Que Foi Criado (Último Hour)
 
 ### 1. Redis Cache para Embeddings ✅
+
 - **Arquivo**: `backend/src/modules/rag/utils/embedding-cache-v2.ts`
 - **Status**: Código completo, pronto para integração
 - **Features**: GET/SET, batch ops, stats, health check
 - **Próximo**: Adicionar ao docker-compose + testes
 
 ### 2. Qdrant Collections Script ✅
+
 - **Arquivo**: `backend/scripts/create_nomic_collections.py`
 - **Status**: Script completo, pronto para executar
 - **Collections**: 4 novas (768d Nomic embeddings)
 - **Próximo**: Executar + popular com dados
 
 ### 3. Vision Squad ✅
+
 - **Arquivo**: `backend/scripts/vision_squad.py`
 - **Status**: 3 agentes implementados (Primary, Specialist stub, Quality)
 - **Workflow**: Quality → Primary → Specialist (fallback)
 - **Próximo**: Completar GPT-4o + testes com dataset
 
 ### 4. Documentação Completa ✅
+
 - **Proposta**: `docs/PROPOSTA_AVANCADA_AI_PLATFORM_2025.md`
 - **Implementação**: `docs/PHASE1_IMPLEMENTATION.md`
 - **Executivo**: `docs/PHASE1_EXECUTIVE_SUMMARY.md`
@@ -126,6 +130,7 @@ def advanced_rag_pipeline():
 #### 5. OpenTelemetry + Grafana (4h)
 
 **Setup**:
+
 ```bash
 # 1. Install OpenTelemetry
 yarn add @opentelemetry/api @opentelemetry/sdk-node
@@ -140,6 +145,7 @@ yarn add @opentelemetry/api @opentelemetry/sdk-node
 ```
 
 **Dashboards**:
+
 1. AgentFlow Performance
 2. Cache Metrics
 3. Qdrant Operations
@@ -196,6 +202,7 @@ class BatchProcessor:
 #### 9. Fine-tune Llama 3.2 Vision (12h)
 
 **Steps**:
+
 1. Coletar 500 imagens dataset
 2. Anotação manual (ground truth)
 3. Preparar formato LoRA
@@ -294,25 +301,31 @@ TOTAL: 92 horas (~2 semanas com 1 dev full-time)
 ## 🚨 Riscos & Mitigações
 
 ### Risco 1: Fine-tuning dataset insuficiente
+
 **Impacto**: Alto  
 **Probabilidade**: Média  
-**Mitigação**: 
+**Mitigação**:
+
 - Usar imagens existentes (489 inversores)
 - Synthetic data augmentation
 - Começar com 200 imagens (MVP)
 
 ### Risco 2: GPT-4o Vision custo alto
+
 **Impacto**: Médio  
 **Probabilidade**: Baixa  
 **Mitigação**:
+
 - Usar apenas em fallback (< 30% casos)
 - Cache agressivo
 - Threshold configurável
 
 ### Risco 3: Pathway pipeline complexo
+
 **Impacto**: Médio  
 **Probabilidade**: Média  
 **Mitigação**:
+
 - Começar com pipeline simples (S3 + PDF)
 - Incremental features
 - Fallback para batch processing
@@ -357,6 +370,7 @@ TOTAL: 92 horas (~2 semanas com 1 dev full-time)
 ## 🎉 Celebração
 
 **Quando 100% completo**:
+
 - [ ] Demo para stakeholders
 - [ ] Blog post interno
 - [ ] Retrospectiva
