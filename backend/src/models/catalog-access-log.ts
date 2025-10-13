@@ -59,7 +59,7 @@ export const CatalogAccessLog = model.define("catalog_access_log", {
         'compare_add',
         'download_spec'
     ]),
-    
+
     product_id: model.text().nullable(),
     product_sku: model.text().nullable(),
     product_name: model.text().nullable(),
