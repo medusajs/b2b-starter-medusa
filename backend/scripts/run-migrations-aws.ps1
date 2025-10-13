@@ -13,23 +13,23 @@
 # ===================================================================
 
 param(
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [ValidateSet("ecs", "local")]
     [string]$Method = "ecs",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Profile = "ysh-production",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Region = "us-east-1",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$ClusterName = "ysh-backend-cluster",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$TaskDefinition = "ysh-backend-migrations",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$DryRun
 )
 
@@ -80,10 +80,12 @@ function Get-DatabaseUrl {
         if ($LASTEXITCODE -eq 0) {
             Write-Success "DATABASE_URL obtida com sucesso"
             return $secretValue
-        } else {
+        }
+        else {
             throw "Falha ao obter secret: $secretValue"
         }
-    } catch {
+    }
+    catch {
         Write-Error "Erro ao obter DATABASE_URL: $_"
         throw
     }
@@ -97,17 +99,18 @@ function Test-RDSConnection {
     # Parse DATABASE_URL
     if ($DatabaseUrl -match 'postgres://([^:]+):([^@]+)@([^:]+):(\d+)/(.+)') {
         $user = $matches[1]
-        $host = $matches[3]
+        $dbHost = $matches[3]
         $port = $matches[4]
         $dbname = $matches[5]
         
-        Write-Host "    Host: $host" -ForegroundColor Gray
+        Write-Host "    Host: $dbHost" -ForegroundColor Gray
         Write-Host "    Port: $port" -ForegroundColor Gray
         Write-Host "    Database: $dbname" -ForegroundColor Gray
         Write-Host "    User: $user" -ForegroundColor Gray
         
         return $true
-    } else {
+    }
+    else {
         Write-Error "DATABASE_URL em formato inválido"
         return $false
     }
@@ -126,7 +129,8 @@ function Get-ECSCluster {
     if ($LASTEXITCODE -eq 0 -and $cluster -eq "ACTIVE") {
         Write-Success "Cluster '$ClusterName' está ativo"
         return $true
-    } else {
+    }
+    else {
         Write-Warning "Cluster '$ClusterName' não encontrado ou inativo"
         return $false
     }
@@ -149,7 +153,7 @@ function Get-VPCConfig {
     Write-Host "    Security Group: $securityGroup" -ForegroundColor Gray
     
     return @{
-        Subnets = $subnets
+        Subnets       = $subnets
         SecurityGroup = $securityGroup
     }
 }
@@ -161,31 +165,31 @@ function Create-ECSTaskDefinition {
     $vpcConfig = Get-VPCConfig
     
     $taskDefJson = @{
-        family = $TaskDefinition
-        networkMode = "awsvpc"
+        family                  = $TaskDefinition
+        networkMode             = "awsvpc"
         requiresCompatibilities = @("FARGATE")
-        cpu = "512"
-        memory = "1024"
-        executionRoleArn = "arn:aws:iam::773235999227:role/ecsTaskExecutionRole"
-        taskRoleArn = "arn:aws:iam::773235999227:role/ecsTaskRole"
-        containerDefinitions = @(
+        cpu                     = "512"
+        memory                  = "1024"
+        executionRoleArn        = "arn:aws:iam::773235999227:role/ecsTaskExecutionRole"
+        taskRoleArn             = "arn:aws:iam::773235999227:role/ecsTaskRole"
+        containerDefinitions    = @(
             @{
-                name = "migrations"
-                image = "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-backend:latest"
-                command = @("npm", "run", "migrate")
-                essential = $true
-                environment = @(
+                name             = "migrations"
+                image            = "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-backend:latest"
+                command          = @("npm", "run", "migrate")
+                essential        = $true
+                environment      = @(
                     @{ name = "NODE_ENV"; value = "production" }
                     @{ name = "DATABASE_URL"; value = $databaseUrl }
                     @{ name = "MIGRATION_MODE"; value = "true" }
                 )
                 logConfiguration = @{
                     logDriver = "awslogs"
-                    options = @{
-                        "awslogs-group" = "/ecs/ysh-backend-migrations"
-                        "awslogs-region" = $Region
+                    options   = @{
+                        "awslogs-group"         = "/ecs/ysh-backend-migrations"
+                        "awslogs-region"        = $Region
                         "awslogs-stream-prefix" = "migrations"
-                        "awslogs-create-group" = "true"
+                        "awslogs-create-group"  = "true"
                     }
                 }
             }
@@ -211,10 +215,12 @@ function Create-ECSTaskDefinition {
             $taskDefArn = ($result | ConvertFrom-Json).taskDefinition.taskDefinitionArn
             Write-Success "Task Definition criada: $taskDefArn"
             return $taskDefArn
-        } else {
+        }
+        else {
             throw "Falha ao criar Task Definition: $result"
         }
-    } finally {
+    }
+    finally {
         Remove-Item $taskDefFile -ErrorAction SilentlyContinue
     }
 }
@@ -227,12 +233,12 @@ function Run-ECSMigrationTask {
     $vpcConfig = Get-VPCConfig
     
     $runTaskJson = @{
-        cluster = $ClusterName
-        taskDefinition = $TaskDefArn
-        launchType = "FARGATE"
+        cluster              = $ClusterName
+        taskDefinition       = $TaskDefArn
+        launchType           = "FARGATE"
         networkConfiguration = @{
             awsvpcConfiguration = @{
-                subnets = $vpcConfig.Subnets
+                subnets        = $vpcConfig.Subnets
                 securityGroups = @($vpcConfig.SecurityGroup)
                 assignPublicIp = "DISABLED"
             }
@@ -259,10 +265,12 @@ function Run-ECSMigrationTask {
             $taskId = $taskArn.Split('/')[-1]
             Write-Success "Migration task iniciada: $taskId"
             return $taskId
-        } else {
+        }
+        else {
             throw "Falha ao executar task: $result"
         }
-    } finally {
+    }
+    finally {
         Remove-Item $runTaskFile -ErrorAction SilentlyContinue
     }
 }
@@ -285,7 +293,8 @@ function Wait-ForTask {
             --output text 2>&1
         
         if ($LASTEXITCODE -eq 0) {
-            Write-Host "`r    Status: $status (${waitedSeconds}s elapsed)" -NoNewline -ForegroundColor Gray
+            $elapsedMsg = "Status: $status ($waitedSeconds seconds elapsed)"
+            Write-Host "`r    $elapsedMsg" -NoNewline -ForegroundColor Gray
             
             if ($status -eq "STOPPED") {
                 Write-Host "`n"
@@ -302,7 +311,8 @@ function Wait-ForTask {
                 if ($exitCode -eq "0") {
                     Write-Success "Migration concluída com sucesso!"
                     return $true
-                } else {
+                }
+                else {
                     Write-Error "Migration falhou com exit code $exitCode"
                     return $false
                 }
@@ -314,7 +324,7 @@ function Wait-ForTask {
     }
     
     Write-Host "`n"
-    Write-Error "Timeout aguardando conclusão da task (${maxWaitSeconds}s)"
+    Write-Error "Timeout aguardando conclusão da task ($maxWaitSeconds seconds)"
     return $false
 }
 
@@ -336,13 +346,16 @@ function Get-TaskLogs {
             --output text 2>&1
         
         if ($LASTEXITCODE -eq 0) {
-            Write-Host "`n$("─"*70)" -ForegroundColor Gray
+            $separator = "-" * 70
+            Write-Host "`n$separator" -ForegroundColor Gray
             Write-Host $logs -ForegroundColor White
-            Write-Host "$("─"*70)`n" -ForegroundColor Gray
-        } else {
+            Write-Host "$separator`n" -ForegroundColor Gray
+        }
+        else {
             Write-Warning "Não foi possível obter logs (pode não estar disponível ainda)"
         }
-    } catch {
+    }
+    catch {
         Write-Warning "Erro ao obter logs: $_"
     }
 }
@@ -373,11 +386,13 @@ function Run-LocalMigration {
         
         if ($LASTEXITCODE -eq 0) {
             Write-Success "Migrations executadas com sucesso!"
-        } else {
+        }
+        else {
             Write-Error "Migrations falharam com exit code $LASTEXITCODE"
             throw "Migration failed"
         }
-    } finally {
+    }
+    finally {
         Remove-Item Env:\DATABASE_URL -ErrorAction SilentlyContinue
     }
 }
@@ -391,7 +406,7 @@ function Validate-Migrations {
     if ($databaseUrl -match 'postgres://([^:]+):([^@]+)@([^:]+):(\d+)/(.+)') {
         $user = $matches[1]
         $password = $matches[2]
-        $host = $matches[3]
+        $dbHost = $matches[3]
         $port = $matches[4]
         $dbname = $matches[5]
         
@@ -411,14 +426,16 @@ function Validate-Migrations {
             $query = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public' AND table_name = '$table';"
             
             try {
-                $result = psql -h $host -p $port -U $user -d $dbname -t -c $query 2>&1
+                $result = psql -h $dbHost -p $port -U $user -d $dbname -t -c $query 2>&1
                 
                 if ($result -match '^\s*1\s*$') {
                     Write-Success "$table ✓"
-                } else {
+                }
+                else {
                     Write-Error "$table ✗ (não encontrada)"
                 }
-            } catch {
+            }
+            catch {
                 Write-Warning "Erro ao verificar $table (psql pode não estar instalado)"
             }
         }
@@ -442,7 +459,7 @@ Write-Host "    Dry Run: $DryRun`n" -ForegroundColor White
 try {
     # Verificar credenciais AWS
     Write-Step "Verificando credenciais AWS..."
-    $identity = aws sts get-caller-identity --profile $Profile 2>&1
+    $awsIdentity = aws sts get-caller-identity --profile $Profile 2>&1
     if ($LASTEXITCODE -ne 0) {
         throw "Credenciais AWS inválidas ou expiradas. Execute: aws sso login --profile $Profile"
     }
@@ -481,7 +498,8 @@ try {
             throw "Migration task falhou"
         }
         
-    } elseif ($Method -eq "local") {
+    }
+    elseif ($Method -eq "local") {
         # ===================================================================
         # MÉTODO 2: LOCAL (RÁPIDO PARA DEV)
         # ===================================================================
@@ -500,7 +518,8 @@ try {
     Write-Host "    3. Deploy aplicação: Configurar ECS Service com nova imagem" -ForegroundColor Cyan
     Write-Host ""
     
-} catch {
+}
+catch {
     Write-Header "✗ ERRO NA EXECUÇÃO DAS MIGRATIONS"
     Write-Error $_.Exception.Message
     Write-Host ""
