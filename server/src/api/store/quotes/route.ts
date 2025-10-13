@@ -1,17 +1,19 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { parsePagination, requiredString } from "@api/validators/b2b";
-import { requirePublishableKey } from "@api/utils/auth";
+import { parsePagination, requiredString } from "@compat/validators/b2b";
+import { requirePublishableKey } from "@compat/http/publishable";
+import { createQuote, listQuotes } from "@compat/services/quote";
+import { getRequestId, logRequest } from "@compat/logging/logger";
 
 // POST /store/quotes
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
   const body = req.body || {};
   try {
-    const companyId = requiredString(body.company_id, "company_id");
+    const company_id = requiredString(body.company_id, "company_id");
     const items = Array.isArray(body.items) ? body.items : [];
-    // Scaffold: call workflow to create quote
-    const quote = { id: "q_" + Date.now(), company_id: companyId, items, status: "pending" };
-    // Emit domain event (scaffold)
+    const request_id = getRequestId(req.headers as any);
+    logRequest({ route: "/store/quotes", method: "POST", request_id });
+    const quote = await createQuote({ company_id, items, message: body.message });
     return res.status(201).json({ quote });
   } catch (e: any) {
     return res.status(400).json({ message: e.message });
@@ -22,7 +24,8 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
   const { limit, offset } = parsePagination(req.query || {});
-  // Scaffold list
-  res.json({ quotes: [], count: 0, limit, offset });
+  const request_id = getRequestId(req.headers as any);
+  logRequest({ route: "/store/quotes", method: "GET", request_id, extra: { limit, offset } });
+  const { quotes, count } = await listQuotes({ limit, offset });
+  res.json({ quotes, count, limit, offset });
 };
-

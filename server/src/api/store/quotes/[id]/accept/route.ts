@@ -1,13 +1,14 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
-import { requirePublishableKey } from "@api/utils/auth";
+import { requirePublishableKey } from "@compat/http/publishable";
+import { acceptQuote } from "@compat/services/quote";
+import { getRequestId, logRequest } from "@compat/logging/logger";
 
 // POST /store/quotes/:id/accept
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   if (!requirePublishableKey(req, res)) return;
   const { id } = req.params as { id: string };
-  // Scaffold: update quote status
-  const quote = { id, status: "accepted" };
-  // Emit event: quote.accepted
+  const request_id = getRequestId(req.headers as any);
+  logRequest({ route: `/store/quotes/${id}/accept`, method: "POST", request_id });
+  const quote = await acceptQuote(id);
   res.json({ quote });
 };
-
