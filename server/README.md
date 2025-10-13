@@ -58,6 +58,18 @@ Backend server for Yello Solar Hub B2B e-commerce platform, built on Medusa v2.
    - API: `http://localhost:9000`
    - Admin UI: `http://localhost:9000/app`
 
+### Store API Publishable Key
+
+- All `/store/*` routes require header `x-publishable-api-key` bound to a Sales Channel.
+- On the storefront client, expose `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` and send it on requests.
+- Example:
+
+```ts
+fetch("/store/companies", {
+  headers: { "x-publishable-api-key": process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY! }
+})
+```
+
 ## 📁 Project Structure
 
 ```
