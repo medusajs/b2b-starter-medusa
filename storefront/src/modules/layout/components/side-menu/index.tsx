@@ -1,4 +1,4 @@
-ï»¿"use client"
+"use client"
 
 import { Popover, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
@@ -25,14 +25,14 @@ const SideMenuItems = {
 }
 
 const SideMenuLabels: Record<keyof typeof SideMenuItems, string> = {
-  Home: "InÃ­cio",
+  Home: "Início",
   Store: "Loja",
-  Solutions: "SoluÃ§Ãµes",
+  Solutions: "Soluções",
   Dimensionamento: "Dimensionamento",
   Tarifas: "Tarifas",
   SolarCV: "Solar CV",
   Compliance: "Compliance",
-  Cotacao: "CotaÃ§Ã£o",
+  Cotacao: "Cotação",
   Search: "Buscar",
   Account: "Conta",
   Cart: "Carrinho",
@@ -80,7 +80,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                       <button
                         data-testid="close-menu-button"
                         onClick={close}
-                        aria-label="Fechar menu de navegaÃ§Ã£o"
+                        aria-label="Fechar menu de navegação"
                       >
                         <XMark />
                       </button>
@@ -107,7 +107,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                           onClick={close}
                           data-testid={`quote-link`}
                         >
-                          Cotaï¿½ï¿½o {quoteCount > 0 && <span className="text-sm bg-amber-400 text-neutral-900 px-2 py-0.5 rounded-full">{quoteCount}</span>}
+                          Cota??o {quoteCount > 0 && <span className="text-sm bg-amber-400 text-neutral-900 px-2 py-0.5 rounded-full">{quoteCount}</span>}
                         </LocalizedClientLink>
                       </li>
                     </ul>
@@ -131,7 +131,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        ï¿½ {new Date().getFullYear()} Medusa Store. Todos os direitos
+                        ? {new Date().getFullYear()} Medusa Store. Todos os direitos
                         reservados.
                       </Text>
                     </div>

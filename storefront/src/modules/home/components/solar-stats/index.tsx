@@ -1,4 +1,4 @@
-ï»¿import { Sun, Battery, TrendingDown, Users } from 'lucide-react'
+import { Sun, Battery, TrendingDown, Users } from 'lucide-react'
 
 const SolarStats = () => {
     const stats = [
@@ -11,7 +11,7 @@ const SolarStats = () => {
         {
             icon: Battery,
             value: '2.5MWp',
-            label: 'PotÃªncia Total',
+            label: 'Potência Total',
             description: 'Capacidade instalada',
         },
         {
@@ -23,7 +23,7 @@ const SolarStats = () => {
         {
             icon: Users,
             value: '98%',
-            label: 'SatisfaÃ§Ã£o',
+            label: 'Satisfação',
             description: 'Clientes satisfeitos',
         },
     ]
@@ -33,11 +33,11 @@ const SolarStats = () => {
             <div className='content-container'>
                 <div className='text-center mb-12'>
                     <h2 className='text-3xl font-bold text-gray-900 mb-4'>
-                        Nossos NÃºmeros
+                        Nossos Números
                     </h2>
                     <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
                         Resultados que falam por si. Mais de 500 sistemas instalados
-                        e milhÃµes economizados em energia.
+                        e milhões economizados em energia.
                     </p>
                 </div>
 
