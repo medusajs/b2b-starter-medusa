@@ -1,39 +1,42 @@
-import { ModuleRegistrationName } from "@medusajs/framework/utils";
-import { medusaIntegrationTestRunner } from "medusa-test-utils";
-import { FINANCING_MODULE } from "../index";
+import FinancingModuleService from "../service";
+import BACENFinancingService from "../bacen-service";
 
 jest.setTimeout(30000);
 
-medusaIntegrationTestRunner({
-  moduleName: FINANCING_MODULE,
-  testSuite: ({ getContainer }) => {
-    describe("Financing Module Integration", () => {
-      let container: any;
-      let financingService: any;
-      let companyService: any;
-      let approvalService: any;
+describe("Financing Module Integration", () => {
+  let financingService: FinancingModuleService;
+  let companyService: any;
+  let approvalService: any;
+  let container: any;
 
-      beforeEach(async () => {
-        container = getContainer();
-        financingService = container.resolve(FINANCING_MODULE);
-        
-        // Mock other services
-        companyService = {
-          retrieveEmployeeByCustomerId: jest.fn(),
-          retrieveCompany: jest.fn(),
-          checkSpendingLimit: jest.fn(),
-        };
-        
-        approvalService = {
-          createApproval: jest.fn(),
-          updateApproval: jest.fn(),
-        };
+  beforeEach(async () => {
+    // Mock container
+    container = {
+      resolve: jest.fn(),
+      register: jest.fn(),
+    };
 
-        container.register({
-          "companyModuleService": companyService,
-          "approvalModuleService": approvalService,
-        });
-      });
+    // Mock services
+    companyService = {
+      retrieveEmployeeByCustomerId: jest.fn(),
+      retrieveCompany: jest.fn(),
+      checkSpendingLimit: jest.fn(),
+      listEmployees: jest.fn(),
+    };
+    
+    approvalService = {
+      createApproval: jest.fn(),
+      updateApproval: jest.fn(),
+    };
+
+    container.resolve.mockImplementation((name: string) => {
+      if (name === "companyModuleService") return companyService;
+      if (name === "approvalModuleService") return approvalService;
+      return null;
+    });
+
+    financingService = new FinancingModuleService(container);
+  });
 
       describe("Customer Group Integration", () => {
         it("should link financing proposal to customer group", async () => {
@@ -257,6 +260,4 @@ medusaIntegrationTestRunner({
           expect(history[0].customer_id).toBeOneOf(["cust_1", "cust_2"]);
         });
       });
-    });
-  },
 });
