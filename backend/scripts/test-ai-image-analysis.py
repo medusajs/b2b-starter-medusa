@@ -96,30 +96,31 @@ def test_single_image(image_path, model=None):
     if not Path(image_path).exists():
         print(f'❌ Arquivo não encontrado: {image_path}')
         return None
-    
-    # Prompt estruturado para extração de dados
-    prompt = """Analise esta imagem de produto fotovoltaico e extraia as seguintes informações:
 
-IMPORTANTE: Retorne APENAS um objeto JSON válido, sem texto adicional.
+    # Prompt estruturado para extração de dados (linhas quebradas para legibilidade)
+    prompt = (
+        "Analise esta imagem de produto fotovoltaico e extraia as seguintes "
+        "informações:\n\n"
+        "IMPORTANTE: Retorne APENAS um objeto JSON válido, sem texto adicional.\n\n"
+        "{\n"
+        '  "manufacturer": "nome do fabricante visível na imagem",\n'
+        '  "category": "inverter, panel, battery, kit ou structure",\n'
+        '  "type": "gridtie, hibrido, offgrid, micro, bifacial, mono",\n'
+        '  "model": "código/modelo exato do produto",\n'
+        '  "power": "potência em W ou kW (extraia do texto visível)",\n'
+        '  "power_numeric": potência em kW como número,\n'
+        '  "image_type": "logo_simples, diagrama_tecnico, produto_fotografia ou produto_render",\n'
+        '  "quality_score": nota de 1 a 10 para qualidade da imagem,\n'
+        '  "problems": ["lista de problemas detectados"],\n'
+        '  "logo_visible": true/false,\n'
+        '  "text_readable": ["lista de textos legíveis na imagem"],\n'
+        '  "confidence": 0.0 a 1.0\n'
+        "}"
+    )
 
-{
-  "manufacturer": "nome do fabricante visível na imagem",
-  "category": "inverter, panel, battery, kit ou structure",
-  "type": "gridtie, hibrido, offgrid, micro, bifacial, mono, etc (se identificável)",
-  "model": "código/modelo exato do produto",
-  "power": "potência em W ou kW (extraia do texto visível)",
-  "power_numeric": potência em kW como número,
-  "image_type": "logo_simples, diagrama_tecnico, produto_fotografia ou produto_render",
-  "quality_score": nota de 1 a 10 para qualidade da imagem,
-  "problems": ["lista de problemas detectados"],
-  "logo_visible": true/false,
-  "text_readable": ["lista de textos legíveis na imagem"],
-  "confidence": 0.0 a 1.0
-}"""
-    
     try:
-        print('🤖 Enviando para LLaVA...')
-        
+        print(f'🤖 Enviando para o modelo: {model}...')
+
         response = ollama.chat(
             model=model,
             messages=[{
