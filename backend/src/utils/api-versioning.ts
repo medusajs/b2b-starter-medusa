@@ -35,6 +35,20 @@ export class APIVersionManager {
     static CURRENT_API_VERSION = CURRENT_API_VERSION;
     static SUPPORTED_VERSIONS = SUPPORTED_VERSIONS;
     /**
+     * Determine if the provided version string (e.g. "1.0.0") is supported.
+     */
+    static isSupported(version: string): boolean {
+        const parsed = this.parseVersion(version);
+        return !!(parsed && this.isVersionSupported(parsed));
+    }
+
+    /**
+     * Retrieve the list of supported versions formatted as strings.
+     */
+    static getSupportedVersions(): string[] {
+        return SUPPORTED_VERSIONS.map((version) => this.formatVersion(version));
+    }
+    /**
      * Parse version string (e.g., "1.0.0", "v1.0.0-beta")
      */
     static parseVersion(versionStr: string): APIVersion | null {
