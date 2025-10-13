@@ -68,16 +68,16 @@ export function KitCard({
                 {/* Kit Name */}
                 <h3 className={`font-semibold ${compact ? 'text-lg' : 'text-xl'}`}>
                     {kit.name}
-                </CardTitle>
+                </h3>
 
                 {/* Match Reason */}
                 {recommendation?.match_reason && (
                     <p className="flex items-center gap-1 mt-1 text-muted-foreground">
                         <TrendingUp className="w-4 h-4" />
                         {recommendation.match_reason}
-                    </CardDescription>
+                    </p>
                 )}
-            </CardHeader>
+            </div>
 
             <div className="space-y-4">
                 {/* Power */}

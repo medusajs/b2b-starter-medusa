@@ -10,10 +10,6 @@ export { YshGradientIcon } from "./components/YshGradientIcon"
 export { YshLogoMark } from "./components/YshLogoMark"
 export { DegradedBanner } from "./components/degraded-banner"
 
-// Data table components
-export { DataTable } from "./blocks/data-table/data-table"
-export type { DataTableProps } from "./blocks/data-table/data-table"
-
 // Utility functions
 export { clx } from "./utils/clx"
 export { cn } from "./utils/cn"
