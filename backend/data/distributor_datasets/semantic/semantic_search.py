@@ -27,7 +27,6 @@ python semantic_search.py rag "qual inversor escolher?" --top 5
 
 import os
 import json
-import subprocess
 import argparse
 import numpy as np
 from pathlib import Path
@@ -36,8 +35,6 @@ import re
 # Configurações
 ROOT_DIR = Path(__file__).parent.parent  # distributor_datasets
 INDEX_FILE = Path(__file__).parent / "index.json"
-EMBED_CMD_ENV = "OLLAMA_EMBED_COMMAND"
-LLM_CMD_ENV = "OLLAMA_LLM_COMMAND"
 
 def collect_json_files(dir_path):
     """Coleta arquivos JSON recursivamente, excluindo a pasta semantic."""
@@ -332,14 +329,24 @@ def search_with_filters(index, query, filters, top_k=10):
     return sorted(scores, key=lambda x: x['score'], reverse=True)[:top_k]
 
 def generate_with_llm_sync(prompt):
-    """Gera resposta via LLM."""
-    cmd = os.getenv(LLM_CMD_ENV)
-    if not cmd:
-        raise ValueError(f"{LLM_CMD_ENV} não definido. Exemplo: export {LLM_CMD_ENV}='ollama generate gemma3:27b --temperature 0.0'")
-    result = subprocess.run(cmd, input=prompt, shell=True, text=True, capture_output=True)
-    if result.returncode != 0:
-        print(f"Aviso: LLM saiu com código {result.returncode}, stderr: {result.stderr}")
-    return result.stdout or result.stderr or ''
+    """Gera resposta via API HTTP do Ollama."""
+    import requests
+    
+    ollama_url = os.getenv('OLLAMA_HOST', 'http://localhost:11434')
+    model = os.getenv('OLLAMA_LLM_MODEL', 'gemma3:4b')
+    
+    try:
+        response = requests.post(
+            f"{ollama_url}/api/generate",
+            json={"model": model, "prompt": prompt, "stream": False},
+            timeout=120
+        )
+        response.raise_for_status()
+        result = response.json()
+        return result.get('response', '')
+    except Exception as e:
+        print(f"Aviso: Erro ao gerar resposta LLM: {e}")
+        return ''
 
 def rerank_docs(hits, query):
     """Re-rank via LLM."""

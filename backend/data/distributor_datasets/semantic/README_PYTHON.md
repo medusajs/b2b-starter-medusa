@@ -13,18 +13,27 @@ Este script Python implementa buscas semânticas e RAG (Retrieval-Augmented Gene
 ## Requisitos
 
 - Python 3.8+
-- Ollama instalado e rodando
-- Modelos: `nomic-embed-text` (embeddings), `gemma3:27b` (LLM)
-- numpy: `pip install numpy`
+- Ollama instalado e rodando localmente
+- Modelos instalados: `gemma3:4b` ou similar (use `ollama list` para ver modelos disponíveis)
+- Dependências Python: `pip install numpy requests`
 
 ## Configuração
 
-Defina as variáveis de ambiente:
+Defina as variáveis de ambiente (opcional, pois há valores padrão):
 
 ```bash
-export OLLAMA_EMBED_COMMAND="ollama embed nomic-embed-text --stdin --json"
-export OLLAMA_LLM_COMMAND="ollama generate gemma3:27b --temperature 0.0"
+# PowerShell
+$env:OLLAMA_HOST = "http://localhost:11434"
+$env:OLLAMA_EMBED_MODEL = "gemma3:4b"
+$env:OLLAMA_LLM_MODEL = "gemma3:4b"
+
+# Linux/Mac
+export OLLAMA_HOST="http://localhost:11434"
+export OLLAMA_EMBED_MODEL="gemma3:4b"
+export OLLAMA_LLM_MODEL="gemma3:4b"
 ```
+
+**Nota:** O script agora usa a API HTTP do Ollama em vez de comandos CLI.
 
 ## Uso
 
@@ -74,7 +83,8 @@ python semantic_search.py rag "qual inversor escolher para casa de 5kW?"
 ## Notas
 
 - O script processa arquivos JSON em `../distributor_datasets/` (odex, solfacil, fotus).
-- Embeddings são gerados via subprocess para Ollama.
+- Embeddings são gerados via API HTTP do Ollama (`/api/embeddings`).
 - Re-ranking usa prompts em português para especialidade em fotovoltaicos.
-- RAG retorna JSON estruturado com answer, sources e recommendations.</content>
+- RAG retorna JSON estruturado com answer, sources e recommendations.
+- Certifique-se de que o Ollama está rodando: `ollama serve` ou verifique se o serviço está ativo.</content>
 <parameter name="filePath">c:\Users\fjuni\ysh_medusa\ysh-store\backend\data\distributor_datasets\semantic\README_PYTHON.md
