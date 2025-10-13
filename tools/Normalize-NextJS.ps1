@@ -523,10 +523,10 @@ function Write-Report {
     Write-Host "Por Severidade:"
     foreach ($group in $bySeverity) {
         $icon = switch ($group.Name) {
-            "error" { "🔴" }
-            "warning" { "🟡" }
-            "info" { "🔵" }
-            default { "⚪" }
+            "error" { "[ERROR]" }
+            "warning" { "[WARN]" }
+            "info" { "[INFO]" }
+            default { "[UNKNOWN]" }
         }
         Write-Host "  $icon $($group.Name.ToUpper()): $($group.Count)"
     }
@@ -549,10 +549,10 @@ function Write-Report {
         $i = 1
         foreach ($issue in $topIssues) {
             $icon = switch ($issue.Severity) {
-                "error" { "🔴" }
-                "warning" { "🟡" }
-                "info" { "🔵" }
-                default { "⚪" }
+                "error" { "[ERROR]" }
+                "warning" { "[WARN]" }
+                "info" { "[INFO]" }
+                default { "[UNKNOWN]" }
             }
             Write-Host ""
             Write-Host "$i. $icon [$($issue.Type)] $($issue.Message)"
