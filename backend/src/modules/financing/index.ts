@@ -7,6 +7,8 @@ export default Module(FINANCING_MODULE, {
   service: FinancingModuleService,
 });
 
+export type { default as FinancingModuleServiceType } from "./service";
+
 export * from "./types/common";
 export * from "./types/mutations";
 export * from "./models";

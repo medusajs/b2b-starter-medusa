@@ -10,9 +10,8 @@
         "<rootDir>/src/__tests__/setup.ts"
     ],
     "testMatch": [
-        "<rootDir>/src/**/__tests__/**/*.(ts|tsx)",
-        "<rootDir>/src/**/*.(test|spec).(ts|tsx)",
-        "!<rootDir>/src/**/*.pact.test.ts"
+        "<rootDir>/src/**/__tests__/**/*.(test|spec).(ts|tsx)",
+        "<rootDir>/src/**/*.(test|spec).(ts|tsx)"
     ],
     "collectCoverageFrom": [
         "src/**/*.(ts|tsx)",
@@ -48,7 +47,9 @@
     ],
     "testPathIgnorePatterns": [
         "/node_modules/",
-        "/.next/"
+        "/.next/",
+        "/src/pact/",
+        "/src/__tests__/setup.ts"
     ],
     "transformIgnorePatterns": [
         "/node_modules/(?!(@medusajs|@headlessui|@radix-ui|@heroicons)/)"

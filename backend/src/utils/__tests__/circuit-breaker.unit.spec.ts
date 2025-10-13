@@ -6,10 +6,13 @@ import { CircuitBreaker, CircuitState } from '../circuit-breaker'
 
 describe('CircuitBreaker', () => {
   let breaker: CircuitBreaker
+  let testName: string
 
   beforeEach(() => {
+    // Use unique name per test to avoid shared state
+    testName = `test-breaker-${Date.now()}-${Math.random()}`
     breaker = CircuitBreaker.getInstance({
-      name: 'test-breaker',
+      name: testName,
       failureThreshold: 3,
       openDurationMs: 1000,
       halfOpenSuccesses: 2,

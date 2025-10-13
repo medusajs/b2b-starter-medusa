@@ -3,13 +3,13 @@ import type {
   MedusaResponse,
 } from "@medusajs/framework/http";
 import { MedusaError } from "@medusajs/framework/utils";
-import { FINANCING_MODULE } from "../../../modules/financing";
+import { FINANCING_MODULE, FinancingModuleServiceType } from "../../../modules/financing";
 import { validateCreateProposal } from "../../../modules/financing/validators";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   try {
-    const financingModuleService = req.scope.resolve(FINANCING_MODULE);
+    const financingModuleService = req.scope.resolve(FINANCING_MODULE) as FinancingModuleServiceType;
     const stats = await financingModuleService.getProposalStats();
     res.json({ stats });
   } catch (error: any) {
@@ -25,8 +25,8 @@ export const POST = async (
       return res.status(400).json({ errors });
     }
 
-    const financingModuleService = req.scope.resolve(FINANCING_MODULE);
-    const proposal = await financingModuleService.createProposal(req.body);
+    const financingModuleService = req.scope.resolve(FINANCING_MODULE) as FinancingModuleServiceType;
+    const proposal = await financingModuleService.createProposal(req.body as any);
     res.status(201).json({ proposal });
   } catch (error: any) {
     throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to create financing proposal");

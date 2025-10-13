@@ -146,20 +146,22 @@ class FinancingModuleService extends MedusaService({
       interest_rate_monthly: data.interest_rate_annual / 12,
       cet_rate: cetRate,
       financed_amount: data.approved_amount - proposal.down_payment_amount,
-      approval_conditions: data.approval_conditions,
+      approval_conditions: data.approval_conditions ? { conditions: data.approval_conditions } : undefined,
       status: "approved" as const,
       approved_at: new Date(),
       expires_at: expiresAt,
     };
 
-    const [updatedProposal] = await this.updateFinancingProposals([updateData]);
+    const updatedProposal = await this.updateFinancingProposals(updateData, { where: { id: data.id } });
 
     // Generate payment schedule
     await this.generatePaymentSchedule(updatedProposal);
 
     return updatedProposal;
-  } async contractProposal(data: ContractFinancingDTO): Promise<FinancingProposalDTO> {
-    const proposal = await this.retrieve("FinancingProposal", data.id);
+  }
+
+  async contractProposal(data: ContractFinancingDTO): Promise<FinancingProposalDTO> {
+    const proposal = await this.retrieveFinancingProposal(data.id);
 
     if (!proposal) {
       throw new Error(`Proposal ${data.id} not found`);
@@ -304,7 +306,7 @@ class FinancingModuleService extends MedusaService({
     });
 
     for (const schedule of existingSchedules) {
-      await this.deletePaymentSchedule(schedule.id);
+      await this.deletePaymentSchedules([schedule.id]);
     }
 
     // Create new schedules

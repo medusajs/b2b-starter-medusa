@@ -1,9 +1,10 @@
-// Módulos B2B customizados - usando constantes exportadas dos módulos
-import { YSH_PRICING_MODULE } from "./src/modules/ysh-pricing";
-import { UNIFIED_CATALOG_MODULE } from "./src/modules/unified-catalog";
-import { COMPANY_MODULE } from "./src/modules/company";
-import { QUOTE_MODULE } from "./src/modules/quote";
-import { APPROVAL_MODULE } from "./src/modules/approval";
+// Módulos B2B customizados - constantes definidas inline para evitar imports circulares
+const YSH_PRICING_MODULE = "ysh-pricing";
+const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
+const COMPANY_MODULE = "company";
+const QUOTE_MODULE = "quote";
+const APPROVAL_MODULE = "approval";
+
 import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 import { resolveDatabaseSslConfig } from "./src/utils/database-ssl";
 

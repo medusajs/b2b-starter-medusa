@@ -5,6 +5,7 @@
 
 import { CacheManager } from './cache-manager'
 import { CircuitBreaker, CircuitBreakerConfig } from './circuit-breaker'
+import { fallbackMetrics } from './fallback-metrics'
 
 export interface FallbackOptions<T> {
   key: string
@@ -62,12 +63,17 @@ export async function withFallback<T>(options: FallbackOptions<T>): Promise<Fall
   const cache = CacheManager.getInstance()
   const circuitBreaker = circuit ? CircuitBreaker.getInstance(circuit) : null
 
+  // Track call
+  fallbackMetrics.recordCall(key)
+
   // Check circuit breaker
   if (circuitBreaker) {
     const state = circuitBreaker.getState()
     if (state.state === 'OPEN') {
+      fallbackMetrics.recordCircuitOpen(key)
       const cached = await cache.get<T>(key)
       if (cached) {
+        fallbackMetrics.recordStaleServed(key)
         return { data: cached, stale: true, cached: true }
       }
       throw new Error(`E503_UPSTREAM_UNAVAILABLE: Circuit breaker ${circuit.name} is OPEN`)
@@ -97,6 +103,7 @@ export async function withFallback<T>(options: FallbackOptions<T>): Promise<Fall
 
       // Success: cache and return
       await cache.set(key, result, ttlSec)
+      fallbackMetrics.recordCacheHit(key)
       return { data: result, stale: false }
     } catch (error: any) {
       clearTimeout(timeoutId)
@@ -114,11 +121,16 @@ export async function withFallback<T>(options: FallbackOptions<T>): Promise<Fall
 
   // Call failed: try stale cache
   if (cached) {
+    fallbackMetrics.recordStaleServed(key)
+    fallbackMetrics.recordFailure(key)
     console.warn(`[Fallback] Serving stale cache for key: ${key}`, {
       error: lastError?.message,
     })
     return { data: cached, stale: true, cached: true }
   }
+
+  // No cache: record failure
+  fallbackMetrics.recordFailure(key)
 
   // No cache available: throw error
   throw lastError || new Error('E504_UPSTREAM_TIMEOUT')

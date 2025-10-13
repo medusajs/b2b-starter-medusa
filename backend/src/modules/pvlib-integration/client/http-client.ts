@@ -52,7 +52,13 @@ export class PVHttpClient {
         };
 
         // Cleanup de cache a cada 1 hora
-        setInterval(() => this.cleanExpiredCache(), 3600000);
+        // Em ambiente de teste, evitamos criar intervalos para não manter handles abertos no Jest
+        if (process.env.NODE_ENV !== 'test') {
+            const interval = setInterval(() => this.cleanExpiredCache(), 3600000);
+            // Evita manter o processo vivo em Node
+            // @ts-ignore - NodeJS.Timeout em runtime possui unref
+            interval.unref?.();
+        }
     }
 
     /**
