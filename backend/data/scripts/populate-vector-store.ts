@@ -97,10 +97,10 @@ export class VectorStoreService {
                 await this.client.deleteCollection({ name: 'ysh_products' })
                 this.collection = null
                 console.log('🗑️  Vector store limpo')
-            } catch (error) {
+            } catch (error: any) {
                 console.error('❌ Erro ao limpar o vector store:', error);
                 // Se a coleção não existir, apenas logamos e continuamos
-                if (error.message.includes('does not exist')) {
+                if (error.message && error.message.includes('does not exist')) {
                     this.collection = null;
                 } else {
                     throw error;
