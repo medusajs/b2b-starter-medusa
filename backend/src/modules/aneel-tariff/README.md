@@ -5,6 +5,7 @@ Módulo de tarifas de energia elétrica brasileiras baseado nos dados da ANEEL (
 ## 📋 Visão Geral
 
 Este módulo fornece:
+
 - **Consulta de tarifas vigentes** por UF, grupo tarifário e concessionária
 - **Cache distribuído Redis** com TTL de 24 horas
 - **Cálculos** de custo anual, economia solar, payback e ROI
@@ -14,7 +15,7 @@ Este módulo fornece:
 
 ## 🏗️ Arquitetura
 
-```
+```tsx
 aneel-tariff/
 ├── service-new.ts          # Service principal com cache Redis
 ├── service.ts              # Service legado (in-memory)
@@ -239,7 +240,7 @@ try {
 
 ### 1. Cache Redis Indisponível
 
-```
+```tsx
 getTarifaVigente() → DB Query → Success
 ```
 
@@ -247,7 +248,7 @@ getTarifaVigente() → DB Query → Success
 
 ### 2. Banco de Dados Indisponível
 
-```
+```tsx
 getTarifaVigente() → Fallback Snapshot (in-memory) → Success
 ```
 
@@ -257,7 +258,7 @@ getTarifaVigente() → Fallback Snapshot (in-memory) → Success
 
 ### 3. Tarifa Não Encontrada para UF
 
-```
+```tsx
 getTarifaVigente(uf="AC") → Not found → Média Nacional
 ```
 
@@ -267,7 +268,7 @@ getTarifaVigente(uf="AC") → Not found → Média Nacional
 
 ### 4. Bandeira Tarifária Não Encontrada
 
-```
+```tsx
 getBandeiraAtual() → Not found → Bandeira Amarela (default conservador)
 ```
 
@@ -291,6 +292,7 @@ npm run test:integration:modules -- aneel-tariff
 ```
 
 **Cenários**:
+
 - Cache hit/miss
 - Batch queries (N+1 prevention)
 - Fallback scenarios
@@ -298,7 +300,7 @@ npm run test:integration:modules -- aneel-tariff
 
 ### Fixtures
 
-```
+```tsx
 __tests__/fixtures/
 ├── tarifas-sp-2024.json      # Tarifas SP (CPFL, Enel)
 ├── tarifas-rj-2024.json      # Tarifas RJ (Light, Enel)
@@ -332,6 +334,7 @@ __tests__/fixtures/
 ## 🔄 Changelog
 
 ### v2024.10 (Outubro 2024)
+
 - ✅ Refatoração completa: cache Redis, funções puras, versionamento
 - ✅ Validators Zod para todas as APIs
 - ✅ Batch queries (N+1 prevention)
@@ -339,6 +342,7 @@ __tests__/fixtures/
 - ✅ Documentação completa com SLA e fallback
 
 ### v2024.07 (Julho 2024)
+
 - 🆕 Criação inicial do módulo
 - 🆕 Dados estáticos em memória (12 concessionárias)
 - 🆕 Migrations SQL (006, 007)
