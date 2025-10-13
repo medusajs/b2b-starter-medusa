@@ -42,7 +42,7 @@
 
 ### Análise dos SKUs
 
-```
+```tsx
 sku_112369 (135.5s) → Primeira execução, modelo carregando
 sku_135720 (129.9s) → Ainda estabilizando, erro JSON
 sku_145763 (127.1s) → Processamento estabilizado
