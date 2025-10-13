@@ -429,7 +429,7 @@ class FinancingModuleService extends MedusaService({
     total_amount: number;
   }> {
     const proposals = await this.listFinancingProposals({});
-    
+
     const stats = {
       total: proposals.length,
       by_status: {} as Record<string, number>,
@@ -440,29 +440,27 @@ class FinancingModuleService extends MedusaService({
     proposals.forEach((proposal) => {
       // Count by status
       stats.by_status[proposal.status] = (stats.by_status[proposal.status] || 0) + 1;
-      
+
       // Count by modality
       stats.by_modality[proposal.modality] = (stats.by_modality[proposal.modality] || 0) + 1;
-      
+
       // Sum amounts
       stats.total_amount += proposal.requested_amount;
     });
 
     return stats;
-  }  async getCompanyFinancingHistory(companyId: string): Promise<FinancingProposalDTO[]> {
-    const companyService = this.container.resolve(COMPANY_MODULE);
-    const employees = await companyService.listEmployees({ company_id: companyId });
-    const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
+  async getCompanyFinancingHistory(companyId: string): Promise < FinancingProposalDTO[] > {
+      const companyService = this.container.resolve(COMPANY_MODULE);
+      const employees = await companyService.getActiveEmployeesByCompany(companyId);
+      const customerIds = employees.map(emp => emp.customer_id).filter(Boolean);
 
-    if (customerIds.length === 0) {
+      if(customerIds.length === 0) {
       return [];
     }
 
-    return await this.list("FinancingProposal", {
-      where: { customer_id: { $in: customerIds } },
-      relations: ["payment_schedules"],
-      order: { created_at: "DESC" },
-    });
+    // Filter proposals by customer IDs
+    const allProposals = await this.listFinancingProposals({});
+    return allProposals.filter(proposal => customerIds.includes(proposal.customer_id));
   }
 }
 

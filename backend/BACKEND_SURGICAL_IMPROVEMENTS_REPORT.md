@@ -383,11 +383,10 @@ npm install --save-dev supertest @types/supertest
 **Categorias de Erros**:
 
 - **Custom Modules Service Methods** (30 erros → em andamento):
-
-- ✅ *(12/10/2025)* `company/service.ts`: Service refatorado para usar `createCompanies_`/`updateCompanies_`; erros de tipo eliminados.
-- ⚠️ `approval/service.ts`: `Property 'listApprovalSettings' does not exist`
-- **Causa**: MedusaService gera métodos com sufixo `_` (ex: `create_`, `list_`)
-- **Solução**: Usar `this.create_()` em vez de `this.create()`
+  - ✅ *(12/10/2025)* `company/service.ts`: Service refatorado para usar `createCompanies_`/`updateCompanies_`; erros de tipo eliminados.
+  - ⚠️ `approval/service.ts`: `Property 'listApprovalSettings' does not exist`
+  - **Causa**: MedusaService gera métodos com sufixo `_` (ex: `create_`, `list_`)
+  - **Solução**: Usar `this.create_()` em vez de `this.create()`
 
 - **API Routes - Invalid 'where' property** (3 erros):
   - `store/catalog/[category]/route.ts`: `'where' does not exist in type`

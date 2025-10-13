@@ -873,28 +873,28 @@
 
 ### 🔴 Prioridade Alta (Bloqueadores)
 
-1. **T15.9.x** - Corrigir health check do storefront
-2. **T8.4.x** - Implementar Product Detail Page
-3. **T8.7.x** - Implementar Checkout completo
-4. **T9.2.x** - Implementar autenticação de clientes
-5. **T15.3.x** - Implementar APIs B2B faltantes
-6. **T15.2.x** - Executar seeding de dados demo
+- (1) **T15.9.x** - Corrigir health check do storefront
+- (2) **T8.4.x** - Implementar Product Detail Page
+- (3) **T8.7.x** - Implementar Checkout completo
+- (4) **T9.2.x** - Implementar autenticação de clientes
+- (5) **T15.3.x** - Implementar APIs B2B faltantes
+- (6) **T15.2.x** - Executar seeding de dados demo
 
 ### 🟡 Prioridade Média (Funcionalidades Core)
 
-7. **T12.1.x** - Testar fluxo B2C completo
-8. **T12.2.x** - Testar fluxo B2B sem aprovação
-9. **T12.3.x** - Testar fluxo B2B com aprovação
-10. **T8.8.x** - Implementar páginas de Quotes
-11. **T8.9.x** - Implementar páginas de Approvals
-12. **T13.x.x** - Otimizações de performance
+- (7) **T12.1.x** - Testar fluxo B2C completo
+- (8) **T12.2.x** - Testar fluxo B2B sem aprovação
+- (9) **T12.3.x** - Testar fluxo B2B com aprovação
+- (10) **T8.8.x** - Implementar páginas de Quotes
+- (11) **T8.9.x** - Implementar páginas de Approvals
+- (12) **T13.x.x** - Otimizações de performance
 
 ### 🟢 Prioridade Baixa (Nice-to-have)
 
-13. **T15.6.x** - Implementar testes automatizados
-14. **T14.2.x** - Implementar monitoramento avançado
-15. **T15.7.x** - Setup de CI/CD
-16. **T15.8.x** - Documentação adicional
+- (13) **T15.6.x** - Implementar testes automatizados
+- (14) **T14.2.x** - Implementar monitoramento avançado
+- (15) **T15.7.x** - Setup de CI/CD
+- (16) **T15.8.x** - Documentação adicional
 
 ---
 

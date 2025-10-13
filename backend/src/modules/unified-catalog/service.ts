@@ -15,7 +15,7 @@ class UnifiedCatalogModuleService extends MedusaService({
     /**
      * Lista manufacturers com filtros
      */
-    async listManufacturers(
+    async listManufacturersWithFilters(
         filters: { tier?: string; country?: string; is_active?: boolean } = {},
         config: { relations?: string[]; skip?: number; take?: number } = {}
     ) {
@@ -25,13 +25,13 @@ class UnifiedCatalogModuleService extends MedusaService({
         if (filters.country) where.country = filters.country;
         if (filters.is_active !== undefined) where.is_active = filters.is_active;
 
-        return await this.listManufacturers_(where, config);
+        return await this.listManufacturers(where, config);
     }
 
     /**
      * Lista e conta manufacturers
      */
-    async listAndCountManufacturers(
+    async listAndCountManufacturersWithFilters(
         filters: { tier?: string; country?: string } = {},
         config: { skip?: number; take?: number } = {}
     ) {
@@ -40,13 +40,13 @@ class UnifiedCatalogModuleService extends MedusaService({
         if (filters.tier) where.tier = filters.tier;
         if (filters.country) where.country = filters.country;
 
-        return await this.listAndCountManufacturers_(where, config);
+        return await this.listAndCountManufacturers(where, config);
     }
 
     /**
      * Busca SKUs com filtros e relações
      */
-    async listSKUs(
+    async listSKUsWithFilters(
         filters: {
             category?: string;
             manufacturer_id?: string;
@@ -69,13 +69,13 @@ class UnifiedCatalogModuleService extends MedusaService({
         // Por padrão incluir manufacturer
         const relations = config.relations || ["manufacturer"];
 
-        return await this.listSKUs_(where, { ...config, relations });
+        return await this.listSKUs(where, { ...config, relations });
     }
 
     /**
      * Lista SKUs com contagem (formato Medusa padrão)
      */
-    async listAndCountSKUs(
+    async listAndCountSKUsWithFilters(
         filters: {
             category?: string;
             manufacturer_id?: string;
@@ -100,21 +100,21 @@ class UnifiedCatalogModuleService extends MedusaService({
 
         const relations = config.relations || ["manufacturer"];
 
-        return await this.listAndCountSKUs_(where, { ...config, relations });
+        return await this.listAndCountSKUs(where, { ...config, relations });
     }
 
     /**
      * Busca um SKU por ID ou código
      */
-    async retrieveSKU(skuId: string, config: { relations?: string[] } = {}) {
+    async retrieveSKUByIdOrCode(skuId: string, config: { relations?: string[] } = {}) {
         const relations = config.relations || ["manufacturer", "offers"];
 
         // Try by ID first
-        let sku = await this.retrieveSKU_(skuId, { relations }).catch(() => null);
+        let sku = await this.retrieveSKU(skuId, { relations }).catch(() => null);
 
         // If not found, try by sku_code
         if (!sku) {
-            const skus = await this.listSKUs_(
+            const skus = await this.listSKUs(
                 { sku_code: skuId },
                 { relations, take: 1 }
             );
@@ -127,7 +127,7 @@ class UnifiedCatalogModuleService extends MedusaService({
     /**
      * Lista ofertas de distribuidores
      */
-    async listDistributorOffers(
+    async listDistributorOffersWithFilters(
         filters: {
             sku_id?: string;
             distributor_slug?: string;
@@ -143,7 +143,7 @@ class UnifiedCatalogModuleService extends MedusaService({
 
         const orderBy = config.orderBy || { price: "ASC" };
 
-        return await this.listDistributorOffers_(where, { orderBy });
+        return await this.listDistributorOffers(where, { orderBy });
     }
 
     /**
