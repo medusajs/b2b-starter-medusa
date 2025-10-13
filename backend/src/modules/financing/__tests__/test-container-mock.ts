@@ -3,7 +3,7 @@
  * Provides complete mock setup for workflow testing without infrastructure dependencies
  */
 
-import { COMPANY_MODULE } from "../../company";
+import { COMPANY_MODULE } from "../../empresa";
 import { APPROVAL_MODULE } from "../../../modules_disabled/approval";
 
 export interface MockContainerOptions {

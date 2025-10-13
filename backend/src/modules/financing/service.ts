@@ -25,11 +25,44 @@ class FinancingModuleService extends MedusaService({
 }) {
   private bacenService: BACENFinancingService;
   private container: any;
+  private approvalModuleEnabled: boolean = false;
 
   constructor(container: any) {
     super(container);
     this.container = container;
     this.bacenService = new BACENFinancingService();
+
+    // Check if approval module is enabled
+    try {
+      this.container.resolve(APPROVAL_MODULE);
+      this.approvalModuleEnabled = true;
+    } catch (error) {
+      console.info("[FinancingService] Approval module not registered - approval features disabled");
+      this.approvalModuleEnabled = false;
+    }
+  }
+
+  /**
+   * Check if approval module is available
+   */
+  private isApprovalModuleEnabled(): boolean {
+    return this.approvalModuleEnabled;
+  }
+
+  /**
+   * Safely resolve approval service only if enabled
+   */
+  private getApprovalService(): any | null {
+    if (!this.isApprovalModuleEnabled()) {
+      return null;
+    }
+
+    try {
+      return this.container.resolve(APPROVAL_MODULE);
+    } catch (error) {
+      console.warn("[FinancingService] Failed to resolve approval module:", error);
+      return null;
+    }
   }
 
   // CRUD Operations with Integrations
@@ -60,21 +93,26 @@ class FinancingModuleService extends MedusaService({
 
       const [proposal] = await this.createFinancingProposals([proposalData]);
 
-      // 3. Create approval for high-value proposals
-      if (data.requested_amount > 100000) {
+      // 3. Create approval for high-value proposals (if approval module is enabled)
+      if (data.requested_amount > 100000 && this.isApprovalModuleEnabled()) {
         try {
-          const approvalService = this.container.resolve(APPROVAL_MODULE);
-          await approvalService.createApproval({
-            cart_id: proposal.id,
-            type: "financing_proposal",
-            status: "pending",
-            created_by: data.customer_id,
-            cart_total_snapshot: data.requested_amount,
-            priority: data.requested_amount > 500000 ? 2 : 1,
-          });
+          const approvalService = this.getApprovalService();
+          if (approvalService) {
+            await approvalService.createApproval({
+              cart_id: proposal.id,
+              type: "financing_proposal",
+              status: "pending",
+              created_by: data.customer_id,
+              cart_total_snapshot: data.requested_amount,
+              priority: data.requested_amount > 500000 ? 2 : 1,
+            });
+          }
         } catch (error) {
-          console.warn("Failed to create approval:", error);
+          console.warn("[FinancingService] Failed to create approval (non-blocking):", error);
+          // Non-blocking: Continue even if approval creation fails
         }
+      } else if (data.requested_amount > 100000 && !this.isApprovalModuleEnabled()) {
+        console.info(`[FinancingService] High-value proposal (${data.requested_amount}) created without approval - module disabled`);
       }
 
       // 4. Log audit trail

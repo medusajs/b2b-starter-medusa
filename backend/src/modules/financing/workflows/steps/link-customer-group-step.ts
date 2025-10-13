@@ -1,5 +1,5 @@
 import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
-import { COMPANY_MODULE } from "../../../company";
+import { COMPANY_MODULE } from "../../../empresa";
 import { ICompanyModuleService } from "../../../../types/company/service";
 
 export interface LinkCustomerGroupStepInput {
