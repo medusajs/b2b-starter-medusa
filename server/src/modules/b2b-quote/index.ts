@@ -1,6 +1,6 @@
-export const B2B_QUOTE_MODULE = "b2bQuote";
+import { Module } from "@medusajs/framework/utils";
+import QuoteModuleService from "./service.js";
 
-export default function B2BQuoteModule() {
-  return {} as any;
-}
+export const QUOTE_MODULE = "quote";
 
+export default Module(QUOTE_MODULE, { service: QuoteModuleService });

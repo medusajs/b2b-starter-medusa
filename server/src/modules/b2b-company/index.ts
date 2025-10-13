@@ -1,8 +1,8 @@
 import { Module } from "@medusajs/framework/utils";
 import CompanyModuleService from "./service.ts";
 
-export const COMPANY_MODULE = "company";
+export const B2B_COMPANY_MODULE = "b2bCompany";
 
-export default Module(COMPANY_MODULE, {
+export default Module(B2B_COMPANY_MODULE, {
   service: CompanyModuleService,
 });
