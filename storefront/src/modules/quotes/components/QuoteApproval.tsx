@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
-import { YshButton as Button } from '@ysh/ui'
+import { Button } from "@medusajs/ui"
 import { Badge } from '@ysh/ui'
 import { CheckCircle, XCircle, Clock } from 'lucide-react'
 import useQuoteApprovals from '../hooks/useQuoteApprovals'
