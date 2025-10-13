@@ -1,7 +1,7 @@
 import repeat from "@/lib/util/repeat"
 import { Container, Table } from "@medusajs/ui"
-import SkeletonCartItem from "../components/skeleton-cart-item"
-import SkeletonOrderSummary from "../components/skeleton-order-summary"
+import SkeletonCartItem from "./components/skeleton-cart-item"
+import SkeletonOrderSummary from "./components/skeleton-order-summary"
 
 const SkeletonCartPage = () => {
   return (
