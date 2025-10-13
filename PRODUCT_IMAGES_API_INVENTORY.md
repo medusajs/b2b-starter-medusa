@@ -163,40 +163,47 @@ ysh-store/
 ### Backend
 
 #### 1. `admin/internal/products/route.ts`
+
 - ✅ GET: Listagem com paginação (`q`, `category`, `limit`, `offset`)
 - ✅ POST: Busca avançada (filtros múltiplos, ordenação)
 - ✅ Imagens ordenadas por rank (v2.x)
 - ✅ Metadados de paginação
 
 #### 2. `admin/internal/products/[id]/images/route.ts`
+
 - ✅ POST: Anexar imagens (produto/variante)
 - ✅ PATCH: Reordenar por rank
 - ✅ DELETE: Remover múltiplas imagens
 - ✅ Validação de produto existente
 
 #### 3. `admin/internal/media/presign/route.ts`
+
 - ✅ POST: Gera URL pré-assinada S3
 - ✅ Retorna URL de upload e URL pública
 - ✅ Validação de filename/contentType
 
 #### 4. `store/internal/products/[handle]/route.ts`
+
 - ✅ GET: PDP público por handle
 - ✅ Requer `x-publishable-api-key`
 - ✅ Imagens ordenadas por rank
 - ✅ Relations completas
 
 #### 5. `admin/internal/types.ts`
+
 - ✅ 10+ interfaces TypeScript
 - ✅ DTOs para requests/responses
 - ✅ Tipos de paginação e erro
 
 #### 6. `workflows/media/upload_and_attach_image.ts`
+
 - ✅ Step 1: Upload via File Module
 - ✅ Step 2: Attach ao produto
 - ✅ Rollback automático em falha
 - ✅ Preserva imagens existentes
 
 #### 7-8. Configuração
+
 - ✅ File Module com S3 provider
 - ✅ Fallback para file-local
 - ✅ Envs sem credenciais reais
@@ -204,12 +211,14 @@ ysh-store/
 ### Frontend
 
 #### 9. `lib/api/http.ts`
+
 - ✅ `adminFetch`: Rotas admin com cookies
 - ✅ `storeFetch`: Rotas store com publishable key
 - ✅ `uploadFile`: Upload multipart
 - ✅ Tratamento de erros unificado
 
 #### 10. `lib/api/internal.ts`
+
 - ✅ 7 wrappers tipados
 - ✅ `listInternalProducts`
 - ✅ `searchInternalProducts`
@@ -220,12 +229,14 @@ ysh-store/
 - ✅ `getProductByHandle`
 
 #### 11. `hooks/use-products.ts`
+
 - ✅ `useInternalProducts`: Listagem com estado
 - ✅ `useSearchInternalProducts`: Busca avançada
 - ✅ Loading, error, data states
 - ✅ Refetch/search callbacks
 
 #### 12. `hooks/use-product-images.ts`
+
 - ✅ `useAttachImages`: Anexar com mutation
 - ✅ `useReorderImages`: Reordenar com mutation
 - ✅ `useRemoveImages`: Remover com mutation
@@ -233,6 +244,7 @@ ysh-store/
 - ✅ Reset states
 
 #### 13. `lib/utils/images.ts`
+
 - ✅ `buildImageUrl`: URLs com transformações
 - ✅ `buildSrcSet`: srcSet responsivo
 - ✅ `buildPictureSources`: Sources para `<picture>`
@@ -243,6 +255,7 @@ ysh-store/
 - ✅ `placeholderDataUrl`: Blur placeholder
 
 #### 14. `lib/utils/resilient.ts`
+
 - ✅ `resilientFetch`: Retry exponencial
 - ✅ `resilientHttpFetch`: Fetch com timeout
 - ✅ `cachedFetch`: Cache em memória com TTL
@@ -251,6 +264,7 @@ ysh-store/
 - ✅ `resilientApiCall`: Wrapper completo
 
 #### 15. `lib/data/types.ts`
+
 - ✅ 20+ interfaces TypeScript
 - ✅ `ProductImage`, `Product`, `ProductVariant`
 - ✅ `ProductCategory`, `ProductCollection`, `ProductTag`
@@ -261,6 +275,7 @@ ysh-store/
 ### Documentação
 
 #### 16. `PRODUCT_IMAGES_API_COMPLETE.md`
+
 - ✅ Visão geral da arquitetura
 - ✅ Documentação de todas as rotas
 - ✅ Exemplos de uso (backend + frontend)
@@ -269,6 +284,7 @@ ysh-store/
 - ✅ Referências oficiais
 
 #### 17. `PRODUCT_IMAGES_API_SUMMARY.md`
+
 - ✅ Sumário executivo
 - ✅ Escopo entregue
 - ✅ Estatísticas de implementação
@@ -277,6 +293,7 @@ ysh-store/
 - ✅ Próximos passos
 
 #### 18. `PRODUCT_IMAGES_API_TESTING.md`
+
 - ✅ Guia de testes backend (curl/PowerShell)
 - ✅ Guia de testes frontend (componentes)
 - ✅ Testes automatizados (Jest)
@@ -289,6 +306,7 @@ ysh-store/
 ## Conformidade com Padrões
 
 ### ✅ Medusa v2 (100%)
+
 - [x] Rotas baseadas em arquivos
 - [x] `MedusaRequest` / `MedusaResponse`
 - [x] Container resolution
@@ -300,6 +318,7 @@ ysh-store/
 - [x] Imagens ordenadas por rank
 
 ### ✅ Next.js 15 (100%)
+
 - [x] App Router compatible
 - [x] Imports absolutos
 - [x] Client-side hooks
@@ -307,12 +326,14 @@ ysh-store/
 - [x] Error/Loading states
 
 ### ✅ TypeScript (100%)
+
 - [x] Tipos fortes
 - [x] DTOs compartilhados
 - [x] Generics
 - [x] Sem `any` não justificado
 
 ### ✅ Boas Práticas (100%)
+
 - [x] Documentação inline
 - [x] README completo
 - [x] Testes guiados
@@ -326,12 +347,14 @@ ysh-store/
 ## Tecnologias Utilizadas
 
 ### Backend
+
 - **Medusa v2.8+** (rotas, workflows, módulos)
 - **TypeScript 5.x**
 - **File Module** (S3/local)
 - **PostgreSQL** (via Product Module)
 
 ### Frontend
+
 - **Next.js 15** (App Router)
 - **React 19**
 - **TypeScript 5.x**
@@ -339,6 +362,7 @@ ysh-store/
 - **React Hooks**
 
 ### Infraestrutura
+
 - **AWS S3** (ou compatível)
 - **Redis** (cache opcional)
 - **Docker** (containerização)
@@ -360,18 +384,21 @@ ysh-store/
 ## Próximos Passos Sugeridos
 
 ### Curto Prazo (1 semana)
+
 1. ✅ Testar todas as rotas manualmente
 2. ✅ Configurar S3 (ou usar local)
 3. ✅ Testar hooks em componentes reais
 4. ✅ Validar workflows de upload
 
 ### Médio Prazo (2-4 semanas)
+
 1. ⏳ Implementar testes automatizados
 2. ⏳ Adicionar validação Zod
 3. ⏳ Configurar observabilidade
 4. ⏳ Otimizar performance
 
 ### Longo Prazo (1-3 meses)
+
 1. ⏳ CDN para imagens
 2. ⏳ Redis cache
 3. ⏳ Rate limiting
