@@ -44,6 +44,8 @@
   - .gitignore
   - 3.13
     - @plugins_snapshot.json
+    - __future__.data.json
+    - __future__.meta.json
     - _ast.data.json
     - _ast.meta.json
     - _bz2.data.json
@@ -250,13 +252,6 @@
 - .tsbuildinfo
 - .vscode
   - settings.json
-- ADMIN_REVIEW_2025-10-13.md
-- agents_api.md
-- agents_commerce-modules.md
-- agents_infra_modules.md
-- ANALISE_APIS_PRODUTOS_IMAGENS_360.md
-- APIS_V4_COMPLETE_GUIDE.md
-- APIS_V4_IMPLEMENTATION_SUMMARY.md
 - aws
   - aws-outputs.json
   - backend-migrations-seed-task-definition.json
@@ -428,6 +423,12 @@
           - companies
             - [company_id]
         - import-catalog
+        - internal
+          - media
+            - presign
+          - products
+            - [id]
+              - images
         - quotes
           - [id]
             - messages
@@ -500,6 +501,9 @@
           - prices
         - health
         - images
+        - internal
+          - products
+            - [handle]
         - internal-catalog
           - [category]
           - cdn
@@ -621,6 +625,7 @@
         - workflows
       - company
         - workflows
+      - media
   - static
     - images-catálogo_distribuidores
       - FOTUS-KITS
@@ -1262,24 +1267,6 @@
   - .vscode
     - settings.json
   - .yarnrc.yml
-  - API_KEYS_GUIDE.md
-  - API_KEYS_LOCATION.md
-  - API_KEYS_SETUP_SUMMARY.md
-  - API_KEYS_STATUS_REPORT.md
-  - APPROVAL_MIGRATION_CHECKLIST.md
-  - APPROVAL_MODULE_IMPROVEMENTS.md
-  - BACKEND_360_FINAL_SUMMARY.md
-  - BACKEND_360_REVIEW_V3.md
-  - BACKEND_MEGA_PROMPT_V6_COMPLETE.md
-  - BACKEND_MEGA_PROMPT_V6_PATCHES.md
-  - BACKEND_MEGA_PROMPT_V6_PLAN.md
-  - BACKEND_MEGA_PROMPT_V6_SUMMARY.md
-  - BACKEND_MEGA_PROMPT_V6_VALIDATION.md
-  - BACKEND_MEGA_PROMPT_V7_SUMMARY.md
-  - BACKEND_SURGICAL_IMPROVEMENTS_REPORT.md
-  - BACKEND_V6_README.md
-  - BACKEND_V7_COMPLETE_SUMMARY.md
-  - BACKEND_V7_EXECUTION_PLAN.md
   - Containerfile.dev
   - data
     - catalog
@@ -1633,6 +1620,7 @@
         - VALIDATION_REPORT.json
       - validation-report.json
   - database
+    - backup_pre_approval_2025-10-12_22-07.sql
     - migrations
       - 000_status_report.sql
       - 001_personas_and_journeys.sql
@@ -1645,9 +1633,8 @@
       - 015_solar_catalog_optimization.sql
       - 015_solar_catalog_optimized.sql
       - 015b_solar_catalog_fix.sql
+      - execute-migrations.sql
       - README.md
-  - DEPLOYMENT_QUICKSTART.md
-  - DOCKER_DB_RESOURCES.md
   - Dockerfile
   - Dockerfile.dev
   - docs
@@ -1667,6 +1654,24 @@
       - INTERNAL_CATALOG_SUMMARY.md
       - PACT_PROVIDER_GUIDE.md
       - QUICK_REFERENCE.md
+    - API_KEYS_GUIDE.md
+    - API_KEYS_LOCATION.md
+    - API_KEYS_SETUP_SUMMARY.md
+    - API_KEYS_STATUS_REPORT.md
+    - APPROVAL_MIGRATION_CHECKLIST.md
+    - APPROVAL_MODULE_IMPROVEMENTS.md
+    - BACKEND_360_FINAL_SUMMARY.md
+    - BACKEND_360_REVIEW_V3.md
+    - BACKEND_MEGA_PROMPT_V6_COMPLETE.md
+    - BACKEND_MEGA_PROMPT_V6_PATCHES.md
+    - BACKEND_MEGA_PROMPT_V6_PLAN.md
+    - BACKEND_MEGA_PROMPT_V6_SUMMARY.md
+    - BACKEND_MEGA_PROMPT_V6_VALIDATION.md
+    - BACKEND_MEGA_PROMPT_V7_SUMMARY.md
+    - BACKEND_SURGICAL_IMPROVEMENTS_REPORT.md
+    - BACKEND_V6_README.md
+    - BACKEND_V7_COMPLETE_SUMMARY.md
+    - BACKEND_V7_EXECUTION_PLAN.md
     - CATALOG_SYNC_OPTIMIZED.md
     - database
       - DATABASE_MIGRATION_GUIDE.md
@@ -1675,7 +1680,13 @@
       - SOLAR_CATALOG_360.md
       - VERIFICATION_SCRIPTS.md
     - DEPENDENCY_UPDATE_2025-01.md
+    - DEPLOYMENT_QUICKSTART.md
+    - DOCKER_DB_RESOURCES.md
+    - DOCUMENTATION_INDEX.md
+    - E2E_360_FINAL_STATUS.md
+    - E2E_360_STATUS.md
     - ESTRUTURA_ORGANIZADA.md
+    - FINAL_DELIVERY_SUMMARY.md
     - FINAL_VERIFICATION_CHECKLIST.md
     - implementation
       - BACEN_INTEGRATION_SUMMARY.md
@@ -1687,33 +1698,40 @@
     - INDEX.md
     - integration
       - HTTP_TESTS_README.md
+    - INTERNAL_CATALOG_360_COMPLETE.md
     - MIGRATIONS_AUTHORITY.md
     - MIKRO_ORM_SETUP_REPORT.md
     - MODULE_WORKFLOW_ARCHITECTURE_360.md
+    - NORMALIZATION_COMPLETE.md
+    - NORMALIZATION_FIXES.md
+    - OPENAI_API_KEY_UPDATE.md
     - P1_FINAL_REPORT.md
     - PLG_STRATEGY_360_IMPLEMENTATION.md
     - PROGRESS_SUMMARY_PLG.md
+    - QDRANT_OSS_SETUP.md
     - QUALITY_ANALYSIS_REPORT.md
     - QUALITY_EXECUTIVE_SUMMARY.md
     - QUICK_SUMMARY_WIDGET_ENHANCEMENTS.md
+    - RAG_SYSTEM_360_FINAL_REPORT.md
+    - RAG_SYSTEM_SETUP_COMPLETE.md
+    - REVISAO_360_BACKEND_REPORT.md
     - security
       - SECURITY_AUDIT_REPORT.md
     - SYNC_OPTIMIZED_EXECUTIVE_SUMMARY.md
     - SYNC_SUCCESS_REPORT.md
     - TASK_11_WIDGET_REFACTORING_COMPLETE.md
     - TASK_12-15_ADVANCED_FEATURES_COMPLETE.md
+    - TEST_APIS.md
     - testing
       - BACKEND_360_E2E_REPORT.md
       - BACKEND_360_REVIEW_REPORT.md
       - E2E_360_COVERAGE_REPORT.md
+    - V7_EXECUTIVE_SUMMARY.md
+    - VALIDATION_360_REPORT.md
     - WORKFLOWS_P1_REPORT.md
     - WORKFLOWS_QUICKSTART.md
-  - DOCUMENTATION_INDEX.md
-  - E2E_360_FINAL_STATUS.md
-  - E2E_360_STATUS.md
   - eslint.config.js
   - export-openai-key.ps1
-  - FINAL_DELIVERY_SUMMARY.md
   - init-scripts
     - init.sql
   - integration-tests
@@ -1752,17 +1770,15 @@
         - viability.e2e.spec.ts
     - setup.js
     - setup-enhanced.js
+    - test-e2e-flow.js
+    - test-enhanced-apis.js
     - utils
       - admin.ts
       - seeder.ts
       - store.ts
-  - INTERNAL_CATALOG_360_COMPLETE.md
   - jest.config.js
   - medusa-config.ts
   - mikro-orm.config.ts
-  - NORMALIZATION_COMPLETE.md
-  - NORMALIZATION_FIXES.md
-  - OPENAI_API_KEY_UPDATE.md
   - package.json
   - package.json.patch
   - package-lock.json
@@ -1774,11 +1790,7 @@
       - catalog.pact.test.ts
       - quotes.pact.test.ts
       - test-db-setup.ts
-  - QDRANT_OSS_SETUP.md
-  - RAG_SYSTEM_360_FINAL_REPORT.md
-  - RAG_SYSTEM_SETUP_COMPLETE.md
   - README.md
-  - REVISAO_360_BACKEND_REPORT.md
   - scripts
     - achieve-95-conformance.js
     - analyze-gap.py
@@ -2039,6 +2051,16 @@
           - query-config.ts
           - route.ts
           - validators.ts
+        - internal
+          - media
+            - presign
+              - route.ts
+          - products
+            - [id]
+              - images
+                - route.ts
+            - route.ts
+          - types.ts
         - middlewares.ts
         - quotes
           - [id]
@@ -2291,7 +2313,12 @@
           - query-config.ts
           - route.ts
           - validators.ts
+        - internal
+          - products
+            - [handle]
+              - route.ts
         - internal-catalog
+        - internal-catalog.zip
           - [category]
             - query-config.ts
             - route.ts
@@ -2825,6 +2852,8 @@
           - index.ts
           - update-companies.ts
       - hooks
+      - media
+        - upload_and_attach_image.ts
   - start-dev.sh
   - static
     - images-catálogo_distribuidores
@@ -4760,7 +4789,6 @@
         - sku_37555_37555-17545438599901052.jpeg
       - SYNC_REPORT.md
   - tailwind.config.js
-  - TEST_APIS.md
   - test-calculator.http
   - test-sku-extraction.js
   - tsconfig.json
@@ -4768,14 +4796,10 @@
     - photogrammetry
     - solar-detection
     - thermal-analysis
-  - V7_EXECUTIVE_SUMMARY.md
-  - VALIDATION_360_REPORT.md
   - yarn.lock
-- BACKEND_100_FUNCIONAL.md
-- backup_pre_approval_2025-10-12_22-07.sql
-- BOOKMARKS.md
 - client
   - src
+    - app
     - components
       - solar
       - ui
@@ -4792,6 +4816,9 @@
   - package.json
   - postcss.config.js
   - src
+    - app
+      - layout.tsx
+      - page.tsx
     - components
       - solar
         - dimensionamento-card.tsx
@@ -4827,10 +4854,6 @@
       - solar-calculator.ts
   - tailwind.config.js
   - tsconfig.json
-- COBERTURA_360_COMPLETA.md
-- COMMIT_ORGANIZATION.md
-- COMMIT_SUMMARY.md
-- COMPLETION_REPORT_100_PERCENT.md
 - data-platform
   - dagster
     - __pycache__
@@ -4896,7 +4919,6 @@
   - README.md
   - scripts
     - quickstart-ollama.ps1
-- DEPLOYMENT_CHECKLIST.md
 - docker
   - backend
   - infra
@@ -4921,21 +4943,41 @@
   - nginx.conf
   - ssl
 - docs
+  - agents
+  - apis
   - deployment
   - docker
+  - general
   - guides
   - implementation
   - infrastructure
   - logs
+  - migrations
   - status
+  - status-reports
+  - tasks
   - testing
   - troubleshooting
   - A Comprehensive Diagnostic and Resolution Guide for Node.js Development on Windows with Podman and Yarn.md
   - ADMIN_AVAILABLE.md
+  - agents
+    - agents_api.md
+    - agents_commerce-modules.md
+    - agents_infra_modules.md
+    - infrastructure_modules.md
   - ANALISE_DIAGNOSTICA_PERSONALIZACAO_YSH.md
   - API_ARCHITECTURE_REVIEW.md
   - API_INFRASTRUCTURE_INDEX.md
   - API_KEY_VERIFICATION.md
+  - apis
+    - ANALISE_APIS_PRODUTOS_IMAGENS_360.md
+    - APIS_V4_COMPLETE_GUIDE.md
+    - APIS_V4_IMPLEMENTATION_SUMMARY.md
+    - PRODUCT_IMAGES_API_COMPLETE.md
+    - PRODUCT_IMAGES_API_INVENTORY.md
+    - PRODUCT_IMAGES_API_SUMMARY.md
+    - PRODUCT_IMAGES_API_TESTING.md
+    - QUICK_START_CATALOG_APIS.md
   - APIS_FALLBACKS_PRELOADERS_COMPLETE.md
   - APIS_FALLBACKS_QUICK_REFERENCE.md
   - Arquitetura de Repositório e Plataforma para E-commerce B2B no Setor de Geração Distribuída com Medusa.js.md
@@ -5010,6 +5052,26 @@
   - ESTRUTURA_ORGANIZADA.md
   - EXECUTIVE_SUMMARY.md
   - FINAL_IMPLEMENTATION_SUMMARY.md
+  - general
+    - BOOKMARKS.md
+    - COMMIT_ORGANIZATION.md
+    - COMMIT_SUMMARY.md
+    - DEPLOYMENT_CHECKLIST.md
+    - DOCUMENTATION_INDEX.md
+    - DOCUMENTATION_INDEX_360.md
+    - DOCUMENTATION_INDEX_APIS.md
+    - FIX_ADMIN_BLANK_SCREEN.md
+    - MEDUSA_STRUCTURE_DEFINITIVA.md
+    - MIGRATIONS_COMPLETED_2025-01-30.md
+    - NAVIGATION_GUIDE.md
+    - NORMALIZATION_REPORT.md
+    - NORMALIZATION_SUMMARY.md
+    - ORGANIZATION_SUMMARY.md
+    - RAG_SYSTEM_COVERAGE_360.md
+    - TAGS_GUIDE.md
+    - TEST_EXECUTION_SUMMARY.md
+    - tree.json
+    - tree.md
   - guides
     - CORRECAO_PUBLISHABLE_KEY.md
     - CREDENCIAIS_ADMIN.md
@@ -5065,6 +5127,8 @@
     - migrations-task-logs.md
     - migrations-task-v2-logs.md
     - migrations-task-v3-logs.md
+  - migrations
+    - MIGRATION_EXECUTION_GUIDE.md
   - MONOREPO_GOVERNANCE.md
   - NORMALIZACAO_SCHEMAS_CATALOGO.md
   - OLLAMA_LOCAL_LLM_INTEGRATION.md
@@ -5103,6 +5167,30 @@
     - QUICK_STATUS.md
     - STARTUP_SUCCESS.md
     - STATUS_FINAL_SISTEMA_SKU.md
+  - status-reports
+    - ADMIN_REVIEW_2025-10-13.md
+    - BACKEND_100_FUNCIONAL.md
+    - COBERTURA_360_COMPLETA.md
+    - COMPLETION_REPORT_100_PERCENT.md
+    - EXECUTIVE_SUMMARY_360.md
+    - FINAL_DELIVERY_EXECUTIVE_SUMMARY.md
+    - FINAL_IMPLEMENTATION_SUMMARY.md
+    - PROGRESS_REPORT_2025-01-30.md
+    - PROGRESS_REPORT_2025-10-13_0245.md
+    - PROGRESSO_2025-10-13_0330.md
+    - PUBLISHABLE_KEY_RESOLVED_2025-10-13.md
+    - SETUP_COMPLETE_360.md
+    - STATUS_REPORT_2025-10-13_UPDATED.md
+    - STATUS_REPORT_FINAL.md
+    - STORE_360_COMPLETE_REPORT.md
+    - SURGICAL_IMPROVEMENTS_REPORT.md
+    - V7_COMPLETE_SUMMARY.md
+  - tasks
+    - TASKS.md
+    - TASKS_COMPLETED_2025-01-30.md
+    - TASKS_E2E_360.md
+    - TASKS_REMANESCENTES.md
+    - TASKS_UPDATE_2025-10-13.md
   - testing
     - BACKEND_360_COVERAGE_REPORT.md
     - COBERTURA_360_LOCAL_DOCKER.md
@@ -5137,15 +5225,6 @@
   - YELLO_SOLAR_ADMIN_IMPLEMENTATION.md
   - YELLO_SOLAR_ADMIN_QUICKSTART.md
   - YSH_PRICING_IMPLEMENTATION.md
-- DOCUMENTATION_INDEX.md
-- DOCUMENTATION_INDEX_360.md
-- DOCUMENTATION_INDEX_APIS.md
-- execute-migrations.sql
-- EXECUTIVE_SUMMARY_360.md
-- export-tree.ps1
-- FINAL_DELIVERY_EXECUTIVE_SUMMARY.md
-- FINAL_IMPLEMENTATION_SUMMARY.md
-- FIX_ADMIN_BLANK_SCREEN.md
 - infra
   - aws
   - docs
@@ -5191,10 +5270,7 @@
       - assert-non-admin.ps1
       - reset-node-modules.ps1
       - setup-dev-environment.ps1
-- infrastructure_modules.md
 - LICENSE
-- MIGRATIONS_COMPLETED_2025-01-30.md
-- NAVIGATION_GUIDE.md
 - nginx.conf
 - node-red
   - flows
@@ -5204,7 +5280,6 @@
   - mosquitto
     - mosquitto.conf
   - settings.js
-- ORGANIZATION_SUMMARY.md
 - package.json
 - packages
   - contracts
@@ -5744,12 +5819,6 @@
       - gradients.css
       - theme.css
     - tsconfig.json
-- PROGRESS_REPORT_2025-01-30.md
-- PROGRESS_REPORT_2025-10-13_0245.md
-- PROGRESSO_2025-10-13_0330.md
-- PUBLISHABLE_KEY_RESOLVED_2025-10-13.md
-- QUICK_START_CATALOG_APIS.md
-- RAG_SYSTEM_COVERAGE_360.md
 - README.md
 - scripts
   - deployment
@@ -5829,6 +5898,7 @@
           - [id]
         - quotes
           - [id]
+      - health
       - store
         - approvals
           - [id]
@@ -5892,6 +5962,8 @@
           - [id]
             - route.ts
           - route.ts
+      - health
+        - route.ts
       - store
         - approvals
           - [id]
@@ -5921,6 +5993,7 @@
       - http
         - publishable.ts
         - rate-limit.ts
+        - rate-limit.ts.bak
         - response.ts
       - logging
         - logger.ts
@@ -5987,12 +6060,9 @@
     - workflows
       - examples
         - list-products.ts
+        - list-products.ts.bak
   - tsconfig.json
-- SETUP_COMPLETE_360.md
 - ssl
-- STATUS_REPORT_2025-10-13_UPDATED.md
-- STATUS_REPORT_FINAL.md
-- STORE_360_COMPLETE_REPORT.md
 - storefront
   - .archive
   - .github
@@ -6130,6 +6200,7 @@
       - seo
       - storage
       - util
+      - utils
     - modules
       - account
         - components
@@ -6404,7 +6475,6 @@
   - .yarnrc.yml
   - [handle]
     - compare
-  - AGENTS.md
   - backstop
     - .gitignore
     - backstop.json
@@ -6415,11 +6485,10 @@
       - login-admin.js
   - check-env-variables.js
   - Containerfile.dev
-  - DEPLOYMENT_PLAN.md
-  - DEPLOYMENT_SUCCESS.md
   - Dockerfile
   - Dockerfile.dev
   - docs
+    - AGENTS.md
     - analysis
       - ANALISE_CAMINHOS_QUEBRADOS.md
       - ANALISE_CLASSES_CONSUMIDORAS_PERFIS.md
@@ -6456,8 +6525,12 @@
       - review-checklist.md
       - rules.md
       - states.md
+    - DEPLOYMENT_PLAN.md
+    - DEPLOYMENT_SUCCESS.md
+    - DOCUMENTATION_INDEX.md
     - ESTRUTURA_ORGANIZADA.md
     - EXECUTIVE_SUMMARY.md
+    - FINAL_DELIVERY_V6.md
     - flows
       - checkout_flexivel.md
       - cotacao_aprovacao.md
@@ -6514,7 +6587,9 @@
     - INTEGRATION_GUIDE.md
     - policies
       - pricing_channels_groups.md
+    - QUICK_START.md
     - README.md
+    - REVIEW_SUMMARY.md
     - routes
       - manifest.yml
     - status
@@ -6532,8 +6607,17 @@
       - STATUS_MODULOS_ATUAL.md
       - SUMARIO_VISUAL_QUICK_WINS.md
       - UI_ENRICHMENT_SUMMARY.md
+    - STOREFRONT_360_REVIEW_COMPLETE.md
+    - STOREFRONT_360_REVIEW_REPORT.md
+    - STOREFRONT_FINAL_REPORT.md
     - STOREFRONT_MEGA_PROMPT_V5_PLAN.md
     - STOREFRONT_MEGA_PROMPT_V5_SUMMARY.md
+    - STOREFRONT_MEGA_PROMPT_V6_COMPLETE.md
+    - STOREFRONT_MEGA_PROMPT_V6_PLAN.md
+    - STOREFRONT_MEGA_PROMPT_V6_SUMMARY.md
+    - STOREFRONT_V7_EXECUTION_PLAN.md
+    - STOREFRONT_V7_FINAL_SUMMARY.md
+    - STOREFRONT_V7_SUMMARY.md
     - testing
       - E2E_COVERAGE_EXPANSION_SUMMARY.md
       - QUICK_TEST.md
@@ -6543,7 +6627,6 @@
       - TEST_COVERAGE_AUDIT.md
       - TEST_INSTRUCTIONS.md
       - TESTING_FLOW.md
-  - DOCUMENTATION_INDEX.md
   - e2e
     - b2b-approvals.spec.ts
     - checkout-complete.spec.ts
@@ -6553,7 +6636,6 @@
     - README.md
     - smoke.spec.ts
     - with-backend.spec.ts
-  - FINAL_DELIVERY_V6.md
   - jest.config.json
   - LICENSE
   - next.config.js
@@ -6593,9 +6675,7 @@
     - yello-black_logomark.png
     - yello-icon.jpg
     - yello-white_logomark.png
-  - QUICK_START.md
   - README.md
-  - REVIEW_SUMMARY.md
   - scripts
     - create-sku-model-components.py
     - validate-v6.js
@@ -6856,6 +6936,8 @@
       - useBACENRates.ts
       - useCatalogIntegration.ts
       - useFinancingIntegration.ts
+      - use-product-images.ts
+      - use-products.ts
       - useSavedCalculations.tsx
       - use-solar-calculator.ts
     - lib
@@ -6872,6 +6954,8 @@
         - catalog-client.ts
         - example.ts
         - fallback.ts
+        - http.ts
+        - internal.ts
         - README.md
         - resilient.ts
         - response.ts
@@ -6912,6 +6996,7 @@
         - products-blur.ts
         - quotes.ts
         - regions.ts
+        - types.ts
       - design-system
         - colors.ts
         - components
@@ -6963,6 +7048,9 @@
         - prices.ts
         - repeat.ts
         - sort-products.ts
+      - utils
+        - images.ts
+        - resilient.ts
     - middleware.ts
     - modules
       - account
@@ -7619,13 +7707,6 @@
         - http.ts
         - index.ts
       - solar-calculator.ts
-  - STOREFRONT_360_REVIEW_COMPLETE.md
-  - STOREFRONT_360_REVIEW_REPORT.md
-  - STOREFRONT_MEGA_PROMPT_V6_COMPLETE.md
-  - STOREFRONT_MEGA_PROMPT_V6_PLAN.md
-  - STOREFRONT_MEGA_PROMPT_V6_SUMMARY.md
-  - STOREFRONT_V7_EXECUTION_PLAN.md
-  - STOREFRONT_V7_SUMMARY.md
   - tailwind.config.js
   - test-results
     - .last-run.json
@@ -7635,19 +7716,11 @@
   - vitest.config.ts
   - vitest.shims.d.ts
   - yarn.lock
-- STOREFRONT_FINAL_REPORT.md
-- STOREFRONT_V7_FINAL_SUMMARY.md
-- SURGICAL_IMPROVEMENTS_REPORT.md
-- TAGS_GUIDE.md
-- TASKS.md
-- TASKS_COMPLETED_2025-01-30.md
-- TASKS_E2E_360.md
-- TASKS_REMANESCENTES.md
-- TASKS_UPDATE_2025-10-13.md
-- TEST_EXECUTION_SUMMARY.md
-- test-e2e-flow.js
-- test-enhanced-apis.js
+- tools
+  - export-tree.ps1
+  - Migrate-Structure-Clean.ps1
+  - normalize_repo.py
+  - Normalize-Repo.ps1
+  - validate-v6.ps1
 - tsconfig.base.json
-- V7_COMPLETE_SUMMARY.md
-- validate-v6.ps1
 - yarn.lock

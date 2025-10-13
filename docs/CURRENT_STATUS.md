@@ -102,7 +102,7 @@ ysh-store/
 ├── storefront/
 ├── aws/
 ├── README.md
-├── BACKEND_100_FUNCIONAL.md
+├── docs/status-reports/BACKEND_100_FUNCIONAL.md
 └── DOCUMENTATION_INDEX.md
 ```
 
