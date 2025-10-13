@@ -11,7 +11,7 @@
  */
 
 import { MedusaService } from "@medusajs/framework/utils";
-import CacheManager from "../../utils/cache-manager";
+import { CacheManager } from "../../utils/cache-manager";
 import {
     GrupoTarifa,
     ClasseConsumidor,
@@ -32,7 +32,7 @@ import {
     Concessionaria,
     BandeiraHistorico,
 } from "./types/interfaces";
-import { Logger } from "@medusajs/medusa/dist/types/global";
+import { logger } from "../../utils/logger";
 
 // ============================================================================
 // Cache Keys & Tags
@@ -152,9 +152,9 @@ export function obterBandeiraVigente(
 
 class ANEELTariffService extends MedusaService({}) {
     private cacheManager: CacheManager;
-    private logger: Logger;
+    private logger: typeof logger;
 
-    constructor({ logger }: { logger: Logger }) {
+    constructor({ logger }: { logger: typeof logger }) {
         super(arguments[0]);
         this.logger = logger;
         this.cacheManager = CacheManager.getInstance();

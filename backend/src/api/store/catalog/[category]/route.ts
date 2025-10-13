@@ -1,6 +1,6 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { MedusaError } from "@medusajs/framework/utils";
-import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog/index";
+import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog";
 
 function parsePriceBRL(price?: string): number | undefined {
   if (!price) return undefined

@@ -35,7 +35,7 @@ export async function GET(
         // })
 
         // Por ora, usar service legado
-        const ANEELTariffService = (await import("../../../modules/aneel-tariff/service")).default
+        const ANEELTariffService = (await import("../../../modules/aneel-tariff/service.js")).default
         const aneelService = new ANEELTariffService()
         const tariff = aneelService.getTariffByUF(
             validated.uf,

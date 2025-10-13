@@ -1,5 +1,6 @@
 # Script PowerShell para inicializar collections Qdrant - YSH B2B
 # Uso: .\init-qdrant-collections.ps1
+# Encoding: UTF-8
 
 param(
     [string]$QdrantUrl = "http://localhost:6333",

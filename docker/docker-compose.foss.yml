@@ -140,7 +140,7 @@ services:
       - "${QDRANT_GRPC_PORT:-6334}:6334" # gRPC API
     volumes:
       - qdrant_data:/qdrant/storage
-      - ./infra/qdrant/config.yaml:/qdrant/config/production.yaml:ro
+      - ../infra/qdrant/config.yaml:/qdrant/config/production.yaml:ro
     networks:
       - ysh-foss-network
     environment:
@@ -568,7 +568,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.22.0.0/16
+        - subnet: 172.25.0.0/16
 # ==========================================
 # Portas Utilizadas (para referência)
 # ==========================================
