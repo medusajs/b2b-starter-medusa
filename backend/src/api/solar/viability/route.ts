@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
 import { MedusaError } from "@medusajs/framework/utils"
 import ViabilityCalculatorService from "../../../modules/solar/services/viability"
+import { RateLimiter } from "../../../utils/rate-limiter"
+import { APIResponse } from "../../../utils/api-response"
 
 /**
  * POST /api/solar/viability
@@ -15,6 +17,22 @@ export async function POST(
     req: AuthenticatedMedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    // Rate limiting: 50 req/hour (heavy computation)
+    const limiter = RateLimiter.getInstance()
+    const limitResult = await limiter.checkLimit(
+        RateLimiter.byIPAndEndpoint(req),
+        RateLimiter.API_HEAVY
+    )
+
+    res.setHeader('X-RateLimit-Limit', limitResult.limit)
+    res.setHeader('X-RateLimit-Remaining', limitResult.remaining)
+    res.setHeader('X-RateLimit-Reset', new Date(limitResult.resetTime).toISOString())
+
+    if (!limitResult.success) {
+        APIResponse.rateLimit(res, 'Too many requests to solar viability API')
+        return
+    }
+
     try {
         const { location, system, financial, consumption } = req.body as {
             location: {
@@ -110,6 +128,22 @@ export async function GET(
     req: MedusaRequest,
     res: MedusaResponse
 ): Promise<void> {
+    // Rate limiting: 100 req/15min (quick calculation)
+    const limiter = RateLimiter.getInstance()
+    const limitResult = await limiter.checkLimit(
+        RateLimiter.byIPAndEndpoint(req),
+        RateLimiter.MODERATE
+    )
+
+    res.setHeader('X-RateLimit-Limit', limitResult.limit)
+    res.setHeader('X-RateLimit-Remaining', limitResult.remaining)
+    res.setHeader('X-RateLimit-Reset', new Date(limitResult.resetTime).toISOString())
+
+    if (!limitResult.success) {
+        APIResponse.rateLimit(res, 'Too many requests to solar viability quick API')
+        return
+    }
+
     try {
         const {
             latitude,

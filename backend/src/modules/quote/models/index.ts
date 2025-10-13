@@ -1,2 +1,2 @@
-export { Message } from "./message";
-export { Quote } from "./quote";
+export { Message } from "./message.js";
+export { Quote } from "./quote.js";
