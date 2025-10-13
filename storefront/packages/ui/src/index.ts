@@ -22,6 +22,12 @@ export * from './components/Label';
 export { default as Spinner } from './components/Spinner';
 export * from './components/Spinner';
 
-// Theme tokens
+// New components following Medusa design system
+export * from './components';
+
+// Theme tokens and utilities
+export * from './theme';
+
+// Legacy theme export
 import tokens from './theme/tokens.json';
 export const theme = tokens;
