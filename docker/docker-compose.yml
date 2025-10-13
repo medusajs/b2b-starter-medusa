@@ -106,9 +106,9 @@ services:
     environment:
       NODE_ENV: production
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
-      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_test
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_be4ec92201072d3243703471906c97ccfd910d71abbd8941179b080058cd2eb0
       NEXT_PUBLIC_BASE_URL: http://localhost:8000
-      NEXT_PUBLIC_DEFAULT_REGION: us
+      NEXT_PUBLIC_DEFAULT_REGION: br
       REVALIDATE_SECRET: supersecret
     ports:
       - "8000:8000"

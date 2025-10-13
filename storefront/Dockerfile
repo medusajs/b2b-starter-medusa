@@ -63,14 +63,14 @@ FROM base AS runner
 RUN addgroup --system --gid 1001 nextjs && \
       adduser --system --uid 1001 nextjs
 
-# Copiar arquivos de produção
-COPY --from=deps --chown=nextjs:nextjs /app/node_modules ./node_modules
+# Copiar arquivos de produção do standalone (já inclui node_modules otimizados)
 COPY --from=builder --chown=nextjs:nextjs /app/.next/standalone ./
+
+# Copiar static assets que não estão no standalone
 COPY --from=builder --chown=nextjs:nextjs /app/.next/static ./.next/static
 
 # Copiar pasta public (Next.js standalone precisa dela copiada explicitamente)
-COPY --from=builder /app/public ./public
-RUN chown -R nextjs:nextjs ./public
+COPY --from=builder --chown=nextjs:nextjs /app/public ./public
 
 # Configurações de runtime
 USER nextjs
