@@ -17,7 +17,7 @@ def test_llava_simple():
     try:
         start = time.time()
         response = ollama.chat(
-            model='llava:13b',
+            model='llava:7b',
             messages=[{
                 'role': 'user',
                 'content': 'Olá! Você está funcionando?'
@@ -57,7 +57,7 @@ def test_llava_with_image():
     try:
         start = time.time()
         response = ollama.chat(
-            model='llava:13b',
+            model='llava:7b',
             messages=[{
                 'role': 'user',
                 'content': prompt,
@@ -106,7 +106,7 @@ RETORNE APENAS UM OBJETO JSON:
     try:
         start = time.time()
         response = ollama.chat(
-            model='llava:13b',
+            model='llava:7b',
             messages=[{
                 'role': 'user',
                 'content': prompt,
@@ -170,7 +170,7 @@ def test_performance():
         try:
             start = time.time()
             response = ollama.chat(
-                model='llava:13b',
+                model='llava:7b',
                 messages=[{
                     'role': 'user',
                     'content': 'Descreva brevemente o que vê nesta imagem.',
@@ -200,7 +200,7 @@ def test_performance():
 
 def main():
     print("\n" + "="*80)
-    print("🚀 VALIDAÇÃO COMPLETA DO LLAVA 13B")
+    print("🚀 VALIDAÇÃO COMPLETA DO LLAVA 7B")
     print("="*80)
     print()
     
@@ -233,11 +233,12 @@ def main():
     print(f"\n🎯 Resultado: {passed}/{total} testes passaram")
     
     if passed == total:
-        print("\n🎉 SUCESSO! LLaVA 13B está totalmente funcional!")
+        print("\n🎉 SUCESSO! LLaVA 7B está totalmente funcional!")
         print("\n📋 Próximos passos:")
         print("   1. Processar lote de teste: python scripts/test-ai-image-analysis.py")
         print("   2. Validar precisão vs dados manuais")
         print("   3. Processar todas 854 imagens")
+        print("\n💡 Nota: LLaVA 7B é mais rápido que o 13B (~1-2s por imagem vs 3-5s)")
     else:
         print("\n⚠️  Alguns testes falharam. Revise os erros acima.")
     
