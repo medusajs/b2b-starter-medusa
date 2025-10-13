@@ -37,6 +37,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { APIResponse } from "../../../utils/api-response";
 import { SolarCVMetrics } from "../../../utils/solar-cv-service";
 import { CacheManager } from "../../../utils/cache-manager";
 import { RateLimiter } from "../../../utils/rate-limiter";
@@ -326,14 +327,11 @@ export async function GET(
         if (moduleFilter) {
             const module = storeHealth.modules.find(m => m.name.toLowerCase() === moduleFilter.toLowerCase());
             if (!module) {
-                res.status(404).json({
-                    error: "Module not found",
-                    available_modules: storeHealth.modules.map(m => m.name)
-                });
+                APIResponse.notFound(res, "Module not found");
                 return;
             }
 
-            res.status(200).json({
+            APIResponse.success(res, {
                 timestamp: storeHealth.timestamp,
                 module: module,
                 infrastructure: infraHealth
@@ -360,16 +358,15 @@ export async function GET(
         const statusCode = combinedHealth.overall_status === "healthy" ? 200 :
             combinedHealth.overall_status === "degraded" ? 200 : 503; // Service Unavailable
 
-        res.status(statusCode).json(combinedHealth);
+        res.setHeader("X-API-Version", combinedHealth.version);
+        if (statusCode === 200) {
+            APIResponse.success(res, combinedHealth);
+        } else {
+            APIResponse.serviceUnavailable(res, "System is unavailable");
+        }
     } catch (error) {
         console.error("[Health Check] Error:", error);
-        res.status(503).json({
-            status: "unavailable",
-            timestamp: new Date().toISOString(),
-            uptime_seconds: Math.floor((Date.now() - (HealthCheckService as any).startTime) / 1000),
-            version: APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION),
-            error: "Health check failed: " + error.message,
-        });
+        APIResponse.serviceUnavailable(res, "Health check failed: " + (error as any).message);
     }
 }
 

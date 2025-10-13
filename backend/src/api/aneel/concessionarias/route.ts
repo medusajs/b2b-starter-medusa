@@ -1,6 +1,8 @@
 import type { MedusaResponse } from "@medusajs/framework/http"
 import { MedusaError } from "@medusajs/framework/utils"
 import ANEELTariffService from "../../../modules/aneel-tariff/service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * GET /api/aneel/concessionarias
@@ -22,12 +24,13 @@ export async function GET(
             concessionarias = aneelService.listConcessionarias()
         }
 
-        res.json({
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, {
             concessionarias,
             count: concessionarias.length
         })
     } catch (error: any) {
         console.error("Error fetching concessionarias:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch concessionarias")
+        APIResponse.internalError(res, error?.message ?? "Failed to fetch concessionarias")
     }
 }
