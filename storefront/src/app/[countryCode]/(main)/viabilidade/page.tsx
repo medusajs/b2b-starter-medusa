@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
-import { ViabilityProvider } from '@/modules/viability/context/ViabilityContext'
-import ViabilityCalculator from '@/modules/viability/components/ViabilityCalculator'
-import RoofAnalysis from '@/modules/viability/components/RoofAnalysis'
-import EnergyEstimator from '@/modules/viability/components/EnergyEstimator'
-import SystemSizing from '@/modules/viability/components/SystemSizing'
-import ViabilityReport from '@/modules/viability/components/ViabilityReport'
+import { ViabilityProvider } from '@/modules/education/viability/context/ViabilityContext'
+import ViabilityCalculator from '@/modules/education/viability/components/ViabilityCalculator'
+import RoofAnalysis from '@/modules/education/viability/components/RoofAnalysis'
+import EnergyEstimator from '@/modules/education/viability/components/EnergyEstimator'
+import SystemSizing from '@/modules/education/viability/components/SystemSizing'
+import ViabilityReport from '@/modules/education/viability/components/ViabilityReport'
 
 export const metadata: Metadata = {
     title: 'Análise de Viabilidade | Yello Solar Hub',
