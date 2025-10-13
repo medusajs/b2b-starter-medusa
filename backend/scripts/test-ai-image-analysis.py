@@ -20,33 +20,48 @@ def check_ollama_setup():
     """Verifica se Ollama está configurado corretamente"""
     
     if not OLLAMA_AVAILABLE:
-        return False
+        return False, None
     
     try:
         # Testar conexão
         models = ollama.list()
-        print(f"✅ Ollama conectado. Modelos disponíveis: {len(models.get('models', []))}")
+        model_list = models.get('models', [])
+        print(f"✅ Ollama conectado. Modelos disponíveis: {len(model_list)}")
         
-        # Verificar se LLaVA está instalado
-        has_llava = any('llava' in m.get('name', '').lower() 
-                       for m in models.get('models', []))
+        # Listar modelos
+        for m in model_list:
+            print(f"   • {m.get('name', 'unknown')}")
         
-        if has_llava:
-            print("✅ LLaVA detectado")
+        # Verificar modelos de visão disponíveis
+        vision_models = [m.get('name', '') for m in model_list 
+                        if 'llava' in m.get('name', '').lower()]
+        
+        if vision_models:
+            print(f"✅ Modelos de visão detectados: {', '.join(vision_models)}")
+            return True, vision_models[0]
         else:
-            print("⚠️  LLaVA não encontrado. Instale com:")
-            print("   ollama pull llava:13b")
-        
-        return has_llava
+            print("⚠️  Nenhum modelo de visão encontrado.")
+            print("   Modelos recomendados:")
+            print("   • ollama pull llava:13b  (7.4 GB - RECOMENDADO)")
+            print("   • ollama pull llava:34b  (19 GB - máxima qualidade)")
+            print("   • ollama pull llava:7b   (4.7 GB - mais rápido)")
+            return False, None
         
     except Exception as e:
         print(f"❌ Erro ao conectar com Ollama: {e}")
         print("   Certifique-se de que o Ollama está rodando:")
         print("   ollama serve")
-        return False
+        return False, None
 
 
-def test_single_image(image_path, model='llava:13b'):
+def test_single_image(image_path, model=None):
+    """Testa análise de uma única imagem"""
+    
+    # Auto-detectar modelo se não especificado
+    if model is None:
+        _, model = check_ollama_setup()
+        if model is None:
+            model = 'llava:13b'
     """Testa análise de uma única imagem"""
     
     print(f'\n{"="*80}')
@@ -264,9 +279,12 @@ def main():
     print('='*80)
     
     # 1. Verificar setup
-    if not check_ollama_setup():
+    has_vision, model_name = check_ollama_setup()
+    if not has_vision:
         print('\n❌ Setup incompleto. Siga as instruções acima.')
         sys.exit(1)
+    
+    print(f'\n✅ Usando modelo: {model_name}')
     
     # 2. Menu
     print('\n📋 OPÇÕES DE TESTE:')
