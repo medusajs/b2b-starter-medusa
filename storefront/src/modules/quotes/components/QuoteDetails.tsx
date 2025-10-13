@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Button } from '@ysh/ui'
+import { Badge } from '@ysh/ui'
 import { Download, ShoppingCart, Copy, Edit } from 'lucide-react'
 import { useQuotes } from '../context/QuotesContext'
 import useQuoteOperations from '../hooks/useQuoteOperations'
