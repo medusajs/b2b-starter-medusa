@@ -166,7 +166,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       </head>
       <body className="font-sans">
         {/* YSH Design System - Brand gradients (yellow→orange→magenta) */}
-        <GradientDefs />
+        {/* <GradientDefs /> */}
         <SkipLinks />
         <PostHogProvider>
           <AnalyticsProvider>

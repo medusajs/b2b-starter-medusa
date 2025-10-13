@@ -224,7 +224,7 @@ def process_images_optimized(
         
         result = {
             'file': img_path.name,
-            'path': str(img_path.relative_to(Path.cwd())),
+            'path': str(img_path),
             'category': img_path.parent.name,
             'processed_at': datetime.now().isoformat(),
             'metadata': metadata

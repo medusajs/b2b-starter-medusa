@@ -460,11 +460,13 @@ def calculate_metrics(results: List[Dict]) -> Dict:
 ## 💡 Conclusão
 
 **Situação Atual**:
+
 - ⏱️ Tempo médio: 106.9s/imagem
 - 📊 Throughput: 33 img/h
 - ⏰ Catálogo completo: ~25 horas
 
 **Com Otimizações**:
+
 - ⏱️ Tempo médio: **30-40s/imagem** (-65%)
 - 📊 Throughput: **90-120 img/h** (+270%)
 - ⏰ Catálogo completo: **7-9 horas** (-65%)

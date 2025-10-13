@@ -1,0 +1,22 @@
+{
+  "file": "sku_112369_1-17457314169194004.jpeg",
+  "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_112369_1-17457314169194004.jpeg",
+  "category": "INVERTERS",
+  "processed_at": "2025-10-13T14:27:49.913700",
+  "metadata": {
+    "manufacturer": "Deye",
+    "model": "Dey-Solar-10k-3-1",
+    "product_type": "inverter",
+    "specifications": {
+      "power_kw": 10.0,
+      "voltage": "220V",
+      "phase": "3",
+      "mppt_count": 1,
+      "efficiency_percent": 95.0
+    },
+    "visible_text": "Dey-Solar-10k-3-1",
+    "quality_score": 8,
+    "_processing_time": 107.5533971786499,
+    "_from_cache": true
+  }
+}
