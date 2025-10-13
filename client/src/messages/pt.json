@@ -1,0 +1,48 @@
+{
+  "common": {
+    "cta_simular": "Simular agora",
+    "cta_cotar": "Pedir cotação",
+    "cta_finalizar": "Finalizar pedido"
+  },
+  "home": {
+    "hero_title": "Conta de luz te dominando? Domine de volta.",
+    "hero_sub": "Simule em 30s com dados ANEEL — sem cadastro chato.",
+    "hero_cta_primary": "Bora calcular agora",
+    "hero_cta_secondary": "Ver kits prontos",
+    "solutions_title": "Soluções por Perfil",
+    "solutions_sub": "Escolha a solução ideal por classe consumidora e modalidade energética."
+  },
+  "form": {
+    "errors": {
+      "required": "Faltou esse aqui. Dois toques e segue o baile.",
+      "cep": "Esse CEP não bateu. Confere ou me deixa localizar.",
+      "range": "Hmm… número estranho. Confere os dígitos."
+    }
+  },
+  "pdp": {
+    "roi_badge": "ROI em ~{{roi_anos}} anos*",
+    "roi_note": "*Estimativa com base em ANEEL/consumo informado.",
+    "cta_buy": "Fechar esse kit",
+    "cta_compare": "Comparar com outro"
+  },
+  "config": {
+    "heading": "Teu telhado, tuas regras — eu otimizo.",
+    "tooltip_inclinacao": "Inclinação = quanto o painel 'deita'. Perto do ideal, mais geração.",
+    "shadow_error": "Sombra braba aqui. Quer ver plano com microinversor?"
+  },
+  "checkout": {
+    "options": "Pix à vista, cartão, ou crédito solar sem drama.",
+    "cta_finance": "Quero financiar"
+  },
+  "account": {
+    "companies": "Empresas",
+    "quotes": "Cotações",
+    "approvals": "Aprovações",
+    "orders": "Pedidos"
+  },
+  "b2b": {
+    "pending_approvals": "Aprovações Pendentes",
+    "active_quotes": "Cotações Ativas",
+    "company_settings": "Configurações da Empresa"
+  }
+}
