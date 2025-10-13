@@ -1,7 +1,7 @@
 // yello-solar-alert.tsx - Alert component com tom Hélio
 "use client"
 
-import { clx } from "@/utils/clx"
+import { clx } from "../../utils/clx"
 import {
   CheckCircleSolid,
   ExclamationCircleSolid,
@@ -11,7 +11,7 @@ import {
 } from "@medusajs/icons"
 import * as React from "react"
 
-import { IconButton } from "@/components/icon-button"
+import { IconButton } from "@medusajs/ui"
 
 interface YelloSolarAlertProps extends React.ComponentPropsWithoutRef<"div"> {
   variant?: "error" | "success" | "warning" | "info"
