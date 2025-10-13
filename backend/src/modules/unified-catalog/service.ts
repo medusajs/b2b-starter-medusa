@@ -143,13 +143,13 @@ class UnifiedCatalogModuleService extends MedusaService({
 
         const orderBy = config.orderBy || { price: "ASC" };
 
-        return await this.listDistributorOffers(where, { orderBy });
+        return await this.listDistributorOffers(where, { order: orderBy });
     }
 
     /**
      * Lista kits com filtros
      */
-    async listKits(
+    async listKitsWithFilters(
         filters: {
             category?: string;
             target_consumer_class?: string;
@@ -169,13 +169,13 @@ class UnifiedCatalogModuleService extends MedusaService({
             if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
         }
 
-        return await this.listKits_(where, config);
+        return await this.listKits(where, config);
     }
 
     /**
      * Lista kits com contagem (formato Medusa padrão)
      */
-    async listAndCountKits(
+    async listAndCountKitsWithFilters(
         filters: {
             category?: string;
             target_consumer_class?: string;
@@ -195,23 +195,23 @@ class UnifiedCatalogModuleService extends MedusaService({
             if (filters.max_capacity) where.system_capacity_kwp.$lte = filters.max_capacity;
         }
 
-        return await this.listAndCountKits_(where, config);
+        return await this.listAndCountKits(where, config);
     }
 
     /**
      * Busca um kit por ID ou código
      */
-    async retrieveKit(kitId: string) {
+    async retrieveKitByIdOrCode(kitId: string) {
         // Try by ID first
-        let kit = await this.retrieveKit_(kitId).catch(() => null);
+        let kit = await this.retrieveKit(kitId).catch(() => null);
 
-        // If not found, try by kit_code
+        // If not found, try by kit_code using a different approach
         if (!kit) {
-            const kits = await this.listKits_(
-                { kit_code: kitId },
-                { take: 1 }
+            const kits = await this.listKitsWithFilters(
+                {}, // No filters, we'll filter manually
+                { take: 100 } // Reasonable limit
             );
-            kit = kits[0] || null;
+            kit = kits.find(k => k.kit_code === kitId) || null;
         }
 
         return kit;
@@ -238,7 +238,7 @@ class UnifiedCatalogModuleService extends MedusaService({
             ? (prices[mid - 1] + prices[mid]) / 2
             : prices[mid];
 
-        await this.updateSKUs_([{
+        await this.updateSKUs([{
             id: skuId,
             lowest_price: lowest,
             highest_price: highest,
@@ -266,10 +266,10 @@ class UnifiedCatalogModuleService extends MedusaService({
      * Obtém SKU com todas as ofertas de distribuidores
      */
     async getSKUWithOffers(skuId: string) {
-        const sku = await this.retrieveSKU(skuId, { relations: ["manufacturer"] });
+        const sku = await this.retrieveSKUByIdOrCode(skuId, { relations: ["manufacturer"] });
         const offers = await this.listDistributorOffers(
             { sku_id: sku?.id },
-            { orderBy: { price: "ASC" } }
+            { order: { price: "ASC" } }
         );
 
         return { sku, offers };
@@ -325,7 +325,7 @@ class UnifiedCatalogModuleService extends MedusaService({
         max_capacity?: number;
         target_consumer_class?: string;
     }) {
-        return await this.listKits({
+        return await this.listKitsWithFilters({
             category: filters.category,
             target_consumer_class: filters.target_consumer_class,
             min_capacity: filters.min_capacity,
@@ -337,7 +337,7 @@ class UnifiedCatalogModuleService extends MedusaService({
      * Obtém kit com componentes expandidos
      */
     async getKitWithComponents(kitId: string) {
-        const kit = await this.retrieveKit(kitId);
+        const kit = await this.retrieveKitByIdOrCode(kitId);
 
         if (!kit) return null;
 
@@ -346,7 +346,7 @@ class UnifiedCatalogModuleService extends MedusaService({
         const skuIds = components.map(c => c.sku_id).filter(Boolean);
 
         const skus = skuIds.length > 0
-            ? await this.listSKUs({ sku_code: skuIds })
+            ? await this.listSKUsWithFilters({ sku_code: skuIds })
             : [];
 
         const skuMap = new Map(skus.map(s => [s.sku_code, s]));
