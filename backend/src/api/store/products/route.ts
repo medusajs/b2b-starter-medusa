@@ -190,7 +190,7 @@ export const GET = async (
             }
         }
 
-        res.json({
+        APIResponse.success(res, {
             products,
             count: totalCount,
             offset,
@@ -201,9 +201,6 @@ export const GET = async (
 
     } catch (error) {
         console.error("Error in unified products API:", error);
-        throw new MedusaError(
-            MedusaError.Types.DB_ERROR,
-            error instanceof Error ? error.message : "Failed to fetch products"
-        );
+        APIResponse.internalError(res, error instanceof Error ? error.message : "Failed to fetch products");
     }
 };

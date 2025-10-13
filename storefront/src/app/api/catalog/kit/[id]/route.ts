@@ -2,6 +2,56 @@ import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || 'http://localhost:9000'
+const REQUEST_TIMEOUT_MS = 10000
+
+async function fetchWithTimeout(
+    url: string,
+    options: RequestInit = {},
+    timeout: number = REQUEST_TIMEOUT_MS
+): Promise<Response> {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal
+        })
+
+        clearTimeout(timeoutId)
+        return response
+    } catch (error) {
+        clearTimeout(timeoutId)
+        throw error
+    }
+}
+
+async function tryBackendFetch(endpoint: string, params: URLSearchParams): Promise<any | null> {
+    try {
+        const url = `${BACKEND_URL}${endpoint}?${params.toString()}`
+        const headers: HeadersInit = {
+            'Content-Type': 'application/json',
+        }
+
+        if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+            headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+        }
+
+        const response = await fetchWithTimeout(url, { headers }, REQUEST_TIMEOUT_MS)
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.warn(`Backend fetch failed for ${endpoint}:`, error)
+        return null
+    }
+}
+
 // Cache em memória (1 hora)
 const cache = new Map<string, { data: any; timestamp: number }>()
 const CACHE_TTL = 60 * 60 * 1000 // 1 hora
@@ -38,6 +88,25 @@ export async function GET(
         const { id } = await params
 
         const cacheKey = `kit_${id}`
+
+        // Tentar buscar do backend primeiro
+        const backendParams = new URLSearchParams()
+        const backendEndpoint = `/store/internal-catalog/kit/${id}`
+        const backendData = await tryBackendFetch(backendEndpoint, backendParams)
+
+        if (backendData && backendData.success && backendData.data) {
+            // Usar dados do backend
+            return NextResponse.json({
+                success: true,
+                data: backendData.data,
+                fromBackend: true,
+                timestamp: new Date().toISOString(),
+            }, {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+                },
+            })
+        }
 
         // Check cache
         const cached = cache.get(cacheKey)
@@ -153,6 +222,7 @@ export async function GET(
                 components: components,
                 related: related,
             },
+            fromBackend: false,
             timestamp: new Date().toISOString(),
         }
 
