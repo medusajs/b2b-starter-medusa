@@ -119,15 +119,14 @@ export const getProductByHandle = async (handle: string, regionId: string) => {
     }
 
     // Fallback de imagem para evitar erros de renderização
-    const productWithFallback = {
-      ...product,
-      thumbnail: product.thumbnail || '/placeholder-product.jpg',
-      images: product.images?.length > 0 
-        ? product.images 
-        : [{ url: '/placeholder-product.jpg', id: 'placeholder' }]
+    if (!product.thumbnail) {
+      product.thumbnail = '/placeholder-product.jpg'
+    }
+    if (!product.images || product.images.length === 0) {
+      product.images = [{ url: '/placeholder-product.jpg', id: 'placeholder' } as any]
     }
 
-    return productWithFallback
+    return product
   } catch (error: any) {
     console.error(`[Products] Error fetching product by handle:`, {
       handle,
