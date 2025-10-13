@@ -7,8 +7,8 @@
  */
 
 import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@ysh/ui'
+import { Button } from '@ysh/ui'
 import { Plus, Trash2, Save } from 'lucide-react'
 import useQuoteOperations from '../hooks/useQuoteOperations'
 import type { QuoteInput } from '../types'
@@ -20,20 +20,20 @@ interface QuoteFormProps {
   onCancel?: () => void
 }
 
-export default function QuoteForm({ 
-  customerId, 
+export default function QuoteForm({
+  customerId,
   companyId,
   onSuccess,
-  onCancel 
+  onCancel
 }: QuoteFormProps) {
   const { createQuote, isProcessing } = useQuoteOperations()
-  
+
   const [items, setItems] = useState<QuoteInput['items']>([{
     product_id: '',
     quantity: 1,
     discount: 0
   }])
-  
+
   const [formData, setFormData] = useState({
     valid_days: 15,
     payment_terms: '',
@@ -61,7 +61,7 @@ export default function QuoteForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     const input: QuoteInput = {
       customer_id: customerId,
       company_id: companyId,
@@ -72,7 +72,7 @@ export default function QuoteForm({
       customer_notes: formData.customer_notes,
       internal_notes: formData.internal_notes
     }
-    
+
     const quote = await createQuote(input)
     if (quote && onSuccess) {
       onSuccess(quote.id)
@@ -186,7 +186,7 @@ export default function QuoteForm({
                 className="w-full px-3 py-2 border rounded"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium mb-1">
                 Condições de Pagamento
@@ -199,7 +199,7 @@ export default function QuoteForm({
                 placeholder="Ex: À vista ou parcelado em até 12x"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium mb-1">
                 Observações para o Cliente
@@ -212,7 +212,7 @@ export default function QuoteForm({
                 placeholder="Observações visíveis ao cliente"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium mb-1">
                 Notas Internas
