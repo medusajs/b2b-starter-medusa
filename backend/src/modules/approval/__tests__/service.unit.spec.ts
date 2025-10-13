@@ -19,9 +19,6 @@ describe("ApprovalModuleService", () => {
     let mockRepository: any;
 
     beforeEach(() => {
-        // Create service instance (will use real Medusa service structure)
-        service = new ApprovalModuleService({} as any);
-
         // Create mock repository with all needed methods (MedusaService uses underscore suffix)
         mockRepository = {
             listApprovalRules_: jest.fn(),
@@ -31,12 +28,15 @@ describe("ApprovalModuleService", () => {
             listApprovalSettingses_: jest.fn()
         };
 
-        // Mock all service methods that interact with repository
-        jest.spyOn(service, 'listApprovalRules_').mockImplementation(mockRepository.listApprovalRules_);
-        jest.spyOn(service, 'listAndCountApprovals_').mockImplementation(mockRepository.listAndCountApprovals_);
-        jest.spyOn(service, 'createApprovalHistories_').mockImplementation(mockRepository.createApprovalHistories_);
-        jest.spyOn(service, 'retrieveApproval_').mockImplementation(mockRepository.retrieveApproval_);
-        jest.spyOn(service, 'listApprovalSettingses_').mockImplementation(mockRepository.listApprovalSettingses_);
+        // Create service instance (will use real Medusa service structure)
+        service = new ApprovalModuleService({} as any);
+
+        // Inject mocks directly into service instance (MedusaService methods are generated at runtime)
+        (service as any).listApprovalRules_ = mockRepository.listApprovalRules_;
+        (service as any).listAndCountApprovals_ = mockRepository.listAndCountApprovals_;
+        (service as any).createApprovalHistories_ = mockRepository.createApprovalHistories_;
+        (service as any).retrieveApproval_ = mockRepository.retrieveApproval_;
+        (service as any).listApprovalSettingses_ = mockRepository.listApprovalSettingses_;
     });
 
     describe("Rule Evaluation Matrix", () => {
@@ -56,7 +56,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 15000,
@@ -84,7 +84,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 5000,
@@ -113,7 +113,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 25000,
@@ -142,7 +142,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 5000,
@@ -171,7 +171,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 5000,
@@ -210,7 +210,7 @@ describe("ApprovalModuleService", () => {
             ];
 
             // Mock should return sorted by priority DESC
-            mockRepository.listApprovalRules.mockResolvedValue([
+            mockRepository.listApprovalRules_.mockResolvedValue([
                 rules[1],
                 rules[0],
             ]);
@@ -239,7 +239,7 @@ describe("ApprovalModuleService", () => {
         });
 
         it("hasPendingApprovals should return consistent results", async () => {
-            mockRepository.listAndCountApprovals = jest
+            mockRepository.listAndCountApprovals_ = jest
                 .fn()
                 .mockResolvedValue([[], 2]);
 
@@ -254,7 +254,7 @@ describe("ApprovalModuleService", () => {
 
     describe("Audit Trail", () => {
         it("should record approval history with PII hashed", async () => {
-            mockRepository.createApprovalHistories.mockResolvedValue([]);
+            mockRepository.createApprovalHistories_.mockResolvedValue([]);
 
             await service.recordApprovalHistory({
                 approval_id: "appr1",
@@ -268,7 +268,7 @@ describe("ApprovalModuleService", () => {
                 cart_total_at_action: 15000,
             });
 
-            expect(mockRepository.createApprovalHistories).toHaveBeenCalledWith([
+            expect(mockRepository.createApprovalHistories_).toHaveBeenCalledWith([
                 expect.objectContaining({
                     approval_id: "appr1",
                     new_status: ApprovalStatusType.PENDING,
@@ -281,13 +281,13 @@ describe("ApprovalModuleService", () => {
                 }),
             ]);
 
-            const call = mockRepository.createApprovalHistories.mock.calls[0][0][0];
+            const call = mockRepository.createApprovalHistories_.mock.calls[0][0][0];
             expect(call.actor_ip_hash).not.toBe("192.168.1.100");
             expect(call.actor_user_agent_hash).not.toBe("Mozilla/5.0 Chrome/120.0");
         });
 
         it("should NOT record raw PII in history", async () => {
-            mockRepository.createApprovalHistories.mockResolvedValue([]);
+            mockRepository.createApprovalHistories_.mockResolvedValue([]);
 
             await service.recordApprovalHistory({
                 approval_id: "appr1",
@@ -300,7 +300,7 @@ describe("ApprovalModuleService", () => {
                 comment: "Approved after review",
             });
 
-            const call = mockRepository.createApprovalHistories.mock.calls[0][0][0];
+            const call = mockRepository.createApprovalHistories_.mock.calls[0][0][0];
             expect(call).not.toHaveProperty("actor_ip");
             expect(call).not.toHaveProperty("actor_user_agent");
             expect(call).toHaveProperty("actor_ip_hash");
@@ -313,14 +313,14 @@ describe("ApprovalModuleService", () => {
             const pastDate = new Date();
             pastDate.setHours(pastDate.getHours() - 25); // 25 hours ago
 
-            mockRepository.retrieveApproval.mockResolvedValue({
+            mockRepository.retrieveApproval_.mockResolvedValue({
                 id: "appr1",
                 status: ApprovalStatusType.PENDING,
                 escalated: false,
                 created_at: pastDate.toISOString(),
             });
 
-            mockRepository.listApprovalSettings.mockResolvedValue([
+            mockRepository.listApprovalSettingses_.mockResolvedValue([
                 {
                     escalation_enabled: true,
                     escalation_timeout_hours: 24,
@@ -336,14 +336,14 @@ describe("ApprovalModuleService", () => {
             const pastDate = new Date();
             pastDate.setHours(pastDate.getHours() - 30);
 
-            mockRepository.retrieveApproval.mockResolvedValue({
+            mockRepository.retrieveApproval_.mockResolvedValue({
                 id: "appr1",
                 status: ApprovalStatusType.PENDING,
                 escalated: true,
                 created_at: pastDate.toISOString(),
             });
 
-            mockRepository.listApprovalSettings.mockResolvedValue([
+            mockRepository.listApprovalSettingses_.mockResolvedValue([
                 {
                     escalation_enabled: true,
                     escalation_timeout_hours: 24,
@@ -359,14 +359,14 @@ describe("ApprovalModuleService", () => {
             const pastDate = new Date();
             pastDate.setHours(pastDate.getHours() - 30);
 
-            mockRepository.retrieveApproval.mockResolvedValue({
+            mockRepository.retrieveApproval_.mockResolvedValue({
                 id: "appr1",
                 status: ApprovalStatusType.APPROVED,
                 escalated: false,
                 created_at: pastDate.toISOString(),
             });
 
-            mockRepository.listApprovalSettings.mockResolvedValue([
+            mockRepository.listApprovalSettingses_.mockResolvedValue([
                 {
                     escalation_enabled: true,
                     escalation_timeout_hours: 24,
@@ -382,14 +382,14 @@ describe("ApprovalModuleService", () => {
             const pastDate = new Date();
             pastDate.setHours(pastDate.getHours() - 30);
 
-            mockRepository.retrieveApproval.mockResolvedValue({
+            mockRepository.retrieveApproval_.mockResolvedValue({
                 id: "appr1",
                 status: ApprovalStatusType.PENDING,
                 escalated: false,
                 created_at: pastDate.toISOString(),
             });
 
-            mockRepository.listApprovalSettings.mockResolvedValue([
+            mockRepository.listApprovalSettingses_.mockResolvedValue([
                 {
                     escalation_enabled: false,
                     escalation_timeout_hours: 24,
@@ -404,7 +404,7 @@ describe("ApprovalModuleService", () => {
 
     describe("Edge Cases", () => {
         it("should handle empty rule set gracefully", async () => {
-            mockRepository.listApprovalRules.mockResolvedValue([]);
+            mockRepository.listApprovalRules_.mockResolvedValue([]);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 10000,
@@ -430,7 +430,7 @@ describe("ApprovalModuleService", () => {
                 },
             ];
 
-            mockRepository.listApprovalRules.mockResolvedValue(rules);
+            mockRepository.listApprovalRules_.mockResolvedValue(rules);
 
             const result = await service.evaluateApprovalRules("comp1", {
                 total: 5000,
