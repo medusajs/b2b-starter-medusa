@@ -5,12 +5,6 @@
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { Modules } from "@medusajs/framework/utils"
-import type {
-    ProductListQuery,
-    ProductSearchBody,
-    ProductFilters,
-    ProductImage,
-} from "../types"
 
 /**
  * GET /admin/internal/products
@@ -18,11 +12,16 @@ import type {
  */
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     try {
-        const { q, category, limit = 20, offset = 0 } = req.query as ProductListQuery
+        const query = req.query as Record<string, string>
+        const q = query.q
+        const category = query.category
+        const limit = Number(query.limit) || 20
+        const offset = Number(query.offset) || 0
+
         const productModule = req.scope.resolve(Modules.PRODUCT)
 
         // Construir filtros
-        const filters: ProductFilters = {}
+        const filters: Record<string, unknown> = {}
         if (q) {
             filters.q = q
         }
@@ -34,18 +33,18 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         const [products, count] = await productModule.listAndCountProducts(
             filters,
             {
-                skip: +offset,
-                take: +limit,
+                skip: offset,
+                take: limit,
                 relations: ["images", "variants", "categories", "collection"],
             }
         )
 
         // Ordenar imagens por rank (padrão Medusa v2)
-        const items = products.map((p: any) => ({
+        const items = products.map((p) => ({
             ...p,
             images: (p.images ?? [])
-                .sort((a: any, b: any) => (a.rank ?? 0) - (b.rank ?? 0))
-                .map((img: any) => ({
+                .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0))
+                .map((img) => ({
                     id: img.id,
                     url: img.url,
                     alt: img.metadata?.alt || "",
@@ -58,17 +57,18 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             data: { items },
             meta: {
                 count,
-                limit: +limit,
-                offset: +offset,
-                total_pages: Math.ceil(count / +limit),
+                limit,
+                offset,
+                total_pages: Math.ceil(count / limit),
             },
         })
-    } catch (error: any) {
+    } catch (error) {
+        const err = error as Error
         return res.status(500).json({
             success: false,
             error: {
                 code: "INTERNAL_ERROR",
-                message: error.message || "Failed to fetch products",
+                message: err.message || "Failed to fetch products",
             },
         })
     }
@@ -80,22 +80,21 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
  */
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
     try {
-        const {
-            q,
-            category_ids = [],
-            collection_id,
-            tags = [],
-            status = [],
-            limit = 20,
-            offset = 0,
-            sort_by = "created_at",
-            sort_order = "DESC",
-        } = req.body ?? {}
+        const body = req.body as Record<string, unknown>
+        const q = body.q as string | undefined
+        const category_ids = (body.category_ids as string[]) ?? []
+        const collection_id = body.collection_id as string | undefined
+        const tags = (body.tags as string[]) ?? []
+        const status = (body.status as string[]) ?? []
+        const limit = Number(body.limit) || 20
+        const offset = Number(body.offset) || 0
+        const sort_by = (body.sort_by as string) || "created_at"
+        const sort_order = (body.sort_order as "ASC" | "DESC") || "DESC"
 
         const productModule = req.scope.resolve(Modules.PRODUCT)
 
         // Construir filtros avançados
-        const filters: any = {}
+        const filters: Record<string, unknown> = {}
         if (q) filters.q = q
         if (category_ids.length > 0) filters.category_id = category_ids
         if (collection_id) filters.collection_id = collection_id
@@ -106,19 +105,19 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
         const [products, count] = await productModule.listAndCountProducts(
             filters,
             {
-                skip: +offset,
-                take: +limit,
+                skip: offset,
+                take: limit,
                 relations: ["images", "variants", "categories", "collection", "tags"],
                 order: { [sort_by]: sort_order },
             }
         )
 
         // Ordenar imagens por rank
-        const items = products.map((p: any) => ({
+        const items = products.map((p) => ({
             ...p,
             images: (p.images ?? [])
-                .sort((a: any, b: any) => (a.rank ?? 0) - (b.rank ?? 0))
-                .map((img: any) => ({
+                .sort((a, b) => (a.rank ?? 0) - (b.rank ?? 0))
+                .map((img) => ({
                     id: img.id,
                     url: img.url,
                     alt: img.metadata?.alt || "",
@@ -131,17 +130,18 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
             data: { items },
             meta: {
                 count,
-                limit: +limit,
-                offset: +offset,
-                total_pages: Math.ceil(count / +limit),
+                limit,
+                offset,
+                total_pages: Math.ceil(count / limit),
             },
         })
-    } catch (error: any) {
+    } catch (error) {
+        const err = error as Error
         return res.status(500).json({
             success: false,
             error: {
                 code: "INTERNAL_ERROR",
-                message: error.message || "Failed to search products",
+                message: err.message || "Failed to search products",
             },
         })
     }
