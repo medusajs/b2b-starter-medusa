@@ -137,10 +137,14 @@ class ProcessingResult:
 def load_image(image_path: str) -> Optional[np.ndarray]:
     """
     Carrega imagem usando cv2 (mais rápido que PIL para grandes imagens)
+    FIX: Suporta caminhos Unicode no Windows
     """
     try:
-        # cv2 carrega em BGR, converter para RGB
-        img = cv2.imread(image_path)
+        # cv2.imread não lida bem com Unicode no Windows
+        # Usar numpy workaround
+        with open(image_path, 'rb') as f:
+            file_bytes = np.asarray(bytearray(f.read()), dtype=np.uint8)
+        img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
         if img is None:
             return None
         return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)

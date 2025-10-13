@@ -10,11 +10,25 @@ import { ErrorBoundaryResilient } from "../error-boundary-resilient"
 const mockPosthog = {
   capture: jest.fn(),
 }
-;(global as any).window = {
-  posthog: mockPosthog,
-  location: { reload: jest.fn() },
-  navigator: { userAgent: "test-agent" },
-}
+
+// Setup global mocks
+Object.defineProperty(window, 'posthog', {
+  value: mockPosthog,
+  writable: true,
+})
+
+// Mock window.location.reload
+const mockReload = jest.fn()
+Object.defineProperty(window, 'location', {
+  value: { reload: mockReload },
+  writable: true,
+})
+
+// Mock navigator.userAgent
+Object.defineProperty(window.navigator, 'userAgent', {
+  value: 'test-agent',
+  writable: true,
+})
 
 // Component that throws an error
 const ErrorComponent = ({ shouldThrow }: { shouldThrow: boolean }) => {
@@ -141,7 +155,7 @@ describe("ErrorBoundaryResilient", () => {
       })
     )
 
-    expect(window.location.reload).toHaveBeenCalled()
+    expect(mockReload).toHaveBeenCalled()
 
     consoleSpy.mockRestore()
   })
