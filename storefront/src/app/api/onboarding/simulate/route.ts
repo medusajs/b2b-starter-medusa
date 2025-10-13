@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { runOnboardingSimulation } from "@/modules/onboarding/pipeline"
+import { runOnboardingSimulation } from "@/modules/education/onboarding/pipeline"
 
 export async function POST(req: Request) {
   try {
