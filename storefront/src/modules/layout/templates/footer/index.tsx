@@ -19,7 +19,7 @@ export default async function Footer() {
               href="/"
               className="flex items-center gap-3 group"
             >
-              <YelloIcon className="w-12 h-12 flex-shrink-0" />
+              <YelloIcon width={48} height={48} className="flex-shrink-0" />
               <div className="flex flex-col">
                 <span className="txt-compact-xlarge-plus text-ui-fg-base group-hover:text-ui-fg-interactive font-bold">
                   yello

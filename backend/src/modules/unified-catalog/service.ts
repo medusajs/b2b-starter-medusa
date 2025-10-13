@@ -255,28 +255,22 @@ class UnifiedCatalogModuleService extends MedusaService({
     async searchSKUs(filters: {
         category?: string;
         manufacturer_id?: string;
-        tier?: string;
         min_price?: number;
         max_price?: number;
         search?: string;
-    }): Promise<SKU[]> {
-        const where: any = {};
-
-        if (filters.category) where.category = filters.category;
-        if (filters.manufacturer_id) where.manufacturer_id = filters.manufacturer_id;
-
-        return await this.listSKUs({ where });
+    }) {
+        return await this.listSKUs(filters, { relations: ["manufacturer"] });
     }
 
     /**
      * Obtém SKU com todas as ofertas de distribuidores
      */
     async getSKUWithOffers(skuId: string) {
-        const sku = await this.retrieveSKU(skuId);
-        const offers = await this.listDistributorOffers({
-            where: { sku_id: skuId },
-            order: { price: "ASC" },
-        });
+        const sku = await this.retrieveSKU(skuId, { relations: ["manufacturer"] });
+        const offers = await this.listDistributorOffers(
+            { sku_id: sku?.id },
+            { orderBy: { price: "ASC" } }
+        );
 
         return { sku, offers };
     }
@@ -327,24 +321,16 @@ class UnifiedCatalogModuleService extends MedusaService({
      */
     async searchKits(filters: {
         category?: string;
-        min_capacity_kwp?: number;
-        max_capacity_kwp?: number;
+        min_capacity?: number;
+        max_capacity?: number;
         target_consumer_class?: string;
-        min_consumption?: number;
-        max_consumption?: number;
-    }): Promise<Kit[]> {
-        const where: any = {};
-
-        if (filters.category) where.category = filters.category;
-        if (filters.target_consumer_class) where.target_consumer_class = filters.target_consumer_class;
-
-        if (filters.min_capacity_kwp || filters.max_capacity_kwp) {
-            where.system_capacity_kwp = {};
-            if (filters.min_capacity_kwp) where.system_capacity_kwp.$gte = filters.min_capacity_kwp;
-            if (filters.max_capacity_kwp) where.system_capacity_kwp.$lte = filters.max_capacity_kwp;
-        }
-
-        return await this.listKits({ where });
+    }) {
+        return await this.listKits({
+            category: filters.category,
+            target_consumer_class: filters.target_consumer_class,
+            min_capacity: filters.min_capacity,
+            max_capacity: filters.max_capacity,
+        });
     }
 
     /**
@@ -360,7 +346,7 @@ class UnifiedCatalogModuleService extends MedusaService({
         const skuIds = components.map(c => c.sku_id).filter(Boolean);
 
         const skus = skuIds.length > 0
-            ? await this.listSKUs({ where: { sku_code: { $in: skuIds } } })
+            ? await this.listSKUs({ sku_code: skuIds })
             : [];
 
         const skuMap = new Map(skus.map(s => [s.sku_code, s]));
@@ -377,35 +363,9 @@ class UnifiedCatalogModuleService extends MedusaService({
     }
 
     /**
-     * Atualiza estatísticas de pricing de um SKU baseado em suas ofertas
-     */
-    async updateSKUPricingStats(skuId: string) {
-        const offers = await this.listDistributorOffers({
-            where: { sku_id: skuId },
-        });
-
-        if (!offers || offers.length === 0) {
-            return;
-        }
-
-        const prices = offers.map(o => o.price).sort((a, b) => a - b);
-        const lowest = prices[0];
-        const highest = prices[prices.length - 1];
-        const average = prices.reduce((sum, p) => sum + p, 0) / prices.length;
-
-        await this.updateSKUs({
-            id: skuId,
-            lowest_price: lowest,
-            highest_price: highest,
-            avg_price: average,
-            offers_count: offers.length,
-        });
-    }
-
-    /**
      * Recomenda kits baseado em consumo mensal
      */
-    async recommendKitsByConsumption(monthlyConsumptionKwh: number): Promise<Kit[]> {
+    async recommendKitsByConsumption(monthlyConsumptionKwh: number) {
         // Regra: 1 kWp gera ~110-130 kWh/mês no Brasil (média)
         const estimatedKwp = monthlyConsumptionKwh / 120;
 
@@ -414,8 +374,8 @@ class UnifiedCatalogModuleService extends MedusaService({
         const maxCapacity = estimatedKwp * 1.2;
 
         return await this.searchKits({
-            min_capacity_kwp: minCapacity,
-            max_capacity_kwp: maxCapacity,
+            min_capacity: minCapacity,
+            max_capacity: maxCapacity,
         });
     }
 }
