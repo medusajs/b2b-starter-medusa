@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority"
-import { cn } from "../../utils/cn"
+import { cn } from "../..//utils/cn"
 
 const yelloSolarVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
@@ -41,8 +41,8 @@ const YelloSolarButton = ({
     <button
       className={cn(
         yelloSolarVariants({ variant, size }),
-        // Apply stroke gradient for stroke variant
-        variant === "stroke" && "border-image: linear-gradient(135deg, #FFCE00 0%, #FF6600 50%, #FF0066 100%) 1",
+        // Use gradient border utility or arbitrary CSS property (Tailwind)
+        variant === "stroke" && "ysh-border-gradient [background:transparent]",
         className
       )}
       {...props}
