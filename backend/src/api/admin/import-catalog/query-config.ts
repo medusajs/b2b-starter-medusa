@@ -1,12 +1,12 @@
 
-export const defaultStoreImport-catalogFields = [
+export const defaultStoreImportCatalogFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listImport-catalogQueryConfig = {
-  defaults: defaultStoreImport-catalogFields,
-  allowed: defaultStoreImport-catalogFields,
+export const listImportCatalogQueryConfig = {
+  defaults: defaultStoreImportCatalogFields,
+  allowed: defaultStoreImportCatalogFields,
   defaultLimit: 50,
 };

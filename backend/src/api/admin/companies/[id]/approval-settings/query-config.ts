@@ -1,12 +1,12 @@
 import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
-export const defaultStoreApproval-settingsFields = [
+export const defaultStoreApprovalSettingsFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listApproval-settingsQueryConfig = defineQueryConfig({
+export const listApprovalSettingsQueryConfig = defineQueryConfig({
   defaults: defaultStoreApproval-settingsFields,
   allowed: defaultStoreApproval-settingsFields,
   defaultLimit: 50,

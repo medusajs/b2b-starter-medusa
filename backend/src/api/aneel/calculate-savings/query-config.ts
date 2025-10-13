@@ -1,12 +1,12 @@
 
-export const defaultStoreCalculate-savingsFields = [
+export const defaultStoreCalculateSavingsFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listCalculate-savingsQueryConfig = {
-  defaults: defaultStoreCalculate-savingsFields,
-  allowed: defaultStoreCalculate-savingsFields,
+export const listCalculateSavingsQueryConfig = {
+  defaults: defaultStoreCalculateSavingsFields,
+  allowed: defaultStoreCalculateSavingsFields,
   defaultLimit: 50,
 };
