@@ -1,7 +1,7 @@
 import CategoryBreadcrumb from "@/modules/categories/category-breadcrumb"
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import SkeletonProductGrid from "@/modules/skeletons/templates/skeleton-product-grid"
+import SkeletonProductGrid from "@/modules/common/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@/modules/store/components/refinement-list"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import PaginatedProducts from "@/modules/store/templates/paginated-products"
