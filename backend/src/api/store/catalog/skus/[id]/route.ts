@@ -7,7 +7,7 @@ import { UNIFIED_CATALOG_MODULE, UnifiedCatalogModuleServiceType } from "../../.
  */
 export const GET = async (
     req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
-    const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
+    const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as UnifiedCatalogModuleServiceType;
 
     const { id } = req.params;
 
@@ -19,8 +19,8 @@ export const GET = async (
     }
 
     // Buscar ofertas
-    const offers = await unifiedCatalogService.listDistributorOffers({
-        where: { sku_id: id },
+    const offers = await unifiedCatalogService.listDistributorOffersWithFilters({
+        sku_id: id,
     });
 
     res.json({

@@ -21,9 +21,9 @@ export const GET = async (
         }),
         catalogService.listManufacturers(),
     ]); res.json({
-        products: products.data,
+        products: products[0],
         manufacturers,
-        count: products.count,
+        count: products[1],
         offset: req.validatedQuery.offset,
         limit: req.validatedQuery.limit,
     });

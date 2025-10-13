@@ -152,7 +152,7 @@ export const createApprovalStep = createStep(
 
       // Return existing approvals (idempotent behavior)
       return new StepResponse(
-        { approvals: existingApprovals, idempotent: true },
+        { autoApproved: false, approvals: existingApprovals },
         []
       );
     }

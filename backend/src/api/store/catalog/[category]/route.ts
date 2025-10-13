@@ -102,8 +102,8 @@ export const GET = async (
 
     // Fetch data with unified catalog service
     const [items, total] = isKitCategory
-      ? await unifiedCatalogService.listAndCountKits({ where, skip: offset, take: limitNum })
-      : await unifiedCatalogService.listAndCountSKUs({ where, skip: offset, take: limitNum });
+      ? await unifiedCatalogService.listAndCountKitsWithFilters(where, { skip: offset, take: limitNum })
+      : await unifiedCatalogService.listAndCountSKUsWithFilters(where, { skip: offset, take: limitNum });
 
     // Get manufacturers for facets
     const manufacturers = await unifiedCatalogService.listManufacturers();
