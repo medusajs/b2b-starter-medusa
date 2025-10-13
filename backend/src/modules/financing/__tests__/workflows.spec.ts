@@ -1,14 +1,17 @@
 import { linkCustomerGroupStep } from "../workflows/steps/link-customer-group-step";
 import { checkSpendingLimitsStep } from "../workflows/steps/check-spending-limits-step";
 import { createApprovalStep } from "../workflows/steps/create-approval-step";
+import { createMockContainer, resetMockContainer, verifyServiceCalls } from "./test-container-mock";
 
 describe("Financing Workflows - Complete Coverage", () => {
   let mockContainer: any;
 
   beforeEach(() => {
-    mockContainer = {
-      resolve: jest.fn(),
-    };
+    mockContainer = createMockContainer();
+  });
+
+  afterEach(() => {
+    resetMockContainer(mockContainer);
   });
 
   describe("✅ Link Customer Group Step", () => {
@@ -139,7 +142,7 @@ describe("Financing Workflows - Complete Coverage", () => {
       mockContainer.resolve.mockReturnValue(companyService);
 
       const stepFunction = checkSpendingLimitsStep.invoke;
-      
+
       await expect(stepFunction(
         {
           customer_id: "cust_123",
@@ -157,7 +160,7 @@ describe("Financing Workflows - Complete Coverage", () => {
       mockContainer.resolve.mockReturnValue(companyService);
 
       const stepFunction = checkSpendingLimitsStep.invoke;
-      
+
       await expect(stepFunction(
         {
           customer_id: "cust_nonexistent",
@@ -243,7 +246,7 @@ describe("Financing Workflows - Complete Coverage", () => {
       mockContainer.resolve.mockReturnValue(approvalService);
 
       const stepFunction = createApprovalStep.invoke;
-      
+
       await expect(stepFunction(
         {
           financing_proposal_id: "fp_123",
