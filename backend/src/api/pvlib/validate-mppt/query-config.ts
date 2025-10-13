@@ -1,12 +1,12 @@
 
-export const defaultStoreValidate-mpptFields = [
+export const defaultStoreValidateMpptFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const listValidate-mpptQueryConfig = {
-  defaults: defaultStoreValidate-mpptFields,
-  allowed: defaultStoreValidate-mpptFields,
+export const listValidateMpptQueryConfig = {
+  defaults: defaultStoreValidateMpptFields,
+  allowed: defaultStoreValidateMpptFields,
   defaultLimit: 50,
 };
