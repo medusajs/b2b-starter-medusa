@@ -41,7 +41,7 @@ Write-Host "   [OK] Build completado com sucesso" -ForegroundColor Green
 # Teste 1: Verificar que entrypoint esta no container
 Write-Host ""
 Write-Host "3. Verificando entrypoint.sh no container..." -ForegroundColor Yellow
-$entrypointCheck = docker run --rm ysh-backend:quick-test ls -la /app/entrypoint.sh 2>&1
+$entrypointCheck = docker run --rm --entrypoint /bin/sh ysh-backend:quick-test -c "ls -la /app/entrypoint.sh" 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host "   [ERRO] entrypoint.sh nao encontrado no container!" -ForegroundColor Red
     Write-Host $entrypointCheck

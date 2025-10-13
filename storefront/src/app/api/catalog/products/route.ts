@@ -1,129 +1,259 @@
-/**
- * API Route: /api/catalog/products
- * Retorna produtos do catálogo unificado
- * 
- * Query params:
- * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes
- * - limit: número de produtos (default: 50)
- * - offset: paginação (default: 0)
- * - distributor: filtrar por distribuidor (FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV)
- * - search: buscar por nome/SKU/fabricante
- */
+/**/**
 
-import { NextRequest, NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+ * API Route: /api/catalog / products * API Route: /api/catalog / products
+
+    * Retorna produtos do catálogo com sistema robusto de fallback * Retorna produtos do catálogo unificado
+
+        * * 
+
+ * Query params: * Query params:
+
+ * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes, kits, etc. * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes
+
+    * - limit: número de produtos(default: 50) * - limit: número de produtos(default: 50)
+
+        * - offset: paginação(default: 0) * - offset: paginação(default: 0)
+
+            * - distributor: filtrar por distribuidor(FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV) * - distributor: filtrar por distribuidor(FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV)
+
+                * - search: buscar por nome / SKU / fabricante * - search: buscar por nome / SKU / fabricante
+
+                    * */
+
+                    * Sistema de Fallback(em cascata):
+
+ * 1. Backend Medusa(/store/internal - catalog)import { NextRequest, NextResponse } from 'next/server'
+
+ * 2. Backend Fallback API(/store/fallback / products)import { promises as fs } from 'fs'
+
+ * 3. Arquivos JSON locaisimport path from 'path'
+
+    */
 
 // Cache em memória com TTL de 1 hora
-const CACHE_TTL = 3600000 // 1 hora em ms
-let cache: Map<string, { data: any; timestamp: number }> = new Map()
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || 'http://localhost:9000'
-const REQUEST_TIMEOUT_MS = 10000
+import { NextRequest, NextResponse } from 'next/server'const CACHE_TTL = 3600000 // 1 hora em ms
 
-type ProductCategory =
-    | 'panels'
-    | 'inverters'
-    | 'batteries'
-    | 'structures'
-    | 'cables'
-    | 'accessories'
-    | 'stringboxes'
+import { loadCatalogProducts, type ProductCategory } from '@/lib/catalog/fallback-loader'let cache: Map<string, { data: any; timestamp: number }> = new Map()
 
-const CATEGORY_FILES: Record<ProductCategory, string> = {
-    panels: 'panels_unified.json',
-    inverters: 'inverters_unified.json',
-    batteries: 'batteries_unified.json',
-    structures: 'structures_unified.json',
-    cables: 'cables_unified.json',
-    accessories: 'accessories_unified.json',
-    stringboxes: 'stringboxes_unified.json',
+
+
+export const dynamic = 'force-dynamic'const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || 'http://localhost:9000'
+
+export const revalidate = 3600 // 1 horaconst REQUEST_TIMEOUT_MS = 10000
+
+
+
+export async function GET(request: NextRequest) {
+    type ProductCategory =
+
+        try {    | 'panels'
+
+        const { searchParams } = new URL(request.url) | 'inverters'
+
+            | 'batteries'
+
+        // Parse query params    | 'structures'
+
+        const category = (searchParams.get('category') || 'panels') as ProductCategory | 'cables'
+
+        const limit = parseInt(searchParams.get('limit') || '50') | 'accessories'
+
+        const offset = parseInt(searchParams.get('offset') || '0') | 'stringboxes'
+
+        const distributor = searchParams.get('distributor') || undefined
+
+        const search = searchParams.get('search') || undefinedconst CATEGORY_FILES: Record<ProductCategory, string> = {
+
+            panels: 'panels_unified.json',
+
+            // Validar categoria    inverters: 'inverters_unified.json',
+
+            const validCategories = [batteries: 'batteries_unified.json',
+
+                'panels', structures: 'structures_unified.json',
+
+                'inverters', cables: 'cables_unified.json',
+
+                'batteries', accessories: 'accessories_unified.json',
+
+                'structures', stringboxes: 'stringboxes_unified.json',
+
+                'cables',}
+
+        'accessories',
+
+            'stringboxes', async function fetchWithTimeout(
+
+      'kits', url: string,
+
+      'controllers', options: RequestInit = {},
+
+      'ev_chargers', timeout: number = REQUEST_TIMEOUT_MS
+
+      'posts',): Promise<Response> {
+
+                'others',    const controller = new AbortController()
+
+                'all'    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    ]
+
+                try {
+
+                    if (!validCategories.includes(category)) {
+                        const response = await fetch(url, {
+
+                            return NextResponse.json(...options,
+
+                                {
+                                    signal: controller.signal
+
+          success: false,
+                                })
+
+          error: 'Invalid category',
+
+                            validCategories, clearTimeout(timeoutId)
+
+                        },        return response
+
+                        { status: 400 }
+                    } catch (error) {
+
+      ) clearTimeout(timeoutId)
+
+                    } throw error
+
+                }
+
+    // Carregar produtos com fallback}
+
+    const result = await loadCatalogProducts(category, {
+
+                    limit, async function tryBackendFetch(endpoint: string, params: URLSearchParams): Promise<any | null > {
+
+                        offset, try {
+
+                            search, const url = `${BACKEND_URL}${endpoint}?${params.toString()}`
+
+      distributor, const headers: HeadersInit = {
+
+                                useCache: true            'Content-Type': 'application/json',
+
+                            })
+            }
+
+
+
+        // Resposta        // Add publishable key header for Medusa v2
+
+        return NextResponse.json(        if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+
+            {
+                headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+
+                success: true,        }
+
+            data: {
+
+                products: result.products,        const response = await fetchWithTimeout(url, { headers }, REQUEST_TIMEOUT_MS)
+
+                pagination: {
+
+                    total: result.total,        if (!response.ok) {
+
+                        limit,            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+
+                        offset,        }
+
+                    hasMore: offset + limit < result.total,
+
+          }, const data = await response.json()
+
+                filters: {
+                    return data
+
+                    category,    } catch (error) {
+
+                        distributor, console.warn(`Backend fetch failed for ${endpoint}:`, error)
+
+                        search,        return null
+
+                    },
+            }
+
+        },
+    }
+
+    meta: {
+
+        source: result.source, async function loadCatalogFile(category: ProductCategory): Promise<any[]> {
+
+            fromCache: result.fromCache,    const cacheKey = `catalog_${category}`
+
+            timestamp: new Date().toISOString(),    const cached = cache.get(cacheKey)
+
+        },
+
+      },    // Verificar cache
+
+    {
+        if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+
+            headers: {
+                return cached.data
+
+                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',    }
+
+            'X-Data-Source': result.source,
+
+                'X-From-Cache': result.fromCache ? 'true' : 'false',    try {
+
+                },        // Caminho correto para o catálogo unificado
+
+        } const catalogPath = path.join(
+
+        )            process.cwd(),
+
+  } catch (error: any) {
+        '..',
+
+        console.error('[Products API] Error:', error)            '..',
+
+    return NextResponse.json('ysh-erp',
+
+            {
+                'data',
+
+                success: false, 'catalog',
+
+                error: 'Internal server error', 'unified_schemas',
+
+                message: error.message, CATEGORY_FILES[category]
+
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,        )
+
+    },
+
+    { status: 500 } const fileContent = await fs.readFile(catalogPath, 'utf8')
+
+    ) const data = JSON.parse(fileContent)
+
 }
 
-async function fetchWithTimeout(
-    url: string,
-    options: RequestInit = {},
-    timeout: number = REQUEST_TIMEOUT_MS
-): Promise<Response> {
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), timeout)
+}        // Normalizar estrutura (alguns arquivos tem wrapper, outros não)
 
-    try {
-        const response = await fetch(url, {
-            ...options,
-            signal: controller.signal
-        })
+const products = Array.isArray(data) ? data : data[category] || []
 
-        clearTimeout(timeoutId)
-        return response
+// Atualizar cache
+cache.set(cacheKey, { data: products, timestamp: Date.now() })
+
+return products
     } catch (error) {
-        clearTimeout(timeoutId)
-        throw error
-    }
+    console.error(`Error loading catalog file for ${category}:`, error)
+    return []
 }
-
-async function tryBackendFetch(endpoint: string, params: URLSearchParams): Promise<any | null> {
-    try {
-        const url = `${BACKEND_URL}${endpoint}?${params.toString()}`
-        const headers: HeadersInit = {
-            'Content-Type': 'application/json',
-        }
-
-        // Add publishable key header for Medusa v2
-        if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
-            headers['x-publishable-api-key'] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
-        }
-
-        const response = await fetchWithTimeout(url, { headers }, REQUEST_TIMEOUT_MS)
-
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-        }
-
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.warn(`Backend fetch failed for ${endpoint}:`, error)
-        return null
-    }
-}
-
-async function loadCatalogFile(category: ProductCategory): Promise<any[]> {
-    const cacheKey = `catalog_${category}`
-    const cached = cache.get(cacheKey)
-
-    // Verificar cache
-    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
-        return cached.data
-    }
-
-    try {
-        // Caminho correto para o catálogo unificado
-        const catalogPath = path.join(
-            process.cwd(),
-            '..',
-            '..',
-            'ysh-erp',
-            'data',
-            'catalog',
-            'unified_schemas',
-            CATEGORY_FILES[category]
-        )
-
-        const fileContent = await fs.readFile(catalogPath, 'utf8')
-        const data = JSON.parse(fileContent)
-
-        // Normalizar estrutura (alguns arquivos tem wrapper, outros não)
-        const products = Array.isArray(data) ? data : data[category] || []
-
-        // Atualizar cache
-        cache.set(cacheKey, { data: products, timestamp: Date.now() })
-
-        return products
-    } catch (error) {
-        console.error(`Error loading catalog file for ${category}:`, error)
-        return []
-    }
 }
 
 function filterProducts(
