@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreValidate-mpptFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreValidate-mpptFields = [
   "updated_at",
 ];
 
-export const listValidate-mpptQueryConfig = defineQueryConfig({
+export const listValidate-mpptQueryConfig = {
   defaults: defaultStoreValidate-mpptFields,
   allowed: defaultStoreValidate-mpptFields,
   defaultLimit: 50,
-});
+};

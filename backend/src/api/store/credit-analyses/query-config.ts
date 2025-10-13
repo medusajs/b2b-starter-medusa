@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreCredit-analysesFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreCredit-analysesFields = [
   "updated_at",
 ];
 
-export const listCredit-analysesQueryConfig = defineQueryConfig({
+export const listCredit-analysesQueryConfig = {
   defaults: defaultStoreCredit-analysesFields,
   allowed: defaultStoreCredit-analysesFields,
   defaultLimit: 50,
-});
+};

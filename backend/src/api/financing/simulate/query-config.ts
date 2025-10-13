@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreSimulateFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreSimulateFields = [
   "updated_at",
 ];
 
-export const listSimulateQueryConfig = defineQueryConfig({
+export const listSimulateQueryConfig = {
   defaults: defaultStoreSimulateFields,
   allowed: defaultStoreSimulateFields,
   defaultLimit: 50,
-});
+};

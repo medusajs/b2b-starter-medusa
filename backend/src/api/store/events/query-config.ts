@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreEventsFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreEventsFields = [
   "updated_at",
 ];
 
-export const listEventsQueryConfig = defineQueryConfig({
+export const listEventsQueryConfig = {
   defaults: defaultStoreEventsFields,
   allowed: defaultStoreEventsFields,
   defaultLimit: 50,
-});
+};

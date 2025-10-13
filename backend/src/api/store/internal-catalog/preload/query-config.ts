@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStorePreloadFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStorePreloadFields = [
   "updated_at",
 ];
 
-export const listPreloadQueryConfig = defineQueryConfig({
+export const listPreloadQueryConfig = {
   defaults: defaultStorePreloadFields,
   allowed: defaultStorePreloadFields,
   defaultLimit: 50,
-});
+};

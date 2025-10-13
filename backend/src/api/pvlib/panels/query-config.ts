@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStorePanelsFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStorePanelsFields = [
   "updated_at",
 ];
 
-export const listPanelsQueryConfig = defineQueryConfig({
+export const listPanelsQueryConfig = {
   defaults: defaultStorePanelsFields,
   allowed: defaultStorePanelsFields,
   defaultLimit: 50,
-});
+};

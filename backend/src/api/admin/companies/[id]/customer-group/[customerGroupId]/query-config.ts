@@ -1,13 +1,13 @@
 import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
-export const defaultStore[customerGroupId]Fields = [
+export const defaultStoreCustomerGroupIdFields = [
   "id",
   "created_at",
   "updated_at",
 ];
 
-export const list[customerGroupId]QueryConfig = defineQueryConfig({
-  defaults: defaultStore[customerGroupId]Fields,
-  allowed: defaultStore[customerGroupId]Fields,
+export const listCustomerGroupIdQueryConfig = defineQueryConfig({
+  defaults: defaultStoreCustomerGroupIdFields,
+  allowed: defaultStoreCustomerGroupIdFields,
   defaultLimit: 50,
 });

@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreInvertersFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreInvertersFields = [
   "updated_at",
 ];
 
-export const listInvertersQueryConfig = defineQueryConfig({
+export const listInvertersQueryConfig = {
   defaults: defaultStoreInvertersFields,
   allowed: defaultStoreInvertersFields,
   defaultLimit: 50,
-});
+};

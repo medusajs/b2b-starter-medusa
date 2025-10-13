@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreCalculate-savingsFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreCalculate-savingsFields = [
   "updated_at",
 ];
 
-export const listCalculate-savingsQueryConfig = defineQueryConfig({
+export const listCalculate-savingsQueryConfig = {
   defaults: defaultStoreCalculate-savingsFields,
   allowed: defaultStoreCalculate-savingsFields,
   defaultLimit: 50,
-});
+};

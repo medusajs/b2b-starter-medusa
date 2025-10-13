@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreViabilityFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreViabilityFields = [
   "updated_at",
 ];
 
-export const listViabilityQueryConfig = defineQueryConfig({
+export const listViabilityQueryConfig = {
   defaults: defaultStoreViabilityFields,
   allowed: defaultStoreViabilityFields,
   defaultLimit: 50,
-});
+};

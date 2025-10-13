@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreHealthFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreHealthFields = [
   "updated_at",
 ];
 
-export const listHealthQueryConfig = defineQueryConfig({
+export const listHealthQueryConfig = {
   defaults: defaultStoreHealthFields,
   allowed: defaultStoreHealthFields,
   defaultLimit: 50,
-});
+};

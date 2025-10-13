@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreRecommend-productsFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreRecommend-productsFields = [
   "updated_at",
 ];
 
-export const listRecommend-productsQueryConfig = defineQueryConfig({
+export const listRecommend-productsQueryConfig = {
   defaults: defaultStoreRecommend-productsFields,
   allowed: defaultStoreRecommend-productsFields,
   defaultLimit: 50,
-});
+};

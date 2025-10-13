@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreThermalAnalysisFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreThermalAnalysisFields = [
   "updated_at",
 ];
 
-export const listThermalAnalysisQueryConfig = defineQueryConfig({
+export const listThermalAnalysisQueryConfig = {
   defaults: defaultStoreThermalAnalysisFields,
   allowed: defaultStoreThermalAnalysisFields,
   defaultLimit: 50,
-});
+};

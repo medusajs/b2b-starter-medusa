@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreAsk-helioFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreAsk-helioFields = [
   "updated_at",
 ];
 
-export const listAsk-helioQueryConfig = defineQueryConfig({
+export const listAsk-helioQueryConfig = {
   defaults: defaultStoreAsk-helioFields,
   allowed: defaultStoreAsk-helioFields,
   defaultLimit: 50,
-});
+};

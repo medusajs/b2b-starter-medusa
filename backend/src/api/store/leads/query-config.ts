@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreLeadsFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreLeadsFields = [
   "updated_at",
 ];
 
-export const listLeadsQueryConfig = defineQueryConfig({
+export const listLeadsQueryConfig = {
   defaults: defaultStoreLeadsFields,
   allowed: defaultStoreLeadsFields,
   defaultLimit: 50,
-});
+};

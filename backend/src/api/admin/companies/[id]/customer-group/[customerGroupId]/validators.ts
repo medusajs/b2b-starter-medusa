@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 
-export type Get[customerGroupId]ParamsType = z.infer<typeof Get[customerGroupId]Params>;
-export const Get[customerGroupId]Params = createSelectParams().extend({
+export type GetCustomerGroupIdParamsType = z.infer<typeof GetCustomerGroupIdParams>;
+export const GetCustomerGroupIdParams = createSelectParams().extend({
   limit: z.coerce.number().default(50),
   offset: z.coerce.number().default(0),
 });

@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreInternal-catalogFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreInternal-catalogFields = [
   "updated_at",
 ];
 
-export const listInternal-catalogQueryConfig = defineQueryConfig({
+export const listInternal-catalogQueryConfig = {
   defaults: defaultStoreInternal-catalogFields,
   allowed: defaultStoreInternal-catalogFields,
   defaultLimit: 50,
-});
+};

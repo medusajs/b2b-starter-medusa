@@ -154,24 +154,42 @@ export const deleteEmployee = async (companyId: string, employeeId: string) => {
   revalidateTag(cacheTag)
 }
 
-export const updateApprovalSettings = async (
-  companyId: string,
-  requiresAdminApproval: boolean
-) => {
+export const inviteEmployee = async (companyId: string, employeeData: {
+  first_name: string;
+  last_name: string;
+  email: string;
+  spending_limit?: number;
+  is_admin?: boolean;
+}) => {
   const headers = {
     ...(await getAuthHeaders()),
-    "Content-Type": "application/json",
-    Accept: "plain/text",
   }
 
-  await sdk.client.fetch(`/store/companies/${companyId}/approval-settings`, {
+  const response = await sdk.client.fetch(`/store/companies/${companyId}/invite-employee`, {
     method: "POST",
-    body: {
-      requires_admin_approval: requiresAdminApproval,
-    },
+    body: employeeData,
     headers,
   })
 
   const cacheTag = await getCacheTag("companies")
   revalidateTag(cacheTag)
+
+  return response
+}
+
+export const updateApprovalSettings = async (companyId: string, requiresAdminApproval: boolean) => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  const response = await sdk.client.fetch(`/store/companies/${companyId}/approval-settings`, {
+    method: "POST",
+    body: { requires_admin_approval: requiresAdminApproval },
+    headers,
+  })
+
+  const cacheTag = await getCacheTag("companies")
+  revalidateTag(cacheTag)
+
+  return response
 }

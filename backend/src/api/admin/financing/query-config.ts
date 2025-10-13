@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreFinancingFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreFinancingFields = [
   "updated_at",
 ];
 
-export const listFinancingQueryConfig = defineQueryConfig({
+export const listFinancingQueryConfig = {
   defaults: defaultStoreFinancingFields,
   allowed: defaultStoreFinancingFields,
   defaultLimit: 50,
-});
+};

@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreImagesFields = [
   "id",
@@ -6,8 +5,8 @@ export const defaultStoreImagesFields = [
   "updated_at",
 ];
 
-export const listImagesQueryConfig = defineQueryConfig({
+export const listImagesQueryConfig = {
   defaults: defaultStoreImagesFields,
   allowed: defaultStoreImagesFields,
   defaultLimit: 50,
-});
+};

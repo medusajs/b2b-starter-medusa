@@ -59,6 +59,17 @@ export const StoreCreateEmployee = z
   })
   .strict();
 
+export type StoreInviteEmployeeType = z.infer<typeof StoreInviteEmployee>;
+export const StoreInviteEmployee = z
+  .object({
+    first_name: z.string(),
+    last_name: z.string(),
+    email: z.string().email(),
+    spending_limit: z.number().optional().nullable(),
+    is_admin: z.boolean().optional().nullable().default(false),
+  })
+  .strict();
+
 export type StoreUpdateEmployeeType = z.infer<typeof StoreUpdateEmployee>;
 export const StoreUpdateEmployee = z
   .object({

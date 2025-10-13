@@ -1,4 +1,3 @@
-import { defineQueryConfig } from "@medusajs/medusa/api/utils/define-query-config";
 
 export const defaultStoreCatalogFields = [
   "id",
@@ -11,7 +10,7 @@ export const defaultStoreCatalogFields = [
   "image_url",
 ];
 
-export const listCatalogQueryConfig = defineQueryConfig({
+export const listCatalogQueryConfig = {
   defaults: defaultStoreCatalogFields,
   allowed: [
     ...defaultStoreCatalogFields,
@@ -20,4 +19,4 @@ export const listCatalogQueryConfig = defineQueryConfig({
     "metadata",
   ],
   defaultLimit: 50,
-});
+};
