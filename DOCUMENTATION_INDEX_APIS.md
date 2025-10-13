@@ -110,7 +110,7 @@
 
 ### Código Fonte
 
-```
+```tsx
 backend/src/api/store/internal-catalog/
 ├── route.ts (117 linhas)          # 6 endpoints REST
 ├── catalog-service.ts (416 linhas) # Serviço principal, lookup O(1)
@@ -120,7 +120,7 @@ backend/src/api/store/internal-catalog/
 
 ### Scripts
 
-```
+```tsx
 backend/scripts/
 ├── preload-catalog.js ⭐              # Worker standalone (0.02s)
 ├── validate-catalog-apis.js ⭐        # 8 testes automatizados
@@ -133,7 +133,7 @@ backend/scripts/
 
 ### Dados
 
-```
+```tsx
 backend/data/catalog/
 ├── SKU_MAPPING.json (1.5 MB)              # 1,251 mapeamentos
 ├── SKU_TO_PRODUCTS_INDEX.json ⭐ (620 KB)  # 854 SKUs → 587 produtos
