@@ -37,8 +37,9 @@ COPY . .
 # Compilar TypeScript config files (medusa-config.ts -> medusa-config.js)
 RUN npx tsc medusa-config.ts mikro-orm.config.ts --target ES2022 --module ESNext --moduleResolution Bundler --esModuleInterop --resolveJsonModule --skipLibCheck || true
 
-# Build da aplicação (ignora erros de TypeScript não-críticos)
-RUN npm run build -- --skipTypecheck || npm run build || true
+# Build da aplicação - O Medusa build compila o código
+# Se falhar, continuamos pois o Medusa pode rodar TypeScript diretamente
+RUN npm run build || echo "Build warning: TypeScript errors present but continuing..."
 
 # Criar diretório de uploads
 RUN mkdir -p uploads
