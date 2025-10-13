@@ -1,13 +1,26 @@
 /**
  * Internal Catalog API - Category Products
  * GET /store/internal-catalog/:category
- * 
+ *
  * Returns ~100 products per category with optimized image loading
  */
 
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { getInternalCatalogService } from "../catalog-service";
 import { CatalogResponse } from "../types";
+import { z } from "zod";
+
+/**
+ * Validation schema for category products
+ */
+const CategoryQuerySchema = z.object({
+    page: z.coerce.number().positive().default(1),
+    limit: z.coerce.number().positive().max(200).default(100),
+    manufacturer: z.string().optional(),
+    minPrice: z.coerce.number().positive().optional(),
+    maxPrice: z.coerce.number().positive().optional(),
+    hasImage: z.enum(["true", "false"]).optional(),
+});
 
 export const GET = async (
     req: MedusaRequest,
@@ -18,22 +31,14 @@ export const GET = async (
     const { category } = req.params;
 
     try {
-        const {
-            page = '1',
-            limit = '100',
-            manufacturer,
-            minPrice,
-            maxPrice,
-            hasImage
-        } = req.query as Record<string, string>;
-
-        const pageNum = parseInt(page) || 1;
-        const limitNum = Math.min(parseInt(limit) || 100, 200); // Max 200 per request
+        // Validate query parameters
+        const validatedQuery = CategoryQuerySchema.parse(req.query);
+        const { page, limit, manufacturer, minPrice, maxPrice, hasImage } = validatedQuery;
 
         const filters = {
             manufacturer: manufacturer as string | undefined,
-            minPrice: minPrice ? parseFloat(minPrice) : undefined,
-            maxPrice: maxPrice ? parseFloat(maxPrice) : undefined,
+            minPrice: minPrice as number | undefined,
+            maxPrice: maxPrice as number | undefined,
             hasImage: hasImage === 'true'
         };
 
@@ -41,8 +46,8 @@ export const GET = async (
         const queryStart = Date.now();
         const { products, total } = await catalogService.getCategoryProducts(
             category,
-            pageNum,
-            limitNum,
+            page,
+            limit,
             filters
         );
         const queryTime = Date.now() - queryStart;
@@ -60,12 +65,12 @@ export const GET = async (
         const response: CatalogResponse = {
             products,
             pagination: {
-                page: pageNum,
-                limit: limitNum,
+                page,
+                limit,
                 total,
-                total_pages: Math.ceil(total / limitNum),
-                has_next: pageNum * limitNum < total,
-                has_prev: pageNum > 1
+                total_pages: Math.ceil(total / limit),
+                has_next: page * limit < total,
+                has_prev: page > 1
             },
             stats,
             cache: {
@@ -83,6 +88,17 @@ export const GET = async (
         res.status(200).json(response);
     } catch (error: any) {
         console.error(`Error loading category ${category}:`, error);
+
+        // Handle validation errors
+        if (error.name === "ZodError") {
+            return res.status(400).json({
+                error: "Invalid query parameters",
+                details: error.errors,
+                message: "Please check your query parameters and try again",
+                category
+            });
+        }
+
         res.status(500).json({
             error: 'Failed to load catalog',
             message: error.message,

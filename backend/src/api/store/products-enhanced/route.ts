@@ -7,6 +7,23 @@
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
+import { z } from "zod";
+
+/**
+ * Validation schema for enhanced products
+ */
+const EnhancedProductsQuerySchema = z.object({
+    category: z.string().optional(),
+    limit: z.coerce.number().positive().max(100).default(20),
+    offset: z.coerce.number().nonnegative().default(0),
+    q: z.string().optional(),
+    manufacturer: z.string().optional(),
+    min_price: z.coerce.number().positive().optional(),
+    max_price: z.coerce.number().positive().optional(),
+    sort: z.enum(["created_at", "updated_at", "title"]).default("created_at"),
+    order: z.enum(["asc", "desc"]).default("desc"),
+    image_source: z.enum(["auto", "database", "internal"]).default("auto"),
+});
 
 interface EnhancedProduct {
     id: string;
@@ -43,18 +60,20 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const catalogService = getInternalCatalogService();
 
     try {
+        // Validate query parameters
+        const validatedQuery = EnhancedProductsQuerySchema.parse(req.query);
         const {
             category,
-            limit = "20",
-            offset = "0",
+            limit,
+            offset,
             q,
             manufacturer,
             min_price,
             max_price,
-            sort = "created_at",
-            order = "desc",
-            image_source = "auto", // 'database', 'internal', 'auto'
-        } = req.query;
+            sort,
+            order,
+            image_source
+        } = validatedQuery;
 
         // Build filters
         const filters: any = {
@@ -83,10 +102,10 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         const products = await productService.listProducts(
             filters,
             {
-                skip: parseInt(offset as string),
-                take: parseInt(limit as string),
+                skip: offset,
+                take: limit,
                 order: {
-                    [sort as string]: order === "asc" ? "ASC" : "DESC",
+                    [sort]: order === "asc" ? "ASC" : "DESC",
                 },
                 relations: ["variants", "variants.prices", "images"],
             }
@@ -100,8 +119,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
                 const priceInBRL = price / 100;
 
                 // Apply price filtering
-                if (min_price && priceInBRL < parseFloat(min_price as string)) return null;
-                if (max_price && priceInBRL > parseFloat(max_price as string)) return null;
+                if (min_price && priceInBRL < min_price) return null;
+                if (max_price && priceInBRL > max_price) return null;
 
                 // Extract SKU for internal image lookup
                 const sku = await catalogService.extractSku({
@@ -115,7 +134,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
                 // Determine primary image source
                 let primarySource: 'database' | 'internal' | 'fallback' = 'fallback';
-                
+
                 if (image_source === 'database' && product.images?.length > 0) {
                     primarySource = 'database';
                 } else if (image_source === 'internal' && internalImage.preloaded) {
@@ -185,8 +204,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             products: validProducts,
             count: validProducts.length,
             total: totalCount.length,
-            limit: parseInt(limit as string),
-            offset: parseInt(offset as string),
+            limit,
+            offset,
             facets: {
                 manufacturers: Array.from(manufacturers).sort(),
             },
@@ -202,6 +221,16 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         });
     } catch (error: any) {
         console.error("Error fetching enhanced products:", error);
+
+        // Handle validation errors
+        if (error.name === "ZodError") {
+            return res.status(400).json({
+                error: "Invalid query parameters",
+                details: error.errors,
+                message: "Please check your query parameters and try again",
+            });
+        }
+
         res.status(500).json({
             error: "Internal server error",
             message: error.message,

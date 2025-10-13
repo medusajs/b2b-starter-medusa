@@ -491,14 +491,14 @@ modules: {
 
 ### 🟡 Média (Esta Semana)
 
-4. **Corrigir 46 erros TypeScript**:
+1. **Corrigir 46 erros TypeScript**:
    - Custom modules: usar métodos com `_` suffix
    - API routes: remover `where` aninhado
    - Imports: adicionar extensões `.js`
    - **Impacto**: `npm run typecheck` verde
    - **Esforço**: 2-3 horas
 
-5. **Documentar autoridade de migrações**:
+2. **Documentar autoridade de migrações**:
    - Custom modules → MikroORM (`medusa db:migrate`)
    - Seed/legados → SQL manual (`database/migrations/`)
    - **Impacto**: Clareza no CI/CD
@@ -506,11 +506,11 @@ modules: {
 
 ### 🟢 Baixa (Próxima Sprint)
 
-6. **Adicionar integration tests HTTP**:
+1. **Adicionar integration tests HTTP**:
    - Coverage atual: modules ok, HTTP APIs incompletos
    - **Esforço**: 4-8 horas
 
-7. **Monitoramento Produção**:
+2. **Monitoramento Produção**:
    - Pino logger → CloudWatch/DataDog
    - Redis metrics (cache hit rate)
    - Rate limit violations (429s)

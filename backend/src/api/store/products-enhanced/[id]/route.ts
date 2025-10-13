@@ -7,6 +7,14 @@
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { getInternalCatalogService } from "../../internal-catalog/catalog-service";
+import { z } from "zod";
+
+/**
+ * Validation schema for product detail query
+ */
+const ProductDetailQuerySchema = z.object({
+    image_source: z.enum(["auto", "database", "internal"]).default("auto"),
+});
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
@@ -14,7 +22,9 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const { id } = req.params;
 
     try {
-        const { image_source = "auto" } = req.query;
+        // Validate query parameters
+        const validatedQuery = ProductDetailQuerySchema.parse(req.query);
+        const { image_source } = validatedQuery;
 
         // Try to find by ID first, then by handle
         let products = await productService.listProducts(
@@ -89,7 +99,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             category: product.metadata?.category,
             price_brl: price / 100,
             sku: variant?.sku || sku || product.id,
-            
+
             // Enhanced image handling
             images: {
                 primary: {
@@ -146,7 +156,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             updated_at: product.updated_at,
         };
 
-        res.json({ 
+        res.json({
             product: enhancedProduct,
             performance: {
                 cache_stats: catalogService.getCacheStats(),
@@ -156,6 +166,16 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
     } catch (error: any) {
         console.error("Error fetching enhanced product:", error);
+
+        // Handle validation errors
+        if (error.name === "ZodError") {
+            return res.status(400).json({
+                error: "Invalid query parameters",
+                details: error.errors,
+                message: "Please check your query parameters and try again",
+            });
+        }
+
         res.status(500).json({
             error: "Internal server error",
             message: error.message,

@@ -13,7 +13,7 @@ export const GET = async (
     req: MedusaRequest<StoreGetCatalogSKUsParamsType>,
     res: MedusaResponse
 ) => {
-    const catalogService = getCatalogService();
+    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;
 
     const validatedQuery = StoreGetCatalogSKUsParams.parse(req.query);
 

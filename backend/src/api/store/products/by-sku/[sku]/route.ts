@@ -19,62 +19,69 @@ export async function GET(
     }
 
     try {
-        const productModuleService = req.scope.resolve("productModuleService") as any
+        // Use correct Medusa product service
+        const productService = req.scope.resolve("product")
 
-        // Busca produtos por SKU (exact match)
-        const products = await productModuleService.list({
+        // Search by SKU (exact match on product)
+        const products = await productService.listProducts({
+            variants: {
+                sku: sku
+            }
+        }, {
+            relations: ["variants", "images", "categories"],
+            take: 1,
+        })
+
+        if (products.length > 0) {
+            res.status(200).json({
+                product: products[0],
+                matched_by: "product_variant_sku"
+            })
+            return
+        }
+
+        // Try search by SKU in product metadata
+        const productsWithMetadata = await productService.listProducts({
+            metadata: {
+                sku: sku,
+            }
+        }, {
+            relations: ["variants", "images", "categories"],
+            take: 1,
+        })
+
+        if (productsWithMetadata.length > 0) {
+            res.status(200).json({
+                product: productsWithMetadata[0],
+                matched_by: "metadata_sku"
+            })
+            return
+        }
+
+        // Try direct SKU match on product (legacy)
+        const directSkuMatch = await productService.listProducts({
             sku: sku,
         }, {
             relations: ["variants", "images", "categories"],
             take: 1,
         })
 
-        if (products.length === 0) {
-            // Tenta busca por SKU nas variants
-            const variants = await productModuleService.listVariants({
-                sku: sku,
-            }, {
-                relations: ["product", "product.images", "product.categories"],
-                take: 1,
-            })
-
-            if (variants.length > 0) {
-                res.status(200).json({
-                    product: variants[0].product,
-                    variant: variants[0],
-                    matched_by: "variant_sku"
-                })
-                return
-            }
-
-            // Tenta busca no metadata
-            const productsWithMetadata = await productModuleService.list({
-                metadata: {
-                    sku: sku,
-                }
-            }, {
-                relations: ["variants", "images", "categories"],
-                take: 1,
-            })
-
-            if (productsWithMetadata.length > 0) {
-                res.status(200).json({
-                    product: productsWithMetadata[0],
-                    matched_by: "metadata_sku"
-                })
-                return
-            }
-
-            res.status(404).json({
-                error: "Product not found",
-                sku: sku
+        if (directSkuMatch.length > 0) {
+            res.status(200).json({
+                product: directSkuMatch[0],
+                matched_by: "direct_product_sku"
             })
             return
         }
 
-        res.status(200).json({
-            product: products[0],
-            matched_by: "product_sku"
+        res.status(404).json({
+            error: "Product not found",
+            sku: sku,
+            search_attempts: [
+                "product_variant_sku",
+                "metadata_sku",
+                "direct_product_sku"
+            ]
         })
 
     } catch (error) {
@@ -104,29 +111,29 @@ export async function searchBySKU(
     }
 
     try {
-        const productModuleService = req.scope.resolve("productModuleService") as any
+        const productService = req.scope.resolve("product")
 
-        // Busca parcial de SKU
-        const products = await productModuleService.list({}, {
+        // Get all products with pagination for fuzzy search
+        const products = await productService.listProducts({}, {
             relations: ["variants", "images", "categories"],
-            take: 20,
+            take: 50, // Limit for performance
         })
 
-        // Filtra produtos que têm SKU similar
+        // Filter products that have SKU similar to query
         const matches = products.filter(product => {
-            // Verifica SKU do produto
+            // Check product SKU
             if (product.sku && product.sku.toLowerCase().includes(q.toLowerCase())) {
                 return true
             }
 
-            // Verifica SKU nas variants
+            // Check SKU in variants
             if (product.variants) {
                 return product.variants.some(variant =>
                     variant.sku && variant.sku.toLowerCase().includes(q.toLowerCase())
                 )
             }
 
-            // Verifica metadata
+            // Check metadata
             if (product.metadata && product.metadata.sku) {
                 return String(product.metadata.sku).toLowerCase().includes(q.toLowerCase())
             }
@@ -137,7 +144,9 @@ export async function searchBySKU(
         res.status(200).json({
             products: matches,
             count: matches.length,
-            query: q
+            query: q,
+            search_type: "fuzzy",
+            max_results: 50
         })
 
     } catch (error) {

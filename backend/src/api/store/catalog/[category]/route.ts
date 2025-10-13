@@ -1,5 +1,5 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { getCatalogService } from "../_catalog-service";
+import { UNIFIED_CATALOG_MODULE } from "../../../modules/unified-catalog";
 
 function parsePriceBRL(price?: string): number | undefined {
   if (!price) return undefined
@@ -64,7 +64,7 @@ export const GET = async (
   req: MedusaRequest,
   res: MedusaResponse
 ) => {
-  const catalogService = getCatalogService();
+  const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE);
   const { category } = req.params;
 
   try {
@@ -101,11 +101,11 @@ export const GET = async (
 
     // Fetch data with unified catalog service
     const [items, total] = isKitCategory
-      ? await catalogService.listAndCountKits({ where, skip: offset, take: limitNum })
-      : await catalogService.listAndCountSKUs({ where, skip: offset, take: limitNum });
+      ? await unifiedCatalogService.listAndCountKits({ where, skip: offset, take: limitNum })
+      : await unifiedCatalogService.listAndCountSKUs({ where, skip: offset, take: limitNum });
 
     // Get manufacturers for facets
-    const manufacturers = await catalogService.listManufacturers();
+    const manufacturers = await unifiedCatalogService.listManufacturers();
 
     // Transform to match expected format - normalizeProduct extracts manufacturer string internally
     const products = items.map((item: any) => {

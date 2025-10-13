@@ -1,11 +1,11 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
-import { getCatalogService } from "../_catalog-service";
+import { UNIFIED_CATALOG_MODULE } from "../../../../modules/unified-catalog";
 
 export const GET = async (
     req: MedusaRequest,
     res: MedusaResponse
 ) => {
-    const catalogService = getCatalogService();
+    const catalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as any;
 
     try {
         const manufacturers = await catalogService.listManufacturers();

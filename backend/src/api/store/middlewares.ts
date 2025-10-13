@@ -8,6 +8,10 @@ import { storeCatalogMiddlewares } from "./catalog/middlewares";
 import { storeSolarDetectionMiddlewares } from "./solar-detection/middlewares";
 import { storeThermalAnalysisMiddlewares } from "./thermal-analysis/middlewares";
 import { storePhotogrammetryMiddlewares } from "./photogrammetry/middlewares";
+import { storeInternalCatalogMiddlewares } from "./internal-catalog/middlewares";
+import { storeProductsEnhancedMiddlewares } from "./products-enhanced/middlewares";
+import { storeKitsMiddlewares } from "./kits/middlewares";
+import { storeProductsBySkuMiddlewares } from "./products/by-sku/middlewares";
 
 export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeCartsMiddlewares,
@@ -19,4 +23,9 @@ export const storeMiddlewares: MiddlewareRoute[] = [
   ...storeSolarDetectionMiddlewares,
   ...storeThermalAnalysisMiddlewares,
   ...storePhotogrammetryMiddlewares,
+  // Rate-limited APIs
+  ...storeInternalCatalogMiddlewares,
+  ...storeProductsEnhancedMiddlewares,
+  ...storeKitsMiddlewares,
+  ...storeProductsBySkuMiddlewares,
 ];
