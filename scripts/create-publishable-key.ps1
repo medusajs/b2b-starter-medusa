@@ -87,18 +87,18 @@ BEGIN
         NOW()
     );
     
-    -- Retornar informações
+    -- Retornar informacoes
     RAISE NOTICE '';
-    RAISE NOTICE '╔════════════════════════════════════════════════════════════════╗';
-    RAISE NOTICE '║  ✅ PUBLISHABLE KEY CRIADA COM SUCESSO!                       ║';
-    RAISE NOTICE '╚════════════════════════════════════════════════════════════════╝';
+    RAISE NOTICE '================================================================';
+    RAISE NOTICE '  PUBLISHABLE KEY CRIADA COM SUCESSO!';
+    RAISE NOTICE '================================================================';
     RAISE NOTICE '';
-    RAISE NOTICE '🔑 Key ID: %', v_key_id;
-    RAISE NOTICE '🎯 Token: %', v_token;
-    RAISE NOTICE '📦 Sales Channel: % (%)', (SELECT name FROM sales_channel WHERE id = v_sales_channel_id), v_sales_channel_id;
-    RAISE NOTICE '🏪 Store: % (%)', (SELECT name FROM store WHERE id = v_store_id), v_store_id;
+    RAISE NOTICE 'Key ID: %', v_key_id;
+    RAISE NOTICE 'Token: %', v_token;
+    RAISE NOTICE 'Sales Channel: % (%)', (SELECT name FROM sales_channel WHERE id = v_sales_channel_id), v_sales_channel_id;
+    RAISE NOTICE 'Store: % (%)', (SELECT name FROM store WHERE id = v_store_id), v_store_id;
     RAISE NOTICE '';
-    RAISE NOTICE '📋 PRÓXIMOS PASSOS:';
+    RAISE NOTICE 'PROXIMOS PASSOS:';
     RAISE NOTICE '1. Copie o token acima (pk_...)';
     RAISE NOTICE '2. Adicione ao storefront/.env:';
     RAISE NOTICE '   NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=%', v_token;
@@ -109,14 +109,14 @@ BEGIN
 END \$\$;
 "@
 
-Write-Host "🔧 Executando SQL para criar publishable key..." -ForegroundColor Yellow
+Write-Host "[EXECUTANDO] SQL para criar publishable key..." -ForegroundColor Yellow
 
 # Executar SQL
 $output = docker exec $CONTAINER_NAME psql -U $DB_USER -d $DB_NAME -c $SQL_CREATE_KEY 2>&1
 
 # Verificar se houve erro
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Erro ao criar publishable key!" -ForegroundColor Red
+    Write-Host "[ERRO] Falha ao criar publishable key!" -ForegroundColor Red
     Write-Host $output -ForegroundColor Red
     exit 1
 }
@@ -134,7 +134,7 @@ Write-Host $output -ForegroundColor Cyan
 Write-Host ""
 
 # Consultar key criada para confirmar
-Write-Host "🔍 Verificando key criada..." -ForegroundColor Yellow
+Write-Host "[VERIFICANDO] Key criada..." -ForegroundColor Yellow
 $verifySQL = @"
 SELECT 
     ak.id as key_id,
@@ -158,62 +158,62 @@ Write-Host ""
 
 # Se conseguimos extrair o token, salvar em arquivo
 if ($token) {
-    Write-Host "💾 Salvando token em arquivo..." -ForegroundColor Yellow
+    Write-Host "[SALVANDO] Token em arquivo..." -ForegroundColor Yellow
     
     $envFile = "storefront\.env"
     $envContent = ""
     
-    # Ler conteúdo atual do .env se existir
+    # Ler conteudo atual do .env se existir
     if (Test-Path $envFile) {
         $envContent = Get-Content $envFile -Raw
     }
     
-    # Verificar se já existe a variável
+    # Verificar se ja existe a variavel
     if ($envContent -match "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=") {
         # Substituir valor existente
         $envContent = $envContent -replace "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=.*", "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$token"
-        Write-Host "   ✅ Variável NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY atualizada" -ForegroundColor Green
+        Write-Host "[OK] Variavel NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY atualizada" -ForegroundColor Green
     }
     else {
-        # Adicionar nova variável
+        # Adicionar nova variavel
         if ($envContent -and -not $envContent.EndsWith("`n")) {
             $envContent += "`n"
         }
         $envContent += "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$token`n"
-        Write-Host "   ✅ Variável NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY adicionada" -ForegroundColor Green
+        Write-Host "[OK] Variavel NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY adicionada" -ForegroundColor Green
     }
     
     # Salvar arquivo
     Set-Content -Path $envFile -Value $envContent -NoNewline
     
     Write-Host ""
-    Write-Host "📁 Arquivo atualizado: $envFile" -ForegroundColor Cyan
+    Write-Host "[ARQUIVO] Atualizado: $envFile" -ForegroundColor Cyan
     Write-Host ""
     
     # Criar arquivo de backup com apenas o token
     $backupFile = "storefront\.publishable-key.txt"
     Set-Content -Path $backupFile -Value $token
-    Write-Host "💾 Backup do token salvo em: $backupFile" -ForegroundColor Cyan
+    Write-Host "[BACKUP] Token salvo em: $backupFile" -ForegroundColor Cyan
     Write-Host ""
     
-    # Copiar para clipboard se possível
+    # Copiar para clipboard se possivel
     try {
         Set-Clipboard -Value $token
-        Write-Host "📋 Token copiado para clipboard!" -ForegroundColor Green
+        Write-Host "[CLIPBOARD] Token copiado!" -ForegroundColor Green
     }
     catch {
-        Write-Host "⚠️  Não foi possível copiar para clipboard (não crítico)" -ForegroundColor Yellow
+        Write-Host "[AVISO] Nao foi possivel copiar para clipboard (nao critico)" -ForegroundColor Yellow
     }
 }
 
 Write-Host ""
-Write-Host "╔════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║  🎉 PUBLISHABLE KEY CONFIGURADA COM SUCESSO!                  ║" -ForegroundColor Cyan
-Write-Host "╚════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host "================================================================" -ForegroundColor Cyan
+Write-Host "  PUBLISHABLE KEY CONFIGURADA COM SUCESSO!" -ForegroundColor Cyan
+Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "📋 PRÓXIMOS PASSOS:" -ForegroundColor Yellow
+Write-Host "PROXIMOS PASSOS:" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "1. ✅ Token já foi adicionado ao storefront/.env" -ForegroundColor Green
+Write-Host "1. Token ja foi adicionado ao storefront/.env" -ForegroundColor Green
 Write-Host ""
 Write-Host "2. Reinicie o storefront:" -ForegroundColor Yellow
 Write-Host "   docker compose -f docker/docker-compose.yml restart storefront" -ForegroundColor White
@@ -227,12 +227,12 @@ Write-Host "   http://localhost:8000/br/products/kit-solar-5kw" -ForegroundColor
 Write-Host ""
 
 # Sugerir teste imediato
-Write-Host "🧪 Deseja testar a key agora? (S/N): " -NoNewline -ForegroundColor Cyan
+Write-Host "[TESTE] Deseja testar a key agora? (S/N): " -NoNewline -ForegroundColor Cyan
 $response = Read-Host
 
 if ($response -eq "S" -or $response -eq "s") {
     Write-Host ""
-    Write-Host "🧪 Testando publishable key..." -ForegroundColor Yellow
+    Write-Host "[TESTANDO] Publishable key..." -ForegroundColor Yellow
     
     if ($token) {
         try {
@@ -242,27 +242,27 @@ if ($response -eq "S" -or $response -eq "s") {
             
             $testResult = Invoke-RestMethod -Uri "http://localhost:9000/store/products?limit=1" -Headers $headers -Method Get
             
-            Write-Host "✅ API respondeu com sucesso!" -ForegroundColor Green
+            Write-Host "[SUCESSO] API respondeu com sucesso!" -ForegroundColor Green
             Write-Host ""
-            Write-Host "📦 Produtos retornados: $($testResult.products.Count)" -ForegroundColor Cyan
+            Write-Host "[PRODUTOS] Retornados: $($testResult.products.Count)" -ForegroundColor Cyan
             
             if ($testResult.products.Count -gt 0) {
                 $product = $testResult.products[0]
-                Write-Host "   • ID: $($product.id)" -ForegroundColor White
-                Write-Host "   • Title: $($product.title)" -ForegroundColor White
-                Write-Host "   • Handle: $($product.handle)" -ForegroundColor White
+                Write-Host "   - ID: $($product.id)" -ForegroundColor White
+                Write-Host "   - Title: $($product.title)" -ForegroundColor White
+                Write-Host "   - Handle: $($product.handle)" -ForegroundColor White
             }
             else {
-                Write-Host "⚠️  Nenhum produto encontrado no banco (normal se não rodou seed)" -ForegroundColor Yellow
+                Write-Host "[AVISO] Nenhum produto encontrado no banco (normal se nao rodou seed)" -ForegroundColor Yellow
             }
             
         }
         catch {
-            Write-Host "❌ Erro ao testar API:" -ForegroundColor Red
+            Write-Host "[ERRO] Falha ao testar API:" -ForegroundColor Red
             Write-Host $_.Exception.Message -ForegroundColor Red
         }
     }
 }
 
 Write-Host ""
-Write-Host "✨ Script concluído!" -ForegroundColor Green
+Write-Host "[CONCLUIDO] Script finalizado!" -ForegroundColor Green
