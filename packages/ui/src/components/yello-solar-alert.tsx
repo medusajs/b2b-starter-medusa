@@ -1,7 +1,7 @@
 // yello-solar-alert.tsx - Alert component com tom Hélio
 "use client"
 
-import { clx } from "../../utils/clx"
+import { clx } from "../utils/clx"
 import {
   CheckCircleSolid,
   ExclamationCircleSolid,
