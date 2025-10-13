@@ -2,6 +2,7 @@ import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { requirePublishableKey } from "@compat/http/publishable";
 import { getCompany } from "@compat/services/company";
 import { getRequestId, logRequest } from "@compat/logging/logger";
+import { ok, err } from "@compat/http/response";
 
 // GET /store/companies/:id
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
@@ -10,6 +11,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const request_id = getRequestId(req.headers as any);
   logRequest({ route: `/store/companies/${id}`, method: "GET", request_id });
   const company = await getCompany(id);
-  if (!company) return res.status(404).json({ message: "Company not found" });
-  res.json({ company });
+  if (!company) return err(req, res, 404, "NOT_FOUND", "Company not found");
+  return ok(req, res, { company });
 };
