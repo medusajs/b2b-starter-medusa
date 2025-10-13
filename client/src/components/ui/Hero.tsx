@@ -1,4 +1,5 @@
-import { Container, Button, Text } from "@medusajs/ui"
+import { Container } from "@medusajs/ui"
+import { YshButton as Button, Text } from "@ysh/ui"
 
 export function Hero() {
   return (

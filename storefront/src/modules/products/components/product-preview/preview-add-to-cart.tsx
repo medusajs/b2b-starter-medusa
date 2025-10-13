@@ -2,7 +2,7 @@
 
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { StoreProduct, StoreRegion } from "@medusajs/types"
-import { Button, toast } from "@medusajs/ui"
+import { YshButton as Button, toast } from "@ysh/ui"
 import ShoppingBag from "@/modules/common/icons/shopping-bag"
 import { useState } from "react"
 
