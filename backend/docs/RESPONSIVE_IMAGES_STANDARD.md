@@ -20,12 +20,14 @@ Servir imagens otimizadas por dispositivo mantendo **qualidade original** sem pr
 ## 🎨 Configurações de Qualidade
 
 ### WebP Quality: 95
+
 - **Alta qualidade** sem perdas perceptíveis
 - **SEM processamento** agressivo (denoise, sharpen, contrast)
 - **Resampling**: LANCZOS (melhor qualidade)
 - **Method**: 6 (melhor compressão)
 
 ### Características Preservadas
+
 ✅ Contraste original  
 ✅ Nitidez natural  
 ✅ Saturação de cor original  
@@ -36,7 +38,7 @@ Servir imagens otimizadas por dispositivo mantendo **qualidade original** sem pr
 
 ## 📦 Estrutura de Arquivos
 
-```
+```tsx
 static/
 └── images-responsive/
     ├── original/
@@ -145,16 +147,19 @@ static/
 ### 📈 Benefícios
 
 #### Para Desktop (large - 1200px)
+
 - ✅ Resolução adequada para telas Full HD
 - ✅ Carregamento 40-50% mais rápido que original
 - ✅ Qualidade visual idêntica
 
 #### Para Tablet (medium - 800px)
+
 - ✅ Tamanho ideal para iPad/tablets
 - ✅ Carregamento 60-70% mais rápido
 - ✅ Economia de dados móveis
 
 #### Para Mobile (thumb - 400px)
+
 - ✅ Perfeito para smartphones
 - ✅ Carregamento 80% mais rápido
 - ✅ Mínimo consumo de dados
@@ -165,22 +170,26 @@ static/
 ## 🔄 Próximos Passos
 
 ### 1. Completar Imagens Faltantes
+
 - [ ] Localizar 576 imagens pendentes
 - [ ] Executar script novamente após adicionar originais
 - [ ] Meta: 100% de cobertura (854/854)
 
 ### 2. Atualizar Serviços Backend
+
 - [ ] Modificar `catalog-service.ts` para retornar URLs responsivas
 - [ ] Adicionar endpoint `/api/products/:sku/images` com metadados
 - [ ] Implementar cache de responses
 
 ### 3. Integração Frontend
+
 - [ ] Atualizar componentes de produto
 - [ ] Implementar `<picture>` elements
 - [ ] Adicionar lazy loading
 - [ ] Configurar CDN (Cloudflare/AWS CloudFront)
 
 ### 4. Monitoramento
+
 - [ ] Dashboard de métricas de imagens
 - [ ] Tracking de load times por dispositivo
 - [ ] Alertas para imagens faltantes
@@ -190,16 +199,19 @@ static/
 ## 🛠️ Scripts Disponíveis
 
 ### Gerar Imagens Responsivas
+
 ```bash
 python scripts/generate-responsive-images.py
 ```
 
 ### Verificar Status
+
 ```bash
 python -c "import json; data=json.load(open('static/images-responsive/generation-report.json')); print(f'Processadas: {data[\"summary\"][\"successful\"]}/{data[\"summary\"][\"total\"]}')"
 ```
 
 ### Re-processar SKU Específico
+
 ```python
 # Adicionar ao script se necessário
 python scripts/generate-responsive-images.py --sku SKU-123
@@ -209,10 +221,10 @@ python scripts/generate-responsive-images.py --sku SKU-123
 
 ## 📚 Referências Técnicas
 
-- **WebP Documentation**: https://developers.google.com/speed/webp
-- **Responsive Images**: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
-- **Pillow LANCZOS**: https://pillow.readthedocs.io/en/stable/handbook/concepts.html#filters
-- **Image Optimization Best Practices**: https://web.dev/fast/#optimize-your-images
+- **WebP Documentation**: <https://developers.google.com/speed/webp>
+- **Responsive Images**: <https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images>
+- **Pillow LANCZOS**: <https://pillow.readthedocs.io/en/stable/handbook/concepts.html#filters>
+- **Image Optimization Best Practices**: <https://web.dev/fast/#optimize-your-images>
 
 ---
 
