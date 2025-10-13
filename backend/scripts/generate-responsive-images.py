@@ -169,39 +169,42 @@ class ResponsiveImageGenerator:
         # Criar mapa de resultados por SKU
         results_map = {r['sku']: r for r in results if r['success']}
         
-        # Atualizar cada entrada
+        # Atualizar cada entrada em mappings
         updated_count = 0
-        for category, items in image_map.get('categories', {}).items():
-            for item in items:
-                sku = item.get('sku')
-                if sku in results_map:
-                    result = results_map[sku]
-                    
-                    # Adicionar campo responsive
-                    item['responsive'] = {
-                        'original': f'/static/images-responsive/original/{sku}.webp',
-                        'large': f'/static/images-responsive/large/{sku}.webp',
-                        'medium': f'/static/images-responsive/medium/{sku}.webp',
-                        'thumb': f'/static/images-responsive/thumb/{sku}.webp'
-                    }
-                    
-                    # Adicionar metadados
-                    item['responsive_metadata'] = {
-                        'generated_at': datetime.now().isoformat(),
-                        'original_size_kb': round(result['original_size'] / 1024, 2),
-                        'responsive_size_kb': round(result['responsive_size'] / 1024, 2),
-                        'savings_pct': round(result['savings_pct'], 2)
-                    }
-                    
-                    updated_count += 1
+        mappings = image_map.get('mappings', {})
+        
+        for sku, data in mappings.items():
+            if sku in results_map:
+                result = results_map[sku]
+                
+                # Substituir campo images com versões responsivas
+                data['images'] = {
+                    'original': f'/static/images-responsive/original/{sku}.webp',
+                    'large': f'/static/images-responsive/large/{sku}.webp',
+                    'medium': f'/static/images-responsive/medium/{sku}.webp',
+                    'thumb': f'/static/images-responsive/thumb/{sku}.webp'
+                }
+                
+                # Adicionar metadados de otimização
+                data['optimization'] = {
+                    'format': 'webp_responsive',
+                    'generated_at': datetime.now().isoformat(),
+                    'original_size_kb': round(result['original_size'] / 1024, 2),
+                    'responsive_total_kb': round(result['responsive_size'] / 1024, 2),
+                    'quality': WEBP_QUALITY
+                }
+                
+                updated_count += 1
         
         # Atualizar versão e timestamp
+        image_map['version'] = '4.0'
+        image_map['generated_at'] = datetime.now().isoformat()
+        
         if 'metadata' not in image_map:
             image_map['metadata'] = {}
         
-        image_map['metadata']['version'] = '4.0'
-        image_map['metadata']['updated_at'] = datetime.now().isoformat()
         image_map['metadata']['responsive_enabled'] = True
+        image_map['metadata']['responsive_sizes'] = RESPONSIVE_SIZES
         
         # Salvar backup
         backup_path = CATALOG_DIR / 'IMAGE_MAP.json.backup-v3'
@@ -275,13 +278,8 @@ def main():
     if not image_map:
         sys.exit(1)
     
-    # Coletar todos os SKUs
-    skus_to_process = []
-    for category, items in image_map.get('categories', {}).items():
-        for item in items:
-            sku = item.get('sku')
-            if sku:
-                skus_to_process.append(sku)
+    # Coletar todos os SKUs do mappings
+    skus_to_process = list(image_map.get('mappings', {}).keys())
     
     print(f'✅ {len(skus_to_process)} SKUs encontrados')
     

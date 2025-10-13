@@ -17,8 +17,8 @@ const EmployeeWrapper = async ({
   const orders =
     orderIds.length > 0
       ? await listOrders(0, 0, {
-          id: orderIds,
-        }).catch(() => [])
+        id: orderIds,
+      }).catch(() => [])
       : []
 
   return (

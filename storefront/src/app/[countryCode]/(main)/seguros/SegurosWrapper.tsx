@@ -79,8 +79,8 @@ export default function SegurosWrapper() {
                         <div
                             key={cotacao.seguradora.codigo}
                             className={`bg-white rounded-xl shadow-lg p-6 border-2 transition-all ${cotacao === comparacao.recomendacao
-                                    ? 'border-green-500 ring-2 ring-green-200'
-                                    : 'border-[var(--border)] hover:border-blue-300'
+                                ? 'border-green-500 ring-2 ring-green-200'
+                                : 'border-[var(--border)] hover:border-blue-300'
                                 }`}
                         >
                             {/* Badge */}
@@ -374,8 +374,8 @@ export default function SegurosWrapper() {
                                 <label
                                     key={cob.id}
                                     className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${formData.coberturas_desejadas.includes(cob.id as TipoCobertura)
-                                            ? 'border-blue-500 bg-blue-50'
-                                            : 'border-gray-200 hover:border-gray-300'
+                                        ? 'border-blue-500 bg-blue-50'
+                                        : 'border-gray-200 hover:border-gray-300'
                                         } ${cob.disabled ? 'opacity-75 cursor-not-allowed' : ''}`}
                                 >
                                     <input

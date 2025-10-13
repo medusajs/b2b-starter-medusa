@@ -43,7 +43,7 @@ const KitCard = ({ kit }: KitCardProps) => {
     try {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         addToQuote = useLeadQuote().add
-    } catch {}
+    } catch { }
     const custom = useCatalogCustomization()
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -91,7 +91,7 @@ const KitCard = ({ kit }: KitCardProps) => {
                             onClick={(e) => {
                                 e.preventDefault()
                                 addToQuote?.({ id: kit.id, category: 'kits', name: kit.name, manufacturer: kit.distributor, image_url: imageUrl, price_brl: kit.price_brl })
-                                try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: kit.id, category: 'kits' }) } catch {}
+                                try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: kit.id, category: 'kits' }) } catch { }
                             }}
                         >
                             <span className="text-sm font-bold text-gray-900">+</span>
@@ -197,7 +197,7 @@ const KitCard = ({ kit }: KitCardProps) => {
                                 onClick={(e) => {
                                     e.preventDefault()
                                     addToQuote?.({ id: kit.id, category: 'kits', name: kit.name, manufacturer: kit.distributor, image_url: imageUrl, price_brl: kit.price_brl })
-                                    try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: kit.id, category: 'kits' }) } catch {}
+                                    try { require("@/modules/analytics/events").sendEvent("add_to_quote", { id: kit.id, category: 'kits' }) } catch { }
                                 }}
                             >
                                 Adicionar à cotação

@@ -253,8 +253,8 @@ export default function CategoryTemplate({
                 {/* Products Grid */}
                 <div
                     className={`grid gap-6 mb-8 ${isKits
-                            ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-                            : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                        ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                         }`}
                 >
                     {products.length === 0 ? (
@@ -301,8 +301,8 @@ export default function CategoryTemplate({
                                 <Link
                                     key={page}
                                     className={`px-3 py-2 rounded-md border text-sm ${page === currentPage
-                                            ? "bg-neutral-900 text-white border-neutral-900"
-                                            : "border-neutral-300 hover:bg-neutral-100"
+                                        ? "bg-neutral-900 text-white border-neutral-900"
+                                        : "border-neutral-300 hover:bg-neutral-100"
                                         }`}
                                     href={makePaginationHref(page)}
                                     aria-label={`Página ${page}`}
