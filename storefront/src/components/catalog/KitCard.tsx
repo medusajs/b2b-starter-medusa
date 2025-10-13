@@ -141,7 +141,7 @@ export function KitCard({
                         </div>
                     </div>
                 )}
-            </CardContent>
+            </div>
 
             <div className={`pt-4 ${compact ? 'pt-0' : ''}`}>
                 <Button
