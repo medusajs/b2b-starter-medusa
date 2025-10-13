@@ -6,8 +6,7 @@
  */
 
 const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+const { Client } = require('pg');
 
 const TEST_DB_CONFIG = {
     host: 'localhost',
@@ -24,7 +23,10 @@ async function waitForDatabase(maxRetries = 30, delay = 1000) {
 
     for (let i = 0; i < maxRetries; i++) {
         try {
-            execSync(`psql "${DB_URL}" -c "SELECT 1;"`, { stdio: 'pipe' });
+            const client = new Client(TEST_DB_CONFIG);
+            await client.connect();
+            await client.query('SELECT 1');
+            await client.end();
             console.log('✅ Test database is ready!');
             return true;
         } catch (error) {
