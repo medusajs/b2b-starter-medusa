@@ -173,22 +173,33 @@ export class PVHttpClient {
      */
     private async doFetch(request: PVDataRequest): Promise<PVDataResponse> {
         const controller = new AbortController();
-        const timeoutId = setTimeout(
-            () => controller.abort(),
-            this.config.timeout.request_timeout_ms
-        );
+        const timeoutMs = this.config.timeout.request_timeout_ms;
+        let timeoutHandle: any;
+
+        // Manual timeout race to avoid relying on fetch implementation
+        const timeoutPromise = new Promise<never>((_, reject) => {
+            timeoutHandle = setTimeout(() => {
+                try { controller.abort(); } catch {}
+                reject(new PVProviderError(
+                    "Request timeout",
+                    this.config.provider
+                ));
+            }, timeoutMs);
+        });
 
         try {
             const url = this.buildUrl(request);
             const headers = this.buildHeaders();
 
-            const response = await fetch(url, {
+            const fetchPromise = fetch(url, {
                 method: "GET",
                 headers,
                 signal: controller.signal,
-            });
+            }) as unknown as Promise<Response>;
 
-            clearTimeout(timeoutId);
+            const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
+
+            clearTimeout(timeoutHandle);
 
             if (!response.ok) {
                 throw new PVProviderError(
@@ -205,20 +216,13 @@ export class PVHttpClient {
 
             return normalized;
         } catch (error) {
-            clearTimeout(timeoutId);
+            clearTimeout(timeoutHandle);
 
             if (error instanceof PVProviderError) {
                 throw error;
             }
 
-            if ((error as Error).name === "AbortError") {
-                throw new PVProviderError(
-                    "Request timeout",
-                    this.config.provider,
-                    undefined,
-                    error as Error
-                );
-            }
+            // Timeout path handled by timeoutPromise above
 
             throw new PVProviderError(
                 `Network error: ${(error as Error).message}`,
