@@ -12,6 +12,8 @@ const __dirname = path.dirname(__filename);
 
 const UNIFIED_SCHEMAS_PATH = path.join(__dirname, '../data/catalog/unified_schemas');
 const OUTPUT_PATH = path.join(__dirname, '../data/catalog/fallback_exports');
+const IMAGE_MAP_PATH = path.join(__dirname, '../static/images-catálogo_distribuidores/IMAGE_MAP.json');
+const STATIC_IMAGE_BASE = '/static/images-catálogo_distribuidores';
 
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_PATH)) {
