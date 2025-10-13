@@ -208,16 +208,37 @@ export async function GET(request: NextRequest) {
             )
         }
 
-        // Carregar produtos
-        let products = await loadCatalogFile(category)
+        // Tentar buscar do backend primeiro
+        const backendParams = new URLSearchParams()
+        if (limit) backendParams.set('limit', limit.toString())
+        if (offset) backendParams.set('offset', offset.toString())
+        if (distributor) backendParams.set('distributor', distributor)
+        if (search) backendParams.set('search', search)
+        if (minPrice !== undefined) backendParams.set('minPrice', minPrice.toString())
+        if (maxPrice !== undefined) backendParams.set('maxPrice', maxPrice.toString())
 
-        // Aplicar filtros
-        products = filterProducts(products, {
-            distributor,
-            search,
-            minPrice,
-            maxPrice,
-        })
+        const backendEndpoint = `/store/internal-catalog/${category}`
+        const backendData = await tryBackendFetch(backendEndpoint, backendParams)
+
+        let products: any[] = []
+        let fromBackend = false
+
+        if (backendData && backendData.success && backendData.data) {
+            // Usar dados do backend
+            products = backendData.data.products || backendData.data.items || []
+            fromBackend = true
+        } else {
+            // Fallback para dados locais
+            products = await loadCatalogFile(category)
+
+            // Aplicar filtros locais
+            products = filterProducts(products, {
+                distributor,
+                search,
+                minPrice,
+                maxPrice,
+            })
+        }
 
         // Paginação
         const total = products.length
@@ -243,6 +264,7 @@ export async function GET(request: NextRequest) {
                         maxPrice,
                     },
                 },
+                fromBackend,
                 timestamp: new Date().toISOString(),
             },
             {
