@@ -26,6 +26,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@langchain/community": "^0.3.57",
+    "@langchain/ollama": "^0.2.4",
     "@medusajs/admin-sdk": "^2.10.3",
     "@medusajs/framework": "^2.10.3",
     "@medusajs/js-sdk": "^2.10.3",
@@ -38,8 +40,13 @@
     "@types/multer": "^2.0.0",
     "@types/ws": "^8.5.13",
     "awilix": "^8.0.1",
+    "chromadb": "^3.0.17",
+    "chromadb-default-embed": "^2.14.0",
+    "cohere-ai": "^7.19.0",
+    "langchain": "^0.3.36",
     "multer": "^2.0.2",
     "pg": "^8.13.0",
+    "ts-node": "^10.9.2",
     "uuid": "^10.0.0",
     "ws": "^8.18.0",
     "zod": "^3.23.8"
@@ -61,7 +68,7 @@
     "prettier": "^3.3.3",
     "supertest": "^7.1.4",
     "tsx": "^4.20.6",
-    "typescript": "^5.4.0"
+    "typescript": "^5.9.3"
   },
   "overrides": {
     "zod": "^3.23.8"
