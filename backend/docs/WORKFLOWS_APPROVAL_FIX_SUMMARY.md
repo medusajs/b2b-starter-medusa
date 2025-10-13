@@ -106,7 +106,7 @@ class FinancingModuleService extends MedusaService({
 
 ### Diagrama de Dependências
 
-```
+```tsx
 FinancingModuleService
 ├── MedusaService (base) ← Manager injection automático
 ├── BACENFinancingService
@@ -118,7 +118,7 @@ FinancingModuleService
 
 ### Fluxo de createProposal() com Approval Module
 
-```
+```tsx
 1. Check spending limits (COMPANY_MODULE) ← sempre
 2. Create proposal (FinancingProposal entity)
 3. IF amount > 100k AND isApprovalModuleEnabled():
@@ -132,7 +132,7 @@ FinancingModuleService
 
 ### Fluxo de Testes com Mock Container
 
-```
+```tsx
 Test Suite
 └── beforeEach: createMockContainer()
     ├── Company Service mocked
@@ -244,3 +244,270 @@ npm run medusa db:migrate
 - **Linhas de código**: ~800
 - **Tempo de implementação**: ~1h
 - **Cobertura**: Mock container, graceful degradation, error handling
+
+Vou analisar a arquitetura de dados da plataforma AI/ML para criar um flowchart detalhado do data flow.
+
+Searched codebase for "AgentFlow orchestrator data flow RAG pipeline Pathway Dagster", 19 results
+
+Read [](file:///c%3A/Users/fjuni/ysh_medusa/ysh-store/backend/scripts/vision_squad.py#1-1), lines 1 to 51
+
+Read [](file:///c%3A/Users/fjuni/ysh_medusa/ysh-store/client/PROPOSTA_AVANCADA_YSH_CLIENT.md#1-1), lines 1 to 101
+
+Perfeito! Vou criar um diagrama Mermaid completo do **Data Flow** da plataforma YSH AI/ML, mostrando todos os fluxos desde a ingestão até o consumo pelos agentes.
+
+```mermaid
+flowchart TB
+    %% ==================== DATA SOURCES ====================
+    subgraph SOURCES["📥 Data Sources"]
+        S1["🏢 Medusa Backend<br/>(Orders, Quotes, Companies)"]
+        S2["⚡ ANEEL APIs<br/>(Tarifas, MMGD)"]
+        S3["🌞 NASA POWER / PVGIS<br/>(Irradiância Solar)"]
+        S4["📄 Inmetro / S3<br/>(PDFs, Catálogo CSV)"]
+        S5["🖼️ Product Images<br/>(uploads/, S3)"]
+    end
+
+    %% ==================== INGESTION LAYER ====================
+    subgraph INGEST["🔄 Ingestion Layer"]
+        I1["Kafka CDC<br/>(Debezium)"]
+        I2["HTTP Scrapers<br/>(Python/Node)"]
+        I3["S3 File Watch<br/>(Pathway)"]
+        I4["Pathway Connectors<br/>(pw.io.*)"]
+    end
+
+    %% ==================== STREAMING ENGINE ====================
+    subgraph PATHWAY["🌊 Pathway Streaming Engine"]
+        direction TB
+        P1["catalog_etl.py<br/>Clean + Normalize"]
+        P2["rag_streaming.py<br/>Chunk + Embed"]
+        P3["pricing_streaming.py<br/>Margin Calc"]
+        P4["vision_pipeline.py<br/>Image Processing"]
+        
+        P1 -.->|"Transform"| P1T["Window Funcs<br/>Joins<br/>Dedup"]
+        P2 -.->|"Process"| P2T["Text Splitter<br/>512 tokens overlap"]
+        P3 -.->|"Enrich"| P3T["BACEN rates<br/>Distributor data"]
+        P4 -.->|"Extract"| P4T["OCR<br/>Specs detection"]
+    end
+
+    %% ==================== ORCHESTRATION ====================
+    subgraph DAGSTER["📊 Dagster Orchestration"]
+        direction LR
+        D1["@asset<br/>catalog_normalized"]
+        D2["@asset<br/>catalog_embeddings"]
+        D3["@asset<br/>tarifas_aneel"]
+        D4["@asset<br/>rag_docs_kb"]
+        
+        D1 --> D2
+        D3 -.->|"Monitor"| SCHED["⏰ Schedules<br/>2h/6h/daily"]
+    end
+
+    %% ==================== CACHE LAYER ====================
+    subgraph CACHE["💾 Cache Layer"]
+        C1["Redis<br/>Embeddings Cache<br/>30d TTL"]
+        C2["SHA-256 Keys<br/>Dedup 70-80%"]
+    end
+
+    %% ==================== AI PROCESSING ====================
+    subgraph AI["🤖 AI Processing Layer"]
+        direction TB
+        
+        subgraph EMBED["Embeddings"]
+            E1["OpenAI<br/>text-embedding-3-large<br/>3072d • $0.13/1M"]
+            E2["Nomic<br/>nomic-embed-text<br/>768d • Zero-cost"]
+        end
+        
+        subgraph VISION["Vision Agents"]
+            V1["👁️ Primary Vision<br/>Llama 3.2 Vision:11b<br/>conf > 0.7"]
+            V2["🔬 Specialist<br/>GPT-4o Vision<br/>fallback < 0.7"]
+            V3["📐 Quality Agent<br/>OpenCV metrics<br/>sharpness/brightness"]
+        end
+        
+        subgraph LLM["Text LLMs"]
+            L1["Gemma 3:4b<br/>Fast enrichment"]
+            L2["Qwen 2.5:20b<br/>RAG queries"]
+            L3["GPT-OSS:20b<br/>Validation"]
+        end
+    end
+
+    %% ==================== VECTOR DATABASE ====================
+    subgraph QDRANT["🔍 Qdrant Vector Database"]
+        direction TB
+        Q1["ysh-catalog<br/>3072d OpenAI<br/>10,000 products"]
+        Q2["ysh-regulatory<br/>3072d OpenAI<br/>PRODIST, ANEEL"]
+        Q3["ysh-pricing<br/>3072d OpenAI<br/>Histórico cotações"]
+        Q4["ysh-technical<br/>3072d OpenAI<br/>Datasheets, specs"]
+        
+        Q5["ysh-local-catalog<br/>768d Nomic<br/>Products local"]
+        Q6["ysh-conversations<br/>768d Nomic<br/>Chat history"]
+        Q7["ysh-user-behavior<br/>768d Nomic<br/>Analytics"]
+        Q8["ysh-pvlib-database<br/>768d Nomic<br/>Solar calcs"]
+    end
+
+    %% ==================== PERSISTENCE ====================
+    subgraph PERSIST["💿 Persistence Layer"]
+        DB1[("PostgreSQL<br/>Medusa DB<br/>Transactional")]
+        DB2[("S3/MinIO<br/>Data Lake<br/>Raw files")]
+        DB3[("Redis<br/>Session + Cache")]
+    end
+
+    %% ==================== AGENTFLOW ====================
+    subgraph AGENTS["🧠 AgentFlow Multi-Agent System"]
+        direction TB
+        A1["🧭 Planner Agent<br/>Orchestrates workflow"]
+        A2["👁️ Vision Agent<br/>Image analysis"]
+        A3["📝 Enrichment Agent<br/>Normalize + enrich"]
+        A4["✅ Validator Agent<br/>Quality checks"]
+        A5["🔍 Search Agent<br/>Incremental browser"]
+        
+        A1 --> A2 --> A3 --> A4
+        A4 -.->|"retry"| A5
+        
+        MEMORY["💾 Shared Memory<br/>ProductMemory<br/>Cross-agent context"]
+        A1 & A2 & A3 & A4 & A5 -.-> MEMORY
+    end
+
+    %% ==================== RAG SYSTEM ====================
+    subgraph RAG["📚 RAG System v2.0"]
+        direction LR
+        R1["Query Router<br/>Category detection"]
+        R2["Hybrid Search<br/>Vector + Keyword"]
+        R3["Reranker<br/>Cohere/BGE"]
+        R4["Context Builder<br/>Multi-collection"]
+        
+        R1 --> R2 --> R3 --> R4
+    end
+
+    %% ==================== APPLICATIONS ====================
+    subgraph APPS["🎯 Applications"]
+        APP1["Medusa Backend API<br/>GraphQL + REST"]
+        APP2["Next.js Storefront<br/>B2B Commerce"]
+        APP3["Hélio Agent<br/>LLM + RAG Assistant"]
+        APP4["Admin Dashboard<br/>Dagster UI"]
+    end
+
+    %% ==================== MONITORING ====================
+    subgraph MONITOR["📈 Observability"]
+        M1["OpenTelemetry<br/>Traces + Metrics"]
+        M2["Grafana<br/>Dashboards"]
+        M3["Prometheus<br/>Time-series DB"]
+    end
+
+    %% ==================== DATA FLOW CONNECTIONS ====================
+    
+    %% Sources → Ingest
+    S1 --> I1
+    S2 --> I2
+    S3 --> I2
+    S4 --> I3
+    S5 --> I3
+    
+    %% Ingest → Pathway
+    I1 --> P1
+    I2 --> P3
+    I3 --> P2
+    I3 --> P4
+    I4 --> P1 & P2 & P3 & P4
+    
+    %% Pathway → Dagster
+    P1 --> D1
+    P2 --> D4
+    P3 --> D1
+    
+    %% Dagster → Cache Check
+    D1 -.->|"Check cache"| C1
+    D2 -.->|"Check cache"| C1
+    
+    %% Cache → Embeddings
+    C1 -->|"Miss"| E1
+    C1 -->|"Use local"| E2
+    E1 -->|"Store"| C1
+    
+    %% Embeddings → Qdrant
+    E1 --> Q1 & Q2 & Q3 & Q4
+    E2 --> Q5 & Q6 & Q7 & Q8
+    
+    %% Vision Pipeline
+    P4 --> V1
+    V1 -.->|"conf < 0.7"| V2
+    V1 & V2 --> V3
+    V3 --> D1
+    
+    %% Qdrant → RAG
+    Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & Q7 & Q8 --> R1
+    
+    %% RAG → LLMs
+    R4 --> L2
+    L2 --> APP3
+    
+    %% AgentFlow Integration
+    D1 --> A1
+    V3 --> A2
+    L1 --> A3
+    L3 --> A4
+    
+    %% Persistence
+    P1 --> DB1
+    P2 --> DB2
+    D1 --> DB1
+    A3 --> DB1
+    
+    %% Applications
+    DB1 --> APP1
+    APP1 --> APP2
+    R4 --> APP3
+    DAGSTER --> APP4
+    
+    %% Monitoring
+    PATHWAY -.-> M1
+    AGENTS -.-> M1
+    RAG -.-> M1
+    M1 --> M3 --> M2
+    
+    %% Styling
+    classDef sourceStyle fill:#e1f5ff,stroke:#0288d1,stroke-width:2px
+    classDef ingestStyle fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef pathwayStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef dagsterStyle fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef aiStyle fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef qdrantStyle fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    classDef agentStyle fill:#e0f2f1,stroke:#00796b,stroke-width:2px
+    classDef appStyle fill:#ede7f6,stroke:#512da8,stroke-width:2px
+    
+    class S1,S2,S3,S4,S5 sourceStyle
+    class I1,I2,I3,I4 ingestStyle
+    class P1,P2,P3,P4 pathwayStyle
+    class D1,D2,D3,D4 dagsterStyle
+    class E1,E2,V1,V2,V3,L1,L2,L3 aiStyle
+    class Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8 qdrantStyle
+    class A1,A2,A3,A4,A5 agentStyle
+    class APP1,APP2,APP3,APP4 appStyle
+```
+
+## 📊 Explicação do Fluxo de Dados
+
+### 🔄 **Fluxo Principal (Hot Path)**
+
+1. **Data Sources** → Dados brutos de múltiplas fontes (Medusa, ANEEL, NASA, S3)
+2. **Ingestion** → Kafka CDC, scrapers, file watchers capturam mudanças em real-time
+3. **Pathway Streaming** → Transformações, normalizações, chunking em Python
+4. **Dagster Assets** → Orquestração declarativa com lineage e schedules
+5. **Cache Layer** → Redis reduz 70-80% chamadas OpenAI (30d TTL, SHA-256 keys)
+6. **AI Processing** → Embeddings (OpenAI 3072d / Nomic 768d) + Vision (Llama/GPT-4o) + LLMs
+7. **Qdrant Vector DB** → 8 collections (4 OpenAI, 4 Nomic) com 10K+ vectors
+8. **RAG System v2.0** → Hybrid search + reranking + context builder
+9. **Applications** → Medusa API, Storefront, Hélio Agent, Dagster UI
+
+### ⚡ **Critical Paths**
+
+- **Vision Squad**: `Images → Pathway → Primary (Llama) → Specialist (GPT-4o) → Quality (OpenCV) → Catalog`
+- **RAG Real-time**: `PDFs → Pathway → Chunking → OpenAI Embed → Qdrant → RAG → Hélio`
+- **Catalog ETL**: `CSV → Pathway → Normalize → Dagster → Cache Check → Embed → Qdrant → AgentFlow`
+- **AgentFlow**: `Planner → Vision → Enrichment (Gemma) → Validator (GPT-OSS) → PostgreSQL`
+
+### 🎯 **Optimizations**
+
+- **Redis Cache**: 70-80% cost reduction (embeddings deduplication)
+- **Nomic Local**: Zero-cost embeddings para 4 collections
+- **Vision Fallback**: Llama local → GPT-4o cloud only quando conf < 0.7
+- **Streaming**: Pathway processa incremental (não full reprocessing)
+
+Este fluxo processa **~10,000 produtos + documentação técnica + conversas** com latência de 2-5 minutos (ingest → disponível em RAG)! 🚀
