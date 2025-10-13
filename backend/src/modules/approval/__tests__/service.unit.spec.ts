@@ -21,7 +21,7 @@ describe("ApprovalModuleService", () => {
     beforeEach(() => {
         // Create service instance (will use real Medusa service structure)
         service = new ApprovalModuleService({} as any);
-        
+
         // Create mock repository with all needed methods (MedusaService uses underscore suffix)
         mockRepository = {
             listApprovalRules_: jest.fn(),
@@ -30,7 +30,7 @@ describe("ApprovalModuleService", () => {
             retrieveApproval_: jest.fn(),
             listApprovalSettingses_: jest.fn()
         };
-        
+
         // Mock all service methods that interact with repository
         jest.spyOn(service, 'listApprovalRules_').mockImplementation(mockRepository.listApprovalRules_);
         jest.spyOn(service, 'listAndCountApprovals_').mockImplementation(mockRepository.listAndCountApprovals_);
