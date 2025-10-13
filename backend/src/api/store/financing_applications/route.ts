@@ -1,6 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
-import { applyFinancingWorkflow } from "../../../workflows/financing/apply-financing"
+import { applyFinancingWorkflow } from "../../../workflows/financing/apply-financing.js"
 
 /**
  * POST /store/financing-applications
