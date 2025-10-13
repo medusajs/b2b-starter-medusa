@@ -5,6 +5,7 @@
 ### Funcionalidades Nativas
 
 #### 1. **Preview de Múltiplos Formatos**
+
 - ✅ NumPy arrays (`.npy`, `.npz`)
 - ✅ Pillow/PIL images
 - ✅ OpenCV images (BGR/RGB)
@@ -16,6 +17,7 @@
 - ✅ PyTorch tensors
 
 #### 2. **Visualização Interativa**
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,6 +32,7 @@ arr = np.array(img)
 ```
 
 #### 3. **Integração com Notebooks**
+
 - Preview inline em Jupyter notebooks
 - Suporte a múltiplos backends de visualização
 - Debugging visual de tensores
@@ -43,11 +46,13 @@ arr = np.array(img)
 #### Modelos Disponíveis (Outubro 2025)
 
 ##### 1. **LLaVA 1.6 (34B)** ⭐ RECOMENDADO
+
 ```bash
 ollama pull llava:34b
 ```
 
 **Capacidades:**
+
 - ✅ Análise detalhada de imagens de produtos
 - ✅ Descrição automática de características
 - ✅ Detecção de logos e textos em painéis
@@ -56,6 +61,7 @@ ollama pull llava:34b
 - ✅ Avaliação de qualidade da imagem
 
 **Exemplo de Uso:**
+
 ```python
 import ollama
 
@@ -76,16 +82,19 @@ print(response['message']['content'])
 ```
 
 **Requisitos:**
+
 - RAM: 32GB mínimo (modelo 34B)
 - VRAM: 24GB GPU (recomendado RTX 4090)
 - CPU: AMD Ryzen 9 / Intel i9 (sem GPU)
 
 ##### 2. **LLaVA 1.6 (13B)** 💡 BALANCEADO
+
 ```bash
 ollama pull llava:13b
 ```
 
 **Capacidades:**
+
 - ✅ Análise rápida de produtos
 - ✅ Descrição básica de características
 - ✅ Detecção de tipo de produto
@@ -93,21 +102,25 @@ ollama pull llava:13b
 - ✅ Boa relação performance/qualidade
 
 **Requisitos:**
+
 - RAM: 16GB mínimo
 - VRAM: 8GB GPU (RTX 3070+)
 
 ##### 3. **BakLLaVA (7B)** 🚀 RÁPIDO
+
 ```bash
 ollama pull bakllava
 ```
 
 **Capacidades:**
+
 - ✅ Preview rápido de imagens
 - ✅ Classificação básica
 - ⚠️ Limitado em detalhes técnicos
 - ✅ Ideal para triagem inicial
 
 **Requisitos:**
+
 - RAM: 8GB mínimo
 - VRAM: 4GB GPU (RTX 3060)
 
@@ -116,12 +129,14 @@ ollama pull bakllava
 ### 🔓 **Modelos Open Source 20B+**
 
 #### 1. **CogVLM (17B Visual + 17B Language)** ⭐ MELHOR OSS
+
 ```bash
 # Instalação via HuggingFace
 pip install transformers accelerate
 ```
 
 **Capacidades:**
+
 - ✅ Estado da arte em compreensão visual
 - ✅ OCR nativo (leitura de textos em produtos)
 - ✅ Reasoning visual complexo
@@ -129,6 +144,7 @@ pip install transformers accelerate
 - ✅ Análise de diagramas técnicos
 
 **Exemplo:**
+
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from PIL import Image
@@ -147,10 +163,12 @@ response = model.chat(tokenizer, image, query)
 ```
 
 **Requisitos:**
+
 - VRAM: 40GB (A100) ou 2x RTX 4090
 - RAM: 64GB
 
 #### 2. **BLIP-2 (OPT-6.7B)** 💼 ESPECIALIZADO
+
 ```python
 from transformers import Blip2Processor, Blip2ForConditionalGeneration
 
@@ -164,16 +182,19 @@ caption = processor.decode(outputs[0], skip_special_tokens=True)
 ```
 
 **Capacidades:**
+
 - ✅ Excelente para descrições de produtos
 - ✅ Image captioning automático
 - ✅ Visual question answering
 - ⚠️ Menos preciso em OCR
 
 **Requisitos:**
+
 - VRAM: 16GB (RTX 4080)
 - RAM: 32GB
 
 #### 3. **Qwen-VL (9.6B)** 🇨🇳 MULTILINGUAL
+
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -184,6 +205,7 @@ model = AutoModelForCausalLM.from_pretrained(
 ```
 
 **Capacidades:**
+
 - ✅ Suporte a português nativo
 - ✅ Bom OCR para textos PT-BR
 - ✅ Compreensão de contexto brasileiro
@@ -222,6 +244,7 @@ def analyze_image_quality_ai(image_path):
 ```
 
 **Output Esperado:**
+
 ```json
 {
   "quality_score": 8,
@@ -267,6 +290,7 @@ def extract_product_metadata_ai(image_path):
 ```
 
 **Output Esperado:**
+
 ```json
 {
   "manufacturer": "SAJ",
@@ -308,6 +332,7 @@ def detect_image_type_ai(image_path):
 ```
 
 **Integração com Perfis de Otimização:**
+
 ```python
 IMAGE_OPTIMIZATION_PROFILES = {
     'logo_simples': {'quality': 98, 'denoise': 0, 'sharpen': 0},
@@ -619,7 +644,7 @@ result = processor.process_image('static/images-catálogo_distribuidores/ODEX-IN
 
 ## 💡 Recomendação Final
 
-### Setup Ideal para YSH Store:
+### Setup Ideal para YSH Store
 
 1. **Modelo Principal**: **LLaVA 13B** (Ollama)
    - Melhor custo-benefício
@@ -631,11 +656,12 @@ result = processor.process_image('static/images-catálogo_distribuidores/ODEX-IN
    - Fallback quando Ollama indisponível
 
 3. **Pipeline**:
+
    ```
    Imagem → LLaVA (metadados) → Perfil → OpenCV (processamento) → WebP (4 tamanhos)
    ```
 
-### Próximos Passos:
+### Próximos Passos
 
 1. ✅ Instalar Ollama + LLaVA 13B
 2. ✅ Criar script de teste com 10 imagens
