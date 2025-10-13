@@ -90,12 +90,12 @@ export class UnitNormalizer {
     static detectUnit(unitString: string): Unit {
         const normalized = unitString.toLowerCase().trim();
 
-        // Irradiância
-        if (normalized.includes("w/m") || normalized === "wm2") {
-            return Unit.W_PER_M2;
-        }
-        if (normalized.includes("kw/m") || normalized === "kwm2") {
+        // Irradiância - Check kW first to avoid false positive with W
+        if (normalized.includes("kw/m") || normalized.includes("kwm") || normalized === "kwm2") {
             return Unit.KW_PER_M2;
+        }
+        if (normalized.includes("w/m") || normalized.includes("wm") || normalized === "wm2") {
+            return Unit.W_PER_M2;
         }
         if (normalized.includes("mj/m") || normalized === "mjm2") {
             return Unit.MJ_PER_M2;

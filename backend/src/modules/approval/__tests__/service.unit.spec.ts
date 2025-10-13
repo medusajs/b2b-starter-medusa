@@ -22,21 +22,21 @@ describe("ApprovalModuleService", () => {
         // Create service instance (will use real Medusa service structure)
         service = new ApprovalModuleService({} as any);
         
-        // Create mock repository with all needed methods
+        // Create mock repository with all needed methods (MedusaService uses underscore suffix)
         mockRepository = {
-            listApprovalRules: jest.fn(),
-            listAndCountApprovals: jest.fn(),
-            createApprovalHistories: jest.fn(),
-            retrieveApproval: jest.fn(),
-            listApprovalSettings: jest.fn()
+            listApprovalRules_: jest.fn(),
+            listAndCountApprovals_: jest.fn(),
+            createApprovalHistories_: jest.fn(),
+            retrieveApproval_: jest.fn(),
+            listApprovalSettingses_: jest.fn()
         };
         
         // Mock all service methods that interact with repository
-        jest.spyOn(service, 'listApprovalRules').mockImplementation(mockRepository.listApprovalRules);
-        jest.spyOn(service, 'listAndCountApprovals').mockImplementation(mockRepository.listAndCountApprovals);
-        jest.spyOn(service, 'createApprovalHistories').mockImplementation(mockRepository.createApprovalHistories);
-        jest.spyOn(service, 'retrieveApproval').mockImplementation(mockRepository.retrieveApproval);
-        jest.spyOn(service, 'listApprovalSettings').mockImplementation(mockRepository.listApprovalSettings);
+        jest.spyOn(service, 'listApprovalRules_').mockImplementation(mockRepository.listApprovalRules_);
+        jest.spyOn(service, 'listAndCountApprovals_').mockImplementation(mockRepository.listAndCountApprovals_);
+        jest.spyOn(service, 'createApprovalHistories_').mockImplementation(mockRepository.createApprovalHistories_);
+        jest.spyOn(service, 'retrieveApproval_').mockImplementation(mockRepository.retrieveApproval_);
+        jest.spyOn(service, 'listApprovalSettingses_').mockImplementation(mockRepository.listApprovalSettingses_);
     });
 
     describe("Rule Evaluation Matrix", () => {

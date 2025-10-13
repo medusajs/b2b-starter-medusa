@@ -14,6 +14,7 @@ export enum ProductCategory {
     KITS = "kits",
     MONITORING = "monitoring",
     PROTECTION = "protection",
+    TOOLS = "tools",
     OTHER = "other",
 }
 

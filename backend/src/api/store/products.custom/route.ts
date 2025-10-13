@@ -1,8 +1,9 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
+import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 
 /**
  * Public product listing endpoint - NO AUTH REQUIRED
- * This endpoint exposes products from the database for storefront consumption
+ * Enhanced with internal catalog images for better performance
  */
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
@@ -77,31 +78,72 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         // Get total count
         const totalCount = await productService.listProducts(filters, { skip: 0, take: 1 });
 
-        // Format response
-        const formattedProducts = filteredProducts.map((product: any) => {
-            const variant = product.variants?.[0];
-            const price = variant?.prices?.[0]?.amount || 0;
+        // Format response with internal image enhancement
+        const catalogService = getInternalCatalogService();
+        const formattedProducts = await Promise.all(
+            filteredProducts.map(async (product: any) => {
+                const variant = product.variants?.[0];
+                const price = variant?.prices?.[0]?.amount || 0;
 
-            return {
-                id: product.id,
-                title: product.title,
-                subtitle: product.subtitle,
-                description: product.description,
-                handle: product.handle,
-                manufacturer: product.subtitle,
-                category: product.metadata?.category,
-                price_brl: price / 100,
-                sku: variant?.sku,
-                images: product.images?.map((img: any) => ({
-                    url: img.url,
-                    id: img.id,
-                })) || [],
-                processed_images: product.metadata?.processed_images || {},
-                metadata: product.metadata || {},
-                created_at: product.created_at,
-                updated_at: product.updated_at,
-            };
-        });
+                // Extract SKU for internal image lookup
+                const sku = await catalogService.extractSku({
+                    id: product.id,
+                    sku: variant?.sku,
+                    image: product.images?.[0]?.url
+                });
+
+                // Get internal image
+                const internalImage = await catalogService.getImageForSku(sku);
+
+                // Determine best image source
+                let primaryImage = product.images?.[0]?.url || '/images/placeholder.jpg';
+                let imageSource = 'database';
+                
+                if (internalImage.preloaded && (!product.images?.length || req.query.prefer_internal === 'true')) {
+                    primaryImage = internalImage.url;
+                    imageSource = 'internal';
+                }
+
+                return {
+                    id: product.id,
+                    title: product.title,
+                    subtitle: product.subtitle,
+                    description: product.description,
+                    handle: product.handle,
+                    manufacturer: product.subtitle,
+                    category: product.metadata?.category,
+                    price_brl: price / 100,
+                    sku: variant?.sku || sku,
+                    
+                    // Enhanced image handling
+                    image: primaryImage,
+                    image_source: imageSource,
+                    images: {
+                        database: product.images?.map((img: any) => ({
+                            url: img.url,
+                            id: img.id,
+                        })) || [],
+                        internal: internalImage.preloaded ? {
+                            url: internalImage.url,
+                            sizes: internalImage.sizes,
+                            cached: internalImage.cached
+                        } : null,
+                    },
+                    
+                    processed_images: product.metadata?.processed_images || {},
+                    metadata: {
+                        ...product.metadata,
+                        image_enhancement: {
+                            sku_extracted: sku,
+                            internal_available: internalImage.preloaded,
+                            selected_source: imageSource
+                        }
+                    },
+                    created_at: product.created_at,
+                    updated_at: product.updated_at,
+                };
+            })
+        );
 
         // Build facets (manufacturers from filtered products)
         const manufacturers = new Set<string>();

@@ -1,15 +1,21 @@
+/**
+ * Enhanced Product Detail API with Internal Images
+ * GET /store/products-enhanced/:id
+ * 
+ * Returns single product with optimized image handling
+ */
+
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { getInternalCatalogService } from "../../internal-catalog/catalog-service";
 
-/**
- * Public product detail endpoint - NO AUTH REQUIRED
- * Enhanced with internal catalog images
- */
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     const productService = req.scope.resolve("product");
+    const catalogService = getInternalCatalogService();
     const { id } = req.params;
 
     try {
+        const { image_source = "auto" } = req.query;
+
         // Try to find by ID first, then by handle
         let products = await productService.listProducts(
             { id },
@@ -41,9 +47,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         const variant = product.variants?.[0];
         const price = (variant as any)?.prices?.[0]?.amount || 0;
 
-        // Enhanced product with internal images
-        const catalogService = getInternalCatalogService();
-        
         // Extract SKU for internal image lookup
         const sku = await catalogService.extractSku({
             id: product.id,
@@ -54,16 +57,29 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
         // Get internal image with all sizes
         const internalImage = await catalogService.getImageForSku(sku);
 
-        // Determine best image source
-        let primaryImage = product.images?.[0]?.url || '/images/placeholder.jpg';
-        let imageSource = 'database';
-        
-        if (internalImage.preloaded && (!product.images?.length || req.query.prefer_internal === 'true')) {
-            primaryImage = internalImage.url;
-            imageSource = 'internal';
+        // Determine primary image source
+        let primarySource: 'database' | 'internal' | 'fallback' = 'fallback';
+        let primaryImageUrl = '/images/placeholder.jpg';
+
+        if (image_source === 'database' && product.images?.length > 0) {
+            primarySource = 'database';
+            primaryImageUrl = product.images[0].url;
+        } else if (image_source === 'internal' && internalImage.preloaded) {
+            primarySource = 'internal';
+            primaryImageUrl = internalImage.url;
+        } else if (image_source === 'auto') {
+            // Auto-select best available source
+            if (internalImage.preloaded) {
+                primarySource = 'internal';
+                primaryImageUrl = internalImage.url;
+            } else if (product.images?.length > 0) {
+                primarySource = 'database';
+                primaryImageUrl = product.images[0].url;
+            }
         }
 
-        const formattedProduct = {
+        // Build enhanced product response
+        const enhancedProduct = {
             id: product.id,
             title: product.title,
             subtitle: product.subtitle,
@@ -72,25 +88,30 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
             manufacturer: product.subtitle,
             category: product.metadata?.category,
             price_brl: price / 100,
-            sku: variant?.sku || sku,
+            sku: variant?.sku || sku || product.id,
             
             // Enhanced image handling
-            image: primaryImage,
-            image_source: imageSource,
             images: {
+                primary: {
+                    url: primaryImageUrl,
+                    source: primarySource,
+                },
                 database: product.images?.map((img: any) => ({
                     url: img.url,
                     id: img.id,
                 })) || [],
-                internal: internalImage.preloaded ? {
-                    url: internalImage.url,
-                    sizes: internalImage.sizes,
-                    cached: internalImage.cached,
-                    available_sizes: Object.keys(internalImage.sizes)
-                } : null,
+                internal: {
+                    ...internalImage,
+                    available_sizes: internalImage.preloaded ? Object.keys(internalImage.sizes) : [],
+                },
+                all_sources: {
+                    database_count: product.images?.length || 0,
+                    internal_available: internalImage.preloaded,
+                    fallback_used: primarySource === 'fallback',
+                }
             },
-            
-            processed_images: product.metadata?.processed_images || {},
+
+            // Product variants with enhanced data
             variants: product.variants?.map((v: any) => ({
                 id: v.id,
                 title: v.title,
@@ -100,28 +121,41 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
                     currency_code: p.currency_code,
                 })),
             })),
+
+            // Product options
             options: product.options?.map((opt: any) => ({
                 id: opt.id,
                 title: opt.title,
                 values: opt.values,
             })),
+
+            // Enhanced metadata
             metadata: {
                 ...product.metadata,
                 image_enhancement: {
                     sku_extracted: sku,
-                    internal_available: internalImage.preloaded,
-                    database_count: product.images?.length || 0,
-                    selected_source: imageSource,
-                    cache_hit: internalImage.cached
+                    extraction_method: sku ? 'success' : 'failed',
+                    internal_image_available: internalImage.preloaded,
+                    database_images_count: product.images?.length || 0,
+                    selected_source: primarySource,
+                    cache_hit: internalImage.cached,
                 }
             },
+
             created_at: product.created_at,
             updated_at: product.updated_at,
         };
 
-        res.json({ product: formattedProduct });
+        res.json({ 
+            product: enhancedProduct,
+            performance: {
+                cache_stats: catalogService.getCacheStats(),
+                image_load_time: internalImage.load_time_ms || 0,
+            }
+        });
+
     } catch (error: any) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching enhanced product:", error);
         res.status(500).json({
             error: "Internal server error",
             message: error.message,
