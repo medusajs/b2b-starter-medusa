@@ -1,0 +1,565 @@
+{
+  "generated_at": "2025-10-13T11:52:16.873813",
+  "dry_run": true,
+  "stats": {
+    "total_products": 171,
+    "renamed": 69,
+    "skipped_no_image": 53,
+    "skipped_not_found": 49,
+    "errors": 0
+  },
+  "renames": [
+    {
+      "old_sku": "276954",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\276954.jpg",
+      "new_name": "SAJ-INV-GRIDTIE-R5-3K-T2-3KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SAJ-INV-GRIDTIE-R5-3K-T2-3KW-ODEX.webp",
+      "product": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "152147",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\152147.jpg",
+      "new_name": "SAJ-INV-GRIDTIE-R5-10K-T2-10KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SAJ-INV-GRIDTIE-R5-10K-T2-10KW-ODEX.webp",
+      "product": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "267277",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\267277.jpg",
+      "new_name": "SAJ-INV-GRIDTIE-R5-15K-T2-15KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SAJ-INV-GRIDTIE-R5-15K-T2-15KW-ODEX.webp",
+      "product": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "145763",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\145763.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-MIN-3000TL-X-3KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-MIN-3000TL-X-3KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-8000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-8000W.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-8KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-8KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-10000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-10000W.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-10KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-10KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-15000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-15000W.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-15KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-15KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-20000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-20000W.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-20KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-20KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-25000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-25000W.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-25KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-25KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "192575",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\192575.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-50KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-50KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "192576",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\192576.jpg",
+      "new_name": "GROWATT-INV-GRIDTIE-KTL3-XH-125KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-GRIDTIE-KTL3-XH-125KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "289241",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\289241.jpg",
+      "new_name": "CHINT-INV-GRIDTIE-T2-3KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\CHINT-INV-GRIDTIE-T2-3KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "246761",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\246761.jpg",
+      "new_name": "CHINT-INV-GRIDTIE-T2-5KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\CHINT-INV-GRIDTIE-T2-5KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "246763",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\246763.jpg",
+      "new_name": "CHINT-INV-GRIDTIE-T3-8KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\CHINT-INV-GRIDTIE-T3-8KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "246764",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\246764.jpg",
+      "new_name": "CHINT-INV-GRIDTIE-T3-10KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\CHINT-INV-GRIDTIE-T3-10KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPP",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "292421",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\292421.jpg",
+      "new_name": "SOFAR-INV-GRIDTIE-G4-33KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOFAR-INV-GRIDTIE-G4-33KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 M",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "299591",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\299591.jpg",
+      "new_name": "SOFAR-INV-GRIDTIE-G4-5KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOFAR-INV-GRIDTIE-G4-5KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "135720",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\135720.jpg",
+      "new_name": "SOFAR-INV-GRIDTIE-G4-6KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOFAR-INV-GRIDTIE-G4-6KW-ODEX.webp",
+      "product": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-DEYE-800W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-DEYE-800W.jpg",
+      "new_name": "DEYE-INV-MICRO-M80G4-EU-Q0-800W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\DEYE-INV-MICRO-M80G4-EU-Q0-800W-ODEX.webp",
+      "product": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-DEYE-1200W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-DEYE-1200W.jpg",
+      "new_name": "DEYE-INV-MICRO-M120G4-EU-Q0-12KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\DEYE-INV-MICRO-M120G4-EU-Q0-12KW-ODEX.webp",
+      "product": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-DEYE-2400W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-DEYE-2400W.jpg",
+      "new_name": "DEYE-INV-MICRO-G3-EU-Q0-24KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\DEYE-INV-MICRO-G3-EU-Q0-24KW-ODEX.webp",
+      "product": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "315148",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\315148.jpg",
+      "new_name": "GROWATT-INV-HIBRIDO-SPH-3000-3KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-HIBRIDO-SPH-3000-3KW-ODEX.webp",
+      "product": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-GROWATT-10000W-1",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-GROWATT-10000W-1.jpg",
+      "new_name": "GROWATT-INV-HIBRIDO-SPH-10000-10KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\GROWATT-INV-HIBRIDO-SPH-10000-10KW-ODEX.webp",
+      "product": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "112369",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\112369.jpg",
+      "new_name": "DEYE-INV-HIBRIDO-SG05LP1-EU-5KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\DEYE-INV-HIBRIDO-SG05LP1-EU-5KW-ODEX.webp",
+      "product": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-SOLAX-5000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-SOLAX-5000W.jpg",
+      "new_name": "SOLAX-INV-HIBRIDO-X1-HYBRID-5-5KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOLAX-INV-HIBRIDO-X1-HYBRID-5-5KW-ODEX.webp",
+      "product": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 4",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-SOLAX-8000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-SOLAX-8000W.jpg",
+      "new_name": "SOLAX-INV-HIBRIDO-X3-HYBRID-8-8KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOLAX-INV-HIBRIDO-X3-HYBRID-8-8KW-ODEX.webp",
+      "product": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "ODEX-ODEX-INV-SOLAX-10000W",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\ODEX-ODEX-INV-SOLAX-10000W.jpg",
+      "new_name": "SOLAX-INV-HIBRIDO-X3-HYBRID-10-10KW-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-INVERTERS\\SOLAX-INV-HIBRIDO-X3-HYBRID-10-10KW-ODEX.webp",
+      "product": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V ",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "289244",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\289244.jpg",
+      "new_name": "ODEX-PANEL-ODEX-585W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\ODEX-PANEL-ODEX-585W-ODEX.webp",
+      "product": "Painel Solar Odex 585W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "300585",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\300585.jpg",
+      "new_name": "ODEX-PANEL-ODEX-610W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\ODEX-PANEL-ODEX-610W-ODEX.webp",
+      "product": "Painel Solar Odex 610W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "304574",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\304574.jpg",
+      "new_name": "ODEX-PANEL-ODEX-700W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\ODEX-PANEL-ODEX-700W-ODEX.webp",
+      "product": "Painel Solar Odex 700W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "291808",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\291808.jpg",
+      "new_name": "ASTRONERGY-PANEL-ASTRONERGY-600W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\ASTRONERGY-PANEL-ASTRONERGY-600W-ODEX.webp",
+      "product": "Painel Solar Astronergy 600W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "215563",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\215563.jpg",
+      "new_name": "TSUN-PANEL-TSUN-560W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\TSUN-PANEL-TSUN-560W-ODEX.webp",
+      "product": "Painel Solar Tsun 560W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "299589",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\299589.jpg",
+      "new_name": "JINKO-PANEL-JINKO-610W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\JINKO-PANEL-JINKO-610W-ODEX.webp",
+      "product": "Painel Solar Jinko 610W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "299586",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\299586.jpg",
+      "new_name": "JINKO-PANEL-JINKO-615W-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-PANELS\\JINKO-PANEL-JINKO-615W-ODEX.webp",
+      "product": "Painel Solar Jinko 615W",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "313801",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\313801.jpg",
+      "new_name": "SOLAR-GROUP-STRUCT-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\SOLAR-GROUP-STRUCT-ODEX.webp",
+      "product": "Estrutura Solar Group Fibrocimento Grande",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "313834",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\313834.jpg",
+      "new_name": "SOLAR-GROUP-STRUCT-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\SOLAR-GROUP-STRUCT-ODEX.webp",
+      "product": "Estrutura Solar Group Colonial Cerâmico",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "124358",
+      "old_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\124358.jpg",
+      "new_name": "PRATYC-STRUCT-PRS-1600-ODEX",
+      "new_file": "static\\images-catálogo_distribuidores\\ODEX-STRUCTURES\\PRATYC-STRUCT-PRS-1600-ODEX.webp",
+      "product": "Estrutura Pratyc Solo Fixo PRS-1600",
+      "distributor": "ODEX"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-SOLFACIL.webp",
+      "product": "GOODWE EZLOGGER PRO",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-SUN-5K-G-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-SUN-5K-G-SOLFACIL.webp",
+      "product": "DEYE SUN-5K-G",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-3300-XS-30-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-3300-XS-30-SOLFACIL.webp",
+      "product": "GOODWE GW 3300-XS-30 - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-SUN-8K-G-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-SUN-8K-G-SOLFACIL.webp",
+      "product": "DEYE SUN-8K-G",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-5000-DNS-30-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-5000-DNS-30-SOLFACIL.webp",
+      "product": "GOODWE GW 5000-DNS-30 (16A) - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-10K-MS-30-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-10K-MS-30-SOLFACIL.webp",
+      "product": "GOODWE GW 10K-MS-30 (20A) - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-G02-LV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-G02-LV-SOLFACIL.webp",
+      "product": "DEYE SUN-25K-G02-LV",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-C30-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-C30-SOLFACIL.webp",
+      "product": "GOODWE GW 12KLV-SDT-C30 - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-12KLV-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-12KLV-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 12KLV-MT",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW6000-ES-BR20-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW6000-ES-BR20-SOLFACIL.webp",
+      "product": "GOODWE GW6000-ES-BR20 - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW6000-SBP-20-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW6000-SBP-20-SOLFACIL.webp",
+      "product": "GOODWE GW6000-SBP-20",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-15KLV-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-15KLV-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 15KLV-MT",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-C30-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-C30-SOLFACIL.webp",
+      "product": "GOODWE GW 30K-SDT-C30 - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-G02-LV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-G02-LV-SOLFACIL.webp",
+      "product": "DEYE SUN-35K-G02-LV",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-G02-LV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-G02-LV-SOLFACIL.webp",
+      "product": "DEYE SUN-35K-G02-LV",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW3600-ES-BR20-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW3600-ES-BR20-SOLFACIL.webp",
+      "product": "GOODWE GW3600-ES-BR20 - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-36K-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-36K-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 36K-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-20KLV-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-20KLV-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 20KLV-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-50KS-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-50KS-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 50KS-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-60KS-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-60KS-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 60KS-MT",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GROWATT-INV-KTL3-XL2-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GROWATT-INV-KTL3-XL2-SOLFACIL.webp",
+      "product": "GROWATT MAX 50KTL3-XL2",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-SUN-50K-G-LV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-SUN-50K-G-LV-SOLFACIL.webp",
+      "product": "DEYE SUN-50K-G-LV",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW10K-BT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW10K-BT-SOLFACIL.webp",
+      "product": "GOODWE GW10K-BT",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "DEYE-INV-G01P3-LV-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\DEYE-INV-G01P3-LV-SOLFACIL.webp",
+      "product": "DEYE SUN-75K-G01P3-LV",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-35KLS-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-35KLS-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 35KLS-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-35KLS-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-35KLS-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 35KLS-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-60KS-MT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-60KS-MT-SOLFACIL.webp",
+      "product": "GOODWE GW 60KS-MT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GROWATT-INV-MAX60KTL3-XL-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GROWATT-INV-MAX60KTL3-XL-SOLFACIL.webp",
+      "product": "GROWATT MAX60KTL3-XL 2",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-73KLV-HT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-73KLV-HT-SOLFACIL.webp",
+      "product": "GOODWE GW 73KLV-HT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW-73KLV-HT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW-73KLV-HT-SOLFACIL.webp",
+      "product": "GOODWE GW 73KLV-HT - AFCI",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\image.jpg",
+      "new_name": "GOODWE-INV-GW250KN-HT-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-INVERTERS\\GOODWE-INV-GW250KN-HT-SOLFACIL.webp",
+      "product": "GOODWE GW250KN-HT",
+      "distributor": "SOLFACIL"
+    },
+    {
+      "old_sku": "image",
+      "old_file": "static\\images-catálogo_distribuidores\\SOLFACIL-PANELS\\image.png",
+      "new_name": "MINASOL-PANEL-SOLFACIL",
+      "new_file": "static\\images-catálogo_distribuidores\\SOLFACIL-PANELS\\MINASOL-PANEL-SOLFACIL.webp",
+      "product": "https://cdn-ecommerce.solfacil.com.br/contents/products/5500",
+      "distributor": "SOLFACIL"
+    }
+  ]
+}
