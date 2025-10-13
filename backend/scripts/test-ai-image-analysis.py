@@ -30,11 +30,15 @@ def check_ollama_setup():
         
         # Listar modelos
         for m in model_list:
-            print(f"   • {m.get('name', 'unknown')}")
+            model_name = m.get('name', m.get('model', 'unknown'))
+            print(f"   • {model_name}")
         
         # Verificar modelos de visão disponíveis
-        vision_models = [m.get('name', '') for m in model_list 
-                        if 'llava' in m.get('name', '').lower()]
+        vision_models = [
+            m.get('name', m.get('model', ''))
+            for m in model_list
+            if 'llava' in str(m.get('name', m.get('model', ''))).lower()
+        ]
         
         if vision_models:
             print(f"✅ Modelos de visão detectados: {', '.join(vision_models)}")
@@ -139,7 +143,14 @@ IMPORTANTE: Retorne APENAS um objeto JSON válido, sem texto adicional.
         return None
 
 
-def test_batch_images(image_dir, model='llava:13b', limit=5):
+def test_batch_images(image_dir, model=None, limit=5):
+    """Testa análise em lote"""
+    
+    # Auto-detectar modelo se não especificado
+    if model is None:
+        _, model = check_ollama_setup()
+        if model is None:
+            model = 'llava:13b'
     """Testa análise em lote"""
     
     print(f'\n{"="*80}')
@@ -194,7 +205,14 @@ def test_batch_images(image_dir, model='llava:13b', limit=5):
     return results
 
 
-def compare_ai_vs_manual():
+def compare_ai_vs_manual(model=None):
+    """Compara extração por IA vs dados manuais"""
+    
+    # Auto-detectar modelo se não especificado
+    if model is None:
+        _, model = check_ollama_setup()
+        if model is None:
+            model = 'llava:13b'
     """Compara extração por IA vs dados manuais"""
     
     print(f'\n{"="*80}')
@@ -241,7 +259,7 @@ def compare_ai_vs_manual():
         print(json.dumps(manual, indent=2, ensure_ascii=False))
         
         # Análise por IA
-        ai_result = test_single_image(img_file, model='llava:13b')
+        ai_result = test_single_image(img_file, model=model)
         
         if ai_result:
             print('\n🤖 DADOS IA:')
