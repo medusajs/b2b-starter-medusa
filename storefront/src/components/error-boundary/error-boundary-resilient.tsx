@@ -337,3 +337,6 @@ export function useErrorBoundary() {
 }
 
 export type { Props as ErrorBoundaryResilientProps }
+
+// Default export for convenience
+export default ErrorBoundaryResilient

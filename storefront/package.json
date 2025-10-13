@@ -42,7 +42,6 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   },
   "dependencies": {
-    "@ysh/ui": "file:./packages/ui",
     "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.0",
     "@medusajs/icons": "2.8.4",
@@ -52,9 +51,11 @@
     "@paypal/paypal-js": "^5.0.6",
     "@paypal/react-paypal-js": "^7.8.1",
     "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-select": "^2.2.6",
     "@stripe/react-stripe-js": "^5.0.0",
     "@stripe/stripe-js": "^8.0.0",
     "@vercel/analytics": "^1.4.1",
+    "@ysh/ui": "file:./packages/ui",
     "awilix": "^8.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

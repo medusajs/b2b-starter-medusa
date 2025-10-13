@@ -45,3 +45,6 @@ export async function clearCartQueue(): Promise<void> {
 
 // Export classes for internal use
 export { CartLocalStorage, CartOperationQueue }
+
+// Export the main class as CartResilientLayer for compatibility
+export { CartResilientLayer as CartResilientLayer } from "./resilient-layer-class"
