@@ -66,81 +66,81 @@ export const GET = async (
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) => {
-  const unifiedCatalogService = req.scope.resolve(UNIFIED_CATALOG_MODULE) as UnifiedCatalogModuleServiceType;
   const { category } = req.params;
+  const catalogService = getInternalCatalogService();
 
   try {
     const {
       page = 1,
-      limit = 20,
+      limit = 100, // Internal Catalog supports up to 200
       manufacturer,
+      hasImage,
       minPrice,
       maxPrice,
       sort
     } = req.query;
 
     const pageNum = parseInt(page as string) || 1;
-    const limitNum = parseInt(limit as string) || 20;
-    const offset = (pageNum - 1) * limitNum;
+    const limitNum = Math.min(parseInt(limit as string) || 100, 200); // Cap at 200
 
-    // Determine if we're querying SKUs or Kits based on category
-    const isKitCategory = category === 'kits';
-
-    const where: any = {};
-
-    if (!isKitCategory) {
-      // SKU category filter
-      where.category = category;
-      if (manufacturer) {
-        where.manufacturer_id = manufacturer;
+    // Fetch from Internal Catalog
+    const startTime = Date.now();
+    const result = await catalogService.getCategoryProducts(
+      category as string,
+      pageNum,
+      limitNum,
+      {
+        manufacturer: manufacturer as string,
+        hasImage: hasImage === 'true',
+        minPrice: minPrice ? parseFloat(minPrice as string) : undefined,
+        maxPrice: maxPrice ? parseFloat(maxPrice as string) : undefined,
       }
-    } else {
-      // Kit category
-      if (manufacturer) {
-        where.manufacturer_id = manufacturer;
-      }
-    }
+    );
 
-    // Fetch data with unified catalog service
-    const [items, total] = isKitCategory
-      ? await unifiedCatalogService.listAndCountKitsWithFilters(where, { skip: offset, take: limitNum })
-      : await unifiedCatalogService.listAndCountSKUsWithFilters(where, { skip: offset, take: limitNum });
+    const queryTime = Date.now() - startTime;
 
-    // Get manufacturers for facets
-    const manufacturers = await unifiedCatalogService.listManufacturers();
+    // Transform products to match legacy format
+    const products = result.products.map((item: any) => normalizeProduct(category as string, {
+      id: item.id,
+      sku: item.sku,
+      name: item.name,
+      manufacturer: item.manufacturer,
+      model: item.model,
+      category: item.category,
+      price_brl: item.price_brl,
+      price: item.price,
+      kwp: item.technical_specs?.power_kwp || item.technical_specs?.power_kw,
+      efficiency_pct: item.technical_specs?.efficiency,
+      image: item.image.url,
+      image_url: item.image.url,
+      processed_images: item.image.sizes,
+      source: 'internal_catalog',
+      distributor: item.distributor,
+    }));
 
-    // Transform to match expected format - normalizeProduct extracts manufacturer string internally
-    const products = items.map((item: any) => {
-      const mfrName = item.manufacturer?.name || item.manufacturer || '';
-      const model = item.model_number || item.kit_code || '';
-      const defaultName = model ? `${mfrName} ${model}`.trim() : mfrName;
-
-      return normalizeProduct(category, {
-        id: item.id,
-        sku: item.sku_code || item.kit_code,
-        name: item.description || item.name || defaultName,
-        manufacturer: item.manufacturer, // normalizeProduct will extract string from object if needed
-        model: model,
-        category: item.category,
-        price_brl: item.lowest_price || item.kit_price,
-        price: (item.lowest_price || item.kit_price)?.toString(),
-        kwp: item.technical_specs?.power_kwp || item.system_capacity_kwp,
-        efficiency_pct: item.technical_specs?.efficiency,
-        image_url: null, // TODO: Add image support
-        source: 'unified_catalog',
-        offers_count: item.offers_count
-      });
-    }); res.json({
+    res.json({
       products,
-      total,
-      page: pageNum,
-      limit: limitNum,
+      total: result.pagination.total,
+      page: result.pagination.page,
+      limit: result.pagination.limit,
+      pagination: result.pagination,
+      stats: result.stats,
+      cache: result.cache,
+      performance: {
+        query_time_ms: queryTime,
+        image_load_time_ms: result.performance?.image_load_time_ms || 0,
+        total_time_ms: result.performance?.total_time_ms || queryTime,
+      },
       facets: {
-        manufacturers: manufacturers.map(m => m.name)
-      }
+        manufacturers: result.stats.manufacturers || [],
+      },
+      source: 'internal_catalog', // Indicate data source
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error(`[Catalog] Error fetching category ${category}:`, error);
-    throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? `Failed to fetch ${category} products`);
+    throw new MedusaError(
+      MedusaError.Types.UNEXPECTED_STATE,
+      error?.message ?? `Failed to fetch ${category} products from internal catalog`
+    );
   }
 };
