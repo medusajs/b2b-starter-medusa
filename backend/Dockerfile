@@ -55,7 +55,8 @@ RUN chown medusa:medusa /app/package.json /app/medusa-config.js || true
 
 # Copiar script de entrypoint e tornar executável
 COPY --chown=medusa:medusa entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+# Garantir line endings Unix (LF) e tornar executável
+RUN dos2unix /app/entrypoint.sh || sed -i 's/\r$//' /app/entrypoint.sh && chmod +x /app/entrypoint.sh
 
 # Mudar para usuário não-root
 USER medusa

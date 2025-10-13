@@ -1,47 +1,55 @@
 /**
  * Catalog Inverters API Route
- * Serves unified inverters from catalog
+ * Serves inverters with robust fallback system
  */
 
 import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { loadCatalogProducts } from '@/lib/catalog/fallback-loader'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600
 
 export async function GET() {
-    try {
-        const catalogPath = path.join(
-            process.cwd(),
-            '..',
-            '..',
-            'ysh-erp',
-            'data',
-            'catalog',
-            'unified_schemas',
-            'inverters_unified.json'
-        )
+  try {
+    const result = await loadCatalogProducts('inverters', {
+      limit: 1000,
+      offset: 0,
+      useCache: true
+    })
 
-        const fileContent = await fs.readFile(catalogPath, 'utf-8')
-        const inverters = JSON.parse(fileContent)
+    const invertersWithAvailability = result.products.map((inverter: any) => ({
+      ...inverter,
+      availability: inverter.availability !== false,
+      in_stock: inverter.in_stock !== false,
+    }))
 
-        const invertersWithAvailability = inverters.map((inv: any) => ({
-            ...inv,
-            availability: true,
-        }))
-
-        return NextResponse.json(invertersWithAvailability, {
-            headers: {
-                'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
-            },
-        })
-
-    } catch (error) {
-        console.error('[API] Error loading inverters:', error)
-        return NextResponse.json(
-            { error: 'Failed to load inverters catalog' },
-            { status: 500 }
-        )
-    }
+    return NextResponse.json(
+      {
+        success: true,
+        data: invertersWithAvailability,
+        total: result.total,
+        meta: {
+          source: result.source,
+          fromCache: result.fromCache,
+          timestamp: new Date().toISOString(),
+        },
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+          'X-Data-Source': result.source,
+        },
+      }
+    )
+  } catch (error: any) {
+    console.error('[Inverters API] Error:', error)
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Failed to load inverters',
+        message: error.message,
+      },
+      { status: 500 }
+    )
+  }
 }
