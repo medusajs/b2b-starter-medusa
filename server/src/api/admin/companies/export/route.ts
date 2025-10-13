@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 
 // GET /admin/companies/export (CSV)
 export const GET = async (_req: MedusaRequest, res: MedusaResponse) => {

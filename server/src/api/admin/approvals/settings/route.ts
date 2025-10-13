@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { z } from "zod";
 import { upsertSettings } from "@compat/services/approval";
 import { getRequestId, logRequest } from "@compat/logging/logger";

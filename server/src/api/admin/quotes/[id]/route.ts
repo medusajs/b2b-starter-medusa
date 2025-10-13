@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework";
+import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { z } from "zod";
 import { adminUpdateQuote } from "@compat/services/quote";
 import { getRequestId, logRequest } from "@compat/logging/logger";
@@ -11,10 +11,10 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
   const { id } = req.params as { id: string };
   try {
     const body = Body.parse(req.body || {});
-  const request_id = getRequestId(req.headers as any);
-  logRequest({ route: `/admin/quotes/${id}`, method: "POST", request_id });
-  const quote = await adminUpdateQuote(id, body);
-  return ok(req, res, { quote });
+    const request_id = getRequestId(req.headers as any);
+    logRequest({ route: `/admin/quotes/${id}`, method: "POST", request_id });
+    const quote = await adminUpdateQuote(id, body);
+    return ok(req, res, { quote });
   } catch (e: any) {
     return err(req, res, 400, "BAD_REQUEST", e.message)
   }
