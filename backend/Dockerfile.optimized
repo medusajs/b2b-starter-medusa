@@ -82,7 +82,7 @@ COPY --from=builder /tmp/rds-ca-bundle.pem /tmp/rds-ca-bundle.pem
 
 # Copiar outros arquivos necessários
 COPY --from=builder /app/data ./data
-COPY --from=builder /app/static ./static
+# Nota: static directory será criado se necessário em runtime
 
 # Copiar entrypoint
 COPY entrypoint.sh /app/entrypoint.sh
