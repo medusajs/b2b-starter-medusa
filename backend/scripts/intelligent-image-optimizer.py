@@ -784,6 +784,12 @@ def generate_comprehensive_report(results: List[ProcessingResult], output_dir: s
     total_savings = total_original - total_optimized
     avg_compression = total_savings / total_original * 100 if total_original > 0 else 0
 
+    # Calcular médias para o resumo
+    avg_quality_score = sum(r.analysis.quality_score for r in successful) / len(successful) if successful else 0
+    avg_width = sum(r.width for r in successful) / len(successful) if successful else 0
+    avg_height = sum(r.height for r in successful) / len(successful) if successful else 0
+    avg_processing_time = sum(r.processing_time_ms for r in successful) / len(successful) if successful else 0
+
     # Análise por tipo de imagem
     type_stats = {}
     for result in successful:
@@ -814,12 +820,17 @@ def generate_comprehensive_report(results: List[ProcessingResult], output_dir: s
             'total_images': len(results),
             'successful': len(successful),
             'failed': len(failed),
-            'success_rate': len(successful) / len(results) * 100,
+            'success_rate': len(successful) / len(results) * 100 if results else 0,
             'total_original_size_mb': total_original / 1024 / 1024,
             'total_optimized_size_mb': total_optimized / 1024 / 1024,
-            'total_savings_mb': total_savings / 1024 / 1024,
+            'total_space_saved_mb': total_savings / 1024 / 1024,
+            'avg_quality_score': avg_quality_score,
+            'avg_compression_ratio': avg_compression,
+            'avg_processing_time': avg_processing_time,
+            'avg_width': avg_width,
+            'avg_height': avg_height,
             'average_compression_percent': avg_compression,
-            'average_processing_time_ms': sum(r.processing_time_ms for r in successful) / len(successful) if successful else 0
+            'average_processing_time_ms': avg_processing_time
         },
         'by_image_type': type_stats,
         'failed_images': [{'path': r.input_path, 'error': r.error} for r in failed],
