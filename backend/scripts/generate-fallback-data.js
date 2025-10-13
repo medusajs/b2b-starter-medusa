@@ -44,12 +44,34 @@ const CATEGORIES = [
  */
 function extractSku(product) {
     // Try various SKU sources
-    if (product.sku) return product.sku;
-    if (product.metadata?.sku) return product.metadata.sku;
+    if (product.sku) return String(product.sku).trim();
+    if (product.metadata?.sku) return String(product.metadata.sku).trim();
 
-    // Extract from ID patterns
-    const idMatch = product.id?.match(/[-_]([A-Z0-9]+)$/);
-    if (idMatch) return idMatch[1];
+    // Try to extract from name or model
+    if (product.model) {
+        const modelClean = String(product.model).trim();
+        if (modelClean && modelClean !== 'undefined' && modelClean !== 'null') {
+            return modelClean;
+        }
+    }
+
+    // Extract from ID patterns - try multiple patterns
+    if (product.id) {
+        // Pattern 1: ends with number (e.g., odex_inverters_112369 -> 112369)
+        const numMatch = product.id.match(/[-_](\d{4,})$/);
+        if (numMatch) return numMatch[1];
+
+        // Pattern 2: ends with alphanumeric (e.g., ABC-123)
+        const alphaMatch = product.id.match(/[-_]([A-Z0-9]{3,})$/i);
+        if (alphaMatch) return alphaMatch[1];
+
+        // Pattern 3: just the last part after last separator
+        const parts = product.id.split(/[-_]/);
+        if (parts.length > 0) {
+            const lastPart = parts[parts.length - 1];
+            if (lastPart && lastPart.length >= 3) return lastPart;
+        }
+    }
 
     return null;
 }
