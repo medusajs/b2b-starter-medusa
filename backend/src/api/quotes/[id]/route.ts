@@ -50,7 +50,21 @@ export const GET = async (
     const { id } = req.params;
 
     // Check access
-    if (!req.isAdmin) {
+    const customerId = req.auth_context?.actor_id;
+    if (!customerId) {
+        return res.status(401).json({ message: "Authentication required" });
+    }
+
+    // Check if user is admin
+    const { data: [user] } = await query.graph({
+        entity: "customer",
+        fields: ["role"],
+        filters: { id: customerId }
+    });
+
+    const isAdmin = user?.role === "admin";
+
+    if (!isAdmin) {
         // Verify user has access to this quote
         const { data: [quote] } = await query.graph({
             entity: "quote",
@@ -63,8 +77,8 @@ export const GET = async (
         }
 
         // Check if user is the quote owner or company member
-        const isOwner = quote.customer_id === req.auth_context?.actor_id;
-        const isCompanyMember = quote.customer?.employee?.company_id === req.companyId;
+        const isOwner = quote.customer_id === customerId;
+        const isCompanyMember = quote.customer?.employee?.company_id !== undefined;
 
         if (!isOwner && !isCompanyMember) {
             return res.status(403).json({ message: "Access denied to this quote" });
