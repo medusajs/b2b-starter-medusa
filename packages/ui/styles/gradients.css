@@ -1,13 +1,48 @@
+/**
+ * Yello Solar Hub Brand Gradients
+ * Official colors: #FFCE00 (yellow) → #FF6600 (orange) → #FF0066 (magenta)
+ */
+
+/* Hide SVG gradient definitions */
+.ysh-gradient-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Border with gradient */
 .ysh-border-gradient {
   border: 1px solid transparent;
-  border-image: linear-gradient(var(--ysh-angle), var(--ysh-start), var(--ysh-end)) 1;
+  border-image: linear-gradient(var(--ysh-angle, 135deg), #FFCE00, #FF6600 34%, #FF0066 50%) 1;
   border-radius: 0.75rem;
 }
 
+/* Text with gradient fill */
 .ysh-text-gradient {
-  background: linear-gradient(var(--ysh-angle), var(--ysh-start), var(--ysh-end));
+  background: linear-gradient(var(--ysh-angle, 135deg), #FFCE00, #FF6600 34%, #FF0066 50%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* SVG stroke with gradient reference */
+.ysh-stroke-gradient {
+  stroke: url(#gradient-ysh-stroke);
+}
+
+/* Background with gradient */
+.ysh-bg-gradient {
+  background: linear-gradient(180deg, #FFCE00 0%, #FF6600 34%, #FF0066 50%);
+}
+
+/* Background with gradient (horizontal) */
+.ysh-bg-gradient-horizontal {
+  background: linear-gradient(90deg, #FFCE00 0%, #FF6600 34%, #FF0066 50%);
+}
+
+/* Background with gradient (diagonal) */
+.ysh-bg-gradient-diagonal {
+  background: linear-gradient(135deg, #FFCE00 0%, #FF6600 34%, #FF0066 50%);
 }
 
