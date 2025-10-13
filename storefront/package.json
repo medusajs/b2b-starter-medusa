@@ -42,7 +42,7 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   },
   "dependencies": {
-    "@ysh/ui": "file:../packages/ui",
+    "@ysh/ui": "file:./packages/ui",
     "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.0",
     "@medusajs/icons": "2.8.4",
