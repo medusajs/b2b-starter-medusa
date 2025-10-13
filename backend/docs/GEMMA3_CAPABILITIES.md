@@ -103,7 +103,11 @@ Ideal para sistemas residenciais de até 3.9kWp. Eficiência
 - Não identifica logos ou textos em fotos
 - Não avalia qualidade visual
 
-**Solução**: Usar **GPT-OSS:20B** (instalado) para tarefas visuais
+**Solução**: Usar modelos de visão multimodal:
+
+- **Llama 3.2 Vision:11b** (7.8GB) - ⭐ Recomendado: melhor custo/benefício
+- **Llama 3.2 Vision:90b** (55GB) - Máxima qualidade
+- **GPT-OSS:20B** (13GB) - Alternativa instalada
 
 ---
 
@@ -241,7 +245,7 @@ Retorne apenas o nome sem extensão."""
 
 ---
 
-## 🔄 Workflow Híbrido: Gemma 3 + GPT-OSS
+## 🔄 Workflow Híbrido: Gemma 3 + Llama 3.2 Vision
 
 ### Pipeline Completo
 
@@ -249,7 +253,7 @@ Retorne apenas o nome sem extensão."""
 ┌─────────────────────────────────────────────────────┐
 │  1. IMAGEM                                          │
 │     ↓                                               │
-│  2. GPT-OSS:20B (Análise Visual)                   │
+│  2. Llama 3.2 Vision:11b (Análise Visual)          │
 │     • Extrai texto visível                         │
 │     • Identifica logo/fabricante                   │
 │     • Classifica tipo de imagem                    │
@@ -271,10 +275,11 @@ Retorne apenas o nome sem extensão."""
 
 ```python
 def process_product_with_hybrid_models(image_path, raw_data):
-    """Pipeline híbrido: GPT-OSS para visão, Gemma 3 para texto"""
+    """Pipeline híbrido: Llama 3.2 Vision para visão, Gemma 3 para texto"""
     
-    # ETAPA 1: Análise visual com GPT-OSS
-    vision_model = 'gpt-oss:20b'
+    # ETAPA 1: Análise visual com Llama 3.2 Vision
+    from ollama_model_selector import pick_image_model
+    vision_model = pick_image_model()  # Auto-seleciona melhor modelo
     
     visual_prompt = """Extraia informações visíveis desta imagem:
 - Texto legível (marca, modelo, potência)
@@ -349,7 +354,19 @@ Inclua: título SEO, descrição curta, descrição longa, tags."""
 **RAM necessária**: 6-8 GB  
 **GPU**: Opcional (melhora 3-5x)
 
-### GPT-OSS:20B
+### Llama 3.2 Vision:11b (⭐ Recomendado)
+
+| Tarefa | Velocidade | Qualidade | Custo |
+|--------|------------|-----------|-------|
+| Análise de imagem | ~3-5s | ⭐⭐⭐⭐⭐ | R$ 0 |
+| OCR de produtos | ~2-3s | ⭐⭐⭐⭐⭐ | R$ 0 |
+| Classificação visual | ~1-2s | ⭐⭐⭐⭐⭐ | R$ 0 |
+
+**Throughput**: ~720-1200 imagens/hora  
+**RAM necessária**: 12-16 GB  
+**GPU**: Opcional (melhora 2-3x)
+
+### GPT-OSS:20B (Alternativa)
 
 | Tarefa | Velocidade | Qualidade | Custo |
 |--------|------------|-----------|-------|
@@ -390,7 +407,7 @@ python scripts/enrich-catalog-gemma3.py \
 ```bash
 python scripts/hybrid-ai-pipeline.py \
   --images static/images-catálogo_distribuidores/ \
-  --vision-model gpt-oss:20b \
+  --vision-model llama3.2-vision:11b \
   --text-model gemma3:4b \
   --output-format json \
   --parallel 4

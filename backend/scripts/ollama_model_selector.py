@@ -114,21 +114,23 @@ def _pick_model(
 def pick_image_model() -> Optional[str]:
     """Pick the best available image-capable model.
 
-    Preference order (by default): GPT-OSS (20B), LLaVA variants,
-    Gemma 3 family. Gemma 3:4B is text-focused but can be used
-    for basic image captioning.
+    Preference order (by default): Llama 3.2 Vision (90B/11B), GPT-OSS,
+    LLaVA variants, Gemma 3 family.
 
     The environment variable OLLAMA_IMAGE_MODEL can override the
     selection.
     """
     preferences = [
-        'gpt-oss:20b',     # Installed - strong multimodal
+        'llama3.2-vision:90b',  # Meta's latest - best quality
+        'llama3.2-vision:11b',  # Meta's latest - good balance
+        'llama3.2-vision',      # Any Llama 3.2 Vision
+        'gpt-oss:20b',          # Installed - strong multimodal
         'llava:34b',
         'llava:13b',
         'llava:7b',
         'bakllava',
-        'gemma3:vision',   # Gemma 3 multimodal variant
-        'gemma3:4b',       # Installed - text-optimized
+        'gemma3:12b',           # Gemma 3 multimodal
+        'gemma3:4b',            # Installed - multimodal
         'gemma:4b',
     ]
     return _pick_model(preferences=preferences, env_var='OLLAMA_IMAGE_MODEL')

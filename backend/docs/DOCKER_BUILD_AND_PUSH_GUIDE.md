@@ -13,7 +13,7 @@ Este guia documenta as correções realizadas nos Dockerfiles e fornece comandos
 
 **Problema Original:**
 
-```
+```tsx
 [dumb-init] /app/entrypoint.sh: No such file or directory
 Exit Code: 2
 ```
@@ -65,7 +65,7 @@ docker run --rm `
 
 **Resultado esperado:**
 
-```
+```tsx
 🚀 Medusa Backend Entrypoint
 ============================
 Environment: production
