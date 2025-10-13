@@ -7,6 +7,7 @@
 ## 📊 Performance Comparison
 
 ### Antes (query.graph sequencial)
+
 ```typescript
 // 3 queries separadas = ~300ms
 const products = await query.graph({ entity: "product", fields: [...] });
@@ -17,6 +18,7 @@ const orders = await query.graph({ entity: "order", fields: [...] });
 ```
 
 ### Depois (query.index)
+
 ```typescript
 // 1 query com joins automáticos = ~75ms
 const { data } = await query.index({
@@ -41,11 +43,13 @@ const { data } = await query.index({
 Criamos dois workflows principais que usam Index Module:
 
 #### 1. `analyzeSolarFleetWorkflow`
+
 **Localização**: `backend/src/workflows/solar/index-queries.ts`
 
 **Propósito**: Análise de frota solar cross-module em query única
 
 **Cross-Module Relations**:
+
 - `product` → `sales_channels` (canais de venda)
 - `product.variants` → `inventory_items` (estoque)
 - `product.variants.line_items` → `order` (pedidos)
@@ -73,11 +77,13 @@ const { data } = await query.index({
 ```
 
 #### 2. `getSolarOrdersWithCompanyWorkflow`
+
 **Localização**: `backend/src/workflows/solar/index-queries.ts`
 
 **Propósito**: Pedidos solares com dados de empresa B2B
 
 **Cross-Module Relations**:
+
 - `order` → `customer` (cliente)
 - `customer.metadata` → `company_id` (link para company module)
 - `order.items` → `product` (produtos do pedido)
@@ -85,15 +91,18 @@ const { data } = await query.index({
 ### API Routes
 
 #### GET `/admin/solar/fleet-analysis`
+
 **Localização**: `backend/src/api/admin/solar/fleet-analysis/route.ts`
 
 **Query Params**:
+
 - `sales_channel_id`: Filtrar por canal
 - `category`: Categoria de produto (painel_solar, inversor, etc)
 - `min_capacity_kwp`: Capacidade mínima
 - `status`: Status do produto (published, draft)
 
 **Response**:
+
 ```json
 {
   "fleet_analysis": {
@@ -120,9 +129,11 @@ const { data } = await query.index({
 ```
 
 #### GET `/admin/solar/orders`
+
 **Localização**: `backend/src/api/admin/solar/orders/route.ts`
 
 **Query Params**:
+
 - `customer_id`: Filtrar por cliente
 - `status`: Status do pedido
 
@@ -131,6 +142,7 @@ const { data } = await query.index({
 ### Storefront Integration
 
 #### Server Action
+
 **Localização**: `storefront/src/lib/data/solar-fleet.ts`
 
 ```typescript
@@ -151,15 +163,18 @@ export const getSolarFleetAnalysis = async (filters?: {
 ```
 
 #### Dashboard Component
+
 **Localização**: `storefront/src/modules/solar/components/fleet-dashboard.tsx`
 
 **Features**:
+
 - Performance badge mostrando query time (ms)
 - Cards de resumo (capacidade, estoque, produtos)
 - Tabela de produtos com métricas
 - Info box explicando Index Module optimization
 
 #### Page Route
+
 **Localização**: `storefront/src/app/[countryCode]/(main)/admin/solar-fleet/page.tsx`
 
 ```typescript
@@ -181,6 +196,7 @@ export default async function SolarFleetPage() {
 **Mudança**: Substituído `query.graph()` por `query.index()` no método `findMatchingKits()`
 
 **Antes**:
+
 ```typescript
 const { data: products } = await query.graph({
   entity: "product",
@@ -190,6 +206,7 @@ const { data: products } = await query.graph({
 ```
 
 **Depois**:
+
 ```typescript
 const { data: products } = await query.index({
   entity: "product",
@@ -204,6 +221,7 @@ const { data: products } = await query.index({
 ```
 
 **Benefícios**:
+
 - ✅ 75% mais rápido na busca de kits
 - ✅ Dados de estoque em tempo real
 - ✅ Ranking por popularidade (orders count)
@@ -219,13 +237,15 @@ const { data: products } = await query.index({
 
 ## 🎯 When to Use Index Module
 
-### ✅ Use query.index() quando:
+### ✅ Use query.index() quando
+
 - Precisar de dados de múltiplos módulos relacionados
 - Performance é crítica (dashboards, analytics)
 - Relações são bem definidas (product → variants → inventory)
 - Queries são repetidas (caching é efetivo)
 
-### ❌ Use query.graph() quando:
+### ❌ Use query.graph() quando
+
 - Query simples de um único módulo
 - Relações complexas/dinâmicas não definidas no schema
 - Prototipagem rápida (graph é mais flexível)
