@@ -3,9 +3,9 @@
  * Provides proper container resolution and database context
  */
 
-const { MedusaTestRunner } = require('@medusajs/test-utils');
-const { loadEnv } = require('@medusajs/framework/utils');
-const { initializeDatabase } = require('../scripts/init-test-db');
+import { MedusaTestRunner } from '@medusajs/test-utils';
+import { loadEnv } from '@medusajs/framework/utils';
+import { initializeDatabase } from '../scripts/init-test-db.js';
 
 // Load test environment
 loadEnv('test', process.cwd());
@@ -36,7 +36,7 @@ function setupConditionalModules() {
         }
 
         try {
-            require(path);
+            import(path);
             console.log(`✅ ${name} module loaded`);
         } catch (error) {
             if (error.code === 'MODULE_NOT_FOUND' || error.message.includes('Cannot find module')) {
@@ -100,6 +100,6 @@ console.error = (...args) => {
 };
 
 // Export test utilities
-module.exports = {
+export {
     MedusaTestRunner
 };
