@@ -37,9 +37,9 @@ import React from 'react';
  */
 export const GradientDefs = () => {
     return (
-        <svg 
-            width="0" 
-            height="0" 
+        <svg
+            width="0"
+            height="0"
             className="ysh-gradient-defs"
             aria-hidden="true"
         >
@@ -48,11 +48,11 @@ export const GradientDefs = () => {
                     Gradiente Linear Vertical - Amarelo → Laranja → Magenta
                     Para uso em backgrounds, fills, etc.
                 */}
-                <linearGradient 
-                    id="gradient-ysh-linear" 
-                    x1="0%" 
-                    y1="0%" 
-                    x2="0%" 
+                <linearGradient
+                    id="gradient-ysh-linear"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
                     y2="100%"
                     gradientUnits="userSpaceOnUse"
                 >
@@ -65,11 +65,11 @@ export const GradientDefs = () => {
                     Gradiente Linear Diagonal - Amarelo → Laranja → Magenta
                     Para uso em elementos com stroke
                 */}
-                <linearGradient 
-                    id="gradient-ysh-stroke" 
-                    x1="0%" 
-                    y1="0%" 
-                    x2="100%" 
+                <linearGradient
+                    id="gradient-ysh-stroke"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
                     y2="100%"
                     gradientUnits="userSpaceOnUse"
                 >
@@ -82,10 +82,10 @@ export const GradientDefs = () => {
                     Gradiente Radial - Amarelo centro → Magenta bordas
                     Para uso em círculos, logos, etc.
                 */}
-                <radialGradient 
-                    id="gradient-ysh-radial" 
-                    cx="50%" 
-                    cy="50%" 
+                <radialGradient
+                    id="gradient-ysh-radial"
+                    cx="50%"
+                    cy="50%"
                     r="50%"
                     gradientUnits="userSpaceOnUse"
                 >
@@ -97,11 +97,11 @@ export const GradientDefs = () => {
                 {/* 
                     Gradiente Horizontal - Para botões e elementos horizontais
                 */}
-                <linearGradient 
-                    id="gradient-ysh-horizontal" 
-                    x1="0%" 
-                    y1="0%" 
-                    x2="100%" 
+                <linearGradient
+                    id="gradient-ysh-horizontal"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
                     y2="0%"
                     gradientUnits="userSpaceOnUse"
                 >
