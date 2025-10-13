@@ -12,38 +12,38 @@ import { model } from "@medusajs/framework/utils"
  */
 export const Event = model.define("event", {
     id: model.id({ prefix: "evt" }).primaryKey(),
-    
+
     // ==========================================
     // Identificação
     // ==========================================
-    
+
     customer_id: model.text().nullable(),         // ID do customer (se autenticado)
     session_id: model.text(),                     // ID da sessão (obrigatório)
     anonymous_id: model.text().nullable(),        // ID anônimo (cookie)
-    
+
     // ==========================================
     // Evento
     // ==========================================
-    
+
     event_name: model.text(),                     // Ex: "page_view", "add_to_cart", "purchase"
     event_category: model.text(),                 // Ex: "engagement", "ecommerce", "navigation"
     event_action: model.text().nullable(),        // Ex: "click", "submit", "scroll"
     event_label: model.text().nullable(),         // Ex: "buy_button", "header_menu"
     event_value: model.number().nullable(),       // Valor numérico associado
-    
+
     // ==========================================
     // Contexto da Página
     // ==========================================
-    
+
     page_url: model.text(),
     page_path: model.text().nullable(),           // Ex: "/products/solar-panels"
     page_title: model.text().nullable(),
     page_referrer: model.text().nullable(),
-    
+
     // ==========================================
     // Device & Browser
     // ==========================================
-    
+
     user_agent: model.text().nullable(),
     device_type: model.text().nullable(),         // mobile, tablet, desktop
     device_brand: model.text().nullable(),        // Apple, Samsung, etc.
@@ -54,22 +54,22 @@ export const Event = model.define("event", {
     os_version: model.text().nullable(),
     screen_resolution: model.text().nullable(),   // 1920x1080
     viewport_size: model.text().nullable(),       // 1440x900
-    
+
     // ==========================================
     // Geo & Network
     // ==========================================
-    
+
     ip_hash: model.text().nullable(),             // SHA-256 hash (LGPD)
     country: model.text().nullable(),
     region: model.text().nullable(),
     city: model.text().nullable(),
     timezone: model.text().nullable(),            // America/Sao_Paulo
     locale: model.text().nullable(),              // pt-BR
-    
+
     // ==========================================
     // Marketing & Attribution
     // ==========================================
-    
+
     utm_source: model.text().nullable(),
     utm_medium: model.text().nullable(),
     utm_campaign: model.text().nullable(),
@@ -77,11 +77,11 @@ export const Event = model.define("event", {
     utm_content: model.text().nullable(),
     gclid: model.text().nullable(),               // Google Click ID
     fbclid: model.text().nullable(),              // Facebook Click ID
-    
+
     // ==========================================
     // E-commerce (se aplicável)
     // ==========================================
-    
+
     cart_id: model.text().nullable(),
     product_id: model.text().nullable(),
     product_sku: model.text().nullable(),
@@ -89,35 +89,35 @@ export const Event = model.define("event", {
     product_category: model.text().nullable(),
     product_price: model.number().nullable(),
     product_quantity: model.number().nullable(),
-    
+
     order_id: model.text().nullable(),
     order_total: model.number().nullable(),
     order_currency: model.text().nullable(),
-    
+
     // ==========================================
     // Engagement
     // ==========================================
-    
+
     scroll_depth: model.number().nullable(),      // 0-100%
     time_on_page: model.number().nullable(),      // Segundos
     clicks_count: model.number().nullable(),
     form_id: model.text().nullable(),             // ID do formulário interagido
-    
+
     // ==========================================
     // Search & Content
     // ==========================================
-    
+
     search_term: model.text().nullable(),         // Termo de busca
     search_results_count: model.number().nullable(),
     content_id: model.text().nullable(),          // ID do conteúdo visualizado
     content_type: model.text().nullable(),        // article, product, video
-    
+
     // ==========================================
     // Custom Properties
     // ==========================================
-    
+
     properties: model.json().nullable(),          // Propriedades customizadas
-    
+
     // Exemplos de propriedades customizadas:
     // {
     //   calculator_consumption: 500,
@@ -126,33 +126,33 @@ export const Event = model.define("event", {
     //   lead_source: "calculator",
     //   ab_test_variant: "B"
     // }
-    
+
     // ==========================================
     // Performance
     // ==========================================
-    
+
     page_load_time: model.number().nullable(),    // Milissegundos
     server_response_time: model.number().nullable(),
-    
+
     // ==========================================
     // A/B Testing
     // ==========================================
-    
+
     experiment_id: model.text().nullable(),
     experiment_variant: model.text().nullable(),
-    
+
     // ==========================================
     // Error Tracking
     // ==========================================
-    
+
     error_message: model.text().nullable(),
     error_stack: model.text().nullable(),
     error_type: model.text().nullable(),
-    
+
     // ==========================================
     // Timestamps
     // ==========================================
-    
+
     created_at: model.dateTime(),                 // Quando evento ocorreu
     received_at: model.dateTime().nullable(),     // Quando servidor recebeu
 })

@@ -662,4 +662,8 @@ if (require.main === module) {
     main().catch(console.error)
 }
 
+// Main exports
 export { normalizeProducts, generateS3Manifest, exportMappings }
+
+// Utility exports
+export { toSnakeCase, toKebabCase, generateS3Key, generateS3Url, normalizeDistributor }

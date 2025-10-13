@@ -52,7 +52,7 @@
 
 ### 4 Camadas de Resiliência
 
-```
+```tsx
 Layer 1: Retry Logic
 ├─ Exponential backoff (1s, 2s, 4s, 8s)
 ├─ Timeout detection (10s)
