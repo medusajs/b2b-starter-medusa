@@ -286,4 +286,112 @@ const products = await service.listProducts({}, {
 
 ---
 
-*Este documento serve como referência para agentes trabalhando com Medusa.js Commerce Modules. Atualizado baseado na documentação oficial v2.x.*
+## Novidades do Medusa v2.10.3
+
+### View Configurations (Experimental)
+
+**Recurso Experimental**: Permite customização de colunas visíveis em tabelas do Admin.
+
+**Ativação**:
+
+```typescript
+// medusa-config.ts
+export default defineConfig({
+  featureFlags: {
+    view_configurations: true,
+  },
+})
+```
+
+**Commerce Modules Afetados**:
+
+- **Order Module**: Tabela de pedidos com colunas customizáveis
+- **Product Module**: Tabela de produtos com colunas customizáveis
+
+**Extensão B2B**: Com view configurations ativas, você pode adicionar colunas customizadas para:
+
+- Status de aprovação de pedidos (Approval Module)
+- Informações de company (Company Module)
+- Dados de cotação (Quote Module)
+
+### Shipping Options Context Hook
+
+**Novo Hook**: `setShippingOptionsContext` no workflow `listShippingOptionsForCartWithPricingWorkflow`
+
+**Integração com Commerce Modules**:
+
+```typescript
+import { 
+  listShippingOptionsForCartWithPricingWorkflow 
+} from "@medusajs/medusa/core-flows"
+
+// Exemplo: Integrar com Company Module
+listShippingOptionsForCartWithPricingWorkflow.hooks.setShippingOptionsContext(
+  async (input, context) => {
+    const query = context.container.resolve("query")
+    
+    // Buscar company do customer
+    const { data: [customer] } = await query.graph({
+      entity: "customer",
+      fields: ["*company"],
+      filters: { id: input.cart.customer_id },
+    })
+    
+    return {
+      ...context,
+      companyId: customer?.company?.id,
+      companyTier: customer?.company?.metadata?.tier,
+      spendingLimit: customer?.company?.spending_limit,
+    }
+  }
+)
+```
+
+**Casos de Uso B2B**:
+
+- Restrições de shipping por company tier
+- Validações de spending limit no shipping
+- Regras de fulfillment personalizadas por empresa
+
+### Melhorias em Commerce Modules (v2.10.3)
+
+#### Cart Module
+
+- **Fix**: Tipos opcionais corrigidos para `cart_item.totals`
+- **Fix**: Prevenção de quantidades negativas em line items
+- **Fix**: Cálculo de subtotal mais preciso
+
+#### Product Module
+
+- **Improvement**: Melhor performance em listagem de produtos
+- **Fix**: Filtragem correta de collections por ID
+
+#### Promotion Module
+
+- **Improvement**: Filtragem otimizada de promoções no carrinho
+- **Fix**: Aplicação correta de múltiplas promoções
+
+#### Order Module
+
+- **Enhancement**: Suporte a view configurations (experimental)
+- **Fix**: Melhorias na consistência de status de pedidos
+
+### Compatibilidade com Custom Modules
+
+Os custom modules B2B (Company, Quote, Approval) são totalmente compatíveis com v2.10.3 e podem se beneficiar das novas features:
+
+**View Configurations**:
+
+- Adicione colunas de approval status em orders
+- Mostre company name em order listings
+- Exiba quote reference em pedidos originados de cotações
+
+**Shipping Context Hook**:
+
+- Valide spending limits antes de calcular shipping
+- Aplique regras de approval em shipping methods
+- Restrinja shipping options por company settings
+
+---
+
+*Este documento serve como referência para agentes trabalhando com Medusa.js Commerce Modules. Atualizado para Medusa v2.10.3.*

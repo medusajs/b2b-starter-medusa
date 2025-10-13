@@ -579,7 +579,238 @@ modules: {
 
 ---
 
-*Este documento foi gerado automaticamente a partir da documentação oficial do Medusa.js. Última atualização: Outubro 2025.*</content>
+## Novidades do Medusa v2.10.3
+
+### Feature Flags System
+
+**Novo**: Sistema de feature flags expandido para recursos experimentais.
+
+**Configuração em medusa-config.ts**:
+
+```typescript
+export default defineConfig({
+  featureFlags: {
+    view_configurations: true,  // Novo em v2.10.3
+    // Adicione outros feature flags conforme necessário
+  },
+})
+```
+
+**Infrastructure Modules Afetados**:
+
+- **Cache Module**: Cache de view configurations
+- **Event Module**: Eventos de mudança em view configurations
+- **Workflow Engine**: Novos hooks para shipping context
+
+### Workflow Engine Enhancements
+
+**Novo Hook System**: O Workflow Engine Module agora suporta hooks mais granulares.
+
+**Exemplo de Hook (v2.10.3)**:
+
+```typescript
+import { 
+  listShippingOptionsForCartWithPricingWorkflow 
+} from "@medusajs/medusa/core-flows"
+
+// Novo hook: setShippingOptionsContext
+listShippingOptionsForCartWithPricingWorkflow.hooks.setShippingOptionsContext(
+  async (input, context) => {
+    // Acesse infrastructure modules no context
+    const cacheService = context.container.resolve("cache")
+    const eventBus = context.container.resolve("eventBus")
+    
+    // Cache de regras de shipping
+    const cachedRules = await cacheService.get(`shipping-rules-${input.cart.id}`)
+    
+    return {
+      ...context,
+      customRules: cachedRules || {},
+    }
+  }
+)
+```
+
+**Providers Recomendados para Produção**:
+
+- **Workflow Engine Module**: Use Redis provider para suportar hooks complexos
+- **Cache Module**: Redis para cache de contexto de workflows
+- **Event Module**: Redis para eventos de workflow hooks
+
+### Cache Module Updates
+
+**Melhorias em v2.10.3**:
+
+- Melhor performance para cache de view configurations
+- Suporte a TTL (Time To Live) mais granular
+- Invalidação de cache otimizada
+
+**Uso com View Configurations**:
+
+```typescript
+// Em módulos customizados
+const cacheService = container.resolve("cache")
+
+// Cache de configurações de view
+await cacheService.set(
+  `view-config-orders-${userId}`,
+  viewConfiguration,
+  { ttl: 3600 } // 1 hora
+)
+```
+
+### Event Module Updates
+
+**Novos Eventos em v2.10.3**:
+
+- `view-configuration.created`
+- `view-configuration.updated`
+- `shipping-options-context.set`
+
+**Subscriber Example**:
+
+```typescript
+import { SubscriberArgs } from "@medusajs/framework"
+
+export default async function handleViewConfigUpdate({
+  event: { data },
+  container,
+}: SubscriberArgs<{ viewConfigId: string }>) {
+  const cacheService = container.resolve("cache")
+  
+  // Invalide cache de view configurations
+  await cacheService.invalidate(`view-config-*`)
+}
+
+export const config = {
+  event: "view-configuration.updated",
+}
+```
+
+### Notification Module Enhancements
+
+**Melhoria**: Melhor integração com workflows e hooks.
+
+**Uso com Workflow Hooks**:
+
+```typescript
+// Notificar sobre mudanças em shipping options
+listShippingOptionsForCartWithPricingWorkflow.hooks.setShippingOptionsContext(
+  async (input, context) => {
+    const notificationService = context.container.resolve("notification")
+    
+    // Notifique admin sobre regras customizadas aplicadas
+    if (input.customRules) {
+      await notificationService.send({
+        to: "admin@example.com",
+        template: "custom-shipping-rules-applied",
+        data: { cartId: input.cart.id, rules: input.customRules },
+      })
+    }
+    
+    return context
+  }
+)
+```
+
+### Configuração Recomendada para v2.10.3
+
+#### Desenvolvimento
+
+```typescript
+// medusa-config.ts
+export default defineConfig({
+  featureFlags: {
+    view_configurations: true,
+  },
+  modules: {
+    [Modules.CACHE]: {
+      resolve: "@medusajs/cache-in-memory",
+    },
+    [Modules.EVENT]: {
+      resolve: "@medusajs/event-local",
+    },
+    [Modules.WORKFLOW_ENGINE]: {
+      resolve: "@medusajs/workflow-engine-in-memory",
+    },
+  },
+})
+```
+
+#### Produção
+
+```typescript
+// medusa-config.ts
+export default defineConfig({
+  featureFlags: {
+    view_configurations: true,
+  },
+  modules: {
+    [Modules.CACHE]: {
+      resolve: "@medusajs/cache-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+        ttl: 3600,
+      },
+    },
+    [Modules.EVENT]: {
+      resolve: "@medusajs/event-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
+    },
+    [Modules.WORKFLOW_ENGINE]: {
+      resolve: "@medusajs/workflow-engine-redis",
+      options: {
+        redisUrl: process.env.REDIS_URL,
+      },
+    },
+  },
+})
+```
+
+### Breaking Changes em v2.10.3
+
+**Nenhum breaking change identificado**: v2.10.3 é uma atualização compatível com v2.x.
+
+**Novas Features são Opt-in**:
+
+- View Configurations requer feature flag
+- Workflow hooks são adicionais aos existentes
+- Todos os providers anteriores continuam funcionando
+
+### Migration Guide
+
+**De v2.9.x para v2.10.3**:
+
+1. **Atualize dependências**:
+
+   ```bash
+   npm install @medusajs/medusa@latest @medusajs/framework@latest
+   ```
+
+2. **Habilite feature flags (opcional)**:
+
+   ```typescript
+   // medusa-config.ts
+   featureFlags: {
+     view_configurations: true,
+   }
+   ```
+
+3. **Teste infrastructure modules**:
+   - Verifique logs do Event Module
+   - Valide Cache Module funcionando
+   - Teste Workflow Engine com novos hooks
+
+4. **Atualize custom workflows (se aplicável)**:
+   - Adicione hooks para shipping context
+   - Implemente cache de view configurations
+   - Configure subscribers para novos eventos
+
+---
+
+*Este documento foi gerado automaticamente a partir da documentação oficial do Medusa.js. Última atualização: Janeiro 2025 (v2.10.3).*</content>
 <parameter name="filePath">c:\Users\fjuni\ysh_medusa\ysh-store\agents_infra_modules.md
 
  
