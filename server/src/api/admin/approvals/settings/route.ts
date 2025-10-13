@@ -7,8 +7,8 @@ import { ok, err } from "@compat/http/response";
 const Body = z.object({ company_id: z.string().min(1), thresholds: z.any().optional(), escalation: z.any().optional() })
 
 // GET /admin/approvals/settings
-export const GET = async (_req: MedusaRequest, res: MedusaResponse) => {
-  return res.json({ ok: true, data: { settings: [] } });
+export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
+  return ok(req, res, { settings: [] })
 };
 
 // POST /admin/approvals/settings
