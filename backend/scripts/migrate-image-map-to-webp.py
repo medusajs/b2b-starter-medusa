@@ -57,7 +57,9 @@ class ImageMapMigrator:
         Retorna (path_webp, is_better) onde is_better indica se WebP é menor
         """
         # Extrair nome base do arquivo original
-        original_full_path = self.original_base_dir / original_path.lstrip('/')
+        # Converter path separators para o sistema operacional
+        original_path_normalized = original_path.lstrip('/').replace('/', os.sep)
+        original_full_path = self.original_base_dir / original_path_normalized
         if not original_full_path.exists():
             return None, False
         
