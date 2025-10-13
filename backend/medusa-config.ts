@@ -1,44 +1,72 @@
-// Módulos B2B customizados - constantes definidas inline para evitar imports circulares
-const UNIFIED_CATALOG_MODULE = "unifiedCatalog";
-const COMPANY_MODULE = "company";
+import { defineConfig, loadEnv } from "@medusajs/framework/utils";
 
-import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
-
+// Carrega .env conforme NODE_ENV (ex.: .env, .env.development)
 loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
 export default defineConfig({
   projectConfig: {
-    databaseUrl: process.env.DATABASE_URL,
+    // Banco de dados (PostgreSQL via URL completa)
+    databaseUrl: process.env.DATABASE_URL!,
+
+    // Redis (opcional)
     redisUrl: process.env.REDIS_URL,
+
+    // HTTP + CORS
     http: {
-      host: "0.0.0.0",
-      port: 9000,
+      host: process.env.HOST || "0.0.0.0",
+      port: Number(process.env.PORT || 9000),
+
+      // CORS — no dev, aceite o frontend local
       storeCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
       adminCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
       authCors: process.env.MEDUSA_DEV_URL || "http://localhost:8000",
-      jwtSecret: process.env.JWT_SECRET,
-      cookieSecret: process.env.COOKIE_SECRET,
+
+      // Segredos
+      jwtSecret: process.env.JWT_SECRET || "supersecret",
+      cookieSecret: process.env.COOKIE_SECRET || "supersecret"
     },
   },
+
+  // Admin app embutido
+  admin: {
+    path: "/app",
+  },
+
+  // Módulos - Core Medusa + Custom B2B
   modules: {
-    [Modules.PRODUCT]: true,
-    [Modules.PRICING]: true,
-    [Modules.SALES_CHANNEL]: true,
-    [Modules.CART]: true,
-    [Modules.ORDER]: true,
-    [Modules.INVENTORY]: true,
-    [Modules.STOCK_LOCATION]: true,
-    [Modules.FULFILLMENT]: true,
-    [Modules.PAYMENT]: true,
-    [Modules.TAX]: true,
-    [Modules.REGION]: true,
+    // Core Medusa modules
+    "@medusajs/product": true,
+    "@medusajs/pricing": true,
+    "@medusajs/sales-channel": true,
+    "@medusajs/cart": true,
+    "@medusajs/order": true,
+    "@medusajs/inventory": true,
+    "@medusajs/stock-location": true,
+    "@medusajs/fulfillment": true,
+    "@medusajs/payment": true,
+    "@medusajs/tax": true,
+    "@medusajs/region": true,
 
     // Infraestrutura - desenvolvimento
-    [Modules.CACHE]: {
+    "@medusajs/cache": {
       resolve: "@medusajs/medusa/cache-inmemory",
     },
-    [Modules.WORKFLOW_ENGINE]: {
+    "@medusajs/workflow-engine": {
       resolve: "@medusajs/medusa/workflow-engine-inmemory",
+    },
+
+    // Módulos B2B customizados
+    unifiedCatalog: {
+      resolve: "./src/modules/unified-catalog",
+      definition: {
+        isQueryable: true,
+      },
+    },
+    company: {
+      resolve: "./src/modules/company",
+      definition: {
+        isQueryable: true,
+      },
     },
   },
 });
