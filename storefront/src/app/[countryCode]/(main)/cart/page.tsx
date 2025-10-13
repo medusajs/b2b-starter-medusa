@@ -2,6 +2,7 @@ import { CartProvider } from "@/lib/context/cart-context"
 import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import CartTemplate from "@/modules/cart/templates"
+import { CartStatusDisplay } from "@/components/cart/cart-status-display"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default async function Cart() {
 
   return (
     <CartProvider cart={cart}>
+      <CartStatusDisplay className="mb-4" />
       <CartTemplate customer={customer} />
     </CartProvider>
   )

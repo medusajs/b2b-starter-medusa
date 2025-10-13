@@ -1,34 +1,22 @@
-/**/**
+/**
+ * API Route: /api/catalog/products
+ *
+ * Retorna produtos do catálogo com sistema robusto de fallback
+ *
+ * Query params:
+ * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes, kits, etc.
+ * - limit: número de produtos(default: 50)
+ * - offset: paginação(default: 0)
+ * - distributor: filtrar por distribuidor(FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV)
+ * - search: buscar por nome / SKU / fabricante
+ *
+ * Sistema de Fallback(em cascata):
+ * 1. Backend Medusa(/store/internal - catalog)
+ * 2. Backend Fallback API(/store/fallback / products)
+ * 3. Arquivos JSON locais
+ */
 
- * API Route: /api/catalog / products * API Route: /api/catalog / products
-
-    * Retorna produtos do catálogo com sistema robusto de fallback * Retorna produtos do catálogo unificado
-
-        * * 
-
- * Query params: * Query params:
-
- * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes, kits, etc. * - category: panels, inverters, batteries, structures, cables, accessories, stringboxes
-
-    * - limit: número de produtos(default: 50) * - limit: número de produtos(default: 50)
-
-        * - offset: paginação(default: 0) * - offset: paginação(default: 0)
-
-            * - distributor: filtrar por distribuidor(FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV) * - distributor: filtrar por distribuidor(FOTUS, NEOSOLAR, ODEX, SOLFACIL, FORTLEV)
-
-                * - search: buscar por nome / SKU / fabricante * - search: buscar por nome / SKU / fabricante
-
-                    * */
-
-                    * Sistema de Fallback(em cascata):
-
- * 1. Backend Medusa(/store/internal - catalog)import { NextRequest, NextResponse } from 'next/server'
-
- * 2. Backend Fallback API(/store/fallback / products)import { promises as fs } from 'fs'
-
- * 3. Arquivos JSON locaisimport path from 'path'
-
-    */
+import { NextRequest, NextResponse } from 'next/server'
 
 // Cache em memória com TTL de 1 hora
 
