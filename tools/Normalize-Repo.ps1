@@ -3,96 +3,102 @@
 # Uso: .\tools\Normalize-Repo.ps1 [-WhatIf]
 
 param(
-  [switch]$WhatIf
+    [switch]$WhatIf
 )
 
 $ErrorActionPreference = "Stop"
-$Root    = (Resolve-Path .).Path
-$Server  = Join-Path $Root "server"
-$Client  = Join-Path $Root "client"
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$Root = Split-Path -Parent $ScriptDir
+$Server = Join-Path $Root "server"
+$Client = Join-Path $Root "client"
 
 Write-Host "`n=== YSH Repo Normalizer - Medusa v2 + Next.js 15 ===" -ForegroundColor Cyan
 if ($WhatIf) { Write-Host "[DRY-RUN MODE - Nenhuma alteração será feita]`n" -ForegroundColor Yellow }
 
 function New-Dir {
-  param([string]$Path)
-  if (-not (Test-Path $Path)) {
-    if ($WhatIf) { 
-      Write-Host "[DRY] Criar diretório: $Path" -ForegroundColor Yellow 
-    } else { 
-      Write-Host "[CREATE] Diretório: $Path" -ForegroundColor Green
-      New-Item -ItemType Directory -Force -Path $Path | Out-Null 
+    param([string]$Path)
+    if (-not (Test-Path $Path)) {
+        if ($WhatIf) { 
+            Write-Host "[DRY] Criar diretório: $Path" -ForegroundColor Yellow 
+        }
+        else { 
+            Write-Host "[CREATE] Diretório: $Path" -ForegroundColor Green
+            New-Item -ItemType Directory -Force -Path $Path | Out-Null 
+        }
     }
-  }
 }
 
 function Write-IfAbsent {
-  param([string]$Path, [string]$Content)
-  if (-not (Test-Path $Path)) {
-    if ($WhatIf) { 
-      Write-Host "[DRY] Criar arquivo: $Path" -ForegroundColor Yellow 
-    } else {
-      Write-Host "[CREATE] Arquivo: $Path" -ForegroundColor Green
-      $dir = Split-Path -Parent $Path
-      if ($dir -and -not (Test-Path $dir)) {
-        New-Item -ItemType Directory -Force -Path $dir | Out-Null
-      }
-      Set-Content -Path $Path -Value $Content -Encoding UTF8
+    param([string]$Path, [string]$Content)
+    if (-not (Test-Path $Path)) {
+        if ($WhatIf) { 
+            Write-Host "[DRY] Criar arquivo: $Path" -ForegroundColor Yellow 
+        }
+        else {
+            Write-Host "[CREATE] Arquivo: $Path" -ForegroundColor Green
+            $dir = Split-Path -Parent $Path
+            if ($dir -and -not (Test-Path $dir)) {
+                New-Item -ItemType Directory -Force -Path $dir | Out-Null
+            }
+            Set-Content -Path $Path -Value $Content -Encoding UTF8
+        }
     }
-  } else {
-    Write-Host "[SKIP] Já existe: $Path" -ForegroundColor DarkGray
-  }
+    else {
+        Write-Host "[SKIP] Já existe: $Path" -ForegroundColor DarkGray
+    }
 }
 
 function Patch-Regex {
-  param([string]$Path, [hashtable]$Replacements)
-  if (-not (Test-Path $Path)) { return }
+    param([string]$Path, [hashtable]$Replacements)
+    if (-not (Test-Path $Path)) { return }
   
-  try {
-    $txt = Get-Content -Path $Path -Raw -Encoding UTF8
-    $orig = $txt
-    $changed = $false
+    try {
+        $txt = Get-Content -Path $Path -Raw -Encoding UTF8
+        $orig = $txt
+        $changed = $false
     
-    foreach ($pattern in $Replacements.Keys) {
-      $replacement = $Replacements[$pattern]
-      if ($txt -match $pattern) {
-        $txt = [Regex]::Replace($txt, $pattern, $replacement, [System.Text.RegularExpressions.RegexOptions]::Multiline)
-        $changed = $true
-      }
-    }
+        foreach ($pattern in $Replacements.Keys) {
+            $replacement = $Replacements[$pattern]
+            if ($txt -match $pattern) {
+                $txt = [Regex]::Replace($txt, $pattern, $replacement, [System.Text.RegularExpressions.RegexOptions]::Multiline)
+                $changed = $true
+            }
+        }
     
-    if ($changed) {
-      if ($WhatIf) { 
-        Write-Host "[DRY] Patch imports: $Path" -ForegroundColor Yellow 
-      } else {
-        Write-Host "[PATCH] Imports: $Path" -ForegroundColor Cyan
-        # Backup
-        Copy-Item $Path "$Path.bak" -Force -ErrorAction SilentlyContinue
-        Set-Content -Path $Path -Value $txt -Encoding UTF8
-      }
+        if ($changed) {
+            if ($WhatIf) { 
+                Write-Host "[DRY] Patch imports: $Path" -ForegroundColor Yellow 
+            }
+            else {
+                Write-Host "[PATCH] Imports: $Path" -ForegroundColor Cyan
+                # Backup
+                Copy-Item $Path "$Path.bak" -Force -ErrorAction SilentlyContinue
+                Set-Content -Path $Path -Value $txt -Encoding UTF8
+            }
+        }
     }
-  } catch {
-    Write-Host "[WARN] Erro ao processar $Path : $_" -ForegroundColor Red
-  }
+    catch {
+        Write-Host "[WARN] Erro ao processar $Path : $_" -ForegroundColor Red
+    }
 }
 
 Write-Host "`n--- FASE 1: Estrutura Backend (server/) ---`n" -ForegroundColor Magenta
 
 # 1) Estrutura mínima backend
 $backendDirs = @(
-  "src/admin",
-  "src/api",
-  "src/jobs",
-  "src/links",
-  "src/modules",
-  "src/scripts",
-  "src/subscribers",
-  "src/workflows",
-  "src/compat/http"
+    "src/admin",
+    "src/api",
+    "src/jobs",
+    "src/links",
+    "src/modules",
+    "src/scripts",
+    "src/subscribers",
+    "src/workflows",
+    "src/compat/http"
 )
 
 foreach ($dir in $backendDirs) {
-  New-Dir (Join-Path $Server $dir)
+    New-Dir (Join-Path $Server $dir)
 }
 
 Write-Host "`n--- FASE 2: Arquivos Base Backend ---`n" -ForegroundColor Magenta
@@ -240,16 +246,16 @@ Write-Host "`n--- FASE 3: Normalização de Imports ---`n" -ForegroundColor Mage
 
 # 3) Normalização de imports Medusa v2
 $importReplacements = @{
-  'from\s+"@medusajs/(medusa|framework)"(?!\/)' = 'from "@medusajs/framework/http"'
-  'from\s+"@medusajs/types"' = 'from "@medusajs/framework/types"'
-  'from\s+"@medusajs/workflows-sdk"' = 'from "@medusajs/framework/workflows-sdk"'
-  'from\s+"@medusajs/utils"' = 'from "@medusajs/framework/utils"'
+    'from\s+"@medusajs/(medusa|framework)"(?!\/)' = 'from "@medusajs/framework/http"'
+    'from\s+"@medusajs/types"'                    = 'from "@medusajs/framework/types"'
+    'from\s+"@medusajs/workflows-sdk"'            = 'from "@medusajs/framework/workflows-sdk"'
+    'from\s+"@medusajs/utils"'                    = 'from "@medusajs/framework/utils"'
 }
 
 if (Test-Path (Join-Path $Server "src")) {
-  Get-ChildItem -Path (Join-Path $Server "src") -Recurse -Include *.ts,*.tsx,*.js,*.jsx -File |
+    Get-ChildItem -Path (Join-Path $Server "src") -Recurse -Include *.ts, *.tsx, *.js, *.jsx -File |
     ForEach-Object { 
-      Patch-Regex -Path $_.FullName -Replacements $importReplacements 
+        Patch-Regex -Path $_.FullName -Replacements $importReplacements 
     }
 }
 
@@ -337,11 +343,12 @@ Write-Host "✓ Client App Router configurado" -ForegroundColor Green
 Write-Host "✓ Next.js 15 configs criados" -ForegroundColor Green
 
 if ($WhatIf) {
-  Write-Host "`n[DRY-RUN] Execute sem -WhatIf para aplicar as mudanças" -ForegroundColor Yellow
-} else {
-  Write-Host "`n[OK] Normalização concluída com sucesso!" -ForegroundColor Green
-  Write-Host "`nPróximos passos:" -ForegroundColor Cyan
-  Write-Host "  1. cd server && yarn build" -ForegroundColor White
-  Write-Host "  2. cd client && yarn dev" -ForegroundColor White
-  Write-Host "  3. Testar GET /health e rotas /store com x-publishable-api-key" -ForegroundColor White
+    Write-Host "`n[DRY-RUN] Execute sem -WhatIf para aplicar as mudanças" -ForegroundColor Yellow
+}
+else {
+    Write-Host "`n[OK] Normalização concluída com sucesso!" -ForegroundColor Green
+    Write-Host "`nPróximos passos:" -ForegroundColor Cyan
+    Write-Host "  1. cd server && yarn build" -ForegroundColor White
+    Write-Host "  2. cd client && yarn dev" -ForegroundColor White
+    Write-Host "  3. Testar GET /health e rotas /store com x-publishable-api-key" -ForegroundColor White
 }
