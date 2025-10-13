@@ -1,6 +1,8 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http";
 import { MedusaError } from "@medusajs/framework/utils";
 import BACENFinancingService from "../../../modules/financing/bacen-service"
+import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * POST /api/financing/simulate
@@ -21,8 +23,7 @@ export async function POST(
         }
 
         if (!principal || !periods) {
-            res.status(400).json({
-                error: "Missing required parameters",
+            APIResponse.validationError(res, "Missing required parameters", {
                 required: ["principal", "periods"]
             })
             return
@@ -40,7 +41,8 @@ export async function POST(
             simulation = bacenService.simulateSAC(principal, rate, periods)
         }
 
-        res.json({
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, {
             simulation,
             rate_info: {
                 annual_rate: rate,
@@ -48,8 +50,8 @@ export async function POST(
                 spread_used: annual_rate ? null : spread
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error simulating financing:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to simulate financing")
+        APIResponse.internalError(res, error?.message ?? "Failed to simulate financing")
     }
 }

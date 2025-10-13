@@ -6,9 +6,15 @@ import {
 import { defineMiddlewares } from "@medusajs/medusa";
 import { adminMiddlewares } from "./admin/middlewares";
 import { storeMiddlewares } from "./store/middlewares";
+import { requestIdMiddleware } from "../utils/api-response";
+import { apiVersionMiddleware } from "../utils/api-versioning";
 
 export default defineMiddlewares({
   routes: [
+    {
+      matcher: "*",
+      middlewares: [requestIdMiddleware, apiVersionMiddleware()],
+    },
     ...adminMiddlewares,
     ...storeMiddlewares,
     {

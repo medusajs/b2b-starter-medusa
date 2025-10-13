@@ -417,7 +417,8 @@ export class PVHttpClient {
     /**
      * Utils
      */
-    private sleep(ms: number): Promise<void> {
-        return new Promise((resolve) => setTimeout(resolve, ms));
+    private async sleep(ms: number): Promise<void> {
+        const { sleep } = await import('../__tests__/test-helpers');
+        return sleep(ms);
     }
 }

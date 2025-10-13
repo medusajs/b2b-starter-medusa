@@ -19,24 +19,11 @@ describe("ApprovalModuleService", () => {
     let mockRepository: any;
 
     beforeEach(() => {
-        // Create mock repository with all needed methods (MedusaService uses underscore suffix)
-        mockRepository = {
-            listApprovalRules_: jest.fn(),
-            listAndCountApprovals_: jest.fn(),
-            createApprovalHistories_: jest.fn(),
-            retrieveApproval_: jest.fn(),
-            listApprovalSettingses_: jest.fn()
-        };
-
-        // Create service instance (will use real Medusa service structure)
+        const { createMockApprovalRepository, injectMocksIntoService } = require('./test-harness');
+        
+        mockRepository = createMockApprovalRepository();
         service = new ApprovalModuleService({} as any);
-
-        // Inject mocks directly into service instance (MedusaService methods are generated at runtime)
-        (service as any).listApprovalRules_ = mockRepository.listApprovalRules_;
-        (service as any).listAndCountApprovals_ = mockRepository.listAndCountApprovals_;
-        (service as any).createApprovalHistories_ = mockRepository.createApprovalHistories_;
-        (service as any).retrieveApproval_ = mockRepository.retrieveApproval_;
-        (service as any).listApprovalSettingses_ = mockRepository.listApprovalSettingses_;
+        injectMocksIntoService(service, mockRepository);
     });
 
     describe("Rule Evaluation Matrix", () => {

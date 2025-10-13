@@ -11,18 +11,33 @@ const { initializeDatabase } = require('../scripts/init-test-db');
 loadEnv('test', process.cwd());
 
 // Mock quote module if not available (prevents import errors)
-try {
-    require('../src/modules/quote/service');
-} catch (error) {
-    if (error.code === 'MODULE_NOT_FOUND') {
-        console.log('⚠️  Quote module not found, using stub for tests');
-        // Create minimal stub
-        jest.mock('../src/modules/quote/service', () => ({
-            default: class QuoteModuleService {
-                async list() { return []; }
-                async retrieve() { return null; }
-            }
-        }));
+const QUOTE_MODULE_ENABLED = process.env.ENABLE_QUOTE_MODULE === 'true';
+
+if (!QUOTE_MODULE_ENABLED) {
+    console.log('⚠️  Quote module disabled, using comprehensive stub');
+    
+    jest.mock('../src/modules/quote/service', () => ({
+        default: class QuoteModuleService {
+            async list() { return []; }
+            async retrieve() { return null; }
+            async create() { throw new Error('Quote module disabled'); }
+            async update() { throw new Error('Quote module disabled'); }
+            async delete() { throw new Error('Quote module disabled'); }
+        }
+    }));
+} else {
+    try {
+        require('../src/modules/quote/service');
+    } catch (error) {
+        if (error.code === 'MODULE_NOT_FOUND') {
+            console.log('⚠️  Quote module not found, using stub for tests');
+            jest.mock('../src/modules/quote/service', () => ({
+                default: class QuoteModuleService {
+                    async list() { return []; }
+                    async retrieve() { return null; }
+                }
+            }));
+        }
     }
 }
 
