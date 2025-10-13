@@ -1,4 +1,5 @@
-import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework"
+import type { MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 import { GetTariffsQuerySchema } from "../../../modules/aneel-tariff/validators"
 import { GrupoTarifa, ClasseConsumidor } from "../../../modules/aneel-tariff/types/enums"
 
@@ -17,7 +18,9 @@ export async function GET(
         // Validar query params com Zod
         const validated = GetTariffsQuerySchema.parse(req.query)
 
-        req.log?.info("Consultando tarifa ANEEL", {
+        const logger = (req as any).log
+
+        logger?.info("Consultando tarifa ANEEL", {
             uf: validated.uf,
             grupo: validated.grupo,
             classe: validated.classe,
@@ -40,7 +43,7 @@ export async function GET(
         )
 
         if (!tariff) {
-            req.log?.warn("Tarifa não encontrada", {
+            logger?.warn("Tarifa não encontrada", {
                 uf: validated.uf,
                 grupo: validated.grupo,
             })
@@ -55,7 +58,7 @@ export async function GET(
 
         const responseTime = Date.now() - startTime
 
-        req.log?.info("Tarifa encontrada", {
+        logger?.info("Tarifa encontrada", {
             uf: validated.uf,
             tarifa_kwh: tariff.tarifa_kwh,
             response_time_ms: responseTime,
@@ -68,11 +71,13 @@ export async function GET(
                 cached: false, // Será true quando usar Redis
             }
         })
-    } catch (error) {
+    } catch (error: any) {
         const responseTime = Date.now() - startTime
 
         if (error.name === "ZodError") {
-            req.log?.warn("Validação falhou", {
+            const logger = (req as any).log
+
+            logger?.warn("Validação falhou", {
                 errors: error.errors,
                 response_time_ms: responseTime,
             })
@@ -84,12 +89,14 @@ export async function GET(
             return
         }
 
-        req.log?.error("Erro ao buscar tarifa ANEEL", {
+        const logger = (req as any).log
+
+        logger?.error("Erro ao buscar tarifa ANEEL", {
             error: error.message,
             stack: error.stack,
             response_time_ms: responseTime,
         })
 
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to load ANEEL tariff")
     }
 }

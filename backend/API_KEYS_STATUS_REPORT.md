@@ -90,10 +90,10 @@
 
 ### ⚠️ Pendente (Ação do Usuário)
 
-- [ ] Obter OPENAI_API_KEY em <https://platform.openai.com/api-keys>
+- [x] Obter OPENAI_API_KEY em <https://platform.openai.com/api-keys> ✅ **CONFIGURADO**
 - [ ] Obter QDRANT_API_KEY em <https://cloud.qdrant.io/>
-- [ ] Configurar chaves no .env
-- [ ] Executar yarn validate:api-keys (deve passar)
+- [x] Configurar chaves no .env ✅ **OPENAI_API_KEY CONFIGURADO**
+- [ ] Executar yarn validate:api-keys (deve passar parcialmente)
 - [ ] Popular collections Qdrant
 - [ ] Testar endpoints com curl
 
@@ -223,12 +223,12 @@ $ yarn validate:api-keys
 
 ```properties
 # Configuração atual:
-OPENAI_API_KEY=           # ⚠️ VAZIO - Precisa ser preenchido
-QDRANT_API_KEY=           # ⚠️ VAZIO - Precisa ser preenchido
+OPENAI_API_KEY=sk-proj-...y0A  # ✅ CONFIGURADO (OSS Self-Service)
+QDRANT_API_KEY=                  # ⚠️ VAZIO - Precisa ser preenchido
 QDRANT_URL=http://localhost:6333  # ✅ OK (padrão local)
 ```
 
-**Status**: Estrutura correta, aguardando valores
+**Status**: OpenAI configurado, Qdrant aguardando
 
 #### Script de Validação
 
@@ -398,9 +398,10 @@ curl -X POST http://localhost:9000/store/rag/search \
 - ✅ **Configuração**: Templates prontos
 - ✅ **Validação**: Script funcional
 - ✅ **Segurança**: Implementada em todos os endpoints RAG
-- ⚠️ **Chaves reais**: Aguardando configuração pelo usuário
+- ✅ **OpenAI API Key**: Configurado (OSS Self-Service) ⚡ **NOVO**
+- ⚠️ **Qdrant API Key**: Aguardando configuração
 - ⚠️ **Collections**: Aguardando script de seeding
-- ⚠️ **Testes E2E**: Aguardando chaves reais
+- ⚠️ **Testes E2E**: Aguardando Qdrant e collections
 
 ### Tempo Estimado para Conclusão Completa
 
@@ -418,11 +419,12 @@ curl -X POST http://localhost:9000/store/rag/search \
 - [x] Templates de configuração atualizados
 - [x] Script de validação funcional
 - [x] Segurança implementada em endpoints RAG
-- [ ] Chaves reais configuradas
+- [x] OpenAI API Key configurado ⚡ **NOVO**
+- [ ] Qdrant API Key configurado
 - [ ] Collections Qdrant populadas
 - [ ] Testes E2E passando
 
-**Progresso**: 4/7 (57% completo)
+**Progresso**: 5/8 (62.5% completo)
 
 ---
 

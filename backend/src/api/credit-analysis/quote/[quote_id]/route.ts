@@ -4,6 +4,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 
 export async function GET(
     req: MedusaRequest,
@@ -27,6 +28,6 @@ export async function GET(
         })
     } catch (error: any) {
         console.error("Error listing credit analyses:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to list credit analyses")
     }
 }

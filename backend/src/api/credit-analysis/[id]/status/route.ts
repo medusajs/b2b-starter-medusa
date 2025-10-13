@@ -4,6 +4,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 
 export async function PATCH(
     req: MedusaRequest,
@@ -73,7 +74,7 @@ export async function PATCH(
         })
     } catch (error: any) {
         console.error("Error updating credit analysis status:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to update credit analysis status")
     }
 }
 

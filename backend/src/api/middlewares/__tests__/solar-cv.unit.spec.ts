@@ -22,6 +22,7 @@ describe("Solar CV Middlewares", () => {
     };
     mockRes = {
       setHeader: jest.fn(),
+      getHeader: jest.fn().mockReturnValue("req-test-123"),
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
       end: jest.fn(),

@@ -4,6 +4,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 import CreditAnalysisService from "../../modules/credit-analysis/service"
 import type { CreditAnalysisInput } from "../../modules/credit-analysis/service"
 
@@ -82,6 +83,6 @@ export async function GET(
         })
     } catch (error: any) {
         console.error("Error fetching credit analysis:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch credit analysis")
     }
 }

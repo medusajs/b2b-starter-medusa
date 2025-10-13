@@ -4,6 +4,7 @@
  */
 
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaError } from "@medusajs/framework/utils"
 import CreditAnalysisService from "../../../../modules/credit-analysis/service"
 
 export async function POST(
@@ -70,7 +71,7 @@ export async function POST(
         })
     } catch (error: any) {
         console.error("Error analyzing credit:", error)
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message)
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to analyze credit")
     }
 }
 
