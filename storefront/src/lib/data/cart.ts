@@ -117,7 +117,7 @@ export async function getOrSetCart(countryCode: string) {
   }
 
   if (cart && (cart as any)?.region_id !== region.id) {
-    await sdk.store.cart.update(cart.id, { region_id: region.id }, {}, headers)
+    await sdk.store.cart.update((cart as any).id, { region_id: region.id }, {}, headers)
     const cartCacheTag = await getCacheTag("carts")
     revalidateTag(cartCacheTag)
   }
@@ -174,7 +174,7 @@ export async function addToCart({
   await retryWithBackoff(async () => {
     return sdk.store.cart
       .createLineItem(
-        cart.id,
+        (cart as any).id,
         {
           variant_id: variantId,
           quantity,
@@ -216,7 +216,7 @@ export async function addToCartBulk({
 
   await retryWithBackoff(async () => {
     return fetch(
-      `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${cart.id}/line-items/bulk`,
+      `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/carts/${(cart as any).id}/line-items/bulk`,
       {
         method: "POST",
         headers,

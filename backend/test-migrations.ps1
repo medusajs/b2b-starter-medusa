@@ -1,18 +1,21 @@
-#!/usr/bin/env pwsh
-# Script de Teste Rápido - Migrações Automáticas
-# Executa assim que Docker Desktop estiver funcionando
+# ============================================================
+# Script de teste para validar implementacao de migracoes
+# ============================================================
 
-Write-Host "`n╔════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║  TESTE DE MIGRAÇÕES AUTOMÁTICAS - QUICK TEST     ║" -ForegroundColor Cyan
-Write-Host "╚════════════════════════════════════════════════════╝`n" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "=====================================================" -ForegroundColor Cyan
+Write-Host " TESTE DE MIGRACOES AUTOMATICAS - QUICK TEST       " -ForegroundColor Cyan
+Write-Host "=====================================================" -ForegroundColor Cyan
+Write-Host ""
 
-# Verificar se Docker está rodando
+# Verificar se Docker esta rodando
 Write-Host "1. Verificando Docker..." -ForegroundColor Yellow
 try {
     $dockerVersion = docker version --format '{{.Server.Version}}' 2>$null
     if ($LASTEXITCODE -ne 0) {
         Write-Host "   [ERRO] Docker nao esta rodando!" -ForegroundColor Red
-        Write-Host "   [DICA] Inicie Docker Desktop e execute este script novamente.`n" -ForegroundColor Yellow
+        Write-Host "   [DICA] Inicie Docker Desktop e execute este script novamente." -ForegroundColor Yellow
+        Write-Host ""
         exit 1
     }
     Write-Host "   [OK] Docker versao: $dockerVersion" -ForegroundColor Green
@@ -23,7 +26,8 @@ catch {
 }
 
 # Build da imagem de teste
-Write-Host "`n2. Building imagem de teste..." -ForegroundColor Yellow
+Write-Host ""
+Write-Host "2. Building imagem de teste..." -ForegroundColor Yellow
 Write-Host "   [BUILD] docker build -t ysh-backend:quick-test -f Dockerfile ." -ForegroundColor Gray
 
 $buildOutput = docker build -t ysh-backend:quick-test -f Dockerfile . 2>&1
@@ -34,8 +38,9 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "   [OK] Build completado com sucesso" -ForegroundColor Green
 
-# Teste 1: Verificar que entrypoint está no container
-Write-Host "`n3. Verificando entrypoint.sh no container..." -ForegroundColor Yellow
+# Teste 1: Verificar que entrypoint esta no container
+Write-Host ""
+Write-Host "3. Verificando entrypoint.sh no container..." -ForegroundColor Yellow
 $entrypointCheck = docker run --rm ysh-backend:quick-test ls -la /app/entrypoint.sh 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host "   [ERRO] entrypoint.sh nao encontrado no container!" -ForegroundColor Red
@@ -44,8 +49,9 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "   [OK] entrypoint.sh encontrado e executavel" -ForegroundColor Green
 
-# Teste 2: Executar entrypoint com SKIP_MIGRATIONS (teste rápido sem DB)
-Write-Host "`n4. Testando entrypoint.sh com flag SKIP_MIGRATIONS..." -ForegroundColor Yellow
+# Teste 2: Executar entrypoint com SKIP_MIGRATIONS (teste rapido sem DB)
+Write-Host ""
+Write-Host "4. Testando entrypoint.sh com flag SKIP_MIGRATIONS..." -ForegroundColor Yellow
 $entrypointTest = docker run --rm `
     -e SKIP_MIGRATIONS="true" `
     ysh-backend:quick-test `
@@ -60,7 +66,8 @@ else {
 }
 
 # Teste 3: Verificar que tenta conectar com database (esperado falhar)
-Write-Host "`n5. Testando tentativa de conexão com database..." -ForegroundColor Yellow
+Write-Host ""
+Write-Host "5. Testando tentativa de conexao com database..." -ForegroundColor Yellow
 Write-Host "   (Timeout esperado em ~10s)" -ForegroundColor Gray
 
 $dbTest = docker run --rm `
@@ -81,9 +88,10 @@ else {
 }
 
 # Resumo
-Write-Host "`n╔════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║  RESUMO DO TESTE                                  ║" -ForegroundColor Cyan
-Write-Host "╚════════════════════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "=====================================================" -ForegroundColor White
+Write-Host " RESUMO DO TESTE                                   " -ForegroundColor White
+Write-Host "=====================================================" -ForegroundColor White
 Write-Host ""
 Write-Host "[OK] Docker funcionando" -ForegroundColor Green
 Write-Host "[OK] Build da imagem completado" -ForegroundColor Green
@@ -91,6 +99,7 @@ Write-Host "[OK] entrypoint.sh presente no container" -ForegroundColor Green
 Write-Host "[OK] entrypoint.sh executavel" -ForegroundColor Green
 Write-Host "[OK] Flag SKIP_MIGRATIONS funciona" -ForegroundColor Green
 Write-Host "[OK] Tentativa de conexao com DB implementada" -ForegroundColor Green
+Write-Host ""
 Write-Host ""
 Write-Host "PROXIMO PASSO:" -ForegroundColor Yellow
 Write-Host "   Testar com DATABASE_URL real:" -ForegroundColor White
