@@ -1,4 +1,11 @@
 const { tailwindYelloColors } = require("./src/lib/design-system/colors")
+// Try to load tokens exported by the local UI package. If not available, fall back to empty.
+let uiTokens = {};
+try {
+  uiTokens = require('./packages/ui/src/theme/tokens.json');
+} catch (err) {
+  uiTokens = {};
+}
 const path = require("path")
 const uiPath = path.resolve(
   require.resolve("@medusajs/ui"),
@@ -36,6 +43,10 @@ module.exports = {
       },
       colors: {
         ...tailwindYelloColors,
+        // Merge UI package color tokens as `brand` if present
+        ...(uiTokens.color && uiTokens.color.brand ? { brand: uiTokens.color.brand } : {}),
+        // Expose semantic text colors from tokens if present
+        ...(uiTokens.color && uiTokens.color.text ? { text: uiTokens.color.text } : {}),
         ysh: {
           start: "var(--ysh-start)",
           end: "var(--ysh-end)",
@@ -52,6 +63,18 @@ module.exports = {
           to: { height: 0 },
         },
       },
+      // Map UI package spacing tokens under `ui-*` keys to avoid clashing with Tailwind defaults
+      ...(uiTokens.spacing
+        ? Object.fromEntries(Object.entries(uiTokens.spacing).map(([k, v]) => [`ui-${k}`, v]))
+        : {}),
+      // Map UI font tokens into theme fontFamily (if provided)
+      ...(uiTokens.font
+        ? {
+            fontFamily: {
+              ui: uiTokens.font.body ? uiTokens.font.body.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')) : undefined,
+            },
+          }
+        : {}),
       animation: {
         "accordion-open": "accordion-open 0.3s ease-out",
         "accordion-close": "accordion-close 0.3s ease-out",
