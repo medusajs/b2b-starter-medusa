@@ -7,10 +7,10 @@
 | Componente | Status | Detalhes |
 |------------|--------|----------|
 | **Backend Server** | ✅ Online | Port 9000, health check OK |
-| **Admin UI** | ✅ Acessível | http://localhost:9000/app |
+| **Admin UI** | ✅ Acessível | <http://localhost:9000/app> |
 | **Database** | ✅ Conectado | PostgreSQL `medusa-backend` |
 | **Migrações** | ✅ Aplicadas | 113 tabelas core + módulos B2B |
-| **User Admin** | ✅ Criado | admin@ysh.com / admin123 |
+| **User Admin** | ✅ Criado | <admin@ysh.com> / admin123 |
 | **Sales Channels** | ✅ Configurados | 4 canais disponíveis |
 | **Store** | ✅ Inicializada | "Medusa Store" |
 
@@ -30,6 +30,7 @@
 ### Database: `medusa-backend`
 
 #### Sales Channels (4 configurados)
+
 ```sql
 SELECT id, name, description, is_disabled FROM sales_channel;
 ```
@@ -42,6 +43,7 @@ SELECT id, name, description, is_disabled FROM sales_channel;
 | `sc_01K7E1CXTN3F62PMHHQ3ZWFHE5` | YSH-Marketplace | - | ✅ Ativo |
 
 #### Store Configuration
+
 ```sql
 SELECT id, name, default_sales_channel_id FROM store;
 ```
@@ -51,6 +53,7 @@ SELECT id, name, default_sales_channel_id FROM store;
 | `store_01K7E1AYEK1XY7R4A6RXDWYGEW` | Medusa Store | `sc_01K7E1AYE8Y36B57RR5GHXY2CX` |
 
 #### Publishable API Keys ❌
+
 ```sql
 SELECT id, token, type, created_at FROM api_key 
 WHERE type = 'publishable' 
@@ -66,6 +69,7 @@ ORDER BY created_at DESC;
 ### Diagnóstico
 
 **Erro nos logs:**
+
 ```
 info: A valid publishable key is required to proceed with the request
 http: GET /store/products_enhanced?handle=kit-solar-5kw&limit=1 ⚡ - (400) - 9.866 ms
@@ -74,6 +78,7 @@ info: Publishable API key required in the request header: x-publishable-api-key.
 ```
 
 **Consulta ao banco:**
+
 ```sql
 -- Tabela api_key existe mas está vazia
 SELECT COUNT(*) FROM api_key WHERE type = 'publishable';
@@ -83,6 +88,7 @@ SELECT COUNT(*) FROM api_key WHERE type = 'publishable';
 ### Impacto
 
 🔴 **BLOQUEIO TOTAL das Store APIs:**
+
 - ❌ `/store/products` → 400 Bad Request
 - ❌ `/store/products_enhanced` → 400 Bad Request
 - ❌ `/store/cart` → 400 Bad Request
@@ -100,6 +106,7 @@ O seed script não criou publishable keys automaticamente. A key antiga usada no
 ### Opção A: Via Admin UI (Recomendado - 5 min)
 
 #### 1. Acessar Admin
+
 ```
 URL: http://localhost:9000/app
 Login: admin@ysh.com
@@ -107,6 +114,7 @@ Password: admin123
 ```
 
 #### 2. Navegar para API Keys
+
 ```
 Sidebar → Settings (⚙️)
 → API Key Management
@@ -115,6 +123,7 @@ Sidebar → Settings (⚙️)
 ```
 
 #### 3. Criar Nova Key
+
 ```
 Form:
 - Title: "Store Frontend Key"
@@ -125,6 +134,7 @@ Click "Save"
 ```
 
 #### 4. Copiar Key Gerada
+
 ```
 Format: pk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Length: ~64 caracteres
@@ -132,6 +142,7 @@ Prefix: pk_
 ```
 
 #### 5. Configurar no Storefront
+
 ```bash
 # storefront/.env
 NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_xxxxxxxx...
@@ -184,7 +195,7 @@ INSERT INTO publishable_api_key_sales_channel (
 
 - [x] Backend rodando (`docker ps | grep ysh-b2b-backend`)
 - [x] Database acessível (`docker exec ysh-b2b-postgres psql -U postgres -d medusa-backend -c "\dt"`)
-- [x] Admin acessível (http://localhost:9000/app)
+- [x] Admin acessível (<http://localhost:9000/app>)
 - [x] User admin criado (`admin@ysh.com`)
 - [x] Sales channels existem (4 canais)
 - [x] Store configurada (`Medusa Store`)
@@ -196,10 +207,12 @@ INSERT INTO publishable_api_key_sales_channel (
 - [ ] Key configurada em `storefront/.env`
 - [ ] Storefront reiniciado
 - [ ] Testar endpoint:
+
   ```powershell
   $headers = @{"x-publishable-api-key" = "pk_NOVA_KEY"}
   Invoke-RestMethod -Uri "http://localhost:9000/store/products?limit=1" -Headers $headers
   ```
+
 - [ ] PDP carregando sem erro 500
 - [ ] Imagens do Internal Catalog aparecendo
 
@@ -208,6 +221,7 @@ INSERT INTO publishable_api_key_sales_channel (
 ## 🔧 Configuração Atual do Backend
 
 ### Environment Variables (de `.env`)
+
 ```bash
 # CORS
 STORE_CORS=http://localhost:8000,http://localhost:3000
@@ -227,12 +241,14 @@ REDIS_URL=redis://ysh-b2b-redis:6379
 ### Módulos Registrados (`medusa-config.ts`)
 
 **Core Modules:**
+
 - ✅ Product, Pricing, Sales Channel
 - ✅ Cart, Order, Inventory
 - ✅ Stock Location, Fulfillment
 - ✅ Payment, Tax, Region
 
 **Custom Modules:**
+
 - ✅ `ysh-pricing` - Multi-distributor pricing
 - ✅ `unified-catalog` - Catalog aggregation
 - ✅ `company` - B2B companies
@@ -240,6 +256,7 @@ REDIS_URL=redis://ysh-b2b-redis:6379
 - ✅ `approval` - Purchase approvals
 
 **Infrastructure:**
+
 - ✅ Event Bus: Local (dev)
 - ✅ File Service: Local (`uploads/`)
 - ✅ Notification: Local
@@ -253,6 +270,7 @@ REDIS_URL=redis://ysh-b2b-redis:6379
 ### 1. Vite Permission Error (P2 - Cosmético)
 
 **Erro:**
+
 ```
 Error: EACCES: permission denied, mkdir '/app/node_modules/.vite/deps_temp_...'
 ```
@@ -262,6 +280,7 @@ Error: EACCES: permission denied, mkdir '/app/node_modules/.vite/deps_temp_...'
 **Causa:** Container Docker rodando com user sem permissões em `node_modules/.vite/`.
 
 **Solução:**
+
 ```dockerfile
 # Em Dockerfile
 RUN chown -R node:node /app/node_modules
@@ -275,6 +294,7 @@ Ou ignorar (não crítico para produção onde admin é pré-built).
 ### 2. Tax Provider Warning (P2 - Funcional)
 
 **Warning:**
+
 ```
 warn: Failed to load currencies, skipping loader. 
       Original error: relation "public.tax_provider" does not exist
@@ -285,6 +305,7 @@ warn: Failed to load currencies, skipping loader.
 **Impacto:** Warnings nos logs, mas tax calculation funciona via Medusa defaults.
 
 **Solução:**
+
 ```sql
 -- Seed tax provider
 INSERT INTO tax_provider (id, is_enabled) 
@@ -298,12 +319,14 @@ Ou aguardar seed script corrigido.
 ### 3. Seed Script Falhando (P1 - Parcial)
 
 **Erro:**
+
 ```
 error: Cannot read properties of undefined (reading 'createStockLocations')
 TypeError at createStockLocations workflow step
 ```
 
-**Impacto:** 
+**Impacto:**
+
 - ✅ Regions criadas
 - ✅ Tax regions criadas
 - ❌ Stock locations NÃO criadas
@@ -321,7 +344,7 @@ TypeError at createStockLocations workflow step
 ### P0 - Bloqueador (Fazer AGORA - 5 min)
 
 1. **Criar Publishable Key via Admin UI**
-   - Acessar http://localhost:9000/app
+   - Acessar <http://localhost:9000/app>
    - Settings → API Key Management → Create
    - Copiar key gerada
 
@@ -331,7 +354,7 @@ TypeError at createStockLocations workflow step
 
 3. **Validar**
    - Testar `/store/products` com nova key
-   - Acessar PDP: http://localhost:8000/br/products/kit-solar-5kw
+   - Acessar PDP: <http://localhost:8000/br/products/kit-solar-5kw>
    - Confirmar sem erro 500
 
 ### P1 - Importante (Próxima Sessão - 2h)
@@ -374,7 +397,7 @@ TypeError at createStockLocations workflow step
 
 🔴 **Publishable Key Missing** - Bloqueia 100% das Store APIs
 
-### Riscos:
+### Riscos
 
 1. **Alto:** Sem publishable key, storefront não funciona
 2. **Médio:** Seed script precisa de correção para demos
@@ -384,7 +407,7 @@ TypeError at createStockLocations workflow step
 
 ## 📸 Screenshots Esperados no Admin
 
-### Após Login Bem-Sucedido:
+### Após Login Bem-Sucedido
 
 1. **Dashboard**
    - Métricas: Orders, Products, Customers
@@ -411,12 +434,14 @@ TypeError at createStockLocations workflow step
 ## 🧪 Comandos de Teste
 
 ### Verificar Admin Acessível
+
 ```powershell
 Invoke-RestMethod -Uri "http://localhost:9000/health"
 # Expected: "OK"
 ```
 
 ### Testar Login Admin (via API)
+
 ```powershell
 $body = @{
   email = "admin@ysh.com"
@@ -431,6 +456,7 @@ Invoke-RestMethod -Uri "http://localhost:9000/auth/user/emailpass" `
 ```
 
 ### Consultar Sales Channels
+
 ```powershell
 docker exec ysh-b2b-postgres psql -U postgres -d medusa-backend -c `
   "SELECT id, name, is_disabled FROM sales_channel;"
@@ -438,6 +464,7 @@ docker exec ysh-b2b-postgres psql -U postgres -d medusa-backend -c `
 ```
 
 ### Verificar Publishable Keys (antes de criar)
+
 ```powershell
 docker exec ysh-b2b-postgres psql -U postgres -d medusa-backend -c `
   "SELECT COUNT(*) FROM api_key WHERE type = 'publishable';"
