@@ -5,8 +5,8 @@
 
 'use client'
 
-import { ProductSKU, ProductModel } from '@/modules/catalog/components/product-identifiers'
-import { CategoryIcon, CategoryBadge, type ProductCategory } from '@/modules/catalog/components/CategoryIcon'
+import { ProductSKU, ProductModel } from '@/modules/discovery/catalog/components/product-identifiers'
+import { CategoryIcon, CategoryBadge, type ProductCategory } from '@/modules/discovery/catalog/components/CategoryIcon'
 
 export default function ComponentTestPage() {
     const categories: ProductCategory[] = [
