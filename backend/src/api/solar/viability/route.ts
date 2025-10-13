@@ -3,6 +3,7 @@ import { MedusaError } from "@medusajs/framework/utils"
 import ViabilityCalculatorService from "../../../modules/solar/services/viability"
 import { RateLimiter } from "../../../utils/rate-limiter"
 import { APIResponse } from "../../../utils/api-response"
+import { APIVersionManager } from "../../../utils/api-versioning"
 
 /**
  * POST /api/solar/viability
@@ -67,32 +68,28 @@ export async function POST(
 
         // Validar inputs obrigatórios
         if (!location || !location.latitude || !location.longitude || !location.uf) {
-            res.status(400).json({
-                error: "Missing required location parameters",
+            APIResponse.error(res, 400, "Missing required location parameters", {
                 required: ["location.latitude", "location.longitude", "location.uf"]
             })
             return
         }
 
         if (!system || !system.inverter_id || !system.panel_id || !system.modules_per_string || !system.strings) {
-            res.status(400).json({
-                error: "Missing required system parameters",
+            APIResponse.error(res, 400, "Missing required system parameters", {
                 required: ["system.inverter_id", "system.panel_id", "system.modules_per_string", "system.strings"]
             })
             return
         }
 
         if (!financial || !financial.investment || !financial.periods) {
-            res.status(400).json({
-                error: "Missing required financial parameters",
+            APIResponse.error(res, 400, "Missing required financial parameters", {
                 required: ["financial.investment", "financial.periods"]
             })
             return
         }
 
         if (!consumption || !consumption.monthly_kwh) {
-            res.status(400).json({
-                error: "Missing required consumption parameters",
+            APIResponse.error(res, 400, "Missing required consumption parameters", {
                 required: ["consumption.monthly_kwh"]
             })
             return
@@ -109,14 +106,15 @@ export async function POST(
 
         // Retornar resultado
         if (result.success) {
-            res.json(result)
+            res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+            APIResponse.success(res, result)
         } else {
-            throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, "Viability calculation failed")
+            APIResponse.error(res, 500, "Viability calculation failed")
         }
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error calculating viability:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to calculate viability")
+        APIResponse.internalError(res, error?.message ?? "Failed to calculate viability")
     }
 }
 
@@ -161,8 +159,7 @@ export async function GET(
         // Validação básica
         if (!latitude || !longitude || !uf || !inverter_id || !panel_id ||
             !modules_per_string || !strings || !monthly_kwh || !investment || !periods) {
-            res.status(400).json({
-                error: "Missing required query parameters",
+            APIResponse.error(res, 400, "Missing required query parameters", {
                 required: [
                     "latitude", "longitude", "uf", "inverter_id", "panel_id",
                     "modules_per_string", "strings", "monthly_kwh", "investment", "periods"
@@ -205,10 +202,11 @@ export async function GET(
             consumption
         )
 
-        res.json(result)
+        res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION))
+        APIResponse.success(res, result)
 
     } catch (error: any) {
         console.error("Error in quick viability calculation:", error)
-        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to calculate quick viability")
+        APIResponse.internalError(res, error?.message ?? "Failed to calculate quick viability")
     }
 }

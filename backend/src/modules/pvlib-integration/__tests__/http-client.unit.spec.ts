@@ -310,15 +310,21 @@ describe("PVHttpClient", () => {
         });
 
         it("should calculate p95/p99 response times", async () => {
-            fetchMock.mockResolvedValue({
-                ok: true,
-                json: async () => ({ outputs: {} }),
+            // Mock with varying response times
+            let callCount = 0;
+            fetchMock.mockImplementation(async () => {
+                const delay = 10 + (callCount++ * 5); // 10ms, 15ms, 20ms, ...
+                await new Promise(resolve => setTimeout(resolve, delay));
+                return {
+                    ok: true,
+                    json: async () => ({ outputs: {} }),
+                };
             });
 
-            // Make 10 requests
-            for (let i = 0; i < 10; i++) {
+            // Make 20 requests for statistical significance
+            for (let i = 0; i < 20; i++) {
                 await client.fetchData({
-                    latitude: -23.5505,
+                    latitude: -23.5505 + (i * 0.01), // Vary location to avoid cache
                     longitude: -46.6333,
                     data_types: [DataType.IRRADIANCE],
                 });
@@ -327,6 +333,8 @@ describe("PVHttpClient", () => {
             const metrics = client.getMetrics();
             expect(metrics.p95_response_time_ms).toBeGreaterThan(0);
             expect(metrics.p99_response_time_ms).toBeGreaterThan(0);
+            expect(metrics.p99_response_time_ms).toBeGreaterThanOrEqual(metrics.p95_response_time_ms);
+            expect(metrics.total_requests).toBe(20);
         });
     });
 
