@@ -1,105 +1,46 @@
-import { Pool } from "pg";
-
-// Tipos para o catálogo unificado
-export interface Manufacturer {
-    id: string;
-    name: string;
-    slug: string;
-    tier?: string;
-    country?: string;
-    created_at: Date;
-    updated_at: Date;
-}
-
-export interface SKU {
-    id: string;
-    sku_code: string;
-    manufacturer_id: string;
-    manufacturer?: Manufacturer;
-    category: string;
-    model_number: string;
-    description?: string;
-    technical_specs: any;
-    lowest_price?: number;
-    highest_price?: number;
-    avg_price?: number;
-    offers_count?: number;
-    created_at: Date;
-    updated_at: Date;
-}
-
-export interface DistributorOffer {
-    id: string;
-    sku_id: string;
-    distributor_name: string;
-    price: number;
-    stock_status: 'in_stock' | 'out_of_stock' | 'limited' | 'on_order';
-    stock_quantity?: number;
-    lead_time_days?: number;
-    shipping_cost?: number;
-    created_at: Date;
-    updated_at: Date;
-}
-
-export interface Kit {
-    id: string;
-    kit_code: string;
-    name: string;
-    category: string;
-    system_capacity_kwp: number;
-    components: any;
-    kit_price: number;
-    suitable_for?: string;
-    created_at: Date;
-    updated_at: Date;
-}
+import { MedusaService } from "@medusajs/framework/utils";
+import { Manufacturer, SKU, DistributorOffer, Kit } from "./models";
 
 /**
  * UnifiedCatalogModuleService
- * Serviço para gerenciar catálogo unificado de produtos solares via PostgreSQL
+ * Serviço para gerenciar catálogo unificado de produtos solares
  */
-class UnifiedCatalogModuleService {
-    private pool: Pool;
-
-    constructor(container: any, options: any = {}) {
-        // Conectar ao PostgreSQL
-        this.pool = new Pool({
-            host: process.env.POSTGRES_HOST || 'postgres',
-            port: parseInt(process.env.POSTGRES_PORT || '5432'),
-            database: process.env.POSTGRES_DB || 'medusa_db',
-            user: process.env.POSTGRES_USER || 'medusa_user',
-            password: process.env.POSTGRES_PASSWORD || 'medusa_password',
-            max: 20,
-            idleTimeoutMillis: 30000,
-            connectionTimeoutMillis: 2000,
-        });
-    }
-
-    async __onDestroy__() {
-        await this.pool.end();
-    }
+class UnifiedCatalogModuleService extends MedusaService({
+    Manufacturer,
+    SKU,
+    DistributorOffer,
+    Kit,
+}) {
 
     /**
-     * Lista manufacturers
+     * Lista manufacturers com filtros
      */
-    async listManufacturers(filters?: { tier?: string }): Promise<Manufacturer[]> {
-        const client = await this.pool.connect();
-        try {
-            let query = 'SELECT * FROM manufacturer';
-            const params: any[] = [];
+    async listManufacturers(
+        filters: { tier?: string; country?: string; is_active?: boolean } = {},
+        config: { relations?: string[]; skip?: number; take?: number } = {}
+    ) {
+        const where: any = {};
+        
+        if (filters.tier) where.tier = filters.tier;
+        if (filters.country) where.country = filters.country;
+        if (filters.is_active !== undefined) where.is_active = filters.is_active;
 
-            if (filters?.tier) {
-                query += ' WHERE tier = $1';
-                params.push(filters.tier);
-            }
+        return await this.listManufacturers_(where, config);
+    }
+    
+    /**
+     * Lista e conta manufacturers
+     */
+    async listAndCountManufacturers(
+        filters: { tier?: string; country?: string } = {},
+        config: { skip?: number; take?: number } = {}
+    ) {
+        const where: any = { is_active: true };
+        
+        if (filters.tier) where.tier = filters.tier;
+        if (filters.country) where.country = filters.country;
 
-            query += ' ORDER BY name ASC';
-
-            const result = await client.query<Manufacturer>(query, params);
-            return result.rows;
-        } finally {
-            client.release();
-        }
+        return await this.listAndCountManufacturers_(where, config);
     }
 
     /**
