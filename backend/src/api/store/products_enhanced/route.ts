@@ -6,6 +6,7 @@
  */
 
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework";
+import { MedusaError } from "@medusajs/framework/utils";
 import { getInternalCatalogService } from "../internal-catalog/catalog-service";
 import { z } from "zod";
 
@@ -234,6 +235,6 @@ export const GET = async (
             });
         }
 
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch enhanced products");
     }
 };

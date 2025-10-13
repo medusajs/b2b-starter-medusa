@@ -179,6 +179,6 @@ export const GET = async (
         });
     } catch (error: any) {
         console.error("Error fetching products:", error);
-        throw new MedusaError(MedusaError.Types.INTERNAL_ERROR, error.message);
+        throw new MedusaError(MedusaError.Types.UNEXPECTED_STATE, error?.message ?? "Failed to fetch products");
     }
 };
