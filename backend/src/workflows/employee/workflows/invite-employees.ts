@@ -1,47 +1,47 @@
 ﻿import { createStep, createWorkflow, StepResponse, WorkflowResponse } from "@medusajs/workflows-sdk";
 
 type InviteEmployeeInput = {
-  first_name: string;
-  last_name: string;
-  email: string;
-  spending_limit?: number;
-  is_admin?: boolean;
-  company_id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    spending_limit?: number;
+    is_admin?: boolean;
+    company_id: string;
 };
 
 type InviteEmployeeResult = {
-  id: string;
-  customer_id: string;
-  spending_limit: number;
-  is_admin: boolean;
-  company_id: string;
-  created_at: Date;
-  updated_at: Date;
-  first_name: string;
-  last_name: string;
-  email: string;
+    id: string;
+    customer_id: string;
+    spending_limit: number;
+    is_admin: boolean;
+    company_id: string;
+    created_at: Date;
+    updated_at: Date;
+    first_name: string;
+    last_name: string;
+    email: string;
 };
-  customer_id: string;
-  spending_limit: number;
-  is_admin: boolean;
-  company_id: string;
-  created_at: Date;
-  updated_at: Date;
-  first_name: string;
-  last_name: string;
-  email: string;
+customer_id: string;
+spending_limit: number;
+is_admin: boolean;
+company_id: string;
+created_at: Date;
+updated_at: Date;
+first_name: string;
+last_name: string;
+email: string;
 };
 
 export const inviteEmployeesWorkflow = createWorkflow(
-  "invite-employees",
-  function (input: InviteEmployeeInput): WorkflowResponse<InviteEmployeeResult> {
-    // For now, create a placeholder employee
-    // TODO: Implement full customer creation + employee creation
-    const employee = createInviteEmployeeStep(input);
+    "invite-employees",
+    function (input: InviteEmployeeInput): WorkflowResponse<InviteEmployeeResult> {
+        // For now, create a placeholder employee
+        // TODO: Implement full customer creation + employee creation
+        const employee = createInviteEmployeeStep(input);
 
-    return new WorkflowResponse(employee);
-  }
-);const createInviteEmployeeStep = createStep(
+        return new WorkflowResponse(employee);
+    }
+); const createInviteEmployeeStep = createStep(
     "create-invite-employee",
     async (input: InviteEmployeeInput) => {
         // Placeholder implementation
