@@ -1,0 +1,73 @@
+# Prometheus Configuration
+# Metrics collection for YSH Data Pipeline
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'ysh-pipeline-monitor'
+    environment: 'production'
+
+# Alerting configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+# Rule files
+rule_files: []
+
+# Scrape configurations
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+  
+  # Redis metrics (with redis_exporter)
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['ysh-redis-cache:6379']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: redis
+  
+  # PostgreSQL metrics (with postgres_exporter)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['ysh-postgres-db:5432']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: postgres
+  
+  # Ollama service (custom exporter if available)
+  - job_name: 'ollama'
+    static_configs:
+      - targets: ['ysh-ollama-service:11434']
+    metrics_path: '/metrics'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: ollama
+  
+  # Qdrant vector database
+  - job_name: 'qdrant'
+    static_configs:
+      - targets: ['ysh-qdrant-vectordb:6333']
+    metrics_path: '/metrics'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: qdrant
+  
+  # Python application metrics (if using prometheus_client)
+  - job_name: 'pipeline_app'
+    static_configs:
+      - targets: ['host.docker.internal:8000']
+    metrics_path: '/metrics'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: pipeline_app

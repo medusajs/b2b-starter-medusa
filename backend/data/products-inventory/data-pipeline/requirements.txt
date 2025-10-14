@@ -1,0 +1,45 @@
+# YSH Data Pipeline Requirements
+# Python dependencies for Brazilian energy data processing
+
+# Core dependencies
+aiohttp>=3.9.0
+asyncio>=3.4.3
+feedparser>=6.0.10
+python-dateutil>=2.8.2
+
+# Web scraping
+crawlee>=0.3.0
+playwright>=1.40.0
+
+# AI/ML - OpenAI
+openai>=1.0.0
+openai-realtime>=0.1.0  # If available
+
+# AI/ML - Ollama
+ollama>=0.1.0
+
+# PDF Processing
+pdfplumber>=0.10.0
+pypdf>=3.17.0
+pix2tex>=0.1.2  # LaTeX-OCR
+pdf2zh>=0.5.0   # PDFMathTranslate
+
+# Database
+psycopg2-binary>=2.9.9
+redis>=5.0.0
+qdrant-client>=1.7.0
+
+# Data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+
+# Monitoring
+prometheus-client>=0.19.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

@@ -95,7 +95,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-001",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.44kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_002",
@@ -198,7 +206,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-002",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.52kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_003",
@@ -301,7 +317,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-003",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.8kWp - Risen + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_004",
@@ -398,7 +422,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-004",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.8kWp - Risen + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_005",
@@ -501,7 +533,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-005",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.92kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_006",
@@ -598,7 +638,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-006",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.92kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_007",
@@ -690,7 +738,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-007",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.05kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_008",
@@ -787,7 +843,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-008",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.15kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_009",
@@ -879,7 +943,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-009",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.66kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_010",
@@ -977,7 +1049,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-010",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.51kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_011",
@@ -1072,7 +1152,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-011",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.66kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_012",
@@ -1175,7 +1263,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-012",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.65kWp - Byd + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_013",
@@ -1273,7 +1369,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-013",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.51kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_014",
@@ -1368,7 +1472,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-014",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.66kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_015",
@@ -1465,7 +1577,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-015",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.78kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_016",
@@ -1562,7 +1682,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-016",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.78kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_017",
@@ -1660,7 +1788,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-017",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.51kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_018",
@@ -1755,7 +1891,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-018",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.66kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_019",
@@ -1853,7 +1997,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-019",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_020",
@@ -1951,7 +2103,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-020",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_021",
@@ -2046,7 +2206,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-021",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.27kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_022",
@@ -2143,7 +2311,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-022",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_023",
@@ -2240,7 +2416,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-023",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_024",
@@ -2338,7 +2522,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-024",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_025",
@@ -2436,7 +2628,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-025",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.92kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_026",
@@ -2533,7 +2733,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-026",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_027",
@@ -2625,7 +2833,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-027",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.27kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_028",
@@ -2723,7 +2939,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-028",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_029",
@@ -2821,7 +3045,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-029",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_030",
@@ -2916,7 +3148,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-030",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.27kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_031",
@@ -3014,7 +3254,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-031",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.5kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_032",
@@ -3112,7 +3360,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-032",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_033",
@@ -3207,7 +3463,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-033",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.27kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_034",
@@ -3305,7 +3569,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-034",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.41kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_035",
@@ -3402,7 +3674,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-035",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.18kWp - Byd + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_036",
@@ -3500,7 +3780,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-036",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.5kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_037",
@@ -3597,7 +3885,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-037",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.41kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_038",
@@ -3695,7 +3991,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-038",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.41kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_039",
@@ -3793,7 +4097,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-039",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.88kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_040",
@@ -3891,7 +4203,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-040",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.41kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_041",
@@ -3988,7 +4308,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-041",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.8kWp - Risen + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_042",
@@ -4085,7 +4413,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-042",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.2kWp - Risen + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_043",
@@ -4177,7 +4513,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-043",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.88kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_044",
@@ -4274,7 +4618,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-044",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.2kWp - Risen + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_045",
@@ -4371,7 +4723,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-045",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 2.92kWp - LONGi + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_046",
@@ -4463,7 +4823,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-046",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.05kWp - Panel + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_047",
@@ -4561,7 +4929,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-047",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.2kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_048",
@@ -4658,7 +5034,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-048",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.71kWp - Byd + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_049",
@@ -4755,7 +5139,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-049",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.71kWp - Byd + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_050",
@@ -4852,7 +5244,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-050",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.15kWp - LONGi + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_051",
@@ -4950,7 +5350,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-051",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.71kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_052",
@@ -5045,7 +5453,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-052",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.49kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_053",
@@ -5143,7 +5559,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-053",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.71kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_054",
@@ -5241,7 +5665,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-054",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.24kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_055",
@@ -5339,7 +5771,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-055",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.71kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_056",
@@ -5431,7 +5871,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-056",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.49kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_057",
@@ -5526,7 +5974,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-057",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.45kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_058",
@@ -5624,7 +6080,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-058",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.18kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_059",
@@ -5721,7 +6185,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-059",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.24kWp - Byd + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_060",
@@ -5816,7 +6288,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-060",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.45kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_061",
@@ -5914,7 +6394,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-061",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.85kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_062",
@@ -6012,7 +6500,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-062",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.67kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_063",
@@ -6110,7 +6606,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-063",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.24kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_064",
@@ -6208,7 +6712,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-064",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.24kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_065",
@@ -6303,7 +6815,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-065",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.45kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_066",
@@ -6401,7 +6921,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-066",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.09kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_067",
@@ -6498,7 +7026,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-067",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.85kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_068",
@@ -6595,7 +7131,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-068",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.67kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_069",
@@ -6693,7 +7237,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-069",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.41kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_070",
@@ -6788,7 +7340,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-070",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_071",
@@ -6880,7 +7440,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-071",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_072",
@@ -6972,7 +7540,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-072",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Growatt",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_073",
@@ -7070,7 +7646,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-073",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.6kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_074",
@@ -7162,7 +7746,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-074",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_075",
@@ -7260,7 +7852,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-075",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.02kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_076",
@@ -7355,7 +7955,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-076",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.32kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_077",
@@ -7450,7 +8058,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-077",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_078",
@@ -7548,7 +8164,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-078",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.02kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_079",
@@ -7643,7 +8267,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-079",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.32kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_080",
@@ -7740,7 +8372,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-080",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.18kWp - Byd + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_081",
@@ -7835,7 +8475,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-081",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_082",
@@ -7933,7 +8581,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-082",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 6.93kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_083",
@@ -8030,7 +8686,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-083",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.6kWp - Risen + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_084",
@@ -8128,7 +8792,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-084",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 6.93kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_085",
@@ -8225,7 +8897,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-085",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.02kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_086",
@@ -8317,7 +8997,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-086",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.32kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_087",
@@ -8415,7 +9103,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-087",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.02kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_088",
@@ -8510,7 +9206,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-088",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.32kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_089",
@@ -8608,7 +9312,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-089",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.02kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_090",
@@ -8703,7 +9415,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-090",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.32kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_091",
@@ -8798,7 +9518,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-091",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.45kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_092",
@@ -8895,7 +9623,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-092",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 6.93kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_093",
@@ -8993,7 +9729,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-093",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 6.93kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_094",
@@ -9091,7 +9835,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-094",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 6.93kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_095",
@@ -9189,7 +9941,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-095",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.24kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_096",
@@ -9284,7 +10044,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-096",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.54kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_097",
@@ -9379,7 +10147,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-097",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.54kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_098",
@@ -9477,7 +10253,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-098",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.0kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_099",
@@ -9572,7 +10356,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-099",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.54kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_100",
@@ -9667,7 +10459,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-100",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.54kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_101",
@@ -9764,7 +10564,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-101",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.0kWp - Risen + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_102",
@@ -9862,7 +10670,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-102",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.0kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_103",
@@ -9960,7 +10776,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-103",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.83kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_104",
@@ -10052,7 +10876,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-104",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 3.45kWp - Panel + Enphase",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_105",
@@ -10150,7 +10982,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-105",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_106",
@@ -10247,7 +11087,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-106",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.83kWp - Byd + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_107",
@@ -10345,7 +11193,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-107",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_108",
@@ -10443,7 +11299,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-108",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_109",
@@ -10541,7 +11405,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-109",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.78kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_110",
@@ -10639,7 +11511,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-110",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.82kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_111",
@@ -10734,7 +11614,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-111",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 4.03kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_112",
@@ -10832,7 +11720,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-112",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.82kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_113",
@@ -10930,7 +11826,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-113",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.82kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_114",
@@ -11028,7 +11932,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-114",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.82kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_115",
@@ -11126,7 +12038,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-115",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.4kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_116",
@@ -11224,7 +12144,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-116",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.4kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_117",
@@ -11319,7 +12247,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-117",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.75kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_118",
@@ -11411,7 +12347,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-118",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 5.75kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_119",
@@ -11509,7 +12453,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-119",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.42kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_120",
@@ -11607,7 +12559,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-120",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.42kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_121",
@@ -11704,7 +12664,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-121",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.42kWp - Byd + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_122",
@@ -11802,7 +12770,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-122",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.42kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_123",
@@ -11900,7 +12876,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-123",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.42kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_124",
@@ -11995,7 +12979,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-124",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.98kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_125",
@@ -12090,7 +13082,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-125",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.98kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_126",
@@ -12188,7 +13188,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-126",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.71kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_127",
@@ -12286,7 +13294,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-127",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.53kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_128",
@@ -12381,7 +13397,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-128",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.98kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_129",
@@ -12479,7 +13503,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-129",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.71kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_130",
@@ -12577,7 +13609,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-130",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.12kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_131",
@@ -12672,7 +13712,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-131",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.98kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_132",
@@ -12767,7 +13815,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-132",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.59kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_133",
@@ -12862,7 +13918,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-133",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.59kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_134",
@@ -12960,7 +14024,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-134",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.71kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_135",
@@ -13058,7 +14130,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-135",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.48kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_136",
@@ -13156,7 +14236,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-136",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.48kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_137",
@@ -13254,7 +14342,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-137",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.48kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_138",
@@ -13352,7 +14448,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-138",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.71kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_139",
@@ -13450,7 +14554,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-139",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.48kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_140",
@@ -13548,7 +14660,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-140",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.12kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_141",
@@ -13643,7 +14763,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-141",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.59kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_142",
@@ -13741,7 +14869,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-142",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.7kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_143",
@@ -13839,7 +14975,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-143",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.7kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_144",
@@ -13934,7 +15078,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-144",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 12.2kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_145",
@@ -14032,7 +15184,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-145",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.7kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_146",
@@ -14127,7 +15287,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-146",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.47kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_147",
@@ -14225,7 +15393,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-147",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.7kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_148",
@@ -14320,7 +15496,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-148",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.47kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_149",
@@ -14418,7 +15602,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-149",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.97kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_150",
@@ -14510,7 +15702,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-150",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.47kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_151",
@@ -14605,7 +15805,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-151",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.47kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_152",
@@ -14700,7 +15908,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-152",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 7.47kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_153",
@@ -14798,7 +16014,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-153",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.97kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_154",
@@ -14896,7 +16120,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-154",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.97kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_155",
@@ -14994,7 +16226,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-155",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.5kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_156",
@@ -15092,7 +16332,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-156",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.97kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_157",
@@ -15187,7 +16435,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-157",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.42kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_158",
@@ -15285,7 +16541,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-158",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.2kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_159",
@@ -15383,7 +16647,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-159",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.46kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_160",
@@ -15475,7 +16747,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-160",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.42kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_161",
@@ -15573,7 +16853,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-161",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.2kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_162",
@@ -15671,7 +16959,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-162",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.23kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_163",
@@ -15766,7 +17062,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-163",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.64kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_164",
@@ -15864,7 +17168,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-164",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.9kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_165",
@@ -15961,7 +17273,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-165",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.46kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_166",
@@ -16059,7 +17379,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-166",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.9kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_167",
@@ -16154,7 +17482,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-167",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.63kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_168",
@@ -16249,7 +17585,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-168",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.63kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_169",
@@ -16344,7 +17688,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-169",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.63kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_170",
@@ -16441,7 +17793,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-170",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.23kWp - LONGi + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_171",
@@ -16536,7 +17896,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-171",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 8.63kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_172",
@@ -16631,7 +17999,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-172",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.64kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_173",
@@ -16726,7 +18102,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-173",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.64kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_174",
@@ -16821,7 +18205,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-174",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.64kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_175",
@@ -16919,7 +18311,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-175",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.9kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_176",
@@ -17014,7 +18414,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-176",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.64kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_177",
@@ -17112,7 +18520,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-177",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.63kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_178",
@@ -17210,7 +18626,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-178",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.49kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_179",
@@ -17308,7 +18732,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-179",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.63kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_180",
@@ -17406,7 +18838,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-180",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.63kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_181",
@@ -17504,7 +18944,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-181",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.63kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_182",
@@ -17602,7 +19050,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-182",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.63kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_183",
@@ -17700,7 +19156,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-183",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.49kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_184",
@@ -17798,7 +19262,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-184",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.49kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_185",
@@ -17896,7 +19368,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-185",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.49kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_186",
@@ -17994,7 +19474,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-186",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.6kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_187",
@@ -18092,7 +19580,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-187",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.49kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_188",
@@ -18190,7 +19686,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-188",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.13kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_189",
@@ -18288,7 +19792,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-189",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 15.79kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_190",
@@ -18386,7 +19898,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-190",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.13kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_191",
@@ -18483,7 +20003,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-191",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.3kWp - Risen + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_192",
@@ -18581,7 +20109,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-192",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.66kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_193",
@@ -18679,7 +20215,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-193",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 15.75kWp - LONGi + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_194",
@@ -18777,7 +20321,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-194",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.66kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_195",
@@ -18875,7 +20427,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-195",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.0kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_196",
@@ -18973,7 +20533,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-196",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.66kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_197",
@@ -19071,7 +20639,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-197",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.7kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_198",
@@ -19169,7 +20745,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-198",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.7kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_199",
@@ -19267,7 +20851,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-199",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.7kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_200",
@@ -19362,7 +20954,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-200",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.93kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_201",
@@ -19457,7 +21057,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-201",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.93kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_202",
@@ -19555,7 +21163,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-202",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.25kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_203",
@@ -19650,7 +21266,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-203",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.93kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_204",
@@ -19745,7 +21369,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-204",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 10.93kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_205",
@@ -19843,7 +21475,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-205",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 16.1kWp - Risen + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_206",
@@ -19940,7 +21580,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-206",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.25kWp - Byd + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_207",
@@ -20035,7 +21683,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-207",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.5kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_208",
@@ -20130,7 +21786,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-208",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.5kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_209",
@@ -20225,7 +21889,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-209",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 11.5kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_210",
@@ -20323,7 +21995,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-210",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.84kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_211",
@@ -20421,7 +22101,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-211",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.84kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_212",
@@ -20519,7 +22207,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-212",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.84kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_213",
@@ -20617,7 +22313,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-213",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.84kWp - Byd + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_214",
@@ -20712,7 +22416,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-214",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.22kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_215",
@@ -20804,7 +22516,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-215",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 13.22kWp - Panel + Sungrow",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_216",
@@ -20899,7 +22619,15 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-216",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 14.38kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   },
   {
     "id": "fortlev_kit_217",
@@ -20994,6 +22722,14 @@
       }
     ],
     "sku": "FLV-KIT-000KWP-GENERI-217",
-    "sku_generated": true
+    "sku_generated": true,
+    "images": [
+      {
+        "url": "fortlev\\images_downloaded\\NEO-2000_LONGI-630Wp_v2.png",
+        "type": "primary",
+        "alt": "Solar Kit 16.1kWp - Panel + Inverter",
+        "source": "csv_download"
+      }
+    ]
   }
 ]
