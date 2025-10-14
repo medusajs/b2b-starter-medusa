@@ -1,11 +1,11 @@
 import { cva, type VariantProps } from "class-variance-authority"
-import { clx } from "@medusajs/ui"
+import { clx, Input as MedusaInput } from "@medusajs/ui"
 import { forwardRef } from "react"
 import { inputVariants } from "../tokens"
 
 /**
  * Yello Solar Hub Input Component
- * Unified input component with Yello theming
+ * Unified input component using Medusa UI base component
  *
  * Features:
  * - 3 variants (default, filled, flushed)
@@ -20,14 +20,13 @@ import { inputVariants } from "../tokens"
  */
 
 export interface InputProps
-    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+    extends Omit<React.ComponentProps<typeof MedusaInput>, 'size'>,
     VariantProps<typeof inputVariants> { }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ className, variant, size, type, ...props }, ref) => {
+    ({ className, variant, size, ...props }, ref) => {
         return (
-            <input
-                type={type}
+            <MedusaInput
                 className={clx(inputVariants({ variant, size }), className)}
                 ref={ref}
                 {...props}
