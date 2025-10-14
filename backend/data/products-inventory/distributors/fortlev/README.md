@@ -239,4 +239,211 @@ fortlev_{category}_{code}
 - ✅ Preços normalizados
 - ✅ Imagens mapeadas
 - ✅ Manufaturadores identificados
+- ✅ **Kits extraídos (217 combinações painel+inversor)**
+- ✅ **Vision AI configurado (Gemma3 + GPT OSS 20B)**
 - ✅ Pronto para integração Medusa
+
+## 🤖 Vision AI Enhancement
+
+### Kits Fotovoltaicos
+
+Extraídos **217 kits completos** de sistema fotovoltaico com combinações painel + inversor:
+
+**Arquivo**: `fortlev-kits.json`
+
+**Estrutura do Kit**:
+
+```json
+{
+  "id": "kit-longi-growatt-6",
+  "name": "Kit Fotovoltaico 6,50kWp - Longi + Growatt",
+  "system_power_kwp": 6.5,
+  "components": {
+    "panel": {
+      "id": "longi-hi-mo-6-explorer-lr5-72hph-530m",
+      "manufacturer": "Longi",
+      "quantity": 12,
+      "power_w": 530,
+      "total_power_kwp": 6.36,
+      "image": "https://prod-platform-api.s3.amazonaws.com/..."
+    },
+    "inverter": {
+      "id": "growatt-mic-3000tl-x",
+      "manufacturer": "Growatt",
+      "quantity": 1,
+      "power_kw": 3.0,
+      "image": "https://prod-platform-api.s3.amazonaws.com/..."
+    }
+  },
+  "pricing": {
+    "total": 14582.54,
+    "currency": "BRL"
+  }
+}
+```
+
+### Estatísticas dos Kits
+
+**Por Fabricante de Painel**:
+
+- Longi: 80 kits
+- BYD: 37 kits
+- Risen: 27 kits
+- Unknown: 73 kits (requer análise visual)
+
+**Por Fabricante de Inversor**:
+
+- Unknown: 165 kits (requer análise visual)
+- Sungrow: 24 kits
+- Growatt: 22 kits
+- Enphase: 6 kits
+
+**Faixas de Potência**:
+
+- Mínimo: 2,44 kWp
+- Máximo: 16,10 kWp
+- Média: 6,83 kWp
+
+**Faixas de Preço**:
+
+- Mínimo: R$ 2.923,56
+- Máximo: R$ 30.302,25
+- Média: R$ 11.840,25
+
+### Vision AI Pipeline
+
+Para resolver os **238 componentes "Unknown"** (73 painéis + 165 inversores), implementamos processamento com visão computacional:
+
+#### Modelos Utilizados
+
+1. **Gemma3** (Google): Análise visual de componentes
+   - Identificação de fabricante via logotipos
+   - Extração de modelo pela aparência física
+   - Reconhecimento de especificações visuais
+   - Classificação de tecnologia (mono/poli, tipo de inversor)
+
+2. **GPT OSS 20B**: OCR de etiquetas e especificações
+   - Leitura de placas de identificação
+   - Extração de números de modelo
+   - Parsing de especificações técnicas
+   - Validação de potências e voltagens
+
+#### Arquivos de Processamento
+
+- `vision_processor.py` - Processador principal com ambos os modelos
+- `test_vision.py` - Script de teste de conectividade
+- `batch_processor.py` - Processamento em lote com retry e checkpoints
+- `merge_vision_data.py` - Merge de resultados de visão nos dados originais
+- `VISION-SETUP.md` - Guia completo de configuração
+- `QUICKSTART-VISION.md` - Quick start para processamento
+- `requirements.txt` - Dependências Python
+
+#### Workflow de Processamento
+
+```
+1. fortlev-kits.json (217 kits com "Unknown")
+   ↓ 
+2. vision_processor.py / batch_processor.py
+   ├─ Download imagens de S3 (cache/images/)
+   ├─ Análise visual com Gemma3
+   ├─ OCR com GPT OSS 20B
+   └─ Gerar fortlev-kits-enhanced.json
+   ↓
+3. merge_vision_data.py
+   └─ fortlev-kits-final.json (fabricantes identificados)
+   └─ vision-stats.json (estatísticas)
+```
+
+#### Dados Extraídos pela Visão
+
+**Para Painéis**:
+
+- Fabricante (LONGi, Canadian Solar, JA Solar, etc.)
+- Modelo exato (LR5-72HPH-530M, CS6R-400MS, etc.)
+- Potência nominal (Watts)
+- Tecnologia (monocrystalline, polycrystalline, TopCon)
+- Configuração de células (72-cell, 144 half-cut, etc.)
+- Eficiência
+- Dimensões físicas
+
+**Para Inversores**:
+
+- Fabricante (Growatt, Sungrow, Fronius, etc.)
+- Modelo exato (MIC-3000TL-X, SG5K-D, etc.)
+- Potência nominal (kW)
+- Tipo (grid-tie, hybrid, microinverter)
+- Voltagem (220V, 380V)
+- Número de MPPT trackers
+- Eficiência máxima
+- Corrente DC máxima
+
+#### Como Usar
+
+**Teste de Conectividade**:
+
+```bash
+cd products-inventory/distributors/fortlev
+pip install -r requirements.txt
+python test_vision.py
+```
+
+**Processamento Completo**:
+
+```bash
+# Processar todos os 217 kits (~36-87 minutos)
+python batch_processor.py
+
+# Merge resultados
+python merge_vision_data.py
+```
+
+**Ver Resultados**:
+
+```bash
+# Estatísticas de identificação
+cat vision-stats.json
+
+# Kits finais com manufacturers resolvidos
+cat fortlev-kits-final.json
+```
+
+#### Melhoria Esperada
+
+Resolução de **238 componentes "Unknown"**:
+
+- Painéis: ~65-70 dos 73 identificados (~95%)
+- Inversores: ~150-160 dos 165 identificados (~95%)
+- **Total**: ~215-230 componentes identificados via Vision AI
+
+Dados remanescentes "Unknown" podem ser:
+
+- Componentes sem imagem disponível
+- Imagens de baixa qualidade
+- Logotipos obscuros ou removidos
+- Produtos OEM/genéricos sem marca
+
+### Integração Medusa
+
+Os kits processados podem ser integrados no Medusa como:
+
+1. **Product Bundles**: Kits pré-configurados com desconto
+2. **Inventory Items**: Componentes individuais rastreados
+3. **Sales Channel**: Ofertas B2B para integradores
+4. **Pricing**: Pricing dinâmico baseado em configuração
+
+**Metadata dos Kits**:
+
+```typescript
+{
+  handle: "kit-fotovoltaico-6.5kwp-longi-growatt",
+  collection: "solar-kits",
+  tags: ["fotovoltaico", "residencial", "longi", "growatt"],
+  metadata: {
+    system_power_kwp: 6.5,
+    panel_manufacturer: "Longi",
+    inverter_manufacturer: "Growatt",
+    components_count: 13,
+    installation_type: "residencial"
+  }
+}
+```
