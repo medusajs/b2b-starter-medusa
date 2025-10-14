@@ -197,6 +197,21 @@ class SchemaEnricher:
         with open(self.products_path, 'r', encoding='utf-8') as f:
             self.products = json.load(f)
         
+        # Normaliza preços: converte 'price' string para 'price_brl' float
+        for product in self.products:
+            if 'price_brl' not in product or product['price_brl'] == 0:
+                # Tenta converter do campo 'price' se existir
+                price_str = product.get('price', '')
+                if isinstance(price_str, str):
+                    # Remove "R$", espaços, e converte vírgula em ponto
+                    clean_price = price_str.replace('R$', '').replace(' ', '').replace(',', '.').strip()
+                    try:
+                        product['price_brl'] = float(clean_price)
+                    except (ValueError, AttributeError):
+                        product['price_brl'] = 0.0
+                else:
+                    product['price_brl'] = 0.0
+        
         print(f"  ✅ {len(self.products):,} produtos carregados")
     
     def analyze_prices(self, product: Dict[str, Any]) -> PriceAnalysis:
@@ -586,18 +601,30 @@ class SchemaEnricher:
         print("\n🤖 Enriquecendo produtos com análise LLM...\n")
         
         total = len(self.products)
+        skipped = 0
         
         for i, product in enumerate(self.products, 1):
             if i % 1000 == 0:
                 print(f"  Processado: {i:,}/{total:,} ({i/total*100:.1f}%)")
+            
+            # Skip products with invalid data
+            if not product.get('manufacturer') or product.get('manufacturer') == 'Unknown':
+                skipped += 1
+                continue
+            
+            if not product.get('price_brl') or product.get('price_brl') <= 0:
+                skipped += 1
+                continue
             
             try:
                 enriched = self.enrich_product(product)
                 self.enriched_products.append(enriched)
             except Exception as e:
                 print(f"  ⚠️ Erro ao enriquecer {product.get('id')}: {e}")
+                skipped += 1
         
         print(f"\n  ✅ {len(self.enriched_products):,} produtos enriquecidos")
+        print(f"  ⚠️ {skipped:,} produtos ignorados (dados inválidos)")
     
     def export_enriched_schemas(self, output_dir: str) -> None:
         """Exporta schemas enriquecidos"""

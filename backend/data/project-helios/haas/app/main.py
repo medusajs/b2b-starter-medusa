@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from app.config import settings
-from app.routers import distributors, auth, webhooks
+from app.routers import distributors, auth, webhooks, inmetro
 
 # Configure logging
 settings.setup_logging()
@@ -80,6 +80,11 @@ app.include_router(
     webhooks.router,
     prefix="/webhooks",
     tags=["Webhooks"]
+)
+app.include_router(
+    inmetro.router,
+    prefix="/api",
+    tags=["INMETRO"]
 )
 
 

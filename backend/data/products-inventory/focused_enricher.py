@@ -98,7 +98,7 @@ Extraia especificações técnicas em JSON:
                     "stream": False,
                     "options": {"temperature": 0.1, "num_ctx": 1024}
                 },
-                timeout=45
+                timeout=60  # Aumentado de 45s para 60s
             )
             
             if response.status_code == 200:
@@ -138,7 +138,7 @@ Analise certificações brasileiras em JSON:
                     "stream": False,
                     "options": {"temperature": 0.1, "num_ctx": 1024}
                 },
-                timeout=45
+                timeout=60  # Aumentado de 45s para 60s
             )
             
             if response.status_code == 200:
@@ -177,7 +177,7 @@ Estime garantia e vida útil em JSON:
                     "stream": False,
                     "options": {"temperature": 0.1, "num_ctx": 1024}
                 },
-                timeout=45
+                timeout=60  # Aumentado de 45s para 60s
             )
             
             if response.status_code == 200:
@@ -217,7 +217,7 @@ Avalie o distribuidor no mercado solar brasileiro:
                     "stream": False,
                     "options": {"temperature": 0.1, "num_ctx": 1024}
                 },
-                timeout=45
+                timeout=60  # Aumentado de 45s para 60s
             )
             
             if response.status_code == 200:
@@ -365,6 +365,22 @@ Avalie o distribuidor no mercado solar brasileiro:
                 self.stats["errors"] += 1
             
             self.stats["processed"] += 1
+            
+            # 💾 CHECKPOINT: Salvar a cada 5 produtos
+            if (i + 1) % 5 == 0:
+                checkpoint_file = self.output_path / f"checkpoint_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+                checkpoint_catalog = catalog.copy()
+                checkpoint_catalog["products"] = enriched_products
+                checkpoint_catalog["metadata"]["checkpoint"] = {
+                    "saved_at": datetime.now().isoformat(),
+                    "processed": self.stats["processed"],
+                    "enriched": self.stats["enriched"],
+                    "errors": self.stats["errors"]
+                }
+                with open(checkpoint_file, 'w', encoding='utf-8') as f:
+                    json.dump(checkpoint_catalog, f, indent=2, ensure_ascii=False)
+                print(f"💾 Checkpoint salvo: {checkpoint_file.name}")
+            
             print()
         
         # Salvar resultado

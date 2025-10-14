@@ -24,6 +24,12 @@ def find_latest_inventory():
         print("❌ No complete-inventory directory found!")
         return None
     
+    # First try filtered file (preferred - has only valid products)
+    filtered_file = inventory_dir / "valid_products_filtered.json"
+    if filtered_file.exists():
+        print("📂 Using filtered valid products")
+        return filtered_file
+    
     json_files = list(inventory_dir.glob("complete_products_*.json"))
     
     if not json_files:
