@@ -29,7 +29,7 @@ Successfully normalized **217 solar kit titles** for optimal semantic search per
 
 ### File Outputs
 
-```
+```tsx
 📁 fortlev/
 ├── fortlev-kits-synced.json          # Original synchronized data (217 kits)
 ├── fortlev-kits-normalized.json      # NEW: Normalized for Medusa.js (217 kits)
@@ -62,7 +62,7 @@ Successfully normalized **217 solar kit titles** for optimal semantic search per
 
 ### SKU Format
 
-```
+```tsx
 FLV-{power}KWP-{panel_code}{inverter_code}-{id}
 
 Examples:
@@ -73,7 +73,7 @@ Examples:
 
 ### Handle Format (URL-friendly)
 
-```
+```tsx
 solar-kit-{power}kwp-{panel}-{inverter}
 
 Examples:
