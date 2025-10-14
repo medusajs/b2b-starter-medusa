@@ -114,37 +114,27 @@ class NeoSolarParser:
         parts = [p.strip() for p in description.split('|')]
         
         for part in parts:
+            part_upper = part.upper()
+            
             # Extract quantity and specs
             qty_match = re.search(r'(\d+)x?\s+', part)
             quantity = int(qty_match.group(1)) if qty_match else 1
             
-            # Panel detection (Wp)
-            if 'Wp' in part.upper():
-                power_match = re.search(r'(\d+)\s*Wp', part, re.IGNORECASE)
-                power = int(power_match.group(1)) if power_match else 0
-                
-                # Extract manufacturer
-                remaining = part.split('Wp', 1)[1] if 'Wp' in part else part
-                manufacturer = self.normalize_manufacturer(remaining)
-                
-                panels.append({
-                    "brand": manufacturer,
-                    "power_w": power,
-                    "quantity": quantity,
-                    "description": part.strip()
-                })
-            
-            # Battery detection (Ah)
-            elif 'Ah' in part.upper():
+            # Priority check: avoid false Wp matches in batteries "100Ah/48V"
+            # Check if it's a battery first (Ah + V pattern)
+            if 'AH' in part_upper and 'V' in part_upper:
                 ah_match = re.search(r'(\d+)\s*Ah', part, re.IGNORECASE)
                 capacity = int(ah_match.group(1)) if ah_match else 0
                 
-                voltage_match = re.search(r'(\d+)\s*V', part, re.IGNORECASE)
+                voltage_match = re.search(r'/?\s*(\d+)\s*V', part, re.IGNORECASE)
                 voltage = int(voltage_match.group(1)) if voltage_match else 12
                 
-                tech = "Lítio" if "LÍTIO" in part.upper() else "Chumbo-Ácido"
+                tech = "Lítio" if "LÍTIO" in part_upper or "LITIO" in part_upper else "Chumbo-Ácido"
                 
-                manufacturer = self.normalize_manufacturer(part)
+                # Extract manufacturer (after Ah/V spec)
+                mfg_part = re.sub(r'\d+x?\s+\d+\s*Ah\s*/?\s*\d+\s*V\s*', '', part, flags=re.IGNORECASE)
+                mfg_part = re.sub(r'Lítio\s*', '', mfg_part, flags=re.IGNORECASE)
+                manufacturer = self.normalize_manufacturer(mfg_part)
                 
                 batteries.append({
                     "brand": manufacturer,
@@ -155,20 +145,36 @@ class NeoSolarParser:
                     "description": part.strip()
                 })
             
-            # Inverter/Controller detection (A MPPT/PWM or kW)
-            elif any(x in part.upper() for x in ['MPPT', 'PWM', 'INVERSOR', 'CONTROLADOR']):
+            # Panel detection (Wp with manufacturer after)
+            elif 'WP' in part_upper and not any(x in part_upper for x in ['MPPT', 'PWM', 'CONTROLADOR']):
+                power_match = re.search(r'(\d+)\s*Wp', part, re.IGNORECASE)
+                power = int(power_match.group(1)) if power_match else 0
+                
+                # Extract manufacturer (text after Wp)
+                remaining = re.sub(r'\d+x?\s+\d+\s*Wp\s*', '', part, flags=re.IGNORECASE)
+                manufacturer = self.normalize_manufacturer(remaining)
+                
+                panels.append({
+                    "brand": manufacturer,
+                    "power_w": power,
+                    "quantity": quantity,
+                    "description": part.strip()
+                })
+            
+            # Inverter/Controller detection (MPPT/PWM with A rating)
+            elif any(x in part_upper for x in ['MPPT', 'PWM']):
                 # Check for current rating (charge controllers)
                 current_match = re.search(r'(\d+)\s*A\s+(MPPT|PWM)', part, re.IGNORECASE)
                 if current_match:
                     rating = f"{current_match.group(1)}A"
                     inv_type = current_match.group(2).upper()
                 else:
-                    # Check for power rating (inverters)
-                    kw_match = re.search(r'(\d+\.?\d*)\s*kW', part, re.IGNORECASE)
-                    rating = f"{kw_match.group(1)}kW" if kw_match else "Unknown"
-                    inv_type = "Inversor"
+                    rating = "Unknown"
+                    inv_type = "MPPT" if "MPPT" in part_upper else "PWM"
                 
-                manufacturer = self.normalize_manufacturer(part)
+                # Extract manufacturer
+                mfg_part = re.sub(r'\d+x?\s+\d+\s*A\s+(MPPT|PWM)\s*', '', part, flags=re.IGNORECASE)
+                manufacturer = self.normalize_manufacturer(mfg_part)
                 
                 inverters.append({
                     "brand": manufacturer,
@@ -178,8 +184,24 @@ class NeoSolarParser:
                     "description": part.strip()
                 })
             
+            # Inverter detection (kW rating)
+            elif 'INVERSOR' in part_upper and 'SEM' not in part_upper:
+                # Check for power rating
+                kw_match = re.search(r'(\d+\.?\d*)\s*kW', part, re.IGNORECASE)
+                rating = f"{kw_match.group(1)}kW" if kw_match else "Unknown"
+                
+                manufacturer = self.normalize_manufacturer(part)
+                
+                inverters.append({
+                    "brand": manufacturer,
+                    "rating": rating,
+                    "type": "Inversor",
+                    "quantity": quantity,
+                    "description": part.strip()
+                })
+            
             # Handle "Sem Inversor" case
-            elif "SEM INVERSOR" in part.upper():
+            elif "SEM INVERSOR" in part_upper:
                 inverters.append({
                     "brand": "None",
                     "rating": "0kW",
