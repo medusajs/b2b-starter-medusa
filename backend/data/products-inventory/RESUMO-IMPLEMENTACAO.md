@@ -22,7 +22,7 @@
 
 **Resultados:**
 
-```
+```tsx
 ✅ FortLev: 217 kits processados
 ✅ NeoSolar: 2,601 kits processados  
 ✅ FOTUS: 4 kits processados
@@ -58,7 +58,7 @@
 
 **Status Atual (em execução):**
 
-```
+```tsx
 🔄 FortLev: 197/335 imagens baixadas (58.8%)
 ⏳ NeoSolar: aguardando
 ⏳ FOTUS: aguardando
@@ -100,7 +100,7 @@
 
 ## 📁 ESTRUTURA DE ARQUIVOS CRIADA
 
-```
+```tsx
 backend/data/products-inventory/
 ├── scripts/
 │   ├── generate_skus.py ⭐ NOVO (Geração de SKUs)
