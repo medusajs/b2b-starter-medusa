@@ -1,0 +1,62 @@
+# Dockerfile for development with hot reload
+FROM python:3.11-slim
+
+# Metadados
+LABEL maintainer="YSH B2B Team"
+LABEL version="1.0.0-dev"
+LABEL description="HaaS Platform - Development environment with hot reload"
+
+# Variáveis de ambiente para desenvolvimento
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH="/app" \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    ENVIRONMENT=development
+
+# Instalar dependências do sistema + ferramentas de desenvolvimento
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    libpq-dev \
+    curl \
+    git \
+    vim \
+    htop \
+    && rm -rf /var/lib/apt/lists/*
+
+# Criar usuário para desenvolvimento
+RUN useradd --create-home --shell /bin/bash dev \
+    && mkdir -p /app/logs \
+    && chown -R dev:dev /app
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar requirements
+COPY requirements.txt requirements-dev.txt* ./
+
+# Instalar dependências Python + ferramentas de desenvolvimento
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt \
+    && if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi \
+    && pip install watchdog
+
+# Criar estrutura de diretórios
+RUN mkdir -p logs uploads tmp data
+
+# Ajustar permissões
+RUN chown -R dev:dev /app
+
+# Mudar para usuário de desenvolvimento
+USER dev
+
+# Expor porta
+EXPOSE 8000
+
+# Health check para desenvolvimento
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Comando com hot reload para desenvolvimento
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--log-level", "debug"]

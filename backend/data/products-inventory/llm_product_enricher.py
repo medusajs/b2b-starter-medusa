@@ -161,7 +161,7 @@ RESPONDA APENAS COM JSON VÁLIDO (sem markdown, sem explicações):
             
             print(f"🔄 Enriquecendo: {product.get('title', 'Produto sem título')[:50]}...")
             
-            response = requests.post(
+                response = requests.post(
                 f"{self.base_url}/api/generate",
                 json={
                     "model": self.model,
@@ -170,13 +170,12 @@ RESPONDA APENAS COM JSON VÁLIDO (sem markdown, sem explicações):
                     "options": {
                         "temperature": 0.1,  # Baixa temperatura para consistência
                         "top_k": 10,
-                        "top_p": 0.9
+                        "top_p": 0.9,
+                        "num_ctx": 2048  # Reduzir contexto para acelerar
                     }
                 },
-                timeout=60
-            )
-            
-            if response.status_code != 200:
+                timeout=120
+            )            if response.status_code != 200:
                 print(f"❌ Erro HTTP: {response.status_code}")
                 return None
             
