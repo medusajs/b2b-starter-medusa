@@ -11,7 +11,7 @@
     "containerDefinitions": [
         {
             "name": "migrations",
-            "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b-backend:v1.0.2",
+            "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-backend:v1.0.6",
             "command": [
                 "npm",
                 "run",
