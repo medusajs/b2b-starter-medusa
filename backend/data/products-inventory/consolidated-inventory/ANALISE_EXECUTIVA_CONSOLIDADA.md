@@ -10,7 +10,7 @@
 
 ### Escala do Inventário
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────┐
 │  INVENTÁRIO TOTAL CONSOLIDADO                           │
 ├─────────────────────────────────────────────────────────┤
@@ -49,7 +49,7 @@
 
 **650 Componentes Disponíveis**
 
-```
+```tsx
 Inversores:   59 produtos (R$ 337.521 - média R$ 5.721)
 Acessórios:   493 produtos (R$ 5.144.391 - média R$ 10.435)
 Painéis:      19 produtos (R$ 12.283 - média R$ 646)
@@ -86,7 +86,7 @@ Baterias:     6 produtos (R$ 33.902 - média R$ 5.650)
 
 ### Concentração Geográfica
 
-```
+```tsx
 🇨🇳 China:        12 fabricantes | 5.430 produtos | R$ 10.669.374 (15.8%)
 🇧🇷 Brasil:       4 fabricantes  | 68 produtos    | R$ 378.728 (0.6%)
 🇺🇸 EUA:          1 fabricante   | 20 produtos    | R$ 20.224 (0.0%)
@@ -207,7 +207,7 @@ Baterias:     6 produtos (R$ 33.902 - média R$ 5.650)
 
 ### Distribuição de Valor
 
-```
+```tsx
 Segmento          | Produtos | Valor      | % Total
 ------------------|----------|------------|--------
 Kits Residenciais | 12.000   | R$ 42M     | 62%
@@ -284,7 +284,7 @@ categories = {
 
 ### C. SKU Pattern
 
-```
+```tsx
 Painéis:      MANUFACTURER-POWERw
 Inversores:   MANUFACTURER-POWERkw-VOLTAGEv-PHASES
 Kits:         KIT-POWERkwp-TYPE
