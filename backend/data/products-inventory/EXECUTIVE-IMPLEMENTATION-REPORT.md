@@ -221,7 +221,7 @@ Configurar infraestrutura completa de produção na AWS usando ECS Fargate, RDS 
 
 ### Arquitetura Implantada
 
-```
+```tsx
 Internet → ALB (80/443) → ECS Fargate (Port 8000)
                            ├─→ RDS PostgreSQL (5432)
                            ├─→ ElastiCache Redis (6379)
