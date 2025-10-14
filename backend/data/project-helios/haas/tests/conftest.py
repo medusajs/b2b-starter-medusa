@@ -117,6 +117,17 @@ def test_user_hashed(test_user_data):
     """Test user with hashed password."""
     data = test_user_data.copy()
     data["hashed_password"] = get_password_hash(data["password"])
+
+    # Ensure user exists in auth_service fake DB for auth flows
+    import app.services.auth_service as auth_service
+    auth_service.fake_users_db[data["email"]] = {
+        "id": 999,
+        "email": data["email"],
+        "full_name": data["full_name"],
+        "hashed_password": data["hashed_password"],
+        "role": data["role"],
+        "is_active": data["is_active"],
+    }
     return data
 
 

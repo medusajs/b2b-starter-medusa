@@ -59,66 +59,66 @@ Data: 14 de outubro de 2025
 
 #### **Configuração de Infraestrutura**
 
-6. ✅ `aws/deploy-with-domain.ps1`
+1. ✅ `aws/deploy-with-domain.ps1`
    - Parâmetro `DomainName` padrão: `yellosolarhub.store`
 
-7. ✅ `aws/validate-deployment.ps1`
+2. ✅ `aws/validate-deployment.ps1`
    - Parâmetro `DomainName` padrão: `yellosolarhub.store`
 
-8. ✅ `aws/cloudformation-with-domain.yml`
+3. ✅ `aws/cloudformation-with-domain.yml`
    - Parâmetro `DomainName` default: `yellosolarhub.store`
 
 #### **Documentação**
 
-9. ✅ `aws/POST_DEPLOYMENT_README.md`
+1. ✅ `aws/POST_DEPLOYMENT_README.md`
    - Todos os exemplos de emails atualizados
    - Todos os domínios atualizados
    - URLs de acesso: `https://yellosolarhub.store`, `https://api.yellosolarhub.store`
 
-10. ✅ `aws/DEPLOYMENT_GUIDE_DOMAIN.md`
+2. ✅ `aws/DEPLOYMENT_GUIDE_DOMAIN.md`
     - Prerequisito: `yellosolarhub.store`
     - Exemplos de deployment
     - URLs de output do CloudFormation
     - Link GoDaddy: `https://dcc.godaddy.com/manage/yellosolarhub.store/dns`
 
-11. ✅ `AWS_SSO_GODADDY_DEPLOYMENT.md`
+3. ✅ `AWS_SSO_GODADDY_DEPLOYMENT.md`
     - Todos os domínios `yellosolar.com.br` → `yellosolarhub.store`
     - Exemplos de Route53, ACM certificate
     - Verificação DNS
 
-12. ✅ `aws/DEPLOYMENT_SUMMARY.md`
+4. ✅ `aws/DEPLOYMENT_SUMMARY.md`
     - Todos os domínios atualizados
     - Exemplos de deployment
     - Checklist de verificação
 
-13. ✅ `aws/README.md`
+5. ✅ `aws/README.md`
     - Parâmetro de exemplo: `yellosolarhub.store`
 
-14. ✅ `.github/copilot-instructions.md`
+6. ✅ `.github/copilot-instructions.md`
     - Comando de criação de usuário admin: `fernando@yellosolarhub.com`
     - ID do admin: `admin_ysh`
 
-15. ✅ `README.md` (raiz)
+7. ✅ `README.md` (raiz)
     - Link do site: `https://yellosolarhub.store`
 
 #### **Backend**
 
-16. ✅ `backend/docs/WEBSOCKET_MONITORING.md`
+1. ✅ `backend/docs/WEBSOCKET_MONITORING.md`
     - URLs de produção: `wss://api.yellosolarhub.store`
     - Configuração Nginx
 
-17. ✅ `backend/scripts/normalization-examples.ts`
+2. ✅ `backend/scripts/normalization-examples.ts`
     - `product_url`: `https://yellosolarhub.store/produtos/...`
     - URLs canônicas e sitemaps
 
 #### **Storefront**
 
-18. ✅ `storefront/src/lib/api/CATALOG_API_DOCS.md`
+1. ✅ `storefront/src/lib/api/CATALOG_API_DOCS.md`
     - Contato: `dev@yellosolarhub.com`
 
 #### **Docker**
 
-19. ✅ `docker/docker-compose.free-tier-dev.yml`
+1. ✅ `docker/docker-compose.free-tier-dev.yml`
     - Comando de criação de admin: `fernando@yellosolarhub.com`
     - ID do admin: `admin_ysh`
 
