@@ -1,6 +1,9 @@
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 import uuid
+from sqlalchemy.orm import Session
+from app.database import get_db
+from app.database.models import Distributor as DBDistributor, ConnectionRequest as DBConnectionRequest
 from app.models.distributors import (
     Distributor, ConnectionRequest, ConnectionResponse
 )
@@ -38,25 +41,91 @@ mock_distributors: List[Dict[str, Any]] = [
 ]
 
 
-def get_distributors() -> List[Distributor]:
+# Mock distributor database - replace with real database later
+mock_distributors: List[Dict[str, Any]] = [
+    {
+        "id": 1,
+        "name": "CPFL Energia",
+        "code": "CPFL",
+        "region": "São Paulo",
+        "status": "active",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow(),
+    },
+    {
+        "id": 2,
+        "name": "Enel São Paulo",
+        "code": "ENEL_SP",
+        "region": "São Paulo",
+        "status": "active",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow(),
+    },
+    {
+        "id": 3,
+        "name": "CEMIG",
+        "code": "CEMIG",
+        "region": "Minas Gerais",
+        "status": "active",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow(),
+    }
+]
+
+
+def get_distributors(db: Session) -> List[Distributor]:
     """Get all available distributors."""
-    return [Distributor(**dist) for dist in mock_distributors]
+    db_distributors = db.query(DBDistributor).filter(DBDistributor.status == "active").all()
+    return [Distributor(
+        id=d.id,
+        name=d.name,
+        code=d.code,
+        region=d.region,
+        status=d.status,
+        contact_email=d.contact_email,
+        contact_phone=d.contact_phone,
+        service_area=d.service_area,
+        created_at=d.created_at,
+        updated_at=d.updated_at
+    ) for d in db_distributors]
 
 
-def get_distributor_by_id(distributor_id: int) -> Optional[Distributor]:
+def get_distributor_by_id(db: Session, distributor_id: int) -> Optional[Distributor]:
     """Get distributor by ID."""
-    for dist in mock_distributors:
-        if dist["id"] == distributor_id:
-            return Distributor(**dist)
-    return None
+    db_distributor = db.query(DBDistributor).filter(DBDistributor.id == distributor_id).first()
+    if not db_distributor:
+        return None
+    return Distributor(
+        id=db_distributor.id,
+        name=db_distributor.name,
+        code=db_distributor.code,
+        region=db_distributor.region,
+        status=db_distributor.status,
+        contact_email=db_distributor.contact_email,
+        contact_phone=db_distributor.contact_phone,
+        service_area=db_distributor.service_area,
+        created_at=db_distributor.created_at,
+        updated_at=db_distributor.updated_at
+    )
 
 
-def get_distributor_by_code(code: str) -> Optional[Distributor]:
+def get_distributor_by_code(db: Session, code: str) -> Optional[Distributor]:
     """Get distributor by code."""
-    for dist in mock_distributors:
-        if dist["code"] == code:
-            return Distributor(**dist)
-    return None
+    db_distributor = db.query(DBDistributor).filter(DBDistributor.code == code).first()
+    if not db_distributor:
+        return None
+    return Distributor(
+        id=db_distributor.id,
+        name=db_distributor.name,
+        code=db_distributor.code,
+        region=db_distributor.region,
+        status=db_distributor.status,
+        contact_email=db_distributor.contact_email,
+        contact_phone=db_distributor.contact_phone,
+        service_area=db_distributor.service_area,
+        created_at=db_distributor.created_at,
+        updated_at=db_distributor.updated_at
+    )
 
 
 def submit_connection_request(

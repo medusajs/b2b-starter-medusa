@@ -9,12 +9,14 @@
 ## 📊 Estatísticas do Catálogo Gerado
 
 ### Totais
+
 - **Inventory Items:** 19
 - **Products:** 22
 - **Variants:** 22
 - **Bundles:** 4
 
 ### Por Distribuidor
+
 - **FOTUS:** 4 kits (3 grid-tie + 1 híbrido)
 - **ODEX:** 18 produtos (9 painéis + 9 inversores)
 - **NeoSolar:** 2.601 kits (609 imagens já baixadas)
@@ -25,6 +27,7 @@
 ## 📁 Arquivos Gerados
 
 ### Catálogo Principal
+
 ```
 medusa-catalog/
 ├── complete_catalog_2025-10-14_04-44-35.json  (Catálogo completo)
@@ -33,6 +36,7 @@ medusa-catalog/
 ```
 
 ### Mapeamentos de Imagens
+
 ```
 distributors/
 ├── fortlev/image_mapping.json    (217 kits)
@@ -46,7 +50,9 @@ distributors/
 ## ✅ Implementações Concluídas
 
 ### 1. **TypeScript Types** (`payment-splits-types.ts`)
+
 ✅ Interfaces completas para sistema de pagamento:
+
 - `PaymentMethodCode` - 8 métodos (PIX, Boleto, Crédito 1-21x, Débito)
 - `RecipientType` - 8 tipos de destinatários
 - `CostComponentCode` - 8 componentes de custo
@@ -55,7 +61,9 @@ distributors/
 - `SplitExecutionOutput` - Status de execução
 
 ### 2. **Payment Splits Config** (`PAYMENT_SPLITS_CONFIG.json`)
+
 ✅ Configuração completa de splits de pagamento:
+
 - 8 métodos de pagamento com taxas Asaas
 - 8 componentes de custo com percentuais
 - 5 regiões × 3 cenários = 15 configurações
@@ -63,7 +71,9 @@ distributors/
 - Workflow de integração documentado
 
 ### 3. **Catalog Generator** (`generate_medusa_catalog.py`)
+
 ✅ Gerador automático de catálogo Medusa.js:
+
 - `SKUGenerator` - SKUs padronizados por categoria
 - `HandleGenerator` - URLs SEO-friendly
 - `PriceConverter` - Conversão BRL → centavos
@@ -72,7 +82,9 @@ distributors/
 - Suporte a Inventory Kits pattern
 
 ### 4. **Image Downloader** (`download_images.py`)
+
 ✅ Download automático de imagens:
+
 - 2.822 kits processados
 - 609 imagens já existentes (NeoSolar)
 - Retry logic com backoff exponencial
@@ -83,6 +95,7 @@ distributors/
 ## 🔍 Exemplos de Produtos Gerados
 
 ### Painel Solar
+
 ```json
 {
   "title": "Painel Solar Odex 585W",
@@ -113,6 +126,7 @@ distributors/
 ```
 
 ### Inversor
+
 ```json
 {
   "title": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
@@ -141,6 +155,7 @@ distributors/
 ```
 
 ### Kit Solar (Bundle)
+
 ```json
 {
   "title": "Kit Solar 1.14kWp - Solar N Plus + Microinversor Deye",
@@ -181,6 +196,7 @@ distributors/
 ## 📐 Padrões Implementados
 
 ### SKU Pattern
+
 ```
 Painéis:     MANUFACTURER-POWERw[-TECH]
 Inversores:  MANUFACTURER-POWERkw[-VOLTAGEv][-PHASES]
@@ -193,6 +209,7 @@ Exemplos:
 ```
 
 ### Handle Pattern
+
 ```
 URL-friendly lowercase com hífens
 
@@ -203,6 +220,7 @@ Exemplos:
 ```
 
 ### Categorias Hierárquicas
+
 ```
 cat_paineis
 ├── cat_paineis_monocristalino
@@ -222,6 +240,7 @@ cat_kits
 ```
 
 ### Tags Flat
+
 ```
 Fabricantes: tag_odex, tag_saj, tag_deye
 Especificações: tag_585w, tag_3_0kw, tag_1_14kwp
@@ -253,14 +272,17 @@ Todos os produtos incluem **desconto por quantidade**:
 ## 🎯 Próximos Passos
 
 ### 1. Vision AI Enrichment (Gemma 3)
+
 ```bash
 python unified_vision_ai.py
 ```
+
 - Extrair especificações técnicas das imagens
 - Enriquecer metadata com Vision AI
 - Detectar componentes dos kits automaticamente
 
 ### 2. Importação para Medusa.js
+
 ```typescript
 import { createProductsWorkflow } from "@medusajs/medusa/core-flows"
 
@@ -279,6 +301,7 @@ await createProductsWorkflow(container).run({
 ```
 
 ### 3. Configurar Price Rules
+
 ```typescript
 // Customer Groups
 await createCustomerGroupsWorkflow(container).run({
@@ -306,7 +329,9 @@ await createRegionsWorkflow(container).run({
 ```
 
 ### 4. Implementar Inventory Kits
+
 Para bundles complexos, criar array de componentes:
+
 ```typescript
 {
   "variants": [{
@@ -321,7 +346,9 @@ Para bundles complexos, criar array de componentes:
 ```
 
 ### 5. Busca Semântica
+
 Integrar com sistema de busca semântica existente:
+
 ```bash
 cd semantic/
 node build-index.js
@@ -346,6 +373,7 @@ node search-cli.js "kit solar 5kwp ceramico"
 ## 📚 Documentação de Referência
 
 ### Schemas Criados
+
 - ✅ `payment-splits-types.ts` - Interfaces TypeScript completas
 - ✅ `PAYMENT_SPLITS_CONFIG.json` - Configuração de splits de pagamento
 - ✅ `schemas/README-SCHEMAS.md` - Documentação completa de schemas
@@ -354,6 +382,7 @@ node search-cli.js "kit solar 5kwp ceramico"
 - ✅ `schemas/kits/kits-medusa-schema.json`
 
 ### Documentos de Planejamento
+
 - `YSH-SOLAR-360-SPLITS-STRUCTURE.md` - Estrutura de splits regionais
 - `YSH-IMPLEMENTATION-PLAN.md` - Plano de implementação
 - `YSH-INVENTORY-MASTER.md` - Inventário master
@@ -364,6 +393,7 @@ node search-cli.js "kit solar 5kwp ceramico"
 ## ✅ Validação dos Dados
 
 ### Integridade dos SKUs
+
 ```bash
 # Verificar SKUs únicos
 jq '.products[].variants[].sku' complete_catalog.json | sort | uniq -d
@@ -376,6 +406,7 @@ jq '.products[].variants[].prices[].amount' complete_catalog.json | awk '$1 <= 0
 ```
 
 ### Validação de Schema
+
 ```bash
 npm install -g ajv-cli
 
@@ -388,6 +419,7 @@ ajv validate -s schemas/panels/panels-medusa-schema.json -d medusa-catalog/produ
 ## 🚀 Status Final
 
 ### ✅ Concluído
+
 - [x] Exploração de dados dos distribuidores
 - [x] Download de imagens (609 NeoSolar já existentes)
 - [x] Geração de catálogo Medusa.js (22 produtos)
@@ -399,6 +431,7 @@ ajv validate -s schemas/panels/panels-medusa-schema.json -d medusa-catalog/produ
 - [x] Criação de Bundles (4 kits)
 
 ### ⏭️ Próximo
+
 - [ ] Processar imagens com Vision AI (Gemma 3)
 - [ ] Expandir catálogo com todos os produtos (2.822 kits)
 - [ ] Implementar Inventory Kits pattern completo
@@ -427,6 +460,7 @@ ajv validate -s schemas/panels/panels-medusa-schema.json -d medusa-catalog/produ
 ## 🎉 Conclusão
 
 O catálogo Medusa.js foi **gerado com sucesso** com:
+
 - Padrões de SKU consistentes
 - Pricing estratégico (tiered + desconto por quantidade)
 - Categorização hierárquica completa
