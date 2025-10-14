@@ -312,12 +312,9 @@ def main():
     
     processor = KitProcessor()
     
-    # Process first 5 kits as test
-    print("Starting with 5 kits for testing...")
-    processor.process_all(input_file, output_file, limit=5)
-    
-    # Uncomment to process all kits:
-    # processor.process_all(input_file, output_file)
+    # Process ALL kits
+    print("Processing ALL 217 kits...")
+    processor.process_all(input_file, output_file)
 
 
 if __name__ == "__main__":
