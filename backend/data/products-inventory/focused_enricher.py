@@ -404,8 +404,8 @@ def main():
     enricher = FocusedEnricher()
     
     try:
-        # Processar 8 produtos como teste
-        enricher.process_catalog(max_products=8)
+        # Processar 20 produtos para análise mais ampla
+        enricher.process_catalog(max_products=20)
         
     except KeyboardInterrupt:
         print("\n⏹️ Interrompido pelo usuário")
