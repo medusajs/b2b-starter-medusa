@@ -12,12 +12,14 @@
 PowerShell interpreta `--` dentro de strings como operador unário, causando erro de sintaxe.
 
 **Linhas afetadas:**
+
 - Linha 124: `"Skipping ECS deployment (--SkipECSDeploy)"`
 - Linha 177: `"Skipping database setup (--SkipDatabase)"`
 - Linha 229: `"Skipping monitoring setup (--SkipMonitoring)"`
 - Linha 282: `"Skipping environment configuration (--SkipEnvConfig)"`
 
 **Erro retornado:**
+
 ```
 Expressão ausente após operador unário '--'.
 Token 'SkipECSDeploy' inesperado na expressão ou instrução.
@@ -43,9 +45,11 @@ Write-Warning "Skipping ECS deployment (-SkipECSDeploy)"
 `$error` é uma variável automática readonly do PowerShell que contém o histórico de erros. Não pode ser usada como variável de loop.
 
 **Linha afetada:**
+
 - Linha 320: `foreach ($error in $errors)`
 
 **Erro retornado:**
+
 ```
 The Variable 'error' cannot be assigned since it is a readonly automatic variable 
 that is built into PowerShell, please use a different name.
@@ -71,12 +75,14 @@ foreach ($errorMsg in $errors) {
 ## ✅ Validação
 
 ### Teste de Sintaxe
+
 ```powershell
 Get-Command .\post-deployment.ps1
 # Resultado: ExternalScript post-deployment.ps1 ✓
 ```
 
 ### Script Pronto para Execução
+
 ```powershell
 .\post-deployment.ps1 `
     -Environment production `
@@ -92,6 +98,7 @@ Get-Command .\post-deployment.ps1
 ### Variáveis Automáticas do PowerShell
 
 Variáveis que **NÃO** devem ser usadas como nomes de variáveis:
+
 - `$error` - Histórico de erros
 - `$true`, `$false` - Valores booleanos
 - `$null` - Valor nulo
@@ -103,6 +110,7 @@ Variáveis que **NÃO** devem ser usadas como nomes de variáveis:
 ### Escape de Caracteres Especiais em Strings
 
 No PowerShell, dentro de aspas duplas (`"`):
+
 - Use backtick (`` ` ``) para escapar caracteres especiais: `` `$ ``, `` `" ``, `` `` ` ``
 - Evite `--` no início de parâmetros dentro de strings (pode ser interpretado como operador)
 - Use aspas simples (`'`) quando não precisa de interpolação de variáveis
@@ -116,6 +124,7 @@ No PowerShell, dentro de aspas duplas (`"`):
 ✅ **Pronto para deployment em produção**
 
 ### Arquivos Corrigidos
+
 1. `aws/post-deployment.ps1` - 4 correções de string + 1 correção de variável
 
 ---
