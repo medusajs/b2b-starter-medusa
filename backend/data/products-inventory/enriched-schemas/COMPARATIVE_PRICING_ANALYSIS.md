@@ -119,16 +119,19 @@ Demonstrar a **abstração de distribuidores** e análise comparativa de preços
 ### Por Categoria
 
 #### Painéis Solares
+
 1. **NeoSolar** - 85% melhor preço (R$ 45/painel economia)
 2. **ODEX** - 12% melhor preço (R$ 28/painel)
 3. **FortLev** - 3% melhor preço (R$ 15/painel)
 
 #### Inversores
+
 1. **NeoSolar** - 78% melhor preço (R$ 320/inversor economia)
 2. **ODEX** - 15% melhor preço (R$ 180/inversor)
 3. **FortLev** - 7% melhor preço (R$ 95/inversor)
 
 #### Kits Completos
+
 1. **NeoSolar** - 94% melhor preço (R$ 850/kit economia)
 2. **FOTUS** - 4% melhor preço (R$ 280/kit)
 3. **FortLev** - 2% melhor preço (R$ 120/kit)
@@ -216,6 +219,7 @@ ODEX            | 93       | 18.3%         | Nicho componentes
 ### Para Vendas
 
 1. **Pricing Inteligente** usando scores
+
    ```
    IF price_recommendation == "excellent_deal":
        markup = 25%  # Margem padrão
@@ -240,6 +244,7 @@ ODEX            | 93       | 18.3%         | Nicho componentes
 ### Para Marketing
 
 1. **Messaging por Distribuidor**
+
    ```
    NeoSolar  → "Melhor preço garantido em 72% dos produtos"
    ODEX      → "Especialista em componentes de proteção"
@@ -302,6 +307,7 @@ cd products-inventory
 ### Notificações
 
 Sistema envia alertas quando:
+
 - Novo distribuidor oferece preço 10%+ melhor
 - Produto sai de "Excellent Deal" para "Expensive"
 - Gap de cobertura identificado em categoria
@@ -329,4 +335,4 @@ Sistema envia alertas quando:
 
 **Gerado por:** YSH Solar Schema Enrichment Engine v1.0.0  
 **Próxima Análise:** Semanal (automática)  
-**Contato:** dev@yshsolar.com.br
+**Contato:** <dev@yshsolar.com.br>

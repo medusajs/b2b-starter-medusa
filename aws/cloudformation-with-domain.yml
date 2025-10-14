@@ -1,0 +1,717 @@
+# ==========================================
+# CloudFormation Template - AWS FREE TIER + CUSTOM DOMAIN
+# Medusa.js 2.10.3 B2B E-commerce with GoDaddy Integration
+# ==========================================
+
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "YSH B2B - Medusa 2.10.3 - FREE TIER + Custom Domain (GoDaddy)"
+
+Parameters:
+  Environment:
+    Type: String
+    Default: production
+    AllowedValues: [development, staging, production]
+    Description: Deployment environment
+
+  # Domain Configuration
+  DomainName:
+    Type: String
+    Default: yellosolar.com.br
+    Description: Primary domain name (from GoDaddy)
+    AllowedPattern: ^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]\.[a-z]{2,}$
+
+  HostedZoneId:
+    Type: String
+    Description: Route53 Hosted Zone ID (create before deploying)
+    AllowedPattern: ^Z[A-Z0-9]{12,}$
+
+  CertificateArn:
+    Type: String
+    Description: ACM Certificate ARN for SSL/TLS (us-east-1 region)
+    AllowedPattern: ^arn:aws:acm:[a-z0-9-]+:\d{12}:certificate/[a-f0-9-]{36}$
+
+  # VPC Configuration
+  VpcCIDR:
+    Type: String
+    Default: 10.0.0.0/16
+    Description: CIDR block for VPC
+
+  # Database Configuration
+  DBMasterUsername:
+    Type: String
+    Default: medusa_user
+    NoEcho: true
+    Description: Master username for RDS
+
+  DBMasterPassword:
+    Type: String
+    NoEcho: true
+    MinLength: 8
+    Description: Master password for RDS (min 8 chars)
+
+  # Security Configuration
+  MedusaJWTSecret:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+    Description: JWT secret for Medusa (min 32 chars)
+
+  MedusaCookieSecret:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+    Description: Cookie secret for Medusa (min 32 chars)
+
+  # Optional: Publishable API Key
+  MedusaPublishableKey:
+    Type: String
+    Default: ""
+    Description: Medusa Publishable API Key (optional, can be generated later)
+
+Resources:
+  # ==========================================
+  # VPC & NETWORKING - FREE TIER
+  # ==========================================
+
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-vpc
+        - Key: Environment
+          Value: !Ref Environment
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-igw
+
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+
+  # Public Subnets
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-public-1
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-public-2
+
+  # Private Subnets
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      CidrBlock: 10.0.3.0/24
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-private-1
+
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      CidrBlock: 10.0.4.0/24
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-private-2
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-public-rt
+
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet2
+
+  # ==========================================
+  # APPLICATION LOAD BALANCER with HTTPS
+  # ==========================================
+
+  ALBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub ${Environment}-ysh-alb-sg
+      GroupDescription: Security group for Application Load Balancer
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+          Description: HTTP from internet
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+          Description: HTTPS from internet
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-alb-sg
+
+  ApplicationLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub ${Environment}-ysh-alb
+      Type: application
+      Scheme: internet-facing
+      IpAddressType: ipv4
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      SecurityGroups:
+        - !Ref ALBSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-alb
+        - Key: Domain
+          Value: !Ref DomainName
+
+  # Target Groups
+  BackendTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub ${Environment}-ysh-backend-tg
+      Port: 9000
+      Protocol: HTTP
+      VpcId: !Ref VPC
+      TargetType: ip
+      HealthCheckEnabled: true
+      HealthCheckPath: /health
+      HealthCheckProtocol: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 10
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Matcher:
+        HttpCode: "200"
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-backend-tg
+
+  StorefrontTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub ${Environment}-ysh-storefront-tg
+      Port: 8000
+      Protocol: HTTP
+      VpcId: !Ref VPC
+      TargetType: ip
+      HealthCheckEnabled: true
+      HealthCheckPath: /
+      HealthCheckProtocol: HTTP
+      HealthCheckIntervalSeconds: 30
+      HealthCheckTimeoutSeconds: 10
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Matcher:
+        HttpCode: "200,301,302"
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-storefront-tg
+
+  # HTTPS Listener (Primary)
+  ALBListenerHTTPS:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 443
+      Protocol: HTTPS
+      Certificates:
+        - CertificateArn: !Ref CertificateArn
+      SslPolicy: ELBSecurityPolicy-TLS-1-2-2017-01
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref StorefrontTargetGroup
+
+  # HTTP Listener (Redirect to HTTPS)
+  ALBListenerHTTP:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: redirect
+          RedirectConfig:
+            Protocol: HTTPS
+            Port: "443"
+            StatusCode: HTTP_301
+
+  # HTTPS Listener Rules (Backend API)
+  ALBListenerRuleBackend:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref ALBListenerHTTPS
+      Priority: 10
+      Conditions:
+        - Field: path-pattern
+          Values:
+            - /admin*
+            - /store*
+            - /api*
+            - /health*
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref BackendTargetGroup
+
+  # HTTPS Listener Rules (API Subdomain)
+  ALBListenerRuleAPISubdomain:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      ListenerArn: !Ref ALBListenerHTTPS
+      Priority: 5
+      Conditions:
+        - Field: host-header
+          Values:
+            - !Sub api.${DomainName}
+      Actions:
+        - Type: forward
+          TargetGroupArn: !Ref BackendTargetGroup
+
+  # ==========================================
+  # ROUTE53 DNS RECORDS
+  # ==========================================
+
+  # Root Domain Record
+  Route53RecordSetRoot:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        HostedZoneId: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+        DNSName: !GetAtt ApplicationLoadBalancer.DNSName
+        EvaluateTargetHealth: true
+
+  # WWW Subdomain Record
+  Route53RecordSetWWW:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Sub www.${DomainName}
+      Type: A
+      AliasTarget:
+        HostedZoneId: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+        DNSName: !GetAtt ApplicationLoadBalancer.DNSName
+        EvaluateTargetHealth: true
+
+  # API Subdomain Record
+  Route53RecordSetAPI:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Sub api.${DomainName}
+      Type: A
+      AliasTarget:
+        HostedZoneId: !GetAtt ApplicationLoadBalancer.CanonicalHostedZoneID
+        DNSName: !GetAtt ApplicationLoadBalancer.DNSName
+        EvaluateTargetHealth: true
+
+  # ==========================================
+  # RDS POSTGRESQL - FREE TIER
+  # ==========================================
+
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: !Sub ${Environment} YSH DB Subnet Group
+      SubnetIds:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-db-subnet-group
+
+  DBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub ${Environment}-ysh-db-sg
+      GroupDescription: Security group for PostgreSQL RDS
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref ECSSecurityGroup
+          Description: Allow ECS tasks to access PostgreSQL
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-db-sg
+
+  DBInstance:
+    Type: AWS::RDS::DBInstance
+    DeletionPolicy: Snapshot
+    UpdateReplacePolicy: Snapshot
+    Properties:
+      DBInstanceIdentifier: !Sub ${Environment}-ysh-postgres
+      DBInstanceClass: db.t4g.micro
+      Engine: postgres
+      EngineVersion: "15.7"
+      AllocatedStorage: 20
+      StorageType: gp3
+      StorageEncrypted: true
+      DBName: medusa_db
+      MasterUsername: !Ref DBMasterUsername
+      MasterUserPassword: !Ref DBMasterPassword
+      VPCSecurityGroups:
+        - !Ref DBSecurityGroup
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      PubliclyAccessible: false
+      BackupRetentionPeriod: 7
+      PreferredBackupWindow: "03:00-04:00"
+      PreferredMaintenanceWindow: "sun:04:00-sun:05:00"
+      DeletionProtection: false
+      EnablePerformanceInsights: false
+      MultiAZ: false
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-postgres
+
+  # ==========================================
+  # ELASTICACHE REDIS - FREE TIER
+  # ==========================================
+
+  RedisSubnetGroup:
+    Type: AWS::ElastiCache::SubnetGroup
+    Properties:
+      Description: !Sub ${Environment} YSH Redis Subnet Group
+      SubnetIds:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      CacheSubnetGroupName: !Sub ${Environment}-ysh-redis-subnet-group
+
+  RedisSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub ${Environment}-ysh-redis-sg
+      GroupDescription: Security group for Redis ElastiCache
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 6379
+          ToPort: 6379
+          SourceSecurityGroupId: !Ref ECSSecurityGroup
+          Description: Allow ECS tasks to access Redis
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-redis-sg
+
+  RedisCluster:
+    Type: AWS::ElastiCache::CacheCluster
+    Properties:
+      ClusterName: !Sub ${Environment}-ysh-redis
+      CacheNodeType: cache.t4g.micro
+      Engine: redis
+      EngineVersion: "7.1"
+      NumCacheNodes: 1
+      Port: 6379
+      VpcSecurityGroupIds:
+        - !Ref RedisSecurityGroup
+      CacheSubnetGroupName: !Ref RedisSubnetGroup
+      PreferredMaintenanceWindow: "sun:05:00-sun:06:00"
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-redis
+
+  # ==========================================
+  # S3 BUCKET - FREE TIER
+  # ==========================================
+
+  MediaBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Sub ${Environment}-ysh-media-${AWS::AccountId}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ["*"]
+            AllowedMethods: [GET, PUT, POST, DELETE, HEAD]
+            AllowedOrigins:
+              - !Sub https://${DomainName}
+              - !Sub https://www.${DomainName}
+              - !Sub https://api.${DomainName}
+            MaxAge: 3600
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-media
+        - Key: Domain
+          Value: !Ref DomainName
+
+  # ==========================================
+  # ECS CLUSTER - FREE TIER
+  # ==========================================
+
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub ${Environment}-ysh-cluster
+      CapacityProviders:
+        - FARGATE
+        - FARGATE_SPOT
+      DefaultCapacityProviderStrategy:
+        - CapacityProvider: FARGATE_SPOT
+          Weight: 3
+          Base: 0
+        - CapacityProvider: FARGATE
+          Weight: 1
+          Base: 1
+      ClusterSettings:
+        - Name: containerInsights
+          Value: disabled
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-cluster
+
+  ECSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub ${Environment}-ysh-ecs-sg
+      GroupDescription: Security group for ECS Fargate tasks
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          SourceSecurityGroupId: !Ref ALBSecurityGroup
+          Description: Storefront from ALB
+        - IpProtocol: tcp
+          FromPort: 9000
+          ToPort: 9000
+          SourceSecurityGroupId: !Ref ALBSecurityGroup
+          Description: Backend from ALB
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-ecs-sg
+
+  # ==========================================
+  # IAM ROLES
+  # ==========================================
+
+  ECSTaskExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${Environment}-ysh-ecs-execution-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      Policies:
+        - PolicyName: SecretsManagerAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - secretsmanager:GetSecretValue
+                Resource: !Ref MedusaSecretsManager
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-ecs-execution-role
+
+  ECSTaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${Environment}-ysh-ecs-task-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: S3Access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt MediaBucket.Arn
+                  - !Sub ${MediaBucket.Arn}/*
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-ecs-task-role
+
+  # ==========================================
+  # SECRETS MANAGER
+  # ==========================================
+
+  MedusaSecretsManager:
+    Type: AWS::SecretsManager::Secret
+    Properties:
+      Name: !Sub ${Environment}/ysh/medusa
+      Description: Medusa 2.10.3 secrets (JWT, Cookie, DB)
+      SecretString: !Sub |
+        {
+          "DATABASE_URL": "postgres://${DBMasterUsername}:${DBMasterPassword}@${DBInstance.Endpoint.Address}:5432/medusa_db",
+          "REDIS_URL": "redis://${RedisCluster.RedisEndpoint.Address}:6379",
+          "JWT_SECRET": "${MedusaJWTSecret}",
+          "COOKIE_SECRET": "${MedusaCookieSecret}",
+          "S3_BUCKET": "${MediaBucket}",
+          "AWS_REGION": "${AWS::Region}",
+          "DOMAIN_NAME": "${DomainName}",
+          "STORE_CORS": "https://${DomainName},https://www.${DomainName}",
+          "ADMIN_CORS": "https://${DomainName},https://www.${DomainName},https://api.${DomainName}"
+        }
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-secrets
+        - Key: Domain
+          Value: !Ref DomainName
+
+  # ==========================================
+  # CLOUDWATCH LOGS
+  # ==========================================
+
+  BackendLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/ecs/${Environment}-ysh-backend
+      RetentionInDays: 7
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-backend-logs
+
+  StorefrontLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/ecs/${Environment}-ysh-storefront
+      RetentionInDays: 7
+      Tags:
+        - Key: Name
+          Value: !Sub ${Environment}-ysh-storefront-logs
+
+# ==========================================
+# OUTPUTS
+# ==========================================
+
+Outputs:
+  VPCId:
+    Description: VPC ID
+    Value: !Ref VPC
+    Export:
+      Name: !Sub ${Environment}-ysh-vpc-id
+
+  DatabaseEndpoint:
+    Description: RDS PostgreSQL endpoint
+    Value: !GetAtt DBInstance.Endpoint.Address
+    Export:
+      Name: !Sub ${Environment}-ysh-db-endpoint
+
+  RedisEndpoint:
+    Description: ElastiCache Redis endpoint
+    Value: !GetAtt RedisCluster.RedisEndpoint.Address
+    Export:
+      Name: !Sub ${Environment}-ysh-redis-endpoint
+
+  LoadBalancerDNS:
+    Description: Application Load Balancer DNS
+    Value: !GetAtt ApplicationLoadBalancer.DNSName
+    Export:
+      Name: !Sub ${Environment}-ysh-alb-dns
+
+  LoadBalancerArn:
+    Description: Application Load Balancer ARN
+    Value: !Ref ApplicationLoadBalancer
+    Export:
+      Name: !Sub ${Environment}-ysh-alb-arn
+
+  MediaBucketName:
+    Description: S3 bucket for media files
+    Value: !Ref MediaBucket
+    Export:
+      Name: !Sub ${Environment}-ysh-media-bucket
+
+  ECSClusterName:
+    Description: ECS Cluster name
+    Value: !Ref ECSCluster
+    Export:
+      Name: !Sub ${Environment}-ysh-cluster-name
+
+  SecretsManagerARN:
+    Description: Secrets Manager ARN
+    Value: !Ref MedusaSecretsManager
+    Export:
+      Name: !Sub ${Environment}-ysh-secrets-arn
+
+  DomainURL:
+    Description: Primary domain URL
+    Value: !Sub https://${DomainName}
+
+  APIURL:
+    Description: API subdomain URL
+    Value: !Sub https://api.${DomainName}
+
+  WWWURL:
+    Description: WWW subdomain URL
+    Value: !Sub https://www.${DomainName}

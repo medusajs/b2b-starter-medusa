@@ -376,12 +376,14 @@ graph TB
 ### Semana 1-2: APIs INMETRO (Maior ROI)
 
 **Por que é Quick Win?**
+
 - ✅ Sistema base 100% implementado (`InmetroCrawler`, `InmetroExtractor`, `RecordValidator`)
 - ✅ Apenas precisa expor via REST API
 - ✅ Alto valor percebido pelos clientes
 - ⚡ 5 dias de desenvolvimento
 
 **Endpoints**:
+
 ```python
 POST   /validation/inmetro/equipment      # Reutiliza validate_equipment()
 POST   /validation/inmetro/batch          # Loop sobre validate_equipment()
@@ -393,6 +395,7 @@ GET    /validation/inmetro/models/{mfr}   # Filtro por fabricante
 ### Semana 2-3: Memorial Descritivo (Alta Percepção)
 
 **Por que é Quick Win?**
+
 - 📄 Geração de PDF profissional impacta cliente
 - 🎨 Template HTML/CSS reutilizável
 - 📦 Biblioteca Jinja2 + WeasyPrint (maduras)
@@ -401,6 +404,7 @@ GET    /validation/inmetro/models/{mfr}   # Filtro por fabricante
 ### Semana 3-4: Dashboard Monitoramento
 
 **Por que é Quick Win?**
+
 - 📊 Visibilidade do sistema
 - 🎯 Gestão de projetos
 - 💼 Valor para stakeholders
@@ -447,6 +451,7 @@ GET    /validation/inmetro/models/{mfr}   # Filtro por fabricante
 ## 📈 Projeções
 
 ### Após NOW (4 semanas)
+
 - ✅ 30 endpoints funcionais (73% cobertura)
 - ✅ Validação INMETRO completa
 - ✅ Memorial descritivo automático
@@ -454,12 +459,14 @@ GET    /validation/inmetro/models/{mfr}   # Filtro por fabricante
 - ✅ Base 67 concessionárias
 
 ### Após NEXT (3 meses)
+
 - ✅ Diagramas unifilares NBR 5410
 - ✅ Formulários 3 principais distribuidoras
 - ✅ Conectores web automáticos
 - ✅ 36 endpoints (88% cobertura)
 
 ### Após LATER (6 meses)
+
 - ✅ IA/ML para validação inteligente
 - ✅ Predição de aprovação
 - ✅ 67 distribuidoras cobertas
