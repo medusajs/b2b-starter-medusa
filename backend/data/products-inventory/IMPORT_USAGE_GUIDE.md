@@ -34,7 +34,7 @@ npm run medusa migrations run
 
 ### 3. Arquivos de Entrada
 
-```
+```tsx
 products-inventory/
 ├── enriched-complete/
 │   └── enriched_products_2025-10-14_10-30-42.json  ← Arquivo principal
@@ -230,7 +230,7 @@ curl -X POST http://localhost:9000/admin/products/import \
 
 ### 1. Verificar Produtos no Admin
 
-```
+```tsx
 http://localhost:9000/admin/products
 ```
 
@@ -357,7 +357,7 @@ const validImages = product.images.filter(url => {
 
 ### Importação Bem-Sucedida
 
-```
+```tsx
 ✓ 100-120 produtos importados
 ✓ 10 categorias criadas
 ✓ 50+ tags criadas

@@ -38,7 +38,7 @@ param(
     [switch]$InteractiveMode
 )
 
-# Colors - renamed to avoid conflicts with built-in cmdlets
+# Colors
 function Write-Success { param([string]$Message) Write-Host $Message -ForegroundColor Green }
 function Write-Info { param([string]$Message) Write-Host $Message -ForegroundColor Cyan }
 function Write-Warn { param([string]$Message) Write-Host $Message -ForegroundColor Yellow }
@@ -71,7 +71,7 @@ This script will execute the following steps:
 if ($InteractiveMode) {
     $confirm = Read-Host "Continue with post-deployment setup? (y/n)"
     if ($confirm -ne "y") {
-        Write-Warn -Message "Aborted by user"
+        Write-Warn "Aborted by user"
         exit 0
     }
 }
@@ -85,7 +85,7 @@ $warnings = @()
 # ==========================================
 
 if (-not $SkipECSDeploy) {
-    Write-Step -Message "==========================================
+    Write-Step "==========================================
 STEP 1/4: DEPLOYING ECS TASKS
 =========================================="
     
@@ -105,12 +105,12 @@ STEP 1/4: DEPLOYING ECS TASKS
             throw "ECS deployment failed with exit code $LASTEXITCODE"
         }
         
-        Write-Success -Message "`n✓ ECS tasks deployed successfully"
+        Write-Success "`n✓ ECS tasks deployed successfully"
         
     }
     catch {
         $errorMsg = "ECS deployment failed: $_"
-        Write-Error $errorMsg
+        Write-Err $errorMsg
         $errors += $errorMsg
         
         if ($InteractiveMode) {
@@ -121,12 +121,12 @@ STEP 1/4: DEPLOYING ECS TASKS
     
 }
 else {
-    Write-Warn -Message "Skipping ECS deployment (-SkipECSDeploy)"
+    Write-Warn "Skipping ECS deployment (-SkipECSDeploy)"
 }
 
 # Wait for tasks to stabilize
 if (-not $SkipECSDeploy) {
-    Write-Info -Message "`nWaiting 30 seconds for tasks to stabilize..."
+    Write-Info "`nWaiting 30 seconds for tasks to stabilize..."
     Start-Sleep -Seconds 30
 }
 
@@ -135,7 +135,7 @@ if (-not $SkipECSDeploy) {
 # ==========================================
 
 if (-not $SkipDatabase) {
-    Write-Step -Message "==========================================
+    Write-Step "==========================================
 STEP 2/4: SETTING UP DATABASE
 =========================================="
     
@@ -154,16 +154,16 @@ STEP 2/4: SETTING UP DATABASE
         
         if ($LASTEXITCODE -ne 0) {
             $warnings += "Database setup had warnings. Check logs above."
-            Write-Warn -Message "`n⚠ Database setup completed with warnings"
+            Write-Warn "`n⚠ Database setup completed with warnings"
         }
         else {
-            Write-Success -Message "`n✓ Database setup completed successfully"
+            Write-Success "`n✓ Database setup completed successfully"
         }
         
     }
     catch {
         $errorMsg = "Database setup failed: $_"
-        Write-Error $errorMsg
+        Write-Err $errorMsg
         $errors += $errorMsg
         
         if ($InteractiveMode) {
@@ -174,7 +174,7 @@ STEP 2/4: SETTING UP DATABASE
     
 }
 else {
-    Write-Warn -Message "Skipping database setup (-SkipDatabase)"
+    Write-Warn "Skipping database setup (-SkipDatabase)"
 }
 
 # ==========================================
@@ -182,7 +182,7 @@ else {
 # ==========================================
 
 if (-not $SkipMonitoring) {
-    Write-Step -Message "==========================================
+    Write-Step "==========================================
 STEP 3/4: CONFIGURING MONITORING
 =========================================="
     
@@ -209,13 +209,13 @@ STEP 3/4: CONFIGURING MONITORING
             throw "Monitoring setup failed with exit code $LASTEXITCODE"
         }
         
-        Write-Success -Message "`n✓ Monitoring configured successfully"
-        Write-Warn -Message "⚠ Don't forget to confirm email subscription!"
+        Write-Success "`n✓ Monitoring configured successfully"
+        Write-Warn "⚠ Don't forget to confirm email subscription!"
         
     }
     catch {
         $errorMsg = "Monitoring setup failed: $_"
-        Write-Error $errorMsg
+        Write-Err $errorMsg
         $errors += $errorMsg
         
         if ($InteractiveMode) {
@@ -226,7 +226,7 @@ STEP 3/4: CONFIGURING MONITORING
     
 }
 else {
-    Write-Warn -Message "Skipping monitoring setup (-SkipMonitoring)"
+    Write-Warn "Skipping monitoring setup (-SkipMonitoring)"
 }
 
 # ==========================================
@@ -234,7 +234,7 @@ else {
 # ==========================================
 
 if (-not $SkipEnvConfig) {
-    Write-Step -Message "==========================================
+    Write-Step "==========================================
 STEP 4/4: CONFIGURING ENVIRONMENT
 =========================================="
     
@@ -268,18 +268,18 @@ STEP 4/4: CONFIGURING ENVIRONMENT
             throw "Environment configuration failed with exit code $LASTEXITCODE"
         }
         
-        Write-Success -Message "`n✓ Environment configured successfully"
+        Write-Success "`n✓ Environment configured successfully"
         
     }
     catch {
         $errorMsg = "Environment configuration failed: $_"
-        Write-Error $errorMsg
+        Write-Err $errorMsg
         $errors += $errorMsg
     }
     
 }
 else {
-    Write-Warn -Message "Skipping environment configuration (-SkipEnvConfig)"
+    Write-Warn "Skipping environment configuration (-SkipEnvConfig)"
 }
 
 # ==========================================
@@ -296,9 +296,9 @@ Write-Host "
 ==========================================
 " -ForegroundColor Magenta
 
-Write-Info -Message "Execution time: $($duration.ToString('mm\:ss'))"
-Write-Info -Message "Environment: $Environment"
-Write-Info -Message "Region: $Region"
+Write-Info "Execution time: $($duration.ToString('mm\:ss'))"
+Write-Info "Environment: $Environment"
+Write-Info "Region: $Region"
 
 Write-Host "`n✅ COMPLETED STEPS:" -ForegroundColor Green
 
@@ -349,21 +349,21 @@ try {
 ==========================================
 " -ForegroundColor Cyan
     
-    Write-Info -Message "Storefront:"
+    Write-Info "Storefront:"
     Write-Host "  $($outputs['DomainURL'])" -ForegroundColor White
     
-    Write-Info -Message "`nAdmin Dashboard:"
+    Write-Info "`nAdmin Dashboard:"
     Write-Host "  $($outputs['APIURL'])/app" -ForegroundColor White
     
-    Write-Info -Message "`nAPI Health:"
+    Write-Info "`nAPI Health:"
     Write-Host "  $($outputs['APIURL'])/health" -ForegroundColor White
     
-    Write-Info -Message "`nCloudWatch Dashboard:"
+    Write-Info "`nCloudWatch Dashboard:"
     Write-Host "  https://$Region.console.aws.amazon.com/cloudwatch/home?region=$Region#dashboards:name=$Environment-ysh-monitoring" -ForegroundColor White
     
 }
 catch {
-    Write-Warn -Message "Could not retrieve URLs. Check CloudFormation stack outputs."
+    Write-Warn "Could not retrieve URLs. Check CloudFormation stack outputs."
 }
 
 Write-Host "
@@ -399,4 +399,3 @@ else {
     Write-Host "⚠️  Deployment completed with errors. Review above." -ForegroundColor Yellow
     exit 1
 }
-

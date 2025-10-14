@@ -1,4 +1,4 @@
-# Arquitetura HaaS: Modelo Híbrido SaaS-PaaS
+# Arquitetura HaaS: Modelo Híbrido SaaS
 
 ## Visão Geral
 
@@ -35,7 +35,7 @@ Combina **escalabilidade tecnológica** com **expertise humana gerenciada**.
 
 #### Portal Web do Integrador
 
-```
+```tsx
 Funcionalidades:
 ├── Submissão de Projetos
 │   ├── Upload de documentos (contas de energia, fotos, especificações)
@@ -241,7 +241,9 @@ graph LR
 | Custo HaaS | R$ 0 | R$ 450 | +R$ 450 |
 | **Benefício Líquido por Projeto** | - | - | **R$ 750** |
 
-**ROI para o integrador: 167%**
+### ROI para o integrador
+
+167%
 
 ---
 

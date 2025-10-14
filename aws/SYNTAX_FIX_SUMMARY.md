@@ -20,7 +20,7 @@ PowerShell interpreta `--` dentro de strings como operador unário, causando err
 
 **Erro retornado:**
 
-```
+```tsx
 Expressão ausente após operador unário '--'.
 Token 'SkipECSDeploy' inesperado na expressão ou instrução.
 ')' de fechamento ausente na expressão.
@@ -50,7 +50,7 @@ Write-Warning "Skipping ECS deployment (-SkipECSDeploy)"
 
 **Erro retornado:**
 
-```
+```tsx
 The Variable 'error' cannot be assigned since it is a readonly automatic variable 
 that is built into PowerShell, please use a different name.
 ```
