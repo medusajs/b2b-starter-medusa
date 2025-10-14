@@ -1,0 +1,157 @@
+# ============================================================================
+# Prometheus Alert Rules - YSH Pipeline
+# ============================================================================
+# Version: 1.0.0
+# Purpose: Alert definitions for critical conditions
+# ============================================================================
+
+groups:
+  # ========================================
+  # DATABASE ALERTS
+  # ========================================
+  - name: database_alerts
+    interval: 30s
+    rules:
+      - alert: PostgreSQLDown
+        expr: pg_up == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: postgresql
+        annotations:
+          summary: "PostgreSQL is down"
+          description: "PostgreSQL instance {{ $labels.instance }} is down for more than 1 minute."
+
+      - alert: PostgreSQLHighConnections
+        expr: sum(pg_stat_activity_count) > 180
+        for: 5m
+        labels:
+          severity: warning
+          service: postgresql
+        annotations:
+          summary: "PostgreSQL high connections"
+          description: "PostgreSQL has {{ $value }} active connections (threshold: 180/200)."
+
+      - alert: PostgreSQLSlowQueries
+        expr: rate(pg_stat_statements_mean_exec_time_seconds[5m]) > 1
+        for: 5m
+        labels:
+          severity: warning
+          service: postgresql
+        annotations:
+          summary: "PostgreSQL slow queries detected"
+          description: "Average query execution time is {{ $value }}s (threshold: 1s)."
+
+      - alert: RedisDown
+        expr: redis_up == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: redis
+        annotations:
+          summary: "Redis is down"
+          description: "Redis instance {{ $labels.instance }} is down for more than 1 minute."
+
+      - alert: RedisHighMemory
+        expr: redis_memory_used_bytes / redis_memory_max_bytes > 0.9
+        for: 5m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "Redis high memory usage"
+          description: "Redis memory usage is {{ $value | humanizePercentage }} (threshold: 90%)."
+
+  # ========================================
+  # APPLICATION ALERTS
+  # ========================================
+  - name: application_alerts
+    interval: 30s
+    rules:
+      - alert: APIHighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+          service: ysh-api
+        annotations:
+          summary: "API high error rate"
+          description: "API error rate is {{ $value | humanizePercentage }} (threshold: 5%)."
+
+      - alert: APIHighLatency
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+          service: ysh-api
+        annotations:
+          summary: "API high latency"
+          description: "API p95 latency is {{ $value }}s (threshold: 2s)."
+
+      - alert: AirflowDown
+        expr: up{job="airflow"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          service: airflow
+        annotations:
+          summary: "Airflow is down"
+          description: "Airflow webserver is down for more than 2 minutes."
+
+      - alert: AirflowDAGFailures
+        expr: increase(airflow_dag_run_failed[1h]) > 5
+        for: 5m
+        labels:
+          severity: warning
+          service: airflow
+        annotations:
+          summary: "Airflow DAG failures"
+          description: "{{ $value }} DAG runs failed in the last hour."
+
+  # ========================================
+  # INFRASTRUCTURE ALERTS
+  # ========================================
+  - name: infrastructure_alerts
+    interval: 30s
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: warning
+          service: node
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is {{ $value | humanize }}% (threshold: 80%)."
+
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+          service: node
+        annotations:
+          summary: "High memory usage"
+          description: "Memory usage is {{ $value | humanize }}% (threshold: 85%)."
+
+      - alert: HighDiskUsage
+        expr: (1 - (node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"})) * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+          service: node
+        annotations:
+          summary: "High disk usage"
+          description: "Disk usage is {{ $value | humanize }}% (threshold: 85%)."
+
+      - alert: ContainerDown
+        expr: time() - container_last_seen{name!~"POD"} > 60
+        for: 2m
+        labels:
+          severity: critical
+          service: docker
+        annotations:
+          summary: "Container down"
+          description: "Container {{ $labels.name }} has been down for more than 1 minute."
+# END OF ALERT RULES
+# ============================================================================

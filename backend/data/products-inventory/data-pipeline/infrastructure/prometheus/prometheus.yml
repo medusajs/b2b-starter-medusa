@@ -1,0 +1,116 @@
+# ============================================================================
+# Prometheus Configuration - YSH Pipeline Monitoring
+# ============================================================================
+# Version: 1.0.0
+# Purpose: Metrics collection from all services
+# ============================================================================
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: "ysh-pipeline"
+    environment: "local"
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
+
+# Load rules once and periodically evaluate them
+rule_files:
+  - "/etc/prometheus/alerts.yml"
+
+# Scrape configurations
+scrape_configs:
+  # ========================================
+  # Prometheus self-monitoring
+  # ========================================
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          service: "prometheus"
+
+  # ========================================
+  # PostgreSQL metrics
+  # ========================================
+  - job_name: "postgres"
+    static_configs:
+      - targets: ["postgres-exporter:9187"]
+        labels:
+          service: "postgresql"
+          database: "ysh_pipeline"
+
+  # ========================================
+  # Redis metrics
+  # ========================================
+  - job_name: "redis"
+    static_configs:
+      - targets: ["redis-exporter:9121"]
+        labels:
+          service: "redis"
+          cache: "main"
+
+  # ========================================
+  # Container metrics (cAdvisor)
+  # ========================================
+  - job_name: "cadvisor"
+    static_configs:
+      - targets: ["cadvisor:8080"]
+        labels:
+          service: "cadvisor"
+
+  # ========================================
+  # Node/Host metrics
+  # ========================================
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
+        labels:
+          service: "node-exporter"
+
+  # ========================================
+  # Airflow metrics
+  # ========================================
+  - job_name: "airflow"
+    metrics_path: "/admin/metrics/"
+    static_configs:
+      - targets: ["airflow-webserver:8080"]
+        labels:
+          service: "airflow"
+
+  # ========================================
+  # YSH API metrics
+  # ========================================
+  - job_name: "ysh-api"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["ysh-api:8888"]
+        labels:
+          service: "ysh-api"
+          component: "api"
+
+  # ========================================
+  # MinIO metrics
+  # ========================================
+  - job_name: "minio"
+    metrics_path: "/minio/v2/metrics/cluster"
+    scheme: http
+    static_configs:
+      - targets: ["minio:9000"]
+        labels:
+          service: "minio"
+
+  # ========================================
+  # Qdrant metrics
+  # ========================================
+  - job_name: "qdrant"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["qdrant:6333"]
+        labels:
+          service: "qdrant"
+# END OF CONFIGURATION
+# ============================================================================
