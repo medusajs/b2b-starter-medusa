@@ -132,15 +132,15 @@ def test_user_hashed(test_user_data):
 
 
 @pytest.fixture(scope="function")
-def access_token(test_user_data):
+def access_token(test_user_hashed):
     """Create valid access token."""
-    return create_access_token(data={"sub": test_user_data["email"]})
+    return create_access_token(data={"sub": test_user_hashed["email"]})
 
 
 @pytest.fixture(scope="function")
-def refresh_token(test_user_data):
+def refresh_token(test_user_hashed):
     """Create valid refresh token."""
-    return create_refresh_token(data={"sub": test_user_data["email"]})
+    return create_refresh_token(data={"sub": test_user_hashed["email"]})
 
 
 @pytest.fixture(scope="function")
