@@ -49,30 +49,17 @@ export async function middleware(request: NextRequest) {
   const isDev = process.env.NODE_ENV === 'development'
   const pathname = request.nextUrl.pathname
 
-  // Check if path already has country code
-  const hasCountryCode = pathname.match(/^\/(br|us|es|pt|mx)(\/|$)/i)
+  // Check if path starts with country code
+  const countryCodeMatch = pathname.match(/^\/(br|us|es|pt|mx)(\/.*)?$/i)
 
-  // If no country code in path and not just country code alone, add it
-  if (!hasCountryCode && pathname !== '/' && !pathname.match(/^\/(br|us|es|pt|mx)$/i)) {
+  // If no country code, redirect to add it
+  if (!countryCodeMatch) {
     const defaultCountry = isDev ? 'br' : 'br' // In prod, could use request.geo?.country
-
-    // Preserve UTM params and query string in redirect
     const url = request.nextUrl.clone()
-    url.pathname = `/${defaultCountry}${pathname}`
+    url.pathname = `/${defaultCountry}${pathname === '/' ? '' : pathname}`
 
     return NextResponse.redirect(url)
-  }
-
-  // If pathname is just root or just country code, redirect to country homepage
-  if (pathname === '/' || pathname.match(/^\/(br|us|es|pt|mx)$/i)) {
-    const country = pathname === '/' ? (isDev ? 'br' : 'br') : pathname.slice(1)
-    const url = request.nextUrl.clone()
-    url.pathname = `/${country}/`
-
-    return NextResponse.redirect(url)
-  }
-
-  // 4. Legacy SEO redirects with UTM preservation
+  }  // 4. Legacy SEO redirects with UTM preservation
   if (pathname === '/products' || pathname === '/br/products') {
     const url = request.nextUrl.clone()
     url.pathname = '/br/store'
