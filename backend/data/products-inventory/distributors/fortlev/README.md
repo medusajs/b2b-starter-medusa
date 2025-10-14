@@ -447,3 +447,46 @@ Os kits processados podem ser integrados no Medusa como:
   }
 }
 ```
+
+## 🎯 Title Normalization & Semantic Search (NEW)
+
+### Status: ✅ COMPLETE (Oct 13, 2025)
+
+Successfully normalized all **217 solar kit titles** for optimal semantic search with Gemma3 and Medusa.js integration.
+
+### New Files
+
+- `fortlev-kits-normalized.json` - ✅ Medusa.js-ready product data
+- `normalize_titles.py` - Title normalization engine
+- `preview_normalized.py` - Data preview and statistics tool
+- `MEDUSA-AGENTS.md` - 7 specialized Medusa.js integration patterns
+- `NORMALIZATION-SUMMARY.md` - Complete implementation guide
+
+### Statistics
+
+- **Total Kits**: 217 normalized
+- **Panel Manufacturers**: LONGi (37%), BYD (17%), Risen (12%), Unknown (34%)
+- **Inverter Manufacturers**: Sungrow (11%), Growatt (10%), Enphase (3%), Unknown (76%)
+- **Power Range**: 2.44kWp - 16.10kWp (avg: 8.15kWp)
+- **Images**: 76% inverter, 34% panel, 26% combination
+
+### Semantic Search Format
+
+**Search Title**: `{power}kWp Solar Energy Kit {panel} Panel {inverter} Inverter Grid-Tie System`
+
+**Example**: "2.52kWp Solar Energy Kit LONGi Panel Growatt Inverter Grid-Tie System"
+
+### Quick Commands
+
+```bash
+# Preview data
+python preview_normalized.py
+
+# Re-normalize (if needed)
+python normalize_titles.py
+```
+
+### Documentation
+
+- `MEDUSA-AGENTS.md` - 7 integration patterns (Product, Inventory, Pricing, etc.)
+- `NORMALIZATION-SUMMARY.md` - Complete guide with examples and next steps
