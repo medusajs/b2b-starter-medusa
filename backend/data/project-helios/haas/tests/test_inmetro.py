@@ -21,27 +21,19 @@ class TestINMETROValidate:
         valid_inmetro_certificate
     ):
         """Test successful certificate validation."""
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.validate_certificate.return_value = {
-                "valid": True,
-                "details": valid_inmetro_certificate
-            }
-            mock_pipeline.return_value = mock_instance
+        response = client.post(
+            "/api/inmetro/validate",
+            json={
+                "categoria": "inversores",
+                "fabricante": "Fronius",
+                "modelo": "Primo 5.0-1"
+            },
+            headers=auth_headers
+        )
 
-            response = client.post(
-                "/api/inmetro/validate",
-                json={
-                    "certificate_number": "BR-001-2024",
-                    "product_type": "inverter"
-                },
-                headers=auth_headers
-            )
-
-            assert response.status_code == status.HTTP_200_OK
-            data = response.json()
-            assert data["valid"] is True
-            assert "validation_id" in data
+        assert response.status_code == status.HTTP_202_ACCEPTED
+        data = response.json()
+        assert "request_id" in data
 
     def test_validate_invalid_certificate(
         self,
@@ -50,28 +42,18 @@ class TestINMETROValidate:
         invalid_inmetro_certificate
     ):
         """Test validation of invalid certificate."""
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.validate_certificate.return_value = {
-                "valid": False,
-                "details": invalid_inmetro_certificate,
-                "errors": ["Certificate not found in INMETRO database"]
-            }
-            mock_pipeline.return_value = mock_instance
+        response = client.post(
+            "/api/inmetro/validate",
+            json={
+                "categoria": "inversores",
+                "fabricante": "Unknown",
+                "modelo": "Unknown"
+            },
+            headers=auth_headers
+        )
 
-            response = client.post(
-                "/api/inmetro/validate",
-                json={
-                    "certificate_number": "INVALID-000-0000",
-                    "product_type": "inverter"
-                },
-                headers=auth_headers
-            )
-
-            assert response.status_code == status.HTTP_200_OK
-            data = response.json()
-            assert data["valid"] is False
-            assert "errors" in data
+        # Current API enqueues validation and returns 202
+        assert response.status_code == status.HTTP_202_ACCEPTED
 
     def test_validate_without_auth(self, client):
         """Test validate endpoint without authentication."""
@@ -105,11 +87,21 @@ class TestINMETROStatus:
 
     def test_get_status_success(self, client, auth_headers):
         """Test getting validation status."""
-        validation_id = "VAL-001"
+        # First create a validation request
+        create_resp = client.post(
+            "/api/inmetro/validate",
+            json={
+                "categoria": "inversores",
+                "fabricante": "Fronius",
+                "modelo": "Primo 5.0-1"
+            },
+            headers=auth_headers
+        )
+        assert create_resp.status_code == status.HTTP_202_ACCEPTED
+        request_id = create_resp.json()["request_id"]
 
         response = client.get(
-            f"/api/inmetro/status/{validation_id}",
-            headers=auth_headers
+            f"/api/inmetro/status/{request_id}", headers=auth_headers
         )
 
         assert response.status_code == status.HTTP_200_OK
@@ -151,22 +143,14 @@ class TestINMETROCertificate:
         valid_inmetro_certificate
     ):
         """Test retrieving certificate details."""
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.get_certificate.return_value = (
-                valid_inmetro_certificate
-            )
-            mock_pipeline.return_value = mock_instance
+        response = client.get(
+            "/api/inmetro/certificate/BRA-001-2024",
+            headers=auth_headers
+        )
 
-            response = client.get(
-                "/api/inmetro/certificate/BR-001-2024",
-                headers=auth_headers
-            )
-
-            assert response.status_code == status.HTTP_200_OK
-            data = response.json()
-            assert data["certificate_number"] == "BR-001-2024"
-            assert data["manufacturer"] == "Fronius"
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+        assert data["certificate_number"].startswith("BRA-")
 
     def test_get_certificate_not_found(self, client, auth_headers):
         """Test retrieving non-existent certificate."""
@@ -195,11 +179,7 @@ class TestINMETROSearch:
 
     def test_search_by_manufacturer(self, client, auth_headers):
         """Test searching certificates by manufacturer."""
-        response = client.get(
-            "/api/inmetro/search",
-            params={"manufacturer": "Fronius"},
-            headers=auth_headers
-        )
+        response = client.get("/api/inmetro/search", params={"query": "Fro"}, headers=auth_headers)
 
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
@@ -208,11 +188,7 @@ class TestINMETROSearch:
 
     def test_search_by_product_type(self, client, auth_headers):
         """Test searching by product type."""
-        response = client.get(
-            "/api/inmetro/search",
-            params={"product_type": "inverter"},
-            headers=auth_headers
-        )
+        response = client.get("/api/inmetro/search", params={"query": "Inv"}, headers=auth_headers)
 
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
@@ -220,25 +196,13 @@ class TestINMETROSearch:
 
     def test_search_with_multiple_filters(self, client, auth_headers):
         """Test search with multiple query parameters."""
-        response = client.get(
-            "/api/inmetro/search",
-            params={
-                "manufacturer": "Fronius",
-                "product_type": "inverter",
-                "min_power": 3000
-            },
-            headers=auth_headers
-        )
+        response = client.get("/api/inmetro/search", params={"query": "Fronius"}, headers=auth_headers)
 
         assert response.status_code == status.HTTP_200_OK
 
     def test_search_no_results(self, client, auth_headers):
         """Test search with no matching results."""
-        response = client.get(
-            "/api/inmetro/search",
-            params={"manufacturer": "NonExistentBrand"},
-            headers=auth_headers
-        )
+        response = client.get("/api/inmetro/search", params={"query": "zzz"}, headers=auth_headers)
 
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
@@ -254,76 +218,34 @@ class TestINMETROBatch:
 
     def test_batch_validation_success(self, client, auth_headers):
         """Test batch validation of multiple certificates."""
-        certificates = [
-            {
-                "certificate_number": "BR-001-2024",
-                "product_type": "inverter"
-            },
-            {
-                "certificate_number": "BR-002-2024",
-                "product_type": "module"
-            },
-            {
-                "certificate_number": "BR-003-2024",
-                "product_type": "inverter"
-            }
+        equipments = [
+            {"categoria": "inversores", "fabricante": "Fronius", "modelo": "Primo 5.0-1"},
+            {"categoria": "modulos", "fabricante": "Canadian Solar", "modelo": "CS3W-450MS"},
+            {"categoria": "inversores", "fabricante": "Fronius", "modelo": "Primo 8.2-1"},
         ]
 
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.validate_certificate.return_value = {
-                "valid": True
-            }
-            mock_pipeline.return_value = mock_instance
+        response = client.post(
+            "/api/inmetro/batch", json={"equipments": equipments}, headers=auth_headers
+        )
 
-            response = client.post(
-                "/api/inmetro/batch",
-                json={"certificates": certificates},
-                headers=auth_headers
-            )
-
-            assert response.status_code == status.HTTP_200_OK
-            data = response.json()
-            assert "batch_id" in data
-            assert "total" in data
-            assert data["total"] == 3
+        assert response.status_code == status.HTTP_202_ACCEPTED
+        data = response.json()
+        # Expect request id map and message
+        assert any(k.isdigit() for k in data.keys())
+        assert "message" in data
 
     def test_batch_validation_mixed_results(self, client, auth_headers):
         """Test batch with mix of valid and invalid certificates."""
-        certificates = [
-            {
-                "certificate_number": "BR-001-2024",
-                "product_type": "inverter"
-            },
-            {
-                "certificate_number": "INVALID-000",
-                "product_type": "inverter"
-            }
+        equipments = [
+            {"categoria": "inversores", "fabricante": "Fronius", "modelo": "Primo 5.0-1"},
+            {"categoria": "inversores", "fabricante": "MarcaX", "modelo": "ModeloX"},
         ]
 
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
+        response = client.post(
+            "/api/inmetro/batch", json={"equipments": equipments}, headers=auth_headers
+        )
 
-            def validate_side_effect(cert_num, prod_type):
-                if "INVALID" in cert_num:
-                    return {"valid": False}
-                return {"valid": True}
-
-            mock_instance.validate_certificate.side_effect = (
-                validate_side_effect
-            )
-            mock_pipeline.return_value = mock_instance
-
-            response = client.post(
-                "/api/inmetro/batch",
-                json={"certificates": certificates},
-                headers=auth_headers
-            )
-
-            assert response.status_code == status.HTTP_200_OK
-            data = response.json()
-            # Should process all regardless of individual validity
-            assert data["total"] == 2
+        assert response.status_code == status.HTTP_202_ACCEPTED
 
     def test_batch_validation_empty_list(self, client, auth_headers):
         """Test batch with empty certificate list."""
@@ -337,26 +259,17 @@ class TestINMETROBatch:
 
     def test_batch_validation_exceeds_limit(self, client, auth_headers):
         """Test batch with too many certificates."""
-        # Assuming max limit is 100
-        certificates = [
-            {
-                "certificate_number": f"BR-{i:03d}-2024",
-                "product_type": "inverter"
-            }
-            for i in range(150)
+        # API limit is 50
+        equipments = [
+            {"categoria": "inversores", "fabricante": "F", "modelo": f"M-{i}"}
+            for i in range(51)
         ]
 
         response = client.post(
-            "/api/inmetro/batch",
-            json={"certificates": certificates},
-            headers=auth_headers
+            "/api/inmetro/batch", json={"equipments": equipments}, headers=auth_headers
         )
 
-        # Should either reject or process only first N
-        assert response.status_code in [
-            status.HTTP_200_OK,
-            status.HTTP_400_BAD_REQUEST
-        ]
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
 # ==================== Integration Tests ====================
@@ -368,61 +281,41 @@ class TestINMETROFlowIntegration:
 
     def test_validate_then_check_status(self, client, auth_headers):
         """Test validate → check status flow."""
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.validate_certificate.return_value = {
-                "valid": True,
-                "validation_id": "VAL-001"
-            }
-            mock_pipeline.return_value = mock_instance
+        # Step 1: Validate equipment
+        validate_response = client.post(
+            "/api/inmetro/validate",
+            json={
+                "categoria": "inversores",
+                "fabricante": "Fronius",
+                "modelo": "Primo 5.0-1"
+            },
+            headers=auth_headers
+        )
+        assert validate_response.status_code == status.HTTP_202_ACCEPTED
+        request_id = validate_response.json()["request_id"]
 
-            # Step 1: Validate certificate
-            validate_response = client.post(
-                "/api/inmetro/validate",
-                json={
-                    "certificate_number": "BR-001-2024",
-                    "product_type": "inverter"
-                },
-                headers=auth_headers
-            )
-            assert validate_response.status_code == status.HTTP_200_OK
-            validation_id = validate_response.json()["validation_id"]
-
-            # Step 2: Check status
-            status_response = client.get(
-                f"/api/inmetro/status/{validation_id}",
-                headers=auth_headers
-            )
-            assert status_response.status_code == status.HTTP_200_OK
+        # Step 2: Check status
+        status_response = client.get(
+            f"/api/inmetro/status/{request_id}", headers=auth_headers
+        )
+        assert status_response.status_code == status.HTTP_200_OK
 
     def test_search_then_validate_certificate(self, client, auth_headers):
         """Test search → validate specific certificate flow."""
-        with patch('app.routers.inmetro.InmetroPipeline') as mock_pipeline:
-            mock_instance = Mock()
-            mock_instance.search_certificates.return_value = {
-                "results": [{"certificate_number": "BR-001-2024"}]
-            }
-            mock_instance.validate_certificate.return_value = {
-                "valid": True
-            }
-            mock_pipeline.return_value = mock_instance
+        # Step 1: Search for certificates
+        search_response = client.get(
+            "/api/inmetro/search", params={"query": "Fronius"}, headers=auth_headers
+        )
+        assert search_response.status_code == status.HTTP_200_OK
 
-            # Step 1: Search for certificates
-            search_response = client.get(
-                "/api/inmetro/search",
-                params={"manufacturer": "Fronius"},
-                headers=auth_headers
-            )
-            assert search_response.status_code == status.HTTP_200_OK
-
-            # Step 2: Validate found certificate
-            cert_number = "BR-001-2024"
-            validate_response = client.post(
-                "/api/inmetro/validate",
-                json={
-                    "certificate_number": cert_number,
-                    "product_type": "inverter"
-                },
-                headers=auth_headers
-            )
-            assert validate_response.status_code == status.HTTP_200_OK
+        # Step 2: Validate equipment (based on search result context)
+        validate_response = client.post(
+            "/api/inmetro/validate",
+            json={
+                "categoria": "inversores",
+                "fabricante": "Fronius",
+                "modelo": "Primo 8.2-1"
+            },
+            headers=auth_headers
+        )
+        assert validate_response.status_code == status.HTTP_202_ACCEPTED

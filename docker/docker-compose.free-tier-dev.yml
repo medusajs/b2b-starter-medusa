@@ -31,7 +31,7 @@ services:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./backend/init-scripts:/docker-entrypoint-initdb.d
+      - ../backend/init-scripts:/docker-entrypoint-initdb.d
     networks:
       - ysh-network
     # Limites simulando db.t3.micro (1 vCPU, 1GB RAM)
@@ -109,7 +109,7 @@ services:
   # ==========================================
   backend:
     build:
-      context: ./backend
+      context: ../backend
       dockerfile: Dockerfile.dev
       args:
         NODE_VERSION: "20"
@@ -150,10 +150,10 @@ services:
     ports:
       - "${BACKEND_PORT:-9000}:9000"
     volumes:
-      - ./backend:/app
+      - ../backend:/app
       - /app/node_modules
-      - ./backend/uploads:/app/uploads
-      - ./backend/data:/app/data
+      - ../backend/uploads:/app/uploads
+      - ../backend/data:/app/data
     networks:
       - ysh-network
     # Limites simulando Fargate: 0.5 vCPU, 1GB RAM
@@ -185,7 +185,7 @@ services:
   # ==========================================
   storefront:
     build:
-      context: ./storefront
+      context: ../storefront
       dockerfile: Dockerfile.dev
       args:
         NODE_VERSION: "20"
@@ -206,7 +206,7 @@ services:
     ports:
       - "${STOREFRONT_PORT:-8000}:8000"
     volumes:
-      - ./storefront:/app
+      - ../storefront:/app
       - /app/node_modules
       - /app/.next
     networks:
@@ -249,8 +249,8 @@ services:
       - "${NGINX_HTTP_PORT:-80}:80"
       - "${NGINX_HTTPS_PORT:-443}:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/certs:/etc/nginx/certs:ro
+      - ../nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/certs:/etc/nginx/certs:ro
     networks:
       - ysh-network
     deploy:

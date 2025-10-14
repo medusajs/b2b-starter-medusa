@@ -1,0 +1,25 @@
+# YSH Unified API Gateway - Python Dependencies
+
+# FastAPI framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+
+# HTTP client for proxying
+httpx==0.27.2
+
+# JWT authentication
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.12
+
+# Redis for rate limiting
+redis[hiredis]==5.0.8
+
+# Pydantic for data validation
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# Logging and monitoring
+python-json-logger==2.0.7
+
+# CORS and security
+python-dotenv==1.0.1

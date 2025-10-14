@@ -1,0 +1,103 @@
+version: "3.8"
+
+services:
+  # Unified API Gateway
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    container_name: ysh-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      # Service endpoints (internal Docker network)
+      MEDUSA_URL: http://medusa-backend:9000
+      HAAS_URL: http://haas-api:8000
+      DATA_PLATFORM_URL: http://data-platform:8001
+
+      # JWT configuration
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      JWT_ALGORITHM: HS256
+
+      # Redis for rate limiting
+      REDIS_URL: redis://redis:6379/1
+
+      # Rate limiting
+      RATE_LIMIT_REQUESTS: 100
+      RATE_LIMIT_WINDOW: 60
+
+      # CORS origins
+      CORS_ORIGINS: http://localhost:3000,http://localhost:8000,http://localhost:8080
+
+      # Request timeout
+      REQUEST_TIMEOUT: 30
+    depends_on:
+      - redis
+    networks:
+      - ysh-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/gateway/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Redis for rate limiting and caching
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - ysh-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # HaaS Platform API (example - adjust as needed)
+  haas-api:
+    build:
+      context: ../project-helios/haas
+      dockerfile: Dockerfile
+    container_name: ysh-haas-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+    depends_on:
+      - redis
+    networks:
+      - ysh-network
+    restart: unless-stopped
+
+  # Medusa Backend (example - adjust as needed)
+  medusa-backend:
+    image: medusajs/medusa:latest
+    container_name: ysh-medusa-backend
+    ports:
+      - "9000:9000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis:6379/2
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      MEDUSA_ADMIN_ONBOARDING_TYPE: default
+    depends_on:
+      - redis
+    networks:
+      - ysh-network
+    restart: unless-stopped
+
+networks:
+  ysh-network:
+    driver: bridge
+
+volumes:
+  redis-data:
