@@ -195,9 +195,23 @@ if "%command%"=="build" (
     call :check_docker
     call :check_docker_compose
     call :start_dev
+) else if "%command%"=="alt-ports" (
+    call :check_docker
+    call :check_docker_compose
+    call :start_alt_ports
+) else if "%command%"=="high-ports" (
+    call :check_docker
+    call :check_docker_compose
+    call :start_high_ports
 ) else if "%command%"=="stop" (
     call :check_docker_compose
     call :stop_dev
+) else if "%command%"=="stop-alt" (
+    call :check_docker_compose
+    call :stop_alt_ports
+) else if "%command%"=="stop-high" (
+    call :check_docker_compose
+    call :stop_high_ports
 ) else if "%command%"=="logs" (
     call :check_docker_compose
     call :show_logs %2
