@@ -213,7 +213,9 @@ class FotusImageExtractor:
 def main():
     """Run FOTUS image extraction"""
     
+    # Adjust path to products-inventory directory
     base_path = Path(__file__).parent.parent
+    print(f"[DEBUG] Base path: {base_path}")
     
     extractor = FotusImageExtractor(base_path)
     
