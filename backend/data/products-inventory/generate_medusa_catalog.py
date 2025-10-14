@@ -151,10 +151,13 @@ class SKUGenerator:
         
         return sku
     
+    # SKU tracking para garantir unicidade
+    _sku_counter = {}
+    
     @classmethod
     def generate_kit_sku(cls, power_kwp: float, roof_type: str = None, 
-                        voltage_v: int = None) -> str:
-        """Gera SKU para kit solar"""
+                        voltage_v: int = None, unique_id: str = None) -> str:
+        """Gera SKU para kit solar com garantia de unicidade"""
         power_str = str(power_kwp).replace('.', '_')
         sku = f"KIT-{power_str}KWP"
         
@@ -173,6 +176,14 @@ class SKUGenerator:
         
         if voltage_v:
             sku += f"-{voltage_v}V"
+        
+        # Garantir unicidade
+        base_sku = sku
+        if base_sku in cls._sku_counter:
+            cls._sku_counter[base_sku] += 1
+            sku = f"{base_sku}-{cls._sku_counter[base_sku]}"
+        else:
+            cls._sku_counter[base_sku] = 1
         
         return sku
 
