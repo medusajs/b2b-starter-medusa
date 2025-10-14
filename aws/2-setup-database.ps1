@@ -14,7 +14,7 @@ param(
     [string]$Region = "us-east-1",
     
     [Parameter(Mandatory = $false)]
-    [string]$AdminEmail = "admin@yellosolar.com.br",
+    [string]$AdminEmail = "fernando@yellosolarhub.com",
     
     [Parameter(Mandatory = $false)]
     [string]$AdminPassword,

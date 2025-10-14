@@ -342,7 +342,7 @@ volumes:
 #   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn run seed
 #
 # Criar usuário admin:
-#   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa user -e admin@test.com -p supersecret -i admin
+#   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa user -e fernando@yellosolarhub.com -p supersecret -i admin_ysh
 #
 # Monitorar recursos (htop-like):
 #   docker stats ysh-postgres-dev ysh-redis-dev ysh-backend-dev ysh-storefront-dev

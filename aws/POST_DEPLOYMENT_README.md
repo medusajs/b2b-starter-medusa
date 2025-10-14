@@ -15,8 +15,8 @@ Executa TODOS os passos pós-deployment automaticamente.
 ```powershell
 .\post-deployment.ps1 `
     -Environment production `
-    -AdminEmail admin@yellosolar.com.br `
-    -AlertEmail alerts@yellosolar.com.br `
+    -AdminEmail fernando@yellosolarhub.com `
+    -AlertEmail suporte@yellosolarhub.com `
     -InteractiveMode
 ```
 
@@ -86,7 +86,7 @@ Executa migrations, seed e cria admin user via ECS Exec.
 ```powershell
 .\2-setup-database.ps1 `
     -Environment production `
-    -AdminEmail admin@yellosolar.com.br
+    -AdminEmail fernando@yellosolarhub.com
 ```
 
 **Flags:**
@@ -141,7 +141,7 @@ Cria CloudWatch alarms e billing alerts.
 ```powershell
 .\3-setup-monitoring.ps1 `
     -Environment production `
-    -AlertEmail alerts@yellosolar.com.br `
+    -AlertEmail suporte@yellosolarhub.com `
     -BillingThreshold 20
 ```
 
@@ -192,7 +192,7 @@ Atualiza storefront com publishable key e domain URLs.
 
 **Como obter publishable key:**
 
-1. Acesse: `https://api.yellosolar.com.br/app`
+1. Acesse: `https://api.yellosolarhub.store/app`
 2. Login com admin credentials
 3. Settings → Publishable API Keys
 4. Copie key que começa com `pk_`
@@ -216,8 +216,8 @@ cd C:\Users\fjuni\ysh_medusa\ysh-store\aws
 
 .\post-deployment.ps1 `
     -Environment production `
-    -AdminEmail admin@yellosolar.com.br `
-    -AlertEmail alerts@yellosolar.com.br `
+    -AdminEmail fernando@yellosolarhub.com `
+    -AlertEmail suporte@yellosolarhub.com `
     -InteractiveMode
 ```
 
@@ -244,7 +244,11 @@ Aguarde services ficarem RUNNING (~5 min)
 #### **2. Setup Database**
 
 ```powershell
-.\2-setup-database.ps1 -AdminEmail admin@yellosolar.com.br
+#### **2. Setup Database**
+```powershell
+.\2-setup-database.ps1 -AdminEmail fernando@yellosolarhub.com
+```
+
 ```
 
 Forneça password quando solicitado
@@ -252,7 +256,11 @@ Forneça password quando solicitado
 #### **3. Configure Monitoring**
 
 ```powershell
-.\3-setup-monitoring.ps1 -AlertEmail alerts@yellosolar.com.br
+#### **3. Configure Monitoring**
+```powershell
+.\3-setup-monitoring.ps1 -AlertEmail suporte@yellosolarhub.com
+```
+
 ```
 
 Confirme email subscription
@@ -337,7 +345,7 @@ aws ecs update-service `
 
 **Fix:**
 
-1. Acesse admin dashboard: `https://api.yellosolar.com.br/app`
+1. Acesse admin dashboard: `https://api.yellosolarhub.store/app`
 2. Login com admin credentials
 3. Settings → Publishable API Keys
 4. **Create new key** se não existir
@@ -425,13 +433,13 @@ aws cloudwatch describe-alarms `
 
 ```powershell
 # Backend health
-curl https://api.yellosolar.com.br/health
+curl https://api.yellosolarhub.store/health
 
 # Storefront
-curl -I https://yellosolar.com.br
+curl -I https://yellosolarhub.store
 
 # Products API (requires publishable key)
-curl -H "x-publishable-api-key: pk_xxxxx" https://api.yellosolar.com.br/store/products
+curl -H "x-publishable-api-key: pk_xxxxx" https://api.yellosolarhub.store/store/products
 ```
 
 ---
@@ -493,8 +501,8 @@ aws ecs update-service `
 - [ ] CloudWatch alarms active (check SNS email confirmation)
 - [ ] Billing alerts configured
 - [ ] Publishable key configured in storefront
-- [ ] Storefront loads: `https://yellosolar.com.br`
-- [ ] Admin dashboard accessible: `https://api.yellosolar.com.br/app`
+- [ ] Storefront loads: `https://yellosolarhub.store`
+- [ ] Admin dashboard accessible: `https://api.yellosolarhub.store/app`
 - [ ] Backend health check returns 200: `/health`
 - [ ] No errors in CloudWatch logs
 

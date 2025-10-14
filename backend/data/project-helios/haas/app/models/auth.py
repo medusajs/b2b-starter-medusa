@@ -25,7 +25,18 @@ class User(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
+    refresh_token: Optional[str] = None
+
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str
+
+
+class LogoutResponse(BaseModel):
+    message: str
+    logged_out_at: str
 
 
 class TokenData(BaseModel):
     email: Optional[str] = None
+    token_type: str = "access"  # access or refresh

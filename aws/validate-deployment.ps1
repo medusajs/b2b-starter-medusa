@@ -8,7 +8,7 @@ param(
     [string]$SSOProfile = "ysh-production",
     
     [Parameter(Mandatory = $false)]
-    [string]$DomainName = "yellosolar.com.br"
+    [string]$DomainName = "yellosolarhub.store"
 )
 
 # Colors

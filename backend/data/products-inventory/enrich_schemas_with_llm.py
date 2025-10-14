@@ -190,29 +190,77 @@ class SchemaEnricher:
         self.enriched_products = []
         self.output_dir = Path("enriched-schemas")  # Can be overridden
         
+    def _normalize_product_schema(self, product: Dict[str, Any]) -> Dict[str, Any]:
+        """Normaliza schema do produto para formato esperado"""
+        normalized = {}
+        
+        # Campo ID
+        normalized['id'] = product.get('id', '')
+        
+        # Campo título (pode ser 'title' ou 'name')
+        normalized['title'] = product.get('title') or product.get('name', '')
+        
+        # Campo SKU
+        normalized['sku'] = product.get('sku', '')
+        
+        # Fabricante
+        normalized['manufacturer'] = product.get('manufacturer', 'Unknown')
+        
+        # Categoria
+        normalized['category'] = product.get('category', '')
+        
+        # Distribuidor
+        normalized['distributor'] = product.get('distributor', '')
+        
+        # Preço (normaliza para price_brl float)
+        if 'price_brl' in product and isinstance(product['price_brl'], (int, float)):
+            normalized['price_brl'] = float(product['price_brl'])
+        else:
+            price_str = product.get('price', '')
+            if isinstance(price_str, str):
+                clean_price = price_str.replace('R$', '').replace(' ', '').replace(',', '.').strip()
+                try:
+                    normalized['price_brl'] = float(clean_price)
+                except (ValueError, AttributeError):
+                    normalized['price_brl'] = 0.0
+            else:
+                normalized['price_brl'] = 0.0
+        
+        # Specs técnicas (pode ser dict ou null)
+        specs = product.get('technical_specs')
+        normalized['technical_specs'] = specs if isinstance(specs, dict) else {}
+        
+        # Imagens (normaliza para lista)
+        if 'images' in product and isinstance(product['images'], list):
+            normalized['images'] = product['images']
+        elif 'image' in product and product['image']:
+            normalized['images'] = [product['image']]
+        else:
+            normalized['images'] = []
+        
+        # Metadata
+        normalized['metadata'] = product.get('metadata', {})
+        if not isinstance(normalized['metadata'], dict):
+            normalized['metadata'] = {}
+        
+        # Adiciona campos extras como metadata
+        for field in ['description', 'availability', 'source', 'model', 'series', 'power']:
+            if field in product and product[field]:
+                normalized['metadata'][field] = product[field]
+        
+        return normalized
+    
     def load_products(self) -> None:
         """Carrega produtos consolidados"""
         print("📂 Carregando produtos consolidados...")
         
         with open(self.products_path, 'r', encoding='utf-8') as f:
-            self.products = json.load(f)
+            raw_products = json.load(f)
         
-        # Normaliza preços: converte 'price' string para 'price_brl' float
-        for product in self.products:
-            if 'price_brl' not in product or product['price_brl'] == 0:
-                # Tenta converter do campo 'price' se existir
-                price_str = product.get('price', '')
-                if isinstance(price_str, str):
-                    # Remove "R$", espaços, e converte vírgula em ponto
-                    clean_price = price_str.replace('R$', '').replace(' ', '').replace(',', '.').strip()
-                    try:
-                        product['price_brl'] = float(clean_price)
-                    except (ValueError, AttributeError):
-                        product['price_brl'] = 0.0
-                else:
-                    product['price_brl'] = 0.0
+        # Normaliza schema de cada produto
+        self.products = [self._normalize_product_schema(p) for p in raw_products]
         
-        print(f"  ✅ {len(self.products):,} produtos carregados")
+        print(f"  ✅ {len(self.products):,} produtos carregados e normalizados")
     
     def analyze_prices(self, product: Dict[str, Any]) -> PriceAnalysis:
         """Analisa preços comparativos do produto"""
@@ -602,16 +650,25 @@ class SchemaEnricher:
         
         total = len(self.products)
         skipped = 0
+        errors = []
+        
+        # Manufacturer blacklist (tipos de produtos, não fabricantes)
+        invalid_manufacturers = {
+            'Unknown', 'Kit', 'Kit Energia', 'Kit Solar', 'Kit Bomba',
+            'MPPT', 'Bomba Solar', 'Parafuso', 'Cabo', 'Duto', 'Grampo'
+        }
         
         for i, product in enumerate(self.products, 1):
-            if i % 1000 == 0:
+            if i % 500 == 0:
                 print(f"  Processado: {i:,}/{total:,} ({i/total*100:.1f}%)")
             
-            # Skip products with invalid data
-            if not product.get('manufacturer') or product.get('manufacturer') == 'Unknown':
+            # Skip products with invalid manufacturer
+            mfg = product.get('manufacturer', '').strip()
+            if not mfg or mfg in invalid_manufacturers:
                 skipped += 1
                 continue
             
+            # Skip products with invalid price
             if not product.get('price_brl') or product.get('price_brl') <= 0:
                 skipped += 1
                 continue
@@ -620,11 +677,18 @@ class SchemaEnricher:
                 enriched = self.enrich_product(product)
                 self.enriched_products.append(enriched)
             except Exception as e:
-                print(f"  ⚠️ Erro ao enriquecer {product.get('id')}: {e}")
+                error_msg = f"{product.get('id', 'unknown')}: {str(e)[:50]}"
+                if len(errors) < 10:  # Only store first 10 errors
+                    errors.append(error_msg)
                 skipped += 1
         
         print(f"\n  ✅ {len(self.enriched_products):,} produtos enriquecidos")
-        print(f"  ⚠️ {skipped:,} produtos ignorados (dados inválidos)")
+        print(f"  ⚠️ {skipped:,} produtos ignorados (dados inválidos ou erros)")
+        
+        if errors:
+            print("\n  Primeiros erros encontrados:")
+            for err in errors[:5]:
+                print(f"    • {err}")
     
     def export_enriched_schemas(self, output_dir: str) -> None:
         """Exporta schemas enriquecidos"""

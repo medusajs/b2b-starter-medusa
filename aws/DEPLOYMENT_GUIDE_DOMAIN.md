@@ -7,7 +7,7 @@ Complete guide for deploying Medusa.js 2.10.3 B2B E-commerce on AWS Free Tier wi
 ### Required Accounts & Access
 
 - ✅ **AWS Account** with SSO (AWS Identity Center) configured
-- ✅ **GoDaddy Account** with domain ownership (`yellosolar.com.br`)
+- ✅ **GoDaddy Account** with domain ownership (`yellosolarhub.store`)
 - ✅ **AWS CLI v2** installed ([Download](https://aws.amazon.com/cli/))
 - ✅ **PowerShell 5.1+** (Windows) or PowerShell Core (Mac/Linux)
 - ✅ **AdministratorAccess** or equivalent IAM permissions
@@ -32,7 +32,7 @@ cd C:\Users\fjuni\ysh_medusa\ysh-store\aws
 
 .\deploy-with-domain.ps1 `
     -Environment production `
-    -DomainName yellosolar.com.br `
+    -DomainName yellosolarhub.store `
     -Region us-east-1 `
     -SSOProfile ysh-production `
     -CreateHostedZone `
@@ -93,8 +93,8 @@ Nameservers for GoDaddy:
 
 **Update GoDaddy DNS:**
 
-1. Login to GoDaddy: <https://dcc.godaddy.com/manage/yellosolar.com.br/dns>
-2. Click **"Nameservers"** → **"Change"**
+1. Login to GoDaddy: <https://dcc.godaddy.com/manage/yellosolarhub.store/dns>
+2. Click **"Nameservers"** → **"Change"
 3. Select **"Enter my own nameservers (advanced)"**
 4. Add all 4 nameservers from script output
 5. Click **"Save"**
@@ -104,7 +104,7 @@ Nameservers for GoDaddy:
 **Verify DNS propagation:**
 
 ```powershell
-nslookup -type=NS yellosolar.com.br 8.8.8.8
+nslookup -type=NS yellosolarhub.store 8.8.8.8
 # Should return AWS nameservers
 ```
 
@@ -118,7 +118,7 @@ nslookup -type=NS yellosolar.com.br 8.8.8.8
 
 **Script automatically:**
 
-- Requests wildcard certificate (`*.yellosolar.com.br`)
+- Requests wildcard certificate (`*.yellosolarhub.store`)
 - Creates DNS validation records in Route53
 - Waits for validation (5-30 minutes)
 
@@ -156,9 +156,9 @@ LoadBalancerDNS: production-ysh-alb-xxxxxxxxxxxxx.us-east-1.elb.amazonaws.com
 MediaBucketName: production-ysh-media-123456789012
 ECSClusterName: production-ysh-cluster
 SecretsManagerARN: arn:aws:secretsmanager:us-east-1:123456789012:secret:production/ysh/medusa-xxxxxx
-DomainURL: https://yellosolar.com.br
-APIURL: https://api.yellosolar.com.br
-WWWURL: https://www.yellosolar.com.br
+DomainURL: https://yellosolarhub.store
+APIURL: https://api.yellosolarhub.store
+WWWURL: https://www.yellosolarhub.store
 ```
 
 ---

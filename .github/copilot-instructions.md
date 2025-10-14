@@ -17,7 +17,7 @@ docker-compose up --build
 # Em terminal separado:
 docker-compose exec backend yarn medusa db:migrate
 docker-compose exec backend yarn run seed
-docker-compose exec backend yarn medusa user -e admin@test.com -p supersecret -i admin
+docker-compose exec backend yarn medusa user -e fernando@yellosolarhub.com -p supersecret -i admin_ysh
 ```
 
 **Acesso**: Backend em `localhost:9000`, Loja em `localhost:8000`

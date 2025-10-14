@@ -16,7 +16,7 @@ Parameters:
   # Domain Configuration
   DomainName:
     Type: String
-    Default: yellosolar.com.br
+    Default: yellosolarhub.store
     Description: Primary domain name (from GoDaddy)
     AllowedPattern: ^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]\.[a-z]{2,}$
 

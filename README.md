@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://yellosolarhub.com"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="YSH B2B Solar Commerce" width="80" height="80"></a>
+  <a href="https://yellosolarhub.store"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="YSH B2B Solar Commerce" width="80" height="80"></a>
   <br>
   <br>
   Yello Solar Hub - B2B Commerce

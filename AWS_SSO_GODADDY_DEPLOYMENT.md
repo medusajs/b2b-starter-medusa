@@ -62,14 +62,14 @@ output = json
 
 ## 🌐 GoDaddy Domain Configuration
 
-### Domain: yellosolar.com.br (or your domain)
+### Domain: yellosolarhub.store (or your domain)
 
 ### 1. Route53 Hosted Zone Setup
 
 ```powershell
 # Create hosted zone
 aws route53 create-hosted-zone `
-  --name yellosolar.com.br `
+  --name yellosolarhub.store `
   --caller-reference $(Get-Date -Format "yyyyMMddHHmmss") `
   --profile ysh-production
 
@@ -84,7 +84,7 @@ aws route53 get-hosted-zone `
 Login to GoDaddy and configure nameservers:
 
 1. Go to: <https://dcc.godaddy.com/domains>
-2. Select your domain: yellosolar.com.br
+2. Select your domain: yellosolarhub.store
 3. Click "Manage DNS"
 4. Scroll to "Nameservers" section
 5. Change to "Custom" and add AWS nameservers:
@@ -102,10 +102,10 @@ Login to GoDaddy and configure nameservers:
 
 ```powershell
 # Check nameservers
-nslookup -type=NS yellosolar.com.br
+nslookup -type=NS yellosolarhub.store
 
 # Check A record
-nslookup yellosolar.com.br
+nslookup yellosolarhub.store
 
 # Or use online tools
 # https://dnschecker.org
@@ -118,14 +118,14 @@ nslookup yellosolar.com.br
 ```powershell
 # Request certificate for domain and subdomains
 aws acm request-certificate `
-  --domain-name yellosolar.com.br `
-  --subject-alternative-names "*.yellosolar.com.br" "www.yellosolar.com.br" `
+  --domain-name yellosolarhub.store `
+  --subject-alternative-names "*.yellosolarhub.store" "www.yellosolarhub.store" `
   --validation-method DNS `
   --region us-east-1 `
   --profile ysh-production
 
 # Get certificate ARN
-$CERT_ARN = (aws acm list-certificates --profile ysh-production --query "CertificateSummaryList[?DomainName=='yellosolar.com.br'].CertificateArn" --output text)
+$CERT_ARN = (aws acm list-certificates --profile ysh-production --query "CertificateSummaryList[?DomainName=='yellosolarhub.store'].CertificateArn" --output text)
 Write-Host "Certificate ARN: $CERT_ARN"
 
 # Get validation records
@@ -138,7 +138,7 @@ aws acm describe-certificate `
 
 ```powershell
 # Get hosted zone ID
-$ZONE_ID = (aws route53 list-hosted-zones --query "HostedZones[?Name=='yellosolar.com.br.'].Id" --output text --profile ysh-production)
+$ZONE_ID = (aws route53 list-hosted-zones --query "HostedZones[?Name=='yellosolarhub.store.'].Id" --output text --profile ysh-production)
 
 # Create validation record (get values from ACM describe-certificate)
 aws route53 change-resource-record-sets `
@@ -155,7 +155,7 @@ aws route53 change-resource-record-sets `
     {
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "_abc123.yellosolar.com.br",
+        "Name": "_abc123.yellosolarhub.store",
         "Type": "CNAME",
         "TTL": 300,
         "ResourceRecords": [
@@ -192,7 +192,7 @@ Parameters:
   
   DomainName:
     Type: String
-    Default: yellosolar.com.br
+    Default: yellosolarhub.store
     Description: Primary domain name
   
   HostedZoneId:
@@ -223,7 +223,7 @@ aws cloudformation create-stack `
   --template-body file://$TEMPLATE_FILE `
   --parameters `
     ParameterKey=Environment,ParameterValue=production `
-    ParameterKey=DomainName,ParameterValue=yellosolar.com.br `
+    ParameterKey=DomainName,ParameterValue=yellosolarhub.store `
     ParameterKey=HostedZoneId,ParameterValue=$HOSTED_ZONE_ID `
     ParameterKey=CertificateArn,ParameterValue=$CERT_ARN `
     ParameterKey=DBMasterUsername,ParameterValue=medusa_user `
@@ -276,7 +276,7 @@ aws route53 change-resource-record-sets `
     {
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "yellosolar.com.br",
+        "Name": "yellosolarhub.store",
         "Type": "A",
         "AliasTarget": {
           "HostedZoneId": "Z35SXDOTRQ7X7K",
@@ -288,7 +288,7 @@ aws route53 change-resource-record-sets `
     {
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "www.yellosolar.com.br",
+        "Name": "www.yellosolarhub.store",
         "Type": "A",
         "AliasTarget": {
           "HostedZoneId": "Z35SXDOTRQ7X7K",
@@ -300,7 +300,7 @@ aws route53 change-resource-record-sets `
     {
       "Action": "CREATE",
       "ResourceRecordSet": {
-        "Name": "api.yellosolar.com.br",
+        "Name": "api.yellosolarhub.store",
         "Type": "A",
         "AliasTarget": {
           "HostedZoneId": "Z35SXDOTRQ7X7K",
@@ -338,23 +338,23 @@ Update Medusa backend `medusa-config.ts`:
 
 ```typescript
 const STORE_CORS = process.env.STORE_CORS || 
-  "https://yellosolar.com.br,https://www.yellosolar.com.br"
+  "https://yellosolarhub.store,https://www.yellosolarhub.store"
 
 const ADMIN_CORS = process.env.ADMIN_CORS || 
-  "https://yellosolar.com.br,https://www.yellosolar.com.br,https://api.yellosolar.com.br"
+  "https://yellosolarhub.store,https://www.yellosolarhub.store,https://api.yellosolarhub.store"
 ```
 
 ### 3. Test Domain Configuration
 
 ```powershell
 # Test HTTPS
-curl -I https://yellosolar.com.br
+curl -I https://yellosolarhub.store
 
 # Test API
-curl https://api.yellosolar.com.br/health
+curl https://api.yellosolarhub.store/health
 
 # Test SSL certificate
-openssl s_client -connect yellosolar.com.br:443 -servername yellosolar.com.br
+openssl s_client -connect yellosolarhub.store:443 -servername yellosolarhub.store
 ```
 
 ## 📊 Monitoring & Verification
@@ -417,7 +417,7 @@ aws sso login --profile ysh-production
 
 ```powershell
 # Check DNS propagation
-nslookup yellosolar.com.br 8.8.8.8
+nslookup yellosolarhub.store 8.8.8.8
 
 # Flush local DNS cache
 ipconfig /flushdns

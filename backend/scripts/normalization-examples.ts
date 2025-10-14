@@ -184,7 +184,7 @@ function generateProductUrls(product: any) {
 
     return {
         // URL do produto no storefront
-        product_url: `https://yellosolar.com.br/produtos/${skuSlug}`,
+        product_url: `https://yellosolarhub.store/produtos/${skuSlug}`,
 
         // URLs das imagens
         images: {
@@ -198,7 +198,7 @@ function generateProductUrls(product: any) {
 
         // URLs para SEO
         seo: {
-            canonical: `https://yellosolar.com.br/produtos/${skuSlug}`,
+            canonical: `https://yellosolarhub.store/produtos/${skuSlug}`,
             og_image: `https://ysh-solar-hub-images.s3.us-east-1.amazonaws.com/${categorySlug}/${distributorSlug}/${skuSlug}.webp`,
             twitter_image: `https://ysh-solar-hub-images.s3.us-east-1.amazonaws.com/${categorySlug}/${distributorSlug}/${skuSlug}.webp`
         }
@@ -345,7 +345,7 @@ function generateImageSitemap(products: any[]) {
         const imageUrl = `https://ysh-solar-hub-images.s3.us-east-1.amazonaws.com/${category}/${distributor}/${sku.toLowerCase().replace(/_/g, '-')}.webp`
 
         return {
-            loc: `https://yellosolar.com.br/produtos/${handle}`,
+            loc: `https://yellosolarhub.store/produtos/${handle}`,
             lastmod: new Date().toISOString(),
             changefreq: 'weekly',
             priority: 0.8,
@@ -353,7 +353,7 @@ function generateImageSitemap(products: any[]) {
                 loc: imageUrl,
                 caption: product.title,
                 title: product.title,
-                license: 'https://yellosolar.com.br/termos'
+                license: 'https://yellosolarhub.store/termos'
             }
         }
     })

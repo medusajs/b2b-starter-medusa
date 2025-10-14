@@ -547,7 +547,7 @@ console.log('First product:', products[0])
 
 Dúvidas ou problemas? Entre em contato:
 
-- **Email**: <dev@yellosolar.com.br>
+- **Email**: <dev@yellosolarhub.com>
 - **Docs**: `/docs/api`
 - **Issues**: GitHub Issues
 

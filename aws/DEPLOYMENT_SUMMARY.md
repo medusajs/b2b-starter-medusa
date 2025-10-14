@@ -57,7 +57,7 @@ cd C:\Users\fjuni\ysh_medusa\ysh-store\aws
 
 .\deploy-with-domain.ps1 `
     -Environment production `
-    -DomainName yellosolar.com.br `
+    -DomainName yellosolarhub.store `
     -Region us-east-1 `
     -SSOProfile ysh-production `
     -CreateHostedZone `
@@ -117,7 +117,7 @@ Creates all AWS resources.
 
 - [ ] AWS account with **SSO/Identity Center** configured
 - [ ] **AdministratorAccess** IAM role assigned
-- [ ] GoDaddy account with **domain ownership** (`yellosolar.com.br`)
+- [ ] GoDaddy account with **domain ownership** (`yellosolarhub.store`)
 - [ ] AWS CLI v2 installed (`aws --version`)
 - [ ] PowerShell 5.1+ or PowerShell Core
 
@@ -135,20 +135,20 @@ Creates all AWS resources.
 
 - [ ] Run `.\deploy-with-domain.ps1 -CreateHostedZone`
 - [ ] Copy **4 nameservers** from script output
-- [ ] Login to GoDaddy: <https://dcc.godaddy.com/manage/yellosolar.com.br/dns>
+- [ ] Login to GoDaddy: <https://dcc.godaddy.com/manage/yellosolarhub.store/dns>
 - [ ] Click **"Nameservers"** → **"Change"**
 - [ ] Select **"Enter my own nameservers (advanced)"**
 - [ ] Add all 4 AWS nameservers
 - [ ] Click **"Save"**
 - [ ] Wait **24-48 hours** for DNS propagation
-- [ ] Verify: `nslookup -type=NS yellosolar.com.br 8.8.8.8`
+- [ ] Verify: `nslookup -type=NS yellosolarhub.store 8.8.8.8`
 
 ### **Step 3: SSL Certificate**
 
 - [ ] Ensure DNS propagated (nameservers must be AWS)
 - [ ] Run `.\deploy-with-domain.ps1 -RequestCertificate`
 - [ ] Script automatically:
-  - [ ] Requests wildcard certificate (`*.yellosolar.com.br`)
+  - [ ] Requests wildcard certificate (`*.yellosolarhub.store`)
   - [ ] Creates DNS validation records in Route53
   - [ ] Waits for validation (5-30 minutes)
   - [ ] Saves certificate ARN for deployment
@@ -166,8 +166,8 @@ Creates all AWS resources.
 
 ### **Step 5: Post-Deployment Verification**
 
-- [ ] DNS resolves: `nslookup yellosolar.com.br`
-- [ ] SSL works: `curl -I https://yellosolar.com.br`
+- [ ] DNS resolves: `nslookup yellosolarhub.store`
+- [ ] SSL works: `curl -I https://yellosolarhub.store`
 - [ ] ALB healthy: Check target groups in AWS Console
 - [ ] Secrets Manager: Verify secrets created
 - [ ] RDS endpoint: Verify database accessible
@@ -244,12 +244,12 @@ TOTAL:                      ~$15.90/month
 
 ### **DNS & SSL**
 
-- **Route53 Hosted Zone** (`yellosolar.com.br`)
-- **ACM Certificate** (wildcard: `*.yellosolar.com.br`)
+- **Route53 Hosted Zone** (`yellosolarhub.store`)
+- **ACM Certificate** (wildcard: `*.yellosolarhub.store`)
 - **A Records:**
-  - `yellosolar.com.br` → ALB
-  - `www.yellosolar.com.br` → ALB
-  - `api.yellosolar.com.br` → ALB
+  - `yellosolarhub.store` → ALB
+  - `www.yellosolarhub.store` → ALB
+  - `api.yellosolarhub.store` → ALB
 
 ### **Security**
 
@@ -269,17 +269,17 @@ TOTAL:                      ~$15.90/month
 ### **Test DNS Resolution**
 
 ```powershell
-nslookup yellosolar.com.br
-nslookup www.yellosolar.com.br
-nslookup api.yellosolar.com.br
+nslookup yellosolarhub.store
+nslookup www.yellosolarhub.store
+nslookup api.yellosolarhub.store
 ```
 
 ### **Test SSL Certificate**
 
 ```powershell
-curl -I https://yellosolar.com.br
-curl -I https://www.yellosolar.com.br
-curl -I https://api.yellosolar.com.br
+curl -I https://yellosolarhub.store
+curl -I https://www.yellosolarhub.store
+curl -I https://api.yellosolarhub.store
 ```
 
 ### **Test ALB Routing**
@@ -293,7 +293,7 @@ aws cloudformation describe-stacks `
     --profile ysh-production
 
 # Test backend health
-curl -I https://api.yellosolar.com.br/health
+curl -I https://api.yellosolarhub.store/health
 ```
 
 ### **Check ECS Tasks**
@@ -341,7 +341,7 @@ aws sso login --profile ysh-production
 
 ```powershell
 # Verify nameservers
-nslookup -type=NS yellosolar.com.br 8.8.8.8
+nslookup -type=NS yellosolarhub.store 8.8.8.8
 
 # Check Route53 records
 aws route53 list-resource-record-sets `
@@ -457,7 +457,7 @@ aws ecs execute-command `
 
 ### **5. Configure Medusa Admin**
 
-Access admin at: `https://yellosolar.com.br/app`
+Access admin at: `https://yellosolarhub.store/app`
 
 1. Login with admin credentials
 2. Configure store settings
@@ -472,7 +472,7 @@ Get publishable key from admin, then:
 ```bash
 # Update environment variables in storefront task
 NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_xxxxx
-NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://api.yellosolar.com.br
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://api.yellosolarhub.store
 ```
 
 ### **7. Set Up Monitoring**
@@ -592,8 +592,8 @@ aws cloudwatch put-dashboard `
 - ✅ HTTPS works on all domains (apex, www, api)
 - ✅ ALB target groups show "Healthy" status
 - ✅ ECS tasks running: `RUNNING` state
-- ✅ Backend health check: `curl -I https://api.yellosolar.com.br/health` returns 200
-- ✅ Storefront loads: `https://yellosolar.com.br` returns 200
+- ✅ Backend health check: `curl -I https://api.yellosolarhub.store/health` returns 200
+- ✅ Storefront loads: `https://yellosolarhub.store` returns 200
 - ✅ Database migrations completed successfully
 - ✅ Admin user created and can login
 - ✅ Publishable key configured in storefront
@@ -606,7 +606,7 @@ aws cloudwatch put-dashboard `
 ### **Deployment Command (Full Automation):**
 
 ```powershell
-.\deploy-with-domain.ps1 -Environment production -DomainName yellosolar.com.br -CreateHostedZone -RequestCertificate -DeployStack
+.\deploy-with-domain.ps1 -Environment production -DomainName yellosolarhub.store -CreateHostedZone -RequestCertificate -DeployStack
 ```
 
 ### **Stack Management:**

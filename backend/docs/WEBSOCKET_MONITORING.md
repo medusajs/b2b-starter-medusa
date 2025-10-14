@@ -335,7 +335,7 @@ broadcastToAll({
 ```bash
 # storefront/.env
 NEXT_PUBLIC_WS_URL=ws://localhost:9000  # Dev
-NEXT_PUBLIC_WS_URL=wss://api.yellosolar.com.br  # Prod (SSL)
+NEXT_PUBLIC_WS_URL=wss://api.yellosolarhub.store  # Prod (SSL)
 ```
 
 ### Nginx Proxy (Production)
@@ -343,7 +343,7 @@ NEXT_PUBLIC_WS_URL=wss://api.yellosolar.com.br  # Prod (SSL)
 ```nginx
 server {
   listen 443 ssl;
-  server_name api.yellosolar.com.br;
+  server_name api.yellosolarhub.store;
 
   location /ws/monitoring {
     proxy_pass http://backend:9000;

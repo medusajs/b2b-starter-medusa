@@ -131,7 +131,7 @@ Perfect for users who want minimal manual steps.
    ```powershell
    .\deploy-with-domain.ps1 `
        -Environment production `
-       -DomainName yellosolar.com.br `
+       -DomainName yellosolarhub.store `
        -CreateHostedZone `
        -RequestCertificate `
        -DeployStack

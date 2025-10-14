@@ -8,7 +8,7 @@ param(
     [string]$Environment = "production",
     
     [Parameter(Mandatory = $false)]
-    [string]$DomainName = "yellosolar.com.br",
+    [string]$DomainName = "yellosolarhub.store",
     
     [Parameter(Mandatory = $false)]
     [string]$Region = "us-east-1",
