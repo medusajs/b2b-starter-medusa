@@ -170,9 +170,9 @@ pytest --cov=. --cov-report=html
 
 Access dashboards:
 
-- **Grafana**: http://localhost:3000
-- **Prometheus**: http://localhost:9090
-- **Qdrant**: http://localhost:6333/dashboard
+- **Grafana**: <http://localhost:3000>
+- **Prometheus**: <http://localhost:9090>
+- **Qdrant**: <http://localhost:6333/dashboard>
 
 ## 🔄 Scheduled Ingestion
 
@@ -269,6 +269,7 @@ results = await pipeline.process_catalog(products)
 ## 🤝 Support
 
 For issues:
+
 1. Check component logs: `python <component>.py`
 2. Verify infrastructure: `docker ps`
 3. Review documentation: See full `README.md`

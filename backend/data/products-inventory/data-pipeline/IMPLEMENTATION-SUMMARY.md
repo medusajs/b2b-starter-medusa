@@ -25,6 +25,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ### 1. Data Ingestion Layer
 
 #### ANEEL Data Fetcher (`aneel_data_fetcher.py` - 450 lines)
+
 - **Purpose**: Fetch real-time data from ANEEL Open Data Platform
 - **Features**:
   - RSS feed monitoring for new datasets
@@ -34,12 +35,13 @@ Successfully implemented a complete **real-time data processing pipeline** for B
   - Electricity tariff tracking
   - Equipment certification database
 - **Output**: JSON files with timestamps, cached locally
-- **APIs Used**: 
+- **APIs Used**:
   - `https://dadosabertos-aneel.opendata.arcgis.com/api/feed/rss/2.0`
   - `https://dadosabertos-aneel.opendata.arcgis.com/data.json`
   - ANEEL Search API
 
 #### Utility Portal Scraper (`crawlee_scraper.py` - 350 lines)
+
 - **Purpose**: Intelligent web scraping of utility company portals
 - **Technology**: Crawlee-Python with Playwright (anti-blocking)
 - **Portals**: CPFL, Enel SP, Cemig
@@ -53,6 +55,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ### 2. AI Processing Layer
 
 #### Realtime Processor (`realtime_processor.py` - 450 lines)
+
 - **Purpose**: Stream processing with AI analysis
 - **Components**:
   - **GPTOSSProcessor**: Local LLM processing for document analysis
@@ -67,8 +70,9 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 - **Output**: Processed data with enrichments
 
 #### PDF/LaTeX Extractor (`pdf_latex_extractor.py` - 430 lines)
+
 - **Purpose**: Extract formulas and technical data from PDF standards
-- **Technology**: 
+- **Technology**:
   - LaTeX-OCR for formula recognition
   - PDFMathTranslate for translation
   - Custom regex for technical parameters
@@ -83,6 +87,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
   - Equipment datasheets
 
 #### Enhanced Ollama Integration (`enhanced_ollama.py` - 430 lines)
+
 - **Purpose**: Vector embeddings and semantic search
 - **Components**:
   - **OllamaVectorStore**: Vector database with cosine similarity
@@ -98,6 +103,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ### 3. Orchestration Layer
 
 #### Integrated Pipeline (`integrated_data_pipeline.py` - 360 lines)
+
 - **Purpose**: Orchestrates all components into unified system
 - **Features**:
   - **Full Ingestion Cycle**: Fetch → Scrape → Process → Index
@@ -110,6 +116,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ### 4. Infrastructure Layer
 
 #### OpenTofu Configuration (`infrastructure/main.tf` - 230 lines)
+
 - **Purpose**: Deploy complete infrastructure with IaC
 - **Services Deployed**:
   1. **Redis** (port 6379) - API response caching
@@ -126,6 +133,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
   - Production-ready configuration
 
 #### Prometheus Config (`infrastructure/config/prometheus.yml`)
+
 - Monitors all 6 services
 - Custom metrics endpoints
 - Alert rules (ready for configuration)
@@ -183,28 +191,33 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ## 🔧 Technology Stack
 
 ### Core Technologies
+
 - **Python 3.9+**: Async/await for concurrent processing
 - **aiohttp**: Async HTTP client for API calls
 - **asyncio**: Event loop for parallel execution
 
 ### Data Sources
+
 - **feedparser**: RSS feed parsing
 - **Crawlee-Python**: Intelligent web scraping
 - **Playwright**: Browser automation with anti-blocking
 
 ### AI/ML
+
 - **Ollama**: Local LLM (Llama3.2)
 - **OpenAI**: Real-time agents (optional)
 - **LaTeX-OCR**: Formula extraction from images
 - **PDFMathTranslate**: PDF translation preserving math
 
 ### Storage
+
 - **Redis**: In-memory cache (5-15 second response times → <100ms)
 - **PostgreSQL**: Relational data (certifications, tariffs)
 - **Qdrant**: Vector database (384-dim embeddings)
 - **JSON**: File-based storage with timestamps
 
 ### Infrastructure
+
 - **OpenTofu/Terraform**: Infrastructure as Code
 - **Docker**: Container orchestration
 - **Prometheus**: Metrics collection
@@ -215,6 +228,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ## 📊 Performance Characteristics
 
 ### Data Throughput
+
 - **ANEEL Fetch**: ~50 datasets in 5-10 seconds
 - **Utility Scraping**: 3 portals in 20-30 seconds (with rate limiting)
 - **PDF Processing**: ~5 pages/second (with OCR)
@@ -222,12 +236,14 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 - **Vector Indexing**: 1000 documents in ~5 minutes
 
 ### Resource Usage
+
 - **Memory**: ~2-4GB (all services running)
 - **CPU**: 2-4 cores recommended
 - **Storage**: ~10GB for data + models
 - **Network**: ~500MB/day data ingestion
 
 ### Caching Impact
+
 - **Without Redis**: 5-15 second API calls
 - **With Redis**: <100ms cached responses
 - **Cache Hit Rate**: 70-80% after warmup
@@ -267,6 +283,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
    - Deployment checklist
 
 ### Code Documentation
+
 - **Docstrings**: Every function and class
 - **Type Hints**: Full typing support
 - **Comments**: Complex logic explained
@@ -277,6 +294,7 @@ Successfully implemented a complete **real-time data processing pipeline** for B
 ## 💼 Business Value
 
 ### Problem Solved
+
 Before: Manual checking of ANEEL updates, utility portals, and standards documents (10+ hours/week).
 
 After: Automated real-time monitoring with AI-powered alerts and semantic search (<1 hour/week).
@@ -305,11 +323,13 @@ After: Automated real-time monitoring with AI-powered alerts and semantic search
 ### ROI Estimate
 
 **Investment**:
+
 - Development: Already complete (this implementation)
 - Infrastructure: ~$50-100/month (cloud) or $0 (self-hosted)
 - Maintenance: 2-3 hours/month
 
 **Return**:
+
 - Labor savings: 450 hours/year × $50/hour = **$22,500/year**
 - Improved compliance: Risk reduction (hard to quantify)
 - Competitive intelligence: Market awareness advantage
@@ -459,6 +479,7 @@ After: Automated real-time monitoring with AI-powered alerts and semantic search
 ### Contact
 
 For technical issues:
+
 1. Check component logs
 2. Review documentation
 3. Search error messages

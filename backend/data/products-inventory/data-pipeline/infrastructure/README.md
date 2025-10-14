@@ -18,6 +18,7 @@ This infrastructure deploys all required services for the real-time data pipelin
 ### Required Software
 
 1. **OpenTofu** (recommended) or **Terraform**:
+
    ```powershell
    # Install OpenTofu via Chocolatey (Windows)
    choco install opentofu
@@ -26,6 +27,7 @@ This infrastructure deploys all required services for the real-time data pipelin
    ```
 
 2. **Docker Desktop**:
+
    ```powershell
    # Install Docker Desktop for Windows
    # Download from: https://www.docker.com/products/docker-desktop/
@@ -217,6 +219,7 @@ docker restart ysh-redis-cache
 View metrics at: `http://localhost:9090`
 
 Query examples:
+
 ```promql
 # Container CPU usage
 rate(container_cpu_usage_seconds_total[5m])
@@ -236,12 +239,14 @@ For production environments:
 
 1. **Change default passwords** in `main.tf`
 2. **Enable authentication** for Redis:
+
    ```hcl
    command = [
      "redis-server",
      "--requirepass", "your_redis_password"
    ]
    ```
+
 3. **Use secrets management** (HashiCorp Vault, Azure Key Vault)
 4. **Configure SSL/TLS** for external access
 5. **Set up firewall rules** to restrict access
@@ -377,6 +382,7 @@ ports {
 ## 🤝 Support
 
 For issues or questions:
+
 1. Check service logs: `docker logs <container_name>`
 2. Verify network connectivity: `docker network inspect ysh-pipeline-network`
 3. Review OpenTofu state: `tofu show`
@@ -386,23 +392,27 @@ For issues or questions:
 After infrastructure is running:
 
 1. **Initialize Ollama models**:
+
    ```powershell
    docker exec -it ysh-ollama-service ollama pull llama3.2
    ```
 
 2. **Create Qdrant collections**:
+
    ```python
    # Run create_collections.py
    python create_qdrant_collections.py
    ```
 
 3. **Test integration**:
+
    ```python
    # Run integration tests
    python test_infrastructure.py
    ```
 
 4. **Start data pipeline**:
+
    ```python
    python integrated_data_pipeline.py
    ```

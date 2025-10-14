@@ -12,6 +12,7 @@
 **Arquivo:** `scripts/generate_skus.py`
 
 **Funcionalidades:**
+
 - Geração de SKUs únicos e semânticos
 - Padrão: `[DIST]-[CATEGORIA]-[POWER]-[BRAND]-[SEQ]`
 - Exemplos:
@@ -20,6 +21,7 @@
   - `FTS-KIT-33KWP-HOYMILES-001`
 
 **Resultados:**
+
 ```
 ✅ FortLev: 217 kits processados
 ✅ NeoSolar: 2,601 kits processados  
@@ -28,6 +30,7 @@
 ```
 
 **Arquivos Gerados:**
+
 - `fortlev/fortlev-kits-with-skus.json`
 - `neosolar/neosolar-kits-with-skus.json`
 - `fotus/fotus-kits-with-skus.json`
@@ -40,18 +43,21 @@
 **Arquivo:** `scripts/download_images_from_csv.py`
 
 **Funcionalidades:**
+
 - Extração automática de URLs de imagens dos CSVs
 - Download com retry logic e rate limiting
 - Mapeamento imagem → produto via SKU/Kit ID
 - Detecção de duplicatas
 
 **Processo:**
+
 1. **Escaneamento:** Busca todos os CSVs por distribuidor
 2. **Extração:** Regex pattern para capturar URLs completas
 3. **Download:** HTTP requests com timeout de 30s
 4. **Mapeamento:** Vincula imagens aos produtos por ID
 
 **Status Atual (em execução):**
+
 ```
 🔄 FortLev: 197/335 imagens baixadas (58.8%)
 ⏳ NeoSolar: aguardando
@@ -59,6 +65,7 @@
 ```
 
 **Diretórios de Saída:**
+
 - `fortlev/images_downloaded/`
 - `neosolar/images_downloaded/`
 - `fotus/images_downloaded/`
@@ -70,12 +77,14 @@
 **Arquivo:** `scripts/sync_images.py`
 
 **Funcionalidades:**
+
 - Verifica existência física das imagens
 - Copia imagens para catálogo centralizado
 - Atualiza registros de produtos com URLs
 - Gera relatório de cobertura
 
 **Estrutura de Dados (Imagem):**
+
 ```json
 {
   "url": "images_catalog/fortlev/FLV-KIT-563KWP-LONGI-001.png",
@@ -162,6 +171,7 @@ backend/data/products-inventory/
 ## 📊 ESTATÍSTICAS ATUAIS
 
 ### SKUs Gerados
+
 | Distribuidor | Kits | SKUs Únicos | Taxa Sucesso |
 |-------------|------|-------------|--------------|
 | FortLev     | 217  | 434         | 100%         |
@@ -170,6 +180,7 @@ backend/data/products-inventory/
 | **TOTAL**   | **2,822** | **3,039** | **100%** |
 
 ### Imagens (em progresso)
+
 | Distribuidor | URLs Encontradas | Baixadas | Pendentes |
 |-------------|------------------|----------|-----------|
 | FortLev     | 335              | ~197     | ~138      |
@@ -233,6 +244,7 @@ cat ..\IMAGE_SYNC_REPORT.md
 ---
 
 **Tempo Total Estimado de Execução:**
+
 - Download de imagens: ~10-15 minutos
 - Sincronização: ~2 minutos
 - Total: **~17 minutos**
