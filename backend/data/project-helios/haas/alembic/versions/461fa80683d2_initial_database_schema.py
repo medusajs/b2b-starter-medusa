@@ -29,7 +29,6 @@ from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
-import geoalchemy2
 
 
 # revision identifiers, used by Alembic.
@@ -83,9 +82,9 @@ def upgrade() -> None:
         sa.Column('url', sa.String(length=500), nullable=False),
         sa.Column('secret', sa.String(length=255), nullable=False),
         sa.Column('event_types', sa.JSON(), nullable=False),
-        sa.Column('is_active', sa.Boolean(), nullable=False, server_default='true'),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
-        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
+        sa.Column('is_active', sa.Boolean(), nullable=False, server_default='1'),
+        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
+        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
         sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_webhook_configs_id'), 'webhook_configs', ['id'], unique=False)
@@ -100,7 +99,6 @@ def upgrade() -> None:
         sa.Column('voltage_level', sa.String(length=50), nullable=False),
         sa.Column('power_requirement', sa.Float(), nullable=False),
         sa.Column('location', sa.JSON(), nullable=True),
-        sa.Column('location_geom', geoalchemy2.Geometry(geometry_type='POINT', srid=4326, from_text='ST_GeomFromEWKT', name='geometry'), nullable=True),
         sa.Column('equipment', sa.JSON(), nullable=True),
         sa.Column('documents', sa.JSON(), nullable=True),
         sa.Column('status', sa.String(length=20), nullable=False, server_default='pending'),
@@ -109,9 +107,9 @@ def upgrade() -> None:
         sa.Column('requirements', sa.JSON(), nullable=True),
         sa.Column('rejection_reason', sa.Text(), nullable=True),
         sa.Column('inmetro_validation_result', sa.JSON(), nullable=True),
-        sa.Column('inmetro_valid', sa.Boolean(), nullable=False, server_default='false'),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
-        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
+        sa.Column('inmetro_valid', sa.Boolean(), nullable=False, server_default='0'),
+        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
+        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
         sa.Column('approved_at', sa.DateTime(), nullable=True),
         sa.Column('rejected_at', sa.DateTime(), nullable=True),
         sa.ForeignKeyConstraint(['distributor_id'], ['distributors.id'], ),
@@ -135,7 +133,7 @@ def upgrade() -> None:
         sa.Column('response_status', sa.Integer(), nullable=True),
         sa.Column('response_body', sa.Text(), nullable=True),
         sa.Column('error_message', sa.Text(), nullable=True),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
+        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
         sa.Column('delivered_at', sa.DateTime(), nullable=True),
         sa.Column('next_retry_at', sa.DateTime(), nullable=True),
         sa.ForeignKeyConstraint(['config_id'], ['webhook_configs.id'], ),
