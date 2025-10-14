@@ -9,7 +9,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from app.config import settings
-from app.routers import distributors, auth, webhooks, inmetro, monitoring
+from app.routers import (
+    distributors,
+    auth,
+    webhooks,
+    inmetro,
+    monitoring,
+    documents
+)
 
 # Configure logging
 settings.setup_logging()
@@ -90,6 +97,11 @@ app.include_router(
     monitoring.router,
     prefix="/api",
     tags=["Monitoring"]
+)
+app.include_router(
+    documents.router,
+    prefix="/api",
+    tags=["Documents"]
 )
 
 
