@@ -129,11 +129,13 @@ def get_distributor_by_code(db: Session, code: str) -> Optional[Distributor]:
 
 
 def submit_connection_request(
+    db: Session,
     distributor_id: int,
-    request: ConnectionRequest
+    request: ConnectionRequest,
+    user_id: Optional[int] = None
 ) -> ConnectionResponse:
     """Submit a connection request to a distributor."""
-    distributor = get_distributor_by_id(distributor_id)
+    distributor = get_distributor_by_id(db, distributor_id)
     if not distributor:
         raise ValueError(f"Distributor with ID {distributor_id} not found")
 
@@ -206,6 +208,29 @@ def submit_connection_request(
             "Comprovante de conformidade com Portaria 140/2022"
         ])
 
+    # Create database record
+    db_connection_request = DBConnectionRequest(
+        request_id=request_id,
+        distributor_id=distributor_id,
+        user_id=user_id,
+        connection_type=request.connection_type,
+        voltage_level=request.voltage_level,
+        power_requirement=request.power_requirement,
+        location=request.location,
+        equipment=request.equipment,
+        documents=request.documents,
+        status="pending",
+        estimated_cost=estimated_cost,
+        estimated_time_days=estimated_days,
+        requirements=requirements,
+        inmetro_validation_result=inmetro_validation_result,
+        inmetro_valid=inmetro_validation_result["valid"] if inmetro_validation_result else False
+    )
+
+    db.add(db_connection_request)
+    db.commit()
+    db.refresh(db_connection_request)
+
     response = ConnectionResponse(
         request_id=request_id,
         status="pending",
@@ -213,8 +238,8 @@ def submit_connection_request(
         estimated_time_days=estimated_days,
         requirements=requirements,
         rejection_reason=None,
-        created_at=datetime.utcnow(),
-        updated_at=datetime.utcnow()
+        created_at=db_connection_request.created_at,
+        updated_at=db_connection_request.updated_at
     )
 
     # Trigger webhook for connection submitted event
@@ -244,19 +269,21 @@ def submit_connection_request(
     return response
 
 
-def get_connection_status(request_id: str) -> Optional[ConnectionResponse]:
+def get_connection_status(db: Session, request_id: str) -> Optional[ConnectionResponse]:
     """Get connection request status by ID."""
-    # Mock implementation - in real system, this would query database
-    # For now, return a mock response
+    db_request = db.query(DBConnectionRequest).filter(DBConnectionRequest.request_id == request_id).first()
+    if not db_request:
+        return None
+
     return ConnectionResponse(
-        request_id=request_id,
-        status="in_progress",
-        estimated_cost=15000.0,
-        estimated_time_days=15,
-        requirements=["Documentação em análise"],
-        rejection_reason=None,
-        created_at=datetime.utcnow(),
-        updated_at=datetime.utcnow()
+        request_id=db_request.request_id,
+        status=db_request.status,
+        estimated_cost=db_request.estimated_cost,
+        estimated_time_days=db_request.estimated_time_days,
+        requirements=db_request.requirements or [],
+        rejection_reason=db_request.rejection_reason,
+        created_at=db_request.created_at,
+        updated_at=db_request.updated_at
     )
 
 

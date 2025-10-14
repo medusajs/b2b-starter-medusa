@@ -15,8 +15,6 @@ import {
     SelectLabel,
     SelectItem,
     SelectSeparator,
-    SelectScrollUpButton,
-    SelectScrollDownButton,
 } from '@/lib/design-system/components/Select'
 
 // Re-export with named exports for backward compatibility
@@ -29,6 +27,4 @@ export {
     SelectLabel,
     SelectItem,
     SelectSeparator,
-    SelectScrollUpButton,
-    SelectScrollDownButton,
 }

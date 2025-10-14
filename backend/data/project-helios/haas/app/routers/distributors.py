@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
+from sqlalchemy.orm import Session
+from app.database import get_db
 from app.models.distributors import (
     Distributor, ConnectionRequest, ConnectionResponse
 )
@@ -15,19 +17,21 @@ router = APIRouter()
 
 @router.get("/", response_model=List[Distributor])
 async def list_distributors(
+    db: Session = Depends(get_db),
     current_user: User = Depends(get_current_active_user)
 ):
     """List all available distributors."""
-    return get_distributors()
+    return get_distributors(db)
 
 
 @router.get("/{distributor_id}", response_model=Distributor)
 async def get_distributor(
     distributor_id: int,
+    db: Session = Depends(get_db),
     current_user: User = Depends(get_current_active_user)
 ):
     """Get distributor by ID."""
-    distributor = get_distributor_by_id(distributor_id)
+    distributor = get_distributor_by_id(db, distributor_id)
     if not distributor:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -40,6 +44,7 @@ async def get_distributor(
 async def submit_connection(
     distributor_id: int,
     request: ConnectionRequest,
+    db: Session = Depends(get_db),
     current_user: User = Depends(get_current_active_user)
 ):
     """Submit a connection request to a distributor."""
@@ -52,7 +57,7 @@ async def submit_connection(
         )
 
     try:
-        response = submit_connection_request(distributor_id, request)
+        response = submit_connection_request(db, distributor_id, request, current_user.id)
         return response
     except ValueError as e:
         raise HTTPException(
@@ -64,10 +69,11 @@ async def submit_connection(
 @router.get("/connection/{request_id}", response_model=ConnectionResponse)
 async def get_connection_status_endpoint(
     request_id: str,
+    db: Session = Depends(get_db),
     current_user: User = Depends(get_current_active_user)
 ):
     """Get connection request status."""
-    status_response = get_connection_status(request_id)
+    status_response = get_connection_status(db, request_id)
     if not status_response:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
