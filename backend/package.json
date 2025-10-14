@@ -43,6 +43,7 @@
     "chromadb": "^3.0.17",
     "chromadb-default-embed": "^2.14.0",
     "cohere-ai": "^7.19.0",
+    "framer-motion": "^12.23.24",
     "langchain": "^0.3.36",
     "multer": "^2.0.2",
     "pg": "^8.13.0",

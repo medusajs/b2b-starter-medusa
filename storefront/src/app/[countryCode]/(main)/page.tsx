@@ -2,7 +2,7 @@ import { listRegions } from "@/lib/data/regions"
 import dynamic from "next/dynamic"
 import FeaturedProducts from "@/modules/discovery/home/components/featured-products"
 import Hero from "@/modules/discovery/home/components/hero"
-import OnboardingCTA from "@/modules/discovery/home/components/onboarding-cta"
+import PLGOnboarding from "@/modules/discovery/home/components/plg-onboarding"
 import SolutionsByClass from "@/modules/discovery/home/components/solutions-by-class"
 import ModalidadesGrid from "@/modules/discovery/home/components/modalidades-grid"
 import { SolarCTAHero, SolarStats } from "@/modules/discovery/home/components/solar-cta"
@@ -77,8 +77,8 @@ export default async function Home(props: {
       />
       <Hero />
       <SolarCTAHero countryCode={countryCode} />
+      <PLGOnboarding countryCode={countryCode} />
       <OnboardingCTA />
-      <SolutionsByClass />
       <VideosByClass />
       <ModalidadesGrid />
       <SolarStats />
