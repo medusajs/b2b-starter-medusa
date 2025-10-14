@@ -1,0 +1,198 @@
+{
+    "metadata": {
+        "region": "Sudeste",
+        "states": [
+            "São Paulo",
+            "Minas Gerais",
+            "Rio de Janeiro",
+            "Espírito Santo"
+        ],
+        "version": "1.0",
+        "lastUpdated": "2025-10-14"
+    },
+    "marketCharacteristics": {
+        "volume": "Altíssimo - Maior concentração de integradores e projetos do Brasil",
+        "maturity": "Alta - Mercado maduro com concorrência estabelecida",
+        "competition": "Muito Alta - Milhares de integradores competindo",
+        "pricesensitivity": "Média-Baixa - Mercado premium em grandes centros urbanos",
+        "laborCost": "Alto - Especialmente em SP capital",
+        "logisticsChallenges": "Baixo - Infraestrutura excelente"
+    },
+    "keyUtilities": {
+        "enelSP": {
+            "state": "São Paulo",
+            "coverage": "Grande São Paulo",
+            "approvalTime": "25-40+ dias",
+            "rejectionRate": "Alta",
+            "complexity": 5,
+            "opportunityScore": 5,
+            "notes": "Maior oportunidade - alta complexidade, alto volume, processos burocráticos"
+        },
+        "cemig": {
+            "state": "Minas Gerais",
+            "coverage": "Minas Gerais",
+            "approvalTime": "20-30 dias",
+            "rejectionRate": "Média",
+            "complexity": 4,
+            "opportunityScore": 5,
+            "notes": "Mercado grande com processos complexos mas navegáveis"
+        },
+        "cpfl": {
+            "state": "São Paulo",
+            "coverage": "Interior de SP",
+            "approvalTime": "15-25 dias",
+            "rejectionRate": "Baixa-Média",
+            "complexity": 3,
+            "opportunityScore": 4,
+            "notes": "Processos relativamente eficientes mas volume alto"
+        },
+        "light": {
+            "state": "Rio de Janeiro",
+            "coverage": "Rio de Janeiro",
+            "approvalTime": "20-30 dias",
+            "rejectionRate": "Média",
+            "complexity": 4,
+            "opportunityScore": 4,
+            "notes": "Mercado significativo com demanda crescente"
+        }
+    },
+    "financialModel": {
+        "pessimista": {
+            "revenuePerProject": 420,
+            "engineerPayment": 240,
+            "engineerPercentage": 57.1,
+            "otherCOGS": 30,
+            "grossProfit": 150,
+            "grossMargin": 35.7,
+            "opexMonthly": 250000,
+            "reasoning": "Custos de mão de obra mais altos, competição intensa pressiona preços"
+        },
+        "neutro": {
+            "revenuePerProject": 480,
+            "engineerPayment": 220,
+            "engineerPercentage": 45.8,
+            "otherCOGS": 25,
+            "grossProfit": 235,
+            "grossMargin": 49,
+            "opexMonthly": 200000,
+            "reasoning": "Mercado aceita pricing premium devido ao valor agregado e economia de tempo"
+        },
+        "otimista": {
+            "revenuePerProject": 600,
+            "engineerPayment": 200,
+            "engineerPercentage": 33.3,
+            "otherCOGS": 20,
+            "grossProfit": 380,
+            "grossMargin": 63.3,
+            "opexMonthly": 190000,
+            "reasoning": "Pricing power forte, eficiência operacional, economia de escala"
+        }
+    },
+    "targetCustomers": {
+        "primary": {
+            "profile": "Integradores médios (10-40 projetos/mês)",
+            "painPoints": [
+                "Processos extremamente burocráticos da Enel SP e CEMIG",
+                "Atrasos custam muito em mercado com margens apertadas",
+                "Falta de previsibilidade afeta planejamento de caixa"
+            ],
+            "valueProp": "Velocidade e previsibilidade em mercado complexo"
+        },
+        "secondary": {
+            "profile": "Grandes integradores (40+ projetos/mês)",
+            "painPoints": [
+                "Volume alto torna gargalo de homologação crítico",
+                "Custo de manter equipe interna de engenheiros é alto"
+            ],
+            "valueProp": "Redução de custos fixos + escalabilidade"
+        }
+    },
+    "goToMarketStrategy": {
+        "phase1": {
+            "focus": "São Paulo - Área de concessão da Enel SP",
+            "timeline": "Meses 0-6",
+            "targetCustomers": 50,
+            "targetProjects": 600,
+            "rationale": "Maior dor (Enel SP complexa) + maior volume = melhor beachhead market"
+        },
+        "phase2": {
+            "focus": "Minas Gerais - CEMIG",
+            "timeline": "Meses 6-12",
+            "targetCustomers": 100,
+            "targetProjects": 1500,
+            "rationale": "Expandir para segundo maior mercado regional com learnings de SP"
+        },
+        "phase3": {
+            "focus": "Interior SP (CPFL) + Rio de Janeiro (Light)",
+            "timeline": "Meses 12-18",
+            "targetCustomers": 200,
+            "targetProjects": 3000,
+            "rationale": "Consolidação regional completa"
+        }
+    },
+    "competitiveAnalysis": {
+        "existingPlayers": [
+            {
+                "name": "Taranis Solar",
+                "strengths": [
+                    "Marca estabelecida",
+                    "Network de engenheiros"
+                ],
+                "weaknesses": [
+                    "Processo não totalmente automatizado",
+                    "Pricing alto"
+                ],
+                "differentiation": "Nossa plataforma oferece mais automação e previsibilidade"
+            },
+            {
+                "name": "GSH Engenharia",
+                "strengths": [
+                    "Foco em SP",
+                    "Conhecimento local"
+                ],
+                "weaknesses": [
+                    "Capacidade limitada",
+                    "Sem tecnologia"
+                ],
+                "differentiation": "Escalabilidade através de tecnologia vs. serviço manual"
+            }
+        ]
+    },
+    "keyMetrics": {
+        "estimatedIntegradoresAtivos": 8000,
+        "averageProjectsPerIntegrador": 24,
+        "totalAnnualProjects": 192000,
+        "marketValueAtR450": "R$ 86.4M",
+        "year1Target": {
+            "marketShare": 0.3,
+            "projects": 576,
+            "revenue": 259200
+        },
+        "year3Target": {
+            "marketShare": 2,
+            "projects": 3840,
+            "revenue": 1728000
+        }
+    },
+    "risksMitigation": {
+        "highLaborCost": {
+            "risk": "Custo de engenheiros pode comprometer margens",
+            "mitigation": "Automatizar ao máximo para reduzir tempo do engenheiro por projeto"
+        },
+        "intenseCompetition": {
+            "risk": "Muitos players podem tentar copiar",
+            "mitigation": "Construir vantagem de dados rapidamente, integração profunda com clientes"
+        },
+        "utilityBureaucracy": {
+            "risk": "Enel SP pode se tornar ainda mais burocrática",
+            "mitigation": "Isso aumenta nossa proposta de valor - é feature, não bug"
+        }
+    },
+    "strategicRecommendations": [
+        "Priorizar entrada em SP na área Enel SP - maior oportunidade",
+        "Investir em relacionamento direto com Enel SP para entender processos internos",
+        "Recrutar engenheiros com experiência específica em Enel SP e CEMIG",
+        "Pricing pode ser 5-10% acima da média nacional devido ao valor agregado",
+        "Parcerias com associações de integradores (ABSOLAR regional) para credibilidade"
+    ]
+}

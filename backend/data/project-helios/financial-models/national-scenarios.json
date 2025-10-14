@@ -1,0 +1,347 @@
+{
+    "metadata": {
+        "version": "1.0",
+        "lastUpdated": "2025-10-14",
+        "currency": "BRL",
+        "description": "Cenários financeiros nacionais para o modelo HaaS"
+    },
+    "scenarios": {
+        "pessimista": {
+            "name": "Cenário Pessimista",
+            "description": "Premissas conservadoras com maiores custos e menor adoção",
+            "assumptions": {
+                "marketAdoption": "Lenta - Alta resistência dos integradores",
+                "competition": "Alta - Concorrentes reagem rapidamente",
+                "engineerNetwork": "Difícil de recrutar - Custos elevados",
+                "pricing": "Pressão de preço alta"
+            },
+            "revenuePerProject": {
+                "value": 400,
+                "reasoning": "Competição forte força preços baixos"
+            },
+            "costStructure": {
+                "variable": {
+                    "engineerPayment": {
+                        "value": 220,
+                        "percentage": 55,
+                        "reasoning": "Alto custo para atrair engenheiros inicialmente"
+                    },
+                    "hosting": {
+                        "value": 20,
+                        "percentage": 5,
+                        "reasoning": "Infraestrutura cloud base"
+                    },
+                    "apis": {
+                        "value": 5,
+                        "percentage": 1.25,
+                        "reasoning": "Integrações de terceiros"
+                    },
+                    "paymentProcessing": {
+                        "value": 10,
+                        "percentage": 2.5,
+                        "reasoning": "2.5% taxa de processamento"
+                    },
+                    "other": {
+                        "value": 5,
+                        "percentage": 1.25,
+                        "reasoning": "Custos variáveis diversos"
+                    },
+                    "total": {
+                        "value": 260,
+                        "percentage": 65
+                    }
+                },
+                "gross": {
+                    "grossProfit": 140,
+                    "grossMargin": 35
+                }
+            },
+            "operatingExpenses": {
+                "rd": {
+                    "monthly": 100000,
+                    "reasoning": "Desenvolvimento mais complexo que o esperado"
+                },
+                "sales": {
+                    "monthly": 80000,
+                    "reasoning": "CAC alto - mercado resistente"
+                },
+                "ga": {
+                    "monthly": 50000,
+                    "reasoning": "Custos administrativos padrão"
+                },
+                "total": {
+                    "monthly": 230000
+                },
+                "percentageOfRevenue": 57.5
+            },
+            "margins": {
+                "grossMargin": 35,
+                "netMargin": -22.5,
+                "reasoning": "Não lucrativo - requer ajustes ou mais capital"
+            },
+            "breakEven": {
+                "projectsPerMonth": 1643,
+                "projectsPerDay": 55,
+                "reasoning": "Alto volume necessário para break-even"
+            },
+            "keyMetrics": {
+                "cac": {
+                    "value": 800,
+                    "reasoning": "Mercado difícil, alto custo de aquisição"
+                },
+                "ltv": {
+                    "value": 4800,
+                    "calculation": "12 projetos/ano × R$400 × 1 ano (churn alto)",
+                    "ltvCacRatio": 6
+                },
+                "cacPayback": {
+                    "months": 2,
+                    "reasoning": "2 projetos para recuperar CAC"
+                }
+            }
+        },
+        "neutro": {
+            "name": "Cenário Neutro",
+            "description": "Premissas realistas baseadas em dados de mercado atuais",
+            "assumptions": {
+                "marketAdoption": "Moderada - Value prop clara ressoa com segment-alvo",
+                "competition": "Média - Alguns players tentam copiar",
+                "engineerNetwork": "Recrutamento estável",
+                "pricing": "Competitivo mas sustentável"
+            },
+            "revenuePerProject": {
+                "value": 450,
+                "reasoning": "Preço competitivo com value-add claro"
+            },
+            "costStructure": {
+                "variable": {
+                    "engineerPayment": {
+                        "value": 200,
+                        "percentage": 44.4,
+                        "reasoning": "Taxa competitiva para engenheiros"
+                    },
+                    "hosting": {
+                        "value": 15,
+                        "percentage": 3.3,
+                        "reasoning": "Infraestrutura otimizada"
+                    },
+                    "apis": {
+                        "value": 5,
+                        "percentage": 1.1,
+                        "reasoning": "Integrações de terceiros"
+                    },
+                    "paymentProcessing": {
+                        "value": 11,
+                        "percentage": 2.4,
+                        "reasoning": "2.5% taxa de processamento"
+                    },
+                    "other": {
+                        "value": 4,
+                        "percentage": 0.8,
+                        "reasoning": "Custos variáveis diversos"
+                    },
+                    "total": {
+                        "value": 235,
+                        "percentage": 52
+                    }
+                },
+                "gross": {
+                    "grossProfit": 215,
+                    "grossMargin": 47.8
+                }
+            },
+            "operatingExpenses": {
+                "rd": {
+                    "monthly": 80000,
+                    "reasoning": "Desenvolvimento eficiente com equipe enxuta"
+                },
+                "sales": {
+                    "monthly": 60000,
+                    "reasoning": "CAC moderado com marketing digital eficiente"
+                },
+                "ga": {
+                    "monthly": 45000,
+                    "reasoning": "Custos administrativos controlados"
+                },
+                "total": {
+                    "monthly": 185000
+                },
+                "percentageOfRevenue": 41.1
+            },
+            "margins": {
+                "grossMargin": 47.8,
+                "netMargin": 6.7,
+                "reasoning": "Lucratividade modesta mas sustentável"
+            },
+            "breakEven": {
+                "projectsPerMonth": 860,
+                "projectsPerDay": 29,
+                "reasoning": "Volume realista para operação em escala"
+            },
+            "keyMetrics": {
+                "cac": {
+                    "value": 500,
+                    "reasoning": "Marketing digital eficiente + vendas consultivas"
+                },
+                "ltv": {
+                    "value": 8100,
+                    "calculation": "15 projetos/ano × R$450 × 1.2 anos",
+                    "ltvCacRatio": 16.2
+                },
+                "cacPayback": {
+                    "months": 1,
+                    "reasoning": "1-2 projetos para recuperar CAC"
+                },
+                "nrr": {
+                    "value": 115,
+                    "reasoning": "Expansão de volume com clientes satisfeitos"
+                }
+            }
+        },
+        "otimista": {
+            "name": "Cenário Otimista",
+            "description": "Premissas agressivas com rápida adoção e economias de escala",
+            "assumptions": {
+                "marketAdoption": "Rápida - Product-market fit forte",
+                "competition": "Baixa - Vantagem competitiva sustentável (dados)",
+                "engineerNetwork": "Abundante - Marca forte atrai talentos",
+                "pricing": "Premium justificável pelo serviço superior"
+            },
+            "revenuePerProject": {
+                "value": 550,
+                "reasoning": "Pricing power devido à proposta de valor diferenciada"
+            },
+            "costStructure": {
+                "variable": {
+                    "engineerPayment": {
+                        "value": 180,
+                        "percentage": 32.7,
+                        "reasoning": "Eficiência da plataforma reduz tempo do engenheiro"
+                    },
+                    "hosting": {
+                        "value": 12,
+                        "percentage": 2.2,
+                        "reasoning": "Economias de escala em cloud"
+                    },
+                    "apis": {
+                        "value": 4,
+                        "percentage": 0.7,
+                        "reasoning": "Integrações otimizadas"
+                    },
+                    "paymentProcessing": {
+                        "value": 14,
+                        "percentage": 2.5,
+                        "reasoning": "2.5% taxa de processamento"
+                    },
+                    "other": {
+                        "value": 3,
+                        "percentage": 0.5,
+                        "reasoning": "Custos variáveis minimizados"
+                    },
+                    "total": {
+                        "value": 213,
+                        "percentage": 38.7
+                    }
+                },
+                "gross": {
+                    "grossProfit": 337,
+                    "grossMargin": 61.3
+                }
+            },
+            "operatingExpenses": {
+                "rd": {
+                    "monthly": 90000,
+                    "reasoning": "Investimento em IA e automação avançada"
+                },
+                "sales": {
+                    "monthly": 50000,
+                    "reasoning": "CAC baixo - forte word-of-mouth e brand"
+                },
+                "ga": {
+                    "monthly": 40000,
+                    "reasoning": "Processos otimizados"
+                },
+                "total": {
+                    "monthly": 180000
+                },
+                "percentageOfRevenue": 32.7
+            },
+            "margins": {
+                "grossMargin": 61.3,
+                "netMargin": 28.6,
+                "reasoning": "Alta lucratividade comparável a SaaS de sucesso"
+            },
+            "breakEven": {
+                "projectsPerMonth": 534,
+                "projectsPerDay": 18,
+                "reasoning": "Volume baixo necessário devido a margens altas"
+            },
+            "keyMetrics": {
+                "cac": {
+                    "value": 300,
+                    "reasoning": "Growth viral + network effects"
+                },
+                "ltv": {
+                    "value": 13200,
+                    "calculation": "20 projetos/ano × R$550 × 1.2 anos",
+                    "ltvCacRatio": 44
+                },
+                "cacPayback": {
+                    "months": 0.5,
+                    "reasoning": "Menos de 1 projeto para recuperar CAC"
+                },
+                "nrr": {
+                    "value": 135,
+                    "reasoning": "Forte expansão + baixíssimo churn"
+                }
+            }
+        }
+    },
+    "comparativeAnalysis": {
+        "summary": "O cenário neutro demonstra viabilidade financeira com margem líquida positiva. O cenário otimista mostra potencial de alavancagem significativo através de economias de escala e pricing power.",
+        "keyInsights": [
+            "Margem bruta saudável (35-61%) em todos os cenários indica modelo de negócio sólido",
+            "Break-even realista no cenário neutro (860 projetos/mês = 0.13% do mercado endereçável)",
+            "Cenário pessimista mostra que economia unitária é positiva, mas OpEx precisa ser ajustado",
+            "LTV:CAC ratio excelente em cenários neutro e otimista (>10:1)",
+            "Maior sensibilidade está no split de receita com engenheiros e eficiência de CAC"
+        ],
+        "riskFactors": [
+            "Habilidade de recrutar e reter rede de engenheiros qualificados",
+            "Eficácia dos canais de aquisição de clientes (CAC)",
+            "Capacidade de defender pricing contra commoditização",
+            "Velocidade de construção da vantagem competitiva de dados"
+        ]
+    },
+    "marketContext": {
+        "tam": {
+            "totalIntegradores": 26000,
+            "projectsPerIntegradorPerYear": 24,
+            "totalProjectsPerYear": 624000,
+            "marketValue": "R$ 280.8M @ R$450/projeto"
+        },
+        "sam": {
+            "targetSegment": "Integradores de micro/minigeração (5-50 projetos/ano)",
+            "estimatedIntegradores": 15000,
+            "projectsPerYear": 270000,
+            "marketValue": "R$ 121.5M"
+        },
+        "som": {
+            "year1Target": {
+                "marketSharePercentage": 0.5,
+                "projects": 3120,
+                "revenue": 1404000
+            },
+            "year3Target": {
+                "marketSharePercentage": 3,
+                "projects": 18720,
+                "revenue": 8424000
+            },
+            "year5Target": {
+                "marketSharePercentage": 10,
+                "projects": 62400,
+                "revenue": 28080000
+            }
+        }
+    }
+}
