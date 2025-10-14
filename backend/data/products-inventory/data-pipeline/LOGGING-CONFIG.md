@@ -9,6 +9,7 @@ Configurar o sistema de logging para que os arquivos de log **NÃO sejam commita
 ## 🚫 Problema Identificado
 
 Os scripts estavam gerando arquivos JSON de log continuamente no diretório `processed_data/`:
+
 - `aneel_processed_*.json` (dados processados da ANEEL)
 - `realtime_monitoring_*.json` (monitoramento em tempo real)
 
@@ -23,6 +24,7 @@ Os scripts estavam gerando arquivos JSON de log continuamente no diretório `pro
 Arquivo criado em: `c:\Users\fjuni\ysh_medusa\ysh-store\backend\data\.gitignore`
 
 **Ignora**:
+
 ```gitignore
 # Dados processados
 processed_data/
@@ -68,6 +70,7 @@ output_path = "/var/log/ysh-pipeline/aneel_processed_{timestamp}.json"
 ```
 
 No `docker-compose.yml`:
+
 ```yaml
 services:
   worker:
@@ -254,7 +257,8 @@ services:
 
 ### **2. Visualizar no Grafana**
 
-Dashboard: http://localhost:3001
+Dashboard: <http://localhost:3001>
+
 1. Acessar **Explore**
 2. Selecionar datasource **Loki**
 3. Query: `{job="ysh-pipeline"}`
