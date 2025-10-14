@@ -33,7 +33,7 @@ class INMETROValidationService:
     def __init__(self):
         # Load the datasheet schema
         schema_path = (
-            Path(__file__).resolve().parents[3] /
+            Path(__file__).resolve().parents[2] /
             "schemas" / "datasheets_certificados.schema.json"
         )
         self.schema = load_datasheet_schema(schema_path)
