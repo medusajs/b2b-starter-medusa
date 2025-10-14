@@ -164,10 +164,31 @@ class SchemaEnricher:
         'kits': 25,  # Média ponderada dos componentes
     }
     
-    def __init__(self, consolidated_products_path: str):
+    def __init__(self, consolidated_products_path: str = None):
+        # Auto-detect latest file if not specified
+        if consolidated_products_path is None:
+            # Try complete inventory first
+            complete_dir = Path("complete-inventory")
+            if complete_dir.exists():
+                json_files = list(complete_dir.glob("complete_products_*.json"))
+                if json_files:
+                    consolidated_products_path = str(max(json_files, key=lambda x: x.stat().st_mtime))
+            
+            # Fallback to consolidated
+            if consolidated_products_path is None:
+                consol_dir = Path("consolidated-inventory")
+                if consol_dir.exists():
+                    json_files = list(consol_dir.glob("consolidated_products_*.json"))
+                    if json_files:
+                        consolidated_products_path = str(max(json_files, key=lambda x: x.stat().st_mtime))
+            
+            if consolidated_products_path is None:
+                raise FileNotFoundError("No inventory file found in complete-inventory/ or consolidated-inventory/")
+        
         self.products_path = Path(consolidated_products_path)
         self.products = []
         self.enriched_products = []
+        self.output_dir = Path("enriched-schemas")  # Can be overridden
         
     def load_products(self) -> None:
         """Carrega produtos consolidados"""
