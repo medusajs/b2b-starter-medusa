@@ -1,6 +1,6 @@
-## Inventário Fortlev — Extração Detalhada de Produtos (13/10/2025)
+# Inventário Fortlev — Extração Detalhada de Produtos (13/10/2025)
 
-### Painéis Solares
+## Painéis Solares
 
 | Produto | Modelo/Série | Preço |
 |---------|--------------|-------|
@@ -53,7 +53,7 @@
 - Todos os itens acima são do distribuidor: **Fortlev**.
 - Para lista completa ou outros campos, consultar os arquivos originais ou solicitar detalhamento adicional.
 
-# Sistema RAG e Busca Semântica - YSH
+## Sistema RAG e Busca Semântica - YSH
 
 **Versão:** 1.0.0  
 **Data:** 13 de outubro de 2025  
