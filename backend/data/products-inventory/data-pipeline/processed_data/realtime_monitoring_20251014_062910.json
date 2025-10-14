@@ -1,0 +1,302 @@
+[
+  {
+    "input_data": {
+      "id": "update_0",
+      "type": "tariff_change",
+      "title": "Update 0",
+      "timestamp": "2025-10-14T06:28:58.991093"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_0",
+        "type": "tariff_change",
+        "title": "Update 0",
+        "timestamp": "2025-10-14T06:28:58.991093"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:28:59.091393"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:28:59.091400",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_1",
+      "type": "certification",
+      "title": "Update 1",
+      "timestamp": "2025-10-14T06:29:00.092581"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_1",
+        "type": "certification",
+        "title": "Update 1",
+        "timestamp": "2025-10-14T06:29:00.092581"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:00.192868"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:00.192878",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_2",
+      "type": "tariff_change",
+      "title": "Update 2",
+      "timestamp": "2025-10-14T06:29:01.194080"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_2",
+        "type": "tariff_change",
+        "title": "Update 2",
+        "timestamp": "2025-10-14T06:29:01.194080"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:01.294245"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:01.294254",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_3",
+      "type": "certification",
+      "title": "Update 3",
+      "timestamp": "2025-10-14T06:29:02.295428"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_3",
+        "type": "certification",
+        "title": "Update 3",
+        "timestamp": "2025-10-14T06:29:02.295428"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:02.395649"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:02.395654",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_4",
+      "type": "tariff_change",
+      "title": "Update 4",
+      "timestamp": "2025-10-14T06:29:03.396637"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_4",
+        "type": "tariff_change",
+        "title": "Update 4",
+        "timestamp": "2025-10-14T06:29:03.396637"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:03.496808"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:03.496814",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_5",
+      "type": "certification",
+      "title": "Update 5",
+      "timestamp": "2025-10-14T06:29:04.497939"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_5",
+        "type": "certification",
+        "title": "Update 5",
+        "timestamp": "2025-10-14T06:29:04.497939"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:04.598133"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:04.598141",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_6",
+      "type": "tariff_change",
+      "title": "Update 6",
+      "timestamp": "2025-10-14T06:29:05.599189"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_6",
+        "type": "tariff_change",
+        "title": "Update 6",
+        "timestamp": "2025-10-14T06:29:05.599189"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:05.699358"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:05.699364",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_7",
+      "type": "certification",
+      "title": "Update 7",
+      "timestamp": "2025-10-14T06:29:06.699911"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_7",
+        "type": "certification",
+        "title": "Update 7",
+        "timestamp": "2025-10-14T06:29:06.699911"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:06.800082"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:06.800090",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_8",
+      "type": "tariff_change",
+      "title": "Update 8",
+      "timestamp": "2025-10-14T06:29:07.801009"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_8",
+        "type": "tariff_change",
+        "title": "Update 8",
+        "timestamp": "2025-10-14T06:29:07.801009"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:07.901171"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:07.901180",
+    "success": true,
+    "error": null
+  },
+  {
+    "input_data": {
+      "id": "update_9",
+      "type": "certification",
+      "title": "Update 9",
+      "timestamp": "2025-10-14T06:29:08.902267"
+    },
+    "processed_data": {
+      "original": {
+        "id": "update_9",
+        "type": "certification",
+        "title": "Update 9",
+        "timestamp": "2025-10-14T06:29:08.902267"
+      },
+      "classification": "general",
+      "priority": "low",
+      "actions": [
+        "Review item"
+      ],
+      "processed_at": "2025-10-14T06:29:09.002448"
+    },
+    "enrichments": [
+      "realtime_analysis",
+      "classification"
+    ],
+    "processor": "openai_realtime",
+    "timestamp": "2025-10-14T06:29:09.002454",
+    "success": true,
+    "error": null
+  }
+]
