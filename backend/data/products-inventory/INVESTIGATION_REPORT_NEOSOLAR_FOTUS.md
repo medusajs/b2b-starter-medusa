@@ -21,11 +21,13 @@
 #### URLs de Imagens Identificadas
 
 **Formato da URL:**
+
 ```
 https://portal.zydon.com.br/api/files/{UUID}/content?ingress=portalb2b.neosolar.com.br
 ```
 
 **Exemplos:**
+
 ```json
 {
   "sku": "NEO-KIT-000KWP-GENERI-001",
@@ -42,11 +44,13 @@ https://portal.zydon.com.br/api/files/{UUID}/content?ingress=portalb2b.neosolar.
 ⏸️ **Interrompido:** Processo parado manualmente
 
 **Arquivos Gerados:**
+
 - `distributors/neosolar/real_image_urls.json` (548 URLs)
 - `distributors/neosolar/images_downloaded_zydon/` (40 imagens)
 - `distributors/neosolar/download_stats.json` (estatísticas)
 
 **Próximos Passos:**
+
 1. Re-executar downloader para completar 548 imagens
 2. Mapear imagens baixadas aos produtos por SKU
 3. Atualizar `neosolar-kits-synced.json` com URLs das imagens
@@ -83,11 +87,13 @@ https://portal.zydon.com.br/api/files/{UUID}/content?ingress=portalb2b.neosolar.
 #### Problema Identificado
 
 ⚠️ **Desalinhamento de Dados:**
+
 - **Produtos:** 4 kits com referências de imagem claras
 - **Imagens baixadas:** 253 arquivos UUID (`.webp`)
 - **Mapeamento:** Nenhuma correspondência entre UUID e ID do kit
 
 **Causa Raiz:**
+
 - As 253 imagens são componentes individuais (painéis, inversores)
 - Os produtos já têm imagens de kit processadas
 - CSVs originais (`fotus-kits.csv`, `fotus-kits-hibridos.csv`) são JSON, não CSV
@@ -170,6 +176,7 @@ https://portal.zydon.com.br/api/files/{UUID}/content?ingress=portalb2b.neosolar.
 **Tempo Estimado:** 30 minutos
 
 **Tarefas:**
+
 1. ✅ Analisar URLs → **COMPLETO** (548 URLs identificadas)
 2. 🔄 Baixar 548 imagens → **7.3% COMPLETO** (40/548)
 3. ⏳ Mapear imagens aos produtos
@@ -177,11 +184,13 @@ https://portal.zydon.com.br/api/files/{UUID}/content?ingress=portalb2b.neosolar.
 5. ⏳ Padronizar nomes: `{SKU}-product-{UUID}.jpg`
 
 **Comando para Continuar:**
+
 ```bash
 python scripts/download_neosolar_images.py
 ```
 
 **Output Esperado:**
+
 - `images_downloaded_zydon/` com 548 imagens
 - `neosolar-kits-synced.json` com 21.1% de cobertura (548/2601)
 
@@ -194,6 +203,7 @@ python scripts/download_neosolar_images.py
 **Opção 1 - Usar Imagens Processadas (RECOMENDADO)**
 
 **Passos:**
+
 1. Verificar se existe: `catalog/images_processed/FOTUS-KITS/`
 2. Copiar imagens para `images_catalog/fotus/`
 3. Renomear:
@@ -204,6 +214,7 @@ python scripts/download_neosolar_images.py
 **Opção 2 - Reconstruir Catálogo**
 
 **Passos:**
+
 1. Identificar servidor FOTUS
 2. Construir URLs completas: `https://{BASE}/images/FOTUS-KITS/{ID}.jpg`
 3. Baixar 4 imagens de kit
@@ -212,6 +223,7 @@ python scripts/download_neosolar_images.py
 **Opção 3 - Vision AI nos Componentes**
 
 **Passos:**
+
 1. Processar 253 imagens UUID com `llama3.2-vision`
 2. Classificar: painel, inversor, bateria
 3. Criar imagens compostas de kits
@@ -226,6 +238,7 @@ python scripts/download_neosolar_images.py
 **Objetivo:** Aumentar cobertura de 85.7% → 95%+
 
 **Tarefas:**
+
 1. Investigar 31 produtos sem imagem
 2. Verificar se URLs existem nos CSVs originais
 3. Tentar download manual
@@ -274,16 +287,19 @@ python scripts/download_neosolar_images.py
 ### Recomendações
 
 #### Curto Prazo (1-2 horas)
+
 1. ✅ Completar download NeoSolar (508 imagens restantes)
 2. ✅ Resolver mapeamento FOTUS (4 produtos)
 3. ✅ Atualizar FortLev (31 produtos sem imagem)
 
 #### Médio Prazo (3-5 horas)
+
 4. 🔄 Vision AI em todas as imagens baixadas
 5. 🔄 Implementar APIs REST (FastAPI + TypeScript)
 6. 🔄 Integração Medusa.js
 
 #### Longo Prazo (1 semana)
+
 7. ⏳ Contatar NeoSolar para acesso a CDN completo
 8. ⏳ Otimizar qualidade das imagens
 9. ⏳ Dashboard de cobertura em tempo real
@@ -293,12 +309,14 @@ python scripts/download_neosolar_images.py
 ## 📝 PRÓXIMOS COMANDOS
 
 ### Continuar Download NeoSolar
+
 ```bash
 cd scripts
 python download_neosolar_images.py
 ```
 
 ### Resolver FOTUS
+
 ```bash
 # Opção 1: Verificar catálogo existente
 ls distributors/fotus/catalog/images_processed/FOTUS-KITS/
@@ -308,6 +326,7 @@ python advanced_image_mapper.py
 ```
 
 ### Atualizar FortLev
+
 ```bash
 python sync_images_fixed.py --check-missing
 ```

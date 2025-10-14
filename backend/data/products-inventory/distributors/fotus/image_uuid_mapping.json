@@ -1,0 +1,3432 @@
+[
+  {
+    "uuid": "9f6cef59-2607-4ac9-8f24-dd32b2a12c7f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/9f6cef59-2607-4ac9-8f24-dd32b2a12c7f.webp",
+    "filename": "9f6cef59-2607-4ac9-8f24-dd32b2a12c7f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+        "potencia_kwp": 1.14,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "db0b1b5b-4d51-41e5-98f2-390e283ba4eb",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/db0b1b5b-4d51-41e5-98f2-390e283ba4eb.webp",
+    "filename": "db0b1b5b-4d51-41e5-98f2-390e283ba4eb.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-113kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.14,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7a1bc10e-ab3a-45e4-becc-6ab015c2777c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7a1bc10e-ab3a-45e4-becc-6ab015c2777c.webp",
+    "filename": "7a1bc10e-ab3a-45e4-becc-6ab015c2777c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-Ceramico-kits",
+        "potencia_kwp": 1.2,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2b98204b-0b22-4f1d-a7b3-1229ca020a1a",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2b98204b-0b22-4f1d-a7b3-1229ca020a1a.webp",
+    "filename": "2b98204b-0b22-4f1d-a7b3-1229ca020a1a.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-MiniTrilho-kits",
+        "potencia_kwp": 1.2,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f5d29fb7-09f6-4a6f-9f2c-4d53a634fa4f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f5d29fb7-09f6-4a6f-9f2c-4d53a634fa4f.webp",
+    "filename": "f5d29fb7-09f6-4a6f-9f2c-4d53a634fa4f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f61d73c9-95a3-4fd0-b980-aedc511015b6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f61d73c9-95a3-4fd0-b980-aedc511015b6.webp",
+    "filename": "f61d73c9-95a3-4fd0-b980-aedc511015b6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-113kWp-Ceramico-kits",
+        "potencia_kwp": 1.14,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c200cf2e-6609-4fb9-91ed-df349f90aaa9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c200cf2e-6609-4fb9-91ed-df349f90aaa9.webp",
+    "filename": "c200cf2e-6609-4fb9-91ed-df349f90aaa9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-113kWp-MiniTrilho-kits",
+        "potencia_kwp": 1.14,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "368ac2e3-af77-4fd3-9535-b6192569fec2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/368ac2e3-af77-4fd3-9535-b6192569fec2.webp",
+    "filename": "368ac2e3-af77-4fd3-9535-b6192569fec2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-Ceramico-kits",
+        "potencia_kwp": 1.2,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "cde262ec-06a2-415f-88a2-9bf0779a55b6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cde262ec-06a2-415f-88a2-9bf0779a55b6.webp",
+    "filename": "cde262ec-06a2-415f-88a2-9bf0779a55b6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-MiniTrilho-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c02fdb3d-f8c5-4477-8acc-b1fd079af472",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c02fdb3d-f8c5-4477-8acc-b1fd079af472.webp",
+    "filename": "c02fdb3d-f8c5-4477-8acc-b1fd079af472.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-113kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.14,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "05df34de-9d92-4e1c-b62e-8493127e4620",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/05df34de-9d92-4e1c-b62e-8493127e4620.webp",
+    "filename": "05df34de-9d92-4e1c-b62e-8493127e4620.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "790404e1-1eea-4625-99a1-725e1aedd51c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/790404e1-1eea-4625-99a1-725e1aedd51c.webp",
+    "filename": "790404e1-1eea-4625-99a1-725e1aedd51c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-Ceramico-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a48ae5ff-d3e0-4ff3-b17a-f04fa00976e9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a48ae5ff-d3e0-4ff3-b17a-f04fa00976e9.webp",
+    "filename": "a48ae5ff-d3e0-4ff3-b17a-f04fa00976e9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "22982584-0da1-4e1b-a4bb-ff6cdfc7ff2f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/22982584-0da1-4e1b-a4bb-ff6cdfc7ff2f.webp",
+    "filename": "22982584-0da1-4e1b-a4bb-ff6cdfc7ff2f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-MiniTrilho-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e4aad001-cc56-4043-892b-c96c338ea75e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e4aad001-cc56-4043-892b-c96c338ea75e.webp",
+    "filename": "e4aad001-cc56-4043-892b-c96c338ea75e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-Ceramico-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f96c5353-019c-4e0b-b57f-bc8c2a714863",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f96c5353-019c-4e0b-b57f-bc8c2a714863.webp",
+    "filename": "f96c5353-019c-4e0b-b57f-bc8c2a714863.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-142kWp-Fibrocimento-kits",
+        "potencia_kwp": 1.42,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7d3c65e2-e653-404f-8466-9aaa678bfff5",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7d3c65e2-e653-404f-8466-9aaa678bfff5.webp",
+    "filename": "7d3c65e2-e653-404f-8466-9aaa678bfff5.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-MiniTrilho-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7e7af270-c9d5-474a-982e-cf3e4c1f61fe",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7e7af270-c9d5-474a-982e-cf3e4c1f61fe.webp",
+    "filename": "7e7af270-c9d5-474a-982e-cf3e4c1f61fe.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-Ceramico-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "fdf6e587-c30a-4b2c-a7dc-09d18ed63f63",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/fdf6e587-c30a-4b2c-a7dc-09d18ed63f63.webp",
+    "filename": "fdf6e587-c30a-4b2c-a7dc-09d18ed63f63.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-MiniTrilho-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "394c7c75-10d5-4b43-ad5c-7946c8963b29",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/394c7c75-10d5-4b43-ad5c-7946c8963b29.webp",
+    "filename": "394c7c75-10d5-4b43-ad5c-7946c8963b29.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-Fibrocimento-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "17f8d149-d30f-4a6c-8f32-4c18e65058de",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/17f8d149-d30f-4a6c-8f32-4c18e65058de.webp",
+    "filename": "17f8d149-d30f-4a6c-8f32-4c18e65058de.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-MiniTrilho-kits",
+        "potencia_kwp": 2.4,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "35300313-17c1-47a4-9ff5-71f19222f8bb",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/35300313-17c1-47a4-9ff5-71f19222f8bb.webp",
+    "filename": "35300313-17c1-47a4-9ff5-71f19222f8bb.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-Ceramico-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5cca5516-e5aa-4af3-ac0a-47b660f39575",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5cca5516-e5aa-4af3-ac0a-47b660f39575.webp",
+    "filename": "5cca5516-e5aa-4af3-ac0a-47b660f39575.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-227kWp-Fibrocimento-kits",
+        "potencia_kwp": 2.28,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "93971c26-fa6d-4cd9-a03a-4f05fe5b1178",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/93971c26-fa6d-4cd9-a03a-4f05fe5b1178.webp",
+    "filename": "93971c26-fa6d-4cd9-a03a-4f05fe5b1178.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-Ceramico-kits",
+        "potencia_kwp": 2.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0dd2b85c-0536-456c-aaa0-88b506229a3b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0dd2b85c-0536-456c-aaa0-88b506229a3b.webp",
+    "filename": "0dd2b85c-0536-456c-aaa0-88b506229a3b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-Fibrocimento-kits",
+        "potencia_kwp": 2.4,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "93498d68-3267-43f3-9efd-ed00e82ab09d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/93498d68-3267-43f3-9efd-ed00e82ab09d.webp",
+    "filename": "93498d68-3267-43f3-9efd-ed00e82ab09d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-Ceramico-kits",
+        "potencia_kwp": 2.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "55d33903-af5a-4224-9173-d7569994b11e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/55d33903-af5a-4224-9173-d7569994b11e.webp",
+    "filename": "55d33903-af5a-4224-9173-d7569994b11e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-MiniTrilho-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "dc1cbe4c-c51c-405a-9bee-026edd54074b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/dc1cbe4c-c51c-405a-9bee-026edd54074b.webp",
+    "filename": "dc1cbe4c-c51c-405a-9bee-026edd54074b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-MiniTrilho-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7759d37a-9e1c-4da5-8553-6523b0c26ff2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7759d37a-9e1c-4da5-8553-6523b0c26ff2.webp",
+    "filename": "7759d37a-9e1c-4da5-8553-6523b0c26ff2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-Ceramico-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "95badfd2-af7b-40bf-a423-d6c45160a2a4",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/95badfd2-af7b-40bf-a423-d6c45160a2a4.webp",
+    "filename": "95badfd2-af7b-40bf-a423-d6c45160a2a4.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-Fibrocimento-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eaf95169-d853-45eb-9f82-42e646cb1a33",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eaf95169-d853-45eb-9f82-42e646cb1a33.webp",
+    "filename": "eaf95169-d853-45eb-9f82-42e646cb1a33.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-Ceramico-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ed9ff68e-d7cf-4998-9376-caf172fe132e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ed9ff68e-d7cf-4998-9376-caf172fe132e.webp",
+    "filename": "ed9ff68e-d7cf-4998-9376-caf172fe132e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-284kWp-Fibrocimento-kits",
+        "potencia_kwp": 2.84,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "20267917-c4a9-4ccd-b78d-ed147afaf3bc",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/20267917-c4a9-4ccd-b78d-ed147afaf3bc.webp",
+    "filename": "20267917-c4a9-4ccd-b78d-ed147afaf3bc.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d4433ffe-5167-424b-a4e2-c3f093cea839",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d4433ffe-5167-424b-a4e2-c3f093cea839.webp",
+    "filename": "d4433ffe-5167-424b-a4e2-c3f093cea839.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c78ff365-d0f7-4523-bfa5-969e705ba87e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c78ff365-d0f7-4523-bfa5-969e705ba87e.webp",
+    "filename": "c78ff365-d0f7-4523-bfa5-969e705ba87e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Ceramico-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ec9c53d9-bb72-47d5-bdb8-051c63cceef7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ec9c53d9-bb72-47d5-bdb8-051c63cceef7.webp",
+    "filename": "ec9c53d9-bb72-47d5-bdb8-051c63cceef7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0d7615de-6fa3-44eb-9589-5556b8ab2ccd",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0d7615de-6fa3-44eb-9589-5556b8ab2ccd.webp",
+    "filename": "0d7615de-6fa3-44eb-9589-5556b8ab2ccd.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5afb32ba-8425-4e1f-8c47-b08107915d76",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5afb32ba-8425-4e1f-8c47-b08107915d76.webp",
+    "filename": "5afb32ba-8425-4e1f-8c47-b08107915d76.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Ceramico-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ae556444-22f4-44a4-afab-211f1d7952d9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ae556444-22f4-44a4-afab-211f1d7952d9.webp",
+    "filename": "ae556444-22f4-44a4-afab-211f1d7952d9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c2cae68d-6aad-417c-ace8-8230892ee2db",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c2cae68d-6aad-417c-ace8-8230892ee2db.webp",
+    "filename": "c2cae68d-6aad-417c-ace8-8230892ee2db.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "72581997-ea3b-4203-a6ca-01be49da3a09",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/72581997-ea3b-4203-a6ca-01be49da3a09.webp",
+    "filename": "72581997-ea3b-4203-a6ca-01be49da3a09.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1ad035bc-eef1-437e-a020-9d5c7e4a0240",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1ad035bc-eef1-437e-a020-9d5c7e4a0240.webp",
+    "filename": "1ad035bc-eef1-437e-a020-9d5c7e4a0240.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "50ef2559-57d8-4f1e-a4a3-591119058d60",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/50ef2559-57d8-4f1e-a4a3-591119058d60.webp",
+    "filename": "50ef2559-57d8-4f1e-a4a3-591119058d60.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Ceramico-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e207e433-90d9-4079-bf4f-0a043fba5b72",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e207e433-90d9-4079-bf4f-0a043fba5b72.webp",
+    "filename": "e207e433-90d9-4079-bf4f-0a043fba5b72.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-Ceramico-kits",
+        "potencia_kwp": 3.6,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c07c88c8-eb28-48dd-9ecc-6092f6a2949b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c07c88c8-eb28-48dd-9ecc-6092f6a2949b.webp",
+    "filename": "c07c88c8-eb28-48dd-9ecc-6092f6a2949b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-342kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.42,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "907594da-dba9-4a13-b0ab-96aa59dd1748",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/907594da-dba9-4a13-b0ab-96aa59dd1748.webp",
+    "filename": "907594da-dba9-4a13-b0ab-96aa59dd1748.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3a90fae1-58c0-4dd0-bf6d-4fef5d695c30",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3a90fae1-58c0-4dd0-bf6d-4fef5d695c30.webp",
+    "filename": "3a90fae1-58c0-4dd0-bf6d-4fef5d695c30.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eb565501-f17f-4315-9e84-67e1f5c6c93c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eb565501-f17f-4315-9e84-67e1f5c6c93c.webp",
+    "filename": "eb565501-f17f-4315-9e84-67e1f5c6c93c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Ceramico-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f2b2e8b6-70fe-454e-93de-f25ec7fe3d0f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f2b2e8b6-70fe-454e-93de-f25ec7fe3d0f.webp",
+    "filename": "f2b2e8b6-70fe-454e-93de-f25ec7fe3d0f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e61d5c16-3da1-4a96-842f-47d41fa92ac6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e61d5c16-3da1-4a96-842f-47d41fa92ac6.webp",
+    "filename": "e61d5c16-3da1-4a96-842f-47d41fa92ac6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Ceramico-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "fcd5d4e7-0599-4a24-8b41-8038c588108b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/fcd5d4e7-0599-4a24-8b41-8038c588108b.webp",
+    "filename": "fcd5d4e7-0599-4a24-8b41-8038c588108b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c50228f5-62f5-4aee-97cd-041e9c239b90",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c50228f5-62f5-4aee-97cd-041e9c239b90.webp",
+    "filename": "c50228f5-62f5-4aee-97cd-041e9c239b90.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d42b0218-bce2-496e-a045-6e5bede101cf",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d42b0218-bce2-496e-a045-6e5bede101cf.webp",
+    "filename": "d42b0218-bce2-496e-a045-6e5bede101cf.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-MiniTrilho-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7e7b0a0d-b9d5-4f7b-8f4e-6bbbe1ab57d7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7e7b0a0d-b9d5-4f7b-8f4e-6bbbe1ab57d7.webp",
+    "filename": "7e7b0a0d-b9d5-4f7b-8f4e-6bbbe1ab57d7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a2aa24c3-b9b1-4858-bef6-d96ea821ec27",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a2aa24c3-b9b1-4858-bef6-d96ea821ec27.webp",
+    "filename": "a2aa24c3-b9b1-4858-bef6-d96ea821ec27.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "548557cb-6477-4858-bc52-9b74af4d4800",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/548557cb-6477-4858-bc52-9b74af4d4800.webp",
+    "filename": "548557cb-6477-4858-bc52-9b74af4d4800.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Ceramico-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "db7c5384-f94d-44d5-969a-b1b05b756741",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/db7c5384-f94d-44d5-969a-b1b05b756741.webp",
+    "filename": "db7c5384-f94d-44d5-969a-b1b05b756741.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-399kWp-Fibrocimento-kits",
+        "potencia_kwp": 3.99,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4833119c-b91f-47b6-af31-5c98ccb7e155",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4833119c-b91f-47b6-af31-5c98ccb7e155.webp",
+    "filename": "4833119c-b91f-47b6-af31-5c98ccb7e155.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Ceramico-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "96118bd9-1ddd-4de1-8aef-6c88f00fadb8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/96118bd9-1ddd-4de1-8aef-6c88f00fadb8.webp",
+    "filename": "96118bd9-1ddd-4de1-8aef-6c88f00fadb8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-513kWp-MiniTrilho-kits",
+        "potencia_kwp": 5.13,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "b2405cbf-e6c6-4bb2-a965-8dafb86a52a8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/b2405cbf-e6c6-4bb2-a965-8dafb86a52a8.webp",
+    "filename": "b2405cbf-e6c6-4bb2-a965-8dafb86a52a8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "09d81933-8432-4fcc-8704-ab2fb1bbac89",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/09d81933-8432-4fcc-8704-ab2fb1bbac89.webp",
+    "filename": "09d81933-8432-4fcc-8704-ab2fb1bbac89.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "168b07d1-c8e6-42cb-825f-a426378f83f1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/168b07d1-c8e6-42cb-825f-a426378f83f1.webp",
+    "filename": "168b07d1-c8e6-42cb-825f-a426378f83f1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "8c286de1-54f9-4f79-904f-dc342af549ff",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/8c286de1-54f9-4f79-904f-dc342af549ff.webp",
+    "filename": "8c286de1-54f9-4f79-904f-dc342af549ff.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "b39777c2-718a-4d93-bda3-c66b5c763b8a",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/b39777c2-718a-4d93-bda3-c66b5c763b8a.webp",
+    "filename": "b39777c2-718a-4d93-bda3-c66b5c763b8a.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1ecb3704-24f1-4e19-9716-b399e96e783e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1ecb3704-24f1-4e19-9716-b399e96e783e.webp",
+    "filename": "1ecb3704-24f1-4e19-9716-b399e96e783e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Ceramico-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "45c82c3b-ed9a-4efa-91ed-d9f640969869",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/45c82c3b-ed9a-4efa-91ed-d9f640969869.webp",
+    "filename": "45c82c3b-ed9a-4efa-91ed-d9f640969869.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Ceramico-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "42a65e76-be3a-4a77-b743-a12053aebb95",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/42a65e76-be3a-4a77-b743-a12053aebb95.webp",
+    "filename": "42a65e76-be3a-4a77-b743-a12053aebb95.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Ceramico-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "9bc9bc9f-1b73-491b-8a20-afc8749a68c6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/9bc9bc9f-1b73-491b-8a20-afc8749a68c6.webp",
+    "filename": "9bc9bc9f-1b73-491b-8a20-afc8749a68c6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a9b3ec42-3acf-4acb-975d-6ce27361c03f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a9b3ec42-3acf-4acb-975d-6ce27361c03f.webp",
+    "filename": "a9b3ec42-3acf-4acb-975d-6ce27361c03f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Ceramico-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e83412b5-0e0a-4bab-b749-8eb8e4ba1bf4",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e83412b5-0e0a-4bab-b749-8eb8e4ba1bf4.webp",
+    "filename": "e83412b5-0e0a-4bab-b749-8eb8e4ba1bf4.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "fb5dcadb-908f-4db6-b08a-5faaa97883f2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/fb5dcadb-908f-4db6-b08a-5faaa97883f2.webp",
+    "filename": "fb5dcadb-908f-4db6-b08a-5faaa97883f2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "231d9530-4d9c-4008-b1f5-1d91769e1749",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/231d9530-4d9c-4008-b1f5-1d91769e1749.webp",
+    "filename": "231d9530-4d9c-4008-b1f5-1d91769e1749.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-455kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.56,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "52ab5736-c32f-4c78-9a3c-38b0339a9a7d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/52ab5736-c32f-4c78-9a3c-38b0339a9a7d.webp",
+    "filename": "52ab5736-c32f-4c78-9a3c-38b0339a9a7d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e01f0d62-9740-4135-ba8b-609c7a8683f0",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e01f0d62-9740-4135-ba8b-609c7a8683f0.webp",
+    "filename": "e01f0d62-9740-4135-ba8b-609c7a8683f0.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-MiniTrilho-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "8179c3c6-77c5-4b3f-a513-10e446be9eb1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/8179c3c6-77c5-4b3f-a513-10e446be9eb1.webp",
+    "filename": "8179c3c6-77c5-4b3f-a513-10e446be9eb1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Ceramico-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "50387671-5e16-4472-a13f-244ab080e6b7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/50387671-5e16-4472-a13f-244ab080e6b7.webp",
+    "filename": "50387671-5e16-4472-a13f-244ab080e6b7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-513kWp-Ceramico-kits",
+        "potencia_kwp": 5.13,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2fea754f-545a-4bd7-be43-5c82b2c0419b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2fea754f-545a-4bd7-be43-5c82b2c0419b.webp",
+    "filename": "2fea754f-545a-4bd7-be43-5c82b2c0419b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Ceramico-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d0d47116-0337-4e76-aebe-8aadb6d9e70d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d0d47116-0337-4e76-aebe-8aadb6d9e70d.webp",
+    "filename": "d0d47116-0337-4e76-aebe-8aadb6d9e70d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-513kWp-Fibrocimento-kits",
+        "potencia_kwp": 5.13,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a08ccafd-3275-416f-b13e-882fa22b4717",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a08ccafd-3275-416f-b13e-882fa22b4717.webp",
+    "filename": "a08ccafd-3275-416f-b13e-882fa22b4717.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Ceramico-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3132c184-6819-48f8-87d5-b6be0f150392",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3132c184-6819-48f8-87d5-b6be0f150392.webp",
+    "filename": "3132c184-6819-48f8-87d5-b6be0f150392.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e03f1424-b773-4539-93e8-11a0c1ba6fb9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e03f1424-b773-4539-93e8-11a0c1ba6fb9.webp",
+    "filename": "e03f1424-b773-4539-93e8-11a0c1ba6fb9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.8,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "afd595dd-c841-4618-bbf5-97a6137f29f1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/afd595dd-c841-4618-bbf5-97a6137f29f1.webp",
+    "filename": "afd595dd-c841-4618-bbf5-97a6137f29f1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-426kWp-Fibrocimento-kits",
+        "potencia_kwp": 4.26,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0cdfb012-c966-4760-b395-a6ac7fa8f1bc",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0cdfb012-c966-4760-b395-a6ac7fa8f1bc.webp",
+    "filename": "0cdfb012-c966-4760-b395-a6ac7fa8f1bc.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-MiniTrilho-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "04199e6e-936b-42bc-89cd-d8b1cb826dde",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/04199e6e-936b-42bc-89cd-d8b1cb826dde.webp",
+    "filename": "04199e6e-936b-42bc-89cd-d8b1cb826dde.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-MiniTrilho-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "cd6a55ac-caae-473f-9724-ec51dbd2668c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cd6a55ac-caae-473f-9724-ec51dbd2668c.webp",
+    "filename": "cd6a55ac-caae-473f-9724-ec51dbd2668c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-MiniTrilho-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e7f1cef0-9251-4b39-bbdc-4083c1df38bf",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e7f1cef0-9251-4b39-bbdc-4083c1df38bf.webp",
+    "filename": "e7f1cef0-9251-4b39-bbdc-4083c1df38bf.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-Ceramico-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7a365df2-11e6-4c1d-beaf-6cb97fd9e6c7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7a365df2-11e6-4c1d-beaf-6cb97fd9e6c7.webp",
+    "filename": "7a365df2-11e6-4c1d-beaf-6cb97fd9e6c7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-Ceramico-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "290ca6e3-615c-4072-a470-4087a5f9dc25",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/290ca6e3-615c-4072-a470-4087a5f9dc25.webp",
+    "filename": "290ca6e3-615c-4072-a470-4087a5f9dc25.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-MiniTrilho-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "61423b3e-c9c7-474b-86b8-cf0a1744dfc0",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/61423b3e-c9c7-474b-86b8-cf0a1744dfc0.webp",
+    "filename": "61423b3e-c9c7-474b-86b8-cf0a1744dfc0.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-MiniTrilho-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7d453e67-dd6e-493e-9a6e-55aaa4af0068",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7d453e67-dd6e-493e-9a6e-55aaa4af0068.webp",
+    "filename": "7d453e67-dd6e-493e-9a6e-55aaa4af0068.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-Fibrocimento-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "89e40e42-a0ab-4392-b000-75034f1205cb",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/89e40e42-a0ab-4392-b000-75034f1205cb.webp",
+    "filename": "89e40e42-a0ab-4392-b000-75034f1205cb.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-Fibrocimento-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "803eb545-590b-4a37-8c2b-3ddcbb9be329",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/803eb545-590b-4a37-8c2b-3ddcbb9be329.webp",
+    "filename": "803eb545-590b-4a37-8c2b-3ddcbb9be329.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-Ceramico-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "6e09ac16-d9f8-4f00-9cb4-e8efd5f5baf2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/6e09ac16-d9f8-4f00-9cb4-e8efd5f5baf2.webp",
+    "filename": "6e09ac16-d9f8-4f00-9cb4-e8efd5f5baf2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-568kWp-Fibrocimento-kits",
+        "potencia_kwp": 5.68,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "23b954ec-e250-43b1-997a-597919c33550",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/23b954ec-e250-43b1-997a-597919c33550.webp",
+    "filename": "23b954ec-e250-43b1-997a-597919c33550.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-Ceramico-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0d22633e-2ee5-499e-9f6e-f6ef156418ad",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0d22633e-2ee5-499e-9f6e-f6ef156418ad.webp",
+    "filename": "0d22633e-2ee5-499e-9f6e-f6ef156418ad.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Ceramico-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c4de8af7-06ed-4380-9444-bee21d347628",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c4de8af7-06ed-4380-9444-bee21d347628.webp",
+    "filename": "c4de8af7-06ed-4380-9444-bee21d347628.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-570kWp-Fibrocimento-kits",
+        "potencia_kwp": 5.7,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "6c03b947-b9a5-473d-8458-cd1b72707cbd",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/6c03b947-b9a5-473d-8458-cd1b72707cbd.webp",
+    "filename": "6c03b947-b9a5-473d-8458-cd1b72707cbd.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-MiniTrilho-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a596ee41-dc34-4be9-875f-ed37cd370096",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a596ee41-dc34-4be9-875f-ed37cd370096.webp",
+    "filename": "a596ee41-dc34-4be9-875f-ed37cd370096.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Ceramico-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a98d1b0d-5344-4e2c-be50-c5f6d8281a91",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a98d1b0d-5344-4e2c-be50-c5f6d8281a91.webp",
+    "filename": "a98d1b0d-5344-4e2c-be50-c5f6d8281a91.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7b236315-6b09-49ec-b0e8-81087e6468b9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7b236315-6b09-49ec-b0e8-81087e6468b9.webp",
+    "filename": "7b236315-6b09-49ec-b0e8-81087e6468b9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Fibrocimento-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a624c608-e30c-4f77-b12d-8ebd658ad8ef",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a624c608-e30c-4f77-b12d-8ebd658ad8ef.webp",
+    "filename": "a624c608-e30c-4f77-b12d-8ebd658ad8ef.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Fibrocimento-kits",
+        "potencia_kwp": 6.0,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5a746371-a330-4310-b9c1-af00da6fd5af",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5a746371-a330-4310-b9c1-af00da6fd5af.webp",
+    "filename": "5a746371-a330-4310-b9c1-af00da6fd5af.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2beb0fc7-fe87-44b5-8227-cd1ee548f7c6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2beb0fc7-fe87-44b5-8227-cd1ee548f7c6.webp",
+    "filename": "2beb0fc7-fe87-44b5-8227-cd1ee548f7c6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bb76f74f-d0c4-4d85-a8f1-b4f59e943f0f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bb76f74f-d0c4-4d85-a8f1-b4f59e943f0f.webp",
+    "filename": "bb76f74f-d0c4-4d85-a8f1-b4f59e943f0f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Ceramico-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "59954d64-bb35-4411-8311-bd1ad894d1c8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/59954d64-bb35-4411-8311-bd1ad894d1c8.webp",
+    "filename": "59954d64-bb35-4411-8311-bd1ad894d1c8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c7c67384-0b8c-4765-a9ec-892ce6a2cfc7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c7c67384-0b8c-4765-a9ec-892ce6a2cfc7.webp",
+    "filename": "c7c67384-0b8c-4765-a9ec-892ce6a2cfc7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "60924555-b373-4e55-8f99-16f56b97e04b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/60924555-b373-4e55-8f99-16f56b97e04b.webp",
+    "filename": "60924555-b373-4e55-8f99-16f56b97e04b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "facad9d7-faef-44dc-8e8f-578465db3a11",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/facad9d7-faef-44dc-8e8f-578465db3a11.webp",
+    "filename": "facad9d7-faef-44dc-8e8f-578465db3a11.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-MiniTrilho-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0865b509-9811-4178-bb09-c3ff54fd6f6b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0865b509-9811-4178-bb09-c3ff54fd6f6b.webp",
+    "filename": "0865b509-9811-4178-bb09-c3ff54fd6f6b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Ceramico-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bb729d92-75dc-4bd8-ada0-9a356f3b2645",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bb729d92-75dc-4bd8-ada0-9a356f3b2645.webp",
+    "filename": "bb729d92-75dc-4bd8-ada0-9a356f3b2645.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1d654c37-69e7-4b01-bcde-13ddd8913e8f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1d654c37-69e7-4b01-bcde-13ddd8913e8f.webp",
+    "filename": "1d654c37-69e7-4b01-bcde-13ddd8913e8f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a876bd82-d385-4e03-a41f-4f5b685c6f89",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a876bd82-d385-4e03-a41f-4f5b685c6f89.webp",
+    "filename": "a876bd82-d385-4e03-a41f-4f5b685c6f89.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Ceramico-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f13d3e22-58d0-45e3-b8b9-8edf2c6684fe",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f13d3e22-58d0-45e3-b8b9-8edf2c6684fe.webp",
+    "filename": "f13d3e22-58d0-45e3-b8b9-8edf2c6684fe.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Ceramico-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4f1af4b5-981e-49af-823d-cae30c504619",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4f1af4b5-981e-49af-823d-cae30c504619.webp",
+    "filename": "4f1af4b5-981e-49af-823d-cae30c504619.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "363bfe9b-f3b0-4f0b-b382-af074f3e5fea",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/363bfe9b-f3b0-4f0b-b382-af074f3e5fea.webp",
+    "filename": "363bfe9b-f3b0-4f0b-b382-af074f3e5fea.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "058e7633-f3b4-473b-9d43-fa8bd86cff56",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/058e7633-f3b4-473b-9d43-fa8bd86cff56.webp",
+    "filename": "058e7633-f3b4-473b-9d43-fa8bd86cff56.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-684kWp-Fibrocimento-kits",
+        "potencia_kwp": 6.84,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "dc39601b-0b4f-46bf-9c5a-c1ca99cf45cd",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/dc39601b-0b4f-46bf-9c5a-c1ca99cf45cd.webp",
+    "filename": "dc39601b-0b4f-46bf-9c5a-c1ca99cf45cd.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "113d2ea4-971f-4d14-a48f-73740f78bbaa",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/113d2ea4-971f-4d14-a48f-73740f78bbaa.webp",
+    "filename": "113d2ea4-971f-4d14-a48f-73740f78bbaa.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-855kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.55,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "6ce2f328-e23e-4c46-9ca5-9ec2a163a2b1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/6ce2f328-e23e-4c46-9ca5-9ec2a163a2b1.webp",
+    "filename": "6ce2f328-e23e-4c46-9ca5-9ec2a163a2b1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ddc3b4c0-a647-4377-a824-5df328b93e39",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ddc3b4c0-a647-4377-a824-5df328b93e39.webp",
+    "filename": "ddc3b4c0-a647-4377-a824-5df328b93e39.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Ceramico-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1d668d05-381e-4367-bb1a-b7df2e4cfc29",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1d668d05-381e-4367-bb1a-b7df2e4cfc29.webp",
+    "filename": "1d668d05-381e-4367-bb1a-b7df2e4cfc29.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "30f3b7e1-7b23-48cd-992f-6926481a461b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/30f3b7e1-7b23-48cd-992f-6926481a461b.webp",
+    "filename": "30f3b7e1-7b23-48cd-992f-6926481a461b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "56cf0093-693d-4c4a-a1bf-fcb3d41d3998",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/56cf0093-693d-4c4a-a1bf-fcb3d41d3998.webp",
+    "filename": "56cf0093-693d-4c4a-a1bf-fcb3d41d3998.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1ddb5fd5-bb14-4df2-8819-5f63c6fa6960",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1ddb5fd5-bb14-4df2-8819-5f63c6fa6960.webp",
+    "filename": "1ddb5fd5-bb14-4df2-8819-5f63c6fa6960.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2e991a7a-e542-45e4-bc0a-8091242d966b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2e991a7a-e542-45e4-bc0a-8091242d966b.webp",
+    "filename": "2e991a7a-e542-45e4-bc0a-8091242d966b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "55cf6160-a816-4372-b453-c4457adc98ea",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/55cf6160-a816-4372-b453-c4457adc98ea.webp",
+    "filename": "55cf6160-a816-4372-b453-c4457adc98ea.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c167e45c-43e7-4db7-897c-3201869ac3f8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c167e45c-43e7-4db7-897c-3201869ac3f8.webp",
+    "filename": "c167e45c-43e7-4db7-897c-3201869ac3f8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a2ccbcc1-ad3a-4ea2-9496-6e36e1986e89",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a2ccbcc1-ad3a-4ea2-9496-6e36e1986e89.webp",
+    "filename": "a2ccbcc1-ad3a-4ea2-9496-6e36e1986e89.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-855kWp-Ceramico-kits",
+        "potencia_kwp": 8.55,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "835141e8-7881-4b02-8bbd-2d721a1c5cce",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/835141e8-7881-4b02-8bbd-2d721a1c5cce.webp",
+    "filename": "835141e8-7881-4b02-8bbd-2d721a1c5cce.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-Ceramico-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4de286af-ee1f-4690-be6f-169faca518e8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4de286af-ee1f-4690-be6f-169faca518e8.webp",
+    "filename": "4de286af-ee1f-4690-be6f-169faca518e8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-855kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.55,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d9b4756b-bbce-44ce-92ff-aae71912b356",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d9b4756b-bbce-44ce-92ff-aae71912b356.webp",
+    "filename": "d9b4756b-bbce-44ce-92ff-aae71912b356.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f32a365c-a06b-4876-8ca4-a7d4df2f04ce",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f32a365c-a06b-4876-8ca4-a7d4df2f04ce.webp",
+    "filename": "f32a365c-a06b-4876-8ca4-a7d4df2f04ce.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "98d717c9-808c-4796-8101-32c3f3efbeb8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/98d717c9-808c-4796-8101-32c3f3efbeb8.webp",
+    "filename": "98d717c9-808c-4796-8101-32c3f3efbeb8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1c0a25c1-36ce-4ef7-8394-2a8f492436d5",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1c0a25c1-36ce-4ef7-8394-2a8f492436d5.webp",
+    "filename": "1c0a25c1-36ce-4ef7-8394-2a8f492436d5.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "97641dc6-e0d5-460d-a40a-0856184789c3",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/97641dc6-e0d5-460d-a40a-0856184789c3.webp",
+    "filename": "97641dc6-e0d5-460d-a40a-0856184789c3.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7c5094d7-205d-4f48-94dd-0b7e3257eb66",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7c5094d7-205d-4f48-94dd-0b7e3257eb66.webp",
+    "filename": "7c5094d7-205d-4f48-94dd-0b7e3257eb66.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-Ceramico-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "53d90421-ba5a-4fe7-82b8-a8890fe6f2e9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/53d90421-ba5a-4fe7-82b8-a8890fe6f2e9.webp",
+    "filename": "53d90421-ba5a-4fe7-82b8-a8890fe6f2e9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "26a3a112-c1d4-4f60-8261-2c3a23899353",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/26a3a112-c1d4-4f60-8261-2c3a23899353.webp",
+    "filename": "26a3a112-c1d4-4f60-8261-2c3a23899353.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "17d5c5c8-b6de-4385-bd7d-b4c06456f710",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/17d5c5c8-b6de-4385-bd7d-b4c06456f710.webp",
+    "filename": "17d5c5c8-b6de-4385-bd7d-b4c06456f710.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bab22fa1-0671-448f-841c-ec43673e279c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bab22fa1-0671-448f-841c-ec43673e279c.webp",
+    "filename": "bab22fa1-0671-448f-841c-ec43673e279c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-710kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.1,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "12e0bc04-7657-4986-b36f-15393b6e88a8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/12e0bc04-7657-4986-b36f-15393b6e88a8.webp",
+    "filename": "12e0bc04-7657-4986-b36f-15393b6e88a8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d4be60cf-f32e-4856-b4a5-09c15d06f523",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d4be60cf-f32e-4856-b4a5-09c15d06f523.webp",
+    "filename": "d4be60cf-f32e-4856-b4a5-09c15d06f523.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4b530f0d-7776-422e-913a-231f249fcca1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4b530f0d-7776-422e-913a-231f249fcca1.webp",
+    "filename": "4b530f0d-7776-422e-913a-231f249fcca1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-Ceramico-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c3ef7a21-b013-49e8-828c-1ba65a6bf764",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c3ef7a21-b013-49e8-828c-1ba65a6bf764.webp",
+    "filename": "c3ef7a21-b013-49e8-828c-1ba65a6bf764.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "fd35bd2e-01f1-44c9-9d0c-34e5fc848c23",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/fd35bd2e-01f1-44c9-9d0c-34e5fc848c23.webp",
+    "filename": "fd35bd2e-01f1-44c9-9d0c-34e5fc848c23.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7e5b9945-7ae6-477d-ae79-acd1ad5f90e8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7e5b9945-7ae6-477d-ae79-acd1ad5f90e8.webp",
+    "filename": "7e5b9945-7ae6-477d-ae79-acd1ad5f90e8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-MiniTrilho-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "cb8c10e0-11b4-4749-b1eb-a276e01a7220",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cb8c10e0-11b4-4749-b1eb-a276e01a7220.webp",
+    "filename": "cb8c10e0-11b4-4749-b1eb-a276e01a7220.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "31c1b34e-d8d3-4356-98be-1a8db8953a89",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/31c1b34e-d8d3-4356-98be-1a8db8953a89.webp",
+    "filename": "31c1b34e-d8d3-4356-98be-1a8db8953a89.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2dcef854-e6ac-43d1-adc4-9493067d9d5b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2dcef854-e6ac-43d1-adc4-9493067d9d5b.webp",
+    "filename": "2dcef854-e6ac-43d1-adc4-9493067d9d5b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Ceramico-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "044f53d6-5d1e-407c-a9f3-f640ed878dfc",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/044f53d6-5d1e-407c-a9f3-f640ed878dfc.webp",
+    "filename": "044f53d6-5d1e-407c-a9f3-f640ed878dfc.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "207b0cb4-6695-4d2f-a442-6c8af36cc1a2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/207b0cb4-6695-4d2f-a442-6c8af36cc1a2.webp",
+    "filename": "207b0cb4-6695-4d2f-a442-6c8af36cc1a2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-798kWp-Fibrocimento-kits",
+        "potencia_kwp": 7.98,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "cc777648-4ca1-4425-af2d-70bd2315acda",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cc777648-4ca1-4425-af2d-70bd2315acda.webp",
+    "filename": "cc777648-4ca1-4425-af2d-70bd2315acda.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-MiniTrilho-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ffb81533-60a1-47f6-8bb6-344bd6a83379",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ffb81533-60a1-47f6-8bb6-344bd6a83379.webp",
+    "filename": "ffb81533-60a1-47f6-8bb6-344bd6a83379.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Ceramico-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c2343832-4baf-436e-b59b-d888776a4457",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c2343832-4baf-436e-b59b-d888776a4457.webp",
+    "filename": "c2343832-4baf-436e-b59b-d888776a4457.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "dd04e6ec-01fd-4639-8b5e-1ba9f5cd1e31",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/dd04e6ec-01fd-4639-8b5e-1ba9f5cd1e31.webp",
+    "filename": "dd04e6ec-01fd-4639-8b5e-1ba9f5cd1e31.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "6ef418a7-d366-4427-9a62-3f585f226525",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/6ef418a7-d366-4427-9a62-3f585f226525.webp",
+    "filename": "6ef418a7-d366-4427-9a62-3f585f226525.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "730847e8-e59a-4e2e-b5da-d1bf035585df",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/730847e8-e59a-4e2e-b5da-d1bf035585df.webp",
+    "filename": "730847e8-e59a-4e2e-b5da-d1bf035585df.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Ceramico-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "215a23a7-ab1f-47d4-afd0-5c103e27d0cd",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/215a23a7-ab1f-47d4-afd0-5c103e27d0cd.webp",
+    "filename": "215a23a7-ab1f-47d4-afd0-5c103e27d0cd.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Ceramico-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "644d3ddd-3573-4a9a-988c-37c6ce4c0400",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/644d3ddd-3573-4a9a-988c-37c6ce4c0400.webp",
+    "filename": "644d3ddd-3573-4a9a-988c-37c6ce4c0400.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-Ceramico-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3a30ec1c-0cbf-418b-a55f-33d0ee6f6dc9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3a30ec1c-0cbf-418b-a55f-33d0ee6f6dc9.webp",
+    "filename": "3a30ec1c-0cbf-418b-a55f-33d0ee6f6dc9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "096bb021-7ef5-42dd-b13b-c6b8bd9017b6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/096bb021-7ef5-42dd-b13b-c6b8bd9017b6.webp",
+    "filename": "096bb021-7ef5-42dd-b13b-c6b8bd9017b6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "324c2c74-d409-4f9a-9707-65c3acd1657e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/324c2c74-d409-4f9a-9707-65c3acd1657e.webp",
+    "filename": "324c2c74-d409-4f9a-9707-65c3acd1657e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.4,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bb6ff8cd-4cb1-4423-86ac-fe01a1708568",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bb6ff8cd-4cb1-4423-86ac-fe01a1708568.webp",
+    "filename": "bb6ff8cd-4cb1-4423-86ac-fe01a1708568.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-Ceramico-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "705a1a19-4105-45d8-bf08-dd7a75764cee",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/705a1a19-4105-45d8-bf08-dd7a75764cee.webp",
+    "filename": "705a1a19-4105-45d8-bf08-dd7a75764cee.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-969kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.69,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "afabf6b1-5606-4806-a236-d6cd91992042",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/afabf6b1-5606-4806-a236-d6cd91992042.webp",
+    "filename": "afabf6b1-5606-4806-a236-d6cd91992042.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Ceramico-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "699493b1-fc78-4a9f-bbaa-00b252c0705c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/699493b1-fc78-4a9f-bbaa-00b252c0705c.webp",
+    "filename": "699493b1-fc78-4a9f-bbaa-00b252c0705c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "40a7b7aa-e453-4852-ad92-f0c738049aa1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/40a7b7aa-e453-4852-ad92-f0c738049aa1.webp",
+    "filename": "40a7b7aa-e453-4852-ad92-f0c738049aa1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Ceramico-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7347a1fc-49ae-49f1-9eee-a307bdc51d17",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7347a1fc-49ae-49f1-9eee-a307bdc51d17.webp",
+    "filename": "7347a1fc-49ae-49f1-9eee-a307bdc51d17.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "44bd8d6c-1d54-4f82-b9a3-a4554a13aec0",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/44bd8d6c-1d54-4f82-b9a3-a4554a13aec0.webp",
+    "filename": "44bd8d6c-1d54-4f82-b9a3-a4554a13aec0.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-Ceramico-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2aa98ac5-7bf8-4ea1-a62f-f8e338adec35",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2aa98ac5-7bf8-4ea1-a62f-f8e338adec35.webp",
+    "filename": "2aa98ac5-7bf8-4ea1-a62f-f8e338adec35.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4b9b1398-4df3-4ed5-aea8-3dbbb8efc3ec",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4b9b1398-4df3-4ed5-aea8-3dbbb8efc3ec.webp",
+    "filename": "4b9b1398-4df3-4ed5-aea8-3dbbb8efc3ec.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d667245e-fcd2-49e0-9bf5-96a9940804ff",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d667245e-fcd2-49e0-9bf5-96a9940804ff.webp",
+    "filename": "d667245e-fcd2-49e0-9bf5-96a9940804ff.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-852kWp-Fibrocimento-kits",
+        "potencia_kwp": 8.52,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2c02b0c0-46bb-4478-a886-e403e62cfbb5",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2c02b0c0-46bb-4478-a886-e403e62cfbb5.webp",
+    "filename": "2c02b0c0-46bb-4478-a886-e403e62cfbb5.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a438156b-daf9-437a-abcd-f896d5bdad27",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a438156b-daf9-437a-abcd-f896d5bdad27.webp",
+    "filename": "a438156b-daf9-437a-abcd-f896d5bdad27.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a4a1656b-9946-4e84-8c8d-3559a53bd953",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a4a1656b-9946-4e84-8c8d-3559a53bd953.webp",
+    "filename": "a4a1656b-9946-4e84-8c8d-3559a53bd953.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-911kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.12,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2fa5bc58-f6f0-4ec0-9589-92cdcca2c89d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2fa5bc58-f6f0-4ec0-9589-92cdcca2c89d.webp",
+    "filename": "2fa5bc58-f6f0-4ec0-9589-92cdcca2c89d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Ceramico-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7afe0089-c443-4058-97e7-b3788594576d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7afe0089-c443-4058-97e7-b3788594576d.webp",
+    "filename": "7afe0089-c443-4058-97e7-b3788594576d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Ceramico-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5cca3915-58b1-458d-aa06-8a1431bb99e0",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5cca3915-58b1-458d-aa06-8a1431bb99e0.webp",
+    "filename": "5cca3915-58b1-458d-aa06-8a1431bb99e0.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5c16b03b-2e96-46c1-8adc-9d786213510d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5c16b03b-2e96-46c1-8adc-9d786213510d.webp",
+    "filename": "5c16b03b-2e96-46c1-8adc-9d786213510d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1254kWp-MiniTrilho-kits",
+        "potencia_kwp": 12.54,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eba9504e-945b-4071-a43f-3808184d1e9d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eba9504e-945b-4071-a43f-3808184d1e9d.webp",
+    "filename": "eba9504e-945b-4071-a43f-3808184d1e9d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-Fibrocimento-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "b24a6a7b-c8a0-4145-9ed9-f5282e34ed52",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/b24a6a7b-c8a0-4145-9ed9-f5282e34ed52.webp",
+    "filename": "b24a6a7b-c8a0-4145-9ed9-f5282e34ed52.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7f1a0fbd-15f8-4ab8-8d5e-5ff4da13a209",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7f1a0fbd-15f8-4ab8-8d5e-5ff4da13a209.webp",
+    "filename": "7f1a0fbd-15f8-4ab8-8d5e-5ff4da13a209.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eac4798e-2a51-44c2-b6ad-54cb232e26e8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eac4798e-2a51-44c2-b6ad-54cb232e26e8.webp",
+    "filename": "eac4798e-2a51-44c2-b6ad-54cb232e26e8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-MiniTrilho-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bce14b14-85ae-46dd-bf1f-fd8848b33520",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bce14b14-85ae-46dd-bf1f-fd8848b33520.webp",
+    "filename": "bce14b14-85ae-46dd-bf1f-fd8848b33520.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-MiniTrilho-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "e088376a-8ad5-43fb-b547-8742a1a51c2d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/e088376a-8ad5-43fb-b547-8742a1a51c2d.webp",
+    "filename": "e088376a-8ad5-43fb-b547-8742a1a51c2d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-Ceramico-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bd3f419c-5c25-4e82-9fe5-399ec385df88",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bd3f419c-5c25-4e82-9fe5-399ec385df88.webp",
+    "filename": "bd3f419c-5c25-4e82-9fe5-399ec385df88.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "1edb213a-6c24-4ee6-9ac7-99c67ba562a2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/1edb213a-6c24-4ee6-9ac7-99c67ba562a2.webp",
+    "filename": "1edb213a-6c24-4ee6-9ac7-99c67ba562a2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-Ceramico-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4de19d6b-e155-4963-ba9d-5103a3e1f8d9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4de19d6b-e155-4963-ba9d-5103a3e1f8d9.webp",
+    "filename": "4de19d6b-e155-4963-ba9d-5103a3e1f8d9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-MiniTrilho-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "475f96ac-368f-43c9-9dbd-bea45d0e2184",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/475f96ac-368f-43c9-9dbd-bea45d0e2184.webp",
+    "filename": "475f96ac-368f-43c9-9dbd-bea45d0e2184.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-Ceramico-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eecd8fef-8daa-4776-8c46-37a188e481ab",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eecd8fef-8daa-4776-8c46-37a188e481ab.webp",
+    "filename": "eecd8fef-8daa-4776-8c46-37a188e481ab.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1026kWp-Fibrocimento-kits",
+        "potencia_kwp": 10.26,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "43431693-1b37-433a-92e2-8b828e653b1a",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/43431693-1b37-433a-92e2-8b828e653b1a.webp",
+    "filename": "43431693-1b37-433a-92e2-8b828e653b1a.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1311kWp-MiniTrilho-kits",
+        "potencia_kwp": 13.11,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f809fbba-24c0-4209-ba36-81cf00340b4f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f809fbba-24c0-4209-ba36-81cf00340b4f.webp",
+    "filename": "f809fbba-24c0-4209-ba36-81cf00340b4f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-MiniTrilho-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3057c012-f32e-461e-9789-23c7ded32329",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3057c012-f32e-461e-9789-23c7ded32329.webp",
+    "filename": "3057c012-f32e-461e-9789-23c7ded32329.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-994kWp-Fibrocimento-kits",
+        "potencia_kwp": 9.94,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "b351d0bf-d3d4-45bc-9d8a-a74718ded4c7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/b351d0bf-d3d4-45bc-9d8a-a74718ded4c7.webp",
+    "filename": "b351d0bf-d3d4-45bc-9d8a-a74718ded4c7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1254kWp-Ceramico-kits",
+        "potencia_kwp": 12.54,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c80f3e5f-5205-4a1a-a12d-f5d01cc73700",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c80f3e5f-5205-4a1a-a12d-f5d01cc73700.webp",
+    "filename": "c80f3e5f-5205-4a1a-a12d-f5d01cc73700.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1254kWp-Fibrocimento-kits",
+        "potencia_kwp": 12.54,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "27046df0-f52d-444a-8fd8-7481559e61a1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/27046df0-f52d-444a-8fd8-7481559e61a1.webp",
+    "filename": "27046df0-f52d-444a-8fd8-7481559e61a1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1065kWp-MiniTrilho-kits",
+        "potencia_kwp": 10.65,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2aea4c61-7223-4637-a5f5-d74242721918",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2aea4c61-7223-4637-a5f5-d74242721918.webp",
+    "filename": "2aea4c61-7223-4637-a5f5-d74242721918.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-MiniTrilho-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "9379e6ef-eeca-4ec6-82d9-3bdf32a2b60c",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/9379e6ef-eeca-4ec6-82d9-3bdf32a2b60c.webp",
+    "filename": "9379e6ef-eeca-4ec6-82d9-3bdf32a2b60c.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-Ceramico-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c7af92fe-ec89-4385-8bbb-ed0bae992530",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c7af92fe-ec89-4385-8bbb-ed0bae992530.webp",
+    "filename": "c7af92fe-ec89-4385-8bbb-ed0bae992530.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-Fibrocimento-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "75680e24-ae9c-4e69-8409-37181c5c53b6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/75680e24-ae9c-4e69-8409-37181c5c53b6.webp",
+    "filename": "75680e24-ae9c-4e69-8409-37181c5c53b6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1311kWp-Ceramico-kits",
+        "potencia_kwp": 13.11,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "49e66c6d-4353-4409-9b16-8be62fee7aed",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/49e66c6d-4353-4409-9b16-8be62fee7aed.webp",
+    "filename": "49e66c6d-4353-4409-9b16-8be62fee7aed.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-Ceramico-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "9886deab-6636-41c7-a34f-11ed62794e2b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/9886deab-6636-41c7-a34f-11ed62794e2b.webp",
+    "filename": "9886deab-6636-41c7-a34f-11ed62794e2b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1311kWp-Fibrocimento-kits",
+        "potencia_kwp": 13.11,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d804e9a3-96dd-46fb-a182-fcb78453d72e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d804e9a3-96dd-46fb-a182-fcb78453d72e.webp",
+    "filename": "d804e9a3-96dd-46fb-a182-fcb78453d72e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-Fibrocimento-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "eea5eb59-4f9c-4f9b-adf9-c55d3bd89004",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/eea5eb59-4f9c-4f9b-adf9-c55d3bd89004.webp",
+    "filename": "eea5eb59-4f9c-4f9b-adf9-c55d3bd89004.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1065kWp-Ceramico-kits",
+        "potencia_kwp": 10.65,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "32f46bb3-2678-4555-aaad-18d35092d1d4",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/32f46bb3-2678-4555-aaad-18d35092d1d4.webp",
+    "filename": "32f46bb3-2678-4555-aaad-18d35092d1d4.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1482kWp-MiniTrilho-kits",
+        "potencia_kwp": 14.82,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "5495d3d1-2635-4801-97f2-57d9e54af6c7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/5495d3d1-2635-4801-97f2-57d9e54af6c7.webp",
+    "filename": "5495d3d1-2635-4801-97f2-57d9e54af6c7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1065kWp-Fibrocimento-kits",
+        "potencia_kwp": 10.65,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "19ac49a4-c9d9-43e6-b5aa-14b3281b17a2",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/19ac49a4-c9d9-43e6-b5aa-14b3281b17a2.webp",
+    "filename": "19ac49a4-c9d9-43e6-b5aa-14b3281b17a2.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-Ceramico-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "4ae4d731-aebb-42d0-a16b-40c7f0c5798f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/4ae4d731-aebb-42d0-a16b-40c7f0c5798f.webp",
+    "filename": "4ae4d731-aebb-42d0-a16b-40c7f0c5798f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1482kWp-Ceramico-kits",
+        "potencia_kwp": 14.82,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "b90a1c80-e38d-4d84-a587-917a8db6d0a7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/b90a1c80-e38d-4d84-a587-917a8db6d0a7.webp",
+    "filename": "b90a1c80-e38d-4d84-a587-917a8db6d0a7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1482kWp-Fibrocimento-kits",
+        "potencia_kwp": 14.82,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "6d87b51a-5845-4ee6-bfb0-944fd27b3932",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/6d87b51a-5845-4ee6-bfb0-944fd27b3932.webp",
+    "filename": "6d87b51a-5845-4ee6-bfb0-944fd27b3932.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1136kWp-Fibrocimento-kits",
+        "potencia_kwp": 11.36,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "290e363f-9434-48f7-a053-29601691c5d1",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/290e363f-9434-48f7-a053-29601691c5d1.webp",
+    "filename": "290e363f-9434-48f7-a053-29601691c5d1.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1278kWp-MiniTrilho-kits",
+        "potencia_kwp": 12.78,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "05d7b5bf-56ef-4ab8-9424-f07ba0394d36",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/05d7b5bf-56ef-4ab8-9424-f07ba0394d36.webp",
+    "filename": "05d7b5bf-56ef-4ab8-9424-f07ba0394d36.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1596kWp-MiniTrilho-kits",
+        "potencia_kwp": 15.96,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3ec6bc30-1121-43d5-8dc2-b2fe268927a9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3ec6bc30-1121-43d5-8dc2-b2fe268927a9.webp",
+    "filename": "3ec6bc30-1121-43d5-8dc2-b2fe268927a9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-MiniTrilho-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "8ef03123-8965-47b3-9717-f811fa7c47aa",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/8ef03123-8965-47b3-9717-f811fa7c47aa.webp",
+    "filename": "8ef03123-8965-47b3-9717-f811fa7c47aa.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1278kWp-Ceramico-kits",
+        "potencia_kwp": 12.78,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "3f7db894-d89b-4825-8830-2d1f125a56e7",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/3f7db894-d89b-4825-8830-2d1f125a56e7.webp",
+    "filename": "3f7db894-d89b-4825-8830-2d1f125a56e7.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1278kWp-Fibrocimento-kits",
+        "potencia_kwp": 12.78,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "f537d259-4cce-43b8-ab42-a9f4c26beb6d",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/f537d259-4cce-43b8-ab42-a9f4c26beb6d.webp",
+    "filename": "f537d259-4cce-43b8-ab42-a9f4c26beb6d.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-Ceramico-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "a98031cb-573c-4fd4-bbe7-9fb9df41948f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/a98031cb-573c-4fd4-bbe7-9fb9df41948f.webp",
+    "filename": "a98031cb-573c-4fd4-bbe7-9fb9df41948f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1596kWp-Ceramico-kits",
+        "potencia_kwp": 15.96,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "53374062-ae99-457a-98aa-cf917637b475",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/53374062-ae99-457a-98aa-cf917637b475.webp",
+    "filename": "53374062-ae99-457a-98aa-cf917637b475.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1704kWp-MiniTrilho-kits",
+        "potencia_kwp": 17.04,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "89db832e-e2e1-4329-b9ef-95aece866afc",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/89db832e-e2e1-4329-b9ef-95aece866afc.webp",
+    "filename": "89db832e-e2e1-4329-b9ef-95aece866afc.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1704kWp-Ceramico-kits",
+        "potencia_kwp": 17.04,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "35b65462-d3a4-4b19-8981-51a7fce5fa1e",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/35b65462-d3a4-4b19-8981-51a7fce5fa1e.webp",
+    "filename": "35b65462-d3a4-4b19-8981-51a7fce5fa1e.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1368kWp-Fibrocimento-kits",
+        "potencia_kwp": 13.68,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "799afce1-c5aa-4436-b319-aa9001c7fff8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/799afce1-c5aa-4436-b319-aa9001c7fff8.webp",
+    "filename": "799afce1-c5aa-4436-b319-aa9001c7fff8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1596kWp-Fibrocimento-kits",
+        "potencia_kwp": 15.96,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d6cfb7c2-807e-4204-8c8b-3b1da6e51051",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d6cfb7c2-807e-4204-8c8b-3b1da6e51051.webp",
+    "filename": "d6cfb7c2-807e-4204-8c8b-3b1da6e51051.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-1704kWp-Fibrocimento-kits",
+        "potencia_kwp": 17.04,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "74eda2f6-b062-4f56-a44e-56b455b3aaba",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/74eda2f6-b062-4f56-a44e-56b455b3aaba.webp",
+    "filename": "74eda2f6-b062-4f56-a44e-56b455b3aaba.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 1.2,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ac94b511-34b9-46aa-8292-9cd9f500db43",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ac94b511-34b9-46aa-8292-9cd9f500db43.webp",
+    "filename": "ac94b511-34b9-46aa-8292-9cd9f500db43.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-120kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 1.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "de3bfda1-01bb-402f-ac23-d10d8a367e1b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/de3bfda1-01bb-402f-ac23-d10d8a367e1b.webp",
+    "filename": "de3bfda1-01bb-402f-ac23-d10d8a367e1b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 2.4,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "bb7d9aa3-eb7e-4580-a472-e41da64bf1c9",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/bb7d9aa3-eb7e-4580-a472-e41da64bf1c9.webp",
+    "filename": "bb7d9aa3-eb7e-4580-a472-e41da64bf1c9.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 2.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "43052252-9c33-4942-89bb-b03ed70b16eb",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/43052252-9c33-4942-89bb-b03ed70b16eb.webp",
+    "filename": "43052252-9c33-4942-89bb-b03ed70b16eb.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-240kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 2.4,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "467e5835-3bbe-419b-b04d-440686f2d691",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/467e5835-3bbe-419b-b04d-440686f2d691.webp",
+    "filename": "467e5835-3bbe-419b-b04d-440686f2d691.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 3.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "cfd73018-f663-4c91-852d-983376439dc4",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/cfd73018-f663-4c91-852d-983376439dc4.webp",
+    "filename": "cfd73018-f663-4c91-852d-983376439dc4.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 3.6,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "20efeca7-b3eb-4d77-a122-bb38a4a60f5f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/20efeca7-b3eb-4d77-a122-bb38a4a60f5f.webp",
+    "filename": "20efeca7-b3eb-4d77-a122-bb38a4a60f5f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 4.8,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "484cc7bb-e19d-4000-8c6b-c37bf4a6dfc8",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/484cc7bb-e19d-4000-8c6b-c37bf4a6dfc8.webp",
+    "filename": "484cc7bb-e19d-4000-8c6b-c37bf4a6dfc8.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 4.8,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "ddd9a8cb-6fbf-482d-a374-a7501aba1d44",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/ddd9a8cb-6fbf-482d-a374-a7501aba1d44.webp",
+    "filename": "ddd9a8cb-6fbf-482d-a374-a7501aba1d44.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-360kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 3.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "7b758936-a883-4941-8f27-e9dcb52ed4d0",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/7b758936-a883-4941-8f27-e9dcb52ed4d0.webp",
+    "filename": "7b758936-a883-4941-8f27-e9dcb52ed4d0.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-480kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 4.8,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "05bfb166-3da3-4512-98a2-f916f0191ecf",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/05bfb166-3da3-4512-98a2-f916f0191ecf.webp",
+    "filename": "05bfb166-3da3-4512-98a2-f916f0191ecf.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 6.0,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "02f64ce5-ee5a-4819-8e8e-a9ac827632a6",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/02f64ce5-ee5a-4819-8e8e-a9ac827632a6.webp",
+    "filename": "02f64ce5-ee5a-4819-8e8e-a9ac827632a6.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 6.0,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "798ff2bc-1304-4a56-8f40-bdf85b5c7559",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/798ff2bc-1304-4a56-8f40-bdf85b5c7559.webp",
+    "filename": "798ff2bc-1304-4a56-8f40-bdf85b5c7559.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-600kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 6.0,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "c6995eca-a1ea-4443-b188-47316829d118",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/c6995eca-a1ea-4443-b188-47316829d118.webp",
+    "filename": "c6995eca-a1ea-4443-b188-47316829d118.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 7.2,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "31180cb7-5402-4a8e-9234-2f4e4da961cb",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/31180cb7-5402-4a8e-9234-2f4e4da961cb.webp",
+    "filename": "31180cb7-5402-4a8e-9234-2f4e4da961cb.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 7.2,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "2fba2bee-2cb9-4591-be36-c5a17cba8982",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/2fba2bee-2cb9-4591-be36-c5a17cba8982.webp",
+    "filename": "2fba2bee-2cb9-4591-be36-c5a17cba8982.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 8.4,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "aef4eb81-def2-4538-bf37-56458370618f",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/aef4eb81-def2-4538-bf37-56458370618f.webp",
+    "filename": "aef4eb81-def2-4538-bf37-56458370618f.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 8.4,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "dc96ff0d-6f27-4284-b7ca-a017416348ae",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/dc96ff0d-6f27-4284-b7ca-a017416348ae.webp",
+    "filename": "dc96ff0d-6f27-4284-b7ca-a017416348ae.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-MiniTrilho-kits-hibridos",
+        "potencia_kwp": 9.6,
+        "estrutura": "Mini Trilho",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "0b179381-e2f8-4528-b994-1524fa091912",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/0b179381-e2f8-4528-b994-1524fa091912.webp",
+    "filename": "0b179381-e2f8-4528-b994-1524fa091912.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-720kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 7.2,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "335875c3-268d-4e91-96ed-6ce3d48ce02b",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/335875c3-268d-4e91-96ed-6ce3d48ce02b.webp",
+    "filename": "335875c3-268d-4e91-96ed-6ce3d48ce02b.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-840kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 8.4,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d0ae117c-99f3-405f-8125-b16f4ad3baaf",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d0ae117c-99f3-405f-8125-b16f4ad3baaf.webp",
+    "filename": "d0ae117c-99f3-405f-8125-b16f4ad3baaf.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Ceramico-kits-hibridos",
+        "potencia_kwp": 9.6,
+        "estrutura": "Cerâmico",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  },
+  {
+    "uuid": "d20f678a-ac9d-4797-b33c-e338fbf8bb4a",
+    "url": "https://solaryum-public-assets.s3.sa-east-1.amazonaws.com/983/produtos/d20f678a-ac9d-4797-b33c-e338fbf8bb4a.webp",
+    "filename": "d20f678a-ac9d-4797-b33c-e338fbf8bb4a.webp",
+    "used_in_products": [
+      {
+        "id": "FOTUS-KP-960kWp-Fibrocimento-kits-hibridos",
+        "potencia_kwp": 9.6,
+        "estrutura": "Fibrocimento",
+        "schema_file": "fotus-kits-hibridos-extracted.json"
+      }
+    ],
+    "product_count": 1
+  }
+]
