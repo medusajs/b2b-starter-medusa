@@ -1,0 +1,751 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Bateria/Sistema de Armazenamento - Medusa Product Schema",
+    "description": "Schema padronizado para baterias e sistemas de armazenamento seguindo o padrão Medusa.js Product Module com Inventory Kits",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome completo da bateria com fabricante, modelo e capacidade",
+            "example": "Bateria BYD Battery-Box Premium LVS 12kWh"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Descrição curta com capacidade e tecnologia",
+            "example": "12kWh Lítio LFP - 48V Modular"
+        },
+        "handle": {
+            "type": "string",
+            "description": "Handle único URL-friendly",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "bateria-byd-battery-box-premium-lvs-12kwh"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada com especificações técnicas e garantia"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "published",
+                "draft",
+                "archived"
+            ],
+            "default": "published"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor",
+            "example": "odex_batteries_BYD-BBOX-12KWH"
+        },
+        "thumbnail": {
+            "type": "string",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso em kg",
+            "minimum": 0
+        },
+        "length": {
+            "type": "number",
+            "description": "Comprimento em mm",
+            "minimum": 0
+        },
+        "height": {
+            "type": "number",
+            "description": "Altura em mm",
+            "minimum": 0
+        },
+        "width": {
+            "type": "number",
+            "description": "Largura em mm",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "NCM: 8507.60.00 (Baterias de íons de lítio)",
+            "example": "8507.60.00"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "Código ISO do país de origem",
+            "example": "CN"
+        },
+        "material": {
+            "type": "string",
+            "description": "Material do gabinete",
+            "example": "Aço IP65"
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação (Capacidade, Voltagem, Tecnologia)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "enum": [
+                            "Capacidade",
+                            "Voltagem",
+                            "Tecnologia"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "sku",
+                    "prices",
+                    "options"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da variante com combinação de opções",
+                        "example": "12kWh / 48V / Lítio LFP"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU único da variante",
+                        "pattern": "^[A-Z0-9-]+$",
+                        "example": "BYD-BBOX-12KWH-48V-LFP"
+                    },
+                    "barcode": {
+                        "type": "string"
+                    },
+                    "ean": {
+                        "type": "string"
+                    },
+                    "upc": {
+                        "type": "string"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Se true, cria inventory_item automaticamente"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "height": {
+                        "type": "number"
+                    },
+                    "width": {
+                        "type": "number"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Mapeamento título opção -> valor",
+                        "example": {
+                            "Capacidade": "12kWh",
+                            "Voltagem": "48V",
+                            "Tecnologia": "Lítio LFP"
+                        }
+                    },
+                    "prices": {
+                        "type": "array",
+                        "description": "Preços com suporte a tiered pricing e rules",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BRL",
+                                        "USD"
+                                    ],
+                                    "default": "BRL"
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Preço em centavos (R$ 15.000,00 = 1500000)",
+                                    "minimum": 0
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade mínima para tiered pricing",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade máxima para tiered pricing",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "description": "Price rules por customer group, região, etc",
+                                    "properties": {
+                                        "customer.groups.id": {
+                                            "type": "string",
+                                            "description": "ID do customer group (VIP, B2B, etc)"
+                                        },
+                                        "region.id": {
+                                            "type": "string",
+                                            "description": "ID da região"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados técnicos da variante"
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "alt_text": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "description": "IDs ou handles das categorias",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "cat_baterias",
+                "cat_baterias_litio",
+                "cat_baterias_5_15kwh"
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "description": "Tags para busca e filtros",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "tag_byd",
+                "tag_12kwh",
+                "tag_48v",
+                "tag_litio_lfp",
+                "tag_modular",
+                "tag_hibrido",
+                "tag_off_grid"
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Metadados técnicos e de SEO",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "description": "Fabricante",
+                    "example": "BYD"
+                },
+                "model": {
+                    "type": "string",
+                    "description": "Modelo",
+                    "example": "Battery-Box Premium LVS"
+                },
+                "technical_specs": {
+                    "type": "object",
+                    "description": "Especificações técnicas",
+                    "properties": {
+                        "capacity_kwh": {
+                            "type": "number",
+                            "description": "Capacidade utilizável em kWh",
+                            "example": 12.0
+                        },
+                        "voltage_v": {
+                            "type": "number",
+                            "description": "Tensão nominal em Volts",
+                            "enum": [
+                                12,
+                                24,
+                                48,
+                                96,
+                                100,
+                                102,
+                                192,
+                                200,
+                                204,
+                                400
+                            ],
+                            "example": 48
+                        },
+                        "voltage_range_v": {
+                            "type": "object",
+                            "properties": {
+                                "min": {
+                                    "type": "number"
+                                },
+                                "max": {
+                                    "type": "number"
+                                }
+                            },
+                            "example": {
+                                "min": 42,
+                                "max": 58
+                            }
+                        },
+                        "technology": {
+                            "type": "string",
+                            "enum": [
+                                "Lítio LFP (LiFePO4)",
+                                "Lítio NMC",
+                                "Chumbo-Ácido",
+                                "AGM",
+                                "Gel",
+                                "Redox Flow"
+                            ],
+                            "example": "Lítio LFP (LiFePO4)"
+                        },
+                        "max_charge_current_a": {
+                            "type": "number",
+                            "description": "Corrente máxima de carga em Amperes",
+                            "example": 100
+                        },
+                        "max_discharge_current_a": {
+                            "type": "number",
+                            "description": "Corrente máxima de descarga em Amperes",
+                            "example": 100
+                        },
+                        "max_continuous_power_kw": {
+                            "type": "number",
+                            "description": "Potência contínua máxima em kW",
+                            "example": 4.8
+                        },
+                        "dod_percent": {
+                            "type": "number",
+                            "description": "Profundidade de descarga (Depth of Discharge) em %",
+                            "minimum": 0,
+                            "maximum": 100,
+                            "example": 92
+                        },
+                        "cycle_life": {
+                            "type": "integer",
+                            "description": "Número de ciclos de carga/descarga",
+                            "example": 6000
+                        },
+                        "round_trip_efficiency_percent": {
+                            "type": "number",
+                            "description": "Eficiência round-trip em %",
+                            "minimum": 0,
+                            "maximum": 100,
+                            "example": 96.5
+                        },
+                        "operating_temperature_c": {
+                            "type": "object",
+                            "properties": {
+                                "min": {
+                                    "type": "number"
+                                },
+                                "max": {
+                                    "type": "number"
+                                }
+                            },
+                            "example": {
+                                "min": -10,
+                                "max": 50
+                            }
+                        },
+                        "storage_temperature_c": {
+                            "type": "object",
+                            "properties": {
+                                "min": {
+                                    "type": "number"
+                                },
+                                "max": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "protection_degree": {
+                            "type": "string",
+                            "enum": [
+                                "IP20",
+                                "IP54",
+                                "IP65",
+                                "IP66"
+                            ],
+                            "example": "IP65"
+                        },
+                        "cooling_type": {
+                            "type": "string",
+                            "enum": [
+                                "Natural",
+                                "Forçada (Ventilador)",
+                                "Líquida"
+                            ],
+                            "example": "Natural"
+                        },
+                        "communication_protocol": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "CAN",
+                                    "RS485",
+                                    "Modbus TCP",
+                                    "Ethernet"
+                                ]
+                            },
+                            "example": [
+                                "CAN",
+                                "RS485"
+                            ]
+                        },
+                        "bms_features": {
+                            "type": "array",
+                            "description": "Recursos do BMS (Battery Management System)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Balanceamento de células",
+                                "Proteção contra sobrecarga",
+                                "Proteção contra descarga profunda",
+                                "Proteção contra curto-circuito",
+                                "Monitoramento de temperatura"
+                            ]
+                        },
+                        "modular": {
+                            "type": "boolean",
+                            "description": "Se a bateria é modular/expansível",
+                            "example": true
+                        },
+                        "expansion_capacity": {
+                            "type": "object",
+                            "description": "Capacidade de expansão",
+                            "properties": {
+                                "min_kwh": {
+                                    "type": "number"
+                                },
+                                "max_kwh": {
+                                    "type": "number"
+                                },
+                                "step_kwh": {
+                                    "type": "number"
+                                }
+                            },
+                            "example": {
+                                "min_kwh": 5,
+                                "max_kwh": 40,
+                                "step_kwh": 2.5
+                            }
+                        },
+                        "compatible_inverters": {
+                            "type": "array",
+                            "description": "Inversores compatíveis (brands/models)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Fronius",
+                                "Goodwe",
+                                "Growatt",
+                                "Sungrow",
+                                "Deye"
+                            ]
+                        },
+                        "mounting_type": {
+                            "type": "string",
+                            "enum": [
+                                "Parede",
+                                "Piso",
+                                "Rack 19'",
+                                "Torre"
+                            ],
+                            "example": "Parede"
+                        },
+                        "certifications": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "IEC 62619",
+                                "UN38.3",
+                                "CE",
+                                "INMETRO"
+                            ]
+                        },
+                        "warranty_years": {
+                            "type": "integer",
+                            "description": "Garantia em anos",
+                            "example": 10
+                        }
+                    },
+                    "required": [
+                        "capacity_kwh",
+                        "voltage_v",
+                        "technology",
+                        "dod_percent",
+                        "cycle_life"
+                    ]
+                },
+                "seo": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "source_data": {
+                    "type": "object",
+                    "description": "Dados originais do distribuidor para rastreabilidade",
+                    "properties": {
+                        "distributor": {
+                            "type": "string"
+                        },
+                        "original_id": {
+                            "type": "string"
+                        },
+                        "last_sync": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "title": "Bateria BYD Battery-Box Premium LVS 12kWh",
+            "subtitle": "12kWh Lítio LFP - 48V Modular",
+            "handle": "bateria-byd-battery-box-premium-lvs-12kwh",
+            "description": "Sistema de armazenamento de energia BYD Battery-Box Premium LVS com 12kWh de capacidade utilizável. Tecnologia Lítio LFP (LiFePO4) de alta durabilidade com 6000 ciclos. Sistema modular expansível de 5kWh até 40kWh. BMS inteligente com comunicação CAN e RS485. Compatível com principais inversores híbridos do mercado (Fronius, Goodwe, Growatt, Sungrow, Deye). Profundidade de descarga (DoD) de 92% e eficiência round-trip de 96,5%. Proteção IP65 para instalação interna. Garantia de 10 anos ou 6000 ciclos.",
+            "status": "published",
+            "is_giftcard": false,
+            "discountable": true,
+            "external_id": "odex_batteries_BYD-BBOX-LVS-12",
+            "thumbnail": "catalog/images_processed/BYD/BATTERIES/medium/byd-battery-box-lvs-12kwh.webp",
+            "weight": 168,
+            "length": 605,
+            "height": 570,
+            "width": 285,
+            "hs_code": "8507.60.00",
+            "origin_country": "CN",
+            "material": "Aço IP65",
+            "options": [
+                {
+                    "title": "Capacidade",
+                    "values": [
+                        "12kWh"
+                    ]
+                },
+                {
+                    "title": "Voltagem",
+                    "values": [
+                        "48V"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "12kWh / 48V",
+                    "sku": "BYD-BBOX-LVS-12KWH-48V",
+                    "manage_inventory": true,
+                    "allow_backorder": false,
+                    "weight": 168,
+                    "length": 605,
+                    "height": 570,
+                    "width": 285,
+                    "options": {
+                        "Capacidade": "12kWh",
+                        "Voltagem": "48V"
+                    },
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1500000,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1425000,
+                            "min_quantity": 2,
+                            "max_quantity": 4,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1350000,
+                            "min_quantity": 5,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1275000,
+                            "rules": {
+                                "customer.groups.id": "cusgrp_b2b_integrador"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "url": "catalog/images_processed/BYD/BATTERIES/large/byd-battery-box-lvs-12kwh.webp",
+                    "alt_text": "Bateria BYD Battery-Box Premium LVS 12kWh"
+                }
+            ],
+            "categories": [
+                "cat_baterias",
+                "cat_baterias_litio",
+                "cat_baterias_10_20kwh"
+            ],
+            "tags": [
+                "tag_byd",
+                "tag_12kwh",
+                "tag_48v",
+                "tag_litio_lfp",
+                "tag_modular",
+                "tag_hibrido",
+                "tag_off_grid",
+                "tag_tier1"
+            ],
+            "metadata": {
+                "manufacturer": "BYD",
+                "model": "Battery-Box Premium LVS",
+                "technical_specs": {
+                    "capacity_kwh": 12.0,
+                    "voltage_v": 48,
+                    "voltage_range_v": {
+                        "min": 42,
+                        "max": 58
+                    },
+                    "technology": "Lítio LFP (LiFePO4)",
+                    "max_charge_current_a": 100,
+                    "max_discharge_current_a": 100,
+                    "max_continuous_power_kw": 4.8,
+                    "dod_percent": 92,
+                    "cycle_life": 6000,
+                    "round_trip_efficiency_percent": 96.5,
+                    "operating_temperature_c": {
+                        "min": -10,
+                        "max": 50
+                    },
+                    "protection_degree": "IP65",
+                    "cooling_type": "Natural",
+                    "communication_protocol": [
+                        "CAN",
+                        "RS485"
+                    ],
+                    "bms_features": [
+                        "Balanceamento de células",
+                        "Proteção contra sobrecarga",
+                        "Proteção contra descarga profunda",
+                        "Proteção contra curto-circuito",
+                        "Monitoramento de temperatura por célula"
+                    ],
+                    "modular": true,
+                    "expansion_capacity": {
+                        "min_kwh": 5,
+                        "max_kwh": 40,
+                        "step_kwh": 2.5
+                    },
+                    "compatible_inverters": [
+                        "Fronius",
+                        "Goodwe",
+                        "Growatt",
+                        "Sungrow",
+                        "Deye",
+                        "Sofar",
+                        "SAJ"
+                    ],
+                    "mounting_type": "Parede",
+                    "certifications": [
+                        "IEC 62619",
+                        "UN38.3",
+                        "CE",
+                        "INMETRO"
+                    ],
+                    "warranty_years": 10
+                },
+                "seo": {
+                    "title": "Bateria BYD 12kWh Lítio LFP - Sistema Modular Premium",
+                    "description": "Bateria de lítio BYD Battery-Box 12kWh. Tecnologia LFP com 6000 ciclos. Sistema modular expansível. Compatível com Fronius, Goodwe, Growatt. 10 anos de garantia.",
+                    "keywords": [
+                        "bateria solar",
+                        "byd battery-box",
+                        "bateria litio 12kwh",
+                        "bateria 48v",
+                        "sistema armazenamento",
+                        "bateria hibrido",
+                        "bateria off-grid",
+                        "bateria modular"
+                    ]
+                }
+            }
+        }
+    ]
+}

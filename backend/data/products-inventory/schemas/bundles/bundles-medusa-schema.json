@@ -1,0 +1,1009 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Kit Solar (Bundle/Multi-Part Product) - Medusa Product Schema",
+    "description": "Schema padronizado para kits solares usando Inventory Kits pattern do Medusa.js",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome completo do kit com potência e tipo",
+            "example": "Kit Solar Fotovoltaico 5.5kWp Grid-Tie Residencial"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Descrição curta com potência e componentes principais",
+            "example": "5.5kWp - 10 Painéis 550W + Inversor 5kW + Estrutura"
+        },
+        "handle": {
+            "type": "string",
+            "description": "Handle único URL-friendly",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "kit-solar-5-5kwp-grid-tie-residencial"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada do kit completo com geração estimada"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "published",
+                "draft",
+                "archived"
+            ],
+            "default": "published"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor",
+            "example": "fotus_kits_KIT-5.5KWP-GRIDTIE"
+        },
+        "thumbnail": {
+            "type": "string",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso total estimado do kit em kg",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "NCM do kit ou componente principal",
+            "example": "8541.40.16"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "País de origem predominante",
+            "example": "CN"
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação (Potência, Tipo de Telhado, Voltagem)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "enum": [
+                            "Potência",
+                            "Tipo de Telhado",
+                            "Voltagem",
+                            "Com Bateria"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do kit (cada variante é um bundle)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "sku",
+                    "prices",
+                    "options",
+                    "inventory_items"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da variante do kit",
+                        "example": "5.5kWp / Cerâmico / 220V"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU único do kit",
+                        "pattern": "^[A-Z0-9-]+$",
+                        "example": "KIT-5.5KWP-CERAMICO-220V"
+                    },
+                    "barcode": {
+                        "type": "string"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Para kits, geralmente false pois o estoque é calculado dos componentes"
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Mapeamento título opção -> valor",
+                        "example": {
+                            "Potência": "5.5kWp",
+                            "Tipo de Telhado": "Cerâmico",
+                            "Voltagem": "220V"
+                        }
+                    },
+                    "inventory_items": {
+                        "type": "array",
+                        "description": "INVENTORY KITS: Array de inventory_item_id dos componentes do bundle",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "inventory_item_id",
+                                "required_quantity"
+                            ],
+                            "properties": {
+                                "inventory_item_id": {
+                                    "type": "string",
+                                    "description": "ID do inventory item do componente (painel, inversor, estrutura, etc)",
+                                    "example": "inv_item_01JABY123"
+                                },
+                                "required_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade necessária deste componente no kit",
+                                    "minimum": 1,
+                                    "example": 10
+                                }
+                            }
+                        },
+                        "minItems": 1,
+                        "example": [
+                            {
+                                "inventory_item_id": "inv_item_panel_cs_550w",
+                                "required_quantity": 10
+                            },
+                            {
+                                "inventory_item_id": "inv_item_inv_growatt_5k",
+                                "required_quantity": 1
+                            },
+                            {
+                                "inventory_item_id": "inv_item_struct_ceramic_10p",
+                                "required_quantity": 1
+                            },
+                            {
+                                "inventory_item_id": "inv_item_stringbox_4e",
+                                "required_quantity": 1
+                            },
+                            {
+                                "inventory_item_id": "inv_item_cable_6mm_red",
+                                "required_quantity": 50
+                            },
+                            {
+                                "inventory_item_id": "inv_item_cable_6mm_black",
+                                "required_quantity": 50
+                            },
+                            {
+                                "inventory_item_id": "inv_item_mc4_pair",
+                                "required_quantity": 11
+                            }
+                        ]
+                    },
+                    "prices": {
+                        "type": "array",
+                        "description": "Preços do kit completo com tiered pricing e rules",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BRL",
+                                        "USD"
+                                    ],
+                                    "default": "BRL"
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Preço total do kit em centavos",
+                                    "minimum": 0
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customer.groups.id": {
+                                            "type": "string"
+                                        },
+                                        "region.id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados específicos da variante do kit"
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "alt_text": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "cat_kits",
+                "cat_kits_grid_tie",
+                "cat_kits_5_10kwp"
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "tag_5.5kwp",
+                "tag_grid_tie",
+                "tag_residencial",
+                "tag_ceramico",
+                "tag_completo"
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "kit_type": {
+                    "type": "string",
+                    "enum": [
+                        "Grid-Tie",
+                        "Híbrido",
+                        "Off-Grid",
+                        "Micro-Geração",
+                        "Comercial",
+                        "Industrial"
+                    ],
+                    "example": "Grid-Tie"
+                },
+                "system_specs": {
+                    "type": "object",
+                    "properties": {
+                        "total_power_kwp": {
+                            "type": "number",
+                            "description": "Potência total do sistema em kWp",
+                            "example": 5.5
+                        },
+                        "inverter_power_kw": {
+                            "type": "number",
+                            "description": "Potência do inversor em kW",
+                            "example": 5.0
+                        },
+                        "ratio": {
+                            "type": "number",
+                            "description": "Ratio Painéis/Inversor (ideal: 1.0-1.3)",
+                            "example": 1.1
+                        },
+                        "estimated_generation_kwh_month": {
+                            "type": "number",
+                            "description": "Geração estimada mensal em kWh (média Brasil)",
+                            "example": 825
+                        },
+                        "estimated_generation_kwh_year": {
+                            "type": "number",
+                            "description": "Geração estimada anual em kWh",
+                            "example": 9900
+                        },
+                        "panel_quantity": {
+                            "type": "integer",
+                            "description": "Quantidade de painéis",
+                            "example": 10
+                        },
+                        "panel_power_w": {
+                            "type": "integer",
+                            "description": "Potência unitária do painel em W",
+                            "example": 550
+                        },
+                        "area_required_m2": {
+                            "type": "number",
+                            "description": "Área aproximada necessária em m²",
+                            "example": 28
+                        },
+                        "roof_type": {
+                            "type": "string",
+                            "enum": [
+                                "Cerâmico",
+                                "Metálico",
+                                "Fibrocimento",
+                                "Laje",
+                                "Solo"
+                            ],
+                            "example": "Cerâmico"
+                        },
+                        "voltage_v": {
+                            "type": "string",
+                            "example": "220V"
+                        },
+                        "phases": {
+                            "type": "string",
+                            "enum": [
+                                "Monofásico",
+                                "Bifásico",
+                                "Trifásico"
+                            ],
+                            "example": "Monofásico"
+                        }
+                    },
+                    "required": [
+                        "total_power_kwp",
+                        "inverter_power_kw",
+                        "panel_quantity"
+                    ]
+                },
+                "kit_composition": {
+                    "type": "object",
+                    "description": "Composição detalhada do kit por categoria",
+                    "properties": {
+                        "panels": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string",
+                                        "description": "ID do produto painel"
+                                    },
+                                    "variant_id": {
+                                        "type": "string",
+                                        "description": "ID da variante específica"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string",
+                                        "description": "ID do inventory item"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Painel Canadian Solar 550W"
+                                    },
+                                    "power_w": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "inverters": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Inversor Growatt 5kW"
+                                    },
+                                    "power_kw": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "structures": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Estrutura Solar Group Cerâmico 10 Painéis"
+                                    },
+                                    "roof_type": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "stringboxes": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "String Box 4 Entradas 15A 1000V"
+                                    },
+                                    "entries": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        "cables": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "number",
+                                        "description": "Quantidade em metros ou unidades"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Metro",
+                                            "Unidade",
+                                            "Par"
+                                        ]
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Cabo Solar 6mm² Vermelho"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "cross_section_mm2": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "connectors": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Conector MC4 Par"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "batteries": {
+                            "type": "array",
+                            "description": "Opcional: apenas para kits híbridos/off-grid",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Bateria BYD 12kWh"
+                                    },
+                                    "capacity_kwh": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "ev_chargers": {
+                            "type": "array",
+                            "description": "Opcional: para kits com carregador EV",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Wallbox 11kW"
+                                    },
+                                    "power_kw": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "accessories": {
+                            "type": "array",
+                            "description": "Outros acessórios (DPS, conectores terra, etc)",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "product_id": {
+                                        "type": "string"
+                                    },
+                                    "variant_id": {
+                                        "type": "string"
+                                    },
+                                    "inventory_item_id": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "minimum": 1
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "category": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "installation": {
+                    "type": "object",
+                    "properties": {
+                        "complexity": {
+                            "type": "string",
+                            "enum": [
+                                "Simples",
+                                "Moderada",
+                                "Complexa"
+                            ]
+                        },
+                        "estimated_time_hours": {
+                            "type": "number",
+                            "description": "Tempo estimado de instalação em horas"
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Disjuntor bipolar 32A",
+                                "Eletroduto 1' para passagem de cabos",
+                                "Padrão de entrada adequado (220V monofásico)",
+                                "Espaço para inversor (40x50cm)",
+                                "Telhado em boas condições"
+                            ]
+                        }
+                    }
+                },
+                "certifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "example": [
+                        "ANEEL",
+                        "INMETRO",
+                        "ABNT NBR 16274",
+                        "ABNT NBR 16690"
+                    ]
+                },
+                "warranty": {
+                    "type": "object",
+                    "properties": {
+                        "panels_years": {
+                            "type": "integer",
+                            "description": "Garantia dos painéis"
+                        },
+                        "inverter_years": {
+                            "type": "integer",
+                            "description": "Garantia do inversor"
+                        },
+                        "structure_years": {
+                            "type": "integer",
+                            "description": "Garantia da estrutura"
+                        },
+                        "installation_months": {
+                            "type": "integer",
+                            "description": "Garantia de instalação (se aplicável)"
+                        }
+                    }
+                },
+                "seo": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "title": "Kit Solar Fotovoltaico 5.5kWp Grid-Tie Residencial",
+            "subtitle": "5.5kWp - 10 Painéis 550W + Inversor 5kW + Estrutura Cerâmico",
+            "handle": "kit-solar-5-5kwp-grid-tie-residencial-ceramico",
+            "description": "Kit solar fotovoltaico completo de 5.5kWp para sistema Grid-Tie residencial. Geração estimada de 825 kWh/mês (média Brasil). Inclui: 10 painéis Canadian Solar 550W monocristalino PERC, inversor Growatt 5kW monofásico 220V com 2 MPPT, estrutura Solar Group para telhado cerâmico com 10 painéis (trilhos, ganchos e presilhas), string box 4 entradas 15A 1000V com DPS integrado, cabos solares 6mm² (50m vermelho + 50m preto), 11 pares de conectores MC4. Ratio ideal de 1.1 para máximo aproveitamento. Sistema dimensionado conforme NBR 16274 e NBR 16690. Homologado ANEEL e INMETRO. Perfeito para residências com consumo médio de 600-800 kWh/mês.",
+            "status": "published",
+            "is_giftcard": false,
+            "discountable": true,
+            "external_id": "fotus_kits_KIT-5.5KWP-GRIDTIE-CERAMICO",
+            "thumbnail": "catalog/images_processed/KITS/medium/kit-5.5kwp-grid-tie-ceramico.webp",
+            "weight": 350,
+            "hs_code": "8541.40.16",
+            "origin_country": "CN",
+            "options": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "5.5kWp"
+                    ]
+                },
+                {
+                    "title": "Tipo de Telhado",
+                    "values": [
+                        "Cerâmico"
+                    ]
+                },
+                {
+                    "title": "Voltagem",
+                    "values": [
+                        "220V"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "5.5kWp / Cerâmico / 220V",
+                    "sku": "KIT-5.5KWP-CERAMICO-220V",
+                    "manage_inventory": false,
+                    "allow_backorder": false,
+                    "weight": 350,
+                    "options": {
+                        "Potência": "5.5kWp",
+                        "Tipo de Telhado": "Cerâmico",
+                        "Voltagem": "220V"
+                    },
+                    "inventory_items": [
+                        {
+                            "inventory_item_id": "inv_item_panel_cs_550w",
+                            "required_quantity": 10
+                        },
+                        {
+                            "inventory_item_id": "inv_item_inv_growatt_5k_220v",
+                            "required_quantity": 1
+                        },
+                        {
+                            "inventory_item_id": "inv_item_struct_sg_ceramic_10p",
+                            "required_quantity": 1
+                        },
+                        {
+                            "inventory_item_id": "inv_item_stringbox_4e_15a_1000v",
+                            "required_quantity": 1
+                        },
+                        {
+                            "inventory_item_id": "inv_item_cable_6mm_red",
+                            "required_quantity": 50
+                        },
+                        {
+                            "inventory_item_id": "inv_item_cable_6mm_black",
+                            "required_quantity": 50
+                        },
+                        {
+                            "inventory_item_id": "inv_item_mc4_pair",
+                            "required_quantity": 11
+                        }
+                    ],
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1580000,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1501000,
+                            "min_quantity": 2,
+                            "max_quantity": 4,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1422000,
+                            "min_quantity": 5,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 1343000,
+                            "rules": {
+                                "customer.groups.id": "cusgrp_b2b_integrador"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "url": "catalog/images_processed/KITS/large/kit-5.5kwp-grid-tie-ceramico.webp",
+                    "alt_text": "Kit Solar 5.5kWp Grid-Tie Residencial"
+                }
+            ],
+            "categories": [
+                "cat_kits",
+                "cat_kits_grid_tie",
+                "cat_kits_5_10kwp",
+                "cat_kits_residencial"
+            ],
+            "tags": [
+                "tag_5.5kwp",
+                "tag_grid_tie",
+                "tag_residencial",
+                "tag_ceramico",
+                "tag_completo",
+                "tag_canadian_solar",
+                "tag_growatt",
+                "tag_monofasico"
+            ],
+            "metadata": {
+                "kit_type": "Grid-Tie",
+                "system_specs": {
+                    "total_power_kwp": 5.5,
+                    "inverter_power_kw": 5.0,
+                    "ratio": 1.1,
+                    "estimated_generation_kwh_month": 825,
+                    "estimated_generation_kwh_year": 9900,
+                    "panel_quantity": 10,
+                    "panel_power_w": 550,
+                    "area_required_m2": 28,
+                    "roof_type": "Cerâmico",
+                    "voltage_v": "220V",
+                    "phases": "Monofásico"
+                },
+                "kit_composition": {
+                    "panels": [
+                        {
+                            "product_id": "prod_cs_550w",
+                            "variant_id": "var_cs_550w_mono_perc",
+                            "inventory_item_id": "inv_item_panel_cs_550w",
+                            "quantity": 10,
+                            "title": "Painel Solar Canadian Solar 550W HiKu6 Monocristalino PERC",
+                            "power_w": 550
+                        }
+                    ],
+                    "inverters": [
+                        {
+                            "product_id": "prod_growatt_5k",
+                            "variant_id": "var_growatt_5k_220v_2mppt",
+                            "inventory_item_id": "inv_item_inv_growatt_5k_220v",
+                            "quantity": 1,
+                            "title": "Inversor Grid-Tie Growatt MIC 5000TL-X 5kW Monofásico 220V 2 MPPT",
+                            "power_kw": 5.0
+                        }
+                    ],
+                    "structures": [
+                        {
+                            "product_id": "prod_struct_sg_ceramic",
+                            "variant_id": "var_struct_sg_ceramic_10p",
+                            "inventory_item_id": "inv_item_struct_sg_ceramic_10p",
+                            "quantity": 1,
+                            "title": "Estrutura Solar Group para Telhado Cerâmico - Kit 10 Painéis",
+                            "roof_type": "Cerâmico"
+                        }
+                    ],
+                    "stringboxes": [
+                        {
+                            "product_id": "prod_stringbox_4e",
+                            "variant_id": "var_stringbox_4e_15a_1000v",
+                            "inventory_item_id": "inv_item_stringbox_4e_15a_1000v",
+                            "quantity": 1,
+                            "title": "String Box 4 Entradas 15A 1000V com DPS Classe II",
+                            "entries": 4
+                        }
+                    ],
+                    "cables": [
+                        {
+                            "product_id": "prod_cable_6mm",
+                            "variant_id": "var_cable_6mm_red",
+                            "inventory_item_id": "inv_item_cable_6mm_red",
+                            "quantity": 50,
+                            "unit": "Metro",
+                            "title": "Cabo Solar Solax 6mm² Vermelho",
+                            "color": "Vermelho",
+                            "cross_section_mm2": 6
+                        },
+                        {
+                            "product_id": "prod_cable_6mm",
+                            "variant_id": "var_cable_6mm_black",
+                            "inventory_item_id": "inv_item_cable_6mm_black",
+                            "quantity": 50,
+                            "unit": "Metro",
+                            "title": "Cabo Solar Solax 6mm² Preto",
+                            "color": "Preto",
+                            "cross_section_mm2": 6
+                        }
+                    ],
+                    "connectors": [
+                        {
+                            "product_id": "prod_mc4_connector",
+                            "variant_id": "var_mc4_pair",
+                            "inventory_item_id": "inv_item_mc4_pair",
+                            "quantity": 11,
+                            "title": "Conector MC4 Par (Macho + Fêmea)",
+                            "type": "MC4"
+                        }
+                    ]
+                },
+                "installation": {
+                    "complexity": "Moderada",
+                    "estimated_time_hours": 8,
+                    "requirements": [
+                        "Disjuntor bipolar 32A (não incluso)",
+                        "Eletroduto 1' para passagem de cabos DC e AC",
+                        "Padrão de entrada monofásico 220V",
+                        "Espaço para inversor: mínimo 40x50cm em parede",
+                        "Telhado cerâmico em boas condições",
+                        "Acesso ao telhado seguro",
+                        "Ponto de aterramento adequado (NBR 5410)"
+                    ]
+                },
+                "certifications": [
+                    "ANEEL REN 482/2012 e REN 687/2015",
+                    "INMETRO - Painéis e Inversor",
+                    "ABNT NBR 16274 - Sistemas Fotovoltaicos",
+                    "ABNT NBR 16690 - Arranjos Fotovoltaicos",
+                    "IEC 61215 - Módulos Fotovoltaicos",
+                    "IEC 61730 - Segurança de Módulos"
+                ],
+                "warranty": {
+                    "panels_years": 12,
+                    "inverter_years": 10,
+                    "structure_years": 10,
+                    "installation_months": 12
+                },
+                "seo": {
+                    "title": "Kit Solar 5.5kWp Completo - Geração 825 kWh/mês",
+                    "description": "Kit fotovoltaico 5.5kWp completo com 10 painéis 550W Canadian Solar + inversor Growatt 5kW + estrutura cerâmico. Gera 825 kWh/mês. Instalação residencial grid-tie.",
+                    "keywords": [
+                        "kit solar 5.5kwp",
+                        "kit fotovoltaico completo",
+                        "kit energia solar residencial",
+                        "kit 10 painéis 550w",
+                        "kit solar grid-tie",
+                        "kit canadian solar",
+                        "kit growatt 5kw",
+                        "sistema fotovoltaico 5kwp"
+                    ]
+                }
+            }
+        }
+    ]
+}

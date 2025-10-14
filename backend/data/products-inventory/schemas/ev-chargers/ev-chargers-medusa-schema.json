@@ -1,0 +1,641 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Carregador de Veículo Elétrico - Medusa Product Schema",
+    "description": "Schema padronizado para carregadores EV seguindo o padrão Medusa.js Product Module",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome completo do carregador com fabricante, modelo e potência",
+            "example": "Carregador EV Wallbox Pulsar Plus 11kW Type 2"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Descrição curta com potência e características principais",
+            "example": "11kW Monofásico - WiFi + Modo Solar"
+        },
+        "handle": {
+            "type": "string",
+            "description": "Handle único URL-friendly",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "carregador-ev-wallbox-pulsar-plus-11kw-type2"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada com especificações técnicas e recursos"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "published",
+                "draft",
+                "archived"
+            ],
+            "default": "published"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor",
+            "example": "odex_ev_chargers_WALLBOX-PULSAR-11KW"
+        },
+        "thumbnail": {
+            "type": "string",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso em kg",
+            "minimum": 0
+        },
+        "length": {
+            "type": "number",
+            "description": "Comprimento em mm",
+            "minimum": 0
+        },
+        "height": {
+            "type": "number",
+            "description": "Altura em mm",
+            "minimum": 0
+        },
+        "width": {
+            "type": "number",
+            "description": "Largura em mm",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "NCM: 8504.40.40 (Carregadores de baterias)",
+            "example": "8504.40.40"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "Código ISO do país de origem",
+            "example": "ES"
+        },
+        "material": {
+            "type": "string",
+            "description": "Material do gabinete",
+            "example": "Policarbonato IP54"
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação (Potência, Conector, Cabo)",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "enum": [
+                            "Potência",
+                            "Conector",
+                            "Cabo"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "sku",
+                    "prices",
+                    "options"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da variante",
+                        "example": "11kW / Type 2 / 5m"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU único da variante",
+                        "pattern": "^[A-Z0-9-]+$",
+                        "example": "WALLBOX-PULSAR-11KW-T2-5M"
+                    },
+                    "barcode": {
+                        "type": "string"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Mapeamento título opção -> valor",
+                        "example": {
+                            "Potência": "11kW",
+                            "Conector": "Type 2",
+                            "Cabo": "5m"
+                        }
+                    },
+                    "prices": {
+                        "type": "array",
+                        "description": "Preços com suporte a tiered pricing e rules",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BRL",
+                                        "USD"
+                                    ],
+                                    "default": "BRL"
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Preço em centavos",
+                                    "minimum": 0
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customer.groups.id": {
+                                            "type": "string"
+                                        },
+                                        "region.id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "alt_text": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "cat_ev_chargers",
+                "cat_ev_chargers_wallbox",
+                "cat_ev_chargers_11kw"
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "tag_wallbox",
+                "tag_11kw",
+                "tag_type2",
+                "tag_wifi",
+                "tag_modo_solar",
+                "tag_ocpp"
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "example": "Wallbox"
+                },
+                "model": {
+                    "type": "string",
+                    "example": "Pulsar Plus"
+                },
+                "technical_specs": {
+                    "type": "object",
+                    "properties": {
+                        "charging_power_kw": {
+                            "type": "number",
+                            "description": "Potência de carregamento em kW",
+                            "enum": [
+                                3.7,
+                                7.4,
+                                11,
+                                22
+                            ],
+                            "example": 11
+                        },
+                        "phases": {
+                            "type": "string",
+                            "enum": [
+                                "Monofásico",
+                                "Trifásico"
+                            ],
+                            "example": "Monofásico"
+                        },
+                        "input_voltage_v": {
+                            "type": "string",
+                            "example": "220V"
+                        },
+                        "input_current_a": {
+                            "type": "number",
+                            "example": 50
+                        },
+                        "output_voltage_v": {
+                            "type": "string",
+                            "example": "220V AC"
+                        },
+                        "output_current_a": {
+                            "type": "number",
+                            "example": 32
+                        },
+                        "connector_type": {
+                            "type": "string",
+                            "enum": [
+                                "Type 1 (J1772)",
+                                "Type 2 (Mennekes)",
+                                "CCS",
+                                "CHAdeMO",
+                                "Tesla"
+                            ],
+                            "example": "Type 2 (Mennekes)"
+                        },
+                        "cable_length_m": {
+                            "type": "number",
+                            "description": "Comprimento do cabo em metros",
+                            "enum": [
+                                3,
+                                5,
+                                7,
+                                10
+                            ],
+                            "example": 5
+                        },
+                        "tethered_cable": {
+                            "type": "boolean",
+                            "description": "Se possui cabo fixo",
+                            "example": true
+                        },
+                        "solar_mode": {
+                            "type": "boolean",
+                            "description": "Suporta carregamento com excedente solar",
+                            "example": true
+                        },
+                        "load_balancing": {
+                            "type": "boolean",
+                            "description": "Balanceamento de carga dinâmico",
+                            "example": true
+                        },
+                        "smart_features": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "WiFi",
+                                "Bluetooth",
+                                "App Mobile",
+                                "RFID",
+                                "Agendamento",
+                                "Histórico de cargas"
+                            ]
+                        },
+                        "communication_protocol": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "WiFi",
+                                    "Bluetooth",
+                                    "Ethernet",
+                                    "4G/LTE",
+                                    "Modbus TCP",
+                                    "OCPP 1.6",
+                                    "OCPP 2.0"
+                                ]
+                            },
+                            "example": [
+                                "WiFi",
+                                "Bluetooth",
+                                "OCPP 1.6"
+                            ]
+                        },
+                        "protection_degree": {
+                            "type": "string",
+                            "enum": [
+                                "IP54",
+                                "IP65",
+                                "IP66"
+                            ],
+                            "example": "IP54"
+                        },
+                        "operating_temperature_c": {
+                            "type": "object",
+                            "properties": {
+                                "min": {
+                                    "type": "number"
+                                },
+                                "max": {
+                                    "type": "number"
+                                }
+                            },
+                            "example": {
+                                "min": -25,
+                                "max": 40
+                            }
+                        },
+                        "protection_features": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Proteção contra sobrecorrente",
+                                "Proteção contra sobretensão",
+                                "Proteção contra fuga de corrente (RCD Type A)",
+                                "Proteção contra curto-circuito",
+                                "Proteção contra sobreaquecimento"
+                            ]
+                        },
+                        "mounting_type": {
+                            "type": "string",
+                            "enum": [
+                                "Parede",
+                                "Poste",
+                                "Piso"
+                            ],
+                            "example": "Parede"
+                        },
+                        "certifications": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "CE",
+                                "IEC 61851-1",
+                                "IEC 61851-22",
+                                "INMETRO"
+                            ]
+                        },
+                        "warranty_years": {
+                            "type": "integer",
+                            "example": 2
+                        }
+                    },
+                    "required": [
+                        "charging_power_kw",
+                        "phases",
+                        "connector_type"
+                    ]
+                },
+                "seo": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "title": "Carregador EV Wallbox Pulsar Plus 11kW Type 2",
+            "subtitle": "11kW Monofásico - WiFi + Modo Solar",
+            "handle": "carregador-ev-wallbox-pulsar-plus-11kw-type2",
+            "description": "Carregador de veículo elétrico Wallbox Pulsar Plus com 11kW de potência. Conector Type 2 (Mennekes) com cabo de 5 metros. Monofásico 220V/50A. Modo Solar para carregamento inteligente com excedente fotovoltaico. Conectividade WiFi e Bluetooth com app mobile completo. Balanceamento de carga dinâmico e controle RFID. Compatível com OCPP 1.6 para integração com sistemas de gestão. Proteção IP54 para instalação externa. Garantia de 2 anos.",
+            "status": "published",
+            "is_giftcard": false,
+            "discountable": true,
+            "external_id": "odex_ev_chargers_WALLBOX-PULSAR-11KW",
+            "thumbnail": "catalog/images_processed/WALLBOX/EV_CHARGERS/medium/wallbox-pulsar-plus-11kw.webp",
+            "weight": 4.5,
+            "length": 166,
+            "height": 193,
+            "width": 80,
+            "hs_code": "8504.40.40",
+            "origin_country": "ES",
+            "material": "Policarbonato IP54",
+            "options": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "11kW"
+                    ]
+                },
+                {
+                    "title": "Conector",
+                    "values": [
+                        "Type 2"
+                    ]
+                },
+                {
+                    "title": "Cabo",
+                    "values": [
+                        "5m"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "11kW / Type 2 / 5m",
+                    "sku": "WALLBOX-PULSAR-11KW-T2-5M",
+                    "manage_inventory": true,
+                    "allow_backorder": false,
+                    "weight": 4.5,
+                    "options": {
+                        "Potência": "11kW",
+                        "Conector": "Type 2",
+                        "Cabo": "5m"
+                    },
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 520000,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 494000,
+                            "min_quantity": 5,
+                            "max_quantity": 9,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 468000,
+                            "min_quantity": 10,
+                            "rules": []
+                        },
+                        {
+                            "currency_code": "BRL",
+                            "amount": 442000,
+                            "rules": {
+                                "customer.groups.id": "cusgrp_b2b_integrador"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "url": "catalog/images_processed/WALLBOX/EV_CHARGERS/large/wallbox-pulsar-plus-11kw.webp",
+                    "alt_text": "Carregador EV Wallbox Pulsar Plus 11kW Type 2"
+                }
+            ],
+            "categories": [
+                "cat_ev_chargers",
+                "cat_ev_chargers_wallbox",
+                "cat_ev_chargers_11kw"
+            ],
+            "tags": [
+                "tag_wallbox",
+                "tag_11kw",
+                "tag_type2",
+                "tag_wifi",
+                "tag_modo_solar",
+                "tag_ocpp",
+                "tag_rfid",
+                "tag_monofasico"
+            ],
+            "metadata": {
+                "manufacturer": "Wallbox",
+                "model": "Pulsar Plus",
+                "technical_specs": {
+                    "charging_power_kw": 11,
+                    "phases": "Monofásico",
+                    "input_voltage_v": "220V",
+                    "input_current_a": 50,
+                    "output_voltage_v": "220V AC",
+                    "output_current_a": 32,
+                    "connector_type": "Type 2 (Mennekes)",
+                    "cable_length_m": 5,
+                    "tethered_cable": true,
+                    "solar_mode": true,
+                    "load_balancing": true,
+                    "smart_features": [
+                        "WiFi",
+                        "Bluetooth",
+                        "App Mobile (myWallbox)",
+                        "RFID",
+                        "Agendamento de cargas",
+                        "Histórico de consumo",
+                        "Integração com inversores solares"
+                    ],
+                    "communication_protocol": [
+                        "WiFi",
+                        "Bluetooth",
+                        "OCPP 1.6"
+                    ],
+                    "protection_degree": "IP54",
+                    "operating_temperature_c": {
+                        "min": -25,
+                        "max": 40
+                    },
+                    "protection_features": [
+                        "Proteção contra sobrecorrente (MCB)",
+                        "Proteção contra sobretensão",
+                        "Proteção contra fuga de corrente (RCD Type A 30mA)",
+                        "Proteção contra curto-circuito",
+                        "Proteção contra sobreaquecimento",
+                        "Proteção contra raios (DPS integrado)"
+                    ],
+                    "mounting_type": "Parede",
+                    "certifications": [
+                        "CE",
+                        "IEC 61851-1",
+                        "IEC 61851-22",
+                        "RoHS",
+                        "REACH",
+                        "INMETRO (em homologação)"
+                    ],
+                    "warranty_years": 2
+                },
+                "seo": {
+                    "title": "Wallbox Pulsar Plus 11kW - Carregador EV com Modo Solar",
+                    "description": "Carregador elétrico Wallbox 11kW. Modo solar para carregamento com excedente fotovoltaico. WiFi, Bluetooth, OCPP. Type 2 com cabo 5m. IP54.",
+                    "keywords": [
+                        "carregador ev",
+                        "wallbox 11kw",
+                        "carregador solar",
+                        "type 2",
+                        "carregador wifi",
+                        "wallbox pulsar",
+                        "estação de recarga",
+                        "ev charger"
+                    ]
+                }
+            }
+        }
+    ]
+}
