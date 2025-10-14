@@ -66,7 +66,7 @@
 
 ### JTBD Principal
 
-*"Como produtor rural, quero um sistema autônomo que me dê independência energética, especialmente para irrigação e ordenha, com backup confiável durante quedas de energia."*
+#### *"Como produtor rural, quero um sistema autônomo que me dê independência energética, especialmente para irrigação e ordenha, com backup confiável durante quedas de energia."*
 
 ### Jornada de Compra (30-60 dias)
 
