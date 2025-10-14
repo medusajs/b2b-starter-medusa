@@ -1,0 +1,1527 @@
+{
+  "distributor": "FortLev",
+  "total_kits": 217,
+  "images_found": 56,
+  "missing_images": 161,
+  "mapping": [
+    {
+      "kit_id": "fortlev_kit_001",
+      "kit_sku": "FLV-2.44KWP-UNKGRO-001",
+      "kit_title": "Solar Kit 2.44kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_002",
+      "kit_sku": "FLV-2.52KWP-LONGRO-002",
+      "kit_title": "Solar Kit 2.52kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_003",
+      "kit_sku": "FLV-2.80KWP-RISGRO-003",
+      "kit_title": "Solar Kit 2.8kWp - Risen + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_004",
+      "kit_sku": "FLV-2.80KWP-RISGRO-004",
+      "kit_title": "Solar Kit 2.8kWp - Risen + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_005",
+      "kit_sku": "FLV-2.92KWP-LONGRO-005",
+      "kit_title": "Solar Kit 2.92kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_006",
+      "kit_sku": "FLV-2.92KWP-LONGRO-006",
+      "kit_title": "Solar Kit 2.92kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_007",
+      "kit_sku": "FLV-3.05KWP-UNKGRO-007",
+      "kit_title": "Solar Kit 3.05kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_008",
+      "kit_sku": "FLV-3.15KWP-LONGRO-008",
+      "kit_title": "Solar Kit 3.15kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_009",
+      "kit_sku": "FLV-3.66KWP-UNKGRO-009",
+      "kit_title": "Solar Kit 3.66kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_010",
+      "kit_sku": "FLV-3.51KWP-LONUNK-010",
+      "kit_title": "Solar Kit 3.51kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_011",
+      "kit_sku": "FLV-3.66KWP-UNKUNK-011",
+      "kit_title": "Solar Kit 3.66kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_011_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_012",
+      "kit_sku": "FLV-2.65KWP-BYDGRO-012",
+      "kit_title": "Solar Kit 2.65kWp - Byd + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_013",
+      "kit_sku": "FLV-3.51KWP-LONUNK-013",
+      "kit_title": "Solar Kit 3.51kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_014",
+      "kit_sku": "FLV-3.66KWP-UNKUNK-014",
+      "kit_title": "Solar Kit 3.66kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_014_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_015",
+      "kit_sku": "FLV-3.78KWP-LONGRO-015",
+      "kit_title": "Solar Kit 3.78kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_016",
+      "kit_sku": "FLV-3.78KWP-LONGRO-016",
+      "kit_title": "Solar Kit 3.78kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_017",
+      "kit_sku": "FLV-3.51KWP-LONUNK-017",
+      "kit_title": "Solar Kit 3.51kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_018",
+      "kit_sku": "FLV-3.66KWP-UNKUNK-018",
+      "kit_title": "Solar Kit 3.66kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_018_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_019",
+      "kit_sku": "FLV-3.78KWP-LONUNK-019",
+      "kit_title": "Solar Kit 3.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_020",
+      "kit_sku": "FLV-4.09KWP-LONUNK-020",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_021",
+      "kit_sku": "FLV-4.27KWP-UNKUNK-021",
+      "kit_title": "Solar Kit 4.27kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_021_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_022",
+      "kit_sku": "FLV-4.09KWP-LONGRO-022",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_023",
+      "kit_sku": "FLV-4.09KWP-LONGRO-023",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_024",
+      "kit_sku": "FLV-3.78KWP-LONUNK-024",
+      "kit_title": "Solar Kit 3.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_025",
+      "kit_sku": "FLV-2.92KWP-LONUNK-025",
+      "kit_title": "Solar Kit 2.92kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_026",
+      "kit_sku": "FLV-4.09KWP-LONSUN-026",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_027",
+      "kit_sku": "FLV-4.27KWP-UNKSUN-027",
+      "kit_title": "Solar Kit 4.27kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_028",
+      "kit_sku": "FLV-3.78KWP-LONUNK-028",
+      "kit_title": "Solar Kit 3.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_029",
+      "kit_sku": "FLV-4.09KWP-LONUNK-029",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_030",
+      "kit_sku": "FLV-4.27KWP-UNKUNK-030",
+      "kit_title": "Solar Kit 4.27kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_030_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_031",
+      "kit_sku": "FLV-3.50KWP-RISUNK-031",
+      "kit_title": "Solar Kit 3.5kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_032",
+      "kit_sku": "FLV-4.09KWP-LONUNK-032",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_033",
+      "kit_sku": "FLV-4.27KWP-UNKUNK-033",
+      "kit_title": "Solar Kit 4.27kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_033_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_034",
+      "kit_sku": "FLV-4.41KWP-LONUNK-034",
+      "kit_title": "Solar Kit 4.41kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_035",
+      "kit_sku": "FLV-3.18KWP-BYDGRO-035",
+      "kit_title": "Solar Kit 3.18kWp - Byd + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_036",
+      "kit_sku": "FLV-3.50KWP-RISUNK-036",
+      "kit_title": "Solar Kit 3.5kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_037",
+      "kit_sku": "FLV-4.41KWP-LONSUN-037",
+      "kit_title": "Solar Kit 4.41kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_038",
+      "kit_sku": "FLV-4.41KWP-LONUNK-038",
+      "kit_title": "Solar Kit 4.41kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_039",
+      "kit_sku": "FLV-2.88KWP-UNKGRO-039",
+      "kit_title": "Solar Kit 2.88kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_040",
+      "kit_sku": "FLV-4.41KWP-LONUNK-040",
+      "kit_title": "Solar Kit 4.41kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_041",
+      "kit_sku": "FLV-2.80KWP-RISENP-041",
+      "kit_title": "Solar Kit 2.8kWp - Risen + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_042",
+      "kit_sku": "FLV-4.20KWP-RISGRO-042",
+      "kit_title": "Solar Kit 4.2kWp - Risen + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_043",
+      "kit_sku": "FLV-2.88KWP-UNKGRO-043",
+      "kit_title": "Solar Kit 2.88kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_044",
+      "kit_sku": "FLV-4.20KWP-RISSUN-044",
+      "kit_title": "Solar Kit 4.2kWp - Risen + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_045",
+      "kit_sku": "FLV-2.92KWP-LONENP-045",
+      "kit_title": "Solar Kit 2.92kWp - LONGi + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_046",
+      "kit_sku": "FLV-3.05KWP-UNKENP-046",
+      "kit_title": "Solar Kit 3.05kWp - Panel + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_047",
+      "kit_sku": "FLV-4.20KWP-RISUNK-047",
+      "kit_title": "Solar Kit 4.2kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_048",
+      "kit_sku": "FLV-3.71KWP-BYDGRO-048",
+      "kit_title": "Solar Kit 3.71kWp - Byd + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_049",
+      "kit_sku": "FLV-3.71KWP-BYDGRO-049",
+      "kit_title": "Solar Kit 3.71kWp - Byd + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_050",
+      "kit_sku": "FLV-3.15KWP-LONENP-050",
+      "kit_title": "Solar Kit 3.15kWp - LONGi + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_051",
+      "kit_sku": "FLV-3.71KWP-BYDUNK-051",
+      "kit_title": "Solar Kit 3.71kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_052",
+      "kit_sku": "FLV-5.49KWP-UNKUNK-052",
+      "kit_title": "Solar Kit 5.49kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_052_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_053",
+      "kit_sku": "FLV-3.71KWP-BYDUNK-053",
+      "kit_title": "Solar Kit 3.71kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_054",
+      "kit_sku": "FLV-4.24KWP-BYDUNK-054",
+      "kit_title": "Solar Kit 4.24kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_055",
+      "kit_sku": "FLV-3.71KWP-BYDUNK-055",
+      "kit_title": "Solar Kit 3.71kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_056",
+      "kit_sku": "FLV-5.49KWP-UNKSUN-056",
+      "kit_title": "Solar Kit 5.49kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_057",
+      "kit_sku": "FLV-3.45KWP-UNKUNK-057",
+      "kit_title": "Solar Kit 3.45kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_057_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_058",
+      "kit_sku": "FLV-3.18KWP-BYDUNK-058",
+      "kit_title": "Solar Kit 3.18kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_059",
+      "kit_sku": "FLV-4.24KWP-BYDSUN-059",
+      "kit_title": "Solar Kit 4.24kWp - Byd + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_060",
+      "kit_sku": "FLV-3.45KWP-UNKUNK-060",
+      "kit_title": "Solar Kit 3.45kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_060_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_061",
+      "kit_sku": "FLV-5.85KWP-LONUNK-061",
+      "kit_title": "Solar Kit 5.85kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_062",
+      "kit_sku": "FLV-5.67KWP-LONUNK-062",
+      "kit_title": "Solar Kit 5.67kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_063",
+      "kit_sku": "FLV-4.24KWP-BYDUNK-063",
+      "kit_title": "Solar Kit 4.24kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_064",
+      "kit_sku": "FLV-4.24KWP-BYDUNK-064",
+      "kit_title": "Solar Kit 4.24kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_065",
+      "kit_sku": "FLV-3.45KWP-UNKUNK-065",
+      "kit_title": "Solar Kit 3.45kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_065_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_066",
+      "kit_sku": "FLV-4.09KWP-LONUNK-066",
+      "kit_title": "Solar Kit 4.09kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_067",
+      "kit_sku": "FLV-5.85KWP-LONSUN-067",
+      "kit_title": "Solar Kit 5.85kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_068",
+      "kit_sku": "FLV-5.67KWP-LONSUN-068",
+      "kit_title": "Solar Kit 5.67kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_069",
+      "kit_sku": "FLV-4.41KWP-LONUNK-069",
+      "kit_title": "Solar Kit 4.41kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_070",
+      "kit_sku": "FLV-4.03KWP-UNKUNK-070",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_070_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_071",
+      "kit_sku": "FLV-4.03KWP-UNKGRO-071",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_072",
+      "kit_sku": "FLV-4.03KWP-UNKGRO-072",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Growatt",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_073",
+      "kit_sku": "FLV-5.60KWP-RISUNK-073",
+      "kit_title": "Solar Kit 5.6kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_074",
+      "kit_sku": "FLV-4.03KWP-UNKSUN-074",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_075",
+      "kit_sku": "FLV-7.02KWP-LONUNK-075",
+      "kit_title": "Solar Kit 7.02kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_076",
+      "kit_sku": "FLV-7.32KWP-UNKUNK-076",
+      "kit_title": "Solar Kit 7.32kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_076_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_077",
+      "kit_sku": "FLV-4.03KWP-UNKUNK-077",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_077_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_078",
+      "kit_sku": "FLV-7.02KWP-LONUNK-078",
+      "kit_title": "Solar Kit 7.02kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_079",
+      "kit_sku": "FLV-7.32KWP-UNKUNK-079",
+      "kit_title": "Solar Kit 7.32kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_079_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_080",
+      "kit_sku": "FLV-3.18KWP-BYDENP-080",
+      "kit_title": "Solar Kit 3.18kWp - Byd + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_081",
+      "kit_sku": "FLV-4.03KWP-UNKUNK-081",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_081_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_082",
+      "kit_sku": "FLV-6.93KWP-LONUNK-082",
+      "kit_title": "Solar Kit 6.93kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_083",
+      "kit_sku": "FLV-5.60KWP-RISSUN-083",
+      "kit_title": "Solar Kit 5.6kWp - Risen + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_084",
+      "kit_sku": "FLV-6.93KWP-LONUNK-084",
+      "kit_title": "Solar Kit 6.93kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_085",
+      "kit_sku": "FLV-7.02KWP-LONSUN-085",
+      "kit_title": "Solar Kit 7.02kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_086",
+      "kit_sku": "FLV-7.32KWP-UNKSUN-086",
+      "kit_title": "Solar Kit 7.32kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_087",
+      "kit_sku": "FLV-7.02KWP-LONUNK-087",
+      "kit_title": "Solar Kit 7.02kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_088",
+      "kit_sku": "FLV-7.32KWP-UNKUNK-088",
+      "kit_title": "Solar Kit 7.32kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_088_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_089",
+      "kit_sku": "FLV-7.02KWP-LONUNK-089",
+      "kit_title": "Solar Kit 7.02kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_090",
+      "kit_sku": "FLV-7.32KWP-UNKUNK-090",
+      "kit_title": "Solar Kit 7.32kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_090_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_091",
+      "kit_sku": "FLV-3.45KWP-UNKUNK-091",
+      "kit_title": "Solar Kit 3.45kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_091_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_092",
+      "kit_sku": "FLV-6.93KWP-LONSUN-092",
+      "kit_title": "Solar Kit 6.93kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_093",
+      "kit_sku": "FLV-6.93KWP-LONUNK-093",
+      "kit_title": "Solar Kit 6.93kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_094",
+      "kit_sku": "FLV-6.93KWP-LONUNK-094",
+      "kit_title": "Solar Kit 6.93kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_095",
+      "kit_sku": "FLV-4.24KWP-BYDUNK-095",
+      "kit_title": "Solar Kit 4.24kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_096",
+      "kit_sku": "FLV-8.54KWP-UNKUNK-096",
+      "kit_title": "Solar Kit 8.54kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_096_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_097",
+      "kit_sku": "FLV-8.54KWP-UNKUNK-097",
+      "kit_title": "Solar Kit 8.54kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_097_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_098",
+      "kit_sku": "FLV-7.00KWP-RISUNK-098",
+      "kit_title": "Solar Kit 7.0kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_099",
+      "kit_sku": "FLV-8.54KWP-UNKUNK-099",
+      "kit_title": "Solar Kit 8.54kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_099_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_100",
+      "kit_sku": "FLV-8.54KWP-UNKUNK-100",
+      "kit_title": "Solar Kit 8.54kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_100_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_101",
+      "kit_sku": "FLV-7.00KWP-RISSUN-101",
+      "kit_title": "Solar Kit 7.0kWp - Risen + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_102",
+      "kit_sku": "FLV-7.00KWP-RISUNK-102",
+      "kit_title": "Solar Kit 7.0kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_103",
+      "kit_sku": "FLV-5.83KWP-BYDUNK-103",
+      "kit_title": "Solar Kit 5.83kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_104",
+      "kit_sku": "FLV-3.45KWP-UNKENP-104",
+      "kit_title": "Solar Kit 3.45kWp - Panel + Enphase",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_105",
+      "kit_sku": "FLV-8.78KWP-LONUNK-105",
+      "kit_title": "Solar Kit 8.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_106",
+      "kit_sku": "FLV-5.83KWP-BYDSUN-106",
+      "kit_title": "Solar Kit 5.83kWp - Byd + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_107",
+      "kit_sku": "FLV-8.78KWP-LONUNK-107",
+      "kit_title": "Solar Kit 8.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_108",
+      "kit_sku": "FLV-8.78KWP-LONUNK-108",
+      "kit_title": "Solar Kit 8.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_109",
+      "kit_sku": "FLV-8.78KWP-LONUNK-109",
+      "kit_title": "Solar Kit 8.78kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_110",
+      "kit_sku": "FLV-8.82KWP-LONUNK-110",
+      "kit_title": "Solar Kit 8.82kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_111",
+      "kit_sku": "FLV-4.03KWP-UNKUNK-111",
+      "kit_title": "Solar Kit 4.03kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_111_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_112",
+      "kit_sku": "FLV-8.82KWP-LONUNK-112",
+      "kit_title": "Solar Kit 8.82kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_113",
+      "kit_sku": "FLV-8.82KWP-LONUNK-113",
+      "kit_title": "Solar Kit 8.82kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_114",
+      "kit_sku": "FLV-8.82KWP-LONUNK-114",
+      "kit_title": "Solar Kit 8.82kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_115",
+      "kit_sku": "FLV-8.40KWP-RISUNK-115",
+      "kit_title": "Solar Kit 8.4kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_116",
+      "kit_sku": "FLV-8.40KWP-RISUNK-116",
+      "kit_title": "Solar Kit 8.4kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_117",
+      "kit_sku": "FLV-5.75KWP-UNKUNK-117",
+      "kit_title": "Solar Kit 5.75kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_117_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_118",
+      "kit_sku": "FLV-5.75KWP-UNKSUN-118",
+      "kit_title": "Solar Kit 5.75kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_119",
+      "kit_sku": "FLV-7.42KWP-BYDUNK-119",
+      "kit_title": "Solar Kit 7.42kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_120",
+      "kit_sku": "FLV-7.42KWP-BYDUNK-120",
+      "kit_title": "Solar Kit 7.42kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_121",
+      "kit_sku": "FLV-7.42KWP-BYDSUN-121",
+      "kit_title": "Solar Kit 7.42kWp - Byd + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_122",
+      "kit_sku": "FLV-7.42KWP-BYDUNK-122",
+      "kit_title": "Solar Kit 7.42kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_123",
+      "kit_sku": "FLV-7.42KWP-BYDUNK-123",
+      "kit_title": "Solar Kit 7.42kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_124",
+      "kit_sku": "FLV-10.98KWP-UNKUNK-124",
+      "kit_title": "Solar Kit 10.98kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_124_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_125",
+      "kit_sku": "FLV-10.98KWP-UNKUNK-125",
+      "kit_title": "Solar Kit 10.98kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_125_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_126",
+      "kit_sku": "FLV-10.71KWP-LONUNK-126",
+      "kit_title": "Solar Kit 10.71kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_127",
+      "kit_sku": "FLV-10.53KWP-LONUNK-127",
+      "kit_title": "Solar Kit 10.53kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_128",
+      "kit_sku": "FLV-10.98KWP-UNKUNK-128",
+      "kit_title": "Solar Kit 10.98kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_128_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_129",
+      "kit_sku": "FLV-10.71KWP-LONUNK-129",
+      "kit_title": "Solar Kit 10.71kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_130",
+      "kit_sku": "FLV-11.12KWP-LONUNK-130",
+      "kit_title": "Solar Kit 11.12kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_131",
+      "kit_sku": "FLV-10.98KWP-UNKUNK-131",
+      "kit_title": "Solar Kit 10.98kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_131_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_132",
+      "kit_sku": "FLV-11.59KWP-UNKUNK-132",
+      "kit_title": "Solar Kit 11.59kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_132_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_133",
+      "kit_sku": "FLV-11.59KWP-UNKUNK-133",
+      "kit_title": "Solar Kit 11.59kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_133_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_134",
+      "kit_sku": "FLV-10.71KWP-LONUNK-134",
+      "kit_title": "Solar Kit 10.71kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_135",
+      "kit_sku": "FLV-8.48KWP-BYDUNK-135",
+      "kit_title": "Solar Kit 8.48kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_136",
+      "kit_sku": "FLV-8.48KWP-BYDUNK-136",
+      "kit_title": "Solar Kit 8.48kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_137",
+      "kit_sku": "FLV-8.48KWP-BYDUNK-137",
+      "kit_title": "Solar Kit 8.48kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_138",
+      "kit_sku": "FLV-10.71KWP-LONUNK-138",
+      "kit_title": "Solar Kit 10.71kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_139",
+      "kit_sku": "FLV-8.48KWP-BYDUNK-139",
+      "kit_title": "Solar Kit 8.48kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_140",
+      "kit_sku": "FLV-11.12KWP-LONUNK-140",
+      "kit_title": "Solar Kit 11.12kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_141",
+      "kit_sku": "FLV-11.59KWP-UNKUNK-141",
+      "kit_title": "Solar Kit 11.59kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_141_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_142",
+      "kit_sku": "FLV-11.70KWP-LONUNK-142",
+      "kit_title": "Solar Kit 11.7kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_143",
+      "kit_sku": "FLV-11.70KWP-LONUNK-143",
+      "kit_title": "Solar Kit 11.7kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_144",
+      "kit_sku": "FLV-12.20KWP-UNKUNK-144",
+      "kit_title": "Solar Kit 12.2kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_144_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_145",
+      "kit_sku": "FLV-11.70KWP-LONUNK-145",
+      "kit_title": "Solar Kit 11.7kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_146",
+      "kit_sku": "FLV-7.47KWP-UNKUNK-146",
+      "kit_title": "Solar Kit 7.47kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_146_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_147",
+      "kit_sku": "FLV-11.70KWP-LONUNK-147",
+      "kit_title": "Solar Kit 11.7kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_148",
+      "kit_sku": "FLV-7.47KWP-UNKUNK-148",
+      "kit_title": "Solar Kit 7.47kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_148_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_149",
+      "kit_sku": "FLV-11.97KWP-LONUNK-149",
+      "kit_title": "Solar Kit 11.97kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_150",
+      "kit_sku": "FLV-7.47KWP-UNKSUN-150",
+      "kit_title": "Solar Kit 7.47kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_151",
+      "kit_sku": "FLV-7.47KWP-UNKUNK-151",
+      "kit_title": "Solar Kit 7.47kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_151_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_152",
+      "kit_sku": "FLV-7.47KWP-UNKUNK-152",
+      "kit_title": "Solar Kit 7.47kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_152_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_153",
+      "kit_sku": "FLV-11.97KWP-LONUNK-153",
+      "kit_title": "Solar Kit 11.97kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_154",
+      "kit_sku": "FLV-11.97KWP-LONUNK-154",
+      "kit_title": "Solar Kit 11.97kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_155",
+      "kit_sku": "FLV-10.50KWP-RISUNK-155",
+      "kit_title": "Solar Kit 10.5kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_156",
+      "kit_sku": "FLV-11.97KWP-LONUNK-156",
+      "kit_title": "Solar Kit 11.97kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_157",
+      "kit_sku": "FLV-13.42KWP-UNKUNK-157",
+      "kit_title": "Solar Kit 13.42kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_157_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_158",
+      "kit_sku": "FLV-11.20KWP-RISUNK-158",
+      "kit_title": "Solar Kit 11.2kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_159",
+      "kit_sku": "FLV-13.46KWP-LONUNK-159",
+      "kit_title": "Solar Kit 13.46kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_160",
+      "kit_sku": "FLV-13.42KWP-UNKSUN-160",
+      "kit_title": "Solar Kit 13.42kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_161",
+      "kit_sku": "FLV-11.20KWP-RISUNK-161",
+      "kit_title": "Solar Kit 11.2kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_162",
+      "kit_sku": "FLV-13.23KWP-LONUNK-162",
+      "kit_title": "Solar Kit 13.23kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_163",
+      "kit_sku": "FLV-14.64KWP-UNKUNK-163",
+      "kit_title": "Solar Kit 14.64kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_163_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_164",
+      "kit_sku": "FLV-11.90KWP-RISUNK-164",
+      "kit_title": "Solar Kit 11.9kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_165",
+      "kit_sku": "FLV-13.46KWP-LONSUN-165",
+      "kit_title": "Solar Kit 13.46kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_166",
+      "kit_sku": "FLV-11.90KWP-RISUNK-166",
+      "kit_title": "Solar Kit 11.9kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_167",
+      "kit_sku": "FLV-8.63KWP-UNKUNK-167",
+      "kit_title": "Solar Kit 8.63kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_167_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_168",
+      "kit_sku": "FLV-8.63KWP-UNKUNK-168",
+      "kit_title": "Solar Kit 8.63kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_168_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_169",
+      "kit_sku": "FLV-8.63KWP-UNKUNK-169",
+      "kit_title": "Solar Kit 8.63kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_169_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_170",
+      "kit_sku": "FLV-13.23KWP-LONSUN-170",
+      "kit_title": "Solar Kit 13.23kWp - LONGi + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_171",
+      "kit_sku": "FLV-8.63KWP-UNKUNK-171",
+      "kit_title": "Solar Kit 8.63kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_171_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_172",
+      "kit_sku": "FLV-14.64KWP-UNKUNK-172",
+      "kit_title": "Solar Kit 14.64kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_172_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_173",
+      "kit_sku": "FLV-14.64KWP-UNKUNK-173",
+      "kit_title": "Solar Kit 14.64kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_173_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_174",
+      "kit_sku": "FLV-14.64KWP-UNKUNK-174",
+      "kit_title": "Solar Kit 14.64kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_174_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_175",
+      "kit_sku": "FLV-11.90KWP-RISUNK-175",
+      "kit_title": "Solar Kit 11.9kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_176",
+      "kit_sku": "FLV-14.64KWP-UNKUNK-176",
+      "kit_title": "Solar Kit 14.64kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_176_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_177",
+      "kit_sku": "FLV-14.63KWP-LONUNK-177",
+      "kit_title": "Solar Kit 14.63kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_178",
+      "kit_sku": "FLV-14.49KWP-LONUNK-178",
+      "kit_title": "Solar Kit 14.49kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_179",
+      "kit_sku": "FLV-14.63KWP-LONUNK-179",
+      "kit_title": "Solar Kit 14.63kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_180",
+      "kit_sku": "FLV-14.63KWP-LONUNK-180",
+      "kit_title": "Solar Kit 14.63kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_181",
+      "kit_sku": "FLV-14.63KWP-LONUNK-181",
+      "kit_title": "Solar Kit 14.63kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_182",
+      "kit_sku": "FLV-14.63KWP-LONUNK-182",
+      "kit_title": "Solar Kit 14.63kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_183",
+      "kit_sku": "FLV-14.49KWP-LONUNK-183",
+      "kit_title": "Solar Kit 14.49kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_184",
+      "kit_sku": "FLV-14.49KWP-LONUNK-184",
+      "kit_title": "Solar Kit 14.49kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_185",
+      "kit_sku": "FLV-14.49KWP-LONUNK-185",
+      "kit_title": "Solar Kit 14.49kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_186",
+      "kit_sku": "FLV-10.60KWP-BYDUNK-186",
+      "kit_title": "Solar Kit 10.6kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_187",
+      "kit_sku": "FLV-14.49KWP-LONUNK-187",
+      "kit_title": "Solar Kit 14.49kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_188",
+      "kit_sku": "FLV-11.13KWP-BYDUNK-188",
+      "kit_title": "Solar Kit 11.13kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_189",
+      "kit_sku": "FLV-15.79KWP-LONUNK-189",
+      "kit_title": "Solar Kit 15.79kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_190",
+      "kit_sku": "FLV-11.13KWP-BYDUNK-190",
+      "kit_title": "Solar Kit 11.13kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_191",
+      "kit_sku": "FLV-13.30KWP-RISSUN-191",
+      "kit_title": "Solar Kit 13.3kWp - Risen + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_192",
+      "kit_sku": "FLV-11.66KWP-BYDUNK-192",
+      "kit_title": "Solar Kit 11.66kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_193",
+      "kit_sku": "FLV-15.75KWP-LONUNK-193",
+      "kit_title": "Solar Kit 15.75kWp - LONGi + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_194",
+      "kit_sku": "FLV-11.66KWP-BYDUNK-194",
+      "kit_title": "Solar Kit 11.66kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_195",
+      "kit_sku": "FLV-14.00KWP-RISUNK-195",
+      "kit_title": "Solar Kit 14.0kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_196",
+      "kit_sku": "FLV-11.66KWP-BYDUNK-196",
+      "kit_title": "Solar Kit 11.66kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_197",
+      "kit_sku": "FLV-14.70KWP-RISUNK-197",
+      "kit_title": "Solar Kit 14.7kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_198",
+      "kit_sku": "FLV-14.70KWP-RISUNK-198",
+      "kit_title": "Solar Kit 14.7kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_199",
+      "kit_sku": "FLV-14.70KWP-RISUNK-199",
+      "kit_title": "Solar Kit 14.7kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_200",
+      "kit_sku": "FLV-10.93KWP-UNKUNK-200",
+      "kit_title": "Solar Kit 10.93kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_200_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_201",
+      "kit_sku": "FLV-10.93KWP-UNKUNK-201",
+      "kit_title": "Solar Kit 10.93kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_201_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_202",
+      "kit_sku": "FLV-13.25KWP-BYDUNK-202",
+      "kit_title": "Solar Kit 13.25kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_203",
+      "kit_sku": "FLV-10.93KWP-UNKUNK-203",
+      "kit_title": "Solar Kit 10.93kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_203_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_204",
+      "kit_sku": "FLV-10.93KWP-UNKUNK-204",
+      "kit_title": "Solar Kit 10.93kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_204_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_205",
+      "kit_sku": "FLV-16.10KWP-RISUNK-205",
+      "kit_title": "Solar Kit 16.1kWp - Risen + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_206",
+      "kit_sku": "FLV-13.25KWP-BYDSUN-206",
+      "kit_title": "Solar Kit 13.25kWp - Byd + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_207",
+      "kit_sku": "FLV-11.50KWP-UNKUNK-207",
+      "kit_title": "Solar Kit 11.5kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_207_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_208",
+      "kit_sku": "FLV-11.50KWP-UNKUNK-208",
+      "kit_title": "Solar Kit 11.5kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_208_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_209",
+      "kit_sku": "FLV-11.50KWP-UNKUNK-209",
+      "kit_title": "Solar Kit 11.5kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_209_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_210",
+      "kit_sku": "FLV-14.84KWP-BYDUNK-210",
+      "kit_title": "Solar Kit 14.84kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_211",
+      "kit_sku": "FLV-14.84KWP-BYDUNK-211",
+      "kit_title": "Solar Kit 14.84kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_212",
+      "kit_sku": "FLV-14.84KWP-BYDUNK-212",
+      "kit_title": "Solar Kit 14.84kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_213",
+      "kit_sku": "FLV-14.84KWP-BYDUNK-213",
+      "kit_title": "Solar Kit 14.84kWp - Byd + Inverter",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_214",
+      "kit_sku": "FLV-13.22KWP-UNKUNK-214",
+      "kit_title": "Solar Kit 13.22kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_214_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_215",
+      "kit_sku": "FLV-13.22KWP-UNKSUN-215",
+      "kit_title": "Solar Kit 13.22kWp - Panel + Sungrow",
+      "image_path": null,
+      "image_exists": false
+    },
+    {
+      "kit_id": "fortlev_kit_216",
+      "kit_sku": "FLV-14.38KWP-UNKUNK-216",
+      "kit_title": "Solar Kit 14.38kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_216_combination.png",
+      "image_exists": true
+    },
+    {
+      "kit_id": "fortlev_kit_217",
+      "kit_sku": "FLV-16.10KWP-UNKUNK-217",
+      "kit_title": "Solar Kit 16.1kWp - Panel + Inverter",
+      "image_path": "organized_images\\kit_combinations\\fortlev_kit_217_combination.png",
+      "image_exists": true
+    }
+  ]
+}
