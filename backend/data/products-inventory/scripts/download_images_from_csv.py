@@ -31,21 +31,12 @@ class ImageDownloader:
             with open(csv_file, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
                 
-                # Find all image URLs
-                url_pattern = r'https?://[^\s,"\'\)]+\.(jpg|jpeg|png|webp|svg)(\?[^\s,"\'\)]*)?'
+                # Find all image URLs - complete URL including extension
+                url_pattern = r'(https?://[^\s,"\'\)]+\.(?:jpg|jpeg|png|webp|svg)(?:\?[^\s,"\'\)]*)?)'
                 matches = re.findall(url_pattern, content, re.IGNORECASE)
                 
                 for match in matches:
-                    if isinstance(match, tuple):
-                        url = match[0] if len(match) > 0 else ''
-                        ext = match[1] if len(match) > 1 else ''
-                        suffix = match[2] if len(match) > 2 else ''
-                        full_url = url + '.' + ext + suffix
-                    else:
-                        full_url = match
-                    
-                    # Clean URL
-                    full_url = full_url.split('?')[0] if '?' in full_url else full_url
+                    full_url = match if isinstance(match, str) else match[0]
                     
                     if full_url and full_url not in [u[0] for u in urls]:
                         # Try to find associated product ID
