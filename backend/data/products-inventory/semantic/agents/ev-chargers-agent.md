@@ -269,7 +269,7 @@ Este agente é especializado em **carregadores de veículos elétricos (EV Charg
 
 ## Hierarquia de Categorias
 
-```
+```tsx
 cat_ev_chargers (Carregadores EV)
 │
 ├── Por Tipo
