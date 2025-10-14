@@ -1,0 +1,141 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Medusa.js Kit Product Schema",
+    "description": "Schema for a kit product in Medusa.js, using Inventory Kits.",
+    "type": "object",
+    "properties": {
+        "product": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Title of the kit, e.g., 'Kit Fotovoltaico 5.5kW Residencial'."
+                },
+                "subtitle": {
+                    "type": "string",
+                    "description": "Short description of the kit's main components."
+                },
+                "handle": {
+                    "type": "string",
+                    "description": "URL-friendly handle for the product."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Detailed description of the kit and its benefits."
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "published",
+                        "draft",
+                        "archived"
+                    ],
+                    "default": "published"
+                },
+                "variants": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "description": "Title of the variant, specifying components, e.g., 'Canadian Solar + Growatt'."
+                            },
+                            "sku": {
+                                "type": "string",
+                                "description": "Stock Keeping Unit for the kit, e.g., 'KIT-55KW-CS-GROWATT'."
+                            },
+                            "prices": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "currency_code": {
+                                            "type": "string",
+                                            "default": "BRL"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "description": "Price in cents."
+                                        }
+                                    },
+                                    "required": [
+                                        "currency_code",
+                                        "amount"
+                                    ]
+                                }
+                            },
+                            "inventory_items": {
+                                "type": "array",
+                                "description": "Array of inventory items that compose the kit.",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "inventory_item_id": {
+                                            "type": "string",
+                                            "description": "ID of the inventory item."
+                                        },
+                                        "required_quantity": {
+                                            "type": "integer",
+                                            "description": "Quantity of this item required for one kit."
+                                        }
+                                    },
+                                    "required": [
+                                        "inventory_item_id",
+                                        "required_quantity"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "title",
+                            "sku",
+                            "prices",
+                            "inventory_items"
+                        ]
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "kit_type": {
+                            "type": "string",
+                            "enum": [
+                                "grid_tie",
+                                "hibrido"
+                            ]
+                        },
+                        "system_power_kw": {
+                            "type": "number"
+                        },
+                        "application": {
+                            "type": "string",
+                            "enum": [
+                                "residencial",
+                                "comercial",
+                                "industrial"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "title",
+                "handle",
+                "variants"
+            ]
+        }
+    }
+}
