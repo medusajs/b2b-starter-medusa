@@ -90,11 +90,57 @@ start_dev() {
     log_info "Redis Commander: http://localhost:8081"
 }
 
+# Iniciar ambiente com portas alternativas
+start_alt_ports() {
+    log_info "Iniciando ambiente com portas alternativas..."
+    
+    # Usar configuração de portas alternativas
+    docker-compose -f docker-compose.alt-ports.yml up -d
+    
+    log_success "Ambiente com portas alternativas iniciado"
+    log_info "API: http://localhost:8100"
+    log_info "Docs: http://localhost:8100/docs"
+    log_info "Adminer: http://localhost:8180"
+    log_info "Redis Commander: http://localhost:8181"
+    log_info "PostgreSQL: localhost:5433"
+    log_info "Redis: localhost:6380"
+}
+
+# Iniciar ambiente com portas altas
+start_high_ports() {
+    log_info "Iniciando ambiente com portas altas..."
+    
+    # Usar configuração de portas altas
+    docker-compose -f docker-compose.high-ports.yml up -d
+    
+    log_success "Ambiente com portas altas iniciado"
+    log_info "API: http://localhost:18000"
+    log_info "Docs: http://localhost:18000/docs"
+    log_info "Adminer: http://localhost:18080"
+    log_info "Redis Commander: http://localhost:18081"
+    log_info "PostgreSQL: localhost:15432"
+    log_info "Redis: localhost:16379"
+}
+
 # Parar ambiente de desenvolvimento
 stop_dev() {
     log_info "Parando ambiente de desenvolvimento..."
     docker-compose down
     log_success "Ambiente parado"
+}
+
+# Parar ambiente com portas alternativas
+stop_alt_ports() {
+    log_info "Parando ambiente com portas alternativas..."
+    docker-compose -f docker-compose.alt-ports.yml down
+    log_success "Ambiente alternativo parado"
+}
+
+# Parar ambiente com portas altas
+stop_high_ports() {
+    log_info "Parando ambiente com portas altas..."
+    docker-compose -f docker-compose.high-ports.yml down
+    log_success "Ambiente de portas altas parado"
 }
 
 # Logs do ambiente

@@ -1,5 +1,5 @@
-# HaaS Platform - Docker Compose Configuration
-# Ambiente completo para desenvolvimento local
+# HaaS Platform - Docker Compose with Alternative Ports
+# Use this when default ports conflict with other services
 version: "3.8"
 
 services:
@@ -8,9 +8,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: haas-api-dev
+    container_name: haas-api-alt
     ports:
-      - "${HAAS_API_PORT:-8000}:8000"
+      - "8100:8000" # Alternative API port
     volumes:
       - ./app:/app/app
       - ./logs:/app/logs
@@ -28,7 +28,7 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
@@ -40,19 +40,19 @@ services:
   # Banco de dados PostgreSQL
   postgres:
     image: postgres:15-alpine
-    container_name: haas-postgres
+    container_name: haas-postgres-alt
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "5433:5432" # Alternative PostgreSQL port
     environment:
       - POSTGRES_DB=haas_db
       - POSTGRES_USER=haas_user
       - POSTGRES_PASSWORD=haas_password
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_alt:/var/lib/postgresql/data
       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U haas_user -d haas_db"]
@@ -63,14 +63,14 @@ services:
   # Redis para cache e sessões
   redis:
     image: redis:7-alpine
-    container_name: haas-redis
+    container_name: haas-redis-alt
     ports:
-      - "${REDIS_PORT:-6379}:6379"
+      - "6380:6379" # Alternative Redis port
     command: redis-server --appendonly yes --requirepass redis_password
     volumes:
-      - redis_data:/data
+      - redis_data_alt:/data
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
@@ -81,38 +81,38 @@ services:
   # Adminer para gerenciamento do banco
   adminer:
     image: adminer:latest
-    container_name: haas-adminer
+    container_name: haas-adminer-alt
     ports:
-      - "${ADMINER_PORT:-8080}:8080"
+      - "8180:8080" # Alternative Adminer port
     environment:
       - ADMINER_DEFAULT_SERVER=postgres
     depends_on:
       - postgres
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
 
   # Redis Commander para gerenciamento do Redis
   redis-commander:
     image: rediscommander/redis-commander:latest
-    container_name: haas-redis-commander
+    container_name: haas-redis-commander-alt
     ports:
-      - "${REDIS_COMMANDER_PORT:-8081}:8081"
+      - "8181:8081" # Alternative Redis Commander port
     environment:
       - REDIS_HOSTS=local:redis:6379:0:redis_password
     depends_on:
       - redis
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
 
   # Nginx como proxy reverso (opcional)
   nginx:
     image: nginx:alpine
-    container_name: haas-nginx
+    container_name: haas-nginx-alt
     ports:
-      - "${NGINX_HTTP_PORT:-80}:80"
-      - "${NGINX_HTTPS_PORT:-443}:443"
+      - "8082:80" # Alternative HTTP port
+      - "8443:443" # Alternative HTTPS port
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/ssl:/etc/nginx/ssl
@@ -120,18 +120,18 @@ services:
     depends_on:
       - haas-api
     networks:
-      - haas-network
+      - haas-network-alt
     restart: unless-stopped
 
 volumes:
-  postgres_data:
+  postgres_data_alt:
     driver: local
-  redis_data:
+  redis_data_alt:
     driver: local
 
 networks:
-  haas-network:
+  haas-network-alt:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.21.0.0/16
