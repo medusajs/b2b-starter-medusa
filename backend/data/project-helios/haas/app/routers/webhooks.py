@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
-from app.models.webhooks import WebhookConfig, WebhookDelivery
+from app.models.webhooks import WebhookConfig
 from app.models.auth import User
-from app.auth.dependencies import get_current_active_user, get_current_admin_user
+from app.auth.dependencies import get_current_admin_user
 
 router = APIRouter()
 
@@ -120,7 +120,9 @@ async def test_webhook_config(
 
     # Send test webhook
     try:
-        delivery = await webhook_service.send_webhook(test_event, test_distributor)
+        delivery = await webhook_service.send_webhook(
+            test_event, test_distributor
+        )
         return {
             "message": "Test webhook sent",
             "status": delivery.status,
@@ -132,3 +134,4 @@ async def test_webhook_config(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to send test webhook: {str(e)}"
         )
+

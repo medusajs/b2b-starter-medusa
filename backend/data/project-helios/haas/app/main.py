@@ -5,7 +5,7 @@ API Principal FastAPI para integração com distribuidoras
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import distributors, auth
+from app.routers import distributors, auth, webhooks
 
 app = FastAPI(
     title="HaaS Platform API",
@@ -35,6 +35,11 @@ app.include_router(
     distributors.router,
     prefix="/distributors",
     tags=["Distribuidoras"]
+)
+app.include_router(
+    webhooks.router,
+    prefix="/webhooks",
+    tags=["Webhooks"]
 )
 
 

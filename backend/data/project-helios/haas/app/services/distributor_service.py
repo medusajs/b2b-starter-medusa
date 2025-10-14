@@ -93,7 +93,7 @@ def submit_connection_request(
         "Comprovante de pagamento da taxa de ligação"
     ]
 
-    return ConnectionResponse(
+    response = ConnectionResponse(
         request_id=request_id,
         status="pending",
         estimated_cost=estimated_cost,
@@ -103,6 +103,31 @@ def submit_connection_request(
         created_at=datetime.utcnow(),
         updated_at=datetime.utcnow()
     )
+
+    # Trigger webhook for connection submitted event
+    try:
+        from app.services.webhook_service import trigger_webhook_event
+        import asyncio
+
+        # Run webhook trigger in background (don't await)
+        status_change = {
+            "status": "pending",
+            "message": "Connection request submitted"
+        }
+        asyncio.create_task(
+            trigger_webhook_event(
+                event_type="connection_submitted",
+                request_id=request_id,
+                distributor_id=distributor_id,
+                connection_request=request.dict(),
+                status_change=status_change
+            )
+        )
+    except Exception as e:
+        # Log webhook error but don't fail the request
+        print(f"Webhook trigger failed: {e}")
+
+    return response
 
 
 def get_connection_status(request_id: str) -> Optional[ConnectionResponse]:
