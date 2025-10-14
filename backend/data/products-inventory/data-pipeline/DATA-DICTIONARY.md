@@ -8,16 +8,15 @@
 
 ## 📋 Table of Contents
 
-1. [Core Data Models](#core-data-models)
-2. [ANEEL Data Structures](#aneel-data-structures)
-3. [Product Data Models](#product-data-models)
-4. [Technical Validation Models](#technical-validation-models)
-5. [Enrichment & AI Metadata](#enrichment--ai-metadata)
-6. [Regex Patterns Library](#regex-patterns-library)
-7. [Validation Rules](#validation-rules)
-8. [Data Transformations](#data-transformations)
-9. [Storage Schemas](#storage-schemas)
-10. [API Response Formats](#api-response-formats)
+- [📚 YSH Data Pipeline - Complete Data Dictionary](#-ysh-data-pipeline---complete-data-dictionary)
+  - [📋 Table of Contents](#-table-of-contents)
+  - [🎯 Core Data Models](#-core-data-models)
+    - [ANEELDataset](#aneeldataset)
+    - [GenerationUnit](#generationunit)
+    - [TariffData](#tariffdata)
+    - [CertificationData](#certificationdata)
+  - [🏗️ Product Data Models](#️-product-data-models)
+    - [SolarKit](#solarkit)
 
 ---
 

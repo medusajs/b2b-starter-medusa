@@ -1,4 +1,5 @@
 # PAYMENT SYSTEM WITH ASAAS INTEGRATION
+
 ## Multi-Distributor Payment Gateway & Splits
 
 ---
@@ -36,6 +37,7 @@ Sistema completo de **payment gateway integrado com Asaas** para plataforma B2B 
 ## ✨ FEATURES
 
 ### Payment Gateway Features
+
 - ✅ **5 Payment Methods**: Boleto, Cartão de Crédito/Débito, PIX Dinâmico/Estático
 - ✅ **Dynamic Fees**: Taxas baseadas em método, parcelas, antecipação
 - ✅ **Notification Options**: Email/SMS (grátis), WhatsApp, Robô de Voz, Correios
@@ -43,6 +45,7 @@ Sistema completo de **payment gateway integrado com Asaas** para plataforma B2B 
 - ✅ **Settlement Tracking**: Previsão e confirmação de liquidação
 
 ### Payment Split Features
+
 - ✅ **4 Recipient Types**: Distributor, Labor, Technical Dossier, Platform
 - ✅ **3 Calculation Methods**: Percentage, Fixed Amount, Cost-Based
 - ✅ **Automatic Distribution**: Baseado em `custos_pagamento` do JSON
@@ -50,6 +53,7 @@ Sistema completo de **payment gateway integrado com Asaas** para plataforma B2B 
 - ✅ **Split Tracking**: Status, scheduled date, actual date, Asaas transfer ID
 
 ### Cost Breakdown Features
+
 - ✅ **Detailed Costs**: Kit, Dossiê Técnico, Mão de Obra, Total
 - ✅ **Fabrication Details**: Módulos solares, inversor, BOS (estrutura, cabos, proteções)
 - ✅ **Product Extension**: Cost breakdown linked to Medusa Product
@@ -93,6 +97,7 @@ Sistema completo de **payment gateway integrado com Asaas** para plataforma B2B 
 ```
 
 **Workflow Flow:**
+
 1. **Client Request** → API `/payment/calculate`
 2. **Load Product** → Get cost_breakdown
 3. **Load Gateway Config** → Get Asaas fees
@@ -105,20 +110,22 @@ Sistema completo de **payment gateway integrado com Asaas** para plataforma B2B 
 ## 📦 DATA MODELS
 
 ### 1. PaymentGateway
+
 Configuração central de taxas e métodos de pagamento.
 
 **Key Fields:**
+
 - `gateway_provider`: "asaas" (default)
 - `enabled_methods`: Array de métodos habilitados
 - **Boleto**: `boleto_fee_brl` (R$ 1,89), `boleto_settlement_days` (1)
-- **Cartão de Crédito**: 
+- **Cartão de Crédito**:
   - `credit_card_fee_single_percent` (2,89% à vista)
   - `credit_card_fee_2_6_installments_percent` (3,12%)
   - `credit_card_fee_7_12_installments_percent` (3,44%)
   - `credit_card_fee_13_21_installments_percent` (5,58%)
 - **Cartão de Débito**: `debit_card_fee_percent` (1,89%)
 - **PIX**: `pix_dynamic_fee_brl` (R$ 1,89), `pix_static_fee_brl` (R$ 1,89)
-- **Notificações**: 
+- **Notificações**:
   - `email_sms_fee_brl` (R$ 0,00 - GRATUITO)
   - `whatsapp_fee_brl` (R$ 0,55)
   - `voice_robot_fee_brl` (R$ 0,55)
@@ -129,9 +136,11 @@ Configuração central de taxas e métodos de pagamento.
   - `advance_credit_installment_monthly_percent` (1,89%)
 
 ### 2. PaymentTransaction
+
 Registro de transações processadas.
 
 **Key Fields:**
+
 - `order_id`: Link para Medusa Order
 - `payment_method`: boleto, credit_card, debit_card, pix_dynamic, pix_static
 - `amount_brl`: Valor total da cobrança
@@ -143,9 +152,11 @@ Registro de transações processadas.
 - `advance_requested`: Se foi solicitada antecipação
 
 ### 3. PaymentSplitRecipient
+
 Define destinatários de splits (distribuidores, fornecedores, etc.).
 
 **Recipient Types:**
+
 - `DISTRIBUTOR`: FortLev, NeoSolar, FOTUS
 - `MANUFACTURER`: Fabricantes (Jinko, Growatt, etc.)
 - `PLATFORM`: Plataforma YSH
@@ -154,6 +165,7 @@ Define destinatários de splits (distribuidores, fornecedores, etc.).
 - `BOS`: Balance of System (estrutura, cabos, proteções)
 
 **Key Fields:**
+
 - `recipient_code`: FLV, NEO, FTS, JINKO, etc.
 - `asaas_account_id`: ID da subconta no Asaas (R$ 12,90/mês)
 - `pix_key`: Chave PIX para transferências
@@ -162,11 +174,14 @@ Define destinatários de splits (distribuidores, fornecedores, etc.).
 - `transfer_fee_brl`: Taxa de transferência (R$ 3,49 para terceiros, R$ 0,00 para conta principal)
 
 ### 4. PaymentSplitRule
+
 Define regras de split por produto/categoria.
 
 **Key Fields:**
+
 - `rule_code`: Ex: "SPLIT_KIT_FOTOVOLTAICO"
 - `split_recipients`: Array de recipients com configuração
+
   ```json
   [
     {
@@ -185,18 +200,22 @@ Define regras de split por produto/categoria.
     }
   ]
   ```
+
 - `gateway_fees_bearer`: customer, platform, split_proportional
 - `priority`: Ordem de aplicação (maior = maior prioridade)
 
 ### 5. PaymentSplitExecution
+
 Registra execução de splits para cada transação.
 
 **Key Fields:**
+
 - `payment_transaction_id`: Link para PaymentTransaction
 - `total_amount_brl`: Valor total da transação
 - `gateway_fee_brl`: Taxa do gateway
 - `net_amount_brl`: Valor líquido para split
 - `splits`: Array de splits detalhados
+
   ```json
   [
     {
@@ -215,13 +234,16 @@ Registra execução de splits para cada transação.
     }
   ]
   ```
+
 - `total_splits_amount_brl`: Soma de todos os splits
 - `total_transfer_fees_brl`: Soma das taxas de transferência
 
 ### 6. CostBreakdown
+
 Extensão para armazenar custos detalhados do JSON.
 
 **Key Fields:**
+
 - `product_id`: Link para Medusa Product
 - `custo_kit_reais`: Kit completo (painéis + inversor + BOS)
 - `custo_dossie_tecnico_homologacao_reais`: Dossiê técnico
@@ -240,6 +262,7 @@ Extensão para armazenar custos detalhados do JSON.
 **Purpose:** Calcula o valor final com todas as taxas incluídas + splits.
 
 **Input:**
+
 ```typescript
 {
   product_id: string
@@ -254,6 +277,7 @@ Extensão para armazenar custos detalhados do JSON.
 ```
 
 **Output:**
+
 ```typescript
 {
   base_price_brl: number
@@ -317,6 +341,7 @@ Extensão para armazenar custos detalhados do JSON.
    - Returns: splits array, total_splits_brl
 
 **Total Calculation:**
+
 ```
 total_with_fees_brl = subtotal_brl + gateway_fee + notification_fee + advance_fee
 ```
@@ -326,9 +351,11 @@ total_with_fees_brl = subtotal_brl + gateway_fee + notification_fee + advance_fe
 ## 🌐 API ENDPOINTS
 
 ### 1. POST /api/payment/calculate
+
 Calcula o valor final com taxas incluídas.
 
 **Request:**
+
 ```json
 {
   "product_id": "prod_kit_001",
@@ -341,6 +368,7 @@ Calcula o valor final com taxas incluídas.
 ```
 
 **Response:**
+
 ```json
 {
   "calculation": {
@@ -392,9 +420,11 @@ Calcula o valor final com taxas incluídas.
 ```
 
 ### 2. GET /api/payment/methods
+
 Lista métodos de pagamento disponíveis com taxas.
 
 **Response:**
+
 ```json
 {
   "gateway_provider": "asaas",
@@ -439,9 +469,11 @@ Lista métodos de pagamento disponíveis com taxas.
 ```
 
 ### 3. POST /api/payment/split/create
+
 Cria uma execução de split para uma transação.
 
 **Request:**
+
 ```json
 {
   "payment_transaction_id": "pay_tx_12345",
@@ -459,6 +491,7 @@ Cria uma execução de split para uma transação.
 ```
 
 **Response:**
+
 ```json
 {
   "split_execution": {
@@ -487,9 +520,11 @@ Cria uma execução de split para uma transação.
 ```
 
 ### 4. GET /api/payment/split/recipients
+
 Lista recipients de split disponíveis.
 
 **Response:**
+
 ```json
 {
   "recipients": [
@@ -563,6 +598,7 @@ Lista recipients de split disponíveis.
 ### Split Logic
 
 **Example Product Cost Breakdown:**
+
 ```json
 {
   "custo_kit_reais": 7006.00,
@@ -595,6 +631,7 @@ Lista recipients de split disponíveis.
    - Includes: Margem de lucro, custos operacionais, etc.
 
 **Total Validation:**
+
 - Sum of all splits = Total amount paid by customer
 - Platform split absorbs discrepancies and margins
 
@@ -622,6 +659,7 @@ Customer Payment (R$ 11,676.67)
 **Purpose:** Importa `kits_api_with_splits.json` para formato Medusa com custos detalhados.
 
 **Features:**
+
 - ✅ Imports `custos_pagamento` (kit, dossier, labor, total)
 - ✅ Imports `fabricacao_detalhada` (módulos, inversor, BOS)
 - ✅ Creates `cost_breakdown` for each product
@@ -629,17 +667,20 @@ Customer Payment (R$ 11,676.67)
 - ✅ Calculates pricing with payment fees included
 
 **Usage:**
+
 ```bash
 cd backend/data/products-inventory/scripts
 python migrate_kits_with_splits.py
 ```
 
 **Input:**
+
 ```
 C:\Users\fjuni\OneDrive\Documentos\GitHub\yello-solar-hub_catalog\data\kits_api_with_splits.json
 ```
 
 **Output:**
+
 ```
 medusa_import_with_splits/
 ├── medusa_products_with_costs.json (Products with variants)
@@ -648,6 +689,7 @@ medusa_import_with_splits/
 ```
 
 **Expected Stats:**
+
 - **Total Kits**: ~49,283 lines (varies by JSON)
 - **Products Created**: N products
 - **Variants Created**: N × 4 tiers
@@ -661,12 +703,14 @@ medusa_import_with_splits/
 ## 🚀 IMPLEMENTATION GUIDE
 
 ### Step 1: Setup Models (5 min)
+
 ```bash
 cd backend/src/models
 # Copy payment-gateway.ts and payment-split.ts
 ```
 
 Register in `medusa-config.ts`:
+
 ```typescript
 modules: [
   {
@@ -682,11 +726,13 @@ modules: [
 ```
 
 ### Step 2: Setup Workflow (5 min)
+
 ```bash
 cp workflows/calculate-payment-with-fees.ts backend/src/workflows/
 ```
 
 ### Step 3: Setup API Routes (5 min)
+
 ```bash
 mkdir -p backend/src/api/payment/calculate
 mkdir -p backend/src/api/payment/split
@@ -694,18 +740,22 @@ mkdir -p backend/src/api/payment/split
 ```
 
 ### Step 4: Run Migration (30 min)
+
 ```bash
 cd backend/data/products-inventory/scripts
 python migrate_kits_with_splits.py
 ```
 
 Expected output:
+
 - `medusa_products_with_costs.json`
 - `medusa_cost_breakdowns.json`
 - `migration_summary.json`
 
 ### Step 5: Import to Medusa (20 min)
+
 Create import script:
+
 ```typescript
 // backend/src/scripts/import-products-with-costs.ts
 import { MedusaApp } from "@medusajs/framework"
@@ -730,11 +780,13 @@ importData()
 ```
 
 Run:
+
 ```bash
 npx tsx backend/src/scripts/import-products-with-costs.ts
 ```
 
 ### Step 6: Seed Payment Gateway (10 min)
+
 ```typescript
 // backend/src/scripts/seed-payment-gateway.ts
 const gateway = {
@@ -750,6 +802,7 @@ await app.modules.paymentGateway.create(gateway)
 ```
 
 ### Step 7: Test APIs (10 min)
+
 ```bash
 # Test payment calculation
 curl -X POST http://localhost:9000/api/payment/calculate \
@@ -784,6 +837,7 @@ curl -X POST http://localhost:9000/api/payment/split/create \
 ## ✅ TESTING
 
 ### Unit Tests
+
 ```typescript
 describe("calculatePaymentWithFeesWorkflow", () => {
   test("calculates PIX fee correctly", async () => {
@@ -805,6 +859,7 @@ describe("calculatePaymentWithFeesWorkflow", () => {
 ```
 
 ### Integration Tests
+
 - ✅ API `/payment/calculate` returns valid breakdown
 - ✅ API `/payment/methods` returns all methods
 - ✅ API `/payment/split/create` creates splits correctly
@@ -813,6 +868,7 @@ describe("calculatePaymentWithFeesWorkflow", () => {
 - ✅ Split sum equals total amount
 
 ### E2E Tests
+
 - ✅ Full purchase flow with payment calculation
 - ✅ Split execution and transfer scheduling
 - ✅ Multiple payment methods
@@ -825,6 +881,7 @@ describe("calculatePaymentWithFeesWorkflow", () => {
 ### Example 1: PIX Payment with Splits
 
 **Product:**
+
 - Kit Solar 1.2 kWp
 - `custo_kit_reais`: R$ 7,006.00
 - `custo_dossie_tecnico_homologacao_reais`: R$ 2,335.33
@@ -832,6 +889,7 @@ describe("calculatePaymentWithFeesWorkflow", () => {
 - `valor_total_projeto_reais`: R$ 11,676.67
 
 **Payment Request:**
+
 ```json
 {
   "product_id": "prod_kit_001",
@@ -842,6 +900,7 @@ describe("calculatePaymentWithFeesWorkflow", () => {
 ```
 
 **Calculation Result:**
+
 ```
 Base Price: R$ 11,676.67
 PIX Fee: R$ 1.89
@@ -862,6 +921,7 @@ Platform Net: R$ 1.89 (PIX fee absorbed)
 ### Example 2: Credit Card 12x with Advance
 
 **Payment Request:**
+
 ```json
 {
   "product_id": "prod_kit_002",
@@ -874,6 +934,7 @@ Platform Net: R$ 1.89 (PIX fee absorbed)
 ```
 
 **Calculation Result:**
+
 ```
 Subtotal (5× R$ 11,676.67): R$ 58,383.35
 
@@ -902,6 +963,7 @@ Sistema completo de **Payment Gateway + Splits** implementado com:
 ✅ **Complete Documentation** (this file)  
 
 **Production-Ready Features:**
+
 - Taxas oficiais Asaas (Out/2025)
 - Splits automáticos baseados em custos reais
 - Suporte a 5 métodos de pagamento
@@ -910,6 +972,7 @@ Sistema completo de **Payment Gateway + Splits** implementado com:
 - Rastreamento completo de repasses
 
 **Next Steps:**
+
 1. Integrate with Asaas API (charge creation, transfer execution)
 2. Add admin widgets for split management
 3. Frontend integration (payment method selector, fee display)

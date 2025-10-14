@@ -40,12 +40,14 @@
 
 ### Endpoint
 
-```
+```tsx
 GET https://dadosabertos-aneel.opendata.arcgis.com/api/feed/rss/2.0
 ```
 
 ### Description
 
+```tsx
+Returns the latest datasets published by ANEEL in RSS 2.0 format.
 Returns an RSS 2.0 XML feed with the latest ANEEL datasets. Ideal for monitoring new publications.
 
 ### Response Format

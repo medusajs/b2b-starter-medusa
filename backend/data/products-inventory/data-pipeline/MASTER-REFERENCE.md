@@ -90,7 +90,7 @@ https://www2.aneel.gov.br/scg/gd/login.asp
 
 **API Documentation**:
 
-```
+```tsx
 RSS Feed Definition:
 https://dadosabertos-aneel.opendata.arcgis.com/api/feed/definition/#/RSS%202.0/get_api_feed_rss_2_0
 
@@ -109,7 +109,7 @@ https://dadosabertos-aneel.opendata.arcgis.com/api/search/definition/
 
 #### ANEEL CKAN API
 
-```
+```tsx
 Base URL:
 https://dadosabertos.aneel.gov.br/api/3/action
 
@@ -123,7 +123,7 @@ Key Actions:
 
 #### ANEEL Regulatory Documents
 
-```
+```tsx
 Resolutions Repository:
 https://www2.aneel.gov.br/cedoc/
 
@@ -148,7 +148,7 @@ https://git.aneel.gov.br/publico/centralconteudo/-/raw/main/formularios/gd/2022-
 
 ### OGC API Standards
 
-```
+```tsx
 OGC API Portal:
 https://ogcapi.ogc.org/#standards
 
@@ -161,7 +161,7 @@ Supported Standards (Potential ANEEL Integration):
 
 ### ArcGIS Hub
 
-```
+```tsx
 ArcGIS Sign In:
 https://www.arcgis.com/sharing/rest/oauth2/authorize?client_id=esriapps&response_type=token
 
@@ -181,7 +181,7 @@ https://ec.europa.eu/eusurvey/auth/login
 
 ### Medusa.js (Primary Platform)
 
-```
+```tsx
 Official Documentation:
 https://docs.medusajs.com/
 
@@ -203,14 +203,18 @@ https://github.com/medusajs/medusa/tree/develop/packages/admin/admin-shared/src/
 
 ### Saleor (Alternative/Reference)
 
-```
+```tsx
 Official Documentation:
 https://docs.saleor.io/
 ```
 
 ### Medusa UI (Figma Design System)
 
-```
+```tsx
+Official Documentation:
+https://docs.medusajs.com/resources/medusa-ui/
+
+```tsx
 Medusa UI Community Kit:
 https://www.figma.com/design/BLbIs755K7YaEECOO0vSeY/Medusa-UI--Community-?node-id=9167-6474&t=KB8W0bfa7LUhP3Av-0
 
@@ -220,7 +224,7 @@ Node ID: 9167-6474
 
 ### Product Reference Sites
 
-```
+```tsx
 MeuGerador (Competitor Reference):
 https://www.meugerador.com.br/collections/kits-solar-ongrid
 
