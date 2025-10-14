@@ -84,13 +84,15 @@ def main():
     
     try:
         enricher = enrichment_module.SchemaEnricher(str(inventory_file))
-        enricher.output_dir = Path("enriched-complete")
         enricher.load_products()
         enricher.enrich_all_products()
-        enricher.save_results()
-        enricher.generate_reports()
+        
+        # Export enriched data
+        output_dir = Path("enriched-complete")
+        enricher.export_enriched_schemas(str(output_dir))
         
         print("\n✅ Enrichment complete!")
+        print(f"📂 Output: {output_dir}/")
         
     except Exception as e:
         print(f"\n❌ Enrichment failed: {str(e)}")

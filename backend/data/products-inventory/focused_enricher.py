@@ -58,7 +58,7 @@ Identifique o FABRICANTE principal dos painéis solares e responda em JSON:
                     "stream": False,
                     "options": {"temperature": 0.1, "num_ctx": 1024}
                 },
-                timeout=45
+                timeout=60  # Aumentado de 45s para 60s
             )
             
             if response.status_code == 200:

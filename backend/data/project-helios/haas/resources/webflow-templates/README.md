@@ -9,7 +9,8 @@ Este diretório contém os templates Webflow selecionados para o HaaS Platform.
 ## 📋 Lista de Templates
 
 ### 1. **Fintria** - Dashboard de Monitoramento
-- **URL**: https://webflow.com/made-in-webflow/website/fintria
+
+- **URL**: <https://webflow.com/made-in-webflow/website/fintria>
 - **Uso**: Base para Dashboard de Monitoramento
 - **Componentes Principais**:
   - Layout sidebar + main content
@@ -19,13 +20,15 @@ Este diretório contém os templates Webflow selecionados para o HaaS Platform.
   - Design system com cores financeiras
 
 **Como Obter**:
-1. Acessar https://webflow.com/made-in-webflow/website/fintria
+
+1. Acessar <https://webflow.com/made-in-webflow/website/fintria>
 2. Clicar em "Clone" (requer conta Webflow)
 3. Abrir no Webflow Designer
 4. Export code: Settings → Export Code
 5. Salvar em `fintria/`
 
 **Arquivos Esperados**:
+
 ```
 fintria/
 ├── index.html
@@ -40,7 +43,8 @@ fintria/
 ---
 
 ### 2. **Finance X** - Landing Page
-- **URL**: https://webflow.com/made-in-webflow/website/financex
+
+- **URL**: <https://webflow.com/made-in-webflow/website/financex>
 - **Uso**: Landing Page Comercial do HaaS
 - **Componentes Principais**:
   - Hero section com CTA
@@ -50,12 +54,14 @@ fintria/
   - Contact form
 
 **Como Obter**:
-1. Acessar https://webflow.com/made-in-webflow/website/financex
+
+1. Acessar <https://webflow.com/made-in-webflow/website/financex>
 2. Clicar em "Clone"
 3. Export code
 4. Salvar em `finance-x/`
 
 **Customizações Necessárias**:
+
 - Trocar cores para paleta HaaS (#0066CC)
 - Ajustar copy para "Homologação Digital"
 - Integrar formulário com FastAPI
@@ -64,7 +70,8 @@ fintria/
 ---
 
 ### 3. **The Agency** - Portal Institucional
-- **URL**: https://webflow.com/made-in-webflow/website/The-Agency
+
+- **URL**: <https://webflow.com/made-in-webflow/website/The-Agency>
 - **Uso**: Portal Institucional / Sobre
 - **Componentes Principais**:
   - About section
@@ -74,12 +81,14 @@ fintria/
   - Footer completo
 
 **Como Obter**:
-1. Acessar https://webflow.com/made-in-webflow/website/The-Agency
+
+1. Acessar <https://webflow.com/made-in-webflow/website/The-Agency>
 2. Clicar em "Clone"
 3. Export code
 4. Salvar em `the-agency/`
 
 **Integração com HaaS**:
+
 - Usar para página "Sobre o HaaS"
 - Adaptar services para "Funcionalidades"
 - Team para "Concessionárias Parceiras"
@@ -89,6 +98,7 @@ fintria/
 ## 🛠️ Instruções de Setup
 
 ### Pré-requisitos
+
 - Conta Webflow (free tier suficiente)
 - Navegador moderno (Chrome/Firefox)
 - Editor de código (VS Code)
@@ -96,6 +106,7 @@ fintria/
 ### Passo a Passo
 
 #### 1. Criar Conta Webflow
+
 ```
 1. Acessar: https://webflow.com/dashboard/signup
 2. Criar conta gratuita
@@ -104,6 +115,7 @@ fintria/
 ```
 
 #### 2. Clonar Templates
+
 ```
 Para cada template (Fintria, Finance X, The Agency):
 
@@ -115,6 +127,7 @@ Para cada template (Fintria, Finance X, The Agency):
 ```
 
 #### 3. Export Code
+
 ```
 1. Abrir template no Dashboard
 2. Clicar ícone de engrenagem (Settings)
@@ -125,6 +138,7 @@ Para cada template (Fintria, Finance X, The Agency):
 ```
 
 #### 4. Organizar Arquivos
+
 ```powershell
 # Estrutura final esperada
 webflow-templates/
@@ -166,6 +180,7 @@ webflow-templates/
 ```
 
 **Comando de Busca e Substituição** (VS Code):
+
 ```
 Ctrl+Shift+F
 Buscar: #1a73e8
@@ -180,6 +195,7 @@ Replace All in Files
 ### Dashboard (Fintria)
 
 **Endpoints a integrar**:
+
 ```javascript
 // Substituir dados mockados por chamadas API
 
@@ -204,6 +220,7 @@ ws.onmessage = (event) => {
 ### Landing Page (Finance X)
 
 **Formulário de Contato**:
+
 ```javascript
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -231,6 +248,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 ## 📊 Checklist de Validação
 
 ### Fintria (Dashboard)
+
 - [ ] Template clonado no Webflow
 - [ ] Código exportado e extraído
 - [ ] Cores substituídas para paleta HaaS
@@ -241,6 +259,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 - [ ] Performance: load time < 2s
 
 ### Finance X (Landing Page)
+
 - [ ] Template clonado no Webflow
 - [ ] Código exportado e extraído
 - [ ] Hero section customizado
@@ -251,6 +270,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 - [ ] Google Analytics adicionado
 
 ### The Agency (Portal)
+
 - [ ] Template clonado no Webflow
 - [ ] Código exportado e extraído
 - [ ] Seção "Sobre" escrita
@@ -288,14 +308,16 @@ Após completar o download e setup dos templates:
 Se houver problemas com download ou clonagem:
 
 **Alternativas**:
+
 1. Usar templates free de outros sites (ThemeForest, Creative Tim)
 2. Criar dashboard from scratch com React + Material-UI
 3. Usar templates Bootstrap gratuitos
 
 **Recursos Úteis**:
-- Webflow University: https://university.webflow.com/
-- Webflow Forum: https://forum.webflow.com/
-- Webflow Export Guide: https://university.webflow.com/lesson/export-code
+
+- Webflow University: <https://university.webflow.com/>
+- Webflow Forum: <https://forum.webflow.com/>
+- Webflow Export Guide: <https://university.webflow.com/lesson/export-code>
 
 ---
 
