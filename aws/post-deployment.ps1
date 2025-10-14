@@ -121,7 +121,7 @@ STEP 1/4: DEPLOYING ECS TASKS
     
 }
 else {
-    Write-Warning "Skipping ECS deployment (--SkipECSDeploy)"
+    Write-Warning "Skipping ECS deployment (-SkipECSDeploy)"
 }
 
 # Wait for tasks to stabilize
@@ -174,7 +174,7 @@ STEP 2/4: SETTING UP DATABASE
     
 }
 else {
-    Write-Warning "Skipping database setup (--SkipDatabase)"
+    Write-Warning "Skipping database setup (-SkipDatabase)"
 }
 
 # ==========================================
@@ -226,7 +226,7 @@ STEP 3/4: CONFIGURING MONITORING
     
 }
 else {
-    Write-Warning "Skipping monitoring setup (--SkipMonitoring)"
+    Write-Warning "Skipping monitoring setup (-SkipMonitoring)"
 }
 
 # ==========================================
@@ -279,7 +279,7 @@ STEP 4/4: CONFIGURING ENVIRONMENT
     
 }
 else {
-    Write-Warning "Skipping environment configuration (--SkipEnvConfig)"
+    Write-Warning "Skipping environment configuration (-SkipEnvConfig)"
 }
 
 # ==========================================
@@ -317,8 +317,8 @@ if (-not $SkipEnvConfig) {
 
 if ($errors.Count -gt 0) {
     Write-Host "`n❌ ERRORS:" -ForegroundColor Red
-    foreach ($error in $errors) {
-        Write-Host "  • $error" -ForegroundColor Red
+    foreach ($errorMsg in $errors) {
+        Write-Host "  • $errorMsg" -ForegroundColor Red
     }
 }
 

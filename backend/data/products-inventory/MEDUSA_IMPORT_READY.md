@@ -365,6 +365,7 @@ medusa products:validate-images
 ### Common Issues
 
 **1. Products Not Importing**
+
 ```bash
 # Check enriched file format
 cat enriched-complete/enriched_products_*.json | jq '.[] | keys'
@@ -374,6 +375,7 @@ npm run medusa:validate-schema -- --input=enriched_products.json
 ```
 
 **2. Images Not Loading**
+
 ```bash
 # Test image URLs
 curl -I "https://prod-platform-api.s3.amazonaws.com/..."
@@ -383,6 +385,7 @@ aws s3api put-bucket-cors --bucket prod-platform-api --cors-configuration file:/
 ```
 
 **3. Scores Not Displaying in Admin**
+
 ```typescript
 // Check metadata access in admin UI
 console.log(product.metadata.overall_score)  // Should not be undefined
@@ -392,6 +395,7 @@ console.log(product.metadata.overall_score)  // Should not be undefined
 ```
 
 **4. Price Format Issues**
+
 ```typescript
 // Medusa expects prices in cents
 const priceInCents = Math.round(priceInReais * 100)
@@ -455,15 +459,18 @@ currency_code: 'brl'  // lowercase, ISO 4217
 ## 📞 SUPPORT & CONTACTS
 
 **Technical Issues:**
-- Email: dev@yellosolarhub.com
+
+- Email: <dev@yellosolarhub.com>
 - Repository: github.com/own-boldsbrain/ysh-b2b
 
 **Data Quality:**
-- Email: compliance@yellosolarhub.com
+
+- Email: <compliance@yellosolarhub.com>
 - See: `ENRICHMENT_COMPLETE_SUMMARY.md` for known issues
 
 **Business Questions:**
-- Email: fernando@yellosolarhub.com
+
+- Email: <fernando@yellosolarhub.com>
 
 ---
 

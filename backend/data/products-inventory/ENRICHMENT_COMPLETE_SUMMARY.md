@@ -32,6 +32,7 @@
 ### Stage 1: Initial Extraction (4,517 products)
 
 **Distribution by Source:**
+
 - NeoSolar: 3,132 (69.3%)
 - FOTUS: 695 (15.4%) ❌ **Data Corrupted**
 - FortLev: 507 (11.2%)
@@ -39,10 +40,12 @@
 - Solfacil: 90 (2.0%)
 
 **18 Categories Captured:**
+
 - Core: panels, inverters, hybrid_inverters, microinverters, kits, batteries, structures, stringboxes, cables, accessories
 - Specialized: ev_chargers, water_pumps, solar_trackers, smart_meters, transformers, security, boxes, conduits, miscellaneous
 
 **Issues Identified:**
+
 - ❌ FOTUS products: Completely malformed data (price field contains descriptions, not prices)
 - ❌ Manufacturer extraction: Many classified as "Kit", "MPPT", "Bomba Solar" (product types, not manufacturers)
 - ❌ Price quality: 928 products with invalid/missing prices
@@ -50,6 +53,7 @@
 ### Stage 2: Validation & Filtering (2,838 → 166 products)
 
 **Filtered Out:**
+
 - FOTUS distributor: 695 products (broken data structure)
 - Invalid manufacturers: 56 products (no manufacturer data)
 - Invalid prices: 928 products (R$ 0,00 or missing)
@@ -58,11 +62,13 @@
 **Valid Products Remaining: 166** (3.7% of original)
 
 **Distribution of Valid Products:**
+
 - FortLev: 72 (43.4%)
 - NeoSolar: 58 (34.9%)
 - ODEX: 36 (21.7%)
 
 **Categories with Valid Data:**
+
 1. Structures: 58 (34.9%)
 2. Panels: 39 (23.5%)
 3. Inverters: 36 (21.7%)
@@ -132,12 +138,14 @@
 Location: `enriched-complete/`
 
 **Main Files:**
+
 - `enriched_products_2025-10-14_10-30-42.json` - Complete enriched catalog (166 products)
 - `price_analysis_report_2025-10-14_10-30-42.json` - Comparative price analysis
 - `top_products_2025-10-14_10-30-42.json` - Top 50 products by score
 - `ENRICHED_SCHEMA_REPORT_2025-10-14_10-30-42.md` - Full markdown report
 
 **Category-Specific Files:**
+
 - `enriched_panels_*.json` (39 products)
 - `enriched_inverters_*.json` (36 products)
 - `enriched_structures_*.json` (58 products)
@@ -167,6 +175,7 @@ Location: `enriched-complete/`
 **Root Cause:** Extraction logic classifies product types as manufacturers  
 **Impact:** Only 166/4,517 products (3.7%) are enrichable  
 **Recommendation:**
+
 - Implement NER (Named Entity Recognition) for manufacturer extraction
 - Create manufacturer mapping table
 - Manual review of top 50 manufacturers
@@ -176,6 +185,7 @@ Location: `enriched-complete/`
 **Problem:** Only 10.8% of enriched products have INMETRO certification  
 **Impact:** Compliance risk for Brazilian market  
 **Recommendation:**
+
 - Manual certification data entry for top products
 - Contact manufacturers for certification documents
 - Implement certification verification workflow
@@ -185,6 +195,7 @@ Location: `enriched-complete/`
 **Problem:** 928 products (20.5%) have invalid or missing prices  
 **Impact:** Reduced enrichable inventory  
 **Recommendation:**
+
 - Implement price scraping retry logic
 - Add fallback to distributor API calls
 - Schedule weekly price updates
@@ -299,6 +310,7 @@ Location: `enriched-complete/`
 **Version:** 1.0.0  
 
 **Related Documents:**
+
 - `COMPLETE_EXTRACTION_REPORT.md` - Full extraction statistics
 - `ENRICHED_SCHEMA_REPORT_2025-10-14_10-30-42.md` - Detailed enrichment analysis
 - `MEDUSA_MULTI_DISTRIBUTOR_PRICING_GUIDE.md` - Integration guide
