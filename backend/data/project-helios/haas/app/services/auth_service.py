@@ -60,7 +60,7 @@ fake_users_db: Dict[str, Dict[str, Any]] = {
         "id": 1,
         "email": "distributor@haas.com",
         "full_name": "Test Distributor",
-        "hashed_password": get_password_hash("password123"),
+        "hashed_password": get_password_hash("pass123"),
         "role": "distributor",
         "is_active": True,
     }

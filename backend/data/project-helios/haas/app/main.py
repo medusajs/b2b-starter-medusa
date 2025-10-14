@@ -5,12 +5,12 @@ API Principal FastAPI para integração com distribuidoras
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
-from app.routers import distributors, auth, webhooks
+from app.routers import distributors, auth
 
 app = FastAPI(
     title="HaaS Platform API",
-    description="API para Homologação como Serviço - Integração com Distribuidoras",
+    description="API para Homologação como Serviço - "
+                "Integração com Distribuidoras",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
@@ -26,14 +26,25 @@ app.add_middleware(
 )
 
 # Routers
-app.include_router(auth.router, prefix="/auth", tags=["Autenticação"])
-app.include_router(distributors.router, prefix="/distributors", tags=["Distribuidoras"])
-app.include_router(webhooks.router, prefix="/webhooks", tags=["Webhooks"])
+app.include_router(
+    auth.router,
+    prefix="/auth",
+    tags=["Autenticação"]
+)
+app.include_router(
+    distributors.router,
+    prefix="/distributors",
+    tags=["Distribuidoras"]
+)
+
 
 @app.get("/")
 async def root():
-    return {"message": "HaaS Platform - Homologação como Serviço", "version": "1.0.0"}
+    message = "HaaS Platform - Homologação como Serviço"
+    return {"message": message, "version": "1.0.0"}
+
 
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "haas-api"}
+
