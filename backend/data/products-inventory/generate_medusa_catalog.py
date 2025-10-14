@@ -283,6 +283,20 @@ class CategoryMapper:
                     base_cats.append("cat_paineis_600_700w")
         
         return list(set(base_cats))
+    
+    @classmethod
+    def get_power_category(cls, potencia_kwp: float) -> str:
+        """Retorna categoria baseada na potência do kit"""
+        if potencia_kwp <= 1:
+            return "cat_kits_ate_1kwp"
+        elif potencia_kwp <= 3:
+            return "cat_kits_1_3kwp"
+        elif potencia_kwp <= 5:
+            return "cat_kits_3_5kwp"
+        elif potencia_kwp <= 10:
+            return "cat_kits_5_10kwp"
+        else:
+            return "cat_kits_acima_10kwp"
 
 
 class TagGenerator:
@@ -332,6 +346,13 @@ class MedusaCatalogGenerator:
         self.distributors_path = base_path / "distributors"
         self.output_path = base_path / "medusa-catalog"
         self.output_path.mkdir(exist_ok=True)
+        
+        # Inicializar geradores
+        self.sku_gen = SKUGenerator()
+        self.handle_gen = HandleGenerator()
+        self.price_conv = PriceConverter()
+        self.category_mapper = CategoryMapper()
+        self.tag_gen = TagGenerator()
         
         self.inventory_items: List[Dict] = []
         self.products: List[Dict] = []
