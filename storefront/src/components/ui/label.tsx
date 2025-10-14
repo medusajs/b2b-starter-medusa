@@ -1,19 +1,13 @@
-import * as React from "react"
+/**
+ * Label Component - RE-EXPORT
+ * This file now re-exports from the unified design system
+ *
+ * DEPRECATED: Import directly from '@/lib/design-system/components/Label'
+ * This file maintained for backward compatibility during migration
+ */
 
-export interface LabelProps
-    extends React.LabelHTMLAttributes<HTMLLabelElement> { }
+import { Label as DesignSystemLabel, type LabelProps as DesignSystemLabelProps } from '@/lib/design-system/components/Label'
 
-const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-    ({ className, ...props }, ref) => {
-        return (
-            <label
-                ref={ref}
-                className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${className || ''}`}
-                {...props}
-            />
-        )
-    }
-)
-Label.displayName = "Label"
-
-export { Label }
+// Re-export with named export for backward compatibility
+export const Label = DesignSystemLabel
+export type LabelProps = DesignSystemLabelProps

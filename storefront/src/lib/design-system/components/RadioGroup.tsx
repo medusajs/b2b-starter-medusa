@@ -11,7 +11,8 @@ import { RadioGroup as MedusaRadioGroup } from "@medusajs/ui"
  * </RadioGroup>
  */
 
-const RadioGroup = MedusaRadioGroup.Root
+const RadioGroup = MedusaRadioGroup
 const RadioGroupItem = MedusaRadioGroup.Item
+const RadioGroupChoiceBox = MedusaRadioGroup.ChoiceBox
 
-export { RadioGroup, RadioGroupItem }
+export { RadioGroup, RadioGroupItem, RadioGroupChoiceBox }

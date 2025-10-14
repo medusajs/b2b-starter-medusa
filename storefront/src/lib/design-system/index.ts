@@ -12,11 +12,21 @@ export * from "./typography";
 export * from "./spacing";
 
 // Components
-export * from "./components/Button";
-export * from "./components/Card";
-export * from "./components/Input";
-export * from "./components/Badge";
-export * from "./components/Label";
+export * from "./components/Button"
+export * from "./components/Card"
+export * from "./components/Input"
+export * from "./components/Badge"
+export * from "./components/Label"
+export * from "./components/Alert"
+export * from "./components/Avatar"
+export * from "./components/Checkbox"
+export * from "./components/RadioGroup"
+export * from "./components/Select"
+export * from "./components/Switch"
+export * from "./components/Table"
+export * from "./components/Tabs"
+export * from "./components/Textarea"
+export * from "./components/Toast"
 
 // Re-export for convenience
 export { yello, medusaYelloTokens, tailwindYelloColors } from "./colors";
