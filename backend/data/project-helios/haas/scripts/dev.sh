@@ -238,8 +238,12 @@ show_help() {
     echo ""
     echo "Comandos disponíveis:"
     echo "  build       - Construir imagens Docker"
-    echo "  dev         - Iniciar ambiente de desenvolvimento"
-    echo "  stop        - Parar ambiente de desenvolvimento"
+    echo "  dev         - Iniciar ambiente de desenvolvimento (portas padrão)"
+    echo "  alt-ports   - Iniciar com portas alternativas (8100, 5433, 6380, etc.)"
+    echo "  high-ports  - Iniciar com portas altas (18000, 15432, 16379, etc.)"
+    echo "  stop        - Parar ambiente padrão"
+    echo "  stop-alt    - Parar ambiente com portas alternativas"
+    echo "  stop-high   - Parar ambiente com portas altas"
     echo "  logs        - Mostrar logs (opcional: nome do serviço)"
     echo "  test        - Executar testes"
     echo "  lint        - Executar linting e formatação"
@@ -249,8 +253,15 @@ show_help() {
     echo "  deploy      - Deploy para produção"
     echo "  help        - Mostrar esta ajuda"
     echo ""
+    echo "Configurações de Portas Disponíveis:"
+    echo "  Padrão:      API:8000, DB:5432, Redis:6379, Adminer:8080, Redis-UI:8081"
+    echo "  Alternativa: API:8100, DB:5433, Redis:6380, Adminer:8180, Redis-UI:8181"
+    echo "  Altas:       API:18000, DB:15432, Redis:16379, Adminer:18080, Redis-UI:18081"
+    echo ""
     echo "Exemplos:"
-    echo "  $0 dev                    # Iniciar desenvolvimento"
+    echo "  $0 dev                    # Iniciar desenvolvimento (portas padrão)"
+    echo "  $0 alt-ports              # Usar portas alternativas (evitar conflitos)"
+    echo "  $0 high-ports             # Usar portas altas (múltiplas instâncias)"
     echo "  $0 logs haas-api         # Ver logs da API"
     echo "  $0 restore backup.sql    # Restaurar backup"
 }
@@ -267,9 +278,27 @@ main() {
             check_docker_compose
             start_dev
             ;;
+        "alt-ports"|"alt")
+            check_docker
+            check_docker_compose
+            start_alt_ports
+            ;;
+        "high-ports"|"high")
+            check_docker
+            check_docker_compose
+            start_high_ports
+            ;;
         "stop")
             check_docker_compose
             stop_dev
+            ;;
+        "stop-alt")
+            check_docker_compose
+            stop_alt_ports
+            ;;
+        "stop-high")
+            check_docker_compose
+            stop_high_ports
             ;;
         "logs")
             check_docker_compose

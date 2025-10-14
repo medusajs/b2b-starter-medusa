@@ -112,6 +112,42 @@ docker-compose -f docker-compose.prod.yml up -d
 echo ✅ Deploy de produção iniciado
 goto :eof
 
+REM Iniciar ambiente com portas alternativas
+:start_alt_ports
+echo ℹ️  Iniciando ambiente com portas alternativas...
+docker-compose -f docker-compose.alt-ports.yml up -d
+echo ✅ Ambiente com portas alternativas iniciado
+echo ℹ️  API: http://localhost:8100
+echo ℹ️  Docs: http://localhost:8100/docs
+echo ℹ️  Adminer: http://localhost:8180
+echo ℹ️  Redis Commander: http://localhost:8181
+goto :eof
+
+REM Iniciar ambiente com portas altas
+:start_high_ports
+echo ℹ️  Iniciando ambiente com portas altas...
+docker-compose -f docker-compose.high-ports.yml up -d
+echo ✅ Ambiente com portas altas iniciado
+echo ℹ️  API: http://localhost:18000
+echo ℹ️  Docs: http://localhost:18000/docs
+echo ℹ️  Adminer: http://localhost:18080
+echo ℹ️  Redis Commander: http://localhost:18081
+goto :eof
+
+REM Parar ambiente com portas alternativas
+:stop_alt_ports
+echo ℹ️  Parando ambiente com portas alternativas...
+docker-compose -f docker-compose.alt-ports.yml down
+echo ✅ Ambiente alternativo parado
+goto :eof
+
+REM Parar ambiente com portas altas
+:stop_high_ports
+echo ℹ️  Parando ambiente com portas altas...
+docker-compose -f docker-compose.high-ports.yml down
+echo ✅ Ambiente de portas altas parado
+goto :eof
+
 REM Menu de ajuda
 :show_help
 echo HaaS Platform - Script de Desenvolvimento (Windows)
@@ -120,16 +156,27 @@ echo Uso: %0 [COMANDO]
 echo.
 echo Comandos disponíveis:
 echo   build       - Construir imagens Docker
-echo   dev         - Iniciar ambiente de desenvolvimento  
-echo   stop        - Parar ambiente de desenvolvimento
+echo   dev         - Iniciar ambiente de desenvolvimento (portas padrão)
+echo   alt-ports   - Iniciar com portas alternativas (8100, 5433, 6380, etc.)
+echo   high-ports  - Iniciar com portas altas (18000, 15432, 16379, etc.)
+echo   stop        - Parar ambiente padrão
+echo   stop-alt    - Parar ambiente com portas alternativas
+echo   stop-high   - Parar ambiente com portas altas
 echo   logs        - Mostrar logs (opcional: nome do serviço)
 echo   test        - Executar testes
 echo   cleanup     - Remover containers, volumes e imagens
 echo   deploy      - Deploy para produção
 echo   help        - Mostrar esta ajuda
 echo.
+echo Configurações de Portas Disponíveis:
+echo   Padrão:      API:8000, DB:5432, Redis:6379, Adminer:8080, Redis-UI:8081
+echo   Alternativa: API:8100, DB:5433, Redis:6380, Adminer:8180, Redis-UI:8181
+echo   Altas:       API:18000, DB:15432, Redis:16379, Adminer:18080, Redis-UI:18081
+echo.
 echo Exemplos:
-echo   %0 dev                    # Iniciar desenvolvimento
+echo   %0 dev                    # Iniciar desenvolvimento (portas padrão)
+echo   %0 alt-ports              # Usar portas alternativas (evitar conflitos)
+echo   %0 high-ports             # Usar portas altas (múltiplas instâncias)
 echo   %0 logs haas-api         # Ver logs da API
 goto :eof
 
