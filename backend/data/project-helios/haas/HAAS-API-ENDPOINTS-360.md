@@ -21,13 +21,13 @@ Documentação completa das APIs do **HaaS Platform** (Homologação como Servi�
 
 ### Base URL: `/auth`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `POST` | `/auth/login` | Autenticação de usuário via JWT | ✅ Implementado |
-| `POST` | `/auth/register` | Registro de novo usuário | 🚧 Placeholder |
-| `GET` | `/auth/me` | Obter informações do usuário atual | ✅ Implementado |
-| `POST` | `/auth/refresh` | Renovar token JWT | 🔄 Planejado |
-| `POST` | `/auth/logout` | Logout do usuário | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `POST` | `/auth/login` | Autenticação de usuário via JWT | ✅ Implementado | - |
+| `POST` | `/auth/register` | Registro de novo usuário | 🚧 Placeholder | 🟢 Baixa |
+| `GET` | `/auth/me` | Obter informações do usuário atual | ✅ Implementado | - |
+| `POST` | `/auth/refresh` | Renovar token JWT | 🔄 NOW | 🔴 Crítica |
+| `POST` | `/auth/logout` | Logout do usuário | 🔄 NOW | 🔴 Crítica |
 
 #### Exemplo de Uso
 
@@ -112,13 +112,13 @@ curl -X POST /webhooks/configs \
 
 ### Base URL: `/validation/inmetro`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `POST` | `/validation/inmetro/equipment` | Validar equipamento | 🔄 Planejado |
-| `GET` | `/validation/inmetro/equipment/{id}` | Buscar certificação por ID | 🔄 Planejado |
-| `POST` | `/validation/inmetro/batch` | Validar lista de equipamentos | 🔄 Planejado |
-| `GET` | `/validation/inmetro/manufacturers` | Listar fabricantes certificados | 🔄 Planejado |
-| `GET` | `/validation/inmetro/models/{manufacturer}` | Listar modelos por fabricante | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `POST` | `/validation/inmetro/equipment` | Validar equipamento | 🔄 NOW | 🔴 Crítica |
+| `GET` | `/validation/inmetro/equipment/{id}` | Buscar certificação por ID | 🔄 NOW | 🔴 Crítica |
+| `POST` | `/validation/inmetro/batch` | Validar lista de equipamentos | 🔄 NOW | 🔴 Crítica |
+| `GET` | `/validation/inmetro/manufacturers` | Listar fabricantes certificados | 🔄 NOW | 🟡 Alta |
+| `GET` | `/validation/inmetro/models/{manufacturer}` | Listar modelos por fabricante | 🔄 NOW | 🟡 Alta |
 
 #### Sistema Subjacente Implementado
 
@@ -158,13 +158,13 @@ curl -X POST /validation/inmetro/equipment \
 
 ### Base URL: `/documents`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `POST` | `/documents/memorial` | Gerar memorial descritivo | 🔄 Planejado |
-| `POST` | `/documents/diagram` | Gerar diagrama unifilar | 🔄 Planejado |
-| `POST` | `/documents/forms/{utility}` | Preencher formulários específicos | 🔄 Planejado |
-| `GET` | `/documents/templates` | Listar templates disponíveis | 🔄 Planejado |
-| `GET` | `/documents/download/{id}` | Download de documento | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `POST` | `/documents/memorial` | Gerar memorial descritivo | 🔄 NOW | 🟡 Alta |
+| `POST` | `/documents/diagram` | Gerar diagrama unifilar | 🔄 NEXT | 🟡 Alta |
+| `POST` | `/documents/forms/{utility}` | Preencher formulários específicos | 🔄 NEXT | 🟡 Alta |
+| `GET` | `/documents/templates` | Listar templates disponíveis | 🔄 NOW | 🟢 Média |
+| `GET` | `/documents/download/{id}` | Download de documento | 🔄 NOW | 🟡 Alta |
 
 #### Exemplo de API Planejada
 
@@ -198,13 +198,13 @@ curl -X POST /documents/memorial \
 
 ### Base URL: `/utilities`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `GET` | `/utilities/` | Listar concessionárias suportadas | 🔄 Planejado |
-| `GET` | `/utilities/{code}/forms` | Obter formulários da concessionária | 🔄 Planejado |
-| `POST` | `/utilities/{code}/submit` | Submeter documentação | 🔄 Planejado |
-| `GET` | `/utilities/submission/{id}/status` | Acompanhar status | 🔄 Planejado |
-| `GET` | `/utilities/{code}/requirements` | Obter requisitos técnicos | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `GET` | `/utilities/` | Listar concessionárias suportadas | 🔄 NOW | 🟡 Alta |
+| `GET` | `/utilities/{code}/forms` | Obter formulários da concessionária | 🔄 NEXT | 🟡 Alta |
+| `POST` | `/utilities/{code}/submit` | Submeter documentação | 🔄 NEXT | 🟢 Média |
+| `GET` | `/utilities/submission/{id}/status` | Acompanhar status | 🔄 NEXT | 🟢 Média |
+| `GET` | `/utilities/{code}/requirements` | Obter requisitos técnicos | 🔄 NOW | 🟡 Alta |
 
 #### Sistema Base Disponível
 
@@ -244,13 +244,13 @@ curl -X POST /utilities/0266/submit \
 
 ### Base URL: `/monitoring`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `GET` | `/health` | Health check do sistema | ✅ Implementado |
-| `GET` | `/monitoring/projects` | Listar projetos em andamento | 🔄 Planejado |
-| `GET` | `/monitoring/projects/{id}` | Detalhes do projeto | 🔄 Planejado |
-| `GET` | `/monitoring/statistics` | Estatísticas gerais | 🔄 Planejado |
-| `GET` | `/monitoring/reports/{type}` | Relatórios customizados | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `GET` | `/health` | Health check do sistema | ✅ Implementado | - |
+| `GET` | `/monitoring/projects` | Listar projetos em andamento | 🔄 NOW | 🟡 Alta |
+| `GET` | `/monitoring/projects/{id}` | Detalhes do projeto | 🔄 NOW | 🟡 Alta |
+| `GET` | `/monitoring/statistics` | Estatísticas gerais | 🔄 NOW | 🟡 Alta |
+| `GET` | `/monitoring/reports/{type}` | Relatórios customizados | 🔄 NEXT | 🟢 Média |
 
 #### Health Check Atual
 
@@ -276,13 +276,13 @@ curl -X GET /health
 
 ### Base URL: `/admin`
 
-| Método | Endpoint | Descrição | Status |
-|--------|----------|-----------|---------|
-| `GET` | `/admin/users` | Gerenciar usuários | 🔄 Planejado |
-| `POST` | `/admin/users` | Criar usuário | 🔄 Planejado |
-| `PUT` | `/admin/users/{id}` | Atualizar usuário | 🔄 Planejado |
-| `GET` | `/admin/settings` | Configurações do sistema | 🔄 Planejado |
-| `PUT` | `/admin/settings` | Atualizar configurações | 🔄 Planejado |
+| Método | Endpoint | Descrição | Status | Prioridade |
+|--------|----------|-----------|--------|------------|
+| `GET` | `/admin/users` | Gerenciar usuários | 🔄 LATER | 🟢 Média |
+| `POST` | `/admin/users` | Criar usuário | 🔄 LATER | 🟢 Média |
+| `PUT` | `/admin/users/{id}` | Atualizar usuário | 🔄 LATER | 🟢 Média |
+| `GET` | `/admin/settings` | Configurações do sistema | 🔄 LATER | 🟢 Baixa |
+| `PUT` | `/admin/settings` | Atualizar configurações | 🔄 LATER | 🟢 Baixa |
 
 ---
 
@@ -302,77 +302,172 @@ graph TB
     H --> I[Homologação Concluída]
 ```
 
-### 9.2 Capacidades por Área
+### 9.2 Capacidades por Área e Roadmap
 
-| Área | APIs Implementadas | APIs Planejadas | Cobertura |
-|------|-------------------|------------------|-----------|
-| **Autenticação** | 3/5 | 2/5 | 60% |
-| **Distribuidoras** | 5/5 | 0/5 | 100% |
-| **Webhooks** | 6/6 | 0/6 | 100% |
-| **INMETRO** | 0/5 | 5/5 | 0% |
-| **Documentos** | 0/5 | 5/5 | 0% |
-| **Concessionárias** | 0/5 | 5/5 | 0% |
-| **Monitoramento** | 1/5 | 4/5 | 20% |
-| **Administração** | 0/5 | 5/5 | 0% |
+| Área | Implementadas | NOW | NEXT | LATER | Status |
+|------|---------------|-----|------|-------|--------|
+| **Autenticação** | 3 | 2 | 0 | 0 | 60% ✅ |
+| **Distribuidoras** | 5 | 0 | 0 | 0 | 100% ✅ |
+| **Webhooks** | 6 | 0 | 0 | 0 | 100% ✅ |
+| **INMETRO** | 0 | 5 | 0 | 0 | 0% 🔴 |
+| **Documentos** | 0 | 3 | 2 | 0 | 0% 🔴 |
+| **Concessionárias** | 0 | 2 | 3 | 0 | 0% 🔴 |
+| **Monitoramento** | 1 | 3 | 1 | 0 | 20% 🟡 |
+| **Administração** | 0 | 0 | 0 | 5 | 0% 🟢 |
+| **TOTAL** | **15** | **15** | **6** | **5** | **37%** |
 
-### 9.3 Priorização de Desenvolvimento
+### 9.3 Cronograma de Desenvolvimento
 
-#### 🔴 Alta Prioridade (MVP)
+#### 🔴 NOW (2-4 semanas) - MVP Crítico
 
-1. **APIs de Validação INMETRO** - Sistema base já implementado
-2. **APIs de Geração de Documentos** - Templates em desenvolvimento
-3. **APIs de Monitoramento** - Health check já funcional
+**15 endpoints prioritários**:
 
-#### 🟡 Média Prioridade
+1. **Autenticação** (2 endpoints)
+   - Refresh token + Logout
+   - Tempo: 3 dias
 
-1. **APIs de Integração com Concessionárias** - Conectores complexos
-2. **APIs de Administração** - Gestão de usuários
+2. **INMETRO** (5 endpoints)
+   - Sistema base 100% implementado
+   - Apenas expor via REST API
+   - Tempo: 5 dias
 
-#### 🟢 Baixa Prioridade
+3. **Documentos** (3 endpoints)
+   - Memorial descritivo (Jinja2 + WeasyPrint)
+   - Templates + Download
+   - Tempo: 4 dias
 
-1. **Extensões de Autenticação** - OAuth, SSO
-2. **APIs Avançadas de Relatório** - Analytics
+4. **Concessionárias** (2 endpoints)
+   - Listagem + Requisitos
+   - Base ANEEL pronta
+   - Tempo: 3 dias
+
+5. **Monitoramento** (3 endpoints)
+   - Projetos + Estatísticas
+   - Tempo: 3 dias
+
+**Total NOW**: 18 dias úteis → Meta 70% cobertura
+
+#### 🟡 NEXT (1-2 meses) - Automação
+
+**6 endpoints**:
+
+- Diagramas unifilares (NBR 5410)
+- Formulários automáticos (CPFL, Enel, CEMIG)
+- Conectores web (Playwright)
+- Relatórios customizados
+
+**Total NEXT**: 8-10 semanas
+
+#### 🟢 LATER (3-6 meses) - Enterprise
+
+**5 endpoints**:
+
+- Administração completa
+- IA/ML features
+- Multi-tenancy
+- Analytics avançado
+
+**Total LATER**: 6 meses paralelizados
 
 ---
 
-## 🚀 Próximos Passos
+## 🚀 Quick Wins Identificados
 
-### Fase 1: APIs INMETRO (2-3 semanas)
+### Semana 1-2: APIs INMETRO (Maior ROI)
 
-- Exposição do sistema de validação via REST API
-- Cache de certificações em PostgreSQL
-- Rate limiting e autenticação
+**Por que é Quick Win?**
+- ✅ Sistema base 100% implementado (`InmetroCrawler`, `InmetroExtractor`, `RecordValidator`)
+- ✅ Apenas precisa expor via REST API
+- ✅ Alto valor percebido pelos clientes
+- ⚡ 5 dias de desenvolvimento
 
-### Fase 2: APIs de Documentos (3-4 semanas)
+**Endpoints**:
+```python
+POST   /validation/inmetro/equipment      # Reutiliza validate_equipment()
+POST   /validation/inmetro/batch          # Loop sobre validate_equipment()
+GET    /validation/inmetro/equipment/{id} # Consulta ao repository
+GET    /validation/inmetro/manufacturers  # Query no cache local
+GET    /validation/inmetro/models/{mfr}   # Filtro por fabricante
+```
 
-- Templates HTML/CSS para memorial
-- Gerador de diagramas unifilares
-- Sistema de templates por concessionária
+### Semana 2-3: Memorial Descritivo (Alta Percepção)
 
-### Fase 3: APIs de Concessionárias (4-6 semanas)
+**Por que é Quick Win?**
+- 📄 Geração de PDF profissional impacta cliente
+- 🎨 Template HTML/CSS reutilizável
+- 📦 Biblioteca Jinja2 + WeasyPrint (maduras)
+- ⚡ 4 dias de desenvolvimento
 
-- Conectores para portais web
-- Automação de submissão
-- Sistema de tracking
+### Semana 3-4: Dashboard Monitoramento
 
-### Fase 4: APIs Completas (1-2 semanas)
-
-- Monitoramento avançado
-- Administração de usuários
-- Relatórios e analytics
+**Por que é Quick Win?**
+- 📊 Visibilidade do sistema
+- 🎯 Gestão de projetos
+- 💼 Valor para stakeholders
+- ⚡ 3 dias de desenvolvimento
 
 ---
 
-## 📞 Suporte e Documentação
+## 📞 Documentação e Recursos
 
-- **Documentação Interativa**: `/docs` (desenvolvimento)
+### Acesso à Documentação
+
+- **Docs Interativos**: `/docs` (ambiente dev)
+- **ReDoc**: `/redoc` (ambiente dev)
 - **OpenAPI Schema**: `/openapi.json`
 - **Health Check**: `/health`
-- **Versão**: `1.0.0`
+- **Blueprint Completo**: `BLUEPRINT-360-NOW-NEXT-LATER.md`
+
+### Status Atual do Sistema
+
+| Métrica | Valor | Meta MVP |
+|---------|-------|----------|
+| **Endpoints Implementados** | 15/41 | 30/41 |
+| **Cobertura 360º** | 37% | 73% |
+| **Sistemas Base Prontos** | 4/8 | 7/8 |
+| **Tempo para MVP** | - | 18 dias |
+
+### Legenda de Status
+
+- ✅ **Implementado**: Funcional em produção
+- 🔄 **NOW**: Próximas 2-4 semanas (MVP)
+- 🔄 **NEXT**: 1-2 meses (Automação)
+- 🔄 **LATER**: 3-6 meses (Enterprise)
+- 🚧 **Placeholder**: Estrutura básica, não funcional
+
+### Legenda de Prioridade
+
+- 🔴 **Crítica**: Bloqueador para MVP
+- 🟡 **Alta**: Importante para value proposition
+- 🟢 **Média**: Nice to have
+- 🟢 **Baixa**: Future enhancements
 
 ---
 
-**Total de APIs Planejadas**: 40 endpoints
-**APIs Implementadas**: 14 endpoints (35%)
-**Cobertura 360º Atual**: 35% completa
-**Meta MVP**: 70% (28 endpoints)
+## 📈 Projeções
+
+### Após NOW (4 semanas)
+- ✅ 30 endpoints funcionais (73% cobertura)
+- ✅ Validação INMETRO completa
+- ✅ Memorial descritivo automático
+- ✅ Dashboard operacional
+- ✅ Base 67 concessionárias
+
+### Após NEXT (3 meses)
+- ✅ Diagramas unifilares NBR 5410
+- ✅ Formulários 3 principais distribuidoras
+- ✅ Conectores web automáticos
+- ✅ 36 endpoints (88% cobertura)
+
+### Após LATER (6 meses)
+- ✅ IA/ML para validação inteligente
+- ✅ Predição de aprovação
+- ✅ 67 distribuidoras cobertas
+- ✅ Multi-tenancy e white label
+- ✅ 41 endpoints (100% cobertura)
+
+---
+
+**Versão da Documentação**: 1.1.0  
+**Última Atualização**: 14 de Outubro de 2025  
+**Próxima Revisão**: Fim de NOW (após 4 semanas)
