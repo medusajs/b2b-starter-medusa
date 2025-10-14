@@ -1,0 +1,189 @@
+{
+  "Comment": "YSH Fallback Recovery Workflow",
+  "StartAt": "CheckPrimarySource",
+  "States": {
+    "CheckPrimarySource": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-health-checker",
+        "Payload": {
+          "service": "aneel-api",
+          "endpoint": "https://dadosabertos.aneel.gov.br/api/3/action/package_list"
+        }
+      },
+      "ResultPath": "$.health_check",
+      "Next": "IsPrimaryHealthy",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "TryRSSFeed"
+        }
+      ]
+    },
+    "IsPrimaryHealthy": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.health_check.Payload.healthy",
+          "BooleanEquals": true,
+          "Next": "FetchFromPrimary"
+        }
+      ],
+      "Default": "TryRSSFeed"
+    },
+    "FetchFromPrimary": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-aneel-fetcher",
+        "Payload": {
+          "action": "fetch_all",
+          "source": "primary"
+        }
+      },
+      "ResultPath": "$.data",
+      "Next": "Success",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 3,
+          "BackoffRate": 2.0
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "TryRSSFeed"
+        }
+      ]
+    },
+    "TryRSSFeed": {
+      "Type": "Wait",
+      "Seconds": 60,
+      "Next": "FetchFromRSS"
+    },
+    "FetchFromRSS": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-aneel-fetcher",
+        "Payload": {
+          "action": "fetch_rss",
+          "source": "rss_fallback"
+        }
+      },
+      "ResultPath": "$.data",
+      "Next": "Success",
+      "Retry": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "IntervalSeconds": 5,
+          "MaxAttempts": 3,
+          "BackoffRate": 2.0
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "TryCachedData"
+        }
+      ]
+    },
+    "TryCachedData": {
+      "Type": "Wait",
+      "Seconds": 60,
+      "Next": "FetchFromCache"
+    },
+    "FetchFromCache": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::dynamodb:getItem",
+      "Parameters": {
+        "TableName": "ysh-pipeline-cache",
+        "Key": {
+          "pk": {
+            "S": "latest"
+          },
+          "sk": {
+            "S": "ingestion"
+          }
+        }
+      },
+      "ResultPath": "$.cached_data",
+      "Next": "IsCacheValid",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "AllSourcesFailed"
+        }
+      ]
+    },
+    "IsCacheValid": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.cached_data.Item.timestamp.S",
+          "IsPresent": true,
+          "Next": "UseCachedData"
+        }
+      ],
+      "Default": "AllSourcesFailed"
+    },
+    "UseCachedData": {
+      "Type": "Pass",
+      "Parameters": {
+        "data.$": "States.StringToJson($.cached_data.Item.data.S)",
+        "timestamp.$": "$.cached_data.Item.timestamp.S",
+        "source": "cache"
+      },
+      "ResultPath": "$.data",
+      "Next": "NotifyCacheUsed"
+    },
+    "NotifyCacheUsed": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ysh-pipeline-notifications",
+        "Subject": "YSH Pipeline: Using Cached Data (All Sources Failed)",
+        "Message": {
+          "status": "fallback_cache",
+          "timestamp.$": "$.data.timestamp",
+          "warning": "All live sources failed - using cached data"
+        }
+      },
+      "Next": "Success"
+    },
+    "AllSourcesFailed": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ysh-pipeline-alerts",
+        "Subject": "CRITICAL: YSH Pipeline All Sources Failed",
+        "Message": {
+          "severity": "critical",
+          "message": "All data sources failed (Primary API, RSS Feed, Cache)",
+          "timestamp.$": "$$.State.EnteredTime",
+          "execution_arn.$": "$$.Execution.Id",
+          "errors": {
+            "primary.$": "$.error",
+            "action_required": "Manual intervention needed - check service health"
+          }
+        }
+      },
+      "Next": "Failure"
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "Failure": {
+      "Type": "Fail",
+      "Error": "AllSourcesFailed",
+      "Cause": "Primary API, RSS Feed, and Cache all failed"
+    }
+  }
+}
