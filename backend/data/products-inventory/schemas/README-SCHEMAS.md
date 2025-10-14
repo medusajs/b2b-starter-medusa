@@ -49,6 +49,49 @@ schemas/
 
 **Status:** ✅ Completo (documentação + exemplos + conversão)
 
+### 2. **Kits NeoSolar** (`bundles/neosolar-*`)
+
+**Status:** ✅ Completo (schema + conversão + exemplos)
+
+**Arquivos:**
+
+- `neosolar-kits-medusa-schema.json` - Schema específico para kits NeoSolar
+- `convert-neosolar-to-medusa.js` - Conversor automático
+- `neosolar-batteries-medusa-schema.json` - Schema para baterias
+
+**Características:**
+
+- ✅ Off-Grid, On-Grid e Híbridos
+- ✅ Componentes: painéis, inversores, baterias, controladores
+- ✅ SKUs padronizados: `NEO-OG-1.38KWP-48V-200AH-LI`
+- ✅ Inventory Kits pattern completo
+- ✅ Metadata técnica (potência, autonomia, aplicações)
+- ✅ Tiered pricing automático
+- ✅ Categorização por potência e tipo
+
+**Conversão:**
+
+```bash
+cd schemas/bundles/
+node convert-neosolar-to-medusa.js
+```
+
+**Output:** `neosolar-kits-medusa.json` com produtos prontos para importação
+
+### 3. **Baterias Solares** (`batteries/`)
+
+**Status:** ✅ Completo (schema detalhado)
+
+**Tecnologias Suportadas:**
+
+- Chumbo-Ácido (AGM, Gel, Convencional)
+- Lítio (LiFePO4, NMC)
+- Especificações completas (ciclos, DOD, eficiência)
+
+### 4. **Painéis Solares** (`panels/`)
+
+**Status:** ✅ Completo (documentação + exemplos + conversão)
+
 **Schema:** `inverters-medusa-schema.json`
 
 **Características:**
