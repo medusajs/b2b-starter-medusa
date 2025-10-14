@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/evidencias_vistoria.schema.json",
+  "title": "Evidências de Vistoria (fotos, medições, ensaios)",
+  "type": "object",
+  "required": [
+    "vistoria_meta",
+    "instrumentos",
+    "ensaios",
+    "assinaturas"
+  ],
+  "properties": {
+    "vistoria_meta": {
+      "type": "object"
+    },
+    "instrumentos": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "fotos": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ensaios": {
+      "type": "object"
+    },
+    "documentacao_exigida_nbr16274": {
+      "type": "object"
+    },
+    "checklist_rotulagem_nbr16690": {
+      "type": "array"
+    },
+    "aceitacao_criterios_parametrizaveis": {
+      "type": "object"
+    },
+    "nao_conformidades": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "assinaturas": {
+      "type": "object"
+    }
+  },
+  "x-ysh-rules": [
+    "Instrumentos devem possuir certificado de calibração válido (data_validade >= hoje)",
+    "Voc/Isc por string dentro das tolerâncias (voc_tol_pct / isc_tol_pct)",
+    "Riso >= riso_min_mohm; Continuidade PE ok; Terra <= terra_max_ohm"
+  ]
+}

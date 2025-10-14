@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/datasheets_certificados.schema.json",
+  "title": "Datasheets & Certificados (Portaria Inmetro 140/2022)",
+  "type": "object",
+  "required": [
+    "equipamentos"
+  ],
+  "properties": {
+    "reference": {
+      "type": "object"
+    },
+    "equipamentos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "categoria",
+          "fabricante",
+          "modelo",
+          "datasheet",
+          "certificacao"
+        ],
+        "properties": {
+          "categoria": {
+            "type": "string",
+            "enum": [
+              "modulo_fotovoltaico",
+              "inversor_on_grid",
+              "inversor_hibrido",
+              "microinversor",
+              "bateria_bess",
+              "controlador_carga_mppt"
+            ]
+          },
+          "fabricante": {
+            "type": "string"
+          },
+          "modelo": {
+            "type": "string"
+          },
+          "familia": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "datasheet": {
+            "type": "object"
+          },
+          "certificacao": {
+            "type": "object",
+            "required": [
+              "ocp",
+              "certificado_numero",
+              "data_validade"
+            ],
+            "properties": {
+              "normas_ensaios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ocp": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "certificado_numero": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "registro_inmetro": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "laboratorio_ensaio": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "data_emissao": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "data_validade": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-ysh-rules": [
+    "Para inversores: potência nominal AC <= 75 kW para cobertura da Portaria 140/22 (caso contrário, marcar fora_do_escopo_inmetro=true)",
+    "Módulos devem listar IEC 61215 e IEC 61730 em normas_ensaios",
+    "Inversores devem listar ABNT NBR 16149, NBR 16150, IEC 62116 e IEC 62109-2"
+  ]
+}

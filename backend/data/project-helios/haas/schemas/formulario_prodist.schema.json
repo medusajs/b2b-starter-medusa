@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/formulario_prodist.schema.json",
+  "title": "Formulário de Solicitação de Acesso (PRODIST Mód.3)",
+  "type": "object",
+  "required": [
+    "templates"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reference": {
+      "type": "object"
+    },
+    "ibge_lookup": {
+      "type": "object",
+      "properties": {
+        "municipio_ibge_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "uf": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "municipio_nome": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cep": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "templates": {
+      "type": "object",
+      "required": [
+        "3A",
+        "3B",
+        "3C"
+      ],
+      "properties": {
+        "3A": {
+          "$ref": "#/$defs/baseAnexo"
+        },
+        "3B": {
+          "$ref": "#/$defs/baseAnexo"
+        },
+        "3C": {
+          "$ref": "#/$defs/baseAnexo"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "endereco": {
+      "type": "object",
+      "required": [
+        "logradouro",
+        "municipio_nome",
+        "municipio_ibge",
+        "uf",
+        "cep"
+      ],
+      "properties": {
+        "logradouro": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "numero": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "complemento": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bairro": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "municipio_nome": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "municipio_ibge": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "uf": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "cep": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "solicitante": {
+      "type": "object",
+      "required": [
+        "tipo",
+        "nome_ou_razao_social",
+        "cpf_cnpj"
+      ],
+      "properties": {
+        "tipo": {
+          "const": "YSH-AGENT"
+        },
+        "nome_ou_razao_social": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cpf_cnpj": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "email"
+        },
+        "telefone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "celular": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "procurador_legal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "uc": {
+      "type": "object",
+      "required": [
+        "distribuidora",
+        "codigo_uc",
+        "grupo",
+        "modalidade_tarifaria",
+        "endereco"
+      ],
+      "properties": {
+        "distribuidora": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "codigo_uc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classe": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "grupo": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "A",
+            "B",
+            null
+          ]
+        },
+        "modalidade_tarifaria": {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "convencional",
+                "branca",
+                "azul",
+                "verde",
+                null
+              ]
+            },
+            "detalhes": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "titular": {
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "cpf_cnpj": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "endereco": {
+          "$ref": "#/$defs/endereco"
+        },
+        "coordenadas": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "longitude": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "carga_instalada_kw": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "tensao_atendimento_v": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "tipo_conexao": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "monofasica",
+            "bifasica",
+            "trifasica",
+            null
+          ]
+        }
+      }
+    },
+    "baseAnexo": {
+      "type": "object",
+      "required": [
+        "anexo",
+        "solicitante",
+        "unidade_consumidora",
+        "geracao"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string"
+        },
+        "anexo": {
+          "type": "string",
+          "enum": [
+            "3.A",
+            "3.B",
+            "3.C"
+          ]
+        },
+        "solicitante": {
+          "$ref": "#/$defs/solicitante"
+        },
+        "unidade_consumidora": {
+          "$ref": "#/$defs/uc"
+        },
+        "geracao": {
+          "type": "object"
+        },
+        "ponto_conexao": {
+          "type": "object"
+        },
+        "contato_distribuidora": {
+          "type": "object"
+        },
+        "assinaturas": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
