@@ -1,0 +1,298 @@
+[
+    {
+        "id": "ysh_pipeline_flows",
+        "type": "tab",
+        "label": "YSH Data Pipeline",
+        "disabled": false,
+        "info": "Main data ingestion workflows"
+    },
+    {
+        "id": "daily_ingestion_flow",
+        "type": "inject",
+        "z": "ysh_pipeline_flows",
+        "name": "Daily Trigger (2 AM)",
+        "props": [],
+        "repeat": "",
+        "crontab": "00 02 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "fetch_aneel_node"
+            ]
+        ]
+    },
+    {
+        "id": "fetch_aneel_node",
+        "type": "http request",
+        "z": "ysh_pipeline_flows",
+        "name": "Fetch ANEEL Data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://dadosabertos-aneel.opendata.arcgis.com/api/feed/rss/2.0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "process_aneel_data"
+            ]
+        ]
+    },
+    {
+        "id": "process_aneel_data",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Process ANEEL Response",
+        "func": "// Extract datasets from RSS feed\nconst feedparser = global.get('feedparser');\n\nlet datasets = [];\n\nif (msg.payload && msg.payload.items) {\n    datasets = msg.payload.items.map(item => ({\n        id: item.guid || item.link,\n        title: item.title,\n        description: item.description,\n        published: item.pubDate,\n        source: 'ANEEL'\n    }));\n}\n\nmsg.payload = {\n    datasets: datasets,\n    count: datasets.length,\n    timestamp: new Date().toISOString()\n};\n\nnode.status({fill:\"green\",shape:\"dot\",text:`${datasets.length} datasets`});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "cache_results",
+                "trigger_ai_processing"
+            ]
+        ]
+    },
+    {
+        "id": "cache_results",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Cache in Redis",
+        "func": "const redis = global.get('redis');\nconst client = redis.createClient({\n    host: 'ysh-redis-cache',\n    port: 6379\n});\n\ntry {\n    await client.connect();\n    \n    const key = 'pipeline:aneel:latest';\n    const value = JSON.stringify(msg.payload);\n    \n    await client.set(key, value, {\n        EX: 86400  // 24 hours\n    });\n    \n    await client.disconnect();\n    \n    node.status({fill:\"green\",shape:\"dot\",text:\"cached\"});\n} catch(err) {\n    node.error(err);\n    node.status({fill:\"red\",shape:\"ring\",text:\"cache failed\"});\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "trigger_ai_processing",
+        "type": "http request",
+        "z": "ysh_pipeline_flows",
+        "name": "Trigger Ollama Processing",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://ysh-ollama-service:11434/api/generate",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 900,
+        "y": 120,
+        "wires": [
+            [
+                "index_in_qdrant"
+            ]
+        ]
+    },
+    {
+        "id": "index_in_qdrant",
+        "type": "http request",
+        "z": "ysh_pipeline_flows",
+        "name": "Index in Qdrant",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://ysh-qdrant-vectordb:6333/collections/ysh_datasets/points",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1150,
+        "y": 120,
+        "wires": [
+            [
+                "send_notification"
+            ]
+        ]
+    },
+    {
+        "id": "send_notification",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Send Success Notification",
+        "func": "msg.payload = {\n    title: \"YSH Pipeline Completed\",\n    message: `Processed ${msg.payload.count} datasets`,\n    timestamp: new Date().toISOString(),\n    status: \"success\"\n};\n\nnode.status({fill:\"green\",shape:\"dot\",text:\"completed\"});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 120,
+        "wires": [
+            [
+                "debug_output"
+            ]
+        ]
+    },
+    {
+        "id": "debug_output",
+        "type": "debug",
+        "z": "ysh_pipeline_flows",
+        "name": "Pipeline Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "hourly_check_flow",
+        "type": "inject",
+        "z": "ysh_pipeline_flows",
+        "name": "Hourly Check",
+        "props": [],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "check_for_updates"
+            ]
+        ]
+    },
+    {
+        "id": "check_for_updates",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Check Redis for Last Update",
+        "func": "const redis = global.get('redis');\nconst client = redis.createClient({\n    host: 'ysh-redis-cache',\n    port: 6379\n});\n\ntry {\n    await client.connect();\n    \n    const lastUpdate = await client.get('pipeline:aneel:latest');\n    const lastData = lastUpdate ? JSON.parse(lastUpdate) : null;\n    \n    // Check if data is older than 1 hour\n    const oneHourAgo = Date.now() - (60 * 60 * 1000);\n    const lastTimestamp = lastData ? new Date(lastData.timestamp).getTime() : 0;\n    \n    const needsUpdate = lastTimestamp < oneHourAgo;\n    \n    await client.disconnect();\n    \n    msg.payload = {\n        needsUpdate: needsUpdate,\n        lastUpdate: lastData?.timestamp,\n        reason: needsUpdate ? 'Data is stale' : 'Data is fresh'\n    };\n    \n    node.status({\n        fill: needsUpdate ? \"yellow\" : \"green\",\n        shape: \"dot\",\n        text: msg.payload.reason\n    });\n    \n    return msg;\n} catch(err) {\n    node.error(err);\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "update_decision"
+            ]
+        ]
+    },
+    {
+        "id": "update_decision",
+        "type": "switch",
+        "z": "ysh_pipeline_flows",
+        "name": "Need Update?",
+        "property": "payload.needsUpdate",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "fetch_aneel_node"
+            ],
+            [
+                "skip_update"
+            ]
+        ]
+    },
+    {
+        "id": "skip_update",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Skip - No Updates",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"skipped\"});\nreturn null;",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "error_handler_flow",
+        "type": "catch",
+        "z": "ysh_pipeline_flows",
+        "name": "Global Error Handler",
+        "scope": null,
+        "uncaught": false,
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "log_error",
+                "retry_logic"
+            ]
+        ]
+    },
+    {
+        "id": "log_error",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Log to CloudWatch",
+        "func": "const error = {\n    timestamp: new Date().toISOString(),\n    node: msg.error.source.name,\n    message: msg.error.message,\n    stack: msg.error.stack\n};\n\nnode.error(error);\nnode.status({fill:\"red\",shape:\"ring\",text:\"error logged\"});\n\n// In production, send to CloudWatch\n// AWS.CloudWatchLogs.putLogEvents(...)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "retry_logic",
+        "type": "function",
+        "z": "ysh_pipeline_flows",
+        "name": "Retry with Backoff",
+        "func": "const maxRetries = 3;\nconst retryCount = msg.retryCount || 0;\n\nif (retryCount < maxRetries) {\n    const delay = Math.pow(2, retryCount) * 1000; // Exponential backoff\n    \n    setTimeout(() => {\n        msg.retryCount = retryCount + 1;\n        node.send(msg);\n    }, delay);\n    \n    node.status({\n        fill:\"yellow\",\n        shape:\"ring\",\n        text:`retry ${retryCount + 1}/${maxRetries}`\n    });\n} else {\n    node.error(\"Max retries exceeded\");\n    node.status({fill:\"red\",shape:\"dot\",text:\"failed\"});\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "fetch_aneel_node"
+            ]
+        ]
+    }
+]
