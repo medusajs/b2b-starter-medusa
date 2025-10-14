@@ -709,14 +709,265 @@ class MedusaCatalogGenerator:
             print(f"  • {key}: {value}")
         print("="*80)
     
-    def run(self):
+    def process_neosolar_kits(self, max_kits: int = 50):
+        """Processa kits NeoSolar"""
+        print("\n" + "="*80)
+        print("📦 Processando Kits NeoSolar")
+        print("="*80)
+        
+        neosolar_file = self.base_path / "distributors" / "neosolar" / "neosolar-kits-normalized.json"
+        
+        if not neosolar_file.exists():
+            print(f"   ⚠️  Arquivo não encontrado: {neosolar_file}")
+            return
+        
+        try:
+            with open(neosolar_file, 'r', encoding='utf-8') as f:
+                kits = json.load(f)
+            
+            print(f"   ℹ️  Total de kits disponíveis: {len(kits)}")
+            print(f"   🎯 Processando os primeiros {max_kits} kits...")
+            
+            processed = 0
+            for kit_data in kits[:max_kits]:
+                try:
+                    kit_id = kit_data.get("id", "")
+                    name = kit_data.get("name", "Kit Solar")
+                    kit_type = kit_data.get("type", "Solar Kit")
+                    potencia_kwp = kit_data.get("potencia_kwp", 0)
+                    price_brl = kit_data.get("price_brl", 0)
+                    
+                    if potencia_kwp <= 0 or price_brl <= 0:
+                        continue
+                    
+                    # Gerar SKU
+                    sku = self.sku_gen.generate_kit_sku(potencia_kwp, "METAL", "220")
+                    
+                    # Criar Product
+                    handle = self.handle_gen.generate(name)
+                    
+                    # Calcular geração estimada (kwh/mês)
+                    estimated_generation = int(potencia_kwp * 150)  # ~150 kWh/kWp/mês
+                    
+                    # Obter componentes
+                    panels = kit_data.get("panels", [])
+                    inverters = kit_data.get("inverters", [])
+                    total_panels = sum(p.get("quantity", 0) for p in panels)
+                    
+                    # Descrição
+                    description = f"{name}\n\nKit completo para geração de energia solar.\n"
+                    description += f"\nPotência: {potencia_kwp:.2f} kWp"
+                    description += f"\nGeração estimada: ~{estimated_generation} kWh/mês"
+                    if panels:
+                        description += f"\n\nPainéis: {total_panels}x"
+                        for panel in panels[:2]:  # Primeiros 2
+                            description += f" {panel.get('power_w', 0)}W {panel.get('brand', '')}"
+                    
+                    # Tags
+                    tags = [
+                        "tag_neosolar",
+                        "tag_kit_completo",
+                        f"tag_{int(potencia_kwp)}kwp"
+                    ]
+                    if "Off-Grid" in kit_type or "Off Grid" in kit_type:
+                        tags.append("tag_off_grid")
+                    elif "On-Grid" in kit_type or "On Grid" in kit_type:
+                        tags.append("tag_grid_tie")
+                    
+                    # Variant
+                    variant = ProductVariant(
+                        title=name,
+                        sku=sku,
+                        manage_inventory=False,  # Bundle
+                        prices=self.price_conv.generate_tiered_pricing(price_brl),
+                        metadata={
+                            "distributor": "neosolar",
+                            "kit_id": kit_id,
+                            "potencia_kwp": potencia_kwp,
+                            "total_panels": total_panels,
+                            "estimated_generation_kwh_month": estimated_generation,
+                            "kit_type": kit_type
+                        }
+                    )
+                    
+                    # Product
+                    product = Product(
+                        title=name,
+                        subtitle=f"Kit Solar {potencia_kwp:.2f}kWp - NeoSolar",
+                        handle=handle,
+                        description=description,
+                        categories=[
+                            "cat_kits",
+                            self.category_mapper.get_power_category(potencia_kwp)
+                        ],
+                        tags=tags,
+                        options=[{"title": "Configuração", "values": ["Padrão"]}],
+                        variants=[variant],
+                        metadata={
+                            "distributor": "neosolar",
+                            "product_type": "kit",
+                            "is_bundle": True,
+                            "potencia_kwp": potencia_kwp
+                        }
+                    )
+                    
+                    self.products.append(product.to_dict())
+                    self.stats["products"] += 1
+                    self.stats["variants"] += 1
+                    self.stats["bundles"] += 1
+                    processed += 1
+                    
+                except Exception as e:
+                    print(f"   ❌ Erro processando kit {kit_id}: {e}")
+                    continue
+            
+            print(f"   ✓ {processed} kits NeoSolar processados")
+            
+        except Exception as e:
+            print(f"   ❌ Erro lendo arquivo NeoSolar: {e}")
+    
+    def process_fortlev_kits(self, max_kits: int = 30):
+        """Processa kits FortLev"""
+        print("\n" + "="*80)
+        print("📦 Processando Kits FortLev")
+        print("="*80)
+        
+        fortlev_file = self.base_path / "distributors" / "fortlev" / "fortlev-kits-normalized.json"
+        
+        if not fortlev_file.exists():
+            print(f"   ⚠️  Arquivo não encontrado: {fortlev_file}")
+            return
+        
+        try:
+            with open(fortlev_file, 'r', encoding='utf-8') as f:
+                kits = json.load(f)
+            
+            print(f"   ℹ️  Total de kits disponíveis: {len(kits)}")
+            print(f"   🎯 Processando os primeiros {max_kits} kits...")
+            
+            processed = 0
+            for kit_data in kits[:max_kits]:
+                try:
+                    kit_id = kit_data.get("id", "")
+                    name = kit_data.get("name", "Kit Solar")
+                    potencia_kwp = kit_data.get("system_power_kwp", 0)
+                    
+                    # Converter preço de string para float
+                    total_price_str = kit_data.get("total_price", "R$ 0,00")
+                    total_price_str = total_price_str.replace("R$", "").replace(".", "").replace(",", ".").strip()
+                    
+                    try:
+                        price_brl = float(total_price_str)
+                    except:
+                        price_brl = 0
+                    
+                    if potencia_kwp <= 0 or price_brl <= 0:
+                        continue
+                    
+                    # Gerar SKU
+                    sku = self.sku_gen.generate_kit_sku(potencia_kwp, "METAL", "220")
+                    
+                    # Criar Product
+                    handle = self.handle_gen.generate(name)
+                    
+                    # Calcular geração estimada
+                    estimated_generation = int(potencia_kwp * 150)
+                    
+                    # Obter componentes
+                    components = kit_data.get("components", {})
+                    panel_data = components.get("panel", {})
+                    inverter_data = components.get("inverter", {})
+                    
+                    panel_manufacturer = panel_data.get("manufacturer", "")
+                    panel_power = panel_data.get("power_w", 0)
+                    inverter_manufacturer = inverter_data.get("manufacturer", "")
+                    inverter_power = inverter_data.get("power_kw", 0)
+                    
+                    # Descrição
+                    description = f"{name}\n\nKit completo para geração de energia solar.\n"
+                    description += f"\nPotência: {potencia_kwp:.2f} kWp"
+                    description += f"\nGeração estimada: ~{estimated_generation} kWh/mês"
+                    if panel_manufacturer and panel_power:
+                        description += f"\n\nPainéis: {panel_manufacturer} {panel_power}W"
+                    if inverter_manufacturer and inverter_power:
+                        description += f"\nInversor: {inverter_manufacturer} {inverter_power}kW"
+                    
+                    # Tags
+                    tags = [
+                        "tag_fortlev",
+                        "tag_kit_completo",
+                        f"tag_{int(potencia_kwp)}kwp"
+                    ]
+                    if panel_manufacturer:
+                        tags.append(f"tag_{panel_manufacturer.lower()}")
+                    if inverter_manufacturer:
+                        tags.append(f"tag_{inverter_manufacturer.lower()}")
+                    
+                    # Variant
+                    variant = ProductVariant(
+                        title=name,
+                        sku=sku,
+                        manage_inventory=False,  # Bundle
+                        prices=self.price_conv.generate_tiered_pricing(price_brl),
+                        metadata={
+                            "distributor": "fortlev",
+                            "kit_id": kit_id,
+                            "potencia_kwp": potencia_kwp,
+                            "panel_manufacturer": panel_manufacturer,
+                            "panel_power_w": panel_power,
+                            "inverter_manufacturer": inverter_manufacturer,
+                            "inverter_power_kw": inverter_power,
+                            "estimated_generation_kwh_month": estimated_generation
+                        }
+                    )
+                    
+                    # Product
+                    product = Product(
+                        title=name,
+                        subtitle=f"Kit Solar {potencia_kwp:.2f}kWp - FortLev",
+                        handle=handle,
+                        description=description,
+                        categories=[
+                            "cat_kits",
+                            self.category_mapper.get_power_category(potencia_kwp)
+                        ],
+                        tags=tags,
+                        options=[{"title": "Configuração", "values": ["Padrão"]}],
+                        variants=[variant],
+                        metadata={
+                            "distributor": "fortlev",
+                            "product_type": "kit",
+                            "is_bundle": True,
+                            "potencia_kwp": potencia_kwp
+                        }
+                    )
+                    
+                    self.products.append(product.to_dict())
+                    self.stats["products"] += 1
+                    self.stats["variants"] += 1
+                    self.stats["bundles"] += 1
+                    processed += 1
+                    
+                except Exception as e:
+                    print(f"   ❌ Erro processando kit {kit_id}: {e}")
+                    continue
+            
+            print(f"   ✓ {processed} kits FortLev processados")
+            
+        except Exception as e:
+            print(f"   ❌ Erro lendo arquivo FortLev: {e}")
+    
+    def run(self, max_products: int = 100):
         """Executa geração completa do catálogo"""
         print("\n" + "🚀"*40)
         print("YSH SOLAR B2B - MEDUSA.JS CATALOG GENERATOR")
         print("🚀"*40)
+        print(f"\n🎯 Meta: Gerar até {max_products} produtos")
         
         self.process_fotus_kits()
         self.process_odex_products()
+        self.process_neosolar_kits(max_kits=50)
+        self.process_fortlev_kits(max_kits=30)
         
         self.save_catalog()
         

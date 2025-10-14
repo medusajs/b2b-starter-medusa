@@ -52,11 +52,11 @@ export function OptimizedImage({
     if (hasError) {
         return (
             <div
-                className={cn(
+                className={clx(
                     "flex items-center justify-center bg-gray-100 text-gray-400 text-sm",
                     className
                 )}
-                style={{ width, height }}
+                style={{ width: width || 'auto', height: height || 'auto' }}
             >
                 <div className="text-center">
                     <div className="w-8 h-8 mx-auto mb-2 opacity-50">📷</div>
@@ -67,7 +67,7 @@ export function OptimizedImage({
     }
 
     return (
-        <div className={cn("relative overflow-hidden", className)}>
+        <div className={clx("relative overflow-hidden", className)}>
             <Image
                 src={src}
                 alt={alt}
@@ -81,7 +81,7 @@ export function OptimizedImage({
                 loading={loading}
                 onLoad={handleLoad}
                 onError={handleError}
-                className={cn(
+                className={clx(
                     "transition-opacity duration-300",
                     isLoading ? "opacity-0" : "opacity-100"
                 )}
@@ -111,7 +111,7 @@ export function SolarProductImage({
             height={300}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
             quality={80}
-            className={cn("rounded-lg shadow-sm", className)}
+            className={clx("rounded-lg shadow-sm", className)}
             priority={priority}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
@@ -135,7 +135,7 @@ export function HeroImage({
             quality={85}
             priority={true}
             loading="eager"
-            className={cn("w-full h-full object-cover", className)}
+            className={clx("w-full h-full object-cover", className)}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
         />
