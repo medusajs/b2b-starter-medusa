@@ -5,19 +5,47 @@ Processes Brazilian energy data in real-time using local and cloud LLMs
 """
 
 import asyncio
-import json
 from pathlib import Path
 from typing import Dict, List, Optional, AsyncGenerator
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from datetime import datetime
 import logging
+import os
+from logging.handlers import RotatingFileHandler
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+# Configure structured logging with rotation
+LOG_DIR = os.getenv('LOG_DIR', 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Create logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Rotating file handler (10MB max, keep 5 backups)
+file_handler = RotatingFileHandler(
+    os.path.join(LOG_DIR, 'realtime_processor.log'),
+    maxBytes=10*1024*1024,  # 10MB
+    backupCount=5,
+    encoding='utf-8'
+)
+file_handler.setLevel(logging.INFO)
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Formatter
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers
+if not logger.handlers:
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
 
 @dataclass
@@ -294,9 +322,6 @@ class IntegratedProcessor:
         """
         self.gpt_oss = GPTOSSProcessor(gpt_oss_model)
         self.realtime = RealtimeStreamProcessor(openai_key)
-        
-        self.output_dir = Path("./processed_data")
-        self.output_dir.mkdir(parents=True, exist_ok=True)
     
     async def process_aneel_feed(self, feed_data: List[Dict]) -> List[Dict]:
         """
@@ -308,17 +333,25 @@ class IntegratedProcessor:
         Returns:
             List of processed results
         """
-        logger.info(f"Processing ANEEL feed with {len(feed_data)} items...")
+        logger.info(
+            f"Processing ANEEL feed with {len(feed_data)} items...",
+            extra={'input_count': len(feed_data)}
+        )
         
         # Use GPT-OSS for batch processing
         results = await self.gpt_oss.process_batch(feed_data)
         
-        # Save results
-        output_file = self.output_dir / f"aneel_processed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"ANEEL feed processed. Results: {output_file}")
+        # Log results
+        successful = sum(1 for r in results if r.get('status') != 'failed')
+        logger.info(
+            "ANEEL feed processing completed",
+            extra={
+                'total': len(results),
+                'successful': successful,
+                'failed': len(results) - successful,
+                'timestamp': datetime.now().isoformat()
+            }
+        )
         
         return results
     
@@ -345,15 +378,28 @@ class IntegratedProcessor:
         # Process stream
         results = []
         async for result in self.realtime.process_stream(mock_data_source()):
-            logger.info(f"Processed: {result.input_data.get('id')} - Priority: {result.processed_data.get('priority')}")
-            results.append(asdict(result))
+            priority = result.processed_data.get('priority')
+            logger.info(
+                f"Processed: {result.input_data.get('id')} - Priority: {priority}",
+                extra={
+                    'item_id': result.input_data.get('id'),
+                    'priority': priority,
+                    'success': result.success
+                }
+            )
+            results.append(result)
         
-        # Save results
-        output_file = self.output_dir / f"realtime_monitoring_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"Real-time monitoring completed. Results: {output_file}")
+        # Log summary
+        successful = sum(1 for r in results if r.success)
+        logger.info(
+            "Real-time monitoring completed",
+            extra={
+                'total': len(results),
+                'successful': successful,
+                'failed': len(results) - successful,
+                'timestamp': datetime.now().isoformat()
+            }
+        )
 
 
 async def main():
@@ -389,7 +435,8 @@ async def main():
     await processor.monitor_realtime_updates(duration_seconds=10)
     
     print("\n✅ Processing completed!")
-    print(f"   Output directory: {processor.output_dir}")
+    print(f"   Logs directory: {LOG_DIR}")
+    print(f"   Check logs: {os.path.join(LOG_DIR, 'realtime_processor.log')}")
 
 
 if __name__ == "__main__":

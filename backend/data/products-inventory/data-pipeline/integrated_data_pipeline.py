@@ -5,11 +5,46 @@ Complete real-time Brazilian energy data processing system
 """
 
 import asyncio
-import json
+import os
 from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime
 import logging
+from logging.handlers import RotatingFileHandler
+
+# Configure structured logging with rotation
+LOG_DIR = os.getenv('LOG_DIR', 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Create logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Rotating file handler (10MB max, keep 5 backups)
+file_handler = RotatingFileHandler(
+    os.path.join(LOG_DIR, 'integrated_pipeline.log'),
+    maxBytes=10*1024*1024,  # 10MB
+    backupCount=5,
+    encoding='utf-8'
+)
+file_handler.setLevel(logging.INFO)
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Formatter
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers
+if not logger.handlers:
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
 # Import all pipeline components
 try:
@@ -21,14 +56,7 @@ try:
     COMPONENTS_AVAILABLE = True
 except ImportError as e:
     COMPONENTS_AVAILABLE = False
-    logging.warning(f"Some components not available: {e}")
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+    logger.warning(f"Some components not available: {e}")
 
 
 class DataPipelineOrchestrator:
@@ -197,13 +225,16 @@ class DataPipelineOrchestrator:
             return 0
     
     async def _save_results(self, results: Dict, filename: str):
-        """Save results to file"""
-        output_file = self.output_dir / filename
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"Results saved: {output_file}")
+        """Log results summary"""
+        logger.info(
+            f"Pipeline results summary: {filename}",
+            extra={
+                'filename': filename,
+                'stages': len(results.get('stages', {})),
+                'duration_seconds': results.get('duration_seconds', 0),
+                'timestamp': results.get('timestamp', datetime.now().isoformat())
+            }
+        )
     
     async def monitor_realtime(self, duration_minutes: int = 60):
         """

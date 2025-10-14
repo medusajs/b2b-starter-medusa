@@ -472,7 +472,53 @@ services:
       - "com.ysh.service=monitoring"
 
   # ==========================================================================
-  # 13. YSH API SERVICE - Custom Application
+  # 13. LOKI - Log Aggregation
+  # ==========================================================================
+  loki:
+    image: grafana/loki:latest
+    container_name: ysh-loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./infrastructure/loki/loki-config.yml:/etc/loki/local-config.yaml:ro
+      - ./docker-data/loki:/loki
+    networks:
+      ysh-network:
+
+    command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3100/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=logging"
+      - "com.ysh.monitoring=enabled"
+
+  # ==========================================================================
+  # 14. PROMTAIL - Log Shipper
+  # ==========================================================================
+  promtail:
+    image: grafana/promtail:latest
+    container_name: ysh-promtail
+    restart: unless-stopped
+    volumes:
+      - ./infrastructure/promtail/promtail-config.yml:/etc/promtail/config.yml:ro
+      - ./logs:/var/log/ysh-pipeline:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      ysh-network:
+
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+    labels:
+      - "com.ysh.service=logging"
+
+  # ==========================================================================
+  # 15. YSH API SERVICE - Custom Application
   # ==========================================================================
   ysh-api:
     build:
@@ -486,6 +532,7 @@ services:
       DYNAMODB_ENDPOINT: http://dynamodb-local:8000
       MINIO_ENDPOINT: minio:9000
       QDRANT_URL: http://qdrant:6333
+      LOG_DIR: /var/log/ysh-pipeline
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
       AWS_DEFAULT_REGION: us-east-1
@@ -493,7 +540,7 @@ services:
       - "8888:8888"
     volumes:
       - .:/app
-      - ./logs:/app/logs
+      - ./logs:/var/log/ysh-pipeline
     networks:
       ysh-network:
 
@@ -503,6 +550,7 @@ services:
       - dynamodb-local
       - minio
       - qdrant
+      - loki
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
       interval: 30s
@@ -511,9 +559,10 @@ services:
     labels:
       - "com.ysh.service=api"
       - "com.ysh.monitoring=enabled"
+      - "logging=promtail"
 
   # ==========================================================================
-  # 14. YSH WORKER - Background Tasks
+  # 16. YSH WORKER - Background Tasks
   # ==========================================================================
   ysh-worker:
     build:
@@ -527,12 +576,13 @@ services:
       DYNAMODB_ENDPOINT: http://dynamodb-local:8000
       MINIO_ENDPOINT: minio:9000
       QDRANT_URL: http://qdrant:6333
+      LOG_DIR: /var/log/ysh-pipeline
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_ACCESS_KEY: test
       AWS_DEFAULT_REGION: us-east-1
     volumes:
       - .:/app
-      - ./logs:/app/logs
+      - ./logs:/var/log/ysh-pipeline
     networks:
       ysh-network:
 
@@ -542,8 +592,10 @@ services:
       - dynamodb-local
       - minio
       - qdrant
+      - loki
     labels:
       - "com.ysh.service=worker"
+      - "logging=promtail"
 # ============================================================================
 # END OF DOCKER COMPOSE
 # ============================================================================

@@ -4,22 +4,50 @@ ANEEL Data Fetcher - Real-time Brazilian Energy Data Pipeline
 Fetches data from ANEEL Open Data platform (ArcGIS Hub)
 """
 
-import json
 import asyncio
 import aiohttp
 import feedparser
 from pathlib import Path
 from typing import Dict, List, Optional
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from datetime import datetime
 import logging
+import os
+from logging.handlers import RotatingFileHandler
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+# Configure structured logging with rotation
+LOG_DIR = os.getenv('LOG_DIR', 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Create logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Rotating file handler (10MB max, keep 5 backups)
+file_handler = RotatingFileHandler(
+    os.path.join(LOG_DIR, 'aneel_fetcher.log'),
+    maxBytes=10*1024*1024,  # 10MB
+    backupCount=5,
+    encoding='utf-8'
+)
+file_handler.setLevel(logging.INFO)
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Formatter
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers
+if not logger.handlers:
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
 
 @dataclass
@@ -105,12 +133,14 @@ class ANEELDataFetcher:
                 )
                 datasets.append(dataset)
             
-            logger.info(f"Found {len(datasets)} datasets in RSS feed")
-            
-            # Cache results
-            cache_file = self.cache_dir / f"rss_feed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-            with open(cache_file, 'w', encoding='utf-8') as f:
-                json.dump([asdict(d) for d in datasets], f, ensure_ascii=False, indent=2)
+            logger.info(
+                f"Found {len(datasets)} datasets in RSS feed",
+                extra={
+                    'count': len(datasets),
+                    'timestamp': datetime.now().isoformat(),
+                    'source': 'rss_feed'
+                }
+            )
             
             return datasets
             
@@ -135,12 +165,15 @@ class ANEELDataFetcher:
             async with self.session.get(url) as response:
                 catalog = await response.json()
             
-            logger.info(f"Fetched DCAT catalog with {len(catalog.get('dataset', []))} datasets")
-            
-            # Cache results
-            cache_file = self.cache_dir / f"dcat_catalog_{version}_{datetime.now().strftime('%Y%m%d')}.json"
-            with open(cache_file, 'w', encoding='utf-8') as f:
-                json.dump(catalog, f, ensure_ascii=False, indent=2)
+            dataset_count = len(catalog.get('dataset', []))
+            logger.info(
+                f"Fetched DCAT catalog with {dataset_count} datasets",
+                extra={
+                    'version': version,
+                    'count': dataset_count,
+                    'timestamp': datetime.now().isoformat()
+                }
+            )
             
             return catalog
             
@@ -230,12 +263,14 @@ class ANEELDataFetcher:
                 )
                 units.append(unit)
             
-            logger.info(f"Fetched {len(units)} generation units")
-            
-            # Cache results
-            cache_file = self.cache_dir / f"generation_units_{utility_code}_{datetime.now().strftime('%Y%m%d')}.json"
-            with open(cache_file, 'w', encoding='utf-8') as f:
-                json.dump([asdict(u) for u in units], f, ensure_ascii=False, indent=2)
+            logger.info(
+                f"Fetched {len(units)} generation units",
+                extra={
+                    'utility_code': utility_code,
+                    'count': len(units),
+                    'timestamp': datetime.now().isoformat()
+                }
+            )
             
             return units
             
@@ -272,12 +307,14 @@ class ANEELDataFetcher:
             
             tariffs_by_utility[utility_name].append(tariff_info)
         
-        logger.info(f"Fetched tariffs for {len(tariffs_by_utility)} utilities")
-        
-        # Cache results
-        cache_file = self.cache_dir / f"tariffs_{datetime.now().strftime('%Y%m%d')}.json"
-        with open(cache_file, 'w', encoding='utf-8') as f:
-            json.dump(tariffs_by_utility, f, ensure_ascii=False, indent=2)
+        logger.info(
+            f"Fetched tariffs for {len(tariffs_by_utility)} utilities",
+            extra={
+                'utilities_count': len(tariffs_by_utility),
+                'total_tariffs': sum(len(t) for t in tariffs_by_utility.values()),
+                'timestamp': datetime.now().isoformat()
+            }
+        )
         
         return tariffs_by_utility
     
@@ -306,12 +343,13 @@ class ANEELDataFetcher:
             }
             certifications.append(cert)
         
-        logger.info(f"Fetched {len(certifications)} certification datasets")
-        
-        # Cache results
-        cache_file = self.cache_dir / f"certifications_{datetime.now().strftime('%Y%m%d')}.json"
-        with open(cache_file, 'w', encoding='utf-8') as f:
-            json.dump(certifications, f, ensure_ascii=False, indent=2)
+        logger.info(
+            f"Fetched {len(certifications)} certification datasets",
+            extra={
+                'count': len(certifications),
+                'timestamp': datetime.now().isoformat()
+            }
+        )
         
         return certifications
     
@@ -357,12 +395,19 @@ class ANEELDataFetcher:
             'status': 'success'
         }
         
-        # Save complete dataset
-        output_file = self.cache_dir / f"aneel_complete_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2, default=str)
-        
-        logger.info(f"Complete ANEEL data saved to: {output_file}")
+        # Log comprehensive summary
+        logger.info(
+            "Complete ANEEL data fetch completed",
+            extra={
+                'rss_feed_count': len(data['rss_feed']),
+                'dcat_datasets': len(data['dcat_catalog'].get('dataset', [])),
+                'generation_units': len(data['generation_units']),
+                'utilities_with_tariffs': len(data['tariffs']),
+                'certifications': len(data['certifications']),
+                'timestamp': data['fetch_date'],
+                'status': data['status']
+            }
+        )
         
         return data
 
