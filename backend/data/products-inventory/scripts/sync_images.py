@@ -237,7 +237,7 @@ class ImageSynchronizer:
 def main():
     """Run image synchronization"""
     
-    base_path = Path(__file__).parent.parent
+    base_path = Path(__file__).parent.parent / "distributors"
     
     synchronizer = ImageSynchronizer(base_path)
     results = synchronizer.sync_all()
@@ -246,7 +246,7 @@ def main():
     print(report)
     
     # Save report
-    report_file = base_path / "IMAGE_SYNC_REPORT.md"
+    report_file = Path(__file__).parent.parent / "IMAGE_SYNC_REPORT.md"
     with open(report_file, 'w', encoding='utf-8') as f:
         f.write(report)
     

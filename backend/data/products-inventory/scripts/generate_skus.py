@@ -115,8 +115,10 @@ class SKUGenerator:
         dist_code = self.DISTRIBUTOR_CODES.get(distributor.lower(), 'UNK')
         cat_code = self.CATEGORY_CODES.get(category.lower(), 'COMP')
         
-        # Power with unit
-        if unit.lower() in ['w', 'watt']:
+        # Handle None or 0 power
+        if power is None or power == 0:
+            power_str = "0W"
+        elif unit.lower() in ['w', 'watt']:
             power_str = f"{int(power)}W"
         elif unit.lower() in ['kw', 'kwp']:
             power_str = f"{power:.1f}KW".replace('.', '')
@@ -234,7 +236,7 @@ class SKUGenerator:
 def main():
     """Generate SKUs for all distributors"""
     
-    base_path = Path(__file__).parent.parent
+    base_path = Path(__file__).parent.parent / "distributors"
     
     generator = SKUGenerator()
     

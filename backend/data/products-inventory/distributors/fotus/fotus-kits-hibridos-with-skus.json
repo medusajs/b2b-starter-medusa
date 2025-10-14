@@ -1,0 +1,90 @@
+[
+  {
+    "id": "FOTUS-KP04-kits-hibridos",
+    "name": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
+    "type": "Solar Kit",
+    "potencia_kwp": 1.2,
+    "price_brl": 2706.07,
+    "estrutura": "Cerâmico",
+    "centro_distribuicao": "CD ESPÍRITO SANTO",
+    "panels": [
+      {
+        "brand": "ASTRONERGY",
+        "power_w": 600,
+        "quantity": 2,
+        "description": "ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)"
+      }
+    ],
+    "inverters": [
+      {
+        "brand": "TSUNESS",
+        "power_kw": 2.25,
+        "quantity": 1,
+        "description": "MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)"
+      }
+    ],
+    "batteries": [],
+    "structures": [],
+    "total_panels": 2,
+    "total_inverters": 1,
+    "total_power_w": 1200,
+    "distributor": "FOTUS",
+    "image_url": "/images/FOTUS-KITS-HIBRIDOS/FOTUS-KP04-kits-hibridos.jpg",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\thumb\\FOTUS-KP04-kits-hibridos.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\medium\\FOTUS-KP04-kits-hibridos.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS-HIBRIDOS\\large\\FOTUS-KP04-kits-hibridos.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2706.07,
+      "currency": "BRL"
+    },
+    "price": "R$ 2.706,07",
+    "title": "Kit Solar 1.2kWp - Astronergy + Microinversor Tsuness",
+    "subtitle": "1.2kWp Solar Energy Kit Astronergy Panel Tsuness Microinverter Grid-Tie Microinverter System",
+    "description": "# Kit Solar 1.2kWp - Sistema Completo FOTUS\n\n## Gere até 161kWh por mês\n\n**Kit completo pronto para instalação** com componentes de alta qualidade.\n\n### Componentes Incluídos\n\n**Painéis Solares Astronergy**\n- Potência: 600W por painel\n- Quantidade: 2 unidades\n- Potência total: 1.2kWp\n\n**Microinversor Tsuness**\n- Potência: 2.25kW\n- Quantidade: 1 unidade(s)\n- ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)\n\n### Características do Sistema\n\n- Sistema modular com microinversor\n- Estrutura: Cerâmico\n- Centro de Distribuição: CD ESPÍRITO SANTO\n- Distribuidor: FOTUS\n\n### Ideal Para\n\n- Residências pequenas e apartamentos\n- Consumo até 500kWh/mês\n- Redução significativa na conta de luz",
+    "handle": "solar-kit-12kwp-astronergy-tsuness",
+    "status": "published",
+    "collection": "FOTUS Solar Kits",
+    "variant_title": "600W x2 Painéis / Micro 2.25kW",
+    "variant_sku": "FTS-1.2KWP-ASTTSU-04",
+    "search_title": "1.2kWp Solar Energy Kit Astronergy Panel Tsuness Microinverter Grid-Tie Microinverter System",
+    "seo_title": "Kit Solar 1.2kWp Astronergy + Tsuness | FOTUS",
+    "seo_description": "Kit Solar 1.2kWp completo com painéis Astronergy e Tsuness. Gere até 161kWh/mês. Sistema modular. FOTUS.",
+    "tags": [
+      "Kit Solar",
+      "Energia Solar",
+      "Sistema Fotovoltaico",
+      "Residencial Pequeno",
+      "Até 3kWp",
+      "1.2kWp",
+      "Painel Astronergy",
+      "Microinversor Tsuness",
+      "Microinversor",
+      "Sistema Modular",
+      "Estrutura Cerâmico",
+      "Até 500kWh/mês",
+      "CD ESPÍRITO SANTO"
+    ],
+    "original_name": "KP04 - ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.) - MICROINVERSOR TSUNESS2250W",
+    "panel_info": {
+      "manufacturer": "Astronergy",
+      "power_w": 600,
+      "quantity": 2,
+      "description": "ASTRONERGY | TIER 1 | 600W N-TYPE BIFACIAL (22,2% EF.)"
+    },
+    "inverter_info": {
+      "manufacturer": "Tsuness",
+      "power_kw": 2.25,
+      "quantity": 1,
+      "description": "MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)",
+      "is_microinverter": true
+    },
+    "system_power_kwp": 1.2,
+    "sku": "FTS-KIT-000KWP-GENERI-004",
+    "sku_generated": true
+  }
+]
