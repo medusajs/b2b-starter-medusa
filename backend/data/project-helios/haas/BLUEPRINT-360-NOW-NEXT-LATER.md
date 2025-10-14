@@ -9,10 +9,12 @@
 ### Objetivo: Colocar o sistema em produção com funcionalidades essenciais
 
 ### 1. 🔐 Autenticação JWT Completa
+
 **Status Atual**: 60% implementado  
 **Gap**: Refresh tokens, logout, gestão de sessões
 
 **Ações Imediatas**:
+
 - [ ] Implementar refresh token endpoint
 - [ ] Sistema de logout com invalidação de tokens
 - [ ] Middleware de rate limiting (proteção contra brute force)
@@ -25,10 +27,12 @@
 ---
 
 ### 2. 🏅 APIs de Validação INMETRO
+
 **Status Atual**: Sistema base 100% implementado, 0% exposto via API  
 **Gap**: REST API endpoints
 
 **Ações Imediatas**:
+
 ```python
 # Endpoints a criar em /validators/inmetro/router.py
 
@@ -40,12 +44,14 @@ GET    /validation/inmetro/models/{mfr}       # Modelos por fabricante
 ```
 
 **Componentes Existentes (Reutilização 100%)**:
+
 - ✅ `InmetroCrawler` - Extração de dados
 - ✅ `InmetroExtractor` - Pipeline de estruturação
 - ✅ `RecordValidator` - Validação de certificações
 - ✅ `InmetroRepository` - Cache e persistência
 
 **Tasks**:
+
 - [ ] Criar router FastAPI para INMETRO
 - [ ] Expor `validate_equipment()` via POST
 - [ ] Implementar cache Redis (TTL 24h)
@@ -60,10 +66,12 @@ GET    /validation/inmetro/models/{mfr}       # Modelos por fabricante
 ---
 
 ### 3. 📄 Gerador de Memorial Descritivo
+
 **Status Atual**: 0% implementado  
 **Gap**: Template engine e API
 
 **Ações Imediatas**:
+
 ```python
 # Estrutura a criar
 
@@ -76,6 +84,7 @@ GET    /validation/inmetro/models/{mfr}       # Modelos por fabricante
 ```
 
 **Template HTML/CSS** (Exemplo):
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -99,6 +108,7 @@ GET    /validation/inmetro/models/{mfr}       # Modelos por fabricante
 ```
 
 **Tasks**:
+
 - [ ] Template HTML/CSS profissional
 - [ ] Integração Jinja2 + WeasyPrint
 - [ ] Endpoint POST `/documents/memorial`
@@ -113,10 +123,12 @@ GET    /validation/inmetro/models/{mfr}       # Modelos por fabricante
 ---
 
 ### 4. 🏛️ Base de Dados de Concessionárias
+
 **Status Atual**: Schemas 100%, dados ANEEL parciais  
 **Gap**: API CRUD para concessionárias
 
 **Ações Imediatas**:
+
 ```python
 # Endpoints básicos
 
@@ -127,6 +139,7 @@ GET    /utilities/{code}/forms        # Formulários necessários
 ```
 
 **Tasks**:
+
 - [ ] Modelo SQLAlchemy para `Utilities`
 - [ ] Seed script com dados ANEEL (67 distribuidoras)
 - [ ] CRUD básico via FastAPI
@@ -140,10 +153,12 @@ GET    /utilities/{code}/forms        # Formulários necessários
 ---
 
 ### 5. 📊 Dashboard de Monitoramento
+
 **Status Atual**: Health check básico (20%)  
 **Gap**: Métricas e dashboard
 
 **Ações Imediatas**:
+
 ```python
 # Endpoints de monitoramento
 
@@ -154,6 +169,7 @@ GET /monitoring/system/metrics        # Métricas do sistema
 ```
 
 **Métricas a Coletar**:
+
 - Total de projetos (por status)
 - Validações INMETRO (sucesso/falha)
 - Documentos gerados
@@ -161,6 +177,7 @@ GET /monitoring/system/metrics        # Métricas do sistema
 - Tempo médio de processamento
 
 **Tasks**:
+
 - [ ] Modelo de dados para `Projects`
 - [ ] Endpoints de monitoramento
 - [ ] PostgreSQL views para agregações
@@ -193,10 +210,12 @@ GET /monitoring/system/metrics        # Métricas do sistema
 ### Objetivo: Automatizar processos complexos e integrar com sistemas externos
 
 ### 1. 🎨 Gerador de Diagramas Unifilares
+
 **Status**: Não iniciado  
 **Complexidade**: Alta
 
 **Abordagem Técnica**:
+
 ```python
 # Biblioteca: Matplotlib + Custom Shapes ou Plotly
 
@@ -221,6 +240,7 @@ class UnifilarDiagramGenerator:
 ```
 
 **Tasks**:
+
 - [ ] Biblioteca de símbolos elétricos (SVG)
 - [ ] Algoritmo de layout automático
 - [ ] Validação NBR 5410
@@ -235,10 +255,12 @@ class UnifilarDiagramGenerator:
 ---
 
 ### 2. 📝 Preenchimento Automático de Formulários
+
 **Status**: Não iniciado  
 **Complexidade**: Média-Alta
 
 **Concessionárias Prioritárias**:
+
 1. **CPFL Paulista** (0266) - 30% do mercado SP
 2. **Enel SP** (0265) - 25% do mercado SP
 3. **CEMIG** (0276) - MG líder
@@ -267,6 +289,7 @@ class FormFiller:
 ```
 
 **Tasks**:
+
 - [ ] Mapeamento de campos por concessionária
 - [ ] Preenchimento de PDFs (PyPDF2/pdfrw)
 - [ ] Geração de payloads para forms web
@@ -281,12 +304,14 @@ class FormFiller:
 ---
 
 ### 3. 🤖 Conectores de Automação Web
+
 **Status**: Não iniciado  
 **Complexidade**: Muito Alta
 
 **Tecnologia**: Playwright (recomendado sobre Selenium)
 
 **Arquitetura**:
+
 ```python
 class UtilityPortalConnector:
     """Base class para conectores"""
@@ -322,12 +347,14 @@ class CPFLConnector(UtilityPortalConnector):
 ```
 
 **Desafios**:
+
 - ⚠️ Captcha (soluções: 2Captcha API, hCaptcha solver)
 - ⚠️ MFA/2FA (requer intervenção humana ou SMS API)
 - ⚠️ Rate limiting dos portais
 - ⚠️ Mudanças frequentes nos portais
 
 **Tasks**:
+
 - [ ] Conector CPFL (Playwright)
 - [ ] Conector Enel SP
 - [ ] Conector CEMIG
@@ -343,10 +370,12 @@ class CPFLConnector(UtilityPortalConnector):
 ---
 
 ### 4. 🔔 Sistema de Notificações Avançado
+
 **Status**: Webhooks básicos implementados (100%)  
 **Gap**: Email, SMS, push notifications
 
 **Canais a Adicionar**:
+
 ```python
 class NotificationService:
     """Serviço unificado de notificações"""
@@ -368,6 +397,7 @@ class NotificationService:
 ```
 
 **Eventos a Notificar**:
+
 - ✅ Projeto criado
 - ✅ Validação INMETRO (sucesso/falha)
 - ✅ Documentos gerados
@@ -376,11 +406,13 @@ class NotificationService:
 - ✅ Homologação aprovada/rejeitada
 
 **Integrações**:
+
 - **Email**: SendGrid ou AWS SES
 - **SMS**: Twilio ou Zenvia
 - **Push**: Firebase Cloud Messaging
 
 **Tasks**:
+
 - [ ] Templates de email (HTML responsivo)
 - [ ] Integração SendGrid
 - [ ] Integração Twilio (SMS)
@@ -395,6 +427,7 @@ class NotificationService:
 ---
 
 ### 5. 📊 Analytics e Relatórios
+
 **Status**: Não iniciado  
 **Complexidade**: Média
 
@@ -417,6 +450,7 @@ class NotificationService:
    - Sugestões de melhoria
 
 **Stack Técnica**:
+
 ```python
 # Usando pandas para agregações
 
@@ -438,6 +472,7 @@ def generate_performance_report(start_date, end_date):
 ```
 
 **Tasks**:
+
 - [ ] Modelo de dados para métricas
 - [ ] Views SQL para agregações
 - [ ] Endpoints de relatórios
@@ -473,9 +508,11 @@ def generate_performance_report(start_date, end_date):
 ### 1. 🤖 Inteligência Artificial e ML
 
 #### 1.1 Validação Automática de Documentos (OCR + NLP)
+
 **Problema**: Documentos enviados com erros ou incompletos
 
 **Solução**:
+
 ```python
 class DocumentValidator:
     """Valida documentos usando IA"""
@@ -506,6 +543,7 @@ class DocumentValidator:
 ```
 
 **Modelos a Treinar**:
+
 - Classificação de documentos (ART, memorial, diagrama)
 - Extração de dados estruturados (NER)
 - Detecção de anomalias em diagramas
@@ -516,6 +554,7 @@ class DocumentValidator:
 ---
 
 #### 1.2 Predição de Aprovação
+
 **Problema**: Cliente não sabe se projeto será aprovado
 
 **Solução**: Modelo ML que prevê probabilidade de aprovação
@@ -551,6 +590,7 @@ class ApprovalPredictor:
 ---
 
 #### 1.3 Assistente Virtual (Chatbot)
+
 **Problema**: Usuários com dúvidas sobre o processo
 
 **Solução**: Chatbot integrado com RAG (Retrieval-Augmented Generation)
@@ -590,15 +630,18 @@ class HaaSAssistant:
 ### 2. 🌍 Expansão Geográfica
 
 #### 2.1 Suporte a Todas as Distribuidoras BR
+
 **Status Atual**: 3 concessionárias  
 **Meta**: 67 distribuidoras
 
 **Estratégia de Rollout**:
+
 1. **Grupo 1**: Top 10 por volume (70% do mercado)
 2. **Grupo 2**: Distribuidoras médias (25% do mercado)
 3. **Grupo 3**: Pequenas distribuidoras (5% do mercado)
 
 **Abordagem**:
+
 - Conectores padronizados (quando possível)
 - Parceria com distribuidoras (APIs oficiais)
 - Fallback manual sempre disponível
@@ -609,9 +652,11 @@ class HaaSAssistant:
 ---
 
 #### 2.2 Internacionalização
+
 **Mercados Alvo**: LATAM (Chile, México, Colômbia)
 
 **Adaptações Necessárias**:
+
 - Multi-idioma (i18n)
 - Normas locais (não apenas brasileiras)
 - Certificações locais (não apenas INMETRO)
@@ -625,9 +670,11 @@ class HaaSAssistant:
 ### 3. 💼 Funcionalidades Enterprise
 
 #### 3.1 Multi-tenancy e White Label
+
 **Problema**: Grandes integradores querem marca própria
 
 **Solução**:
+
 ```python
 class TenantMiddleware:
     """Middleware multi-tenant"""
@@ -646,6 +693,7 @@ class TenantMiddleware:
 ```
 
 **Features**:
+
 - Domínio customizado
 - Logo e cores personalizadas
 - Configurações específicas
@@ -657,9 +705,11 @@ class TenantMiddleware:
 ---
 
 #### 3.2 API Gateway e SDK
+
 **Problema**: Clientes querem integrar HaaS em seus sistemas
 
 **Solução**:
+
 ```python
 # SDK Python
 from haas_sdk import HaaSClient
@@ -685,6 +735,7 @@ memorial = client.documents.generate_memorial(project.id)
 ```
 
 **SDKs a Desenvolver**:
+
 - Python (primário)
 - JavaScript/TypeScript
 - PHP (WordPress plugins)
@@ -695,6 +746,7 @@ memorial = client.documents.generate_memorial(project.id)
 ---
 
 #### 3.3 Módulo de Pricing Dinâmico
+
 **Problema**: Precificar serviço por complexidade
 
 **Solução**: Sistema de pricing baseado em uso
@@ -739,6 +791,7 @@ class PricingEngine:
 ### 4. 🔒 Segurança e Compliance Avançados
 
 #### 4.1 Auditoria Completa
+
 **Requisito**: Rastreabilidade total de ações
 
 ```python
@@ -775,7 +828,9 @@ class AuditLog:
 ---
 
 #### 4.2 LGPD Compliance
+
 **Requisitos**:
+
 - Consentimento explícito
 - Direito ao esquecimento
 - Portabilidade de dados
@@ -789,6 +844,7 @@ class AuditLog:
 ### 5. 📈 Performance e Escala
 
 #### 5.1 Otimizações de Performance
+
 - Cache distribuído (Redis Cluster)
 - CDN para documentos estáticos
 - Database read replicas
@@ -801,7 +857,9 @@ class AuditLog:
 ---
 
 #### 5.2 Observabilidade
+
 **Stack**:
+
 - Logs: ELK Stack ou Grafana Loki
 - Métricas: Prometheus + Grafana
 - Tracing: Jaeger ou OpenTelemetry
@@ -854,6 +912,7 @@ Dashboard ✓             Analytics               Pricing Engine
 ## 🎯 KPIs por Fase
 
 ### NOW (MVP)
+
 - ✅ 100% autenticação funcional
 - ✅ 5 endpoints INMETRO ativos
 - ✅ Memorial PDF gerado em <3s
@@ -865,6 +924,7 @@ Dashboard ✓             Analytics               Pricing Engine
 ---
 
 ### NEXT (Automação)
+
 - ✅ Diagramas unifilares conformes NBR 5410
 - ✅ 3 concessionárias com automação completa
 - ✅ Notificações em 3 canais
@@ -875,6 +935,7 @@ Dashboard ✓             Analytics               Pricing Engine
 ---
 
 ### LATER (Escala)
+
 - ✅ 90% das distribuidoras cobertas
 - ✅ IA prevendo aprovação com 85%+ acurácia
 - ✅ Sistema suportando 10k projetos/mês
@@ -888,16 +949,19 @@ Dashboard ✓             Analytics               Pricing Engine
 ## 💰 Estimativa de Investimento
 
 ### NOW (2-4 semanas)
+
 - **Equipe**: 2 devs full-time
 - **Custo**: ~R$ 40k
 - **Infra**: R$ 2k/mês (dev + staging)
 
 ### NEXT (2-3 meses)
+
 - **Equipe**: 3 devs + 1 QA
 - **Custo**: ~R$ 120k
 - **Infra**: R$ 5k/mês
 
 ### LATER (6 meses)
+
 - **Equipe**: 5 devs + 2 QA + 1 DevOps
 - **Custo**: ~R$ 400k
 - **Infra**: R$ 15k/mês (produção escalável)
@@ -936,6 +1000,7 @@ Dashboard ✓             Analytics               Pricing Engine
 ## ✅ Checklist de Execução
 
 ### Pré-requisitos (Antes de começar NOW)
+
 - [ ] Ambiente Docker configurado
 - [ ] PostgreSQL + Redis em produção
 - [ ] CI/CD pipeline básico
@@ -943,6 +1008,7 @@ Dashboard ✓             Analytics               Pricing Engine
 - [ ] Documentação técnica base
 
 ### NOW - Checklist
+
 - [ ] JWT refresh token implementado
 - [ ] 5 endpoints INMETRO funcionais
 - [ ] Memorial PDF gerado e testado
@@ -952,6 +1018,7 @@ Dashboard ✓             Analytics               Pricing Engine
 - [ ] Documentação OpenAPI completa
 
 ### NEXT - Checklist
+
 - [ ] Gerador de diagramas testado
 - [ ] Formulários de 3 concessionárias
 - [ ] Conector CPFL funcional
@@ -959,6 +1026,7 @@ Dashboard ✓             Analytics               Pricing Engine
 - [ ] Sistema de relatórios
 
 ### LATER - Checklist
+
 - [ ] Validação de docs com IA
 - [ ] Predição de aprovação
 - [ ] 20+ distribuidoras integradas
