@@ -30,6 +30,7 @@ class ConnectionRequest(BaseModel):
     power_requirement: float  # in kW
     location: Dict[str, Any]  # GeoJSON or coordinates
     documents: Optional[List[str]] = []  # List of document URLs/IDs
+    equipment: Optional[List[Dict[str, Any]]] = []  # INMETRO equipment data
 
 
 class ConnectionResponse(BaseModel):

@@ -68,6 +68,42 @@ def submit_connection_request(
     if not distributor:
         raise ValueError(f"Distributor with ID {distributor_id} not found")
 
+    # Validate INMETRO compliance if equipment data is provided
+    inmetro_validation_result = None
+    if request.equipment:
+        try:
+            from app.services.inmetro_validation_service import (
+                inmetro_validator
+            )
+            inmetro_validation_result = (
+                inmetro_validator.validate_equipment_batch(
+                    request.equipment, request
+                )
+            )
+            if not inmetro_validation_result["valid"]:
+                # Create response with validation errors
+                return ConnectionResponse(
+                    request_id=str(uuid.uuid4()),
+                    status="rejected",
+                    estimated_cost=None,
+                    estimated_time_days=None,
+                    requirements=[],
+                    rejection_reason=(
+                        "INMETRO validation failed: " +
+                        "; ".join([
+                            f"Equipment {r['equipment_index']}: "
+                            f"{', '.join(r.get('errors', []))}"
+                            for r in inmetro_validation_result["results"]
+                            if not r["valid"]
+                        ])
+                    ),
+                    created_at=datetime.utcnow(),
+                    updated_at=datetime.utcnow()
+                )
+        except Exception as e:
+            # Log validation error but allow request to proceed
+            print(f"INMETRO validation error: {e}")
+
     # Mock response based on distributor and request type
     request_id = str(uuid.uuid4())
 
@@ -93,6 +129,14 @@ def submit_connection_request(
         "Comprovante de pagamento da taxa de ligação"
     ]
 
+    # Add INMETRO-specific requirements if equipment was validated
+    if inmetro_validation_result and inmetro_validation_result["valid"]:
+        requirements.extend([
+            "Certificado INMETRO válido para todos os equipamentos",
+            "Laudo de ensaio dos equipamentos",
+            "Comprovante de conformidade com Portaria 140/2022"
+        ])
+
     response = ConnectionResponse(
         request_id=request_id,
         status="pending",
@@ -112,7 +156,8 @@ def submit_connection_request(
         # Run webhook trigger in background (don't await)
         status_change = {
             "status": "pending",
-            "message": "Connection request submitted"
+            "message": "Connection request submitted",
+            "inmetro_validation": inmetro_validation_result
         }
         asyncio.create_task(
             trigger_webhook_event(
