@@ -150,7 +150,7 @@
 
 ### 1. Daily Full Ingestion Flow
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    DAILY FULL INGESTION WORKFLOW                             │
 │                    Trigger: Cron (02:00 AM daily)                           │
@@ -301,7 +301,7 @@ START (02:00 AM)
 
 ### 2. Hourly Incremental Check Flow
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                  HOURLY INCREMENTAL CHECK WORKFLOW                           │
 │                  Trigger: Cron (00 * * * * - every hour)                   │
@@ -370,7 +370,7 @@ START (Every hour)
 
 ### 3. Fallback Recovery Flow
 
-```
+```tsx
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     FALLBACK RECOVERY WORKFLOW                               │
 │                     Trigger: Manual or Auto (on failure)                    │
@@ -497,7 +497,7 @@ START (Error detected)
 
 ### Data Processing Pipeline
 
-```
+```tsx
 RAW DATA INPUT
     │
     ├─ ANEELDataset JSON
@@ -688,8 +688,8 @@ RAW DATA INPUT
 
 ### Multi-Layer Storage Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
+```tsx
+┌──────────tsx───────────────────────────────────────────────────────────────────┐
 │                         STORAGE LAYER ARCHITECTURE                           │
 └─────────────────────────────────────────────────────────────────────────────┘
 
@@ -757,7 +757,7 @@ LAYER 5: VECTOR STORE (Qdrant)
 
 ### Data Flow Between Storage Layers
 
-```
+```tsx
 WRITE PATH:
 -----------
 
