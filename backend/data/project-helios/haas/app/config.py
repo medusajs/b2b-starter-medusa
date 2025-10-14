@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     # Database settings (for future use)
-    DATABASE_URL: str = "postgresql://user:password@localhost/haas_db"
+    DATABASE_URL: str = "sqlite:///haas_platform.db"
 
     # Redis settings (for future use)
     REDIS_URL: str = "redis://localhost:6379"

@@ -41,9 +41,6 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     """Upgrade schema."""
-    # Enable PostGIS extension
-    op.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
-
     # Create distributors table
     op.create_table('distributors',
         sa.Column('id', sa.Integer(), nullable=False),
@@ -54,8 +51,8 @@ def upgrade() -> None:
         sa.Column('contact_email', sa.String(length=255), nullable=True),
         sa.Column('contact_phone', sa.String(length=50), nullable=True),
         sa.Column('service_area', sa.JSON(), nullable=True),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
-        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
+        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
+        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
         sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_distributors_code'), 'distributors', ['code'], unique=True)
@@ -69,9 +66,9 @@ def upgrade() -> None:
         sa.Column('hashed_password', sa.String(length=255), nullable=False),
         sa.Column('role', sa.String(length=20), nullable=False, server_default='distributor'),
         sa.Column('distributor_id', sa.Integer(), nullable=True),
-        sa.Column('is_active', sa.Boolean(), nullable=False, server_default='true'),
-        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
-        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('now()')),
+        sa.Column('is_active', sa.Boolean(), nullable=False, server_default='1'),
+        sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
+        sa.Column('updated_at', sa.DateTime(), nullable=False, server_default=sa.text('(datetime(\'now\'))')),
         sa.ForeignKeyConstraint(['distributor_id'], ['distributors.id'], ),
         sa.PrimaryKeyConstraint('id')
     )
