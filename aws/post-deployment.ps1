@@ -4,37 +4,37 @@
 # ==========================================
 
 param(
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Environment = "production",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$SSOProfile = "ysh-production",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Region = "us-east-1",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$AdminEmail = "admin@yellosolar.com.br",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$AlertEmail,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$PublishableKey,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$SkipECSDeploy,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$SkipDatabase,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$SkipMonitoring,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$SkipEnvConfig,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$InteractiveMode
 )
 
@@ -107,7 +107,8 @@ STEP 1/4: DEPLOYING ECS TASKS
         
         Write-Success "`n✓ ECS tasks deployed successfully"
         
-    } catch {
+    }
+    catch {
         $errorMsg = "ECS deployment failed: $_"
         Write-Error $errorMsg
         $errors += $errorMsg
@@ -118,7 +119,8 @@ STEP 1/4: DEPLOYING ECS TASKS
         }
     }
     
-} else {
+}
+else {
     Write-Warning "Skipping ECS deployment (--SkipECSDeploy)"
 }
 
@@ -153,11 +155,13 @@ STEP 2/4: SETTING UP DATABASE
         if ($LASTEXITCODE -ne 0) {
             $warnings += "Database setup had warnings. Check logs above."
             Write-Warning "`n⚠ Database setup completed with warnings"
-        } else {
+        }
+        else {
             Write-Success "`n✓ Database setup completed successfully"
         }
         
-    } catch {
+    }
+    catch {
         $errorMsg = "Database setup failed: $_"
         Write-Error $errorMsg
         $errors += $errorMsg
@@ -168,7 +172,8 @@ STEP 2/4: SETTING UP DATABASE
         }
     }
     
-} else {
+}
+else {
     Write-Warning "Skipping database setup (--SkipDatabase)"
 }
 
@@ -207,7 +212,8 @@ STEP 3/4: CONFIGURING MONITORING
         Write-Success "`n✓ Monitoring configured successfully"
         Write-Warning "⚠ Don't forget to confirm email subscription!"
         
-    } catch {
+    }
+    catch {
         $errorMsg = "Monitoring setup failed: $_"
         Write-Error $errorMsg
         $errors += $errorMsg
@@ -218,7 +224,8 @@ STEP 3/4: CONFIGURING MONITORING
         }
     }
     
-} else {
+}
+else {
     Write-Warning "Skipping monitoring setup (--SkipMonitoring)"
 }
 
@@ -263,13 +270,15 @@ STEP 4/4: CONFIGURING ENVIRONMENT
         
         Write-Success "`n✓ Environment configured successfully"
         
-    } catch {
+    }
+    catch {
         $errorMsg = "Environment configuration failed: $_"
         Write-Error $errorMsg
         $errors += $errorMsg
     }
     
-} else {
+}
+else {
     Write-Warning "Skipping environment configuration (--SkipEnvConfig)"
 }
 
@@ -352,7 +361,8 @@ try {
     Write-Info "`nCloudWatch Dashboard:"
     Write-Host "  https://$Region.console.aws.amazon.com/cloudwatch/home?region=$Region#dashboards:name=$Environment-ysh-monitoring" -ForegroundColor White
     
-} catch {
+}
+catch {
     Write-Warning "Could not retrieve URLs. Check CloudFormation stack outputs."
 }
 
@@ -384,7 +394,8 @@ Support:
 if ($errors.Count -eq 0) {
     Write-Host "🎉 YSH B2B Platform is ready for production!" -ForegroundColor Magenta
     exit 0
-} else {
+}
+else {
     Write-Host "⚠️  Deployment completed with errors. Review above." -ForegroundColor Yellow
     exit 1
 }

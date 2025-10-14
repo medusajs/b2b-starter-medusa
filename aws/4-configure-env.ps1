@@ -4,22 +4,22 @@
 # ==========================================
 
 param(
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Environment = "production",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$SSOProfile = "ysh-production",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$Region = "us-east-1",
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [string]$PublishableKey,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$UpdateSecretsManager,
     
-    [Parameter(Mandatory=$false)]
+    [Parameter(Mandatory = $false)]
     [switch]$RestartStorefront
 )
 
@@ -123,7 +123,8 @@ if ($UpdateSecretsManager) {
     
     Write-Success "✓ Secrets Manager updated with storefront configuration"
     
-} else {
+}
+else {
     Write-Info "`n[3/4] Skipping Secrets Manager update"
     Write-Info "Use --UpdateSecretsManager flag to update automatically"
 }
@@ -149,7 +150,8 @@ if ($RestartStorefront) {
     Write-Info "New deployment will pick up updated environment variables"
     Write-Info "This may take 3-5 minutes..."
     
-} else {
+}
+else {
     Write-Info "`n[4/4] Skipping service restart"
     Write-Warning "Restart storefront manually to apply changes:"
     Write-Host "  aws ecs update-service --cluster $($outputs['ECSClusterName']) --service $Environment-ysh-storefront --force-new-deployment --profile $SSOProfile`n" -ForegroundColor Gray
@@ -194,10 +196,12 @@ try {
     
     if ($response.StatusCode -eq 200 -or $response.StatusCode -eq 301 -or $response.StatusCode -eq 302) {
         Write-Success "✓ Storefront is accessible"
-    } else {
+    }
+    else {
         Write-Warning "⚠ Storefront returned: $($response.StatusCode)"
     }
-} catch {
+}
+catch {
     Write-Warning "⚠ Storefront not yet accessible"
     Write-Info "Wait a few minutes if you just deployed"
 }
@@ -209,10 +213,12 @@ try {
     
     if ($response.StatusCode -eq 200) {
         Write-Success "✓ Backend API is healthy"
-    } else {
+    }
+    else {
         Write-Warning "⚠ Backend returned: $($response.StatusCode)"
     }
-} catch {
+}
+catch {
     Write-Warning "⚠ Backend not yet accessible"
 }
 

@@ -86,7 +86,9 @@ def main():
         enricher = enrichment_module.SchemaEnricher(str(inventory_file))
         enricher.output_dir = Path("enriched-complete")
         enricher.load_products()
-        enricher.enrich_all()
+        enricher.enrich_all_products()
+        enricher.save_results()
+        enricher.generate_reports()
         
         print("\n✅ Enrichment complete!")
         
