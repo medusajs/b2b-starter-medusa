@@ -92,7 +92,7 @@ class EnhancedImageSynchronizer:
         print(f"\n[Sync] Processing {distributor}...")
         
         # Load products
-        products_path = self.base_path / distributor / products_file
+        products_path = self.base_path / "distributors" / distributor / products_file
         
         if not products_path.exists():
             print(f"[Sync] ⚠️  Products file not found: {products_file}")
@@ -102,7 +102,7 @@ class EnhancedImageSynchronizer:
             products = json.load(f)
         
         # Images directory
-        images_path = self.base_path / distributor / images_dir
+        images_path = self.base_path / "distributors" / distributor / images_dir
         
         # Scan available images
         available_images = {}
@@ -335,7 +335,7 @@ class EnhancedImageSynchronizer:
 def main():
     """Run enhanced image synchronization"""
     
-    base_path = Path(__file__).parent.parent / "distributors"
+    base_path = Path(__file__).parent.parent
     
     synchronizer = EnhancedImageSynchronizer(base_path)
     results = synchronizer.sync_all()
