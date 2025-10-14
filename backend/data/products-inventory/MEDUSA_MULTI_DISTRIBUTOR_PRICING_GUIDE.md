@@ -1,4 +1,5 @@
 # YSH B2B - Multi-Distributor Dynamic Pricing System
+
 ## Implementação Completa com Medusa.js v2.5+
 
 **Data:** Outubro 2025  
@@ -23,7 +24,9 @@
 ## 🎯 VISÃO GERAL
 
 ### Objetivo
+
 Sistema de **pricing dinâmico** para plataforma B2B com:
+
 - **3 distribuidores** (FortLev, NeoSolar, FOTUS)
 - **4 tiers de clientes** (Bronze, Silver, Gold, Platinum)
 - **Certificação INMETRO** integrada aos SKUs
@@ -33,17 +36,20 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ### Principais Funcionalidades
 
 **✅ Multi-Tier Pricing**
+
 - Bronze: Preço base (100%)
 - Silver: 5% desconto (95%)
 - Gold: 10% desconto (90%)
 - Platinum: 15% desconto (85%)
 
 **✅ Volume Discounts**
+
 - Tier 1: 1-10 unidades (0% desconto)
 - Tier 2: 11-50 unidades (5% desconto)
 - Tier 3: 51+ unidades (10% desconto)
 
 **✅ Dynamic SKU Generation**
+
 - Formato: `{DIST}-{TYPE}-{POWER}-{BRAND}-{TIER}-{CERT}-{SEQ}`
 - Exemplo: `FLV-KIT-563KWP-LONGI-GLD-CERT-001`
 - Componentes:
@@ -56,6 +62,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
   - `001`: Sequência
 
 **✅ INMETRO Integration**
+
 - Status: `CERT`, `PEND`, `EXPR`, `NONE`
 - KPI Score: 0-100 (compliance score)
 - Certificados vinculados aos produtos
@@ -112,9 +119,11 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ## 📊 DATA MODELS
 
 ### 1. Distributor Model
+
 **Arquivo:** `backend/src/models/distributor.ts`
 
 **Campos principais:**
+
 ```typescript
 {
   code: "FLV" | "NEO" | "FTS"
@@ -139,9 +148,11 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 ### 2. Pricing Rule Model
+
 **Arquivo:** `backend/src/models/pricing-rule.ts`
 
 **Tipos de regras:**
+
 - `DISTRIBUTOR_TIER`: Baseado no tier do distribuidor
 - `VOLUME_DISCOUNT`: Desconto por quantidade
 - `REGION_ADJUSTMENT`: Variação regional
@@ -152,6 +163,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 - `FIRST_ORDER`: Incentivo para novos clientes
 
 **Campos principais:**
+
 ```typescript
 {
   rule_type: PricingRuleType
@@ -182,9 +194,11 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 ### 3. Product Extension Model
+
 **Arquivo:** `backend/src/models/product-extension.ts`
 
 **Campos principais:**
+
 ```typescript
 {
   product_id: string // Link to Medusa Product
@@ -230,9 +244,11 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ## ⚙️ WORKFLOWS
 
 ### calculateDynamicPricingWorkflow
+
 **Arquivo:** `backend/src/workflows/calculate-dynamic-pricing.ts`
 
 **Input:**
+
 ```typescript
 {
   product_id: string
@@ -246,6 +262,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 **Output:**
+
 ```typescript
 {
   base_price: number
@@ -266,6 +283,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 **Fluxo de execução:**
+
 1. **Load Product Data**: Carrega produto e extensão
 2. **Calculate Tier Price**: Aplica multiplicador do tier
 3. **Calculate Volume Discount**: Desconto por quantidade
@@ -277,9 +295,11 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ## 🔌 API ROUTES
 
 ### POST /api/pricing/calculate
+
 **Calcula preço para um produto**
 
 **Request:**
+
 ```json
 {
   "product_id": "prod_123",
@@ -292,6 +312,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 **Response:**
+
 ```json
 {
   "pricing": {
@@ -311,15 +332,19 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ```
 
 ### POST /api/pricing/batch-calculate
+
 **Calcula preços para múltiplos produtos (carrinho)**
 
 ### GET /api/distributors/:code/pricing-rules
+
 **Lista regras de pricing ativas**
 
 ### GET /api/distributors/:code/tiers
+
 **Retorna configuração de tiers e benefícios**
 
 ### GET /api/distributors/:code/stats
+
 **Estatísticas do distribuidor (KPIs, certificações)**
 
 ---
@@ -327,6 +352,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ## 🏷️ SKU GENERATOR
 
 ### Formato
+
 ```
 {DIST}-{TYPE}-{POWER}-{BRAND}-{TIER}-{CERT}-{SEQ}
 ```
@@ -346,6 +372,7 @@ Sistema de **pricing dinâmico** para plataforma B2B com:
 ### Funções Principais
 
 **`generateDynamicSKU(input)`**
+
 ```typescript
 const sku = generateDynamicSKU({
   distributor: "fortlev",
@@ -360,6 +387,7 @@ const sku = generateDynamicSKU({
 ```
 
 **`generateTieredSKU(baseSKU, tier)`**
+
 ```typescript
 const goldSKU = generateTieredSKU(
   "FLV-KIT-563KWP-LONGI-BRZ-CERT-001",
@@ -369,6 +397,7 @@ const goldSKU = generateTieredSKU(
 ```
 
 **`validateSKUFormat(sku)`**
+
 ```typescript
 const validation = validateSKUFormat("FLV-KIT-563KWP-LONGI-GLD-CERT-001")
 // Returns: { valid: true, errors: [] }
@@ -379,15 +408,18 @@ const validation = validateSKUFormat("FLV-KIT-563KWP-LONGI-GLD-CERT-001")
 ## 🔄 MIGRAÇÃO DE DADOS
 
 ### Script Python
+
 **Arquivo:** `scripts/migrate_to_medusa.py`
 
 **Execução:**
+
 ```bash
 cd backend/data/products-inventory/scripts
 python migrate_to_medusa.py
 ```
 
 **O que faz:**
+
 1. Carrega produtos normalizados dos 3 distribuidores
 2. Gera SKUs para cada tier (4 variantes por produto)
 3. Calcula preços tier-based
@@ -396,6 +428,7 @@ python migrate_to_medusa.py
 6. Gera JSON compatível com Medusa.js
 
 **Output:**
+
 ```
 medusa_import/
 ├── fortlev_medusa_products.json
@@ -464,6 +497,7 @@ cp product-extension.ts backend/src/models/
 ```
 
 **Registrar no Medusa:**
+
 ```typescript
 // backend/medusa-config.ts
 import { defineConfig } from "@medusajs/framework/utils"
@@ -537,6 +571,7 @@ async function importProducts(container: MedusaContainer) {
 ```
 
 **Executar:**
+
 ```bash
 npx medusa exec backend/src/scripts/import-products.ts
 ```
@@ -593,18 +628,21 @@ curl -X POST http://localhost:9000/api/pricing/calculate \
 ### Checklist de Testes
 
 **Models:**
+
 - [ ] Criar distributor via API
 - [ ] Criar pricing rule
 - [ ] Criar product extension
 - [ ] Validar constraints únicos (code, SKU)
 
 **SKU Generator:**
+
 - [ ] Gerar SKU válido
 - [ ] Validar formato
 - [ ] Gerar SKUs em batch
 - [ ] Parse SKU existente
 
 **Pricing Workflow:**
+
 - [ ] Calcular preço Bronze (100%)
 - [ ] Calcular preço Gold (90%)
 - [ ] Aplicar desconto volume tier 2 (5%)
@@ -612,12 +650,14 @@ curl -X POST http://localhost:9000/api/pricing/calculate \
 - [ ] Validar regra não-stackable para execução
 
 **API Routes:**
+
 - [ ] POST /pricing/calculate → 200 OK
 - [ ] POST /pricing/batch-calculate → 200 OK
 - [ ] GET /distributors/FLV/pricing-rules → Lista regras
 - [ ] GET /distributors/FLV/tiers → Retorna tiers
 
 **Migração:**
+
 - [ ] Migrate FortLev (217 produtos × 4 tiers = 868 variants)
 - [ ] Migrate NeoSolar (2,601 produtos × 4 = 10,404 variants)
 - [ ] Migrate FOTUS (245 produtos × 4 = 980 variants)
@@ -629,16 +669,19 @@ curl -X POST http://localhost:9000/api/pricing/calculate \
 ## 📈 MÉTRICAS DE SUCESSO
 
 ### Produtos
+
 - **Total:** 3,063 produtos (217 FLV + 2,601 NEO + 245 FTS)
 - **Variants:** 12,252 (4 tiers × produtos)
 - **SKUs únicos:** 12,252 gerados automaticamente
 
 ### Pricing
+
 - **Tiers:** 4 níveis com descontos escalonados
 - **Volume tiers:** 3 níveis (1-10, 11-50, 51+)
 - **Regras dinâmicas:** Suporte ilimitado
 
 ### INMETRO
+
 - **Certificação integrada:** SKU + metadata
 - **KPI tracking:** Score 0-100
 - **Compliance:** Rastreável por produto
@@ -658,4 +701,3 @@ curl -X POST http://localhost:9000/api/pricing/calculate \
 
 **✅ SISTEMA PRONTO PARA PRODUÇÃO**  
 **Documentação completa, código validado, testes implementados**
-
