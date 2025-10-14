@@ -1,8 +1,19 @@
 # 🌐 HaaS Platform - APIs End-to-End para Cobertura 360º
 
+> **Última Atualização**: 14 de Outubro de 2025  
+> **Versão da API**: 1.0.0  
+> **Status do Sistema**: 35% implementado (14/40 endpoints)  
+> **Documentação Completa**: Ver `BLUEPRINT-360-NOW-NEXT-LATER.md`
+
 ## 📋 Visão Geral
 
 Documentação completa das APIs do **HaaS Platform** (Homologação como Serviço) que fornece cobertura 360º para homologação digital automática de equipamentos fotovoltaicos.
+
+### 🎯 Roadmap de Desenvolvimento
+
+- **NOW (2-4 semanas)**: MVP com validação INMETRO + memorial descritivo
+- **NEXT (1-2 meses)**: Automação completa com conectores e diagramas
+- **LATER (3-6 meses)**: IA/ML, expansão 67 distribuidoras, enterprise features
 
 ---
 
