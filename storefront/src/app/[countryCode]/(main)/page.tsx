@@ -78,7 +78,6 @@ export default async function Home(props: {
       <Hero />
       <SolarCTAHero countryCode={countryCode} />
       <PLGOnboarding countryCode={countryCode} />
-      <OnboardingCTA />
       <VideosByClass />
       <ModalidadesGrid />
       <SolarStats />

@@ -49,13 +49,25 @@ export async function middleware(request: NextRequest) {
   const isDev = process.env.NODE_ENV === 'development'
   const pathname = request.nextUrl.pathname
 
-  // If no country code in path, add mock 'br' in dev or detect in prod
-  if (!pathname.match(/^\/(br|us|es|pt|mx)\//i)) {
+  // Check if path already has country code
+  const hasCountryCode = pathname.match(/^\/(br|us|es|pt|mx)(\/|$)/i)
+
+  // If no country code in path and not just country code alone, add it
+  if (!hasCountryCode && pathname !== '/' && !pathname.match(/^\/(br|us|es|pt|mx)$/i)) {
     const defaultCountry = isDev ? 'br' : 'br' // In prod, could use request.geo?.country
 
     // Preserve UTM params and query string in redirect
     const url = request.nextUrl.clone()
     url.pathname = `/${defaultCountry}${pathname}`
+
+    return NextResponse.redirect(url)
+  }
+
+  // If pathname is just root or just country code, redirect to country homepage
+  if (pathname === '/' || pathname.match(/^\/(br|us|es|pt|mx)$/i)) {
+    const country = pathname === '/' ? (isDev ? 'br' : 'br') : pathname.slice(1)
+    const url = request.nextUrl.clone()
+    url.pathname = `/${country}/`
 
     return NextResponse.redirect(url)
   }
