@@ -1,0 +1,232 @@
+[
+  {
+    "id": "fortlev_kit_001",
+    "name": "Kit 2.44kWp - Panel + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.44,
+    "total_price": "R$ 2.923,56",
+    "price_per_wp": 1.2,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+        "image_filename": "IMO00135.png",
+        "manufacturer": "LONGi",
+        "power_w": null,
+        "quantity": null,
+        "component_id": "68dbedcc54fa3ed05329e145",
+        "vision_analysis": {
+          "manufacturer": "LONGi",
+          "model": "Unknown",
+          "power_w": 530
+        }
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "vision_analysis": {
+          "manufacturer": "Growatt",
+          "model": "Unknown",
+          "power_kw": 5.0
+        }
+      }
+    },
+    "pricing": {
+      "total": 2923.56,
+      "per_wp": 1.2,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.44kWp - R$ 1,20/ Wp"
+    }
+  },
+  {
+    "id": "fortlev_kit_002",
+    "name": "Kit 2.52kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.52,
+    "total_price": "R$ 3.163,70",
+    "price_per_wp": 1.26,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68cbfb5b8434a2f72c363a4f/LONGI-630Wp_v2.png",
+        "image_filename": "LONGI-630Wp_v2.png",
+        "manufacturer": "LONGi",
+        "power_w": 630,
+        "quantity": 4,
+        "component_id": "68cbfb5b8434a2f72c363a4f",
+        "vision_analysis": {
+          "manufacturer": "LONGi",
+          "model": "Unknown",
+          "power_w": 530
+        }
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "vision_analysis": {
+          "manufacturer": "Growatt",
+          "model": "Unknown",
+          "power_kw": 0.0
+        }
+      }
+    },
+    "pricing": {
+      "total": 3163.7,
+      "per_wp": 1.26,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.52kWp - R$ 1,26/ Wp"
+    }
+  },
+  {
+    "id": "fortlev_kit_003",
+    "name": "Kit 2.8kWp - Risen + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.8,
+    "total_price": "R$ 3.837,94",
+    "price_per_wp": 1.37,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/671fe64111d826f8e99a58e4/RISEN-700W.png",
+        "image_filename": "RISEN-700W.png",
+        "manufacturer": "Risen",
+        "power_w": 700,
+        "quantity": 4,
+        "component_id": "671fe64111d826f8e99a58e4",
+        "vision_analysis": {
+          "manufacturer": "Risen",
+          "model": "Unknown",
+          "power_w": 0
+        }
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "vision_analysis": {
+          "manufacturer": "Growatt",
+          "model": "Unknown",
+          "power_kw": 0
+        }
+      }
+    },
+    "pricing": {
+      "total": 3837.94,
+      "per_wp": 1.37,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.8kWp - R$ 1,37/ Wp"
+    }
+  },
+  {
+    "id": "fortlev_kit_004",
+    "name": "Kit 2.8kWp - Risen + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.8,
+    "total_price": "R$ 3.923,18",
+    "price_per_wp": 1.4,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/671fe64111d826f8e99a58e4/RISEN-700W.png",
+        "image_filename": "RISEN-700W.png",
+        "manufacturer": "Risen",
+        "power_w": 700,
+        "quantity": 4,
+        "component_id": "671fe64111d826f8e99a58e4",
+        "vision_analysis": {
+          "manufacturer": "Risen",
+          "model": "Unknown",
+          "power_w": 530
+        }
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "image_filename": "GROWATT-NEO-2,25.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "67d9594a76d2130bb9003087",
+        "vision_analysis": {
+          "manufacturer": "Growatt",
+          "model": "Unknown",
+          "power_kw": 5.0
+        }
+      }
+    },
+    "pricing": {
+      "total": 3923.18,
+      "per_wp": 1.4,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.8kWp - R$ 1,40/ Wp"
+    }
+  },
+  {
+    "id": "fortlev_kit_005",
+    "name": "Kit 2.92kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.92,
+    "total_price": "R$ 4.222,76",
+    "price_per_wp": 1.44,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/6888f711d571954b7ff6effc/LONGI-585W.png",
+        "image_filename": "LONGI-585W.png",
+        "manufacturer": "LONGi",
+        "power_w": 585,
+        "quantity": 5,
+        "component_id": "6888f711d571954b7ff6effc",
+        "vision_analysis": {
+          "manufacturer": "LONGi",
+          "model": "Unknown",
+          "power_w": 530
+        }
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "vision_analysis": {
+          "manufacturer": "Growatt",
+          "model": "Unknown",
+          "power_kw": 0
+        }
+      }
+    },
+    "pricing": {
+      "total": 4222.76,
+      "per_wp": 1.44,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.925kWp - R$ 1,44/ Wp"
+    }
+  }
+]
