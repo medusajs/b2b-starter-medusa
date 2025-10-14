@@ -13,10 +13,13 @@ playwright>=1.40.0
 
 # AI/ML - OpenAI
 openai>=1.0.0
-openai-realtime>=0.1.0  # If available
 
-# AI/ML - Ollama
+# AI/ML - Ollama  
 ollama>=0.1.0
+
+# AWS SDK
+boto3>=1.28.0
+botocore>=1.31.0
 
 # PDF Processing
 pdfplumber>=0.10.0
