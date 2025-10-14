@@ -22,6 +22,10 @@ httpx>=0.24.0
 factory-boy>=3.3.0
 faker>=19.3.0
 fakeredis>=2.20.0
+email-validator>=2.1.0.post1
+
+# Compatibility pins for local dev/testing
+bcrypt==3.2.2
 
 # Debugging
 ipdb>=0.13.13

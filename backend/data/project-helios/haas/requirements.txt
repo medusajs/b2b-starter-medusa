@@ -28,6 +28,7 @@ aiohttp>=3.8.6
 tenacity>=8.2.3
 beautifulsoup4>=4.12.2
 lxml>=4.9.3
+psutil>=5.9.5
 
 # ===== DATA PROCESSING =====
 pandas>=2.1.1

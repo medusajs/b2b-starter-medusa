@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.dependencies import get_current_user
+from app.auth.dependencies import get_current_user
 from validators.inmetro.pipeline import InmetroPipeline
 # InmetroExtractionError, EquipmentRequest, EquipmentRecord, InmetroCrawler
 # serão usados na implementação real do _process_validation()
