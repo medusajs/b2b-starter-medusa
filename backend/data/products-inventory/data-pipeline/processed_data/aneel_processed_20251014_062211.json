@@ -1,0 +1,74 @@
+[
+  {
+    "document_id": "rn_1059_2023",
+    "title": "Resolução Normativa 1059/2023",
+    "summary": "Resumo do documento: Atualização das regras de geração distribuída...",
+    "key_points": [
+      "Ponto chave 1: Requisitos técnicos atualizados",
+      "Ponto chave 2: Novos prazos de homologação",
+      "Ponto chave 3: Alterações em procedimentos"
+    ],
+    "technical_requirements": [
+      {
+        "requirement": "Certificação INMETRO obrigatória",
+        "category": "certification",
+        "mandatory": true
+      },
+      {
+        "requirement": "Proteção anti-ilhamento",
+        "category": "safety",
+        "mandatory": true
+      }
+    ],
+    "impact_assessment": {
+      "affected_products": [
+        "inversores",
+        "painéis solares"
+      ],
+      "severity": "medium",
+      "action_required": true,
+      "deadline": "90 dias"
+    },
+    "compliance_notes": [
+      "Verificar certificações dos produtos atuais",
+      "Atualizar documentação técnica",
+      "Revisar procedimentos de homologação"
+    ]
+  },
+  {
+    "document_id": "cert_inv_2024",
+    "title": "Nova certificação de inversores",
+    "summary": "Resumo do documento: Requisitos atualizados para certificação INMETRO...",
+    "key_points": [
+      "Ponto chave 1: Requisitos técnicos atualizados",
+      "Ponto chave 2: Novos prazos de homologação",
+      "Ponto chave 3: Alterações em procedimentos"
+    ],
+    "technical_requirements": [
+      {
+        "requirement": "Certificação INMETRO obrigatória",
+        "category": "certification",
+        "mandatory": true
+      },
+      {
+        "requirement": "Proteção anti-ilhamento",
+        "category": "safety",
+        "mandatory": true
+      }
+    ],
+    "impact_assessment": {
+      "affected_products": [
+        "inversores",
+        "painéis solares"
+      ],
+      "severity": "medium",
+      "action_required": true,
+      "deadline": "90 dias"
+    },
+    "compliance_notes": [
+      "Verificar certificações dos produtos atuais",
+      "Atualizar documentação técnica",
+      "Revisar procedimentos de homologação"
+    ]
+  }
+]

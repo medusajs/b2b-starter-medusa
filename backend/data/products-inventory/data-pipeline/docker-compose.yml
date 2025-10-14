@@ -14,10 +14,7 @@ version: "3.8"
 # ============================================================================
 networks:
   ysh-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.25.0.0/16
+    external: true
 
 # ============================================================================
 # VOLUMES
@@ -55,16 +52,14 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - ./SQL-SCHEMA-POSTGRESQL.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
-      - ./infrastructure/postgres/postgresql.conf:/etc/postgresql/postgresql.conf:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.10
+
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ysh_admin -d ysh_pipeline"]
       interval: 10s
       timeout: 5s
       retries: 5
-    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     labels:
       - "com.ysh.service=database"
       - "com.ysh.monitoring=enabled"
@@ -91,7 +86,7 @@ services:
       - ./infrastructure/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.11
+
     healthcheck:
       test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
       interval: 10s
@@ -110,12 +105,12 @@ services:
     restart: unless-stopped
     command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - dynamodb-data:/data
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.12
+
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8000 || exit 1"]
       interval: 10s
@@ -143,7 +138,7 @@ services:
       - minio-data:/data
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.13
+
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 10s
@@ -166,7 +161,7 @@ services:
       - qdrant-data:/qdrant/storage
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.14
+
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
       interval: 10s
@@ -192,7 +187,7 @@ services:
       - ./infrastructure/airflow/postgres-data:/var/lib/postgresql/data
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.20
+
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U airflow"]
       interval: 10s
@@ -207,7 +202,7 @@ services:
     command: redis-server --requirepass airflow_redis_2025
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.21
+
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -245,7 +240,7 @@ services:
       - "8080:8080"
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.22
+
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 30s
@@ -279,7 +274,7 @@ services:
       - ./requirements.txt:/opt/airflow/requirements.txt:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.23
+
     command: scheduler
     labels:
       - "com.ysh.service=orchestration"
@@ -305,7 +300,7 @@ services:
       - ./requirements.txt:/opt/airflow/requirements.txt:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.24
+
     command: celery worker
     labels:
       - "com.ysh.service=orchestration"
@@ -323,7 +318,7 @@ services:
       - "5555:5555"
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.25
+
     command: celery flower
     labels:
       - "com.ysh.service=monitoring"
@@ -349,7 +344,7 @@ services:
       - prometheus-data:/prometheus
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.30
+
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/healthy"]
       interval: 10s
@@ -379,7 +374,7 @@ services:
       - ./infrastructure/grafana/dashboards:/var/lib/grafana/dashboards:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.31
+
     depends_on:
       - prometheus
     healthcheck:
@@ -405,7 +400,7 @@ services:
       - "9187:9187"
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.32
+
     depends_on:
       - postgres
     labels:
@@ -425,7 +420,7 @@ services:
       - "9121:9121"
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.33
+
     depends_on:
       - redis
     labels:
@@ -449,7 +444,7 @@ services:
       - /dev/disk/:/dev/disk:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.34
+
     labels:
       - "com.ysh.service=monitoring"
 
@@ -472,7 +467,7 @@ services:
       - /:/rootfs:ro
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.35
+
     labels:
       - "com.ysh.service=monitoring"
 
@@ -501,7 +496,7 @@ services:
       - ./logs:/app/logs
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.40
+
     depends_on:
       - postgres
       - redis
@@ -540,7 +535,7 @@ services:
       - ./logs:/app/logs
     networks:
       ysh-network:
-        ipv4_address: 172.25.0.41
+
     depends_on:
       - postgres
       - redis
