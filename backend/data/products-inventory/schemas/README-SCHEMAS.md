@@ -14,7 +14,7 @@ Este diretório contém schemas JSON completos para todas as categorias de produ
 
 ## 📁 Estrutura de Schemas
 
-```
+```tsx
 schemas/
 ├── README-SCHEMAS.md                        # Este arquivo
 ├── inverters/
@@ -61,7 +61,7 @@ schemas/
 
 **Categorias:**
 
-```
+```tsx
 cat_inversores
 cat_inversores_grid_tie
 cat_inversores_hibrido
@@ -95,7 +95,7 @@ cat_inversores_50_100kw
 
 **Categorias:**
 
-```
+```tsx
 cat_paineis
 cat_paineis_monocristalino
 cat_paineis_policristalino
@@ -128,7 +128,7 @@ cat_paineis_600_700w
 
 **Categorias:**
 
-```
+```tsx
 cat_baterias
 cat_baterias_litio
 cat_baterias_chumbo_acido
@@ -170,7 +170,7 @@ cat_baterias_30_50kwh
 
 **Categorias:**
 
-```
+```tsx
 cat_ev_chargers
 cat_ev_chargers_wallbox
 cat_ev_chargers_poste
@@ -209,7 +209,7 @@ cat_ev_chargers_22kw
 
 **Categorias sugeridas:**
 
-```
+```tsx
 cat_estruturas
 cat_estruturas_ceramico
 cat_estruturas_metalico
@@ -288,7 +288,7 @@ cat_estruturas_solo
 
 **Categorias:**
 
-```
+```tsx
 cat_kits
 cat_kits_grid_tie
 cat_kits_hibrido
@@ -563,7 +563,7 @@ const { result: products } = await createProductsWorkflow(container).run({
 
 O Medusa calcula automaticamente o estoque disponível do kit:
 
-```
+```tsx
 Kit Stock = MIN(
   floor(Panel Stock / 10),      // 500 painéis / 10 = 50 kits
   floor(Inverter Stock / 1),    // 50 inversores / 1 = 50 kits
@@ -744,7 +744,7 @@ const { result: kit } = await createProductsWorkflow(container).run({
 
 ### Categorias (Hierárquicas)
 
-```
+```tsx
 cat_inversores
 ├── cat_inversores_grid_tie
 ├── cat_inversores_hibrido
@@ -796,7 +796,7 @@ cat_kits
 
 ### Tags (Flat, para busca)
 
-```
+```tsx
 Fabricantes:
 tag_growatt, tag_canadian_solar, tag_byd, tag_wallbox, tag_fronius, tag_goodwe, tag_sungrow, tag_jinko, tag_longi, tag_trina
 
