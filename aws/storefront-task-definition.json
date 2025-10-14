@@ -11,7 +11,7 @@
       "containerDefinitions": [
             {
                   "name": "ysh-b2b-storefront",
-                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-b2b/storefront:1.0.0",
+                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-storefront:1.0.0",
                   "portMappings": [
                         {
                               "containerPort": 8000,

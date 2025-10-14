@@ -268,7 +268,7 @@ class TestINMETROBatch:
             "/api/inmetro/batch", json={"equipments": equipments}, headers=auth_headers
         )
 
-        assert response.status_code in [status.HTTP_400_BAD_REQUEST, status.HTTP_202_ACCEPTED]
+        assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 
 
 # ==================== Integration Tests ====================
