@@ -12,6 +12,7 @@
 Este documento apresenta projeções financeiras validadas para 36 meses da YSH Solar Platform, baseadas em 3 cenários de mercado (Pessimista, Neutro, Otimista) e fundamentadas nas estratégias de precificação inteligente documentadas.
 
 **Premissas-Chave:**
+
 - Modelo híbrido HaaS (Homologação) + SaaS (Platform-only)
 - Pricing dinâmico com margens 19-40% conforme região e contexto
 - B2B multi-canal (Direct, Integrator, Distributor, Marketplace, White-label)
@@ -73,6 +74,7 @@ Este documento apresenta projeções financeiras validadas para 36 meses da YSH 
 ### 🚀 CENÁRIO OTIMISTA - "Boom Solar"
 
 **Contexto Macro:**
+
 - Boom solar nacional (crescimento 100%+ a.a.)
 - Pricing premium sustentável (margens 32-40%)
 - Alta conversão (35%+ quote-to-sale)
@@ -103,30 +105,35 @@ Total MRR: R$ 695.000
 #### 🎯 Estratégias Recomendadas
 
 ✅ **Investir Pesado em Branding Premium**
+
 - Budget marketing: 15-18% da receita (R$ 21.4M nos 36 meses)
 - Posicionamento: "Tesla da Homologação Solar"
 - Certificações premium: ISO 9001, Great Place to Work
 - Casos de sucesso: Projetos icônicos (shopping centers, indústrias)
 
 ✅ **Expandir Equipe Comercial Rapidamente**
+
 - Mês 12: 25 vendedores (5:1 ratio SDR:Closer)
 - Mês 24: 60 vendedores
 - Mês 36: 120 vendedores
 - Comissionamento: 6-15% conforme perfil cliente (B1-B6)
 
 ✅ **Desenvolver Produtos Diferenciados**
+
 - IoT Monitoring Premium (margem 85%)
 - EV Charger integration (cross-sell 18% conversão)
 - Battery Backup systems (margem 22%)
 - Preventive Maintenance SaaS (LTV R$ 3.725)
 
 ✅ **Capturar Market Share Agressivamente**
+
 - Meta Ano 1: 10% market share (de 2%)
 - Meta Ano 2: 18% market share
 - Meta Ano 3: 25% market share
 - Estratégia: Pricing competitivo + qualidade superior
 
 ✅ **Manter Pricing Premium com Alta Qualidade**
+
 - Markup dinâmico: 25-35% (vs 17-22% concorrentes)
 - SLA 99.9% uptime (vs 95% mercado)
 - Homologação média: 45 dias (vs 90-120 dias mercado)
@@ -149,6 +156,7 @@ Total MRR: R$ 695.000
 ### 📊 CENÁRIO NEUTRO (BASE) - "Crescimento Sustentável"
 
 **Contexto Macro:**
+
 - Crescimento steady mercado solar (30-40% a.a.)
 - Margens estáveis (25-32%)
 - Competição moderada
@@ -179,28 +187,33 @@ Total MRR: R$ 421.000
 #### 🎯 Estratégias Recomendadas
 
 ✅ **Foco em Eficiência Operacional**
+
 - Automação processos: Reduzir tempo homologação 90→60 dias
 - Otimização custos: Negociação distribuidores (NeoSolar, Solfácil)
 - Standardização: Templates ART/TRT reutilizáveis
 - IA/ML: Análise automática projetos (Helio AI)
 
 ✅ **Investimento Equilibrado em Crescimento**
+
 - Budget marketing: 10-12% receita (R$ 9.4M nos 36 meses)
 - Canais: 40% Inbound SEO, 30% Paid Ads, 30% Partnerships
 - Conteúdo: Blog técnico, webinars, cases
 
 ✅ **Desenvolvimento Gradual de Produtos**
+
 - Roadmap trimestral: 1 feature nova/mês
 - Foco: Funcionalidades que reduzem fricção (auto-complete forms, OCR documentos)
 - Beta testing: 10% clientes early adopters
 
 ✅ **Consolidação de Market Share**
+
 - Meta Ano 1: 6% market share
 - Meta Ano 2: 11% market share
 - Meta Ano 3: 15% market share
 - Estratégia: Qualidade consistente + preço justo
 
 ✅ **Otimização Contínua de Processos**
+
 - Cycle time redução: -20% a cada 6 meses
 - Error rate: <2% (retrabalho)
 - First-time approval: 85%+
@@ -222,6 +235,7 @@ Total MRR: R$ 421.000
 ### 😰 CENÁRIO PESSIMISTA - "Estratégias de Sobrevivência"
 
 **Contexto Macro:**
+
 - Guerra de preços intensa (commoditização)
 - Recessão econômica (PIB -1% a 0%)
 - Alta competição (150+ players)
@@ -252,36 +266,42 @@ Total MRR: R$ 287.000
 #### 😰 Estratégias de Sobrevivência
 
 ⚠️ **Redução Agressiva de Custos**
+
 - Headcount: Congelar contratações, renegociar salários (-10-15%)
 - Infra AWS: Migrar para tier mínimo (R$ 247→R$ 150/mês)
 - Marketing: Budget 5-7% receita (máximo R$ 3.3M nos 36 meses)
 - Offshore: Considerar equipe remota América Latina (30-40% economia)
 
 ⚠️ **Foco em Nichos de Alto Valor**
+
 - Segmentos rentáveis: B5 (médias empresas) e B6 (industrial)
 - Pricing seletivo: Rejeitar projetos <12% margem
 - Especialização regional: Focar Sudeste + Sul (85% volume)
 - Enterprise contracts: SLAs customizados com pricing premium
 
 ⚠️ **Diversificação de Receitas (SaaS)**
+
 - Acelerar conversão HaaS→SaaS (menor OPEX)
 - SaaS Pure margin: 66.5% (vs HaaS 28.5%)
 - White-label API: R$ 149/mês + R$ 0.01/call excess
 - Marketplace integrations: Solfácil, Portal Solar (fee 2-3%)
 
 ⚠️ **Parcerias Estratégicas**
+
 - Co-selling: NeoSolar, Renovigi (compartilhar CAC)
 - Technology partners: Integração Sinapsis, Elgin, Intelbras
 - Channel partnerships: Revendas regionais (B2B2C)
 - Financing partners: BV, Santander, Sicoob (comissão 1-2%)
 
 ⚠️ **Pricing Defensivo Inteligente**
+
 - Dynamic pricing: Ajuste horário/contextual (±15%)
 - Price matching: Máximo 15% desconto, mínimo 12% margem
 - Bundle agressivo: Kits com desconto 12-15% (vs itens separados)
 - Financing options: 24-60× para reduzir fricção upfront
 
 ⚠️ **Manter Apenas Produtos Core**
+
 - Descontinuar: Features <10% adoption
 - Manutenção mínima: Apenas critical bugs
 - Tech debt: Aceitar até 30% (vs ideal 15%)
@@ -656,12 +676,13 @@ Se observar estes indicadores, considerar **pivot ou exit**:
 ## ✅ Validação e Sign-off
 
 **Revisado por:**
+
 - [ ] CFO / Finance Team
 - [ ] CEO / Strategy Team  
 - [ ] CTO / Product Team
 - [ ] Sales VP / Revenue Team
 
-**Aprovado em:** ___/___/2025
+**Aprovado em:** _**/**_/2025
 
 **Próxima Revisão:** Trimestral (Janeiro 2026)
 
