@@ -18,6 +18,7 @@ import {
   removeCartId,
   setAuthToken,
 } from "./cookies"
+import { error } from "console"
 
 export const retrieveCustomer = async (): Promise<B2BCustomer | null> => {
   const authHeaders = await getAuthHeaders()
@@ -136,25 +137,27 @@ export async function login(_currentState: unknown, formData: FormData) {
   const password = formData.get("password") as string
 
   try {
-    await sdk.auth
-      .login("customer", "emailpass", { email, password })
-      .then(async (token) => {
-        track("customer_logged_in")
-        setAuthToken(token as string)
+    const token = await sdk.auth.login("customer", "emailpass", { email, password })
+    
+    track("customer_logged_in")
+    setAuthToken(token as string)
 
-        const [customerCacheTag, productsCacheTag, cartsCacheTag] =
-          await Promise.all([
-            getCacheTag("customers"),
-            getCacheTag("products"),
-            getCacheTag("carts"),
-          ])
+    const [customerCacheTag, productsCacheTag, cartsCacheTag] =
+      await Promise.all([
+        getCacheTag("customers"),
+        getCacheTag("products"),
+        getCacheTag("carts"),
+      ])
 
-        revalidateTag(customerCacheTag)
+    revalidateTag(customerCacheTag)
 
-        const customer = await retrieveCustomer()
-        const cart = await retrieveCart()
+    const customer = await retrieveCustomer()
+    const cart = await retrieveCart()
 
-        if (customer?.employee?.company_id) {
+    try {
+      if (customer?.employee?.company_id) {        
+        // Only update if cart exists, otherwise it will be created with company_id in getOrSetCart
+        if (cart) {
           await updateCart({
             metadata: {
               ...cart?.metadata,
@@ -162,17 +165,21 @@ export async function login(_currentState: unknown, formData: FormData) {
             },
           })
         }
+      }
+    } catch (e) {
+      console.log("Error in updateCart:", e)
+      throw e
+    }
+    revalidateTag(productsCacheTag)
+    revalidateTag(cartsCacheTag)
 
-        revalidateTag(productsCacheTag)
-        revalidateTag(cartsCacheTag)
-      })
-  } catch (error: any) {
-    return error.toString()
-  }
-
-  try {
     await transferCart()
+
+    redirect(`/store`)
   } catch (error: any) {
+    if (error.message === 'NEXT_REDIRECT') {
+      throw error // Re-throw redirect errors
+    }
     return error.toString()
   }
 }

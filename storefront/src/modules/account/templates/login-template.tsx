@@ -70,7 +70,7 @@ const LoginTemplate = ({ regions }: { regions: HttpTypes.StoreRegion[] }) => {
 
       <div className="flex justify-center items-center p-6 small:p-0 h-full">
         {currentView === LOGIN_VIEW.LOG_IN ? (
-          <Login setCurrentView={updateView} />
+          <Login />
         ) : (
           <Register setCurrentView={updateView} regions={regions} />
         )}
