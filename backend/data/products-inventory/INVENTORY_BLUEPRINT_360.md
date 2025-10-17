@@ -53,6 +53,59 @@ python sku-governor.py \
 
 ---
 
+## 🎨 Bundle Composer - Sistema de Composição de Kits
+
+**Status**: ✅ **Implementado e Pronto para Produção**
+
+O **Bundle Composer** cria kits solares como bundles virtuais a partir de SKUs de componentes validados, calculando disponibilidade dinâmica e preços com margem configurável.
+
+### Funcionalidades Principais
+
+- ✅ **Composição de Bundles**: Cria produtos virtuais referenciando componentes
+- ✅ **Disponibilidade Dinâmica**: `MIN(FLOOR(stock_componente / quantity_required))`
+- ✅ **Precificação Flexível**: Soma de componentes + margem configurável
+- ✅ **Geração de SKU**: Padrão `KIT-{CATEGORY}-{POWER}KWP-{BRAND}`
+- ✅ **Payloads Medusa**: Output pronto para `createProductsWorkflow`
+- ✅ **3 Estratégias de Preço**: sum_of_components, sum_with_margin, fixed_price
+
+### Exemplo de Bundle
+
+```json
+{
+  "title": "Kit Solar Residencial 8.1 kWp Híbrido",
+  "variant_sku": "KIT-RESHYB-8KWP-DEYE",
+  "manage_inventory": false,
+  "inventory_items": [
+    {"inventory_item_id": "inv_panel_jinko_540w", "required_quantity": 15},
+    {"inventory_item_id": "inv_inverter_deye_8kw", "required_quantity": 1},
+    {"inventory_item_id": "inv_battery_pylontech_13kwh", "required_quantity": 1}
+  ],
+  "metadata": {
+    "is_bundle": true,
+    "pricing_strategy": "sum_with_margin",
+    "margin_percent": 18.0
+  }
+}
+```
+
+### Quick Start
+
+```bash
+# Criar bundle com configuração
+python bundle-composer.py \
+  examples/bundle-config-residential-hybrid.json \
+  --output bundles/residential-hybrid-payload.json \
+  --mock-inventory \
+  --mock-prices
+
+# Testar suite completa
+.\test-bundle-composer.ps1
+```
+
+**Documentação completa**: Ver `BUNDLE-COMPOSER-README.md`
+
+---
+
 ## 📊 Visão Executiva
 
 | Métrica | Valor | Detalhes |
