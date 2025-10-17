@@ -292,6 +292,7 @@
   },
   "active": "69a517d9a1b85fb0",
   "lastOpenFiles": [
+    "backend/data/products-inventory/SKU-GOVERNOR-USAGE.md",
     "backend/data/products-inventory/sku-governor.py",
     "backend/data/products-inventory/schemas/bundles/bundle-schema.json",
     "docs/YSH_PRICING_IMPLEMENTATION.md",
@@ -312,7 +313,6 @@
     "storefront/src/lib/services/equipment-leaderboard-service.ts",
     "storefront/src/lib/services/persona-financial-analyzer.ts",
     "storefront/src/lib/services/bacen-realtime-service.ts",
-    "storefront/src/lib/services",
-    "storefront/src/lib/types/bacen-realtime.ts"
+    "storefront/src/lib/services"
   ]
 }
