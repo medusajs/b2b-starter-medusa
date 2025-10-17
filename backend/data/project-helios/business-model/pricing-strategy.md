@@ -26,6 +26,7 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 | **Norte** | R$ 450 | Logística complexa justifica premium |
 
 **Inclui:**
+
 - ✅ Geração automática de todos os documentos
 - ✅ Revisão técnica por engenheiro certificado
 - ✅ Assinatura de ART
@@ -35,6 +36,7 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 - ✅ Suporte via chat/email
 
 **SLA:**
+
 - Documentos prontos em 24h após upload completo
 - Submissão à concessionária em 48h
 - Suporte: resposta em até 8h (horário comercial)
@@ -48,15 +50,19 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 **Precificação:** R$ 800 base + R$ 5/kWp
 
 **Exemplo:**
+
 - Sistema de 100 kWp: R$ 800 + (100 × R$ 5) = R$ 1.300
 - Sistema de 500 kWp: R$ 800 + (500 × R$ 5) = R$ 3.300
 
 **Inclui tudo do Tier 1, mais:**
+
+- ✅ Análise de viabilidade técnica preliminar
 - ✅ Revisão técnica mais aprofundada
 - ✅ Suporte prioritário
 - ✅ Gerente de conta dedicado (>10 projetos/mês)
 
 **SLA:**
+
 - Documentos prontos em 12h
 - Submissão em 24h
 - Suporte: resposta em até 4h
@@ -76,6 +82,7 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 | 100+ projetos | Custom | R$ 320-350 | -22-25% |
 
 **Inclui tudo do Tier 2, mais:**
+
 - ✅ API dedicada
 - ✅ White-label opcional
 - ✅ CSM dedicado
@@ -120,6 +127,8 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 **Pergunta:** Em que preço o HaaS deixa de fazer sentido para o integrador?
 
 **Premissas:**
+
+- Receita por projeto: R$ 800
 - Custo interno de homologação: R$ 1.200
 - Valor de aceleração de fluxo de caixa: R$ 1.500
 - Redução de retrabalho: R$ 134
@@ -127,7 +136,8 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 
 **Break-even price:** ~R$ 2.800
 
-**Margem de segurança:** 
+**Margem de segurança:**
+
 - Preço atual: R$ 450
 - Break-even: R$ 2.800
 - **Margem: 522%** (pode aumentar preço 5x antes de perder proposta de valor)
@@ -135,6 +145,7 @@ A estratégia de precificação do HaaS é fundamentada em **Value-Based Pricing
 ### Willingness to Pay (WTP) Research Needed
 
 **Hipóteses a validar:**
+
 - WTP para micro: R$ 600-800
 - WTP para mini: R$ 1.500-2.500
 - WTP para enterprise: R$ 350-450/projeto em volume

@@ -38,7 +38,8 @@ schemas/
 │   ├── kits-medusa-schema.json
 │   └── convert-kits-to-medusa.js
 └── bundles/
-    └── bundles-medusa-schema.json           # ✨ NOVO (com Inventory Kits)
+    ├── bundle-schema.json                   # ✨ NOVO (com Inventory Kits)
+    └── bundles-medusa-schema.json           # Legado, a ser mesclado/removido
 ```
 
 ---
