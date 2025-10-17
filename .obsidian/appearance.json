@@ -1,3 +1,6 @@
 {
-  "accentColor": "#ff00bb"
+  "accentColor": "#ff00bb",
+  "interfaceFontFamily": "Helvetica",
+  "baseFontSize": 18,
+  "baseFontSizeAction": true
 }

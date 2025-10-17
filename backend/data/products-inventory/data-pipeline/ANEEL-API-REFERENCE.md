@@ -215,7 +215,7 @@ PATTERNS = {
 
 ### Endpoint
 
-```
+```tsx
 GET https://dadosabertos-aneel.opendata.arcgis.com/api/feed/dcat-ap/2.1.1
 ```
 
@@ -334,7 +334,7 @@ DCAT-AP 2.1.1 (Application Profile) - European standard for data portals.
 
 ### Endpoint
 
-```
+```tsx
 GET https://dadosabertos-aneel.opendata.arcgis.com/api/feed/dcat-ap/3.0.0
 ```
 
@@ -381,12 +381,13 @@ DCAT-AP 3.0.0 - Latest European standard with enhanced metadata.
 
 ### Endpoint
 
-```
+```tsx
 GET https://dadosabertos-aneel.opendata.arcgis.com/api/search/v1
 ```
 
 ### Description
 
+```tsx
 Full-text search across all ANEEL datasets with filtering and pagination.
 
 ### Query Parameters

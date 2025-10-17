@@ -256,7 +256,7 @@ Este agente é especializado em **string boxes** (caixas de proteção CC/DC) pa
 
 ## Hierarquia de Categorias
 
-```
+```tsx
 cat_string_boxes (String Boxes e Proteção)
 │
 ├── Por Tipo

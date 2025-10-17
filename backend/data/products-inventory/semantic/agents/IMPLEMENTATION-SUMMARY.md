@@ -15,7 +15,7 @@
 
 ## 📂 Arquivos Criados
 
-```
+```tsx
 products-inventory/semantic/agents/
 ├── README.md                           # Documentação principal dos agents
 ├── batteries-storage-agent.md          # Agent de baterias/armazenamento
