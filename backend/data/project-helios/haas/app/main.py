@@ -15,7 +15,8 @@ from app.routers import (
     webhooks,
     inmetro,
     monitoring,
-    documents
+    documents,
+    bacen_realtime,
 )
 
 # Configure logging
@@ -102,6 +103,11 @@ app.include_router(
     documents.router,
     prefix="/api",
     tags=["Documents"]
+)
+app.include_router(
+    bacen_realtime.router,
+    prefix="/api",
+    tags=["BACEN Realtime"]
 )
 
 

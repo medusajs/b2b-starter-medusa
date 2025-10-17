@@ -57,7 +57,7 @@ Condições Ambientais:
 
 #### 📈 Performance Real - São Paulo (Referência)
 
-**Sistema 5.5kWp (10x 550W) - Inclinação 23°**
+##### **Sistema 5.5kWp (10x 550W) - Inclinação 23°**
 
 | Fabricante | kWh/mês | kWh/ano | PR Real | LCOE (R$/kWh) | Payback (anos) |
 |------------|---------|---------|---------|---------------|----------------|
@@ -69,6 +69,7 @@ Condições Ambientais:
 | DMEGC | 744 | 8.928 | 0.85 | 0.24 | 4.6 |
 
 **Cálculos Base:**
+
 - Irradiação Média SP: 4.52 kWh/m²/dia (PVGIS)
 - HSP (Horas Sol Pico): 4.52h/dia
 - Tarifa Média: R$ 0.85/kWh (CPFL Paulista)
@@ -87,7 +88,7 @@ Condições Ambientais:
 
 #### 📈 Performance Real - Brasília (Alto Irradiação)
 
-**Sistema 6.4kWp (10x 640W) - Inclinação 16°**
+##### **Sistema 6.4kWp (10x 640W) - Inclinação 16°**
 
 | Fabricante | kWh/mês | kWh/ano | PR Real | LCOE (R$/kWh) | Payback (anos) | Ganho vs PERC |
 |------------|---------|---------|---------|---------------|----------------|---------------|
@@ -96,7 +97,7 @@ Condições Ambientais:
 | Trina Vertex N | 1.046 | 12.552 | 0.87 | 0.31 | 5.9 | +4.5% |
 | JA Solar D30 | 1.040 | 12.480 | 0.87 | 0.29 | 5.6 | +4.1% |
 
-**Vantagens N-Type:**
+##### **Vantagens N-Type:**
 - ✅ Menor coeficiente de temperatura (+3-5% em clima quente)
 - ✅ Sem degradação induzida por luz (LID)
 - ✅ Melhor desempenho em baixa irradiância
@@ -117,7 +118,7 @@ Condições Ambientais:
 
 #### 📈 Performance Real - Fortaleza (Solo/Laje c/ Albedo Alto)
 
-**Sistema 6.0kWp (10x 600W) - Solo elevado 1m, Albedo 0.30**
+##### **Sistema 6.0kWp (10x 600W) - Solo elevado 1m, Albedo 0.30**
 
 | Fabricante | kWh Front | kWh Traseiro | kWh Total/mês | Ganho Real | LCOE (R$/kWh) |
 |------------|-----------|--------------|---------------|------------|---------------|
@@ -128,6 +129,7 @@ Condições Ambientais:
 | Astronergy BF | 850 | 165 | 1.015 | +19% | 0.31 |
 
 **Fatores Críticos Bifacial:**
+
 - Altura instalação: 0.5-1.5m do solo (+8-25% ganho)
 - Albedo superfície: Concreto/areia > grama > solo
 - Estrutura: Rastreador solar (+40-60% vs fixo)
@@ -173,7 +175,7 @@ Condições Ambientais:
 
 #### 📊 Impacto Real de Eficiência
 
-**Sistema 5.0kWp - São Paulo (25 anos operação)**
+##### **Sistema 5.0kWp - São Paulo (25 anos operação)**
 
 | Inversor | Eff. Euro | Perda Anual | Energia Perdida 25a | Valor Perdido R$ | ROI vs Baseline |
 |----------|-----------|-------------|---------------------|------------------|-----------------|
@@ -199,7 +201,7 @@ Condições Ambientais:
 
 #### 🔄 Microinversor vs String - Comparativo 25 anos
 
-**Sistema 4.0kWp Residencial - São Paulo**
+##### **Sistema 4.0kWp Residencial - São Paulo**
 
 | Aspecto | String (Growatt 3kW) | Micro (Hoymiles HMS-2000) | Diferença |
 |---------|---------------------|---------------------------|-----------|
@@ -220,7 +222,7 @@ Condições Ambientais:
 
 ### 1. Cadeia de Valor - Painéis Tier 1
 
-**Exemplo: JA Solar 550W PERC**
+#### **Exemplo: JA Solar 550W PERC**
 
 | Etapa | Preço (R$) | Margem | Markup | Acumulado |
 |-------|-----------|--------|--------|-----------|
@@ -309,6 +311,7 @@ Onde:
 | **Tier 3** | R$ 17.800 | R$ 320 | 198.500 kWh | 8% | 0.235 |
 
 **Comparação com Rede:**
+
 - Tarifa Média Brasil: R$ 0.75/kWh (B1 residencial)
 - LCOE Solar: R$ 0.24-0.30/kWh
 - **Economia: 60-68% vs rede**

@@ -36,7 +36,8 @@
 ### 1️⃣ Kits Solares Fotovoltaicos
 
 #### On-Grid (Conectados à Rede)
-```
+
+```tsx
 📦 Faixas de Potência Disponíveis:
 ├─ Micro (< 3 kWp)      → 5.000+ SKUs
 ├─ Residencial (3-10 kWp) → 8.000+ SKUs  
@@ -48,7 +49,8 @@
 ```
 
 #### Off-Grid (Sistemas Isolados)
-```
+
+```tsx
 🔋 Configurações:
 ├─ Com Bateria de Lítio     → 2.800+ SKUs
 ├─ Com Bateria Chumbo-Ácido → 1.200+ SKUs
@@ -59,7 +61,8 @@
 ```
 
 #### Híbridos (Grid-Tie + Backup)
-```
+
+```tsx
 ⚡ Principais Fabricantes:
 ├─ Growatt (SPH, MOD, MIN series)
 ├─ Deye (Hybrid Inverters 5-12kW)
@@ -87,6 +90,7 @@
 | **Ztroon** | Poly/Mono Entry | 160-400W | 16.5-20.2% | INMETRO | 10-15 anos | 150+ |
 
 #### 📋 Tecnologias Disponíveis
+
 - **Monocristalino PERC**: Padrão mercado (20-21% eficiência)
 - **N-Type TOPCon**: Alta performance (22-23% eficiência)
 - **Bifacial**: Geração em ambas as faces (+10-30% yield)
@@ -94,6 +98,7 @@
 - **Full Black**: Design premium para residencial
 
 #### 🏆 KPIs Solares Principais
+
 | Métrica | Tier 1 | Tier 2 | Tier 3 |
 |---------|--------|--------|--------|
 | **Eficiência de Célula** | 22-24% | 20-22% | 16-20% |
@@ -141,6 +146,7 @@
 | **Sofar Solar** | HYD-EP series | 3-6 kW | 97.2% | Lítio 2.4-19.2kWh | 180+ |
 
 #### 🏅 Certificações Internacionais
+
 - **IEC 61727**: Requisitos gerais para inversores grid-tie
 - **IEC 62116**: Anti-ilhamento
 - **VDE-AR-N 4105**: Padrão alemão (referência global)
@@ -149,6 +155,7 @@
 - **INMETRO Portaria 004/2011**: Obrigatório no Brasil
 
 #### ⚙️ KPIs de Inversores
+
 | Métrica | Tier 1 | Tier 2 |
 |---------|--------|--------|
 | **Eficiência Máxima** | 98.4-98.8% | 97.5-98.3% |
@@ -184,6 +191,7 @@
 | **Custo/kWh (R$)** | 2.500-3.500 | 3.000-4.500 | 800-1.200 | 400-700 |
 
 #### 🏆 Certificações de Segurança
+
 - **IEC 62619**: Lítio para aplicações industriais
 - **UN 38.3**: Transporte de baterias de lítio
 - **UL 1973**: Sistemas de armazenamento
@@ -204,6 +212,7 @@
 | **Carport** | Aço + Alumínio | Estacionamentos | 25+ anos | ABNT NBR 16274 | 180+ |
 
 #### 🏗️ Principais Fabricantes
+
 - **Solar Group**: Líder nacional, maior variedade
 - **K2 Systems**: Premium, alta carga de vento
 - **Romagnole**: Especialista em cerâmico
@@ -211,6 +220,7 @@
 - **Technosol**: Custo-benefício, linha completa
 
 #### 📐 Características Técnicas
+
 | Especificação | Padrão Indústria |
 |---------------|------------------|
 | **Carga de Vento** | 40-55 m/s (NBR 6123) |
@@ -254,7 +264,8 @@
 ## 🎯 Segmentação por Mercado-Alvo
 
 ### Residencial (< 10 kWp)
-```
+
+```tsx
 📦 18.500+ Kits Disponíveis
 ├─ On-Grid: 12.800 SKUs (3-10 kWp)
 ├─ Off-Grid: 3.200 SKUs (0.5-5 kWp)
@@ -266,7 +277,8 @@
 ```
 
 ### Comercial (10-50 kWp)
-```
+
+```tsx
 📦 6.800+ Kits Disponíveis
 ├─ On-Grid: 5.200 SKUs
 ├─ Híbridos: 1.200 SKUs
@@ -278,7 +290,8 @@
 ```
 
 ### Industrial (50+ kWp)
-```
+
+```tsx
 📦 2.400+ Kits Disponíveis
 └─ On-Grid String (50-500 kWp)
 
@@ -342,18 +355,21 @@ graph LR
 ## 🏆 Certificações Brasileiras (INMETRO)
 
 ### Painéis Solares
+
 - **Portaria INMETRO 004/2011**: Obrigatório para comercialização
 - **Etiqueta PBE**: Classificação A-E baseada em eficiência
 - **Ensaios NBR 16274**: Módulos fotovoltaicos de silício cristalino
 - **Renovação**: A cada 5 anos ou mudança de modelo
 
 ### Inversores
+
 - **Portaria INMETRO 357/2014**: Inversores grid-tie
 - **Requisitos Anti-Ilhamento**: Ensaio obrigatório
 - **EMC (Compatibilidade Eletromagnética)**: NBR IEC 61000
 - **Eficiência Mínima**: 93% (micro) / 95% (string)
 
 ### Status de Certificação no Inventário
+
 - ✅ **91.2%** dos produtos principais certificados
 - 🟡 **6.8%** em processo de certificação
 - 🔴 **2.0%** não aplicável (componentes BOS)
@@ -421,6 +437,7 @@ graph LR
 | **Large** | Variável | 1600x1600px WebP | 60% | Q80 |
 
 ### AI Vision Enhancement
+
 - **Modelo**: GPT-4 Vision (gpt-4-vision-preview)
 - **Processamento**: 85% do inventário com imagens
 - **Accuracy**: 94.3% em detecção de specs técnicas
