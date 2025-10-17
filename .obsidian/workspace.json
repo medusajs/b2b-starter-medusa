@@ -4,86 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "d0786ab98989277e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "32114a8124a9408e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "backend/data/products-inventory/INVENTORY_BLUEPRINT_360.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "INVENTORY_BLUEPRINT_360"
-            }
-          }
-        ]
-      },
-      {
-        "id": "3e78d5862015a24d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "052ddc9c526a7e7a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "backend/data/products-inventory/docs/PAYMENT_SYSTEM_ASAAS_COMPLETE_GUIDE.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "PAYMENT_SYSTEM_ASAAS_COMPLETE_GUIDE"
-            }
-          }
-        ]
-      },
-      {
-        "id": "b92b98e1e733131c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "8cd42021105ce565",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/YSH_PRICING_IMPLEMENTATION.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "YSH_PRICING_IMPLEMENTATION"
-            }
-          }
-        ]
-      },
-      {
         "id": "2c681528ff074b93",
         "type": "tabs",
         "children": [
@@ -93,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "backend/docs/PRICING_STRATEGY_YSH.md",
+                "file": "docs/apis_sandboxes.md.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -108,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "PRICING_STRATEGY_YSH"
+              "title": "apis_sandboxes.md"
             }
           }
         ]
@@ -164,13 +84,11 @@
               "title": "Marcadores"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 472.5,
-    "collapsed": true
+    "width": 472.5
   },
   "right": {
     "id": "720e1a436747fb9a",
@@ -292,6 +210,15 @@
   },
   "active": "69a517d9a1b85fb0",
   "lastOpenFiles": [
+    "foss-stack-manifest.json",
+    "FOSS_STACK_README.md",
+    "FOSS_STACK_INDEX.md",
+    "FOSS_STACK_VISUAL_GUIDE.md",
+    "FOSS_STACK_IMPLEMENTATION.md",
+    "FOSS_STACK_SUMMARY.md",
+    "FOSS_STACK_COMPLETE.md",
+    "backend/docs/PRICING_STRATEGY_YSH.md",
+    "docs/apis_sandboxes.md.md",
     "backend/data/products-inventory/SKU-GOVERNOR-README.md",
     "backend/data/products-inventory/run-governor-pipeline.py",
     "backend/data/products-inventory/test-sku-governor.ps1",
