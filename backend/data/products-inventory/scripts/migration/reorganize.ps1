@@ -378,13 +378,13 @@ Orquestradores de pipeline completo.
 ## Scripts
 
 - **run_governor.py**: Pipeline SKU Governor
-- **run_complete.py**: Pipeline completo (extract → validate → enrich → import)
+- **run_complete.py**: Pipeline completo (extract -> validate -> enrich -> import)
 
 ## Usage
 
-```powershell
+``````powershell
 python pipelines/run_complete.py
-```
+``````
 "@
 
     "analysis/README.md" = @"

@@ -59,6 +59,7 @@ cd c:\Users\fjuni\OneDrive\Documentos\GitHub\ysh-b2b\backend\data\products-inven
 ```
 
 **O script irá**:
+
 1. ✅ Criar backup automático
 2. ✅ Criar 25 novos diretórios
 3. ✅ Mover 21 scripts Python
@@ -95,7 +96,7 @@ git push
 
 ### ❌ ANTES (Caótico)
 
-```
+```tsx
 products-inventory/
 ├── analyze_enrichment.py
 ├── analyze_schema_coverage.py
@@ -163,7 +164,7 @@ products-inventory/
 
 ### ✅ DEPOIS (Organizado)
 
-```
+```tsx
 products-inventory/
 ├── 📘 README.md                    # Único, autoritativo
 │
@@ -227,26 +228,31 @@ products-inventory/
 ## 🎯 Benefícios Imediatos
 
 ### 1. **Navegação Clara** 🧭
+
 - Scripts organizados por função (extract, validate, enrich, compose, import)
 - Fácil encontrar o que precisa
 - Nomes de arquivo padronizados
 
 ### 2. **Documentação Consolidada** 📚
+
 - 1 README principal vs 3 conflitantes
 - Docs organizadas por tipo (guides, architecture, reports)
 - READMEs em cada módulo
 
 ### 3. **Manutenibilidade** 🔧
+
 - Responsabilidades claras
 - Código isolado por função
 - Fácil adicionar novos scripts
 
 ### 4. **Onboarding** 🎓
+
 - Estrutura intuitiva
 - Documentação fácil de seguir
 - Exemplos bem localizados
 
 ### 5. **CI/CD** 🚀
+
 - Pipelines bem definidos
 - Testes centralizados
 - Configs separadas
@@ -395,6 +401,7 @@ Se precisar de ajuda:
 **🎯 Pronto para reorganizar o inventário e torná-lo mais profissional!**
 
 **Comando para executar**:
+
 ```powershell
 .\scripts\migration\reorganize.ps1
 ```

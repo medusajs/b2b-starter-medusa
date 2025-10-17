@@ -124,6 +124,7 @@ cd backend\data\products-inventory
 ```
 
 **Valida**:
+
 - ✅ Geração de SKUs globais
 - ✅ Normalização de unidades
 - ✅ Normalização de tecnologias
@@ -138,6 +139,7 @@ cd backend\data\products-inventory
 ```
 
 **Valida**:
+
 - ✅ Geração de SKUs de bundles
 - ✅ Cálculo de disponibilidade dinâmica
 - ✅ Cálculo de preço com margem
@@ -175,7 +177,7 @@ cd backend\data\products-inventory
 
 ### Componentes (Products Normais)
 
-```
+```tsx
 Product
   ├─ title: "Painel Solar Canadian Solar 550W Bifacial"
   ├─ handle: "painel-solar-canadian-solar-550w-bifacial"

@@ -210,6 +210,14 @@
   },
   "active": "69a517d9a1b85fb0",
   "lastOpenFiles": [
+    "backend/data/products-inventory/INDEX.md",
+    "backend/data/products-inventory/REVIEW_SUMMARY.md",
+    "backend/data/products-inventory/START_HERE.md",
+    "backend/data/products-inventory/REORGANIZATION_SUMMARY.md",
+    "backend/data/products-inventory/NEW_README.md",
+    "backend/data/products-inventory/scripts/migration/reorganize.ps1",
+    "backend/data/products-inventory/scripts/migration",
+    "backend/data/products-inventory/REORGANIZATION_PLAN.md",
     "E2E_TESTS_360_COVERAGE.md",
     "foss-stack-manifest.json",
     "FOSS_STACK_README.md",
@@ -229,7 +237,6 @@
     "backend/data/products-inventory/examples",
     "backend/data/products-inventory/SKU-GOVERNOR-USAGE.md",
     "backend/data/products-inventory/sku-governor.py",
-    "backend/data/products-inventory/schemas/bundles/bundle-schema.json",
     "docs/YSH_PRICING_IMPLEMENTATION.md",
     "backend/data/products-inventory/docs/PAYMENT_SYSTEM_ASAAS_COMPLETE_GUIDE.md",
     "docs/status-reports/ADMIN_REVIEW_2025-10-13.md",
@@ -238,9 +245,6 @@
     "backend/data/products-inventory/docs/PAYMENT_SYSTEM_DIAGRAMS.md",
     "backend/data/products-inventory/EXECUTIVE-IMPLEMENTATION-REPORT.md",
     "backend/data/products-inventory/ENRICHMENT_COMPLETE_SUMMARY.md",
-    "backend/data/products-inventory/CATALOG_GENERATION_SUMMARY.md",
-    "backend/data/YSH-SOLAR-AS-A-SERVICE-INTEGRATION.md",
-    "backend/data/project-helios/BACEN_REALTIME_IMPLEMENTATION_SUMMARY.md",
-    "storefront/src/modules/financial-analysis/persona-financial-dashboard.tsx"
+    "backend/data/products-inventory/CATALOG_GENERATION_SUMMARY.md"
   ]
 }
