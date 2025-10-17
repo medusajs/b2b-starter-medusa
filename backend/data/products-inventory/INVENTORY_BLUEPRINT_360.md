@@ -1,8 +1,55 @@
 # 🌞 Blueprint de Inventário 360° - Energia Solar B2B
 
 > **Cobertura Completa de Produtos Fotovoltaicos**  
-> Última Atualização: 16 de Outubro de 2025  
+> Última Atualização: 17 de Outubro de 2025  
 > Sistema de Gestão: YSH B2B Platform
+
+---
+
+## 🎯 SKU Governor - Sistema de Validação e Normalização
+
+**Status**: ✅ **Implementado e Pronto para Produção**
+
+O **SKU Governor** é o sistema autoritativo que garante qualidade e consistência dos dados de produtos antes da importação para o Medusa.js.
+
+### Funcionalidades Principais
+
+- ✅ **Validação de Campos Obrigatórios**: Verifica presença de todos os campos essenciais por categoria
+- ✅ **Normalização de Unidades**: 30+ mapeamentos (W→Wp, kW→kW, mm²→mm2, etc.)
+- ✅ **Normalização de Tecnologias**: 15+ mapeamentos (monocristalino→Mono PERC, lifepo4→Lítio LFP)
+- ✅ **Geração de SKUs Globais**: Padrão agnóstico `PNL-CANA-CS7N-550W-BF`
+- ✅ **Validação de Ranges**: Eficiência, potência, capacidade, etc.
+- ✅ **Relatórios Detalhados**: Erros, warnings e estatísticas de processamento
+
+### Padrão de SKU Global
+
+```regex
+^(PNL|INV|BAT|EST|CAB|CON|SBOX|EVC|KIT)-[A-Z0-9]+(-[A-Z0-9]+)*$
+```
+
+**Exemplos**:
+- `PNL-CANA-CS7N-550W-BF` - Painel Canadian Solar 550W Bifacial
+- `INV-GROW-MIN-5KW-HYB` - Inversor Growatt 5kW Híbrido
+- `BAT-BYD-BBOX-10KWH-48V-LFP` - Bateria BYD 10kWh 48V LFP
+
+### Quick Start
+
+```bash
+# Testar com dados de exemplo
+.\test-sku-governor.ps1
+
+# Processar todos os distribuidores
+python run-governor-pipeline.py
+
+# Processar distribuidor específico
+python sku-governor.py \
+  distributors/neosolar/neosolar-panels.json \
+  --category panel \
+  --distributor neosolar \
+  --output-dir normalized/neosolar/
+```
+
+**Documentação completa**: Ver `SKU-GOVERNOR-README.md` e `SKU-GOVERNOR-USAGE.md`
 
 ---
 

@@ -292,6 +292,13 @@
   },
   "active": "69a517d9a1b85fb0",
   "lastOpenFiles": [
+    "backend/data/products-inventory/SKU-GOVERNOR-README.md",
+    "backend/data/products-inventory/run-governor-pipeline.py",
+    "backend/data/products-inventory/test-sku-governor.ps1",
+    "backend/data/products-inventory/examples/fotus-batteries-sample.json",
+    "backend/data/products-inventory/examples/fortlev-inverters-sample.json",
+    "backend/data/products-inventory/examples/neosolar-panels-sample.json",
+    "backend/data/products-inventory/examples",
     "backend/data/products-inventory/SKU-GOVERNOR-USAGE.md",
     "backend/data/products-inventory/sku-governor.py",
     "backend/data/products-inventory/schemas/bundles/bundle-schema.json",
@@ -307,12 +314,6 @@
     "backend/data/YSH-SOLAR-AS-A-SERVICE-INTEGRATION.md",
     "backend/data/project-helios/BACEN_REALTIME_IMPLEMENTATION_SUMMARY.md",
     "storefront/src/modules/financial-analysis/persona-financial-dashboard.tsx",
-    "storefront/src/modules/financial-analysis",
-    "storefront/src/lib/services/solar-radiation-finance-service.ts",
-    "backend/data/project-helios/haas/app/routers/bacen_realtime.py",
-    "storefront/src/lib/services/equipment-leaderboard-service.ts",
-    "storefront/src/lib/services/persona-financial-analyzer.ts",
-    "storefront/src/lib/services/bacen-realtime-service.ts",
-    "storefront/src/lib/services"
+    "storefront/src/modules/financial-analysis"
   ]
 }

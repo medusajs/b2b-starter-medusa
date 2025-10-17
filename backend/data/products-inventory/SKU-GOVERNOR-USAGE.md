@@ -148,6 +148,7 @@ python sku-governor.py \
 - `panel_capacity`, `orientation`
 
 #### Cabos (CAB)
+
 - `type`, `section_mm2`, `color`
 - `temperature_rating_c`, `voltage_rating_v`
 
@@ -289,18 +290,22 @@ Tecnologias são normalizadas para padrões legíveis:
 ### Validações por Categoria
 
 #### Painéis
+
 - ✅ Eficiência entre 10-25%
 - ✅ Potência entre 100-800W
 - ✅ Campos elétricos (Vmp, Imp, Voc, Isc) presentes
 - ✅ Coeficiente de temperatura válido
 
 #### Inversores
+
+- ✅ Potência entre 0.3-100kW
 - ✅ Eficiência entre 90-99.5%
 - ✅ Quantidade de MPPT entre 1-12
 - ✅ Voltagem de entrada/saída válida
 - ✅ Tipo definido (Grid-Tie, Híbrido, Off-Grid)
 
 #### Baterias
+
 - ✅ DoD entre 30-100%
 - ✅ Ciclos de vida entre 500-10000
 - ✅ Tecnologia/química definida
@@ -324,16 +329,19 @@ graph LR
 ### Mapeamento para Medusa
 
 **Produto Normalizado → Product**:
+
 - `title` → `Product.title`
 - `handle` → `Product.handle`
 - `status` → `Product.status`
 
 **Produto Normalizado → ProductVariant**:
+
 - `global_sku` → `ProductVariant.sku`
 - `price_brl` → `MoneyAmount.amount` (em centavos)
 - `technical_specs` → `ProductVariant.metadata.technical_specs`
 
-**Produto Normalizado → InventoryItem**:
+**Produto Normalizado → InventoryItem**:,
+
 - `global_sku` → `InventoryItem.sku`
 - `distributor_sku` → `InventoryLevel.metadata.distributor_sku`
 - `distributor_name` → `StockLocation.name`
@@ -445,6 +453,7 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
 **Causa**: Produto não possui um campo essencial para a categoria.
 
 **Solução**:
+
 1. Verifique o relatório para identificar o produto específico
 2. Adicione o campo ausente no JSON de entrada
 3. Ou remova o produto se os dados não estiverem disponíveis
@@ -454,6 +463,7 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
 **Causa**: Valor está fora da faixa esperada mas não invalida o produto.
 
 **Solução**:
+
 1. Verifique se o valor está correto nos dados originais
 2. Se sim, o warning pode ser ignorado
 3. Se não, corrija o valor no JSON de entrada
@@ -463,6 +473,7 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
 **Causa**: Bug na lógica de geração de SKU.
 
 **Solução**:
+
 1. Reporte o erro com o produto específico
 2. Corrija manualmente o `global_sku` no JSON normalizado
 3. Ou ajuste a função geradora no código
@@ -470,11 +481,13 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
 ## Próximos Passos
 
 1. **Processar distribuidores existentes**:
+
    ```bash
    ./scripts/process-all-distributors.sh
    ```
 
 2. **Validar outputs**:
+
    ```bash
    # Verificar quantidade de SKUs gerados
    jq '.skus_generated_count' normalized/*/\*-report.json
@@ -484,6 +497,7 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
    ```
 
 3. **Importar para Medusa**:
+
    ```bash
    node import-normalized-to-medusa.ts \
      --input normalized/neosolar/neosolar-panel-normalized.json
@@ -501,6 +515,7 @@ echo "✅ Validação passou! Taxa de sucesso: $SUCCESS_RATE%"
 ## Suporte
 
 Para questões ou problemas:
+
 - Verifique o relatório de validação (`*-report.json`)
 - Consulte exemplos neste guia
 - Revise os schemas de entrada esperados
