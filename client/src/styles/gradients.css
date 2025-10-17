@@ -1,6 +1,0 @@
-.ysh-border-gradient {
-  border: 1px solid transparent;
-  border-image: linear-gradient(var(--ysh-angle), var(--ysh-start), var(--ysh-end)) 1;
-  border-radius: 0.75rem;
-}
-

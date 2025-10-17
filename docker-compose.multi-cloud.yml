@@ -1,0 +1,610 @@
+# ==========================================
+# YSH B2B Multi-Cloud Development Stack
+# FOSS Alternative to Cloud Providers
+# ==========================================
+#
+# 🎯 OBJETIVO: Desenvolvimento local agnóstico de cloud provider
+# 
+# STACK FOSS COMPLETA:
+# - MinIO (S3-compatible: AWS, GCP, Azure, Cloudflare R2)
+# - PostgreSQL 15 (RDS, Cloud SQL, Azure Database)
+# - Redis 7 (ElastiCache, Memorystore, Azure Cache)
+# - LocalStack (AWS emulation - Pro features)
+# - Azurite (Azure Storage emulation)
+# - Fake GCS Server (Google Cloud Storage)
+# - Vault (Secrets management)
+# - Prometheus + Grafana (Monitoring)
+# - Jaeger (Distributed tracing)
+# - Minio Console (S3 UI)
+#
+# ==========================================
+
+version: "3.9"
+
+services:
+  # ==========================================
+  # MULTI-CLOUD OBJECT STORAGE - MinIO
+  # S3-compatible: AWS S3, GCP GCS, Azure Blob, Cloudflare R2
+  # ==========================================
+  minio:
+    image: minio/minio:latest
+    container_name: ysh-minio
+    restart: unless-stopped
+    ports:
+      - "9100:9000"  # API
+      - "9101:9001"  # Console
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+      MINIO_DOMAIN: ${MINIO_DOMAIN:-minio}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      MINIO_BROWSER: "on"
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9101
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+  # MinIO Client - Setup inicial de buckets
+  minio-setup:
+    image: minio/mc:latest
+    container_name: ysh-minio-setup
+    depends_on:
+      minio:
+        condition: service_healthy
+    networks:
+      - ysh-multicloud
+    entrypoint: >
+      /bin/sh -c "
+      echo '🚀 Configurando MinIO buckets...';
+      mc alias set minio http://minio:9000 minioadmin minioadmin123;
+      mc mb --ignore-existing minio/ysh-uploads;
+      mc mb --ignore-existing minio/ysh-backups;
+      mc mb --ignore-existing minio/ysh-media;
+      mc mb --ignore-existing minio/ysh-documents;
+      mc anonymous set download minio/ysh-media;
+      mc policy set public minio/ysh-uploads;
+      echo '✅ Buckets criados: ysh-uploads, ysh-backups, ysh-media, ysh-documents';
+      exit 0;
+      "
+
+  # ==========================================
+  # AWS EMULATION - LocalStack Pro
+  # ==========================================
+  localstack:
+    image: localstack/localstack-pro:latest
+    container_name: ysh-localstack
+    restart: unless-stopped
+    ports:
+      - "4566:4566"  # Gateway
+      - "4510-4559:4510-4559"  # External services
+    environment:
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:-}
+      - SERVICES=s3,rds,elasticache,secretsmanager,ecs,ecr,cloudwatch,sns,sqs,lambda,kms,dynamodb
+      - DEBUG=${DEBUG:-0}
+      - DATA_DIR=/tmp/localstack/data
+      - PERSISTENCE=1
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - LOCALSTACK_PRO=1
+      - EAGER_SERVICE_LOADING=1
+    volumes:
+      - localstack_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./scripts/localstack-init.sh:/docker-entrypoint-initaws.d/init.sh:ro
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+  # ==========================================
+  # AZURE EMULATION - Azurite
+  # Azure Blob Storage, Queue Storage, Table Storage
+  # ==========================================
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    container_name: ysh-azurite
+    restart: unless-stopped
+    ports:
+      - "10000:10000"  # Blob service
+      - "10001:10001"  # Queue service
+      - "10002:10002"  # Table service
+    environment:
+      AZURITE_ACCOUNTS: yshdevaccount:Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+    command: azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose
+    volumes:
+      - azurite_data:/data
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "10000"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  # ==========================================
+  # GCP EMULATION - Fake GCS Server
+  # Google Cloud Storage emulation
+  # ==========================================
+  fake-gcs:
+    image: fsouza/fake-gcs-server:latest
+    container_name: ysh-fake-gcs
+    restart: unless-stopped
+    ports:
+      - "4443:4443"  # HTTPS
+      - "8080:8080"  # HTTP
+    command:
+      - "-scheme"
+      - "http"
+      - "-host"
+      - "0.0.0.0"
+      - "-port"
+      - "8080"
+      - "-external-url"
+      - "http://localhost:8080"
+    volumes:
+      - fake_gcs_data:/data
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/storage/v1/b"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  # ==========================================
+  # DATABASE - PostgreSQL 15
+  # Compatible: AWS RDS, GCP Cloud SQL, Azure Database
+  # ==========================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: ysh-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-yshuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-yshpass}
+      POSTGRES_DB: ${POSTGRES_DB:-yshdb}
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=en_US.UTF-8"
+      POSTGRES_SHARED_BUFFERS: "256MB"
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "768MB"
+      POSTGRES_WORK_MEM: "4MB"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d:ro
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-yshuser} -d ${POSTGRES_DB:-yshdb}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+
+  # ==========================================
+  # CACHE - Redis 7
+  # Compatible: AWS ElastiCache, GCP Memorystore, Azure Cache
+  # ==========================================
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      --save 60 1000
+      --loglevel warning
+    volumes:
+      - redis_data:/data
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  # ==========================================
+  # SECRETS MANAGEMENT - HashiCorp Vault
+  # Alternative to: AWS Secrets Manager, GCP Secret Manager, Azure Key Vault
+  # ==========================================
+  vault:
+    image: hashicorp/vault:latest
+    container_name: ysh-vault
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_TOKEN:-root}
+      VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
+      VAULT_ADDR: http://0.0.0.0:8200
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - vault_data:/vault/data
+      - vault_logs:/vault/logs
+    networks:
+      - ysh-multicloud
+    command: server -dev -dev-root-token-id=${VAULT_TOKEN:-root}
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  # ==========================================
+  # BACKEND - Medusa.js
+  # ==========================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: ysh-backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-9000}:9000"
+    environment:
+      # Database
+      DATABASE_URL: postgresql://${POSTGRES_USER:-yshuser}:${POSTGRES_PASSWORD:-yshpass}@postgres:5432/${POSTGRES_DB:-yshdb}
+      DATABASE_SSL: "false"
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+
+      # Security
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-multicloud-min-32-chars}
+      COOKIE_SECRET: ${COOKIE_SECRET:-dev-cookie-secret-multicloud-min-32-chars}
+
+      # CORS
+      ADMIN_CORS: ${ADMIN_CORS:-http://localhost:7001,http://localhost:9000}
+      STORE_CORS: ${STORE_CORS:-http://localhost:8000,http://localhost:3000}
+
+      # Multi-Cloud Storage (MinIO S3-compatible)
+      STORAGE_PROVIDER: ${STORAGE_PROVIDER:-minio}
+      FILE_S3_URL: ${FILE_S3_URL:-http://minio:9000}
+      FILE_S3_BUCKET: ${FILE_S3_BUCKET:-ysh-uploads}
+      FILE_S3_REGION: ${FILE_S3_REGION:-us-east-1}
+      FILE_S3_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+      FILE_S3_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+      FILE_S3_ENDPOINT: http://minio:9000
+      FILE_S3_FORCE_PATH_STYLE: "true"
+
+      # AWS (LocalStack)
+      AWS_ENDPOINT_URL: ${AWS_ENDPOINT_URL:-http://localstack:4566}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-test}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
+
+      # Azure (Azurite)
+      AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=http;AccountName=yshdevaccount;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/yshdevaccount;
+
+      # GCP (Fake GCS)
+      GCS_ENDPOINT: http://fake-gcs:8080
+      GCS_PROJECT_ID: ysh-dev
+      GCS_BUCKET: ysh-uploads
+
+      # Vault
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: ${VAULT_TOKEN:-root}
+
+      # Application
+      NODE_ENV: development
+      PORT: 9000
+      HOST: 0.0.0.0
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      NODE_OPTIONS: --max-old-space-size=2048
+    volumes:
+      - ./backend/src:/app/src:ro
+      - ./backend/medusa-config.ts:/app/medusa-config.ts:ro
+      - backend_uploads:/app/uploads
+      - /app/node_modules
+      - /app/.medusa
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+
+  # ==========================================
+  # STOREFRONT - Next.js 15
+  # ==========================================
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+    container_name: ysh-storefront
+    restart: unless-stopped
+    ports:
+      - "${STOREFRONT_PORT:-8000}:8000"
+    environment:
+      NODE_ENV: development
+      PORT: 8000
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://backend:9000}
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-}
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+      NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-br}
+      NEXT_TELEMETRY_DISABLED: "1"
+      NODE_OPTIONS: --max-old-space-size=4096
+    volumes:
+      - ./storefront/src:/app/src:ro
+      - ./storefront/public:/app/public:ro
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8000/', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 4096M
+
+  # ==========================================
+  # MONITORING - Prometheus
+  # ==========================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ysh-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9090/-/healthy"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  # ==========================================
+  # VISUALIZATION - Grafana
+  # ==========================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ysh-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  # ==========================================
+  # TRACING - Jaeger
+  # ==========================================
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: ysh-jaeger
+    restart: unless-stopped
+    ports:
+      - "5775:5775/udp"  # accept zipkin.thrift over compact thrift protocol
+      - "6831:6831/udp"  # accept jaeger.thrift over compact thrift protocol
+      - "6832:6832/udp"  # accept jaeger.thrift over binary thrift protocol
+      - "5778:5778"      # serve configs
+      - "16686:16686"    # serve frontend
+      - "14268:14268"    # accept jaeger.thrift directly from clients
+      - "14250:14250"    # accept model.proto
+      - "9411:9411"      # Zipkin compatible endpoint
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+      - COLLECTOR_OTLP_ENABLED=true
+    networks:
+      - ysh-multicloud
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:16686/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  # ==========================================
+  # DATABASE MANAGEMENT - Adminer
+  # ==========================================
+  adminer:
+    image: adminer:latest
+    container_name: ysh-adminer
+    restart: unless-stopped
+    ports:
+      - "${ADMINER_PORT:-8888}:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: nette
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ysh-multicloud
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+  # ==========================================
+  # REDIS MANAGEMENT - Redis Commander
+  # ==========================================
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ysh-redis-commander
+    restart: unless-stopped
+    ports:
+      - "${REDIS_COMMANDER_PORT:-8889}:8081"
+    environment:
+      REDIS_HOSTS: local:redis:6379
+      HTTP_USER: ${REDIS_COMMANDER_USER:-admin}
+      HTTP_PASSWORD: ${REDIS_COMMANDER_PASSWORD:-admin}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - ysh-multicloud
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+
+# ==========================================
+# VOLUMES
+# ==========================================
+volumes:
+  postgres_data:
+    driver: local
+    name: ysh-multicloud-postgres
+  redis_data:
+    driver: local
+    name: ysh-multicloud-redis
+  minio_data:
+    driver: local
+    name: ysh-multicloud-minio
+  localstack_data:
+    driver: local
+    name: ysh-multicloud-localstack
+  azurite_data:
+    driver: local
+    name: ysh-multicloud-azurite
+  fake_gcs_data:
+    driver: local
+    name: ysh-multicloud-gcs
+  vault_data:
+    driver: local
+    name: ysh-multicloud-vault-data
+  vault_logs:
+    driver: local
+    name: ysh-multicloud-vault-logs
+  backend_uploads:
+    driver: local
+    name: ysh-multicloud-backend-uploads
+  prometheus_data:
+    driver: local
+    name: ysh-multicloud-prometheus
+  grafana_data:
+    driver: local
+    name: ysh-multicloud-grafana
+
+# ==========================================
+# NETWORKS
+# ==========================================
+networks:
+  ysh-multicloud:
+    driver: bridge
+    name: ysh-multicloud-network
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16

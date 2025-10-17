@@ -1,0 +1,63 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'ysh-multicloud-monitor'
+
+scrape_configs:
+  # Backend Medusa
+  - job_name: 'backend'
+    static_configs:
+      - targets: ['backend:9000']
+        labels:
+          service: 'medusa-backend'
+
+  # Storefront Next.js
+  - job_name: 'storefront'
+    static_configs:
+      - targets: ['storefront:8000']
+        labels:
+          service: 'nextjs-storefront'
+
+  # PostgreSQL
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+        labels:
+          service: 'postgresql'
+
+  # Redis
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+        labels:
+          service: 'redis'
+
+  # MinIO
+  - job_name: 'minio'
+    metrics_path: /minio/v2/metrics/cluster
+    static_configs:
+      - targets: ['minio:9000']
+        labels:
+          service: 'minio'
+
+  # LocalStack
+  - job_name: 'localstack'
+    static_configs:
+      - targets: ['localstack:4566']
+        labels:
+          service: 'localstack'
+
+  # Vault
+  - job_name: 'vault'
+    static_configs:
+      - targets: ['vault:8200']
+        labels:
+          service: 'vault'
+
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          service: 'prometheus'
