@@ -210,6 +210,7 @@
   },
   "active": "69a517d9a1b85fb0",
   "lastOpenFiles": [
+    "E2E_TESTS_360_COVERAGE.md",
     "foss-stack-manifest.json",
     "FOSS_STACK_README.md",
     "FOSS_STACK_INDEX.md",
@@ -240,7 +241,6 @@
     "backend/data/products-inventory/CATALOG_GENERATION_SUMMARY.md",
     "backend/data/YSH-SOLAR-AS-A-SERVICE-INTEGRATION.md",
     "backend/data/project-helios/BACEN_REALTIME_IMPLEMENTATION_SUMMARY.md",
-    "storefront/src/modules/financial-analysis/persona-financial-dashboard.tsx",
-    "storefront/src/modules/financial-analysis"
+    "storefront/src/modules/financial-analysis/persona-financial-dashboard.tsx"
   ]
 }

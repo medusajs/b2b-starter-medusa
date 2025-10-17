@@ -9,9 +9,11 @@ Você agora tem **5 documentos principais** totalizando **+20.000 linhas** de do
 ## 📄 Documentos Criados
 
 ### 1. FOSS_STACK_COMPLETE.md
+
 **Referência técnica completa (8.000+ linhas)**
 
 Inclui:
+
 - Stack resumido (overview)
 - Infraestrutura (Docker, Kubernetes, OpenTofu, Ansible)
 - Banco de Dados (PostgreSQL, Redis, MinIO, Qdrant, DuckDB, Cassandra)
@@ -31,9 +33,11 @@ Inclui:
 ---
 
 ### 2. FOSS_STACK_SUMMARY.md
+
 **Resumo executivo com métricas (2.500+ linhas)**
 
 Inclui:
+
 - Executive summary
 - Stack em números (throughput, latency, cost)
 - Arquitetura em camadas (visual)
@@ -55,9 +59,11 @@ Inclui:
 ---
 
 ### 3. FOSS_STACK_IMPLEMENTATION.md
+
 **Guia prático passo-a-passo (3.500+ linhas)**
 
 Inclui:
+
 - 5-minute quickstart
 - Pré-requisitos e setup
 - Start services e verify
@@ -81,9 +87,11 @@ Inclui:
 ---
 
 ### 4. FOSS_STACK_VISUAL_GUIDE.md
+
 **Arquitetura visual e funções (2.500+ linhas)**
 
 Inclui:
+
 - O que você tem agora (overview)
 - Arquitetura visual completa (ASCII diagrams)
 - Economia financeira (comparação detalhada)

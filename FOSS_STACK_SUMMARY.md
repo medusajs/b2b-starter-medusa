@@ -107,6 +107,7 @@
 ## 🚀 Quick Start (5 Minutos)
 
 ### Pré-requisitos
+
 ```powershell
 # Windows PowerShell
 docker --version       # >= 25.0
@@ -134,7 +135,7 @@ docker-compose ps
 
 ### Acessar Serviços
 
-```
+```tsx
 Backend API:    http://localhost:9000
 Storefront:     http://localhost:8000
 Admin Grafana:  http://localhost:3000  (admin/admin)
@@ -150,6 +151,7 @@ PgAdmin:        http://localhost:5050  (admin@admin.com/admin)
 ## 💰 Cost Comparison (Monthly)
 
 ### AWS Proprietary
+
 | Service | Cost |
 |---------|------|
 | RDS PostgreSQL | $150 |
@@ -160,6 +162,7 @@ PgAdmin:        http://localhost:5050  (admin@admin.com/admin)
 | **Total** | **$450/mo** |
 
 ### FOSS Stack (Self-Hosted)
+
 | Service | Cost |
 |---------|------|
 | Server t3.large (2 CPU, 8GB) | $60 |
@@ -175,7 +178,8 @@ PgAdmin:        http://localhost:5050  (admin@admin.com/admin)
 ## 📈 Performance Benchmarks
 
 ### Latency Distribution (ms)
-```
+
+```tsx
 p50:  12ms  ████
 p75:  28ms  ████████
 p95:  85ms  ██████████████████████
@@ -197,7 +201,8 @@ FastAPI:     5,000   ██
 ## 🔄 High Availability Setup
 
 ### Database (PostgreSQL)
-```
+
+```tsx
 ┌─ Primary (Write) ─→ Standby (Read)
 │                    ↓
 │                    Streaming Replication
@@ -206,7 +211,8 @@ FastAPI:     5,000   ██
 ```
 
 ### Cache (Redis)
-```
+
+```tsx
 Master ↔ Replica
          ↓
     Sentinel
@@ -214,7 +220,8 @@ Master ↔ Replica
 ```
 
 ### Application
-```
+
+```tsx
 nginx (Load Balancer)
   ├─ Backend 1
   ├─ Backend 2
@@ -226,6 +233,7 @@ nginx (Load Balancer)
 ## 🛠️ Common Operations
 
 ### Database Operations
+
 ```bash
 # Backup
 docker-compose exec postgres pg_dump -U postgres ysh_b2b > backup.sql
@@ -241,6 +249,7 @@ docker-compose exec postgres psql -U postgres -c "SELECT * FROM pg_stat_statemen
 ```
 
 ### Cache Management
+
 ```bash
 # Monitor Redis
 docker-compose exec redis redis-cli INFO memory
@@ -253,6 +262,7 @@ docker-compose exec redis redis-cli --scan --pattern "*"
 ```
 
 ### Log Analysis
+
 ```bash
 # Tail logs
 docker-compose logs -f backend
@@ -316,7 +326,7 @@ expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memor
 
 ### Local → Staging → Production
 
-```
+```tsx
 1. Develop locally (Docker Compose)
    ↓
 2. Run tests (Jest + k6 load tests)
@@ -362,12 +372,14 @@ expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memor
 ## 🤝 Support & Maintenance
 
 ### SLA Targets
+
 - **Availability**: 99.9% uptime
 - **Response Time**: <100ms p95
 - **Recovery Time**: <15 minutes for any component failure
 - **Data Loss**: Zero RPO (Recovery Point Objective)
 
 ### Monthly Maintenance Window
+
 - **Timing**: 3rd Sunday, 02:00-03:00 UTC
 - **Tasks**: Security patches, dependency updates, backups verification
 - **Communication**: Announced 2 weeks in advance
@@ -377,6 +389,7 @@ expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memor
 ## 📝 Changelog
 
 ### v1.0.0 (Oct 17, 2025)
+
 - Initial FOSS stack release
 - Full multi-cloud support
 - HA configuration for all components
