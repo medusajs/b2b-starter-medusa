@@ -20,36 +20,43 @@ Reestruturação completa do backend YSH B2B seguindo princípios de **Domain-Dr
 ## 🗺️ Mapa de Domínios (12 Core Domains)
 
 ### 1. **Catálogo Unificado** 📦
+
 **Responsabilidade:** Ingestão, normalização, enriquecimento, disponibilidade e imagens de produtos.
 
 **JTBD:** _"Unificar e normalizar SKUs de múltiplos distribuidores, garantindo disponibilidade e imagens otimizadas."_
 
 **Inputs:**
+
 - Arquivos JSON/CSV de distribuidores (Fortlev, Solfacil, Odex)
 - Comandos admin (import manual, re-sync)
 - Webhooks de parceiros
 
 **Outputs:**
+
 - SKUs normalizados (schema unificado)
 - Imagens otimizadas (WebP, CDN)
 - Projeções de busca (Elasticsearch/materialized views)
 - Eventos: `catalog.product.created`, `catalog.product.updated`, `catalog.sync.completed`
 
 **Outcomes:**
+
 - Latência listagem: **<150ms** (P95)
 - Sync completo: **<15min**
 - Taxa de erro mapeamento: **0%** (crítico)
 
 **KPIs:**
+
 - TTFB listagem
 - Latência de sync
 - Erros de normalização
 
 **Módulos Atuais:**
+
 - `src/modules/unified-catalog/`
 - `src/modules/ysh-catalog/`
 
 **APIs:**
+
 - `GET /admin/import-catalog`
 - `GET /store/catalog/:category`
 - `GET /store/catalog/skus`
@@ -57,73 +64,87 @@ Reestruturação completa do backend YSH B2B seguindo princípios de **Domain-Dr
 ---
 
 ### 2. **Preço & Comercial** 💰
+
 **Responsabilidade:** Cálculo consistente de preços por canal/grupo, promoções e regras comerciais.
 
 **JTBD:** _"Calcular preço final considerando canal de venda, grupo de cliente, promoções ativas e políticas comerciais."_
 
 **Inputs:**
+
 - Regras comerciais (margins, markups)
 - Grupos de clientes (B2B, governo, varejo)
 - Promoções ativas
 - Eventos de catálogo (`catalog.product.updated`)
 
 **Outputs:**
+
 - Preços resolvidos (por SKU + contexto)
 - Regras ativas aplicadas
 - Eventos: `pricing.price.calculated`, `pricing.promotion.applied`
 
 **Outcomes:**
+
 - Consistência de preço: **100%**
 - Latência cálculo: **<50ms**
 - Cobertura de regras: **100%** SKUs
 
 **KPIs:**
+
 - Latência cálculo
 - Divergências de preço
 - Taxa de aplicação de promoções
 
 **Módulos Atuais:**
+
 - `src/modules/ysh-pricing/`
 - `src/workflows/calculate-dynamic-pricing.ts`
 - `src/workflows/promotion/`
 
 **APIs:**
+
 - `GET /store/produtos_melhorados`
 - `POST /admin/solar/promotions`
 
 ---
 
 ### 3. **RFQ/Quotes** 📝
+
 **Responsabilidade:** Criação, negociação e conversão de cotações com snapshot de itens.
 
 **JTBD:** _"Criar e negociar cotações B2B com histórico de mensagens, anexos e snapshot imutável de SKUs/preços."_
 
 **Inputs:**
+
 - Itens/quantidades
 - Mensagens e anexos
 - Políticas de cliente
 - Eventos de aprovação (`approval.approved`)
 
 **Outputs:**
+
 - Cotações com snapshot
 - Mensagens/chat
 - Eventos: `quote.sent`, `quote.accepted`, `quote.rejected`, `quote.expired`
 
 **Outcomes:**
+
 - Time-to-Market quote: **<5min**
 - Taxa de aceite: **>30%**
 - SLA de resposta mensagens: **<2h** (business hours)
 
 **KPIs:**
+
 - TTM-quote
 - Taxa de aceite
 - Aging de cotações
 
 **Módulos Atuais:**
+
 - `src/modules/quote/`
 - `src/workflows/quote/`
 
 **APIs:**
+
 - `GET /store/quotes`
 - `POST /store/quotes`
 - `POST /store/quotes/:id/messages`
@@ -132,36 +153,43 @@ Reestruturação completa do backend YSH B2B seguindo princípios de **Domain-Dr
 ---
 
 ### 4. **Aprovações** ✅
+
 **Responsabilidade:** Orquestração de aprovações condicionais multi-etapas com auditoria.
 
 **JTBD:** _"Orquestrar aprovações baseadas em políticas de empresa, limites de gastos e regras condicionais, garantindo trilha de auditoria imutável."_
 
 **Inputs:**
+
 - Políticas por empresa (spending limits, approval rules)
 - Eventos de quote/order (`quote.created`, `cart.checkout`)
 - Exceções e escalações
 
 **Outputs:**
+
 - Decisões (approved/rejected)
 - Pendências e notificações
 - Escalonamentos automáticos
 - Auditoria imutável (approval_history)
 
 **Outcomes:**
+
 - Lead time aprovação: **<24h**
 - Taxa de bypass indevido: **0%**
 - Rastreabilidade: **100%**
 
 **KPIs:**
+
 - Tempo de ciclo por etapa
 - Taxa de escalonamento
 - Aging por status
 
 **Módulos Atuais:**
+
 - `src/modules_disabled/approval/` ⚠️ (desabilitado, precisa reativação)
 - `src/workflows/approval/`
 
 **APIs:**
+
 - `GET /store/approvals`
 - `POST /store/approvals/:id/approve`
 - `GET /admin/approvals/rules`
@@ -252,12 +280,14 @@ Reestruturação completa do backend YSH B2B seguindo princípios de **Domain-Dr
 - Propostas de financiamento
 
 **Outputs:**
+
 - Simulações de parcelamento
 - Limites aprovados/negados
 - Trilhas de consent
 - Eventos: `financing.proposal.created`, `financing.approved`, `financing.rejected`
 
 **Outcomes:**
+
 - Latência simulação: **<2s**
 - Conformidade regulatória: **100%**
 - Taxa de aprovação: **>40%**
@@ -337,62 +367,74 @@ Reestruturação completa do backend YSH B2B seguindo princípios de **Domain-Dr
 - Acurácia validada: **>95%** vs real
 
 **KPIs:**
+
 - Cache hit rate
 - Latência miss/hit
 - Acurácia (amostral)
 
 **Módulos Atuais:**
+
 - `src/modules/solar-calculator/`
 - `src/modules/pvlib-integration/`
 - `src/workflows/solar/calculate-solar-system.ts`
 
 **APIs:**
+
 - `POST /store/solar/validate-feasibility`
 - `GET /store/solar-quotes`
 
 ---
 
 ### 10. **Integrações de Distribuidores** 🔗
+
 **Responsabilidade:** Ingestão confiável e reconciliada (estoque/preço/imagem).
 
 **JTBD:** _"Ingestão automatizada e confiável de dados de distribuidores com reconciliação de divergências."_
 
 **Inputs:**
+
 - Cron/import manual
 - Webhooks de parceiros
 - Scraping fallback (quando API indisponível)
 
 **Outputs:**
+
 - Normalizações aplicadas
 - Diffs detectados
 - Alertas de divergência
 - Eventos: `distributor.sync.started`, `distributor.sync.completed`, `distributor.error`
 
 **Outcomes:**
+
 - Taxa de erro: **<1%**
 - Latência de atualização: **<15min**
 - Cobertura de distribuidores: **5+** ativos
 
 **KPIs:**
+
 - Taxa de erro por distribuidor
 - Latência de sync
 - Taxa de divergência
 
 **Módulos Atuais:**
+
 - `src/scrapers/`
 - `src/workers/`
 
 **APIs:**
+
 - `POST /admin/import-catalog`
 
 ---
 
 ### 11. **Plataforma & Operação** ⚙️
+
 **Responsabilidade:** Workflows, jobs, subscribers, admin UI, auth/ACL.
 
 **JTBD:** _"Orquestrar operações assíncronas, gerenciar autenticação, autorização e interfaces administrativas."_
 
 **Inputs:**
+
 - Comandos admin
 - Jobs agendados (cron)
 - Eventos de domínio
