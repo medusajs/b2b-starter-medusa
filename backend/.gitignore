@@ -13,6 +13,11 @@ yarn-error.log
 
 coverage
 
+# Development and analysis tools (tracked in repo)
+# .devtools/
+# .deploy/
+# .analysis/
+
 # Secrets and sensitive files
 secrets/*
 !secrets/README.md
