@@ -21,6 +21,8 @@ import type {
   AuthSession,
   ProductFilters,
 } from '../types/distributor.js';
+import type { Language } from '../types/languages.js';
+import { getMessages } from '../types/languages.js';
 import pino from 'pino';
 
 export interface MCPServerConfig {
@@ -28,6 +30,7 @@ export interface MCPServerConfig {
   version: string;
   distributor: string;
   credentials: DistributorCredentials;
+  language?: Language;
 }
 
 export abstract class BaseMCPServer {
@@ -35,9 +38,13 @@ export abstract class BaseMCPServer {
   protected logger: pino.Logger;
   protected config: MCPServerConfig;
   protected session?: AuthSession;
+  protected language: Language;
+  protected messages: any;
 
   constructor(config: MCPServerConfig) {
     this.config = config;
+    this.language = config.language || 'pt';
+    this.messages = getMessages(this.language);
     this.logger = pino({
       name: config.name,
       level: process.env.LOG_LEVEL || 'info',

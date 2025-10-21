@@ -44,7 +44,7 @@ export class SolfácilMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Solfácil B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://www.solfacil.com.br/login', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class SolfácilMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Solfácil B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'solfacil',
@@ -95,7 +95,7 @@ export class SolfácilMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Solfácil authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class SolfácilMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Solfácil products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://www.solfacil.com.br/produtos', { 
@@ -155,7 +155,7 @@ export class SolfácilMCPServer extends BaseMCPServer {
       this.logger.info({ count: products.length }, 'Solfácil products extracted');
       return products;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Solfácil products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }

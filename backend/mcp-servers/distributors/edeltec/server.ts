@@ -44,7 +44,7 @@ export class EdeltecMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Edeltec B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://www.edeltec.com.br/login', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class EdeltecMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Edeltec B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'edeltec',
@@ -95,7 +95,7 @@ export class EdeltecMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Edeltec authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class EdeltecMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Edeltec products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://www.edeltec.com.br/produtos', { 
@@ -155,7 +155,7 @@ export class EdeltecMCPServer extends BaseMCPServer {
       this.logger.info({ count: products.length }, 'Edeltec products extracted');
       return products;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Edeltec products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }

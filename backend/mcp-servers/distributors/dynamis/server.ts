@@ -44,7 +44,7 @@ export class DynamisMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Dynamis B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://www.dynamis.com.br/login', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class DynamisMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Dynamis B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'dynamis',
@@ -95,7 +95,7 @@ export class DynamisMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Dynamis authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class DynamisMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Dynamis products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://www.dynamis.com.br/produtos', { 
@@ -155,7 +155,7 @@ export class DynamisMCPServer extends BaseMCPServer {
       this.logger.info({ count: products.length }, 'Dynamis products extracted');
       return products;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Dynamis products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }

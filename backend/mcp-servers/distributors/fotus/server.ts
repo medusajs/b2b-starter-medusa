@@ -44,7 +44,7 @@ export class FotusMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Fotus B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://www.fotus.com.br/login', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class FotusMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Fotus B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'fotus',
@@ -95,7 +95,7 @@ export class FotusMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Fotus authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class FotusMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Fotus products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://www.fotus.com.br/produtos', { 
@@ -155,7 +155,7 @@ export class FotusMCPServer extends BaseMCPServer {
       this.logger.info({ count: products.length }, 'Fotus products extracted');
       return products;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Fotus products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }

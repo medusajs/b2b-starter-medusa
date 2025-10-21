@@ -9,6 +9,9 @@
 import { chromium } from 'playwright';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function debugNeosolar() {
   console.log('🔍 Starting Neosolar Portal B2B debug session...\n');

@@ -44,7 +44,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Neosolar B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://portalb2b.neosolar.com.br/', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Neosolar B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'neosolar',
@@ -95,7 +95,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Neosolar authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Neosolar products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://portalb2b.neosolar.com.br/produtos', { 
@@ -178,10 +178,10 @@ export class NeosolarMCPServer extends BaseMCPServer {
           last_updated: new Date().toISOString(),
         }));
       
-      this.logger.info({ count: enrichedProducts.length }, 'Neosolar products listed');
+      this.logger.info({ count }, this.messages.products.listed);
       return enrichedProducts;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Neosolar products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }
@@ -190,7 +190,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ sku }, 'Fetching Neosolar product details...');
+      this.logger.info({ sku }, this.messages.products.fetching);
       
       // Navigate to product page
       await this.page.goto(`https://portalb2b.neosolar.com.br/produto/${sku}`, {
@@ -200,7 +200,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
       // Check if product exists
       const notFound = await this.page.locator('text=/não encontrado|404/i').count() > 0;
       if (notFound) {
-        this.logger.warn({ sku }, 'Neosolar product not found');
+        this.logger.warn({ sku }, this.messages.products.not_found);
         return null;
       }
       
@@ -265,10 +265,10 @@ export class NeosolarMCPServer extends BaseMCPServer {
         last_updated: new Date().toISOString(),
       };
       
-      this.logger.info({ sku }, 'Neosolar product details fetched');
+      this.logger.info({ sku }, this.messages.products.fetched);
       return enrichedProduct;
     } catch (error) {
-      this.logger.error({ error, sku }, 'Failed to fetch Neosolar product');
+      this.logger.error({ error, sku }, this.messages.products.failed);
       return null;
     }
   }
@@ -277,7 +277,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
     const startTime = Date.now();
     
     try {
-      this.logger.info({ config }, 'Starting Neosolar catalog extraction...');
+      this.logger.info({ config }, this.messages.catalog.extracting);
       
       // Authenticate first
       if (!this.page) {
@@ -293,7 +293,7 @@ export class NeosolarMCPServer extends BaseMCPServer {
       // Extract full details if requested
       let detailedProducts: Product[] = [];
       if (config.full_details) {
-        this.logger.info({ total: products.length }, 'Extracting full product details...');
+        this.logger.info({ total: products.length }, this.messages.products.full_details);
         
         const detailTasks = products.slice(0, config.max_products).map(p =>
           this.queue.add(() =>
@@ -335,12 +335,12 @@ export class NeosolarMCPServer extends BaseMCPServer {
       
       this.logger.info(
         { total: result.total_products, duration },
-        'Neosolar catalog extraction completed'
+        this.messages.catalog.completed
       );
       
       return result;
     } catch (error) {
-      this.logger.error({ error }, 'Neosolar catalog extraction failed');
+      this.logger.error({ error }, this.messages.catalog.failed);
       throw error;
     }
   }

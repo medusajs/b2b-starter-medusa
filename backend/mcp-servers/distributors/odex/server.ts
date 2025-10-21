@@ -44,7 +44,7 @@ export class OdexMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info('Authenticating with Odex B2B...');
+      this.logger.info(this.messages.auth.authenticating);
       
       await this.page.goto('https://www.odex.com.br/login', { waitUntil: 'networkidle' });
       
@@ -82,7 +82,7 @@ export class OdexMCPServer extends BaseMCPServer {
         throw new Error('No session cookie found after login');
       }
       
-      this.logger.info('Successfully authenticated with Odex B2B');
+      this.logger.info(this.messages.auth.authenticated);
       
       return {
         distributor: 'odex',
@@ -95,7 +95,7 @@ export class OdexMCPServer extends BaseMCPServer {
         })),
       };
     } catch (error) {
-      this.logger.error({ error }, 'Odex authentication failed');
+      this.logger.error({ error }, this.messages.auth.failed);
       throw error;
     }
   }
@@ -104,7 +104,7 @@ export class OdexMCPServer extends BaseMCPServer {
     if (!this.page) throw new Error('Browser not initialized');
 
     try {
-      this.logger.info({ filters }, 'Listing Odex products...');
+      this.logger.info({ filters }, this.messages.products.listing);
       
       // Navigate to catalog
       await this.page.goto('https://www.odex.com.br/produtos', { 
@@ -155,7 +155,7 @@ export class OdexMCPServer extends BaseMCPServer {
       this.logger.info({ count: products.length }, 'Odex products extracted');
       return products;
     } catch (error) {
-      this.logger.error({ error }, 'Failed to list Odex products');
+      this.logger.error({ error }, this.messages.products.failed);
       throw error;
     }
   }
