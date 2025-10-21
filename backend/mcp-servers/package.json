@@ -1,0 +1,52 @@
+{
+      "name": "@ysh/mcp-servers-distributors",
+      "version": "1.0.0",
+      "description": "MCP Servers for Solar Distributors Catalog Extraction",
+      "type": "module",
+      "engines": {
+            "node": ">=20"
+      },
+      "scripts": {
+            "worker": "tsx orchestrator/worker.ts",
+            "scheduler": "tsx orchestrator/scheduler.ts",
+            "test:fortlev": "tsx test-fortlev.ts",
+            "test:fortlev:simple": "tsx test-fortlev-simple.ts",
+            "dev:fortlev": "tsx distributors/fortlev/server.ts",
+            "dev:neosolar": "tsx distributors/neosolar/server.ts",
+            "dev:solfacil": "tsx distributors/solfacil/server.ts",
+            "dev:fotus": "tsx distributors/fotus/server.ts",
+            "dev:odex": "tsx distributors/odex/server.ts",
+            "dev:edeltec": "tsx distributors/edeltec/server.ts",
+            "dev:dynamis": "tsx distributors/dynamis/server.ts",
+            "build": "tsc",
+            "test": "jest",
+            "lint": "eslint . --ext .ts",
+            "format": "prettier --write \"**/*.ts\""
+      },
+      "dependencies": {
+            "@modelcontextprotocol/sdk": "^1.20.1",
+            "@temporalio/activity": "^1.11.4",
+            "@temporalio/client": "^1.11.4",
+            "@temporalio/worker": "^1.11.4",
+            "@temporalio/workflow": "^1.11.4",
+            "dotenv": "^16.4.7",
+            "p-queue": "^8.0.1",
+            "p-retry": "^6.2.1",
+            "pg": "^8.13.1",
+            "pino": "^9.5.0",
+            "pino-pretty": "^11.3.0",
+            "playwright": "^1.48.0",
+            "redis": "^4.7.0",
+            "zod": "^3.23.8"
+      },
+      "devDependencies": {
+            "@types/jest": "^29.5.14",
+            "@types/node": "^20.11.0",
+            "@types/pg": "^8.11.10",
+            "eslint": "^8.57.1",
+            "jest": "^29.7.0",
+            "prettier": "^3.3.3",
+            "tsx": "^4.20.6",
+            "typescript": "^5.9.3"
+      }
+}
