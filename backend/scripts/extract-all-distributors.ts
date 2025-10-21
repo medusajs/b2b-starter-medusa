@@ -54,7 +54,7 @@ const DISTRIBUTORS: Distributor[] = [
   },
   {
     name: 'solfacil',
-    url: 'https://integrador.solfacil.com.br/', // UPDATED: Portal do Integrador
+    url: 'https://integrador.solfacil.com.br/', // Login via SSO: sso.solfacil.com.br
     email: '',
     password: '',
     emailEnvVar: 'SOLFACIL_EMAIL',
@@ -62,7 +62,7 @@ const DISTRIBUTORS: Distributor[] = [
   },
   {
     name: 'fotus',
-    url: 'https://app.fotus.com.br/', // UPDATED: Plataforma Fotus
+    url: 'https://app.fotus.com.br/login', // UPDATED: Direct login page
     email: '',
     password: '',
     emailEnvVar: 'FOTUS_EMAIL',
@@ -84,7 +84,22 @@ const DISTRIBUTORS: Distributor[] = [
     emailEnvVar: 'EDELTEC_EMAIL',
     passwordEnvVar: 'EDELTEC_PASSWORD',
   },
-  // Fortlev and Dynamis: Awaiting support response for correct B2B URLs
+  {
+    name: 'fortlev',
+    url: 'https://fortlevsolar.app/login', // UPDATED: Fortlev Solar App
+    email: '',
+    password: '',
+    emailEnvVar: 'FORTLEV_EMAIL',
+    passwordEnvVar: 'FORTLEV_PASSWORD',
+  },
+  {
+    name: 'dynamis',
+    url: 'https://app.dynamisimportadora.com.br/', // UPDATED: Dynamis App
+    email: '',
+    password: '',
+    emailEnvVar: 'DYNAMIS_EMAIL',
+    passwordEnvVar: 'DYNAMIS_PASSWORD',
+  },
 ];
 
 const OUTPUT_DIR = path.join(process.cwd(), 'output', 'multi-distributor');

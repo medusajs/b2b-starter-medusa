@@ -1,0 +1,32 @@
+[
+  {
+    "sku": "fortlev-0",
+    "title": "Produto Avulso",
+    "url": "https://fortlevsolar.app/produto-avulso",
+    "imageUrl": "",
+    "price": 0,
+    "distributor": "fortlev",
+    "id": "0",
+    "category": "outros"
+  },
+  {
+    "sku": "fortlev-1",
+    "title": "Produto Avulso",
+    "url": "https://fortlevsolar.app/produto-avulso",
+    "imageUrl": "",
+    "price": 0,
+    "distributor": "fortlev",
+    "id": "1",
+    "category": "outros"
+  },
+  {
+    "sku": "20",
+    "title": "Ver mais",
+    "url": "https://fortlevsolar.app/produto-avulso?nome=BATERIA%20GROWATT%20AXE%205.0L",
+    "imageUrl": "",
+    "price": 0,
+    "distributor": "fortlev",
+    "id": "2",
+    "category": "outros"
+  }
+]
