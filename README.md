@@ -107,10 +107,10 @@ flowchart LR
 ```mermaid
 graph TD
   StatefulAgent -->|context| TypeAgentBridge
-  TypeAgentBridge -->|skill: "analise-tarifaria"| ANEEL
-  TypeAgentBridge -->|skill: "validar-componente"| INMETRO
-  DataExtractor -->|ingest-financeiro| OpenFinance
-  TaskOrchestrator -->|invoke: "criar-design"| AuroraSolar
+  TypeAgentBridge -->|analise_tarifaria| ANEEL
+  TypeAgentBridge -->|validar_componente| INMETRO
+  DataExtractor -->|ingest_financeiro| OpenFinance
+  TaskOrchestrator -->|criar_design| AuroraSolar
 ```
 
 ## Instalação e Setup

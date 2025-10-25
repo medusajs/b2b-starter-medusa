@@ -51,13 +51,16 @@ const createBundleItemsStep = createStep(
 export const createBundleWorkflow = createWorkflow(
   "create-bundle-workflow",
   (input: WorkflowData<CreateBundleWorkflowInput>) => {
-    // 1. Create Product Shell
-    const [product] = createProductsStep([{ title: input.title }])
-
-    // 2. Create Bundle
+    // 1. Create Bundle and Product Shell simultaneously
     const [bundle] = createBundlesStep([{ title: input.title }])
+    const [product] = createProductsStep([
+      {
+        title: input.title,
+        tags: [{ value: "bundle" }], // Add tag for storefront UI
+      },
+    ])
 
-    // 3. Update product with bundle_id
+    // 2. Update product with bundle_id
     updateProductsStep([
       {
         id: product.id,
@@ -66,9 +69,6 @@ export const createBundleWorkflow = createWorkflow(
         },
       },
     ])
-
-    // 2. Create Bundle
-    const [bundle] = createBundlesStep([{ title: input.title }])
 
     // 3. Prepare and Create BundleItems
     const itemsToCreate = transform(
