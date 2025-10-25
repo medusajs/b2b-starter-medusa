@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "viability.pv.response",
+  "type": "object",
+  "required": ["proposal_kwp", "expected_gen_mwh_y", "inverters", "strings"],
+  "properties": {
+    "proposal_kwp": {"type": "number"},
+    "expected_gen_mwh_y": {"type": "number"},
+    "pr": {"type": "number"},
+    "losses": {"type": "object"},
+    "inverters": {"type": "array"},
+    "strings": {"type": "array"},
+    "oversizing_ratio": {"type": "number"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}
+

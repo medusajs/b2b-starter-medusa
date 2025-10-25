@@ -1,18 +1,23 @@
-import { WorkflowResponse } from "@medusajs/framework/workflows-sdk";
-import { createWorkflow } from "@medusajs/workflows-sdk";
-import { ModuleDeleteCompany } from "../../../types";
-import { deleteApprovalSettingsStep } from "../../approval/steps/delete-approval-settings";
-import { deleteCompaniesStep } from "../steps";
+import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { COMPANY_MODULE } from "../../../modules/company";
+import { ICompanyModuleService } from "../../../types/company/service";
+
+type DeleteCompanyInput = {
+    id: string;
+};
+
+const deleteCompanyStep = createStep("delete-company", async (input: DeleteCompanyInput, { container }) => {
+    const companyModuleService = container.resolve(COMPANY_MODULE) as ICompanyModuleService;
+
+    await companyModuleService.deleteCompanies([input.id]);
+
+    return new StepResponse({ id: input.id, deleted: true });
+});
 
 export const deleteCompaniesWorkflow = createWorkflow(
-  "delete-companies",
-  function (input: ModuleDeleteCompany) {
-    deleteCompaniesStep([input.id]);
-
-    deleteApprovalSettingsStep({
-      companyIds: [input.id],
-    });
-
-    return new WorkflowResponse(undefined);
-  }
+    "delete-companies",
+    (input: DeleteCompanyInput) => {
+        const result = deleteCompanyStep(input);
+        return new WorkflowResponse(result);
+    }
 );

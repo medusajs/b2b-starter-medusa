@@ -1,5 +1,5 @@
 import { retrieveOrder } from "@/lib/data/orders"
-import OrderDetailsTemplate from "@/modules/order/templates/order-details-template"
+import OrderDetailsTemplate from "@/modules/purchase/order/templates/order-details-template"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -16,8 +16,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   return {
-    title: `Order #${order.display_id}`,
-    description: `View your order`,
+    title: `Pedido #${order.display_id}`,
+    description: `Visualize seu pedido`,
   }
 }
 

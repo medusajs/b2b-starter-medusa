@@ -1,0 +1,115 @@
+# ==========================================
+# Docker Compose para Desenvolvimento
+# Configuração simplificada para desenvolvimento local
+# ==========================================
+
+version: "3.8"
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-b2b-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ysh-b2b-dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-b2b-redis-dev
+    restart: unless-stopped
+    ports:
+      - "16379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ysh-b2b-dev-network
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Medusa Development
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: ysh-b2b-backend-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://medusa_user:medusa_password@postgres:5432/medusa_db
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: dev-jwt-secret-key
+      COOKIE_SECRET: dev-cookie-secret-key
+      MEDUSA_ADMIN_CORS: http://localhost:9000,http://localhost:7001
+      MEDUSA_STORE_CORS: http://localhost:8000
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+      - "9002:9002"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - backend_uploads:/app/uploads
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Storefront Next.js Development
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile.dev
+    container_name: ysh-b2b-storefront-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_2786bc8945cacd335e0cd8fb17b19d2516ec4e29ed9a64ca583ebbe4bb9dc40d
+      NEXT_PUBLIC_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEFAULT_REGION: br
+      REVALIDATE_SECRET: supersecret
+      NEXT_TELEMETRY_DISABLED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storefront:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_uploads:
+    driver: local
+
+networks:
+  ysh-b2b-dev-network:
+    driver: bridge

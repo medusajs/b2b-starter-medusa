@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/distribuidoras_gd.schema.json",
+  "title": "Schema de Validação - Distribuidoras de Energia e Portais de Homologação GD",
+  "description": "Schema JSON para validação de dados de distribuidoras de energia e seus portais de homologação de Geração Distribuída (GD)",
+  "type": "object",
+  "required": [
+    "version",
+    "generated_at",
+    "total_distribuidoras",
+    "distribuidoras"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Versão do formato de dados",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp de geração dos dados"
+    },
+    "total_distribuidoras": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total de distribuidoras cadastradas"
+    },
+    "distribuidoras": {
+      "type": "object",
+      "description": "Dicionário de distribuidoras indexadas por código ANEEL",
+      "patternProperties": {
+        "^\\d+$": {
+          "type": "object",
+          "description": "Dados de uma distribuidora específica",
+          "required": [
+            "nome",
+            "abreviacao",
+            "estados_atuacao",
+            "portal_homologacao"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "description": "Nome oficial da distribuidora"
+            },
+            "abreviacao": {
+              "type": "string",
+              "description": "Abreviação ou sigla da distribuidora"
+            },
+            "estados_atuacao": {
+              "type": "array",
+              "description": "Estados de atuação da distribuidora",
+              "items": {
+                "type": "string",
+                "description": "Sigla do estado (UF)",
+                "pattern": "^[A-Z]{2}$"
+              }
+            },
+            "contato": {
+              "type": "object",
+              "description": "Informações de contato da distribuidora",
+              "properties": {
+                "telefone": {
+                  "type": ["string", "null"],
+                  "description": "Telefone de contato principal"
+                },
+                "email": {
+                  "type": ["string", "null"],
+                  "description": "E-mail de contato principal",
+                  "format": "email"
+                },
+                "site": {
+                  "type": ["string", "null"],
+                  "description": "Site oficial da distribuidora",
+                  "format": "uri"
+                }
+              }
+            },
+            "portal_homologacao": {
+              "type": "object",
+              "description": "Informações sobre o portal de homologação GD",
+              "required": [
+                "url",
+                "tipo_acesso"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "URL do portal de homologação GD",
+                  "format": "uri"
+                },
+                "descricao": {
+                  "type": ["string", "null"],
+                  "description": "Descrição do portal de homologação"
+                },
+                "tipo_acesso": {
+                  "type": "string",
+                  "description": "Tipo de acesso ao portal",
+                  "enum": [
+                    "publico",
+                    "cadastro",
+                    "certificado_digital",
+                    "login_senha"
+                  ]
+                },
+                "requer_cadastro_previo": {
+                  "type": "boolean",
+                  "description": "Indica se requer cadastro prévio para acesso"
+                },
+                "instrucoes_cadastro": {
+                  "type": ["string", "null"],
+                  "description": "Instruções para realização do cadastro"
+                },
+                "documentacao_api": {
+                  "type": ["string", "null"],
+                  "description": "URL da documentação da API (se disponível)",
+                  "format": "uri"
+                },
+                "autenticacao": {
+                  "type": "object",
+                  "description": "Detalhes de autenticação no portal",
+                  "properties": {
+                    "metodo": {
+                      "type": "string",
+                      "description": "Método de autenticação",
+                      "enum": [
+                        "basic",
+                        "oauth2",
+                        "certificado_digital",
+                        "api_key",
+                        "form_login"
+                      ]
+                    },
+                    "campos_requeridos": {
+                      "type": "array",
+                      "description": "Campos requeridos para autenticação",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "endpoint_auth": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint de autenticação"
+                    },
+                    "token_validity": {
+                      "type": ["integer", "null"],
+                      "description": "Validade do token em segundos"
+                    }
+                  }
+                },
+                "endpoints": {
+                  "type": "object",
+                  "description": "Endpoints disponíveis no portal",
+                  "properties": {
+                    "solicitacao_acesso": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para solicitação de acesso"
+                    },
+                    "consulta_solicitacao": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para consulta de solicitações"
+                    },
+                    "envio_documentos": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para envio de documentos"
+                    },
+                    "parecer_acesso": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para emissão/consulta de parecer de acesso"
+                    },
+                    "vistoria": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para agendamento/acompanhamento de vistoria"
+                    },
+                    "contratos": {
+                      "type": ["string", "null"],
+                      "description": "Endpoint para gestão de contratos"
+                    }
+                  }
+                }
+              }
+            },
+            "requisitos_documentacao": {
+              "type": "array",
+              "description": "Requisitos de documentação para homologação",
+              "items": {
+                "type": "object",
+                "required": [
+                  "tipo",
+                  "obrigatorio"
+                ],
+                "properties": {
+                  "tipo": {
+                    "type": "string",
+                    "description": "Tipo de documento",
+                    "enum": [
+                      "formulario_solicitacao",
+                      "anotacao_responsabilidade_tecnica",
+                      "memorial_descritivo",
+                      "diagrama_unifilar",
+                      "projeto_eletrico",
+                      "certificado_inversores",
+                      "datasheet_equipamentos",
+                      "procuracao",
+                      "documento_propriedade",
+                      "contrato_aluguel",
+                      "certidao_distribuidora",
+                      "registro_aneel",
+                      "licenca_ambiental",
+                      "formulario_prodist",
+                      "laudo_ensaios",
+                      "outros"
+                    ]
+                  },
+                  "nome": {
+                    "type": "string",
+                    "description": "Nome do documento conforme a distribuidora"
+                  },
+                  "formato": {
+                    "type": "array",
+                    "description": "Formatos aceitos para o documento",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "pdf",
+                        "doc",
+                        "docx",
+                        "xls",
+                        "xlsx",
+                        "jpg",
+                        "png",
+                        "dwg",
+                        "outros"
+                      ]
+                    }
+                  },
+                  "obrigatorio": {
+                    "type": "boolean",
+                    "description": "Indica se o documento é obrigatório"
+                  },
+                  "observacoes": {
+                    "type": ["string", "null"],
+                    "description": "Observações específicas sobre o documento"
+                  }
+                }
+              }
+            },
+            "fluxo_homologacao": {
+              "type": "array",
+              "description": "Etapas do fluxo de homologação",
+              "items": {
+                "type": "object",
+                "required": [
+                  "ordem",
+                  "etapa",
+                  "responsavel"
+                ],
+                "properties": {
+                  "ordem": {
+                    "type": "integer",
+                    "description": "Ordem da etapa no fluxo"
+                  },
+                  "etapa": {
+                    "type": "string",
+                    "description": "Nome da etapa"
+                  },
+                  "responsavel": {
+                    "type": "string",
+                    "description": "Responsável pela etapa",
+                    "enum": [
+                      "cliente",
+                      "integrador",
+                      "distribuidora",
+                      "aneel",
+                      "outros"
+                    ]
+                  },
+                  "prazo_dias": {
+                    "type": ["integer", "null"],
+                    "description": "Prazo em dias para conclusão da etapa"
+                  },
+                  "documentos_requeridos": {
+                    "type": "array",
+                    "description": "Documentos requeridos nesta etapa",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "prazos_medios": {
+              "type": "object",
+              "description": "Prazos médios de homologação por potência",
+              "properties": {
+                "ate_75kw": {
+                  "type": ["integer", "null"],
+                  "description": "Prazo médio em dias para sistemas até 75kW"
+                },
+                "75kw_5mw": {
+                  "type": ["integer", "null"],
+                  "description": "Prazo médio em dias para sistemas de 75kW a 5MW"
+                },
+                "acima_5mw": {
+                  "type": ["integer", "null"],
+                  "description": "Prazo médio em dias para sistemas acima de 5MW"
+                }
+              }
+            },
+            "ultima_atualizacao": {
+              "type": "string",
+              "format": "date",
+              "description": "Data da última atualização dos dados"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

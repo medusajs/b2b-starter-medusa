@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fortlev_security_IMS00004",
+    "name": "CONCERTINA  FIO 3.0MM - ROLO C/ 10MT",
+    "manufacturer": "Unknown",
+    "category": "security",
+    "price": "R$ 531,03",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a7/IMS00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CONCERTINA  FIO 3.0MM - ROLO C/ 10MT",
+    "pricing": {
+      "price": 531.03,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_security_IMS00003",
+    "name": "CERCA DE ARAME 1,8MX20M (2.1MMX65X65MM)",
+    "manufacturer": "Unknown",
+    "category": "security",
+    "price": "R$ 887,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a6/IMS00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CERCA DE ARAME 1,8MX20M (2.1MMX65X65MM)",
+    "pricing": {
+      "price": 887.95,
+      "currency": "BRL"
+    }
+  }
+]

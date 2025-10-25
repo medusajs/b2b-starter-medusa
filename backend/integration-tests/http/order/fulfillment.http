@@ -1,0 +1,104 @@
+###
+### 📦 Order Fulfillment Workflow Tests
+### Teste completo dos workflows de pedidos
+###
+
+@baseUrl = http://localhost:9000
+@adminToken = {{$dotenv ADMIN_API_TOKEN}}
+
+### 1. Fulfill Order - Separação e Embalagem
+POST {{baseUrl}}/admin/workflows-executions/fulfill-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST001"
+}
+
+### 2. Ship Order - Criar Envio
+POST {{baseUrl}}/admin/workflows-executions/ship-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST001",
+  "fulfillment_id": "fulfillment_1234567890",
+  "carrier": "Correios"
+}
+
+### 3. Ship Order - Transportadora Alternativa
+POST {{baseUrl}}/admin/workflows-executions/ship-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST002",
+  "fulfillment_id": "fulfillment_1234567891",
+  "carrier": "Jadlog"
+}
+
+### 4. Complete Order - Confirmar Entrega
+POST {{baseUrl}}/admin/workflows-executions/complete-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST001",
+  "shipment_id": "ship_1234567890"
+}
+
+### 5. Cancel Order - Cliente
+POST {{baseUrl}}/admin/workflows-executions/cancel-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST003",
+  "reason": "Cliente desistiu da compra",
+  "cancelled_by": "customer"
+}
+
+### 6. Cancel Order - Falta de Estoque
+POST {{baseUrl}}/admin/workflows-executions/cancel-order
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "order_id": "order_01JCQR8XTEST004",
+  "reason": "Produto sem estoque",
+  "cancelled_by": "merchant"
+}
+
+###
+### Expected Response Schemas:
+###
+### Fulfill Order:
+### {
+###   "fulfillment_id": "fulfillment_1234567890",
+###   "order_id": "order_...",
+###   "status": "fulfilled",
+###   "warehouse_location": "CD_SP_001",
+###   "picked_at": "2025-10-12T20:30:00Z",
+###   "packed_at": "2025-10-12T20:45:00Z"
+### }
+###
+### Ship Order:
+### {
+###   "shipment_id": "ship_1234567890",
+###   "tracking_code": "BR12345678900",
+###   "carrier": "Correios",
+###   "estimated_delivery": "2025-10-19T00:00:00Z",
+###   "shipped_at": "2025-10-12T21:00:00Z"
+### }
+###
+### Complete Order:
+### {
+###   "completed": true
+### }
+###
+### Cancel Order:
+### {
+###   "cancelled": true,
+###   "refund_id": "refund_1234567890"
+### }
+###

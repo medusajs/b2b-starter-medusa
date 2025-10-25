@@ -1,0 +1,48 @@
+# ============================================================================
+# Grafana Datasources Configuration
+# ============================================================================
+
+apiVersion: 1
+
+datasources:
+  # Prometheus datasource
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: true
+    jsonData:
+      timeInterval: "15s"
+      queryTimeout: "60s"
+      httpMethod: "POST"
+
+  # PostgreSQL datasource
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    database: ysh_pipeline
+    user: ysh_admin
+    secureJsonData:
+      password: ysh_secure_2025
+    jsonData:
+      sslmode: disable
+      maxOpenConns: 10
+      maxIdleConns: 2
+      connMaxLifetime: 14400
+      postgresVersion: 1400
+      timescaledb: false
+    editable: true
+
+  # Redis datasource (if redis-datasource plugin is installed)
+  - name: Redis
+    type: redis-datasource
+    access: proxy
+    url: redis:6379
+    jsonData:
+      client: standalone
+      timeout: 10
+    secureJsonData:
+      password: ysh_redis_2025
+    editable: true

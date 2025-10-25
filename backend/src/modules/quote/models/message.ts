@@ -1,5 +1,5 @@
 import { model } from "@medusajs/framework/utils";
-import { Quote } from "./quote";
+import { Quote } from "./quote.js";
 
 export const Message = model.define("message", {
   id: model.id({ prefix: "mess" }).primaryKey(),

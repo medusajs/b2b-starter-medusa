@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "catalog.curator.response",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sku","marca","modelo","potencia_wp","certificados"],
+        "properties": {
+          "sku": {"type":"string"},
+          "marca": {"type":"string"},
+          "modelo": {"type":"string"},
+          "serie": {"type":"string"},
+          "potencia_wp": {"type":"integer"},
+          "certificados": {"type":"array","items":{"type":"string"}}
+        }
+      }
+    }
+  }
+}
+

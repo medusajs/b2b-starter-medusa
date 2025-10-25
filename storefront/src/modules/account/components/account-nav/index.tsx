@@ -38,13 +38,13 @@ const AccountNav = ({
           >
             <>
               <ChevronDown className="transform rotate-90" />
-              <span>Account</span>
+              <span>Conta</span>
             </>
           </LocalizedClientLink>
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Olá {customer?.first_name}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -57,7 +57,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <User size={20} />
-                        <span>Profile</span>
+                        <span>Perfil</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -72,7 +72,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <BuildingStorefront width={20} />
-                        <span>Company</span>
+                        <span>Empresa</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -87,7 +87,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Addresses</span>
+                        <span>Endereços</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -101,7 +101,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
-                      <span>Orders</span>
+                      <span>Pedidos</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -115,7 +115,7 @@ const AccountNav = ({
                     >
                       <div className="flex items-center gap-x-2">
                         <FilePlus size={16} />
-                        <span>Approvals</span>
+                        <span>Aprovações</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </LocalizedClientLink>
@@ -129,7 +129,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <FilePlus size={16} />
-                      <span>Quotes</span>
+                      <span>Cotações</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -143,7 +143,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Log out</span>
+                      <span>Sair</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -162,7 +162,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="overview-link"
               >
-                Overview
+                Visão Geral
               </AccountNavLink>
             </li>
             <li>
@@ -171,7 +171,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="profile-link"
               >
-                Profile
+                Perfil
               </AccountNavLink>
             </li>
             <li>
@@ -180,7 +180,16 @@ const AccountNav = ({
                 route={route!}
                 data-testid="company-link"
               >
-                Company
+                Empresa
+              </AccountNavLink>
+            </li>
+            <li>
+              <AccountNavLink
+                href="/account/employees"
+                route={route!}
+                data-testid="employees-link"
+              >
+                Colaboradores
               </AccountNavLink>
             </li>
             <li>
@@ -189,7 +198,25 @@ const AccountNav = ({
                 route={route!}
                 data-testid="addresses-link"
               >
-                Addresses
+                Endereços
+              </AccountNavLink>
+            </li>
+            <li>
+              <AccountNavLink
+                href="/account/security"
+                route={route!}
+                data-testid="security-link"
+              >
+                Segurança
+              </AccountNavLink>
+            </li>
+            <li>
+              <AccountNavLink
+                href="/account/preferences"
+                route={route!}
+                data-testid="preferences-link"
+              >
+                Preferências
               </AccountNavLink>
             </li>
             <li>
@@ -198,7 +225,7 @@ const AccountNav = ({
                 route={route!}
                 data-testid="orders-link"
               >
-                Orders
+                Pedidos
               </AccountNavLink>
             </li>
             {customer?.employee?.is_admin && (
@@ -208,9 +235,9 @@ const AccountNav = ({
                   route={route!}
                   data-testid="approvals-link"
                 >
-                  Approvals{" "}
+                  Aprovações{" "}
                   {numPendingApprovals > 0 && (
-                    <span className="bg-blue-500 text-white text-xs px-1.5 py-px rounded-full">
+                    <span className="bg-gradient-to-r from-yello-yellow-400 to-yello-orange-400 text-white text-xs px-2 py-1 rounded-full font-medium shadow-sm">
                       {numPendingApprovals}
                     </span>
                   )}
@@ -223,16 +250,17 @@ const AccountNav = ({
                 route={route!}
                 data-testid="quotes-link"
               >
-                Quotes
+                Cotações
               </AccountNavLink>
             </li>
-            <li className="text-neutral-400 hover:text-neutral-950">
+            <li className="text-yello-gray-500 hover:text-yello-magenta-500 transition-colors duration-200">
               <button
                 type="button"
                 onClick={handleLogout}
                 data-testid="logout-button"
+                className="flex items-center gap-x-2 w-full text-left"
               >
-                Log out
+                Sair
               </button>
             </li>
           </ul>
@@ -262,12 +290,13 @@ const AccountNavLink = ({
     <LocalizedClientLink
       href={href}
       className={clx(
-        "text-neutral-400 hover:text-neutral-950 flex items-center gap-x-2",
+        "text-yello-gray-500 hover:text-yello-magenta-500 flex items-center gap-x-2 transition-colors duration-200 font-medium",
         {
-          "text-neutral-950": active,
+          "text-yello-yellow-600 bg-gradient-to-r from-yello-yellow-50 to-yello-orange-50 px-3 py-2 rounded-lg border border-yello-yellow-100": active,
         }
       )}
       data-testid={dataTestId}
+      aria-current={active ? "page" : undefined}
     >
       {children}
     </LocalizedClientLink>

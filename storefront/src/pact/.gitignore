@@ -1,0 +1,9 @@
+# Pact contract files
+pacts/
+
+# Test artifacts
+*.pact.json
+
+# Logs
+pact.log
+*.log

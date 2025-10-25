@@ -1,0 +1,601 @@
+# ============================================================================
+# YSH Data Pipeline - Full Stack FOSS Docker Compose
+# ============================================================================
+# Version: 1.0.0
+# Date: October 14, 2025
+# Purpose: Complete local development environment with monitoring & automation
+# Stack: PostgreSQL, Redis, DynamoDB Local, Airflow, Grafana, Prometheus, MinIO
+# ============================================================================
+
+version: "3.8"
+
+# ============================================================================
+# NETWORKS
+# ============================================================================
+networks:
+  ysh-network:
+    external: true
+
+# ============================================================================
+# VOLUMES
+# ============================================================================
+volumes:
+  postgres-data:
+  redis-data:
+  dynamodb-data:
+  minio-data:
+  qdrant-data:
+  airflow-logs:
+  airflow-dags:
+  airflow-plugins:
+  grafana-data:
+  prometheus-data:
+
+# ============================================================================
+# SERVICES
+# ============================================================================
+services:
+  # ==========================================================================
+  # 1. POSTGRESQL - Primary Database
+  # ==========================================================================
+  postgres:
+    image: postgis/postgis:14-3.3
+    container_name: ysh-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ysh_pipeline
+      POSTGRES_USER: ysh_admin
+      POSTGRES_PASSWORD: ysh_secure_2025
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./SQL-SCHEMA-POSTGRESQL.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ysh_admin -d ysh_pipeline"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=database"
+      - "com.ysh.monitoring=enabled"
+
+  # ==========================================================================
+  # 2. REDIS - Cache Layer
+  # ==========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --requirepass ysh_redis_2025
+      --maxmemory 2gb
+      --maxmemory-policy allkeys-lru
+      --save 60 1000
+      --appendonly yes
+      --appendfsync everysec
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./infrastructure/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    labels:
+      - "com.ysh.service=cache"
+      - "com.ysh.monitoring=enabled"
+
+  # ==========================================================================
+  # 3. DYNAMODB LOCAL - NoSQL Database
+  # ==========================================================================
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: ysh-dynamodb
+    restart: unless-stopped
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
+    ports:
+      - "8001:8000"
+    volumes:
+      - dynamodb-data:/data
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=nosql"
+
+  # ==========================================================================
+  # 4. MINIO - S3-compatible Object Storage
+  # ==========================================================================
+  minio:
+    image: minio/minio:latest
+    container_name: ysh-minio
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ysh_admin
+      MINIO_ROOT_PASSWORD: ysh_minio_2025
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9001
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000" # API
+      - "9001:9001" # Console
+    volumes:
+      - minio-data:/data
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=storage"
+
+  # ==========================================================================
+  # 5. QDRANT - Vector Database for Semantic Search
+  # ==========================================================================
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: ysh-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # HTTP API
+      - "6334:6334" # gRPC
+    volumes:
+      - qdrant-data:/qdrant/storage
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=vector-db"
+
+  # ==========================================================================
+  # 6. AIRFLOW - Workflow Orchestration
+  # ==========================================================================
+
+  # Airflow PostgreSQL (separate from main DB)
+  airflow-postgres:
+    image: postgres:14-alpine
+    container_name: ysh-airflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: airflow
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow_2025
+    volumes:
+      - ./infrastructure/airflow/postgres-data:/var/lib/postgresql/data
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Airflow Redis (separate from main Redis)
+  airflow-redis:
+    image: redis:7-alpine
+    container_name: ysh-airflow-redis
+    restart: unless-stopped
+    command: redis-server --requirepass airflow_redis_2025
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Airflow Webserver
+  airflow-webserver:
+    image: apache/airflow:2.7.3-python3.11
+    container_name: ysh-airflow-webserver
+    restart: unless-stopped
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://:airflow_redis_2025@airflow-redis:6379/0
+      AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+      _AIRFLOW_DB_UPGRADE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin_2025
+    volumes:
+      - ./workflows/dags:/opt/airflow/dags
+      - airflow-logs:/opt/airflow/logs
+      - airflow-plugins:/opt/airflow/plugins
+      - ./requirements.txt:/opt/airflow/requirements.txt:ro
+    ports:
+      - "8080:8080"
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    command: webserver
+    labels:
+      - "com.ysh.service=orchestration"
+      - "com.ysh.monitoring=enabled"
+
+  # Airflow Scheduler
+  airflow-scheduler:
+    image: apache/airflow:2.7.3-python3.11
+    container_name: ysh-airflow-scheduler
+    restart: unless-stopped
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://:airflow_redis_2025@airflow-redis:6379/0
+      AIRFLOW__CORE__FERNET_KEY: ""
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    volumes:
+      - ./workflows/dags:/opt/airflow/dags
+      - airflow-logs:/opt/airflow/logs
+      - airflow-plugins:/opt/airflow/plugins
+      - ./requirements.txt:/opt/airflow/requirements.txt:ro
+    networks:
+      ysh-network:
+
+    command: scheduler
+    labels:
+      - "com.ysh.service=orchestration"
+
+  # Airflow Worker
+  airflow-worker:
+    image: apache/airflow:2.7.3-python3.11
+    container_name: ysh-airflow-worker
+    restart: unless-stopped
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    environment:
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow_2025@airflow-postgres/airflow
+      AIRFLOW__CELERY__BROKER_URL: redis://:airflow_redis_2025@airflow-redis:6379/0
+      AIRFLOW__CORE__FERNET_KEY: ""
+    volumes:
+      - ./workflows/dags:/opt/airflow/dags
+      - airflow-logs:/opt/airflow/logs
+      - airflow-plugins:/opt/airflow/plugins
+      - ./requirements.txt:/opt/airflow/requirements.txt:ro
+    networks:
+      ysh-network:
+
+    command: celery worker
+    labels:
+      - "com.ysh.service=orchestration"
+
+  # Airflow Flower (Celery Monitoring)
+  airflow-flower:
+    image: apache/airflow:2.7.3-python3.11
+    container_name: ysh-airflow-flower
+    restart: unless-stopped
+    depends_on:
+      - airflow-redis
+    environment:
+      AIRFLOW__CELERY__BROKER_URL: redis://:airflow_redis_2025@airflow-redis:6379/0
+    ports:
+      - "5555:5555"
+    networks:
+      ysh-network:
+
+    command: celery flower
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 7. PROMETHEUS - Metrics Collection
+  # ==========================================================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ysh-prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.enable-lifecycle"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infrastructure/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./infrastructure/prometheus/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      ysh-network:
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/healthy"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 8. GRAFANA - Visualization & Dashboards
+  # ==========================================================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ysh-grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: grafana_2025
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
+      GF_SERVER_ROOT_URL: http://localhost:3000
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./infrastructure/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infrastructure/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks:
+      ysh-network:
+
+    depends_on:
+      - prometheus
+    healthcheck:
+      test:
+        ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=monitoring"
+      - "com.ysh.monitoring=enabled"
+
+  # ==========================================================================
+  # 9. POSTGRES EXPORTER - PostgreSQL Metrics
+  # ==========================================================================
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    container_name: ysh-postgres-exporter
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: "postgresql://ysh_admin:ysh_secure_2025@postgres:5432/ysh_pipeline?sslmode=disable"
+    ports:
+      - "9187:9187"
+    networks:
+      ysh-network:
+
+    depends_on:
+      - postgres
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 10. REDIS EXPORTER - Redis Metrics
+  # ==========================================================================
+  redis-exporter:
+    image: oliver006/redis_exporter:latest
+    container_name: ysh-redis-exporter
+    restart: unless-stopped
+    environment:
+      REDIS_ADDR: redis:6379
+      REDIS_PASSWORD: ysh_redis_2025
+    ports:
+      - "9121:9121"
+    networks:
+      ysh-network:
+
+    depends_on:
+      - redis
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 11. CADVISOR - Container Metrics
+  # ==========================================================================
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: ysh-cadvisor
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    networks:
+      ysh-network:
+
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 12. NODE EXPORTER - Host Metrics
+  # ==========================================================================
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: ysh-node-exporter
+    restart: unless-stopped
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    networks:
+      ysh-network:
+
+    labels:
+      - "com.ysh.service=monitoring"
+
+  # ==========================================================================
+  # 13. LOKI - Log Aggregation
+  # ==========================================================================
+  loki:
+    image: grafana/loki:latest
+    container_name: ysh-loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./infrastructure/loki/loki-config.yml:/etc/loki/local-config.yaml:ro
+      - ./docker-data/loki:/loki
+    networks:
+      ysh-network:
+
+    command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3100/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.ysh.service=logging"
+      - "com.ysh.monitoring=enabled"
+
+  # ==========================================================================
+  # 14. PROMTAIL - Log Shipper
+  # ==========================================================================
+  promtail:
+    image: grafana/promtail:latest
+    container_name: ysh-promtail
+    restart: unless-stopped
+    volumes:
+      - ./infrastructure/promtail/promtail-config.yml:/etc/promtail/config.yml:ro
+      - ./logs:/var/log/ysh-pipeline:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      ysh-network:
+
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+    labels:
+      - "com.ysh.service=logging"
+
+  # ==========================================================================
+  # 15. YSH API SERVICE - Custom Application
+  # ==========================================================================
+  ysh-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: ysh-api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://ysh_api:ysh_api_2025@postgres:5432/ysh_pipeline
+      REDIS_URL: redis://:ysh_redis_2025@redis:6379/0
+      DYNAMODB_ENDPOINT: http://dynamodb-local:8000
+      MINIO_ENDPOINT: minio:9000
+      QDRANT_URL: http://qdrant:6333
+      LOG_DIR: /var/log/ysh-pipeline
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - ./logs:/var/log/ysh-pipeline
+    networks:
+      ysh-network:
+
+    depends_on:
+      - postgres
+      - redis
+      - dynamodb-local
+      - minio
+      - qdrant
+      - loki
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "com.ysh.service=api"
+      - "com.ysh.monitoring=enabled"
+      - "logging=promtail"
+
+  # ==========================================================================
+  # 16. YSH WORKER - Background Tasks
+  # ==========================================================================
+  ysh-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: ysh-worker
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://ysh_api:ysh_api_2025@postgres:5432/ysh_pipeline
+      REDIS_URL: redis://:ysh_redis_2025@redis:6379/0
+      DYNAMODB_ENDPOINT: http://dynamodb-local:8000
+      MINIO_ENDPOINT: minio:9000
+      QDRANT_URL: http://qdrant:6333
+      LOG_DIR: /var/log/ysh-pipeline
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+    volumes:
+      - .:/app
+      - ./logs:/var/log/ysh-pipeline
+    networks:
+      ysh-network:
+
+    depends_on:
+      - postgres
+      - redis
+      - dynamodb-local
+      - minio
+      - qdrant
+      - loki
+    labels:
+      - "com.ysh.service=worker"
+      - "logging=promtail"
+# ============================================================================
+# END OF DOCKER COMPOSE
+# ============================================================================

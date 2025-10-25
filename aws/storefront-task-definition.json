@@ -1,0 +1,113 @@
+{
+      "family": "ysh-b2b-storefront",
+      "networkMode": "awsvpc",
+      "requiresCompatibilities": [
+            "FARGATE"
+      ],
+      "cpu": "512",
+      "memory": "1024",
+      "executionRoleArn": "arn:aws:iam::773235999227:role/ecsTaskExecutionRole",
+      "taskRoleArn": "arn:aws:iam::773235999227:role/ecsTaskRole",
+      "containerDefinitions": [
+            {
+                  "name": "ysh-b2b-storefront",
+                  "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-storefront:1.0.0",
+                  "portMappings": [
+                        {
+                              "containerPort": 8000,
+                              "protocol": "tcp"
+                        }
+                  ],
+                  "environment": [
+                        {
+                              "name": "NODE_ENV",
+                              "value": "production"
+                        },
+                        {
+                              "name": "NODE_OPTIONS",
+                              "value": "--max-old-space-size=768"
+                        },
+                        {
+                              "name": "NEXT_TELEMETRY_DISABLED",
+                              "value": "1"
+                        },
+                        {
+                              "name": "PORT",
+                              "value": "8000"
+                        },
+                        {
+                              "name": "HOSTNAME",
+                              "value": "0.0.0.0"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_DEFAULT_REGION",
+                              "value": "br"
+                        }
+                  ],
+                  "secrets": [
+                        {
+                              "name": "NEXT_PUBLIC_MEDUSA_BACKEND_URL",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/backend-url-vlAZeu"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tvnMYo"
+                        },
+                        {
+                              "name": "NEXT_PUBLIC_BASE_URL",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/storefront-url-IV3F65"
+                        },
+                        {
+                              "name": "REVALIDATE_SECRET",
+                              "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/revalidate-secret-2NMJS9"
+                        }
+                  ],
+                  "logConfiguration": {
+                        "logDriver": "awslogs",
+                        "options": {
+                              "awslogs-group": "/ecs/ysh-b2b-storefront",
+                              "awslogs-region": "us-east-1",
+                              "awslogs-stream-prefix": "ecs",
+                              "awslogs-create-group": "true"
+                        }
+                  },
+                  "healthCheck": {
+                        "command": [
+                              "CMD-SHELL",
+                              "curl -f http://localhost:8000 || exit 1"
+                        ],
+                        "interval": 30,
+                        "timeout": 10,
+                        "retries": 3,
+                        "startPeriod": 30
+                  },
+                  "essential": true,
+                  "mountPoints": [],
+                  "volumesFrom": [],
+                  "ulimits": [
+                        {
+                              "name": "nofile",
+                              "softLimit": 65536,
+                              "hardLimit": 65536
+                        }
+                  ],
+                  "systemControls": []
+            }
+      ],
+      "volumes": [],
+      "placementConstraints": [],
+      "tags": [
+            {
+                  "key": "Environment",
+                  "value": "production"
+            },
+            {
+                  "key": "Application",
+                  "value": "ysh-b2b"
+            },
+            {
+                  "key": "Component",
+                  "value": "storefront"
+            }
+      ]
+}

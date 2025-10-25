@@ -1,0 +1,650 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Baterias Solares - Medusa Product Schema",
+    "description": "Schema para baterias solares (Chumbo-Ácido, Lítio, LiFePO4, Gel) seguindo padrão Medusa.js Product Module",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome comercial completo da bateria",
+            "example": "Bateria Solar Freedom DF2000 105Ah 12V Chumbo-Ácido"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Subtítulo com capacidade e tecnologia",
+            "example": "105Ah 12V Chumbo-Ácido Ciclo Profundo - Vida Útil 5 Anos"
+        },
+        "handle": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "bateria-freedom-df2000-105ah-12v-chumbo-acido"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada da bateria com especificações técnicas"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "published",
+                "draft",
+                "archived"
+            ],
+            "default": "published"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor"
+        },
+        "thumbnail": {
+            "type": "string",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso da bateria em kg",
+            "minimum": 0
+        },
+        "length": {
+            "type": "number",
+            "description": "Comprimento em mm",
+            "minimum": 0
+        },
+        "height": {
+            "type": "number",
+            "description": "Altura em mm",
+            "minimum": 0
+        },
+        "width": {
+            "type": "number",
+            "description": "Largura em mm",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "NCM para baterias",
+            "example": "8507.20.10"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "País de origem",
+            "example": "BR"
+        },
+        "material": {
+            "type": "string",
+            "description": "Material da bateria",
+            "example": "Chumbo-Ácido VRLA AGM"
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação das baterias",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "enum": [
+                            "Capacidade",
+                            "Voltagem",
+                            "Tecnologia",
+                            "Aplicação"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes da bateria",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "sku",
+                    "prices",
+                    "options"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "Freedom DF2000 105Ah 12V"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "pattern": "^[A-Z0-9-]+$",
+                        "example": "FREEDOM-DF2000-105AH-12V"
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "weight": {
+                        "type": "number"
+                    },
+                    "length": {
+                        "type": "number"
+                    },
+                    "height": {
+                        "type": "number"
+                    },
+                    "width": {
+                        "type": "number"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Valores das opções desta variante",
+                        "properties": {
+                            "Capacidade": {
+                                "type": "string",
+                                "example": "105Ah"
+                            },
+                            "Voltagem": {
+                                "type": "string",
+                                "example": "12V"
+                            },
+                            "Tecnologia": {
+                                "type": "string",
+                                "example": "Chumbo-Ácido"
+                            },
+                            "Aplicação": {
+                                "type": "string",
+                                "example": "Solar"
+                            }
+                        }
+                    },
+                    "prices": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BRL"
+                                    ],
+                                    "default": "BRL"
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Preço em centavos",
+                                    "minimum": 0
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customer.groups.id": {
+                                            "type": "string"
+                                        },
+                                        "region.id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados da variante"
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "alt_text": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "cat_baterias",
+                "cat_baterias_chumbo_acido",
+                "cat_baterias_12v"
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "tag_bateria",
+                "tag_freedom",
+                "tag_105ah",
+                "tag_12v",
+                "tag_solar"
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "example": "Freedom"
+                },
+                "model": {
+                    "type": "string",
+                    "example": "DF2000"
+                },
+                "distributor": {
+                    "type": "string",
+                    "example": "neosolar"
+                },
+                "product_type": {
+                    "type": "string",
+                    "const": "battery"
+                },
+                "battery_specs": {
+                    "type": "object",
+                    "properties": {
+                        "technology": {
+                            "type": "string",
+                            "enum": [
+                                "Chumbo-Ácido",
+                                "Chumbo-Ácido AGM",
+                                "Chumbo-Ácido Gel",
+                                "Lítio",
+                                "LiFePO4",
+                                "Lítio NMC"
+                            ]
+                        },
+                        "capacity_ah": {
+                            "type": "number",
+                            "description": "Capacidade nominal em Ah",
+                            "minimum": 0
+                        },
+                        "capacity_kwh": {
+                            "type": "number",
+                            "description": "Capacidade em kWh (calculada)",
+                            "minimum": 0
+                        },
+                        "voltage_v": {
+                            "type": "number",
+                            "description": "Tensão nominal em V",
+                            "enum": [
+                                6,
+                                12,
+                                24,
+                                48
+                            ]
+                        },
+                        "cycle_life": {
+                            "type": "integer",
+                            "description": "Vida útil em ciclos",
+                            "minimum": 0
+                        },
+                        "dod_recommended": {
+                            "type": "number",
+                            "description": "Profundidade de descarga recomendada (%)",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "efficiency": {
+                            "type": "number",
+                            "description": "Eficiência round-trip (%)",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "self_discharge_rate": {
+                            "type": "number",
+                            "description": "Taxa de auto-descarga mensal (%)",
+                            "minimum": 0
+                        },
+                        "operating_temp_min_c": {
+                            "type": "number",
+                            "description": "Temperatura mínima de operação °C"
+                        },
+                        "operating_temp_max_c": {
+                            "type": "number",
+                            "description": "Temperatura máxima de operação °C"
+                        },
+                        "applications": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "Solar Off-Grid",
+                                    "Solar Híbrido",
+                                    "Backup UPS",
+                                    "Telecomunicações",
+                                    "Veículos Elétricos",
+                                    "Sistemas Isolados"
+                                ]
+                            }
+                        },
+                        "charge_voltage_v": {
+                            "type": "number",
+                            "description": "Tensão de carga recomendada em V"
+                        },
+                        "float_voltage_v": {
+                            "type": "number",
+                            "description": "Tensão de flutuação em V"
+                        },
+                        "max_charge_current_a": {
+                            "type": "number",
+                            "description": "Corrente máxima de carga em A"
+                        },
+                        "max_discharge_current_a": {
+                            "type": "number",
+                            "description": "Corrente máxima de descarga em A"
+                        },
+                        "internal_resistance_ohm": {
+                            "type": "number",
+                            "description": "Resistência interna em Ω"
+                        },
+                        "dimensions": {
+                            "type": "object",
+                            "properties": {
+                                "length_mm": {
+                                    "type": "number"
+                                },
+                                "width_mm": {
+                                    "type": "number"
+                                },
+                                "height_mm": {
+                                    "type": "number"
+                                },
+                                "weight_kg": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "terminals": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "M6",
+                                        "M8",
+                                        "Terminal Automotivo",
+                                        "Anderson",
+                                        "MC4"
+                                    ]
+                                },
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "layout": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "certifications": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "IEC 61427",
+                                "INMETRO",
+                                "ABNT NBR 15478"
+                            ]
+                        },
+                        "warranty": {
+                            "type": "object",
+                            "properties": {
+                                "years": {
+                                    "type": "integer"
+                                },
+                                "cycles": {
+                                    "type": "integer"
+                                },
+                                "conditions": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "technology",
+                        "capacity_ah",
+                        "voltage_v"
+                    ]
+                },
+                "source_data": {
+                    "type": "object",
+                    "properties": {
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "source_url": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "imported_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "seo": {
+                    "type": "object",
+                    "properties": {
+                        "meta_title": {
+                            "type": "string"
+                        },
+                        "meta_description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "battery_specs"
+            ]
+        }
+    },
+    "examples": [
+        {
+            "title": "Bateria Solar Freedom DF2000 105Ah 12V Chumbo-Ácido",
+            "subtitle": "105Ah 12V Chumbo-Ácido VRLA AGM - Ciclo Profundo",
+            "handle": "bateria-freedom-df2000-105ah-12v-chumbo-acido",
+            "description": "Bateria solar Freedom DF2000 de 105Ah 12V com tecnologia Chumbo-Ácido VRLA AGM para sistemas fotovoltaicos off-grid e backup. Desenvolvida especialmente para aplicações de ciclo profundo em energia solar. Vida útil de 5-8 anos com até 1200 ciclos a 50% DOD. Livre de manutenção, selada e à prova de vazamentos. Resistente a altas temperaturas e vibrações. Ideal para sistemas isolados, telecomunicações, iluminação solar e backup residencial. Certificada INMETRO e ABNT NBR 15478.",
+            "status": "published",
+            "is_giftcard": false,
+            "discountable": true,
+            "external_id": "freedom_df2000_105ah_12v",
+            "thumbnail": "catalog/images/batteries/freedom-df2000-105ah.jpg",
+            "weight": 32.5,
+            "length": 330,
+            "height": 173,
+            "width": 175,
+            "hs_code": "8507.20.10",
+            "origin_country": "BR",
+            "material": "Chumbo-Ácido VRLA AGM",
+            "options": [
+                {
+                    "title": "Capacidade",
+                    "values": [
+                        "105Ah"
+                    ]
+                },
+                {
+                    "title": "Voltagem",
+                    "values": [
+                        "12V"
+                    ]
+                },
+                {
+                    "title": "Tecnologia",
+                    "values": [
+                        "Chumbo-Ácido"
+                    ]
+                },
+                {
+                    "title": "Aplicação",
+                    "values": [
+                        "Solar"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "Freedom DF2000 105Ah 12V Chumbo-Ácido",
+                    "sku": "FREEDOM-DF2000-105AH-12V",
+                    "manage_inventory": true,
+                    "allow_backorder": false,
+                    "weight": 32.5,
+                    "length": 330,
+                    "height": 173,
+                    "width": 175,
+                    "options": {
+                        "Capacidade": "105Ah",
+                        "Voltagem": "12V",
+                        "Tecnologia": "Chumbo-Ácido",
+                        "Aplicação": "Solar"
+                    },
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 45000
+                        }
+                    ]
+                }
+            ],
+            "categories": [
+                "cat_baterias",
+                "cat_baterias_chumbo_acido",
+                "cat_baterias_12v",
+                "cat_baterias_100_150ah"
+            ],
+            "tags": [
+                "tag_bateria",
+                "tag_freedom",
+                "tag_105ah",
+                "tag_12v",
+                "tag_solar",
+                "tag_chumbo_acido",
+                "tag_agm",
+                "tag_ciclo_profundo"
+            ],
+            "metadata": {
+                "manufacturer": "Freedom",
+                "model": "DF2000",
+                "distributor": "neosolar",
+                "product_type": "battery",
+                "battery_specs": {
+                    "technology": "Chumbo-Ácido AGM",
+                    "capacity_ah": 105,
+                    "capacity_kwh": 1.26,
+                    "voltage_v": 12,
+                    "cycle_life": 1200,
+                    "dod_recommended": 50,
+                    "efficiency": 85,
+                    "self_discharge_rate": 3,
+                    "operating_temp_min_c": -20,
+                    "operating_temp_max_c": 60,
+                    "applications": [
+                        "Solar Off-Grid",
+                        "Backup UPS",
+                        "Sistemas Isolados"
+                    ],
+                    "charge_voltage_v": 14.4,
+                    "float_voltage_v": 13.6,
+                    "max_charge_current_a": 21,
+                    "max_discharge_current_a": 525,
+                    "dimensions": {
+                        "length_mm": 330,
+                        "width_mm": 175,
+                        "height_mm": 173,
+                        "weight_kg": 32.5
+                    },
+                    "terminals": {
+                        "type": "M8",
+                        "quantity": 2,
+                        "layout": "Frontal"
+                    },
+                    "certifications": [
+                        "IEC 61427",
+                        "INMETRO",
+                        "ABNT NBR 15478"
+                    ],
+                    "warranty": {
+                        "years": 2,
+                        "cycles": 1200,
+                        "conditions": "Uso adequado conforme manual"
+                    }
+                },
+                "seo": {
+                    "meta_title": "Bateria Solar Freedom 105Ah 12V | Melhor Preço",
+                    "meta_description": "Bateria Freedom DF2000 105Ah 12V Chumbo-Ácido AGM para sistemas solares. Ciclo profundo, 5-8 anos de vida útil. Compre agora!",
+                    "keywords": [
+                        "bateria solar 105ah",
+                        "bateria freedom 12v",
+                        "bateria chumbo acido agm",
+                        "bateria ciclo profundo",
+                        "bateria off grid"
+                    ]
+                }
+            }
+        }
+    ]
+}

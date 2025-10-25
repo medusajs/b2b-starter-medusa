@@ -4,6 +4,8 @@ import {
 } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { AdminGetApprovalsType } from "./validators";
+import { APIResponse } from "../../../utils/api-response";
+import { APIVersionManager } from "../../../utils/api-versioning";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<AdminGetApprovalsType>,
@@ -42,8 +44,6 @@ export const GET = async (
     .map((approvalStatus) => approvalStatus.cart)
     .filter(Boolean);
 
-  res.json({
-    carts_with_approvals: carts,
-    ...metadata,
-  });
+  res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION));
+  APIResponse.success(res, { carts_with_approvals: carts }, metadata);
 };

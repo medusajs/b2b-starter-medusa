@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/projeto_executivo.schema.json",
+  "title": "Projeto Executivo FV (unifilar, layout, memoriais, ART/CREA/CAU)",
+  "type": "object",
+  "required": [
+    "identificacao",
+    "arranjo_fotovoltaico",
+    "diagrama_unifilar",
+    "memoriais",
+    "responsaveis"
+  ],
+  "properties": {
+    "identificacao": {
+      "type": "object",
+      "required": [
+        "projeto_id",
+        "solicitante_tipo",
+        "uc",
+        "endereco"
+      ],
+      "properties": {
+        "projeto_id": {
+          "type": "string"
+        },
+        "solicitante_tipo": {
+          "const": "YSH-AGENT"
+        },
+        "uc": {
+          "type": "object"
+        },
+        "endereco": {
+          "type": "object"
+        },
+        "coordenadas": {
+          "type": "object"
+        }
+      }
+    },
+    "arranjo_fotovoltaico": {
+      "type": "object"
+    },
+    "diagrama_unifilar": {
+      "type": "object",
+      "required": [
+        "nivel_dc",
+        "nivel_ca"
+      ],
+      "properties": {
+        "nivel_dc": {
+          "type": "object"
+        },
+        "nivel_ca": {
+          "type": "object"
+        }
+      }
+    },
+    "memoriais": {
+      "type": "object"
+    },
+    "conformidade_e_documentos": {
+      "type": "object"
+    },
+    "responsaveis": {
+      "type": "object",
+      "required": [
+        "engenharia",
+        "ART_CREA"
+      ],
+      "properties": {
+        "engenharia": {
+          "type": "object"
+        },
+        "ART_CREA": {
+          "type": "object"
+        }
+      }
+    },
+    "qualidade_e_auditoria": {
+      "type": "object"
+    }
+  },
+  "unevaluatedProperties": true,
+  "x-ysh-rules": [
+    "Voc_string_Tmin < Vdc_max_inversor",
+    "I_projeto >= 1.25 * Isc_string",
+    "Queda_tensao: DC <= 1.5% e AC <= 2.0%",
+    "DPS DC e AC classe II; gPV para proteção de strings"
+  ]
+}

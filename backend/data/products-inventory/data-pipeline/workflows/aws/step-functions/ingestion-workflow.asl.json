@@ -1,0 +1,245 @@
+{
+  "Comment": "YSH Daily Data Ingestion Workflow",
+  "StartAt": "FetchANEELData",
+  "States": {
+    "FetchANEELData": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-aneel-fetcher",
+        "Payload": {
+          "action": "fetch_all",
+          "include_rss": true,
+          "include_dcat": true
+        }
+      },
+      "ResultPath": "$.aneel_data",
+      "Next": "ScrapeUtilities",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "FallbackToCache"
+        }
+      ],
+      "Retry": [
+        {
+          "ErrorEquals": ["States.TaskFailed"],
+          "IntervalSeconds": 5,
+          "MaxAttempts": 3,
+          "BackoffRate": 2.0
+        }
+      ]
+    },
+    "ScrapeUtilities": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "ScrapeCPFL",
+          "States": {
+            "ScrapeCPFL": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::lambda:invoke",
+              "Parameters": {
+                "FunctionName": "ysh-utility-scraper",
+                "Payload": {
+                  "utility": "cpfl",
+                  "url": "https://www.cpfl.com.br/geracao-distribuida"
+                }
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "ScrapeEnel",
+          "States": {
+            "ScrapeEnel": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::lambda:invoke",
+              "Parameters": {
+                "FunctionName": "ysh-utility-scraper",
+                "Payload": {
+                  "utility": "enel",
+                  "url": "https://www.enel.com.br/geracao-distribuida"
+                }
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "ScrapeCemig",
+          "States": {
+            "ScrapeCemig": {
+              "Type": "Task",
+              "Resource": "arn:aws:states:::lambda:invoke",
+              "Parameters": {
+                "FunctionName": "ysh-utility-scraper",
+                "Payload": {
+                  "utility": "cemig",
+                  "url": "https://www.cemig.com.br/geracao-distribuida"
+                }
+              },
+              "End": true
+            }
+          }
+        }
+      ],
+      "ResultPath": "$.utility_data",
+      "Next": "ProcessWithAI",
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.error",
+          "Next": "PartialProcessing"
+        }
+      ]
+    },
+    "ProcessWithAI": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-ai-processor",
+        "Payload": {
+          "aneel_data.$": "$.aneel_data.Payload",
+          "utility_data.$": "$.utility_data",
+          "model": "llama3.2:3b",
+          "action": "enrich_metadata"
+        }
+      },
+      "ResultPath": "$.processed_data",
+      "Next": "IndexInVectorStore",
+      "TimeoutSeconds": 300,
+      "Catch": [
+        {
+          "ErrorEquals": ["States.Timeout"],
+          "ResultPath": "$.error",
+          "Next": "SkipAIProcessing"
+        }
+      ]
+    },
+    "IndexInVectorStore": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-vector-indexer",
+        "Payload": {
+          "data.$": "$.processed_data.Payload",
+          "collection": "ysh_datasets",
+          "embedding_model": "all-MiniLM-L6-v2"
+        }
+      },
+      "ResultPath": "$.indexed_count",
+      "Next": "UpdateCache"
+    },
+    "UpdateCache": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::dynamodb:updateItem",
+      "Parameters": {
+        "TableName": "ysh-pipeline-cache",
+        "Key": {
+          "pk": {
+            "S": "latest"
+          },
+          "sk": {
+            "S": "ingestion"
+          }
+        },
+        "UpdateExpression": "SET #data = :data, #timestamp = :timestamp, #count = :count",
+        "ExpressionAttributeNames": {
+          "#data": "data",
+          "#timestamp": "timestamp",
+          "#count": "count"
+        },
+        "ExpressionAttributeValues": {
+          ":data": {
+            "S.$": "States.JsonToString($.processed_data.Payload)"
+          },
+          ":timestamp": {
+            "S.$": "$$.State.EnteredTime"
+          },
+          ":count": {
+            "N.$": "States.Format('{}', $.indexed_count.Payload.count)"
+          }
+        }
+      },
+      "ResultPath": "$.cache_result",
+      "Next": "SendNotification"
+    },
+    "SendNotification": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ysh-pipeline-notifications",
+        "Subject": "YSH Pipeline: Daily Ingestion Completed",
+        "Message": {
+          "status": "success",
+          "datasets_processed.$": "$.indexed_count.Payload.count",
+          "timestamp.$": "$$.State.EnteredTime",
+          "execution_arn.$": "$$.Execution.Id"
+        }
+      },
+      "Next": "Success"
+    },
+    "Success": {
+      "Type": "Succeed"
+    },
+    "FallbackToCache": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::dynamodb:getItem",
+      "Parameters": {
+        "TableName": "ysh-pipeline-cache",
+        "Key": {
+          "pk": {
+            "S": "latest"
+          },
+          "sk": {
+            "S": "ingestion"
+          }
+        }
+      },
+      "ResultPath": "$.cached_data",
+      "Next": "NotifyCachedData"
+    },
+    "NotifyCachedData": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:us-east-1:123456789012:ysh-pipeline-notifications",
+        "Subject": "YSH Pipeline: Using Cached Data",
+        "Message": {
+          "status": "fallback",
+          "reason": "Primary fetch failed",
+          "cached_timestamp.$": "$.cached_data.Item.timestamp.S",
+          "error.$": "$.error.Cause"
+        }
+      },
+      "Next": "Success"
+    },
+    "PartialProcessing": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "ysh-ai-processor",
+        "Payload": {
+          "aneel_data.$": "$.aneel_data.Payload",
+          "utility_data": [],
+          "model": "llama3.2:3b",
+          "action": "enrich_metadata"
+        }
+      },
+      "ResultPath": "$.processed_data",
+      "Next": "IndexInVectorStore"
+    },
+    "SkipAIProcessing": {
+      "Type": "Pass",
+      "Result": {
+        "status": "skipped",
+        "reason": "AI processing timeout"
+      },
+      "ResultPath": "$.processed_data",
+      "Next": "UpdateCache"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+### ========================================
+### Financing Applications API - PLG Payment Schedule Transparency Tests
+### ========================================
+
+@baseUrl = http://localhost:9000
+@adminToken = YOUR_ADMIN_TOKEN_HERE
+@customerToken = YOUR_CUSTOMER_TOKEN_HERE
+@creditAnalysisId = credit_01JKA3M8FQWX2HPZY7V5NRTBK1
+@offeringId = offer_01JKA3M8FQWX2HPZY7V5NRTBK2
+
+### ========================================
+### 1. POST /store/financing-applications
+### Execute workflow: application + payment schedule (PLG: 360 installments transparency)
+### ========================================
+POST {{baseUrl}}/store/financing-applications
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "credit_analysis_id": "{{creditAnalysisId}}",
+  "financing_offer_id": "{{offeringId}}",
+  "modality": "CDC",
+  "down_payment_amount": 5000
+}
+
+### Expected Response (201):
+# {
+#   "application_id": "finapp_01JKA...",
+#   "status": "pending_documentation",
+#   "contract_url": "https://ysh-store.s3.amazonaws.com/contracts/finapp_01JKA.pdf",
+#   "order_id": null,
+#   "rejection_reason": null,
+#   "next_steps": [
+#     "Upload documento de identidade (RG/CNH)",
+#     "Upload comprovante de residência",
+#     "Upload comprovante de renda (últimos 3 meses)"
+#   ],
+#   "payment_schedule": [ // ✅ PLG: Complete payment transparency (up to 360 installments)
+#     {
+#       "installment_number": 1,
+#       "due_date": "2025-11-15",
+#       "principal": 366.67,
+#       "interest": 264.00,
+#       "total": 630.67,
+#       "balance": 21633.33
+#     },
+#     {
+#       "installment_number": 2,
+#       "due_date": "2025-12-15",
+#       "principal": 371.07,
+#       "interest": 259.60,
+#       "total": 630.67,
+#       "balance": 21262.26
+#     },
+#     // ... up to 60 installments (requested_term_months from credit analysis)
+#     {
+#       "installment_number": 60,
+#       "due_date": "2030-10-15",
+#       "principal": 623.21,
+#       "interest": 7.46,
+#       "total": 630.67,
+#       "balance": 0.00
+#     }
+#   ],
+#   "bacen_validation": { // ✅ PLG: Regulatory compliance transparency
+#     "validated": true,
+#     "selic_rate": 11.75,
+#     "cdi_rate": 11.65
+#   }
+# }
+
+### ========================================
+### 2. POST /store/financing-applications - LEASING with higher down payment
+### ========================================
+POST {{baseUrl}}/store/financing-applications
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "credit_analysis_id": "{{creditAnalysisId}}",
+  "financing_offer_id": "offer_01JKA...",
+  "modality": "LEASING",
+  "down_payment_amount": 10000
+}
+
+### ========================================
+### 3. POST /store/financing-applications - EAAS (long term: 120 months)
+### ========================================
+POST {{baseUrl}}/store/financing-applications
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "credit_analysis_id": "credit_01JKA...",
+  "financing_offer_id": "offer_01JKA...",
+  "modality": "EAAS",
+  "down_payment_amount": 0
+}
+
+### ========================================
+### 4. POST /store/financing-applications - Edge case: Max term (360 months = 30 years)
+### ========================================
+POST {{baseUrl}}/store/financing-applications
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "credit_analysis_id": "credit_01JKA...",
+  "financing_offer_id": "offer_01JKA...",
+  "modality": "CDC"
+}
+
+### Note: Should generate payment_schedule with 360 installments (Sistema PRICE)
+
+### ========================================
+### 5. POST /store/financing-applications - Error: Missing required fields
+### ========================================
+POST {{baseUrl}}/store/financing-applications
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA..."
+}
+
+### Expected Response (400):
+# {
+#   "error": "Missing required fields: customer_id, quote_id, credit_analysis_id, modality"
+# }
+
+### ========================================
+### 6. GET /store/financing-applications/:id
+### Fetch application with complete payment schedule (PLG: payment transparency)
+### ========================================
+@applicationId = finapp_01JKA3M8FQWX2HPZY7V5NRTBK1
+
+GET {{baseUrl}}/store/financing-applications/{{applicationId}}
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (200):
+# {
+#   "id": "finapp_01JKA...",
+#   "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+#   "quote_id": "quote_01JKA...",
+#   "credit_analysis_id": "credit_01JKA...",
+#   "financing_offer_id": "offer_01JKA...",
+#   "modality": "CDC",
+#   "financed_amount": 22000,
+#   "down_payment_amount": 5000,
+#   "term_months": 60,
+#   "interest_rate_monthly": 1.2,
+#   "interest_rate_annual": 15.39,
+#   "monthly_payment": 630.67,
+#   "total_amount": 37840.20,
+#   "status": "pending_documentation",
+#   "contract_url": "https://...",
+#   "order_id": null,
+#   "payment_schedule": [ // ✅ PLG: Complete transparency (all 60 installments)
+#     {
+#       "installment_number": 1,
+#       "due_date": "2025-11-15",
+#       "principal": 366.67,
+#       "interest": 264.00,
+#       "total": 630.67,
+#       "balance": 21633.33
+#     },
+#     // ... all 60 installments with detailed breakdown
+#   ],
+#   "bacen_validation": {
+#     "validated": true,
+#     "selic_rate": 11.75,
+#     "cdi_rate": 11.65
+#   },
+#   "rejection_reason": null,
+#   "rejection_details": null,
+#   "approved_at": null,
+#   "rejected_at": null,
+#   "disbursed_at": null,
+#   "created_at": "2025-10-12T10:45:00Z",
+#   "updated_at": "2025-10-12T10:45:00Z"
+# }
+
+### ========================================
+### 7. GET /store/financing-applications/:id - Error: Not found
+### ========================================
+GET {{baseUrl}}/store/financing-applications/invalid_id
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (404):
+# {
+#   "error": "Financing application not found"
+# }
+
+### ========================================
+### Validation Checklist (PLG Strategy 360°):
+### ========================================
+# ✅ Workflow executed (applyFinancingWorkflow)
+# ✅ FinancingApplication entity persisted (application_id returned)
+# ✅ payment_schedule present (JSONB array with all installments)
+# ✅ Sistema PRICE calculation (fixed monthly payments)
+# ✅ Each installment has: installment_number, due_date, principal, interest, total, balance
+# ✅ Supports 12-360 months (complete transparency)
+# ✅ bacen_validated + selic_rate + cdi_rate (regulatory compliance)
+# ✅ contract_url present (PDF download)
+# ✅ next_steps present (customer guidance)
+# ✅ GET endpoint returns full application with payment_schedule via query.graph()
+# ✅ 360° PLG Coverage: Stage 3 complete (financing → payment transparency)

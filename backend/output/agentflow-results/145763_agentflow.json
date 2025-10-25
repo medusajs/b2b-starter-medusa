@@ -1,0 +1,114 @@
+{
+  "sku": "145763",
+  "image_path": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_145763_145763-17456925994814488.jpeg",
+  "category": "INVERTERS",
+  "vision_data": {
+    "manufacturer": "GROWATT",
+    "model": "SPF-10K-ES",
+    "product_type": "inverter",
+    "subtype": "gridtie",
+    "specifications": {
+      "power_w": 10000,
+      "power_kw": 10.0,
+      "voltage": "100-400V",
+      "current_a": 0,
+      "phase": "N/A",
+      "efficiency_percent": 95.0,
+      "mppt_count": 1
+    },
+    "visible_text": "GROWATT SPF-10K-ES 10kW 3-Phase Grid Tie Inverter",
+    "certifications": [
+      "CE",
+      "UL",
+      "ECE"
+    ],
+    "image_quality_score": 8,
+    "confidence_score": 9,
+    "_processing_time": 119.56041836738586,
+    "_agent": "👁️ Vision"
+  },
+  "enriched_data": {
+    "normalized_sku": "GROWATT-INVERTER-SPF-10K-ES",
+    "manufacturer": "GROWATT",
+    "manufacturer_normalized": "GROWATT",
+    "model": "SPF-10K-ES",
+    "category": "INVERTERS",
+    "subcategory": "Grid Tie",
+    "specifications": {
+      "power_w": 10000,
+      "power_kw": 10.0,
+      "voltage": "100-400V",
+      "current_a": 0,
+      "phase": "N/A",
+      "efficiency_percent": 95.0,
+      "mppt_count": 1
+    },
+    "seo_title": "GROWATT SPF 10kW Grid Tie Inverter",
+    "short_description": "GROWATT SPF-10K-ES 10kW Grid Tie Inverter - 95% Efficiency, 1 MPPT",
+    "tags": [
+      "solar inverter",
+      "grid tie inverter",
+      "growatt",
+      "pv inverter",
+      "10kW inverter",
+      "mpct inverter",
+      "solar energy",
+      "renewable energy",
+      "grid connected",
+      "solar power"
+    ],
+    "compatibility": {
+      "panel_max_power_w": 10000,
+      "panel_max_voltage_v": 400,
+      "panel_max_current_a": 0,
+      "system_type": "Grid Tie"
+    },
+    "pvlib_validated": true,
+    "data_completeness_percent": 95,
+    "confidence_score": 9,
+    "_processing_time": 29.004143714904785,
+    "_agent": "📝 Enrichment",
+    "_pvlib_match": false
+  },
+  "validation_result": {
+    "validation_status": "needs_review",
+    "overall_score": 8,
+    "completeness_percent": 95,
+    "issues": [
+      "Tag 'mpct inverter' contains a typo; should be 'mppt inverter'.",
+      "Current_a value is 0, which may indicate missing or incorrect current rating.",
+      "Phase is listed as 'N/A', which could be clarified or omitted if not applicable.",
+      "'_pvlib_match' is false while 'pvlib_validated' is true, indicating a potential mismatch in validation status."
+    ],
+    "warnings": [
+      "Short description repeats the product name; consider adding more value‑added information."
+    ],
+    "recommendations": [
+      "Correct the typo in the tag list.",
+      "Provide an accurate current rating or remove the field if not applicable.",
+      "Clarify or remove the 'phase' field if it is not relevant.",
+      "Verify and reconcile the pvlib validation flags.",
+      "Enhance the short description to highlight key features or benefits."
+    ],
+    "ready_for_catalog": false,
+    "critical_missing": [],
+    "_processing_time": 81.8967137336731,
+    "_agent": "✅ Validator"
+  },
+  "search_results": [
+    {
+      "query": "GROWATT SPF-10K-ES datasheet",
+      "type": "datasheet_search",
+      "status": "simulated",
+      "_agent": "🔍 Search"
+    }
+  ],
+  "completed_actions": [
+    "analyze_image",
+    "enrich_data",
+    "validate_quality",
+    "search_web"
+  ],
+  "errors": [],
+  "pvlib_data": null
+}

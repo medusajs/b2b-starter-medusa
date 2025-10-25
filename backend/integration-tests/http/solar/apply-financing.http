@@ -1,0 +1,63 @@
+###
+### 💰 Financing Application Workflow Tests
+### Teste completo do workflow de financiamento BACEN
+###
+
+@baseUrl = http://localhost:9000
+@adminToken = {{$dotenv ADMIN_API_TOKEN}}
+
+### 1. Apply Financing - CDC sem entrada
+POST {{baseUrl}}/admin/workflows-executions/apply-financing
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST001",
+  "quote_id": "quote_01JCQR8XTEST001",
+  "credit_analysis_id": "credit_01JCQR8XTEST001",
+  "financing_offer_id": "offer_01JCQR8XTEST001",
+  "modality": "CDC"
+}
+
+### 2. Apply Financing - Leasing com entrada 20%
+POST {{baseUrl}}/admin/workflows-executions/apply-financing
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST002",
+  "quote_id": "quote_01JCQR8XTEST002",
+  "credit_analysis_id": "credit_01JCQR8XTEST002",
+  "financing_offer_id": "offer_01JCQR8XTEST002",
+  "modality": "LEASING",
+  "down_payment_amount": 9000
+}
+
+### 3. Apply Financing - EaaS
+POST {{baseUrl}}/admin/workflows-executions/apply-financing
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST003",
+  "quote_id": "quote_01JCQR8XTEST003",
+  "credit_analysis_id": "credit_01JCQR8XTEST003",
+  "financing_offer_id": "offer_01JCQR8XTEST003",
+  "modality": "EAAS"
+}
+
+###
+### Expected Response Schema:
+### {
+###   "application_id": "fin_app_1234567890_abc123",
+###   "status": "approved",
+###   "contract_url": "https://contracts.ysh.solar/contract_xyz.pdf",
+###   "order_id": "order_1234567890_xyz",
+###   "rejection_reason": null,
+###   "next_steps": [
+###     "1. Assinar contrato digitalmente",
+###     "2. Aguardar liberação de recursos (2-5 dias)",
+###     "3. Acompanhar pedido"
+###   ]
+### }
+###

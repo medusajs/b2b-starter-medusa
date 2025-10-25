@@ -1,89 +1,86 @@
-import { retrieveCart } from "@/lib/data/cart"
+import { retrieveCart } from "@/lib/data/cart-resilient"
 import { retrieveCustomer } from "@/lib/data/customer"
 import AccountButton from "@/modules/account/components/account-button"
-import CartButton from "@/modules/cart/components/cart-button"
+import CartButton from "@/modules/purchase/cart/components/cart-button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import FilePlus from "@/modules/common/icons/file-plus"
+import QuoteLink from "@/modules/layout/templates/nav/quote-link"
 import LogoIcon from "@/modules/common/icons/logo"
+import { MAIN_MENU } from "@/modules/layout/config"
 import { MegaMenuWrapper } from "@/modules/layout/components/mega-menu"
-import { RequestQuoteConfirmation } from "@/modules/quotes/components/request-quote-confirmation"
-import { RequestQuotePrompt } from "@/modules/quotes/components/request-quote-prompt"
-import SkeletonAccountButton from "@/modules/skeletons/components/skeleton-account-button"
-import SkeletonCartButton from "@/modules/skeletons/components/skeleton-cart-button"
-import SkeletonMegaMenu from "@/modules/skeletons/components/skeleton-mega-menu"
+import SkeletonAccountButton from "@/modules/common/skeletons/components/skeleton-account-button"
+import SkeletonCartButton from "@/modules/common/skeletons/components/skeleton-cart-button"
+import SkeletonMegaMenu from "@/modules/common/skeletons/components/skeleton-mega-menu"
+import { ThemeToggle } from "@/components/theme"
+import { SKUHistoryDropdown } from "@/lib/sku-analytics"
+import { SKUAutocomplete } from "@/components/SKUAutocomplete"
 import { Suspense } from "react"
 
 export async function NavigationHeader() {
   const customer = await retrieveCustomer().catch(() => null)
-  const cart = await retrieveCart()
+  await retrieveCart().catch(() => null)
 
   return (
-    <div className="sticky top-0 inset-x-0 group bg-white text-zinc-900 small:p-4 p-2 text-sm border-b duration-200 border-ui-border-base z-50">
-      <header className="flex w-full content-container relative small:mx-auto justify-between">
-        <div className="small:mx-auto flex justify-between items-center min-w-full">
-          <div className="flex items-center small:space-x-4">
-            <LocalizedClientLink
-              className="hover:text-ui-fg-base flex items-center w-fit"
-              href="/"
-            >
-              <h1 className="small:text-base text-sm font-medium flex items-center">
-                <LogoIcon className="inline mr-2" />
-                Medusa B2B Starter
-              </h1>
-            </LocalizedClientLink>
+    <>
+      {/* Skip to main content link for keyboard navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-yellow-500 focus:text-gray-900 focus:rounded-md focus:font-medium"
+      >
+        Pular para o conteúdo principal
+      </a>
+      <header className="sticky top-0 inset-x-0 group text-sm z-50 text-[var(--fg)] ysh-glass" role="banner">
+        <div className="flex w-full content-container relative small:mx-auto justify-between px-4 py-3 small:p-4">
+          <div className="small:mx-auto flex justify-between items-center min-w-full">
+            <div className="flex items-center gap-3 small:gap-4">
+              <LocalizedClientLink className="hover:text-ui-fg-base flex items-center min-w-0" href="/" aria-label="Ir para página inicial">
+                <h1 className="small:text-base text-sm font-medium flex items-center min-w-0">
+                  <LogoIcon width={100} height={31} className="inline mr-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="sr-only">Yello Solar Hub</span>
+                  <span className="hidden md:inline-flex ml-2 px-2 py-1 text-xs bg-amber-100 text-amber-800 rounded-full whitespace-nowrap" aria-label="Marketplace Solar">Marketplace Solar</span>
+                </h1>
+              </LocalizedClientLink>
 
-            <nav>
-              <ul className="space-x-4 hidden small:flex">
-                <li>
-                  <Suspense fallback={<SkeletonMegaMenu />}>
-                    <MegaMenuWrapper />
-                  </Suspense>
-                </li>
-              </ul>
+              <nav className="hidden small:block" aria-label="Navegação principal">
+                <ul className="flex gap-2 small:gap-4 items-center">
+                  <li>
+                    <Suspense fallback={<SkeletonMegaMenu />}>
+                      <MegaMenuWrapper />
+                    </Suspense>
+                  </li>
+                  {MAIN_MENU.map((item) => (
+                    <li key={item.href}>
+                      <LocalizedClientLink className="hover:text-ui-fg-base hover:bg-neutral-100 rounded-full px-3 py-2 transition-colors" href={item.href}>
+                        {item.label}
+                      </LocalizedClientLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            <nav className="flex justify-end items-center gap-2 small:gap-3" aria-label="Utilitários e conta">
+              <div className="relative mr-2 hidden small:inline-flex">
+                <SKUAutocomplete placeholder="Buscar por SKU ou produto..." className="w-40 lg:w-56" />
+              </div>
+              <div className="h-4 w-px bg-[var(--border)] hidden small:block" />
+              <SKUHistoryDropdown />
+              <QuoteLink />
+              <ThemeToggle />
+              <Suspense fallback={<SkeletonAccountButton />}>
+                <AccountButton customer={customer} />
+              </Suspense>
+              <Suspense fallback={<SkeletonCartButton />}>
+                <CartButton />
+              </Suspense>
             </nav>
           </div>
-          <div className="flex justify-end items-center gap-2">
-            <div className="relative mr-2 hidden small:inline-flex">
-              <input
-                disabled
-                type="text"
-                placeholder="Search for products"
-                className="bg-gray-100 text-zinc-900 px-4 py-2 rounded-full pr-10 shadow-borders-base hidden small:inline-block hover:cursor-not-allowed"
-                title="Install a search provider to enable product search"
-              />
-            </div>
-
-            <div className="h-4 w-px bg-neutral-300" />
-
-            {customer && cart?.items && cart.items.length > 0 ? (
-              <RequestQuoteConfirmation>
-                <button
-                  className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1"
-                  // disabled={isPendingApproval}
-                >
-                  <FilePlus />
-                  <span className="hidden small:inline-block">Quote</span>
-                </button>
-              </RequestQuoteConfirmation>
-            ) : (
-              <RequestQuotePrompt>
-                <button className="flex gap-1.5 items-center rounded-2xl bg-none shadow-none border-none hover:bg-neutral-100 px-2 py-1">
-                  <FilePlus />
-                  <span className="hidden small:inline-block">Quote</span>
-                </button>
-              </RequestQuotePrompt>
-            )}
-
-            <Suspense fallback={<SkeletonAccountButton />}>
-              <AccountButton customer={customer} />
-            </Suspense>
-
-            <Suspense fallback={<SkeletonCartButton />}>
-              <CartButton />
-            </Suspense>
-          </div>
         </div>
+        <div className="ysh-divider-gradient" aria-hidden="true"></div>
       </header>
-    </div>
+    </>
   )
 }
+
+
+
+
+

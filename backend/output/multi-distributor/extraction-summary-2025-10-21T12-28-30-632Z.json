@@ -1,0 +1,898 @@
+[
+  {
+    "distributor": "neosolar",
+    "success": true,
+    "products": [
+      {
+        "sku": "2",
+        "title": "Bateria Solar Estacionária Heliar Freedom DF700 (50Ah / 45Ah) / 1500 Ciclos",
+        "url": "https://portalb2b.neosolar.com.br/produto/20024",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "neosolar",
+        "id": "0",
+        "category": "bateria"
+      }
+    ],
+    "duration": 14.879,
+    "timestamp": "2025-10-21T12:25:46.411Z"
+  },
+  {
+    "distributor": "solfacil",
+    "success": false,
+    "products": [],
+    "duration": 0,
+    "timestamp": "2025-10-21T12:26:03.338Z",
+    "error": "Login failed - could not find form or submit"
+  },
+  {
+    "distributor": "fotus",
+    "success": false,
+    "products": [],
+    "duration": 0,
+    "timestamp": "2025-10-21T12:26:35.691Z",
+    "error": "Login failed - could not find form or submit"
+  },
+  {
+    "distributor": "odex",
+    "success": true,
+    "products": [
+      {
+        "sku": "odex-0",
+        "title": "Produtos",
+        "url": "https://odex.com.br/produtos",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "odex",
+        "id": "0",
+        "category": "outros"
+      }
+    ],
+    "duration": 11.234,
+    "timestamp": "2025-10-21T12:27:08.721Z"
+  },
+  {
+    "distributor": "edeltec",
+    "success": true,
+    "products": [
+      {
+        "sku": "edeltec-0",
+        "title": "Geradores",
+        "url": "https://edeltecsolar.com.br/produtos/geradores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "0",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-1",
+        "title": "Inversores e bateria solar",
+        "url": "https://edeltecsolar.com.br/produtos/inversores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "1",
+        "category": "bateria"
+      },
+      {
+        "sku": "edeltec-2",
+        "title": "Módulos",
+        "url": "https://edeltecsolar.com.br/produtos/modulos",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "2",
+        "category": "painel"
+      },
+      {
+        "sku": "edeltec-3",
+        "title": "Transformadores",
+        "url": "https://edeltecsolar.com.br/produtos/transformadores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "3",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-4",
+        "title": "String Box",
+        "url": "https://edeltecsolar.com.br/produtos/string-box",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "4",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-5",
+        "title": "Cabos e Conectores",
+        "url": "https://edeltecsolar.com.br/produtos/cabos-e-conectores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "5",
+        "category": "cabo"
+      },
+      {
+        "sku": "edeltec-6",
+        "title": "Estruturas",
+        "url": "https://edeltecsolar.com.br/produtos/estruturas",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "6",
+        "category": "estrutura"
+      },
+      {
+        "sku": "edeltec-7",
+        "title": "Product edeltec-7",
+        "url": "https://edeltecsolar.com.br/produtos/inversores-hibridos-e-baterias-solar",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "7",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-8",
+        "title": "Product edeltec-8",
+        "url": "https://edeltecsolar.com.br/produtos/inversores-hibridos-e-baterias-solar",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "8",
+        "category": "outros"
+      },
+      {
+        "sku": "1",
+        "title": "Product 1",
+        "url": "https://edeltecsolar.com.br/produtos/geradores?marca=ZNSHINE+HJT+BIFACIAL&page=1",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "9",
+        "category": "outros"
+      },
+      {
+        "sku": "2",
+        "title": "Product 2",
+        "url": "https://wehawk.com.br/produto/carregador-veicular-portatil-sinotek-m2-7-5000-7kw-cabo-5m-t2-monofasico-220v",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "10",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-11",
+        "title": "Product edeltec-11",
+        "url": "https://edeltecsolar.com.br/produtos/inversores-hibridos-e-baterias-solar",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "11",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-12",
+        "title": "Product edeltec-12",
+        "url": "https://edeltecsolar.com.br/produtos/inversores-hibridos-e-baterias-solar",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "12",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-13",
+        "title": "Product edeltec-13",
+        "url": "https://edeltecsolar.com.br/produtos/inversores-hibridos-e-baterias-solar",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "13",
+        "category": "outros"
+      },
+      {
+        "sku": "444243",
+        "title": "Product 444243",
+        "url": "https://edeltecsolar.com.br/produtos/444243/gerador-edeltec-solar-solplanet-112-00-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444243",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "14",
+        "category": "outros"
+      },
+      {
+        "sku": "444242",
+        "title": "Product 444242",
+        "url": "https://edeltecsolar.com.br/produtos/444242/gerador-edeltec-solar-solplanet-110-60-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444242",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "15",
+        "category": "outros"
+      },
+      {
+        "sku": "444241",
+        "title": "Product 444241",
+        "url": "https://edeltecsolar.com.br/produtos/444241/gerador-edeltec-solar-solplanet-109-20-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444241",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "16",
+        "category": "outros"
+      },
+      {
+        "sku": "444240",
+        "title": "Product 444240",
+        "url": "https://edeltecsolar.com.br/produtos/444240/gerador-edeltec-solar-solplanet-107-80-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444240",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "17",
+        "category": "outros"
+      },
+      {
+        "sku": "444239",
+        "title": "Product 444239",
+        "url": "https://edeltecsolar.com.br/produtos/444239/gerador-edeltec-solar-solplanet-106-40-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444239",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "18",
+        "category": "outros"
+      },
+      {
+        "sku": "444238",
+        "title": "Product 444238",
+        "url": "https://edeltecsolar.com.br/produtos/444238/gerador-edeltec-solar-solplanet-105-00-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444238",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "19",
+        "category": "outros"
+      },
+      {
+        "sku": "444237",
+        "title": "Product 444237",
+        "url": "https://edeltecsolar.com.br/produtos/444237/gerador-edeltec-solar-solplanet-103-60-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444237",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "20",
+        "category": "outros"
+      },
+      {
+        "sku": "444236",
+        "title": "Product 444236",
+        "url": "https://edeltecsolar.com.br/produtos/444236/gerador-edeltec-solar-solplanet-102-20-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444236",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "21",
+        "category": "outros"
+      },
+      {
+        "sku": "444235",
+        "title": "Product 444235",
+        "url": "https://edeltecsolar.com.br/produtos/444235/gerador-edeltec-solar-solplanet-100-80-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444235",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "22",
+        "category": "outros"
+      },
+      {
+        "sku": "444234",
+        "title": "Product 444234",
+        "url": "https://edeltecsolar.com.br/produtos/444234/gerador-edeltec-solar-solplanet-99-40-kwp-tri-380-v-metalico-75-k-700-w-bifacial-444234",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "23",
+        "category": "outros"
+      },
+      {
+        "sku": "362580",
+        "title": "Product 362580",
+        "url": "https://edeltecsolar.com.br/produtos/362580/inversor-220-v-solis-2-mppt-monofasico-8-kw-s-6-gr-1-p-8-k-02-nv-yd-hc-wifi-afci-362580",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "24",
+        "category": "outros"
+      },
+      {
+        "sku": "361412",
+        "title": "Product 361412",
+        "url": "https://edeltecsolar.com.br/produtos/361412/inversor-380-v-solplanet-8-mppt-trifasico-75-kw-asw-75-k-lt-wifi-afci-361412",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "25",
+        "category": "outros"
+      },
+      {
+        "sku": "361409",
+        "title": "Product 361409",
+        "url": "https://edeltecsolar.com.br/produtos/361409/inversor-380-v-solplanet-2-mppt-trifasico-25-kw-asw-25-k-lt-g-2-pro-wifi-afci-361409",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "26",
+        "category": "outros"
+      },
+      {
+        "sku": "361406",
+        "title": "Product 361406",
+        "url": "https://edeltecsolar.com.br/produtos/361406/inversor-380-v-solplanet-2-mppt-trifasico-12-kw-asw-12-k-lt-g-2-pro-wifi-afci-361406",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "27",
+        "category": "outros"
+      },
+      {
+        "sku": "361404",
+        "title": "Product 361404",
+        "url": "https://edeltecsolar.com.br/produtos/361404/inversor-220-v-solplanet-6-mppt-trifasico-50-kw-asw-50-k-ut-g-3-wifi-afci-361404",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "28",
+        "category": "outros"
+      },
+      {
+        "sku": "361402",
+        "title": "Product 361402",
+        "url": "https://edeltecsolar.com.br/produtos/361402/inversor-220-v-solplanet-3-mppt-trifasico-25-kw-asw-25-k-ut-g-3-wifi-afci-361402",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "29",
+        "category": "outros"
+      },
+      {
+        "sku": "361397",
+        "title": "Product 361397",
+        "url": "https://edeltecsolar.com.br/produtos/361397/inversor-220-v-solplanet-3-mppt-monofasico-7-3-kw-asw-7300-s-wifi-afci-361397",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "30",
+        "category": "outros"
+      },
+      {
+        "sku": "360848",
+        "title": "Product 360848",
+        "url": "https://edeltecsolar.com.br/produtos/360848/inversor-220-v-deye-3-mppt-trifasico-25-kw-sun-25-k-g-04-lv-wifi-afci-360848",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "31",
+        "category": "outros"
+      },
+      {
+        "sku": "360702",
+        "title": "Product 360702",
+        "url": "https://edeltecsolar.com.br/produtos/360702/inversor-380-v-saj-6-mppt-trifasico-75-kw-c-6-75-k-t-6-40-wifi-new-afci-360702",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "32",
+        "category": "outros"
+      },
+      {
+        "sku": "360701",
+        "title": "Product 360701",
+        "url": "https://edeltecsolar.com.br/produtos/360701/inversor-220-v-saj-6-mppt-trifasico-50-kw-c-6-50-k-t-6-lv-wifi-new-afci-360701",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "33",
+        "category": "outros"
+      },
+      {
+        "sku": "398560",
+        "title": "Product 398560",
+        "url": "https://edeltecsolar.com.br/produtos/398560/modulo-solar-znshine-700-w-zxi-8-rpldd-132-132-cells-hjt-bifacial-594-un-cntr-398560",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "34",
+        "category": "outros"
+      },
+      {
+        "sku": "398073",
+        "title": "Product 398073",
+        "url": "https://edeltecsolar.com.br/produtos/398073/modulo-solar-sine-energy-700-w-sn-700-132-mhbs-132-cells-hjt-bifacial-594-un-cntr-398073",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "35",
+        "category": "outros"
+      },
+      {
+        "sku": "250582",
+        "title": "Product 250582",
+        "url": "https://edeltecsolar.com.br/produtos/250582/modulo-solar-osda-585-w-oda-585-36-v-mhd-144-cells-mono-topcon-bifacial-740-un-cntr-250582",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "36",
+        "category": "outros"
+      },
+      {
+        "sku": "444627",
+        "title": "Product 444627",
+        "url": "https://edeltecsolar.com.br/produtos/444627/bateria-de-litio-unipower-4-80-kwh-100-ah-lv-48-v-uplfp-48-100-en-6000-ciclos-444627",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "37",
+        "category": "outros"
+      },
+      {
+        "sku": "183246",
+        "title": "Product 183246",
+        "url": "https://edeltecsolar.com.br/produtos/183246/inversor-hibrido-380-v-deye-4-mppt-trifasico-50-kw-hv-sun-50-k-sg-01-hp-3-eu-bm-4-220-v-380-v-wifi-afci-183246",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "38",
+        "category": "outros"
+      },
+      {
+        "sku": "183240",
+        "title": "Product 183240",
+        "url": "https://edeltecsolar.com.br/produtos/183240/inversor-hibrido-220-v-deye-2-mppt-bifasico-5-kw-sun-5-k-sg-02-lp-2-us-am-2-127-v-220-v-wifi-afci-183240",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "39",
+        "category": "outros"
+      },
+      {
+        "sku": "337558",
+        "title": "Product 337558",
+        "url": "https://edeltecsolar.com.br/produtos/337558/inversor-hibrido-380-v-deye-2-mppt-trifasico-25-kw-hv-sun-25-k-sg-01-hp-3-eu-am-2-220-v-380-v-wifi-afci-337558",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "40",
+        "category": "outros"
+      },
+      {
+        "sku": "183250",
+        "title": "Product 183250",
+        "url": "https://edeltecsolar.com.br/produtos/183250/sistema-bms-deye-hvb-750-v-100-a-eu-para-baterias-hv-bos-g-controller-183250",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "41",
+        "category": "outros"
+      },
+      {
+        "sku": "183249",
+        "title": "Product 183249",
+        "url": "https://edeltecsolar.com.br/produtos/183249/bateria-de-litio-deye-5-12-kwh-100-ah-hv-51-2-v-bos-gm-5-1-6000-ciclos-183249",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "42",
+        "category": "outros"
+      },
+      {
+        "sku": "183248",
+        "title": "Product 183248",
+        "url": "https://edeltecsolar.com.br/produtos/183248/bateria-de-litio-deye-5-12-kwh-100-ah-lv-51-2-v-se-g-5-1-pro-b-6000-ciclos-183248",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "43",
+        "category": "outros"
+      },
+      {
+        "sku": "183243",
+        "title": "Product 183243",
+        "url": "https://edeltecsolar.com.br/produtos/183243/inversor-hibrido-220-v-deye-2-mppt-monofasico-8-kw-sun-8-k-sg-05-lp-1-eu-sm-2-220-v-wifi-afci-183243",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "44",
+        "category": "outros"
+      },
+      {
+        "sku": "25492",
+        "title": "Product 25492",
+        "url": "https://edeltecsolar.com.br/produtos/25492/inversor-hibrido-220-v-deye-2-mppt-bifasico-8-kw-sun-8-k-sg-02-lp-2-us-am-2-127-v-220-v-wifi-afci-25492",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "45",
+        "category": "outros"
+      },
+      {
+        "sku": "25491",
+        "title": "Product 25491",
+        "url": "https://edeltecsolar.com.br/produtos/25491/inversor-hibrido-220-v-deye-2-mppt-monofasico-5-kw-sun-5-k-sg-05-lp-1-eu-sm-2-220-v-wifi-afci-25491",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "46",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-80",
+        "title": "Product edeltec-80",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "47",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-81",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "48",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-82",
+        "title": "Product edeltec-82",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "49",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-83",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "50",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-84",
+        "title": "Product edeltec-84",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "51",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-85",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "52",
+        "category": "outros"
+      },
+      {
+        "sku": "3",
+        "title": "Product 3",
+        "url": "https://edeltecsolar.com.br/blog/produtos/h%C3%ADbridos-e-medidores-inteligentes",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "53",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-88",
+        "title": "Product edeltec-88",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "54",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-89",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "55",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-90",
+        "title": "Product edeltec-90",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "56",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-91",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "57",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-92",
+        "title": "Product edeltec-92",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "58",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-93",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "59",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-94",
+        "title": "Product edeltec-94",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "60",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-95",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "61",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-98",
+        "title": "Product edeltec-98",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "62",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-99",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "63",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-100",
+        "title": "Product edeltec-100",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "64",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-101",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/solucao-para-inversao-de-fluxo",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "65",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-102",
+        "title": "Product edeltec-102",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "66",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-103",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-TopCon-e-HJT",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "67",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-104",
+        "title": "Product edeltec-104",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "68",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-105",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/tecnologia-back-contact",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "69",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-108",
+        "title": "Product edeltec-108",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "70",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-109",
+        "title": "Saiba mais",
+        "url": "https://edeltecsolar.com.br/blog/produtos/inovacao-modulos-hjt",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "71",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-110",
+        "title": "Geradores",
+        "url": "https://edeltecsolar.com.br/produtos/geradores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "72",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-111",
+        "title": "Inversores e bateria solar",
+        "url": "https://edeltecsolar.com.br/produtos/inversores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "73",
+        "category": "bateria"
+      },
+      {
+        "sku": "edeltec-112",
+        "title": "Módulos",
+        "url": "https://edeltecsolar.com.br/produtos/modulos",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "74",
+        "category": "painel"
+      },
+      {
+        "sku": "edeltec-113",
+        "title": "Transformadores",
+        "url": "https://edeltecsolar.com.br/produtos/transformadores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "75",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-114",
+        "title": "String Box",
+        "url": "https://edeltecsolar.com.br/produtos/string-box",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "76",
+        "category": "outros"
+      },
+      {
+        "sku": "edeltec-115",
+        "title": "Cabos e Conectores",
+        "url": "https://edeltecsolar.com.br/produtos/cabos-e-conectores",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "77",
+        "category": "cabo"
+      },
+      {
+        "sku": "edeltec-116",
+        "title": "Estruturas",
+        "url": "https://edeltecsolar.com.br/produtos/estruturas",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "edeltec",
+        "id": "78",
+        "category": "estrutura"
+      }
+    ],
+    "duration": 14.507,
+    "timestamp": "2025-10-21T12:27:22.024Z"
+  },
+  {
+    "distributor": "fortlev",
+    "success": true,
+    "products": [
+      {
+        "sku": "fortlev-0",
+        "title": "Produto Avulso",
+        "url": "https://fortlevsolar.app/produto-avulso",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "fortlev",
+        "id": "0",
+        "category": "outros"
+      },
+      {
+        "sku": "fortlev-1",
+        "title": "Produto Avulso",
+        "url": "https://fortlevsolar.app/produto-avulso",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "fortlev",
+        "id": "1",
+        "category": "outros"
+      },
+      {
+        "sku": "20",
+        "title": "Ver mais",
+        "url": "https://fortlevsolar.app/produto-avulso?nome=BATERIA%20GROWATT%20AXE%205.0L",
+        "imageUrl": "",
+        "price": 0,
+        "distributor": "fortlev",
+        "id": "2",
+        "category": "outros"
+      }
+    ],
+    "duration": 16.949,
+    "timestamp": "2025-10-21T12:27:38.582Z"
+  },
+  {
+    "distributor": "dynamis",
+    "success": false,
+    "products": [],
+    "duration": 0,
+    "timestamp": "2025-10-21T12:27:57.596Z",
+    "error": "Login failed - could not find form or submit"
+  }
+]

@@ -1,0 +1,736 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Inversor Solar - Medusa Product Schema",
+    "description": "Schema padronizado para inversores solares seguindo o padrão Medusa.js Product Module",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome comercial completo do inversor",
+            "example": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Subtítulo do produto com informações técnicas resumidas",
+            "example": "3kW Monofásico 220V - 2 MPPT"
+        },
+        "handle": {
+            "type": "string",
+            "description": "URL slug único do produto (gerado a partir do título)",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "inversor-saj-r5-3k-t2-3kw-monofasico"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada do inversor com especificações técnicas completas"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "default": false,
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Se o produto pode receber descontos"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "draft",
+                "proposed",
+                "published",
+                "rejected"
+            ],
+            "default": "published",
+            "description": "Status do produto no catálogo"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID externo do distribuidor (ex: odex_inverters_ODEX-INV-SAJ-3000W)",
+            "example": "odex_inverters_ODEX-INV-SAJ-3000W"
+        },
+        "thumbnail": {
+            "type": "string",
+            "description": "URL da imagem thumbnail principal",
+            "format": "uri"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso do inversor em kg",
+            "minimum": 0
+        },
+        "length": {
+            "type": "number",
+            "description": "Comprimento em mm",
+            "minimum": 0
+        },
+        "height": {
+            "type": "number",
+            "description": "Altura em mm",
+            "minimum": 0
+        },
+        "width": {
+            "type": "number",
+            "description": "Largura em mm",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "Código HS (Harmonized System) para classificação fiscal",
+            "example": "8504.40.90"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "País de origem do produto",
+            "example": "CN"
+        },
+        "mid_code": {
+            "type": "string",
+            "description": "Código MID (Manufacturer Identification)"
+        },
+        "material": {
+            "type": "string",
+            "description": "Material da carcaça",
+            "example": "Alumínio IP65"
+        },
+        "type_id": {
+            "type": "string",
+            "description": "ID do tipo de produto (ProductType)"
+        },
+        "collection_id": {
+            "type": "string",
+            "description": "ID da coleção (ProductCollection)"
+        },
+        "categories": {
+            "type": "array",
+            "description": "Categorias do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID da categoria (ex: cat_inversores_grid_tie)"
+                    }
+                }
+            },
+            "example": [
+                {
+                    "id": "cat_inversores"
+                },
+                {
+                    "id": "cat_inversores_grid_tie"
+                },
+                {
+                    "id": "cat_inversores_monofasicos"
+                }
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "description": "Tags para classificação e busca",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "example": [
+                {
+                    "id": "tag_saj"
+                },
+                {
+                    "id": "tag_3kw"
+                },
+                {
+                    "id": "tag_monofasico"
+                },
+                {
+                    "id": "tag_2mppt"
+                }
+            ]
+        },
+        "sales_channels": {
+            "type": "array",
+            "description": "Canais de venda onde o produto está disponível",
+            "items": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "images": {
+            "type": "array",
+            "description": "Imagens do produto",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "URL da imagem"
+                    }
+                }
+            }
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação do produto (ex: Potência, Voltagem, Fases)",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Nome da opção",
+                        "example": "Potência"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "Valores possíveis para esta opção",
+                        "minItems": 1,
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "3kW",
+                            "4.2kW",
+                            "5kW"
+                        ]
+                    }
+                }
+            },
+            "default": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "3kW"
+                    ]
+                },
+                {
+                    "title": "Voltagem",
+                    "values": [
+                        "220V"
+                    ]
+                },
+                {
+                    "title": "Fases",
+                    "values": [
+                        "Monofásico"
+                    ]
+                }
+            ]
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do produto (diferentes combinações de opções)",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "options"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da variante",
+                        "example": "SAJ R5-3K-T2 - 3kW / 220V / Monofásico"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "description": "SKU único da variante",
+                        "example": "SAJ-R5-3K-T2-220V-MONO"
+                    },
+                    "ean": {
+                        "type": "string",
+                        "description": "Código EAN/GTIN"
+                    },
+                    "upc": {
+                        "type": "string",
+                        "description": "Código UPC"
+                    },
+                    "barcode": {
+                        "type": "string",
+                        "description": "Código de barras"
+                    },
+                    "hs_code": {
+                        "type": "string",
+                        "description": "Código HS específico da variante"
+                    },
+                    "origin_country": {
+                        "type": "string",
+                        "description": "País de origem"
+                    },
+                    "mid_code": {
+                        "type": "string"
+                    },
+                    "weight": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "length": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "height": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "width": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "material": {
+                        "type": "string"
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Se o Medusa deve gerenciar o inventário desta variante"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Se permite venda mesmo sem estoque"
+                    },
+                    "inventory_quantity": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "default": 0,
+                        "description": "Quantidade em estoque"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Valores das opções para esta variante (chave = nome da opção, valor = valor escolhido)",
+                        "example": {
+                            "Potência": "3kW",
+                            "Voltagem": "220V",
+                            "Fases": "Monofásico"
+                        }
+                    },
+                    "prices": {
+                        "type": "array",
+                        "description": "Preços da variante em diferentes moedas/contextos",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "description": "Código da moeda (ISO 4217)",
+                                    "example": "BRL"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "description": "Valor em centavos (ex: 159900 = R$ 1.599,00)",
+                                    "minimum": 0,
+                                    "example": 159900
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade mínima para este preço (tiered pricing)",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "description": "Quantidade máxima para este preço",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "description": "Regras de preço (ex: customer_group, region)",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "example": [
+                            {
+                                "currency_code": "BRL",
+                                "amount": 159900
+                            }
+                        ]
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados customizados da variante"
+                    }
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Metadados customizados do produto",
+            "properties": {
+                "manufacturer": {
+                    "type": "string",
+                    "description": "Fabricante do inversor",
+                    "example": "SAJ"
+                },
+                "distributor": {
+                    "type": "string",
+                    "description": "Distribuidor/fonte dos dados",
+                    "example": "ODEX"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "URL ou identificador da fonte original",
+                    "example": "plataforma.odex.com.br"
+                },
+                "technical_specs": {
+                    "type": "object",
+                    "description": "Especificações técnicas detalhadas",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "GRID_TIE",
+                                "OFF_GRID",
+                                "HYBRID",
+                                "MICROINVERSOR"
+                            ],
+                            "description": "Tipo de inversor"
+                        },
+                        "power_w": {
+                            "type": "number",
+                            "description": "Potência nominal em Watts",
+                            "minimum": 0
+                        },
+                        "power_kw": {
+                            "type": "number",
+                            "description": "Potência nominal em kW",
+                            "minimum": 0
+                        },
+                        "voltage_v": {
+                            "type": "number",
+                            "description": "Tensão de operação em Volts",
+                            "minimum": 0
+                        },
+                        "phases": {
+                            "type": "string",
+                            "enum": [
+                                "Monofásico",
+                                "Bifásico",
+                                "Trifásico"
+                            ],
+                            "description": "Número de fases"
+                        },
+                        "mppt_count": {
+                            "type": "integer",
+                            "description": "Número de MPPTs (Maximum Power Point Trackers)",
+                            "minimum": 1
+                        },
+                        "efficiency": {
+                            "type": "number",
+                            "description": "Eficiência máxima (%)",
+                            "minimum": 0,
+                            "maximum": 100
+                        },
+                        "current_a": {
+                            "type": "number",
+                            "description": "Corrente nominal em Ampères",
+                            "minimum": 0
+                        },
+                        "max_dc_voltage_v": {
+                            "type": "number",
+                            "description": "Tensão DC máxima em Volts",
+                            "minimum": 0
+                        },
+                        "min_dc_voltage_v": {
+                            "type": "number",
+                            "description": "Tensão DC mínima em Volts",
+                            "minimum": 0
+                        },
+                        "max_dc_current_a": {
+                            "type": "number",
+                            "description": "Corrente DC máxima em Ampères",
+                            "minimum": 0
+                        },
+                        "nominal_ac_voltage_v": {
+                            "type": "number",
+                            "description": "Tensão AC nominal em Volts",
+                            "minimum": 0
+                        },
+                        "ac_frequency_hz": {
+                            "type": "number",
+                            "description": "Frequência AC em Hertz",
+                            "enum": [
+                                50,
+                                60
+                            ]
+                        },
+                        "protection_degree": {
+                            "type": "string",
+                            "description": "Grau de proteção IP",
+                            "pattern": "^IP\\d{2}$",
+                            "example": "IP65"
+                        },
+                        "operating_temp_min_c": {
+                            "type": "number",
+                            "description": "Temperatura mínima de operação em Celsius"
+                        },
+                        "operating_temp_max_c": {
+                            "type": "number",
+                            "description": "Temperatura máxima de operação em Celsius"
+                        },
+                        "topology": {
+                            "type": "string",
+                            "description": "Topologia do inversor",
+                            "enum": [
+                                "Transformerless",
+                                "High-Frequency Transformer",
+                                "Low-Frequency Transformer"
+                            ]
+                        },
+                        "communication": {
+                            "type": "array",
+                            "description": "Interfaces de comunicação disponíveis",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "WiFi",
+                                    "Ethernet",
+                                    "RS485",
+                                    "Bluetooth",
+                                    "4G"
+                                ]
+                            }
+                        },
+                        "certifications": {
+                            "type": "array",
+                            "description": "Certificações do produto",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "INMETRO",
+                                "IEC 62109",
+                                "IEC 61727"
+                            ]
+                        },
+                        "warranty_years": {
+                            "type": "integer",
+                            "description": "Garantia em anos",
+                            "minimum": 0
+                        }
+                    }
+                },
+                "source_data": {
+                    "type": "object",
+                    "description": "Dados originais da fonte para rastreabilidade",
+                    "properties": {
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "source_url": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "imported_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "last_updated": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "seo": {
+                    "type": "object",
+                    "description": "Dados para SEO",
+                    "properties": {
+                        "meta_title": {
+                            "type": "string"
+                        },
+                        "meta_description": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "title": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+            "subtitle": "3kW Monofásico 220V - 2 MPPT",
+            "handle": "inversor-saj-r5-3k-t2-3kw-monofasico-220v",
+            "description": "Inversor Grid-Tie de alta eficiência da SAJ, modelo R5-3K-T2, com potência de 3kW, ideal para sistemas residenciais monofásicos. Equipado com 2 MPPTs para máxima extração de energia solar, tensão de entrada de 220V e proteção IP65.",
+            "status": "published",
+            "external_id": "odex_inverters_ODEX-INV-SAJ-3000W",
+            "discountable": true,
+            "is_giftcard": false,
+            "thumbnail": "https://storage.example.com/images/saj-r5-3k-t2.jpg",
+            "weight": 7.5,
+            "length": 340,
+            "height": 470,
+            "width": 156,
+            "hs_code": "8504.40.90",
+            "origin_country": "CN",
+            "material": "Alumínio IP65",
+            "categories": [
+                {
+                    "id": "cat_inversores"
+                },
+                {
+                    "id": "cat_inversores_grid_tie"
+                },
+                {
+                    "id": "cat_inversores_monofasicos"
+                }
+            ],
+            "tags": [
+                {
+                    "id": "tag_saj"
+                },
+                {
+                    "id": "tag_3kw"
+                },
+                {
+                    "id": "tag_monofasico"
+                },
+                {
+                    "id": "tag_2mppt"
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://storage.example.com/images/saj-r5-3k-t2-front.jpg"
+                },
+                {
+                    "url": "https://storage.example.com/images/saj-r5-3k-t2-side.jpg"
+                }
+            ],
+            "options": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "3kW"
+                    ]
+                },
+                {
+                    "title": "Voltagem",
+                    "values": [
+                        "220V"
+                    ]
+                },
+                {
+                    "title": "Fases",
+                    "values": [
+                        "Monofásico"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "SAJ R5-3K-T2 - 3kW / 220V / Monofásico",
+                    "sku": "SAJ-R5-3K-T2-220V-MONO",
+                    "manage_inventory": true,
+                    "allow_backorder": false,
+                    "inventory_quantity": 15,
+                    "options": {
+                        "Potência": "3kW",
+                        "Voltagem": "220V",
+                        "Fases": "Monofásico"
+                    },
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 159900
+                        }
+                    ]
+                }
+            ],
+            "metadata": {
+                "manufacturer": "SAJ",
+                "distributor": "ODEX",
+                "source": "plataforma.odex.com.br",
+                "technical_specs": {
+                    "type": "GRID_TIE",
+                    "power_w": 3000,
+                    "power_kw": 3.0,
+                    "voltage_v": 220,
+                    "phases": "Monofásico",
+                    "mppt_count": 2,
+                    "efficiency": 97.6,
+                    "max_dc_voltage_v": 550,
+                    "min_dc_voltage_v": 80,
+                    "max_dc_current_a": 16,
+                    "nominal_ac_voltage_v": 220,
+                    "ac_frequency_hz": 60,
+                    "protection_degree": "IP65",
+                    "operating_temp_min_c": -25,
+                    "operating_temp_max_c": 60,
+                    "topology": "Transformerless",
+                    "communication": [
+                        "WiFi",
+                        "Ethernet"
+                    ],
+                    "certifications": [
+                        "INMETRO",
+                        "IEC 62109-1",
+                        "IEC 62109-2"
+                    ],
+                    "warranty_years": 10
+                },
+                "source_data": {
+                    "source_id": "odex_inverters_ODEX-INV-SAJ-3000W",
+                    "source_url": "https://plataforma.odex.com.br/produtos/inversor-saj-r5-3k-t2",
+                    "imported_at": "2025-10-13T00:00:00Z",
+                    "last_updated": "2025-10-13T00:00:00Z"
+                },
+                "seo": {
+                    "meta_title": "Inversor SAJ 3kW Grid-Tie Monofásico | Melhor Preço",
+                    "meta_description": "Inversor Grid-Tie SAJ R5-3K-T2 de 3kW, monofásico 220V com 2 MPPTs. Alta eficiência, proteção IP65 e garantia de 10 anos. Compre agora!",
+                    "keywords": [
+                        "inversor saj",
+                        "inversor 3kw",
+                        "inversor grid-tie",
+                        "inversor monofásico",
+                        "saj r5"
+                    ]
+                }
+            }
+        }
+    ]
+}

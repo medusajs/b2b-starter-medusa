@@ -1,207 +1,189 @@
-<h1 align="center">
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/user-attachments/assets/38ba3a7b-e07b-4117-8187-7b171eae3769" alt="B2B Commerce Starter" width="80" height="80"></a>
-  <br>
-  <br>
-  Medusa B2B Commerce Starter
-  <br>
-</h1>
+# Yello Solar Hub
 
-<p align="center">Customizable B2B ecommerce built with <a href="https://medusajs.com/" target="_blank">Medusa 2.0</a> & Next.js Storefront</p>
+Plataforma unificada para gestão 360º de projetos de energia solar, desde a qualificação do lead até o monitoramento e manutenção (O&M).
 
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
+![CI/CD Status](https://github.com/Yello-Solar/yello-solar-hub/actions/workflows/main.yml/badge.svg)
+![Code Coverage](https://img.shields.io/codecov/c/github/Yello-Solar/yello-solar-hub.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+## Sumário
+- [TL;DR](#tldr)
+- [Arquitetura](#arquitetura)
+- [Workflows de Negócio](#workflows-de-negócio)
+- [Comunicações Entre Agentes](#comunicações-entre-agentes)
+- [Dataflows](#dataflows)
+- [MCPs: Recuperações e Consumos](#mcps-recuperações-e-consumos)
+- [Instalação e Setup](#instalação-e-setup)
+- [Scripts Úteis](#scripts-úteis)
+- [Testes e Qualidade](#testes-e-qualidade)
+- [Observabilidade e Segurança](#observabilidade-e-segurança)
+- [Deploy](#deploy)
+- [Roadmap](#roadmap)
+- [FAQ](#faq)
+- [Licença e Créditos](#licença-e-créditos)
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/833b26a5-4b52-447f-ac30-6ae02cbe8f05" controls="controls" muted="muted" playsinline="playsinline">
-</video>
-</p>
+## TL;DR
+- **Quem usa:** Times de vendas, engenharia e O&M no setor de energia solar.
+- **O que resolve:** Automatiza e integra o ciclo de vida de projetos solares, reduzindo custos operacionais e acelerando o tempo de fechamento.
+- **Principais Módulos:** `Storefront` (Next.js/Medusa), `Backend` (Node/Medusa), `Helios Agents` (módulos de automação), `Data Platform` (ingestão e RAG).
 
-<br>
+## Arquitetura
+**Diagrama Geral (C4-level 2 simplificado)**
+```mermaid
+graph LR
+  User((Usuário)) --> UI[Storefront: Next.js/Medusa]
+  UI --> API[Backend API: Node/Medusa]
+  API --> DB[(Postgres)]
+  API --> Cache[(Redis)]
+  API --> Agents[Helios Agents]
+  Agents --> MCPs{{MCP Providers}}
+  MCPs --> ANEEL[(ANEEL)]
+  MCPs --> INMETRO[(INMETRO)]
+  MCPs --> FIN[(Open Finance/BACEN)]
+  MCPs --> Aurora[(Aurora Solar)]
+  API --> Storage[(S3)]
+  UI <---> Observability[(Sentry/Datadog)]
+```
 
-## Table
+## Workflows de Negócio
+**Fluxo de Homologação/Pré-venda**
+```mermaid
+flowchart TD
+  A[Lead] --> B[Qualificação Automática]
+  B --> C[Dimensionamento Remoto via Aurora Solar]
+  C --> D[Análise Tarifária/ROI via ANEEL]
+  D --> E[Proposta & Checkout]
+  E --> F[Análise de Crédito via Open Finance]
+  F --> G[Homologação + Integrações]
+  G --> H[Monitoramento O&M]
+```
 
-- [Prerequisites](#prerequisites)
-- [Overview](#overview)
-  - [Features](#features)
-  - [Demo](#demo)
-- [Quickstart](#quickstart)
-- [Update](#update)
-- [Resources](#resources)
-- [Contributors](#contributors)
+## Comunicações Entre Agentes
+**Sequência Multiagente (Helios)**
+```mermaid
+sequenceDiagram
+  participant UI as UI
+  participant SA as StatefulAgent
+  participant Bridge as TypeAgent Bridge
+  participant EX as DataExtractor
+  participant ER as EventRouter
+  participant TO as TaskOrchestrator
+  participant SS as StateStore
+  UI->>SA: Solicita tarefa (ex: "Analisar viabilidade do cliente X")
+  SA->>Bridge: Selecionar habilidade (skill: "viabilidade-financeira")
+  Bridge->>EX: Extrair dados (fontes: Open Finance, ANEEL)
+  EX->>SS: Persistir artefatos (relatório de crédito, tarifas)
+  Bridge->>TO: Orquestrar subtarefas (cálculo de ROI, simulação de projeto)
+  TO->>ER: Disparar evento (condition: "proposta_pronta")
+  ER->>SA: Feedback/Status
+  TO->>UI: Resultado consolidado (proposta.pdf)
+```
 
-&nbsp;
+## Dataflows
+**Ingestão, Enriquecimento e Recuperação**
+```mermaid
+flowchart LR
+  SRC[Datasets: ANEEL, INMETRO] --> ING[Ingestão/Normalização]
+  ING --> VAL[Validação de Schemas]
+  VAL --> IDX[Índices Vetoriais: Pinecone]
+  IDX --> RAG[Structured RAG]
+  RAG --> Agents
+  Agents --> API
+  API --> UI
+```
 
-## Prerequisites
+## MCPs: Recuperações e Consumos
+**Tabela de Contratos MCP**
+| MCP | Endpoint/Contrato | Input (schema) | Output (schema) | Rate limit | Retentativas | Erros Padrão |
+|---|---|---|---|---|---|---|
+| ANEEL | `/tarifas`, `/GD` | JSON Schema | JSON Schema | 100/min | backoff exp | 400, 404, 503 |
+| INMETRO | `/registros/produtos` | JSON Schema | JSON Schema | 50/min | backoff exp | 400, 500 |
+| Open Finance | `/consents`, `/accounts` | OAuth2 | JSON Schema | 200/min | idempotente | OIDC/OAuth |
+| Aurora Solar | `/projects`, `/design` | JSON Schema | JSON Schema | 30/min | backoff exp | 403, 429, 5xx |
 
-⚠️ We have tested this repo with the below versions:
+**Mapa de Consumo MCP pelos Agentes**
+```mermaid
+graph TD
+  StatefulAgent -->|context| TypeAgentBridge
+  TypeAgentBridge -->|analise_tarifaria| ANEEL
+  TypeAgentBridge -->|validar_componente| INMETRO
+  DataExtractor -->|ingest_financeiro| OpenFinance
+  TaskOrchestrator -->|criar_design| AuroraSolar
+```
 
-- ✅ Node 20
-- ✅ Postgres 15
-- ✅ Medusa 2.4
-- ✅ Next.js 15
+## Instalação e Setup
+✅ **Pré-requisitos:** Node.js v20+, Yarn v4+, Docker, Docker Compose, AWS CLI, Git LFS.
 
-&nbsp;
-
-## Overview
-For a full feature overview, please visit [the project wiki](https://github.com/medusajs/b2b-starter-medusa/wiki).
-
-#### Core features
-
-- **Company Management**. Customers can manage their company and invite employees.
-- **Spending Limits**. Company admins can assign spending limits to its employees.
-- **Bulk add-to-cart**. Customers can add multiple variants of a product to their cart at once.
-- **Quote Management**. Customers & Merchants can communicate, accept or reject quotes.
-- **Order Edit**. Merchants can edit orders or quotes - add/remove item, update quantity & price management and more.
-- **Company Approvals**. Companies can mandate approvals from company admins before employees can finalize a cart.
-- **Merchant Approvals**. Merchants can set up approval processes for orders, ensuring compliance with business rules before fulfillment.
-- **Promotions**. Customers can apply manual and automatic promotions to their cart.
-- **Free Shipping Nudge**. Displays a component showing progress toward free shipping.
-- **Full ecommerce support**
-  - Product Pages
-  - Product Collections & Categories
-  - Cart & Checkout
-  - User Accounts
-  - Order Details
-- **Full Next.js 15 support**
-  - App Router
-  - Caching
-  - Server components/actions
-  - Streaming
-  - Static Pre-Rendering
-
-&nbsp;
-
-#### Demo
-
-#### Quote Management
-
-<img align="right" src="https://github.com/user-attachments/assets/110c99e8-18ba-49e5-8955-84a058b597c7" alt="image" style=: />
-&nbsp;
-
-#### Company Management
-
-<img align="right" src="https://github.com/user-attachments/assets/361702ce-d491-4509-a930-4361ab3b4126" alt="image" style=: />
-&nbsp;
-
-#### Approval Management
-
-<img align="right" src="https://github.com/user-attachments/assets/b93b7b94-41a9-4c5f-bd6b-abf87492ed46" alt="image" style=: />
-&nbsp;
-
-#### Product Page
-
-<img align="right" src="https://github.com/user-attachments/assets/2cd8a3ff-5999-49af-890a-4bac7b6f2f15" alt="image" style=: />
-&nbsp;
-
-#### Cart Summary
-
-<img align="right" src="https://github.com/user-attachments/assets/095f5565-992e-4c74-acdc-a44bd905e59b" alt="image" style=: />
-&nbsp;
-
-&nbsp;
-
-## Quickstart
-
-#### Setup Medusa project
-
+▶️ **Comandos:**
 ```bash
-# Clone the repository
-git clone https://github.com/medusajs/b2b-starter-medusa.git
+# 1. Habilitar Corepack (gerenciador de pacotes do Node)
+corepack enable
 
-## Setup Backend
-
-# Go to the folder
-cd ./backend
-
-# Clone .env.template
-cp .env.template .env
-
-# Install dependencies
+# 2. Instalar dependências
 yarn install
 
-# Install dependencies, setup database & seed data
-yarn install && yarn medusa db:create && yarn medusa db:migrate && yarn run seed && yarn medusa user -e admin@test.com -p supersecret -i admin
+# 3. Configurar variáveis de ambiente (copie o exemplo)
+cp .env.example .env
 
-# Start Medusa project - backend & admin
-yarn dev
+# 4. Iniciar serviços de infraestrutura com Docker
+docker compose up -d postgres redis
 
-## Setup Storefront
+# 5. Rodar migrações do banco de dados
+(cd backend && yarn migrate)
 
-# Go to folder
-cd ../storefront
-
-# Clone .env.template
-cp .env.template .env
-
-# Install dependencies
-yarn install
-```
-
-#### Setup publishable key
-
-- ✅ Visit [Admin: Publishable Key](http://localhost:9000/app/settings/publishable-api-keys)
-  - <b>Credentials</b>:
-    - <b>email</b>: `admin@test.com`
-    - <b>password</b>: `supersecret`
-- ✅ Copy token key of "Webshop"
-- ✅ Open file - `storefront/.env`
-- ✅ Add token to this var - `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`
-
-```
-# Start Medusa storefront
+# 6. Iniciar servidores de desenvolvimento (backend e storefront)
 yarn dev
 ```
+O backend estará disponível em `http://localhost:9000` e o storefront em `http://localhost:8000`.
 
-Visit the following links to see the Medusa storefront & admin
+## Scripts Úteis
+```bash
+# Rodar migrações do banco (após criar um novo módulo)
+yarn workspace yello-solar-hub-backend migrate
 
-- [Medusa Admin](http://localhost:9000/app)
-- [Medusa Storefront](http://localhost:8000)
+# Popular banco com dados de teste
+yarn workspace yello-solar-hub-backend seed
 
-&nbsp;
+# Rodar todos os checks de qualidade (lint, tipos, testes)
+yarn lint && yarn typecheck && yarn test
 
-# Update
+# Build para produção
+yarn build
 
-Some general guidelines for when you're updating this Starter to a newer version.
+# Iniciar em modo produção (após build)
+yarn start
+```
 
-## Update packages
+## Testes e Qualidade
+- **Tipos:** Unitários, Integração, Contrato (OpenAPI) e E2E (Playwright).
+- **Execução:** `yarn test` no diretório raiz ou nos workspaces (`backend`, `storefront`).
+- **Gate de CI:** O workflow de CI (`/.github/workflows/main.yml`) exige que `lint`, `typecheck` e `test` passem, com uma cobertura de testes de no mínimo 80%, antes de autorizar o merge para `main`.
 
-Run `yarn install` in both projects to update you're packages to the latest versions.
+## Observabilidade e Segurança
+- **Monitoramento:** Logs estruturados são enviados para Datadog. Erros e exceções são capturados pelo Sentry.
+- **Segurança:** Dados sensíveis (PII) são tratados com regras de ofuscação. Segredos de produção são gerenciados via AWS Secrets Manager e injetados no ambiente de execução, nunca commitados.
 
-## Run migrations
+## Deploy
+- **Storefront (UI):** Deploy contínuo na Vercel a cada merge na branch `main`.
+- **Backend (API):** Deploy contínuo em AWS Lambda via GitHub Actions.
+- **Migrações:** As migrações de banco de dados são executadas automaticamente como um passo do pipeline de deploy do backend.
 
-To reflect any changes made to data models, make sure to run `npx medusa db:migrate` in the backend project.
+## Roadmap
+- **Q4 2025:** Implementação do módulo de O&M com alertas proativos. (Issue #123)
+- **Q1 2026:** Expansão para o mercado de Geração Distribuída (GD) para clientes comerciais. (Issue #124)
+- **Q2 2026:** Integração com novos MCPs de IoT para monitoramento de performance. (Issue #125)
 
-> Note: are you updating from a version of this Starter that didn't have the Approval module yet? Run `npx medusa exec src/scripts/create-approval-settings.ts` in the backend project to add approval settings to all existing companies.
+## FAQ
+1. **Como acesso o admin do Medusa?**
+   - Acesse `http://localhost:9000/admin` e use `admin@medusa-test.com` com a senha `supersecret`.
 
-# Resources
+2. **Onde configuro as chaves de API para os MCPs?**
+   - No seu arquivo `.env`, preencha as variáveis correspondentes (ex: `AURORA_API_KEY`).
 
-#### Learn more about Medusa
+3. **Como crio um novo módulo de agente?**
+   - Siga a estrutura de diretórios em `backend/src/modules/` e defina o serviço e os modelos de dados.
 
-- [Website](https://www.medusajs.com/)
-- [GitHub](https://github.com/medusajs)
-- [2.0 Documentation](https://docs.medusajs.com/v2)
-
-#### Learn more about Next.js
-
-- [Website](https://nextjs.org/)
-- [GitHub](https://github.com/vercel/next.js)
-- [Documentation](https://nextjs.org/docs)
-
-&nbsp;
-
-## Contributors
-
-<a href = "https://github.com/medusajs/b2b-starter-medusa/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=medusajs/b2b-starter-medusa"/>
-</a>
+## Licença e Créditos
+Este projeto é licenciado sob a Licença MIT. Desenvolvido pelo time Yello Solar.

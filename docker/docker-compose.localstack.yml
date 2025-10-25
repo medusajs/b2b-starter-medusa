@@ -1,0 +1,231 @@
+version: "3.8"
+
+# ==========================================
+# LocalStack Pro + YSH B2B Development
+# AWS emulation local para dev/staging
+# Economiza $200-500/mês vs. AWS real
+# ==========================================
+
+services:
+  # LocalStack Pro - AWS Emulation
+  localstack:
+    image: localstack/localstack-pro:latest
+    container_name: ysh-localstack-pro
+    ports:
+      - "4566:4566" # LocalStack Gateway
+      - "4510-4559:4510-4559" # External services
+    environment:
+      # License
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
+
+      # Services to emulate
+      - SERVICES=s3,rds,elasticache,secretsmanager,ecs,ecr,cloudwatch,sns,sqs,lambda,kms
+
+      # Configuration
+      - DEBUG=${DEBUG-0}
+      - DATA_DIR=/tmp/localstack/data
+      - LAMBDA_EXECUTOR=docker-reuse
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - PERSISTENCE=1
+
+      # AWS defaults
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+
+      # Feature flags
+      - LOCALSTACK_PRO=1
+      - EAGER_SERVICE_LOADING=1
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./localstack-data}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - ysh-localstack-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # PostgreSQL (simula RDS)
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-postgres-localstack
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      # LocalStack AWS credentials
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_ENDPOINT_URL: http://localstack:4566
+      AWS_DEFAULT_REGION: us-east-1
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_localstack_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - ysh-localstack-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Redis (simula ElastiCache)
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis-localstack
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_localstack_data:/data
+    networks:
+      - ysh-localstack-network
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Backend Medusa.js
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: runner
+    container_name: ysh-backend-localstack
+    environment:
+      NODE_ENV: development
+
+      # Database
+      DATABASE_URL: postgres://medusa_user:medusa_password@postgres:5432/medusa_db
+      DATABASE_SSL: false
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+
+      # Secrets
+      JWT_SECRET: dev-jwt-secret-localstack
+      COOKIE_SECRET: dev-cookie-secret-localstack
+
+      # LocalStack AWS
+      AWS_ENDPOINT_URL: http://localstack:4566
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+
+      # CORS
+      STORE_CORS: http://localhost:8000
+      ADMIN_CORS: http://localhost:7001
+      AUTH_CORS: http://localhost:7001
+    ports:
+      - "9000:9000"
+    volumes:
+      - backend_uploads:/app/uploads
+      - ./backend/secrets:/app/secrets:ro
+    networks:
+      - ysh-localstack-network
+    depends_on:
+      localstack:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+  # Storefront Next.js
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_dev}
+    container_name: ysh-storefront-localstack
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_dev}
+      NEXT_PUBLIC_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEFAULT_REGION: br
+      NEXT_PUBLIC_DEFAULT_CURRENCY: BRL
+
+      # LocalStack AWS (para uploads, etc.)
+      AWS_ENDPOINT_URL: http://localstack:4566
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+    ports:
+      - "8000:8000"
+    networks:
+      - ysh-localstack-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  # LocalStack Init (setup inicial: buckets, secrets, etc.)
+  localstack-init:
+    image: amazon/aws-cli:latest
+    container_name: ysh-localstack-init
+    networks:
+      - ysh-localstack-network
+    environment:
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ENDPOINT_URL: http://localstack:4566
+    depends_on:
+      localstack:
+        condition: service_healthy
+    volumes:
+      - ./scripts/localstack-init.sh:/init.sh:ro
+    entrypoint: /bin/sh
+    command: -c "chmod +x /init.sh && /init.sh"
+
+volumes:
+  postgres_localstack_data:
+    driver: local
+  redis_localstack_data:
+    driver: local
+  backend_uploads:
+    driver: local
+
+networks:
+  ysh-localstack-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16

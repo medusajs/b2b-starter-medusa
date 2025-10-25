@@ -1,0 +1,213 @@
+# ==========================================
+# Docker Compose para Desenvolvimento RESILIENTE
+# Configuração otimizada para estabilidade e performance
+# ==========================================
+
+version: "3.8"
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-b2b-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      # Performance tuning
+      POSTGRES_SHARED_BUFFERS: 128MB
+      POSTGRES_EFFECTIVE_CACHE_SIZE: 512MB
+      POSTGRES_WORK_MEM: 8MB
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ysh-b2b-dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-b2b-redis-dev
+    restart: unless-stopped
+    ports:
+      - "16379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ysh-b2b-dev-network
+    command: >
+      redis-server
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --save 900 1
+      --save 300 10
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  # Backend Medusa Development
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    container_name: ysh-b2b-backend-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      NODE_OPTIONS: "--max-old-space-size=768"
+      DATABASE_URL: postgres://medusa_user:medusa_password@postgres:5432/medusa_db
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: dev-jwt-secret-key
+      COOKIE_SECRET: dev-cookie-secret-key
+      MEDUSA_ADMIN_CORS: http://localhost:9000,http://localhost:7001
+      MEDUSA_STORE_CORS: http://localhost:8000,http://localhost:3000
+      # Connection pool settings
+      DATABASE_POOL_MIN: 2
+      DATABASE_POOL_MAX: 10
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+      - "9002:9002"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - backend_uploads:/app/uploads
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+  # Storefront Next.js Development
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile.dev
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    container_name: ysh-b2b-storefront-dev
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      NODE_OPTIONS: "--max-old-space-size=512"
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: pk_dev_test
+      NEXT_PUBLIC_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEFAULT_REGION: br
+      REVALIDATE_SECRET: dev-revalidate-secret
+      NEXT_TELEMETRY_DISABLED: 1
+      # Development optimizations
+      WATCHPACK_POLLING: "true"
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "8000:3000"
+    volumes:
+      - ./storefront:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - ysh-b2b-dev-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "15m"
+        max-file: "3"
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_uploads:
+    driver: local
+
+networks:
+  ysh-b2b-dev-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+    driver_opts:
+      com.docker.network.bridge.name: ysh-dev-br0
+      com.docker.network.driver.mtu: 1500

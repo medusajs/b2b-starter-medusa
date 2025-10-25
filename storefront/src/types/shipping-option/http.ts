@@ -1,4 +1,4 @@
-import { StorePrice } from "@medusajs/types"
+import { StorePrice } from "@medusajs/framework/types"
 
 export type StoreFreeShippingPrice = StorePrice & {
   target_reached: boolean

@@ -24,7 +24,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
   )
 
   return (
-    <Container className="bg-white flex small:flex-row flex-col p-4 rounded-md small:justify-between small:items-center gap-y-2 items-start">
+    <Container className="bg-[var(--surface)] border border-[var(--border)] flex small:flex-row flex-col p-4 rounded-md small:justify-between small:items-center gap-y-2 items-start">
       <div className="flex gap-x-4 items-center pl-3">
         <div className="flex">
           {order.items?.slice(0, 3).map((item, index) => {
@@ -34,7 +34,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
               <div
                 key={item.id}
                 className={clx(
-                  "block w-7 h-7 bg-neutral-100 border border-white bg-cover bg-center rounded-md ml-[-5px] p-2",
+                  "block w-7 h-7 bg-[var(--bg)] border border-[var(--bg)] bg-cover bg-center rounded-md ml-[-5px] p-2",
                   {
                     "-rotate-3": index === 0 && numItems > 1,
                     "rotate-0": index === 0 && numItems === 1,
@@ -66,7 +66,11 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 
         <div className="flex pr-2 text-small-regular items-center">
           <CalendarMini className="inline-block mr-1" />
-          {createdAt.getDate()}-{createdAt.getMonth()}-{createdAt.getFullYear()}
+          {createdAt.toLocaleDateString("pt-BR", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          })}
         </div>
 
         <div className="flex text-small-regular items-center">
@@ -77,9 +81,15 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
         <div className="flex items-center">
           <QuoteStatusBadge status={quote.status} />
         </div>
+        {/* Solar Financing Badge */}
+        <div className="flex items-center text-small-regular">
+          <span className="inline-block px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 dark:border dark:border-green-800">
+            Financiamento disponível
+          </span>
+        </div>
       </div>
 
-      <div className="flex gap-x-4 small:divide-x divide-gray-200 small:justify-normal justify-between w-full small:w-auto">
+      <div className="flex gap-x-4 small:divide-x divide-gray-200 dark:divide-zinc-800 small:justify-normal justify-between w-full small:w-auto">
         <div className="flex items-center text-small-regular text-ui-fg-base">
           <span className="px-2">
             {convertToLocale({
@@ -88,15 +98,14 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
             })}
           </span>
           {"·"}
-          <span className="pl-2">{`${numberOfLines} ${
-            numberOfLines > 1 ? "items" : "item"
-          }`}</span>
+          <span className="pl-2">{`${numberOfLines} ${numberOfLines > 1 ? "itens" : "item"
+            }`}</span>
         </div>
 
         <div className="pl-4">
           <LocalizedClientLink href={`/account/quotes/details/${quote.id}`}>
             <Button variant="secondary" className="rounded-full text-xs">
-              See details
+              __VER_DETALHES__
             </Button>
           </LocalizedClientLink>
         </div>
@@ -106,3 +115,4 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 }
 
 export default QuoteCard
+

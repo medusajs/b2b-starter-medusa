@@ -3,7 +3,7 @@ import {
   Context,
   FindConfig,
   IModuleService,
-} from "@medusajs/types";
+} from "@medusajs/framework/types";
 import {
   ModuleCreateApprovalSettings,
   ModuleApprovalSettings,

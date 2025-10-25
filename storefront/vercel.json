@@ -1,0 +1,94 @@
+{
+      "$schema": "https://openapi.vercel.sh/vercel.json",
+      "version": 2,
+      "name": "ysh-b2b-storefront",
+      "public": false,
+      "regions": [
+            "iad1",
+            "sfo1"
+      ],
+      "functions": {
+            "app/**/*.tsx": {
+                  "maxDuration": 30
+            },
+            "app/**/*.ts": {
+                  "maxDuration": 30
+            }
+      },
+      "headers": [
+            {
+                  "source": "/(.*)",
+                  "headers": [
+                        {
+                              "key": "X-Content-Type-Options",
+                              "value": "nosniff"
+                        },
+                        {
+                              "key": "X-Frame-Options",
+                              "value": "DENY"
+                        },
+                        {
+                              "key": "X-XSS-Protection",
+                              "value": "1; mode=block"
+                        },
+                        {
+                              "key": "Referrer-Policy",
+                              "value": "strict-origin-when-cross-origin"
+                        },
+                        {
+                              "key": "Permissions-Policy",
+                              "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+                        }
+                  ]
+            },
+            {
+                  "source": "/_next/static/(.*)",
+                  "headers": [
+                        {
+                              "key": "Cache-Control",
+                              "value": "public, max-age=31536000, immutable"
+                        }
+                  ]
+            },
+            {
+                  "source": "/static/(.*)",
+                  "headers": [
+                        {
+                              "key": "Cache-Control",
+                              "value": "public, max-age=31536000, immutable"
+                        }
+                  ]
+            },
+            {
+                  "source": "/(.*\\.(css|js|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))",
+                  "headers": [
+                        {
+                              "key": "Cache-Control",
+                              "value": "public, max-age=31536000, immutable"
+                        }
+                  ]
+            }
+      ],
+      "rewrites": [
+            {
+                  "source": "/api/:path*",
+                  "destination": "https://your-backend-domain.com/api/:path*"
+            }
+      ],
+      "installCommand": "npm ci --legacy-peer-deps",
+      "buildCommand": "npm run build",
+      "outputDirectory": ".next",
+      "framework": "nextjs",
+      "crons": [
+            {
+                  "path": "/api/cron/revalidate",
+                  "schedule": "0 */6 * * *"
+            }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "github": {
+            "autoDeployment": true,
+            "autoJobCancelation": true
+      }
+}

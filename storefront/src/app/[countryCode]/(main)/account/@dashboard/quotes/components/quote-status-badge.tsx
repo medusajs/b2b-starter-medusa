@@ -3,11 +3,15 @@
 import { StatusBadge } from "@medusajs/ui"
 
 const StatusTitles: Record<string, string> = {
-  accepted: "Accepted",
-  customer_rejected: "Customer Rejected",
-  merchant_rejected: "Merchant Rejected",
-  pending_merchant: "Pending Merchant",
-  pending_customer: "Pending Customer",
+  accepted: "Aprovado",
+  customer_rejected: "Rejeitado pelo Cliente",
+  merchant_rejected: "Rejeitado pelo Vendedor",
+  pending_merchant: "Pendente Vendedor",
+  pending_customer: "Pendente Cliente",
+  pending_review: "Em revisão Comercial",
+  pending_approval: "Aguardando Aprovação Interna",
+  approved: "Aprovado",
+  rejected: "Rejeitado",
 }
 
 const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
@@ -16,6 +20,10 @@ const StatusColors: Record<string, "green" | "orange" | "red" | "blue"> = {
   merchant_rejected: "red",
   pending_merchant: "orange",
   pending_customer: "orange",
+  pending_review: "orange",
+  pending_approval: "orange",
+  approved: "green",
+  rejected: "red",
 }
 
 export default function QuoteStatusBadge({ status }: { status: string }) {
@@ -25,3 +33,4 @@ export default function QuoteStatusBadge({ status }: { status: string }) {
     </StatusBadge>
   )
 }
+

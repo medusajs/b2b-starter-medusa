@@ -1,0 +1,120 @@
+name: CI
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    quality-checks:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [20.x]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Run PR quality checks
+              run: yarn pr-check
+
+            - name: Run compatibility report (if applicable)
+              if: github.event_name == 'pull_request'
+              run: |
+                  CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+                  if [ -n "$CHANGED_FILES" ]; then
+                    echo "$CHANGED_FILES" | xargs node scripts/compatibility-report.js
+                  fi
+
+    test:
+        runs-on: ubuntu-latest
+        needs: quality-checks
+
+        services:
+            postgres:
+                image: postgres:15
+                env:
+                    POSTGRES_PASSWORD: postgres
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+
+            redis:
+                image: redis:7-alpine
+                options: >-
+                    --health-cmd "redis-cli ping"
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Copy environment files
+              run: |
+                  cp .env.example .env
+                  cp server/.env.example server/.env
+                  cp client/.env.example client/.env
+
+            - name: Build server
+              run: yarn workspace server build
+
+            - name: Build client
+              run: yarn workspace client build
+
+            - name: Run server tests
+              run: yarn workspace server test:unit
+              env:
+                  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/medusa
+
+            - name: Run client tests
+              run: yarn workspace client test
+
+    deploy-preview:
+        runs-on: ubuntu-latest
+        needs: [quality-checks, test]
+        if: github.event_name == 'pull_request'
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Build for preview
+              run: yarn build
+
+            - name: Deploy to preview environment
+              run: echo "Preview deployment would go here"
+              # Add your preview deployment logic here

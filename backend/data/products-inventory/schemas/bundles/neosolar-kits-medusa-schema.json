@@ -1,0 +1,696 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "NeoSolar Kits - Medusa Product Schema",
+    "description": "Schema específico para kits solares da NeoSolar (Off-Grid, On-Grid, Híbridos) usando Inventory Kits pattern",
+    "type": "object",
+    "required": [
+        "title",
+        "handle",
+        "status",
+        "variants",
+        "options"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Nome completo do kit NeoSolar",
+            "example": "Kit Energia Solar Off Grid - 1.38kWp 200Ah 48V Lítio"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "Subtítulo com potência e tipo de sistema",
+            "example": "1.38kWp Off-Grid - 3x 460W + Bateria Lítio 200Ah 48V"
+        },
+        "handle": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "kit-energia-solar-off-grid-138kwp-litio-48v"
+        },
+        "description": {
+            "type": "string",
+            "description": "Descrição detalhada do kit com componentes e aplicações"
+        },
+        "is_giftcard": {
+            "type": "boolean",
+            "const": false
+        },
+        "discountable": {
+            "type": "boolean",
+            "default": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "published",
+                "draft",
+                "archived"
+            ],
+            "default": "published"
+        },
+        "external_id": {
+            "type": "string",
+            "description": "ID original do NeoSolar",
+            "pattern": "^NEO-[0-9]+$",
+            "example": "NEO-22691"
+        },
+        "thumbnail": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL da imagem principal do kit"
+        },
+        "weight": {
+            "type": "number",
+            "description": "Peso total estimado em kg (painéis + bateria + componentes)",
+            "minimum": 0
+        },
+        "hs_code": {
+            "type": "string",
+            "description": "NCM do kit solar completo",
+            "example": "8541.40.16"
+        },
+        "origin_country": {
+            "type": "string",
+            "description": "País de origem predominante",
+            "example": "CN"
+        },
+        "options": {
+            "type": "array",
+            "description": "Opções de variação específicas NeoSolar",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "values"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "enum": [
+                            "Potência",
+                            "Tipo de Sistema",
+                            "Voltagem Bateria",
+                            "Capacidade Bateria",
+                            "Tecnologia Bateria"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "variants": {
+            "type": "array",
+            "description": "Variantes do kit NeoSolar",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "sku",
+                    "prices",
+                    "options",
+                    "inventory_items"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "1.38kWp / Off-Grid / 48V / 200Ah / Lítio"
+                    },
+                    "sku": {
+                        "type": "string",
+                        "pattern": "^NEO-[A-Z]{2,3}-[0-9.]+KWP-[A-Z0-9-]+$",
+                        "example": "NEO-OG-1.38KWP-48V-200AH-LI"
+                    },
+                    "manage_inventory": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Kits não gerenciam estoque (calculado dos componentes)"
+                    },
+                    "allow_backorder": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Valores das opções para esta variante",
+                        "properties": {
+                            "Potência": {
+                                "type": "string",
+                                "example": "1.38kWp"
+                            },
+                            "Tipo de Sistema": {
+                                "type": "string",
+                                "enum": [
+                                    "Off-Grid",
+                                    "On-Grid",
+                                    "Híbrido"
+                                ]
+                            },
+                            "Voltagem Bateria": {
+                                "type": "string",
+                                "example": "48V"
+                            },
+                            "Capacidade Bateria": {
+                                "type": "string",
+                                "example": "200Ah"
+                            },
+                            "Tecnologia Bateria": {
+                                "type": "string",
+                                "enum": [
+                                    "Lítio",
+                                    "Chumbo-Ácido",
+                                    "LiFePO4",
+                                    "Gel"
+                                ]
+                            }
+                        }
+                    },
+                    "inventory_items": {
+                        "type": "array",
+                        "description": "Componentes do kit NeoSolar",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "inventory_item_id",
+                                "required_quantity"
+                            ],
+                            "properties": {
+                                "inventory_item_id": {
+                                    "type": "string",
+                                    "description": "ID do inventory item (painel, inversor, bateria, controlador)"
+                                },
+                                "required_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "component_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "panel",
+                                        "inverter",
+                                        "battery",
+                                        "charge_controller",
+                                        "cable",
+                                        "connector",
+                                        "structure"
+                                    ],
+                                    "description": "Tipo de componente para facilitar identificação"
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    },
+                    "prices": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "currency_code",
+                                "amount"
+                            ],
+                            "properties": {
+                                "currency_code": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BRL"
+                                    ],
+                                    "default": "BRL"
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Preço em centavos (ex: 142343 = R$ 1.423,43)",
+                                    "minimum": 0
+                                },
+                                "min_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "max_quantity": {
+                                    "type": "integer",
+                                    "minimum": 1
+                                },
+                                "rules": {
+                                    "type": "object",
+                                    "properties": {
+                                        "customer.groups.id": {
+                                            "type": "string"
+                                        },
+                                        "region.id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "minItems": 1
+                    },
+                    "metadata": {
+                        "type": "object",
+                        "description": "Metadados específicos da variante NeoSolar"
+                    }
+                }
+            },
+            "minItems": 1
+        },
+        "images": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "url"
+                ],
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "alt_text": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "cat_kits",
+                "cat_kits_off_grid",
+                "cat_kits_neosolar"
+            ]
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "example": [
+                "tag_neosolar",
+                "tag_off_grid",
+                "tag_litio",
+                "tag_1kwp"
+            ]
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "distributor": {
+                    "type": "string",
+                    "const": "neosolar"
+                },
+                "product_type": {
+                    "type": "string",
+                    "const": "kit"
+                },
+                "is_bundle": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "neosolar_specs": {
+                    "type": "object",
+                    "properties": {
+                        "system_type": {
+                            "type": "string",
+                            "enum": [
+                                "Solar Kit Off-Grid",
+                                "Solar Kit On-Grid",
+                                "Solar Kit Híbrido"
+                            ],
+                            "example": "Solar Kit Off-Grid"
+                        },
+                        "potencia_kwp": {
+                            "type": "number",
+                            "description": "Potência total do sistema em kWp",
+                            "minimum": 0
+                        },
+                        "total_panels": {
+                            "type": "integer",
+                            "description": "Quantidade total de painéis",
+                            "minimum": 0
+                        },
+                        "total_inverters": {
+                            "type": "integer",
+                            "description": "Quantidade de inversores/controladores",
+                            "minimum": 0
+                        },
+                        "total_batteries": {
+                            "type": "integer",
+                            "description": "Quantidade de baterias",
+                            "minimum": 0
+                        },
+                        "total_power_w": {
+                            "type": "integer",
+                            "description": "Potência total em Watts",
+                            "minimum": 0
+                        },
+                        "estimated_autonomy_hours": {
+                            "type": "number",
+                            "description": "Autonomia estimada em horas (apenas Off-Grid)",
+                            "minimum": 0
+                        },
+                        "estimated_generation_kwh_month": {
+                            "type": "number",
+                            "description": "Geração estimada mensal em kWh",
+                            "minimum": 0
+                        },
+                        "components": {
+                            "type": "object",
+                            "description": "Detalhes dos componentes do kit",
+                            "properties": {
+                                "panels": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "brand": {
+                                                "type": "string"
+                                            },
+                                            "power_w": {
+                                                "type": "integer"
+                                            },
+                                            "quantity": {
+                                                "type": "integer"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "inverters": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "brand": {
+                                                "type": "string"
+                                            },
+                                            "rating": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "PWM",
+                                                    "MPPT",
+                                                    "Grid-Tie",
+                                                    "Híbrido"
+                                                ]
+                                            },
+                                            "quantity": {
+                                                "type": "integer"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "batteries": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "brand": {
+                                                "type": "string"
+                                            },
+                                            "capacity_ah": {
+                                                "type": "integer"
+                                            },
+                                            "voltage_v": {
+                                                "type": "integer"
+                                            },
+                                            "technology": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Chumbo-Ácido",
+                                                    "Lítio",
+                                                    "LiFePO4",
+                                                    "Gel"
+                                                ]
+                                            },
+                                            "quantity": {
+                                                "type": "integer"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "ideal_applications": {
+                            "type": "array",
+                            "description": "Aplicações ideais para o kit",
+                            "items": {
+                                "type": "string"
+                            },
+                            "example": [
+                                "Locais sem acesso à rede elétrica",
+                                "Sítios, fazendas e casas de campo",
+                                "Sistemas autônomos com autonomia energética",
+                                "Alimentação de equipamentos essenciais"
+                            ]
+                        },
+                        "pricing_per_wp": {
+                            "type": "number",
+                            "description": "Preço por Watt pico (R$/Wp)",
+                            "minimum": 0
+                        }
+                    },
+                    "required": [
+                        "system_type",
+                        "potencia_kwp"
+                    ]
+                },
+                "source_data": {
+                    "type": "object",
+                    "properties": {
+                        "neosolar_id": {
+                            "type": "string"
+                        },
+                        "product_url": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "image_url": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "original_name": {
+                            "type": "string"
+                        },
+                        "imported_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                },
+                "seo": {
+                    "type": "object",
+                    "properties": {
+                        "seo_title": {
+                            "type": "string"
+                        },
+                        "seo_description": {
+                            "type": "string"
+                        },
+                        "search_title": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "distributor",
+                "neosolar_specs"
+            ]
+        }
+    },
+    "examples": [
+        {
+            "title": "Kit Energia Solar Off Grid - 1.38kWp 200Ah 48V Lítio",
+            "subtitle": "1.38kWp Off-Grid - 3x 460W Sunova + Bateria Lítio 200Ah 48V",
+            "handle": "kit-energia-solar-off-grid-138kwp-litio-48v",
+            "description": "Kit solar off-grid completo de 1.38kWp da NeoSolar com bateria de lítio 48V 200Ah. Ideal para locais sem acesso à rede elétrica. Inclui 3 painéis Sunova 460W, controlador MPPT 30A Epever, bateria de lítio 48V 200Ah de alta performance. Sistema autônomo com autonomia de até 48 horas. Perfeito para sítios, fazendas, casas de campo e sistemas de backup. Geração estimada de 207 kWh/mês. Tecnologia de lítio garante maior vida útil e eficiência.",
+            "status": "published",
+            "is_giftcard": false,
+            "discountable": true,
+            "external_id": "NEO-22691",
+            "thumbnail": "https://portal.zydon.com.br/api/files/neosolar-kit-138kwp-litio.jpg",
+            "weight": 180,
+            "hs_code": "8541.40.16",
+            "origin_country": "CN",
+            "options": [
+                {
+                    "title": "Potência",
+                    "values": [
+                        "1.38kWp"
+                    ]
+                },
+                {
+                    "title": "Tipo de Sistema",
+                    "values": [
+                        "Off-Grid"
+                    ]
+                },
+                {
+                    "title": "Voltagem Bateria",
+                    "values": [
+                        "48V"
+                    ]
+                },
+                {
+                    "title": "Capacidade Bateria",
+                    "values": [
+                        "200Ah"
+                    ]
+                },
+                {
+                    "title": "Tecnologia Bateria",
+                    "values": [
+                        "Lítio"
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "title": "1.38kWp / Off-Grid / 48V / 200Ah / Lítio",
+                    "sku": "NEO-OG-1.38KWP-48V-200AH-LI",
+                    "manage_inventory": false,
+                    "allow_backorder": false,
+                    "options": {
+                        "Potência": "1.38kWp",
+                        "Tipo de Sistema": "Off-Grid",
+                        "Voltagem Bateria": "48V",
+                        "Capacidade Bateria": "200Ah",
+                        "Tecnologia Bateria": "Lítio"
+                    },
+                    "inventory_items": [
+                        {
+                            "inventory_item_id": "inv_item_panel_sunova_460w",
+                            "required_quantity": 3,
+                            "component_type": "panel"
+                        },
+                        {
+                            "inventory_item_id": "inv_item_mppt_epever_30a",
+                            "required_quantity": 1,
+                            "component_type": "charge_controller"
+                        },
+                        {
+                            "inventory_item_id": "inv_item_battery_li_48v_200ah",
+                            "required_quantity": 1,
+                            "component_type": "battery"
+                        }
+                    ],
+                    "prices": [
+                        {
+                            "currency_code": "BRL",
+                            "amount": 850000
+                        }
+                    ]
+                }
+            ],
+            "categories": [
+                "cat_kits",
+                "cat_kits_off_grid",
+                "cat_kits_neosolar",
+                "cat_kits_ate_2kwp"
+            ],
+            "tags": [
+                "tag_neosolar",
+                "tag_off_grid",
+                "tag_litio",
+                "tag_1kwp",
+                "tag_48v",
+                "tag_sunova",
+                "tag_epever",
+                "tag_autonomo"
+            ],
+            "metadata": {
+                "distributor": "neosolar",
+                "product_type": "kit",
+                "is_bundle": true,
+                "neosolar_specs": {
+                    "system_type": "Solar Kit Off-Grid",
+                    "potencia_kwp": 1.38,
+                    "total_panels": 3,
+                    "total_inverters": 1,
+                    "total_batteries": 1,
+                    "total_power_w": 1380,
+                    "estimated_autonomy_hours": 48,
+                    "estimated_generation_kwh_month": 207,
+                    "components": {
+                        "panels": [
+                            {
+                                "brand": "Sunova",
+                                "power_w": 460,
+                                "quantity": 3,
+                                "description": "3x 460Wp Sunova"
+                            }
+                        ],
+                        "inverters": [
+                            {
+                                "brand": "Epever",
+                                "rating": "30A",
+                                "type": "MPPT",
+                                "quantity": 1,
+                                "description": "1x 30A MPPT Epever"
+                            }
+                        ],
+                        "batteries": [
+                            {
+                                "brand": "Alta Performance",
+                                "capacity_ah": 200,
+                                "voltage_v": 48,
+                                "technology": "Lítio",
+                                "quantity": 1,
+                                "description": "1x 200Ah/48V Lítio"
+                            }
+                        ]
+                    },
+                    "ideal_applications": [
+                        "Locais sem acesso à rede elétrica",
+                        "Sítios, fazendas e casas de campo",
+                        "Sistemas autônomos com autonomia energética",
+                        "Backup de energia para equipamentos essenciais"
+                    ],
+                    "pricing_per_wp": 6.16
+                },
+                "source_data": {
+                    "neosolar_id": "NEO-22691",
+                    "product_url": "https://portalb2b.neosolar.com.br/novo-pedido/produto/22691",
+                    "image_url": "https://portal.zydon.com.br/api/files/neosolar-kit-138kwp-litio.jpg",
+                    "original_name": "Kit Energia Solar Off Grid s/ Inversor - 1.38kWp 200Ah 48V Lítio (22691)",
+                    "imported_at": "2025-10-14T12:00:00Z"
+                },
+                "seo": {
+                    "seo_title": "Kit Solar Off-Grid 1.38kWp Lítio | NeoSolar",
+                    "seo_description": "Kit Solar Off-Grid 1.38kWp completo NeoSolar. 3x 460Wp Sunova + Bateria Lítio 48V 200Ah. Ideal para locais isolados. Autonomia 48h.",
+                    "search_title": "1.38kWp Off-Grid Solar Kit Sunova Panel Lithium Battery System",
+                    "keywords": [
+                        "kit solar off grid",
+                        "kit neosolar",
+                        "kit bateria litio",
+                        "sistema autonomo solar",
+                        "kit 1.38kwp",
+                        "sunova 460w"
+                    ]
+                }
+            }
+        }
+    ]
+}

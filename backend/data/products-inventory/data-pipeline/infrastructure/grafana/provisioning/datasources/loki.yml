@@ -1,0 +1,39 @@
+# ============================================================================
+# Grafana Datasource Provisioning - Loki
+# ============================================================================
+# Auto-configured on Grafana startup
+# ============================================================================
+
+apiVersion: 1
+
+datasources:
+  # Loki - Log Aggregation
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    version: 1
+    editable: true
+    isDefault: false
+    jsonData:
+      maxLines: 1000
+      derivedFields:
+        # Extract trace IDs from logs
+        - datasourceUid: tempo
+          matcherRegex: "trace_id=(\\w+)"
+          name: TraceID
+          url: "$${__value.raw}"
+
+  # Prometheus - Metrics (existing)
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    version: 1
+    editable: true
+    isDefault: true
+    jsonData:
+      httpMethod: POST
+      exemplarTraceIdDestinations:
+        - name: trace_id
+          datasourceUid: tempo

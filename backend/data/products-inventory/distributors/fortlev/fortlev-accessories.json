@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fortlev_accessories_ITR00085",
+    "name": "PARAFUSO HEX M61,0 X 45MM",
+    "manufacturer": "Unknown",
+    "category": "accessories",
+    "price": "R$ 0,63",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c976/ITR00085.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO HEX M61,0 X 45MM",
+    "pricing": {
+      "price": 0.63,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_accessories_ITR00056",
+    "name": "PARAFUSO HEX M61,0 X 12MM",
+    "manufacturer": "Unknown",
+    "category": "accessories",
+    "price": "R$ 0,30",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c966/ITR00056.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO HEX M61,0 X 12MM",
+    "pricing": {
+      "price": 0.3,
+      "currency": "BRL"
+    }
+  }
+]

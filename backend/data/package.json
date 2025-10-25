@@ -1,0 +1,24 @@
+{
+    "name": "ysh-backend-data",
+    "version": "1.0.0",
+    "description": "Scripts for YSH data processing",
+    "main": "index.js",
+    "scripts": {
+        "populate": "ts-node scripts/populate-vector-store.ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@langchain/community": "^0.2.10",
+        "@langchain/ollama": "^0.2.4",
+        "chromadb": "^1.8.1",
+        "cohere-ai": "^7.10.1",
+        "langchain": "^0.2.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.5",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "@types/uuid": "^9.0.8"
+    }
+}

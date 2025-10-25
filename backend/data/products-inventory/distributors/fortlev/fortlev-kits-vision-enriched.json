@@ -1,0 +1,1562 @@
+[
+  {
+    "id": "fortlev_kit_001",
+    "name": "Kit 2.44kWp - Panel + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.44,
+    "total_price": "R$ 2.923,56",
+    "price_per_wp": 1.2,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+        "image_filename": "IMO00135.png",
+        "manufacturer": null,
+        "power_w": null,
+        "quantity": null,
+        "component_id": "68dbedcc54fa3ed05329e145",
+        "local_image": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\data\\products-inventory\\distributors\\fortlev\\KITS_Fortlev Solar - 13-10-2025 21-15-47\\IMO00135.png",
+        "image_available": true
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 2923.56,
+      "per_wp": 1.2,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.44kWp - R$ 1,20/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.44kWp - Panel + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.44kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt 2.0kW\n\n**Technical Specifications:**\n- System Power: 2.44kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~329kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 2,923.56\n- Cost per Watt-peak: R$ 1.20/Wp\n\n**Ideal For:**\n- Residential properties consuming ~329kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-244kwp-panel-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.44kWp",
+      "Unknown",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.44kWp - Panel + Growatt",
+    "variant_title": "2.44kWp System / 2.0kW Inverter",
+    "variant_sku": "FLV-2.44KWP-UNKGRO-001",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.44,
+      "panel_manufacturer": "Unknown",
+      "panel_power_w": 0,
+      "panel_quantity": 0,
+      "panel_component_id": "68dbedcc54fa3ed05329e145",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 2.0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "66b3b62951d7cf33a7085c16",
+      "price_per_wp": 1.2,
+      "estimated_monthly_generation_kwh": 329,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": true,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.44kWp Solar Energy Kit Panel Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.44kWp Solar Kit - Panel Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.44kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt 2.0",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.44kWp"
+        ]
+      },
+      {
+        "title": "Inverter Power",
+        "values": [
+          "2.0kW"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "825 W",
+      "panel_technology": "Mono",
+      "panel_visual_features": [
+        "Black color",
+        "Square shape",
+        "Rounded corners"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Victron Energy",
+      "inverter_model": "Smart Volta 48/1600",
+      "inverter_specifications": [
+        "48V",
+        "MPPT",
+        "Pure Sine Wave"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 329kWh/mês - Kit Solar 2.44kWp SunPower + Victron Energy",
+      "seo_optimized": "Kit Solar 2.44kWp para Casa Pequena | SunPower + Victron Energy",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 2.44kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.44kWp completo para casa pequena. Gere até 329kWh/mês. SunPower + inversor de qualidade. R$ 1.20/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.44kWp",
+        "Painel SunPower",
+        "Inversor Victron Energy",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 2.44kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Victron Energy",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.44kWp - Gere até 329kWh por mês\n\n**Economize até R$ 3,356 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono\n✓ **Inversor Confiável**: Victron Energy com garantia estendida\n✓ **Geração Previsível**: Média de 329kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 0W por painel\n- Quantidade: 0 unidades\n- Tecnologia: Mono\n- Garantia: 25 anos de desempenho\n\n**Inversor Victron Energy**\n- Potência: 2.0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.44kWp |\n| Geração Mensal Média | 329 kWh |\n| Área Necessária | ~17m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 329kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_002",
+    "name": "Kit 2.52kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.52,
+    "total_price": "R$ 3.163,70",
+    "price_per_wp": 1.26,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68cbfb5b8434a2f72c363a4f/LONGI-630Wp_v2.png",
+        "image_filename": "LONGI-630Wp_v2.png",
+        "manufacturer": "Longi",
+        "power_w": 630,
+        "quantity": 4,
+        "component_id": "68cbfb5b8434a2f72c363a4f",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 3163.7,
+      "per_wp": 1.26,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.52kWp - R$ 1,26/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.52kWp - LONGi + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.52kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 630W (Quantity: 4)\n- Inverter: Growatt 2.0kW\n\n**Technical Specifications:**\n- System Power: 2.52kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~340kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 3,163.70\n- Cost per Watt-peak: R$ 1.26/Wp\n\n**Ideal For:**\n- Residential properties consuming ~340kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-252kwp-longi-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.52kWp",
+      "LONGi",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.52kWp - Longi + Growatt",
+    "variant_title": "630W x4 Panels / 2.0kW Inverter",
+    "variant_sku": "FLV-2.52KWP-LONGRO-002",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.52,
+      "panel_manufacturer": "LONGi",
+      "panel_power_w": 630,
+      "panel_quantity": 4,
+      "panel_component_id": "68cbfb5b8434a2f72c363a4f",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 2.0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "66b3b62951d7cf33a7085c16",
+      "price_per_wp": 1.26,
+      "estimated_monthly_generation_kwh": 340,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.52kWp Solar Energy Kit LONGi Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.52kWp Solar Kit - LONGi Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.52kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 630W (Quantity: 4)\n- Inve",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.52kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "630W x4"
+        ]
+      },
+      {
+        "title": "Inverter Power",
+        "values": [
+          "2.0kW"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "Unknown",
+      "panel_model": "Unknown",
+      "panel_technology": "Polycrystalline",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Standard solar panel design"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Victron Energy",
+      "inverter_model": "Smart Volta 80/100",
+      "inverter_specifications": [
+        "Input: 12/24V DC",
+        "Output: 230V AC",
+        "Efficiency: 96%",
+        "Waveform: Pure Sine Wave",
+        "Weight: 1.8kg"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 340kWh/mês - Kit Solar 2.52kWp Unknown + Victron Energy",
+      "seo_optimized": "Kit Solar 2.52kWp para Casa Pequena | Unknown + Victron Energy",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 2.52kWp Unknown - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.52kWp completo para casa pequena. Gere até 340kWh/mês. Unknown + inversor de qualidade. R$ 1.26/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.52kWp",
+        "Inversor Victron Energy",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 2.52kwp",
+      "secondary_keywords": [
+        "painel Unknown",
+        "inversor Victron Energy",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.52kWp - Gere até 340kWh por mês\n\n**Economize até R$ 3,468 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis Unknown Polycrystalline\n✓ **Inversor Confiável**: Victron Energy com garantia estendida\n✓ **Geração Previsível**: Média de 340kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares Unknown**\n- Potência: 630W por painel\n- Quantidade: 4 unidades\n- Tecnologia: Polycrystalline\n- Garantia: 25 anos de desempenho\n\n**Inversor Victron Energy**\n- Potência: 2.0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.52kWp |\n| Geração Mensal Média | 340 kWh |\n| Área Necessária | ~17m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 340kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_003",
+    "name": "Kit 2.8kWp - Risen + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.8,
+    "total_price": "R$ 3.837,94",
+    "price_per_wp": 1.37,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/671fe64111d826f8e99a58e4/RISEN-700W.png",
+        "image_filename": "RISEN-700W.png",
+        "manufacturer": "Risen",
+        "power_w": 700,
+        "quantity": 4,
+        "component_id": "671fe64111d826f8e99a58e4",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 3837.94,
+      "per_wp": 1.37,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.8kWp - R$ 1,37/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.8kWp - Risen + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.8kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Risen 700W (Quantity: 4)\n- Inverter: Growatt 2.0kW\n\n**Technical Specifications:**\n- System Power: 2.8kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~378kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 3,837.94\n- Cost per Watt-peak: R$ 1.37/Wp\n\n**Ideal For:**\n- Residential properties consuming ~378kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-28kwp-risen-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.8kWp",
+      "Risen",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.8kWp - Risen + Growatt",
+    "variant_title": "700W x4 Panels / 2.0kW Inverter",
+    "variant_sku": "FLV-2.80KWP-RISGRO-003",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.8,
+      "panel_manufacturer": "Risen",
+      "panel_power_w": 700,
+      "panel_quantity": 4,
+      "panel_component_id": "671fe64111d826f8e99a58e4",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 2.0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "66b3b62951d7cf33a7085c16",
+      "price_per_wp": 1.37,
+      "estimated_monthly_generation_kwh": 378,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.8kWp Solar Energy Kit Risen Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.8kWp Solar Kit - Risen Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.8kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Risen 700W (Quantity: 4)\n- Inver",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.8kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "700W x4"
+        ]
+      },
+      {
+        "title": "Inverter Power",
+        "values": [
+          "2.0kW"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "X21-370",
+      "panel_technology": "Monocrystalline",
+      "panel_visual_features": [
+        "Black",
+        "Rectangular",
+        "Dark Blue Border"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Victron Energy",
+      "inverter_model": "Smart DC-DC Charger",
+      "inverter_specifications": [
+        "Input: 12/24/48V DC",
+        "Output: 230V AC",
+        "Efficiency: >90%",
+        "Protection: Overload, Short Circuit, Over Voltage"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 378kWh/mês - Kit Solar 2.8kWp SunPower + Victron Energy",
+      "seo_optimized": "Kit Solar 2.8kWp para Casa Pequena | SunPower + Victron Energy",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 2.8kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.8kWp completo para casa pequena. Gere até 378kWh/mês. SunPower + inversor de qualidade. R$ 1.37/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.8kWp",
+        "Painel SunPower",
+        "Inversor Victron Energy",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 2.8kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Victron Energy",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.8kWp - Gere até 378kWh por mês\n\n**Economize até R$ 3,856 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Monocrystalline\n✓ **Inversor Confiável**: Victron Energy com garantia estendida\n✓ **Geração Previsível**: Média de 378kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 700W por painel\n- Quantidade: 4 unidades\n- Tecnologia: Monocrystalline\n- Garantia: 25 anos de desempenho\n\n**Inversor Victron Energy**\n- Potência: 2.0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.8kWp |\n| Geração Mensal Média | 378 kWh |\n| Área Necessária | ~19m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 378kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_004",
+    "name": "Kit 2.8kWp - Risen + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.8,
+    "total_price": "R$ 3.923,18",
+    "price_per_wp": 1.4,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/671fe64111d826f8e99a58e4/RISEN-700W.png",
+        "image_filename": "RISEN-700W.png",
+        "manufacturer": "Risen",
+        "power_w": 700,
+        "quantity": 4,
+        "component_id": "671fe64111d826f8e99a58e4",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "image_filename": "GROWATT-NEO-2,25.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "67d9594a76d2130bb9003087",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 3923.18,
+      "per_wp": 1.4,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.8kWp - R$ 1,40/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.8kWp - Risen + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.8kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Risen 700W (Quantity: 4)\n- Inverter: Growatt\n\n**Technical Specifications:**\n- System Power: 2.8kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~378kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 3,923.18\n- Cost per Watt-peak: R$ 1.40/Wp\n\n**Ideal For:**\n- Residential properties consuming ~378kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-28kwp-risen-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.8kWp",
+      "Risen",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.8kWp - Risen + Growatt",
+    "variant_title": "700W x4 Panels / 0kW Inverter",
+    "variant_sku": "FLV-2.80KWP-RISGRO-004",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.8,
+      "panel_manufacturer": "Risen",
+      "panel_power_w": 700,
+      "panel_quantity": 4,
+      "panel_component_id": "671fe64111d826f8e99a58e4",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "67d9594a76d2130bb9003087",
+      "price_per_wp": 1.4,
+      "estimated_monthly_generation_kwh": 378,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.8kWp Solar Energy Kit Risen Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.8kWp Solar Kit - Risen Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.8kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Risen 700W (Quantity: 4)\n- Inver",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.8kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "700W x4"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "X21-370",
+      "panel_technology": "Monocrystalline",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Rounded corners"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Unknown",
+      "inverter_model": "Unknown",
+      "inverter_specifications": [
+        "24V",
+        "DC Input"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 378kWh/mês - Kit Solar 2.8kWp SunPower + Unknown",
+      "seo_optimized": "Kit Solar 2.8kWp para Casa Pequena | SunPower + Unknown",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 2.8kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.8kWp completo para casa pequena. Gere até 378kWh/mês. SunPower + inversor de qualidade. R$ 1.40/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.8kWp",
+        "Painel SunPower",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 2.8kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Unknown",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.8kWp - Gere até 378kWh por mês\n\n**Economize até R$ 3,856 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Monocrystalline\n✓ **Inversor Confiável**: Unknown com garantia estendida\n✓ **Geração Previsível**: Média de 378kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 700W por painel\n- Quantidade: 4 unidades\n- Tecnologia: Monocrystalline\n- Garantia: 25 anos de desempenho\n\n**Inversor Unknown**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.8kWp |\n| Geração Mensal Média | 378 kWh |\n| Área Necessária | ~19m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 378kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_005",
+    "name": "Kit 2.92kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.92,
+    "total_price": "R$ 4.222,76",
+    "price_per_wp": 1.44,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/6888f711d571954b7ff6effc/LONGI-585W.png",
+        "image_filename": "LONGI-585W.png",
+        "manufacturer": "Longi",
+        "power_w": 585,
+        "quantity": 5,
+        "component_id": "6888f711d571954b7ff6effc",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c16/GROWATT-NEO-2000M-X-2000W-220V.png",
+        "image_filename": "GROWATT-NEO-2000M-X-2000W-220V.png",
+        "manufacturer": "Growatt",
+        "power_kw": 2.0,
+        "quantity": 1,
+        "component_id": "66b3b62951d7cf33a7085c16",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 4222.76,
+      "per_wp": 1.44,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.925kWp - R$ 1,44/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.92kWp - LONGi + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.92kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 5)\n- Inverter: Growatt 2.0kW\n\n**Technical Specifications:**\n- System Power: 2.92kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~394kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 4,222.76\n- Cost per Watt-peak: R$ 1.44/Wp\n\n**Ideal For:**\n- Residential properties consuming ~394kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-292kwp-longi-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.92kWp",
+      "LONGi",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.92kWp - Longi + Growatt",
+    "variant_title": "585W x5 Panels / 2.0kW Inverter",
+    "variant_sku": "FLV-2.92KWP-LONGRO-005",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.92,
+      "panel_manufacturer": "LONGi",
+      "panel_power_w": 585,
+      "panel_quantity": 5,
+      "panel_component_id": "6888f711d571954b7ff6effc",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 2.0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "66b3b62951d7cf33a7085c16",
+      "price_per_wp": 1.44,
+      "estimated_monthly_generation_kwh": 394,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.92kWp Solar Energy Kit LONGi Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.92kWp Solar Kit - LONGi Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.92kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 5)\n- Inve",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.92kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "585W x5"
+        ]
+      },
+      {
+        "title": "Inverter Power",
+        "values": [
+          "2.0kW"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "80MAX+",
+      "panel_technology": "Mono-PERC",
+      "panel_visual_features": [
+        "Black color",
+        "Rounded edges",
+        "Textured surface"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Victron Energy",
+      "inverter_model": "Smart Inverter+",
+      "inverter_specifications": [
+        "MPPT Charging",
+        "48V DC Input",
+        "230V AC Output",
+        "WiFi Connectivity"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 394kWh/mês - Kit Solar 2.92kWp SunPower + Victron Energy",
+      "seo_optimized": "Kit Solar 2.92kWp para Casa Pequena | SunPower + Victron Energy",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 2.92kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.92kWp completo para casa pequena. Gere até 394kWh/mês. SunPower + inversor de qualidade. R$ 1.44/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.92kWp",
+        "Painel SunPower",
+        "Inversor Victron Energy",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 2.92kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Victron Energy",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.92kWp - Gere até 394kWh por mês\n\n**Economize até R$ 4,019 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono-PERC\n✓ **Inversor Confiável**: Victron Energy com garantia estendida\n✓ **Geração Previsível**: Média de 394kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 585W por painel\n- Quantidade: 5 unidades\n- Tecnologia: Mono-Perc\n- Garantia: 25 anos de desempenho\n\n**Inversor Victron Energy**\n- Potência: 2.0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.92kWp |\n| Geração Mensal Média | 394 kWh |\n| Área Necessária | ~20m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 394kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_006",
+    "name": "Kit 2.92kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 2.92,
+    "total_price": "R$ 4.393,24",
+    "price_per_wp": 1.5,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/6888f711d571954b7ff6effc/LONGI-585W.png",
+        "image_filename": "LONGI-585W.png",
+        "manufacturer": "Longi",
+        "power_w": 585,
+        "quantity": 5,
+        "component_id": "6888f711d571954b7ff6effc",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "image_filename": "GROWATT-NEO-2,25.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "67d9594a76d2130bb9003087",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 4393.24,
+      "per_wp": 1.5,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "2.925kWp - R$ 1,50/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 2.92kWp - LONGi + Growatt",
+    "subtitle": null,
+    "description": "Complete 2.92kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 5)\n- Inverter: Growatt\n\n**Technical Specifications:**\n- System Power: 2.92kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~394kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 4,393.24\n- Cost per Watt-peak: R$ 1.50/Wp\n\n**Ideal For:**\n- Residential properties consuming ~394kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-292kwp-longi-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "2.92kWp",
+      "LONGi",
+      "Growatt",
+      "Residential Small"
+    ],
+    "original_name": "Kit 2.92kWp - Longi + Growatt",
+    "variant_title": "585W x5 Panels / 0kW Inverter",
+    "variant_sku": "FLV-2.92KWP-LONGRO-006",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 2.92,
+      "panel_manufacturer": "LONGi",
+      "panel_power_w": 585,
+      "panel_quantity": 5,
+      "panel_component_id": "6888f711d571954b7ff6effc",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "67d9594a76d2130bb9003087",
+      "price_per_wp": 1.5,
+      "estimated_monthly_generation_kwh": 394,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "2.92kWp Solar Energy Kit LONGi Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "2.92kWp Solar Kit - LONGi Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 2.92kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 5)\n- Inve",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "2.92kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "585W x5"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "80MAX+",
+      "panel_technology": "Mono-PERC",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Rounded corners"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Unknown",
+      "inverter_model": "Unknown",
+      "inverter_specifications": [
+        "24V",
+        "DC Input"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 394kWh/mês - Kit Solar 2.92kWp SunPower + Unknown",
+      "seo_optimized": "Kit Solar 2.92kWp para Casa Pequena | SunPower + Unknown",
+      "marketing": "Custo-Benefício Excelente: Kit Solar 2.92kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 2.92kWp completo para casa pequena. Gere até 394kWh/mês. SunPower + inversor de qualidade. R$ 1.50/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Pequeno",
+        "Até 3kWp",
+        "Casa Pequena",
+        "2.92kWp",
+        "Painel SunPower",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês"
+      ],
+      "primary_keyword": "kit solar 2.92kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Unknown",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 2.92kWp - Gere até 394kWh por mês\n\n**Economize até R$ 4,019 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Pequena?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono-PERC\n✓ **Inversor Confiável**: Unknown com garantia estendida\n✓ **Geração Previsível**: Média de 394kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 585W por painel\n- Quantidade: 5 unidades\n- Tecnologia: Mono-Perc\n- Garantia: 25 anos de desempenho\n\n**Inversor Unknown**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Casas e apartamentos pequenos\n- Consumo até 500kWh/mês\n- Redução de até 95% na conta de luz\n- Perfeito para quem está começando na energia solar\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 2.92kWp |\n| Geração Mensal Média | 394 kWh |\n| Área Necessária | ~20m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_small",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 394kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_007",
+    "name": "Kit 3.05kWp - Panel + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 3.05,
+    "total_price": "R$ 4.394,40",
+    "price_per_wp": 1.44,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+        "image_filename": "IMO00135.png",
+        "manufacturer": null,
+        "power_w": null,
+        "quantity": null,
+        "component_id": "68dbedcc54fa3ed05329e145",
+        "local_image": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\data\\products-inventory\\distributors\\fortlev\\KITS_Fortlev Solar - 13-10-2025 21-15-47\\IMO00135.png",
+        "image_available": true
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "image_filename": "GROWATT-NEO-2,25.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "67d9594a76d2130bb9003087",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 4394.4,
+      "per_wp": 1.44,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "3.05kWp - R$ 1,44/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 3.05kWp - Panel + Growatt",
+    "subtitle": null,
+    "description": "Complete 3.05kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt\n\n**Technical Specifications:**\n- System Power: 3.05kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~411kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 4,394.40\n- Cost per Watt-peak: R$ 1.44/Wp\n\n**Ideal For:**\n- Residential properties consuming ~411kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-305kwp-panel-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "3.05kWp",
+      "Unknown",
+      "Growatt",
+      "Residential Medium"
+    ],
+    "original_name": "Kit 3.05kWp - Panel + Growatt",
+    "variant_title": "3.05kWp System / 0kW Inverter",
+    "variant_sku": "FLV-3.05KWP-UNKGRO-007",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 3.05,
+      "panel_manufacturer": "Unknown",
+      "panel_power_w": 0,
+      "panel_quantity": 0,
+      "panel_component_id": "68dbedcc54fa3ed05329e145",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "67d9594a76d2130bb9003087",
+      "price_per_wp": 1.44,
+      "estimated_monthly_generation_kwh": 411,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": true,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "3.05kWp Solar Energy Kit Panel Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "3.05kWp Solar Kit - Panel Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 3.05kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt\n\n**",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "3.05kWp"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "X21-370",
+      "panel_technology": "Mono-crystalline",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Rounded corners"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Unknown",
+      "inverter_model": "Unknown",
+      "inverter_specifications": [
+        "24V",
+        "DC Input"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 411kWh/mês - Kit Solar 3.05kWp SunPower + Unknown",
+      "seo_optimized": "Kit Solar 3.05kWp para Casa Média | SunPower + Unknown",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 3.05kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 3.05kWp completo para casa média. Gere até 411kWh/mês. SunPower + inversor de qualidade. R$ 1.44/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Médio",
+        "3-6kWp",
+        "Casa Média",
+        "3.05kWp",
+        "Painel SunPower",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 3.05kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Unknown",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 3.05kWp - Gere até 411kWh por mês\n\n**Economize até R$ 4,192 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Média?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono-crystalline\n✓ **Inversor Confiável**: Unknown com garantia estendida\n✓ **Geração Previsível**: Média de 411kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 0W por painel\n- Quantidade: 0 unidades\n- Tecnologia: Mono-Crystalline\n- Garantia: 25 anos de desempenho\n\n**Inversor Unknown**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Residências com consumo moderado\n- Famílias de 3-5 pessoas\n- Casas com ar-condicionado\n- Economia significativa na conta de luz\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 3.05kWp |\n| Geração Mensal Média | 411 kWh |\n| Área Necessária | ~21m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_medium",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 411kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_008",
+    "name": "Kit 3.15kWp - Longi + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 3.15,
+    "total_price": "R$ 4.694,59",
+    "price_per_wp": 1.49,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68cbfb5b8434a2f72c363a4f/LONGI-630Wp_v2.png",
+        "image_filename": "LONGI-630Wp_v2.png",
+        "manufacturer": "Longi",
+        "power_w": 630,
+        "quantity": 5,
+        "component_id": "68cbfb5b8434a2f72c363a4f",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/67d9594a76d2130bb9003087/GROWATT-NEO-2,25.png",
+        "image_filename": "GROWATT-NEO-2,25.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "67d9594a76d2130bb9003087",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 4694.59,
+      "per_wp": 1.49,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "3.15kWp - R$ 1,49/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 3.15kWp - LONGi + Growatt",
+    "subtitle": null,
+    "description": "Complete 3.15kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 630W (Quantity: 5)\n- Inverter: Growatt\n\n**Technical Specifications:**\n- System Power: 3.15kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~425kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 4,694.59\n- Cost per Watt-peak: R$ 1.49/Wp\n\n**Ideal For:**\n- Residential properties consuming ~425kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-315kwp-longi-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "3.15kWp",
+      "LONGi",
+      "Growatt",
+      "Residential Medium"
+    ],
+    "original_name": "Kit 3.15kWp - Longi + Growatt",
+    "variant_title": "630W x5 Panels / 0kW Inverter",
+    "variant_sku": "FLV-3.15KWP-LONGRO-008",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 3.15,
+      "panel_manufacturer": "LONGi",
+      "panel_power_w": 630,
+      "panel_quantity": 5,
+      "panel_component_id": "68cbfb5b8434a2f72c363a4f",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "67d9594a76d2130bb9003087",
+      "price_per_wp": 1.49,
+      "estimated_monthly_generation_kwh": 425,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "3.15kWp Solar Energy Kit LONGi Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "3.15kWp Solar Kit - LONGi Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 3.15kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 630W (Quantity: 5)\n- Inve",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "3.15kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "630W x5"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "825W",
+      "panel_technology": "Mono",
+      "panel_visual_features": [
+        "Black",
+        "Rectangular",
+        "Framed"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Unknown",
+      "inverter_model": "Unknown",
+      "inverter_specifications": [
+        "24V",
+        "DC Input"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 425kWh/mês - Kit Solar 3.15kWp SunPower + Unknown",
+      "seo_optimized": "Kit Solar 3.15kWp para Casa Média | SunPower + Unknown",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 3.15kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 3.15kWp completo para casa média. Gere até 425kWh/mês. SunPower + inversor de qualidade. R$ 1.49/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Médio",
+        "3-6kWp",
+        "Casa Média",
+        "3.15kWp",
+        "Painel SunPower",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 3.15kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Unknown",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 3.15kWp - Gere até 425kWh por mês\n\n**Economize até R$ 4,335 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Média?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono\n✓ **Inversor Confiável**: Unknown com garantia estendida\n✓ **Geração Previsível**: Média de 425kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 630W por painel\n- Quantidade: 5 unidades\n- Tecnologia: Mono\n- Garantia: 25 anos de desempenho\n\n**Inversor Unknown**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Residências com consumo moderado\n- Famílias de 3-5 pessoas\n- Casas com ar-condicionado\n- Economia significativa na conta de luz\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 3.15kWp |\n| Geração Mensal Média | 425 kWh |\n| Área Necessária | ~22m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_medium",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 425kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_009",
+    "name": "Kit 3.66kWp - Panel + Growatt",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 3.66,
+    "total_price": "R$ 4.986,95",
+    "price_per_wp": 1.36,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+        "image_filename": "IMO00135.png",
+        "manufacturer": null,
+        "power_w": null,
+        "quantity": null,
+        "component_id": "68dbedcc54fa3ed05329e145",
+        "local_image": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\data\\products-inventory\\distributors\\fortlev\\KITS_Fortlev Solar - 13-10-2025 21-15-47\\IMO00135.png",
+        "image_available": true
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/670d5c35dac72e01f686b281/GROWATT-MIC-3000TL-X2-220V-1MPPT.png",
+        "image_filename": "GROWATT-MIC-3000TL-X2-220V-1MPPT.png",
+        "manufacturer": "Growatt",
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "670d5c35dac72e01f686b281",
+        "image_available": false
+      }
+    },
+    "pricing": {
+      "total": 4986.95,
+      "per_wp": 1.36,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "3.66kWp - R$ 1,36/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 3.66kWp - Panel + Growatt",
+    "subtitle": null,
+    "description": "Complete 3.66kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt\n\n**Technical Specifications:**\n- System Power: 3.66kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~494kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 4,986.95\n- Cost per Watt-peak: R$ 1.36/Wp\n\n**Ideal For:**\n- Residential properties consuming ~494kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-366kwp-panel-growatt",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "3.66kWp",
+      "Unknown",
+      "Growatt",
+      "Residential Medium"
+    ],
+    "original_name": "Kit 3.66kWp - Panel + Growatt",
+    "variant_title": "3.66kWp System / 0kW Inverter",
+    "variant_sku": "FLV-3.66KWP-UNKGRO-009",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 3.66,
+      "panel_manufacturer": "Unknown",
+      "panel_power_w": 0,
+      "panel_quantity": 0,
+      "panel_component_id": "68dbedcc54fa3ed05329e145",
+      "inverter_manufacturer": "Growatt",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "670d5c35dac72e01f686b281",
+      "price_per_wp": 1.36,
+      "estimated_monthly_generation_kwh": 494,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": true,
+      "has_inverter_image": false,
+      "has_combination_image": false
+    },
+    "search_title": "3.66kWp Solar Energy Kit Panel Panel Growatt Inverter Grid-Tie System",
+    "seo_title": "3.66kWp Solar Kit - Panel Panels + Growatt Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 3.66kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: Unknown\n- Inverter: Growatt\n\n**",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "3.66kWp"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "825 W",
+      "panel_technology": "Mono",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Rounded corners"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "SolarEdge",
+      "inverter_model": "SolarEdge Power Optimizer",
+      "inverter_specifications": [
+        "200W",
+        "DC-DC"
+      ],
+      "inverter_confidence": "high"
+    },
+    "titles": {
+      "ux_optimized": "Gere 494kWh/mês - Kit Solar 3.66kWp SunPower + SolarEdge",
+      "seo_optimized": "Kit Solar 3.66kWp para Casa Média | SunPower + SolarEdge",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 3.66kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 3.66kWp completo para casa média. Gere até 494kWh/mês. SunPower + inversor de qualidade. R$ 1.36/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Médio",
+        "3-6kWp",
+        "Casa Média",
+        "3.66kWp",
+        "Painel SunPower",
+        "Inversor SolarEdge",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 3.66kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor SolarEdge",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 3.66kWp - Gere até 494kWh por mês\n\n**Economize até R$ 5,039 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Média?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono\n✓ **Inversor Confiável**: SolarEdge com garantia estendida\n✓ **Geração Previsível**: Média de 494kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 0W por painel\n- Quantidade: 0 unidades\n- Tecnologia: Mono\n- Garantia: 25 anos de desempenho\n\n**Inversor SolarEdge**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Residências com consumo moderado\n- Famílias de 3-5 pessoas\n- Casas com ar-condicionado\n- Economia significativa na conta de luz\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 3.66kWp |\n| Geração Mensal Média | 494 kWh |\n| Área Necessária | ~25m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_medium",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 494kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  },
+  {
+    "id": "fortlev_kit_010",
+    "name": "Kit 3.51kWp - Longi + Inverter",
+    "distributor": "fortlev",
+    "category": "kits",
+    "system_power_kwp": 3.51,
+    "total_price": "R$ 5.056,46",
+    "price_per_wp": 1.44,
+    "components": {
+      "panel": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/6888f711d571954b7ff6effc/LONGI-585W.png",
+        "image_filename": "LONGI-585W.png",
+        "manufacturer": "Longi",
+        "power_w": 585,
+        "quantity": 6,
+        "component_id": "6888f711d571954b7ff6effc",
+        "image_available": false
+      },
+      "inverter": {
+        "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8a6/IIN00225.png",
+        "image_filename": "IIN00225.png",
+        "manufacturer": null,
+        "power_kw": null,
+        "quantity": 1,
+        "component_id": "6687e304189963220c27c8a6",
+        "local_image": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\data\\products-inventory\\distributors\\fortlev\\INVERTERS_Fortlev Solar - 13-10-2025 21-18-17\\IIN00225.png",
+        "image_available": true
+      }
+    },
+    "pricing": {
+      "total": 5056.46,
+      "per_wp": 1.44,
+      "currency": "BRL"
+    },
+    "metadata": {
+      "source_csv": "https___fortlevsolar.app_old.csv",
+      "details": "3.51kWp - R$ 1,44/ Wp"
+    },
+    "combination_available": false,
+    "title": "Solar Kit 3.51kWp - LONGi + Inverter",
+    "subtitle": null,
+    "description": "Complete 3.51kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 6)\n- Inverter: Unknown\n\n**Technical Specifications:**\n- System Power: 3.51kWp\n- Configuration: Grid-tie photovoltaic system\n- Estimated Energy Generation: ~473kWh/month (average)\n\n**Pricing:**\n- Total Kit Price: R$ 5,056.46\n- Cost per Watt-peak: R$ 1.44/Wp\n\n**Ideal For:**\n- Residential properties consuming ~473kWh/month\n- Small commercial installations\n- Offsetting electricity bills with clean solar energy\n\n**Installation Notes:**\n- Professional installation recommended\n- Includes all core components (panels + inverter)\n- Mounting structure and cables sold separately\n- Check local regulations for grid connection requirements",
+    "handle": "solar-kit-351kwp-longi-inverter",
+    "status": "published",
+    "type": "Solar Kit",
+    "collection": "FortLev Solar Kits",
+    "tags": [
+      "Solar Kit",
+      "Grid-Tie",
+      "Photovoltaic System",
+      "3.51kWp",
+      "LONGi",
+      "Unknown",
+      "Residential Medium"
+    ],
+    "original_name": "Kit 3.51kWp - Longi + Inverter",
+    "variant_title": "585W x6 Panels / 0kW Inverter",
+    "variant_sku": "FLV-3.51KWP-LONUNK-010",
+    "variant_barcode": null,
+    "variant_metadata": {
+      "system_power_kwp": 3.51,
+      "panel_manufacturer": "LONGi",
+      "panel_power_w": 585,
+      "panel_quantity": 6,
+      "panel_component_id": "6888f711d571954b7ff6effc",
+      "inverter_manufacturer": "Unknown",
+      "inverter_power_kw": 0,
+      "inverter_quantity": 1,
+      "inverter_component_id": "6687e304189963220c27c8a6",
+      "price_per_wp": 1.44,
+      "estimated_monthly_generation_kwh": 473,
+      "system_type": "grid-tie",
+      "distributor": "fortlev",
+      "has_panel_image": false,
+      "has_inverter_image": true,
+      "has_combination_image": false
+    },
+    "search_title": "3.51kWp Solar Energy Kit LONGi Panel Inverter Inverter Grid-Tie System",
+    "seo_title": "3.51kWp Solar Kit - LONGi Panels + Inverter Inverter | Complete Photovoltaic System",
+    "seo_description": "Complete 3.51kWp solar energy kit for grid-tie residential or commercial installation.\n\n**Components Included:**\n- Solar Panels: LONGi 585W (Quantity: 6)\n- Inve",
+    "options": [
+      {
+        "title": "System Power",
+        "values": [
+          "3.51kWp"
+        ]
+      },
+      {
+        "title": "Panel Configuration",
+        "values": [
+          "585W x6"
+        ]
+      }
+    ],
+    "vision_analysis": {
+      "panel_manufacturer": "SunPower",
+      "panel_model": "835 W Solar Panel",
+      "panel_technology": "Mono-PERC",
+      "panel_visual_features": [
+        "Black color",
+        "Rectangular shape",
+        "Textured surface"
+      ],
+      "panel_confidence": "high",
+      "inverter_manufacturer": "Not identifiable from the image.",
+      "inverter_model": "Not identifiable from the image.",
+      "inverter_specifications": [
+        "Not identifiable from the image."
+      ],
+      "inverter_confidence": "low"
+    },
+    "titles": {
+      "ux_optimized": "Gere 473kWh/mês - Kit Solar 3.51kWp SunPower + Not identifiable from the image.",
+      "seo_optimized": "Kit Solar 3.51kWp para Casa Média | SunPower + Not identifiable from the image.",
+      "marketing": "Melhor Custo-Benefício: Kit Solar 3.51kWp SunPower - Economize até 95%"
+    },
+    "seo": {
+      "meta_description": "Kit Solar 3.51kWp completo para casa média. Gere até 473kWh/mês. SunPower + inversor de qualidade. R$ 1.44/Wp. Frete grátis!",
+      "tags": [
+        "Kit Solar",
+        "Energia Solar",
+        "Sistema Fotovoltaico",
+        "Residencial Médio",
+        "3-6kWp",
+        "Casa Média",
+        "3.51kWp",
+        "Painel SunPower",
+        "Inversor Not identifiable from the image.",
+        "Grid-Tie",
+        "On-Grid",
+        "Homologado",
+        "Até 500kWh/mês",
+        "Melhor Preço",
+        "Econômico"
+      ],
+      "primary_keyword": "kit solar 3.51kwp",
+      "secondary_keywords": [
+        "painel SunPower",
+        "inversor Not identifiable from the image.",
+        "energia solar residencial",
+        "sistema fotovoltaico"
+      ]
+    },
+    "description_long": "# Transforme Luz Solar em Economia Real\n\n## Kit Solar 3.51kWp - Gere até 473kWh por mês\n\n**Economize até R$ 4,825 por ano** com energia limpa e renovável.\n\n### Por Que Este Kit é a Escolha Certa para Casa Média?\n\n✓ **Tecnologia Comprovada**: Painéis SunPower Mono-PERC\n✓ **Inversor Confiável**: Not identifiable from the image. com garantia estendida\n✓ **Geração Previsível**: Média de 473kWh/mês\n✓ **ROI Rápido**: Retorno do investimento em 4-6 anos\n\n### O Que Está Incluído no Kit\n\n**Painéis Solares SunPower**\n- Potência: 585W por painel\n- Quantidade: 6 unidades\n- Tecnologia: Mono-Perc\n- Garantia: 25 anos de desempenho\n\n**Inversor Not identifiable from the image.**\n- Potência: 0kW\n- Tecnologia grid-tie on-grid\n- Eficiência: >97%\n- Garantia: 5-10 anos\n\n### Ideal Para\n\n- Residências com consumo moderado\n- Famílias de 3-5 pessoas\n- Casas com ar-condicionado\n- Economia significativa na conta de luz\n\n### Especificações Técnicas\n\n| Característica | Especificação |\n|---------------|---------------|\n| Potência do Sistema | 3.51kWp |\n| Geração Mensal Média | 473 kWh |\n| Área Necessária | ~24m² |\n| Tipo de Sistema | Grid-Tie On-Grid |\n| Padrão de Entrada | Monofásico/Trifásico |\n\n### Certificações e Homologações\n\n✓ INMETRO - Certificado para painéis e inversores\n✓ ANEEL - Conforme normas brasileiras\n✓ IEC 61215 - Padrão internacional de qualidade\n✓ ISO 9001 - Gestão de qualidade\n\n### Por Que Comprar Conosco?\n\n🚚 **Frete Grátis** para todo o Brasil\n💳 **Parcelamento** em até 12x sem juros\n🔧 **Suporte Técnico** especializado\n📦 **Entrega Garantida** com rastreamento\n⭐ **Nota 4.8/5** - Mais de 1.000 clientes satisfeitos\n\n---\n\n**Atenção**: Este kit requer instalação profissional. Inclui apenas painéis e inversor - estruturas de fixação e cabeamento vendidos separadamente.",
+    "ux_metadata": {
+      "target_audience": "residential_medium",
+      "value_proposition": "Economia + Sustentabilidade",
+      "key_benefits": [
+        "Gere 473kWh/mês",
+        "Reduza até 95% da conta de luz",
+        "ROI em 4-6 anos",
+        "Energia limpa e renovável"
+      ]
+    }
+  }
+]

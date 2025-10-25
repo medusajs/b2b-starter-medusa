@@ -1,0 +1,27 @@
+═══════════════════════════════════════════════════════════════
+  ✅ POSTGRESQL INSTALADO - CRIAR DATABASE AGORA
+═══════════════════════════════════════════════════════════════
+
+📋 COPIE E COLE NO TERMINAL AWS SESSION MANAGER:
+
+PGPASSWORD='bJwPx-g-u9?lt!O[[EG2:Kzj[cs~' psql -h production-ysh-b2b-postgres.cmxiy0wqok6l.us-east-1.rds.amazonaws.com -U medusa_user -d postgres -c 'CREATE DATABASE medusa_db;'
+
+
+✅ SAÍDA ESPERADA:
+
+   CREATE DATABASE
+
+   OU (se já existir):
+   ERROR: database "medusa_db" already exists
+
+
+📝 DEPOIS DE EXECUTAR:
+
+   1. Digite no terminal AWS: exit
+
+   2. Execute no PowerShell local: .\deploy-final.ps1 -SkipDatabaseCreation
+
+
+⏱️ TEMPO RESTANTE: 15 minutos (automatizado)
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "finance.credit.response",
+  "type": "object",
+  "required": ["payback_anos","tir","parcela_mensal","cenarios"],
+  "properties": {
+    "payback_anos": {"type":"number"},
+    "tir": {"type":"number"},
+    "parcela_mensal": {"type":"number"},
+    "cenarios": {"type":"array","items":{"type":"object"}}
+  }
+}
+

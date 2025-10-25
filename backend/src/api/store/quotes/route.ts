@@ -6,6 +6,7 @@ import { RemoteQueryFunction } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { createRequestForQuoteWorkflow } from "../../../workflows/quote/workflows/create-request-for-quote";
 import { CreateQuoteType, GetQuoteParamsType } from "./validators";
+import { APIResponse } from "../../../utils/api-response";
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<GetQuoteParamsType>,
@@ -28,11 +29,11 @@ export const GET = async (
     },
   });
 
-  res.json({
-    quotes,
+  APIResponse.paginated(res, quotes, {
     count: metadata!.count,
     offset: metadata!.skip,
     limit: metadata!.take,
+    total: metadata!.count,
   });
 };
 
@@ -48,7 +49,7 @@ export const POST = async (
     result: { quote: createdQuote },
   } = await createRequestForQuoteWorkflow(req.scope).run({
     input: {
-      ...req.validatedBody,
+      cart_id: req.validatedBody.cart_id!,
       customer_id: req.auth_context.actor_id,
     },
   });
@@ -64,5 +65,5 @@ export const POST = async (
     { throwIfKeyNotFound: true }
   );
 
-  return res.json({ quote });
+  APIResponse.success(res, quote, undefined, 201);
 };

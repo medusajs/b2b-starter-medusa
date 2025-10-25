@@ -1,0 +1,107 @@
+[
+  {
+    "id": "fortlev_miscellaneous_ICO00012",
+    "name": "CONECTOR JINKO PV-JK03M  2 PARES",
+    "manufacturer": "Jinko",
+    "category": "miscellaneous",
+    "price": "R$ 45,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e6/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CONECTOR JINKO PV-JK03M  2 PARES",
+    "pricing": {
+      "price": 45.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICO00001",
+    "name": "KIT CONECTOR 2 PARES",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 37,11",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7e1/ICO00001.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "KIT CONECTOR 2 PARES",
+    "pricing": {
+      "price": 37.11,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00011",
+    "name": "CABO 1X6MM VERMELHO 1,8KV",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 9,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7de/ICA00011.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO 1X6MM VERMELHO 1,8KV",
+    "pricing": {
+      "price": 9.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00010",
+    "name": "CABO 1X6MM PRETO 1,8KV",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 9,80",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7dd/ICA00010.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO 1X6MM PRETO 1,8KV",
+    "pricing": {
+      "price": 9.8,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00009",
+    "name": "CABO VERMELHO 4MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 6,97",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7dc/ICA00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO VERMELHO 4MM2",
+    "pricing": {
+      "price": 6.97,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00008",
+    "name": "CABO PRETO 4MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 6,93",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7db/ICA00008.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO PRETO 4MM2",
+    "pricing": {
+      "price": 6.93,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_miscellaneous_ICA00007",
+    "name": "CABO VERDE 6MM2",
+    "manufacturer": "Unknown",
+    "category": "miscellaneous",
+    "price": "R$ 10,25",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c792/logo.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO VERDE 6MM2",
+    "pricing": {
+      "price": 10.25,
+      "currency": "BRL"
+    }
+  }
+]

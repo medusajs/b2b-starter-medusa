@@ -1,0 +1,381 @@
+# ==========================================
+# Full Stack OSS - YSH B2B Platform
+# Development Environment - Optimized for FREE TIER
+# ==========================================
+#
+# STACK COMPLETA:
+# - PostgreSQL 15 (Database)
+# - Redis 7 (Cache & Sessions)
+# - Medusa Backend (Node 20)
+# - Next.js Storefront (Node 20)
+# - Adminer (DB Management UI)
+# - Redis Commander (Redis UI)
+# - Nginx (Reverse Proxy)
+#
+# RECURSOS FREE TIER AWS:
+# - RDS db.t4g.micro (750h/mês, ARM Graviton2)
+# - ElastiCache cache.t4g.micro (750h/mês)
+# - ECS Fargate Spot (até 70% economia)
+# - S3 Standard (5GB + 20k GET + 2k PUT)
+# - ALB (750h/mês + 15GB processado)
+# ==========================================
+
+version: "3.9"
+
+services:
+  # ==========================================
+  # DATABASE - PostgreSQL 15 Alpine
+  # ==========================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: ysh-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-yshuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-yshpass}
+      POSTGRES_DB: ${POSTGRES_DB:-yshdb}
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=en_US.UTF-8"
+      # Otimizações para desenvolvimento (similar ao RDS free tier)
+      POSTGRES_SHARED_BUFFERS: "256MB"
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "768MB"
+      POSTGRES_WORK_MEM: "4MB"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-yshuser} -d ${POSTGRES_DB:-yshdb}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+
+  # ==========================================
+  # CACHE - Redis 7 Alpine
+  # ==========================================
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: >
+      redis-server 
+      --appendonly yes 
+      --appendfsync everysec
+      --maxmemory 512mb 
+      --maxmemory-policy allkeys-lru
+      --save 60 1000
+      --loglevel warning
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+
+  # ==========================================
+  # BACKEND - Medusa 2.10.3
+  # ==========================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: ysh-backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-9000}:9000"
+      - "${BACKEND_ADMIN_PORT:-9001}:9001"
+      - "${BACKEND_STORE_PORT:-9002}:9002"
+    environment:
+      # Database
+      DATABASE_URL: postgresql://${POSTGRES_USER:-yshuser}:${POSTGRES_PASSWORD:-yshpass}@postgres:5432/${POSTGRES_DB:-yshdb}
+      DATABASE_SSL: "false"
+      DATABASE_LOGGING: "false"
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+      REDIS_PREFIX: "medusa:"
+
+      # Application
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 9000
+      HOST: 0.0.0.0
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+
+      # JWT & Cookies
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-in-production-min-32-chars}
+      COOKIE_SECRET: ${COOKIE_SECRET:-dev-cookie-secret-change-in-production-min-32-chars}
+
+      # CORS
+      ADMIN_CORS: ${ADMIN_CORS:-http://localhost:7001,http://localhost:9000,http://localhost:80}
+      STORE_CORS: ${STORE_CORS:-http://localhost:8000,http://localhost:3000,http://localhost:80}
+
+      # Storage (S3-compatible)
+      STORAGE_TYPE: ${STORAGE_TYPE:-local}
+      S3_BUCKET: ${S3_BUCKET:-ysh-media}
+      S3_REGION: ${AWS_REGION:-us-east-1}
+      S3_ENDPOINT: ${S3_ENDPOINT:-}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+
+      # Emails (opcional)
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY:-}
+      SENDGRID_FROM: ${SENDGRID_FROM:-noreply@yellosolar.com}
+
+      # Analytics (opcional)
+      SEGMENT_WRITE_KEY: ${SEGMENT_WRITE_KEY:-}
+
+      # Migration Control
+      SKIP_MIGRATIONS: "false"
+      FAIL_ON_MIGRATION_ERROR: "true"
+
+      # Performance
+      NODE_OPTIONS: "--max-old-space-size=2048"
+    volumes:
+      # Hot reload - source code
+      - ./backend/src:/app/src:ro
+      - ./backend/medusa-config.ts:/app/medusa-config.ts:ro
+      - ./backend/mikro-orm.config.ts:/app/mikro-orm.config.ts:ro
+
+      # Persistent data
+      - backend_uploads:/app/uploads
+
+      # Prevent node_modules override
+      - /app/node_modules
+      - /app/.medusa
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+        reservations:
+          cpus: "1.0"
+          memory: 1024M
+
+  # ==========================================
+  # STOREFRONT - Next.js 15
+  # ==========================================
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+    container_name: ysh-storefront
+    restart: unless-stopped
+    ports:
+      - "${STOREFRONT_PORT:-8000}:8000"
+    environment:
+      # Next.js
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 8000
+      HOSTNAME: 0.0.0.0
+
+      # Medusa Integration
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://backend:9000}
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-}
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+      NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-br}
+
+      # Analytics (opcional)
+      NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}
+      NEXT_PUBLIC_SEGMENT_WRITE_KEY: ${NEXT_PUBLIC_SEGMENT_WRITE_KEY:-}
+
+      # Performance
+      NEXT_TELEMETRY_DISABLED: "1"
+      NODE_OPTIONS: "--max-old-space-size=4096"
+    volumes:
+      # Hot reload - source code
+      - ./storefront/src:/app/src:ro
+      - ./storefront/public:/app/public:ro
+      - ./storefront/next.config.js:/app/next.config.js:ro
+      - ./storefront/tailwind.config.js:/app/tailwind.config.js:ro
+
+      # Prevent node_modules override
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:8000/', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 4096M
+        reservations:
+          cpus: "1.0"
+          memory: 2048M
+
+  # ==========================================
+  # ADMINER - Database Management UI
+  # ==========================================
+  adminer:
+    image: adminer:latest
+    container_name: ysh-adminer
+    restart: unless-stopped
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: nette
+      ADMINER_PLUGINS: "tables-filter tinymce"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  # ==========================================
+  # REDIS COMMANDER - Redis Management UI
+  # ==========================================
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ysh-redis-commander
+    restart: unless-stopped
+    ports:
+      - "${REDIS_COMMANDER_PORT:-8081}:8081"
+    environment:
+      REDIS_HOSTS: local:redis:6379
+      HTTP_USER: ${REDIS_COMMANDER_USER:-admin}
+      HTTP_PASSWORD: ${REDIS_COMMANDER_PASSWORD:-admin}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  # ==========================================
+  # NGINX - Reverse Proxy (similar ao ALB)
+  # ==========================================
+  nginx:
+    image: nginx:alpine
+    container_name: ysh-nginx
+    restart: unless-stopped
+    ports:
+      - "${NGINX_HTTP_PORT:-80}:80"
+      - "${NGINX_HTTPS_PORT:-443}:443"
+    volumes:
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+      - storefront
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:80/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 128M
+
+# ==========================================
+# VOLUMES - Persistent Data
+# ==========================================
+volumes:
+  postgres_data:
+    driver: local
+    name: ysh-postgres-data
+  redis_data:
+    driver: local
+    name: ysh-redis-data
+  backend_uploads:
+    driver: local
+    name: ysh-backend-uploads
+
+# ==========================================
+# NETWORKS
+# ==========================================
+networks:
+  ysh-network:
+    driver: bridge
+    name: ysh-network
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

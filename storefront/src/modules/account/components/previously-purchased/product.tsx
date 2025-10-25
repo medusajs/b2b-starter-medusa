@@ -1,6 +1,6 @@
 import Button from "@/modules/common/components/button"
 import LocalizedClientLink from "@/modules/common/components/localized-client-link"
-import Thumbnail from "@/modules/products/components/thumbnail"
+import Thumbnail from "@/modules/discovery/products/components/thumbnail"
 import { ArrowUturnLeft } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Container, Text } from "@medusajs/ui"

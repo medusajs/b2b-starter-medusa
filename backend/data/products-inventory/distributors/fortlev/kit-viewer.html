@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FortLev - Kit Combinations Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .filters {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .filters input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .filters input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .kit-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .kit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .kit-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f7fafc;
+        }
+        
+        .kit-info {
+            padding: 20px;
+        }
+        
+        .kit-id {
+            color: #667eea;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .kit-name {
+            color: #2d3748;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .kit-power {
+            display: inline-block;
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .component-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .component {
+            flex: 1;
+        }
+        
+        .component h4 {
+            color: #718096;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .component p {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .price {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .price-value {
+            color: #48bb78;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 16px;
+            color: #718096;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔆 FortLev Solar Kits</h1>
+            <p>Combinações de Painéis + Inversores</p>
+            <div class="stats" id="stats"></div>
+        </div>
+        
+        <div class="filters">
+            <input type="text" id="search" placeholder="🔍 Buscar por nome, painel, inversor ou potência...">
+        </div>
+        
+        <div class="grid" id="kitsGrid">
+            <div class="loading">Carregando kits...</div>
+        </div>
+    </div>
+
+    <script>
+        let kitsData = [];
+        let filteredKits = [];
+        
+        // Load JSON data
+        fetch('./fortlev-kits-synced.json')
+            .then(response => response.json())
+            .then(data => {
+                kitsData = data.filter(kit => kit.combination_available);
+                filteredKits = kitsData;
+                renderStats();
+                renderKits();
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('kitsGrid').innerHTML = '<div class="no-results">Erro ao carregar dados</div>';
+            });
+        
+        // Search functionality
+        document.getElementById('search').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredKits = kitsData.filter(kit => {
+                return kit.name.toLowerCase().includes(searchTerm) ||
+                       kit.id.toLowerCase().includes(searchTerm) ||
+                       (kit.components.panel.manufacturer && kit.components.panel.manufacturer.toLowerCase().includes(searchTerm)) ||
+                       (kit.components.inverter.manufacturer && kit.components.inverter.manufacturer.toLowerCase().includes(searchTerm)) ||
+                       kit.system_power_kwp.toString().includes(searchTerm);
+            });
+            renderKits();
+        });
+        
+        function renderStats() {
+            const totalKits = kitsData.length;
+            const avgPower = (kitsData.reduce((sum, kit) => sum + kit.system_power_kwp, 0) / totalKits).toFixed(2);
+            const avgPrice = (kitsData.reduce((sum, kit) => sum + kit.pricing.total, 0) / totalKits).toFixed(2);
+            
+            const panelManufacturers = new Set();
+            const inverterManufacturers = new Set();
+            
+            kitsData.forEach(kit => {
+                if (kit.components.panel.manufacturer) panelManufacturers.add(kit.components.panel.manufacturer);
+                if (kit.components.inverter.manufacturer) inverterManufacturers.add(kit.components.inverter.manufacturer);
+            });
+            
+            document.getElementById('stats').innerHTML = `
+                <div class="stat-card">
+                    <h3>${totalKits}</h3>
+                    <p>Kits Disponíveis</p>
+                </div>
+                <div class="stat-card">
+                    <h3>${avgPower} kWp</h3>
+                    <p>Potência Média</p>
+                </div>
+                <div class="stat-card">
+                    <h3>R$ ${avgPrice.toLocaleString('pt-BR')}</h3>
+                    <p>Preço Médio</p>
+                </div>
+                <div class="stat-card">
+                    <h3>${panelManufacturers.size}</h3>
+                    <p>Fabricantes de Painéis</p>
+                </div>
+                <div class="stat-card">
+                    <h3>${inverterManufacturers.size}</h3>
+                    <p>Fabricantes de Inversores</p>
+                </div>
+            `;
+        }
+        
+        function renderKits() {
+            const grid = document.getElementById('kitsGrid');
+            
+            if (filteredKits.length === 0) {
+                grid.innerHTML = '<div class="no-results">Nenhum kit encontrado</div>';
+                return;
+            }
+            
+            grid.innerHTML = filteredKits.map(kit => `
+                <div class="kit-card">
+                    <img src="${kit.combination_image.replace(/\\/g, '/')}" 
+                         alt="${kit.name}" 
+                         class="kit-image"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23f7fafc%22 width=%22400%22 height=%22250%22/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23a0aec0%22 font-family=%22sans-serif%22 font-size=%2218%22>Imagem não disponível</text></svg>'">
+                    <div class="kit-info">
+                        <div class="kit-id">${kit.id.toUpperCase()}</div>
+                        <div class="kit-name">${kit.name}</div>
+                        <span class="kit-power">⚡ ${kit.system_power_kwp} kWp</span>
+                        
+                        <div class="component-info">
+                            <div class="component">
+                                <h4>Painel</h4>
+                                <p>${kit.components.panel.manufacturer || 'N/A'}</p>
+                            </div>
+                            <div class="component">
+                                <h4>Inversor</h4>
+                                <p>${kit.components.inverter.manufacturer || 'N/A'}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="price">
+                            <div class="price-value">R$ ${kit.pricing.total.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                            <span class="badge">R$ ${kit.pricing.per_wp.toFixed(2)}/Wp</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Product Bundle Schema",
+  "description": "Defines a virtual product bundle that groups multiple individual product variants (components). The availability of a bundle is dynamically calculated based on the stock of its components.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for the bundle product variant. Follows the YSH global SKU pattern.",
+      "type": "string",
+      "pattern": "^KIT-[A-Z0-9-]+$"
+    },
+    "name": {
+      "description": "Descriptive name for the bundle, e.g., 'Kit Residencial 5.4 kWp - Jinko + Growatt'.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Product type, must be 'bundle'.",
+      "type": "string",
+      "const": "bundle"
+    },
+    "metadata": {
+      "description": "Metadata containing the core bundle logic.",
+      "type": "object",
+      "properties": {
+        "is_bundle": {
+          "description": "Flag to identify this product as a bundle.",
+          "type": "boolean",
+          "const": true
+        },
+        "bundle_price_strategy": {
+          "description": "Strategy to calculate the bundle's price.",
+          "type": "string",
+          "enum": ["sum_of_components", "fixed_price"],
+          "default": "sum_of_components"
+        },
+        "bundle_margin_percentage": {
+          "description": "Optional margin to apply if using 'sum_of_components' strategy.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "bundle_components": {
+          "description": "An array of components that make up the bundle.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "variant_sku": {
+                "description": "The global YSH SKU of the component's product variant.",
+                "type": "string",
+                "pattern": "^(PNL|INV|BAT|EST|CAB|CON)-[A-Z0-9-]+$"
+              },
+              "quantity": {
+                "description": "The quantity of this component required for the bundle.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": ["variant_sku", "quantity"]
+          }
+        }
+      },
+      "required": ["is_bundle", "bundle_components"]
+    },
+    "price_brl": {
+      "description": "The final price of the bundle in BRL. Can be fixed or dynamically calculated.",
+      "type": "number",
+      "minimum": 0
+    },
+    "kpis": {
+      "description": "Dynamically calculated Key Performance Indicators for the bundle.",
+      "type": "object",
+      "properties": {
+        "estimated_generation_month_kwh": { "type": "number" },
+        "payback_years": { "type": "number" },
+        "total_power_kwp": { "type": "number" }
+      }
+    }
+  },
+  "required": ["id", "name", "type", "metadata", "price_brl"]
+}

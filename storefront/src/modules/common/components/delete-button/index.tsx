@@ -1,5 +1,5 @@
 import { useCart } from "@/lib/context/cart-context"
-import { clx } from "@medusajs/ui"
+import { clx, toast } from "@medusajs/ui"
 import Spinner from "@/modules/common/icons/spinner"
 import { useState } from "react"
 
@@ -18,7 +18,16 @@ const DeleteButton = ({
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
-    await handleDeleteItem(id)
+    try {
+      await handleDeleteItem(id)
+      toast.success("Item removido do carrinho", {
+        duration: 2000,
+      })
+    } catch (error) {
+      toast.error("Erro ao remover item")
+    } finally {
+      setIsDeleting(false)
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ const DeleteButton = ({
         onClick={() => handleDelete(id)}
         disabled={disabled}
       >
-        {isDeleting ? <Spinner size={12} /> : "Remove"}
+        {isDeleting ? <Spinner size={12} /> : "Remover"}
       </button>
     </div>
   )

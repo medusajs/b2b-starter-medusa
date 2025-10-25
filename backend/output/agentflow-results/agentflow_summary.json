@@ -1,0 +1,270 @@
+{
+  "processed_at": "2025-10-13T14:55:46.591778",
+  "total_products": 3,
+  "successful": 3,
+  "with_errors": 0,
+  "results": [
+    {
+      "sku": "112369",
+      "image_path": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_112369_1-17457314169194004.jpeg",
+      "category": "INVERTERS",
+      "vision_data": {
+        "error": "Unterminated string starting at: line 3 column 12 (char 39)",
+        "_agent": "👁️ Vision"
+      },
+      "enriched_data": {
+        "normalized_sku": "112369",
+        "category": "INVERTERS",
+        "data_completeness_percent": 20,
+        "confidence_score": 3,
+        "_agent": "📝 Enrichment",
+        "_fallback": true
+      },
+      "validation_result": {
+        "validation_status": "needs_review",
+        "overall_score": 2,
+        "completeness_percent": 20,
+        "issues": [
+          "Descrição do produto ausente",
+          "Informações de fabricante não fornecidas",
+          "Modelo do produto não especificado",
+          "Especificações técnicas (tensão, potência, eficiência, etc.) faltantes",
+          "Imagens do produto não incluídas"
+        ],
+        "warnings": [
+          "Categoria \"INVERTERS\" está presente, mas subcategoria ou tags adicionais não foram definidos",
+          "Score de confiança baixo (3/5) indica dados potencialmente imprecisos"
+        ],
+        "recommendations": [
+          "Adicionar fabricante, modelo e número de série",
+          "Incluir especificações técnicas detalhadas (tensão de entrada, potência nominal, eficiência, dimensões, peso, certificações)",
+          "Criar uma descrição clara e persuasiva, destacando benefícios e diferenciais",
+          "Adicionar imagens de alta qualidade (produto em uso, close-ups de componentes)",
+          "Rever e aumentar o score de confiança com validação cruzada de dados"
+        ],
+        "ready_for_catalog": false,
+        "critical_missing": [
+          "fabricante",
+          "modelo",
+          "especificações técnicas"
+        ],
+        "_processing_time": 54.27892208099365,
+        "_agent": "✅ Validator"
+      },
+      "search_results": [],
+      "completed_actions": [
+        "analyze_image",
+        "enrich_data",
+        "validate_quality",
+        "search_web"
+      ],
+      "errors": [],
+      "pvlib_data": null
+    },
+    {
+      "sku": "135720",
+      "image_path": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_135720_135720-17458937387875142.jpeg",
+      "category": "INVERTERS",
+      "vision_data": {
+        "manufacturer": "SOFAR",
+        "model": "SOFAR-1000",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 1000,
+          "power_kw": 1.0,
+          "voltage": "230-240V",
+          "current_a": 10,
+          "phase": "N/A",
+          "efficiency_percent": 95.0,
+          "mppt_count": 2
+        },
+        "visible_text": "SOFAR-1000 Grid-Tie Inverter",
+        "certifications": [
+          "INMETRO",
+          "IEC",
+          "CE"
+        ],
+        "image_quality_score": 8,
+        "confidence_score": 9,
+        "_processing_time": 116.86520171165466,
+        "_agent": "👁️ Vision"
+      },
+      "enriched_data": {
+        "normalized_sku": "SOFAR-GRIDTIE-1000",
+        "manufacturer": "SOFAR",
+        "manufacturer_normalized": "SOFAR",
+        "model": "SOFAR-1000",
+        "category": "INVERTERS",
+        "subcategory": "Grid-Tie",
+        "specifications": {
+          "power_w": 1000,
+          "power_kw": 1.0,
+          "voltage": "230-240V",
+          "current_a": 10,
+          "phase": "N/A",
+          "efficiency_percent": 95.0,
+          "mppt_count": 2
+        },
+        "seo_title": "SOFAR SOFAR-1000 Grid-Tie Inverter 1000W",
+        "short_description": "SOFAR SOFAR-1000 Grid-Tie Inverter 1000W. 2 MPPT, 95% Efficiency. INMETRO, IEC, CE Certified.",
+        "tags": [
+          "solar inverter",
+          "grid tie inverter",
+          "sofar inverter",
+          "1000w inverter",
+          "230v inverter",
+          "mpct inverter",
+          "renewable energy",
+          "photovoltaic",
+          "solar power",
+          "grid connected"
+        ],
+        "compatibility": {
+          "panel_compatibility": "Compatible with most standard 230-240V solar panels.  Specific panel compatibility depends on the panel's voltage and current ratings.  Consult manufacturer specifications for optimal performance.",
+          "system_type": "Grid-Tie Solar System"
+        },
+        "pvlib_validated": true,
+        "data_completeness_percent": 95,
+        "confidence_score": 9.2,
+        "_processing_time": 41.44623017311096,
+        "_agent": "📝 Enrichment",
+        "_pvlib_match": false
+      },
+      "validation_result": {
+        "error": "Unterminated string starting at: line 16 column 5 (char 872)",
+        "_agent": "✅ Validator"
+      },
+      "search_results": [
+        {
+          "query": "SOFAR SOFAR-1000 datasheet",
+          "type": "datasheet_search",
+          "status": "simulated",
+          "_agent": "🔍 Search"
+        }
+      ],
+      "completed_actions": [
+        "analyze_image",
+        "enrich_data",
+        "validate_quality",
+        "search_web"
+      ],
+      "errors": [],
+      "pvlib_data": null
+    },
+    {
+      "sku": "145763",
+      "image_path": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_145763_145763-17456925994814488.jpeg",
+      "category": "INVERTERS",
+      "vision_data": {
+        "manufacturer": "GROWATT",
+        "model": "SPF-10K-ES",
+        "product_type": "inverter",
+        "subtype": "gridtie",
+        "specifications": {
+          "power_w": 10000,
+          "power_kw": 10.0,
+          "voltage": "100-400V",
+          "current_a": 0,
+          "phase": "N/A",
+          "efficiency_percent": 95.0,
+          "mppt_count": 1
+        },
+        "visible_text": "GROWATT SPF-10K-ES 10kW 3-Phase Grid Tie Inverter",
+        "certifications": [
+          "CE",
+          "UL",
+          "ECE"
+        ],
+        "image_quality_score": 8,
+        "confidence_score": 9,
+        "_processing_time": 119.56041836738586,
+        "_agent": "👁️ Vision"
+      },
+      "enriched_data": {
+        "normalized_sku": "GROWATT-INVERTER-SPF-10K-ES",
+        "manufacturer": "GROWATT",
+        "manufacturer_normalized": "GROWATT",
+        "model": "SPF-10K-ES",
+        "category": "INVERTERS",
+        "subcategory": "Grid Tie",
+        "specifications": {
+          "power_w": 10000,
+          "power_kw": 10.0,
+          "voltage": "100-400V",
+          "current_a": 0,
+          "phase": "N/A",
+          "efficiency_percent": 95.0,
+          "mppt_count": 1
+        },
+        "seo_title": "GROWATT SPF 10kW Grid Tie Inverter",
+        "short_description": "GROWATT SPF-10K-ES 10kW Grid Tie Inverter - 95% Efficiency, 1 MPPT",
+        "tags": [
+          "solar inverter",
+          "grid tie inverter",
+          "growatt",
+          "pv inverter",
+          "10kW inverter",
+          "mpct inverter",
+          "solar energy",
+          "renewable energy",
+          "grid connected",
+          "solar power"
+        ],
+        "compatibility": {
+          "panel_max_power_w": 10000,
+          "panel_max_voltage_v": 400,
+          "panel_max_current_a": 0,
+          "system_type": "Grid Tie"
+        },
+        "pvlib_validated": true,
+        "data_completeness_percent": 95,
+        "confidence_score": 9,
+        "_processing_time": 29.004143714904785,
+        "_agent": "📝 Enrichment",
+        "_pvlib_match": false
+      },
+      "validation_result": {
+        "validation_status": "needs_review",
+        "overall_score": 8,
+        "completeness_percent": 95,
+        "issues": [
+          "Tag 'mpct inverter' contains a typo; should be 'mppt inverter'.",
+          "Current_a value is 0, which may indicate missing or incorrect current rating.",
+          "Phase is listed as 'N/A', which could be clarified or omitted if not applicable.",
+          "'_pvlib_match' is false while 'pvlib_validated' is true, indicating a potential mismatch in validation status."
+        ],
+        "warnings": [
+          "Short description repeats the product name; consider adding more value‑added information."
+        ],
+        "recommendations": [
+          "Correct the typo in the tag list.",
+          "Provide an accurate current rating or remove the field if not applicable.",
+          "Clarify or remove the 'phase' field if it is not relevant.",
+          "Verify and reconcile the pvlib validation flags.",
+          "Enhance the short description to highlight key features or benefits."
+        ],
+        "ready_for_catalog": false,
+        "critical_missing": [],
+        "_processing_time": 81.8967137336731,
+        "_agent": "✅ Validator"
+      },
+      "search_results": [
+        {
+          "query": "GROWATT SPF-10K-ES datasheet",
+          "type": "datasheet_search",
+          "status": "simulated",
+          "_agent": "🔍 Search"
+        }
+      ],
+      "completed_actions": [
+        "analyze_image",
+        "enrich_data",
+        "validate_quality",
+        "search_web"
+      ],
+      "errors": [],
+      "pvlib_data": null
+    }
+  ]
+}

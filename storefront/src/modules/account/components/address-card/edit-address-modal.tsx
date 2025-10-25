@@ -5,8 +5,8 @@ import {
   updateCustomerAddress,
 } from "@/lib/data/customer"
 import useToggleState from "@/lib/hooks/use-toggle-state"
-import CountrySelect from "@/modules/checkout/components/country-select"
-import { SubmitButton } from "@/modules/checkout/components/submit-button"
+import CountrySelect from "@/modules/purchase/checkout/components/country-select"
+import { SubmitButton } from "@/modules/purchase/checkout/components/submit-button"
 import Button from "@/modules/common/components/button"
 import Input from "@/modules/common/components/input"
 import Modal from "@/modules/common/components/modal"
@@ -102,6 +102,16 @@ const EditAddress: React.FC<EditAddressProps> = ({
               {address.province && `${address.province}, `}
               {address.country_code?.toUpperCase()}
             </span>
+            {(address as any).installation_type && (
+              <span data-testid="address-installation-type">
+                Tipo: {(address as any).installation_type === 'laje' ? 'Laje' : (address as any).installation_type === 'solo' ? 'Solo' : 'Metálico'}
+              </span>
+            )}
+            {(address as any).phase && (
+              <span data-testid="address-phase">
+                Fase: {(address as any).phase === 'monofasica' ? 'Monofásica' : 'Trifásica'}
+              </span>
+            )}
           </Text>
         </div>
         <div className="flex items-center gap-x-4">
@@ -111,7 +121,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
             data-testid="address-edit-button"
           >
             <Edit />
-            Edit
+            Editar
           </button>
           <button
             className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
@@ -119,21 +129,21 @@ const EditAddress: React.FC<EditAddressProps> = ({
             data-testid="address-delete-button"
           >
             {removing ? <Spinner /> : <Trash />}
-            Remove
+            Remover
           </button>
         </div>
       </div>
 
       <Modal isOpen={state} close={close} data-testid="edit-address-modal">
         <Modal.Title>
-          <Heading className="mb-2">Edit address</Heading>
+          <Heading className="mb-2">Editar endereço</Heading>
         </Modal.Title>
         <form action={formAction}>
           <Modal.Body>
             <div className="grid grid-cols-1 gap-y-2">
               <div className="grid grid-cols-2 gap-x-2">
                 <Input
-                  label="First name"
+                  label="Nome"
                   name="first_name"
                   required
                   autoComplete="given-name"
@@ -141,7 +151,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                   data-testid="first-name-input"
                 />
                 <Input
-                  label="Last name"
+                  label="Sobrenome"
                   name="last_name"
                   required
                   autoComplete="family-name"
@@ -150,14 +160,14 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 />
               </div>
               <Input
-                label="Company"
+                label="Empresa"
                 name="company"
                 autoComplete="organization"
                 defaultValue={address.company || undefined}
                 data-testid="company-input"
               />
               <Input
-                label="Address"
+                label="Endereço"
                 name="address_1"
                 required
                 autoComplete="address-line1"
@@ -165,7 +175,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 data-testid="address-1-input"
               />
               <Input
-                label="Apartment, suite, etc."
+                label="Complemento"
                 name="address_2"
                 autoComplete="address-line2"
                 defaultValue={address.address_2 || undefined}
@@ -173,7 +183,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               />
               <div className="grid grid-cols-[144px_1fr] gap-x-2">
                 <Input
-                  label="Postal code"
+                  label="CEP"
                   name="postal_code"
                   required
                   autoComplete="postal-code"
@@ -181,16 +191,16 @@ const EditAddress: React.FC<EditAddressProps> = ({
                   data-testid="postal-code-input"
                 />
                 <Input
-                  label="City"
+                  label="Cidade"
                   name="city"
                   required
-                  autoComplete="locality"
+                  autoComplete="address-level2"
                   defaultValue={address.city || undefined}
                   data-testid="city-input"
                 />
               </div>
               <Input
-                label="Province / State"
+                label="Estado"
                 name="province"
                 autoComplete="address-level1"
                 defaultValue={address.province || undefined}
@@ -205,12 +215,47 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 data-testid="country-select"
               />
               <Input
-                label="Phone"
+                label="Telefone"
                 name="phone"
                 autoComplete="phone"
                 defaultValue={address.phone || undefined}
                 data-testid="phone-input"
               />
+              <div className="grid grid-cols-2 gap-x-2">
+                <div>
+                  <label htmlFor="installation-type" className="block text-sm font-medium text-gray-700 mb-1">
+                    Tipo de instalação
+                  </label>
+                  <select
+                    id="installation-type"
+                    name="installation_type"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    defaultValue=""
+                    data-testid="installation-type-select"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="laje">Laje</option>
+                    <option value="solo">Solo</option>
+                    <option value="metalico">Metálico</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="phase" className="block text-sm font-medium text-gray-700 mb-1">
+                    Fase
+                  </label>
+                  <select
+                    id="phase"
+                    name="phase"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    defaultValue=""
+                    data-testid="phase-select"
+                  >
+                    <option value="">Selecione...</option>
+                    <option value="monofasica">Monofásica</option>
+                    <option value="trifasica">Trifásica</option>
+                  </select>
+                </div>
+              </div>
             </div>
             {formState.error && (
               <div className="text-rose-500 text-small-regular py-2">
@@ -227,9 +272,9 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 className="h-10"
                 data-testid="cancel-button"
               >
-                Cancel
+                Cancelar
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <SubmitButton data-testid="save-button">Salvar</SubmitButton>
             </div>
           </Modal.Footer>
         </form>

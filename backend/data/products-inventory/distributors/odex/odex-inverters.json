@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-3000W",
+    "name": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.599,00",
+    "image": "/catalog/images/ODEX-INVERTERS/276954.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_276954_276954-17460390182534484.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_276954_276954-17460390182534484.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_276954_276954-17460390182534484.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 1599.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-4200W",
+    "name": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.899,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-5000W",
+    "name": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.499,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-6000W",
+    "name": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.899,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-6K-T2 BRL 6kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-8000W",
+    "name": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.499,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-8K-T2 BRL 8kW Bifásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 3499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-10000W",
+    "name": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/152147.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-10K-T2 BRL 10kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_152147_152147-1-17507708324918071.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_152147_152147-1-17507708324918071.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_152147_152147-1-17507708324918071.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-12000W",
+    "name": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.899,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-12K-T2 BRL 12kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 4899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-15000W",
+    "name": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/267277.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-15K-T2 BRL 15kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_267277_267277-17458727569694572.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_267277_267277-17458727569694572.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_267277_267277-17458727569694572.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 5499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-17000W",
+    "name": "Inversor Grid-Tie SAJ R5-17K-T2 BRL 17kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-17K-T2 BRL 17kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-20000W",
+    "name": "Inversor Grid-Tie SAJ R5-20K-T2 BRL 20kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 6.899,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-20K-T2 BRL 20kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 6899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SAJ-25000W",
+    "name": "Inversor Grid-Tie SAJ R5-25K-T2 BRL 25kW Trifásico 380V 2 MPPT",
+    "manufacturer": "SAJ",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 8.499,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie SAJ R5-25K-T2 BRL 25kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 8499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3000W",
+    "name": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/145763.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIN 3000TL-X 3kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_145763_145763-17456925994814488.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_145763_145763-17456925994814488.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_145763_145763-17456925994814488.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 1499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3300W",
+    "name": "Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.699,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIC 3300TL-X 3.3kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 1699.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-6000W",
+    "name": "Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.799,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MIC 6000TL-X 6kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-8000W",
+    "name": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 8KTL3-XH 8kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 3899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-10000W",
+    "name": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 10KTL3-XH 10kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 4499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-15000W",
+    "name": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-15000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 15KTL3-XH 15kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-20000W",
+    "name": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-20000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 20KTL3-XH 20kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 7299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-25000W",
+    "name": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 8.899,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-25000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MOD 25KTL3-XH 25kW Trifásico 380V 2 MPPT",
+    "pricing": {
+      "price": 8899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-50000W",
+    "name": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 16.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/192575.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 50KTL3-XH 50kW Trifásico 380V 4 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_192575_192575-17460421976229660.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_192575_192575-17460421976229660.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_192575_192575-17460421976229660.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 16999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-75000W",
+    "name": "Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 24.999,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 75KTL3-XH 75kW Trifásico 380V 6 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 24999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-100000W",
+    "name": "Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 32.999,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 100KTL3-XH 100kW Trifásico 380V 8 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 32999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-125000W",
+    "name": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 36.667,00",
+    "image": "/catalog/images/ODEX-INVERTERS/192576.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Growatt MAX 125KTL3-XH 125kW Trifásico 380V 10 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_192576_192576-17458855660881319.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_192576_192576-17458855660881319.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_192576_192576-17458855660881319.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 36667.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-3000W",
+    "name": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.449,00",
+    "image": "/catalog/images/ODEX-INVERTERS/289241.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-3.0K-T2 3kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_289241_001-17457929059638740.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_289241_001-17457929059638740.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_289241_001-17457929059638740.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 1449.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-5000W",
+    "name": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/246761.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-5.0K-T2 5kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_246761_246761-17460392268529534.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_246761_246761-17460392268529534.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_246761_246761-17460392268529534.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 2299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-8000W",
+    "name": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.699,00",
+    "image": "/catalog/images/ODEX-INVERTERS/246763.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-8.0K-T3 8kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_246763_246763-17460422564036824.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_246763_246763-17460422564036824.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_246763_246763-17460422564036824.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 3699.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-CHINT-10000W",
+    "name": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPPT",
+    "manufacturer": "Chint",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/246764.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Chint NXI-10K-T3 10kW Trifásico 380V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_246764_246764-17458511580915488.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_246764_246764-17458511580915488.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_246764_246764-17458511580915488.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-3300W",
+    "name": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.649,00",
+    "image": "/catalog/images/ODEX-INVERTERS/292421.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 3.3K-TL-G4 3.3kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_292421_292421-17460422200014247.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_292421_292421-17460422200014247.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_292421_292421-17460422200014247.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 1649.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-5000W",
+    "name": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.449,00",
+    "image": "/catalog/images/ODEX-INVERTERS/299591.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 5K-TL-G4 5kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_299591_299591-17467236965391281.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_299591_299591-17467236965391281.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_299591_299591-17467236965391281.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1.5,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 2449.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOFAR-6000W",
+    "name": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
+    "manufacturer": "Sofar",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.799,00",
+    "image": "/catalog/images/ODEX-INVERTERS/135720.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Grid-Tie Sofar 6K-TL-G4 6kW Monofásico 220V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_135720_135720-17458937387875142.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_135720_135720-17458937387875142.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_135720_135720-17458937387875142.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 2799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-800W",
+    "name": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 986,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-800W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-M80G4-EU-Q0 800W 220V 2 painéis",
+    "pricing": {
+      "price": 986.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-1200W",
+    "name": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 1.399,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-1200W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-M120G4-EU-Q0 1200W 220V 4 painéis",
+    "pricing": {
+      "price": 1399.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-2400W",
+    "name": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 2.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-DEYE-2400W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Microinversor Deye SUN-2400G3-EU-Q0 2400W 220V 8 painéis",
+    "pricing": {
+      "price": 2499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-3000W-1",
+    "name": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/315148.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 3000 3kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_315148_315148-17551159943964186.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_315148_315148-17551159943964186.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_315148_315148-17551159943964186.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 3299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-4000W",
+    "name": "Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 3.899,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 4000 4kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 3899.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-5000W",
+    "name": "Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.499,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 5000 5kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 4499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-6000W-1",
+    "name": "Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.999,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 6000 6kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 4999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-8000W-1",
+    "name": "Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.999,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 8000 8kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 5999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-GROWATT-10000W-1",
+    "name": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT",
+    "manufacturer": "Growatt",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-GROWATT-10000W-1.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Growatt SPH 10000 10kW Trifásico 380V 51.2V 2 MPPT",
+    "pricing": {
+      "price": 7499.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-5000W",
+    "name": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.299,00",
+    "image": "/catalog/images/ODEX-INVERTERS/112369.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-5K-SG05LP1-EU 5kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\ODEX\\INVERTERS\\thumb\\sku_112369_1-17457314169194004.webp",
+      "medium": "catalog\\images_processed\\ODEX\\INVERTERS\\medium\\sku_112369_1-17457314169194004.webp",
+      "large": "catalog\\images_processed\\ODEX\\INVERTERS\\large\\sku_112369_1-17457314169194004.webp"
+    },
+    "image_quality_before": 100,
+    "image_quality_after": 100,
+    "image_upscale_factor": 1,
+    "processing_date": "2025-10-07T03:10:52.288225",
+    "pricing": {
+      "price": 4299.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-6000W",
+    "name": "Inversor Híbrido Deye SUN-6K-SG05LP1-EU 6kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.799,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-6K-SG05LP1-EU 6kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 4799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-DEYE-8000W",
+    "name": "Inversor Híbrido Deye SUN-8K-SG05LP1-EU 8kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "Deye",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 5.799,00",
+    "image": "",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido Deye SUN-8K-SG05LP1-EU 8kW Monofásico 220V 48V 2 MPPT",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 5799.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-5000W",
+    "name": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 48V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 4.399,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-5000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X1-Hybrid-5.0-T 5kW Monofásico 220V 48V 2 MPPT",
+    "pricing": {
+      "price": 4399.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-8000W",
+    "name": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 7.999,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-8000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X3-Hybrid-8.0-D 8kW Trifásico 380V 96V 2 MPPT",
+    "pricing": {
+      "price": 7999.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "odex_inverters_ODEX-INV-SOLAX-10000W",
+    "name": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V 96V 2 MPPT",
+    "manufacturer": "SolaX",
+    "model": "",
+    "category": "inverters",
+    "price": "R$ 9.499,00",
+    "image": "/catalog/images/ODEX-INVERTERS/ODEX-ODEX-INV-SOLAX-10000W.jpg",
+    "source": "plataforma.odex.com.br",
+    "availability": "disponivel",
+    "description": "Inversor Híbrido SolaX X3-Hybrid-10.0-D 10kW Trifásico 380V 96V 2 MPPT",
+    "pricing": {
+      "price": 9499.0,
+      "currency": "BRL"
+    }
+  }
+]

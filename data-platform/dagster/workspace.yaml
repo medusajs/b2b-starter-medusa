@@ -1,0 +1,12 @@
+# Dagster Workspace Configuration
+# Auto-loaded from DAGSTER_HOME
+
+load_from:
+  - python_package:
+      package_name: definitions
+      location_name: ysh_data_platform
+
+  # Alternatively, load from Python file
+  # - python_file:
+  #     relative_path: definitions.py
+  #     location_name: ysh_data_platform

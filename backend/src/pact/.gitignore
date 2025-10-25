@@ -1,0 +1,9 @@
+# Pact provider verification results
+*.pact.json
+
+# Logs
+pact.log
+*.log
+
+# Test artifacts
+verification-results/

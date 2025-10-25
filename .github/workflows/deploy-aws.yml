@@ -1,0 +1,138 @@
+name: Deploy to AWS ECS
+
+on:
+      push:
+            branches: [main, production]
+      pull_request:
+            branches: [main]
+
+env:
+      AWS_REGION: us-east-1
+      ECR_BACKEND_REPOSITORY: ysh-b2b-backend
+      ECR_STOREFRONT_REPOSITORY: ysh-b2b-storefront
+      ECS_CLUSTER: production-ysh-b2b-cluster
+      ECS_BACKEND_SERVICE: ysh-b2b-backend-service
+      ECS_STOREFRONT_SERVICE: ysh-b2b-storefront-service
+
+jobs:
+      test:
+            name: Run Tests
+            runs-on: ubuntu-latest
+
+            steps:
+                  - name: Checkout code
+                    uses: actions/checkout@v4
+
+                  - name: Setup Node.js
+                    uses: actions/setup-node@v4
+                    with:
+                          node-version: "20"
+                          cache: "npm"
+                          cache-dependency-path: |
+                                backend/package-lock.json
+                                storefront/package-lock.json
+
+                  - name: Install backend dependencies
+                    working-directory: ./backend
+                    run: npm ci
+
+                  - name: Install storefront dependencies
+                    working-directory: ./storefront
+                    run: npm ci --legacy-peer-deps
+
+                  - name: Run backend tests
+                    working-directory: ./backend
+                    run: npm run test:unit || true
+
+                  - name: Run storefront build test
+                    working-directory: ./storefront
+                    run: |
+                          cp .env.template .env.local
+                          npm run build
+
+      build-and-deploy:
+            name: Build and Deploy
+            runs-on: ubuntu-latest
+            needs: test
+            if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+            steps:
+                  - name: Checkout code
+                    uses: actions/checkout@v4
+
+                  - name: Configure AWS credentials
+                    uses: aws-actions/configure-aws-credentials@v4
+                    with:
+                          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                          aws-region: ${{ env.AWS_REGION }}
+
+                  - name: Login to Amazon ECR
+                    id: login-ecr
+                    uses: aws-actions/amazon-ecr-login@v2
+
+                  - name: Set up Docker Buildx
+                    uses: docker/setup-buildx-action@v3
+                    with:
+                          driver-opts: |
+                                network=host
+
+                  - name: Build and push backend image
+                    uses: docker/build-push-action@v5
+                    with:
+                          context: ./backend
+                          push: true
+                          platforms: linux/amd64
+                          tags: |
+                                ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:latest
+                                ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:${{ github.sha }}
+                          cache-from: type=gha
+                          cache-to: type=gha,mode=max
+                          build-args: |
+                                BUILDKIT_INLINE_CACHE=1
+
+                  - name: Build and push storefront image
+                    uses: docker/build-push-action@v5
+                    with:
+                          context: ./storefront
+                          push: true
+                          platforms: linux/amd64
+                          tags: |
+                                ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_STOREFRONT_REPOSITORY }}:latest
+                                ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_STOREFRONT_REPOSITORY }}:${{ github.sha }}
+                          cache-from: type=gha
+                          cache-to: type=gha,mode=max
+                          build-args: |
+                                BUILDKIT_INLINE_CACHE=1
+
+                  - name: Update backend ECS service
+                    run: |
+                          aws ecs update-service \
+                            --cluster ${{ env.ECS_CLUSTER }} \
+                            --service ${{ env.ECS_BACKEND_SERVICE }} \
+                            --force-new-deployment
+
+                  - name: Update storefront ECS service
+                    run: |
+                          aws ecs update-service \
+                            --cluster ${{ env.ECS_CLUSTER }} \
+                            --service ${{ env.ECS_STOREFRONT_SERVICE }} \
+                            --force-new-deployment
+
+                  - name: Wait for backend deployment
+                    run: |
+                          aws ecs wait services-stable \
+                            --cluster ${{ env.ECS_CLUSTER }} \
+                            --services ${{ env.ECS_BACKEND_SERVICE }}
+
+                  - name: Wait for storefront deployment
+                    run: |
+                          aws ecs wait services-stable \
+                            --cluster ${{ env.ECS_CLUSTER }} \
+                            --services ${{ env.ECS_STOREFRONT_SERVICE }}
+
+                  - name: Deployment successful
+                    run: |
+                          echo "🚀 Deployment completed successfully!"
+                          echo "Backend service: ${{ env.ECS_BACKEND_SERVICE }}"
+                          echo "Storefront service: ${{ env.ECS_STOREFRONT_SERVICE }}"

@@ -70,7 +70,8 @@ export const POST = async (
   res.json({ employee });
 };
 
-export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {
+export const DELETE = async (
+  req: AuthenticatedMedusaRequest, res: MedusaResponse) => {
   const { employeeId } = req.params;
 
   await deleteEmployeesWorkflow.run({

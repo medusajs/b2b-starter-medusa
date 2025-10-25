@@ -1,0 +1,81 @@
+# Logs e dados temporários
+*.log
+*.log.*
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Dados processados
+processed_data/
+**/processed_data/
+*.json
+!package.json
+!tsconfig.json
+!**/schemas/**/*.json
+
+# Cache e temp
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+.venv
+
+# Docker volumes e dados
+docker-data/
+**/docker-data/
+postgres-data/
+redis-data/
+dynamodb-data/
+grafana-data/
+prometheus-data/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Sensitive data
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+credentials/

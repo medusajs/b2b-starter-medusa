@@ -1,0 +1,163 @@
+{
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ysh.dev/schemas/contatos_normalizados.schema.json",
+      "title": "Schema de Validação - Contatos Normalizados",
+      "description": "Schema JSON para validação de dados de contato normalizados (telefones e emails) conforme mapeamento de dados para homologação solar",
+      "type": "object",
+      "required": [
+            "version",
+            "generated_at",
+            "total_cpfs",
+            "contatos"
+      ],
+      "properties": {
+            "version": {
+                  "type": "string",
+                  "description": "Versão do formato de dados",
+                  "pattern": "^\\d+\\.\\d+$"
+            },
+            "generated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp de geração dos dados"
+            },
+            "total_cpfs": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Total de CPFs processados"
+            },
+            "contatos": {
+                  "type": "object",
+                  "description": "Dicionário de contatos indexados por CPF",
+                  "additionalProperties": {
+                        "type": "object",
+                        "description": "Dados de contato para um CPF específico",
+                        "properties": {
+                              "telefones": {
+                                    "type": "array",
+                                    "description": "Lista de telefones associados ao CPF",
+                                    "items": {
+                                          "type": "object",
+                                          "required": [
+                                                "numero_e164",
+                                                "tipo",
+                                                "fonte",
+                                                "ddd",
+                                                "numero_original",
+                                                "confirmado",
+                                                "score_prioridade",
+                                                "preferencial"
+                                          ],
+                                          "properties": {
+                                                "numero_e164": {
+                                                      "type": "string",
+                                                      "description": "Número de telefone no formato E.164 internacional",
+                                                      "pattern": "^\\+55\\d{10,11}$"
+                                                },
+                                                "tipo": {
+                                                      "type": "string",
+                                                      "description": "Tipo de telefone",
+                                                      "enum": [
+                                                            "fixo",
+                                                            "movel",
+                                                            "desconhecido"
+                                                      ]
+                                                },
+                                                "fonte": {
+                                                      "type": "string",
+                                                      "description": "Fonte dos dados",
+                                                      "enum": [
+                                                            "pf_quod-cadastro",
+                                                            "pf_quod-autentica",
+                                                            "dataset_telefones"
+                                                      ]
+                                                },
+                                                "ddd": {
+                                                      "type": "string",
+                                                      "description": "Código DDD do telefone",
+                                                      "pattern": "^\\d{2}$"
+                                                },
+                                                "numero_original": {
+                                                      "type": "string",
+                                                      "description": "Número original como encontrado na fonte"
+                                                },
+                                                "confirmado": {
+                                                      "type": "boolean",
+                                                      "description": "Indica se o telefone foi confirmado pelo usuário"
+                                                },
+                                                "score_prioridade": {
+                                                      "type": "integer",
+                                                      "description": "Score de prioridade calculado",
+                                                      "minimum": 0
+                                                },
+                                                "preferencial": {
+                                                      "type": "boolean",
+                                                      "description": "Indica se este é o telefone preferencial"
+                                                },
+                                                "fontes": {
+                                                      "type": "array",
+                                                      "description": "Lista de fontes quando há múltiplas ocorrências",
+                                                      "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "pf_quod-cadastro",
+                                                                  "pf_quod-autentica",
+                                                                  "dataset_telefones"
+                                                            ]
+                                                      }
+                                                }
+                                          }
+                                    }
+                              },
+                              "emails": {
+                                    "type": "array",
+                                    "description": "Lista de emails associados ao CPF",
+                                    "items": {
+                                          "type": "object",
+                                          "required": [
+                                                "email",
+                                                "fonte",
+                                                "confirmado"
+                                          ],
+                                          "properties": {
+                                                "email": {
+                                                      "type": "string",
+                                                      "description": "Endereço de email normalizado",
+                                                      "format": "email",
+                                                      "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+                                                },
+                                                "fonte": {
+                                                      "type": "string",
+                                                      "description": "Fonte dos dados",
+                                                      "enum": [
+                                                            "pf_quod-cadastro",
+                                                            "pf_quod-autentica",
+                                                            "dataset_telefones"
+                                                      ]
+                                                },
+                                                "confirmado": {
+                                                      "type": "boolean",
+                                                      "description": "Indica se o email foi confirmado pelo usuário"
+                                                },
+                                                "fontes": {
+                                                      "type": "array",
+                                                      "description": "Lista de fontes quando há múltiplas ocorrências",
+                                                      "items": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "pf_quod-cadastro",
+                                                                  "pf_quod-autentica",
+                                                                  "dataset_telefones"
+                                                            ]
+                                                      }
+                                                }
+                                          }
+                                    }
+                              }
+                        },
+                        "additionalProperties": false
+                  }
+            }
+      },
+      "additionalProperties": false
+}

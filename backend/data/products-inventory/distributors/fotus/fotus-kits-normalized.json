@@ -1,0 +1,260 @@
+[
+  {
+    "id": "FOTUS-KP04-kits",
+    "name": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW",
+    "type": "Solar Kit",
+    "potencia_kwp": 1.14,
+    "price_brl": 2507.99,
+    "estrutura": "Cerâmico",
+    "centro_distribuicao": "CD ESPÍRITO SANTO",
+    "panels": [
+      {
+        "brand": "SOLAR N PLUS",
+        "power_w": 570,
+        "quantity": 2,
+        "description": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO"
+      }
+    ],
+    "inverters": [
+      {
+        "brand": "DEYE",
+        "power_kw": 2.25,
+        "quantity": 1,
+        "description": "MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)"
+      }
+    ],
+    "batteries": [],
+    "structures": [],
+    "total_panels": 2,
+    "total_inverters": 1,
+    "total_power_w": 1140,
+    "distributor": "FOTUS",
+    "image_url": "/images/FOTUS-KITS/FOTUS-KP04-kits.jpg",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP04-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP04-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP04-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2507.99,
+      "currency": "BRL"
+    },
+    "price": "R$ 2.507,99",
+    "title": "Kit Solar 1.14kWp - Solar N Plus + Microinversor Deye",
+    "subtitle": "1.14kWp Solar Energy Kit Solar N Plus Panel Deye Microinverter Grid-Tie Microinverter System",
+    "description": "# Kit Solar 1.14kWp - Sistema Completo FOTUS\n\n## Gere até 153kWh por mês\n\n**Kit completo pronto para instalação** com componentes de alta qualidade.\n\n### Componentes Incluídos\n\n**Painéis Solares Solar N Plus**\n- Potência: 570W por painel\n- Quantidade: 2 unidades\n- Potência total: 1.14kWp\n\n**Microinversor Deye**\n- Potência: 2.25kW\n- Quantidade: 1 unidade(s)\n- SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO\n\n### Características do Sistema\n\n- Sistema modular com microinversor\n- Estrutura: Cerâmico\n- Centro de Distribuição: CD ESPÍRITO SANTO\n- Distribuidor: FOTUS\n\n### Ideal Para\n\n- Residências pequenas e apartamentos\n- Consumo até 500kWh/mês\n- Redução significativa na conta de luz",
+    "handle": "solar-kit-114kwp-solar-n-plus-deye",
+    "status": "published",
+    "collection": "FOTUS Solar Kits",
+    "variant_title": "570W x2 Painéis / Micro 2.25kW",
+    "variant_sku": "FTS-1.14KWP-SOLDEY-04",
+    "search_title": "1.14kWp Solar Energy Kit Solar N Plus Panel Deye Microinverter Grid-Tie Microinverter System",
+    "seo_title": "Kit Solar 1.14kWp Solar N Plus + Deye | FOTUS",
+    "seo_description": "Kit Solar 1.14kWp completo com painéis Solar N Plus e Deye. Gere até 153kWh/mês. Sistema modular. FOTUS.",
+    "tags": [
+      "Kit Solar",
+      "Energia Solar",
+      "Sistema Fotovoltaico",
+      "Residencial Pequeno",
+      "Até 3kWp",
+      "1.14kWp",
+      "Painel Solar N Plus",
+      "Microinversor Deye",
+      "Microinversor",
+      "Sistema Modular",
+      "Estrutura Cerâmico",
+      "Até 500kWh/mês",
+      "CD ESPÍRITO SANTO"
+    ],
+    "original_name": "KP04 - SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO - MICROINVERSOR DEYE 2.25KW",
+    "panel_info": {
+      "manufacturer": "Solar N Plus",
+      "power_w": 570,
+      "quantity": 2,
+      "description": "SOLAR N PLUS | 570W N-TYPE BIFACIAL DG (22,1% EF.) | FRAME DE FIBRA DE VIDRO"
+    },
+    "inverter_info": {
+      "manufacturer": "Deye",
+      "power_kw": 2.25,
+      "quantity": 1,
+      "description": "MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)",
+      "is_microinverter": true
+    },
+    "system_power_kwp": 1.14
+  },
+  {
+    "id": "FOTUS-KP02-kits",
+    "name": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
+    "type": "Solar Kit",
+    "potencia_kwp": 1.2,
+    "price_brl": 2679.49,
+    "estrutura": "Cerâmico",
+    "centro_distribuicao": "CD SUDESTE| PRONTA ENTREGA",
+    "panels": [
+      {
+        "brand": "SOLAR N PLUS",
+        "power_w": 600,
+        "quantity": 2,
+        "description": "SOLAR N PLUS | 600W N-TYPE BIFACIAL DG (21,9% EF.) | 78 CELLS | FRAME DE FIBRA DE VIDRO"
+      }
+    ],
+    "inverters": [
+      {
+        "brand": "TSUNESS",
+        "power_kw": 2.25,
+        "quantity": 1,
+        "description": "MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)"
+      }
+    ],
+    "batteries": [],
+    "structures": [],
+    "total_panels": 2,
+    "total_inverters": 1,
+    "total_power_w": 1200,
+    "distributor": "FOTUS",
+    "image_url": "/images/FOTUS-KITS/FOTUS-KP02-kits.jpg",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP02-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP02-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP02-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2679.49,
+      "currency": "BRL"
+    },
+    "price": "R$ 2.679,49",
+    "title": "Kit Solar 1.2kWp - Solar N Plus + Microinversor Tsuness",
+    "subtitle": "1.2kWp Solar Energy Kit Solar N Plus Panel Tsuness Microinverter Grid-Tie Microinverter System",
+    "description": "# Kit Solar 1.2kWp - Sistema Completo FOTUS\n\n## Gere até 161kWh por mês\n\n**Kit completo pronto para instalação** com componentes de alta qualidade.\n\n### Componentes Incluídos\n\n**Painéis Solares Solar N Plus**\n- Potência: 600W por painel\n- Quantidade: 2 unidades\n- Potência total: 1.2kWp\n\n**Microinversor Tsuness**\n- Potência: 2.25kW\n- Quantidade: 1 unidade(s)\n- SOLAR N PLUS | 600W N-TYPE BIFACIAL DG (21,9% EF.) | 78 CELLS | FRAME DE FIBRA DE VIDRO\n\n### Características do Sistema\n\n- Sistema modular com microinversor\n- Estrutura: Cerâmico\n- Centro de Distribuição: CD SUDESTE| PRONTA ENTREGA\n- Distribuidor: FOTUS\n\n### Ideal Para\n\n- Residências pequenas e apartamentos\n- Consumo até 500kWh/mês\n- Redução significativa na conta de luz",
+    "handle": "solar-kit-12kwp-solar-n-plus-tsuness",
+    "status": "published",
+    "collection": "FOTUS Solar Kits",
+    "variant_title": "600W x2 Painéis / Micro 2.25kW",
+    "variant_sku": "FTS-1.2KWP-SOLTSU-02",
+    "search_title": "1.2kWp Solar Energy Kit Solar N Plus Panel Tsuness Microinverter Grid-Tie Microinverter System",
+    "seo_title": "Kit Solar 1.2kWp Solar N Plus + Tsuness | FOTUS",
+    "seo_description": "Kit Solar 1.2kWp completo com painéis Solar N Plus e Tsuness. Gere até 161kWh/mês. Sistema modular. FOTUS.",
+    "tags": [
+      "Kit Solar",
+      "Energia Solar",
+      "Sistema Fotovoltaico",
+      "Residencial Pequeno",
+      "Até 3kWp",
+      "1.2kWp",
+      "Painel Solar N Plus",
+      "Microinversor Tsuness",
+      "Microinversor",
+      "Sistema Modular",
+      "Estrutura Cerâmico",
+      "Até 500kWh/mês",
+      "CD SUDESTE| PRONTA ENTREGA"
+    ],
+    "original_name": "KP02 - SOLAR N PLUS 600W N-TYPE BF DG - MICROINVERSOR TSUNESS2250W",
+    "panel_info": {
+      "manufacturer": "Solar N Plus",
+      "power_w": 600,
+      "quantity": 2,
+      "description": "SOLAR N PLUS | 600W N-TYPE BIFACIAL DG (21,9% EF.) | 78 CELLS | FRAME DE FIBRA DE VIDRO"
+    },
+    "inverter_info": {
+      "manufacturer": "Tsuness",
+      "power_kw": 2.25,
+      "quantity": 1,
+      "description": "MICROINVERSOR TSUNESS 2.25KW (TSOL-MX2250) MONOFÁSICO 220V (4 MLPE)",
+      "is_microinverter": true
+    },
+    "system_power_kwp": 1.2
+  },
+  {
+    "id": "FOTUS-KP03-kits",
+    "name": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
+    "type": "Solar Kit",
+    "potencia_kwp": 1.42,
+    "price_brl": 2896.41,
+    "estrutura": "Mini Trilho",
+    "centro_distribuicao": "CD SUDESTE | PRONTA ENTREGA",
+    "panels": [
+      {
+        "brand": "TRINA",
+        "power_w": 710,
+        "quantity": 2,
+        "description": "TRINA | TIER 1 | 710W N-TYPE BIFACIAL"
+      }
+    ],
+    "inverters": [
+      {
+        "brand": "DEYE",
+        "power_kw": 2.25,
+        "quantity": 1,
+        "description": "MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)"
+      }
+    ],
+    "batteries": [],
+    "structures": [],
+    "total_panels": 2,
+    "total_inverters": 1,
+    "total_power_w": 1420,
+    "distributor": "FOTUS",
+    "image_url": "/images/FOTUS-KITS/FOTUS-KP03-kits.jpg",
+    "processed_images": {
+      "thumb": "catalog\\images_processed\\FOTUS-KITS\\thumb\\FOTUS-KP03-kits.webp",
+      "medium": "catalog\\images_processed\\FOTUS-KITS\\medium\\FOTUS-KP03-kits.webp",
+      "large": "catalog\\images_processed\\FOTUS-KITS\\large\\FOTUS-KP03-kits.webp"
+    },
+    "image_quality_before": 65.6,
+    "image_quality_after": 150,
+    "image_processing_priority": 1,
+    "pricing": {
+      "price": 2896.41,
+      "currency": "BRL"
+    },
+    "price": "R$ 2.896,41",
+    "title": "Kit Solar 1.42kWp - Trina Solar + Microinversor Deye",
+    "subtitle": "1.42kWp Solar Energy Kit Trina Solar Panel Deye Microinverter Grid-Tie Microinverter System",
+    "description": "# Kit Solar 1.42kWp - Sistema Completo FOTUS\n\n## Gere até 191kWh por mês\n\n**Kit completo pronto para instalação** com componentes de alta qualidade.\n\n### Componentes Incluídos\n\n**Painéis Solares Trina Solar**\n- Potência: 710W por painel\n- Quantidade: 2 unidades\n- Potência total: 1.42kWp\n\n**Microinversor Deye**\n- Potência: 2.25kW\n- Quantidade: 1 unidade(s)\n- TRINA | TIER 1 | 710W N-TYPE BIFACIAL\n\n### Características do Sistema\n\n- Sistema modular com microinversor\n- Estrutura: Mini Trilho\n- Centro de Distribuição: CD SUDESTE | PRONTA ENTREGA\n- Distribuidor: FOTUS\n\n### Ideal Para\n\n- Residências pequenas e apartamentos\n- Consumo até 500kWh/mês\n- Redução significativa na conta de luz",
+    "handle": "solar-kit-142kwp-trina-solar-deye",
+    "status": "published",
+    "collection": "FOTUS Solar Kits",
+    "variant_title": "710W x2 Painéis / Micro 2.25kW",
+    "variant_sku": "FTS-1.42KWP-TRIDEY-03",
+    "search_title": "1.42kWp Solar Energy Kit Trina Solar Panel Deye Microinverter Grid-Tie Microinverter System",
+    "seo_title": "Kit Solar 1.42kWp Trina Solar + Deye | FOTUS",
+    "seo_description": "Kit Solar 1.42kWp completo com painéis Trina Solar e Deye. Gere até 191kWh/mês. Sistema modular. FOTUS.",
+    "tags": [
+      "Kit Solar",
+      "Energia Solar",
+      "Sistema Fotovoltaico",
+      "Residencial Pequeno",
+      "Até 3kWp",
+      "1.42kWp",
+      "Painel Trina Solar",
+      "Microinversor Deye",
+      "Microinversor",
+      "Sistema Modular",
+      "Estrutura Mini Trilho",
+      "Até 500kWh/mês",
+      "CD SUDESTE | PRONTA ENTREGA"
+    ],
+    "original_name": "KP03 - TRINA | TIER 1 | 710W N-TYPE BIFACIAL - MICROINVERSOR DEYE 2.25KW",
+    "panel_info": {
+      "manufacturer": "Trina Solar",
+      "power_w": 710,
+      "quantity": 2,
+      "description": "TRINA | TIER 1 | 710W N-TYPE BIFACIAL"
+    },
+    "inverter_info": {
+      "manufacturer": "Deye",
+      "power_kw": 2.25,
+      "quantity": 1,
+      "description": "MICROINVERSOR DEYE 2.25KW (SUN-M225G4-EU-Q0-I) MONOFÁSICO 220V (4 MLPE)",
+      "is_microinverter": true
+    },
+    "system_power_kwp": 1.42
+  }
+]

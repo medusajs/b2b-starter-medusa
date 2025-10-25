@@ -1,0 +1,473 @@
+{
+    "prodist_modulo_3": {
+        "versao": "Revisão 11 - 2023",
+        "aneel": "Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional",
+        "limites_tensao": {
+            "baixa_tensao": {
+                "faixa": "≤ 1 kV",
+                "tensao_nominal": {
+                    "127V": {
+                        "min": 115.9,
+                        "max": 133,
+                        "adequada_min": 120.65,
+                        "adequada_max": 133,
+                        "precaria_min": 115.9,
+                        "precaria_max": 120.65,
+                        "critica_min": null,
+                        "critica_max": 115.9
+                    },
+                    "220V": {
+                        "min": 200.2,
+                        "max": 231,
+                        "adequada_min": 208.45,
+                        "adequada_max": 231,
+                        "precaria_min": 200.2,
+                        "precaria_max": 208.45,
+                        "critica_min": null,
+                        "critica_max": 200.2
+                    },
+                    "254V": {
+                        "min": 231,
+                        "max": 265.1,
+                        "adequada_min": 240.65,
+                        "adequada_max": 265.1,
+                        "precaria_min": 231,
+                        "precaria_max": 240.65,
+                        "critica_min": null,
+                        "critica_max": 231
+                    },
+                    "380V": {
+                        "min": 346.1,
+                        "max": 396.9,
+                        "adequada_min": 360.7,
+                        "adequada_max": 396.9,
+                        "precaria_min": 346.1,
+                        "precaria_max": 360.7,
+                        "critica_min": null,
+                        "critica_max": 346.1
+                    }
+                }
+            },
+            "media_tensao": {
+                "faixa": "> 1 kV e < 69 kV",
+                "tensao_nominal": {
+                    "13.8kV": {
+                        "min": 12696,
+                        "max": 14490,
+                        "adequada_min": 13110,
+                        "adequada_max": 14490,
+                        "precaria_min": 12696,
+                        "precaria_max": 13110,
+                        "critica_min": null,
+                        "critica_max": 12696
+                    },
+                    "23kV": {
+                        "min": 21160,
+                        "max": 24150,
+                        "adequada_min": 21850,
+                        "adequada_max": 24150,
+                        "precaria_min": 21160,
+                        "precaria_max": 21850,
+                        "critica_min": null,
+                        "critica_max": 21160
+                    },
+                    "34.5kV": {
+                        "min": 31740,
+                        "max": 36225,
+                        "adequada_min": 32775,
+                        "adequada_max": 36225,
+                        "precaria_min": 31740,
+                        "precaria_max": 32775,
+                        "critica_min": null,
+                        "critica_max": 31740
+                    }
+                }
+            },
+            "alta_tensao": {
+                "faixa": "≥ 69 kV",
+                "tensao_nominal": {
+                    "69kV": {
+                        "min": 63480,
+                        "max": 72450,
+                        "adequada_min": 65550,
+                        "adequada_max": 72450,
+                        "precaria_min": 63480,
+                        "precaria_max": 65550
+                    },
+                    "88kV": {
+                        "min": 80960,
+                        "max": 92400,
+                        "adequada_min": 83600,
+                        "adequada_max": 92400,
+                        "precaria_min": 80960,
+                        "precaria_max": 83600
+                    },
+                    "138kV": {
+                        "min": 126960,
+                        "max": 144900,
+                        "adequada_min": 131100,
+                        "adequada_max": 144900,
+                        "precaria_min": 126960,
+                        "precaria_max": 131100
+                    }
+                }
+            }
+        },
+        "limites_frequencia": {
+            "nominal": 60,
+            "faixa_normal": {
+                "min": 59.9,
+                "max": 60.1,
+                "descricao": "Operação normal do sistema"
+            },
+            "faixa_permitida": {
+                "min": 59.5,
+                "max": 60.5,
+                "descricao": "Faixa de operação aceitável"
+            },
+            "faixa_critica": {
+                "min": 58.5,
+                "max": 61.5,
+                "descricao": "Limites extremos - desconexão obrigatória"
+            },
+            "tempo_desconexao": {
+                "f_menor_57_5": "0.1s",
+                "f_57_5_a_58": "0.2s",
+                "f_58_a_58_5": "0.5s",
+                "f_58_5_a_59": "1.0s",
+                "f_59_a_59_5": "300s",
+                "f_60_5_a_61": "300s",
+                "f_61_a_61_5": "1.0s",
+                "f_61_5_a_62": "0.2s",
+                "f_maior_62": "0.05s"
+            }
+        },
+        "limites_thd": {
+            "descricao": "Distorção Harmônica Total",
+            "tensao": {
+                "baixa_tensao": {
+                    "thd_max": 10,
+                    "unidade": "%",
+                    "harmonicas_individuais": {
+                        "h3": 7.5,
+                        "h5": 7.5,
+                        "h7": 6.5,
+                        "h9": 2.5,
+                        "h11": 4.5,
+                        "h13": 4,
+                        "h15": 2,
+                        "h17": 2.5,
+                        "h19": 2,
+                        "h21": 1.5,
+                        "h23": 2,
+                        "h25": 1.5
+                    }
+                },
+                "media_tensao": {
+                    "thd_max": 8,
+                    "unidade": "%",
+                    "harmonicas_individuais": {
+                        "h3": 6,
+                        "h5": 6,
+                        "h7": 5,
+                        "h9": 2,
+                        "h11": 3.5,
+                        "h13": 3,
+                        "h15": 1.5,
+                        "h17": 2,
+                        "h19": 1.5,
+                        "h21": 1,
+                        "h23": 1.5,
+                        "h25": 1
+                    }
+                },
+                "alta_tensao": {
+                    "thd_max": 6,
+                    "unidade": "%",
+                    "harmonicas_individuais": {
+                        "h3": 4.5,
+                        "h5": 4.5,
+                        "h7": 4,
+                        "h9": 1.5,
+                        "h11": 3,
+                        "h13": 2.5,
+                        "h15": 1,
+                        "h17": 1.5,
+                        "h19": 1,
+                        "h21": 0.5,
+                        "h23": 1,
+                        "h25": 0.5
+                    }
+                }
+            }
+        },
+        "fator_potencia": {
+            "minimo_exigido": 0.92,
+            "referencia": "indutivo ou capacitivo",
+            "medicao": "mensal",
+            "penalidades": {
+                "fp_0_90_a_0_92": {
+                    "descricao": "Cobrança de energia reativa excedente",
+                    "formula": "ER = (EERC - EERAT) * TUSD_ER"
+                },
+                "fp_menor_0_90": {
+                    "descricao": "Cobrança elevada de energia reativa",
+                    "formula": "ER = EERC * TUSD_ER"
+                }
+            },
+            "correcao": {
+                "capacitores": "instalação de bancos de capacitores",
+                "inversores": "inversores com controle de fator de potência"
+            }
+        },
+        "limites_desequilibrio": {
+            "tensao": {
+                "max": 2,
+                "unidade": "%",
+                "descricao": "Desequilíbrio máximo entre fases"
+            },
+            "corrente": {
+                "max": 10,
+                "unidade": "%",
+                "descricao": "Desequilíbrio máximo de corrente"
+            }
+        },
+        "limites_conexao_gd": {
+            "microgeracao": {
+                "potencia_min": 0.001,
+                "potencia_max": 75,
+                "unidade": "kW",
+                "tensao_conexao": [
+                    "BT",
+                    "MT"
+                ]
+            },
+            "minigeracao": {
+                "potencia_min": 75.001,
+                "potencia_max": 5000,
+                "unidade": "kW",
+                "tensao_conexao": [
+                    "MT"
+                ]
+            },
+            "geracao_distribuida": {
+                "potencia_min": 5000.001,
+                "potencia_max": 75000,
+                "unidade": "kW",
+                "tensao_conexao": [
+                    "MT",
+                    "AT"
+                ]
+            }
+        },
+        "protecoes_exigidas": {
+            "microgeracao_bt": [
+                {
+                    "codigo": "ANSI 27",
+                    "nome": "Relé de Subtensão",
+                    "ajuste": "V < 80% Vn por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 59",
+                    "nome": "Relé de Sobretensão",
+                    "ajuste": "V > 110% Vn por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 81O",
+                    "nome": "Relé de Sobrefrequência",
+                    "ajuste": "f > 60.5 Hz por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 81U",
+                    "nome": "Relé de Subfrequência",
+                    "ajuste": "f < 57.5 Hz por t > 0.2s"
+                }
+            ],
+            "minigeracao_mt": [
+                {
+                    "codigo": "ANSI 27",
+                    "nome": "Relé de Subtensão",
+                    "ajuste": "V < 80% Vn por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 59",
+                    "nome": "Relé de Sobretensão",
+                    "ajuste": "V > 110% Vn por t > 0.1s"
+                },
+                {
+                    "codigo": "ANSI 81O",
+                    "nome": "Relé de Sobrefrequência",
+                    "ajuste": "f > 60.5 Hz por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 81U",
+                    "nome": "Relé de Subfrequência",
+                    "ajuste": "f < 57.5 Hz por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 25",
+                    "nome": "Relé de Sincronismo",
+                    "ajuste": "Verificação de sincronismo antes de fechar"
+                },
+                {
+                    "codigo": "ANSI 32",
+                    "nome": "Relé Direcional de Potência",
+                    "ajuste": "Detecção de fluxo reverso"
+                },
+                {
+                    "codigo": "ANSI 78",
+                    "nome": "Relé de Desbalanço",
+                    "ajuste": "Desequilíbrio > 2%"
+                }
+            ],
+            "geracao_distribuida": [
+                {
+                    "codigo": "ANSI 21",
+                    "nome": "Relé de Distância",
+                    "ajuste": "Proteção de linha"
+                },
+                {
+                    "codigo": "ANSI 27",
+                    "nome": "Relé de Subtensão",
+                    "ajuste": "V < 80% Vn por t > 0.2s"
+                },
+                {
+                    "codigo": "ANSI 59",
+                    "nome": "Relé de Sobretensão",
+                    "ajuste": "V > 110% Vn por t > 0.05s"
+                },
+                {
+                    "codigo": "ANSI 81O",
+                    "nome": "Relé de Sobrefrequência",
+                    "ajuste": "f > 60.5 Hz por t > 0.1s"
+                },
+                {
+                    "codigo": "ANSI 81U",
+                    "nome": "Relé de Subfrequência",
+                    "ajuste": "f < 57.5 Hz por t > 0.1s"
+                },
+                {
+                    "codigo": "ANSI 25",
+                    "nome": "Relé de Sincronismo",
+                    "ajuste": "Verificação completa de sincronismo"
+                },
+                {
+                    "codigo": "ANSI 32",
+                    "nome": "Relé Direcional de Potência",
+                    "ajuste": "Detecção de fluxo reverso"
+                },
+                {
+                    "codigo": "ANSI 67",
+                    "nome": "Relé Direcional de Sobrecorrente",
+                    "ajuste": "Coordenação com rede"
+                },
+                {
+                    "codigo": "ANSI 78",
+                    "nome": "Relé de Desbalanço",
+                    "ajuste": "Desequilíbrio > 2%"
+                }
+            ]
+        },
+        "qualidade_energia": {
+            "indicadores_continuidade": {
+                "DEC": {
+                    "nome": "Duração Equivalente de Interrupção por Consumidor",
+                    "unidade": "horas",
+                    "limite_anual": 18.66
+                },
+                "FEC": {
+                    "nome": "Frequência Equivalente de Interrupção por Consumidor",
+                    "unidade": "interrupções",
+                    "limite_anual": 12.3
+                },
+                "DIC": {
+                    "nome": "Duração de Interrupção Individual por Consumidor",
+                    "unidade": "horas",
+                    "limite_mensal": 24
+                },
+                "FIC": {
+                    "nome": "Frequência de Interrupção Individual por Consumidor",
+                    "unidade": "interrupções",
+                    "limite_mensal": 10
+                }
+            },
+            "indicadores_conformidade": {
+                "DRP": {
+                    "nome": "Duração Relativa de Transgressão de Tensão Precária",
+                    "unidade": "%",
+                    "limite": 3
+                },
+                "DRC": {
+                    "nome": "Duração Relativa de Transgressão de Tensão Crítica",
+                    "unidade": "%",
+                    "limite": 0.5
+                }
+            }
+        },
+        "requisitos_medicao": {
+            "microgeracao": {
+                "tipo": "Medidor bidirecional",
+                "classe": "B",
+                "caracteristicas": [
+                    "Registro de energia ativa injetada",
+                    "Registro de energia ativa consumida",
+                    "Comunicação remota (opcional)"
+                ]
+            },
+            "minigeracao": {
+                "tipo": "Medidor bidirecional",
+                "classe": "A ou B",
+                "caracteristicas": [
+                    "Registro de energia ativa injetada",
+                    "Registro de energia ativa consumida",
+                    "Registro de energia reativa",
+                    "Comunicação remota obrigatória",
+                    "Registro de demanda"
+                ]
+            },
+            "geracao_distribuida": {
+                "tipo": "Medidor bidirecional",
+                "classe": "0.2S ou 0.5S",
+                "caracteristicas": [
+                    "Registro completo de grandezas elétricas",
+                    "Registro de energia ativa e reativa (4 quadrantes)",
+                    "Comunicação remota obrigatória",
+                    "Registro de demanda",
+                    "Registro de qualidade de energia"
+                ]
+            }
+        },
+        "aterramento": {
+            "norma": "NBR 5410:2004",
+            "sistemas": {
+                "TN-S": {
+                    "descricao": "Neutro aterrado com condutor PE separado",
+                    "aplicacao": "Recomendado para GD"
+                },
+                "TN-C": {
+                    "descricao": "Neutro aterrado com PEN comum",
+                    "aplicacao": "Não recomendado para GD"
+                },
+                "TT": {
+                    "descricao": "Neutro e massa aterrados separadamente",
+                    "aplicacao": "Permitido com restrições"
+                },
+                "IT": {
+                    "descricao": "Neutro isolado ou aterrado por alta impedância",
+                    "aplicacao": "Não permitido para GD"
+                }
+            },
+            "resistencia_maxima": {
+                "bt": 10,
+                "mt": 10,
+                "at": 1,
+                "unidade": "Ω"
+            },
+            "medicao": {
+                "periodicidade": "Anual",
+                "metodo": "Terrômetro de 4 pontos",
+                "condicoes": "Solo seco"
+            }
+        }
+    }
+}

@@ -3,8 +3,8 @@ import { z } from "zod";
 import { ApprovalStatusType } from "../../../types/approval";
 
 /* Company Validators */
+export const StoreGetCompanyParams = z.object({}).passthrough();
 export type StoreGetCompanyParamsType = z.infer<typeof StoreGetCompanyParams>;
-export const StoreGetCompanyParams = createSelectParams();
 
 export type StoreCreateCompanyType = z.infer<typeof StoreCreateCompany>;
 export const StoreCreateCompany = z
@@ -47,8 +47,8 @@ export const StoreUpdateCompany = z
   .strict();
 
 /* Employee Validators */
+export const StoreGetEmployeeParams = z.object({}).passthrough();
 export type StoreGetEmployeeParamsType = z.infer<typeof StoreGetEmployeeParams>;
-export const StoreGetEmployeeParams = createSelectParams();
 
 export type StoreCreateEmployeeType = z.infer<typeof StoreCreateEmployee>;
 export const StoreCreateEmployee = z
@@ -56,6 +56,17 @@ export const StoreCreateEmployee = z
     spending_limit: z.number().optional().nullable(),
     is_admin: z.boolean().optional().nullable().default(false),
     customer_id: z.string(),
+  })
+  .strict();
+
+export type StoreInviteEmployeeType = z.infer<typeof StoreInviteEmployee>;
+export const StoreInviteEmployee = z
+  .object({
+    first_name: z.string(),
+    last_name: z.string(),
+    email: z.string().email(),
+    spending_limit: z.number().optional().nullable(),
+    is_admin: z.boolean().optional().nullable().default(false),
   })
   .strict();
 
@@ -74,10 +85,10 @@ export const StoreUpdateEmployee = z
   .strict();
 
 /* Approval Settings Validators */
+export const StoreGetApprovalSettingsParams = z.object({}).passthrough();
 export type StoreGetApprovalSettingsParamsType = z.infer<
   typeof StoreGetApprovalSettingsParams
 >;
-export const StoreGetApprovalSettingsParams = createSelectParams();
 
 export type StoreUpdateApprovalSettingsType = z.infer<
   typeof StoreUpdateApprovalSettings
@@ -89,8 +100,8 @@ export const StoreUpdateApprovalSettings = z
   .strict();
 
 /* Approval Validators */
+export const StoreGetApprovalParams = z.object({}).passthrough();
 export type StoreGetApprovalParamsType = z.infer<typeof StoreGetApprovalParams>;
-export const StoreGetApprovalParams = createSelectParams();
 
 export type StoreUpdateApprovalType = z.infer<typeof StoreUpdateApproval>;
 export const StoreUpdateApproval = z.object({

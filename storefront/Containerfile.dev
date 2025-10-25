@@ -1,0 +1,65 @@
+# ==========================================
+# Containerfile para Storefront Next.js
+# Otimizado para desenvolvimento com Fedora/RHEL
+# ==========================================
+
+# Stage 1: Base Fedora com Node.js
+FROM registry.fedoraproject.org/fedora:latest AS base
+
+# Instalar Node.js e dependências
+RUN dnf update -y && \
+      dnf install -y \
+      nodejs \
+      npm \
+      curl \
+      wget \
+      git \
+      python3 \
+      gcc \
+      gcc-c++ \
+      make \
+      && dnf clean all
+
+WORKDIR /app
+
+# Configurações de performance para Next.js
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=development
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
+# Stage 2: Dependency installer
+FROM base AS deps
+COPY package*.json ./
+
+# Cache otimizado para dependências
+RUN --mount=type=cache,target=/root/.npm \
+      npm ci --no-audit --no-fund --legacy-peer-deps && \
+      npm cache clean --force
+
+# Stage 3: Development runner
+FROM base AS dev
+
+# Criar usuário não-root
+RUN useradd --system --create-home --shell /bin/bash nextjs && \
+      usermod -aG wheel nextjs
+
+# Copiar dependências e código
+COPY --from=deps --chown=nextjs:nextjs /app/node_modules ./node_modules
+COPY --chown=nextjs:nextjs . .
+
+# Configurar hot reload
+ENV CHOKIDAR_USEPOLLING=true
+ENV WATCHPACK_POLLING=true
+
+# Expor porta
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+      CMD curl -f http://localhost:8000 || exit 1
+
+# Configurar usuário
+USER nextjs
+
+# Script de entrada para desenvolvimento
+ENTRYPOINT ["sh", "-c", "npm run dev"]

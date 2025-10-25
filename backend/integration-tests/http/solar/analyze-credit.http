@@ -1,0 +1,84 @@
+###
+### 💳 Credit Analysis Workflow Tests
+### Teste completo do workflow de análise de crédito
+###
+
+@baseUrl = http://localhost:9000
+@adminToken = {{$dotenv ADMIN_API_TOKEN}}
+
+### 1. Analyze Credit - Cliente Individual Score Alto
+POST {{baseUrl}}/admin/workflows-executions/analyze-credit
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST001",
+  "requested_amount": 45000,
+  "requested_term_months": 60,
+  "financing_modality": "CDC"
+}
+
+### 2. Analyze Credit - Cliente com Quote e Solar Calculation
+POST {{baseUrl}}/admin/workflows-executions/analyze-credit
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST002",
+  "quote_id": "quote_01JCQR8XTEST001",
+  "solar_calculation_id": "calc_01JCQR8XTEST001",
+  "requested_amount": 65000,
+  "requested_term_months": 84,
+  "financing_modality": "LEASING"
+}
+
+### 3. Analyze Credit - Cliente Empresarial
+POST {{baseUrl}}/admin/workflows-executions/analyze-credit
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST003",
+  "requested_amount": 150000,
+  "requested_term_months": 96,
+  "financing_modality": "EAAS"
+}
+
+### 4. Analyze Credit - Score Médio
+POST {{baseUrl}}/admin/workflows-executions/analyze-credit
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST004",
+  "requested_amount": 30000,
+  "requested_term_months": 48,
+  "financing_modality": "CDC"
+}
+
+###
+### Expected Response Schema:
+### {
+###   "analysis_id": "credit_1234567890_abc123",
+###   "result": {
+###     "approved": true,
+###     "approved_amount": 45000,
+###     "approved_term_months": 60,
+###     "approved_interest_rate": 14.4,
+###     "approval_conditions": ["Sem garantia", "Aprovação em 48h"]
+###   },
+###   "best_offers": [
+###     {
+###       "bank_name": "Banco Solar Partner",
+###       "modality": "CDC",
+###       "approved_amount": 45000,
+###       "term_months": 60,
+###       "interest_rate_annual": 14.4,
+###       "monthly_payment": 1050.25,
+###       "total_cost": 63015.00,
+###       "conditions": [...]
+###     }
+###   ],
+###   "notification_sent": true
+### }
+###

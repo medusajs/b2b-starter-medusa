@@ -1,0 +1,14 @@
+﻿# Ignorar arquivos de dados processados
+data/raw/**/*.json
+data/validated/**/*.json
+data/enriched/**/*.json
+data/bundles/**/*.json
+data/catalogs/**/*.json
+
+# Manter estrutura
+!data/raw/.gitkeep
+!data/validated/.gitkeep
+!data/enriched/.gitkeep
+!data/bundles/.gitkeep
+!data/catalogs/.gitkeep
+!data/**/README.md

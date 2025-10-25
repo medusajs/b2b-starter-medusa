@@ -3,6 +3,41 @@
 import { sdk } from "@/lib/config"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
+import { FALLBACK_CATEGORIES, logFallback } from "./fallbacks"
+
+// ==========================================
+// Retry Utility
+// ==========================================
+
+const MAX_RETRIES = 3
+const RETRY_DELAY_MS = 1000
+
+async function sleep(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  retries: number = MAX_RETRIES,
+  delay: number = RETRY_DELAY_MS,
+  fallback?: T
+): Promise<T> {
+  try {
+    return await fn()
+  } catch (error) {
+    if (retries === 0) {
+      if (fallback !== undefined) {
+        return fallback
+      }
+      throw error
+    }
+
+    console.warn(`[Categories] Retrying after ${delay}ms... (${retries} retries left)`)
+    await sleep(delay)
+
+    return retryWithBackoff(fn, retries - 1, delay * 2, fallback)
+  }
+}
 
 export const listCategories = async (
   query?: Record<string, any>
@@ -13,21 +48,29 @@ export const listCategories = async (
 
   const limit = query?.limit || 100
 
-  return sdk.client
-    .fetch<{ product_categories: HttpTypes.StoreProductCategory[] }>(
-      "/store/product-categories",
-      {
-        query: {
-          fields:
-            "*category_children, *products, *parent_category, *parent_category.parent_category",
-          limit,
-          ...query,
-        },
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ product_categories }) => product_categories)
+  return retryWithBackoff(
+    () => sdk.client
+      .fetch<{ product_categories: HttpTypes.StoreProductCategory[] }>(
+        "/store/product-categories",
+        {
+          query: {
+            fields:
+              "*category_children, *products, *parent_category, *parent_category.parent_category",
+            limit,
+            ...query,
+          },
+          next,
+          cache: "force-cache",
+        }
+      )
+      .then(({ product_categories }) => product_categories),
+    MAX_RETRIES,
+    RETRY_DELAY_MS,
+    FALLBACK_CATEGORIES as HttpTypes.StoreProductCategory[]
+  ).catch((error) => {
+    logFallback("categories", error.message)
+    return FALLBACK_CATEGORIES as HttpTypes.StoreProductCategory[]
+  })
 }
 
 export const getCategoryByHandle = async (
@@ -39,17 +82,20 @@ export const getCategoryByHandle = async (
     ...(await getCacheOptions("categories")),
   }
 
-  return sdk.client
-    .fetch<HttpTypes.StoreProductCategoryListResponse>(
-      `/store/product-categories`,
-      {
-        query: {
-          fields: "*category_children, *products",
-          handle,
-        },
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ product_categories }) => product_categories[0])
+  return retryWithBackoff(
+    () => sdk.client
+      .fetch<HttpTypes.StoreProductCategoryListResponse>(
+        `/store/product-categories`,
+        {
+          query: {
+            fields: "*category_children, *products",
+            handle,
+          },
+          next,
+          cache: "force-cache",
+        }
+      )
+      .then(({ product_categories }) => product_categories[0]),
+    MAX_RETRIES
+  )
 }

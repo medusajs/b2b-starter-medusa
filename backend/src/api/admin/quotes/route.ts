@@ -1,6 +1,8 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework";
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils";
 import { AdminGetQuoteParamsType } from "./validators";
+import { APIResponse } from "../../../utils/api-response";
+import { APIVersionManager } from "../../../utils/api-versioning";
 
 export const GET = async (
   req: MedusaRequest<AdminGetQuoteParamsType>,
@@ -18,10 +20,11 @@ export const GET = async (
     },
   });
 
-  res.json({
-    quotes,
+  res.setHeader("X-API-Version", APIVersionManager.formatVersion(APIVersionManager.CURRENT_API_VERSION));
+  APIResponse.paginated(res, quotes, {
     count: metadata!.count,
     offset: metadata!.skip,
     limit: metadata!.take,
+    total: metadata!.count,
   });
 };

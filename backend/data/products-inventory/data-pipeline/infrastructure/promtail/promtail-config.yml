@@ -1,0 +1,199 @@
+# ============================================================================
+# Promtail Configuration - YSH Data Pipeline
+# ============================================================================
+# Version: 1.0.0
+# Purpose: Log shipping and label extraction
+# ============================================================================
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+  log_level: info
+
+# Positions file to track where we left off
+positions:
+  filename: /tmp/positions.yaml
+
+# Loki client configuration
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+    batchwait: 1s
+    batchsize: 1048576 # 1MB
+
+    backoff_config:
+      min_period: 500ms
+      max_period: 5m
+      max_retries: 10
+
+    timeout: 10s
+
+    # External labels applied to all logs
+    external_labels:
+      cluster: ysh-pipeline
+      environment: development
+
+# Scrape configurations
+scrape_configs:
+  # ============================================================================
+  # 1. Application Logs - Python Scripts
+  # ============================================================================
+  - job_name: ysh-python-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: ysh-pipeline
+          app: python-scripts
+          __path__: /var/log/ysh-pipeline/*.log
+
+    pipeline_stages:
+      # Parse Python logging format
+      - regex:
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) - (?P<logger>\S+) - (?P<level>\S+) - (?P<message>.*)$'
+
+      # Extract timestamp
+      - timestamp:
+          source: timestamp
+          format: "2006-01-02 15:04:05"
+
+      # Set labels
+      - labels:
+          level:
+          logger:
+
+      # Add metrics
+      - metrics:
+          log_lines_total:
+            type: Counter
+            description: "Total number of log lines"
+            source: level
+            config:
+              action: inc
+
+          log_errors_total:
+            type: Counter
+            description: "Total number of error log lines"
+            source: level
+            config:
+              value: ERROR
+              action: inc
+
+  # ============================================================================
+  # 2. Docker Container Logs
+  # ============================================================================
+  - job_name: docker-containers
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 5s
+        filters:
+          - name: label
+            values: ["com.ysh.monitoring=enabled"]
+
+    relabel_configs:
+      # Container name
+      - source_labels: ["__meta_docker_container_name"]
+        regex: "/(.*)"
+        target_label: container
+
+      # Service label
+      - source_labels: ["__meta_docker_container_label_com_ysh_service"]
+        target_label: service
+
+      # Container ID
+      - source_labels: ["__meta_docker_container_id"]
+        target_label: container_id
+        regex: "(.{12}).*"
+        replacement: "$1"
+
+      # Container image
+      - source_labels: ["__meta_docker_container_label_image"]
+        target_label: image
+
+    pipeline_stages:
+      # Detect log level from message
+      - regex:
+          expression: ".*(?P<level>(ERROR|WARN|INFO|DEBUG)).*"
+
+      - labels:
+          level:
+
+      # Parse JSON logs if present
+      - json:
+          expressions:
+            timestamp: timestamp
+            message: message
+            level: level
+
+      # Multiline support for stack traces
+      - multiline:
+          firstline: '^\d{4}-\d{2}-\d{2}'
+          max_wait_time: 3s
+
+  # ============================================================================
+  # 3. Airflow Logs
+  # ============================================================================
+  - job_name: airflow-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: airflow
+          app: workflow
+          __path__: /opt/airflow/logs/**/*.log
+
+    pipeline_stages:
+      # Parse Airflow log format
+      - regex:
+          expression: '^\[(?P<timestamp>[^\]]+)\] {(?P<task>[^}]+)} (?P<level>\w+) - (?P<message>.*)$'
+
+      - timestamp:
+          source: timestamp
+          format: "2006-01-02 15:04:05,000"
+
+      - labels:
+          task:
+          level:
+
+  # ============================================================================
+  # 4. PostgreSQL Logs (if exposed)
+  # ============================================================================
+  - job_name: postgresql-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: postgresql
+          app: database
+          __path__: /var/lib/postgresql/data/log/*.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3} \w+) \[(?P<pid>\d+)\] (?P<level>\w+):  (?P<message>.*)$'
+
+      - labels:
+          level:
+          pid:
+
+  # ============================================================================
+  # 5. Redis Logs (if exposed)
+  # ============================================================================
+  - job_name: redis-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: redis
+          app: cache
+          __path__: /data/*.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<pid>\d+):[A-Z] (?P<timestamp>\d{2} \w{3} \d{4} \d{2}:\d{2}:\d{2}\.\d{3}) (?P<level>[*#.-]) (?P<message>.*)$'
+
+      - labels:
+          level:
+
+# Limits
+limits_config:
+  readline_rate: 10000
+  readline_burst: 20000

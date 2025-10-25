@@ -1,0 +1,32 @@
+{
+  "distributor": "FOTUS",
+  "total_kits": 3,
+  "images_found": 0,
+  "missing_images": 3,
+  "mapping": [
+    {
+      "kit_id": "FOTUS-KP04-kits",
+      "kit_sku": "FTS-1.14KWP-SOLDEY-04",
+      "kit_title": "Kit Solar 1.14kWp - Solar N Plus + Microinversor Deye",
+      "image_path": null,
+      "image_exists": false,
+      "note": "Images need to be scraped from FOTUS portal"
+    },
+    {
+      "kit_id": "FOTUS-KP02-kits",
+      "kit_sku": "FTS-1.2KWP-SOLTSU-02",
+      "kit_title": "Kit Solar 1.2kWp - Solar N Plus + Microinversor Tsuness",
+      "image_path": null,
+      "image_exists": false,
+      "note": "Images need to be scraped from FOTUS portal"
+    },
+    {
+      "kit_id": "FOTUS-KP03-kits",
+      "kit_sku": "FTS-1.42KWP-TRIDEY-03",
+      "kit_title": "Kit Solar 1.42kWp - Trina Solar + Microinversor Deye",
+      "image_path": null,
+      "image_exists": false,
+      "note": "Images need to be scraped from FOTUS portal"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "key": "home.hero_cta_primary",
+    "event": "cta_clicked",
+    "goal": "influence",
+    "component": "hero_primary_cta",
+    "metric": "ctr"
+  },
+  {
+    "key": "home.hero_cta_secondary",
+    "event": "cta_clicked",
+    "goal": "influence",
+    "component": "hero_secondary_cta",
+    "metric": "ctr"
+  },
+  {
+    "key": "solutions.card_b3_desc",
+    "event": "copy_rendered",
+    "goal": "inform",
+    "component": "solutions_card_b3",
+    "metric": "view_to_click"
+  },
+  {
+    "key": "quote.button",
+    "event": "cta_clicked",
+    "goal": "influence",
+    "component": "pdp_quote_button",
+    "metric": "click_to_quote"
+  },
+  {
+    "key": "bulk.hint",
+    "event": "copy_rendered",
+    "goal": "inform",
+    "component": "bulk_hint",
+    "metric": "task_success_rate"
+  },
+  {
+    "key": "checkout.pix_desc",
+    "event": "copy_rendered",
+    "goal": "inform",
+    "component": "payment_method_pix",
+    "metric": "selection_rate"
+  },
+  {
+    "key": "errors.email_format",
+    "event": "error_shown",
+    "goal": "interact",
+    "component": "checkout_email",
+    "metric": "error_resolution_rate"
+  },
+  {
+    "key": "post_venda.support_call",
+    "event": "copy_rendered",
+    "goal": "influence",
+    "component": "support_ticket",
+    "metric": "ticket_submission_rate"
+  },
+  {
+    "key": "videos.amazonia.caption",
+    "event": "copy_rendered",
+    "goal": "inform",
+    "component": "video_caption_amazonia",
+    "metric": "view_time"
+  }
+]
+

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/imagem_satelite.schema.json",
+  "title": "Imagem de Satélite ou Street View",
+  "type": "object",
+  "required": [
+    "id",
+    "tipo",
+    "origem",
+    "coordenadas",
+    "timestamp",
+    "fileId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único da imagem"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": ["satelite", "street_view"],
+      "description": "Tipo de imagem (satélite ou street view)"
+    },
+    "origem": {
+      "type": "string",
+      "enum": ["google_maps", "bing_maps", "ysh_drone", "outro"],
+      "description": "Origem da imagem (Google Maps, Bing Maps, drone YSH, etc.)"
+    },
+    "coordenadas": {
+      "type": "object",
+      "required": ["latitude", "longitude"],
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Latitude da imagem (graus decimais)"
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "Longitude da imagem (graus decimais)"
+        },
+        "altitude": {
+          "type": "number",
+          "description": "Altitude da imagem em metros (quando aplicável)"
+        }
+      }
+    },
+    "angulos": {
+      "type": "object",
+      "description": "Ângulos da câmera (especialmente para Street View)",
+      "properties": {
+        "heading": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360,
+          "description": "Ângulo horizontal em graus (0=norte, 90=leste, 180=sul, 270=oeste)"
+        },
+        "pitch": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Ângulo vertical em graus (-90=baixo, 0=horizontal, 90=cima)"
+        },
+        "roll": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "Rotação em graus"
+        },
+        "fov": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180,
+          "description": "Campo de visão em graus"
+        }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora de captura da imagem (ISO 8601)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Dados adicionais específicos da fonte",
+      "properties": {
+        "zoom": {
+          "type": "number",
+          "description": "Nível de zoom (para imagens de satélite)"
+        },
+        "resolucao": {
+          "type": "string",
+          "description": "Resolução da imagem (ex: 1024x768)"
+        },
+        "data_satelite": {
+          "type": "string",
+          "format": "date",
+          "description": "Data de passagem do satélite (pode ser diferente da data de captura)"
+        },
+        "pano_id": {
+          "type": "string",
+          "description": "ID do panorama (para Google Street View)"
+        }
+      }
+    },
+    "descricao": {
+      "type": "string",
+      "description": "Descrição textual da imagem"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags para categorização da imagem"
+    },
+    "fileId": {
+      "type": "string",
+      "description": "Identificador do arquivo de imagem no sistema de armazenamento"
+    },
+    "api_request_id": {
+      "type": "string",
+      "description": "ID da requisição à API que gerou a imagem (para auditoria)"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL da imagem (opcional)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora da criação do registro (ISO 8601)"
+    }
+  },
+  "additionalProperties": false
+}

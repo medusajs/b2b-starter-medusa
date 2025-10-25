@@ -1,0 +1,812 @@
+[
+  {
+    "id": "fortlev_structures_IEF00243",
+    "name": "PERFIL SUPORTE SMART 2,70M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 80,07",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,70M",
+    "pricing": {
+      "price": 80.07,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00302",
+    "name": "PERF ACAB US75X51X225 1,70MM S400GD ZM310 - ST1 -",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 12,87",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERF ACAB US75X51X225 1,70MM S400GD ZM310 - ST1 -",
+    "pricing": {
+      "price": 12.87,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00221",
+    "name": "TESOURA 3300MM ESP 1,95 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 273,20",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TESOURA 3300MM ESP 1,95 - FLS",
+    "pricing": {
+      "price": 273.2,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00220",
+    "name": "PILAR 2425MM ESP 1,95 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 182,81",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PILAR 2425MM ESP 1,95 - FLS",
+    "pricing": {
+      "price": 182.81,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00242",
+    "name": "TESOURA 3700MM ESP 1,25 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 171,62",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=structure",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TESOURA 3700MM ESP 1,25 - FLS",
+    "pricing": {
+      "price": 171.62,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00026",
+    "name": "PERFIL Z - TERCA 4580MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 157,86",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/678a707b43420463fe47040b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 4580MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 157.86,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00238",
+    "name": "GRAMPO DE ATERRAMENTO FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 8,55",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6776d42cb9c09ac542e3c577/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO DE ATERRAMENTO FLS",
+    "pricing": {
+      "price": 8.55,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00025",
+    "name": "PERFIL Z - TERCA 2290MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 77,27",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/67589dcea8c9296f8520a301/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 2290MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 77.27,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00024",
+    "name": "PERFIL Z - TERCA 3430MM ESP 1,2 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 127,40",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/675350c6345ed96c35daa5cd/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 3430MM ESP 1,2 - FLS",
+    "pricing": {
+      "price": 127.4,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00216",
+    "name": "TERCA 3100MM ESP 1,25 - FLS",
+    "manufacturer": "Fls",
+    "category": "structures",
+    "price": "R$ 131,25",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/674a012f1db1856141bd4ddd/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TERCA 3100MM ESP 1,25 - FLS",
+    "pricing": {
+      "price": 131.25,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00207",
+    "name": "PERFIL PLANO SMART 2,40",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 117,75",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/67476c3f43ccb8eece3afa30/IEF00129.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL PLANO SMART 2,40",
+    "pricing": {
+      "price": 117.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00208",
+    "name": "PERFIL REFORCADO SMART 2,40",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 135,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6734f73da95edd542d6b34eb/Perfil-refor%C3%A7ado-smart-2,40.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL REFORCADO SMART 2,40",
+    "pricing": {
+      "price": 135.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00019",
+    "name": "LASTRO SOLAR PE V2 (FIXO 15 GRAUS)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 509,10",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66bb66e80ea330bc9d038f66/ILS00019.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "LASTRO SOLAR PE V2 (FIXO 15 GRAUS)",
+    "pricing": {
+      "price": 509.1,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00017",
+    "name": "PERFIL Z - TERCA 4580MM ESP 1,2",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 116,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62a51d7cf33a7085c19/ILS00012.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL Z - TERCA 4580MM ESP 1,2",
+    "pricing": {
+      "price": 116.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00177",
+    "name": "MAO FRANCESA 1750 MM 1,95 ESP 38,10 D",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 93,35",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66b3b62951d7cf33a7085c13/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1750 MM 1,95 ESP 38,10 D",
+    "pricing": {
+      "price": 93.35,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00204",
+    "name": "PERFIL SUPORTE SMART 4,8M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 148,56",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5aee/IEF00127.webp",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 4,8M",
+    "pricing": {
+      "price": 148.56,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00203",
+    "name": "PERFIL SUPORTE SMART 2,40M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 72,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66880a777bc71b60358a5aed/IEF00203.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,40M",
+    "pricing": {
+      "price": 72.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00010",
+    "name": "GRAMPO INTERMEDIÁRIO GALVANIZADO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 9,42",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ee/ILS00010.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO INTERMEDIÁRIO GALVANIZADO",
+    "pricing": {
+      "price": 9.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00008",
+    "name": "PARAFUSO SEXTAVADO M6X12 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,49",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ed/ILS00008.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X12 INOX",
+    "pricing": {
+      "price": 0.49,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00007",
+    "name": "PORCA SX  M6 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ec/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SX  M6 INOX",
+    "pricing": {
+      "price": 0.26,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00006",
+    "name": "PARAFUSO SEXTAVADO M6X45 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8eb/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X45 INOX",
+    "pricing": {
+      "price": 0.95,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00004",
+    "name": "TUBETE PERFIL 29X9DX1P",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 1,04",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8ea/ILS00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TUBETE PERFIL 29X9DX1P",
+    "pricing": {
+      "price": 1.04,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00003",
+    "name": "LUVA P/ PERFIL Z 340MM ESP 1,2",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 13,35",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c8e9/ILS00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "LUVA P/ PERFIL Z 340MM ESP 1,2",
+    "pricing": {
+      "price": 13.35,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00009",
+    "name": "JUNCAO U DO PERFIL",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 16,43",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84d/IEF00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "JUNCAO U DO PERFIL",
+    "pricing": {
+      "price": 16.43,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00073",
+    "name": "PARAFUSO SEXTAVADO M6X50",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,85",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c849/IEF00073.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO M6X50",
+    "pricing": {
+      "price": 0.85,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00023",
+    "name": "ESPUMA EPDM ADESIVA 30X2 MM 2,5M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 7,26",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c844/IEF00023.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ESPUMA EPDM ADESIVA 30X2 MM 2,5M",
+    "pricing": {
+      "price": 7.26,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00040",
+    "name": "PARAFUSO MARTELO M10X30",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 2,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c842/IEF00040.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO MARTELO M10X30",
+    "pricing": {
+      "price": 2.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00076",
+    "name": "ACESSORIO PROLONGADOR DO GANCHO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 5,92",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c840/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ACESSORIO PROLONGADOR DO GANCHO",
+    "pricing": {
+      "price": 5.92,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00173",
+    "name": "PARAFUSO PRISIONEIRO M10X250 P. BROCA (FIBROMETAL)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 22,77",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c83d/IEF00173.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X250 P. BROCA (FIBROMETAL)",
+    "pricing": {
+      "price": 22.77,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00046",
+    "name": "PARAFUSO PRISIONEIRO M10X300 (FIBROMADEIRA)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 29,92",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c83a/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X300 (FIBROMADEIRA)",
+    "pricing": {
+      "price": 29.92,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00045",
+    "name": "PARAFUSO PRISIONEIRO M10X200 (FIBROMADEIRA)",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 21,91",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c839/IEF00045.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO PRISIONEIRO M10X200 (FIBROMADEIRA)",
+    "pricing": {
+      "price": 21.91,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00044",
+    "name": "PARAFUSO AUTOBROCANTE M5,5X25MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,36",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c838/IEF00044.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO AUTOBROCANTE M5,5X25MM",
+    "pricing": {
+      "price": 0.36,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00016",
+    "name": "GANCHO TELHA CERAMICA",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 44,64",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c836/IEF00016.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GANCHO TELHA CERAMICA",
+    "pricing": {
+      "price": 44.64,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00154",
+    "name": "SUPORTE ZIPADO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 21,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c834/IEF00154.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "SUPORTE ZIPADO",
+    "pricing": {
+      "price": 21.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00144",
+    "name": "SUPORTE SHINGLE",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 24,39",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c833/IEF00144.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "SUPORTE SHINGLE",
+    "pricing": {
+      "price": 24.39,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00133",
+    "name": "TRIANGULO SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 135,75",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c831/IEF00133.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRIANGULO SMART",
+    "pricing": {
+      "price": 135.75,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00132",
+    "name": "GRAMPO TERMINAL SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 9,11",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c830/IEF00132.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO TERMINAL SMART",
+    "pricing": {
+      "price": 9.11,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00131",
+    "name": "GRAMPO INTERMEDIARIO SMART",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 6,13",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c82f/IEF00131.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO INTERMEDIARIO SMART",
+    "pricing": {
+      "price": 6.13,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00143",
+    "name": "PERFIL SUPORTE SMART 2,10M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 64,51",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c819/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 2,10M",
+    "pricing": {
+      "price": 64.51,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00129",
+    "name": "PERFIL PLANO SMART 0,50M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 22,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c815/IEF00129.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL PLANO SMART 0,50M",
+    "pricing": {
+      "price": 22.12,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00127",
+    "name": "PERFIL SUPORTE SMART 4,20M",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 128,53",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c813/IEF00127.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PERFIL SUPORTE SMART 4,20M",
+    "pricing": {
+      "price": 128.53,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00163",
+    "name": "MAO FRANCESA 1250 MM 1,95 ESP 44,45 D",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 79,54",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c80c/IEF00163.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1250 MM 1,95 ESP 44,45 D",
+    "pricing": {
+      "price": 79.54,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00162",
+    "name": "REFORCO 3335MM ESP 1,25",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 147,01",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c80b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "REFORCO 3335MM ESP 1,25",
+    "pricing": {
+      "price": 147.01,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00100",
+    "name": "ARRUELA DIN125 M10 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,30",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c806/IEF00100.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ARRUELA DIN125 M10 GEOMET",
+    "pricing": {
+      "price": 0.3,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00099",
+    "name": "PORCA SX DIN934 M10 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,54",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c805/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SX DIN934 M10 GEOMET",
+    "pricing": {
+      "price": 0.54,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00098",
+    "name": "PARAFUSO SEXTAVADO DIN933 M10X25 GEOMET",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 1,41",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c804/IEF00098.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO SEXTAVADO DIN933 M10X25 GEOMET",
+    "pricing": {
+      "price": 1.41,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00096",
+    "name": "CHAPA CANTONEIRA TERCA",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 10,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c802/IEF00096.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CHAPA CANTONEIRA TERCA",
+    "pricing": {
+      "price": 10.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00091",
+    "name": "REFORCO CONTRAVENTO 2418MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 172,00",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7fe/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "REFORCO CONTRAVENTO 2418MM",
+    "pricing": {
+      "price": 172.0,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00090",
+    "name": "TERCA 4240MM",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 285,95",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7fd/IEF00090.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TERCA 4240MM",
+    "pricing": {
+      "price": 285.95,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_ILS00009",
+    "name": "ARRUELA M6 INOX",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,28",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f6/ILS00009.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "ARRUELA M6 INOX",
+    "pricing": {
+      "price": 0.28,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00168",
+    "name": "GRAMPO MODULO SOLO - BAIXO",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 10,94",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f4/IEF00168.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "GRAMPO MODULO SOLO - BAIXO",
+    "pricing": {
+      "price": 10.94,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00172",
+    "name": "MAO FRANCESA 1750 MM 1,95 ESP",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 80,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7f3/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "MAO FRANCESA 1750 MM 1,95 ESP",
+    "pricing": {
+      "price": 80.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00167",
+    "name": "PORCA SEXT FLANG M8",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 0,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84b/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PORCA SEXT FLANG M8",
+    "pricing": {
+      "price": 0.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_structures_IEF00166",
+    "name": "PARAFUSO MARTELO M8X20",
+    "manufacturer": "Unknown",
+    "category": "structures",
+    "price": "R$ 2,00",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c84a/IEF00166.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PARAFUSO MARTELO M8X20",
+    "pricing": {
+      "price": 2.0,
+      "currency": "BRL"
+    }
+  }
+]

@@ -1,0 +1,1089 @@
+{
+  "timestamp": "2025-10-13T06:04:34.529278",
+  "workspace": "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend",
+  "checks": {
+    "structure": {
+      "status": "pass",
+      "missing": [],
+      "extra": []
+    },
+    "modules": {
+      "status": "warning",
+      "modules": [
+        {
+          "name": "aneel-tariff",
+          "has_index": false,
+          "has_service": true,
+          "has_models": false,
+          "status": "invalid"
+        },
+        {
+          "name": "company",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "credit-analysis",
+          "has_index": true,
+          "has_service": true,
+          "has_models": false,
+          "status": "valid"
+        },
+        {
+          "name": "financing",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "pvlib-integration",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "quote",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "solar",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "solar-calculator",
+          "has_index": true,
+          "has_service": true,
+          "has_models": false,
+          "status": "valid"
+        },
+        {
+          "name": "unified-catalog",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        },
+        {
+          "name": "ysh-catalog",
+          "has_index": true,
+          "has_service": true,
+          "has_models": false,
+          "status": "valid"
+        },
+        {
+          "name": "ysh-pricing",
+          "has_index": true,
+          "has_service": true,
+          "has_models": true,
+          "status": "valid"
+        }
+      ],
+      "issues": [
+        "Módulo 'aneel-tariff' sem index.ts"
+      ]
+    },
+    "workflows": {
+      "status": "pass",
+      "workflows": [
+        {
+          "file": "src\\workflows\\media\\upload_and_attach_image.ts",
+          "has_create_workflow": true,
+          "has_create_step": true,
+          "has_export": true,
+          "status": "valid"
+        },
+        {
+          "file": "src\\workflows\\company\\workflows\\create-companies.ts",
+          "has_create_workflow": true,
+          "has_create_step": true,
+          "has_export": true,
+          "status": "valid"
+        },
+        {
+          "file": "src\\workflows\\company\\workflows\\delete-companies.ts",
+          "has_create_workflow": true,
+          "has_create_step": true,
+          "has_export": true,
+          "status": "valid"
+        },
+        {
+          "file": "src\\workflows\\company\\workflows\\index.ts",
+          "has_create_workflow": false,
+          "has_create_step": false,
+          "has_export": false,
+          "status": "valid"
+        },
+        {
+          "file": "src\\workflows\\company\\workflows\\update-companies.ts",
+          "has_create_workflow": true,
+          "has_create_step": true,
+          "has_export": false,
+          "status": "invalid"
+        },
+        {
+          "file": "src\\workflows\\approval\\workflows\\index.ts",
+          "has_create_workflow": false,
+          "has_create_step": false,
+          "has_export": false,
+          "status": "valid"
+        },
+        {
+          "file": "src\\workflows\\approval\\workflows\\update-approvals.ts",
+          "has_create_workflow": true,
+          "has_create_step": true,
+          "has_export": true,
+          "status": "valid"
+        }
+      ],
+      "issues": []
+    },
+    "api_routes": {
+      "status": "pass",
+      "routes": {
+        "store": [
+          {
+            "path": "approvals",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\approvals\\route.ts"
+          },
+          {
+            "path": "catalog",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\route.ts"
+          },
+          {
+            "path": "companies",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\companies\\route.ts"
+          },
+          {
+            "path": "credit-analyses",
+            "methods": [],
+            "file": "src\\api\\store\\credit-analyses\\route.ts"
+          },
+          {
+            "path": "credit_analyses",
+            "methods": [],
+            "file": "src\\api\\store\\credit_analyses\\route.ts"
+          },
+          {
+            "path": "events",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\events\\route.ts"
+          },
+          {
+            "path": "financing",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\store\\financing\\route.ts"
+          },
+          {
+            "path": "financing-applications",
+            "methods": [],
+            "file": "src\\api\\store\\financing-applications\\route.ts"
+          },
+          {
+            "path": "financing_applications",
+            "methods": [],
+            "file": "src\\api\\store\\financing_applications\\route.ts"
+          },
+          {
+            "path": "health",
+            "methods": [],
+            "file": "src\\api\\store\\health\\route.ts"
+          },
+          {
+            "path": "images",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\images\\route.ts"
+          },
+          {
+            "path": "internal-catalog",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\route.ts"
+          },
+          {
+            "path": "kits",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\kits\\route.ts"
+          },
+          {
+            "path": "leads",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\leads\\route.ts"
+          },
+          {
+            "path": "photogrammetry",
+            "methods": [],
+            "file": "src\\api\\store\\photogrammetry\\route.ts"
+          },
+          {
+            "path": "products",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products\\route.ts"
+          },
+          {
+            "path": "products.custom",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products.custom\\route.ts"
+          },
+          {
+            "path": "products_enhanced",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products_enhanced\\route.ts"
+          },
+          {
+            "path": "quotes",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\store\\quotes\\route.ts"
+          },
+          {
+            "path": "solar-detection",
+            "methods": [],
+            "file": "src\\api\\store\\solar-detection\\route.ts"
+          },
+          {
+            "path": "solar_calculations",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\store\\solar_calculations\\route.ts"
+          },
+          {
+            "path": "thermal-analysis",
+            "methods": [],
+            "file": "src\\api\\store\\thermal-analysis\\route.ts"
+          },
+          {
+            "path": "solar_calculations\\[id]",
+            "methods": [
+              "GET",
+              "PATCH",
+              "DELETE"
+            ],
+            "file": "src\\api\\store\\solar_calculations\\[id]\\route.ts"
+          },
+          {
+            "path": "solar\\calculator",
+            "methods": [],
+            "file": "src\\api\\store\\solar\\calculator\\route.ts"
+          },
+          {
+            "path": "rag\\ask-helio",
+            "methods": [],
+            "file": "src\\api\\store\\rag\\ask-helio\\route.ts"
+          },
+          {
+            "path": "rag\\recommend-products",
+            "methods": [],
+            "file": "src\\api\\store\\rag\\recommend-products\\route.ts"
+          },
+          {
+            "path": "rag\\search",
+            "methods": [],
+            "file": "src\\api\\store\\rag\\search\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\quotes\\[id]\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\accept",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\quotes\\[id]\\accept\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\messages",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\quotes\\[id]\\messages\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\preview",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\quotes\\[id]\\preview\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\reject",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\quotes\\[id]\\reject\\route.ts"
+          },
+          {
+            "path": "products_enhanced\\[handle]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products_enhanced\\[handle]\\route.ts"
+          },
+          {
+            "path": "products_enhanced\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products_enhanced\\[id]\\route.ts"
+          },
+          {
+            "path": "products.custom\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\products.custom\\[id]\\route.ts"
+          },
+          {
+            "path": "products\\by-sku\\[sku]",
+            "methods": [],
+            "file": "src\\api\\store\\products\\by-sku\\[sku]\\route.ts"
+          },
+          {
+            "path": "orders\\[id]\\fulfillment",
+            "methods": [],
+            "file": "src\\api\\store\\orders\\[id]\\fulfillment\\route.ts"
+          },
+          {
+            "path": "internal-catalog\\health",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\health\\route.ts"
+          },
+          {
+            "path": "internal-catalog\\preload",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\preload\\route.ts"
+          },
+          {
+            "path": "internal-catalog\\[category]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\[category]\\route.ts"
+          },
+          {
+            "path": "internal-catalog\\images\\[sku]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\images\\[sku]\\route.ts"
+          },
+          {
+            "path": "internal-catalog\\cdn\\[category]\\[filename]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal-catalog\\cdn\\[category]\\[filename]\\route.ts"
+          },
+          {
+            "path": "internal\\products\\[handle]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\internal\\products\\[handle]\\route.ts"
+          },
+          {
+            "path": "free-shipping\\prices",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\free-shipping\\prices\\route.ts"
+          },
+          {
+            "path": "financing\\calculate",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\financing\\calculate\\route.ts"
+          },
+          {
+            "path": "companies\\[id]",
+            "methods": [
+              "GET",
+              "POST",
+              "DELETE"
+            ],
+            "file": "src\\api\\store\\companies\\[id]\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\approval-settings",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\companies\\[id]\\approval-settings\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\employees",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\store\\companies\\[id]\\employees\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\invite-employee",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\companies\\[id]\\invite-employee\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\employees\\[employeeId]",
+            "methods": [
+              "GET",
+              "POST",
+              "DELETE"
+            ],
+            "file": "src\\api\\store\\companies\\[id]\\employees\\[employeeId]\\route.ts"
+          },
+          {
+            "path": "catalog\\kits",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\kits\\route.ts"
+          },
+          {
+            "path": "catalog\\manufacturers",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\manufacturers\\route.ts"
+          },
+          {
+            "path": "catalog\\search",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\search\\route.ts"
+          },
+          {
+            "path": "catalog\\skus",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\skus\\route.ts"
+          },
+          {
+            "path": "catalog\\[category]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\[category]\\route.ts"
+          },
+          {
+            "path": "catalog\\[category]\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\[category]\\[id]\\route.ts"
+          },
+          {
+            "path": "catalog\\skus\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\skus\\[id]\\route.ts"
+          },
+          {
+            "path": "catalog\\skus\\[id]\\compare",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\skus\\[id]\\compare\\route.ts"
+          },
+          {
+            "path": "catalog\\kits\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\store\\catalog\\kits\\[id]\\route.ts"
+          },
+          {
+            "path": "carts\\[id]\\approvals",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\carts\\[id]\\approvals\\route.ts"
+          },
+          {
+            "path": "carts\\[id]\\line-items\\bulk",
+            "methods": [],
+            "file": "src\\api\\store\\carts\\[id]\\line-items\\bulk\\route.ts"
+          },
+          {
+            "path": "approvals\\[id]",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\store\\approvals\\[id]\\route.ts"
+          }
+        ],
+        "admin": [
+          {
+            "path": "approvals",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\admin\\approvals\\route.ts"
+          },
+          {
+            "path": "companies",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\companies\\route.ts"
+          },
+          {
+            "path": "financing",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\financing\\route.ts"
+          },
+          {
+            "path": "import-catalog",
+            "methods": [],
+            "file": "src\\api\\admin\\import-catalog\\route.ts"
+          },
+          {
+            "path": "quotes",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\admin\\quotes\\route.ts"
+          },
+          {
+            "path": "rag\\seed-collections",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\rag\\seed-collections\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\admin\\quotes\\[id]\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\messages",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\quotes\\[id]\\messages\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\reject",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\quotes\\[id]\\reject\\route.ts"
+          },
+          {
+            "path": "quotes\\[id]\\send",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\quotes\\[id]\\send\\route.ts"
+          },
+          {
+            "path": "internal\\products",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\internal\\products\\route.ts"
+          },
+          {
+            "path": "internal\\products\\[id]\\images",
+            "methods": [
+              "POST",
+              "PATCH",
+              "DELETE"
+            ],
+            "file": "src\\api\\admin\\internal\\products\\[id]\\images\\route.ts"
+          },
+          {
+            "path": "internal\\media\\presign",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\internal\\media\\presign\\route.ts"
+          },
+          {
+            "path": "financing\\[id]",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\financing\\[id]\\route.ts"
+          },
+          {
+            "path": "financing\\companies\\[company_id]",
+            "methods": [
+              "GET"
+            ],
+            "file": "src\\api\\admin\\financing\\companies\\[company_id]\\route.ts"
+          },
+          {
+            "path": "companies\\[id]",
+            "methods": [
+              "GET",
+              "POST",
+              "DELETE"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\approval-settings",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\approval-settings\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\customer-group",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\customer-group\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\employees",
+            "methods": [
+              "GET",
+              "POST"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\employees\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\employees\\[employeeId]",
+            "methods": [
+              "GET",
+              "POST",
+              "DELETE"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\employees\\[employeeId]\\route.ts"
+          },
+          {
+            "path": "companies\\[id]\\customer-group\\[customerGroupId]",
+            "methods": [
+              "DELETE"
+            ],
+            "file": "src\\api\\admin\\companies\\[id]\\customer-group\\[customerGroupId]\\route.ts"
+          },
+          {
+            "path": "approvals\\[id]",
+            "methods": [
+              "POST"
+            ],
+            "file": "src\\api\\admin\\approvals\\[id]\\route.ts"
+          }
+        ]
+      },
+      "issues": []
+    },
+    "links": {
+      "status": "pass",
+      "links": [],
+      "issues": []
+    },
+    "config": {
+      "status": "pass",
+      "checks": [
+        {
+          "name": "has_define_config",
+          "passed": true
+        },
+        {
+          "name": "has_modules",
+          "passed": true
+        },
+        {
+          "name": "has_project_config",
+          "passed": true
+        },
+        {
+          "name": "has_feature_flags",
+          "passed": false
+        }
+      ]
+    },
+    "imports": {
+      "status": "pass",
+      "issues": []
+    },
+    "naming": {
+      "status": "pass",
+      "issues": []
+    }
+  },
+  "issues_count": 47,
+  "issues": [
+    {
+      "type": "module",
+      "severity": "error",
+      "module": "aneel-tariff",
+      "message": "Módulo 'aneel-tariff' sem index.ts",
+      "fix": "Criar C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\backend\\src\\modules\\aneel-tariff/index.ts com exportação do módulo"
+    },
+    {
+      "type": "workflow",
+      "severity": "error",
+      "file": "src\\workflows\\company\\workflows\\update-companies.ts",
+      "message": "Workflow sem export",
+      "fix": "Adicionar export const ou export default"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\credit-analyses\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\credit_analyses\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\financing-applications\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\financing_applications\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\health\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\photogrammetry\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\solar-detection\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\thermal-analysis\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\solar\\calculator\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\rag\\ask-helio\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\rag\\recommend-products\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\rag\\search\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\products\\by-sku\\[sku]\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\orders\\[id]\\fulfillment\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\store\\carts\\[id]\\line-items\\bulk\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "api_route",
+      "severity": "warning",
+      "file": "src\\api\\admin\\import-catalog\\route.ts",
+      "message": "Route sem métodos HTTP exportados"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\utils\\solar-cv-middleware.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\admin\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\approvals\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\carts\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\catalog\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\companies\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\free-shipping\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\health\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\internal-catalog\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\kits\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\photogrammetry\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\products.custom\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\products_enhanced\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\quotes\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\solar-detection\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\thermal-analysis\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\solar\\calculator\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\store\\products\\by-sku\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\admin\\approvals\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\admin\\companies\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "import",
+      "severity": "warning",
+      "file": "src\\api\\admin\\quotes\\middlewares.ts",
+      "message": "Import deprecado encontrado",
+      "fix": "Substituir por @medusajs/framework"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\workflows\\media\\upload_and_attach_image.ts",
+      "message": "Nome não segue convenção kebab-case: upload_and_attach_image.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\types\\medusa-extensions.d.ts",
+      "message": "Nome não segue convenção kebab-case: medusa-extensions.d.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\types\\medusa-http.d.ts",
+      "message": "Nome não segue convenção kebab-case: medusa-http.d.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\utils\\__tests__\\api-response.unit.spec.ts",
+      "message": "Nome não segue convenção kebab-case: api-response.unit.spec.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\utils\\__tests__\\circuit-breaker.unit.spec.ts",
+      "message": "Nome não segue convenção kebab-case: circuit-breaker.unit.spec.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    },
+    {
+      "type": "naming",
+      "severity": "info",
+      "file": "src\\utils\\__tests__\\fallback-wrapper.unit.spec.ts",
+      "message": "Nome não segue convenção kebab-case: fallback-wrapper.unit.spec.ts",
+      "expected": "^[a-z-]+\\.ts$"
+    }
+  ]
+}

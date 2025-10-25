@@ -1,0 +1,138 @@
+[
+    {
+        "name": "quote_requested",
+        "description": "Usuário solicita criação de cotação a partir de itens",
+        "trigger": "CTA 'Pedir cotação' em PDP/Lista",
+        "payload": {
+            "company_id": "string",
+            "items": [
+                {
+                    "sku": "string",
+                    "quantity": "number",
+                    "estimated_price": "number"
+                }
+            ],
+            "est_value": "number",
+            "group_id": "string",
+            "channel": "ysh-b2b|ysh-b2c",
+            "user_id": "string"
+        }
+    },
+    {
+        "name": "quote_approved",
+        "description": "Aprovação de cotação por alçada da empresa",
+        "trigger": "Clique em 'Aprovar' na cotação",
+        "payload": {
+            "approver_id": "string",
+            "quote_id": "string",
+            "policy": "string",
+            "company_id": "string"
+        }
+    },
+    {
+        "name": "quote_rejected",
+        "description": "Rejeição de cotação com motivo",
+        "trigger": "Clique em 'Rejeitar' na cotação",
+        "payload": {
+            "approver_id": "string",
+            "quote_id": "string",
+            "reason": "string",
+            "company_id": "string"
+        }
+    },
+    {
+        "name": "company_invite_sent",
+        "description": "Convite enviado para funcionário da empresa",
+        "trigger": "Ação de convidar no módulo Empresa",
+        "payload": {
+            "company_id": "string",
+            "email": "string",
+            "role": "string",
+            "invited_by": "string"
+        }
+    },
+    {
+        "name": "bulk_add_completed",
+        "description": "Importação concluída no Quick/Bulk Order",
+        "trigger": "Upload CSV ok ou adição manual em lote",
+        "payload": {
+            "skus": [
+                "string"
+            ],
+            "count": "number",
+            "list_id": "string",
+            "channel": "string",
+            "user_id": "string"
+        }
+    },
+    {
+        "name": "price_list_applied",
+        "description": "Price list aplicada durante revisão comercial ou precificação",
+        "trigger": "Atualização de preços da cotação/carrinho",
+        "payload": {
+            "price_list_id": "string",
+            "group_id": "string",
+            "channel": "string",
+            "context": "quote|cart"
+        }
+    },
+    {
+        "name": "checkout_step_viewed",
+        "description": "Usuário visualiza etapa do checkout",
+        "trigger": "Carregamento de página/etapa do checkout",
+        "payload": {
+            "step_name": "start|identificacao|enderecos|pagamento|revisao|success"
+        }
+    },
+    {
+        "name": "payment_selected",
+        "description": "Método de pagamento escolhido",
+        "trigger": "Seleção do método na etapa de pagamento",
+        "payload": {
+            "method": "pix|boleto|cartao|bnpl|financiamento",
+            "order_context": "b2c|b2b"
+        }
+    },
+    {
+        "name": "order_placed",
+        "description": "Pedido confirmado",
+        "trigger": "Conclusão do checkout",
+        "payload": {
+            "order_id": "string",
+            "value": "number",
+            "channel": "string",
+            "company_id": "string|null"
+        }
+    },
+    {
+        "name": "video_played",
+        "description": "Vídeo educacional reproduzido por classe consumidora",
+        "trigger": "Clique no thumbnail do vídeo",
+        "payload": {
+            "video_id": "string",
+            "classe": "residencial-b1|rural-b2|comercial-b3|condominios|industria",
+            "title": "string",
+            "user_id": "string|null"
+        }
+    },
+    {
+        "name": "video_closed",
+        "description": "Vídeo fechado pelo usuário",
+        "trigger": "Clique em fechar ou tecla ESC",
+        "payload": {
+            "video_id": "string",
+            "classe": "string",
+            "watch_duration": "number|null"
+        }
+    },
+    {
+        "name": "solutions_class_clicked",
+        "description": "Card de classe consumidora clicado na home",
+        "trigger": "Clique em card de classe",
+        "payload": {
+            "id": "string",
+            "href": "string",
+            "classe": "string"
+        }
+    }
+]

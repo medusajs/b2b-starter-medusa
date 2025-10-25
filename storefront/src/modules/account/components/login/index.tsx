@@ -1,8 +1,8 @@
 import { login } from "@/lib/data/customer"
-import { LOGIN_VIEW } from "@/modules/account/templates/login-template"
-import ErrorMessage from "@/modules/checkout/components/error-message"
-import { SubmitButton } from "@/modules/checkout/components/submit-button"
-import Button from "@/modules/common/components/button"
+import { LOGIN_VIEW } from "../../templates/login-template"
+import ErrorMessage from "@/modules/purchase/checkout/components/error-message"
+import { SubmitButton } from "@/modules/purchase/checkout/components/submit-button"
+import { YelloSolarButton } from "@ysh/ui"
 import Input from "@/modules/common/components/input"
 import { Checkbox, Text } from "@medusajs/ui"
 import { useActionState } from "react"
@@ -20,23 +20,23 @@ const Login = ({ setCurrentView }: Props) => {
       data-testid="login-page"
     >
       <Text className="text-4xl text-neutral-950 text-left">
-        Log in for faster
+        Faça login para agilizar o
         <br />
         checkout.
       </Text>
       <form className="w-full" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="Email"
+            label="E-mail"
             name="email"
             type="email"
-            title="Enter a valid email address."
+            title="Digite um e-mail válido."
             autoComplete="email"
             required
             data-testid="email-input"
           />
           <Input
-            label="Password"
+            label="Senha"
             name="password"
             type="password"
             autoComplete="current-password"
@@ -47,23 +47,23 @@ const Login = ({ setCurrentView }: Props) => {
           <div className="flex items-center gap-2">
             <Checkbox name="remember_me" data-testid="remember-me-checkbox" />
             <Text className="text-neutral-950 text-base-regular">
-              Remember me
+              Lembrar de mim
             </Text>
           </div>
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
         <div className="flex flex-col gap-2">
           <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
-            Log in
+            Entrar
           </SubmitButton>
-          <Button
-            variant="secondary"
+          <YelloSolarButton
+            variant="outline"
             onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
             className="w-full h-10"
             data-testid="register-button"
           >
-            Register
-          </Button>
+            Registrar
+          </YelloSolarButton>
         </div>
       </form>
     </div>

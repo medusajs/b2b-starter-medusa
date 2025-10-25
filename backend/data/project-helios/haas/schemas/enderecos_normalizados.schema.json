@@ -1,0 +1,194 @@
+{
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ysh.dev/schemas/enderecos_normalizados.schema.json",
+      "title": "Schema de Validação - Endereços Normalizados",
+      "description": "Schema JSON para validação de dados de endereço normalizados conforme mapeamento de dados para homologação solar",
+      "type": "object",
+      "required": [
+            "version",
+            "generated_at",
+            "total_cpfs",
+            "enderecos"
+      ],
+      "properties": {
+            "version": {
+                  "type": "string",
+                  "description": "Versão do formato de dados",
+                  "pattern": "^\\d+\\.\\d+$"
+            },
+            "generated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp de geração dos dados"
+            },
+            "total_cpfs": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Total de CPFs processados"
+            },
+            "enderecos": {
+                  "type": "object",
+                  "description": "Dicionário de endereços indexados por CPF",
+                  "patternProperties": {
+                        "^\\d{11}$": {
+                              "type": "object",
+                              "description": "Dados de endereço para um CPF específico",
+                              "properties": {
+                                    "enderecos": {
+                                          "type": "array",
+                                          "description": "Lista de endereços associados ao CPF",
+                                          "items": {
+                                                "type": "object",
+                                                "required": [
+                                                      "fonte",
+                                                      "confirmado"
+                                                ],
+                                                "properties": {
+                                                      "logradouro": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Nome da rua/avenida/travessa"
+                                                      },
+                                                      "numero": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Número do endereço"
+                                                      },
+                                                      "complemento": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Complemento do endereço (apartamento, bloco, etc.)"
+                                                      },
+                                                      "bairro": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Nome do bairro"
+                                                      },
+                                                      "cidade": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Nome da cidade"
+                                                      },
+                                                      "uf": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Sigla do estado (UF)",
+                                                            "pattern": "^[A-Z]{2}$"
+                                                      },
+                                                      "cep": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Código postal (CEP) brasileiro",
+                                                            "pattern": "^\\d{8}$"
+                                                      },
+                                                      "pais": {
+                                                            "type": "string",
+                                                            "description": "País (padrão: Brasil)",
+                                                            "default": "Brasil",
+                                                            "enum": [
+                                                                  "Brasil"
+                                                            ]
+                                                      },
+                                                      "fonte": {
+                                                            "type": "string",
+                                                            "description": "Fonte dos dados",
+                                                            "enum": [
+                                                                  "pf_quod-cadastro",
+                                                                  "pf_quod-autentica",
+                                                                  "dataset_telefones"
+                                                            ]
+                                                      },
+                                                      "confirmado": {
+                                                            "type": "boolean",
+                                                            "description": "Indica se o endereço foi confirmado"
+                                                      },
+                                                      "score_qualidade": {
+                                                            "type": "number",
+                                                            "description": "Score de qualidade do endereço (0.0 a 1.0)",
+                                                            "minimum": 0.0,
+                                                            "maximum": 1.0
+                                                      },
+                                                      "tipo_endereco": {
+                                                            "type": "string",
+                                                            "description": "Tipo de endereço",
+                                                            "enum": [
+                                                                  "residencial",
+                                                                  "comercial",
+                                                                  "correspondencia",
+                                                                  "desconhecido"
+                                                            ]
+                                                      },
+                                                      "data_cadastro": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "format": "date",
+                                                            "description": "Data de cadastro do endereço"
+                                                      },
+                                                      "ibge_codigo": {
+                                                            "type": [
+                                                                  "string",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Código IBGE do município",
+                                                            "pattern": "^\\d{7}$"
+                                                      },
+                                                      "coordenadas": {
+                                                            "type": [
+                                                                  "object",
+                                                                  "null"
+                                                            ],
+                                                            "description": "Coordenadas geográficas do endereço",
+                                                            "properties": {
+                                                                  "latitude": {
+                                                                        "type": "number",
+                                                                        "minimum": -90,
+                                                                        "maximum": 90
+                                                                  },
+                                                                  "longitude": {
+                                                                        "type": "number",
+                                                                        "minimum": -180,
+                                                                        "maximum": 180
+                                                                  },
+                                                                  "fonte": {
+                                                                        "type": "string",
+                                                                        "description": "Fonte das coordenadas",
+                                                                        "enum": [
+                                                                              "geocoding",
+                                                                              "manual",
+                                                                              "estimado"
+                                                                        ]
+                                                                  }
+                                                            },
+                                                            "required": [
+                                                                  "latitude",
+                                                                  "longitude"
+                                                            ]
+                                                      }
+                                                }
+                                          }
+                                    }
+                              },
+                              "additionalProperties": false
+                        }
+                  },
+                  "additionalProperties": false
+            }
+      },
+      "additionalProperties": false
+}

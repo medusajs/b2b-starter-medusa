@@ -1,0 +1,40 @@
+[tool.dagster]
+module_name = "definitions"
+code_location_name = "ysh_data_platform"
+
+[project]
+name = "ysh-data-platform"
+version = "0.1.0"
+description = "YSH Data Platform com Pathway + Dagster + Qdrant"
+
+dependencies = [
+    "dagster>=1.8.0",
+    "dagster-postgres>=0.24.0",
+    "psycopg2-binary>=2.9.9",
+    "qdrant-client>=1.7.0",
+    "pathway>=0.15.0",
+    "openai>=1.0.0",
+    "boto3>=1.34.0",
+    "pydantic>=2.0.0",
+]
+
+[tool.poetry]
+name = "ysh-data-platform"
+version = "0.1.0"
+description = "YSH Data Platform com Pathway + Dagster + Qdrant"
+authors = ["YSH Team <ysh@yellowsolarhub.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dagster = "^1.8.0"
+dagster-postgres = "^0.24.0"
+psycopg2-binary = "^2.9.9"
+qdrant-client = "^1.7.0"
+pathway = "^0.15.0"
+openai = "^1.0.0"
+boto3 = "^1.34.0"
+pydantic = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

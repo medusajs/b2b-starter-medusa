@@ -1,0 +1,125 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Medusa.js Structure Product Schema",
+    "description": "Schema for a structure product in Medusa.js, following the Product and Inventory Module structure.",
+    "type": "object",
+    "properties": {
+        "product": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Title of the structure, e.g., 'Estrutura Solar Group para Telhado Cerâmico'."
+                },
+                "subtitle": {
+                    "type": "string",
+                    "description": "Short description of the structure."
+                },
+                "handle": {
+                    "type": "string",
+                    "description": "URL-friendly handle for the product."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Detailed description of the structure."
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "published",
+                        "draft",
+                        "archived"
+                    ],
+                    "default": "published"
+                },
+                "variants": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "description": "Title of the variant, e.g., 'Kit para 4 Painéis'."
+                            },
+                            "sku": {
+                                "type": "string",
+                                "description": "Stock Keeping Unit, e.g., 'SG-CER-4P'."
+                            },
+                            "prices": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "currency_code": {
+                                            "type": "string",
+                                            "default": "BRL"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "description": "Price in cents, e.g., 18900 for R$ 189,00."
+                                        }
+                                    },
+                                    "required": [
+                                        "currency_code",
+                                        "amount"
+                                    ]
+                                }
+                            },
+                            "inventory_quantity": {
+                                "type": "integer",
+                                "description": "Available quantity for this variant."
+                            }
+                        },
+                        "required": [
+                            "title",
+                            "sku",
+                            "prices"
+                        ]
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "manufacturer": {
+                            "type": "string"
+                        },
+                        "material": {
+                            "type": "string",
+                            "enum": [
+                                "Alumínio",
+                                "Aço Galvanizado"
+                            ]
+                        },
+                        "roof_type": {
+                            "type": "string",
+                            "enum": [
+                                "Cerâmico",
+                                "Metálico",
+                                "Fibrocimento",
+                                "Laje",
+                                "Solo"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "title",
+                "handle",
+                "variants"
+            ]
+        }
+    }
+}

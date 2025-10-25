@@ -1,0 +1,167 @@
+[
+  {
+    "id": "fortlev_stringboxes_ISB00018",
+    "name": "STRING BOX CLAMPER 1040V 32A 3E/3S",
+    "manufacturer": "Clamper",
+    "category": "stringboxes",
+    "price": "R$ 1.685,45",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX CLAMPER 1040V 32A 3E/3S",
+    "pricing": {
+      "price": 1685.45,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00016",
+    "name": "STRING BOX 1040VDC 5E/1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 1.666,67",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 5E/1S",
+    "pricing": {
+      "price": 1666.67,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00015",
+    "name": "STRING BOX 1040VDC 3E1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 885,42",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 3E1S",
+    "pricing": {
+      "price": 885.42,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00017",
+    "name": "STRING BOX 1040VDC 14E/1S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 7.952,35",
+    "image": "https://fortlevsolar.app/produto-avulso?familia=dependency",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040VDC 14E/1S",
+    "pricing": {
+      "price": 7952.35,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00014",
+    "name": "STRING BOX 1040 6E/6S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 2.643,88",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66f16d6de17cfb2151922a1a/ISB00004.webp",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1040 6E/6S",
+    "pricing": {
+      "price": 2643.88,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00012",
+    "name": "COMBINERBOX 12E-12S 1010VDC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 4.340,66",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c93e/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINERBOX 12E-12S 1010VDC",
+    "pricing": {
+      "price": 4340.66,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00011",
+    "name": "COMBINERBOX 6E-6S 1100DC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 2.356,08",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c93d/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINERBOX 6E-6S 1100DC",
+    "pricing": {
+      "price": 2356.08,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00007",
+    "name": "COMBINER BOX 1500VCC 8 IN DB SUNGROW",
+    "manufacturer": "Sungrow",
+    "category": "stringboxes",
+    "price": "R$ 15.199,68",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c939/ISB00007.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "COMBINER BOX 1500VCC 8 IN DB SUNGROW",
+    "pricing": {
+      "price": 15199.68,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00006",
+    "name": "STRING BOX CLAMPER SB1040V 32A 2E/2S",
+    "manufacturer": "Clamper",
+    "category": "stringboxes",
+    "price": "R$ 854,69",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c938/ISB00006.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX CLAMPER SB1040V 32A 2E/2S",
+    "pricing": {
+      "price": 854.69,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00005",
+    "name": "PVS-16MH - COMBINER BOX - 1500VDC",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 15.767,97",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c937/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PVS-16MH - COMBINER BOX - 1500VDC",
+    "pricing": {
+      "price": 15767.97,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_stringboxes_ISB00004",
+    "name": "STRING BOX 1000 3-4E/2S",
+    "manufacturer": "Unknown",
+    "category": "stringboxes",
+    "price": "R$ 1.187,90",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c936/ISB00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "STRING BOX 1000 3-4E/2S",
+    "pricing": {
+      "price": 1187.9,
+      "currency": "BRL"
+    }
+  }
+]

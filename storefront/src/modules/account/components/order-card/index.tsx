@@ -68,7 +68,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
             data-testid="order-created-at"
           >
             <CalendarIcon className="inline-block mr-1" />
-            {createdAt.toLocaleDateString("en-GB", {
+            {createdAt.toLocaleDateString("pt-BR", {
               year: "numeric",
               month: "numeric",
               day: "numeric",
@@ -78,6 +78,13 @@ const OrderCard = ({ order }: OrderCardProps) => {
           <div className="flex items-center text-small-regular">
             <DocumentIcon className="inline-block mr-1" />
             <span data-testid="order-display-id">#{order.display_id}</span>
+          </div>
+          {/* Solar Project Status */}
+          <div className="flex items-center text-small-regular">
+            <span className="inline-block w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+            <span data-testid="order-solar-status">
+              {(order as any).solar_status || "Engenharia"}
+            </span>
           </div>
         </div>
 
@@ -90,9 +97,8 @@ const OrderCard = ({ order }: OrderCardProps) => {
               })}
             </span>
             {"·"}
-            <span className="px-2">{`${numberOfLines} ${
-              numberOfLines > 1 ? "items" : "item"
-            }`}</span>
+            <span className="px-2">{`${numberOfLines} ${numberOfLines > 1 ? "itens" : "item"
+              }`}</span>
           </div>
 
           <div className="flex items-center gap-x-2 pl-4">
@@ -109,7 +115,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                 variant="secondary"
                 className="rounded-full text-xs"
               >
-                Details
+                Detalhes
               </Button>
             </LocalizedClientLink>
           </div>

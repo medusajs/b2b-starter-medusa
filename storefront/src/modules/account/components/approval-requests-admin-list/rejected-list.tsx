@@ -1,5 +1,5 @@
 import { listApprovals } from "@/lib/data/approvals"
-import ApprovalCard from "@/modules/account/components/approval-card"
+import ApprovalCard from "../approval-card"
 import ResourcePagination from "@/modules/account/components/resource-pagination"
 import { ApprovalStatusType } from "@/types/approval"
 import { Text } from "@medusajs/ui"
@@ -45,5 +45,5 @@ export default async function RejectedApprovalRequestsAdminList({
     )
   }
 
-  return <Text>No requests</Text>
+  return <Text>Nenhuma solicitação</Text>
 }

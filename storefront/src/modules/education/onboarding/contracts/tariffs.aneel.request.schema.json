@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "tariffs.aneel.request",
+  "type": "object",
+  "required": ["cep"],
+  "properties": {
+    "cep": {"type": "string"},
+    "classe": {"type": "string"},
+    "distribuidora": {"type": "string"}
+  }
+}
+

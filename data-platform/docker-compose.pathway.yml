@@ -1,0 +1,213 @@
+# ==========================================
+# Docker Compose — Pathway Streaming Engine
+# Para desenvolvimento local
+# ==========================================
+
+version: "3.8"
+
+services:
+  # Kafka-compatible (Redpanda) — performático para dev
+  kafka:
+    image: docker.redpanda.com/redpandadata/redpanda:latest
+    container_name: ysh-kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092" # Kafka API
+      - "9644:9644" # Admin API
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - 1G
+      - --reserve-memory
+      - 0M
+      - --node-id
+      - "0"
+      - --check=false
+      - --kafka-addr
+      - "0.0.0.0:9092"
+      - --advertise-kafka-addr
+      - "kafka:9092"
+    networks:
+      - ysh-data-platform
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9644/v1/status/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MinIO (S3-compatible local storage)
+  minio:
+    image: minio/minio:latest
+    container_name: ysh-minio
+    restart: unless-stopped
+    ports:
+      - "9001:9000" # API
+      - "9002:9001" # Console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    networks:
+      - ysh-data-platform
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Qdrant (Vector Store FOSS)
+  qdrant:
+    image: qdrant/qdrant:v1.7.0
+    container_name: ysh-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # HTTP API
+      - "6334:6334" # gRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - ysh-data-platform
+
+  # Ollama (Local LLM - OSS Fallback)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ysh-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434" # API
+    volumes:
+      - ollama_models:/root/.ollama
+    networks:
+      - ysh-data-platform
+    environment:
+      OLLAMA_HOST: 0.0.0.0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # Pull models on startup
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        ollama serve &
+        sleep 10
+        ollama pull qwen2.5:20b
+        ollama pull nomic-embed-text
+        wait
+
+  # Pathway — Catalog ETL (exemplo de pipeline rodando)
+  pathway-catalog:
+    build:
+      context: ./pathway
+      dockerfile: Dockerfile
+    container_name: ysh-pathway-catalog
+    restart: unless-stopped
+    environment:
+      # Medusa DB
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: medusa_password
+      # S3/MinIO
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: minioadmin
+      S3_SECRET_KEY: minioadmin
+      S3_BUCKET: ysh-catalog
+      # Kafka
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
+      # OpenAI (primary)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama (fallback)
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:20b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      # LLM Strategy (openai, ollama, hybrid)
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
+      # Pipeline config
+      PIPELINE_NAME: catalog_etl
+      PIPELINE_MODE: streaming # ou 'batch'
+    volumes:
+      - ./pathway:/app
+    networks:
+      - ysh-data-platform
+      - ysh-b2b-network
+    depends_on:
+      kafka:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    command: python -m pipelines.catalog_etl
+
+  # Pathway — RAG Streaming (real-time)
+  pathway-rag:
+    build:
+      context: ./pathway
+      dockerfile: Dockerfile
+    container_name: ysh-pathway-rag
+    restart: unless-stopped
+    environment:
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: minioadmin
+      S3_SECRET_KEY: minioadmin
+      S3_BUCKET: ysh-docs
+      # Qdrant (Vector Store FOSS)
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-}
+      QDRANT_COLLECTION: ysh-rag
+      # OpenAI (primary)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # Ollama (fallback)
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL_CHAT: qwen2.5:20b
+      OLLAMA_MODEL_EMBEDDINGS: nomic-embed-text
+      LLM_PROVIDER: ${LLM_PROVIDER:-hybrid}
+      PIPELINE_NAME: rag_streaming
+      PIPELINE_MODE: streaming
+    volumes:
+      - ./pathway:/app
+    networks:
+      - ysh-data-platform
+    depends_on:
+      minio:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+    command: python -m pipelines.rag_streaming
+
+volumes:
+  kafka_data:
+    driver: local
+  minio_data:
+    driver: local
+  qdrant_data:
+    driver: local
+  ollama_models:
+    driver: local
+
+networks:
+  ysh-data-platform:
+    driver: bridge
+  ysh-b2b-network:
+    external: true

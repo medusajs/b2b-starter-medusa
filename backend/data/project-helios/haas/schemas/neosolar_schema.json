@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NeoSolar Catalog Schema",
+  "description": "Schema for the NeoSolar product catalog",
+  "type": "object",
+  "required": ["empresa", "catalogo"],
+  "properties": {
+    "empresa": {
+      "type": "object",
+      "required": ["nome", "slogan", "website", "contato", "endereco", "certificacoes", "solucoes"],
+      "properties": {
+        "nome": { "type": "string" },
+        "slogan": { "type": "string" },
+        "website": { "type": "string" },
+        "portalB2B": { "type": "string" },
+        "contato": {
+          "type": "object",
+          "required": ["telefone", "whatsapp", "sac"],
+          "properties": {
+            "telefone": { "type": "string" },
+            "whatsapp": { "type": "string" },
+            "sac": { "type": "string" }
+          }
+        },
+        "endereco": {
+          "type": "object",
+          "required": ["logradouro", "bairro", "cep", "cidade", "estado", "pais"],
+          "properties": {
+            "logradouro": { "type": "string" },
+            "bairro": { "type": "string" },
+            "cep": { "type": "string" },
+            "cidade": { "type": "string" },
+            "estado": { "type": "string" },
+            "pais": { "type": "string" }
+          }
+        },
+        "certificacoes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "solucoes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "catalogo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["categoria"],
+        "properties": {
+          "categoria": { "type": "string" },
+          "descricao": { "type": "string" },
+          "faixaDePotencia": { "type": "string" },
+          "tensaoDeEntrada": { "type": "string" },
+          "tensaoDeSaida": { "type": "string" },
+          "garantia": { "type": "string" },
+          "faixaDeTensao": { "type": "string" },
+          "faixaDeCorrente": { "type": "string" },
+          "potencias": { "type": "string" },
+          "tiposDeBomba": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "marcas": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "modelos": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "aplicacoes": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "subcategorias": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nome": { "type": "string" },
+                "linha": { "type": "string" },
+                "descricao": { "type": "string" },
+                "modelos": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "caracteristicas": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "aplicacoes": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "tipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "tipo": { "type": "string" },
+                      "modelos": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

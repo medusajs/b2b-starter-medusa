@@ -1,0 +1,359 @@
+# Docker Compose Otimizado - Medusa 2.10.3 Free Tier Development
+# ======================================================================
+# Este arquivo otimiza o ambiente de desenvolvimento para simular
+# os limites do AWS Free Tier, garantindo que o código funcione bem
+# em produção com recursos limitados (db.t3.micro, cache.t4g.micro)
+# ======================================================================
+
+services:
+  # ==========================================
+  # PostgreSQL 16 - Simulando db.t3.micro
+  # AWS: 1 vCPU, 1GB RAM, 20GB SSD
+  # ==========================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-medusa_db}
+      # Otimizações para 1GB RAM (db.t3.micro)
+      POSTGRES_SHARED_BUFFERS: "256MB" # 25% de 1GB
+      POSTGRES_EFFECTIVE_CACHE_SIZE: "768MB" # 75% de 1GB
+      POSTGRES_WORK_MEM: "4MB"
+      POSTGRES_MAINTENANCE_WORK_MEM: "64MB"
+      POSTGRES_MAX_CONNECTIONS: "100"
+      # Query optimizer
+      POSTGRES_RANDOM_PAGE_COST: "1.1"
+      POSTGRES_EFFECTIVE_IO_CONCURRENCY: "200"
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../backend/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - ysh-network
+    # Limites simulando db.t3.micro (1 vCPU, 1GB RAM)
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-medusa_db}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ==========================================
+  # Redis 7 - Simulando cache.t4g.micro
+  # AWS: 2 vCPU ARM, 555MB RAM
+  # ==========================================
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis-dev
+    restart: unless-stopped
+    command:
+      - redis-server
+      - --maxmemory
+      - "512mb" # Simular cache.t4g.micro (555MB)
+      - --maxmemory-policy
+      - allkeys-lru # Evict keys usando LRU
+      - --appendonly
+      - "yes" # Persistence
+      - --appendfsync
+      - everysec # Sync a cada segundo
+      - --save
+      - "900 1" # Snapshot: 1 mudança em 15min
+      - --save
+      - "300 10" # Snapshot: 10 mudanças em 5min
+      - --save
+      - "60 10000" # Snapshot: 10k mudanças em 1min
+      - --tcp-keepalive
+      - "300"
+      - --timeout
+      - "0"
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ysh-network
+    # Limites simulando cache.t4g.micro (2 vCPU ARM, 555MB)
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 555M
+        reservations:
+          cpus: "0.5"
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # ==========================================
+  # Medusa Backend - Simulando Fargate 0.5 vCPU, 1GB
+  # ==========================================
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_VERSION: "20"
+    container_name: ysh-backend-dev
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      # Database
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-medusa_db}
+      REDIS_URL: redis://redis:6379
+
+      # Node.js optimizations para 1GB RAM
+      NODE_ENV: ${NODE_ENV:-development}
+      NODE_OPTIONS: "--max-old-space-size=768" # 75% de 1GB
+
+      # Medusa
+      PORT: 9000
+      JWT_SECRET: ${JWT_SECRET:-supersecret}
+      COOKIE_SECRET: ${COOKIE_SECRET:-supersecret}
+
+      # CORS
+      STORE_CORS: ${STORE_CORS:-http://localhost:8000,http://localhost:7001}
+      ADMIN_CORS: ${ADMIN_CORS:-http://localhost:7001,http://localhost:9000}
+      AUTH_CORS: ${AUTH_CORS:-http://localhost:9000}
+
+      # YSH Modules
+      YSH_CATALOG_PATH: ${YSH_CATALOG_PATH:-./data/catalog}
+
+      # S3 (opcional em dev, obrigatório em prod)
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID:-}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY:-}
+    ports:
+      - "${BACKEND_PORT:-9000}:9000"
+    volumes:
+      - ../backend:/app
+      - /app/node_modules
+      - ../backend/uploads:/app/uploads
+      - ../backend/data:/app/data
+    networks:
+      - ysh-network
+    # Limites simulando Fargate: 0.5 vCPU, 1GB RAM
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1024M
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:9000/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ==========================================
+  # Storefront Next.js 15 - Simulando Fargate 0.25 vCPU, 512MB
+  # ==========================================
+  storefront:
+    build:
+      context: ../storefront
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_VERSION: "20"
+    container_name: ysh-storefront-dev
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      NODE_OPTIONS: "--max-old-space-size=384" # 75% de 512MB
+      PORT: 8000
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-}
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:8000}
+      NEXT_PUBLIC_DEFAULT_REGION: ${NEXT_PUBLIC_DEFAULT_REGION:-br}
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET:-supersecret}
+    ports:
+      - "${STOREFRONT_PORT:-8000}:8000"
+    volumes:
+      - ../storefront:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - ysh-network
+    # Limites simulando Fargate: 0.25 vCPU, 512MB RAM
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 512M
+        reservations:
+          cpus: "0.125"
+          memory: 256M
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8000/",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ==========================================
+  # Nginx - Reverse Proxy (simulando ALB)
+  # ==========================================
+  nginx:
+    image: nginx:alpine
+    container_name: ysh-nginx-dev
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - storefront
+    ports:
+      - "${NGINX_HTTP_PORT:-80}:80"
+      - "${NGINX_HTTPS_PORT:-443}:443"
+    volumes:
+      - ../nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/certs:/etc/nginx/certs:ro
+    networks:
+      - ysh-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+        reservations:
+          cpus: "0.125"
+          memory: 64M
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:80/health",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ==========================================
+  # SERVIÇOS OPCIONAIS (desabilitar para economizar recursos)
+  # ==========================================
+
+  # Adminer - Database UI (comentar em produção)
+  # adminer:
+  #   image: adminer:latest
+  #   container_name: ysh-adminer
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - ysh-network
+  #   environment:
+  #     ADMINER_DEFAULT_SERVER: postgres
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "0.25"
+  #         memory: 128M
+
+  # Redis Commander - Redis UI (comentar em produção)
+  # redis-commander:
+  #   image: rediscommander/redis-commander:latest
+  #   container_name: ysh-redis-commander
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8081:8081"
+  #   networks:
+  #     - ysh-network
+  #   environment:
+  #     REDIS_HOSTS: local:redis:6379
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "0.25"
+  #         memory: 128M
+
+networks:
+  ysh-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+# ==========================================
+# COMANDOS ÚTEIS
+# ==========================================
+#
+# Iniciar ambiente de desenvolvimento:
+#   docker-compose -f docker-compose.free-tier-dev.yml up -d
+#
+# Ver logs:
+#   docker-compose -f docker-compose.free-tier-dev.yml logs -f backend
+#
+# Executar migrations:
+#   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa db:migrate
+#
+# Seed inicial:
+#   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn run seed
+#
+# Criar usuário admin:
+#   docker-compose -f docker-compose.free-tier-dev.yml exec backend yarn medusa user -e fernando@yellosolarhub.com -p supersecret -i admin_ysh
+#
+# Monitorar recursos (htop-like):
+#   docker stats ysh-postgres-dev ysh-redis-dev ysh-backend-dev ysh-storefront-dev
+#
+# Teste de carga (k6):
+#   k6 run --vus 50 --duration 5m scripts/load-test.js
+#
+# Parar ambiente:
+#   docker-compose -f docker-compose.free-tier-dev.yml down
+#
+# Limpar volumes (CUIDADO: apaga dados):
+#   docker-compose -f docker-compose.free-tier-dev.yml down -v
+#
+# ==========================================

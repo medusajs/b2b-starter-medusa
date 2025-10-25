@@ -2,8 +2,8 @@ import { createSelectParams } from "@medusajs/medusa/api/utils/validators";
 import { z } from "zod";
 
 /* Company Validators */
-export type AdminGetCompanyParamsType = z.infer<typeof AdminGetCompanyParams>;
 export const AdminGetCompanyParams = createSelectParams();
+export type AdminGetCompanyParamsType = z.infer<typeof AdminGetCompanyParams>;
 
 export type AdminCreateCompanyType = z.infer<typeof AdminCreateCompany>;
 export const AdminCreateCompany = z
@@ -37,10 +37,10 @@ export const AdminUpdateCompany = z
   })
   .strict();
 
+export const AdminGetCustomerGroupParams = createSelectParams();
 export type AdminGetCustomerGroupParamsType = z.infer<
   typeof AdminGetCustomerGroupParams
 >;
-export const AdminGetCustomerGroupParams = createSelectParams();
 
 export type AdminAddCompanyToCustomerGroupType = z.infer<
   typeof AdminAddCompanyToCustomerGroup
@@ -58,8 +58,8 @@ export const AdminRemoveCompanyFromCustomerGroup = z.object({
 
 /* Employee Validators */
 
+export const AdminGetEmployeeParams = z.object({}).passthrough();
 export type AdminGetEmployeeParamsType = z.infer<typeof AdminGetEmployeeParams>;
-export const AdminGetEmployeeParams = createSelectParams();
 
 export type AdminCreateEmployeeType = z.infer<typeof AdminCreateEmployee>;
 export const AdminCreateEmployee = z
@@ -92,10 +92,10 @@ export const AdminUpdateEmployee = z
   .strict();
 
 /* Approval Settings Validators */
+export const AdminGetApprovalSettingsParams = z.object({}).passthrough();
 export type AdminGetApprovalSettingsParamsType = z.infer<
   typeof AdminGetApprovalSettingsParams
 >;
-export const AdminGetApprovalSettingsParams = createSelectParams();
 
 export type AdminCreateApprovalSettingsType = z.infer<
   typeof AdminCreateApprovalSettings

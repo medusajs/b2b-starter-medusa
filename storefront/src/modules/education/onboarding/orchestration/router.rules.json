@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "pipelines": {
+    "proposta_residencial_pipeline": {
+      "stages": [
+        {"agent": "viability.pv", "inputs": ["cep","consumo_kwh_m","telhado_tipo","fase","oversizing_alvo"]},
+        {"agent": "tariffs.aneel", "inputs": ["cep","classe","distribuidora"]},
+        {"agent": "catalog.curator", "inputs": ["proposal_kwp","fase","telhado_tipo"]},
+        {"agent": "finance.credit", "inputs": ["capex","tarifa","geracao_anual","classe"]}
+      ],
+      "success_criteria": ["errors.len==0", "proposal_kwp>0", "expected_gen_mwh_y>0"],
+      "handoff": ["especialista_engenharia","especialista_financeiro"]
+    },
+    "proposta_comercial_pipeline": {
+      "stages": [
+        {"agent": "viability.pv", "inputs": ["cep","consumo_kwh_m","telhado_tipo","fase"]},
+        {"agent": "tariffs.aneel", "inputs": ["cep","classe","distribuidora"]},
+        {"agent": "catalog.curator", "inputs": ["proposal_kwp","fase","telhado_tipo"]},
+        {"agent": "finance.credit", "inputs": ["capex","tarifa","geracao_anual","classe"]}
+      ],
+      "success_criteria": ["roi.payback_anos<=6.5"]
+    },
+    "catalog_update_pipeline": {
+      "stages": [
+        {"agent": "catalog.curator", "inputs": ["raw_feeds","pdfs"] }
+      ],
+      "success_criteria": ["coverage>=0.95","duplicates==0"]
+    },
+    "credito_pipeline": {
+      "stages": [
+        {"agent": "finance.credit", "inputs": ["capex","tarifa","geracao_anual","classe"]}
+      ],
+      "success_criteria": ["tir>0","parcela_mensal>0"]
+    },
+    "tarifas_pipeline": {
+      "stages": [
+        {"agent": "tariffs.aneel", "inputs": ["cep","classe","distribuidora"]}
+      ],
+      "success_criteria": ["tarifa.TE>0","tarifa.TUSD>0"]
+    }
+  }
+}
+

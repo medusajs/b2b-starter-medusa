@@ -1,0 +1,327 @@
+﻿{
+    "Workspace":  "storefront",
+    "Timestamp":  "2025-10-13T06:06:23",
+    "Issues":  [
+                   {
+                       "Fix":  "Criar storefront\\src\\app\\[countryCode]\\(main)",
+                       "Message":  "Route group (main) nao encontrado",
+                       "Type":  "structure",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar storefront\\src\\app\\[countryCode]\\(checkout)",
+                       "Message":  "Route group (checkout) nao encontrado",
+                       "Type":  "structure",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Remover \u0027use client\u0027 se nao necessario",
+                       "Message":  "Page component usando \u0027use client\u0027 sem interatividade",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\app\\test-components\\page.tsx",
+                       "Type":  "component",
+                       "Severity":  "info"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\approvals.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\cart.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\catalog.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\categories.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\collections.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\companies.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\customer.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\fulfillment.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\orders.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\payment.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\products.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\quotes.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Adicionar import \u0027server-only\u0027",
+                       "Message":  "Server Action sem import \u0027server-only\u0027",
+                       "File":  "C:\\Users\\fjuni\\ysh_medusa\\ysh-store\\\\src\\lib\\data\\regions.ts",
+                       "Type":  "server-action",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/account/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\account",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/analytics/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\analytics",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/bizops/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\bizops",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/cart/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\cart",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/catalog/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\catalog",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/categories/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\categories",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/checkout/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\checkout",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/collections/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\collections",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/common/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\common",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/compliance/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\compliance",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/finance/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\finance",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/financing/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\financing",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/home/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\home",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/insurance/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\insurance",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/layout/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\layout",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/lead-quote/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\lead-quote",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/logistica/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\logistica",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/logistics/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\logistics",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/onboarding/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\onboarding",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/operations-maintenance/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\operations-maintenance",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/order/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\order",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/products/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\products",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/quotes/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\quotes",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/seguros/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\seguros",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/shipping/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\shipping",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/solar-cv/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\solar-cv",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/solucoes/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\solucoes",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/store/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\store",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/tariffs/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\tariffs",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   },
+                   {
+                       "Fix":  "Criar src/modules/viability/index.ts",
+                       "Message":  "Modulo sem index.ts",
+                       "File":  "src\\modules\\viability",
+                       "Type":  "module",
+                       "Severity":  "warning"
+                   }
+               ],
+    "IssuesCount":  46
+}

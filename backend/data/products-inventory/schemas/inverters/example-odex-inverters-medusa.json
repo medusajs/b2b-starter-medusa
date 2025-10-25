@@ -1,0 +1,377 @@
+[
+    {
+        "title": "Inversor Grid-Tie SAJ R5-3K-T2 BRL 3kW Monofásico 220V 2 MPPT",
+        "subtitle": "3kW Monofásico 220V - 2 MPPT",
+        "handle": "inversor-grid-tie-saj-r5-3k-t2-brl-3kw-monofasico-220v-2-mppt",
+        "description": "Inversor Grid-Tie de alta eficiência da SAJ, modelo R5-3K-T2, com potência nominal de 3kW. Ideal para sistemas residenciais monofásicos em 220V, equipado com 2 MPPTs (Maximum Power Point Trackers) para máxima extração de energia solar. Possui proteção IP65 e garantia estendida.",
+        "status": "published",
+        "external_id": "odex_inverters_ODEX-INV-SAJ-3000W",
+        "discountable": true,
+        "is_giftcard": false,
+        "thumbnail": "catalog/images_processed/ODEX/INVERTERS/medium/sku_276954_276954-17460390182534484.webp",
+        "weight": null,
+        "length": null,
+        "height": null,
+        "width": null,
+        "hs_code": "8504.40.90",
+        "origin_country": "CN",
+        "material": null,
+        "categories": [
+            {
+                "id": "cat_inversores"
+            },
+            {
+                "id": "cat_inversores_grid_tie"
+            },
+            {
+                "id": "cat_inversores_monofasicos"
+            }
+        ],
+        "tags": [
+            {
+                "id": "tag_saj"
+            },
+            {
+                "id": "tag_3kw"
+            },
+            {
+                "id": "tag_monofasico"
+            },
+            {
+                "id": "tag_2mppt"
+            }
+        ],
+        "images": [
+            {
+                "url": "/catalog/images/ODEX-INVERTERS/276954.jpg"
+            },
+            {
+                "url": "catalog/images_processed/ODEX/INVERTERS/large/sku_276954_276954-17460390182534484.webp"
+            },
+            {
+                "url": "catalog/images_processed/ODEX/INVERTERS/medium/sku_276954_276954-17460390182534484.webp"
+            }
+        ],
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "3kW"
+                ]
+            },
+            {
+                "title": "Voltagem",
+                "values": [
+                    "220V"
+                ]
+            },
+            {
+                "title": "Fases",
+                "values": [
+                    "Monofásico"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "SAJ - 3kW Monofásico 220V - 2 MPPT",
+                "sku": "SAJ--3KW-220V-MONO",
+                "manage_inventory": true,
+                "allow_backorder": false,
+                "inventory_quantity": 0,
+                "options": {
+                    "Potência": "3kW",
+                    "Voltagem": "220V",
+                    "Fases": "Monofásico"
+                },
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 159900
+                    }
+                ]
+            }
+        ],
+        "metadata": {
+            "manufacturer": "SAJ",
+            "distributor": "plataforma.odex.com.br",
+            "source": "plataforma.odex.com.br",
+            "technical_specs": {
+                "type": "GRID_TIE",
+                "power_w": null,
+                "power_kw": null,
+                "voltage_v": null,
+                "phases": null,
+                "mppt_count": null,
+                "efficiency": null,
+                "current_a": null,
+                "max_dc_voltage_v": null,
+                "min_dc_voltage_v": null,
+                "max_dc_current_a": null,
+                "nominal_ac_voltage_v": null,
+                "ac_frequency_hz": 60,
+                "protection_degree": null,
+                "operating_temp_min_c": null,
+                "operating_temp_max_c": null,
+                "topology": null,
+                "communication": [],
+                "certifications": [],
+                "warranty_years": null
+            },
+            "source_data": {
+                "source_id": "odex_inverters_ODEX-INV-SAJ-3000W",
+                "source_url": "plataforma.odex.com.br",
+                "imported_at": "2025-10-13T19:00:00.000Z",
+                "last_updated": "2025-10-13T19:00:00.000Z"
+            }
+        }
+    },
+    {
+        "title": "Inversor Grid-Tie SAJ R5-4.2K-T2 BRL 4.2kW Monofásico 220V 2 MPPT",
+        "subtitle": "4.2kW Monofásico 220V - 2 MPPT",
+        "handle": "inversor-grid-tie-saj-r5-4-2k-t2-brl-4-2kw-monofasico-220v-2-mppt",
+        "description": "Inversor Grid-Tie de alta eficiência da SAJ, modelo R5-4.2K-T2, com potência nominal de 4.2kW. Projetado para sistemas residenciais monofásicos em 220V, conta com 2 MPPTs (Maximum Power Point Trackers) que otimizam a extração de energia solar mesmo em condições de sombreamento parcial. Equipamento robusto com proteção IP65 contra intempéries.",
+        "status": "published",
+        "external_id": "odex_inverters_ODEX-INV-SAJ-4200W",
+        "discountable": true,
+        "is_giftcard": false,
+        "thumbnail": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+        "weight": null,
+        "length": null,
+        "height": null,
+        "width": null,
+        "hs_code": "8504.40.90",
+        "origin_country": "CN",
+        "material": null,
+        "categories": [
+            {
+                "id": "cat_inversores"
+            },
+            {
+                "id": "cat_inversores_grid_tie"
+            },
+            {
+                "id": "cat_inversores_monofasicos"
+            }
+        ],
+        "tags": [
+            {
+                "id": "tag_saj"
+            },
+            {
+                "id": "tag_4kw"
+            },
+            {
+                "id": "tag_monofasico"
+            },
+            {
+                "id": "tag_2mppt"
+            }
+        ],
+        "images": [
+            {
+                "url": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+            },
+            {
+                "url": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+            }
+        ],
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "4.2kW"
+                ]
+            },
+            {
+                "title": "Voltagem",
+                "values": [
+                    "220V"
+                ]
+            },
+            {
+                "title": "Fases",
+                "values": [
+                    "Monofásico"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "SAJ - 4.2kW Monofásico 220V - 2 MPPT",
+                "sku": "SAJ--4.2KW-220V-MONO",
+                "manage_inventory": true,
+                "allow_backorder": false,
+                "inventory_quantity": 0,
+                "options": {
+                    "Potência": "4.2kW",
+                    "Voltagem": "220V",
+                    "Fases": "Monofásico"
+                },
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 189900
+                    }
+                ]
+            }
+        ],
+        "metadata": {
+            "manufacturer": "SAJ",
+            "distributor": "plataforma.odex.com.br",
+            "source": "plataforma.odex.com.br",
+            "technical_specs": {
+                "type": "GRID_TIE",
+                "power_w": null,
+                "power_kw": null,
+                "voltage_v": null,
+                "phases": null,
+                "mppt_count": null,
+                "efficiency": null,
+                "current_a": null,
+                "max_dc_voltage_v": null,
+                "min_dc_voltage_v": null,
+                "max_dc_current_a": null,
+                "nominal_ac_voltage_v": null,
+                "ac_frequency_hz": 60,
+                "protection_degree": null,
+                "operating_temp_min_c": null,
+                "operating_temp_max_c": null,
+                "topology": null,
+                "communication": [],
+                "certifications": [],
+                "warranty_years": null
+            },
+            "source_data": {
+                "source_id": "odex_inverters_ODEX-INV-SAJ-4200W",
+                "source_url": "plataforma.odex.com.br",
+                "imported_at": "2025-10-13T19:00:00.000Z",
+                "last_updated": "2025-10-13T19:00:00.000Z"
+            }
+        }
+    },
+    {
+        "title": "Inversor Grid-Tie SAJ R5-5K-T2 BRL 5kW Monofásico 220V 2 MPPT",
+        "subtitle": "5kW Monofásico 220V - 2 MPPT",
+        "handle": "inversor-grid-tie-saj-r5-5k-t2-brl-5kw-monofasico-220v-2-mppt",
+        "description": "Inversor Grid-Tie de alta performance da SAJ, modelo R5-5K-T2, com potência nominal de 5kW. Solução completa para sistemas residenciais de médio porte em 220V monofásico. Equipado com 2 MPPTs independentes que permitem configurações flexíveis de strings e maximizam o aproveitamento energético. Design compacto com ventilação natural e proteção IP65 para instalação externa.",
+        "status": "published",
+        "external_id": "odex_inverters_ODEX-INV-SAJ-5000W",
+        "discountable": true,
+        "is_giftcard": false,
+        "thumbnail": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp",
+        "weight": null,
+        "length": null,
+        "height": null,
+        "width": null,
+        "hs_code": "8504.40.90",
+        "origin_country": "CN",
+        "material": null,
+        "categories": [
+            {
+                "id": "cat_inversores"
+            },
+            {
+                "id": "cat_inversores_grid_tie"
+            },
+            {
+                "id": "cat_inversores_monofasicos"
+            }
+        ],
+        "tags": [
+            {
+                "id": "tag_saj"
+            },
+            {
+                "id": "tag_5kw"
+            },
+            {
+                "id": "tag_monofasico"
+            },
+            {
+                "id": "tag_2mppt"
+            }
+        ],
+        "images": [
+            {
+                "url": "catalog/images_processed/FOTUS-KITS/large/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+            },
+            {
+                "url": "catalog/images_processed/FOTUS-KITS/medium/FOTUS-KP02-1136kWp-Ceramico-kits.webp"
+            }
+        ],
+        "options": [
+            {
+                "title": "Potência",
+                "values": [
+                    "5kW"
+                ]
+            },
+            {
+                "title": "Voltagem",
+                "values": [
+                    "220V"
+                ]
+            },
+            {
+                "title": "Fases",
+                "values": [
+                    "Monofásico"
+                ]
+            }
+        ],
+        "variants": [
+            {
+                "title": "SAJ - 5kW Monofásico 220V - 2 MPPT",
+                "sku": "SAJ--5KW-220V-MONO",
+                "manage_inventory": true,
+                "allow_backorder": false,
+                "inventory_quantity": 0,
+                "options": {
+                    "Potência": "5kW",
+                    "Voltagem": "220V",
+                    "Fases": "Monofásico"
+                },
+                "prices": [
+                    {
+                        "currency_code": "BRL",
+                        "amount": 249900
+                    }
+                ]
+            }
+        ],
+        "metadata": {
+            "manufacturer": "SAJ",
+            "distributor": "plataforma.odex.com.br",
+            "source": "plataforma.odex.com.br",
+            "technical_specs": {
+                "type": "GRID_TIE",
+                "power_w": null,
+                "power_kw": null,
+                "voltage_v": null,
+                "phases": null,
+                "mppt_count": null,
+                "efficiency": null,
+                "current_a": null,
+                "max_dc_voltage_v": null,
+                "min_dc_voltage_v": null,
+                "max_dc_current_a": null,
+                "nominal_ac_voltage_v": null,
+                "ac_frequency_hz": 60,
+                "protection_degree": null,
+                "operating_temp_min_c": null,
+                "operating_temp_max_c": null,
+                "topology": null,
+                "communication": [],
+                "certifications": [],
+                "warranty_years": null
+            },
+            "source_data": {
+                "source_id": "odex_inverters_ODEX-INV-SAJ-5000W",
+                "source_url": "plataforma.odex.com.br",
+                "imported_at": "2025-10-13T19:00:00.000Z",
+                "last_updated": "2025-10-13T19:00:00.000Z"
+            }
+        }
+    }
+]

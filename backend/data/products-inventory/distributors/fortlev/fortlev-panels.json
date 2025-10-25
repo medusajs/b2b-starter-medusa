@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fortlev_panels_IMO00135",
+    "name": "PAINEL DMEGC 610 WP DM610G12RT-B66HSW BF",
+    "manufacturer": "Dmegc",
+    "category": "panels",
+    "price": "R$ 567,71",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68dbedcc54fa3ed05329e145/IMO00135.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL DMEGC 610 WP DM610G12RT-B66HSW BF",
+    "pricing": {
+      "price": 567.71,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00132",
+    "name": "PAINEL LONGI LR7-72HTH-630M HORIZON",
+    "manufacturer": "Longi",
+    "category": "panels",
+    "price": "R$ 695,83",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68cbfb5b8434a2f72c363a4f/LONGI-630Wp_v2.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL LONGI LR7-72HTH-630M HORIZON",
+    "pricing": {
+      "price": 695.83,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00131",
+    "name": "PAINEL BYD BYD-530W-MLK-36 - 530W",
+    "manufacturer": "Byd",
+    "category": "panels",
+    "price": "R$ 728,12",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/68500752d2d60d325a684b96/PAINEL-BYD-BYD-530W-MLK-36---530W.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL BYD BYD-530W-MLK-36 - 530W",
+    "pricing": {
+      "price": 728.12,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_panels_IMO00093",
+    "name": "PAINEL BYD BYD575HRP72S - 575W",
+    "manufacturer": "Byd",
+    "category": "panels",
+    "price": "R$ 966,67",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66d778fb02c2dc75cdab12df/IMO00093.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "PAINEL BYD BYD575HRP72S - 575W",
+    "pricing": {
+      "price": 966.67,
+      "currency": "BRL"
+    }
+  }
+]

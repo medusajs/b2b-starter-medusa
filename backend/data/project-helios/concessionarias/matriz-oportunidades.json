@@ -1,0 +1,276 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Matriz de oportunidades estratégicas por concessionária",
+    "lastUpdated": "2025-10-14",
+    "scoringCriteria": {
+      "complexity": "1 (muito simples) a 5 (muito complexo)",
+      "opportunity": "1 (baixa prioridade) a 5 (alta prioridade estratégica)"
+    }
+  },
+  "utilities": [
+    {
+      "name": "Enel SP",
+      "region": "Sudeste",
+      "state": "SP",
+      "coverage": "Grande São Paulo",
+      "metrics": {
+        "averageApprovalTime": "25-40+",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Alta",
+        "rejectionRateEstimate": "20-30%",
+        "processComplexity": 5,
+        "strategicOpportunity": 5
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 45000,
+        "marketValue": "R$ 20.25M @ R$450"
+      },
+      "painPoints": [
+        "Prazos frequentemente ultrapassam o regulatório (15 dias)",
+        "Critérios de aprovação inconsistentes",
+        "Comunicação difícil com equipe técnica",
+        "Alta taxa de solicitação de documentos adicionais",
+        "Processos internos opacos"
+      ],
+      "opportunityRationale": "Maior volume + maior complexidade = maior proposta de valor. Sucesso aqui cria reputação nacional.",
+      "recommendedApproach": "Investir em relacionamento institucional, mapear padrões de rejeição, criar processos altamente padronizados"
+    },
+    {
+      "name": "CEMIG",
+      "region": "Sudeste",
+      "state": "MG",
+      "coverage": "Minas Gerais",
+      "metrics": {
+        "averageApprovalTime": "20-30",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Média",
+        "rejectionRateEstimate": "12-18%",
+        "processComplexity": 4,
+        "strategicOpportunity": 5
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 38000,
+        "marketValue": "R$ 17.1M @ R$450"
+      },
+      "painPoints": [
+        "Processos burocráticos mas navegáveis",
+        "Requisitos técnicos específicos",
+        "Volume alto gera filas de análise"
+      ],
+      "opportunityRationale": "Segundo maior mercado regional com complexidade suficiente para justificar HaaS",
+      "recommendedApproach": "Segunda prioridade de entrada após consolidação em SP"
+    },
+    {
+      "name": "CPFL",
+      "region": "Sudeste",
+      "state": "SP",
+      "coverage": "Interior de São Paulo",
+      "metrics": {
+        "averageApprovalTime": "15-25",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Baixa-Média",
+        "rejectionRateEstimate": "8-12%",
+        "processComplexity": 3,
+        "strategicOpportunity": 4
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 32000,
+        "marketValue": "R$ 14.4M @ R$450"
+      },
+      "painPoints": [
+        "Processos relativamente eficientes",
+        "Documentação padronizada",
+        "Prazos geralmente cumpridos"
+      ],
+      "opportunityRationale": "Volume alto compensa menor complexidade. Proposta de valor foca em automação e eficiência.",
+      "recommendedApproach": "Terceira prioridade - enfatizar ganho de tempo e redução de custos operacionais"
+    },
+    {
+      "name": "Copel",
+      "region": "Sul",
+      "state": "PR",
+      "coverage": "Paraná",
+      "metrics": {
+        "averageApprovalTime": "<15",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Baixa",
+        "rejectionRateEstimate": "5-8%",
+        "processComplexity": 2,
+        "strategicOpportunity": 3
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 28000,
+        "marketValue": "R$ 12.6M @ R$450"
+      },
+      "painPoints": [
+        "Processos eficientes e digitalizados",
+        "Prazos regulatórios geralmente respeitados",
+        "Comunicação clara"
+      ],
+      "opportunityRationale": "Menor urgência mas mercado significativo. Proposta de valor deve enfatizar conveniência e escala.",
+      "recommendedApproach": "Média prioridade - entrada após consolidação em mercados de maior complexidade"
+    },
+    {
+      "name": "Neoenergia Coelba",
+      "region": "Nordeste",
+      "state": "BA",
+      "coverage": "Bahia",
+      "metrics": {
+        "averageApprovalTime": "20-30",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Média",
+        "rejectionRateEstimate": "15-20%",
+        "processComplexity": 4,
+        "strategicOpportunity": 4
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 24000,
+        "marketValue": "R$ 10.8M @ R$450"
+      },
+      "painPoints": [
+        "Alta irradiação solar = alta demanda",
+        "Processos burocráticos",
+        "Infraestrutura em desenvolvimento"
+      ],
+      "opportunityRationale": "Mercado em crescimento rápido com complexidade suficiente. Potencial de expansão regional no Nordeste.",
+      "recommendedApproach": "Porta de entrada para região Nordeste - ajustar pricing para sensibilidade local"
+    },
+    {
+      "name": "Celesc",
+      "region": "Sul",
+      "state": "SC",
+      "coverage": "Santa Catarina",
+      "metrics": {
+        "averageApprovalTime": "15-20",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Baixa",
+        "rejectionRateEstimate": "6-10%",
+        "processComplexity": 2,
+        "strategicOpportunity": 3
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 18000,
+        "marketValue": "R$ 8.1M @ R$450"
+      },
+      "painPoints": [
+        "Processos eficientes",
+        "Mercado desenvolvido"
+      ],
+      "opportunityRationale": "Mercado maduro mas menor urgência devido a processos já eficientes",
+      "recommendedApproach": "Baixa prioridade inicial - foco em volume e eficiência operacional"
+    },
+    {
+      "name": "RGE",
+      "region": "Sul",
+      "state": "RS",
+      "coverage": "Interior do Rio Grande do Sul",
+      "metrics": {
+        "averageApprovalTime": "18-25",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Média",
+        "rejectionRateEstimate": "10-15%",
+        "processComplexity": 3,
+        "strategicOpportunity": 3
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 16000,
+        "marketValue": "R$ 7.2M @ R$450"
+      },
+      "painPoints": [
+        "Processos moderadamente complexos",
+        "Particularidades regionais"
+      ],
+      "opportunityRationale": "Mercado secundário com oportunidade moderada",
+      "recommendedApproach": "Expansão após consolidação nos mercados principais do Sul"
+    },
+    {
+      "name": "Equatorial Energia (Maranhão)",
+      "region": "Nordeste",
+      "state": "MA",
+      "coverage": "Maranhão",
+      "metrics": {
+        "averageApprovalTime": "25-35",
+        "approvalTimeUnit": "dias",
+        "rejectionRate": "Alta",
+        "rejectionRateEstimate": "18-25%",
+        "processComplexity": 4,
+        "strategicOpportunity": 3
+      },
+      "marketSize": {
+        "estimatedAnnualProjects": 12000,
+        "marketValue": "R$ 5.4M @ R$450"
+      },
+      "painPoints": [
+        "Processos burocráticos",
+        "Infraestrutura limitada",
+        "Mercado em desenvolvimento"
+      ],
+      "opportunityRationale": "Alta complexidade mas volume menor. Entrada apenas após escala regional no Nordeste.",
+      "recommendedApproach": "Baixa prioridade - requer adaptação para mercado sensível a preço"
+    }
+  ],
+  "prioritizationMatrix": {
+    "tier1HighPriority": [
+      {
+        "name": "Enel SP",
+        "score": 10,
+        "reasoning": "Máxima complexidade + máximo volume = maior oportunidade"
+      },
+      {
+        "name": "CEMIG",
+        "score": 9,
+        "reasoning": "Volume alto + complexidade significativa"
+      }
+    ],
+    "tier2MediumPriority": [
+      {
+        "name": "CPFL",
+        "score": 7,
+        "reasoning": "Alto volume compensa menor complexidade"
+      },
+      {
+        "name": "Neoenergia Coelba",
+        "score": 8,
+        "reasoning": "Porta de entrada para Nordeste + complexidade moderada"
+      }
+    ],
+    "tier3LowPriority": [
+      {
+        "name": "Copel",
+        "score": 5,
+        "reasoning": "Volume bom mas baixa complexidade reduz urgência"
+      },
+      {
+        "name": "Celesc",
+        "score": 5,
+        "reasoning": "Mercado secundário com processos eficientes"
+      },
+      {
+        "name": "RGE",
+        "score": 6,
+        "reasoning": "Mercado regional menor"
+      }
+    ],
+    "tier4FutureExpansion": [
+      {
+        "name": "Equatorial Energia",
+        "score": 7,
+        "reasoning": "Alta complexidade mas volume menor - requer escala primeiro"
+      }
+    ]
+  },
+  "strategicInsights": {
+    "keyFinding1": "A maior oportunidade está na interseção de ALTO VOLUME + ALTA COMPLEXIDADE (Enel SP, CEMIG)",
+    "keyFinding2": "Concessionárias eficientes (Copel, Celesc) têm menor urgência mas ainda oferecem proposta de valor em automação",
+    "keyFinding3": "Nordeste apresenta mix interessante de complexidade e crescimento, mas requer adaptação de pricing",
+    "keyFinding4": "Sucesso inicial em mercados complexos cria barreira de entrada e reputação nacional"
+  },
+  "rolloutRecommendation": {
+    "phase1": "Enel SP (Meses 0-6) - Provar modelo no mercado mais difícil",
+    "phase2": "CEMIG + CPFL (Meses 6-12) - Consolidar Sudeste",
+    "phase3": "Neoenergia Coelba (Meses 12-18) - Entrar no Nordeste",
+    "phase4": "Sul (Copel, Celesc, RGE) (Meses 18-24) - Cobertura regional completa",
+    "phase5": "Expansão nacional completa (Meses 24+) - Long tail de concessionárias menores"
+  }
+}

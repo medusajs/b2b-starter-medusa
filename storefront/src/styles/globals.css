@@ -2,7 +2,284 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* Yello Solar Hub Design System - Temporarily disabled to fix build */
+/* @import "./design-system.css"; */
+
+/* ========================================
+   ACCESSIBILITY STYLES (WCAG 2.1 AA)
+   ======================================== */
+
+/* Screen Reader Only - Hides content visually but keeps it accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip Links - WCAG 2.4.1 Bypass Blocks */
+.skip-links {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  background: var(--ysh-blue);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--ysh-blue);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+  transition: top 0.2s ease-in-out;
+  z-index: 10001;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--ysh-yellow);
+  outline-offset: 2px;
+}
+
+.skip-link:hover {
+  background: var(--ysh-blue-dark);
+}
+
+/* Focus Indicators - WCAG 2.4.7 Focus Visible */
+:focus-visible {
+  outline: 3px solid var(--ysh-blue);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--ysh-blue);
+  outline-offset: 2px;
+}
+
+/* Yello Solar Hub Design System */
+:root {
+  /* Primary Colors - Solar Energy Theme */
+  --ysh-yellow: #FFD700;
+  --ysh-yellow-light: #FFF3CD;
+  --ysh-yellow-dark: #E6C200;
+
+  --ysh-blue: #0066CC;
+  --ysh-blue-light: #E6F3FF;
+  --ysh-blue-dark: #004C99;
+
+  --ysh-green: #00AA44;
+  --ysh-green-light: #E6F9EE;
+  --ysh-green-dark: #008833;
+
+  /* Neutral Colors */
+  --ysh-gray-50: #F8F9FA;
+  --ysh-gray-100: #E9ECEF;
+  --ysh-gray-200: #DEE2E6;
+  --ysh-gray-300: #CED4DA;
+  --ysh-gray-400: #ADB5BD;
+  --ysh-gray-500: #6C757D;
+  --ysh-gray-600: #495057;
+  --ysh-gray-700: #343A40;
+  --ysh-gray-800: #212529;
+  --ysh-gray-900: #000000;
+
+  /* Semantic Colors */
+  --ysh-success: var(--ysh-green);
+  --ysh-warning: var(--ysh-yellow);
+  --ysh-error: #DC3545;
+  --ysh-info: var(--ysh-blue);
+
+  /* Typography */
+  --ysh-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ysh-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --ysh-space-xs: 0.25rem;
+  --ysh-space-sm: 0.5rem;
+  --ysh-space-md: 1rem;
+  --ysh-space-lg: 1.5rem;
+  --ysh-space-xl: 2rem;
+  --ysh-space-2xl: 3rem;
+
+  /* Border Radius */
+  --ysh-radius-sm: 0.25rem;
+  --ysh-radius-md: 0.5rem;
+  --ysh-radius-lg: 0.75rem;
+  --ysh-radius-xl: 1rem;
+
+  /* Shadows */
+  --ysh-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ysh-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ysh-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ysh-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Brand gradient tokens (Yello) */
+  --brand-amber: #F59E0B;
+  --brand-orange: #F97316;
+  --brand-yellow: #FDE047;
+}
+
+/* Base theme surfaces (light by default) */
+:root {
+  /* Background & Surfaces */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #fafafa;
+  /* Elevated cards */
+  --surface-hover: #f8f9fa;
+  /* Hover states */
+
+  /* Text Colors */
+  --fg: #0a0a0a;
+  /* Primary text (zinc-950) */
+  --fg-secondary: #52525b;
+  /* Secondary text (zinc-600) */
+  --fg-tertiary: #71717a;
+  /* Tertiary text (zinc-500) */
+  --fg-muted: #a1a1aa;
+  /* Muted text (zinc-400) */
+
+  /* Border Colors */
+  --border: #e5e7eb;
+  /* Default borders (gray-200) */
+  --border-strong: #d4d4d8;
+  /* Strong borders (zinc-300) */
+  --border-hover: #a1a1aa;
+  /* Hover borders (zinc-400) */
+
+  /* Brand Colors - Light Mode */
+  --brand-primary: #FFCE00;
+  /* Yello Yellow */
+  --brand-primary-hover: #E6B800;
+  --brand-primary-active: #CC9900;
+  --brand-secondary: #FF6600;
+  /* Yello Orange */
+  --brand-accent: #FF0066;
+  /* Yello Magenta */
+
+  /* Semantic Colors - Light */
+  --success: #00AA44;
+  --success-bg: #E6F9EE;
+  --warning: #FFAA00;
+  --warning-bg: #FFF3CD;
+  --error: #DC3545;
+  --error-bg: #FFF5F5;
+  --info: #0066CC;
+  --info-bg: #E6F3FF;
+
+  /* Glass Morphism (light) */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Dark mode using zinc-950 + Yello brand */
+.dark {
+  /* Background & Surfaces */
+  --bg: #09090b;
+  /* zinc-950 */
+  --surface: #18181b;
+  /* zinc-900 for cards */
+  --surface-elevated: #27272a;
+  /* zinc-800 for elevated cards */
+  --surface-hover: #3f3f46;
+  /* zinc-700 for hover */
+
+  /* Text Colors */
+  --fg: #fafafa;
+  /* zinc-50 */
+  --fg-secondary: #d4d4d8;
+  /* zinc-300 */
+  --fg-tertiary: #a1a1aa;
+  /* zinc-400 */
+  --fg-muted: #71717a;
+  /* zinc-500 */
+
+  /* Border Colors */
+  --border: #27272a;
+  /* zinc-800 */
+  --border-strong: #3f3f46;
+  /* zinc-700 */
+  --border-hover: #52525b;
+  /* zinc-600 */
+
+  /* Brand Colors - Dark Mode (aumenta luminosidade) */
+  --brand-primary: #FFD700;
+  /* Yellow mais vibrante no dark */
+  --brand-primary-hover: #FFE44D;
+  --brand-primary-active: #FFED99;
+  --brand-secondary: #FF7722;
+  /* Orange mais vibrante */
+  --brand-accent: #FF3388;
+  /* Magenta mais vibrante */
+
+  /* Semantic Colors - Dark */
+  --success: #00CC55;
+  /* Verde mais vibrante */
+  --success-bg: #0a2818;
+  --warning: #FFBB33;
+  /* Amarelo warning mais vibrante */
+  --warning-bg: #2a2410;
+  --error: #FF5566;
+  /* Vermelho mais vibrante */
+  --error-bg: #2a1015;
+  --info: #3399FF;
+  /* Azul mais vibrante */
+  --info-bg: #0a1a2a;
+
+  /* Glass Morphism (dark) */
+  --glass-bg: rgba(24, 24, 27, 0.55);
+  --glass-border: rgba(250, 250, 250, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+
+  /* Shadows - mais intensas no dark */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
+
+/* Apply background and text globally */
+html,
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
 @layer utilities {
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -13,16 +290,18 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:focus~label,
+  input:not(:placeholder-shown)~label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 
-  input:focus ~ label {
+  input:focus~label {
     @apply left-0;
   }
 
@@ -51,13 +330,200 @@
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+    @apply max-w-[1440px] w-full mx-auto;
+    @apply px-4 small:px-6 medium:px-8;
+  }
+
+  /* Glass utility */
+  .ysh-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+  }
+
+  [data-mode="dark"] .ysh-glass {
+    background: var(--glass-bg);
+    /* overridden by dark root vars below */
+  }
+
+  /* Divider gradient utility */
+  .ysh-divider-gradient {
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-orange) 50%, var(--brand-yellow) 100%);
+    opacity: 0.7;
   }
 
   .contrast-btn {
     @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
   }
 
+  /* YSH Button Variants - Theme Aware & Responsive */
+  .ysh-btn-primary {
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: #000;
+    box-shadow: var(--shadow-md);
+  }
+
+  .ysh-btn-primary:hover {
+    background: linear-gradient(135deg, var(--brand-primary-hover), var(--brand-secondary));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+
+  .ysh-btn-secondary {
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
+    background-color: var(--info);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+  }
+
+  .ysh-btn-secondary:hover {
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+
+  .ysh-btn-outline {
+    @apply font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2 text-sm small:px-6 small:py-3 small:text-base;
+    border: 2px solid var(--brand-primary);
+    color: var(--brand-primary);
+    background: transparent;
+  }
+
+  .ysh-btn-outline:hover {
+    background: var(--brand-primary);
+    color: #000;
+  }
+
+  /* YSH Card Styles - Theme Aware */
+  .ysh-card {
+    @apply rounded-xl transition-all duration-200;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .ysh-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-strong);
+  }
+
+  .ysh-card-glass {
+    @apply rounded-xl transition-all duration-200;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .ysh-card-solar {
+    @apply rounded-xl transition-all duration-200;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Light mode: gradient de amarelo para azul */
+  :root .ysh-card-solar {
+    background: linear-gradient(135deg, #fffbeb 0%, #dbeafe 100%);
+    border: 1px solid #fef3c7;
+  }
+
+  /* Dark mode: gradient mais sutil */
+  .dark .ysh-card-solar {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .ysh-card-solar:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* YSH Product Cards - Theme Aware */
+  .ysh-product-card {
+    @apply rounded-lg transition-all duration-200 overflow-hidden;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ysh-product-card:hover {
+    @apply transform scale-[1.02];
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+  }
+
+  /* OpenAI-inspired Components */
+  .openai-card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl hover:bg-white/90;
+  }
+
+  .openai-section {
+    @apply py-24 px-6;
+  }
+
+  .openai-hero {
+    @apply min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100;
+  }
+
+  .openai-grid {
+    @apply grid grid-cols-1 small:grid-cols-2 medium:grid-cols-3 gap-4 small:gap-6 medium:gap-8;
+  }
+
+  .openai-button {
+    @apply px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-200;
+  }
+
+  .openai-button-outline {
+    @apply px-8 py-4 border-2 border-black text-black rounded-full font-medium hover:bg-black hover:text-white transition-all duration-200;
+  }
+
+  /* YSH Badge Styles - Theme Aware */
+  .ysh-badge-tier-xpp {
+    @apply px-2 py-1 rounded-full text-xs font-bold;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: #000;
+  }
+
+  .ysh-badge-tier-pp {
+    @apply px-2 py-1 rounded-full text-xs font-bold;
+    background-color: var(--info);
+    color: #fff;
+  }
+
+  .ysh-badge-tier-p {
+    @apply px-2 py-1 rounded-full text-xs font-bold;
+    background-color: var(--success);
+    color: #fff;
+  }
+
+  .ysh-badge-tier-m {
+    @apply bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold;
+  }
+
+  .ysh-badge-tier-g {
+    @apply px-2 py-1 rounded-full text-xs font-bold;
+    background-color: var(--fg-tertiary);
+    color: var(--bg);
+  }
+
+  /* YSH Price Display - Theme Aware */
+  .ysh-price {
+    @apply text-2xl font-bold;
+    color: var(--fg);
+  }
+
+  .ysh-price-currency {
+    @apply text-sm font-normal;
+    color: var(--fg-secondary);
+  }
+
+  /* YSH Typography */
   .text-xsmall-regular {
     @apply text-[10px] leading-4 font-normal;
   }
@@ -108,5 +574,22 @@
 
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
+  }
+
+  /* YSH Solar Icons */
+  .ysh-icon-solar {
+    @apply text-yellow-500;
+  }
+
+  .ysh-icon-inverter {
+    @apply text-blue-500;
+  }
+
+  .ysh-icon-battery {
+    @apply text-green-500;
+  }
+
+  .ysh-icon-kit {
+    @apply text-purple-500;
   }
 }

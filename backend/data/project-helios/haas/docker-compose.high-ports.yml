@@ -1,0 +1,137 @@
+# HaaS Platform - Docker Compose with High Ports
+# Use this for multiple instances or heavily used port ranges
+version: "3.8"
+
+services:
+  # Aplicação principal HaaS
+  haas-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: haas-api-high
+    ports:
+      - "18000:8000" # High port for API
+    volumes:
+      - ./app:/app/app
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+      - ./data:/app/data
+    environment:
+      - ENVIRONMENT=development
+      - DATABASE_URL=postgresql://haas_user:haas_password@postgres:5432/haas_db
+      - REDIS_URL=redis://redis:6379
+      - SECRET_KEY=dev-secret-key-change-in-production
+      - LOG_LEVEL=DEBUG
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Banco de dados PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: haas-postgres-high
+    ports:
+      - "15432:5432" # High port for PostgreSQL
+    environment:
+      - POSTGRES_DB=haas_db
+      - POSTGRES_USER=haas_user
+      - POSTGRES_PASSWORD=haas_password
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    volumes:
+      - postgres_data_high:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U haas_user -d haas_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis para cache e sessões
+  redis:
+    image: redis:7-alpine
+    container_name: haas-redis-high
+    ports:
+      - "16379:6379" # High port for Redis
+    command: redis-server --appendonly yes --requirepass redis_password
+    volumes:
+      - redis_data_high:/data
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Adminer para gerenciamento do banco
+  adminer:
+    image: adminer:latest
+    container_name: haas-adminer-high
+    ports:
+      - "18080:8080" # High port for Adminer
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres
+    depends_on:
+      - postgres
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+
+  # Redis Commander para gerenciamento do Redis
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: haas-redis-commander-high
+    ports:
+      - "18081:8081" # High port for Redis Commander
+    environment:
+      - REDIS_HOSTS=local:redis:6379:0:redis_password
+    depends_on:
+      - redis
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+
+  # Nginx como proxy reverso (opcional)
+  nginx:
+    image: nginx:alpine
+    container_name: haas-nginx-high
+    ports:
+      - "18082:80" # High port for HTTP
+      - "18443:443" # High port for HTTPS
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - haas-api
+    networks:
+      - haas-network-high
+    restart: unless-stopped
+
+volumes:
+  postgres_data_high:
+    driver: local
+  redis_data_high:
+    driver: local
+
+networks:
+  haas-network-high:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16

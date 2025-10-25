@@ -1,0 +1,88 @@
+"use client"
+
+import { Sun } from "@medusajs/icons"
+import { Heading } from "@medusajs/ui"
+import { YelloSolarButton, Card } from "@ysh/ui"
+import LocalizedClientLink from "@/modules/common/components/localized-client-link"
+import { t } from "@/lib/i18n/copy"
+import { sendEvent } from "@/modules/common/analytics/events"
+
+const Hero = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900 relative overflow-hidden">
+      {/* Enhanced background with glass effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+        {/* Brand with glass effect */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/80 dark:bg-zinc-900/60 backdrop-blur-md rounded-full border border-white/20 dark:border-zinc-800 shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-full flex items-center justify-center shadow-md">
+              <Sun className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-bold text-gray-900 dark:text-zinc-50">Yello Solar Hub</span>
+          </div>
+        </div>
+
+        {/* Main headline with gradient text */}
+        <div className="space-y-8 mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-zinc-50 leading-tight">
+            {t("home.hero_title")}
+          </h1>
+
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-zinc-300 max-w-4xl mx-auto leading-relaxed font-light">
+            {t("home.hero_sub")}
+          </p>
+        </div>
+
+        {/* CTA Buttons with glass effects */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+          <LocalizedClientLink href="/solucoes" aria-label={t("home.hero_cta_primary")}
+            onClick={() => sendEvent("cta_clicked", { component: "hero_primary_cta", key: "home.hero_cta_primary" })}>
+            <YelloSolarButton size="lg" className="px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm">
+              <Sun className="w-6 h-6 mr-3" />
+              {t("home.hero_cta_primary")}
+            </YelloSolarButton>
+          </LocalizedClientLink>
+          <LocalizedClientLink href="/categories" aria-label={t("home.hero_cta_secondary")}
+            onClick={() => sendEvent("cta_clicked", { component: "hero_secondary_cta", key: "home.hero_cta_secondary" })}>
+            <YelloSolarButton variant="outline" size="lg" className="px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
+              {t("home.hero_cta_secondary")}
+            </YelloSolarButton>
+          </LocalizedClientLink>
+          <LocalizedClientLink href="/dimensionamento" aria-label="Simular agora"
+            onClick={() => sendEvent("cta_clicked", { component: "hero_tertiary_cta", key: "home.hero_cta_simular" })}>
+            <YelloSolarButton variant="stroke" size="lg" className="px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg">
+              Simular agora
+            </YelloSolarButton>
+          </LocalizedClientLink>
+        </div>
+
+        {/* Trust indicators with glass cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <Card className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-white/20 dark:border-zinc-800 shadow-lg p-6">
+            <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-green-600 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 dark:text-zinc-50 mb-1">5 distribuidores certificados</div>
+            <div className="text-xs text-gray-600 dark:text-zinc-400">Qualidade garantida</div>
+          </Card>
+          <Card className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-white/20 dark:border-zinc-800 shadow-lg p-6">
+            <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 dark:text-zinc-50 mb-1">713 produtos disponíveis</div>
+            <div className="text-xs text-gray-600 dark:text-zinc-400">Ampla variedade</div>
+          </Card>
+          <Card className="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-white/20 dark:border-zinc-800 shadow-lg p-6">
+            <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mx-auto mb-3"></div>
+            <div className="text-sm font-semibold text-gray-900 dark:text-zinc-50 mb-1">Garantia até 25 anos</div>
+            <div className="text-xs text-gray-600 dark:text-zinc-400">Durabilidade máxima</div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Hero

@@ -1,5 +1,5 @@
 import { retrieveCustomer } from "@/lib/data/customer"
-import EmployeeWrapper from "@/modules/account/components/employees-card/employee-wrapper"
+import EmployeeWrapper from "./employee-wrapper"
 import { QueryCompany } from "@/types"
 import { Container } from "@medusajs/ui"
 

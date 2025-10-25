@@ -32,18 +32,18 @@ const ApprovalCardActions = ({
   const pendingAdminApproval =
     cartWithApprovals.approval_status?.status === ApprovalStatusType.PENDING
       ? cartWithApprovals.approvals?.find(
-          (a) =>
-            a?.type === ApprovalType.ADMIN &&
-            a?.status === ApprovalStatusType.PENDING
-        )
+        (a) =>
+          a?.type === ApprovalType.ADMIN &&
+          a?.status === ApprovalStatusType.PENDING
+      )
       : null
 
   const handleApprove = async () => {
     if (!pendingAdminApproval) return
 
     const confirmed = await dialog({
-      title: "Are you sure you want to approve this cart?",
-      description: "This action cannot be undone.",
+      title: "Tem certeza de que deseja aprovar este carrinho?",
+      description: "Esta ação não pode ser desfeita.",
     })
 
     if (!confirmed) return
@@ -57,8 +57,8 @@ const ApprovalCardActions = ({
     if (!pendingAdminApproval) return
 
     const confirmed = await dialog({
-      title: "Are you sure you want to reject this cart?",
-      description: "This action cannot be undone.",
+      title: "Tem certeza de que deseja rejeitar este carrinho?",
+      description: "Esta ação não pode ser desfeita.",
     })
 
     if (!confirmed) return
@@ -71,7 +71,7 @@ const ApprovalCardActions = ({
   const handlePlaceOrder = () => {
     setIsRedirecting(true)
     router.push(
-      `/${countryCode}/checkout?cart_id=${cartWithApprovals.id}&step=payment`
+      `/${countryCode}/checkout?cartId=${cartWithApprovals.id}&step=payment`
     )
   }
 
@@ -89,7 +89,7 @@ const ApprovalCardActions = ({
             isLoading={rejecting}
           >
             <XMarkMini className="inline-block" />
-            Reject
+            Rejeitar
           </Button>
           <Button
             size="small"
@@ -100,7 +100,7 @@ const ApprovalCardActions = ({
             isLoading={approving}
           >
             <CheckMini className="inline-block" />
-            Approve
+            Aprovar
           </Button>
         </>
       ) : cartWithApprovals.approval_status?.status ===
@@ -109,7 +109,7 @@ const ApprovalCardActions = ({
           {"·"}
           <Button variant="primary" disabled>
             <LockClosedSolidMini className="inline-block" />
-            Awaiting External Approval
+            Aguardando Aprovação Externa
           </Button>
         </>
       ) : cartWithApprovals.approval_status?.status ===
@@ -125,9 +125,9 @@ const ApprovalCardActions = ({
               onClick={handlePlaceOrder}
             >
               <LocalizedClientLink
-                href={`/checkout?cart_id=${cartWithApprovals.id}&step=payment`}
+                href={`/checkout?cartId=${cartWithApprovals.id}&step=payment`}
               >
-                Place Order
+                Fazer Pedido
                 <ArrowRightMini className="inline-block" />
               </LocalizedClientLink>
             </Button>

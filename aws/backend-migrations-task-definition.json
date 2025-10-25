@@ -1,0 +1,116 @@
+{
+    "family": "ysh-b2b-backend-migrations",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "executionRoleArn": "arn:aws:iam::773235999227:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::773235999227:role/ecsTaskRole",
+    "containerDefinitions": [
+        {
+            "name": "migrations",
+            "image": "773235999227.dkr.ecr.us-east-1.amazonaws.com/ysh-backend:v1.0.6",
+            "command": [
+                "npm",
+                "run",
+                "migrate"
+            ],
+            "environment": [
+                {
+                    "name": "NODE_ENV",
+                    "value": "production"
+                },
+                {
+                    "name": "NODE_OPTIONS",
+                    "value": "--max-old-space-size=768 --enable-source-maps"
+                },
+                {
+                    "name": "NODE_EXTRA_CA_CERTS",
+                    "value": "/tmp/rds-ca-bundle.pem"
+                },
+                {
+                    "name": "DATABASE_SSL",
+                    "value": "true"
+                },
+                {
+                    "name": "DATABASE_SSL_REJECT_UNAUTHORIZED",
+                    "value": "true"
+                },
+                {
+                    "name": "DATABASE_SSL_CA_FILE",
+                    "value": "/tmp/rds-ca-bundle.pem"
+                }
+            ],
+            "secrets": [
+                {
+                    "name": "DATABASE_URL",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/database-url-BGaeVF"
+                },
+                {
+                    "name": "REDIS_URL",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/redis-url-Q7ItGs"
+                },
+                {
+                    "name": "JWT_SECRET",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/jwt-secret-005Z9C"
+                },
+                {
+                    "name": "COOKIE_SECRET",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/cookie-secret-bsLKwN"
+                },
+                {
+                    "name": "BACKEND_URL",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/backend-url-vlAZeu"
+                },
+                {
+                    "name": "STOREFRONT_URL",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/storefront-url-IV3F65"
+                },
+                {
+                    "name": "MEDUSA_ADMIN_ONBOARDING_TYPE",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/revalidate-secret-2NMJS9"
+                },
+                {
+                    "name": "NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY",
+                    "valueFrom": "arn:aws:secretsmanager:us-east-1:773235999227:secret:/ysh-b2b/publishable-key-tvnMYo"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/ysh-b2b-backend-migrations",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs",
+                    "awslogs-create-group": "true"
+                }
+            },
+            "essential": true,
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [
+                {
+                    "name": "nofile",
+                    "softLimit": 65536,
+                    "hardLimit": 65536
+                }
+            ]
+        }
+    ],
+    "volumes": [],
+    "tags": [
+        {
+            "key": "Environment",
+            "value": "production"
+        },
+        {
+            "key": "Application",
+            "value": "ysh-b2b"
+        },
+        {
+            "key": "Component",
+            "value": "backend-migrations"
+        }
+    ]
+}

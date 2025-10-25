@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ysh.dev/schemas/consumo_modalidade.schema.json",
+  "title": "Consumo histórico e Modalidade Tarifária",
+  "type": "object",
+  "required": [
+    "unidade_consumidora",
+    "historico_consumo",
+    "postos_tarifarios"
+  ],
+  "properties": {
+    "unidade_consumidora": {
+      "type": "object",
+      "required": [
+        "distribuidora",
+        "uc_numero",
+        "grupo",
+        "modalidade_tarifaria"
+      ],
+      "properties": {
+        "distribuidora": {
+          "type": "string"
+        },
+        "uc_numero": {
+          "type": "string"
+        },
+        "grupo": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B"
+          ]
+        },
+        "modalidade_tarifaria": {
+          "type": "object",
+          "required": [
+            "tipo"
+          ],
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "enum": [
+                "convencional",
+                "branca",
+                "azul",
+                "verde"
+              ]
+            },
+            "adesao_data": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "elegivel_tarifa_branca": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "postos_tarifarios": {
+      "type": "object"
+    },
+    "historico_consumo": {
+      "type": "object",
+      "required": [
+        "mensal",
+        "periodo_meses",
+        "unidade"
+      ],
+      "properties": {
+        "periodo_meses": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60
+        },
+        "unidade": {
+          "type": "string",
+          "const": "kWh"
+        },
+        "mensal": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "competencia",
+              "total_kwh"
+            ],
+            "properties": {
+              "competencia": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+              },
+              "total_kwh": {
+                "type": "number",
+                "minimum": 0
+              },
+              "branca_fracionamento": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "ponta_kwh": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "intermediario_kwh": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "fora_ponta_kwh": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  }
+                }
+              },
+              "grupoA_demanda": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "contratada_kw": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "registrada_kw": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-ysh-rules": [
+    "Se grupo=='B' e modalidade=='branca' então exigir preenchimento de branca_fracionamento em todos os meses",
+    "Somatório por postos igual ao total_kwh (validação no backend)",
+    "Para grupo=='A', exigir campos de demanda e tarifas de demanda"
+  ]
+}

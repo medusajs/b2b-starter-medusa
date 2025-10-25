@@ -1,0 +1,196 @@
+### ========================================
+### Credit Analysis API - PLG Financing Options Exposure Tests
+### ========================================
+
+@baseUrl = http://localhost:9000
+@adminToken = YOUR_ADMIN_TOKEN_HERE
+@customerToken = YOUR_CUSTOMER_TOKEN_HERE
+@calculationId = calc_01JKA3M8FQWX2HPZY7V5NRTBK1
+
+### ========================================
+### 1. POST /store/credit-analyses
+### Execute workflow: multi-factor credit analysis + financing offers (PLG: 3 options exposure)
+### ========================================
+POST {{baseUrl}}/store/credit-analyses
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "solar_calculation_id": "{{calculationId}}",
+  "requested_amount": 27000,
+  "requested_term_months": 60,
+  "financing_modality": "CDC"
+}
+
+### Expected Response (201):
+# {
+#   "analysis_id": "credit_01JKA...",
+#   "result": "approved",
+#   "best_offers": [
+#     {
+#       "id": "offer_01JKA...",
+#       "credit_analysis_id": "credit_01JKA...",
+#       "modality": "CDC", // ✅ PLG: Financing type exposure
+#       "interest_rate_monthly": 1.2,
+#       "interest_rate_annual": 15.39,
+#       "monthly_payment": 645.50, // ✅ PLG: Transparent pricing
+#       "total_amount": 38730.00,
+#       "rank": 1,
+#       "is_recommended": true
+#     },
+#     {
+#       "id": "offer_01JKA...",
+#       "modality": "LEASING", // ✅ PLG: Second option
+#       "interest_rate_monthly": 1.0,
+#       "interest_rate_annual": 12.68,
+#       "monthly_payment": 605.20,
+#       "total_amount": 36312.00,
+#       "rank": 2,
+#       "is_recommended": false
+#     },
+#     {
+#       "id": "offer_01JKA...",
+#       "modality": "EAAS", // ✅ PLG: Third option
+#       "interest_rate_monthly": 0.8,
+#       "interest_rate_annual": 10.03,
+#       "monthly_payment": 572.80,
+#       "total_amount": 34368.00,
+#       "rank": 3,
+#       "is_recommended": false
+#     }
+#   ],
+#   "notification_sent": true
+# }
+
+### ========================================
+### 2. POST /store/credit-analyses - LEASING modality
+### ========================================
+POST {{baseUrl}}/store/credit-analyses
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "solar_calculation_id": "{{calculationId}}",
+  "requested_amount": 27000,
+  "requested_term_months": 48,
+  "financing_modality": "LEASING"
+}
+
+### ========================================
+### 3. POST /store/credit-analyses - EAAS modality (longer term)
+### ========================================
+POST {{baseUrl}}/store/credit-analyses
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "solar_calculation_id": "{{calculationId}}",
+  "requested_amount": 27000,
+  "requested_term_months": 120,
+  "financing_modality": "EAAS"
+}
+
+### ========================================
+### 4. POST /store/credit-analyses - High amount (commercial)
+### ========================================
+POST {{baseUrl}}/store/credit-analyses
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "quote_id": "quote_01JKA...",
+  "solar_calculation_id": "calc_01JKA...",
+  "requested_amount": 85000,
+  "requested_term_months": 84
+}
+
+### ========================================
+### 5. POST /store/credit-analyses - Error: Missing required fields
+### ========================================
+POST {{baseUrl}}/store/credit-analyses
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+{
+  "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+  "requested_amount": 27000
+}
+
+### Expected Response (400):
+# {
+#   "error": "Missing required fields: customer_id, requested_amount, requested_term_months"
+# }
+
+### ========================================
+### 6. GET /store/credit-analyses/:id
+### Fetch analysis with all financing offers (PLG: options comparison)
+### ========================================
+@analysisId = credit_01JKA3M8FQWX2HPZY7V5NRTBK1
+
+GET {{baseUrl}}/store/credit-analyses/{{analysisId}}
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (200):
+# {
+#   "id": "credit_01JKA...",
+#   "customer_id": "cust_01JJZM5K3XWCQY8FVHM2N0PG7T",
+#   "quote_id": "quote_01JKA...",
+#   "solar_calculation_id": "calc_01JKA...",
+#   "requested_amount": 27000,
+#   "requested_term_months": 60,
+#   "total_score": 725,
+#   "risk_level": "baixo",
+#   "approval_probability": 0.85,
+#   "result": "approved",
+#   "rejection_reasons": [],
+#   "recommended_actions": [],
+#   "offers": [ // ✅ PLG: All financing options
+#     {
+#       "id": "offer_01JKA...",
+#       "modality": "CDC",
+#       "interest_rate_monthly": 1.2,
+#       "interest_rate_annual": 15.39,
+#       "monthly_payment": 645.50,
+#       "total_amount": 38730.00,
+#       "rank": 1,
+#       "is_recommended": true
+#     },
+#     // ... more offers
+#   ],
+#   "created_at": "2025-10-12T10:30:00Z",
+#   "updated_at": "2025-10-12T10:30:00Z"
+# }
+
+### ========================================
+### 7. GET /store/credit-analyses/:id - Error: Not found
+### ========================================
+GET {{baseUrl}}/store/credit-analyses/invalid_id
+Content-Type: application/json
+Authorization: Bearer {{customerToken}}
+
+### Expected Response (404):
+# {
+#   "error": "Credit analysis not found"
+# }
+
+### ========================================
+### Validation Checklist (PLG Strategy 360°):
+### ========================================
+# ✅ Workflow executed (analyzeCreditWorkflow)
+# ✅ CreditAnalysis entity persisted (analysis_id returned)
+# ✅ FinancingOffer entities persisted (up to 3 offers)
+# ✅ modality present (CDC/LEASING/EAAS selection)
+# ✅ interest rates present (monthly + annual transparency)
+# ✅ monthly_payment present (installment amount)
+# ✅ rank present (1-3 ordering by best offer)
+# ✅ is_recommended present (UI highlighting flag)
+# ✅ GET endpoint enriches with offers via query.graph()
+# ✅ 360° PLG Coverage: Stage 2 complete (credit → financing options)

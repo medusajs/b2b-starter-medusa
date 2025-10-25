@@ -1,0 +1,650 @@
+{
+    "distribuidoras": [
+        {
+            "id": "enel-sp",
+            "nome": "Enel SP",
+            "razao_social": "Enel Distribuição São Paulo S.A.",
+            "cnpj": "61.695.227/0001-93",
+            "regiao": "SP",
+            "estados": [
+                "SP"
+            ],
+            "website": "https://www.enel.com.br",
+            "portal_gd": "https://portalinteligente.eneldistribuicaosp.com.br",
+            "contato": {
+                "telefone": "0800 7272 196",
+                "email": "atendimento.sp@enel.com",
+                "ouvidoria": "0800 721 0120"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "380V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "NT 6.014",
+                    "NT 6.015"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.enel.com.br/inversores",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão",
+                    "Relé de sub/sobrefrequência",
+                    "Transformador de isolação (>75kW)",
+                    "DPS (Dispositivo de Proteção contra Surtos)"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.28456,
+                "te": 0.42134,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "cpfl-paulista",
+            "nome": "CPFL Paulista",
+            "razao_social": "CPFL Paulista - Companhia Piratininga de Força e Luz",
+            "cnpj": "02.429.144/0001-93",
+            "regiao": "SP",
+            "estados": [
+                "SP"
+            ],
+            "website": "https://www.cpfl.com.br",
+            "portal_gd": "https://servicosonline.cpfl.com.br/geracao-distribuida",
+            "contato": {
+                "telefone": "0800 010 1010",
+                "email": "atendimento@cpfl.com.br",
+                "ouvidoria": "0800 010 2020"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV",
+                        "88kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "GED-3874",
+                    "GED-15303"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.cpfl.com.br/inversores-homologados",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão (ANSI 27/59)",
+                    "Relé de sub/sobrefrequência (ANSI 81)",
+                    "Relé direcional de potência (ANSI 32)",
+                    "Relé de sincronismo (ANSI 25)"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.29845,
+                "te": 0.43987,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "edp-sp",
+            "nome": "EDP São Paulo",
+            "razao_social": "EDP São Paulo Distribuição de Energia S.A.",
+            "cnpj": "03.467.321/0001-12",
+            "regiao": "SP",
+            "estados": [
+                "SP"
+            ],
+            "website": "https://www.edp.com.br",
+            "portal_gd": "https://www.edp.com.br/distribuicao-sp/geracao-distribuida",
+            "contato": {
+                "telefone": "0800 721 0123",
+                "email": "atendimento.sp@edp.com",
+                "ouvidoria": "0800 721 1199"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "ND.52",
+                    "ND.53"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.edp.com.br/inversores",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão",
+                    "Relé de sub/sobrefrequência",
+                    "Relé de sincronismo",
+                    "DPS Classe II"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.27234,
+                "te": 0.41876,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "light",
+            "nome": "Light",
+            "razao_social": "Light Serviços de Eletricidade S.A.",
+            "cnpj": "60.444.437/0001-46",
+            "regiao": "RJ",
+            "estados": [
+                "RJ"
+            ],
+            "website": "https://www.light.com.br",
+            "portal_gd": "https://agencialightvirtual.light.com.br/geracao-distribuida",
+            "contato": {
+                "telefone": "0800 021 0196",
+                "email": "atendimento@light.com.br",
+                "ouvidoria": "0800 021 7979"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "110V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "Recon-BT",
+                    "Recon-MT"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.light.com.br/inversores-homologados",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão (ANSI 27/59)",
+                    "Relé de sub/sobrefrequência (ANSI 81)",
+                    "Transformador de isolação (>50kW)",
+                    "Aterramento conforme NBR 5410"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 10,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 5,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.31245,
+                "te": 0.45678,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "cemig",
+            "nome": "CEMIG",
+            "razao_social": "Companhia Energética de Minas Gerais",
+            "cnpj": "06.981.180/0001-16",
+            "regiao": "MG",
+            "estados": [
+                "MG"
+            ],
+            "website": "https://www.cemig.com.br",
+            "portal_gd": "https://atende.cemig.com.br/geracao-distribuida",
+            "contato": {
+                "telefone": "116",
+                "email": "atendimento@cemig.com.br",
+                "ouvidoria": "0800 728 3838"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "23kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "ND 5.30",
+                    "ND 5.31"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.cemig.com.br/inversores",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão",
+                    "Relé de sub/sobrefrequência",
+                    "Relé direcional de potência",
+                    "Relé de sincronismo",
+                    "DPS (Dispositivo de Proteção contra Surtos)"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.26789,
+                "te": 0.40123,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "copel",
+            "nome": "COPEL",
+            "razao_social": "Companhia Paranaense de Energia",
+            "cnpj": "76.483.817/0001-20",
+            "regiao": "PR",
+            "estados": [
+                "PR"
+            ],
+            "website": "https://www.copel.com",
+            "portal_gd": "https://www.copel.com/geracaodistribuida",
+            "contato": {
+                "telefone": "0800 510 0196",
+                "email": "atendimento@copel.com",
+                "ouvidoria": "0800 510 2020"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "NTC 905100",
+                    "NTC 905200"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.copel.com/inversores-homologados",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão (ANSI 27/59)",
+                    "Relé de sub/sobrefrequência (ANSI 81)",
+                    "Relé de sincronismo (ANSI 25)",
+                    "Transformador de isolação (>75kW)"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.25678,
+                "te": 0.38901,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "celesc",
+            "nome": "CELESC",
+            "razao_social": "Centrais Elétricas de Santa Catarina S.A.",
+            "cnpj": "83.878.892/0001-55",
+            "regiao": "SC",
+            "estados": [
+                "SC"
+            ],
+            "website": "https://www.celesc.com.br",
+            "portal_gd": "https://agenciavirtual.celesc.com.br/geracao-distribuida",
+            "contato": {
+                "telefone": "0800 048 0120",
+                "email": "atendimento@celesc.com.br",
+                "ouvidoria": "0800 048 0196"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "23kV",
+                        "34.5kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "N-3300",
+                    "N-3310"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.celesc.com.br/inversores",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão",
+                    "Relé de sub/sobrefrequência",
+                    "Relé de sincronismo",
+                    "DPS Classe II"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.27456,
+                "te": 0.41234,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        },
+        {
+            "id": "coelba",
+            "nome": "COELBA",
+            "razao_social": "Companhia de Eletricidade do Estado da Bahia",
+            "cnpj": "15.139.629/0001-94",
+            "regiao": "BA",
+            "estados": [
+                "BA"
+            ],
+            "website": "https://www.neoenergia.com/coelba",
+            "portal_gd": "https://servicos.neoenergia.com/geracao-distribuida",
+            "contato": {
+                "telefone": "116",
+                "email": "atendimento.ba@neoenergia.com",
+                "ouvidoria": "0800 071 0196"
+            },
+            "limites_conexao": {
+                "microgeracao": {
+                    "min_kw": 0.001,
+                    "max_kw": 75,
+                    "tensoes_permitidas": [
+                        "127V",
+                        "220V",
+                        "13.8kV"
+                    ]
+                },
+                "minigeracao": {
+                    "min_kw": 75.001,
+                    "max_kw": 5000,
+                    "tensoes_permitidas": [
+                        "13.8kV",
+                        "34.5kV",
+                        "69kV"
+                    ]
+                }
+            },
+            "requisitos_tecnicos": {
+                "normas": [
+                    "PRODIST Módulo 3",
+                    "PAD-2",
+                    "PAD-3"
+                ],
+                "inversores_homologados": true,
+                "lista_inversores_url": "https://www.neoenergia.com/inversores",
+                "medicao_bidirecional": true,
+                "tipo_conexao": "trifásica",
+                "protecoes_exigidas": [
+                    "Relé de sub/sobretensão (ANSI 27/59)",
+                    "Relé de sub/sobrefrequência (ANSI 81)",
+                    "Relé direcional de potência (ANSI 32)",
+                    "Transformador de isolação (>75kW)"
+                ]
+            },
+            "prazos_processuais": {
+                "analise_acesso": {
+                    "dias_uteis": 60,
+                    "descricao": "Prazo para análise de solicitação de acesso"
+                },
+                "parecer_acesso": {
+                    "dias_uteis": 15,
+                    "descricao": "Prazo para emissão do parecer de acesso"
+                },
+                "vistoria": {
+                    "dias_uteis": 7,
+                    "descricao": "Prazo para vistoria após comunicação de conclusão"
+                },
+                "conexao": {
+                    "dias_uteis": 3,
+                    "descricao": "Prazo para conexão após vistoria aprovada"
+                }
+            },
+            "tarifas": {
+                "tusd": 0.29123,
+                "te": 0.43567,
+                "custo_disponibilidade": {
+                    "monofasico": 30,
+                    "bifasico": 50,
+                    "trifasico": 100
+                }
+            }
+        }
+    ]
+}

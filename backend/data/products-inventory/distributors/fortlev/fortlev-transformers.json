@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fortlev_transformers_ITF00003",
+    "name": "TRAFO E-380V S-220V 40KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 13.471,44",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/66966ed99afa5f57231d61a8/icon-318x647.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 40KVA",
+    "pricing": {
+      "price": 13471.44,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_transformers_ITF00005",
+    "name": "TRAFO E-380V S-220V 85KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 24.340,04",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c942/ITF00005.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 85KVA",
+    "pricing": {
+      "price": 24340.04,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_transformers_ITF00002",
+    "name": "TRAFO E-380V S-220V 30KVA",
+    "manufacturer": "Unknown",
+    "category": "transformers",
+    "price": "R$ 11.021,52",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c941/ITF00002.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "TRAFO E-380V S-220V 30KVA",
+    "pricing": {
+      "price": 11021.52,
+      "currency": "BRL"
+    }
+  }
+]

@@ -1,0 +1,66 @@
+---
+name: 🚀 Feature Request
+description: Propose a new feature or enhancement
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees: []
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Brief description of the proposed feature
+      placeholder: "As a user, I want to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem/Use Case
+      description: What problem does this solve? What's the current limitation?
+      placeholder: "Currently, users cannot..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How should this feature work?
+      placeholder: "The solution involves..."
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Which part of the monorepo is affected?
+      options:
+        - server (Medusa backend)
+        - client (Next.js frontend)
+        - shared (both server and client)
+        - infrastructure
+        - documentation
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Implementation Checklist
+      description: Check relevant items for this feature
+      options:
+        - label: Requires database schema changes
+        - label: Requires API changes
+        - label: Requires UI/UX changes
+        - label: Requires new dependencies
+        - label: Requires environment variable changes
+        - label: Requires documentation updates
+        - label: Requires tests
+        - label: Affects existing functionality
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Screenshots, mockups, links, or any other relevant information

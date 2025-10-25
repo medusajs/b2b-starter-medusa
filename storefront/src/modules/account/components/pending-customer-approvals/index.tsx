@@ -1,4 +1,4 @@
-import ApprovalCard from "@/modules/account/components/approval-card"
+import ApprovalCard from "../approval-card"
 import { Text } from "@medusajs/ui"
 
 const PendingCustomerApprovals = ({
@@ -25,9 +25,9 @@ const PendingCustomerApprovals = ({
       className="w-full flex flex-col items-center gap-y-4"
       data-testid="no-approvals-container"
     >
-      <Text className="text-large-semi">Nothing to see here</Text>
+      <Text className="text-large-semi">Nada para ver aqui</Text>
       <Text className="text-base-regular">
-        You don&apos;t have any approvals yet.
+        Você ainda não tem nenhuma aprovação.
       </Text>
     </div>
   )

@@ -1,0 +1,595 @@
+version: "3.8"
+
+# ==========================================
+# YSH B2B - Full FOSS Stack
+# 100% Open Source, Zero Vendor Lock-in
+# Databases + Events + Observability
+# ==========================================
+
+services:
+  # ==========================================
+  # DATABASES
+  # ==========================================
+
+  # PostgreSQL 16 (Primary Database)
+  postgres:
+    image: postgres:16-alpine
+    container_name: ysh-postgres-foss
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: medusa_db
+      POSTGRES_USER: medusa_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-medusa_password}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - ysh-foss-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa_user -d medusa_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c max_connections=200
+      -c effective_cache_size=1GB
+      -c maintenance_work_mem=64MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=2621kB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+      -c log_statement=mod
+      -c log_duration=on
+      -c log_connections=on
+      -c log_disconnections=on
+
+  # PgAdmin4 (PostgreSQL Web UI)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ysh-pgadmin-foss
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@ysh.solar}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - postgres
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  # Redis 7 (Cache + Event Bus Backend)
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis-foss
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+      - ./infra/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - ysh-foss-network
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+  # Redis Commander (Redis Web UI)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ysh-redis-commander-foss
+    restart: unless-stopped
+    environment:
+      REDIS_HOSTS: local:redis:6379
+      HTTP_USER: ${REDIS_COMMANDER_USER:-admin}
+      HTTP_PASSWORD: ${REDIS_COMMANDER_PASSWORD:-admin}
+    ports:
+      - "${REDIS_COMMANDER_PORT:-8081}:8081"
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - redis
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  # ==========================================
+  # VECTOR DATABASE (FOSS - RAG & AI)
+  # ==========================================
+
+  # Qdrant (Vector Database for RAG)
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: ysh-qdrant-foss
+    restart: unless-stopped
+    ports:
+      - "${QDRANT_HTTP_PORT:-6333}:6333" # HTTP API
+      - "${QDRANT_GRPC_PORT:-6334}:6334" # gRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+      - ../infra/qdrant/config.yaml:/qdrant/config/production.yaml:ro
+    networks:
+      - ysh-foss-network
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:-qdrant_dev_key_foss_2025}
+      QDRANT__SERVICE__HTTP_PORT: 6333
+      QDRANT__SERVICE__GRPC_PORT: 6334
+      QDRANT__STORAGE__STORAGE_PATH: /qdrant/storage
+      QDRANT__LOG_LEVEL: INFO
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  # ==========================================
+  # EVENT BUS & JOBS QUEUE (FOSS替代AWS SNS/SQS)
+  # ==========================================
+
+  # BullMQ Board (Job Queue Dashboard)
+  bullmq-board:
+    image: deadly0/bull-board:latest
+    container_name: ysh-bullmq-board-foss
+    restart: unless-stopped
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      BULL_PREFIX: bull
+    ports:
+      - "${BULLMQ_BOARD_PORT:-8082}:3000"
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - redis
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  # ==========================================
+  # STORAGE (FOSS替代AWS S3)
+  # ==========================================
+
+  # MinIO (S3-Compatible Object Storage)
+  minio:
+    image: minio/minio:latest
+    container_name: ysh-minio-foss
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+      MINIO_BROWSER_REDIRECT_URL: http://localhost:9001
+    ports:
+      - "${MINIO_API_PORT:-9100}:9000" # API
+      - "${MINIO_CONSOLE_PORT:-9001}:9001" # Console
+    volumes:
+      - minio_data:/data
+    networks:
+      - ysh-foss-network
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  # MinIO Client (mc) - Initialization
+  minio-init:
+    image: minio/mc:latest
+    container_name: ysh-minio-init-foss
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      sleep 5;
+      /usr/bin/mc alias set ysh http://minio:9000 minioadmin minioadmin123;
+      /usr/bin/mc mb ysh/uploads --ignore-existing;
+      /usr/bin/mc mb ysh/backups --ignore-existing;
+      /usr/bin/mc mb ysh/public --ignore-existing;
+      /usr/bin/mc anonymous set download ysh/public;
+      /usr/bin/mc admin info ysh;
+      echo 'MinIO buckets created: uploads, backups, public';
+      exit 0;
+      "
+
+  # ==========================================
+  # OBSERVABILITY STACK (FOSS替代DataDog/Sentry)
+  # ==========================================
+
+  # Prometheus (Metrics)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ysh-prometheus-foss
+    restart: unless-stopped
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      - ./infra/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - ysh-foss-network
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--storage.tsdb.retention.time=30d"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  # Grafana (Dashboards + Visualization)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ysh-grafana-foss
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+      GF_INSTALL_PLUGINS: grafana-piechart-panel,grafana-clock-panel
+      GF_SERVER_ROOT_URL: http://localhost:3001
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    ports:
+      - "${GRAFANA_PORT:-3001}:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infra/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - prometheus
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  # Loki (Logs Aggregation)
+  loki:
+    image: grafana/loki:latest
+    container_name: ysh-loki-foss
+    restart: unless-stopped
+    ports:
+      - "${LOKI_PORT:-3100}:3100"
+    volumes:
+      - ./infra/loki/loki-config.yml:/etc/loki/loki-config.yml:ro
+      - loki_data:/loki
+    networks:
+      - ysh-foss-network
+    command: -config.file=/etc/loki/loki-config.yml
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  # Promtail (Log Shipper for Loki)
+  promtail:
+    image: grafana/promtail:latest
+    container_name: ysh-promtail-foss
+    restart: unless-stopped
+    volumes:
+      - ./infra/promtail/promtail-config.yml:/etc/promtail/promtail-config.yml:ro
+      - /var/log:/var/log:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    networks:
+      - ysh-foss-network
+    depends_on:
+      - loki
+    command: -config.file=/etc/promtail/promtail-config.yml
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  # Jaeger (Distributed Tracing)
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: ysh-jaeger-foss
+    restart: unless-stopped
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: ":9411"
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+      - "${JAEGER_UI_PORT:-16686}:16686" # UI
+      - "${JAEGER_COLLECTOR_PORT:-14268}:14268" # Collector HTTP
+      - "${JAEGER_OTLP_GRPC_PORT:-4317}:4317" # OTLP gRPC
+      - "${JAEGER_OTLP_HTTP_PORT:-4318}:4318" # OTLP HTTP
+    networks:
+      - ysh-foss-network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  # ==========================================
+  # TESTING & QA (100% FOSS)
+  # ==========================================
+
+  # Pact Broker (Contract Testing - FOSS)
+  pact-broker:
+    image: pactfoundation/pact-broker:latest
+    container_name: ysh-pact-broker-foss
+    restart: unless-stopped
+    environment:
+      PACT_BROKER_DATABASE_URL: postgres://medusa_user:${POSTGRES_PASSWORD:-medusa_password}@postgres:5432/pact_broker
+      PACT_BROKER_BASIC_AUTH_USERNAME: ${PACT_BROKER_USER:-pact}
+      PACT_BROKER_BASIC_AUTH_PASSWORD: ${PACT_BROKER_PASSWORD:-pact}
+      PACT_BROKER_BASE_URL: http://localhost:9292
+      PACT_BROKER_ALLOW_DANGEROUS_CONTRACT_MODIFICATION: "true"
+      PACT_BROKER_LOG_LEVEL: INFO
+    ports:
+      - "${PACT_BROKER_PORT:-9292}:9292"
+    networks:
+      - ysh-foss-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "-q",
+          "http://localhost:9292/diagnostic/status/heartbeat",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  # BackstopJS (Visual Regression - FOSS alternative to Chromatic)
+  backstop:
+    image: backstopjs/backstopjs:latest
+    container_name: ysh-backstop-foss
+    networks:
+      - ysh-foss-network
+    volumes:
+      - ./storefront/backstop:/src
+      - backstop_data:/src/backstop_data
+    environment:
+      NODE_ENV: test
+    command: test --config=backstop.json
+    depends_on:
+      storefront:
+        condition: service_healthy
+
+  # Mailhog (Email Testing - FOSS)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: ysh-mailhog-foss
+    restart: unless-stopped
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025" # SMTP
+      - "${MAILHOG_UI_PORT:-8025}:8025" # Web UI
+    networks:
+      - ysh-foss-network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  # ==========================================
+  # APPLICATION SERVICES
+  # ==========================================
+
+  # Backend Medusa.js
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: runner
+    container_name: ysh-backend-foss
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+
+      # Database
+      DATABASE_URL: postgres://medusa_user:${POSTGRES_PASSWORD:-medusa_password}@postgres:5432/medusa_db
+      DATABASE_SSL: false
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+
+      # Secrets
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-foss}
+      COOKIE_SECRET: ${COOKIE_SECRET:-dev-cookie-secret-foss}
+
+      # MinIO (S3-compatible)
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+      S3_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+      S3_BUCKET: uploads
+      S3_REGION: us-east-1
+
+      # CORS
+      STORE_CORS: http://localhost:8000
+      ADMIN_CORS: http://localhost:7001
+      AUTH_CORS: http://localhost:7001
+
+      # Observability
+      PROMETHEUS_ENABLED: true
+      PROMETHEUS_PORT: 9091
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: ysh-backend
+
+      # AI & RAG (Qdrant Vector Database)
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_API_KEY: ${QDRANT_API_KEY:-qdrant_dev_key_foss_2025}
+    ports:
+      - "${BACKEND_PORT:-9000}:9000"
+      - "${BACKEND_METRICS_PORT:-9091}:9091"
+    volumes:
+      - backend_uploads:/app/uploads
+      - ./backend/secrets:/app/secrets:ro
+    networks:
+      - ysh-foss-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+  # Storefront Next.js
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_dev}
+    container_name: ysh-storefront-foss
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: http://localhost:9000
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_dev}
+      NEXT_PUBLIC_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_DEFAULT_REGION: br
+      NEXT_PUBLIC_DEFAULT_CURRENCY: BRL
+
+      # Observability
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: ysh-storefront
+    ports:
+      - "${STOREFRONT_PORT:-8000}:8000"
+    networks:
+      - ysh-foss-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+  redis_data:
+    driver: local
+  qdrant_data:
+    driver: local
+  minio_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  loki_data:
+    driver: local
+  backend_uploads:
+    driver: local
+  backstop_data:
+    driver: local
+
+networks:
+  ysh-foss-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+# ==========================================
+# Portas Utilizadas (para referência)
+# ==========================================
+# 5432  - PostgreSQL
+# 5050  - PgAdmin4
+# 6379  - Redis
+# 6333  - Qdrant HTTP API (Vector Database)
+# 6334  - Qdrant gRPC API
+# 8081  - Redis Commander
+# 8082  - BullMQ Board
+# 9000  - Backend Medusa
+# 9091  - Backend Prometheus Metrics
+# 9100  - MinIO API
+# 9001  - MinIO Console
+# 8000  - Storefront Next.js
+# 9090  - Prometheus
+# 3001  - Grafana
+# 3100  - Loki
+# 16686 - Jaeger UI
+# 4317  - Jaeger OTLP gRPC
+# 4318  - Jaeger OTLP HTTP
+# 9292  - Pact Broker (Contract Testing)
+# 1025  - Mailhog SMTP
+# 8025  - Mailhog UI

@@ -1,0 +1,16 @@
+{
+  "manufacturer": "Growatt",
+  "model": "SOLAR-5000",
+  "product_type": "inverter",
+  "specifications": {
+    "power_kw": 5.0,
+    "voltage": "220V",
+    "phase": "mono",
+    "mppt_count": 1,
+    "efficiency_percent": 95.0
+  },
+  "visible_text": "SOLAR-5000",
+  "quality_score": 8,
+  "_processing_time": 100.08852171897888,
+  "_from_cache": false
+}

@@ -1,0 +1,95 @@
+# ==========================================
+# Docker Compose — PostHog OSS (Self-host)
+# Usa ClickHouse + Postgres + Redis e Redpanda (Kafka compatível)
+# ==========================================
+
+services:
+  posthog-db:
+    image: postgres:14-alpine
+    container_name: ysh-posthog-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: posthog
+      POSTGRES_USER: posthog
+      POSTGRES_PASSWORD: posthog
+    volumes:
+      - posthog_db_data:/var/lib/postgresql/data
+    networks:
+      - ysh-data-platform
+
+  posthog-redis:
+    image: redis:7-alpine
+    container_name: ysh-posthog-redis
+    restart: unless-stopped
+    networks:
+      - ysh-data-platform
+
+  posthog-clickhouse:
+    image: clickhouse/clickhouse-server:22.3.3.44-alpine
+    container_name: ysh-posthog-clickhouse
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    ports:
+      - "8123:8123" # HTTP
+      - "9000:9000" # Native
+    volumes:
+      - posthog_clickhouse_data:/var/lib/clickhouse
+    networks:
+      - ysh-data-platform
+
+  posthog-web:
+    image: posthog/posthog:latest
+    container_name: ysh-posthog-web
+    restart: unless-stopped
+    depends_on:
+      - posthog-db
+      - posthog-redis
+      - posthog-clickhouse
+    environment:
+      SECRET_KEY: changeme-in-prod
+      DATABASE_URL: postgres://posthog:posthog@posthog-db:5432/posthog
+      REDIS_URL: redis://posthog-redis:6379
+      CLICKHOUSE_HOST: posthog-clickhouse
+      CLICKHOUSE_SECURE: "false"
+      CLICKHOUSE_VERIFY: "false"
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: ""
+      KAFKA_HOSTS: kafka:9092
+      SITE_URL: http://localhost:8000
+      IS_TELEMETRY_ENABLED: "false"
+    ports:
+      - "8000:8000"
+    networks:
+      - ysh-data-platform
+
+  posthog-plugins:
+    image: posthog/plugin-server:latest
+    container_name: ysh-posthog-plugins
+    restart: unless-stopped
+    depends_on:
+      - posthog-web
+    environment:
+      DATABASE_URL: postgres://posthog:posthog@posthog-db:5432/posthog
+      REDIS_URL: redis://posthog-redis:6379
+      CLICKHOUSE_HOST: posthog-clickhouse
+      CLICKHOUSE_SECURE: "false"
+      CLICKHOUSE_VERIFY: "false"
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_PASSWORD: ""
+      KAFKA_HOSTS: kafka:9092
+      LOG_LEVEL: info
+    networks:
+      - ysh-data-platform
+
+volumes:
+  posthog_db_data:
+    driver: local
+  posthog_clickhouse_data:
+    driver: local
+
+networks:
+  ysh-data-platform:
+    external: true

@@ -1,0 +1,380 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Esquema para Microinversores",
+  "description": "Esquema JSON para validação de dados de microinversores para sistemas fotovoltaicos",
+  "type": "object",
+  "required": ["version", "generated_at", "equipamentos"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Versão do formato de dados"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Data e hora de geração do arquivo"
+    },
+    "equipamentos": {
+      "type": "array",
+      "description": "Lista de microinversores",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["categoria", "fabricante", "modelo", "datasheet", "certificacao", "precos", "links", "anexos_pdf", "meta"],
+        "properties": {
+          "categoria": {
+            "type": "string",
+            "enum": ["microinversor"],
+            "description": "Categoria do equipamento"
+          },
+          "fabricante": {
+            "type": "string",
+            "description": "Nome do fabricante do microinversor"
+          },
+          "modelo": {
+            "type": "string",
+            "description": "Código/modelo específico do microinversor"
+          },
+          "familia": {
+            "type": "string",
+            "description": "Família de produtos à qual o modelo pertence"
+          },
+          "datasheet": {
+            "type": "object",
+            "description": "Especificações técnicas do microinversor",
+            "required": [
+              "potencia_nominal_w",
+              "potencia_maxima_w",
+              "tensao_mppt_min_v",
+              "tensao_mppt_max_v",
+              "corrente_entrada_max_a",
+              "numero_mppt",
+              "eficiencia_max_pct",
+              "tensao_saida_nominal_v",
+              "frequencia_nominal_hz",
+              "numero_modulos_max"
+            ],
+            "properties": {
+              "potencia_nominal_w": {
+                "type": ["number", "null"],
+                "description": "Potência nominal em Watts"
+              },
+              "potencia_maxima_w": {
+                "type": ["number", "null"],
+                "description": "Potência máxima em Watts"
+              },
+              "tensao_mppt_min_v": {
+                "type": ["number", "null"],
+                "description": "Tensão mínima do MPPT em Volts"
+              },
+              "tensao_mppt_max_v": {
+                "type": ["number", "null"],
+                "description": "Tensão máxima do MPPT em Volts"
+              },
+              "corrente_entrada_max_a": {
+                "type": ["number", "null"],
+                "description": "Corrente máxima de entrada em Amperes"
+              },
+              "numero_mppt": {
+                "type": ["integer", "null"],
+                "description": "Número de rastreadores MPPT"
+              },
+              "eficiencia_max_pct": {
+                "type": ["number", "null"],
+                "description": "Eficiência máxima em porcentagem"
+              },
+              "tensao_saida_nominal_v": {
+                "type": ["number", "null"],
+                "description": "Tensão nominal de saída em Volts"
+              },
+              "frequencia_nominal_hz": {
+                "type": ["number", "null"],
+                "description": "Frequência nominal em Hertz"
+              },
+              "numero_modulos_max": {
+                "type": ["integer", "null"],
+                "description": "Número máximo de módulos que podem ser conectados por microinversor"
+              },
+              "topologia": {
+                "type": ["string", "null"],
+                "description": "Tipo de topologia do inversor (ex: Transformerless)"
+              },
+              "fator_potencia": {
+                "type": ["number", "null"],
+                "description": "Fator de potência (tipicamente > 0.95)"
+              },
+              "thd_max_pct": {
+                "type": ["number", "null"],
+                "description": "Distorção harmônica total máxima em porcentagem"
+              },
+              "corrente_saida_max_a": {
+                "type": ["number", "null"],
+                "description": "Corrente máxima de saída em Amperes"
+              },
+              "dimensoes_mm": {
+                "type": ["object", "null"],
+                "description": "Dimensões físicas em milímetros",
+                "properties": {
+                  "comprimento": {
+                    "type": ["number", "null"],
+                    "description": "Comprimento em mm"
+                  },
+                  "largura": {
+                    "type": ["number", "null"],
+                    "description": "Largura em mm"
+                  },
+                  "altura": {
+                    "type": ["number", "null"],
+                    "description": "Altura em mm"
+                  }
+                }
+              },
+              "massa_kg": {
+                "type": ["number", "null"],
+                "description": "Massa do equipamento em kg"
+              },
+              "grau_protecao_ip": {
+                "type": ["string", "null"],
+                "description": "Grau de proteção IP (ex: IP65)"
+              },
+              "comunicacao": {
+                "type": ["array", "null"],
+                "description": "Protocolos de comunicação suportados",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "temperatura_operacao_c": {
+                "type": ["object", "null"],
+                "description": "Faixa de temperatura de operação em graus Celsius",
+                "properties": {
+                  "min": {
+                    "type": ["number", "null"],
+                    "description": "Temperatura mínima de operação em °C"
+                  },
+                  "max": {
+                    "type": ["number", "null"],
+                    "description": "Temperatura máxima de operação em °C"
+                  }
+                }
+              },
+              "tipo_instalacao": {
+                "type": ["string", "null"],
+                "description": "Tipo de instalação suportada (ex: telhado, parede, rack)"
+              },
+              "vida_util_anos": {
+                "type": ["integer", "null"],
+                "description": "Vida útil estimada em anos"
+              },
+              "garantia_anos": {
+                "type": ["integer", "null"],
+                "description": "Período de garantia em anos"
+              }
+            }
+          },
+          "certificacao": {
+            "type": "object",
+            "description": "Informações de certificação do equipamento",
+            "required": ["normas_ensaios"],
+            "properties": {
+              "normas_ensaios": {
+                "type": ["array", "null"],
+                "description": "Lista de normas e ensaios atendidos",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ocp": {
+                "type": ["string", "null"],
+                "description": "Organismo Certificador de Produto"
+              },
+              "certificado_numero": {
+                "type": ["string", "null"],
+                "description": "Número do certificado"
+              },
+              "registro_inmetro": {
+                "type": ["string", "null"],
+                "description": "Registro no INMETRO"
+              },
+              "laboratorio_ensaio": {
+                "type": ["string", "null"],
+                "description": "Laboratório que realizou os ensaios"
+              },
+              "data_emissao": {
+                "type": ["string", "null"],
+                "format": "date",
+                "description": "Data de emissão do certificado"
+              },
+              "data_validade": {
+                "type": ["string", "null"],
+                "format": "date",
+                "description": "Data de validade do certificado"
+              }
+            }
+          },
+          "precos": {
+            "type": "object",
+            "description": "Informações de preços do equipamento",
+            "required": ["base_brl"],
+            "properties": {
+              "base_brl": {
+                "type": "object",
+                "description": "Valores base em Reais (BRL)",
+                "properties": {
+                  "min": {
+                    "type": ["number", "null"],
+                    "description": "Valor mínimo encontrado no mercado"
+                  },
+                  "median": {
+                    "type": ["number", "null"],
+                    "description": "Valor mediano encontrado no mercado"
+                  },
+                  "max": {
+                    "type": ["number", "null"],
+                    "description": "Valor máximo encontrado no mercado"
+                  }
+                }
+              },
+              "cenarios_tributos": {
+                "type": ["object", "null"],
+                "description": "Valores com diferentes cenários tributários",
+                "properties": {
+                  "min": {
+                    "type": ["number", "null"],
+                    "description": "Cenário com menor carga tributária"
+                  },
+                  "medio": {
+                    "type": ["number", "null"],
+                    "description": "Cenário com carga tributária média"
+                  },
+                  "max": {
+                    "type": ["number", "null"],
+                    "description": "Cenário com maior carga tributária"
+                  }
+                }
+              }
+            }
+          },
+          "links": {
+            "type": "object",
+            "description": "Links para documentação do equipamento",
+            "properties": {
+              "datasheet_oficial": {
+                "type": ["string", "null"],
+                "format": "uri",
+                "description": "URL para o datasheet oficial"
+              },
+              "manual_usuario": {
+                "type": ["string", "null"],
+                "format": "uri",
+                "description": "URL para o manual do usuário"
+              }
+            }
+          },
+          "anexos_pdf": {
+            "type": "object",
+            "description": "Identificadores de arquivos PDF anexos",
+            "properties": {
+              "datasheet_file_id": {
+                "type": ["string", "null"],
+                "description": "ID do arquivo PDF do datasheet"
+              },
+              "certificado_file_id": {
+                "type": ["string", "null"],
+                "description": "ID do arquivo PDF do certificado"
+              },
+              "manual_file_id": {
+                "type": ["string", "null"],
+                "description": "ID do arquivo PDF do manual"
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "description": "Metadados sobre o registro",
+            "required": ["null_fields"],
+            "properties": {
+              "null_fields": {
+                "type": "object",
+                "description": "Campos nulos e suas razões",
+                "additionalProperties": {
+                  "type": "object",
+                  "required": ["razao", "descricao", "data_verificacao", "derivacao"],
+                  "properties": {
+                    "razao": {
+                      "type": "string",
+                      "enum": [
+                        "DADO_INDISPONIVEL",
+                        "ESPECIFICACAO_AUSENTE",
+                        "VALOR_DESCONHECIDO",
+                        "DADO_VARIAVEL",
+                        "DERIVACAO_FALHOU",
+                        "CERTIFICACAO_EM_ANDAMENTO",
+                        "NAO_APLICAVEL",
+                        "PROPRIEDADE_CONFIDENCIAL"
+                      ],
+                      "description": "Razão para o valor nulo"
+                    },
+                    "descricao": {
+                      "type": "string",
+                      "description": "Descrição detalhada da razão"
+                    },
+                    "data_verificacao": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Data da última verificação"
+                    },
+                    "derivacao": {
+                      "type": "object",
+                      "required": ["status", "metodo", "confianca", "campos_origem"],
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "PENDENTE_CALCULO",
+                            "PENDENTE_VERIFICACAO",
+                            "DERIVADO_SUCESSO",
+                            "DERIVADO_BAIXA_CONFIANCA",
+                            "DERIVACAO_FALHOU",
+                            "NAO_APLICAVEL"
+                          ],
+                          "description": "Status da derivação do valor"
+                        },
+                        "metodo": {
+                          "type": "string",
+                          "enum": [
+                            "VALOR_PADRAO",
+                            "CORRELACAO",
+                            "REGRESSAO",
+                            "MEDIANA_CATEGORIA",
+                            "SIMILARES_FABRICANTE",
+                            "REGRA_NEGOCIO",
+                            "NAO_APLICAVEL"
+                          ],
+                          "description": "Método usado para derivação"
+                        },
+                        "confianca": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Nível de confiança da derivação (0-1)"
+                        },
+                        "campos_origem": {
+                          "type": "array",
+                          "description": "Campos usados para derivar o valor",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

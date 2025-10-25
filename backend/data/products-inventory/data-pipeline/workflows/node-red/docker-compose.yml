@@ -1,0 +1,66 @@
+version: "3.8"
+
+# Node-RED Docker Compose
+# Visual workflow programming for YSH Data Pipeline
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: ysh-node-red
+    environment:
+      - TZ=America/Sao_Paulo
+      - NODE_RED_ENABLE_PROJECTS=true
+      - NODE_RED_ENABLE_SAFE_MODE=false
+    ports:
+      - "1880:1880"
+    volumes:
+      - node-red-data:/data
+      - ./flows.json:/data/flows.json
+    networks:
+      - ysh-pipeline-network
+    restart: unless-stopped
+    depends_on:
+      - redis
+      - postgres
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1880/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Redis for caching (shared with main pipeline)
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - ysh-pipeline-network
+    restart: unless-stopped
+
+  # PostgreSQL for data storage (shared)
+  postgres:
+    image: postgres:14-alpine
+    container_name: ysh-postgres-db
+    environment:
+      POSTGRES_DB: ysh_pipeline
+      POSTGRES_USER: ysh_user
+      POSTGRES_PASSWORD: ysh_secure_password_change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - ysh-pipeline-network
+    restart: unless-stopped
+
+volumes:
+  node-red-data:
+  redis-data:
+  postgres-data:
+
+networks:
+  ysh-pipeline-network:
+    external: true

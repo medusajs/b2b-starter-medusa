@@ -1,8 +1,8 @@
-import { listCategories } from "@/lib/data/categories"
+import { listCategoriesCompat } from "@/lib/data/catalog"
 import MegaMenu from "./mega-menu"
 
 export async function MegaMenuWrapper() {
-  const categories = await listCategories().catch(() => [])
+  const categories = await listCategoriesCompat().catch(() => [])
 
   return <MegaMenu categories={categories} />
 }

@@ -1,0 +1,22 @@
+{
+  "file": "sku_145763_145763-17456925994814488.jpeg",
+  "path": "static\\images-catálogo_distribuidores\\images_odex_source\\INVERTERS\\sku_145763_145763-17456925994814488.jpeg",
+  "category": "INVERTERS",
+  "processed_at": "2025-10-13T14:34:32.963750",
+  "metadata": {
+    "manufacturer": "Growatt",
+    "model": "SOLAR-5000",
+    "product_type": "inverter",
+    "specifications": {
+      "power_kw": 5.0,
+      "voltage": "220V",
+      "phase": "mono",
+      "mppt_count": 1,
+      "efficiency_percent": 95.0
+    },
+    "visible_text": "SOLAR-5000",
+    "quality_score": 8,
+    "_processing_time": 100.08852171897888,
+    "_from_cache": false
+  }
+}

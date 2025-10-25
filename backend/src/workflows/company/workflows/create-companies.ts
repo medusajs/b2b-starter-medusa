@@ -1,35 +1,20 @@
-import { createRemoteLinkStep } from "@medusajs/medusa/core-flows";
-import {
-  createWorkflow,
-  transform,
-  WorkflowResponse,
-} from "@medusajs/workflows-sdk";
-import { APPROVAL_MODULE } from "../../../modules/approval";
+import { createWorkflow, WorkflowResponse, createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { COMPANY_MODULE } from "../../../modules/company";
-import { ModuleCreateCompany } from "../../../types";
-import { createApprovalSettingsStep } from "../../../workflows/approval/steps/create-approval-settings";
-import { createCompaniesStep } from "../steps";
+import { ICompanyModuleService } from "../../../types/company/service";
+import { ModuleCreateCompany } from "../../../types/company/module";
+
+const createCompanyStep = createStep("create-company", async (input: ModuleCreateCompany, { container }) => {
+    const companyModuleService = container.resolve(COMPANY_MODULE) as ICompanyModuleService;
+
+    const company = await companyModuleService.createCompanies(input);
+
+    return new StepResponse(company);
+});
 
 export const createCompaniesWorkflow = createWorkflow(
-  "create-companies",
-  function (input: ModuleCreateCompany[]) {
-    const companies = createCompaniesStep(input);
-
-    const approvalSettings = createApprovalSettingsStep(companies);
-
-    const linkData = transform(approvalSettings, (settings) =>
-      settings.map((setting) => ({
-        [COMPANY_MODULE]: {
-          company_id: setting.company_id,
-        },
-        [APPROVAL_MODULE]: {
-          approval_settings_id: setting.id,
-        },
-      }))
-    );
-
-    createRemoteLinkStep(linkData);
-
-    return new WorkflowResponse(companies);
-  }
+    "create-companies",
+    (input: ModuleCreateCompany) => {
+        const company = createCompanyStep(input);
+        return new WorkflowResponse(company);
+    }
 );

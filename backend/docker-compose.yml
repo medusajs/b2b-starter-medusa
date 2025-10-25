@@ -1,0 +1,144 @@
+# ==========================================
+# Docker Compose - YSH Backend Development
+# Ambiente completo para desenvolvimento local
+# ==========================================
+
+version: "3.9"
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ysh-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: yshuser
+      POSTGRES_PASSWORD: yshpass
+      POSTGRES_DB: yshdb
+      POSTGRES_INITDB_ARGS: "-E UTF8 --locale=en_US.UTF-8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yshuser -d yshdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ysh-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ysh-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - ysh-network
+
+  # Medusa Backend
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: ysh-backend
+    restart: unless-stopped
+    ports:
+      - "9000:9000" # Main API
+      - "9001:9001" # Admin API
+      - "9002:9002" # Store API
+    environment:
+      # Database
+      DATABASE_URL: postgresql://yshuser:yshpass@postgres:5432/yshdb
+      DATABASE_SSL: "false"
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+
+      # Application
+      NODE_ENV: development
+      PORT: 9000
+      HOST: 0.0.0.0
+
+      # JWT & Cookies
+      JWT_SECRET: development-jwt-secret-change-in-production
+      COOKIE_SECRET: development-cookie-secret-change-in-production
+
+      # CORS
+      ADMIN_CORS: http://localhost:7001,http://localhost:9000
+      STORE_CORS: http://localhost:8000,http://localhost:3000
+
+      # Migration Control
+      SKIP_MIGRATIONS: "false"
+      FAIL_ON_MIGRATION_ERROR: "true"
+
+      # Development
+      LOG_LEVEL: debug
+    volumes:
+      # Source code (hot reload)
+      - ./src:/app/src:ro
+      - ./medusa-config.ts:/app/medusa-config.ts:ro
+      - ./mikro-orm.config.ts:/app/mikro-orm.config.ts:ro
+
+      # Uploads (persistent)
+      - uploads_data:/app/uploads
+
+      # Node modules (prevent overwrite)
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:9000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+    networks:
+      - ysh-network
+
+  # Adminer - Database Management UI
+  adminer:
+    image: adminer:latest
+    container_name: ysh-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: nette
+    depends_on:
+      - postgres
+    networks:
+      - ysh-network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  uploads_data:
+    driver: local
+
+networks:
+  ysh-network:
+    driver: bridge

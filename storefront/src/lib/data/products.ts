@@ -6,6 +6,39 @@ import { getRegion } from "@/lib/data/regions"
 import { sortProducts } from "@/lib/util/sort-products"
 import { SortOptions } from "@/modules/store/components/refinement-list/sort-products"
 import { HttpTypes } from "@medusajs/types"
+import { notFound } from "next/navigation"
+
+// ==========================================
+// Retry Utility
+// ==========================================
+
+const MAX_RETRIES = 3
+// Use delay near-zero in tests to avoid slowing down unit tests
+const RETRY_DELAY_MS = process.env.NODE_ENV === 'test' ? 1 : 1000
+
+async function sleep(ms: number): Promise<void> {
+  if (process.env.NODE_ENV === 'test') {
+    return Promise.resolve()
+  }
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  retries: number = MAX_RETRIES,
+  delay: number = RETRY_DELAY_MS
+): Promise<T> {
+  try {
+    return await fn()
+  } catch (error) {
+    if (retries === 0) throw error
+
+    console.warn(`[Products] Retrying after ${delay}ms... (${retries} retries left)`)
+    await sleep(delay)
+
+    return retryWithBackoff(fn, retries - 1, delay * 2)
+  }
+}
 
 export const getProductsById = async ({
   ids,
@@ -20,49 +53,95 @@ export const getProductsById = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+    revalidate: 3600,
   }
 
-  return sdk.client
-    .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products`, {
-      credentials: "include",
-      method: "GET",
-      query: {
-        id: ids,
-        region_id: regionId,
-        fields:
-          "*variants,*variants.calculated_price,*variants.inventory_quantity",
-      },
-      headers,
-      next,
-      cache: "force-cache",
-    })
-    .then(({ products }) => products)
+  return retryWithBackoff(
+    () => sdk.client
+      .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products`, {
+        credentials: "include",
+        method: "GET",
+        query: {
+          id: ids,
+          region_id: regionId,
+          // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
+          fields:
+            "*variants,*variants.calculated_price,*variants.inventory_quantity",
+        },
+        headers,
+        next,
+        cache: "force-cache",
+      })
+      .then(({ products }) => products),
+    MAX_RETRIES
+  )
 }
 
 export const getProductByHandle = async (handle: string, regionId: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
+  try {
+    const headers = {
+      ...(await getAuthHeaders()),
+    }
 
-  const next = {
-    ...(await getCacheOptions("products")),
-  }
+    const next = {
+      ...(await getCacheOptions("products")),
+      // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+      revalidate: 3600,
+      tags: [`product-${handle}`],
+    }
 
-  return sdk.client
-    .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products`, {
-      credentials: "include",
-      method: "GET",
-      query: {
-        handle,
-        region_id: regionId,
-        fields:
-          "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
-      },
-      headers,
-      next,
-      cache: "force-cache",
+    const product = await retryWithBackoff(
+      () => sdk.client
+        .fetch<{ products: HttpTypes.StoreProduct[] }>(`/store/products_enhanced`, {
+          credentials: "include",
+          method: "GET",
+          query: {
+            handle,
+            limit: 1,
+            region_id: regionId,
+            image_source: "auto",
+            // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
+            fields:
+              "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
+          },
+          headers,
+          next,
+          cache: "force-cache",
+        })
+        .then(({ products }) => products?.[0]),
+      MAX_RETRIES
+    )
+
+    if (!product) {
+      console.warn(`[Products] Product not found: handle=${handle}`)
+      notFound()
+    }
+
+    // Fallback de imagem para evitar erros de renderização
+    if (!product.thumbnail) {
+      product.thumbnail = '/placeholder-product.jpg'
+    }
+    if (!product.images || product.images.length === 0) {
+      product.images = [{ url: '/placeholder-product.jpg', id: 'placeholder' } as any]
+    }
+
+    return product
+  } catch (error: any) {
+    console.error(`[Products] Error fetching product by handle:`, {
+      handle,
+      error: error?.message || String(error),
+      statusCode: error?.statusCode,
     })
-    .then(({ products }) => products[0])
+
+    // If it's a 404, trigger Next.js notFound page
+    if (error?.statusCode === 404 || error?.status === 404) {
+      notFound()
+    }
+
+    // Re-throw other errors to be handled by error boundary
+    throw new Error(`Failed to fetch product "${handle}": ${error?.message || String(error)}`)
+  }
 }
 
 export const listProducts = async ({
@@ -96,38 +175,44 @@ export const listProducts = async ({
 
   const next = {
     ...(await getCacheOptions("products")),
+    // ISR: Revalidate every 1 hour to get fresh prices from ysh-pricing module
+    revalidate: 3600,
   }
 
-  return sdk.client
-    .fetch<{ products: HttpTypes.StoreProduct[]; count: number }>(
-      `/store/products`,
-      {
-        credentials: "include",
-        method: "GET",
-        query: {
-          limit,
-          offset,
-          region_id: region.id,
-          fields: "*variants.calculated_price",
-          ...queryParams,
-        },
-        headers,
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ products, count }) => {
-      const nextPage = count > offset + limit ? pageParam + 1 : null
+  return retryWithBackoff(
+    () => sdk.client
+      .fetch<{ products: HttpTypes.StoreProduct[]; count: number }>(
+        `/store/products`,
+        {
+          credentials: "include",
+          method: "GET",
+          query: {
+            limit,
+            offset,
+            region_id: region.id,
+            // Use Medusa PRICING module calculated_price (includes ysh-pricing multi-distributor logic)
+            fields: "*variants.calculated_price",
+            ...queryParams,
+          },
+          headers,
+          next,
+          cache: "force-cache",
+        }
+      )
+      .then(({ products, count }) => {
+        const nextPage = count > offset + limit ? pageParam + 1 : null
 
-      return {
-        response: {
-          products,
-          count,
-        },
-        nextPage: nextPage,
-        queryParams,
-      }
-    })
+        return {
+          response: {
+            products,
+            count,
+          },
+          nextPage: nextPage,
+          queryParams,
+        }
+      }),
+    MAX_RETRIES
+  )
 }
 
 /**

@@ -1,15 +1,15 @@
-import { FindParams, PaginatedResponse } from "@medusajs/types";
+import { FindParams, PaginatedResponse } from "@medusajs/framework/types";
 import { QueryCompany, QueryEmployee } from "./query";
 import { ModuleCompanyFilters, ModuleEmployeeFilters } from "./service";
 import { ModuleCompanySpendingLimitResetFrequency } from "./module";
 
 /* Filters */
 
-export interface CompanyFilterParams extends FindParams, ModuleCompanyFilters {}
+export interface CompanyFilterParams extends FindParams, ModuleCompanyFilters { }
 
 export interface EmployeeFilterParams
   extends FindParams,
-    ModuleEmployeeFilters {}
+  ModuleEmployeeFilters { }
 
 /* Admin */
 

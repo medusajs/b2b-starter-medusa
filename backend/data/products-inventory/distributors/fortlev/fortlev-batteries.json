@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fortlev_batteries_IBT00004",
+    "name": "BATERIA FOXESS EP11",
+    "manufacturer": "Foxess",
+    "category": "batteries",
+    "price": "R$ 16.666,67",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/678950349ecacc7047df66f4/IBT00004.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BATERIA FOXESS EP11",
+    "pricing": {
+      "price": 16666.67,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00003",
+    "name": "BASE P/ BATERIA AXE",
+    "manufacturer": "Unknown",
+    "category": "batteries",
+    "price": "R$ 284,46",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d9/IBT00003.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BASE P/ BATERIA AXE",
+    "pricing": {
+      "price": 284.46,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00002",
+    "name": "CABO P/ BATERIA AXE",
+    "manufacturer": "Unknown",
+    "category": "batteries",
+    "price": "R$ 826,24",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d8/IBT00002.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "CABO P/ BATERIA AXE",
+    "pricing": {
+      "price": 826.24,
+      "currency": "BRL"
+    }
+  },
+  {
+    "id": "fortlev_batteries_IBT00001",
+    "name": "BATERIA GROWATT AXE 5.0L",
+    "manufacturer": "Growatt",
+    "category": "batteries",
+    "price": "De:",
+    "image": "https://prod-platform-api.s3.amazonaws.com/components/6687e304189963220c27c7d7/IBT00001.png",
+    "source": "fortlevsolar.app",
+    "availability": "Disponível",
+    "description": "BATERIA GROWATT AXE 5.0L",
+    "pricing": {
+      "price": 0.0,
+      "currency": "BRL"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+version: 1
+app:
+  groups:
+    - name: (shared)
+    - name: (b2b)
+    - name: (b2c)
+routes:
+  - path: /
+    group: (shared)
+    dataSources:
+      - medusa: store/products?limit=8&channel=:channel
+      - cms: home/hero, home/sections
+    components: [HomeHero, FeaturedGrid, LeadCapture]
+    events: [checkout_step_viewed]
+    acl: public
+
+  - path: /solucoes
+    group: (b2c)
+    dataSources:
+      - cms: solutions/pages
+    components: [SolutionsNav, SolutionCards, ROIHighlights]
+    events: []
+    acl: public
+
+  - path: /kits
+    group: (b2c)
+    dataSources:
+      - medusa: store/products?category=kits&channel=ysh-b2c
+    components: [Filters, KitsGrid, CompareDrawer]
+    events: [price_list_applied]
+    acl: public
+
+  - path: /catalogo
+    group: (b2b)
+    dataSources:
+      - medusa: store/products?channel=ysh-b2b
+    components: [DenseTable, ColumnFilters, BulkActions]
+    events: [bulk_add_completed, price_list_applied]
+    acl: role:company:buyer|admin
+
+  - path: /empresa
+    group: (b2b)
+    dataSources:
+      - b2b: companies/:companyId
+      - b2b: companies/:companyId/employees
+      - b2b: companies/:companyId/addresses
+      - b2b: companies/:companyId/policies
+    components: [CompanyOverview, EmployeesTable, AddressesForm, Policies]
+    events: [company_invite_sent]
+    acl: role:company:admin
+
+  - path: /cotacoes
+    group: (b2b)
+    dataSources:
+      - b2b: quotes?company_id=:companyId
+    components: [QuotesTable, QuoteDetail, ApprovalTimeline]
+    events: [quote_requested, quote_approved, price_list_applied]
+    acl: role:company:buyer|approver|admin
+
+  - path: /checkout/tradicional
+    group: (b2c)
+    dataSources:
+      - medusa: store/carts/:cartId
+    components: [CheckoutStepper, AddressForm, PaymentMethods, Review]
+    events: [checkout_step_viewed, payment_selected, order_placed]
+    acl: authenticated
+
+  - path: /checkout/flexivel
+    group: (b2b)
+    dataSources:
+      - medusa: store/carts/:cartId
+      - b2b: companies/:companyId
+    components: [CheckoutStepper, SplitShipping, B2BPayments, Review]
+    events: [checkout_step_viewed, payment_selected, order_placed]
+    acl: role:company:buyer|admin
+
+  - path: /painel
+    group: (b2b)
+    dataSources:
+      - medusa: store/orders?company_id=:companyId
+      - service: tickets?company_id=:companyId
+    components: [OrdersTable, Installations, Tickets]
+    events: []
+    acl: role:company:buyer|admin
+
+  - path: /ajuda
+    group: (shared)
+    dataSources:
+      - cms: faq/regulatorio
+    components: [FAQList, ContactCard]
+    events: []
+    acl: public
+

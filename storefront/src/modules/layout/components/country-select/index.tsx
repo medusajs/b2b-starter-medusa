@@ -6,7 +6,7 @@ import ReactCountryFlag from "react-country-flag"
 
 import { StateType } from "@/lib/hooks/use-toggle-state"
 import { useParams, usePathname } from "next/navigation"
-import { updateRegion } from "@/lib/data/cart"
+import { updateRegion } from "@/lib/data/cart-resilient"
 import { HttpTypes } from "@medusajs/types"
 
 type CountryOption = {
@@ -63,13 +63,13 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
         onChange={handleChange}
         defaultValue={
           countryCode
-            ? options?.find((o) => o?.country === countryCode)
+            ? options?.find((o) => o?.country === countryCode) as CountryOption | undefined
             : undefined
         }
       >
         <Listbox.Button className="py-1 w-full">
           <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Shipping to:</span>
+            <span>Enviar para:</span>
             {current && (
               <span className="txt-compact-small flex items-center gap-x-2">
                 <ReactCountryFlag

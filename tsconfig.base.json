@@ -1,0 +1,54 @@
+/**
+ * 📝 YSH Monorepo - Base TypeScript Configuration
+ * Configurações compartilhadas entre /server e /client
+ */
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "skipLibCheck": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "checkJs": false,
+        "incremental": true,
+        "tsBuildInfoFile": ".tsbuildinfo",
+        // Absolute imports via "src/*"
+        "baseUrl": ".",
+        "paths": {
+            "src/*": [
+                "./src/*"
+            ]
+        },
+        // Declaration files
+        "declaration": true,
+        "declarationMap": true,
+        "emitDeclarationOnly": false,
+        "sourceMap": true,
+        // Output
+        "outDir": "dist",
+        "rootDir": "src",
+        "removeComments": false
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "**/__tests__/**"
+    ],
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
+    }
+}

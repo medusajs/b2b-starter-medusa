@@ -5,7 +5,7 @@ import {
   deleteLineItem,
   emptyCart,
   updateLineItem,
-} from "@/lib/data/cart"
+} from "@/lib/data/cart-resilient"
 import { addToCartEventBus } from "@/lib/data/cart-event-bus"
 import { ApprovalStatusType } from "@/types/approval/module"
 import { B2BCart } from "@/types/global"
@@ -41,15 +41,15 @@ export type AddToCartEventPayload = {
 
 const CartContext = createContext<
   | {
-      cart: B2BCart | null
-      handleDeleteItem: (lineItem: string) => Promise<void>
-      handleUpdateCartQuantity: (
-        lineItem: string,
-        newQuantity: number
-      ) => Promise<void>
-      handleEmptyCart: () => Promise<void>
-      isUpdatingCart: boolean
-    }
+    cart: B2BCart | null
+    handleDeleteItem: (lineItem: string) => Promise<void>
+    handleUpdateCartQuantity: (
+      lineItem: string,
+      newQuantity: number
+    ) => Promise<void>
+    handleEmptyCart: () => Promise<void>
+    isUpdatingCart: boolean
+  }
   | undefined
 >(undefined)
 
@@ -82,7 +82,7 @@ export function CartProvider({
           (approval) => approval.status === ApprovalStatusType.PENDING
         )
       ) {
-        toast.error("Cart is locked for approval.")
+        toast.error("Carrinho bloqueado para aprovação.")
         return
       }
 
@@ -90,7 +90,7 @@ export function CartProvider({
         setOptimisticCart((prev) => {
           prevCart = structuredClone(prev) as B2BCart
 
-          const items = [...(prev?.items || [])]
+          const items = [...((prev as any)?.items || [])]
 
           const lineItems = payload.lineItems
 
@@ -119,8 +119,8 @@ export function CartProvider({
               lineItem.productVariant.calculated_price?.calculated_amount || 0
 
             const newItem: StoreCartLineItem = {
-              cart: prev || ({} as StoreCart),
-              cart_id: prev?.id || "",
+              cart: prev as any,
+              cart_id: (prev as any)?.id || "",
               discount_tax_total: 0,
               discount_total: 0,
               id: generateOptimisticItemId(lineItem.productVariant.id),
@@ -167,17 +167,31 @@ export function CartProvider({
             quantity: lineItem.quantity,
           })),
           countryCode: countryCode as string,
+        }).then(() => {
+          // Success toast
+          const count = payload.lineItems.reduce((sum, item) => sum + item.quantity, 0)
+          const productName = payload.lineItems[0]?.productVariant?.product?.title
+
+          if (payload.lineItems.length === 1 && count === 1) {
+            toast.success(productName ? `${productName} adicionado ao carrinho` : "Produto adicionado ao carrinho", {
+              duration: 3000,
+            })
+          } else {
+            toast.success(`${count} ${count === 1 ? 'item adicionado' : 'itens adicionados'} ao carrinho`, {
+              duration: 3000,
+            })
+          }
         }).catch((e) => {
           if (e.message === "Cart is pending approval") {
-            toast.error("Cart is locked for approval.")
+            toast.error("Carrinho bloqueado para aprovação.")
           } else {
-            toast.error("Failed to add to cart")
+            toast.error("Falha ao adicionar ao carrinho")
           }
           setOptimisticCart(prevCart)
         })
       })
     },
-    [setOptimisticCart]
+    [setOptimisticCart, cart?.approvals, countryCode]
   )
 
   useEffect(() => {
@@ -185,7 +199,7 @@ export function CartProvider({
   }, [handleOptimisticAddToCart])
 
   const handleDeleteItem = async (lineItem: string) => {
-    const item = optimisticCart?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find((item: any) => item.id === lineItem)
 
     if (!item) return
 
@@ -197,10 +211,10 @@ export function CartProvider({
 
         prevCart = structuredClone(prev) as B2BCart
 
-        const optimisticItems = prev.items?.filter(({ id }) => id !== lineItem)
+        const optimisticItems = (prev as any).items?.filter((item: any) => item.id !== lineItem)
 
         const optimisticTotal = optimisticItems?.reduce(
-          (acc, item) => acc + item.unit_price * item.quantity,
+          (acc: number, item: any) => acc + item.unit_price * item.quantity,
           0
         )
 
@@ -215,7 +229,7 @@ export function CartProvider({
     setIsUpdatingCart(true)
 
     await deleteLineItem(lineItem).catch((e) => {
-      toast.error("Failed to delete item")
+      // Error toast shown in delete-button component
       setOptimisticCart(prevCart)
     })
   }
@@ -224,7 +238,7 @@ export function CartProvider({
     lineItem: string,
     quantity: number
   ) => {
-    const item = optimisticCart?.items?.find(({ id }) => id === lineItem)
+    const item = (optimisticCart as any)?.items?.find((item: any) => item.id === lineItem)
 
     if (!item) return
 
@@ -236,8 +250,8 @@ export function CartProvider({
 
         prevCart = structuredClone(prev) as B2BCart
 
-        const optimisticItems = prev.items?.reduce(
-          (acc: StoreCartLineItem[], item) => {
+        const optimisticItems = (prev as any).items?.reduce(
+          (acc: StoreCartLineItem[], item: StoreCartLineItem) => {
             if (item.id === lineItem) {
               const newQuantity = quantity === 0 ? 0 : quantity
               const total = item.unit_price * newQuantity
@@ -257,8 +271,7 @@ export function CartProvider({
           []
         )
 
-        const optimisticTotal = optimisticItems?.reduce(
-          (acc, item) => acc + item.unit_price * item.quantity,
+        const optimisticTotal = optimisticItems?.reduce((acc: number, item: any) => acc + item.unit_price * item.quantity,
           0
         )
 
@@ -275,8 +288,10 @@ export function CartProvider({
       await updateLineItem({
         lineId: lineItem,
         data: { quantity },
+      }).then(() => {
+        toast.success("Quantidade atualizada", { duration: 2000 })
       }).catch((e) => {
-        toast.error("Failed to update cart quantity")
+        toast.error("Erro ao atualizar quantidade")
         setOptimisticCart(prevCart)
       })
     }
@@ -294,14 +309,16 @@ export function CartProvider({
 
     setIsUpdatingCart(true)
 
-    await emptyCart().catch((e) => {
-      toast.error("Failed to empty cart")
+    await emptyCart().then(() => {
+      toast.success("Carrinho esvaziado", { duration: 2000 })
+    }).catch((e) => {
+      toast.error("Erro ao esvaziar carrinho")
       setOptimisticCart(prevCart)
     })
   }
 
   const sortedItems = useMemo(() => {
-    return optimisticCart?.items?.sort((a, b) => {
+    return (optimisticCart as any)?.items?.sort((a: any, b: any) => {
       return (a.created_at ?? "") > (b.created_at ?? "") ? -1 : 1
     })
   }, [optimisticCart])

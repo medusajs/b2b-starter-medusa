@@ -1,6 +1,6 @@
 import { retrieveCustomer } from "@/lib/data/customer"
 import { listOrders } from "@/lib/data/orders"
-import Employee from "@/modules/account/components/employees-card/employee"
+import Employee from "./employee"
 import { QueryCompany, QueryEmployee } from "@/types"
 
 const EmployeeWrapper = async ({
@@ -17,8 +17,8 @@ const EmployeeWrapper = async ({
   const orders =
     orderIds.length > 0
       ? await listOrders(0, 0, {
-          id: orderIds,
-        }).catch(() => [])
+        id: orderIds,
+      }).catch(() => [])
       : []
 
   return (

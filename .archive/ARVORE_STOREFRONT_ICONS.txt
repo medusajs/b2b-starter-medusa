@@ -1,0 +1,36 @@
+﻿Listagem de caminhos de pasta
+O n·mero de sÚrie do volume Ú 000000AC 3479:B250
+C:\USERS\FJUNI\YSH_MEDUSA\YSH-STORE\STOREFRONT\SRC\MODULES\COMMON\ICONS
+    back.tsx
+    bancontact.tsx
+    calendar.tsx
+    chevron-down.tsx
+    circle-minus.tsx
+    circle-plus.tsx
+    document.tsx
+    eye-off.tsx
+    eye.tsx
+    fast-delivery.tsx
+    file-plus.tsx
+    ideal.tsx
+    logo.tsx
+    map-pin.tsx
+    medusa.tsx
+    nextjs.tsx
+    package.tsx
+    paypal.tsx
+    placeholder-image.tsx
+    refresh.tsx
+    shopping-bag.tsx
+    spinner.tsx
+    square-minus.tsx
+    square-plus.tsx
+    trash.tsx
+    u-turn-arrow-right.tsx
+    user.tsx
+    x.tsx
+    yello-icon.tsx
+    yello-logo-full.tsx
+    
+NÒo existem subpastas 
+

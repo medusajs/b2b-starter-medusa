@@ -25,36 +25,36 @@ const RemoveEmployeePrompt = ({ employee }: { employee: QueryEmployee }) => {
   const handleRemove = async () => {
     setIsRemoving(true)
     await deleteEmployee(employee.company_id, employee.id).catch(() => {
-      toast.error("Error deleting employee")
+      toast.error("Erro ao excluir funcionário")
     })
     setIsRemoving(false)
 
-    toast.success("Employee deleted")
+    toast.success("Funcionário excluído")
   }
 
   return (
     <Prompt variant="danger">
       <Prompt.Trigger asChild>
-        <Button variant="transparent">Remove</Button>
+        <Button variant="transparent">Remover</Button>
       </Prompt.Trigger>
       <Prompt.Content>
         <Prompt.Header>
-          <Prompt.Title>Remove Employee</Prompt.Title>
+          <Prompt.Title>Remover Funcionário</Prompt.Title>
           <Prompt.Description>
-            Are you sure you want to remove{" "}
-            <strong>{employee.customer.email}</strong> from your team? They will
-            no longer be able to purchase on behalf of your company.
+            Tem certeza de que deseja remover{" "}
+            <strong>{employee.customer.email}</strong> da sua equipe? Eles não
+            poderão mais comprar em nome da sua empresa.
           </Prompt.Description>
         </Prompt.Header>
         <Prompt.Footer>
           <Prompt.Cancel className="h-10 rounded-full shadow-borders-base">
-            Cancel
+            Cancelar
           </Prompt.Cancel>
           <Prompt.Action
             className="h-10 px-4 rounded-full shadow-none"
             onClick={handleRemove}
           >
-            Remove
+            Remover
           </Prompt.Action>
         </Prompt.Footer>
       </Prompt.Content>
@@ -92,13 +92,13 @@ const Employee = ({
 
     setIsSaving(true)
     await updateEmployee(updateData as StoreUpdateEmployee).catch(() => {
-      toast.error("Error updating employee")
+      toast.error("Erro ao atualizar funcionário")
     })
 
     setIsSaving(false)
     setIsEditing(false)
 
-    toast.success("Employee updated")
+    toast.success("Funcionário atualizado")
   }
 
   const spent = getOrderTotalInSpendWindow(orders, getSpendWindow(company)) || 0
@@ -110,11 +110,11 @@ const Employee = ({
         <div className="flex flex-col">
           <Text className=" text-neutral-950 font-medium">
             {employee.customer.first_name} {employee.customer.last_name}{" "}
-            {isCurrentUser && "(You)"}{" "}
+            {isCurrentUser && "(Você)"}{" "}
             {employee.is_admin && (
               <>
                 {" • "}
-                <span className="text-blue-500">Admin</span>
+                <span className="text-blue-500">Administrador</span>
               </>
             )}
           </Text>
@@ -131,8 +131,8 @@ const Employee = ({
               {amountSpent} /{" "}
               {employee.spending_limit > 0
                 ? formatAmount(employee.spending_limit, company.currency_code!)
-                : "No limit"}{" "}
-              spent
+                : "Sem limite"}{" "}
+              gasto
             </Text>
           </div>
         </div>
@@ -144,14 +144,14 @@ const Employee = ({
                 onClick={() => setIsEditing(false)}
                 disabled={isSaving}
               >
-                Cancel
+                Cancelar
               </Button>
               <Button
                 variant="primary"
                 onClick={handleSubmit}
                 isLoading={isSaving}
               >
-                Save
+                Salvar
               </Button>
             </>
           ) : (
@@ -161,7 +161,7 @@ const Employee = ({
                 variant="secondary"
                 onClick={() => setIsEditing((prev) => !prev)}
               >
-                Edit
+                Editar
               </Button>
             </>
           )}
@@ -183,7 +183,7 @@ const Employee = ({
         }}
       >
         <div className="flex flex-col gap-y-2">
-          <Text className=" text-neutral-950 font-medium">Spending Limit</Text>
+          <Text className=" text-neutral-950 font-medium">Limite de Gastos</Text>
           <CurrencyInput
             symbol={currencySymbolMap[company.currency_code!]}
             code={company.currency_code!}
@@ -199,7 +199,7 @@ const Employee = ({
           />
         </div>
         <div className="flex flex-col gap-y-2">
-          <Text className=" text-neutral-950 font-medium">Permissions</Text>
+          <Text className=" text-neutral-950 font-medium">Permissões</Text>
           <NativeSelect
             className="bg-white"
             name="permissions"
@@ -212,8 +212,8 @@ const Employee = ({
               })
             }}
           >
-            <option value="true">Admin</option>
-            <option value="false">Employee</option>
+            <option value="true">Administrador</option>
+            <option value="false">Funcionário</option>
           </NativeSelect>
         </div>
       </form>

@@ -1,0 +1,20 @@
+# Python dependencies for YSH Vision Processing
+# Install with: pip install -r requirements.txt
+
+# Image processing
+Pillow>=10.1.0
+
+# HTTP requests
+requests>=2.31.0
+
+# Optional: OCR fallback (Tesseract)
+pytesseract>=0.3.10
+
+# Optional: Advanced image processing
+opencv-python>=4.8.1
+
+# Optional: Environment configuration
+python-dotenv>=1.0.0
+
+# Optional: Progress bars
+tqdm>=4.66.1

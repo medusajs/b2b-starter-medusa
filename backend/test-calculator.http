@@ -1,0 +1,109 @@
+###
+# 🧮 YSH Solar Calculator API Tests
+# Use REST Client extension to test these endpoints
+###
+
+@baseUrl = http://localhost:9000
+@apiVersion = v1
+
+### 1. GET - Calculator Info
+GET {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+### 2. POST - Calculate Solar System (Basic)
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_kwh_mes": 450,
+  "uf": "SP",
+  "oversizing_target": 130,
+  "tipo_sistema": "on-grid",
+  "fase": "bifasico"
+}
+
+### 3. POST - Calculate with Location Details
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_kwh_mes": 650,
+  "uf": "MG",
+  "cep": "30140-071",
+  "municipio": "Belo Horizonte",
+  "tipo_telhado": "ceramico",
+  "area_disponivel_m2": 50,
+  "orientacao": "norte",
+  "inclinacao_graus": 15,
+  "fase": "trifasico",
+  "oversizing_target": 145,
+  "tipo_sistema": "on-grid",
+  "marca_preferida": "ASTRONERGY"
+}
+
+### 4. POST - Calculate with Monthly Consumption Array
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_mensal_kwh": [380, 420, 450, 480, 520, 580, 620, 600, 550, 480, 420, 390],
+  "uf": "RJ",
+  "tipo_telhado": "metalico",
+  "fase": "monofasico",
+  "oversizing_target": 114,
+  "tipo_sistema": "on-grid"
+}
+
+### 5. POST - Calculate with Financing
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_kwh_mes": 750,
+  "uf": "RS",
+  "tipo_sistema": "on-grid",
+  "fase": "trifasico",
+  "oversizing_target": 130,
+  "prazo_financiamento_meses": 60,
+  "budget_max": 40000
+}
+
+### 6. POST - Calculate with High Consumption (Commercial)
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_kwh_mes": 2500,
+  "uf": "PR",
+  "tipo_sistema": "on-grid",
+  "fase": "trifasico",
+  "tipo_telhado": "laje",
+  "oversizing_target": 130,
+  "tarifa_energia_kwh": 0.85
+}
+
+### 7. POST - Invalid Request (missing required field)
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "uf": "SP"
+}
+
+### 8. POST - Invalid Request (wrong oversizing)
+POST {{baseUrl}}/store/solar/calculator
+Content-Type: application/json
+X-API-Version: {{apiVersion}}
+
+{
+  "consumo_kwh_mes": 450,
+  "uf": "SP",
+  "oversizing_target": 200
+}

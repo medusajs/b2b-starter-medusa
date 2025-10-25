@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "viability.pv.request",
+  "type": "object",
+  "required": ["cep", "consumo_kwh_m"],
+  "properties": {
+    "cep": {"type": "string"},
+    "consumo_kwh_m": {"type": "number"},
+    "telhado_tipo": {"type": "string"},
+    "fase": {"type": "string"},
+    "oversizing_alvo": {"type": "number", "minimum": 1.14, "maximum": 1.60}
+  }
+}
+

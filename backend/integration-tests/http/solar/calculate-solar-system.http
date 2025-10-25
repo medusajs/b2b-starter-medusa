@@ -1,0 +1,84 @@
+###
+### 🌞 Solar Calculator Workflow Tests
+### Teste completo do workflow de cálculo solar
+###
+
+@baseUrl = http://localhost:9000
+@adminToken = {{$dotenv ADMIN_API_TOKEN}}
+
+### 1. Calculate Solar System - Residencial Básico
+POST {{baseUrl}}/admin/workflows-executions/calculate-solar-system
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST001",
+  "consumo_kwh_mes": 450,
+  "uf": "SP",
+  "municipio": "São Paulo",
+  "cep": "01310-100",
+  "tipo_telhado": "ceramico",
+  "area_disponivel_m2": 50,
+  "orientacao": "norte",
+  "fase": "bifasico",
+  "oversizing_target": 130,
+  "budget_max": 50000,
+  "prazo_financiamento_meses": 60,
+  "save_to_database": true
+}
+
+### 2. Calculate Solar System - Comercial com Quote
+POST {{baseUrl}}/admin/workflows-executions/calculate-solar-system
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST002",
+  "quote_id": "quote_01JCQR8XTEST001",
+  "consumo_kwh_mes": 1200,
+  "uf": "MG",
+  "municipio": "Belo Horizonte",
+  "tipo_telhado": "metalico",
+  "area_disponivel_m2": 150,
+  "fase": "trifasico",
+  "oversizing_target": 145,
+  "tipo_sistema": "on-grid",
+  "save_to_database": true
+}
+
+### 3. Calculate Solar System - Perfil Detalhado (12 meses)
+POST {{baseUrl}}/admin/workflows-executions/calculate-solar-system
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "customer_id": "customer_01JCQR8XTEST003",
+  "consumo_kwh_mes": 600,
+  "consumo_mensal_kwh": [550, 580, 620, 650, 700, 720, 680, 640, 590, 560, 540, 600],
+  "uf": "BA",
+  "municipio": "Salvador",
+  "latitude": -12.9714,
+  "longitude": -38.5014,
+  "tipo_telhado": "laje",
+  "orientacao": "nordeste",
+  "inclinacao_graus": 15,
+  "oversizing_target": 114,
+  "marca_preferida": "Canadian Solar",
+  "save_to_database": false
+}
+
+###
+### Expected Response Schema:
+### {
+###   "calculation": {
+###     "dimensionamento": { "kwp_proposto": 7.7, "numero_paineis": 14, ... },
+###     "kits_recomendados": [{ "kit_id": "...", "match_score": 95, ... }],
+###     "financeiro": { "capex": {...}, "economia": {...}, "retorno": {...} },
+###     "impacto_ambiental": {...},
+###     "conformidade": {...}
+###   },
+###   "calculation_id": "calc_1234567890_abc123",
+###   "quote_id": "quote_...",
+###   "saved": true
+### }
+###

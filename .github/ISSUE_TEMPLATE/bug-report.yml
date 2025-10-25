@@ -1,71 +1,119 @@
-name: Bug report for the Medusa B2B Starter
-description: File a bug report.
-title: "[Bug]: "
-labels: ["status: needs triaging", "bug"]
+---
+name: 🐛 Bug Report
+description: Report a bug in the YSH Monorepo
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees: []
 body:
   - type: markdown
     attributes:
-      value: "## System information"
-  - type: markdown
+      value: "## System Information"
+
+  - type: dropdown
+    id: scope
     attributes:
-      value: |
-        The system information will help us reproduce the issue in the same environment
-  - type: textarea
-    attributes:
-      label: Package.json file
-      description: Copy/paste the contents of the `package.json` file. No need to use backticks
-      placeholder: No need to use markdown backticks. Just copy/paste the contents of the file
-      render: JSON
+      label: Affected Component
+      description: Which part of the monorepo is affected?
+      options:
+        - server (Medusa backend)
+        - client (Next.js frontend)
+        - shared (both server and client)
+        - infrastructure
+        - documentation
+        - CI/CD
     validations:
       required: true
+
   - type: input
     attributes:
       label: Node.js version
       description: Copy/paste the output of `node -v` command.
-      placeholder: v21.0.0
+      placeholder: v18.17.0
     validations:
       required: true
+
   - type: input
     attributes:
-      label: Operating system name and version
+      label: Operating System
+      description: OS name and version
+      placeholder: Windows 11, macOS 13.0, Ubuntu 22.04
     validations:
       required: true
+
   - type: input
     attributes:
-      label: Browser name
-  - type: markdown
-    attributes:
-      value: "## Describe the issue"
-  - type: markdown
-    attributes:
-      value: |
-        Please explain your issue in-depth along with the relevant screenshots and code snippets
+      label: Browser (if frontend issue)
+      description: Browser name and version
+      placeholder: Chrome 118.0, Firefox 119.0
+
   - type: textarea
+    id: package-json
     attributes:
-      label: What happended?
-      placeholder: A clear and concise description of what the bug is
+      label: Package.json (relevant workspace)
+      description: Copy/paste the contents of the relevant package.json file
+      placeholder: Copy the package.json from server/ or client/
+      render: JSON
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "## Bug Description"
+
   - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Clear and concise description of the bug
+      placeholder: "When I try to..., it fails with error..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
     attributes:
       label: Expected behavior
+      description: What should have happened?
+      placeholder: "It should have..."
     validations:
       required: true
+
   - type: textarea
+    id: actual
     attributes:
       label: Actual behavior
+      description: What actually happened?
+      placeholder: "Instead, it..."
     validations:
       required: true
-  - type: markdown
+
+  - type: textarea
+    id: steps
     attributes:
-      value: "## Reproduction"
-  - type: markdown
-    attributes:
-      value: |
-        Providing a reproduction repo allows us to quickly validate the issue and get back to you.
-  - type: input
-    attributes:
-      label: Link to reproduction repo
-      description: Please reproduce the issue in isolation and share it as a Github repo with us
+      label: Steps to reproduce
+      description: Step-by-step instructions to reproduce the issue
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
+
+  - type: textarea
+    id: error-logs
+    attributes:
+      label: Error logs/screenshots
+      description: Console errors, screenshots, or stack traces
+      placeholder: "Paste error logs here or attach screenshots"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: QA Checklist
+      description: Before submitting, please check
+      options:
+        - label: I have searched for similar issues
+        - label: I have tested on the latest version
+        - label: I have provided all required information
+        - label: I have included reproduction steps

@@ -1,0 +1,10 @@
+[
+  {"event":"onboarding_step_completed","params":["step_id"],"trigger":"UI"},
+  {"event":"viability_calculated","params":["proposal_kwp","expected_gen_mwh_y","pr","losses"],"trigger":"agente:viability.pv"},
+  {"event":"tariff_fetched","params":["TE","TUSD","bandeira"],"trigger":"agente:tariffs.aneel"},
+  {"event":"catalog_items_suggested","params":["count"],"trigger":"agente:catalog.curator"},
+  {"event":"finance_simulated","params":["payback_anos","tir","parcela_mensal"],"trigger":"agente:finance.credit"},
+  {"event":"proposal_generated","params":["value","oversizing_ratio"],"trigger":"helio.core"},
+  {"event":"handoff_requested","params":["area"],"trigger":"UI"}
+]
+
