@@ -31,6 +31,8 @@ const createBundlesStep = createStep(
   }
 )
 
+import { updateProductsStep } from "@medusajs/product"
+
 // Step to create BundleItem records
 const createBundleItemsStep = createStep(
   "create-bundle-items-step",
@@ -41,7 +43,7 @@ const createBundleItemsStep = createStep(
     const bundleService: BundledProductModuleService = container.resolve(
       "bundleModuleService"
     )
-    const items = await bundleService.createBundleItem(input)
+    const items = await bundleService.createBundleItems(input)
     return new StepResponse(items)
   }
 )
@@ -51,6 +53,19 @@ export const createBundleWorkflow = createWorkflow(
   (input: WorkflowData<CreateBundleWorkflowInput>) => {
     // 1. Create Product Shell
     const [product] = createProductsStep([{ title: input.title }])
+
+    // 2. Create Bundle
+    const [bundle] = createBundlesStep([{ title: input.title }])
+
+    // 3. Update product with bundle_id
+    updateProductsStep([
+      {
+        id: product.id,
+        metadata: {
+          bundle_id: bundle.id,
+        },
+      },
+    ])
 
     // 2. Create Bundle
     const [bundle] = createBundlesStep([{ title: input.title }])

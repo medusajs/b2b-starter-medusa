@@ -4,6 +4,8 @@ import { HttpTypes } from "@medusajs/types"
 import { Table, Text } from "@medusajs/ui"
 import Markdown from "react-markdown"
 import Accordion from "./accordion"
+import TechnicalSheetsTab from "../technical-sheets"
+import BundleComponentsTab from "../bundle-components"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
@@ -19,7 +21,18 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       label: "Specifications",
       component: <ProductSpecificationsTab product={product} />,
     },
+    {
+      label: "Technical Sheets",
+      component: <TechnicalSheetsTab product={product} />,
+    },
   ]
+
+  if (product.tags?.some((t) => t.value === "bundle")) {
+    tabs.push({
+      label: "Bundle Components",
+      component: <BundleComponentsTab product={product} />,
+    })
+  }
 
   return (
     <div className="w-full">
