@@ -53,6 +53,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@medusajs/cli": "^2.11.0",
     "@medusajs/test-utils": "^2.10.3",
     "@mikro-orm/cli": "^6.4.3",
     "@swc/core": "^1.5.7",
@@ -62,6 +63,7 @@
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "ajv": "^8.17.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
