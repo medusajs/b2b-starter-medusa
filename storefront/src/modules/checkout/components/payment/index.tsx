@@ -1,6 +1,6 @@
 "use client"
 
-import { isStripe as isStripeFunc, paymentInfoMap } from "@/lib/constants"
+import { isStripeLike, paymentInfoMap } from "@/lib/constants"
 import { initiatePaymentSession } from "@/lib/data/cart"
 import ErrorMessage from "@/modules/checkout/components/error-message"
 import PaymentContainer from "@/modules/checkout/components/payment-container"
@@ -88,7 +88,7 @@ const Payment = ({
     setIsLoading(true)
     try {
       const shouldInputCard =
-        isStripeFunc(selectedPaymentMethod) && !activeSession
+        isStripeLike(selectedPaymentMethod) && !activeSession
 
       if (
         !activeSession ||
@@ -222,7 +222,7 @@ const Payment = ({
               }
               data-testid="submit-payment-button"
             >
-              {!activeSession && isStripeFunc(selectedPaymentMethod)
+              {!activeSession && isStripeLike(selectedPaymentMethod)
                 ? " Enter card details"
                 : "Next step"}
             </Button>
@@ -252,7 +252,7 @@ const Payment = ({
                     )}
                   </Container>
                   <Text>
-                    {isStripeFunc(selectedPaymentMethod) && cardBrand
+                    {isStripeLike(selectedPaymentMethod) && cardBrand
                       ? cardBrand
                       : paymentInfoMap[selectedPaymentMethod]?.title}
                   </Text>

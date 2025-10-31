@@ -1,6 +1,6 @@
 "use client"
 
-import { isPaypal, isStripe } from "@/lib/constants"
+import { isPaypal, isStripeLike } from "@/lib/constants"
 import { B2BCart } from "@/types"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { loadStripe } from "@stripe/stripe-js"
@@ -14,8 +14,17 @@ type WrapperProps = {
 
 export const StripeContext = createContext(false)
 
-const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY
-const stripePromise = stripeKey ? loadStripe(stripeKey) : null
+const stripeKey =
+  process.env.NEXT_PUBLIC_STRIPE_KEY ||
+  process.env.NEXT_PUBLIC_MEDUSA_PAYMENTS_PUBLISHABLE_KEY
+
+const medusaAccountId = process.env.NEXT_PUBLIC_MEDUSA_PAYMENTS_ACCOUNT_ID
+const stripePromise = stripeKey
+  ? loadStripe(
+      stripeKey,
+      medusaAccountId ? { stripeAccount: medusaAccountId } : undefined
+    )
+  : null
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
 
@@ -25,7 +34,7 @@ const Wrapper: React.FC<WrapperProps> = ({ cart, children }) => {
   )
 
   if (
-    isStripe(paymentSession?.provider_id) &&
+    isStripeLike(paymentSession?.provider_id) &&
     paymentSession &&
     stripePromise
   ) {
