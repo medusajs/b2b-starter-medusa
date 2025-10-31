@@ -4016,23 +4016,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/react-stripe-js@npm:^1.7.2":
-  version: 1.16.5
-  resolution: "@stripe/react-stripe-js@npm:1.16.5"
+"@stripe/react-stripe-js@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@stripe/react-stripe-js@npm:5.3.0"
   dependencies:
     prop-types: "npm:^15.7.2"
   peerDependencies:
-    "@stripe/stripe-js": ^1.44.1
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/b6413e1122fac91834919cea2683c31a9ee2525ce90b78b86b0337e8f506aeff5049fb1fd097019b34e70d4bc6657b98ae40c352e433d01ec47d8ceae459dd15
+    "@stripe/stripe-js": ">=8.0.0 <9.0.0"
+    react: ">=16.8.0 <20.0.0"
+    react-dom: ">=16.8.0 <20.0.0"
+  checksum: 10/3fbb92bc3a527588d8cbeb24f9c81a46d832f567aa4cfe3d45e01e6c6fcb2b06c5aefd25cfaff17bbaa918a4a32a919065138f160631ff989b23b421110d591a
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^1.29.0":
-  version: 1.54.2
-  resolution: "@stripe/stripe-js@npm:1.54.2"
-  checksum: 10/52d6e814dd6e4979a050d9c06d8aa463f583138bb6b1aaf6e8856e92dcfa3ce7fd2231ce86882b44ffd0299b8e1d93f6c6dd9d1461b957ef2a6d548a801e506f
+"@stripe/stripe-js@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@stripe/stripe-js@npm:8.2.0"
+  checksum: 10/102051d4170e7d6ab221357168d8b5fd73127ec53fc37344db100bde659b94bf03407295917ffa7fb133868528652cc55fecf6b5b0fcf5a4bcd697f4f9b1ee92
   languageName: node
   linkType: hard
 
@@ -7654,8 +7654,8 @@ __metadata:
     "@paypal/paypal-js": "npm:^5.0.6"
     "@paypal/react-paypal-js": "npm:^7.8.1"
     "@radix-ui/react-dialog": "npm:^1.1.1"
-    "@stripe/react-stripe-js": "npm:^1.7.2"
-    "@stripe/stripe-js": "npm:^1.29.0"
+    "@stripe/react-stripe-js": "npm:^5.3.0"
+    "@stripe/stripe-js": "npm:^8.2.0"
     "@types/lodash": "npm:^4.14.195"
     "@types/node": "npm:17.0.21"
     "@types/pg": "npm:^8.11.0"
@@ -10257,7 +10257,7 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.5.3#optional!builtin<compat/typescript>":
   version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=cef18b"
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=74658d"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
